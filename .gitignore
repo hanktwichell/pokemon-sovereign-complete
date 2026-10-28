@@ -1,0 +1,14 @@
+# Game files: never commit ROMs, saves or save states
+*.nds
+*.NDS
+*.sav
+*.dsv
+*.ds[0-9]
+*.mst
+
+# Build output
+build/
+build_test/
+
+# OS clutter
+.DS_Store

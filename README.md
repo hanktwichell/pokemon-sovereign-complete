@@ -1,2 +1,57 @@
-# pokemon-sovereign-complete
-Pokémon Sovereign Complete combines Pokémon Heart Gold/Soul Silver and Pokémon Platinum to create one complete game with the entire Gen IV universe.
+# Pokémon Sovereign Complete
+
+Pokémon Sovereign Complete combines Pokémon HeartGold/SoulSilver and Pokémon Platinum to create one complete game with
+the entire Gen IV universe: Sinnoh, Johto and Kanto in one world.
+
+It's a ROM hack built on the engine of
+[**Pokémon Sovereign Platinum**](https://github.com/hanktwichell/pokemon-imperial-platinum): all 1025 Pokémon and
+every form, Mega Evolution and Primal Reversion, and battle rules from Pokémon Champions. Johto and Kanto come over from
+HeartGold, with Drayano's **Pokémon Sacred Gold** as the blueprint for their trainers, wild Pokémon and balance.
+
+> **Status: planned, not started.** Work begins after Sovereign Platinum is released. The plan and the time estimate
+> are in [`docs/Roadmap.md`](docs/Roadmap.md).
+>
+> Non-commercial fan project. No ROMs are distributed.
+
+## The world
+
+- **Sinnoh** sits to the north and **Johto and Kanto** to the south, as in the real geography the regions are based
+  on (Hokkaido and Honshu).
+- Two new links join them:
+  - **By sea:** the S.S. Aqua runs between three main ports, one in each region: **Olivine City** (Johto),
+    **Vermilion City** (Kanto) and **Canalave City** (Sinnoh). From any port you can sail to the other two regions.
+    In Sinnoh, Canalave's menu also keeps its local stops, Iron Island and Fullmoon Island.
+  - **On foot:** a path from the Ruins of Alph through the Sinjoh Ruins to Mt. Coronet.
+- Johto and Kanto stay joined as they are in HeartGold. Snowpoint's ship to the Fight Area stays as it is.
+
+## What it's built from
+
+| Part | Source |
+|---|---|
+| Engine, Sinnoh, the 1025 Pokémon and their forms, Megas, Champions battle rules, test tools | Pokémon Sovereign Platinum, on the [pret/pokeplatinum](https://github.com/pret/pokeplatinum) decompilation |
+| Johto and Kanto: maps, people, scripts, music | HeartGold, rebuilt from the [pret/pokeheartgold](https://github.com/pret/pokeheartgold) decompilation |
+| Johto and Kanto: trainers, wild Pokémon, items, balance | Drayano's Sacred Gold (patches added at step 0, with his okay) |
+
+## The plan at a glance
+
+| | Estimate |
+|---|---|
+| Building | about 3½–6½ weeks of nonstop Claude sessions |
+| Your playthrough | 80–120 hours of play |
+| Start to release | about 2–3 months, at 2 hours of play a day |
+
+Steps, decisions, risks and how the numbers were measured: [`docs/Roadmap.md`](docs/Roadmap.md).
+
+## Game files
+
+No ROMs are needed to develop. Both decompilations rebuild exact copies of the US games from source, and Drayano's
+patches apply to those copies, the way Sovereign Platinum got Renegade Platinum's data. Never commit a ROM or a save
+file here: `.gitignore` blocks them.
+
+## Credits
+
+- Drayano: Pokémon Sacred Gold and Pokémon Renegade Platinum.
+- pret: the pokeplatinum and pokeheartgold decompilations.
+- Everything credited in Sovereign Platinum's `CITATIONS.md`.
+
+Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc. This project isn't affiliated with or endorsed by them.
