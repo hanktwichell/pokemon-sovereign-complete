@@ -38,7 +38,9 @@ enum SaveError {
 
 // Sovereign Platinum has its own save format, so it uses its own signature (vanilla: 0x20060623). A Platinum or
 // Renegade Platinum save fails the check and loads as "no save data" instead of being misread.
-#define SECTOR_SIGNATURE 0x20261022
+// Sovereign Complete has its own signature too (Sovereign Platinum: 0x20261022): its save is laid out differently, so
+// a Sovereign Platinum save loads as "no save data".
+#define SECTOR_SIGNATURE 0x20261029
 
 #define PRIMARY_SECTOR_START 0
 #define BACKUP_SECTOR_START  64

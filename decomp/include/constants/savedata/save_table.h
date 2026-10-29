@@ -62,7 +62,9 @@ enum ExtraSaveTableEntryID {
     EXTRA_SAVE_TABLE_ENTRY_MAX
 };
 
-#define SAVE_PAGE_MAX    32
+// Sovereign Complete: one more sector for Johto and Kanto's flags and vars (vanilla and Sovereign: 32). The extra
+// saves start at SAVE_PAGE_MAX, so they move up one sector; the last still ends well inside each copy's 64.
+#define SAVE_PAGE_MAX    33
 #define SAVE_SECTOR_SIZE (0x1000)
 
 #define EXTRA_SAVE_TABLE_ENTRY_NONE 0xFFFFFFFF

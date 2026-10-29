@@ -130,7 +130,7 @@ enum HeapID {
 
 enum HeapSize {
     HEAP_SIZE_SYSTEM = 0xD200,
-    HEAP_SIZE_SAVE = 0x20E00,
+    HEAP_SIZE_SAVE = 0x21E00, // Sovereign Complete: + one save sector (SAVE_PAGE_MAX 33); Sovereign: 0x20E00
     HEAP_SIZE_DEBUG = 0x10,
     HEAP_SIZE_APPLICATION = 0x10D800,
 

@@ -228,6 +228,7 @@ Static main
 	Object src/clear_game.c
 	Object src/field_map_change.c
 	Object src/complete_follower.c
+	Object src/complete_test.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c

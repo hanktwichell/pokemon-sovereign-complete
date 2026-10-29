@@ -5,7 +5,11 @@
 
 #include "savedata.h"
 
-#define NUM_FLAGS 2912
+// Sovereign Complete: 4,096 more flags for Johto and Kanto, right after Sinnoh's (Sovereign: 2912, which ends
+// with the daily flags). Sinnoh's flag IDs don't move.
+#define COMPLETE_FLAGS_START 2912
+#define COMPLETE_FLAGS_COUNT 4096
+#define NUM_FLAGS            (COMPLETE_FLAGS_START + COMPLETE_FLAGS_COUNT)
 
 #define NUM_UNKNOWN_FLAGS 64
 
