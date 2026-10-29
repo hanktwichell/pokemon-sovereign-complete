@@ -118,6 +118,16 @@ HeartGold's area record (`a/0/4/2`, 8 bytes) as its loader uses it (`AreaDataMan
 - u8, 1 on Olivine: likely lighting. A building list is a u16 count and that many building model numbers, like Platinum's prop model sets
 (`decomp/res/field/props/model_sets`).
 
+## Building animations
+
+Doors, windmills, water wheels and the gym puzzles' gates and carts are animated building models. HeartGold keeps
+them as Platinum does: the animation files (`a/1/0/6`, 273 of them; Platinum's `arc/bm_anime.narc`) and, for each
+building model, a list of up to four with its flags (`a/1/0/7` for the outdoor models, `a/1/0/8` for the indoor ones;
+Platinum keeps one list for all its models, `arc/bm_anime_list.narc`). HeartGold's list entry has one word more,
+which its code never reads. `tools/complete/import_hgss_prop_animations.py` adds the animations after Platinum's 98
+(`res/field/props/animations`) and gives each of HeartGold's models its list entry at its new number (outdoor
+590 + k, indoor 930 + k): 240 of HeartGold's 562 models are animated. Both games load at most 16 animations a map.
+
 ## Tile behaviours
 
 `tools/complete/compare_tile_behaviors.py` lines up Platinum's `include/constants/field/map_tile_behaviors.h` with
