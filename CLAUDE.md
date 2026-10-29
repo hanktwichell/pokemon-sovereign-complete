@@ -35,6 +35,14 @@ work.
 - Boot check: `python3 tools/test/boot_smoke.py decomp/build/pokeplatinum.us.nds .cache/smoke` (with
   `SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy`).
 
+## Following Pokémon
+
+- `decomp/src/complete_follower.c` (hooks in `src/field_map_change.c`; a test-only tile record in `src/field_system.c`).
+- `tools/complete/gen_follower_sprites.py [SPECIES ...]` converts HeartGold's walking sprites and registers them; rerun it
+  after changing the list (its insertions sit between tagged markers).
+- Test: build the test ROM (`tools/test/build_test_rom.sh`), then `python3 tools/complete/test_follower.py`. The emulator
+  is slow here (about 10 minutes); run it in the background.
+
 ## Game files
 
 Never commit a ROM (`.nds`) or a save file. Both games rebuild from the pret decompilations, and Drayano's patches
