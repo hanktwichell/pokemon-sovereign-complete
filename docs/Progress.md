@@ -285,3 +285,23 @@ Test results on the new test build:
   (`docs/Features.md`). The Balls can't be thrown yet: they need their battle graphics.
 - **Sacred Gold's Pokémon** standing about (its lake trio at Sinjoh, Mew, the legendaries it adds) show the engine's
   sprite of that Pokémon where it has one, not a stand-in person.
+
+## Oct 29, 2026: HeartGold's Balls in battle, shared people, step 5 and 6 plans
+
+- **Kurt's Balls can be thrown.** The seven Apricorn Balls are battle items with HeartGold's catch rules (the Lure
+  Ball needed battles to know a rod hooked the Pokémon), and a Pokémon keeps HeartGold's Balls in the byte HeartGold
+  keeps them in, beside Platinum's (`docs/Features.md`). They are drawn as a Poké Ball until their graphics come in.
+  New test: `tools/complete/test_hgss_balls.py`; all seven catch and stay the caught Pokémon's Ball, and a Friend
+  Ball's catch starts at 200 friendship.
+- **HeartGold's shared people** run Platinum's scripts that do the same: the Trainer Card attendant, the day-care
+  couple, and the Marts' Mystery Gift deliveryman (shown by Platinum's flag as a Mart loads). Mom's gift deliveryman
+  stays hidden. The Colosseum, Union Room and Wi-Fi Club attendants wait for link play: Platinum's walk the player
+  through Platinum's rooms.
+- **The import tools** only rewrite a file whose text changes, so a rerun no longer rebuilds the whole game.
+- **Plans** for the Bug-Catching Contest and the Johto Safari Zone (`docs/Features.md`) and for Johto and Kanto's
+  music (`docs/Music.md`). Sacred Gold changed neither the contest's data nor the Safari Zone. The music fits once
+  Platinum's always-loaded instrument set is split (137 KB freed), and moves the cartridge to 256 MB.
+- **Signs and triggers, first half on the new build:** 603 of 628 run to their end. The rest are known kinds:
+  something standing on the tile (the Rotom room's appliances, hidden items under people or balls), tiles the test
+  can't reach (Azalea Gym's cart track, Rocket HQ's Electrodes, the Ruins of Alph's hidden rooms, which have no way in
+  but falling, water on Route 47), and the Global Terminal's Wi-Fi machine waiting for a connection.

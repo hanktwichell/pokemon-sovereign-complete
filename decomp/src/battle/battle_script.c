@@ -11359,7 +11359,7 @@ static void BattleScript_CatchMonTask(SysTask *task, void *inData)
         break;
     case SEQ_CATCH_MON_CALC_SHAKES:
         if (--data->tmpData[CATCH_MON_DELAY] == 0) {
-            BattleController_EmitOpenCaptureBall(data->battleSys, battler, data->ball);
+            BattleController_EmitOpenCaptureBall(data->battleSys, battler, Pokemon_BallToDraw(data->ball)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
             data->tmpData[CATCH_MON_TOTAL_SHAKES] = BattleScript_CalcCatchShakes(data->battleSys, data->battleCtx);
 
             if (data->tmpData[CATCH_MON_TOTAL_SHAKES] < BALL_3_SHAKES_SUCCESS) {
@@ -11800,6 +11800,24 @@ static const u8 sBasicBallMod[] = {
     15, // ITEM_SAFARI_BALL
 };
 
+// Sovereign Complete: the Pokémon the Moon Ball favours (HeartGold's sMoonBallPokemon: the Moon Stone's lines)
+static const u16 sMoonBallSpecies[] = {
+    SPECIES_NIDORAN_F,
+    SPECIES_NIDORINA,
+    SPECIES_NIDOQUEEN,
+    SPECIES_NIDORAN_M,
+    SPECIES_NIDORINO,
+    SPECIES_NIDOKING,
+    SPECIES_CLEFFA,
+    SPECIES_CLEFAIRY,
+    SPECIES_CLEFABLE,
+    SPECIES_IGGLYBUFF,
+    SPECIES_JIGGLYPUFF,
+    SPECIES_WIGGLYTUFF,
+    SPECIES_SKITTY,
+    SPECIES_DELCATTY,
+};
+
 static const struct Fraction sSafariCatchRate[] = {
     { 10, 40 },
     { 10, 35 },
@@ -11898,9 +11916,77 @@ static int BattleScript_CalcCatchShakes(BattleSystem *battleSys, BattleContext *
                 ballMod = 40;
             }
             break;
+
+        // Sovereign Complete: HeartGold's Apricorn Balls change the catch rate itself (capped at 255 below), and the
+        // Sport Ball is x1.5. The Heavy Ball's -20 is for every Pokémon under 204.8 kg, as HeartGold's check works out
+        case ITEM_FAST_BALL:
+            if (SpeciesData_GetSpeciesValue(battleCtx->battleMons[battleCtx->defender].species, SPECIES_DATA_BASE_SPEED) >= 100) {
+                speciesMod *= 4;
+            }
+            break;
+
+        case ITEM_LEVEL_BALL: {
+            u8 attackerLevel = battleCtx->battleMons[battleCtx->attacker].level;
+            u8 defenderLevel = battleCtx->battleMons[battleCtx->defender].level;
+
+            if (attackerLevel <= defenderLevel) {
+            } else if (attackerLevel / 2 <= defenderLevel) {
+                speciesMod *= 2;
+            } else if (attackerLevel / 4 <= defenderLevel) {
+                speciesMod *= 4;
+            } else {
+                speciesMod *= 8;
+            }
+            break;
+        }
+
+        case ITEM_LURE_BALL:
+            if (BattleSystem_IsFishing(battleSys)) {
+                speciesMod *= 3;
+            }
+            break;
+
+        case ITEM_HEAVY_BALL: {
+            int weight = battleCtx->battleMons[battleCtx->defender].weight;
+
+            if (weight >= 4096) {
+                speciesMod += 40;
+            } else if (weight >= 3072) {
+                speciesMod += 30;
+            } else if (weight >= 2048) {
+                speciesMod += 20;
+            } else {
+                speciesMod = speciesMod > 20 ? speciesMod - 20 : 1;
+            }
+            break;
+        }
+
+        case ITEM_LOVE_BALL:
+            if (battleCtx->battleMons[battleCtx->attacker].species == battleCtx->battleMons[battleCtx->defender].species
+                && battleCtx->battleMons[battleCtx->attacker].gender != battleCtx->battleMons[battleCtx->defender].gender) {
+                speciesMod *= 8;
+            }
+            break;
+
+        case ITEM_MOON_BALL:
+            for (int i = 0; i < NELEMS(sMoonBallSpecies); i++) {
+                if (sMoonBallSpecies[i] == battleCtx->battleMons[battleCtx->defender].species) {
+                    speciesMod *= 4;
+                    break;
+                }
+            }
+            break;
+
+        case ITEM_SPORT_BALL:
+            ballMod = 15;
+            break;
         }
     } else {
         ballMod = sBasicBallMod[battleCtx->msgItemTemp - ITEM_ULTRA_BALL];
+    }
+
+    if (speciesMod > 255) { // Sovereign Complete: as HeartGold caps an Apricorn Ball's catch rate
+        speciesMod = 255;
     }
 
     u32 catchRate = (speciesMod * ballMod / 10)

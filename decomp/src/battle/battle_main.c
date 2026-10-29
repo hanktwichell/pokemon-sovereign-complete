@@ -938,7 +938,7 @@ static void BattleMain_InitTerrains(BattleSystem *battleSys)
         }
 
         mon = BattleSystem_GetPartyPokemon(battleSys, battler, selectedPartySlot);
-        BattlerData_InitSendOutBallThrow(battleSys, battleSys->battlers[battler], Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL), selectedPartySlot);
+        BattlerData_InitSendOutBallThrow(battleSys, battleSys->battlers[battler], Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL)), selectedPartySlot); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
     }
 
     BattleMain_SetNetworkIconStrength();
@@ -1071,6 +1071,7 @@ static void BattleSys_New(BattleSystem *battleSys, FieldBattleDTO *dto)
     battleSys->visitedContestHall = dto->visitedContestHall;
     battleSys->metBebe = dto->metBebe;
     battleSys->megaUnlocked = dto->megaUnlocked;
+    battleSys->isFishing = dto->isFishing; // Sovereign Complete
     battleSys->fieldWeather = dto->fieldWeather;
     battleSys->records = dto->records;
 

@@ -89,6 +89,7 @@ typedef struct FieldBattleDTO {
     SaveData *saveData;
     u32 recordingStopped;
     BOOL megaUnlocked; // Sovereign (E8): the player has the Mega Ring (FLAG_SOVEREIGN_MEGA_UNLOCKED)
+    BOOL isFishing; // Sovereign Complete: a wild Pokémon hooked with a rod (HeartGold's Lure Ball)
 } FieldBattleDTO;
 
 FieldBattleDTO *FieldBattleDTO_New(enum HeapID heapID, u32 battleType);

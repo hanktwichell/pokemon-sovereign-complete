@@ -42,6 +42,9 @@ struct SovereignTestPartyMon {
     u8 level;
     u8 hasHiddenAbility;
     u8 isEgg;
+    u16 ball; // Sovereign Complete: its Ball (an item), and its friendship
+    u8 friendship;
+    u8 padding;
 };
 
 struct SovereignTestParty {
@@ -119,6 +122,7 @@ struct SovereignTestWild {
     u8 shiny; // when set, it's shiny
     u16 item; // when set, it holds this item
     u8 balls; // when set, the player first gets this many Poké Balls (Ball Fetch)
+    u16 ball; // Sovereign Complete: when set, those Balls are this item (HeartGold's Balls)
 };
 
 // In SovereignTestLead.moves: the slot is empty.

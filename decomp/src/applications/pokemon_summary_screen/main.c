@@ -1092,7 +1092,7 @@ static void SetMonDataFromMon(PokemonSummaryScreen *summaryScreen, Pokemon *mon,
     }
 
     monData->gender = Pokemon_GetGender(mon);
-    monData->caughtBall = Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL);
+    monData->caughtBall = Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
     monData->type1 = Pokemon_GetValue(mon, MON_DATA_TYPE_1, NULL);
     monData->type2 = Pokemon_GetValue(mon, MON_DATA_TYPE_2, NULL);
     monData->OTID = Pokemon_GetValue(mon, MON_DATA_OT_ID, NULL);

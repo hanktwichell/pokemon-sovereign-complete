@@ -852,7 +852,7 @@ static BOOL CapsuleManager_HandleCancelUpdateSeals(CapsuleAppManager *appMan)
                 ballThrow.surface = 1;
                 ballThrow.cellActorSys = appMan->graphicsMan.spriteSystem;
                 ballThrow.paletteSys = appMan->graphicsMan.paletteData;
-                ballThrow.ballID = Pokemon_GetValue(appMan->pokemon, MON_DATA_POKEBALL, NULL);
+                ballThrow.ballID = Pokemon_BallToDraw(Pokemon_GetValue(appMan->pokemon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
 
                 appMan->graphicsMan.ballRotation = ov12_02237728(&ballThrow);
                 appMan->throwStateID++;
@@ -939,7 +939,7 @@ static BOOL CapsuleManager_HandleCancelUpdateSeals(CapsuleAppManager *appMan)
                 ballThrow.surface = 1;
                 ballThrow.cellActorSys = appMan->graphicsMan.spriteSystem;
                 ballThrow.paletteSys = appMan->graphicsMan.paletteData;
-                ballThrow.ballID = Pokemon_GetValue(appMan->pokemon, MON_DATA_POKEBALL, NULL);
+                ballThrow.ballID = Pokemon_BallToDraw(Pokemon_GetValue(appMan->pokemon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
 
                 appMan->graphicsMan.ballRotation = ov12_02237728(&ballThrow);
 

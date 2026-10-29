@@ -1138,6 +1138,12 @@ BOOL BattleSystem_IsMegaUnlocked(BattleSystem *battleSys)
     return battleSys->megaUnlocked;
 }
 
+// Sovereign Complete: TRUE for a wild Pokémon hooked with a rod (HeartGold's Lure Ball).
+BOOL BattleSystem_IsFishing(BattleSystem *battleSys)
+{
+    return battleSys->isFishing;
+}
+
 void BattleSystem_TryIncrementRecordValue(BattleSystem *battleSys, int id)
 {
     if (battleSys->battleStatusMask & BATTLE_STATUS_RECORDING) {

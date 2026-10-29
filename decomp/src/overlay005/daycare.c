@@ -1144,7 +1144,8 @@ static void Egg_CreateHatchedMonInternal(Pokemon *egg, enum HeapID heapID)
     u32 personality, otID;
     u8 ivs[STAT_MAX], pokerus;
     u8 i, language, metGame, marks, friendship, fatefulEncounter, form, gender;
-    u8 ball, hasHiddenAbility;
+    u16 ball; // Sovereign Complete: HeartGold's own Balls are past a u8
+    u8 hasHiddenAbility;
     String *string = String_Init(7 + 1, heapID);
     Pokemon *mon = Pokemon_New(heapID);
 

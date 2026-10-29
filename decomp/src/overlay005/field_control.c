@@ -463,8 +463,10 @@ static BOOL SovereignTest_BattleTask(FieldTask *task)
             Encounter_NewVsTrainer(task, trainer, TRAINER_NONE, TRAINER_NONE, HEAP_ID_FIELD2, &sSovereignTestBattleResult);
         } else if (gSovereignTestWild.species != SPECIES_NONE) {
             if (gSovereignTestWild.balls) {
-                Bag_TryAddItem(SaveData_GetBag(FieldTask_GetFieldSystem(task)->saveData), ITEM_POKE_BALL, gSovereignTestWild.balls, HEAP_ID_FIELD2);
+                // Sovereign Complete: or another Ball (gSovereignTestWild.ball)
+                Bag_TryAddItem(SaveData_GetBag(FieldTask_GetFieldSystem(task)->saveData), gSovereignTestWild.ball ? gSovereignTestWild.ball : ITEM_POKE_BALL, gSovereignTestWild.balls, HEAP_ID_FIELD2);
                 gSovereignTestWild.balls = 0;
+                gSovereignTestWild.ball = ITEM_NONE;
             }
 
             Encounter_SovereignTestNewVsWildForm(task, gSovereignTestWild.species, gSovereignTestWild.form, gSovereignTestWild.level, gSovereignTestWild.move, gSovereignTestWild.shiny, &sSovereignTestBattleResult);

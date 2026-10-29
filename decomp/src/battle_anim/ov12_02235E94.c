@@ -378,7 +378,7 @@ void ov12_02236030(BallCapsuleSealEffect *ballCapSealEff, const BallCapsuleConfi
         if (ballCapSealEff->ballCapCfg.ballTypeOverride != 0) {
             ballCapSealEff->ballType = ballCapSealEff->ballCapCfg.ballTypeOverride;
         } else {
-            ballCapSealEff->ballType = Pokemon_GetValue(ballCapSealEff->ballCapCfg.mon, MON_DATA_POKEBALL, NULL);
+            ballCapSealEff->ballType = Pokemon_BallToDraw(Pokemon_GetValue(ballCapSealEff->ballCapCfg.mon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
         }
     } else {
         ballCapSealEff->hasCapsule = 1;

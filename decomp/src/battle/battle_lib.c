@@ -176,7 +176,7 @@ void BattleSystem_InitBattleMon(BattleSystem *battleSys, BattleContext *battleCt
     battleCtx->battleMons[battler].personality = Pokemon_GetValue(mon, MON_DATA_PERSONALITY, NULL);
     battleCtx->battleMons[battler].OTId = Pokemon_GetValue(mon, MON_DATA_OT_ID, NULL);
     battleCtx->battleMons[battler].OTGender = Pokemon_GetValue(mon, MON_DATA_OT_GENDER, NULL);
-    battleCtx->battleMons[battler].capturedBall = Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL);
+    battleCtx->battleMons[battler].capturedBall = Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
 
     Pokedex_SetupGiratina(battleCtx->battleMons[battler].formNum);
 

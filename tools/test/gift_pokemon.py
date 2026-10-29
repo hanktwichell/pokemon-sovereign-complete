@@ -50,7 +50,7 @@ GRENINJA_TRAINER = 'LOCALID_FIGHT_AREA_SOVEREIGN_GRENINJA_TRAINER'
 MENU_LIST, MENU_YES_NO, MENU_PARTY = 1, 2, 3  # enum SovereignTestMenuKind
 PARTY = {'wanted': 0, 'count': 1, 'mons': 4}  # struct SovereignTestParty
 # struct SovereignTestPartyMon: species, ability, held item, moves, form, level, hasHiddenAbility, isEgg.
-MON = '<HHH4HBBBB'
+MON = '<HHH4HBBBBHBx'  # Sovereign Complete: then the Ball and friendship
 ALL_BADGES = 0xff
 STEP = 10
 MENU_SETTLE = 10

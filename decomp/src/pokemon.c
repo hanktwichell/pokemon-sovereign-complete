@@ -64,6 +64,12 @@
 
 #define FATEFUL_ENCOUNTER_LOCATION 3002
 
+// Sovereign Complete: HeartGold's own Balls (Fast, Level, Lure, Heavy, Love, Friend, Moon, Sport, Park: items
+// ITEM_FAST_BALL to ITEM_PARK_BALL, in HeartGold's order) are kept as HeartGold keeps them: its Ball number (17 to 25)
+// in the byte after Platinum's (the low byte of blockD's unused u16), and a Poke Ball in Platinum's own
+#define HGSS_BALL_FIRST 17
+#define HGSS_BALL_COUNT (ITEM_PARK_BALL - ITEM_FAST_BALL + 1)
+
 static const s8 sNatureFlavorAffinities[][5] = {
     [NATURE_HARDY] = {
         [FLAVOR_SPICY] = 0,
@@ -1211,7 +1217,12 @@ static u32 BoxPokemon_GetDataInternal(BoxPokemon *boxMon, enum PokemonDataParam 
         break;
 
     case MON_DATA_POKEBALL:
-        result = monDataBlockD->pokeball;
+        // Sovereign Complete: HeartGold's own Balls, as items
+        if ((monDataBlockD->unused & 0xFF) >= HGSS_BALL_FIRST && (monDataBlockD->unused & 0xFF) < HGSS_BALL_FIRST + HGSS_BALL_COUNT) {
+            result = ITEM_FAST_BALL + (monDataBlockD->unused & 0xFF) - HGSS_BALL_FIRST;
+        } else {
+            result = monDataBlockD->pokeball;
+        }
         break;
 
     case MON_DATA_MET_LEVEL:
@@ -1807,7 +1818,15 @@ static void BoxPokemon_SetDataInternal(BoxPokemon *boxMon, enum PokemonDataParam
         break;
 
     case MON_DATA_POKEBALL:
-        monDataBlockD->pokeball = *u8Value;
+        // Sovereign Complete: HeartGold's own Balls in their byte. Callers pass a u16 or wider; a u8's Ball (1-16) can't
+        // read as one of HeartGold's (754-762), whatever byte follows it
+        if (*u16Value >= ITEM_FAST_BALL && *u16Value <= ITEM_PARK_BALL) {
+            monDataBlockD->pokeball = ITEM_POKE_BALL;
+            monDataBlockD->unused = (monDataBlockD->unused & 0xFF00) | (*u16Value - ITEM_FAST_BALL + HGSS_BALL_FIRST);
+        } else {
+            monDataBlockD->pokeball = *u8Value;
+            monDataBlockD->unused &= 0xFF00;
+        }
         break;
 
     case MON_DATA_MET_LEVEL:
@@ -4966,9 +4985,21 @@ BOOL Pokemon_PlayCry(Pokemon *mon)
     return Sound_PlayPokemonCry(species, form);
 }
 
+// Sovereign Complete: the Ball a Pokémon's Ball is drawn as. Platinum's Ball graphics and tables have its 16; HeartGold's
+// own draw as a Poké Ball until theirs come in (docs/Features.md)
+int Pokemon_BallToDraw(int ball)
+{
+    return ball >= ITEM_FAST_BALL && ball <= ITEM_PARK_BALL ? ITEM_POKE_BALL : ball;
+}
+
 void Pokemon_SetCatchData(Pokemon *mon, TrainerInfo *trainerInfo, int monPokeball, int metLocation, int metTerrain, enum HeapID heapID)
 {
     InitializeBoxPokemonAfterCapture(&mon->box, trainerInfo, monPokeball, metLocation, metTerrain, heapID);
+
+    if (monPokeball == ITEM_FRIEND_BALL) { // Sovereign Complete: HeartGold's Friend Ball
+        u8 friendship = MED_FRIENDSHIP_LIMIT;
+        Pokemon_SetValue(mon, MON_DATA_FRIENDSHIP, &friendship);
+    }
 
     if (monPokeball == ITEM_HEAL_BALL) {
         int monMaxHP = Pokemon_GetValue(mon, MON_DATA_MAX_HP, NULL);

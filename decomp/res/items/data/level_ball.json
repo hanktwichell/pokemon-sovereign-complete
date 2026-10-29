@@ -22,8 +22,8 @@
   "preventToss": false,
   "canRegister": false,
   "fieldPocket": "POCKET_BALLS",
-  "battlePocket": "BATTLE_POCKET_MASK_NONE",
+  "battlePocket": "BATTLE_POCKET_MASK_POKE_BALLS",
   "fieldUseFunc": "ITEM_USE_FUNC_NONE",
-  "battleUseCategory": "BATTLE_USE_CATEGORY_NONE",
+  "battleUseCategory": "BATTLE_USE_CATEGORY_POKE_BALL",
   "itemUseParams": null
 }

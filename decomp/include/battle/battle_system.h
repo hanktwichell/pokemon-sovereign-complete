@@ -225,6 +225,7 @@ u8 BattleSystem_GetCatchingTutorialLowHP(BattleSystem *battleSys);
 void BattleSystem_SetCatchingTutorialLowHP(BattleSystem *battleSys, u8 value);
 int BattleSystem_GetMetBebe(BattleSystem *battleSys);
 BOOL BattleSystem_IsMegaUnlocked(BattleSystem *battleSys);
+BOOL BattleSystem_IsFishing(BattleSystem *battleSys); // Sovereign Complete
 void BattleSystem_TryIncrementRecordValue(BattleSystem *battleSys, int id);
 void BattleSystem_TryIncrementTrainerScoreCaughtSpecies(BattleSystem *battleSys);
 void BattleSystem_SetCommandSelectionFlags(BattleSystem *battleSys, int flags);

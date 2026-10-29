@@ -629,6 +629,7 @@ BOOL WildEncounters_TryFishingEncounter(FieldSystem *fieldSystem, enum Encounter
 
     FieldBattleDTO_Init(*battleParams, fieldSystem);
     FieldBattleDTO_SetWaterTerrain(*battleParams);
+    (*battleParams)->isFishing = TRUE; // Sovereign Complete: HeartGold's Lure Ball
 
     if (MapHeader_HasFeebasTiles(fieldSystem->location->mapHeaderID) && PlayerAvatar_IsFacingFeebasTile(fieldSystem)) {
         int species;
