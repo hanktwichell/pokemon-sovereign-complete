@@ -54,7 +54,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SEAFOAM_ISLAND_ARTICUNO",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,

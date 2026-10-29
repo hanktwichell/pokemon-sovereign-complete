@@ -7,7 +7,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -41,5 +41,26 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 2,
+            "x": 7,
+            "z": 12,
+            "width": 3,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40F3"
+        },
+        {
+            "script": 2,
+            "x": 12,
+            "z": 7,
+            "width": 1,
+            "length": 4,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40F3"
+        }
+    ]
 }

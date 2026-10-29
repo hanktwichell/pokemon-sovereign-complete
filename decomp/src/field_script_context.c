@@ -3,6 +3,8 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "complete_test.h"
+
 enum FieldScriptState {
     SCRIPT_STATE_STOPPED,
     SCRIPT_STATE_RUNNING,
@@ -68,6 +70,9 @@ BOOL ScriptContext_Run(ScriptContext *ctx)
 
     case SCRIPT_STATE_WAITING:
         if (ctx->shouldResume != NULL) {
+#ifdef SOVEREIGN_TEST
+            gCompleteTestScriptPos.waitingOn = ctx->shouldResume; // Sovereign Complete
+#endif
             if (ctx->shouldResume(ctx) == TRUE) {
                 ctx->state = SCRIPT_STATE_RUNNING;
             }
@@ -83,6 +88,12 @@ BOOL ScriptContext_Run(ScriptContext *ctx)
                 return FALSE;
             }
             u16 cmdCode = ScriptContext_ReadHalfWord(ctx);
+#ifdef SOVEREIGN_TEST
+            // Sovereign Complete: where the script is, for tools/complete/where_script.py
+            gCompleteTestScriptPos.scripts = ctx->scripts;
+            gCompleteTestScriptPos.offset = ctx->scriptPtr - 2 - ctx->scripts;
+            gCompleteTestScriptPos.command = cmdCode;
+#endif
             if (cmdCode >= ctx->cmdTableSize) {
                 GF_ASSERT(FALSE);
                 ctx->state = SCRIPT_STATE_STOPPED;

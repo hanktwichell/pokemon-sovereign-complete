@@ -24,7 +24,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -43,7 +43,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 4,
             "initial_dir": 1,
             "data": [
                 0,
@@ -62,7 +62,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 5,
             "initial_dir": 0,
             "data": [
                 0,
@@ -81,7 +81,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_2C9",
-            "script": 0,
+            "script": 7,
             "initial_dir": 2,
             "data": [
                 0,

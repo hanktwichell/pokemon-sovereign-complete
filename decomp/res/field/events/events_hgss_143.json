@@ -64,7 +64,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_263",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -159,7 +159,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x10",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -178,7 +178,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x11",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,

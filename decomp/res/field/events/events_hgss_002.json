@@ -22,5 +22,16 @@
         }
     ],
     "warp_events": [],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 9101,
+            "x": 7,
+            "z": 11,
+            "width": 2,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x0F"
+        }
+    ]
 }

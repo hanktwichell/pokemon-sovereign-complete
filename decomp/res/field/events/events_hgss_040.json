@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 4,
             "type": 1,
             "x": 278,
             "z": 170,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 5,
             "type": 1,
             "x": 270,
             "z": 166,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 1,
             "x": 278,
             "z": 210,
@@ -140,7 +140,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_226",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -159,7 +159,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_226",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -178,7 +178,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_226",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -197,7 +197,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_226",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -273,7 +273,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
-            "script": 0,
+            "script": 7,
             "initial_dir": 0,
             "data": [
                 0,
@@ -292,7 +292,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_39_LT_SURGE",
-            "script": 0,
+            "script": 8,
             "initial_dir": 0,
             "data": [
                 0,
@@ -320,5 +320,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 278,
+            "z": 171,
+            "width": 1,
+            "length": 3,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_408F"
+        }
+    ]
 }

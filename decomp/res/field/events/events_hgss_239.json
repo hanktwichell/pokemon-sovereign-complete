@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 1,
             "x": 31,
             "z": 41,
@@ -40,7 +40,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VICTORY_ROAD_CLAIR",
-            "script": 0,
+            "script": 4,
             "initial_dir": 3,
             "data": [
                 0,
@@ -154,7 +154,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CHAMPIONS_ROOM_RETREAT",
-            "script": 0,
+            "script": 2,
             "initial_dir": 1,
             "data": [
                 0,
@@ -302,5 +302,26 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 1,
+            "x": 27,
+            "z": 14,
+            "width": 3,
+            "length": 1,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_UNK_40C4"
+        },
+        {
+            "script": 5,
+            "x": 24,
+            "z": 43,
+            "width": 2,
+            "length": 1,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_UNK_40FC"
+        }
+    ]
 }

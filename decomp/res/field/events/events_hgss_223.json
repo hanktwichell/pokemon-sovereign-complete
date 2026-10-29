@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_1_INIT",
-            "script": 0,
+            "script": 10002,
             "initial_dir": 0,
             "data": [
                 0,
@@ -35,7 +35,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_2_INIT",
-            "script": 0,
+            "script": 10002,
             "initial_dir": 0,
             "data": [
                 0,
@@ -54,7 +54,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_3_INIT",
-            "script": 0,
+            "script": 10002,
             "initial_dir": 0,
             "data": [
                 0,
@@ -73,7 +73,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_4_INIT",
-            "script": 0,
+            "script": 10002,
             "initial_dir": 0,
             "data": [
                 0,
@@ -92,7 +92,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 10002,
             "initial_dir": 0,
             "data": [
                 0,
@@ -163,5 +163,46 @@
             "dest_warp_id": 3
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 1,
+            "x": 11,
+            "z": 10,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40AA"
+        },
+        {
+            "script": 2,
+            "x": 10,
+            "z": 18,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40AA"
+        },
+        {
+            "script": 3,
+            "x": 18,
+            "z": 7,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40AA"
+        },
+        {
+            "script": 4,
+            "x": 19,
+            "z": 19,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40AA"
+        }
+    ]
 }

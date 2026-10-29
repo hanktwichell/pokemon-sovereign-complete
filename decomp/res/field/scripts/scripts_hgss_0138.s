@@ -1,0 +1,11 @@
+#include "macros/scrcmd.inc"
+
+
+    ScriptEntry scr_seq_DIRECT4_000
+    ScriptEntryEnd
+scr_seq_DIRECT4_000:
+    @ HGSS: ScrCmd_284
+    End
+_000A:
+    End
+    .balign 4, 0

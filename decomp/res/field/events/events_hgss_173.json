@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 15,
             "type": 0,
             "x": 4,
             "z": 7,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 15,
             "type": 0,
             "x": 11,
             "z": 8,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 15,
             "type": 0,
             "x": 11,
             "z": 18,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 16,
             "type": 0,
             "x": 2,
             "z": 18,
@@ -135,7 +135,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_GYM_BUGSY",
-            "script": 0,
+            "script": 2,
             "initial_dir": 1,
             "data": [
                 0,
@@ -157,5 +157,126 @@
             "dest_warp_id": 1
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 3,
+            "z": 32,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 4,
+            "x": 9,
+            "z": 32,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 5,
+            "x": 15,
+            "z": 32,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 6,
+            "x": 3,
+            "z": 24,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 7,
+            "x": 9,
+            "z": 24,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 8,
+            "x": 15,
+            "z": 24,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 9,
+            "x": 3,
+            "z": 17,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 10,
+            "x": 9,
+            "z": 17,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 11,
+            "x": 15,
+            "z": 17,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 12,
+            "x": 3,
+            "z": 9,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 13,
+            "x": 9,
+            "z": 9,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        },
+        {
+            "script": 14,
+            "x": 15,
+            "z": 9,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x00"
+        }
+    ]
 }

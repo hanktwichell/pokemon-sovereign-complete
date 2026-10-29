@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 6,
             "type": 1,
             "x": 556,
             "z": 401,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 1,
             "x": 554,
             "z": 396,
@@ -40,7 +40,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CHERRYGROVE_GUIDE_GENT",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -59,7 +59,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 8,
             "initial_dir": 2,
             "data": [
                 0,
@@ -78,7 +78,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 9,
             "initial_dir": 3,
             "data": [
                 0,
@@ -97,7 +97,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 5,
             "initial_dir": 3,
             "data": [
                 0,
@@ -135,7 +135,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
-            "script": 0,
+            "script": 10,
             "initial_dir": 0,
             "data": [
                 0,
@@ -181,5 +181,36 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 2,
+            "x": 566,
+            "z": 397,
+            "width": 1,
+            "length": 4,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW"
+        },
+        {
+            "script": 4,
+            "x": 575,
+            "z": 398,
+            "width": 1,
+            "length": 4,
+            "y": 0,
+            "value": 3,
+            "var": "VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW"
+        },
+        {
+            "script": 3,
+            "x": 547,
+            "z": 385,
+            "width": 4,
+            "length": 1,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW"
+        }
+    ]
 }

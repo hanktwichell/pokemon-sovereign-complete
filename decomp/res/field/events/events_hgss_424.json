@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 6,
             "type": 0,
             "x": 5,
             "z": 9,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 0,
             "x": 5,
             "z": 10,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 0,
             "x": 5,
             "z": 11,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 0,
             "x": 6,
             "z": 11,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 0,
             "x": 7,
             "z": 11,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 0,
             "x": 5,
             "z": 8,
@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 0,
             "x": 5,
             "z": 7,
@@ -57,7 +57,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 0,
             "x": 5,
             "z": 6,
@@ -65,7 +65,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 0,
             "x": 6,
             "z": 6,
@@ -73,7 +73,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 0,
             "x": 7,
             "z": 6,
@@ -81,7 +81,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8,
             "type": 0,
             "x": 13,
             "z": 11,
@@ -89,7 +89,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8,
             "type": 0,
             "x": 14,
             "z": 11,
@@ -97,7 +97,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8,
             "type": 0,
             "x": 15,
             "z": 11,
@@ -105,7 +105,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8,
             "type": 0,
             "x": 15,
             "z": 10,
@@ -113,7 +113,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8,
             "type": 0,
             "x": 15,
             "z": 9,
@@ -121,7 +121,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 9,
             "type": 0,
             "x": 15,
             "z": 8,
@@ -129,7 +129,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 9,
             "type": 0,
             "x": 15,
             "z": 7,
@@ -137,7 +137,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 9,
             "type": 0,
             "x": 15,
             "z": 6,
@@ -145,7 +145,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 9,
             "type": 0,
             "x": 14,
             "z": 6,
@@ -153,7 +153,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 9,
             "type": 0,
             "x": 13,
             "z": 6,
@@ -161,7 +161,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 10,
             "type": 0,
             "x": 3,
             "z": 3,
@@ -169,7 +169,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 10,
             "type": 0,
             "x": 4,
             "z": 3,
@@ -177,7 +177,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 10,
             "type": 0,
             "x": 5,
             "z": 3,
@@ -185,7 +185,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 10,
             "type": 0,
             "x": 6,
             "z": 3,
@@ -193,7 +193,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 11,
             "type": 0,
             "x": 14,
             "z": 3,
@@ -201,7 +201,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 11,
             "type": 0,
             "x": 15,
             "z": 3,
@@ -209,7 +209,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 11,
             "type": 0,
             "x": 16,
             "z": 3,
@@ -217,7 +217,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 11,
             "type": 0,
             "x": 17,
             "z": 3,
@@ -225,7 +225,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 12,
             "type": 0,
             "x": 26,
             "z": 5,
@@ -233,7 +233,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 12,
             "type": 0,
             "x": 27,
             "z": 5,
@@ -241,7 +241,7 @@
             "player_facing_dir": "BG_EVENT_DIR_NORTH"
         },
         {
-            "script": 0,
+            "script": 12,
             "type": 0,
             "x": 1,
             "z": 11,
@@ -249,7 +249,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 12,
             "type": 0,
             "x": 2,
             "z": 11,
@@ -257,7 +257,7 @@
             "player_facing_dir": "BG_EVENT_DIR_NORTH"
         },
         {
-            "script": 0,
+            "script": 13,
             "type": 0,
             "x": 9,
             "z": 8,
@@ -265,7 +265,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 13,
             "type": 0,
             "x": 9,
             "z": 9,
@@ -273,7 +273,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 13,
             "type": 0,
             "x": 10,
             "z": 8,
@@ -281,7 +281,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 13,
             "type": 0,
             "x": 10,
             "z": 9,
@@ -289,7 +289,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 13,
             "type": 0,
             "x": 11,
             "z": 8,
@@ -297,7 +297,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 13,
             "type": 0,
             "x": 11,
             "z": 9,
@@ -305,7 +305,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 10,
             "type": 0,
             "x": 1,
             "z": 7,
@@ -313,7 +313,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 10,
             "type": 0,
             "x": 2,
             "z": 7,
@@ -321,7 +321,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 12,
             "type": 0,
             "x": 25,
             "z": 5,
@@ -329,7 +329,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 12,
             "type": 0,
             "x": 24,
             "z": 5,
@@ -344,7 +344,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 2,
             "initial_dir": 2,
             "data": [
                 0,
@@ -363,7 +363,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 1,
             "initial_dir": 2,
             "data": [
                 0,
@@ -382,7 +382,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 5,
             "initial_dir": 1,
             "data": [
                 0,
@@ -401,7 +401,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 4,
             "initial_dir": 1,
             "data": [
                 0,
@@ -420,7 +420,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 3,
             "initial_dir": 3,
             "data": [
                 0,
@@ -439,7 +439,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
-            "script": 0,
+            "script": 14,
             "initial_dir": 0,
             "data": [
                 0,
@@ -458,7 +458,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_STEVEN_IN_HOUSE_BEFORE_LATIS",
-            "script": 0,
+            "script": 16,
             "initial_dir": 0,
             "data": [
                 0,
@@ -477,7 +477,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS",
-            "script": 0,
+            "script": 20,
             "initial_dir": 0,
             "data": [
                 0,
@@ -499,5 +499,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 17,
+            "x": 25,
+            "z": 6,
+            "width": 1,
+            "length": 2,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_UNK_4083"
+        }
+    ]
 }

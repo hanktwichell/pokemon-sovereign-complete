@@ -1,0 +1,11 @@
+#include "macros/scrcmd.inc"
+
+
+    ScriptEntry scr_seq_R16R0301_000
+    ScriptEntryEnd
+scr_seq_R16R0301_000:
+    ClearFlag FLAG_HGSS_UNK_149
+    End
+_000C:
+    End
+    .balign 4, 0

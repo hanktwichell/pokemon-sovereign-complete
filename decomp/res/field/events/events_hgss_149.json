@@ -81,7 +81,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_UNION_CAVE_LAPRAS",
-            "script": 0,
+            "script": 1,
             "initial_dir": 3,
             "data": [
                 0,

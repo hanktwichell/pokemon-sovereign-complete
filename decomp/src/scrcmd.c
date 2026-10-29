@@ -113,6 +113,7 @@
 #include "field_message.h"
 #include "field_overworld_state.h"
 #include "field_script_context.h"
+#include "complete_scrcmd.h" // Sovereign Complete: commands for HeartGold's scripts
 #include "field_system.h"
 #include "field_task.h"
 #include "field_transition.h"

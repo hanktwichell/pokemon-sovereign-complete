@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 2,
             "type": 1,
             "x": 22,
             "z": 10,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 5,
             "type": 0,
             "x": 18,
             "z": 10,
@@ -146,7 +146,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_298",
-            "script": 0,
+            "script": 4,
             "initial_dir": 0,
             "data": [
                 0,
@@ -174,5 +174,16 @@
             "dest_warp_id": 2
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 8,
+            "z": 16,
+            "width": 3,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40F6"
+        }
+    ]
 }

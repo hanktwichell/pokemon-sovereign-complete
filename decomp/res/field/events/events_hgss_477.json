@@ -7,7 +7,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_EMBEDDED_TOWER_KYOGRE",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,

@@ -48,7 +48,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_2CA",
-            "script": 0,
+            "script": 2,
             "initial_dir": 2,
             "data": [
                 0,

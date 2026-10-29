@@ -6,7 +6,9 @@ tile that tools/complete/test_map_warp.py picks (beside the map's first person, 
 the field is idle on that map (gSovereignTestIdleFrames counts up and gSovereignTestIdleMapHeaderID is the map). Then:
 - ok: idle, with the heaps' block lists whole (tools/test/heap_check.py);
 - HEAP: idle, but a heap's block lists are broken (a bad free during the load);
-- FAIL: not idle within the time limit (a crash, a hang, or a scene on entry);
+- FAIL: not idle within the time limit (a crash, a hang, or a scene on entry: rerun it with --scene, which pages
+  through with A and waits longer, and also counts a scene that ends by sending the player to another map, printed
+  as `on N`, the map header the player ended on);
 - SKIP: no free floor tile to warp to (maps HeartGold never shows, such as MAP_HEADER_HGSS_NOTHING).
 Each map's last screen is saved to OUT_DIR as NNN_<map>_<result>.png.
 
@@ -15,7 +17,7 @@ Maps run in HeartGold's order; --shard K/N runs every Nth map from the Kth, so N
 Needs the test build (tools/test/build_test_rom.sh) and a bedroom save state made with it (tools/test/new_game.sh).
 From the repo root:
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/visit_hgss_maps.py \\
-        decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--shard K/N] [NAME ...]
+        decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--shard K/N] [--scene] [NAME ...]
 """
 import os
 import re
@@ -29,6 +31,7 @@ from heap_check import heap_info_address, heap_problems  # noqa: E402
 from test_map_warp import ROOT, header_id, walkable_tile  # noqa: E402
 
 LIMIT = 2400  # frames to wait for the field to be idle
+SCENE_LIMIT = 12000  # with --scene: a scene on entering the map is played out with A
 
 
 def hgss_headers():
@@ -47,6 +50,8 @@ def main():
 
     args = sys.argv[1:]
     shard = (0, 1)
+    scene = '--scene' in args
+    args = [a for a in args if a != '--scene']
     if '--shard' in args:
         k, n = args[args.index('--shard') + 1].split('/')
         shard = (int(k), int(n))
@@ -79,18 +84,20 @@ def main():
                 d.emu.memory.write_short(target + offset, value)
             d.press('SELECT+L+R', frames=8, after=0)
             frames, idle = 0, 0
-            while frames < LIMIT and idle < 2:
+            while frames < (SCENE_LIMIT if scene else LIMIT) and idle < 2:
                 before = u32(idle_addr)
                 d.run(30)
                 frames += 30
-                idle = idle + 1 if u32(idle_addr) > before and u32(map_addr) == header else 0
-                if idle == 0 and frames % 120 == 0:
-                    d.press('B', frames=4, after=4)
+                # with --scene, a scene may end by sending the player elsewhere (out of Ecruteak's Gym)
+                idle = idle + 1 if u32(idle_addr) > before and (scene or u32(map_addr) == header) else 0
+                if idle == 0 and frames % (60 if scene else 120) == 0:
+                    d.press('A' if scene else 'B', frames=4, after=4)
             problems = heap_problems(d.emu.memory, heaps) if idle >= 2 else []
             result = 'FAIL' if idle < 2 else 'HEAP' if problems else 'ok'
             d.screenshot().save(os.path.join(out, f'{i:03d}_{name}_{result}.png'))
         counts[result] = counts.get(result, 0) + 1
-        print(i, name, result, frames, *([f'on {u32(map_addr)}'] if result == 'FAIL' else []),
+        moved = result != 'SKIP' and u32(map_addr) != header
+        print(i, name, result, frames, *([f'on {u32(map_addr)}'] if result == 'FAIL' or moved else []),
               *(problems if result == 'HEAP' else []), flush=True)
         if result in ('FAIL', 'HEAP'):
             failures.append(f'{i} {name}')

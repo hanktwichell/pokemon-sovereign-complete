@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 14,
             "type": 1,
             "x": 682,
             "z": 393,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8,
             "type": 1,
             "x": 693,
             "z": 396,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 15,
             "type": 1,
             "x": 685,
             "z": 400,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 17,
             "type": 1,
             "x": 688,
             "z": 407,
@@ -48,7 +48,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_RIVAL",
-            "script": 0,
+            "script": 1,
             "initial_dir": 3,
             "data": [
                 0,
@@ -67,7 +67,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 2,
             "initial_dir": 2,
             "data": [
                 0,
@@ -86,7 +86,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 16,
             "initial_dir": 1,
             "data": [
                 0,
@@ -105,7 +105,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_MARILL",
-            "script": 0,
+            "script": 6,
             "initial_dir": 1,
             "data": [
                 0,
@@ -124,7 +124,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIEND",
-            "script": 0,
+            "script": 5,
             "initial_dir": 1,
             "data": [
                 0,
@@ -162,7 +162,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
-            "script": 0,
+            "script": 18,
             "initial_dir": 0,
             "data": [
                 0,
@@ -200,7 +200,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIEND_2",
-            "script": 0,
+            "script": 5,
             "initial_dir": 2,
             "data": [
                 0,
@@ -219,7 +219,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIEND_2",
-            "script": 0,
+            "script": 6,
             "initial_dir": 3,
             "data": [
                 0,
@@ -265,5 +265,46 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 676,
+            "z": 396,
+            "width": 1,
+            "length": 7,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_SCENE_NEW_BARK_WEST_EXIT"
+        },
+        {
+            "script": 11,
+            "x": 688,
+            "z": 392,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_MAP_LOCAL_0x03"
+        },
+        {
+            "script": 12,
+            "x": 700,
+            "z": 398,
+            "width": 1,
+            "length": 5,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT"
+        },
+        {
+            "script": 13,
+            "x": 700,
+            "z": 398,
+            "width": 1,
+            "length": 5,
+            "y": 0,
+            "value": 2,
+            "var": "VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT"
+        }
+    ]
 }

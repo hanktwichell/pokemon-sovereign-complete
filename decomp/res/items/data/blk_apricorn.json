@@ -1,0 +1,29 @@
+{
+  "name": "Blk Apricorn",
+  "plural": "Blk Apricorns",
+  "article": "a",
+  "description": [
+    "A black Apricorn\n",
+    "It has an indescribable scent."
+  ],
+  "icon": {
+    "sprite": "blk_apricorn_NCGR",
+    "palette": "blk_apricorn_NCLR"
+  },
+  "gbaID": "GBA_ITEM_NONE",
+  "price": 20,
+  "effectParam": 0,
+  "holdEffect": "HOLD_EFFECT_NONE",
+  "pluckEffect": "PLUCK_EFFECT_NONE",
+  "flingEffect": "FLING_EFFECT_NONE",
+  "flingPower": 0,
+  "naturalGiftPower": 0,
+  "naturalGiftType": null,
+  "preventToss": true,
+  "canRegister": false,
+  "fieldPocket": "POCKET_ITEMS",
+  "battlePocket": "BATTLE_POCKET_MASK_NONE",
+  "fieldUseFunc": "ITEM_USE_FUNC_NONE",
+  "battleUseCategory": "BATTLE_USE_CATEGORY_NONE",
+  "itemUseParams": null
+}

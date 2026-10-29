@@ -111,5 +111,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 1,
+            "x": 5,
+            "z": 10,
+            "width": 3,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40C7"
+        }
+    ]
 }

@@ -1,7 +1,21 @@
 # Bringing HeartGold's scripts into the engine (step 3)
 
 How HeartGold's map scripts and text (`.cache/pokeheartgold`, pinned in `HEARTGOLD_COMMIT`) become Sovereign
-Complete's. Findings first; the translator follows them. Maps, events and flags are in `docs/MapConversion.md`.
+Complete's. Maps, events and flags are in `docs/MapConversion.md`.
+
+## The pipeline
+
+1. `tools/complete/import_hgss_text.py`: HeartGold's 428 message banks that maps and scripts use, as
+   `res/text/hgss_msg_NNNN.json` (`TEXT_BANK_HGSS_MSG_NNNN`).
+2. `tools/complete/translate_hgss_scripts.py --install [STEM ...]`: translates HeartGold's script files into
+   `res/field/scripts/scripts_hgss_NNNN.s` (map scripts) and `scripts_init_hgss_NNNN.s` (map-load scripts), command
+   by command through `tools/complete/hgss_script_table.py`. Without `--install` it writes to a folder and reports
+   coverage: what is left is written as a `@ HGSS:` comment and counted.
+3. `tools/complete/import_hgss_headers.py`: points each map at its translated scripts and its text bank.
+4. `tools/complete/import_hgss_events.py`: maps with translated scripts get their people's, signs' and step-on
+   triggers' script numbers (HeartGold's own numbering, 1 on); the others keep script 0.
+
+The first maps through it are New Bark Town's eight.
 
 ## Size
 
@@ -19,6 +33,29 @@ drift apart after the shared core from Diamond and Pearl: HeartGold's 41 is `Set
 `SetVarFromVar`; HeartGold's `NPCMsg` (45) is Platinum's `Message`. So the translation goes by meaning, command by
 command, not by number. Most control flow carries over directly: HeartGold's `Compare` then `GoToIfNe label` is
 Platinum's `CompareVar` then `GoToIf` with the same condition.
+
+## The translator
+
+- Each command goes through `COMMANDS` in `tools/complete/hgss_script_table.py`, or is kept when Platinum has a
+  command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
+  than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
+  Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
+- Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
+  clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
+- Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's
+  by name, ignoring underscores (HeartGold's `ITEM_S_S__TICKET`); `RGB_*` to Platinum's `COLOR_*`; HeartGold's
+  follower (`obj_partner_poke`) to `LOCALID_COMPLETE_FOLLOWER`.
+- Sounds: Diamond and Pearl's keep their names (Platinum adds `_sseq`); a few have other names in Platinum
+  (`SOUNDS`: HeartGold's select sound is Platinum's `SE_CONFIRM_sseq_3`, its item fanfare `SEQ_FANFA4`); HeartGold's
+  own sound effects are left out until its sound archive comes in (step 6), with the wait that goes with them; its
+  music plays the same stand-ins as the map headers.
+- Commands Platinum lacks are added to the engine (`src/complete_scrcmd.c`, after Sovereign's own in
+  `include/data/scripts/scrcmd.h`): `MessageGendered` (HeartGold's `GenderMsgBox`, a different line for a boy or a
+  girl) and the following Pokémon's commands for scenes (`CompleteFollowerPause`, `CompleteFollowerWait`,
+  `CompleteFollowerSetMovementType`, `CompleteFollowerCheckActive`). A scene unpauses the follower (pause 0), waits
+  for its step to finish (HeartGold's `MapObject_IsMovementPaused` is Platinum's `LocalMapObj_CheckAnimationFinished`,
+  despite its name), parks it, moves everyone, then pauses it again (1) and lets it follow before `ReleaseAll`.
+- Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
 
 ## Standard scripts
 
@@ -41,8 +78,38 @@ becomes a Platinum text bank, appended to `generated/text_banks.txt` (the bank n
 - Flags and vars: as for events (`docs/MapConversion.md`): HeartGold's per-map, object-sprite and script vars keep
   their numbers; the rest move to `FLAG_HGSS_*` (2912 + f) and `VAR_COMPLETE_*` (0x4030 on).
 - People: the `LOCALID` constants are HeartGold's object names, from the converted events files.
-- Items, species, moves: by name, through Sovereign's lists. 65 of HeartGold's 69 items past Platinum's 467 aren't in
-  Sovereign (it has the GS Ball): the seven Apricorns and Kurt's nine balls (Fast, Level, Lure, Heavy, Love, Friend,
-  Moon, Sport, Park), the Red Scale, SquirtBottle, Card Key, Pass, Machine Part, the Pokégear's data cards and the
-  other key items. They are added to Sovereign's item list first; Sovereign's numbers past Platinum's are later
-  games' items, so HeartGold's numbers can't be kept.
+- Items, species, moves: by name, through Sovereign's lists. HeartGold's own items are added to Sovereign's list
+  (`tools/complete/import_hgss_items.py`: data, names, descriptions and icons from HeartGold, the icons converted
+  with nitrogfx, which turns them back into the same bytes). Sovereign's numbers past Platinum's are later games'
+  items, so HeartGold's come after Sovereign's with new numbers. 39 items: the S.S. Ticket (Platinum's item at its
+  number is the Tea), the seven Apricorns, Kurt's nine balls (Fast, Level, Lure, Heavy, Love, Friend, Moon, Sport,
+  Park), the Red Scale, SquirtBottle, Card Key, Pass, Machine Part, Mystery Egg, Jade Orb, Lock Capsule, Enigma Stone
+  and the other key items. Left out: the Pokéathlon's 27 data cards (the Pokéathlon is skipped) and the four Sovereign
+  has (the Silver and Rainbow Wings, the Red and Blue Orbs).
+- For now Kurt's balls sit in the Poké Balls pocket but can't be thrown (their catch rules, their graphics and the
+  Pokémon's record of its ball come in step 5), and the Apricorn Box, Berry Pots, Dowsing Machine, Unown Report and
+  GB Sounds are key items without a use until their features come. The bag's Poké Balls pocket has 15 slots (25
+  kinds of ball now) and the key items pocket 50 (Sinnoh's and Johto's together are more): the bag's sizes are part
+  of the save, so they grow with step 5's save work.
+
+## Sacred Gold's versions
+
+Sacred Gold changes 203 of HeartGold's 965 script files (some to twice their size: new gifts, trades, rematches,
+item givers), 145 of its 491 events files, most text banks (Pokémon names in plain case, its new lines) and the
+trainers and wild Pokémon. It is a binary hack, so these exist only in its ROM. `tools/complete/disasm_hgss_scripts.py`
+turns its compiled scripts back into pokeheartgold's script language, so the translator handles them as it does
+HeartGold's:
+
+- Commands by opcode from pokeheartgold's macros; movement lists where a command points to one; labels and entry
+  names as pokeheartgold's sources have them; HeartGold's shorthand rebuilt (`GoToIfSet`, `Compare` / `GoToIfEq`,
+  `Switch` / `Case`, `GiveItemNoCheck`, `SimpleNPCMsg`, the signs); arguments named as the sources name the same
+  argument of the same command (flags, vars, items, species, moves, messages, people, sounds, maps).
+- Sacred Gold's own habits: movement lists packed back to back with only the 2-byte end code, some not aligned, and
+  a few stretches no script reaches.
+- **Checked**: all 965 of HeartGold's files and all 965 of Sacred Gold's reassemble with pokeheartgold's own
+  toolchain to the same bytes. On HeartGold, 909 files come out as its sources' exact commands; the others differ only
+  in how a value is written (`ITEM_POKE_BALL` where the source wrote 4), and translating them gives the same scripts
+  as translating the sources.
+
+Next: Sacred Gold's events (the events importer reads its archive instead of HeartGold's) and text (decoded with the
+engine's msgenc, HeartGold's message names kept), then its scripts through the translator.

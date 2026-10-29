@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 4,
             "type": 0,
             "x": 7,
             "z": 3,
@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x10",
-            "script": 0,
+            "script": 10001,
             "initial_dir": 0,
             "data": [
                 0,
@@ -35,7 +35,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x11",
-            "script": 0,
+            "script": 10001,
             "initial_dir": 0,
             "data": [
                 0,
@@ -54,7 +54,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x12",
-            "script": 0,
+            "script": 10001,
             "initial_dir": 0,
             "data": [
                 0,
@@ -73,7 +73,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x13",
-            "script": 0,
+            "script": 10001,
             "initial_dir": 0,
             "data": [
                 0,

@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 2,
             "type": 1,
             "x": 1311,
             "z": 266,
@@ -92,7 +92,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_258",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,

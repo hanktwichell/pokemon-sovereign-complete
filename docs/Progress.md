@@ -182,3 +182,34 @@ Sinjoh Ruins' connections, which wait on the open decisions (unlock points, the 
 translator already covers 92% of HeartGold's script lines on paper, and the next piece is a few maps end to end (New
 Bark Town, the player's house, Elm's lab): text banks, translated scripts and the events' script numbers, checked by
 talking to people in the emulator.
+
+## Oct 29, 2026: step 3 under way, HeartGold's scripts in the game
+
+Johto and Kanto's people, signs and scenes now run HeartGold's own scripts and text, translated into the engine's
+script language (`docs/ScriptConversion.md`):
+- **904 script files** (each map's scripts and map-init scripts, `res/field/scripts/scripts_hgss_*.s`), translated by
+  `tools/complete/translate_hgss_scripts.py` with the command table in `tools/complete/hgss_script_table.py`: 96% of
+  the command lines. What's left is mostly HeartGold's own features (phone calls, the photographer, the Pokéathlon
+  and Battle Frontier menus) and trainer battles, which come with step 4.
+- **428 text banks** (`res/text/hgss_msg_*.json`, `tools/complete/import_hgss_text.py`), with HeartGold's message
+  names.
+- **Five new script commands** (`src/complete_scrcmd.c`): a message for a boy or a girl, and the following Pokémon's
+  part in scenes (pause, wait for its step, park it, check it's out).
+- **HeartGold's 39 items** Sovereign lacked (`tools/complete/import_hgss_items.py`): the S.S. Ticket, Apricorns, Kurt's
+  balls and the key items, with their icons. The Pokéathlon's data cards are left out. Kurt's balls can't be thrown
+  until step 5.
+- The events run their own scripts again, and the step-on scenes are in.
+
+**Tested so far** (test build): every map visited again with the scripts in: 489 ok, 22 placeholders, 29 maps
+with a scene on entry and no heap errors. Replaying those scenes found a real bug: the follower's "wait" command
+waited for the wrong thing, so Bill's scene in Ecruteak's Pokémon Center, the rival at Mt. Moon and others stopped
+halfway. Fixed. New tools for this: `tools/complete/where_script.py` shows the script line a stuck scene is on (the
+test build records the running command), and the visit test's `--scene` counts a scene that ends by sending the player
+elsewhere (Ecruteak's Gym, closed until Morty is back). The full step 3 test (scenes, then talking to everyone on
+every map) is running again on the fixed build. The regular build builds and boots.
+
+**Sacred Gold's scripts:** Sacred Gold changes 203 script files, 145 events files and most of the text, and as a
+binary hack it has them only in its ROM. `tools/complete/disasm_hgss_scripts.py` turns compiled scripts back into
+HeartGold's script language: all 965 files of HeartGold and all 965 of Sacred Gold reassemble with pokeheartgold's own
+toolchain to the same bytes, and on HeartGold the translation of its output matches the translation of the sources.
+Next: Sacred Gold's events and text, then its scripts through the translator, so Johto and Kanto play as in Sacred Gold.

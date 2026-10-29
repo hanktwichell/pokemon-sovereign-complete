@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 2,
             "type": 0,
             "x": 6,
             "z": 2,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_NORTH"
         },
         {
-            "script": 0,
+            "script": 2,
             "type": 0,
             "x": 5,
             "z": 2,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_NORTH"
         },
         {
-            "script": 0,
+            "script": 2,
             "type": 0,
             "x": 7,
             "z": 2,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_NORTH"
         },
         {
-            "script": 0,
+            "script": 3,
             "type": 0,
             "x": 9,
             "z": 6,
@@ -40,7 +40,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_EARL_IN_SCHOOL",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -59,7 +59,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 5,
             "initial_dir": 0,
             "data": [
                 0,
@@ -78,7 +78,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 6,
             "initial_dir": 0,
             "data": [
                 0,
@@ -97,7 +97,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 7,
             "initial_dir": 2,
             "data": [
                 0,
@@ -116,7 +116,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 8,
             "initial_dir": 3,
             "data": [
                 0,
@@ -154,7 +154,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 4,
             "initial_dir": 0,
             "data": [
                 0,

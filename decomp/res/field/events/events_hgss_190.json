@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8,
             "type": 0,
             "x": 14,
             "z": 8,
@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 1,
             "initial_dir": 1,
             "data": [
                 0,
@@ -50,5 +50,66 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 5,
+            "x": 4,
+            "z": 3,
+            "width": 2,
+            "length": 3,
+            "y": 0,
+            "value": 2,
+            "var": "VAR_MAP_LOCAL_0x0A"
+        },
+        {
+            "script": 3,
+            "x": 4,
+            "z": 9,
+            "width": 2,
+            "length": 3,
+            "y": 0,
+            "value": 2,
+            "var": "VAR_MAP_LOCAL_0x0A"
+        },
+        {
+            "script": 3,
+            "x": 6,
+            "z": 11,
+            "width": 3,
+            "length": 3,
+            "y": 0,
+            "value": 2,
+            "var": "VAR_MAP_LOCAL_0x0A"
+        },
+        {
+            "script": 4,
+            "x": 6,
+            "z": 4,
+            "width": 1,
+            "length": 2,
+            "y": 0,
+            "value": 3,
+            "var": "VAR_MAP_LOCAL_0x0A"
+        },
+        {
+            "script": 2,
+            "x": 6,
+            "z": 6,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_410B"
+        },
+        {
+            "script": 4,
+            "x": 6,
+            "z": 7,
+            "width": 1,
+            "length": 2,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_MAP_LOCAL_0x0A"
+        }
+    ]
 }

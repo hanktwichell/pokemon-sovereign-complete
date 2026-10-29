@@ -1,0 +1,30 @@
+{
+  "name": "Enigma Stone",
+  "plural": "Enigma Stones",
+  "article": "an",
+  "description": [
+    "A crystal ball that was excavated from\n",
+    "the ground. A very beautiful stone that\n",
+    "is covered with bits of rock and earth."
+  ],
+  "icon": {
+    "sprite": "enigma_stone_NCGR",
+    "palette": "enigma_stone_NCLR"
+  },
+  "gbaID": "GBA_ITEM_NONE",
+  "price": 0,
+  "effectParam": 0,
+  "holdEffect": "HOLD_EFFECT_NONE",
+  "pluckEffect": "PLUCK_EFFECT_NONE",
+  "flingEffect": "FLING_EFFECT_NONE",
+  "flingPower": 0,
+  "naturalGiftPower": 0,
+  "naturalGiftType": null,
+  "preventToss": true,
+  "canRegister": false,
+  "fieldPocket": "POCKET_KEY_ITEMS",
+  "battlePocket": "BATTLE_POCKET_MASK_NONE",
+  "fieldUseFunc": "ITEM_USE_FUNC_NONE",
+  "battleUseCategory": "BATTLE_USE_CATEGORY_NONE",
+  "itemUseParams": null
+}

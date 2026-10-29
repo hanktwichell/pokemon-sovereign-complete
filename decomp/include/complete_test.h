@@ -24,6 +24,17 @@ typedef struct CompleteTestSaveProbe {
 
 extern CompleteTestSaveProbe gCompleteTestSaveProbe;
 
+// The last script command run (src/field_script_context.c), for tools/complete/where_script.py: the script file it is
+// in, its offset there and its opcode, and the function a waiting script waits on.
+typedef struct CompleteTestScriptPos {
+    const u8 *scripts;
+    u32 offset;
+    u32 command;
+    void *waitingOn;
+} CompleteTestScriptPos;
+
+extern CompleteTestScriptPos gCompleteTestScriptPos;
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem);
 
 #endif

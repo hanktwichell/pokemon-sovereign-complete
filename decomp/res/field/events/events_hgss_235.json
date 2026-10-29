@@ -7,7 +7,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": 1,
             "initial_dir": 3,
             "data": [
                 0,
@@ -178,7 +178,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_1",
-            "script": 0,
+            "script": 6,
             "initial_dir": 1,
             "data": [
                 0,
@@ -197,7 +197,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 5,
             "initial_dir": 0,
             "data": [
                 0,
@@ -216,7 +216,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 5,
             "initial_dir": 0,
             "data": [
                 0,
@@ -389,5 +389,36 @@
             "dest_warp_id": 4
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 20,
+            "z": 17,
+            "width": 1,
+            "length": 3,
+            "y": 0,
+            "value": 2,
+            "var": "VAR_HGSS_UNK_40AC"
+        },
+        {
+            "script": 4,
+            "x": 23,
+            "z": 12,
+            "width": 2,
+            "length": 1,
+            "y": 0,
+            "value": 3,
+            "var": "VAR_HGSS_UNK_40AC"
+        },
+        {
+            "script": 8,
+            "x": 50,
+            "z": 4,
+            "width": 1,
+            "length": 2,
+            "y": 0,
+            "value": 5,
+            "var": "VAR_HGSS_UNK_40AC"
+        }
+    ]
 }

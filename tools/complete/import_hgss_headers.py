@@ -14,7 +14,9 @@ Run after tools/complete/import_hgss_maps.py (the land data and areas these name
 
 Values that differ between the games go through the tables below (weather, map type, cameras, battle backgrounds);
 the name popup style and battle backgrounds have the same numbers in both. Until later steps bring them in, the maps
-use Platinum's empty scripts, no wild encounters, and music standing in for HeartGold's by kind (STAND_IN_MUSIC).
+use Platinum's empty scripts (HeartGold's own once tools/complete/translate_hgss_scripts.py --install has translated
+them) and its own text once tools/complete/import_hgss_text.py has brought it in, no wild encounters, and music
+standing in for HeartGold's by kind (STAND_IN_MUSIC).
 
 Each insertion into an engine file sits between "Sovereign Complete: HeartGold map headers" markers, or for the
 order files and location names is found by its own names, so a rerun replaces it.
@@ -108,6 +110,19 @@ def stand_in_music(seq, map_type, night):
     if pair is None:
         pair = STAND_IN_BY_MAP_TYPE.get(map_type, DEFAULT_MUSIC)
     return pair[night] + '_sseq'
+
+
+def translated(hg_file, prefix, otherwise):
+    """The translated script file for a HeartGold one (tools/complete/translate_hgss_scripts.py --install), if any."""
+    name = prefix + re.match(r'scr_seq_(\d{4})', hg_file).group(1)
+    return name if os.path.exists(os.path.join(DECOMP, f'res/field/scripts/{name}.s')) else otherwise
+
+
+def text_bank(hg_bank):
+    """The imported text bank for a HeartGold one (tools/complete/import_hgss_text.py), if any."""
+    number = re.match(r'msg_(\d{4})', hg_bank).group(1)
+    exists = os.path.exists(os.path.join(DECOMP, f'res/text/hgss_msg_{number}.json'))
+    return f'TEXT_BANK_HGSS_MSG_{number}' if exists else PLACEHOLDER_TEXT_BANK
 
 
 def defines(path, prefix):
@@ -256,9 +271,9 @@ def main():
             f'        .areaDataArchiveID = area_data_{AREA_BASE + int(f["areaDataBank"]):03d},',
             '        .preloadedMapObjectsArchiveID = 0x0,',
             f'        .mapMatrixID = {matrix},',
-            '        .scriptsArchiveID = scripts_empty,',
-            '        .initScriptsArchiveID = scripts_init_empty,',
-            f'        .msgArchiveID = {PLACEHOLDER_TEXT_BANK},',
+            f'        .scriptsArchiveID = {translated(f["scriptsBank"], "scripts_hgss_", "scripts_empty")},',
+            f'        .initScriptsArchiveID = {translated(f["scriptHeaderBank"], "scripts_init_hgss_", "scripts_init_empty")},',
+            f'        .msgArchiveID = {text_bank(f["msgBank"])},',
             f'        .dayMusicID = {stand_in_music(f["dayMusicId"], map_type, 0)},',
             f'        .nightMusicID = {stand_in_music(f["nightMusicId"], map_type, 1)},',
             '        .wildEncountersArchiveID = ENCOUNTERS_NONE,',

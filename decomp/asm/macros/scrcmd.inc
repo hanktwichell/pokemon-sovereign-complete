@@ -5516,6 +5516,35 @@
     CallCommonScript 0x809
     .endm
 
+    // Sovereign Complete: commands for HeartGold's scripts (src/complete_scrcmd.c)
+    // HeartGold's GenderMsgBox: the first message for a boy, the second for a girl.
+    .macro MessageGendered messageMale, messageFemale
+    .short SCRCMD_COMPLETEMESSAGEGENDERED
+    .byte \messageMale
+    .byte \messageFemale
+    .endm
+
+    // The following Pokémon in scenes: pause (non-zero) or resume it, wait until it is paused, give it a movement type.
+    .macro CompleteFollowerPause pause
+    .short SCRCMD_COMPLETEFOLLOWERPAUSE
+    .short \pause
+    .endm
+
+    .macro CompleteFollowerWait
+    .short SCRCMD_COMPLETEFOLLOWERWAIT
+    .endm
+
+    .macro CompleteFollowerSetMovementType movementType
+    .short SCRCMD_COMPLETEFOLLOWERSETMOVEMENTTYPE
+    .short \movementType
+    .endm
+
+    // destVarID: whether a Pokémon is following.
+    .macro CompleteFollowerCheckActive destVarID
+    .short SCRCMD_COMPLETEFOLLOWERCHECKACTIVE
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:

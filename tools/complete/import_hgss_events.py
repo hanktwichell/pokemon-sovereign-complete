@@ -15,9 +15,13 @@ as Platinum's, and the names (object IDs, sprites) from its JSON sources. docs/M
   games kept), for HeartGold's own ones the Diamond and Pearl sprite of the same kind, Sovereign's overworld Pokémon,
   or a stand-in (SPRITE_STAND_INS) until HeartGold's sprites come in;
 - signs and hidden items (bg events): kept, same kind and facing;
-- until step 3 brings HeartGold's scripts, every event runs Platinum's do-nothing script 0, trainers are plain people
-  (trainer type none; their sight would start a battle from script 0), and the step-on triggers (coord events) are
-  left out, since each one starts a scripted scene.
+- vars: HeartGold's saved vars (0x4030 on) are named VAR_HGSS_* after HeartGold's, as aliases of VAR_COMPLETE_*;
+- scripts: Cut trees, Rock Smash rocks and Strength boulders run the same scripts in both games (10000-10002). On maps
+  whose scripts are translated (tools/complete/translate_hgss_scripts.py --install), people, signs and step-on
+  triggers (coord events) run their own (HeartGold's numbering, 1 on); elsewhere they run Platinum's do-nothing script
+  0 and the step-on triggers are left out, since each one starts a scripted scene. Trainers are plain people until
+  step 4 (their sight would start a battle from the wrong script), and item balls and hidden items wait for
+  HeartGold's item tables.
 
 Usage: python3 tools/complete/import_hgss_events.py
 """
@@ -35,9 +39,13 @@ from narc import read_narc  # noqa: E402
 COMPLETE_FLAGS_START = 2912  # decomp/include/vars_flags.h
 MARK = 'Sovereign Complete: HeartGold flags (tools/complete/import_hgss_events.py)'
 MARK_END = 'Sovereign Complete: end of HeartGold flags'
+VAR_MARK = 'Sovereign Complete: HeartGold vars (tools/complete/import_hgss_events.py)'
+VAR_MARK_END = 'Sovereign Complete: end of HeartGold vars'
+HG_SAVED_VARS_START = 0x4030  # HeartGold's vars from here on are VAR_COMPLETE_000 on
 HG_MAP_LOCAL_FLAGS = range(1, 65)
 HG_NUM_FLAGS = 2912
 HGSS_HEADER_BASE_NAME = 'MAP_HEADER_HGSS_'
+FIELD_MOVE_SCRIPTS = (10000, 10001, 10002)  # Cut, Rock Smash, Strength: the same scripts in both games
 DYNAMIC = 4095  # "back where the player came from", the same in both games (MAP_HEADER_DYNAMIC)
 SAME_MOVEMENT_TYPES = 47  # MOVEMENT_TYPE_NONE .. MOVEMENT_TYPE_LOOK_WEST_AND_EAST
 OTHER_MOVEMENT = 'MOVEMENT_TYPE_LOOK_SOUTH'
@@ -172,18 +180,42 @@ def main():
                if f.endswith('.json')}
 
     banks = sorted({int(re.fullmatch(r'NARC_zone_event_(\d{3})\w*_bin', f['eventsBank']).group(1)) for _, f in headers})
-    totals = {'bg_events': 0, 'object_events': 0, 'warp_events': 0, 'coords left out': 0}
+    # The events banks whose map's scripts are translated (tools/complete/translate_hgss_scripts.py --install): they
+    # run their own scripts; the rest run script 0 until then.
+    scripted = set()
+    for _, f in headers:
+        number = re.match(r'scr_seq_(\d{4})', f['scriptsBank']).group(1)
+        if os.path.exists(os.path.join(DECOMP, f'res/field/scripts/scripts_hgss_{number}.s')):
+            scripted.add(int(re.fullmatch(r'NARC_zone_event_(\d{3})\w*_bin', f['eventsBank']).group(1)))
+    hg_vars = defines('include/constants/vars.h', 'VAR_')
+    var_names = {}
+    for name, n in sorted(hg_vars.items(), key=lambda item: item[1]):
+        var_names.setdefault(n, name)
+
+    def var(n):
+        if n >= 0x8000:
+            return {0x800C: 'VAR_RESULT', 0x800D: 'VAR_LAST_TALKED'}.get(n, f'VAR_0x{n:04X}')
+        if n < 0x4020:
+            return f'VAR_MAP_LOCAL_0x{n - 0x4000:02X}'
+        if n < HG_SAVED_VARS_START:
+            return f'VAR_OBJ_GFX_ID_{n - 0x4020:X}'
+        return 'VAR_HGSS_' + var_names[n][len('VAR_'):]
+
+    totals = {'bg_events': 0, 'object_events': 0, 'warp_events': 0, 'coord_events': 0, 'coords left out': 0}
     for bank in banks:
         events = parse(archive[bank])
+        own_scripts = bank in scripted
+        script_of = lambda n: n if n in FIELD_MOVE_SCRIPTS or own_scripts and 0 < n < 2000 else 0  # noqa: E731
         source = json.load(open(os.path.join(HG, 'files/fielddata/eventdata/zone_event', sources[bank])))
         source_objects = source.get('objects', [])
         assert len(source_objects) == len(events['objects']), bank
 
-        bg_events = [{'script': 0, 'type': kind, 'x': x, 'z': z, 'y': y, 'player_facing_dir': bg_dirs[direction]}
-                     for _, kind, x, z, y, direction in events['bgs']]
+        bg_events = [{'script': script_of(script), 'type': kind, 'x': x, 'z': z, 'y': y,
+                      'player_facing_dir': bg_dirs[direction]}
+                     for script, kind, x, z, y, direction in events['bgs']]
         object_events, seen_ids = [], set()
         for i, (record, named) in enumerate(zip(events['objects'], source_objects)):
-            local_id, sprite, movement, _, hidden, _, facing, p0, p1, p2, range_x, range_z, x, z, y = record
+            local_id, sprite, movement, _, hidden, script, facing, p0, p1, p2, range_x, range_z, x, z, y = record
             obj = {}
             if local_id == i and named['id'] not in seen_ids:
                 obj['id'] = named['id']
@@ -196,7 +228,7 @@ def main():
                 'movement_type': movement_types[movement] if movement < SAME_MOVEMENT_TYPES else OTHER_MOVEMENT,
                 'trainer_type': 'TRAINER_TYPE_NONE',
                 'hidden_flag': flag(hidden, names, platinum_local),
-                'script': 0,
+                'script': script_of(script),
                 'initial_dir': facing,
                 'data': [p0, p1, p2],
                 'movement_range_x': range_x,
@@ -209,14 +241,19 @@ def main():
         warp_events = [{'x': x, 'z': z, 'dest_header_id': header_names[header] if header != DYNAMIC else 'MAP_HEADER_DYNAMIC',
                         'dest_warp_id': anchor}
                        for x, z, header, anchor, _ in events['warps']]
+        # Step-on triggers start scripted scenes: only where the map's scripts are translated.
+        coord_events = [{'script': script, 'x': x, 'z': z, 'width': width, 'length': length, 'y': y, 'value': value,
+                         'var': var(var_id)}
+                        for script, x, z, width, length, y, value, var_id in events['coords']] if own_scripts else []
         with open(os.path.join(DECOMP, f'res/field/events/events_hgss_{bank:03d}.json'), 'w') as out:
             json.dump({'bg_events': bg_events, 'object_events': object_events, 'warp_events': warp_events,
-                       'coord_events': []}, out, indent=4)
+                       'coord_events': coord_events}, out, indent=4)
             out.write('\n')
         totals['bg_events'] += len(bg_events)
         totals['object_events'] += len(object_events)
         totals['warp_events'] += len(warp_events)
-        totals['coords left out'] += len(events['coords'])
+        totals['coord_events'] += len(coord_events)
+        totals['coords left out'] += len(events['coords']) - len(coord_events)
 
     # HeartGold's flags by name, before VARS_START (which sets its own value, so the numbering after it holds).
     block = [f'{name} = {number}' for number, name in sorted(names.items())]
@@ -227,9 +264,21 @@ def main():
         return text.replace('\nVARS_START = 16384\n', '\n' + body + 'VARS_START = 16384\n', 1)
     edit('generated/vars_flags.txt', change)
 
+    # HeartGold's saved vars by name (0x4030 on are VAR_COMPLETE_000 on), between VARS_END and
+    # SCRIPT_LOCAL_VARS_START, which sets its own value: aliases there leave every number around them as it was.
+    hg_vars = defines('include/constants/vars.h', 'VAR_')
+    var_block = [f'VAR_HGSS_{name[len("VAR_"):]} = VAR_COMPLETE_{n - HG_SAVED_VARS_START:03X}'
+                 for name, n in sorted(hg_vars.items(), key=lambda item: item[1])
+                 if HG_SAVED_VARS_START <= n < HG_SAVED_VARS_START + 0x200]
+    def change_vars(text):
+        text = re.sub(rf'# {re.escape(VAR_MARK)}\n.*?# {re.escape(VAR_MARK_END)}\n', '', text, flags=re.S)
+        body = f'# {VAR_MARK}\n' + ''.join(f'{line}\n' for line in var_block) + f'# {VAR_MARK_END}\n'
+        assert '\nVARS_END\nSCRIPT_LOCAL_VARS_START = 32768\n' in text
+        return text.replace('\nVARS_END\n', '\nVARS_END\n' + body, 1)
+    edit('generated/vars_flags.txt', change_vars)
 
     print(f'{len(banks)} events files: ' + ', '.join(f'{v} {k}' for k, v in totals.items()) +
-          f'; {len(block)} flag names')
+          f'; {len(block)} flag names, {len(var_block)} var names')
     if sprites.unmatched:
         print(f'sprites with the fallback stand-in ({SPRITE_FALLBACK}): ' + ' '.join(sorted(sprites.unmatched)))
 

@@ -2,5 +2,16 @@
     "bg_events": [],
     "object_events": [],
     "warp_events": [],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 20,
+            "z": 21,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_40D9"
+        }
+    ]
 }

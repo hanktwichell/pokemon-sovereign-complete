@@ -230,6 +230,7 @@ Static main
 	Object src/complete_follower.c
 	Object src/complete_test.c
 	Object src/complete_map_info.c
+	Object src/complete_scrcmd.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c

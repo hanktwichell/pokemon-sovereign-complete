@@ -66,7 +66,8 @@ class Maps:
     def __init__(self, decomp):
         self.decomp = decomp
         self.names = [line.split('=')[0].strip()
-                      for line in open(os.path.join(decomp, 'generated', 'maps.txt'), encoding='utf-8') if line.strip()]
+                      for line in open(os.path.join(decomp, 'generated', 'maps.txt'), encoding='utf-8')
+                      if line.strip() and not line.startswith('#')]  # Sovereign Complete: the file has comment lines now
         self.land, self.matrices = {}, {}
 
     def matrix(self, name):

@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 1,
             "type": 1,
             "x": 1367,
             "z": 143,
@@ -138,7 +138,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x10",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -157,7 +157,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x11",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -176,7 +176,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x12",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -195,7 +195,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x13",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -214,7 +214,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x14",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -233,7 +233,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x15",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -252,7 +252,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x16",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,

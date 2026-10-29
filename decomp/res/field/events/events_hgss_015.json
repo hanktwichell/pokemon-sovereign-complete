@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 6,
             "type": 1,
             "x": 1421,
             "z": 185,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 7,
             "type": 1,
             "x": 1422,
             "z": 164,
@@ -32,7 +32,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_10_LT_SURGE",
-            "script": 0,
+            "script": 3,
             "initial_dir": 1,
             "data": [
                 0,
@@ -51,7 +51,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_10_ZAPDOS",
-            "script": 0,
+            "script": 4,
             "initial_dir": 1,
             "data": [
                 0,
@@ -85,5 +85,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 1,
+            "x": 1423,
+            "z": 184,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_UNK_4084"
+        }
+    ]
 }

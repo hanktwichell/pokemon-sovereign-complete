@@ -21,6 +21,7 @@ static const u16 sProbeVars[] = { VAR_COMPLETE_000, VAR_COMPLETE_1FF, VAR_VEILST
 static const u16 sProbeVarValues[] = { 0xC0DE, 0xBEEF };
 
 CompleteTestSaveProbe gCompleteTestSaveProbe;
+CompleteTestScriptPos gCompleteTestScriptPos;
 
 static void SaveProbe(FieldSystem *fieldSystem)
 {

@@ -863,6 +863,12 @@ ScriptCommand(SCRCMD_SOVEREIGNRESTYLEEVENTFORM,                           ScrCmd
 ScriptCommand(SCRCMD_SOVEREIGNGROOMFURFROU,                               ScrCmd_SovereignGroomFurfrou)
 ScriptCommand(SCRCMD_SOVEREIGNSWAPABILITY,                                ScrCmd_SovereignSwapAbility)
 ScriptCommand(SCRCMD_SOVEREIGNVARBIT,                                     ScrCmd_SovereignVarBit)
+// Sovereign Complete: commands for HeartGold's scripts (src/complete_scrcmd.c)
+ScriptCommand(SCRCMD_COMPLETEMESSAGEGENDERED,                             CompleteScrCmd_MessageGendered)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERPAUSE,                               CompleteScrCmd_FollowerPause)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERWAIT,                                CompleteScrCmd_FollowerWait)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERSETMOVEMENTTYPE,                     CompleteScrCmd_FollowerSetMovementType)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERCHECKACTIVE,                         CompleteScrCmd_FollowerCheckActive)
 
 // clang-format on
 

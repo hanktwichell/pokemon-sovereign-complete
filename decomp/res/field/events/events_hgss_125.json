@@ -2,5 +2,16 @@
     "bg_events": [],
     "object_events": [],
     "warp_events": [],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 0,
+            "x": 8,
+            "z": 14,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_MAP_LOCAL_0x01"
+        }
+    ]
 }

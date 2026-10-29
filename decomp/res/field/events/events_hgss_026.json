@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 3,
             "type": 1,
             "x": 1405,
             "z": 38,
@@ -157,7 +157,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
-            "script": 0,
+            "script": 2,
             "initial_dir": 2,
             "data": [
                 0,
@@ -214,7 +214,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_0x10",
-            "script": 0,
+            "script": 10000,
             "initial_dir": 0,
             "data": [
                 0,
@@ -252,7 +252,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_25_SUICUNE",
-            "script": 0,
+            "script": 8,
             "initial_dir": 1,
             "data": [
                 0,
@@ -271,7 +271,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_25_EUSINE",
-            "script": 0,
+            "script": 6,
             "initial_dir": 3,
             "data": [
                 0,
@@ -290,7 +290,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_25_EUSINE_2",
-            "script": 0,
+            "script": 7,
             "initial_dir": 0,
             "data": [
                 0,
@@ -309,7 +309,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_2CD",
-            "script": 0,
+            "script": 10,
             "initial_dir": 3,
             "data": [
                 0,
@@ -331,5 +331,26 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 1,
+            "x": 1418,
+            "z": 40,
+            "width": 1,
+            "length": 3,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_UNK_4088"
+        },
+        {
+            "script": 5,
+            "x": 1418,
+            "z": 40,
+            "width": 1,
+            "length": 3,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_SCENE_ROUTE_25"
+        }
+    ]
 }

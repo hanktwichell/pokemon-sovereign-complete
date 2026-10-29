@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_1_FALLEN",
-            "script": 0,
+            "script": 3,
             "initial_dir": 0,
             "data": [
                 0,
@@ -35,7 +35,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_2_FALLEN",
-            "script": 0,
+            "script": 3,
             "initial_dir": 0,
             "data": [
                 0,
@@ -54,7 +54,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_3_FALLEN",
-            "script": 0,
+            "script": 3,
             "initial_dir": 0,
             "data": [
                 0,
@@ -73,7 +73,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_4_FALLEN",
-            "script": 0,
+            "script": 3,
             "initial_dir": 0,
             "data": [
                 0,

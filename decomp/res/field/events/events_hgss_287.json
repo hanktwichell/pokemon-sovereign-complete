@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 1,
             "type": 0,
             "x": 6,
             "z": 6,
@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_OPENED_ALPH_WATER_STONE_SECRET_ROOM",
-            "script": 0,
+            "script": 2,
             "initial_dir": 0,
             "data": [
                 0,
@@ -63,5 +63,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 4,
+            "x": 6,
+            "z": 7,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 1,
+            "var": "VAR_HGSS_UNK_40DF"
+        }
+    ]
 }
