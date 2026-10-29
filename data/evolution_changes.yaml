@@ -1,0 +1,106 @@
+# Sovereign Platinum — evolution methods for ADDED species that the Gen IV engine can't run as-is.
+# Rendered to docs/EvolutionChanges_Sovereign.md by tools/design/gen_evolution_doc.py, which checks
+# that every species flagged gen4_engine_compatible=0 in data/species.csv is covered.
+#
+# Gen IV evolution methods available (Platinum): level, friendship (any/day/night), stone/item use,
+# held item (day/night), knows move, species in party, male/female level, Atk/Def comparison,
+# beauty, and three special locations (Mt. Coronet, Moss Rock, Ice Rock).
+# Precedents from Renegade Platinum: trade evolutions -> Level 36; trade-holding-item -> "use item".
+# Owner, 2026-10-22: trade evolutions keep Renegade's system (decision 19 in docs/ProjectStatus.md). Special evolutions
+# (Gholdengo, Malamar and others the engine can't check) will be discussed later (decision 20); the methods below
+# stand until then.
+#
+# evolutions: the entries tools/engine/gen_new_species.py writes, when the method needs more than one (Urshifu).
+# new_items: items that must be added to the item table. All are sold by Renegade's Snowpoint City
+# evolution-item seller ($10,000 each) unless "where" says otherwise.
+
+changes:
+  - {species: Gigalith,     from: Boldore,   method: Level 36, why: "Trade evolution (Renegade precedent)"}
+  - {species: Conkeldurr,   from: Gurdurr,   method: Level 36, why: "Trade evolution (Renegade precedent)"}
+  - {species: Trevenant,    from: Phantump,  method: Level 36, why: "Trade evolution (Renegade precedent)"}
+  - {species: Gourgeist,    from: Pumpkaboo, method: Level 36, why: "Trade evolution (Renegade precedent)"}
+  - {species: Escavalier,   from: Karrablast, method: Level up with Shelmet in the party, why: "Uses Gen IV's party-species method (as Mantyke/Remoraid)"}
+  - {species: Accelgor,     from: Shelmet,   method: Level up with Karrablast in the party, why: "Uses Gen IV's party-species method"}
+  - {species: Aromatisse,   from: Spritzee,  method: Use Sachet, new_items: [Sachet], why: "Trade-holding-item (Renegade precedent)"}
+  - {species: Slurpuff,     from: Swirlix,   method: Use Whipped Dream, new_items: [Whipped Dream], why: "Trade-holding-item (Renegade precedent)"}
+  - {species: Pangoro,      from: Pancham,   method: Level 32, why: "No 'Dark-type in party' method in Gen IV"}
+  - {species: Malamar,      from: Inkay,     method: Level 30, why: "Can't detect an upside-down console"}
+  - {species: Tyrantrum,    from: Tyrunt,    method: Level 39, why: "Gen IV can't combine plain levelling with time of day"}
+  - {species: Aurorus,      from: Amaura,    method: Level 39, why: "Gen IV can't combine plain levelling with time of day"}
+  - {species: Sylveon,      from: Eevee,     method: Level up knowing Charm, why: "Gen IV has 'knows move' but not 'knows a move of type'; Charm is Fairy-type in Renegade. It comes before Espeon's and Umbreon's friendship, as in Sword and Shield, so a friendly Eevee that knows Charm becomes Sylveon."}
+  - {species: Goodra,       from: Sliggoo,   method: Level 50, why: "No overworld-rain check in Gen IV"}
+  - {species: Gumshoos,     from: Yungoos,   method: Level 20, why: "Time of day dropped"}
+  - {species: Lurantis,     from: Fomantis,  method: Level 34, why: "Time of day dropped"}
+  - {species: Houndstone,   from: Greavard,  method: Level 30, why: "Time of day dropped"}
+  - {species: Lycanroc,     from: Rockruff,  method: "Level 25 (Midday Form by day, Midnight Form at night; Dusk Form needs a form-change hook — Midday until then)", why: "Form chosen by time of day needs a small engine hook"}
+  - {species: Toxtricity,   from: Toxel,     method: "Level 30 (Amped Form; Low Key Form by nature once a form hook exists)", why: "Nature-dependent form needs an engine hook"}
+  - {species: Obstagoon,    from: Linoone,   method: Level up holding a Razor Claw at night, why: "The base form's route, set before Galarian Linoone was in the game (Galarian Linoone: see regional_forms); uses Gen IV's held-item-at-night method"}
+  - {species: Perrserker,   from: Meowth,    method: Use Metal Coat, why: "The base form's route, set before Galarian Meowth was in the game (Galarian Meowth: see regional_forms); Meowth still becomes Persian at Lv. 28"}
+  - {species: Cursola,      from: Corsola,   method: Use Dusk Stone, why: "The base form's route, set before Galarian Corsola was in the game (Galarian Corsola: see regional_forms)"}
+  - {species: Sirfetch’d,   from: Farfetch’d, method: Level 40, why: "Can't count critical hits; the base form's route, set before Galarian Farfetch'd was in the game (Galarian Farfetch'd: see regional_forms). Renegade's Farfetch'd is already Fighting/Flying, which suits Sirfetch'd"}
+  - {species: Mr. Rime,     from: Mr. Mime,  method: Level 42, why: "The base form's route, set before Galarian Mr. Mime was in the game (Galarian Mr. Mime: see regional_forms); Gen VIII level kept"}
+  - {species: Runerigus,    from: Yamask,    method: Use Dusk Stone, why: "The base form's route, set before Galarian Yamask was in the game (Galarian Yamask: see regional_forms); Yamask still becomes Cofagrigus at Lv. 34"}
+  - {species: Clodsire,     from: Wooper,    method: Use Dusk Stone, why: "The base form's route, set before Paldean Wooper was in the game (Paldean Wooper: see regional_forms); Wooper still becomes Quagsire at Lv. 20"}
+  - {species: Sneasler,     from: Sneasel,   method: Level up holding a Razor Claw by day, why: "The base form's route, set before Hisuian Sneasel was in the game (Hisuian Sneasel: see regional_forms); Weavile stays Razor Claw at night"}
+  - {species: Overqwil,     from: Qwilfish,  method: Level up knowing Pin Missile, why: "Barb Barrage isn't in the engine; the base form's route, set before Hisuian Qwilfish was in the game (Hisuian Qwilfish: see regional_forms)"}
+  - {species: Basculegion,  from: Basculin,  method: "Level 36 (male → Male Form, female → Female Form)", why: "Can't count recoil damage; the base form's route, set before White-Striped Basculin was in the game (White-Striped Basculin: see regional_forms)"}
+  - {species: Wyrdeer,      from: Stantler,  method: Level up knowing Zen Headbutt, why: "Psyshield Bash isn't in the engine"}
+  - {species: Kleavor,      from: Scyther,   method: Use Black Augurite, new_items: [Black Augurite], why: "Item kept; Scyther still becomes Scizor with a Metal Coat"}
+  - {species: Ursaluna,     from: Ursaring,  method: Use Peat Block, new_items: [Peat Block], why: "Full-moon condition dropped"}
+  - {species: Annihilape,   from: Primeape,  method: Level 50, why: "Rage Fist isn't in the engine"}
+  - {species: Farigiraf,    from: Girafarig, method: Level up knowing Psychic, why: "Twin Beam isn't in the engine"}
+  - {species: Dudunsparce,  from: Dunsparce, method: Level up knowing Drill Run, why: "Hyper Drill isn't in the engine; Drill Run was added by Renegade"}
+  - {species: Kingambit,    from: Bisharp,   method: Use Leader's Crest, new_items: [Leader's Crest], why: "Can't count defeated Bisharp"}
+  - {species: Gholdengo,    from: Gimmighoul, method: Level 40, why: "No coin collection mechanic"}
+  - {species: Pawmot,       from: Pawmo,     method: Level 40, why: "No Let's Go step counter"}
+  - {species: Brambleghast, from: Bramblin,  method: Level 40, why: "No Let's Go step counter"}
+  - {species: Rabsca,       from: Rellor,    method: Level 35, why: "No Let's Go step counter"}
+  - {species: Palafin,      from: Finizen,   method: Level 38, why: "Union Circle (multiplayer) requirement dropped"}
+  - {species: Maushold,     from: Tandemaus, method: Level 25, why: "In-battle level-up requirement dropped"}
+  - {species: Flapple,      from: Applin,    method: Use Tart Apple, new_items: [Tart Apple], why: "New item"}
+  - {species: Appletun,     from: Applin,    method: Use Sweet Apple, new_items: [Sweet Apple], why: "New item"}
+  - {species: Dipplin,      from: Applin,    method: Use Syrupy Apple, new_items: [Syrupy Apple], why: "New item"}
+  - {species: Hydrapple,    from: Dipplin,   method: Level up knowing Dragon Pulse, why: "Dragon Cheer isn't in the engine"}
+  - {species: Polteageist,  from: Sinistea,  method: Use Cracked Pot, new_items: [Cracked Pot], why: "New item (Chipped Pot form not needed: Antique/Phony forms are cosmetic)"}
+  - {species: Sinistcha,    from: Poltchageist, method: Use Unremarkable Teacup, new_items: [Unremarkable Teacup], why: "New item (Masterpiece form is cosmetic)"}
+  - {species: Alcremie,     from: Milcery,   method: Use Strawberry Sweet, new_items: [Strawberry Sweet], why: "Can't detect spinning; other sweets/forms are cosmetic and can come later"}
+  - {species: Armarouge,    from: Charcadet, method: Use Auspicious Armor, new_items: [Auspicious Armor], why: "New item"}
+  - {species: Ceruledge,    from: Charcadet, method: Use Malicious Armor, new_items: [Malicious Armor], why: "New item"}
+  - {species: Archaludon,   from: Duraludon, method: Use Metal Alloy, new_items: [Metal Alloy], why: "New item"}
+  - {species: Melmetal,     from: Meltan,    method: "Not an evolution — Melmetal is given by its own post-game event", why: "No Meltan Candy / GO link"}
+  - {species: Urshifu,      from: Kubfu,     method: "Use Scroll of Darkness (Single Strike) / Scroll of Waters (Rapid Strike)", new_items: [Scroll of Darkness, Scroll of Waters], where: "Kubfu's post-game event", why: "Tower challenge replaced by the scrolls",
+     evolutions: [[EVO_USE_ITEM, ITEM_SCROLL_OF_DARKNESS, SPECIES_URSHIFU], [EVO_USE_ITEM, ITEM_SCROLL_OF_WATERS, SPECIES_URSHIFU]]}
+
+# Legendary evolutions that need a decision even though PokeAPI lists them as plain levels.
+extra:
+  - {species: Solgaleo, from: Cosmoem, method: Use Sun Stone, why: "Sun/Moon split by version; Sovereign has one version"}
+  - {species: Lunala,   from: Cosmoem, method: Use Moon Stone, why: "Sun/Moon split by version; Sovereign has one version"}
+
+# Regional forms (milestone FM). A regional form evolves like its base species, keeping its region (Alolan Rattata →
+# Alolan Raticate), except for the forms below, which get their official method where Platinum has one and otherwise
+# the method Sovereign already gives the base species. tools/engine/gen_forms.py writes these into the forms' data.
+# The base species keep their own Sovereign routes to the regional-only species above (Meowth still becomes
+# Perrserker with a Metal Coat) until the owner says otherwise.
+regional_forms:
+  - {form: vulpix-alola,    evolutions: [[EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_NINETALES]], method: Use Ice Stone, why: Official}
+  - {form: sandshrew-alola, evolutions: [[EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_SANDSLASH]], method: Use Ice Stone, why: Official}
+  - {form: meowth-alola,    evolutions: [[EVO_LEVEL, 28, SPECIES_PERSIAN]], method: "Level 28 (Alolan Persian)", why: "Renegade's level for Meowth (official: friendship); no Perrserker"}
+  - {form: meowth-galar,    evolutions: [[EVO_LEVEL, 28, SPECIES_PERRSERKER]], method: Level 28 (Perrserker), why: Official}
+  - {form: slowpoke-galar,  evolutions: [[EVO_USE_ITEM, ITEM_GALARICA_CUFF, SPECIES_SLOWBRO], [EVO_USE_ITEM, ITEM_GALARICA_WREATH, SPECIES_SLOWKING]], method: Use Galarica Cuff / Galarica Wreath, why: Official}
+  - {form: corsola-galar,   evolutions: [[EVO_LEVEL, 38, SPECIES_CURSOLA]], method: Level 38 (Cursola), why: Official}
+  - {form: darumaka-galar,  evolutions: [[EVO_USE_ITEM, ITEM_ICE_STONE, SPECIES_DARMANITAN]], method: Use Ice Stone, why: Official}
+  - {form: yamask-galar,    evolutions: [[EVO_LEVEL, 34, SPECIES_RUNERIGUS]], method: Level 34 (Runerigus), why: "Can't count HP lost; Yamask's own level, so it never becomes Cofagrigus"}
+  - {form: voltorb-hisui,   evolutions: [[EVO_USE_ITEM, ITEM_LEAF_STONE, SPECIES_ELECTRODE]], method: Use Leaf Stone, why: Official}
+  - {form: sneasel-hisui,   evolutions: [[EVO_LEVEL_WITH_HELD_ITEM_DAY, ITEM_RAZOR_CLAW, SPECIES_SNEASLER]], method: Level up holding a Razor Claw by day (Sneasler), why: Official}
+  - {form: wooper-paldea,   evolutions: [[EVO_LEVEL, 20, SPECIES_CLODSIRE]], method: Level 20 (Clodsire), why: Official}
+
+# Item evolutions into a form (milestone FM): the item used decides the evolved form (Pokemon_SovereignSetEvolvedSpecies
+# in src/pokemon.c). The evolution itself is in the change list above. tools/engine/gen_forms.py writes the table.
+item_evolution_forms:
+  - {from: SPECIES_KUBFU, item: ITEM_SCROLL_OF_WATERS, form: urshifu-rapid-strike}
+
+# Species found only through a regional form: their Eggs hatch into that form (Perrserker: Galarian Meowth), as in
+# the official games. Every other regional form passes its region's form to its Eggs.
+regional_parents: {perrserker: meowth-galar, sirfetchd: farfetchd-galar, mr-rime: mr-mime-galar, cursola: corsola-galar,
+                   obstagoon: zigzagoon-galar, runerigus: yamask-galar, sneasler: sneasel-hisui, overqwil: qwilfish-hisui,
+                   clodsire: wooper-paldea, basculegion: basculin-white-striped}

@@ -1,0 +1,47 @@
+# Sovereign rare wild encounters (decision 28, owner 2026-10-23): the Ultra Beasts aren't static encounters. Each is a
+# rare wild Pokémon on the maps below, once its gate is met. The Paradox Pokémon were here too until the owner moved
+# them to the Oreburgh Mining Museum's two dealers (2026-10-24, docs/PostgameLegendaries.md).
+#
+# Rendered by tools/engine/gen_rare_wild.py into decomp/include/data/sovereign_rare_wild.h (read by
+# decomp/src/overlay006/wild_encounters.c) and docs/RareWildEncounters.md.
+#
+# - rate: the percent of a map's wild encounters (of that terrain) that are this Pokémon. Several entries on one map
+#   share a single roll, so their rates add up.
+# - terrain: land (tall grass and cave floors) or surf.
+# - level: one level, or [min, max].
+# - hint: what the Legend Archivist says about where it's seen (also the doc's "Where" column).
+# Rolls are skipped in Poké Radar patches, with a partner and in the Safari Game. They can be met again after a catch.
+
+gates:
+  ultra:
+    text: Necrozma is caught
+    caught: NECROZMA
+
+encounters:
+  # ---------------------------------------------------------------- Ultra Beasts (the maps they stood on)
+  - {species: NIHILEGO, gate: ultra, rate: 2, terrain: land, level: 65, maps: [IRON_ISLAND_B3F],
+     hint: "on the lowest floor of Iron Island"}
+  - {species: BUZZWOLE, gate: ultra, rate: 2, terrain: land, level: 65, maps: [ROUTE_225],
+     hint: "in the grass of Route 225"}
+  - {species: PHEROMOSA, gate: ultra, rate: 2, terrain: land, level: 65, maps: [ROUTE_229],
+     hint: "in the grass of Route 229"}
+  - {species: XURKITREE, gate: ultra, rate: 2, terrain: land, level: 65, maps: [ROUTE_222],
+     hint: "along the power lines of Route 222"}
+  - {species: CELESTEELA, gate: ultra, rate: 2, terrain: land, level: 65, maps: [MT_CORONET_OUTSIDE_NORTH],
+     hint: "high on the snowy slopes of Mt. Coronet"}
+  - {species: KARTANA, gate: ultra, rate: 2, terrain: land, level: 65, maps: [ETERNA_FOREST],
+     hint: "in Eterna Forest"}
+  - {species: GUZZLORD, gate: ultra, rate: 2, terrain: land, level: 65,
+     maps: [TURNBACK_CAVE_PILLAR_1_ROOM_1, TURNBACK_CAVE_PILLAR_1_ROOM_2, TURNBACK_CAVE_PILLAR_1_ROOM_3,
+            TURNBACK_CAVE_PILLAR_1_ROOM_4, TURNBACK_CAVE_PILLAR_1_ROOM_5, TURNBACK_CAVE_PILLAR_1_ROOM_6,
+            TURNBACK_CAVE_PILLAR_2_ROOM_1, TURNBACK_CAVE_PILLAR_2_ROOM_2, TURNBACK_CAVE_PILLAR_2_ROOM_3,
+            TURNBACK_CAVE_PILLAR_2_ROOM_4, TURNBACK_CAVE_PILLAR_2_ROOM_5, TURNBACK_CAVE_PILLAR_2_ROOM_6,
+            TURNBACK_CAVE_PILLAR_3_ROOM_1, TURNBACK_CAVE_PILLAR_3_ROOM_2, TURNBACK_CAVE_PILLAR_3_ROOM_3,
+            TURNBACK_CAVE_PILLAR_3_ROOM_4, TURNBACK_CAVE_PILLAR_3_ROOM_5],
+     hint: "in the rooms of Turnback Cave"}
+  - {species: STAKATAKA, gate: ultra, rate: 2, terrain: land, level: 65, maps: [ROUTE_227],
+     hint: "on Route 227"}
+  - {species: BLACEPHALON, gate: ultra, rate: 2, terrain: land, level: 65, maps: [STARK_MOUNTAIN_OUTSIDE],
+     hint: "outside Stark Mountain"}
+  - {species: POIPOLE, gate: ultra, rate: 2, terrain: land, level: 40, maps: [ROUTE_230],
+     hint: "in the grass of Route 230, east of the Fight Area"}

@@ -1,0 +1,66 @@
+# Sovereign Platinum — where every Mega Stone / Primal orb comes from.
+# Rendered into docs/MegaEvolution.md by tools/design/gen_mega_doc.py, which also checks that
+# every trigger item in data/megas.csv has exactly one source.
+#
+# field: overworld item balls that replace a low-value pickup (Potion-tier healing, status heals,
+#        Poké/Great Balls, Repels, Escape Ropes, X items). TMs, evolution stones, held items and
+#        other meaningful items are never replaced. "script" is the vanilla pokeplatinum script
+#        name (res/field/scripts/scripts_visible_items.s). "replaces" is Renegade's item there (its
+#        item balls come from its ROM, tools/engine/import_renegade_items.py); every spot is checked
+#        to be low-value in Renegade too.
+
+key_item:
+  name: Mega Ring
+  source: Leader Fantina, Hearthome Gym — given together with the Relic Badge.
+  unlocks: Mega Evolution in battle (flag FLAG_SOVEREIGN_MEGA_UNLOCKED).
+
+field:
+  - {stone: Alakazite,     replaces: Parlyz Heal,   location: Route 204 (South),        script: VisibleItems_Route204South_ParlyzHeal, why: next to Route 203, where Abra lives (Renegade's Route 203 ball holds a Silk Scarf)}
+  - {stone: Aggronite,     replaces: Escape Rope,   location: Oreburgh Mine B2F,        script: VisibleItems_OreburghMineB2F_EscapeRope, why: Aron lives in Oreburgh Mine}
+  - {stone: Lopunnite,     replaces: Potion,        location: Eterna Forest,            script: VisibleItems_EternaForest_Potion,      why: Buneary lives in Eterna Forest}
+  - {stone: Sablenite,     replaces: Escape Rope,   location: Mt. Coronet 1F (Route 211 side), script: VisibleItems_MtCoronet1FNorthRoom1_EscapeRope, why: a cave reached soon after Jupiter's Mega Sableye (Renegade's Wayward Cave balls are all valuable)}
+  - {stone: Tyranitarite,  replaces: Super Potion,  location: Route 207,                script: VisibleItems_Route207_SuperPotion,     why: Larvitar lives on Route 207}
+  - {stone: Gardevoirite,  replaces: Ether,         location: Route 208,                script: VisibleItems_Route208_Ether,           why: Ralts line is common early}
+  - {stone: Banettite,     replaces: Hyper Potion,  location: Route 209,                script: VisibleItems_Route209_HyperPotion,     why: next to the Lost Tower}
+  - {stone: Pinsirite,     replaces: Hyper Potion,  location: Route 210 (South),        script: VisibleItems_Route210South_HyperPotion, why: Pinsir lives on Route 210}
+  - {stone: Absolite,      replaces: Full Heal,     location: Route 215,                script: VisibleItems_Route215_FullHeal,        why: Absol lives on Route 215}
+  - {stone: Kangaskhanite, replaces: Poké Ball,     location: Great Marsh (Area 4),     script: VisibleItems_GreatMarsh4_PokeBall,     why: Kangaskhan lives in the Great Marsh}
+  - {stone: Swampertite,   replaces: Hyper Potion,  location: Route 212 (South),        script: VisibleItems_Route212South_HyperPotion, why: rainy marsh route for a Water/Ground Mega}
+  - {stone: Abomasite,     replaces: Max Potion,    location: Route 216,                script: VisibleItems_Route216_MaxPotion,       why: Snover lives on Route 216}
+  - {stone: Glalitite,     replaces: Ultra Ball,    location: Snowpoint City,           script: VisibleItems_SnowpointCity_UltraBall,  why: Snorunt line lives around Snowpoint (Renegade's temple ball holds an Ice Stone)}
+  - {stone: Garchompite,   replaces: Max Repel,     location: Victory Road 1F,          script: VisibleItems_VictoryRoad1F_MaxRepel,   why: Gible/Gabite live in Victory Road}
+  - {stone: Heatranite,    replaces: Full Heal,     location: Stark Mountain (Room 1),  script: VisibleItems_StarkMountainRoom1_FullHeal, why: Heatran's home; post-game}
+
+vendors:
+  - name: Mega Stone Collector (Hearthome)
+    location: Hearthome City — Bebe's house, next to the Pokémon Center (new NPC)
+    unlock: after the Relic Badge (Fantina)
+    price: 10000
+    stock: [Venusaurite, Charizardite X, Charizardite Y, Blastoisinite, Beedrillite, Pidgeotite, Ampharosite,
+            Houndoominite, Manectite, Lucarionite, Medichamite, Cameruptite, Altarianite, Audinite, Slowbronite,
+            Clefablite, Victreebelite, Meganiumite, Chesnaughtite, Pyroarite, Floettite, Chimechite, Staraptite,
+            Golurkite, Meowsticite, Scraftinite, Excadrite, Glimmoranite, Raichunite X]
+  - name: Mega Stone Trader (Pastoria)
+    location: Pastoria City — northeast house, near the Great Marsh gate (new NPC)
+    unlock: after the Fen Badge (Wake)
+    price: 10000
+    stock: [Blazikenite, Sceptilite, Gengarite, Heracronite, Galladite, Feraligite, Emboarite, Delphoxite,
+            Greninjite, Sharpedonite, Gyaradosite, Scizorite, Mawilite, Steelixite, Starminite, Barbaracite,
+            Dragalgite, Scolipite, Eelektrossite, Chandelurite, Malamarite, Hawluchanite, Skarmorite, Crabominite,
+            Golisopite, Scovillainite, Raichunite Y, Aerodactylite, Drampanite, Falinksite]
+  - name: Mega Stone Sage (Snowpoint)
+    location: Snowpoint City — west house, which Renegade gives its evolution-item seller (new NPC)
+    unlock: after the Icicle Badge (Candice)
+    price: 10000
+    stock: [Froslassite, Salamencite, Metagrossite, Dragoninite, Baxcalibrite, Tatsugirinite, Absolite Z, Lucarionite Z]
+  - name: Mega Stone Curator (Survival Area)
+    location: Survival Area — south house, left of the Pokémon Center (new NPC)
+    unlock: after becoming Champion
+    price: 30000
+    stock: [Mewtwonite X, Mewtwonite Y, Latiasite, Latiosite, Diancite, Zygardite, Darkranite, Magearnite,
+            Zeraorite, Garchompite Z]
+
+events:
+  - {item: Red Orb, source: "Steven, Oreburgh City's south house, for showing him Regirock, Regice and Registeel (Renegade's quest; it calls Groudon)."}
+  - {item: Blue Orb, source: "Steven, Oreburgh City's south house, for showing him Regirock, Regice and Registeel (Renegade's quest; it calls Kyogre)."}
+  - {item: "Dragon Ascent (move; no stone)", source: "Move tutor in the Route 212 tutor house teaches Dragon Ascent to Rayquaza after it is caught. Mega Rayquaza needs Dragon Ascent and no held stone."}

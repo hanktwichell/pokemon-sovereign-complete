@@ -3,12 +3,16 @@
 *.NDS
 *.sav
 *.dsv
+*.srm
 *.ds[0-9]
 *.mst
 
-# Build output
-build/
+# Build output and local caches (HeartGold source, Sacred Gold, Sovereign checkout)
+/build/
 build_test/
+.cache/
 
-# OS clutter
+# OS / editor noise
 .DS_Store
+__pycache__/
+*.pyc
