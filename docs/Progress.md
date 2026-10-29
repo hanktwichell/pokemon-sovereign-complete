@@ -233,7 +233,8 @@ Johto and Kanto now follow Drayano's Sacred Gold, read from its ROM (`docs/Sacre
   Gold's trade items used from the bag (`docs/Roadmap.md`).
 - About 60 more HeartGold script commands turned out to be Platinum's under other names; 97.1% of Sacred Gold's
   83,001 script lines translate. HeartGold's standard menus (108) showed Platinum's menu strings at HeartGold's
-  numbers; they now read HeartGold's own menu strings (`CompleteInitHGSSMenu`).
+  numbers; they now read HeartGold's own menu strings (`CompleteInitHGSSMenu`). The department store, Radio Tower,
+  lighthouse and Silph Co. elevators translate too, with HeartGold's floor numbers and names (97.2%).
 
 New tests: `tools/complete/test_hgss_hidden_items.py` (each hidden item found once and only once) and
 `tools/complete/test_hgss_encounters.py` (each map's wild Pokémon match its table at 6:00, 12:00 and 22:00). The

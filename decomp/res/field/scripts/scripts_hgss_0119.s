@@ -539,7 +539,7 @@ _0773:
     Call _08B7
     SetVarFromValue VAR_HGSS_SCENE_SAFARI_ZONE_ENTRANCE, 1
     @ HGSS: SafariZoneAction 0, 0
-    @ HGSS: SetDynamicWarp MAP_SAFARI_ZONE_ENTRANCE_INTERIOR, 1, 5, 2, 1
+    SetSpecialLocation MAP_HEADER_HGSS_SAFARI_ZONE_ENTRANCE_INTERIOR, 1, 5, 2, 1
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -894,7 +894,7 @@ _0CCC:
     Call _08B7
     SetVarFromValue VAR_HGSS_SCENE_SAFARI_ZONE_ENTRANCE, 3
     @ HGSS: SafariZoneAction 0, 1
-    @ HGSS: SetDynamicWarp MAP_SAFARI_ZONE_ENTRANCE_INTERIOR, 2, 19, 2, 1
+    SetSpecialLocation MAP_HEADER_HGSS_SAFARI_ZONE_ENTRANCE_INTERIOR, 2, 19, 2, 1
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen

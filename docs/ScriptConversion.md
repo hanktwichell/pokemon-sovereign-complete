@@ -40,7 +40,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.1% of 83,001 lines. Besides trainers, gifts, trades and marts,
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.2% of 83,001 lines. Besides trainers, gifts, trades and marts,
   about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
   code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
   (friendship, ribbons, which are numbered alike, moves, egg counts), fossils, the National Dex, the starter, the
@@ -50,6 +50,11 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   bank 191), and they number past 255. `CompleteInitHGSSMenu` (`src/complete_scrcmd.c`) is Platinum's global text
   menu reading that bank, and the entries are added with the 16-bit `AddMenuEntry`. Until now these menus showed
   Platinum's menu strings at HeartGold's numbers.
+- Elevators (Goldenrod's and Celadon's department stores, the Radio Tower, Olivine's lighthouse, Silph Co., Celadon's
+  condominiums): HeartGold's dynamic warp is Platinum's special location, and its floor window and elevator
+  animation are Platinum's. HeartGold counts floors from the bottom and has a 6F, Platinum counts the floors above and
+  stops at 5F, so `CompleteGetElevatorFloor` (HeartGold's floor table) and `CompleteBufferFloorName` (its floor names)
+  keep HeartGold's scripts as they are.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
   clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
 - Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's

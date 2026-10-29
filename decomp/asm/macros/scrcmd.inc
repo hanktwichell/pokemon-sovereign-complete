@@ -5567,6 +5567,18 @@
     .short \selectedOptionVar
     .endm
 
+    // HeartGold's elevators: the floor of the last stop counted from the bottom, and a floor's name (0 is B1F, to 6F).
+    .macro CompleteGetElevatorFloor destVarID
+    .short SCRCMD_COMPLETEGETELEVATORFLOOR
+    .short \destVarID
+    .endm
+
+    .macro CompleteBufferFloorName templateArg, floor
+    .short SCRCMD_COMPLETEBUFFERFLOORNAME
+    .byte \templateArg
+    .byte \floor
+    .endm
+
     .text
     .globl _start
 _start:

@@ -9,7 +9,7 @@ scr_seq_T07R0107_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR
     CompareVar VAR_0x8008, 5
     GoToIf 1, _0068
@@ -25,25 +25,25 @@ scr_seq_T07R0107_000:
     GoToIf 1, _009A
     End
 _0068:
-    @ HGSS: BufferDeptStoreFloorNo 0, 6
+    CompleteBufferFloorName 0, 6
     GoTo _00A4
 _0072:
-    @ HGSS: BufferDeptStoreFloorNo 0, 5
+    CompleteBufferFloorName 0, 5
     GoTo _00A4
 _007C:
-    @ HGSS: BufferDeptStoreFloorNo 0, 4
+    CompleteBufferFloorName 0, 4
     GoTo _00A4
 _0086:
-    @ HGSS: BufferDeptStoreFloorNo 0, 3
+    CompleteBufferFloorName 0, 3
     GoTo _00A4
 _0090:
-    @ HGSS: BufferDeptStoreFloorNo 0, 2
+    CompleteBufferFloorName 0, 2
     GoTo _00A4
 _009A:
-    @ HGSS: BufferDeptStoreFloorNo 0, 1
+    CompleteBufferFloorName 0, 1
     GoTo _00A4
 _00A4:
-    @ HGSS: ElevatorCurFloorBox 20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR
+    ShowCurrentFloor 20, 1, VAR_HGSS_ELEVATOR_LAST_FLOOR
     Message msg_0500_T07R0107_00000
     CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
     AddMenuEntry 121, 6
@@ -70,8 +70,8 @@ _00A4:
     GoTo _06DE
 _014F:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_DEPARTMENT_STORE_1F, 2, 5, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_1F, 2, 5, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 0
     GoToIf 1, _06C7
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 0
@@ -107,8 +107,8 @@ _0203:
     GoTo _0627
 _0215:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_DEPARTMENT_STORE_2F, 2, 19, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_2F, 2, 19, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 1
     GoToIf 1, _06C7
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 1
@@ -144,8 +144,8 @@ _02C9:
     GoTo _0627
 _02DB:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_DEPARTMENT_STORE_3F, 2, 19, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_3F, 2, 19, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 2
     GoToIf 1, _06C7
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 2
@@ -181,8 +181,8 @@ _038F:
     GoTo _0627
 _03A1:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_DEPARTMENT_STORE_4F, 2, 19, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_4F, 2, 19, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 3
     GoToIf 1, _06C7
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 3
@@ -218,8 +218,8 @@ _0455:
     GoTo _0627
 _0467:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_DEPARTMENT_STORE_5F, 2, 19, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_5F, 2, 19, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 4
     GoToIf 1, _06C7
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 4
@@ -255,8 +255,8 @@ _051B:
     GoTo _0627
 _052D:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_DEPARTMENT_STORE_ROOF, 1, 19, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_ROOF, 1, 19, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 5
     GoToIf 1, _06C7
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 5
@@ -304,7 +304,7 @@ _0609:
     ApplyMovement obj_T07R0107_gswoman6, _06F8
     WaitMovement
     WaitSE SE_CONFIRM_sseq_3
-    @ HGSS: ElevatorAnim VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    PlayElevatorAnimation VAR_0x8004, VAR_0x8005
     Return
 _0627:
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR

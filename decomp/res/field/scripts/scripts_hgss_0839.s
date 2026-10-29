@@ -29,7 +29,7 @@ scr_seq_T11R0703_000:
     ApplyMovement LOCALID_PLAYER, _0154
     WaitMovement
 _0066:
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR
     CompareVar VAR_0x8008, 1
     GoToIf 1, _008C
@@ -58,7 +58,7 @@ _00C0:
     End
 _00F4:
     WaitSE SE_CONFIRM_sseq_3
-    @ HGSS: ElevatorAnim VAR_SPECIAL_x8004, 1
+    PlayElevatorAnimation VAR_0x8004, 1
 _00FE:
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -121,7 +121,7 @@ _018C:
 _01C5:
     Message msg_0539_T11R0703_00001
     CloseMessage
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR
     CompareVar VAR_0x8008, 1
     GoToIf 1, _01F0

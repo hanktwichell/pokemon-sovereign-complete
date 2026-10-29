@@ -109,7 +109,7 @@ _01A1:
     @ HGSS: ScrCmd_160
     ReturnToField
     Call _0BDA
-    @ HGSS: NonNPCMsg msg_0738_UNION_00016
+    MessageInstant msg_0738_UNION_00016
     GoTo _00D2
     End
 _01ED:

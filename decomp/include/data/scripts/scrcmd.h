@@ -872,6 +872,8 @@ ScriptCommand(SCRCMD_COMPLETEFOLLOWERCHECKACTIVE,                         Comple
 ScriptCommand(SCRCMD_COMPLETEGETBATTLERESULT,                            CompleteScrCmd_GetBattleResult)
 ScriptCommand(SCRCMD_COMPLETESTARTWILDBATTLE,                           CompleteScrCmd_StartWildBattle)
 ScriptCommand(SCRCMD_COMPLETEINITHGSSMENU,                              CompleteScrCmd_InitHGSSMenu)
+ScriptCommand(SCRCMD_COMPLETEGETELEVATORFLOOR,                          CompleteScrCmd_GetElevatorFloor)
+ScriptCommand(SCRCMD_COMPLETEBUFFERFLOORNAME,                           CompleteScrCmd_BufferFloorName)
 
 // clang-format on
 

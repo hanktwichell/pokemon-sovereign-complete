@@ -16,18 +16,18 @@ scr_seq_D10R0101_000:
 scr_seq_D10R0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: NonNPCMsg msg_0052_D10R0101_00006
+    MessageInstant msg_0052_D10R0101_00006
     WaitTime 30, VAR_RESULT
-    @ HGSS: NonNPCMsg msg_0052_D10R0101_00007
+    MessageInstant msg_0052_D10R0101_00007
     PlaySE SEQ_SE_DP_DECIDE_sseq
     WaitTime 30, VAR_RESULT
-    @ HGSS: NonNPCMsg msg_0052_D10R0101_00008
+    MessageInstant msg_0052_D10R0101_00008
     PlaySE SEQ_SE_DP_DECIDE_sseq
     WaitTime 30, VAR_RESULT
-    @ HGSS: NonNPCMsg msg_0052_D10R0101_00009
+    MessageInstant msg_0052_D10R0101_00009
     PlaySE SEQ_SE_DP_DECIDE_sseq
     WaitTime 30, VAR_RESULT
-    @ HGSS: NonNPCMsg msg_0052_D10R0101_00010
+    MessageInstant msg_0052_D10R0101_00010
     PlaySE SEQ_SE_DP_CON_016_sseq
     WaitTime 30, VAR_RESULT
     @ HGSS: PalParkAction 0

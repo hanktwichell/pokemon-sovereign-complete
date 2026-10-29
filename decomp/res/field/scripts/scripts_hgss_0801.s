@@ -29,7 +29,7 @@ _0058:
     ApplyMovement LOCALID_PLAYER, _0340
     WaitMovement
 _0062:
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR
     CompareVar VAR_0x8008, 3
     GoToIf 1, _0095
@@ -42,13 +42,13 @@ _0095:
     BufferNumber 0, 0
     GoTo _00B4
 _00A0:
-    @ HGSS: BufferDeptStoreFloorNo 0, 3
+    CompleteBufferFloorName 0, 3
     GoTo _00B4
 _00AA:
-    @ HGSS: BufferDeptStoreFloorNo 0, 1
+    CompleteBufferFloorName 0, 1
     GoTo _00B4
 _00B4:
-    @ HGSS: ElevatorCurFloorBox 20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR
+    ShowCurrentFloor 20, 1, VAR_HGSS_ELEVATOR_LAST_FLOOR
     Message msg_0506_T07R0206_00000
     CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
     AddMenuEntry 116, 0
@@ -66,8 +66,8 @@ _00B4:
     GoTo _0322
 _0120:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_CONDOMINIUMS_1F, 2, 5, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_1F, 2, 5, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 0
     GoToIf 1, _0305
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 0
@@ -88,8 +88,8 @@ _0189:
     GoTo _02BB
 _019B:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_CONDOMINIUMS_3F, 0, 5, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_3F, 0, 5, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 2
     GoToIf 1, _0305
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 2
@@ -110,8 +110,8 @@ _0204:
     GoTo _02BB
 _0216:
     WaitTime 1, VAR_RESULT
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
-    @ HGSS: SetDynamicWarp MAP_CELADON_CONDOMINIUMS_ROOF, 1, 5, 3, 1
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
+    SetSpecialLocation MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_ROOF, 1, 5, 3, 1
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 3
     GoToIf 1, _0305
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 3
@@ -142,7 +142,7 @@ _02A7:
     SetVarFromValue VAR_HGSS_ELEVATOR_LAST_FLOOR, 65535
     CloseMessage
     WaitSE SE_CONFIRM_sseq_3
-    @ HGSS: ElevatorAnim VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    PlayElevatorAnimation VAR_0x8004, VAR_0x8005
     Return
 _02BB:
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR

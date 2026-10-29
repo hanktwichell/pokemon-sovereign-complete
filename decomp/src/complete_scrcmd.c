@@ -5,6 +5,7 @@
 #include "constants/heap.h"
 #include "constants/narc.h"
 #include "generated/genders.h"
+#include "generated/map_headers.h"
 #include "generated/text_banks.h"
 
 #include "field/field_system.h"
@@ -14,12 +15,15 @@
 #include "complete_follower.h"
 #include "encounter.h"
 #include "field_message.h"
+#include "field_overworld_state.h"
 #include "field_script_context.h"
 #include "field_system.h"
 #include "inlines.h"
 #include "map_object.h"
 #include "message.h"
 #include "save_player.h"
+#include "string_gf.h"
+#include "string_template.h"
 #include "script_manager.h"
 #include "trainer_info.h"
 #include "unk_020655F4.h"
@@ -156,4 +160,75 @@ BOOL CompleteScrCmd_InitHGSSMenu(ScriptContext *ctx)
 
     ctx->data[0] = selectedOptionVar;
     return TRUE;
+}
+
+// HeartGold's elevators (Goldenrod and Celadon's department stores, the Radio Tower, Olivine's lighthouse, Silph Co.,
+// Celadon's condominiums) number a floor from the bottom, as HeartGold's MapNumToFloorNo does: the floor of the
+// elevator's last stop (the special location SetSpecialLocation keeps).
+static const struct {
+    u16 mapHeaderID;
+    u16 floor;
+} sHGSSElevatorFloors[] = {
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_5F, 0 },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK, 1 },
+    { MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_1F, 0 },
+    { MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM, 1 },
+    { MAP_HEADER_HGSS_SAFFRON_SILPH_CO_HQ, 0 },
+    { MAP_HEADER_HGSS_SAFFRON_SILPH_CO_ROTOM_ROOM, 1 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_BASEMENT, 0 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_1F, 1 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_2F, 2 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_3F, 3 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_4F, 4 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_5F, 5 },
+    { MAP_HEADER_HGSS_GOLDENROD_DEPARTMENT_STORE_6F, 6 },
+    { MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_1F, 0 },
+    { MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_2F, 1 },
+    { MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_3F, 2 },
+    { MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_4F, 3 },
+    { MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_5F, 4 },
+    { MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_ROOF, 5 },
+    { MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_1F, 0 },
+    { MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_2F, 1 },
+    { MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_3F, 2 },
+    { MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_ROOF, 3 },
+};
+
+BOOL CompleteScrCmd_GetElevatorFloor(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    Location *location = FieldOverworldState_GetSpecialLocation(SaveData_GetFieldOverworldState(ctx->fieldSystem->saveData));
+
+    *destVar = 0;
+
+    for (int i = 0; i < NELEMS(sHGSSElevatorFloors); i++) {
+        if (sHGSSElevatorFloors[i].mapHeaderID == location->mapHeaderID) {
+            *destVar = sHGSSElevatorFloors[i].floor;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+// HeartGold's floor names (its BufferDeptStoreFloorNo), from its menu strings: B1F for 0, then 1F to 6F (Platinum's
+// own stop at 5F).
+#define HGSS_MENU_TEXT_1F  116
+#define HGSS_MENU_TEXT_B1F 122
+
+BOOL CompleteScrCmd_BufferFloorName(ScriptContext *ctx)
+{
+    StringTemplate **strTemplate = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    u8 templateArg = ScriptContext_ReadByte(ctx);
+    u8 floor = ScriptContext_ReadByte(ctx);
+
+    GF_ASSERT(floor <= 6);
+
+    MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0191, HEAP_ID_FIELD2);
+    String *string = MessageLoader_GetNewString(loader, floor == 0 ? HGSS_MENU_TEXT_B1F : HGSS_MENU_TEXT_1F + floor - 1);
+
+    StringTemplate_SetString(*strTemplate, templateArg, string, 0, TRUE, GAME_LANGUAGE);
+    String_Free(string);
+    MessageLoader_Free(loader);
+    return FALSE;
 }

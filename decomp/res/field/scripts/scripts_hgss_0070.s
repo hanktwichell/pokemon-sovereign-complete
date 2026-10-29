@@ -70,7 +70,7 @@ _010A:
     End
 _0132:
     Call _018E
-    @ HGSS: ElevatorAnim VAR_TEMP_x4000, 3
+    PlayElevatorAnimation VAR_MAP_LOCAL_0x00, 3
     Call _019A
     Return
 scr_seq_D31R0202_001:

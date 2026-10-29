@@ -29,7 +29,7 @@ _0058:
     ApplyMovement LOCALID_PLAYER, _00F4
     WaitMovement
 _0062:
-    @ HGSS: GetDynamicWarpFloorNo VAR_ELEVATOR_LAST_FLOOR
+    CompleteGetElevatorFloor VAR_HGSS_ELEVATOR_LAST_FLOOR
     SetVar VAR_0x8008, VAR_HGSS_ELEVATOR_LAST_FLOOR
     CompareVar VAR_0x8008, 0
     GoToIf 1, _0088
@@ -39,18 +39,18 @@ _0062:
 _0088:
     Message msg_0095_D27R0108_00000
     CloseMessage
-    @ HGSS: SetDynamicWarp MAP_OLIVINE_LIGHTHOUSE_LIGHT_ROOM, 1, 5, 3, 1
+    SetSpecialLocation MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM, 1, 5, 3, 1
     SetVarFromValue VAR_0x8004, 0
     GoTo _00C2
 _00A5:
     Message msg_0095_D27R0108_00001
     CloseMessage
-    @ HGSS: SetDynamicWarp MAP_OLIVINE_LIGHTHOUSE_1F, 1, 5, 3, 1
+    SetSpecialLocation MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_1F, 1, 5, 3, 1
     SetVarFromValue VAR_0x8004, 1
     GoTo _00C2
 _00C2:
     WaitSE SE_CONFIRM_sseq_3
-    @ HGSS: ElevatorAnim VAR_SPECIAL_x8004, 5
+    PlayElevatorAnimation VAR_0x8004, 5
     CompareVar VAR_HGSS_ELEVATOR_LAST_FLOOR, 0
     GoToIf 5, _00E2
     Message msg_0095_D27R0108_00002

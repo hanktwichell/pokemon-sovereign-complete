@@ -204,6 +204,14 @@ COMMANDS = {
                                       'GetSignpostInput VAR_RESULT', 'Common_HandleSignpostInput'],
     # More messages and the money box
     'NonNPCMsgVar': one('MessageVar {0}'),
+    'NonNPCMsg': one('MessageInstant {0}'),  # both print the whole message at once
+    # Elevators: the dynamic warp is Platinum's special location, the floor window and animation are the same;
+    # HeartGold's floor numbers and names (its 6F) come from src/complete_scrcmd.c
+    'SetDynamicWarp': one('SetSpecialLocation {0}, {1}, {2}, {3}, {4}'),
+    'GetDynamicWarpFloorNo': one('CompleteGetElevatorFloor {0}'),
+    'BufferDeptStoreFloorNo': one('CompleteBufferFloorName {0}, {1}'),
+    'ElevatorCurFloorBox': one('ShowCurrentFloor {0}, {1}, {2}'),
+    'ElevatorAnim': one('PlayElevatorAnimation {0}, {1}'),
     'HideMoneyBox': lambda a: ['HideMoney'],
     # Money, coins, the party, the saving icon: Platinum's commands of the same arguments and code (ribbons are
     # numbered the same in both games)
