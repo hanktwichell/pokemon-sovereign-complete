@@ -1,0 +1,15 @@
+{
+    "name": "olivine_city",
+    "headers": [],
+    "altitudes": [],
+    "maps": [
+        [
+            "MAP_724",
+            "MAP_725"
+        ],
+        [
+            "MAP_726",
+            "MAP_727"
+        ]
+    ]
+}

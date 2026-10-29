@@ -294,7 +294,10 @@ matrix_data_srcs = files(
     'map_matrix_285.json',
     'map_matrix_286.json',
     'map_matrix_287.json',
-    'map_matrix_288.json'
+    'map_matrix_288.json',
+    # Sovereign Complete: test map OLIVINE_CITY
+    'map_matrix_complete_olivine_city.json',
+    # end of test map OLIVINE_CITY
 )
 
 map_matrix_narc = custom_target('map_matrix.narc',

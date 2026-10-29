@@ -13087,4 +13087,28 @@ static const MapHeader sMapHeaders[] = {
         .isEscapeRopeAllowed = TRUE,
         .isFlyAllowed = FALSE,
     },
+    // Sovereign Complete: test map OLIVINE_CITY
+    [MAP_HEADER_COMPLETE_OLIVINE_CITY] = {
+        .areaDataArchiveID = area_data_082,
+        .preloadedMapObjectsArchiveID = 0x0,
+        .mapMatrixID = map_matrix_complete_olivine_city,
+        .scriptsArchiveID = scripts_empty,
+        .initScriptsArchiveID = scripts_init_empty,
+        .msgArchiveID = TEXT_BANK_TWINLEAF_TOWN,
+        .dayMusicID = SEQ_TOWN01_D_sseq,
+        .nightMusicID = SEQ_TOWN01_N_sseq,
+        .wildEncountersArchiveID = ENCOUNTERS_NONE,
+        .eventsArchiveID = events_complete_olivine_city,
+        .mapLabelTextID = LocationNames_Text_TwinleafTown,
+        .mapLabelWindowID = MAP_LABEL_WINDOW_TOWN,
+        .weather = OVERWORLD_WEATHER_CLEAR,
+        .cameraType = CAMERA_TYPE_DEFAULT,
+        .mapType = MAP_TYPE_TOWN_CITY,
+        .battleBG = BACKGROUND_CITY,
+        .isBikeAllowed = TRUE,
+        .isRunningAllowed = TRUE,
+        .isEscapeRopeAllowed = FALSE,
+        .isFlyAllowed = TRUE,
+    },
+    // end of test map OLIVINE_CITY
 };

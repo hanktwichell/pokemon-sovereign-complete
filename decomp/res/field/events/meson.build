@@ -540,6 +540,9 @@ events_files = files(
     'events_iceberg_ruins.json',
     'events_route_228_rock_peak_ruins.json',
     'events_rock_peak_ruins.json',
+    # Sovereign Complete: test map OLIVINE_CITY
+    'events_complete_olivine_city.json',
+    # end of test map OLIVINE_CITY
 )
 
 events_headers = []

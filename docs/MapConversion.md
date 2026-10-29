@@ -50,6 +50,12 @@ Platinum: `decomp/include/map_header.h`, data in `include/data/map_headers.h`. H
 HeartGold-only fields go to a Sovereign Complete side table, keyed by map header ID: the Pokégear (world map, calls,
 radio) and the following Pokémon's rules read it.
 
+What HeartGold's 540 headers use, so each needs a table to Platinum's values:
+- weather: 5 values (mostly 0, clear); camera type: 15 numeric values (mostly 4 and 0); map type: interior (326),
+  cave (116), route (64), city/town (32), underground (1), invalid (1); battle background: 17 values;
+- music: 82 sequences from HeartGold's sound archive, until it comes in (step 6) a Platinum stand-in by map type;
+- **followMode**: allow on 178 maps, height-restricted on 320 (the big followers stay in their ball), prevent on 42.
+
 ## Area data, textures and buildings
 
 Platinum: `decomp/res/field/area_data/area_data_NNN.json` (77; each names a prop set, a texture set and a lighting
@@ -89,6 +95,22 @@ HeartGold's `include/constants/metatile_behavior.h` by name:
   and its stop, Rock Climb walls (2), snow and the empty trash can (Vermilion Gym's puzzle). Some exist in Platinum
   under other names (Platinum has Rock Climb), so they still need matching by meaning; the rest need engine support
   before their maps work fully.
+
+## Events
+
+HeartGold's `files/fielddata/eventdata/zone_event/*.json` and Platinum's `decomp/res/field/events/*.json` hold the
+same four lists under other names, field for field:
+
+| HeartGold | Platinum | Remapped |
+|---|---|---|
+| `bgs`: dir, scriptId, type, x, y, z | `bg_events`: player_facing_dir, script, type, x, y, z | script |
+| `objects`: id, spriteId, movement, type, facingDirection, xRange, yRange, eventFlag, scriptId, param0-2, x, y, z | `object_events`: id, graphics_id, movement_type, trainer_type, initial_dir, movement_range_x/z, hidden_flag, script, data (3), x, y, z | sprite, movement type, flag, script |
+| `warps`: header, anchor, x, y, z | `warp_events`: dest_header_id, dest_warp_id, x, z | map header |
+| `coords`: w, h, val, var, scriptId, x, y, z | `coord_events`: width, length, value, var, script, x, y, z | var, script |
+
+So events convert mechanically once these tables exist: HeartGold flag f -> `COMPLETE_FLAGS_START` + f, HeartGold
+var -> `VAR_COMPLETE_*`, HeartGold map header -> its Sovereign Complete header, scripts (step 3), sprites (HeartGold's
+NPCs that Platinum lacks need their overworld sprites; until then the nearest Platinum one) and movement types.
 
 ## Still to compare
 

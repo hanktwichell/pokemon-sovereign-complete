@@ -205,6 +205,13 @@ def main():
         names.append(name)
     update_order('res/field/maps/data/map_data.order', names, LAND_DATA_BASE)
     update_meson('res/field/maps/data/meson.build', "'map_data_665.bin'", names)
+    # Matrices name land data MAP_<number> (generated/maps.txt, the MapID enum).
+    path = os.path.join(DECOMP, 'generated/maps.txt')
+    text = re.sub(rf'# {re.escape(MARK)}\n.*?# {re.escape(MARK_END)}\n', '', open(path).read(), flags=re.S)
+    block = f'# {MARK}\n' + ''.join(f'MAP_{LAND_DATA_BASE + k}\n' for k in range(len(land))) + f'# {MARK_END}\n'
+    assert '\nMAP_NONE = 65535' in text
+    text = text.replace('\nMAP_NONE = 65535', '\n' + block.rstrip('\n') + '\nMAP_NONE = 65535', 1)
+    open(path, 'w').write(text)
 
     # Map texture sets.
     names = []

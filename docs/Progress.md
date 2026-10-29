@@ -117,3 +117,19 @@ building material/shape table.
 
 **Next:** Olivine City as a test map (`tools/complete/hgss_test_map.py`, `test_map_warp.py`): its 2x2 blocks, area
 and an empty events file under `MAP_HEADER_COMPLETE_OLIVINE_CITY`, reached with the test warp.
+
+## Oct 29, 2026: Olivine City in the engine
+
+The first Johto map loads and walks in Sovereign's engine. `tools/complete/hgss_test_map.py MAP_OLIVINE OLIVINE_CITY`
+makes `MAP_HEADER_COMPLETE_OLIVINE_CITY` from the converted assets: Olivine's 2x2 blocks from HeartGold's overworld
+matrix (land data 724-727), its area (`area_data_082`), an empty events file and Platinum's empty scripts; music and
+the name popup are Twinleaf's for now. `generated/maps.txt` gained `MAP_666` to `MAP_1341`, so matrices can name the
+imported land data.
+
+**Tested** with `tools/complete/test_map_warp.py OLIVINE_CITY` (test build): a new game, the test warp to the middle of
+Olivine, then a step each way. The field runs, the player lands on the target tile, the top screen draws Olivine
+(Gym, houses, lamp posts, flags: 411 colours), all four steps move and the lead Pokémon follows one tile behind:
+PASS. Screenshots in `.cache/test-map/`.
+
+**Next:** every Johto and Kanto map header and matrix (540 headers), with tables from HeartGold's values to Platinum's
+(`docs/MapConversion.md`), then their events.
