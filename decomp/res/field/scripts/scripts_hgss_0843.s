@@ -411,7 +411,7 @@ _0689:
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput 0, VAR_TEMP_x4000
+    OpenPokemonNamingScreen 0, VAR_MAP_LOCAL_0x00
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     BufferPartyMonNickname 1, 0

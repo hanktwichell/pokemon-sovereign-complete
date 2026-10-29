@@ -212,6 +212,10 @@ COMMANDS = {
     'BufferDeptStoreFloorNo': one('CompleteBufferFloorName {0}, {1}'),
     'ElevatorCurFloorBox': one('ShowCurrentFloor {0}, {1}, {2}'),
     'ElevatorAnim': one('PlayElevatorAnimation {0}, {1}'),
+    # The naming screen for a party Pokémon (HeartGold's slot 255 is the Bug-Catching Contest's catch: step 5)
+    'NicknameInput': lambda a: ([f'OpenPokemonNamingScreen {a[0]}, {a[1]}'] if a[0] != '255'
+                                else [f'@ HGSS: NicknameInput {", ".join(a)}']),
+    'GiveTogepiEgg': lambda a: ['CompleteGiveTogepiEgg'],
     'HideMoneyBox': lambda a: ['HideMoney'],
     # Money, coins, the party, the saving icon: Platinum's commands of the same arguments and code (ribbons are
     # numbered the same in both games)

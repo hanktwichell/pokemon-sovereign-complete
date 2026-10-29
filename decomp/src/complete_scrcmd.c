@@ -3,12 +3,16 @@
 #include <nitro.h>
 
 #include "constants/heap.h"
+#include "constants/moves.h"
 #include "constants/narc.h"
 #include "generated/genders.h"
 #include "generated/map_headers.h"
+#include "generated/species.h"
 #include "generated/text_banks.h"
+#include "res/text/bank/special_met_location_names.h"
 
 #include "field/field_system.h"
+#include "overlay005/daycare.h"
 #include "overlay005/field_menu.h"
 #include "overlay005/script_message.h"
 
@@ -21,11 +25,14 @@
 #include "inlines.h"
 #include "map_object.h"
 #include "message.h"
+#include "party.h"
+#include "pokemon.h"
 #include "save_player.h"
 #include "string_gf.h"
 #include "string_template.h"
 #include "script_manager.h"
 #include "trainer_info.h"
+#include "unk_02017038.h"
 #include "unk_020655F4.h"
 #include "vars_flags.h"
 
@@ -230,5 +237,38 @@ BOOL CompleteScrCmd_BufferFloorName(ScriptContext *ctx)
     StringTemplate_SetString(*strTemplate, templateArg, string, 0, TRUE, GAME_LANGUAGE);
     String_Free(string);
     MessageLoader_Free(loader);
+    return FALSE;
+}
+
+// HeartGold's Togepi Egg (GiveTogepiEgg): Platinum's egg gift with Extrasensory in its first free move slot. It is met
+// in Johto, as Platinum's gift places lack HeartGold's Mr. Pokémon.
+BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    Party *party = SaveData_GetParty(fieldSystem->saveData);
+
+    if (Party_GetCurrentCount(party) >= MAX_PARTY_SIZE) {
+        return FALSE;
+    }
+
+    Pokemon *egg = Pokemon_New(HEAP_ID_FIELD2);
+    Pokemon_Init(egg);
+    Egg_CreateEgg(egg, SPECIES_TOGEPI, 1, SaveData_GetTrainerInfo(fieldSystem->saveData), 3, SpecialMetLoc_GetId(1, SPECIAL_METLOC_NAME_JOHTO));
+
+    int slot;
+
+    for (slot = 0; slot < LEARNED_MOVES_MAX - 1; slot++) {
+        if (Pokemon_GetValue(egg, MON_DATA_MOVE1 + slot, NULL) == MOVE_NONE) {
+            break;
+        }
+    }
+
+    u16 move = MOVE_EXTRASENSORY;
+    Pokemon_SetValue(egg, MON_DATA_MOVE1 + slot, &move);
+    u8 pp = Pokemon_GetValue(egg, MON_DATA_MOVE1_MAX_PP + slot, NULL);
+    Pokemon_SetValue(egg, MON_DATA_MOVE1_PP + slot, &pp);
+
+    Party_AddPokemon(party, egg);
+    Heap_Free(egg);
     return FALSE;
 }

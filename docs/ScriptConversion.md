@@ -55,6 +55,8 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   animation are Platinum's. HeartGold counts floors from the bottom and has a 6F, Platinum counts the floors above and
   stops at 5F, so `CompleteGetElevatorFloor` (HeartGold's floor table) and `CompleteBufferFloorName` (its floor names)
   keep HeartGold's scripts as they are.
+- Gifts: `NicknameInput` is Platinum's `OpenPokemonNamingScreen` (but for the Bug-Catching Contest's catch, step 5),
+  and HeartGold's Togepi Egg is `CompleteGiveTogepiEgg`: Platinum's egg gift with Extrasensory, met in Johto.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
   clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
 - Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's

@@ -1893,7 +1893,7 @@ _1E1E:
     @ HGSS: NopVar490 VAR_TEMP_x4009
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput VAR_TEMP_x4009, VAR_TEMP_x400A
+    OpenPokemonNamingScreen VAR_MAP_LOCAL_0x09, VAR_MAP_LOCAL_0x0A
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_MAP_LOCAL_0x0A, 1
@@ -1930,7 +1930,7 @@ _1ED9:
     @ HGSS: NopVar490 VAR_TEMP_x4009
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput VAR_TEMP_x4009, VAR_TEMP_x400A
+    OpenPokemonNamingScreen VAR_MAP_LOCAL_0x09, VAR_MAP_LOCAL_0x0A
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_MAP_LOCAL_0x0A, 1
@@ -2026,7 +2026,7 @@ _20AF:
     @ HGSS: NopVar490 VAR_TEMP_x4009
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput VAR_TEMP_x4009, VAR_TEMP_x400A
+    OpenPokemonNamingScreen VAR_MAP_LOCAL_0x09, VAR_MAP_LOCAL_0x0A
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_MAP_LOCAL_0x0A, 1

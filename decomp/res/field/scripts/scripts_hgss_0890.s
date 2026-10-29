@@ -688,7 +688,7 @@ _0C3C:
     SubVar VAR_MAP_LOCAL_0x00, 1
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    OpenPokemonNamingScreen VAR_MAP_LOCAL_0x00, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0F55
     @ HGSS: ScrCmd_420 50

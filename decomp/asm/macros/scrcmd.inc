@@ -5579,6 +5579,11 @@
     .byte \floor
     .endm
 
+    // HeartGold's Togepi Egg: an egg with Extrasensory.
+    .macro CompleteGiveTogepiEgg
+    .short SCRCMD_COMPLETEGIVETOGEPIEGG
+    .endm
+
     .text
     .globl _start
 _start:

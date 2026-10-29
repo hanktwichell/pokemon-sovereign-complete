@@ -781,7 +781,7 @@ _0EE2:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    OpenPokemonNamingScreen VAR_0x8005, VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     SetFlag FLAG_HGSS_GOT_DRATINI_FROM_MASTER_JUST_NOW

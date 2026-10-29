@@ -120,7 +120,7 @@ _01B5:
     @ HGSS: ScrCmd_815 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput 1, VAR_SPECIAL_RESULT
+    OpenPokemonNamingScreen 1, VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     ReleaseAll

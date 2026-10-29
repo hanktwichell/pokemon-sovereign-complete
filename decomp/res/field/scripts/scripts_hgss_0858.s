@@ -43,7 +43,7 @@ scr_seq_T22FS0101_002:
     GetPartyCount VAR_RESULT
     CompareVar VAR_RESULT, 6
     GoToIf 1, _0125
-    @ HGSS: GiveTogepiEgg
+    CompleteGiveTogepiEgg
     SetFlag FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT
     BufferPlayerName 0
     Message msg_0557_T22FS0101_00004
@@ -113,7 +113,7 @@ _0190:
     GetPartyCount VAR_RESULT
     CompareVar VAR_RESULT, 6
     GoToIf 1, _0125
-    @ HGSS: GiveTogepiEgg
+    CompleteGiveTogepiEgg
     SetFlag FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT
     BufferPlayerName 0
     Message msg_0557_T22FS0101_00004

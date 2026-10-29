@@ -216,7 +216,7 @@ _035E:
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NicknameInput VAR_SPECIAL_x8005, VAR_TEMP_x4000
+    OpenPokemonNamingScreen VAR_0x8005, VAR_MAP_LOCAL_0x00
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0375_R30_00021
