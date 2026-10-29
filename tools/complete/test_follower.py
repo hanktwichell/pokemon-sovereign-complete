@@ -24,7 +24,10 @@ os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 from drive import Driver  # noqa: E402
 
 NO_FOLLOWER = (0xFFFF, 0xFFFF)
-STEPS = ['DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT']
+BEDROOM_STEPS = ['DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT']
+# The test warp leaves the player facing the Veilstone Store 2F clerk, with the counter and walls left, up and down.
+STORE_STEPS = ['RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
+DELTA = {'UP': (0, -1), 'DOWN': (0, 1), 'LEFT': (-1, 0), 'RIGHT': (1, 0)}
 
 
 def symbol(rom, name):
@@ -64,10 +67,11 @@ def settle(d, idle_addr):
     return False
 
 
-def walk(d, addr, idle_addr, check, where):
-    """Take each step; a step that moves the player must leave the follower on the tile the player left."""
+def walk(d, addr, idle_addr, check, where, steps):
+    """Take each step; a step that moves the player must leave the follower one tile behind the player, on the tile the
+    player left (a held key sometimes takes two steps, and then the follower is on the tile between)."""
     moved = 0
-    for key in STEPS:
+    for key in steps:
         check(settle(d, idle_addr), f'{where}: the field is free before {key}')
         before = d.pos()
         d.press(key, frames=16, after=24)
@@ -76,8 +80,10 @@ def walk(d, addr, idle_addr, check, where):
             print(f'     {key}: blocked at {before}, follower {f}', flush=True)
             continue
         moved += 1
-        check(f == before, f'{where}: {key} {before} -> {after}, follower on {f} (the tile left)')
-    check(moved >= 3, f'{where}: the player moved {moved} of {len(STEPS)} steps')
+        dx, dz = DELTA[key]
+        behind = (after[0] - dx, after[1] - dz)
+        check(f == behind, f'{where}: {key} {before} -> {after}, follower on {f} (one tile behind: {behind})')
+    check(moved >= 3, f'{where}: the player moved {moved} of {len(steps)} steps')
 
 
 def main():
@@ -92,14 +98,14 @@ def main():
         d.do(action)
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'bedroom: a follower exists, on {f} (player on {d.pos()})')
-    walk(d, addr, idle_addr, check, 'bedroom')
+    walk(d, addr, idle_addr, check, 'bedroom', BEDROOM_STEPS)
 
     check(settle(d, idle_addr), 'the field is free before the test warp')
     d.press('SELECT+L+R', frames=8, after=240)
     check(settle(d, idle_addr), 'the field is free after the test warp')
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'after the test warp: a follower exists, on {f} (player on {d.pos()})')
-    walk(d, addr, idle_addr, check, 'after the warp')
+    walk(d, addr, idle_addr, check, 'after the warp', STORE_STEPS)
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)
