@@ -1,0 +1,44 @@
+{
+  "key": 38556,
+  "messages": [
+    {
+      "id": "Route221_Text_PalParkIsntOpenYet",
+      "en_US": [
+        "The park isn’t open yet.\n",
+        "We’re still setting up."
+      ]
+    },
+    {
+      "id": "Route221_Text_GettingPalParkReady",
+      "en_US": [
+        "We’re getting the park ready.\n",
+        "Some very odd Pokémon have been\f",
+        "wandering in…"
+      ]
+    },
+    {
+      "id": "Route221_Text_SignPalPark",
+      "en_US": [
+        "Regional Forms Park\n",
+        "Where Far-Off Forms Gather"
+      ]
+    },
+    {
+      "id": "Route221_Text_SovereignNurseHeal",
+      "en_US": [
+        "Hello, Trainer!\n",
+        "Do you need healing?\r",
+        "Don’t worry. Pokémon never faint\n",
+        "when I’m on the job!\r"
+      ]
+    },
+    {
+      "id": "Route221_Text_SovereignNurseEnjoyPark",
+      "en_US": [
+        "All better!\r",
+        "Enjoy yourself at the Regional\n",
+        "Forms Park!"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "key": 57082,
+  "messages": [
+    {
+      "id": "GrandLakeRoute213Lobby_Text_YouMayRest",
+      "en_US": [
+        "Ah, hello. You wish to stay a night?\n",
+        "Ah, but you’ve no reservations.\r",
+        "I’m afraid we are totally booked.\n",
+        "You may rest a while, if you wish.\r"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_RestoredYourPokemon",
+      "en_US": [
+        "We’ve restored your Pokémon\n",
+        "to full health.\r",
+        "We hope to see you again!"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_HotelIsSoRomantic",
+      "en_US": [
+        "This hotel is so romantic...\r",
+        "I hope a knight on a Pokémon will\n",
+        "sweep me away for a honeymoon here!"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_GoSearchOutside",
+      "en_US": [
+        "Looker: Ah, my friend, it is you!\n",
+        "Yes, I am at this hotel now.\r",
+        "I am interviewing the people to see \n",
+        "if they have seen anyone suspicious.\r",
+        "I would like your assistance.\n",
+        "Go search outside, if you will.\r",
+        "The suspect, he may have already\n",
+        "slipped away ahead unnoticed."
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_BraggingIsNotNecessary",
+      "en_US": [
+        "Looker: Is that so?\n",
+        "The champion of Hoenn has stayed here?\r",
+        "But that is of no importance!\r",
+        "A suspicion-arousing character, yes,\n",
+        "but your bragging is not necessary!\r"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_IWillSearchInside",
+      "en_US": [
+        "Inside the hotel, I will search.\n",
+        "You, I ask to search outside.\r",
+        "The suspect, he may have already\n",
+        "slipped away ahead unnoticed."
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_SovereignBlackBeltGives",
+      "en_US": [
+        "I’m telling you!\n",
+        "ELECTIVIRE is the better Pokémon!\r",
+        "It packs a massive punch.\n",
+        "And its tails are electrifying!\r",
+        "ELECTIVIRE is so cool, even the\n",
+        "Sunyshore Gym Leader owns one!\r",
+        "Hey, kid. Don’t just take my word.\n",
+        "Get yourself an ELECTIVIRE and see.\r"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_SovereignBlackBeltExplains",
+      "en_US": [
+        "Use that Electirizer on an ELECTABUZZ\n",
+        "to get the coolest Pokémon!"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_SovereignBlackBeltAgain",
+      "en_US": [
+        "ELECTIVIRE is a great fighter!\n",
+        "Its Wild Charge brings on the pain!"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_SovereignHikerGives",
+      "en_US": [
+        "Now, listen here!\n",
+        "MAGMORTAR is the better Pokémon!\r",
+        "Its flames are super hot.\n",
+        "And just look at those cannon arms!\r",
+        "MAGMORTAR is so hot!\n",
+        "Even an Elite Four member owns one!\r",
+        "Hey, friend. Instead of my word...\n",
+        "Get yourself a MAGMORTAR and see!\r"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_SovereignHikerExplains",
+      "en_US": [
+        "Use that Magmarizer on a MAGMAR\n",
+        "to get the hottest Pokémon!"
+      ]
+    },
+    {
+      "id": "GrandLakeRoute213Lobby_Text_SovereignHikerAgain",
+      "en_US": [
+        "MAGMORTAR is an excellent fighter!\n",
+        "Its Fire Blast brings the heat!"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "key": 54347,
+  "messages": [
+    {
+      "id": "VistaLighthouse_Text_YoureTheLatestChallenger",
+      "en_US": [
+        "...\n",
+        "...\r",
+        "...So, you’re the latest challenger\n",
+        "up against the Sunyshore Gym...\r"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_IWantThrillAgain",
+      "en_US": [
+        "All right, I’ve decided!\r",
+        "If I find you to be weak, I’m going to\n",
+        "challenge the Pokémon League.\r",
+        "I’m all done with renovating the Gym,\n",
+        "so I don’t need to be here.\r",
+        "More than anything, I want to have\n",
+        "battles that can thrill me again.\r"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_UnleashArsenalAtYou",
+      "en_US": [
+        "As the toughest Gym Leader in Sinnoh,\n",
+        "I’m going to unleash everything in\f",
+        "my arsenal on you.\r"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_PlayerLookedThroughBinoculars",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} took a look through\n",
+        "the binoculars.\r"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_LighthouseRepresentsSafety",
+      "en_US": [
+        "The Vista Lighthouse represents\n",
+        "safety and protection to us Sailors."
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_GoingFarAwayOneDay",
+      "en_US": [
+        "I love how far away you can see with\n",
+        "the binoculars.\r",
+        "I’m going to go that far away with\n",
+        "my Pokémon one day!"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy6",
+      "garbage": 69
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy7",
+      "garbage": 17
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy8",
+      "garbage": 32
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy9",
+      "garbage": 10
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy10",
+      "garbage": 90
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy11",
+      "garbage": 89
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy12",
+      "garbage": 45
+    },
+    {
+      "id": "VistaLighthouse_Text_Dummy13",
+      "garbage": 27
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterIntro",
+      "en_US": [
+        "I’m the Electric-type Master! I aim\n",
+        "to find the ultimate Electric-type!\r"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterFail",
+      "en_US": [
+        "Come at me with only a {COLOR 1}single Pokémon{COLOR 0}\n",
+        "in your party if you want to battle me.\r",
+        "Oh, and there’s one other condition...\n",
+        "That Pokémon must be an {COLOR 1}Electric-type{COLOR 0}!"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterAsk",
+      "en_US": [
+        "Your Electric-type looks pretty\n",
+        "strong!\r",
+        "Should we find out who has the\n",
+        "ultimate Electric-type Pokémon?"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterBattle",
+      "en_US": "Time for an Electric-type battle!\r"
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterWin",
+      "en_US": [
+        "Oh, wow.\r",
+        "It seems the ultimate Electric-type\n",
+        "Pokémon belongs to you!\r",
+        "That means you are the rightful owner\n",
+        "of this precious item!\r"
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterLose",
+      "en_US": [
+        "The ultimate Electric-type Pokémon\n",
+        "belongs to me!\r",
+        "But I’m always ready for another\n",
+        "Electric-type battle."
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterThanks",
+      "en_US": [
+        "Thank you for a great Electric-type\n",
+        "Pokémon battle."
+      ]
+    },
+    {
+      "id": "VistaLighthouse_Text_SovereignElectricMasterDecline",
+      "en_US": [
+        "Hmm...\n",
+        "Do you feel like you can’t win?"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Mud Sport",
+    "description": [
+        "The user kicks up\n",
+        "mud on the field.\n",
+        "This weakens\n",
+        "Electric-type moves\n",
+        "for five turns."
+    ],
+    "class": "CLASS_STATUS",
+    "type": "TYPE_GROUND",
+    "power": 0,
+    "accuracy": 0,
+    "pp": 15,
+    "effect": {
+        "type": "BATTLE_EFFECT_HALVE_ELECTRIC_DAMAGE",
+        "chance": 0
+    },
+    "range": "RANGE_FIELD",
+    "priority": 0,
+    "flags": [],
+    "contest": {
+        "effect": "CONTEST_EFFECT_SUPPRESS_VOLTAGE",
+        "type": "CONTEST_TYPE_CUTE"
+    }
+}

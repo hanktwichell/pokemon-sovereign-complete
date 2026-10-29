@@ -1,0 +1,172 @@
+{
+    "name": "Zac & Jen",
+    "class": "TRAINER_CLASS_DOUBLE_TEAM",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_GYARADOS",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_AQUA_TAIL",
+                "MOVE_ICE_FANG",
+                "MOVE_CRUNCH",
+                "MOVE_BOUNCE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GLISCOR",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_X_SCISSOR",
+                "MOVE_SKY_UPPERCUT",
+                "MOVE_AERIAL_ACE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VICTREEBEL",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_LEAF_BLADE",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TYPHLOSION",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_LAVA_PLUME",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_EARTH_POWER",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_URSARING",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_THRASH",
+                "MOVE_SHADOW_CLAW",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_SIGNAL_BEAM",
+                "MOVE_POWER_GEM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Zac: Jen, watch this! I’m going to\n",
+                "use everything you’ve taught me!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Zac: Wow. Someone that’s even\n",
+                "better than Jen...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Zac: I don’t care if I get to meet\n",
+                "the greatest Trainer in the region...\f",
+                "I’d still rather learn from Jen.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_1",
+            "en_US": [
+                "Zac: Would you be interested in battling\n",
+                "the two of us at the same time?\r",
+                "What I mean is, do you have two or more\n",
+                "Pokémon with you?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_REMATCH_1",
+            "en_US": [
+                "Zac: This time, I’m not gonna let you\n",
+                "down, Jen! I promise!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Jen: Here comes a Trainer.\n",
+                "Zac, you ready? Let’s do this!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Jen: I just got embarrassed in front\n",
+                "of my little buddy here...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Jen: Zac, I’m so sorry.\n",
+                "I’m a failure as your instructor.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_2",
+            "en_US": [
+                "Jen: Would you like to have a\n",
+                "two-on-two Pokémon battle with us?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_REMATCH_2",
+            "en_US": [
+                "Jen: Here comes our Trainer!\n",
+                "Are you ready this time?\r"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "name": "Desiree",
+    "class": "TRAINER_CLASS_PSYCHIC_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MR_MIME",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_REFLECT",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_HURRICANE",
+                "MOVE_THUNDERBOLT",
+                "MOVE_DESTINY_BOND"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HYPNO",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_PROTECT",
+                "MOVE_DRAIN_PUNCH",
+                "MOVE_ZEN_HEADBUTT",
+                "MOVE_SWAGGER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Allow me to demonstrate how a true\n",
+                "Psychic conducts a battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Did I get to show you anything...?\n",
+                "Anything at all?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "What can psychic power be used for?\r",
+                "Well, one mustn’t use it for committing\n",
+                "crimes.\r",
+                "But, I don’t use it for doing good,\n",
+                "either.\r",
+                "Using psychic power leaves me too worn\n",
+                "out!\n"
+            ]
+        }
+    ]
+}

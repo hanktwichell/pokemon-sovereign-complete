@@ -1,0 +1,44 @@
+{
+    "name": "Dawn",
+    "class": "TRAINER_CLASS_DP_PLAYER_FEMALE",
+    "items": [
+        "ITEM_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLEFAIRY",
+            "form": 0,
+            "level": 13,
+            "item": null,
+            "moves": [
+                "MOVE_DISARMING_VOICE",
+                "MOVE_MAGICAL_LEAF",
+                "MOVE_SING",
+                "MOVE_SWEET_KISS"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHIMCHAR",
+            "form": 0,
+            "level": 14,
+            "item": null,
+            "moves": [
+                "MOVE_FLAME_WHEEL",
+                "MOVE_TAUNT",
+                "MOVE_LEER",
+                "MOVE_SCRATCH"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

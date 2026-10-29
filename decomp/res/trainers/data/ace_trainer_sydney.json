@@ -1,0 +1,108 @@
+{
+    "name": "Sydney",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLEFABLE",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_MOONBLAST",
+                "MOVE_REFLECT",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_FIRE_BLAST"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TORTERRA",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_CRUNCH",
+                "MOVE_WOOD_HAMMER",
+                "MOVE_IRON_HEAD"
+            ],
+            "iv_scale": 249,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_PSYCHIC",
+                "MOVE_POWER_GEM",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGCARGO",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_OVERHEAT",
+                "MOVE_POWER_GEM",
+                "MOVE_EARTH_POWER",
+                "MOVE_RECOVER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TAUROS",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_BODY_SLAM",
+                "MOVE_EARTHQUAKE",
+                "MOVE_MEGAHORN",
+                "MOVE_WILD_CHARGE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "This total stranger’ll be a good way\n",
+                "to see if I have what it takes to own\f",
+                "the Pokémon League’s Elite Four!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "That battle just now must make you\n",
+                "tougher than everyone in the world.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It doesn’t appear as if anyone could\n",
+                "even try to stand against your might.\r",
+                "The Elite Four should just surrender."
+            ]
+        }
+    ]
+}

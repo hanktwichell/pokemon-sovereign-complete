@@ -1,0 +1,68 @@
+{
+    "name": "Carlos",
+    "class": "TRAINER_CLASS_PI",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DUGTRIO",
+            "form": 0,
+            "level": 70,
+            "item": null,
+            "moves": [
+                "MOVE_FISSURE",
+                "MOVE_ROCK_SLIDE",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LAPRAS",
+            "form": 0,
+            "level": 70,
+            "item": null,
+            "moves": [
+                "MOVE_SHEER_COLD",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SURF",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGLER",
+            "form": 0,
+            "level": 70,
+            "item": null,
+            "moves": [
+                "MOVE_GUILLOTINE",
+                "MOVE_CRABHAMMER",
+                "MOVE_X_SCISSOR",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I wasn’t lucky the other day.\n",
+                "Things will be different today.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "I guessed wrong too often.\n"
+        }
+    ]
+}

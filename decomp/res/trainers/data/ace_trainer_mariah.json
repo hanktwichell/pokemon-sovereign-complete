@@ -1,0 +1,106 @@
+{
+    "name": "Mariah",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BLISSEY",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_CALM_MIND",
+                "MOVE_HYPER_VOICE",
+                "MOVE_SOFTBOILED",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WALREIN",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_SURF",
+                "MOVE_CRUNCH",
+                "MOVE_ICE_BEAM",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AGGRON",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_HEAD_SMASH",
+                "MOVE_IRON_TAIL",
+                "MOVE_DRAGON_RUSH",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_JUMPLUFF",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_ENERGY_BALL",
+                "MOVE_HURRICANE",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MISMAGIUS",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_MOONBLAST",
+                "MOVE_THUNDERBOLT",
+                "MOVE_POWER_GEM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Show me how you’ve battled to get\n",
+                "here! Let’s do this!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "So, that’s how you battled...?\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Once you emerge from Victory Road,\n",
+                "the Pokémon League lies directly\f",
+                "ahead...\r",
+                "But many Trainers fail to ever find\n",
+                "their way on Victory Road...\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Hail",
+    "description": [
+        "The user summons a\n",
+        "snowstorm lasting\n",
+        "five turns. This\n",
+        "boosts the Defense\n",
+        "stats of Ice types."
+    ],
+    "class": "CLASS_STATUS",
+    "type": "TYPE_ICE",
+    "power": 0,
+    "accuracy": 0,
+    "pp": 10,
+    "effect": {
+        "type": "BATTLE_EFFECT_WEATHER_HAIL",
+        "chance": 0
+    },
+    "range": "RANGE_FIELD",
+    "priority": 0,
+    "flags": [],
+    "contest": {
+        "effect": "CONTEST_EFFECT_SUPPRESS_VOLTAGE",
+        "type": "CONTEST_TYPE_BEAUTY"
+    }
+}

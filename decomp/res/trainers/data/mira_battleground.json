@@ -1,0 +1,116 @@
+{
+    "name": "Mira",
+    "class": "TRAINER_CLASS_TRAINER_MIRA",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TOGEKISS",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_WISE_GLASSES",
+            "moves": [
+                "MOVE_MOONBLAST",
+                "MOVE_HURRICANE",
+                "MOVE_AURA_SPHERE",
+                "MOVE_NASTY_PLOT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_POISON_BARB",
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_HYPNOSIS",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_ENERGY_BALL"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EXEGGUTOR",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_LEAF_STORM",
+                "MOVE_PSYCHIC",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_REFLECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNEZONE",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_ZOOM_LENS",
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_FLASH_CANNON",
+                "MOVE_BUG_BUZZ",
+                "MOVE_HYPER_BEAM"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PORYGON_Z",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_SILK_SCARF",
+            "moves": [
+                "MOVE_HYPER_BEAM",
+                "MOVE_THUNDERBOLT",
+                "MOVE_ICE_BEAM",
+                "MOVE_GRAVITY"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 82,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_SHADOW_BALL",
+                "MOVE_GRASS_KNOT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Oh, no!\n",
+                "You’re too much for me!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Mira wonders if she can get very far in\n",
+                "the Battle Tower.\n"
+            ]
+        }
+    ]
+}

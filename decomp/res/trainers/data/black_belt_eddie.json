@@ -1,0 +1,78 @@
+{
+    "name": "Eddie",
+    "class": "TRAINER_CLASS_BLACK_BELT",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PRIMEAPE",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_ROCK_SLIDE",
+                "MOVE_NIGHT_SLASH",
+                "MOVE_OUTRAGE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BRELOOM",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_SEED_BOMB",
+                "MOVE_SKY_UPPERCUT",
+                "MOVE_ROCK_SLIDE",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_INFERNAPE",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_GRASS_KNOT",
+                "MOVE_FAKE_OUT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I trained all of my gnarly Pokémon\n",
+                "at the Fighting Dojo in Kanto!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "D  n     i\n",
+                "  o  e     n...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "We’re gonna go ahead and leave...\n",
+                "You know, go train elsewhere.\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "name": "Christine",
+    "class": "TRAINER_CLASS_SCHOOL_KID_FEMALE",
+    "items": [
+        "ITEM_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RALTS",
+            "form": 0,
+            "level": 8,
+            "item": null,
+            "moves": [
+                "MOVE_CONFUSION",
+                "MOVE_HIDDEN_POWER",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARYU",
+            "form": 0,
+            "level": 8,
+            "item": null,
+            "moves": [
+                "MOVE_HIDDEN_POWER",
+                "MOVE_WATER_GUN",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I like to study a lot...\n",
+                "I thought I could win...\n"
+            ]
+        }
+    ]
+}

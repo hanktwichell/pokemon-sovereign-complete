@@ -1,0 +1,116 @@
+{
+    "name": "Fantina",
+    "class": "TRAINER_CLASS_LEADER_FANTINA",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_PETAYA_BERRY",
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_AIR_SLASH",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SUBSTITUTE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DUSKNOIR",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_MUSCLE_BAND",
+            "moves": [
+                "MOVE_SHADOW_PUNCH",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_FIRE_PUNCH",
+                "MOVE_ICE_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BANETTE",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_BRIGHTPOWDER",
+            "moves": [
+                "MOVE_SHADOW_CLAW",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_GUNK_SHOT",
+                "MOVE_DESTINY_BOND"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SPIRITOMB",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_LEFTOVERS",
+            "moves": [
+                "MOVE_WILL_O_WISP",
+                "MOVE_PROTECT",
+                "MOVE_DARK_PULSE",
+                "MOVE_REST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_WISE_GLASSES",
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_GIGA_DRAIN",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_THUNDERBOLT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MISMAGIUS",
+            "form": 0,
+            "level": 82,
+            "item": "ITEM_FOCUS_SASH",
+            "moves": [
+                "MOVE_MOONBLAST",
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDERBOLT",
+                "MOVE_NASTY_PLOT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "It is too difficult, but...\n",
+                "Never give up, never surrender!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You are so fantastically strong.\n",
+                "I know why I have lost.\n"
+            ]
+        }
+    ]
+}

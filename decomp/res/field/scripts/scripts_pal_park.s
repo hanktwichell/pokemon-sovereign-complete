@@ -1,0 +1,215 @@
+#include "macros/scrcmd.inc"
+#include "res/text/bank/pal_park.h"
+#include "res/field/events/events_pal_park.h"
+
+
+    ScriptEntry PalPark_OnTransition
+    ScriptEntry PalPark_OnFrame_Countdown
+    ScriptEntry PalPark_CoordEvent_CaughtAllPokemon
+    ScriptEntry PalPark_RetireFromMenu
+    ScriptEntry PalPark_CoordEvent_RetireFromGate
+    ScriptEntry PalPark_Worker
+    ScriptEntry PalPark_CoordEvent_LeaveRegionalFormsPark
+    ScriptEntry PalPark_SovereignSignAlola
+    ScriptEntry PalPark_SovereignSignGalar
+    ScriptEntry PalPark_SovereignSignHisui
+    ScriptEntry PalPark_SovereignSignPaldea
+    ScriptEntryEnd
+
+PalPark_OnTransition:
+    SetFlag FLAG_FIRST_ARRIVAL_PAL_PARK
+    End
+
+PalPark_OnFrame_Countdown:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    MessageInstant PalPark_Text_LetTheCountdownBegin
+    WaitTime 30, VAR_RESULT
+    MessageInstant PalPark_Text_Three
+    PlaySE SEQ_SE_DP_DECIDE_sseq
+    WaitTime 30, VAR_RESULT
+    MessageInstant PalPark_Text_Two
+    PlaySE SEQ_SE_DP_DECIDE_sseq
+    WaitTime 30, VAR_RESULT
+    MessageInstant PalPark_Text_One
+    PlaySE SEQ_SE_DP_DECIDE_sseq
+    WaitTime 30, VAR_RESULT
+    MessageInstant PalPark_Text_Start
+    PlaySE SEQ_SE_DP_CON_016_sseq
+    WaitTime 30, VAR_RESULT
+    SetInCatchingShowFlag
+    SetVar VAR_PAL_PARK_STATE, 1
+    SetFlag FLAG_ALT_MUSIC_PAL_PARK
+    PlayMusic SEQ_D_SAFARI_sseq
+    CloseMessage
+    ReleaseAll
+    End
+
+PalPark_Unused:
+    SetInCatchingShowFlag
+    SetVar VAR_PAL_PARK_STATE, 1
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalPark_CoordEvent_CaughtAllPokemon:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    PlaySE SEQ_SE_DP_PINPON_sseq
+    BufferPlayerName 0
+    Message PalPark_Text_DingDongCongratulations
+    PlayMusic SEQ_SILENCE_FIELD_sseq_1
+    PlayFanfare SEQ_FANFA4_sseq
+    WaitFanfare
+    CloseMessage
+    ReleaseAll
+    SetVar VAR_PAL_PARK_STATE, 1
+    Call PalPark_ClearFlagAndWarpOut
+    End
+
+PalPark_RetireFromMenu:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    Message PalPark_Text_WouldYouLikeToRetire
+    ShowYesNoMenu VAR_RESULT
+    CloseMessage
+    GoToIfEq VAR_RESULT, MENU_YES, PalPark_RetireFromMenu_WarpOut
+    ReleaseAll
+    End
+
+PalPark_RetireFromMenu_WarpOut:
+    SetVar VAR_PAL_PARK_STATE, 2
+    ReleaseAll
+    Call PalPark_ClearFlagAndWarpOut
+    End
+
+PalPark_CoordEvent_RetireFromGate:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    Call PalPark_AskPlayerRetireFromCatchingShow
+    CloseMessage
+    GoToIfEq VAR_RESULT, FALSE, PalPark_PlayerWalkNorth
+    SetVar VAR_PAL_PARK_STATE, 2
+    ReleaseAll
+    Call PalPark_ClearFlagAndWarpOut
+    End
+
+PalPark_PlayerWalkNorth:
+    ApplyMovement LOCALID_PLAYER, PalPark_Movement_PlayerWalkNorth
+    WaitMovement
+    ReleaseAll
+    End
+
+    .balign 4, 0
+PalPark_Movement_PlayerWalkNorth:
+    WalkNormalNorth
+    EndMovement
+
+PalPark_Worker:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfEq VAR_PAL_PARK_STATE, 3, PalPark_Worker_RegionalFormsPark
+    Call PalPark_AskPlayerRetireFromCatchingShow
+    CloseMessage
+    GoToIfEq VAR_RESULT, FALSE, PalPark_WorkerWalkOnSpotWest
+    SetVar VAR_PAL_PARK_STATE, 2
+    ReleaseAll
+    Call PalPark_ClearFlagAndWarpOut
+    End
+
+// Sovereign (decision 22): in the Regional Forms Park, the worker tells the player where each region's forms are and
+// can see them out. Leaving this way skips the Catching Show's end (ClearInCatchingShowFlag), as the show never began.
+PalPark_Worker_RegionalFormsPark:
+    Message PalPark_Text_SovereignWorker
+    ShowYesNoMenu VAR_RESULT
+    CloseMessage
+    GoToIfEq VAR_RESULT, MENU_NO, PalPark_WorkerWalkOnSpotWest
+    ReleaseAll
+    Call PalPark_WarpOutOfRegionalFormsPark
+    End
+
+// Sovereign (decision 22): stepping into the gate asks before leaving, like the Catching Show's gate event.
+PalPark_CoordEvent_LeaveRegionalFormsPark:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    Message PalPark_Text_SovereignLeave
+    ShowYesNoMenu VAR_RESULT
+    CloseMessage
+    GoToIfEq VAR_RESULT, MENU_NO, PalPark_PlayerWalkNorth
+    ReleaseAll
+    Call PalPark_WarpOutOfRegionalFormsPark
+    End
+
+// The lobby's frame script for VAR_PAL_PARK_STATE 3 walks the player out and sets it back to 0.
+PalPark_WarpOutOfRegionalFormsPark:
+    FadeScreenOut
+    WaitFadeScreen
+    Warp MAP_HEADER_PAL_PARK_LOBBY, 7, 7, DIR_SOUTH
+    FadeScreenIn
+    WaitFadeScreen
+    Return
+
+PalPark_WorkerWalkOnSpotWest:
+    ApplyMovement LOCALID_WORKER, PalPark_Movement_WorkerWalkOnSpotWest
+    WaitMovement
+    ReleaseAll
+    End
+
+    .balign 4, 0
+PalPark_Movement_WorkerWalkOnSpotWest:
+    WalkOnSpotNormalWest
+    EndMovement
+
+PalPark_AskPlayerRetireFromCatchingShow:
+    Message PalPark_Text_RetireWithoutAllPokemon
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, PalPark_RetireFromCatchingShow
+    GetPlayerGender VAR_RESULT
+    GoToIfEq VAR_RESULT, GENDER_FEMALE, PalPark_NotRetireFromCatchingShow_Female
+    BufferPlayerName 0
+    Message PalPark_Text_ThatTheSpirit_Male
+    WaitButton
+    SetVar VAR_RESULT, FALSE
+    Return
+
+PalPark_NotRetireFromCatchingShow_Female:
+    BufferPlayerName 0
+    Message PalPark_Text_ThatTheSpirit_Female
+    WaitButton
+    SetVar VAR_RESULT, FALSE
+    Return
+
+PalPark_RetireFromCatchingShow:
+    Message PalPark_Text_ImDisappointed
+    SetVar VAR_RESULT, TRUE
+    Return
+
+PalPark_ClearFlagAndWarpOut:
+    ClearInCatchingShowFlag
+    FadeScreenOut
+    WaitFadeScreen
+    Warp MAP_HEADER_PAL_PARK_LOBBY, 7, 7, DIR_SOUTH
+    FadeScreenIn
+    WaitFadeScreen
+    Return
+
+    .balign 4, 0
+
+@ Sovereign (owner, 2026-10-24): a sign at the way into each zone of the Regional Forms Park.
+PalPark_SovereignSignAlola:
+    ShowArrowSign PalPark_Text_SovereignSignAlola
+    End
+
+PalPark_SovereignSignGalar:
+    ShowArrowSign PalPark_Text_SovereignSignGalar
+    End
+
+PalPark_SovereignSignHisui:
+    ShowArrowSign PalPark_Text_SovereignSignHisui
+    End
+
+PalPark_SovereignSignPaldea:
+    ShowArrowSign PalPark_Text_SovereignSignPaldea
+    End

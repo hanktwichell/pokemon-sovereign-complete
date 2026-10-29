@@ -1,0 +1,48 @@
+{
+    "name": "Tony",
+    "class": "TRAINER_CLASS_GUITARIST",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KRICKETUNE",
+            "form": 0,
+            "level": 71,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EXPLOUD",
+            "form": 0,
+            "level": 71,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Rock ’n’ roll!\n",
+                "We’ll beat it out again!\f",
+                "Our rhythm of battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Can you hear it?\n",
+                "That’s my guitar weeping...\n"
+            ]
+        }
+    ]
+}

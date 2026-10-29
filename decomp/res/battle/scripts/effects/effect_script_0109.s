@@ -1,0 +1,17 @@
+#include "macros/btlcmd.inc"
+
+
+_000:
+    // Sovereign: a Ghost type Trick-or-Treat added counts too, as for Protect (Move_IsGhostCurse).
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SOVEREIGN_ATTACKER_GHOST, 0, _016
+    UpdateVar OPCODE_SET, BTLVAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_TO_ATTACKER|MOVE_SUBSCRIPT_PTR_CURSE_NORMAL
+    End 
+
+_016:
+    CompareVarToVar OPCODE_NEQ, BTLVAR_ATTACKER, BTLVAR_DEFENDER, _023
+    SetRandomTarget BTLSCR_ATTACKER
+
+_023:
+    UpdateVar OPCODE_SET, BTLVAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_CURSE_GHOST
+    UpdateVar OPCODE_SET, BTLVAR_MOVE_EFFECT_CHANCE, 1
+    End 

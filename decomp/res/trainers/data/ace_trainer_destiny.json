@@ -1,0 +1,95 @@
+{
+    "name": "Destiny",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RAICHU",
+            "form": 0,
+            "level": 60,
+            "item": null,
+            "moves": [
+                "MOVE_WILD_CHARGE",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_TEETER_DANCE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LANTURN",
+            "form": 0,
+            "level": 60,
+            "item": null,
+            "moves": [
+                "MOVE_SCALD",
+                "MOVE_DISCHARGE",
+                "MOVE_ICE_BEAM",
+                "MOVE_AMNESIA"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_JOLTEON",
+            "form": 0,
+            "level": 60,
+            "item": null,
+            "moves": [
+                "MOVE_DISCHARGE",
+                "MOVE_SHADOW_BALL",
+                "MOVE_EXTRASENSORY",
+                "MOVE_BATON_PASS"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUXRAY",
+            "form": 0,
+            "level": 60,
+            "item": null,
+            "moves": [
+                "MOVE_IRON_TAIL",
+                "MOVE_NIGHT_SLASH",
+                "MOVE_WILD_CHARGE",
+                "MOVE_HOWL"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m not just looking for tough\n",
+                "Trainers to battle.\r",
+                "I’ve been battling here because\n",
+                "I want to feel the rush!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Your power is thrilling...\n",
+                "I’m thrilled down to my toes!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’m so glad that there are Pokémon!\r",
+                "There isn’t much else that gives me\n",
+                "the thrill that Pokémon do!\n"
+            ]
+        }
+    ]
+}

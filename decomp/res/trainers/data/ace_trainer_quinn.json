@@ -1,0 +1,99 @@
+{
+    "name": "Quinn",
+    "class": "TRAINER_CLASS_ACE_TRAINER_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PINSIR",
+            "form": 0,
+            "level": 73,
+            "item": null,
+            "moves": [
+                "MOVE_SUPERPOWER",
+                "MOVE_MEGAHORN",
+                "MOVE_SWORDS_DANCE",
+                "MOVE_ROCK_SLIDE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LANTURN",
+            "form": 0,
+            "level": 73,
+            "item": null,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_SIGNAL_BEAM",
+                "MOVE_SURF",
+                "MOVE_CONFUSE_RAY"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLEM",
+            "form": 0,
+            "level": 73,
+            "item": null,
+            "moves": [
+                "MOVE_HAMMER_ARM",
+                "MOVE_STONE_EDGE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EXPLOUD",
+            "form": 0,
+            "level": 73,
+            "item": null,
+            "moves": [
+                "MOVE_HYPER_VOICE",
+                "MOVE_FLAMETHROWER",
+                "MOVE_THUNDERBOLT",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ve pumped up my gang till they can’t\n",
+                "get pumped no more.\r",
+                "They’re going to school your Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "My bunch got schooled, and how!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I fed my gang Protein, Carbos...\n",
+                "You name it, I pumped ’em full of it.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Hey! You’re that Trainer who schooled\n",
+                "me and my Pokémon!\r",
+                "OK, this time we’ll return the favor!\n",
+                "We’ll be doing the schooling!\r"
+            ]
+        }
+    ]
+}

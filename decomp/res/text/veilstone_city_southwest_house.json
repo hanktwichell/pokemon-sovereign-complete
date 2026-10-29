@@ -1,0 +1,143 @@
+{
+  "key": 9291,
+  "messages": [
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_ICanMassagePokemon",
+      "en_US": [
+        "Oh, looking a little tired?\n",
+        "...Oh, no, not you.\f",
+        "I meant your Pokémon.\r",
+        "If you’d like, I can give a massage\n",
+        "to a Pokémon. Would you like that?"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_MassageWhichPokemon",
+      "en_US": "Which one needs a little love?\r"
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_ImNotShady",
+      "en_US": [
+        "Oh!\n",
+        "Hey, I’m not doing anything shady..."
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_LetsGetStarted",
+      "en_US": [
+        "Giggle... OK, let’s get started.\n",
+        "OK, sweetie, just relax...\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_PokemonLooksContent",
+      "en_US": [
+        "{STRVAR_1 0, 0, 0} looks dreamily\n",
+        "content...\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_DropByAgainTomorrow",
+      "en_US": "Drop by again tomorrow if you’d like."
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_IdBreakThatEgg",
+      "en_US": [
+        "That’s silly! I’d break that Egg\n",
+        "if I tried to massage it!"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_IFoundThis",
+      "en_US": [
+        "When I was massaging your Pokémon,\n",
+        "I found this.\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_ComeBackTomorrow",
+      "en_US": [
+        "Oh? You want me to show you how to\n",
+        "massage Pokémon?\r",
+        "Tehehe...\r",
+        "It’s a secret, of course!\r",
+        "Come back again tomorrow!"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_MyInLawIsScarfGuy",
+      "en_US": [
+        "My sister’s boyfriend is the Scarf\n",
+        "Guy in Pastoria City.\r",
+        "They send Mail to each other by\n",
+        "letting Pokémon deliver it."
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_PachirisuCry",
+      "en_US": "PACHIRISU: Pachi chiii!"
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterIntro",
+      "en_US": [
+        "I’m the Fighting-type Master!\n",
+        "I aim to find the ultimate Fighting-type!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterFail",
+      "en_US": [
+        "Come at me with only a {COLOR 1}single Pokémon{COLOR 0}\n",
+        "in your party if you want to battle me.\r",
+        "Oh, and there’s one other condition...\n",
+        "That Pokémon must be a {COLOR 1}Fighting-type{COLOR 0}!"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterAsk",
+      "en_US": [
+        "Your Fighting-type looks pretty\n",
+        "strong!\r",
+        "Should we find out who has the\n",
+        "ultimate Fighting-type Pokémon?"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterBattle",
+      "en_US": "Time for a Fighting-type battle!\r"
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterWin",
+      "en_US": [
+        "Oh, wow.\r",
+        "It seems the ultimate Fighting-type\n",
+        "Pokémon belongs to you!\r",
+        "That means you are the rightful owner\n",
+        "of this precious item!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterLose",
+      "en_US": [
+        "The ultimate Fighting-type Pokémon\n",
+        "belongs to me!\r",
+        "But I’m always ready for another\n",
+        "Fighting-type battle."
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterThanks",
+      "en_US": [
+        "Thank you for a great Fighting-type\n",
+        "Pokémon battle."
+      ]
+    },
+    {
+      "id": "VeilstoneCitySouthwestHouse_Text_SovereignFightingMasterDecline",
+      "en_US": [
+        "Hmm...\n",
+        "Do you feel like you can’t win?"
+      ]
+    }
+  ]
+}

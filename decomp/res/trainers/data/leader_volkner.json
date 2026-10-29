@@ -1,0 +1,131 @@
+{
+    "name": "Volkner",
+    "class": "TRAINER_CLASS_LEADER_VOLKNER",
+    "items": [
+        "ITEM_HYPER_POTION",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_JOLTEON",
+            "form": 0,
+            "level": 61,
+            "item": "ITEM_FOCUS_SASH",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_SHADOW_BALL",
+                "MOVE_GRASS_KNOT",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 253,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAICHU",
+            "form": 0,
+            "level": 61,
+            "item": "ITEM_EXPERT_BELT",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_GRASS_KNOT",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_SURF"
+            ],
+            "iv_scale": 252,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 2,
+            "level": 61,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_HYDRO_PUMP",
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 241,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 1,
+            "level": 61,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_OVERHEAT",
+                "MOVE_SHADOW_BALL",
+                "MOVE_WILL_O_WISP"
+            ],
+            "iv_scale": 241,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUXRAY",
+            "form": 0,
+            "level": 61,
+            "item": "ITEM_CHOICE_BAND",
+            "moves": [
+                "MOVE_WILD_CHARGE",
+                "MOVE_CRUNCH",
+                "MOVE_ICE_FANG",
+                "MOVE_FIRE_FANG"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTIVIRE",
+            "form": 0,
+            "level": 62,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_WILD_CHARGE",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_ICE_PUNCH",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 251,
+            "ball_seal": 4
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_FIRST_DAMAGE",
+            "en_US": [
+                "I get it! You guys are tough!\n",
+                "But we can match your toughness!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "This is it!\n",
+                "My trump card!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": "Shocking... I didn’t see this coming!\n"
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You’ve got me beat...\r",
+                "Your desire and the noble way\n",
+                "your Pokémon battled for you...\r",
+                "I even felt thrilled during our\n",
+                "match.\r",
+                "That was a very good battle.\n"
+            ]
+        }
+    ]
+}

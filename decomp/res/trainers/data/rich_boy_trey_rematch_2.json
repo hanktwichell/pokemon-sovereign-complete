@@ -1,0 +1,55 @@
+{
+    "name": "Trey",
+    "class": "TRAINER_CLASS_RICH_BOY",
+    "items": [
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LUXRAY",
+            "form": 0,
+            "level": 75,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SCEPTILE",
+            "form": 0,
+            "level": 75,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LINOONE",
+            "form": 0,
+            "level": 75,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Ah, it’s you. I’m bored yet again.\n",
+                "Care to break the monotony?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "The monotony was broken, but...\n"
+        }
+    ]
+}

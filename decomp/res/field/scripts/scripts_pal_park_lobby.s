@@ -1,0 +1,902 @@
+#include "macros/scrcmd.inc"
+#include "res/text/bank/menu_entries.h"
+#include "res/text/bank/pal_park_lobby.h"
+#include "res/field/events/events_pal_park_lobby.h"
+#include "constants/pokemon.h"
+#include "constants/versions.h"
+
+
+    ScriptEntry PalParkLobby_OnTransition
+    ScriptEntry PalParkLobby_Worker
+    ScriptEntry PalParkLobby_OnFrame_TallyScore
+    ScriptEntry PalParkLobby_Record_Unused
+    ScriptEntry PalParkLobby_Daughter
+    ScriptEntry PalParkLobby_Dad
+    ScriptEntry PalParkLobby_ShowWatcherBoy
+    ScriptEntry PalParkLobby_ComplaintsLady
+    ScriptEntry PalParkLobby_RecordGuy
+    ScriptEntry PalParkLobby_OnFrame_ProfOak
+    ScriptEntry PalParkLobby_PoketchAppLady
+    ScriptEntry PalParkLobby_OnFrame_ExitPalPark
+    ScriptEntry PalParkLobby_GBASlotGiftLady
+    ScriptEntry PalParkLobby_SovereignDarach
+    ScriptEntry PalParkLobby_SovereignCaitlin
+    ScriptEntry PalParkLobby_SovereignParkLog
+    ScriptEntryEnd
+
+PalParkLobby_OnTransition:
+    ClearFlag FLAG_ALT_MUSIC_PAL_PARK
+    SetFlag FLAG_FIRST_ARRIVAL_POKE_PARK_FRONT_GATE
+    Call PalParkLobby_SovereignSetDarachVisibility
+    Call PalParkLobby_SovereignSetProfOak
+    GoToIfNe VAR_PAL_PARK_STATE, 0, PalParkLobby_SetWorkerPosAndDir
+    End
+
+@ Sovereign (decision 47): the lobby opens mid-game, when the player can Surf to Route 221. Oak's first visit (his scene
+@ on entering, VAR_MAP_LOCAL_0x01 1) waits for the Hall of Fame, like the park.
+PalParkLobby_SovereignSetProfOak:
+    SetFlag FLAG_HIDE_PAL_PARK_LOBBY_PROF_OAK
+    CheckGameCompleted VAR_MAP_LOCAL_0x00
+    GoToIfEq VAR_MAP_LOCAL_0x00, FALSE, PalParkLobby_SovereignSetProfOakEnd
+    GoToIfNe VAR_PAL_PARK_LOBBY_STATE, 0, PalParkLobby_SovereignSetProfOakEnd
+    ClearFlag FLAG_HIDE_PAL_PARK_LOBBY_PROF_OAK
+    SetVar VAR_MAP_LOCAL_0x01, 1
+PalParkLobby_SovereignSetProfOakEnd:
+    Return
+
+@ Darach and Caitlin wait in the lobby until their scene is done (his trainer flag), and are back after the Hall of Fame.
+PalParkLobby_SovereignSetDarachVisibility:
+    ClearFlag FLAG_MAP_LOCAL_HIDE_SOVEREIGN_NPC
+    GoToIfNotDefeated TRAINER_SOVEREIGN_DARACH_PAL_PARK, PalParkLobby_SovereignSetDarachVisibilityEnd
+    CheckGameCompleted VAR_MAP_LOCAL_0x00
+    GoToIfEq VAR_MAP_LOCAL_0x00, TRUE, PalParkLobby_SovereignSetDarachVisibilityEnd
+    SetFlag FLAG_MAP_LOCAL_HIDE_SOVEREIGN_NPC
+PalParkLobby_SovereignSetDarachVisibilityEnd:
+    Return
+
+PalParkLobby_SetWorkerPosAndDir:
+    SetObjectEventPos LOCALID_WORKER, 8, 9
+    SetObjectEventDir LOCALID_WORKER, DIR_WEST
+    End
+
+PalParkLobby_BufferRecord:
+    GoToIfEq VAR_CATCHING_SHOW_RECORD, 2000, PalParkLobby_BufferRivalRecord
+    BufferPlayerName 1
+    BufferNumber 2, VAR_CATCHING_SHOW_RECORD
+    Return
+
+PalParkLobby_BufferRivalRecord:
+    BufferRivalName 1
+    BufferNumber 2, VAR_CATCHING_SHOW_RECORD
+    Return
+
+PalParkLobby_Worker:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    // Sovereign (decision 22): the Regional Forms Park replaces Pal Park. There's no Catching Show: the park is a
+    // free-roaming wild area (data/regional_forms_park.yaml), and VAR_PAL_PARK_STATE 3 marks a visit. The lobby opens
+    // mid-game (decision 47), the park after the Hall of Fame.
+    CheckGameCompleted VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, PalParkLobby_Worker_SovereignNotOpenYet
+    Message PalParkLobby_Text_SovereignWelcome
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, PalParkLobby_Worker_SovereignComeAgain
+    Message PalParkLobby_Text_SovereignZones
+    CloseMessage
+    SetVar VAR_PAL_PARK_STATE, 3
+    GoTo PalParkLobby_WalkInAndWarp
+
+PalParkLobby_Worker_SovereignComeAgain:
+    Message PalParkLobby_Text_SovereignComeAgain
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_Worker_SovereignNotOpenYet:
+    Message PalParkLobby_Text_SovereignNotOpenYet
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_WalkInAndWarp:
+    ApplyMovement LOCALID_WORKER, PalParkLobby_Movement_WorkerMoveAside
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_Movement_PlayerEnterPalPark
+    WaitMovement
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    FadeScreenOut
+    WaitFadeScreen
+    Warp MAP_HEADER_PAL_PARK, 24, 47, DIR_NORTH
+    FadeScreenIn
+    WaitFadeScreen
+    ReleaseAll
+    End
+
+    .balign 4, 0
+PalParkLobby_Movement_WorkerMoveAside:
+    WalkOnSpotFastNorth
+    WalkNormalNorth 2
+    WalkNormalEast
+    WalkOnSpotFastWest
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_PlayerEnterPalPark:
+    WalkNormalNorth 5
+    SetInvisible
+    EndMovement
+
+PalParkLobby_OnFrame_ExitPalPark:
+    LockAll
+    SetVar VAR_PAL_PARK_STATE, 0
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_Movement_PlayerExitPalPark
+    WaitMovement
+    ApplyMovement LOCALID_WORKER, PalParkLobby_Movement_WorkerMoveBack
+    WaitMovement
+    ReleaseAll
+    End
+
+PalParkLobby_OnFrame_TallyScore:
+    LockAll
+    SetVar VAR_PAL_PARK_STATE, 0
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_Movement_PlayerWalkToWorker
+    WaitMovement
+    CalcCatchingShowPoints CATCHING_SHOW_CATCHING_POINTS, VAR_RESULT
+    BufferNumber 0, VAR_RESULT
+    CalcCatchingShowPoints CATCHING_SHOW_TIME_POINTS, VAR_RESULT
+    BufferNumber 1, VAR_RESULT
+    CalcCatchingShowPoints CATCHING_SHOW_TYPE_POINTS, VAR_RESULT
+    BufferNumber 2, VAR_RESULT
+    CalcCatchingShowPoints CATCHING_SHOW_TOTAL_POINTS, VAR_RESULT
+    BufferNumber 3, VAR_RESULT
+    Message PalParkLobby_Text_AllSixPokemonCaught
+    CalcCatchingShowPoints CATCHING_SHOW_TOTAL_POINTS, VAR_RESULT
+    GoToIfGt VAR_RESULT, VAR_CATCHING_SHOW_RECORD, PalParkLobby_Worker_RecordBroken
+    Message PalParkLobby_Text_DecentRecord
+    Call PalParkLobby_Worker_SetPrize
+    GoTo PalParkLobby_Worker_AskStoreCaughtMon
+
+PalParkLobby_Worker_RecordBroken:
+    Message PalParkLobby_Text_OutstandingRecord
+    Call PalParkLobby_Worker_SetPrize
+    CalcCatchingShowPoints CATCHING_SHOW_TOTAL_POINTS, VAR_CATCHING_SHOW_RECORD
+    GoTo PalParkLobby_Worker_AskStoreCaughtMon
+
+PalParkLobby_Worker_AskStoreCaughtMon:
+    Message PalParkLobby_Text_AskStoreCaughtMon
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, PalParkLobby_Worker_StoreCaughtMon
+    Message PalParkLobby_Text_AskRedoCatchingShow
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, PalParkLobby_Worker_DontStoreCaughtMon
+    GoTo PalParkLobby_Worker_AskStoreCaughtMon
+
+PalParkLobby_Worker_DontStoreCaughtMon:
+    Message PalParkLobby_Text_GoForBetterScore
+    WaitABPress
+    CloseMessage
+    GoTo PalParkLobby_Worker_End
+
+PalParkLobby_Worker_StoreCaughtMon:
+    MoveCatchingShowMonsToPCBoxes
+    Message PalParkLobby_Text_PokemonHaveBeenBoxed
+    Message PalParkLobby_Text_ComeSeeUsAgain
+    WaitABPress
+    CloseMessage
+    GoTo PalParkLobby_Worker_End
+
+PalParkLobby_Worker_End:
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_Movement_PlayerLeaveCounter
+    WaitMovement
+    ApplyMovement LOCALID_WORKER, PalParkLobby_Movement_WorkerMoveBack
+    WaitMovement
+    ReleaseAll
+    End
+
+    .balign 4, 0
+PalParkLobby_Movement_WorkerMoveBack:
+    WalkNormalWest
+    WalkNormalSouth 2
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_PlayerExitPalPark:
+    WalkNormalSouth 5
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_PlayerWalkToWorker:
+    WalkNormalSouth 2
+    WalkOnSpotFastEast
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_PlayerLeaveCounter:
+    WalkNormalSouth 4
+    EndMovement
+
+PalParkLobby_Record_Unused:
+    NPCMessage PalParkLobby_Text_CurrentRecordHolder
+    End
+
+PalParkLobby_Daughter:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    // Sovereign (decision 22): no Catching Show, so no comments on the player's show.
+    Message PalParkLobby_Text_CameToSeeCatchingShow
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_Dad:
+    BufferPlayerName 0
+    NPCMessage PalParkLobby_Text_DaughterIsBigFan
+    End
+
+PalParkLobby_ShowWatcherBoy:
+    NPCMessage PalParkLobby_Text_RareAndExoticPokemon
+    End
+
+PalParkLobby_ComplaintsLady:
+    NPCMessage PalParkLobby_Text_RarePokemonTakeLonger
+    End
+
+PalParkLobby_RecordGuy:
+    NPCMessage PalParkLobby_Text_CurrentRecordHolder
+    End
+
+PalParkLobby_OnFrame_ProfOak:
+    LockAll
+    ClearFlag FLAG_HIDE_ETERNA_CITY_SOUTH_HOUSE_PROF_OAK
+    SetVar VAR_CATCHING_SHOW_RECORD, 2000
+    ApplyMovement LOCALID_PROF_OAK, PalParkLobby_Movement_ProfOakNoticePlayer
+    WaitMovement
+    GetPlayerGender VAR_MAP_LOCAL_0x00
+    BufferPlayerName 0
+    GoToIfEq VAR_MAP_LOCAL_0x00, GENDER_MALE, PalParkLobby_ThisIsPalPark_PlayerMale
+    GoTo PalParkLobby_ThisIsPalPark_PlayerFemale
+
+PalParkLobby_ThisIsPalPark_PlayerMale:
+    Message PalParkLobby_Text_Oak_ThisIsPalPark_PlayerMale
+    GoTo PalParkLobby_PokemonFromAroundTheCountry
+
+PalParkLobby_ThisIsPalPark_PlayerFemale:
+    Message PalParkLobby_Text_Oak_ThisIsPalPark_PlayerFemale
+    GoTo PalParkLobby_PokemonFromAroundTheCountry
+
+PalParkLobby_PokemonFromAroundTheCountry:
+    Message PalParkLobby_Text_Oak_PokemonFromAroundTheCountry
+    CloseMessage
+    ApplyMovement LOCALID_PROF_OAK, PalParkLobby_Movement_ProfOakExclamationMark
+    WaitMovement
+    Message PalParkLobby_Text_Oak_GiftTrainerCounterApp
+    SetVar VAR_0x8004, POKETCH_APPID_TRAINERCOUNTER
+    Common_GivePoketchApp
+    Message PalParkLobby_Text_Oak_InEternaForSomeTime
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_Movement_PlayerMoveAside
+    WaitMovement
+    ApplyMovement LOCALID_PROF_OAK, PalParkLobby_Movement_ProfOakLeave
+    WaitMovement
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    RemoveObject LOCALID_PROF_OAK
+    WaitSE SEQ_SE_DP_KAIDAN2_sseq
+    SetVar VAR_PAL_PARK_LOBBY_STATE, 1
+    SetVar VAR_MAP_LOCAL_0x01, 0
+    ReleaseAll
+    End
+
+    .balign 4, 0
+PalParkLobby_Movement_ProfOakNoticePlayer:
+    EmoteExclamationMark
+    Delay8
+    WalkNormalSouth 3
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_ProfOakExclamationMark:
+    EmoteExclamationMark
+    Delay8
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_ProfOakLeave:
+    WalkNormalSouth
+    WalkOnSpotNormalSouth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_Movement_PlayerMoveAside:
+    WalkNormalEast
+    WalkOnSpotNormalWest
+    EndMovement
+
+PalParkLobby_PoketchAppLady:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfEq VAR_MAP_LOCAL_0x0A, 1, PalParkLobby_PoketchAppLady_JustReceivedKitchenTimer
+    GoToIfEq VAR_MAP_LOCAL_0x0A, 2, PalParkLobby_PoketchAppLady_JustReceivedColorChanger
+    CheckPoketchAppRegistered POKETCH_APPID_COLORCHANGER, VAR_RESULT
+    GoToIfEq VAR_RESULT, 1, PalParkLobby_PoketchAppLady_ReceivedAllPoketchApps
+    Message PalParkLobby_Text_PalParkIsScintillating
+    Message PalParkLobby_Text_NeverSeenPokemon
+    CheckPoketchAppRegistered POKETCH_APPID_KITCHENTIMER, VAR_RESULT
+    GoToIfEq VAR_RESULT, 1, PalParkLobby_PoketchAppLady_CheckKecleon
+    Message PalParkLobby_Text_PokemonThatJustEatsAndSleeps
+    CheckPartyHasSpecies VAR_RESULT, SPECIES_SNORLAX
+    GoToIfEq VAR_RESULT, 0, PalParkLobby_PoketchAppLady_DoesntHaveSpecies
+    Message PalParkLobby_Text_ShowSnorlaxForApp
+    SetVar VAR_0x8004, POKETCH_APPID_KITCHENTIMER
+    Common_GivePoketchApp
+    WaitButton
+    SetVar VAR_MAP_LOCAL_0x0A, 1
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_PoketchAppLady_CheckKecleon:
+    Message PalParkLobby_Text_PokemonThatChangesColor
+    CheckPartyHasSpecies VAR_RESULT, SPECIES_KECLEON
+    GoToIfEq VAR_RESULT, 0, PalParkLobby_PoketchAppLady_DoesntHaveSpecies
+    Message PalParkLobby_Text_ShowKecleonForApp
+    SetVar VAR_0x8004, POKETCH_APPID_COLORCHANGER
+    Common_GivePoketchApp
+    WaitButton
+    SetVar VAR_MAP_LOCAL_0x0A, 2
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_PoketchAppLady_JustReceivedKitchenTimer:
+    BufferPoketchAppName 0, POKETCH_APPID_KITCHENTIMER
+    Message PalParkLobby_Text_KitchenTimerMakesYouCook
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_PoketchAppLady_JustReceivedColorChanger:
+    BufferPoketchAppName 0, POKETCH_APPID_COLORCHANGER
+    Message PalParkLobby_Text_ColorsChangeMood
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_PoketchAppLady_DoesntHaveSpecies:
+    Message PalParkLobby_Text_WhatWasPokemonsName
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_PoketchAppLady_ReceivedAllPoketchApps:
+    Message PalParkLobby_Text_AreYouTakingChallenge
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_GBASlotGiftLady:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfEq VAR_MAP_LOCAL_0x09, 1, PalParkLobby_GBASlotGiftLady_JustReceivedGift
+    GetGBACartridgeVersion VAR_RESULT
+    GoToIfEq VAR_RESULT, VERSION_FIRERED, PalParkLobby_GBASlotGiftLady_FireRed
+    GoToIfEq VAR_RESULT, VERSION_LEAFGREEN, PalParkLobby_GBASlotGiftLady_LeafGreen
+    GoToIfEq VAR_RESULT, VERSION_SAPPHIRE, PalParkLobby_GBASlotGiftLady_Sapphire
+    GoToIfEq VAR_RESULT, VERSION_RUBY, PalParkLobby_GBASlotGiftLady_Ruby
+    GoToIfEq VAR_RESULT, VERSION_EMERALD, PalParkLobby_GBASlotGiftLady_Emerald
+    GoTo PalParkLobby_GBASlotGiftLady_NoGBAGame
+    End
+
+PalParkLobby_GBASlotGiftLady_NoGBAGame:
+    Message PalParkLobby_Text_ClashTrainerAndPokemon
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_GBASlotGiftLady_JustReceivedGift:
+    Message PalParkLobby_Text_CatchingShowsAndContests
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_GBASlotGiftLady_FireRed:
+    SetVar VAR_0x8004, ACCESSORY_CROWN
+    SetVar VAR_0x8005, 1
+    CanFitAccessory VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, PalParkLobby_GBASlotGiftLady_NoGBAGame
+    Message PalParkLobby_Text_MustCrownYou
+    GoTo PalParkLobby_GBASlotGiftLady_GiveAccessory
+    End
+
+PalParkLobby_GBASlotGiftLady_LeafGreen:
+    SetVar VAR_0x8004, ACCESSORY_TIARA
+    SetVar VAR_0x8005, 1
+    CanFitAccessory VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, PalParkLobby_GBASlotGiftLady_NoGBAGame
+    Message PalParkLobby_Text_CompelledToGiveTiara
+    GoTo PalParkLobby_GBASlotGiftLady_GiveAccessory
+    End
+
+PalParkLobby_GBASlotGiftLady_Sapphire:
+    SetVar VAR_0x8004, BACKDROP_SEAFLOOR
+    CheckBackdrop VAR_0x8004, VAR_RESULT
+    GoToIfEq VAR_RESULT, TRUE, PalParkLobby_GBASlotGiftLady_NoGBAGame
+    Message PalParkLobby_Text_TakeThisSeafloorBackdrop
+    GoTo PalParkLobby_GBASlotGiftLady_GiveBackdrop
+    End
+
+PalParkLobby_GBASlotGiftLady_Ruby:
+    SetVar VAR_0x8004, BACKDROP_UNDERGROUND
+    CheckBackdrop VAR_0x8004, VAR_RESULT
+    GoToIfEq VAR_RESULT, TRUE, PalParkLobby_GBASlotGiftLady_NoGBAGame
+    Message PalParkLobby_Text_TakeThisUndergroundBackdrop
+    GoTo PalParkLobby_GBASlotGiftLady_GiveBackdrop
+    End
+
+PalParkLobby_GBASlotGiftLady_Emerald:
+    SetVar VAR_0x8004, BACKDROP_SKY
+    CheckBackdrop VAR_0x8004, VAR_RESULT
+    GoToIfEq VAR_RESULT, TRUE, PalParkLobby_GBASlotGiftLady_NoGBAGame
+    Message PalParkLobby_Text_TakeThisSkyBackdrop
+    GoTo PalParkLobby_GBASlotGiftLady_GiveBackdrop
+    End
+
+PalParkLobby_GBASlotGiftLady_GiveAccessory:
+    Common_GiveAccessoryWaitForConfirm
+    SetVar VAR_MAP_LOCAL_0x09, 1
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_GBASlotGiftLady_GiveBackdrop:
+    Common_ObtainContestBackdropWaitForConfirm
+    SetVar VAR_MAP_LOCAL_0x09, 1
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_Worker_SetPrize:
+    CalcCatchingShowPoints CATCHING_SHOW_TOTAL_POINTS, VAR_RESULT
+    CallIfLt VAR_RESULT, 3000, PalParkLobby_Worker_SetPrize_Level1
+    CallIfLt VAR_RESULT, 3300, PalParkLobby_Worker_SetPrize_Level2
+    CallIfLt VAR_RESULT, 3500, PalParkLobby_Worker_SetPrize_Level3
+    CallIfLt VAR_RESULT, 10000, PalParkLobby_Worker_SetPrize_Level4
+    Return
+
+PalParkLobby_Worker_SetPrize_Level1:
+    GetRandom VAR_0x8006, 8
+    CallIfEq VAR_0x8006, 0, PalParkLobby_SetPrize_CheriBerry
+    CallIfEq VAR_0x8006, 1, PalParkLobby_SetPrize_ChestoBerry
+    CallIfEq VAR_0x8006, 2, PalParkLobby_SetPrize_PechaBerry
+    CallIfEq VAR_0x8006, 3, PalParkLobby_SetPrize_RawstBerry
+    CallIfEq VAR_0x8006, 4, PalParkLobby_SetPrize_AspearBerry
+    CallIfEq VAR_0x8006, 5, PalParkLobby_SetPrize_LeppaBerry
+    CallIfEq VAR_0x8006, 6, PalParkLobby_SetPrize_OranBerry
+    CallIfEq VAR_0x8006, 7, PalParkLobby_SetPrize_PersimBerry
+    Call PalParkLobby_Worker_CheckIfCanGivePrize
+    Return
+
+PalParkLobby_Worker_SetPrize_Level2:
+    GetRandom VAR_0x8006, 5
+    CallIfEq VAR_0x8006, 0, PalParkLobby_SetPrize_FigyBerry
+    CallIfEq VAR_0x8006, 1, PalParkLobby_SetPrize_WikiBerry
+    CallIfEq VAR_0x8006, 2, PalParkLobby_SetPrize_MagoBerry
+    CallIfEq VAR_0x8006, 3, PalParkLobby_SetPrize_AguavBerry
+    CallIfEq VAR_0x8006, 4, PalParkLobby_SetPrize_IapapaBerry
+    Call PalParkLobby_Worker_CheckIfCanGivePrize
+    Return
+
+PalParkLobby_Worker_SetPrize_Level3:
+    GetRandom VAR_0x8006, 7
+    CallIfEq VAR_0x8006, 0, PalParkLobby_SetPrize_RazzBerry
+    CallIfEq VAR_0x8006, 1, PalParkLobby_SetPrize_BlukBerry
+    CallIfEq VAR_0x8006, 2, PalParkLobby_SetPrize_NanabBerry
+    CallIfEq VAR_0x8006, 3, PalParkLobby_SetPrize_WepearBerry
+    CallIfEq VAR_0x8006, 4, PalParkLobby_SetPrize_PinapBerry
+    CallIfEq VAR_0x8006, 5, PalParkLobby_SetPrize_LumBerry
+    CallIfEq VAR_0x8006, 6, PalParkLobby_SetPrize_SitrusBerry
+    Call PalParkLobby_Worker_CheckIfCanGivePrize
+    Return
+
+PalParkLobby_Worker_SetPrize_Level4:
+    GetRandom VAR_0x8006, 6
+    CallIfEq VAR_0x8006, 0, PalParkLobby_SetPrize_PomegBerry
+    CallIfEq VAR_0x8006, 1, PalParkLobby_SetPrize_KelpsyBerry
+    CallIfEq VAR_0x8006, 2, PalParkLobby_SetPrize_QualotBerry
+    CallIfEq VAR_0x8006, 3, PalParkLobby_SetPrize_HondewBerry
+    CallIfEq VAR_0x8006, 4, PalParkLobby_SetPrize_GrepaBerry
+    CallIfEq VAR_0x8006, 5, PalParkLobby_SetPrize_TamatoBerry
+    Call PalParkLobby_Worker_CheckIfCanGivePrize
+    Return
+
+PalParkLobby_Worker_CheckIfCanGivePrize:
+    CanFitItem VAR_0x8006, 1, VAR_0x8007
+    CallIfNe VAR_0x8007, 0, PalParkLobby_Worker_GivePrize
+    SetVar VAR_RESULT, 0x2710
+    Return
+
+PalParkLobby_Worker_GivePrize:
+    Message PalParkLobby_Text_TimeForPrize
+    SetVar VAR_0x8004, VAR_0x8006
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    Return
+
+PalParkLobby_SetPrize_CheriBerry:
+    SetVar VAR_0x8006, ITEM_CHERI_BERRY
+    Return
+
+PalParkLobby_SetPrize_ChestoBerry:
+    SetVar VAR_0x8006, ITEM_CHESTO_BERRY
+    Return
+
+PalParkLobby_SetPrize_PechaBerry:
+    SetVar VAR_0x8006, ITEM_PECHA_BERRY
+    Return
+
+PalParkLobby_SetPrize_RawstBerry:
+    SetVar VAR_0x8006, ITEM_RAWST_BERRY
+    Return
+
+PalParkLobby_SetPrize_AspearBerry:
+    SetVar VAR_0x8006, ITEM_ASPEAR_BERRY
+    Return
+
+PalParkLobby_SetPrize_LeppaBerry:
+    SetVar VAR_0x8006, ITEM_LEPPA_BERRY
+    Return
+
+PalParkLobby_SetPrize_OranBerry:
+    SetVar VAR_0x8006, ITEM_ORAN_BERRY
+    Return
+
+PalParkLobby_SetPrize_PersimBerry:
+    SetVar VAR_0x8006, ITEM_PERSIM_BERRY
+    Return
+
+PalParkLobby_SetPrize_FigyBerry:
+    SetVar VAR_0x8006, ITEM_FIGY_BERRY
+    Return
+
+PalParkLobby_SetPrize_WikiBerry:
+    SetVar VAR_0x8006, ITEM_WIKI_BERRY
+    Return
+
+PalParkLobby_SetPrize_MagoBerry:
+    SetVar VAR_0x8006, ITEM_MAGO_BERRY
+    Return
+
+PalParkLobby_SetPrize_AguavBerry:
+    SetVar VAR_0x8006, ITEM_AGUAV_BERRY
+    Return
+
+PalParkLobby_SetPrize_IapapaBerry:
+    SetVar VAR_0x8006, ITEM_IAPAPA_BERRY
+    Return
+
+PalParkLobby_SetPrize_RazzBerry:
+    SetVar VAR_0x8006, ITEM_RAZZ_BERRY
+    Return
+
+PalParkLobby_SetPrize_BlukBerry:
+    SetVar VAR_0x8006, ITEM_BLUK_BERRY
+    Return
+
+PalParkLobby_SetPrize_NanabBerry:
+    SetVar VAR_0x8006, ITEM_NANAB_BERRY
+    Return
+
+PalParkLobby_SetPrize_WepearBerry:
+    SetVar VAR_0x8006, ITEM_WEPEAR_BERRY
+    Return
+
+PalParkLobby_SetPrize_PinapBerry:
+    SetVar VAR_0x8006, ITEM_PINAP_BERRY
+    Return
+
+PalParkLobby_SetPrize_LumBerry:
+    SetVar VAR_0x8006, ITEM_LUM_BERRY
+    Return
+
+PalParkLobby_SetPrize_SitrusBerry:
+    SetVar VAR_0x8006, ITEM_SITRUS_BERRY
+    Return
+
+PalParkLobby_SetPrize_PomegBerry:
+    SetVar VAR_0x8006, ITEM_POMEG_BERRY
+    Return
+
+PalParkLobby_SetPrize_KelpsyBerry:
+    SetVar VAR_0x8006, ITEM_KELPSY_BERRY
+    Return
+
+PalParkLobby_SetPrize_QualotBerry:
+    SetVar VAR_0x8006, ITEM_QUALOT_BERRY
+    Return
+
+PalParkLobby_SetPrize_HondewBerry:
+    SetVar VAR_0x8006, ITEM_HONDEW_BERRY
+    Return
+
+PalParkLobby_SetPrize_GrepaBerry:
+    SetVar VAR_0x8006, ITEM_GREPA_BERRY
+    Return
+
+PalParkLobby_SetPrize_TamatoBerry:
+    SetVar VAR_0x8006, ITEM_TAMATO_BERRY
+    Return
+
+    
+
+@ Sovereign (E10, Renegade): Darach and Lady Caitlin of the Battle Castle watch the park from the window. Darach battles
+@ in her place (Renegade's trainer 969), win or lose, then her psychic powers flare until he serves Tea, and they leave.
+@ The scene always starts with the player below Darach. His trainer flag marks it done (and hides them both until the
+@ Hall of Fame, when they're back with a line each: decision 47).
+PalParkLobby_SovereignDarach:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    GoToIfDefeated TRAINER_SOVEREIGN_DARACH_PAL_PARK, PalParkLobby_SovereignDarachBack
+    GetPlayerDir VAR_RESULT
+    CallIfEq VAR_RESULT, DIR_EAST, PalParkLobby_SovereignStepBelowDarachFromWest
+    GoTo PalParkLobby_SovereignDarachScene
+
+PalParkLobby_SovereignCaitlin:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    GoToIfDefeated TRAINER_SOVEREIGN_DARACH_PAL_PARK, PalParkLobby_SovereignCaitlinBack
+    GetPlayerDir VAR_RESULT
+    CallIfEq VAR_RESULT, DIR_NORTH, PalParkLobby_SovereignStepBelowDarachFromCaitlin
+    CallIfEq VAR_RESULT, DIR_WEST, PalParkLobby_SovereignStepBelowDarachFromEast
+    GoTo PalParkLobby_SovereignDarachScene
+
+PalParkLobby_SovereignDarachBack:
+    FacePlayer
+    Message PalParkLobby_Text_SovereignDarachBack
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_SovereignCaitlinBack:
+    FacePlayer
+    Message PalParkLobby_Text_SovereignCaitlinBack
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_SovereignStepBelowDarachFromWest:
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_SovereignMovement_FromWest
+    WaitMovement
+    Return
+
+PalParkLobby_SovereignStepBelowDarachFromCaitlin:
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_SovereignMovement_FromCaitlin
+    WaitMovement
+    Return
+
+PalParkLobby_SovereignStepBelowDarachFromEast:
+    ApplyMovement LOCALID_PLAYER, PalParkLobby_SovereignMovement_FromEast
+    WaitMovement
+    Return
+
+PalParkLobby_SovereignDarachScene:
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_FaceSouth
+    ApplyMovement LOCALID_CAITLIN, PalParkLobby_SovereignMovement_FaceSouth
+    WaitMovement
+    GoToIfEq VAR_MAP_LOCAL_0x05, 1, PalParkLobby_SovereignDarachRequest
+    Message PalParkLobby_Text_SovereignDarachGreeting
+    CloseMessage
+    ApplyMovement LOCALID_CAITLIN, PalParkLobby_SovereignMovement_OnSpotSouth
+    WaitMovement
+    Message PalParkLobby_Text_SovereignCaitlinIsTrainer
+    CloseMessage
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_OnSpotEast
+    WaitMovement
+    Message PalParkLobby_Text_SovereignDarachYesMyLady
+    CloseMessage
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_OnSpotSouth
+    WaitMovement
+    Message PalParkLobby_Text_SovereignDarachBattleCastle
+    SetVar VAR_MAP_LOCAL_0x05, 1
+PalParkLobby_SovereignDarachRequest:
+    Message PalParkLobby_Text_SovereignDarachRequestBattle
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, PalParkLobby_SovereignDarachDeclined
+    Message PalParkLobby_Text_SovereignDarachEnGarde
+    CloseMessage
+    StartTrainerBattle TRAINER_SOVEREIGN_DARACH_PAL_PARK
+    CheckWonBattle VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, PalParkLobby_SovereignDarachLost
+    LockAll
+    Message PalParkLobby_Text_SovereignDarachWon
+    GoTo PalParkLobby_SovereignCaitlinFit
+
+@ As in Renegade, a loss doesn't black out: the scene goes on with the party healed.
+PalParkLobby_SovereignDarachLost:
+    ReturnToField
+    LockAll
+    FadeScreenIn
+    WaitFadeScreen
+    HealParty
+    Message PalParkLobby_Text_SovereignDarachLost
+    GoTo PalParkLobby_SovereignCaitlinFit
+
+PalParkLobby_SovereignDarachDeclined:
+    Message PalParkLobby_Text_SovereignDarachDeclined
+    WaitButton
+    CloseMessage
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_FaceNorth
+    ApplyMovement LOCALID_CAITLIN, PalParkLobby_SovereignMovement_FaceNorth
+    WaitMovement
+    ReleaseAll
+    End
+
+PalParkLobby_SovereignCaitlinFit:
+    CloseMessage
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_OnSpotEast
+    WaitMovement
+    Message PalParkLobby_Text_SovereignDarachEnjoyable
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    Message PalParkLobby_Text_SovereignCaitlinFight
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    Message PalParkLobby_Text_SovereignDarachMyLady
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    PlayFanfare SEQ_EYE_MYS_sseq
+    Message PalParkLobby_Text_SovereignCaitlinFightFight
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    Message PalParkLobby_Text_SovereignDarachPsychic
+    CloseMessage
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_OnSpotSouth
+    WaitMovement
+    Message PalParkLobby_Text_SovereignDarachTea
+    CloseMessage
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_OnSpotEast
+    WaitMovement
+    Message PalParkLobby_Text_SovereignCaitlinFightAgain
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    Message PalParkLobby_Text_SovereignDarachBrewedTea
+    CloseMessage
+    WaitTime 15, VAR_RESULT
+    Message PalParkLobby_Text_SovereignCaitlinSilence2
+    CloseMessage
+    WaitFanfare
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    Message PalParkLobby_Text_SovereignCaitlinSilence
+    CloseMessage
+    ApplyMovement LOCALID_CAITLIN, PalParkLobby_SovereignMovement_OnSpotWest
+    WaitMovement
+    Message PalParkLobby_Text_SovereignCaitlinThankYou
+    CloseMessage
+    ApplyMovement LOCALID_CAITLIN, PalParkLobby_SovereignMovement_OnSpotSouth
+    WaitMovement
+    ApplyMovement LOCALID_DARACH, PalParkLobby_SovereignMovement_OnSpotSouth
+    WaitMovement
+    Message PalParkLobby_Text_SovereignDarachTeaForYou
+    SetVar VAR_0x8004, ITEM_TEA
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    Message PalParkLobby_Text_SovereignDarachGoodbye
+    CloseMessage
+    FadeScreenOut
+    WaitFadeScreen
+    RemoveObject LOCALID_DARACH
+    RemoveObject LOCALID_CAITLIN
+    SetTrainerFlag TRAINER_SOVEREIGN_DARACH_PAL_PARK
+    WaitTime 15, VAR_RESULT
+    FadeScreenIn
+    WaitFadeScreen
+    ReleaseAll
+    End
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_FromWest:
+    WalkNormalSouth
+    WalkNormalEast
+    WalkOnSpotNormalNorth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_FromCaitlin:
+    WalkNormalWest
+    WalkOnSpotNormalNorth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_FromEast:
+    WalkNormalSouth
+    WalkNormalWest 2
+    WalkOnSpotNormalNorth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_FaceSouth:
+    FaceSouth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_FaceNorth:
+    FaceNorth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_OnSpotSouth:
+    WalkOnSpotNormalSouth
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_OnSpotEast:
+    WalkOnSpotNormalEast
+    EndMovement
+
+    .balign 4, 0
+PalParkLobby_SovereignMovement_OnSpotWest:
+    WalkOnSpotNormalWest
+    EndMovement
+
+    .balign 4, 0
+
+@ Sovereign (Story.md, the Regional Forms Park): the park keeper's log of where the regional forms came through, open
+@ on the counter beside the worker. A page for each zone and a last page, until the player closes it.
+PalParkLobby_SovereignParkLog:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    Message PalParkLobby_Text_SovereignLogIntro
+PalParkLobby_SovereignParkLogMenu:
+    Message PalParkLobby_Text_SovereignLogWhichPage
+    InitLocalTextMenu 31, 3, 0, VAR_RESULT
+    SetMenuXOriginToRight
+    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuAlola, 0
+    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuGalar, 1
+    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuHisui, 2
+    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuPaldea, 3
+    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuLastPage, 4
+    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuClose, 5
+    ShowMenu
+    GoToIfEq VAR_RESULT, 0, PalParkLobby_SovereignParkLogAlola
+    GoToIfEq VAR_RESULT, 1, PalParkLobby_SovereignParkLogGalar
+    GoToIfEq VAR_RESULT, 2, PalParkLobby_SovereignParkLogHisui
+    GoToIfEq VAR_RESULT, 3, PalParkLobby_SovereignParkLogPaldea
+    GoToIfEq VAR_RESULT, 4, PalParkLobby_SovereignParkLogLastPage
+    CloseMessage
+    ReleaseAll
+    End
+
+PalParkLobby_SovereignParkLogAlola:
+    Message PalParkLobby_Text_SovereignLogAlola
+    GoTo PalParkLobby_SovereignParkLogMenu
+
+PalParkLobby_SovereignParkLogGalar:
+    Message PalParkLobby_Text_SovereignLogGalar
+    GoTo PalParkLobby_SovereignParkLogMenu
+
+PalParkLobby_SovereignParkLogHisui:
+    Message PalParkLobby_Text_SovereignLogHisui
+    GoTo PalParkLobby_SovereignParkLogMenu
+
+PalParkLobby_SovereignParkLogPaldea:
+    Message PalParkLobby_Text_SovereignLogPaldea
+    GoTo PalParkLobby_SovereignParkLogMenu
+
+PalParkLobby_SovereignParkLogLastPage:
+    Message PalParkLobby_Text_SovereignLogLastPage
+    GoTo PalParkLobby_SovereignParkLogMenu

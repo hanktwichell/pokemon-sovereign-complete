@@ -1,0 +1,76 @@
+{
+    "name": "Rafael",
+    "class": "TRAINER_CLASS_BLACK_BELT",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HITMONCHAN",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_ICE_PUNCH",
+                "MOVE_FIRE_PUNCH"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HITMONLEE",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_HI_JUMP_KICK",
+                "MOVE_FOCUS_ENERGY",
+                "MOVE_FAKE_OUT",
+                "MOVE_MACH_PUNCH"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HITMONTOP",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_QUICK_ATTACK",
+                "MOVE_FAKE_OUT",
+                "MOVE_FOCUS_ENERGY"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We’re the Karate Quads!\r",
+                "I will strike a blow for hope with my\n",
+                "fist! Hiyah, hoooooooooooooope!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "We came up short, but not by much.\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’ll have to redo my training, though.\n",
+                "Maylene’s gonna trample me again...\n"
+            ]
+        }
+    ]
+}

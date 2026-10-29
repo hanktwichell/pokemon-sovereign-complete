@@ -1,0 +1,59 @@
+{
+    "name": "George",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_OCTILLERY",
+            "form": 0,
+            "level": 58,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUMINEON",
+            "form": 0,
+            "level": 58,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m getting bored of fishing.\n",
+                "Let’s have a quick battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "I’ve been done in...\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Thanks for that!\n",
+                "It was a good change of pace for me.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Yo! I remember how our battle was a\n",
+                "good change of pace before.\r",
+                "Let’s have another quick battle!\r"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "name": "Kinsey",
+    "class": "TRAINER_CLASS_REPORTER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 80,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUXRAY",
+            "form": 0,
+            "level": 80,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "The press is the victim!\n"
+        }
+    ]
+}

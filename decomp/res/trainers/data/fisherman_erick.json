@@ -1,0 +1,63 @@
+{
+    "name": "Erick",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LUMINEON",
+            "form": 0,
+            "level": 39,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TENTACRUEL",
+            "form": 0,
+            "level": 39,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGLER",
+            "form": 0,
+            "level": 39,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ve landed the most fish Pokémon\n",
+                "in the world. I’m next!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Being number one in the world doesn’t\n",
+                "mean a thing...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I figure I got too wrapped up in\n",
+                "fishing and neglected training.\n"
+            ]
+        }
+    ]
+}

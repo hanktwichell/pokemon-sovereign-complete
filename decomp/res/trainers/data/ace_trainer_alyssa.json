@@ -1,0 +1,88 @@
+{
+    "name": "Alyssa",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AMBIPOM",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_COVET",
+                "MOVE_FAKE_OUT",
+                "MOVE_AERIAL_ACE",
+                "MOVE_U_TURN"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_SCALD",
+                "MOVE_POWER_GEM",
+                "MOVE_PSYCHIC",
+                "MOVE_GRASS_KNOT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TORTERRA",
+            "form": 0,
+            "level": 42,
+            "item": null,
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_SEED_BOMB",
+                "MOVE_CRUNCH",
+                "MOVE_IRON_HEAD"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "As an Ace Trainer, I have to take\n",
+                "battles in stride.\r",
+                "I need to stay cool and calm whether\n",
+                "I win or lose.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aiyeeeeh!\n",
+                "We lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "How dare you beat us!\n",
+                "Go away! Go!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Last time, I got a little emotional\n",
+                "over losing...\r",
+                "I’ll stay cool and calm today!\r"
+            ]
+        }
+    ]
+}

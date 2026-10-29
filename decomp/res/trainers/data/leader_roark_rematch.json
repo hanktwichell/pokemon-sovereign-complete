@@ -1,0 +1,116 @@
+{
+    "name": "Roark",
+    "class": "TRAINER_CLASS_LEADER_ROARK",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GOLEM",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_FOCUS_SASH",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_STONE_EDGE",
+                "MOVE_FIRE_PUNCH",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PROBOPASS",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_LEFTOVERS",
+            "moves": [
+                "MOVE_EARTH_POWER",
+                "MOVE_POWER_GEM",
+                "MOVE_THUNDERBOLT",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_STONE_EDGE",
+                "MOVE_HAMMER_ARM",
+                "MOVE_WOOD_HAMMER",
+                "MOVE_SUCKER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AERODACTYL",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_BRAVE_BIRD",
+                "MOVE_EARTHQUAKE",
+                "MOVE_STONE_EDGE",
+                "MOVE_CRUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TYRANITAR",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_CRUNCH",
+                "MOVE_STONE_EDGE",
+                "MOVE_FIRE_PUNCH",
+                "MOVE_DRAGON_DANCE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAMPARDOS",
+            "form": 0,
+            "level": 82,
+            "item": "ITEM_CHOICE_SCARF",
+            "moves": [
+                "MOVE_HEAD_SMASH",
+                "MOVE_ZEN_HEADBUTT",
+                "MOVE_SUPERPOWER",
+                "MOVE_FIRE_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "No way! Not yet!\n",
+                "Not giving up!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "W-what? That can’t be!\n",
+                "My buffed-up Pokémon!\n"
+            ]
+        }
+    ]
+}

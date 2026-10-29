@@ -1,0 +1,63 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_GALACTIC_GRUNT_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDORINA",
+            "form": 0,
+            "level": 49,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLBAT",
+            "form": 0,
+            "level": 49,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MOTHIM",
+            "form": 0,
+            "level": 49,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "If this mission is successful, we\n",
+                "will get a nice bonus.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "There goes our bonus...\n",
+                "This is an epic tragedy...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I want Team Galactic to become\n",
+                "powerful. That is all I want.\n"
+            ]
+        }
+    ]
+}

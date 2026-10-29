@@ -1,0 +1,96 @@
+{
+    "name": "Shannon",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VILEPLUME",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": [
+                "MOVE_ENERGY_BALL",
+                "MOVE_MOONBLAST",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_EARTH_POWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GARDEVOIR",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_MOONBLAST",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SHADOW_BALL"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LOPUNNY",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": [
+                "MOVE_RETURN",
+                "MOVE_JUMP_KICK",
+                "MOVE_BOUNCE",
+                "MOVE_FAKE_OUT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": [
+                "MOVE_EARTH_POWER",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_THUNDERBOLT",
+                "MOVE_FLAMETHROWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Really? So you think you can beat me?\n",
+                "I’m an Ace Trainer, you do realize?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "I admit defeat...\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Beaten in battle, but not in spirit.\n",
+                "That’s the mark of a real Ace Trainer.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Ace Trainers always work to improve\n",
+                "their natural-born talents.\r"
+            ]
+        }
+    ]
+}

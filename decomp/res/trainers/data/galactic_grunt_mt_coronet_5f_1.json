@@ -1,0 +1,65 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_GALACTIC_GRUNT_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARIADOS",
+            "form": 0,
+            "level": 55,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PERSIAN",
+            "form": 0,
+            "level": 55,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FORRETRESS",
+            "form": 0,
+            "level": 55,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Team Galactic will take control of\n",
+                "everything!\r",
+                "You can try all you want, but you\n",
+                "can’t do anything alone!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "All you gave me was the taste of\n",
+                "defeat...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "...Is our boss about to ditch us\n",
+                "and claim everything for himself?"
+            ]
+        }
+    ]
+}

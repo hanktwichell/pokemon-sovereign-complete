@@ -1,0 +1,56 @@
+{
+    "name": "Marley",
+    "class": "TRAINER_CLASS_TRAINER_MARLEY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 66,
+            "item": null,
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_CRUNCH",
+                "MOVE_EXTREME_SPEED"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 65,
+            "item": null,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_BLIZZARD",
+                "MOVE_THUNDER",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SCEPTILE",
+            "form": 0,
+            "level": 65,
+            "item": null,
+            "moves": [
+                "MOVE_ENERGY_BALL",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_ENDURE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

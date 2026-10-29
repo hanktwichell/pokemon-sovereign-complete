@@ -1,0 +1,60 @@
+{
+    "name": "Jackson",
+    "class": "TRAINER_CLASS_WORKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGNETON",
+            "form": 0,
+            "level": 48,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LAIRON",
+            "form": 0,
+            "level": 48,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_METANG",
+            "form": 0,
+            "level": 48,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Up and down you go on the lifts.\n",
+                "Me? I like to battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "You’ve got me feeling down!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I can’t keep this up!\n",
+                "I’ll go back to working on the lifts.\n"
+            ]
+        }
+    ]
+}

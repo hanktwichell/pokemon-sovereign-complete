@@ -1,0 +1,82 @@
+{
+    "name": "Cyrus",
+    "class": "TRAINER_CLASS_GALACTIC_BOSS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CROBAT",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_WISE_GLASSES",
+            "moves": [
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_AIR_SLASH",
+                "MOVE_GIGA_DRAIN",
+                "MOVE_HYPNOSIS"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HONCHKROW",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_SCOPE_LENS",
+            "moves": [
+                "MOVE_BRAVE_BIRD",
+                "MOVE_NIGHT_SLASH",
+                "MOVE_SWAGGER",
+                "MOVE_TORMENT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNEZONE",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_FLASH_CANNON",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_MIRROR_COAT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEAVILE",
+            "form": 0,
+            "level": 46,
+            "item": "ITEM_EXPERT_BELT",
+            "moves": [
+                "MOVE_FAINT_ATTACK",
+                "MOVE_ICICLE_CRASH",
+                "MOVE_ICE_SHARD",
+                "MOVE_SWORDS_DANCE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": "You’ve forced my hand this time!\n"
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Impressive.\n",
+                "Your prowess is notable.\n"
+            ]
+        }
+    ]
+}

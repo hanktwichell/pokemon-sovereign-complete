@@ -1,0 +1,69 @@
+{
+  "key": 50203,
+  "messages": [
+    {
+      "id": "SnowpointCityEastHouse_Text_HearTrendySaying",
+      "en_US": [
+        "Hello, hello. Would you like to hear\n",
+        "a trendy saying?"
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_TrendyThingIsThis",
+      "en_US": [
+        "Very well...\r",
+        "The trendy thing to say for you\n",
+        "would be...\r",
+        "{STRVAR_1 28, 0, 0}!\r",
+        "That’s a trendy sort of thing\n",
+        "to say."
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_ComeOnNow",
+      "en_US": [
+        "Oh, come on now. With an attitude like\n",
+        "that, you’ll fall behind the times!"
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_UseTrendySayings",
+      "en_US": [
+        "I hope you’ll use trendy sayings\n",
+        "in a trendy way."
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_AreYouUsingTrendySayings",
+      "en_US": [
+        "Hello, hello. Are you using trendy\n",
+        "sayings?"
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_SovereignFishermanGives",
+      "en_US": [
+        "Hmm!\n",
+        "A Super Rod is really good!\r",
+        "Hmm!\n",
+        "I see that spark in your eyes!\r",
+        "Hmm!\n",
+        "Take this Super Rod with you!\r"
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_SovereignFishermanExplains",
+      "en_US": [
+        "Hmm!\n",
+        "It’s all about the rod and technique!"
+      ]
+    },
+    {
+      "id": "SnowpointCityEastHouse_Text_SovereignFishermanAgain",
+      "en_US": [
+        "Hmm!\n",
+        "It’s all about the rod and technique!"
+      ]
+    }
+  ]
+}

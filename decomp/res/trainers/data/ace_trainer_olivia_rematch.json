@@ -1,0 +1,71 @@
+{
+    "name": "Olivia",
+    "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SHIFTRY",
+            "form": 0,
+            "level": 72,
+            "item": null,
+            "moves": [
+                "MOVE_LEAF_BLADE",
+                "MOVE_DARK_PULSE",
+                "MOVE_HURRICANE",
+                "MOVE_FAKE_OUT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALTARIA",
+            "form": 0,
+            "level": 72,
+            "item": null,
+            "moves": [
+                "MOVE_DRAGON_PULSE",
+                "MOVE_MOONBLAST",
+                "MOVE_FLAMETHROWER",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BLISSEY",
+            "form": 0,
+            "level": 72,
+            "item": null,
+            "moves": [
+                "MOVE_HYPER_VOICE",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SOFTBOILED",
+                "MOVE_FLAMETHROWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "This isn’t like last time. See how\n",
+                "much I’ve trained since then!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whew...\n",
+                "You’re overtrained for me.\n"
+            ]
+        }
+    ]
+}

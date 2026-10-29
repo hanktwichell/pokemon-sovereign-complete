@@ -1,0 +1,44 @@
+{
+  "key": 39560,
+  "messages": [
+    {
+      "id": "Route214_Text_SignVeilstoneCity",
+      "en_US": [
+        "Rt. 214\n",
+        "Veilstone City"
+      ]
+    },
+    {
+      "id": "Route214_Text_SignLakeValor",
+      "en_US": [
+        "Rt. 214\n",
+        "Lake Valor"
+      ]
+    },
+    {
+      "id": "Route214_Text_SovereignBlackBeltGives",
+      "en_US": [
+        "Hoo! Hah!\n",
+        "Hoo! Hah!\r",
+        "Focus!\n",
+        "Focus is important!\r",
+        "Give this to your Pokémon!\n",
+        "Focus their power!\r"
+      ]
+    },
+    {
+      "id": "Route214_Text_SovereignBlackBeltExplains",
+      "en_US": [
+        "Hoo! Hah!\n",
+        "Are you and your Pokémon focusing?!"
+      ]
+    },
+    {
+      "id": "Route214_Text_SovereignBlackBeltAgain",
+      "en_US": [
+        "Hoo! Hah!\n",
+        "Are you and your Pokémon focusing?!"
+      ]
+    }
+  ]
+}

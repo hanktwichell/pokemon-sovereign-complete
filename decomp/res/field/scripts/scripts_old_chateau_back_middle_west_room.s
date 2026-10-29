@@ -1,0 +1,54 @@
+#include "macros/scrcmd.inc"
+#include "res/text/bank/old_chateau_back_middle_west_room.h"
+
+
+    ScriptEntry OldChateauBackMiddleWestRoom_TV
+    ScriptEntryEnd
+
+OldChateauBackMiddleWestRoom_TV:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    @ Sovereign (E10, Renegade): Rotom comes out of the TV at any time of day, as often as the player likes.
+    Message OldChateauBackMiddleWestRoom_Text_WantToThumpTheTV
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, OldChateauBackMiddleWestRoom_End
+    BufferPlayerName 0
+    Message OldChateauBackMiddleWestRoom_Text_PlayerThumpedTheTVSet
+    CloseMessage
+    PlayCry SPECIES_ROTOM
+    WaitCry
+    SetFlag FLAG_DAILY_BATTLED_OLD_CHATEAU_ROTOM
+    StartWildBattle SPECIES_ROTOM, 20
+    CheckWonBattle VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, OldChateauBackMiddleWestRoom_BlackOut
+    CheckDidNotCapture VAR_RESULT
+    GoToIfEq VAR_RESULT, TRUE, OldChateauBackMiddleWestRoom_RotomDisappearedIntoTV
+    SetFlag FLAG_CAUGHT_OLD_CHATEAU_ROTOM
+    ReleaseAll
+    End
+
+OldChateauBackMiddleWestRoom_RotomDisappearedIntoTV:
+    Message OldChateauBackMiddleWestRoom_Text_RotomDisappearedIntoTV
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+OldChateauBackMiddleWestRoom_End:
+    CloseMessage
+    ReleaseAll
+    End
+
+OldChateauBackMiddleWestRoom_TVHasMalevolentFeel:
+    Message OldChateauBackMiddleWestRoom_Text_TVHasMalevolentFeel
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+OldChateauBackMiddleWestRoom_BlackOut:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+
+    .balign 4, 0

@@ -1,0 +1,99 @@
+{
+    "name": "Ernest",
+    "class": "TRAINER_CLASS_ACE_TRAINER_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_POLITOED",
+            "form": 0,
+            "level": 41,
+            "item": null,
+            "moves": [
+                "MOVE_SCALD",
+                "MOVE_ICY_WIND",
+                "MOVE_HYPNOSIS",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PINSIR",
+            "form": 0,
+            "level": 41,
+            "item": null,
+            "moves": [
+                "MOVE_MEGAHORN",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_KNOCK_OFF",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PROBOPASS",
+            "form": 0,
+            "level": 41,
+            "item": null,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_FLASH_CANNON",
+                "MOVE_EARTH_POWER",
+                "MOVE_POWER_GEM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_XATU",
+            "form": 0,
+            "level": 41,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_AIR_SLASH",
+                "MOVE_GIGA_DRAIN",
+                "MOVE_CONFUSE_RAY"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You seem to have a lot of confidence.\n",
+                "Let’s see if it’s justified!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Haha!\n",
+                "A total loss for me!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You seem to have an abundance of\n",
+                "talent. It’s pretty amazing.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "When I lost to you last time, I was\n",
+                "just unlucky.\r"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "name": "Maya",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LICKITUNG",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_BODY_SLAM",
+                "MOVE_ZEN_HEADBUTT",
+                "MOVE_KNOCK_OFF",
+                "MOVE_AQUA_TAIL"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GARDEVOIR",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_MAGICAL_LEAF",
+                "MOVE_SHADOW_BALL",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROSERADE",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_GIGA_DRAIN",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_WEATHER_BALL",
+                "MOVE_STUN_SPORE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m taking the Veilstone Gym\n",
+                "challenge. But first...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "...My confidence is crushed.\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I think about Pokémon all day long.\n",
+                "I was confident, you know.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Oh, it’s you again!\r",
+                "I’ve regained my confidence.\n",
+                "Let’s have another battle!\r"
+            ]
+        }
+    ]
+}

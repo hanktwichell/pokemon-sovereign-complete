@@ -1,0 +1,120 @@
+{
+    "name": "Cedric",
+    "class": "TRAINER_CLASS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_STARAPTOR",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_CHOICE_BAND",
+            "moves": [
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_BRAVE_BIRD",
+                "MOVE_U_TURN"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HERACROSS",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_MUSCLE_BAND",
+            "moves": [
+                "MOVE_MEGAHORN",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_ROCK_SLIDE",
+                "MOVE_NIGHT_SLASH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SNORLAX",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_LEFTOVERS",
+            "moves": [
+                "MOVE_CURSE",
+                "MOVE_BODY_SLAM",
+                "MOVE_CRUNCH",
+                "MOVE_SLACK_OFF"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AZUMARILL",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_AQUA_TAIL",
+                "MOVE_PLAY_ROUGH",
+                "MOVE_ICE_PUNCH",
+                "MOVE_AQUA_JET"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_EXPERT_BELT",
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_EXTREME_SPEED",
+                "MOVE_CRUNCH",
+                "MOVE_CLOSE_COMBAT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TORTERRA",
+            "form": 0,
+            "level": 49,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_WOOD_HAMMER",
+                "MOVE_EARTHQUAKE",
+                "MOVE_CRUNCH",
+                "MOVE_IRON_HEAD"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 24
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "We’ve gotten out of tighter spots\n",
+                "than this plenty of times before!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "We’re not done yet! Neither me nor\n",
+                "my Pokémon have given up!"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What just happened?!\n",
+                "You’re telling me I lost?!\n"
+            ]
+        }
+    ]
+}

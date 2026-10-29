@@ -1,0 +1,65 @@
+{
+    "name": "Donny",
+    "class": "TRAINER_CLASS_YOUNGSTER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GASTLY",
+            "form": 0,
+            "level": 27,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GASTLY",
+            "form": 0,
+            "level": 27,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GASTLY",
+            "form": 0,
+            "level": 27,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey, now!\n",
+                "You’re not even close to the door yet.\r",
+                "You have to beat me before you can\n",
+                "go, you know?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Argh! I should’ve dazzled you by\n",
+                "shining my light in your eyes!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Just walk around and look for the blue\n",
+                "marks on the tiles.\n"
+            ]
+        }
+    ]
+}

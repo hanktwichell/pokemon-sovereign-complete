@@ -1,0 +1,54 @@
+{
+    "name": "Rachael",
+    "class": "TRAINER_CLASS_PSYCHIC_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CHINGLING",
+            "form": 0,
+            "level": 18,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHIMECHO",
+            "form": 0,
+            "level": 20,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "This forest is strange, you know...\n",
+                "It seems to fill me with energy...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Your victory...\n",
+                "There is nothing strange about it."
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Forests are mystifying... They seem\n",
+                "to gather such unexplainable energy."
+            ]
+        }
+    ]
+}

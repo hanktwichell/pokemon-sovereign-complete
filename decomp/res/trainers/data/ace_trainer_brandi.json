@@ -1,0 +1,80 @@
+{
+    "name": "Brandi",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 65,
+            "item": null,
+            "moves": [
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_EARTH_POWER",
+                "MOVE_ICE_BEAM",
+                "MOVE_THUNDERBOLT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KANGASKHAN",
+            "form": 0,
+            "level": 65,
+            "item": null,
+            "moves": [
+                "MOVE_BODY_SLAM",
+                "MOVE_CRUNCH",
+                "MOVE_OUTRAGE",
+                "MOVE_HAMMER_ARM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_JYNX",
+            "form": 0,
+            "level": 65,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_ICE_BEAM",
+                "MOVE_LOVELY_KISS",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I will win. I am sure of it.\n",
+                "Therefore, you will lose!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "But...\n",
+                "This isn’t possible!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It’s not that you’ve won.\n",
+                "It’s just that I lost!\r",
+                "...It’s all the same.\n",
+                "Go, me.\n"
+            ]
+        }
+    ]
+}

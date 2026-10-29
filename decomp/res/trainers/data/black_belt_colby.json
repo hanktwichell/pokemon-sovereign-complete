@@ -1,0 +1,80 @@
+{
+    "name": "Colby",
+    "class": "TRAINER_CLASS_BLACK_BELT",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MACHOP",
+            "form": 0,
+            "level": 33,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MEDITITE",
+            "form": 0,
+            "level": 33,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CROAGUNK",
+            "form": 0,
+            "level": 33,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MANKEY",
+            "form": 0,
+            "level": 33,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAKUHITA",
+            "form": 0,
+            "level": 33,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We’re the Karate Quads!\r",
+                "I will strike a blow for love with my\n",
+                "fist! Hiyah, looooooooove!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "Argh! Crunched!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Your Pokémon sure are tough!\r",
+                "But our Gym Leader Maylene will\n",
+                "break you like a stack of bricks!\n"
+            ]
+        }
+    ]
+}

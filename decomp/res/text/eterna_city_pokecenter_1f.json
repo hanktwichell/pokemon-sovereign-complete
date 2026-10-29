@@ -1,0 +1,405 @@
+{
+  "key": 11027,
+  "messages": [
+    {
+      "id": "EternaCityPokecenter1F_Text_FaintMeansNoPowerToBattle",
+      "en_US": [
+        "When a Pokémon faints, it just means\n",
+        "it doesn’t have the power to battle.\r",
+        "But it can still use hidden moves\n",
+        "outside of battle!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_TeamGalacticTookMyPokemon",
+      "en_US": [
+        "Team Galactic took my Pokémon away.\n",
+        "They took other people’s, too.\r",
+        "Something should be done, but Team\n",
+        "Galactic creeps everyone out...\r",
+        "What are they doing to my Pokémon?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_IGotMyPokemonBack",
+      "en_US": [
+        "I got my Pokémon back!\r",
+        "I’m so happy, I feel like riding my Bike\n",
+        "down Cycling Road together with it!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_BunearyBunbun",
+      "en_US": "BUNEARY: Bunbun!"
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_ShowHowClosePokemonFeel",
+      "en_US": [
+        "Hi, you cute little Trainer!\n",
+        "What kinds of Pokémon are with you?\r",
+        "This Pokétch app will show how\n",
+        "close your Pokémon feel to you.\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_PokemonWillOpenUp",
+      "en_US": [
+        "If you spend enough time with them,\n",
+        "all Pokémon will open up to you."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_OhYourPokemon",
+      "en_US": [
+        "Hi, you cute little Trainer!\n",
+        "What kinds of Pokémon are with you?\r",
+        "Oh, your {STRVAR_1 0, 0, 0}...\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_ItSeemsToLikeYou",
+      "en_US": [
+        "It seems to like you.\n",
+        "It must be happy being with you."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_ItsBecomingComfortable",
+      "en_US": [
+        "It’s becoming comfortable around\n",
+        "you, I think."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_NeedsToGetUsedToYou",
+      "en_US": [
+        "Hmm...\n",
+        "It needs to get used to you more."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_OliNotEnoughPokemon_Unused",
+      "en_US": [
+        "Two Pokémon!\n",
+        "That’s what we need.\r",
+        "We’re looking for a Trainer who’s\n",
+        "traveling with at least two Pokémon."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_OliIntro_Unused",
+      "en_US": [
+        "Oh! Would you like to battle against the\n",
+        "both of us?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_OliBattleAccepted_Unused",
+      "en_US": [
+        "You’re live on camera, but try to act\n",
+        "natural, OK?\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_OliBattleDeclined_Unused",
+      "en_US": [
+        "OK, that’s how it is, huh.\n",
+        "Can’t do anything about that."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_OliPostBattle_Unused",
+      "en_US": [
+        "Whee!\n",
+        "Wasn’t that battle smoking hot?\r",
+        "You should make a Battle Video of it and\n",
+        "share it with the world!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_RoxyNotEnoughPokemon_Unused",
+      "en_US": [
+        "Oh, dear!\n",
+        "You only have one Pokémon with you?\r",
+        "That’s very commendable, but we can’t\n",
+        "battle with you that way."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_RoxyIntro_Unused",
+      "en_US": [
+        "Giggle!\n",
+        "Could you win against both of us?\n"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_RoxyBattleAccepted_Unused",
+      "en_US": [
+        "We’ll thoroughly check out your\n",
+        "abilities as a Trainer!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_RoxyBattleDeclined_Unused",
+      "en_US": [
+        "Oh? You haven’t healed your Pokémon,\n",
+        "maybe?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_RoxyPostBattle_Unused",
+      "en_US": [
+        "That was a good match.\r",
+        "It adds flair and drama when many\n",
+        "eager Pokémon get involved."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignIdolWish",
+      "en_US": [
+        "Hello, Trainer!\n",
+        "I have a dream.\r",
+        "Could you help my CLEFAIRY\n",
+        "learn Dazzling Gleam?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignIdolBootedTM",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} booted up the TM.\r",
+        "...\r",
+        "...\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignIdolClefairyLearned",
+      "en_US": [
+        "CLEFAIRY learned\n",
+        "Dazzling Gleam!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignIdolDreamRealized",
+      "en_US": [
+        "Ah! My dream has been realized!\n",
+        "Thank you ever so much, Trainer!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignIdolThanks",
+      "en_US": [
+        "Ah! My dream has been realized!\n",
+        "Thank you ever so much, Trainer!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignIdolNoTM",
+      "en_US": [
+        "Oh...\r",
+        "You can’t teach my CLEFAIRY\n",
+        "Dazzling Gleam?\r",
+        "Or you simply don’t want to?\r",
+        "Sigh...\n",
+        "Will my CLEFAIRY ever sparkle?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignClefairyCry",
+      "en_US": "CLEFAIRY: Pip piiih!"
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignWishSeen",
+      "en_US": [
+        "Someone, somewhere, saw that you\n",
+        "made somebody’s wish come true."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerIntro",
+      "en_US": [
+        "Hello there! I’m Paige from Jubilife\n",
+        "TV, the Fun-and-Games TV Station!\r",
+        "We’re taking our quiz show all over\n",
+        "Sinnoh. Answer five questions right,\r",
+        "and you’ll win a fantastic prize!\r",
+        "Today’s theme is the Unova\n",
+        "region. Do you want to have a go?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerNotYet",
+      "en_US": [
+        "Hello there! I’m Paige from Jubilife TV.\r",
+        "Our quiz is for Trainers who’ve\n",
+        "earned the Forest Badge.\r",
+        "Come back once you have it,\n",
+        "and we’ll roll the cameras!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerDeclined",
+      "en_US": [
+        "Aww... Well, we’ll be right\n",
+        "here if you change your mind!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerRollCamera",
+      "en_US": [
+        "Wonderful! Roll camera!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerLetsFind",
+      "en_US": [
+        "Let’s find out if you’re right!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerWrong",
+      "en_US": [
+        "Oh no, I’m sorry... That’s\n",
+        "not the right answer.\r",
+        "You’re welcome to try again anytime!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerWon",
+      "en_US": [
+        "We have a winner! Congratulations!\r",
+        "Your grand prize is the three\n",
+        "Pokémon I just battled you with!\r",
+        "The first partners of the Unova\n",
+        "region: Snivy, Tepig and Oshawott!\r",
+        "Talk to me when you’re\n",
+        "ready to take them."
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerNoRoom",
+      "en_US": [
+        "I’d love to hand over your prize, but\n",
+        "your party needs room for all three!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerPrizeIntro",
+      "en_US": [
+        "Here they are! The\n",
+        "prizes for our winner!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerBye",
+      "en_US": [
+        "Thanks for playing! Keep\n",
+        "watching Jubilife TV!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerCameraman",
+      "en_US": [
+        "I’m just the cameraman. Don’t mind me!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerName1",
+      "en_US": [
+        "First, the Grass Snake\n",
+        "Pokémon. It’s SNIVY!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerReceived1",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received a SNIVY!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerNickname1",
+      "en_US": [
+        "Do you want to give a nickname to\n",
+        "this SNIVY?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerName2",
+      "en_US": [
+        "Next, the Fire Pig\n",
+        "Pokémon. It’s TEPIG!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerReceived2",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received a TEPIG!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerNickname2",
+      "en_US": [
+        "Do you want to give a nickname to\n",
+        "this TEPIG?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerName3",
+      "en_US": [
+        "Last, the Sea Otter\n",
+        "Pokémon. It’s OSHAWOTT!\r"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerReceived3",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received an OSHAWOTT!"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerNickname3",
+      "en_US": [
+        "Do you want to give a nickname to\n",
+        "this OSHAWOTT?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerQuestion1",
+      "en_US": [
+        "Here we go! Question one!\r",
+        "In the Unova region, does Burgh\n",
+        "lead the Castelia City Gym?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerQuestion2",
+      "en_US": [
+        "Correct! Question two!\r",
+        "Does the Skyarrow Bridge link\n",
+        "Castelia City with Nimbasa City?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerQuestion3",
+      "en_US": [
+        "Right again! Question three!\r",
+        "Is Professor Juniper’s\n",
+        "lab in Nuvema Town?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerQuestion4",
+      "en_US": [
+        "Brilliant! Question four!\r",
+        "Is Elesa, the Nimbasa City Gym\n",
+        "Leader, an expert on Fire types?"
+      ]
+    },
+    {
+      "id": "EternaCityPokecenter1F_Text_SovereignInterviewerQuestion5",
+      "en_US": [
+        "Amazing! Here’s the final question!\r",
+        "Can you beat me in a Pokémon battle?"
+      ]
+    }
+  ]
+}

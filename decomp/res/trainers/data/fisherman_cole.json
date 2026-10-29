@@ -1,0 +1,70 @@
+{
+    "name": "Cole",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SEAKING",
+            "form": 0,
+            "level": 57,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SHARPEDO",
+            "form": 0,
+            "level": 57,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 57,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "If I stare at the water’s surface\n",
+                "for too long, I begin to forget what\f",
+                "I was doing in the first place.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "I don’t know how, but I lost!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Oh, right...\n",
+                "I was fishing, wasn’t I?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "When I looked up from staring at the\n",
+                "water’s surface, I saw your face.\r",
+                "I’m not sure about what I was just\n",
+                "doing, but do you want to battle?\r"
+            ]
+        }
+    ]
+}

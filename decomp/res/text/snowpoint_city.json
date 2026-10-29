@@ -1,0 +1,361 @@
+{
+  "key": 18355,
+  "messages": [
+    {
+      "id": "SnowpointCity_Text_OnlyChosenMayEnterTemple",
+      "en_US": [
+        "Only the chosen may enter\n",
+        "the Snowpoint Temple.\r",
+        "I’m sorry, but you will have to\n",
+        "leave.\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_OnlyChosenMayEnterTemple2",
+      "en_US": [
+        "Only the chosen may enter\n",
+        "the Snowpoint Temple.\r",
+        "I’m sorry, but you will have to\n",
+        "leave."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_BuiltInAncientTimes",
+      "en_US": [
+        "The temple is said to have been\n",
+        "built in ancient times.\r",
+        "It pays homage to the Pokémon of rock,\n",
+        "ice, and steel that shape the land.\r",
+        "So it is told."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_LetThatPersonIn",
+      "en_US": [
+        "Candice: It’s OK!\n",
+        "You can let that person in.\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_EnjoyYourExploring",
+      "en_US": [
+        "I heard from Cynthia.\r",
+        "You’re working on a Pokédex,\n",
+        "aren’t you?\r",
+        "There should be many rare Pokémon\n",
+        "in the temple.\r",
+        "Enjoy your exploring!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_TownIsFreezingCold",
+      "en_US": [
+        "Brrr... This snowbound town is always\n",
+        "freezing cold.\r",
+        "But the spirits of the Trainers and\n",
+        "their Pokémon burn hot and bright.\r",
+        "Especially the Gym Leader."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_ScarfLooksWarm",
+      "en_US": [
+        "Your scarf looks nice and warm.\n",
+        "I wish I had one like it."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_IWantToLookAroundTemple",
+      "en_US": [
+        "I want to take a look around in the\n",
+        "Snowpoint Temple.\r",
+        "But only really tough Trainers are\n",
+        "allowed inside."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_PokemonDraggedCityHere",
+      "en_US": [
+        "Pokémon are said to have dragged\n",
+        "Snowpoint City here.\r",
+        "The Snowpoint Temple is their resting\n",
+        "place, they say."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_CandiceIsTeachingMe",
+      "en_US": [
+        "Candice is teaching me about Pokémon.\r",
+        "She says I have to start by making\n",
+        "friends with Pokémon."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SailToBattleZone",
+      "en_US": [
+        "What is it? Do you want to sail\n",
+        "to the Battle Zone?"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_LetsSetSail",
+      "en_US": [
+        "Aye, aye, then!\n",
+        "Let’s set sail!\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_YouCantGoUsingSurf",
+      "en_US": [
+        "What is it?\n",
+        "The Battle Zone’s rough to get to.\r",
+        "The sea around it is always roiling\n",
+        "with choppy waves.\r",
+        "You can’t go there using Surf,\n",
+        "that’s for sure."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_ILookForwardToAGreatTrainer",
+      "en_US": [
+        "A great Trainer recognized by\n",
+        "the Pokémon League...\r",
+        "I look forward to carrying someone\n",
+        "like that on this ship!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_NothingExceptionalHere",
+      "en_US": [
+        "There is nothing exceptional here.\n",
+        "That makes Snowpoint unique.\r",
+        "There’s nothing exceptional about me.\n",
+        "That’s what makes me stand out!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_ImGladIWaited",
+      "en_US": [
+        "Cynthia: I thought you would come.\n",
+        "I’m glad I waited for you!\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_GoodThatOurWorldChanges",
+      "en_US": [
+        "Cynthia: I think it’s good that our\n",
+        "world is constantly changing.\r",
+        "Of course, I don’t want it to become\n",
+        "what only one person wants.\r",
+        "A world like Cyrus envisions...\n",
+        "No one would want that.\r",
+        "The kind of world I want to see is where\n",
+        "everyone can share their joy.\r",
+        "Where Pokémon and the people around\n",
+        "them can be happy for each other.\r",
+        "I want the world to become a place\n",
+        "where everyone is smiling.\r",
+        "The world could be so much better\n",
+        "if we all tried to make it that way.\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_TravelToFarOffPlaces",
+      "en_US": [
+        "I want you to keep traveling to many\n",
+        "far-off places.\r",
+        "I want you to keep meeting all kinds of\n",
+        "people and Pokémon.\r",
+        "I came all the way here just so I could\n",
+        "say that to you.\r",
+        "Your horizons will expand again if you\n",
+        "visit the Fight Area as well.\r",
+        "I hope our paths cross again!\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_MapSign",
+      "en_US": [
+        "Snowpoint City\n",
+        "City of Snow"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SignPokemonGym",
+      "en_US": [
+        "Snowpoint City Pokémon Gym\n",
+        "Leader: Candice\f",
+        "The Diamond Dust Girl!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterIntro",
+      "en_US": [
+        "I’m the Ice-type Master!\n",
+        "I aim to find the ultimate Ice-type!\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterFail",
+      "en_US": [
+        "Come at me with only a {COLOR 1}single Pokémon{COLOR 0}\n",
+        "in your party if you want to battle me.\r",
+        "Oh, and there’s one other condition...\n",
+        "That Pokémon must be an {COLOR 1}Ice-type{COLOR 0}!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterAsk",
+      "en_US": [
+        "Your Ice-type looks pretty strong!\r",
+        "Should we find out who has the\n",
+        "ultimate Ice-type Pokémon?"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterBattle",
+      "en_US": "Time for an Ice-type battle!\r"
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterWin",
+      "en_US": [
+        "Oh, wow.\r",
+        "It seems the ultimate Ice-type\n",
+        "Pokémon belongs to you!\r",
+        "That means you are the rightful owner\n",
+        "of this precious item!\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterLose",
+      "en_US": [
+        "The ultimate Ice-type Pokémon\n",
+        "belongs to me!\r",
+        "But I’m always ready for another\n",
+        "Ice-type battle."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterThanks",
+      "en_US": [
+        "Thank you for a great Ice-type\n",
+        "Pokémon battle."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignIceMasterDecline",
+      "en_US": [
+        "Hmm...\n",
+        "Do you feel like you can’t win?"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignGymGuide",
+      "en_US": [
+        "Welcome to Snowpoint, Champ-to-be!\n",
+        "It’s chilly, but it’s a sight to see.\r",
+        "You’ve probably noticed the tremors\n",
+        "happening around the city, right?\r",
+        "Snowpoint’s Gym Leader is currently\n",
+        "dealing with the source of them.\r",
+        "The Gym Leaders in Sinnoh sure are a\n",
+        "busy bunch, huh?\r",
+        "Candice went to the Snowpoint Temple,\n",
+        "located at the north end of the city.\r",
+        "You’re welcome to go look for her if\n",
+        "you’re desperate to get your Badge.\r",
+        "But... don’t get too relaxed.\n",
+        "Access to the temple  is restricted.\r",
+        "You won’t be allowed to enter unless\n",
+        "you prove your strength!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignTremorsFreezingCold",
+      "en_US": [
+        "Brrr... This snowbound town is always\n",
+        "freezing cold.\r",
+        "But these tremors... They’re abnormal.\n",
+        "It’s honestly very strange."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignTremorsExceptional",
+      "en_US": [
+        "There is nothing exceptional here.\n",
+        "Well, normally...\r",
+        "But these earthquakes keep happening!\n",
+        "It’s making the city stand out!"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignTremorsTemple",
+      "en_US": [
+        "I want to take a look around in the\n",
+        "Snowpoint Temple.\r",
+        "But it’s off-limits to civilians right\n",
+        "now because of these tremors.\r",
+        "But even then, they usually only\n",
+        "allow strong Trainers to enter."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignTremorsCandice",
+      "en_US": [
+        "Candice is teaching me about Pokémon.\r",
+        "You know, she went to Snowpoint Temple\n",
+        "to try and stop these tremors.\r",
+        "She’s an amazing person, right?\n",
+        "I’m glad to have her as a teacher."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignTremorsScarf",
+      "en_US": [
+        "Your scarf looks nice and warm...\r",
+        "You were expecting a cosy walk in\n",
+        "this snowy town, right?\r",
+        "On a normal day, it’s very pleasant.\r",
+        "But because the ground is shaking,\n",
+        "it isn’t very appealing right now...\r",
+        "They’re saying something is up with a\n",
+        "Pokémon that sleeps inside the temple."
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignGuardsChallenge",
+      "en_US": [
+        "Only the strong may enter the\n",
+        "Snowpoint Temple.\r",
+        "Do you wish to prove your strength\n",
+        "to us in a battle?"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignGuardsBegin",
+      "en_US": [
+        "Very well.\n",
+        "Let the battle begin.\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignGuardsYouMayEnter",
+      "en_US": [
+        "You are indeed strong.\n",
+        "Then you may enter.\r",
+        "We would be grateful if you could\n",
+        "assist with handling the chaos in the\f",
+        "basement of the temple.\r"
+      ]
+    },
+    {
+      "id": "SnowpointCity_Text_SovereignGuardsNeedTwo",
+      "en_US": [
+        "Hmm...\n",
+        "You only have one Pokémon.\r",
+        "I’m sorry, but you’ll need at least\n",
+        "two Pokémon to battle us."
+      ]
+    }
+  ]
+}

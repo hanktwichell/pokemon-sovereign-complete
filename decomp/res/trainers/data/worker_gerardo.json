@@ -1,0 +1,56 @@
+{
+    "name": "Gerardo",
+    "class": "TRAINER_CLASS_WORKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PROBOPASS",
+            "form": 0,
+            "level": 49,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FORRETRESS",
+            "form": 0,
+            "level": 49,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Pokémon and people have worked\n",
+                "together for many years.\r",
+                "Let us show you an example of that\n",
+                "history!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "A spectacular loss!\n",
+                "But it’s still a loss!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The way you helped each other...\n",
+                "That is what made you prevail!\n"
+            ]
+        }
+    ]
+}

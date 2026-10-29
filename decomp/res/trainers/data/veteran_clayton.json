@@ -1,0 +1,104 @@
+{
+    "name": "Clayton",
+    "class": "TRAINER_CLASS_VETERAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LICKILICKY",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_BODY_SLAM",
+                "MOVE_POWER_WHIP",
+                "MOVE_FLAMETHROWER",
+                "MOVE_ZEN_HEADBUTT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HIPPOWDON",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_CRUNCH",
+                "MOVE_ICE_FANG",
+                "MOVE_SLACK_OFF"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARAPTOR",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_BRAVE_BIRD",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_U_TURN"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PINSIR",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_MEGAHORN",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_STONE_EDGE",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTIVIRE",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_WILD_CHARGE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_FIRE_PUNCH"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let me see how well your Pokémon can\n",
+                "battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "Brilliant!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Rather than navigating Victory Road,\n",
+                "I have a much better time putting\f",
+                "young Trainers like you to the test.\n"
+            ]
+        }
+    ]
+}

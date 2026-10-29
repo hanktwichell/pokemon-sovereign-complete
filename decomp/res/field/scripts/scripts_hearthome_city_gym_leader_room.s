@@ -1,0 +1,189 @@
+#include "macros/scrcmd.inc"
+#include "res/text/bank/hearthome_city_gym_leader_room.h"
+#include "res/field/events/events_hearthome_city_gym_leader_room.h"
+
+
+    ScriptEntry HearthomeGym_Fantina
+    ScriptEntry HearthomeGym_FantinaTryGiveTM65
+    ScriptEntry HearthomeGym_FantinaCannotGiveTM65
+    ScriptEntry HearthomeGym_FantinaAfterBadge
+    ScriptEntry HearthomeGym_LostBattle
+    ScriptEntry HearthomeGym_TryRemoveBollards
+    ScriptEntryEnd
+
+HearthomeGym_TryRemoveBollards:
+    GoToIfSet FLAG_MAP_LOCAL_REMOVE_OBJECT, HearthomeGym_RemoveBollards
+    End
+
+HearthomeGym_RemoveBollards:
+    SetFlag FLAG_HIDE_HEARTHOME_CITY_GYM_BOLLARDS
+    RemoveObject LOCALID_BOLLARD_2
+    RemoveObject LOCALID_BOLLARD_1
+    ClearFlag FLAG_MAP_LOCAL_REMOVE_OBJECT
+    End
+
+HearthomeGym_Fantina:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GetPlayerDir VAR_RESULT
+    GoToIfEq VAR_RESULT, DIR_NORTH, HearthomeGym_FantinaPrepareSpinFaceSouth
+    GoToIfEq VAR_RESULT, DIR_SOUTH, HearthomeGym_FantinaPrepareSpinFaceNorth
+    GoToIfEq VAR_RESULT, DIR_WEST, HearthomeGym_FantinaPrepareSpinFaceEast
+    GoToIfEq VAR_RESULT, DIR_EAST, HearthomeGym_FantinaPrepareSpinFaceWest
+    End
+
+HearthomeGym_FantinaPrepareSpinFaceSouth:
+    ApplyMovement LOCALID_FANTINA, HearthomeGym_Movement_FantinaSpinFaceSouth
+    WaitMovement
+    GoTo HearthomeGym_FantinaMain
+
+HearthomeGym_FantinaPrepareSpinFaceNorth:
+    ApplyMovement LOCALID_FANTINA, HearthomeGym_Movement_FantinaSpinFaceNorth
+    WaitMovement
+    GoTo HearthomeGym_FantinaMain
+
+HearthomeGym_FantinaPrepareSpinFaceEast:
+    ApplyMovement LOCALID_FANTINA, HearthomeGym_Movement_FantinaSpinFaceEast
+    WaitMovement
+    GoTo HearthomeGym_FantinaMain
+
+HearthomeGym_FantinaPrepareSpinFaceWest:
+    ApplyMovement LOCALID_FANTINA, HearthomeGym_Movement_FantinaSpinFaceWest
+    WaitMovement
+    GoTo HearthomeGym_FantinaMain
+
+HearthomeGym_FantinaMain:
+    GoToIfBadgeAcquired BADGE_ID_RELIC, HearthomeGym_FantinaAfterBadge
+    CreateJournalEvent LOCATION_EVENT_GYM_WAS_TOO_TOUGH, MAP_HEADER_HEARTHOME_CITY_GYM_LEADER_ROOM
+    Message HearthomeGym_Text_FantinaIntro
+    CloseMessage
+    SetFlag FLAG_MAP_LOCAL_REMOVE_OBJECT
+    StartTrainerBattle TRAINER_LEADER_FANTINA
+    ClearFlag FLAG_MAP_LOCAL_REMOVE_OBJECT
+    CheckWonBattle VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, HearthomeGym_LostBattle
+    Message HearthomeGym_Text_BeatFantina
+    BufferPlayerName 0
+    Message HearthomeGym_Text_FantinaReceiveRelicBadge
+    PlayFanfare SEQ_BADGE_sseq
+    WaitFanfare
+    GiveBadge BADGE_ID_RELIC
+    IncrementTrainerScore2 TRAINER_SCORE_EVENT_BADGE_EARNED
+    SetTrainerFlag TRAINER_CAMPER_DREW
+    SetTrainerFlag TRAINER_ACE_TRAINER_ALLEN
+    SetTrainerFlag TRAINER_ACE_TRAINER_CATHERINE
+    SetTrainerFlag TRAINER_LASS_MOLLY
+    SetTrainerFlag TRAINER_PICNICKER_CHEYENNE
+    SetTrainerFlag TRAINER_SCHOOL_KID_CHANCE
+    SetTrainerFlag TRAINER_SCHOOL_KID_MACKENZIE
+    SetTrainerFlag TRAINER_YOUNGSTER_DONNY
+    CreateJournalEvent LOCATION_EVENT_BEAT_GYM_LEADER, MAP_HEADER_HEARTHOME_CITY_GYM_LEADER_ROOM, TRAINER_LEADER_FANTINA
+    SetVar VAR_ROUTE_209_GATE_TO_HEARTHOME_CITY_STATE, 1
+    SetFlag FLAG_HIDE_HEARTHOME_CITY_ROUTE_209_BLOCKADE
+    ClearFlag FLAG_HIDE_HEARTHOME_CITY_ROUTE_209_GATE_RIVAL
+    Message HearthomeGym_Text_FantinaExplainRelicBadge
+    GoTo HearthomeGym_FantinaTryGiveTM65
+
+// Sovereign (E10): as in Renegade, Fantina gives TM30 Shadow Ball (Platinum: TM65 Shadow Claw). The labels and the flag
+// keep Platinum's names.
+HearthomeGym_FantinaTryGiveTM65:
+    SetVar VAR_0x8004, ITEM_TM30
+    SetVar VAR_0x8005, 1
+    GoToIfCannotFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT, HearthomeGym_FantinaCannotGiveTM65
+    Common_GiveItemQuantity
+    SetFlag FLAG_RECEIVED_FANTINA_TM65
+    BufferItemName 0, VAR_0x8004
+    BufferTMHMMoveName 1, VAR_0x8004
+    Message HearthomeGym_FantinaExplainTM65
+    WaitButton
+    GoTo HearthomeGym_FantinaTryGiveMegaRing
+
+// Sovereign (docs/MegaEvolution.md): Fantina gives the Mega Ring with the Relic Badge, which unlocks Mega Evolution.
+HearthomeGym_FantinaTryGiveMegaRing:
+    GoToIfSet FLAG_SOVEREIGN_MEGA_UNLOCKED, HearthomeGym_FantinaEnd
+    Message HearthomeGym_Text_SovereignFantinaMegaRing
+    SetVar VAR_0x8004, ITEM_MEGA_RING
+    SetVar VAR_0x8005, 1
+    GoToIfCannotFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT, HearthomeGym_FantinaCannotGiveTM65
+    Common_GiveItemQuantity
+    SetFlag FLAG_SOVEREIGN_MEGA_UNLOCKED
+    Message HearthomeGym_Text_SovereignFantinaExplainMegaRing
+    WaitButton
+    GoTo HearthomeGym_FantinaEnd
+
+HearthomeGym_FantinaEnd:
+    CloseMessage
+    ReleaseAll
+    End
+
+HearthomeGym_FantinaCannotGiveTM65:
+    Common_MessageBagIsFull
+    CloseMessage
+    ReleaseAll
+    End
+
+HearthomeGym_FantinaAfterBadge:
+    GoToIfUnset FLAG_RECEIVED_FANTINA_TM65, HearthomeGym_FantinaTryGiveTM65
+    GoToIfUnset FLAG_SOVEREIGN_MEGA_UNLOCKED, HearthomeGym_FantinaTryGiveMegaRing
+    Message HearthomeGym_Text_FantinaAfterBadge
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+    .balign 4, 0
+HearthomeGym_Movement_FantinaSpinFaceSouth:
+    FaceWest 4
+    FaceNorth 4
+    FaceEast 4
+    FaceSouth 4
+    FaceWest 4
+    FaceNorth 4
+    FaceEast 4
+    FaceSouth 4
+    EndMovement
+
+    .balign 4, 0
+HearthomeGym_Movement_FantinaSpinFaceNorth:
+    FaceEast 4
+    FaceSouth 4
+    FaceWest 4
+    FaceNorth 4
+    FaceEast 4
+    FaceSouth 4
+    FaceWest 4
+    FaceNorth 4
+    EndMovement
+
+    .balign 4, 0
+HearthomeGym_Movement_FantinaSpinFaceEast:
+    FaceNorth 4
+    FaceWest 4
+    FaceSouth 4
+    FaceEast 4
+    FaceNorth 4
+    FaceWest 4
+    FaceSouth 4
+    FaceEast 4
+    EndMovement
+
+    .balign 4, 0
+HearthomeGym_Movement_FantinaSpinFaceWest:
+    FaceNorth 4
+    FaceEast 4
+    FaceSouth 4
+    FaceWest 4
+    FaceNorth 4
+    FaceEast 4
+    FaceSouth 4
+    FaceWest 4
+    EndMovement
+
+HearthomeGym_LostBattle:
+    ClearFlag FLAG_HIDE_HEARTHOME_CITY_GYM_BOLLARDS
+    BlackOutFromBattle
+    ReleaseAll
+    End
+
+    .balign 4, 0

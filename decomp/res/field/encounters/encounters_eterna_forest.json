@@ -1,0 +1,213 @@
+{
+    "land_rate": 30,
+    "land_encounters": [
+        {
+            "level": 14,
+            "species": "SPECIES_BUNEARY"
+        },
+        {
+            "level": 15,
+            "species": "SPECIES_SHROOMISH"
+        },
+        {
+            "level": 15,
+            "species": "SPECIES_PARAS"
+        },
+        {
+            "level": 16,
+            "species": "SPECIES_SLAKOTH"
+        },
+        {
+            "level": 15,
+            "species": "SPECIES_SLAKOTH"
+        },
+        {
+            "level": 15,
+            "species": "SPECIES_PETILIL"
+        },
+        {
+            "level": 14,
+            "species": "SPECIES_NINCADA"
+        },
+        {
+            "level": 14,
+            "species": "SPECIES_SPRITZEE"
+        },
+        {
+            "level": 15,
+            "species": "SPECIES_TAILLOW"
+        },
+        {
+            "level": 15,
+            "species": "SPECIES_GRUBBIN"
+        },
+        {
+            "level": 16,
+            "species": "SPECIES_DOTTLER"
+        },
+        {
+            "level": 16,
+            "species": "SPECIES_VIVILLON"
+        }
+    ],
+    "swarms": [
+        "SPECIES_BUNEARY",
+        "SPECIES_SHROOMISH"
+    ],
+    "day": [
+        "SPECIES_PARAS",
+        "SPECIES_SLAKOTH"
+    ],
+    "night": [
+        "SPECIES_MURKROW",
+        "SPECIES_MISDREAVUS"
+    ],
+    "radar": [
+        "SPECIES_BEAUTIFLY",
+        "SPECIES_DUSTOX",
+        "SPECIES_BEAUTIFLY",
+        "SPECIES_DUSTOX"
+    ],
+    "rate_form0": 0,
+    "rate_form1": 0,
+    "rate_form2": 0,
+    "rate_form3": 0,
+    "rate_form4": 0,
+    "unown_table": 0,
+    "ruby": [
+        "SPECIES_BUNEARY",
+        "SPECIES_TAILLOW"
+    ],
+    "sapphire": [
+        "SPECIES_BUNEARY",
+        "SPECIES_TAILLOW"
+    ],
+    "emerald": [
+        "SPECIES_BUNEARY",
+        "SPECIES_TAILLOW"
+    ],
+    "firered": [
+        "SPECIES_BUNEARY",
+        "SPECIES_TAILLOW"
+    ],
+    "leafgreen": [
+        "SPECIES_BUNEARY",
+        "SPECIES_TAILLOW"
+    ],
+    "surf_rate": 0,
+    "surf_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "old_rod_rate": 0,
+    "old_rod_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "good_rod_rate": 0,
+    "good_rod_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "super_rod_rate": 0,
+    "super_rod_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "map_category": {
+        "map_type": "dungeon",
+        "map_number": 2
+    }
+}

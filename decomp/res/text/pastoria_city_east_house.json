@@ -1,0 +1,105 @@
+{
+  "key": 13355,
+  "messages": [
+    {
+      "id": "PastoriaCityEastHouse_Text_ICanTeachAMove",
+      "en_US": [
+        "Everyone calls me the Pokémon\n",
+        "Move Maniac. I prefer Move Tutor.\r",
+        "I know every move that Pokémon learn\n",
+        "while they’re leveling up, and I can\f",
+        "teach Pokémon those moves.\r",
+        "I can teach a move to a Pokémon\n",
+        "of yours if you’d like.\r"
+      ]
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_WantMeToTeachAMove",
+      "en_US": [
+        "Let me guess, you want me to teach\n",
+        "one of your Pokémon a move?\r"
+      ]
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_ComeBackAnytime",
+      "en_US": [
+        "No problem. Come back again if you\n",
+        "want me to teach your Pokémon a move."
+      ]
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_TutorWhichPokemon",
+      "en_US": "Which Pokémon needs tutoring?\r"
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_TeachWhichMove",
+      "en_US": "Which move should I teach?\r"
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_NoMovesToTeach",
+      "en_US": [
+        "Sorry...\r",
+        "There isn’t any move I can teach\n",
+        "that Pokémon."
+      ]
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_EggsCantLearnMoves",
+      "en_US": [
+        "Hunh?\r",
+        "Don’t you think it’d be tough for\n",
+        "an Egg to learn a move?"
+      ]
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy7",
+      "garbage": 23
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy8",
+      "garbage": 16
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy9",
+      "garbage": 28
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy10",
+      "garbage": 25
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy11",
+      "garbage": 88
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy12",
+      "garbage": 29
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy13",
+      "garbage": 25
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy14",
+      "garbage": 22
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_Dummy15",
+      "garbage": 76
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_ThatllDoIt",
+      "en_US": [
+        "That’ll do it. Come back again if you\n",
+        "want me to teach your Pokémon a move."
+      ]
+    },
+    {
+      "id": "PastoriaCityEastHouse_Text_BrotherIsWalkingPokedex",
+      "en_US": [
+        "My big brother is crazy knowledgeable!\n",
+        "He’s practically a walking Pokédex."
+      ]
+    }
+  ]
+}

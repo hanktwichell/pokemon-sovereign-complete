@@ -1,0 +1,77 @@
+{
+    "name": "Brenna",
+    "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DEWGONG",
+            "form": 0,
+            "level": 53,
+            "item": null,
+            "moves": [
+                "MOVE_REST",
+                "MOVE_SLEEP_TALK",
+                "MOVE_SURF",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLOYSTER",
+            "form": 0,
+            "level": 53,
+            "item": null,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_ICICLE_SPEAR",
+                "MOVE_ROCK_BLAST",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LAPRAS",
+            "form": 0,
+            "level": 53,
+            "item": null,
+            "moves": [
+                "MOVE_SHEER_COLD",
+                "MOVE_SING",
+                "MOVE_SURF",
+                "MOVE_BLIZZARD"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ve only been involved with Pokémon\n",
+                "for a short time.\r",
+                "I managed to get this far because\n",
+                "skilled friends toughened me up!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "I can’t believe how tough you are!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you have wonderful friends, there\n",
+                "is no limit to how far you can go.\n"
+            ]
+        }
+    ]
+}

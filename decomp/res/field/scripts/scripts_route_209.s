@@ -1,0 +1,268 @@
+#include "macros/scrcmd.inc"
+#include "res/text/bank/route_209.h"
+#include "res/field/events/events_route_209.h"
+
+
+    ScriptEntry Route209_PokefanM
+    ScriptEntry Route209_HallowedTower
+    ScriptEntry Route209_ArrowSignpostHearthomeCity
+    ScriptEntry Route209_ArrowSignpostSolaceonTown
+    ScriptEntry Route209_Fisherman
+    ScriptEntry Route209_JoggerRichard
+    ScriptEntry Route209_JoggerRaul
+    ScriptEntry Route209_OnTransition
+    ScriptEntry Route209_TrainerTipsSignpost
+    ScriptEntry Route209_SovereignMewBuneary
+    ScriptEntryEnd
+
+Route209_OnTransition:
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
+    GoToIfEq VAR_MAP_LOCAL_0x00, TIMEOFDAY_MORNING, Route209_SetJoggersBattle
+    GoToIfInRange VAR_MAP_LOCAL_0x00, TIMEOFDAY_DAY, TIMEOFDAY_LATE_NIGHT, Route209_SetJoggersNoBattle
+    End
+
+Route209_SetJoggersBattle:
+    ClearFlag FLAG_HIDE_ROUTE_209_JOGGER_RICHARD
+    ClearFlag FLAG_HIDE_ROUTE_209_JOGGER_RAUL
+    SetFlag FLAG_HIDE_ROUTE_209_JOGGER_RICHARD_NO_BATTLE
+    SetFlag FLAG_HIDE_ROUTE_209_JOGGER_RAUL_NO_BATTLE
+    End
+
+Route209_SetJoggersNoBattle:
+    ClearFlag FLAG_HIDE_ROUTE_209_JOGGER_RICHARD_NO_BATTLE
+    ClearFlag FLAG_HIDE_ROUTE_209_JOGGER_RAUL_NO_BATTLE
+    SetFlag FLAG_HIDE_ROUTE_209_JOGGER_RICHARD
+    SetFlag FLAG_HIDE_ROUTE_209_JOGGER_RAUL
+    End
+
+Route209_PokefanM:
+    NPCMessage Route209_Text_ThisIsTheLostTower
+    End
+
+Route209_HallowedTower:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    @ Sovereign (E10, Renegade): Spiritomb comes at once after the Odd Keystone, without the 32 Underground talks.
+    GoToIfEq VAR_HALLOWED_TOWER_STATE, 1, Route209_EncounterSpiritomb
+    CheckItem ITEM_ODD_KEYSTONE, 1, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, Route209_ThereIsABrokenTower
+    Message Route209_Text_UseTheOddKeystone
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, Route209_UseOddKeystone
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_UseOddKeystone:
+    BufferPlayerName 0
+    Message Route209_Text_PlayerUsedTheOddKeystone
+    WaitButton
+    RemoveItem ITEM_ODD_KEYSTONE, 1, VAR_RESULT
+    CloseMessage
+    WaitTime 30, VAR_RESULT
+    GoTo Route209_EncounterSpiritomb
+    End
+
+Route209_CheckSpiritombCounter:
+    GetSpiritombCounter VAR_RESULT
+    GoToIfGe VAR_RESULT, 32, Route209_EncounterSpiritomb
+    GoToIfGe VAR_RESULT, 29, Route209_SomeSortOfPresence
+    GoToIfGe VAR_RESULT, 22, Route209_IsThatTowerShaking
+    GoToIfGe VAR_RESULT, 15, Route209_CryingComingFromInside
+    GoToIfGe VAR_RESULT, 8, Route209_StonesAppearToHaveShifted
+    GoTo Route209_BuiltManyYearsAgo
+
+Route209_EncounterSpiritomb:
+    WaitSE SE_CONFIRM_sseq_3
+    PlayCry SPECIES_SPIRITOMB
+    Message Route209_Text_SpiritombCry
+    WaitCry
+    CloseMessage
+    StartWildBattle SPECIES_SPIRITOMB, 30
+    CheckWonBattle VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, Route209_BlackOut
+    SetVar VAR_HALLOWED_TOWER_STATE, 0
+    ClearSpiritombCounter
+    End
+
+Route209_BlackOut:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+
+Route209_BuiltManyYearsAgo:
+    Message Route209_Text_BuiltManyYearsAgo
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_StonesAppearToHaveShifted:
+    Message Route209_Text_StonesAppearToHaveShifted
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_CryingComingFromInside:
+    Message Route209_Text_CryingComingFromInside
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_IsThatTowerShaking:
+    Message Route209_Text_IsTheTowerShaking
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_SomeSortOfPresence:
+    Message Route209_Text_SomeSortOfPresence
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_ThereIsABrokenTower:
+    Message Route209_Text_ThereIsABrokenTower
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_Fisherman:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    SetVar VAR_0x8004, ITEM_GOOD_ROD
+    BufferItemNameWithArticle 0, VAR_0x8004
+    CapitalizeFirstLetter 0
+    GoToIfSet FLAG_RECEIVED_GOOD_ROD, Route209_AskExplainHowToFish
+    Message Route209_Text_GoodRodIsReallyGood
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, Route209_AcceptGoodRod
+    GoToIfEq VAR_RESULT, MENU_NO, Route209_RefuseGoodRod
+    End
+
+Route209_AskExplainHowToFish:
+    BufferItemName 0, VAR_0x8004
+    Message Route209_Text_DoINeedToExplain
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, Route209_ExplainHowToFish
+    GoToIfEq VAR_RESULT, MENU_NO, Route209_WhenYouReelYouBattle
+    End
+
+Route209_ExplainHowToFish:
+    Message Route209_Text_ExplainHowToFish
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_WhenYouReelYouBattle:
+    Message Route209_Text_WhenYouReelYouBattle
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_RefuseGoodRod:
+    Message Route209_Text_YouDontLikeToFish
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+Route209_AcceptGoodRod:
+    BufferItemName 0, VAR_0x8004
+    Message Route209_Text_TakeThisGoodRod
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_RECEIVED_GOOD_ROD
+    GoTo Route209_AskExplainHowToFish
+
+Route209_ArrowSignpostHearthomeCity:
+    ShowArrowSign Route209_Text_SignHearthomeCity
+    End
+
+Route209_ArrowSignpostSolaceonTown:
+    ShowArrowSign Route209_Text_SignSolaceonTown
+    End
+
+Route209_TrainerTipsSignpost:
+    ShowScrollingSign Route209_Text_TrainerTipsRegisterKeyItems
+    End
+
+Route209_JoggerRichard:
+    NPCMessage Route209_Text_DoYouJogEveryMorning
+    End
+
+Route209_JoggerRaul:
+    NPCMessage Route209_Text_PokemonChasedAfterMe
+    End
+
+    
+
+@ Sovereign (E10, Renegade's Mew event, step 2 of 4): a hungry Buneary wants a Sitrus Berry. Feeding it brings Mew,
+@ which flies off to the next step (Route 203 Shroomish, Route 209 Buneary, Pastoria City Torchic, Route 201).
+Route209_SovereignMewBuneary:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    PlayCry SPECIES_BUNEARY
+    Message Route209_Text_SovereignMewBunearyCry
+    WaitCry
+    Message Route209_Text_SovereignMewBunearyHungry
+    CheckItem ITEM_SITRUS_BERRY, 1, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, Route209_SovereignMewBunearyEnd
+    Message Route209_Text_SovereignMewBunearyAskGive
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, Route209_SovereignMewBunearyEnd
+    RemoveItem ITEM_SITRUS_BERRY, 1, VAR_RESULT
+    PlayCry SPECIES_BUNEARY
+    Message Route209_Text_SovereignMewBunearyHappy
+    WaitCry
+    Message Route209_Text_SovereignMewBunearyAte
+    CloseMessage
+    WaitTime 5, VAR_RESULT
+    FadeScreenOut FADE_SCREEN_SPEED_FAST, COLOR_WHITE
+    WaitFadeScreen
+    SetFlag FLAG_SOVEREIGN_HIDE_MEW_BUNEARY
+    RemoveObject LOCALID_SOVEREIGN_MEW_BUNEARY
+    SetObjectEventPos LOCALID_SOVEREIGN_MEW, 548, 674
+    AddObject LOCALID_SOVEREIGN_MEW
+    FadeScreenIn FADE_SCREEN_SPEED_FAST, COLOR_WHITE
+    WaitFadeScreen
+    ApplyMovement LOCALID_SOVEREIGN_MEW, Route209_SovereignMovement_MewNotice
+    WaitMovement
+    PlayCry SPECIES_MEW
+    Message Route209_Text_SovereignMewCry
+    WaitCry
+    CloseMessage
+    FadeScreenOut FADE_SCREEN_SPEED_FAST, COLOR_WHITE
+    WaitFadeScreen
+    RemoveObject LOCALID_SOVEREIGN_MEW
+    FadeScreenIn FADE_SCREEN_SPEED_FAST, COLOR_WHITE
+    WaitFadeScreen
+    WaitTime 15, VAR_RESULT
+    Message Route209_Text_SovereignMewDisappeared
+    WaitButton
+    CloseMessage
+    ClearFlag FLAG_SOVEREIGN_HIDE_MEW_TORCHIC
+    ReleaseAll
+    End
+
+Route209_SovereignMewBunearyEnd:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+    .balign 4, 0
+Route209_SovereignMovement_MewNotice:
+    EmoteExclamationMark
+    EndMovement
+
+    .balign 4, 0

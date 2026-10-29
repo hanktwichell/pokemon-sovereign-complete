@@ -1,0 +1,123 @@
+{
+    "name": "Roark",
+    "class": "TRAINER_CLASS_LEADER_ROARK",
+    "items": [
+        "ITEM_SUPER_POTION",
+        "ITEM_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NOSEPASS",
+            "form": 0,
+            "level": 15,
+            "item": "ITEM_SMOOTH_ROCK",
+            "moves": [
+                "MOVE_STEALTH_ROCK",
+                "MOVE_SANDSTORM",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_SHOCK_WAVE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BONSLY",
+            "form": 0,
+            "level": 15,
+            "item": "ITEM_RINDO_BERRY",
+            "moves": [
+                "MOVE_STEALTH_ROCK",
+                "MOVE_BRICK_BREAK",
+                "MOVE_ROLLOUT",
+                "MOVE_DEFENSE_CURL"
+            ],
+            "iv_scale": 251,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GEODUDE",
+            "form": 0,
+            "level": 15,
+            "item": "ITEM_EXPERT_BELT",
+            "moves": [
+                "MOVE_BULLDOZE",
+                "MOVE_ROCK_TOMB",
+                "MOVE_FIRE_PUNCH",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 244,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ONIX",
+            "form": 0,
+            "level": 15,
+            "item": "ITEM_MUSCLE_BAND",
+            "moves": [
+                "MOVE_STEALTH_ROCK",
+                "MOVE_ROCK_TOMB",
+                "MOVE_BULLDOZE",
+                "MOVE_SANDSTORM"
+            ],
+            "iv_scale": 245,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LARVITAR",
+            "form": 0,
+            "level": 15,
+            "item": "ITEM_FLAME_ORB",
+            "moves": [
+                "MOVE_ROCK_TOMB",
+                "MOVE_BULLDOZE",
+                "MOVE_BITE",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 252,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CRANIDOS",
+            "form": 0,
+            "level": 16,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_ZEN_HEADBUTT",
+                "MOVE_ROCK_TOMB",
+                "MOVE_SCARY_FACE",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 254,
+            "ball_seal": 12
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Think you can take down the \n",
+                "next Pokémon like you did earlier?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "No way! Not yet!\n",
+                "Not giving up!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "W-what? That can’t be!\n",
+                "My buffed-up Pokémon!\n"
+            ]
+        }
+    ]
+}

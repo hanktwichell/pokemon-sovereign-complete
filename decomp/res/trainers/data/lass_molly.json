@@ -1,0 +1,45 @@
+{
+    "name": "Molly",
+    "class": "TRAINER_CLASS_LASS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MISDREAVUS",
+            "form": 0,
+            "level": 29,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Boo! Did I scare you?\n",
+                "This battle will!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Uh, whoopsie!\n",
+                "That didn’t end well!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Since you’re here, you might as well\n",
+                "take on every Trainer.\n"
+            ]
+        }
+    ]
+}

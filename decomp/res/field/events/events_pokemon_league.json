@@ -1,0 +1,217 @@
+{
+    "bg_events": [
+        {
+            "script": 8120,
+            "type": 2,
+            "x": 842,
+            "z": 580,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 842,
+            "z": 577,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 843,
+            "z": 577,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 851,
+            "z": 577,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 852,
+            "z": 577,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 837,
+            "z": 561,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 838,
+            "z": 561,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 856,
+            "z": 561,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 3,
+            "type": 0,
+            "x": 857,
+            "z": 561,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "LOCALID_SIGNBOARD",
+            "graphics_id": "OBJ_EVENT_GFX_SIGNBOARD",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 2,
+            "initial_dir": 0,
+            "data": [],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 848,
+            "z": 598,
+            "y": 0
+        },
+        {
+            "id": "LOCALID_ARROW_SIGNPOST",
+            "graphics_id": "OBJ_EVENT_GFX_ARROW_SIGNPOST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 1,
+            "initial_dir": 0,
+            "data": [
+                3
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 849,
+            "z": 580,
+            "y": 0
+        },
+        {
+            "id": "LOCALID_SOVEREIGN_GUARD",
+            "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 4,
+            "initial_dir": 1,
+            "data": [],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 851,
+            "z": 598,
+            "y": 0
+        },
+        {
+            "id": "LOCALID_LEGENDARY_RAYQUAZA",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_RAYQUAZA",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_HIDE_LEGENDARY",
+            "script": 8,
+            "initial_dir": 1,
+            "data": [],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 847,
+            "z": 572,
+            "y": 0
+        },
+        {
+            "id": "LOCALID_SOVEREIGN_FLYING_MASTER",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 9,
+            "initial_dir": 3,
+            "data": [],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 859,
+            "z": 564,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 842,
+            "z": 598,
+            "dest_header_id": "MAP_HEADER_POKEMON_LEAGUE_SOUTH_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 847,
+            "z": 559,
+            "dest_header_id": "MAP_HEADER_POKEMON_LEAGUE_NORTH_POKECENTER_1F",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 851,
+            "z": 597,
+            "dest_header_id": "MAP_HEADER_VICTORY_ROAD_1F",
+            "dest_warp_id": 7
+        },
+        {
+            "x": 853,
+            "z": 582,
+            "dest_header_id": "MAP_HEADER_VICTORY_ROAD_1F",
+            "dest_warp_id": 8
+        },
+        {
+            "x": 850,
+            "z": 597,
+            "dest_header_id": "MAP_HEADER_VICTORY_ROAD_1F",
+            "dest_warp_id": 7
+        },
+        {
+            "x": 852,
+            "z": 597,
+            "dest_header_id": "MAP_HEADER_VICTORY_ROAD_1F",
+            "dest_warp_id": 7
+        },
+        {
+            "x": 853,
+            "z": 581,
+            "dest_header_id": "MAP_HEADER_VICTORY_ROAD_1F",
+            "dest_warp_id": 8
+        },
+        {
+            "x": 853,
+            "z": 583,
+            "dest_header_id": "MAP_HEADER_VICTORY_ROAD_1F",
+            "dest_warp_id": 8
+        }
+    ],
+    "coord_events": [
+        {
+            "script": 5,
+            "x": 850,
+            "z": 598,
+            "y": 0,
+            "width": 3,
+            "length": 1,
+            "var": "VAR_MAP_LOCAL_0x00",
+            "value": 0
+        }
+    ]
+}

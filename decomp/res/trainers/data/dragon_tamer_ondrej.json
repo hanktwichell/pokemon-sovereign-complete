@@ -1,0 +1,90 @@
+{
+    "name": "Ondrej",
+    "class": "TRAINER_CLASS_DRAGON_TAMER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_MUDDY_WATER",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_ICE_BEAM",
+                "MOVE_SIGNAL_BEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALTARIA",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_DRAGON_PULSE",
+                "MOVE_FLAMETHROWER",
+                "MOVE_ICE_BEAM",
+                "MOVE_HURRICANE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SALAMENCE",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_DRAGON_CLAW",
+                "MOVE_ZEN_HEADBUTT",
+                "MOVE_FIRE_FANG",
+                "MOVE_THUNDER_FANG"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHARIZARD",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_HURRICANE",
+                "MOVE_CRUNCH"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I take Pokémon that are tough to begin\n",
+                "with and toughen them up even more.\r",
+                "You can help me!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "There’s no way I could have won!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "How should I teach the most powerful\n",
+                "of the Dragon-type moves...?\n"
+            ]
+        }
+    ]
+}

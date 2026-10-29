@@ -1,0 +1,26 @@
+{
+    "name": "Teleport",
+    "description": [
+        "The user switches\n",
+        "out. A wild Pokémon\n",
+        "flees. It also warps\n",
+        "to the last Poké\n",
+        "Center visited."
+    ],
+    "class": "CLASS_STATUS",
+    "type": "TYPE_PSYCHIC",
+    "power": 0,
+    "accuracy": 0,
+    "pp": 20,
+    "effect": {
+        "type": "BATTLE_EFFECT_FLEE_FROM_WILD_BATTLE",
+        "chance": 0
+    },
+    "range": "RANGE_USER",
+    "priority": -6,
+    "flags": [],
+    "contest": {
+        "effect": "CONTEST_EFFECT_FIRST_NEXT_TURN",
+        "type": "CONTEST_TYPE_COOL"
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "name": "Albert",
+    "class": "TRAINER_CLASS_BREEDER_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TYROGUE",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHINGLING",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BONSLY",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGBY",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELEKID",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MIME_JR",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let me see how much you’ve raised\n",
+                "your Pokémon.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Good stuff! Your Pokémon are in\n",
+                "impeccable condition.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It’s obvious you raise your Pokémon\n",
+                "with a lot of love.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’ve raised my Pokémon since we met.\n",
+                "How much have you raised yours?\r"
+            ]
+        }
+    ]
+}

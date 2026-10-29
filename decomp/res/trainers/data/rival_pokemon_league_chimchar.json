@@ -1,0 +1,120 @@
+{
+    "name": "Cedric",
+    "class": "TRAINER_CLASS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_STARAPTOR",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_CHOICE_SCARF",
+            "moves": [
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_BRAVE_BIRD",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_U_TURN"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HERACROSS",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_TOXIC_ORB",
+            "moves": [
+                "MOVE_MEGAHORN",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_STONE_EDGE",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SNORLAX",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_LEFTOVERS",
+            "moves": [
+                "MOVE_BODY_SLAM",
+                "MOVE_EARTHQUAKE",
+                "MOVE_CURSE",
+                "MOVE_SLACK_OFF"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BRELOOM",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_BULLET_SEED",
+                "MOVE_FORCE_PALM",
+                "MOVE_STONE_EDGE",
+                "MOVE_SPORE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_WILD_CHARGE",
+                "MOVE_CRUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EMPOLEON",
+            "form": 0,
+            "level": 71,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_FLASH_CANNON",
+                "MOVE_GRASS_KNOT",
+                "MOVE_BLIZZARD"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 24
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "I fully believe in this last one.\n",
+                "I have no reason to freak out.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "We’re not finished yet! We’ll get out\n",
+                "of this spot because we’re so tight!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What just went down?!\n",
+                "My team still needs raising?!\n"
+            ]
+        }
+    ]
+}

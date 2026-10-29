@@ -1,0 +1,79 @@
+{
+    "name": "Meghan",
+    "class": "TRAINER_CLASS_POKE_KID",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PICHU",
+            "form": 0,
+            "level": 56,
+            "item": null,
+            "moves": [
+                "MOVE_NASTY_PLOT",
+                "MOVE_SWEET_KISS",
+                "MOVE_THUNDERBOLT",
+                "MOVE_CHARM"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PICHU",
+            "form": 0,
+            "level": 56,
+            "item": null,
+            "moves": [
+                "MOVE_NASTY_PLOT",
+                "MOVE_SWEET_KISS",
+                "MOVE_THUNDERBOLT",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PIKACHU",
+            "form": 0,
+            "level": 59,
+            "item": null,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_AGILITY",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_GRASS_KNOT"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Look at the way I’m dressed.\n",
+                "Can’t you see that I’m hardcore?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I was being serious!\n",
+                "Don’t laugh at me! I mean it!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I dress this way so I can get a feel for\n",
+                "how electric Pokémon think.\r",
+                "Would you like to try, too?\n"
+            ]
+        }
+    ]
+}

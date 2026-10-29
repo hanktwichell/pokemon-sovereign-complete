@@ -1,0 +1,68 @@
+{
+    "name": "Dalton",
+    "class": "TRAINER_CLASS_ACE_TRAINER_SNOW_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGMORTAR",
+            "form": 0,
+            "level": 72,
+            "item": null,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_THUNDERBOLT",
+                "MOVE_PSYCHIC",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VENUSAUR",
+            "form": 0,
+            "level": 72,
+            "item": null,
+            "moves": [
+                "MOVE_PETAL_DANCE",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_EARTHQUAKE",
+                "MOVE_SLEEP_POWDER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 72,
+            "item": null,
+            "moves": [
+                "MOVE_MUDDY_WATER",
+                "MOVE_ICE_BEAM",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_YAWN"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "We’ll come at you with our hearts\n",
+                "ablaze!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "Your heart burns as hot as mine!\n"
+        }
+    ]
+}

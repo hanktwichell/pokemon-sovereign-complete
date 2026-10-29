@@ -1,0 +1,72 @@
+{
+    "name": "Rebekah",
+    "class": "TRAINER_CLASS_POKEFAN_FEMALE",
+    "items": [
+        "ITEM_FULL_HEAL",
+        "ITEM_SUPER_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLEFAIRY",
+            "form": 0,
+            "level": 30,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WAILMER",
+            "form": 0,
+            "level": 30,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BONSLY",
+            "form": 0,
+            "level": 30,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKITTY",
+            "form": 0,
+            "level": 30,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I need to shake off my sorrow...\n",
+                "Please, battle with me!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "My sorrow has deepened...\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I won’t ever forget the Pokémon that\n",
+                "I’ve spent time with, however fleeting.\n"
+            ]
+        }
+    ]
+}

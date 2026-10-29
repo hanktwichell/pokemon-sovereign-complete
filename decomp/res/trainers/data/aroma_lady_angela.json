@@ -1,0 +1,63 @@
+{
+    "name": "Angela",
+    "class": "TRAINER_CLASS_AROMA_LADY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ROSELIA",
+            "form": 0,
+            "level": 23,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BAYLEEF",
+            "form": 0,
+            "level": 23,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKIPLOOM",
+            "form": 0,
+            "level": 23,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Even concealed, there is no hiding\n",
+                "the aroma of flowers.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Just like your inability to conceal\n",
+                "your abundant skill.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Your next opponent is under four\n",
+                "flowers.\n"
+            ]
+        }
+    ]
+}

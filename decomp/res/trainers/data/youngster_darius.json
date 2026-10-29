@@ -1,0 +1,63 @@
+{
+    "name": "Darius",
+    "class": "TRAINER_CLASS_YOUNGSTER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARON",
+            "form": 0,
+            "level": 13,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ANORITH",
+            "form": 0,
+            "level": 13,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LILEEP",
+            "form": 0,
+            "level": 13,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Only those who want to win can\n",
+                "challenge a Pokémon Gym!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Gggh...\n",
+                "This is humiliating!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "One day, I’m going to become a tough\n",
+                "Trainer like you.\n"
+            ]
+        }
+    ]
+}

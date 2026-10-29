@@ -1,0 +1,27 @@
+#include "macros/btlcmd.inc"
+
+// Sovereign (item 11): Entrainment. The target's ability becomes the user's.
+
+_000:
+    CompareVarToValue OPCODE_FLAG_SET, BTLVAR_MOVE_STATUS_FLAGS, MOVE_STATUS_MISSED|MOVE_STATUS_SEMI_INVULNERABLE, _fail
+    CheckSubstitute BTLSCR_DEFENDER, _fail
+    // Gen IX's rules (the abilities that can't be passed on or overwritten, a Truant target, the same ability)
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SOVEREIGN_ENTRAINMENT_FAILS, 0, _fail
+    UpdateMonDataFromVar OPCODE_GET, BTLSCR_ATTACKER, BATTLEMON_ABILITY, BTLVAR_CALC_TEMP
+    // Sovereign (item 11): an Ability Shield keeps its holder's Ability
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SOVEREIGN_ABILITY_SHIELD_DEFENDER, 0, _sovereign_ability_shield
+    Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
+    UpdateMonDataFromVar OPCODE_SET, BTLSCR_DEFENDER, BATTLEMON_ABILITY, BTLVAR_CALC_TEMP
+    // {0} acquired {1}!
+    PrintMessage BattleStrings_Text_PokemonAcquiredAbility_Ally, TAG_NICKNAME_ABILITY, BTLSCR_DEFENDER, BTLSCR_DEFENDER
+    Wait 
+    WaitButtonABTime 30
+    End 
+
+_fail:
+    UpdateVar OPCODE_FLAG_ON, BTLVAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
+    End 
+
+_sovereign_ability_shield:
+    Call BATTLE_SUBSCRIPT_SOVEREIGN_ABILITY_SHIELD
+    End 

@@ -1,0 +1,76 @@
+{
+  "key": 33815,
+  "messages": [
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignTakeThisTM",
+      "en_US": [
+        "Santoryu?\r",
+        "Nitoryu?\r",
+        "All you need is one sword to\n",
+        "perform the Turning Swallow Cut!\r",
+        "Your enemies will be cut down\n",
+        "before they can even blink!\r",
+        "But swordsmanship is difficult in\n",
+        "my old age...\r",
+        "Your Pokémon can perform a similar\n",
+        "technique too, you know.\r",
+        "Take this TM, youngster.\r"
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignTM40IsAerialAce",
+      "en_US": [
+        "That TM contains Aerial Ace.\r",
+        "With its swiftness and accuracy, the\n",
+        "move will never miss its target."
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignIMissTheSword",
+      "en_US": [
+        "Ah, I do miss practicing the way\n",
+        "of the sword in my youth."
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignAskTradeCherubiForSkorupi",
+      "en_US": [
+        "By any chance, do you have a Pokémon\n",
+        "called CHERUBI?\r",
+        "If you do, would you like to trade\n",
+        "your CHERUBI for my SKORUPI?"
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignTreatMySkorupiNicely",
+      "en_US": [
+        "SKORUPI isn’t fitting for such a\n",
+        "beautiful lady like myself.\r",
+        "Just kidding!\r",
+        "Please treat my SKORUPI nicely.\n",
+        "I’ll be good to your CHERUBI, too!"
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignIAskedForCherubi",
+      "en_US": [
+        "What I asked for was a CHERUBI...?"
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignOKIfYouDontWant",
+      "en_US": [
+        "It’s OK if you don’t want to.\r",
+        "But if you change your mind, let’s\n",
+        "trade Pokémon."
+      ]
+    },
+    {
+      "id": "FloaromaTownMiddleHouse_Text_SovereignWeGotToBeFriends",
+      "en_US": [
+        "Thanks to Pokémon, we got to be\n",
+        "friends, didn’t we?"
+      ]
+    }
+  ]
+}

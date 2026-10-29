@@ -1,0 +1,25 @@
+#include "macros/btlcmd.inc"
+
+
+_000:
+    CompareVarToValue OPCODE_FLAG_SET, BTLVAR_BATTLE_CTX_STATUS, SYSCTL_SKIP_SPRITE_BLINK, _016
+    PlayMoveHitSound BTLSCR_MSG_TEMP
+    FlickerMon BTLSCR_MSG_TEMP
+    Wait 
+    CompareVarToValue OPCODE_EQU, BTLVAR_WAITING_BATTLERS, 0, _016
+    Call BATTLE_SUBSCRIPT_TYPE_RESIST_BERRY
+    // Sovereign (item 11): the attacker's Gem, used up as the hit it powered up lands
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_GEM_USED, 0, _016
+    Call BATTLE_SUBSCRIPT_SOVEREIGN_GEM
+
+_016:
+    UpdateVar OPCODE_FLAG_OFF, BTLVAR_BATTLE_CTX_STATUS, SYSCTL_SKIP_SPRITE_BLINK
+    UpdateHealthBar BTLSCR_MSG_TEMP
+    Wait 
+    UpdateHealthBarValue BTLSCR_MSG_TEMP
+    TryFaintMon BTLSCR_MSG_TEMP
+    CompareVarToValue OPCODE_GT, BTLVAR_HP_CALC_TEMP, 0, _036
+    UpdateVarFromVar OPCODE_SET, BTLVAR_MSG_BATTLER_TEMP_ASSURANCE_DAMAGE_MASK, BTLVAR_HP_CALC_TEMP
+
+_036:
+    End 

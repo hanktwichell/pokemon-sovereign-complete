@@ -1,0 +1,331 @@
+{
+  "key": 11123,
+  "messages": [
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_IfYouUseFly",
+      "en_US": [
+        "If you use the hidden move Fly,\n",
+        "you’ll be instantly whisked to any\f",
+        "town you’ve visited before."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_MayleneIsCute",
+      "en_US": [
+        "Maylene, the Gym Leader, is a cute\n",
+        "girl.\r",
+        "But don’t let her looks fool you.\n",
+        "Even grown-ups have trouble with her."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_OliNotEnoughPokemon_Unused",
+      "en_US": [
+        "Two Pokémon! If you had two Pokémon,\n",
+        "we’d get a great shot here."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_OliIntro_Unused",
+      "en_US": [
+        "Oh! You’re ready for a battle\n",
+        "with us?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_OliBattleAccepted_Unused",
+      "en_US": [
+        "You’re live on camera, but try to act\n",
+        "natural, OK?\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_OliBattleDeclined_Unused",
+      "en_US": [
+        "OK, that’s how it is, huh.\n",
+        "Can’t do anything about that."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_OliPostBattle_Unused",
+      "en_US": [
+        "I’d like to take that footage and\n",
+        "broadcast it worldwide."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_RoxyNotEnoughPokemon_Unused",
+      "en_US": [
+        "Oh, no. What we really want to see\n",
+        "is you battling using two Pokémon!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_RoxyIntro_Unused",
+      "en_US": [
+        "Giggle!\n",
+        "Will you have a battle with us?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_RoxyBattleAccepted_Unused",
+      "en_US": [
+        "We’ll thoroughly check out your\n",
+        "abilities as a Trainer!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_RoxyBattleDeclined_Unused",
+      "en_US": [
+        "Oh, too bad!\n",
+        "I wanted to check out your Pokémon!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_RoxyPostBattle_Unused",
+      "en_US": [
+        "I lost but I’m totally thrilled!\n",
+        "We made a wonderful spectacle!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignDuelWithDragons",
+      "en_US": [
+        "A duel with dragons!\n",
+        "Isn’t the idea simply exquisite?\r",
+        "What say you to a battle against\n",
+        "my lovely Dragon-type squad?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignDraconicForce",
+      "en_US": [
+        "Oh, yes!\n",
+        "Prepare for my draconic force!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignBequeathItem",
+      "en_US": [
+        "...\r",
+        "Well, perhaps draconic force isn’t\n",
+        "enough to win a battle by itself.\r",
+        "You are an impressive Trainer!\n",
+        "I bequeath this item upon you!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignDragonScaleExplains",
+      "en_US": [
+        "The Dragon Scale will allow you to\n",
+        "unleash the power of Dragon Pokémon!\r",
+        "Assuming you have a Seadra to evolve\n",
+        "using that Dragon Scale, of course."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignDragonsAlwaysStrong",
+      "en_US": [
+        "Dragons have always been strong.\n",
+        "They will continue to be strong.\r",
+        "But those Fairy-type Pokémon...\n",
+        "What a nuisance! They are truly awful!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignPerhapsYouThinkIllWin",
+      "en_US": [
+        "I see...\n",
+        "Perhaps you think I’ll win, yes?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerIntro",
+      "en_US": [
+        "Hello there! I’m Leilani from Jubilife\n",
+        "TV, the Fun-and-Games TV Station!\r",
+        "We’re taking our quiz show all over\n",
+        "Sinnoh. Answer five questions right,\r",
+        "and you’ll win a fantastic prize!\r",
+        "Today’s theme is the Alola\n",
+        "region. Do you want to have a go?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerNotYet",
+      "en_US": [
+        "Hello there! I’m\n",
+        "Leilani from Jubilife TV.\r",
+        "Our quiz is for Trainers who’ve\n",
+        "earned the Cobble Badge.\r",
+        "Come back once you have it,\n",
+        "and we’ll roll the cameras!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerDeclined",
+      "en_US": [
+        "Aww... Well, we’ll be right\n",
+        "here if you change your mind!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerRollCamera",
+      "en_US": [
+        "Wonderful! Roll camera!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerLetsFind",
+      "en_US": [
+        "Let’s find out if you’re right!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerWrong",
+      "en_US": [
+        "Oh no, I’m sorry... That’s\n",
+        "not the right answer.\r",
+        "You’re welcome to try again anytime!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerWon",
+      "en_US": [
+        "We have a winner! Congratulations!\r",
+        "Your grand prize is the three\n",
+        "Pokémon I just battled you with!\r",
+        "The first partners of the Alola\n",
+        "region: Rowlet, Litten and Popplio!\r",
+        "Talk to me when you’re\n",
+        "ready to take them."
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerNoRoom",
+      "en_US": [
+        "I’d love to hand over your prize, but\n",
+        "your party needs room for all three!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerPrizeIntro",
+      "en_US": [
+        "Here they are! The\n",
+        "prizes for our winner!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerBye",
+      "en_US": [
+        "Thanks for playing! Keep\n",
+        "watching Jubilife TV!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerCameraman",
+      "en_US": [
+        "I’m just the cameraman. Don’t mind me!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerName1",
+      "en_US": [
+        "First, the Grass Quill\n",
+        "Pokémon. It’s ROWLET!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerReceived1",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received a ROWLET!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerNickname1",
+      "en_US": [
+        "Do you want to give a nickname to\n",
+        "this ROWLET?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerName2",
+      "en_US": [
+        "Next, the Fire Cat\n",
+        "Pokémon. It’s LITTEN!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerReceived2",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received a LITTEN!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerNickname2",
+      "en_US": [
+        "Do you want to give a nickname to\n",
+        "this LITTEN?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerName3",
+      "en_US": [
+        "Last, the Sea Lion\n",
+        "Pokémon. It’s POPPLIO!\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerReceived3",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received a POPPLIO!"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerNickname3",
+      "en_US": [
+        "Do you want to give a nickname to\n",
+        "this POPPLIO?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerQuestion1",
+      "en_US": [
+        "Here we go! Question one!\r",
+        "Instead of Gyms, do Trainers in\n",
+        "Alola take on the island challenge?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerQuestion2",
+      "en_US": [
+        "Correct! Question two!\r",
+        "Are Alola’s four guardian\n",
+        "deities called the kahunas?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerQuestion3",
+      "en_US": [
+        "Right again! Question three!\r",
+        "Is the guardian of Melemele\n",
+        "Island called Tapu Koko?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerQuestion4",
+      "en_US": [
+        "Brilliant! Question four!\r",
+        "Is Professor Kukui an expert\n",
+        "on Pokémon Evolution?"
+      ]
+    },
+    {
+      "id": "VeilstoneCityPokecenter1F_Text_SovereignInterviewerQuestion5",
+      "en_US": [
+        "Amazing! Here’s the final question!\r",
+        "Can you beat me in a Pokémon battle?"
+      ]
+    }
+  ]
+}

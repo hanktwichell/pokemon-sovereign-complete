@@ -1,0 +1,213 @@
+{
+    "land_rate": 0,
+    "land_encounters": [
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "swarms": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "day": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "night": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "radar": [
+        "SPECIES_NONE",
+        "SPECIES_NONE",
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "rate_form0": 100,
+    "rate_form1": 100,
+    "rate_form2": 0,
+    "rate_form3": 0,
+    "rate_form4": 0,
+    "unown_table": 0,
+    "ruby": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "sapphire": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "emerald": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "firered": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "leafgreen": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "surf_rate": 10,
+    "surf_encounters": [
+        {
+            "level_max": 60,
+            "level_min": 50,
+            "species": "SPECIES_TENTACRUEL"
+        },
+        {
+            "level_max": 60,
+            "level_min": 50,
+            "species": "SPECIES_PELIPPER"
+        },
+        {
+            "level_max": 60,
+            "level_min": 50,
+            "species": "SPECIES_MANTINE"
+        },
+        {
+            "level_max": 60,
+            "level_min": 50,
+            "species": "SPECIES_TENTACRUEL"
+        },
+        {
+            "level_max": 60,
+            "level_min": 50,
+            "species": "SPECIES_TENTACRUEL"
+        }
+    ],
+    "old_rod_rate": 255,
+    "old_rod_encounters": [
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_MAGIKARP"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_LUVDISC"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_CORSOLA"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_MAREANIE"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_MAGIKARP"
+        }
+    ],
+    "good_rod_rate": 255,
+    "good_rod_encounters": [
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_MAGIKARP"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_LUVDISC"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_CORSOLA"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_MAGIKARP"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_MAGIKARP"
+        }
+    ],
+    "super_rod_rate": 255,
+    "super_rod_encounters": [
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_GYARADOS"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_LUVDISC"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_CORSOLA"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_TOXAPEX"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_GYARADOS"
+        }
+    ],
+    "map_category": {
+        "map_type": "field",
+        "map_number": 5
+    }
+}

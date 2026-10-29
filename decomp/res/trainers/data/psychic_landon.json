@@ -1,0 +1,76 @@
+{
+    "name": "Landon",
+    "class": "TRAINER_CLASS_PSYCHIC_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BANETTE",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_SHADOW_CLAW",
+                "MOVE_GUNK_SHOT",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SHADOW_SNEAK"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_ENERGY_BALL",
+                "MOVE_SHADOW_BALL",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GIRAFARIG",
+            "form": 0,
+            "level": 64,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_HYPER_BEAM",
+                "MOVE_THUNDERBOLT",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Now we shall battle, and from it will\n",
+                "emerge one loser...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "...!\n"
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I can use psychic powers, but\n",
+                "battling isn’t so simple...\r",
+                "It takes much more to win!\n"
+            ]
+        }
+    ]
+}

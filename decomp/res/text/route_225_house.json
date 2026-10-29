@@ -1,0 +1,36 @@
+{
+  "key": 16011,
+  "messages": [
+    {
+      "id": "Route225House_Text_LetPokemonDrinkThis",
+      "en_US": [
+        "Isn’t it hot in the Battle Zone?\n",
+        "Why not let your Pokémon drink this?\r"
+      ]
+    },
+    {
+      "id": "Route225House_Text_WellspringOfLife",
+      "en_US": [
+        "Water is the wellspring of life.\r",
+        "Having said that, no one knows where\n",
+        "Pokémon originated."
+      ]
+    },
+    {
+      "id": "Route225House_Text_SovereignHeal",
+      "en_US": [
+        "The Battle Zone is a difficult place.\n",
+        "It’s hot and full of strong Trainers.\r",
+        "Are your Pokémon injured?\n",
+        "I have some healing items...\r"
+      ]
+    },
+    {
+      "id": "Route225House_Text_SovereignTipTop",
+      "en_US": [
+        "It’s important that your Pokémon are in\n",
+        "tip-top condition for the Battle Zone!"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+    "name": "Luc",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CRAWDAUNT",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Yeah, yeah...\n",
+                "Nothing’s biting!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Can’t catch a fish!\n",
+                "Can’t catch a break!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I was counting on strength in numbers,\n",
+                "but...\r",
+                "Packing it in and going home sounds good\n",
+                "at a time like this...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Yeah, yeah...\n",
+                "Nothing’s biting today either.\r"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,213 @@
+{
+    "land_rate": 30,
+    "land_encounters": [
+        {
+            "level": 39,
+            "species": "SPECIES_SUDOWOODO"
+        },
+        {
+            "level": 40,
+            "species": "SPECIES_SKUNTANK"
+        },
+        {
+            "level": 38,
+            "species": "SPECIES_NIDORINA"
+        },
+        {
+            "level": 38,
+            "species": "SPECIES_WIMPOD"
+        },
+        {
+            "level": 40,
+            "species": "SPECIES_NIDORINO"
+        },
+        {
+            "level": 39,
+            "species": "SPECIES_CINCCINO"
+        },
+        {
+            "level": 38,
+            "species": "SPECIES_FARFETCHD"
+        },
+        {
+            "level": 40,
+            "species": "SPECIES_SYLVEON"
+        },
+        {
+            "level": 38,
+            "species": "SPECIES_GIRAFARIG"
+        },
+        {
+            "level": 38,
+            "species": "SPECIES_OBSTAGOON"
+        },
+        {
+            "level": 39,
+            "species": "SPECIES_DODRIO"
+        },
+        {
+            "level": 39,
+            "species": "SPECIES_LURANTIS"
+        }
+    ],
+    "swarms": [
+        "SPECIES_SUDOWOODO",
+        "SPECIES_SKUNTANK"
+    ],
+    "day": [
+        "SPECIES_NIDORINA",
+        "SPECIES_WIMPOD"
+    ],
+    "night": [
+        "SPECIES_NIDORINA",
+        "SPECIES_WHIMSICOTT"
+    ],
+    "radar": [
+        "SPECIES_DODRIO",
+        "SPECIES_GIRAFARIG",
+        "SPECIES_NIDORINA",
+        "SPECIES_NIDORINO"
+    ],
+    "rate_form0": 0,
+    "rate_form1": 0,
+    "rate_form2": 0,
+    "rate_form3": 0,
+    "rate_form4": 0,
+    "unown_table": 0,
+    "ruby": [
+        "SPECIES_NIDORINA",
+        "SPECIES_NIDORINO"
+    ],
+    "sapphire": [
+        "SPECIES_NIDORINA",
+        "SPECIES_NIDORINO"
+    ],
+    "emerald": [
+        "SPECIES_NIDORINA",
+        "SPECIES_NIDORINO"
+    ],
+    "firered": [
+        "SPECIES_NIDORINA",
+        "SPECIES_NIDORINO"
+    ],
+    "leafgreen": [
+        "SPECIES_NIDORINA",
+        "SPECIES_NIDORINO"
+    ],
+    "surf_rate": 10,
+    "surf_encounters": [
+        {
+            "level_max": 40,
+            "level_min": 30,
+            "species": "SPECIES_WINGULL"
+        },
+        {
+            "level_max": 40,
+            "level_min": 30,
+            "species": "SPECIES_TENTACOOL"
+        },
+        {
+            "level_max": 45,
+            "level_min": 35,
+            "species": "SPECIES_PELIPPER"
+        },
+        {
+            "level_max": 45,
+            "level_min": 35,
+            "species": "SPECIES_GOLISOPOD"
+        },
+        {
+            "level_max": 45,
+            "level_min": 35,
+            "species": "SPECIES_WINGULL"
+        }
+    ],
+    "old_rod_rate": 255,
+    "old_rod_encounters": [
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_KRABBY"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_HORSEA"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_CLAMPERL"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_DEWPIDER"
+        },
+        {
+            "level_max": 10,
+            "level_min": 10,
+            "species": "SPECIES_KRABBY"
+        }
+    ],
+    "good_rod_rate": 255,
+    "good_rod_encounters": [
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_KRABBY"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_HORSEA"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_CLAMPERL"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_KRABBY"
+        },
+        {
+            "level_max": 25,
+            "level_min": 25,
+            "species": "SPECIES_KRABBY"
+        }
+    ],
+    "super_rod_rate": 255,
+    "super_rod_encounters": [
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_KINGLER"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_HORSEA"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_HUNTAIL"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_KINGLER"
+        },
+        {
+            "level_max": 50,
+            "level_min": 50,
+            "species": "SPECIES_GOREBYSS"
+        }
+    ],
+    "map_category": {
+        "map_type": "field",
+        "map_number": 36
+    }
+}

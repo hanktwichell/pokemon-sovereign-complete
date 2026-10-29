@@ -1,0 +1,110 @@
+{
+    "name": "Henry",
+    "class": "TRAINER_CLASS_ACE_TRAINER_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HONCHKROW",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_BRAVE_BIRD",
+                "MOVE_DARK_PULSE",
+                "MOVE_HEAT_WAVE",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAROWAK",
+            "form": 0,
+            "level": 63,
+            "item": "ITEM_THICK_CLUB",
+            "moves": [
+                "MOVE_BONEMERANG",
+                "MOVE_IRON_HEAD",
+                "MOVE_STONE_EDGE",
+                "MOVE_SING"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CARNIVINE",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_POWER_WHIP",
+                "MOVE_CRUNCH",
+                "MOVE_STUN_SPORE",
+                "MOVE_SLUDGE_BOMB"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MANECTRIC",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_FLAMETHROWER",
+                "MOVE_CRUNCH",
+                "MOVE_SIGNAL_BEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLOWKING",
+            "form": 0,
+            "level": 63,
+            "item": null,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_PSYCHIC",
+                "MOVE_SURF",
+                "MOVE_AURA_SPHERE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Victory Road... Somehow, it feels as\n",
+                "if my journey is now coming to an end.\r",
+                "But, before the final chapter is\n",
+                "written, I must pen your defeat!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "That wasn’t how I planned the final\n",
+                "chapter to go in my writing class..."
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you don’t give up, you can reach\n",
+                "your goal.\r",
+                "That perseverance is what’s important\n",
+                "to Trainers. That’s in my book, too."
+            ]
+        }
+    ]
+}

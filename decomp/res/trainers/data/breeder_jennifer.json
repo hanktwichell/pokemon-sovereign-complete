@@ -1,0 +1,99 @@
+{
+    "name": "Jennifer",
+    "class": "TRAINER_CLASS_BREEDER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AZURILL",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TOGEPI",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFFA",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_IGGLYBUFF",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SMOOCHUM",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BUDEW",
+            "form": 0,
+            "level": 26,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Please, let me battle the Pokémon\n",
+                "you’ve raised!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Giggle...\n",
+                "They’re raised with a lot of care!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Raise your Pokémon with lots of love,\n",
+                "and they’ll bond closely with you.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "You’re that Trainer who treats Pokémon\n",
+                "with a lot of love!\r",
+                "Please, let me battle the Pokémon\n",
+                "you’ve raised again!\r"
+            ]
+        }
+    ]
+}

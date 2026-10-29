@@ -1,0 +1,65 @@
+{
+    "name": "Walter",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WHISCASH",
+            "form": 0,
+            "level": 39,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LANTURN",
+            "form": 0,
+            "level": 39,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SEAKING",
+            "form": 0,
+            "level": 39,
+            "item": null,
+            "moves": null,
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I wield the stupendous power of water!\n",
+                "Don’t think you can win!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "But the kid wins anyway!\n",
+                "I’m just bowled over!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The water rising and falling is tricky,\n",
+                "but don’t let it annoy you.\r",
+                "If you lose sight of yourself, that’s\n",
+                "when you’re set to lose.\n"
+            ]
+        }
+    ]
+}

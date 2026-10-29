@@ -1,0 +1,56 @@
+{
+    "name": "Lucas",
+    "class": "TRAINER_CLASS_DP_PLAYER_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KADABRA",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_RECOVER",
+                "MOVE_SHOCK_WAVE",
+                "MOVE_DISABLE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PILOSWINE",
+            "form": 0,
+            "level": 35,
+            "item": null,
+            "moves": [
+                "MOVE_AVALANCHE",
+                "MOVE_TAKE_DOWN",
+                "MOVE_ROCK_SLIDE",
+                "MOVE_ICE_SHARD"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_INFERNAPE",
+            "form": 0,
+            "level": 36,
+            "item": null,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_VACUUM_WAVE",
+                "MOVE_FAKE_OUT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

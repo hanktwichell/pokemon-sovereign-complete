@@ -1,0 +1,100 @@
+{
+    "name": "Maxwell",
+    "class": "TRAINER_CLASS_PSYCHIC_MALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MISMAGIUS",
+            "form": 0,
+            "level": 66,
+            "item": null,
+            "moves": [
+                "MOVE_MOONBLAST",
+                "MOVE_SHADOW_BALL",
+                "MOVE_MAGICAL_LEAF",
+                "MOVE_CONFUSE_RAY"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 66,
+            "item": null,
+            "moves": [
+                "MOVE_TOXIC",
+                "MOVE_PROTECT",
+                "MOVE_SHADOW_BALL",
+                "MOVE_SLUDGE_BOMB"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLOWBRO",
+            "form": 0,
+            "level": 66,
+            "item": null,
+            "moves": [
+                "MOVE_SLACK_OFF",
+                "MOVE_AMNESIA",
+                "MOVE_PSYCHIC",
+                "MOVE_SCALD"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SOLROCK",
+            "form": 0,
+            "level": 66,
+            "item": null,
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_IRON_HEAD",
+                "MOVE_STONE_EDGE",
+                "MOVE_EXPLOSION"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "For some reason I was drawn here,\n",
+                "and it is here that I met you...\r",
+                "I want to know what all this means!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I see...\r",
+                "So that’s what it means...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I feel... I feel some sort of a mystic\n",
+                "presence emanating from here...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Why have you come back to this spot?\n",
+                "I want to know what all this means!\r"
+            ]
+        }
+    ]
+}

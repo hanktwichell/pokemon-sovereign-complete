@@ -1,0 +1,78 @@
+{
+    "name": "Catherine",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HAUNTER",
+            "form": 0,
+            "level": 29,
+            "item": null,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_TOXIC",
+                "MOVE_PROTECT",
+                "MOVE_CURSE"
+            ],
+            "iv_scale": 230,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 0,
+            "level": 29,
+            "item": null,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_CHARGE_BEAM",
+                "MOVE_WILL_O_WISP",
+                "MOVE_CONFUSE_RAY"
+            ],
+            "iv_scale": 230,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FROSLASS",
+            "form": 0,
+            "level": 29,
+            "item": null,
+            "moves": [
+                "MOVE_ICY_WIND",
+                "MOVE_SHADOW_BALL",
+                "MOVE_WILL_O_WISP",
+                "MOVE_DOUBLE_TEAM"
+            ],
+            "iv_scale": 230,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What does it feel like, taking one step\n",
+                "after another into darkness?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You’re the kind of person who can keep\n",
+                "going forward even into the unknown.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I think, sometimes, one has to make\n",
+                "mistakes to learn what is right.\n"
+            ]
+        }
+    ]
+}

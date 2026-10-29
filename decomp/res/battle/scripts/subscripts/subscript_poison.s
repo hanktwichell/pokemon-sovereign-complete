@@ -1,0 +1,179 @@
+#include "macros/btlcmd.inc"
+
+
+_000:
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _023
+    CheckAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_IMMUNITY, _177
+    CheckAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_PASTEL_VEIL, _177 // Sovereign (item 11)
+    // Sovereign (FM, item 11): Shields Down (a Meteor Minior) and Purifying Salt keep every status condition off.
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_STATUS_IMMUNE_EFFECT_MON, TRUE, _177
+    // Sovereign (item 11): Pastel Veil, its own or its partner's, and Flower Veil for a Grass type.
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_PASTEL_VEIL_EFFECT_MON, TRUE, _sovereign_pastel_veil
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_FLOWER_VEIL_EFFECT_MON, TRUE, _sovereign_flower_veil
+    CheckIgnoreWeather _050
+    // Sovereign (item 11): sunlight as it acts on the target (not on a Utility Umbrella holder)
+    CompareVarToValue OPCODE_FLAG_NOT, BTLVAR_SOVEREIGN_SIDE_EFFECT_MON_WEATHER, FIELD_CONDITION_SUNNY, _050
+    CheckAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _177
+    GoTo _050
+
+_023:
+    CheckIgnorableAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_IMMUNITY, _177
+    CheckIgnorableAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_PASTEL_VEIL, _177 // Sovereign (item 11)
+    // Sovereign (FM, item 11): Shields Down (a Meteor Minior) and Purifying Salt keep every status condition off.
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_STATUS_IMMUNE_EFFECT_MON, TRUE, _177
+    // Sovereign (item 11): Pastel Veil, its own or its partner's, and Flower Veil for a Grass type.
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_PASTEL_VEIL_EFFECT_MON, TRUE, _sovereign_pastel_veil
+    CompareVarToValue OPCODE_EQU, BTLVAR_SOVEREIGN_FLOWER_VEIL_EFFECT_MON, TRUE, _sovereign_flower_veil
+    CheckIgnoreWeather _040
+    // Sovereign (item 11): sunlight as it acts on the target (not on a Utility Umbrella holder)
+    CompareVarToValue OPCODE_FLAG_NOT, BTLVAR_SOVEREIGN_SIDE_EFFECT_MON_WEATHER, FIELD_CONDITION_SUNNY, _040
+    CheckIgnorableAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _177
+
+_040:
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _050
+    // Sovereign (item 11): Mortal Spin's poison isn't a chance effect, so Shield Dust doesn't stop it
+    CompareVarToValue OPCODE_EQU, BTLVAR_CURRENT_MOVE, MOVE_MORTAL_SPIN, _050
+    // Sovereign (item 11): nor does it stop Baneful Bunker's (subscript_sovereign_shield_contact)
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SOVEREIGN_SHIELD_CONTACT, MOVE_NONE, _050
+    CheckIgnorableAbility CHECK_HAVE, BTLSCR_SIDE_EFFECT_MON, ABILITY_SHIELD_DUST, _217
+
+_050:
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _057
+    PrintAttackMessage 
+    Wait 
+
+_057:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _065
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SOVEREIGN_SHIELD_CONTACT, MOVE_NONE, _065 // Sovereign (item 11): Baneful Bunker
+    // Sovereign: Toxic Spikes poison a Pokemon behind a substitute (Shed Tail, Baton Pass) (Gen V+).
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _065
+    CheckSubstitute BTLSCR_SIDE_EFFECT_MON, _217
+
+_065:
+    CompareMonDataToValue OPCODE_FLAG_SET, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_STATUS, MON_CONDITION_POISON, _243
+    CompareMonDataToValue OPCODE_FLAG_SET, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_STATUS, MON_CONDITION_TOXIC, _243
+    // Sovereign (item 11): Corrosion poisons Poison and Steel types.
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _corrosionNo1
+    CheckAbility CHECK_HAVE, BTLSCR_ATTACKER, ABILITY_CORROSION, _corrosionSkip1
+
+_corrosionNo1:
+    CompareMonDataToValue OPCODE_EQU, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_TYPE_1, TYPE_POISON, _266
+    CompareMonDataToValue OPCODE_EQU, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_TYPE_2, TYPE_POISON, _266
+    CompareMonDataToValue OPCODE_EQU, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_TYPE_1, TYPE_STEEL, _266
+    CompareMonDataToValue OPCODE_EQU, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_TYPE_2, TYPE_STEEL, _266
+
+_corrosionSkip1:
+    CompareMonDataToValue OPCODE_NEQ, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_STATUS, MON_CONDITION_NONE, _217
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _130
+    CompareVarToValue OPCODE_FLAG_SET, BTLVAR_MOVE_STATUS_FLAGS, MOVE_STATUS_MISSED|MOVE_STATUS_SEMI_INVULNERABLE, _217
+    CompareVarToValue OPCODE_FLAG_SET, BTLVAR_SIDE_CONDITIONS_EFFECT_MON, SIDE_CONDITION_SAFEGUARD, _294
+    CompareVarToValue OPCODE_FLAG_SET, BTLVAR_SOVEREIGN_TERRAIN_EFFECT_MON, FIELD_CONDITION_TERRAIN_MISTY, _sovereign_misty_1
+    CompareVarToValue OPCODE_NEQ, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _130
+    PlayMoveAnimation BTLSCR_ATTACKER
+    Wait 
+
+_130:
+    PlayBattleAnimation BTLSCR_SIDE_EFFECT_MON, BATTLE_ANIMATION_POISONED
+    Wait 
+    UpdateMonData OPCODE_FLAG_ON, BTLSCR_SIDE_EFFECT_MON, BATTLEMON_STATUS, MON_CONDITION_POISON
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _150
+    // {0} was poisoned!
+    PrintMessage BattleStrings_Text_PokemonWasPoisoned_Ally, TAG_NICKNAME, BTLSCR_SIDE_EFFECT_MON
+    GoTo _156
+
+_150:
+    // {0}’s {1} poisoned {2}!
+    PrintMessage BattleStrings_Text_PokemonsAbilityPoisonedPokemon_AllyAlly, TAG_NICKNAME_ABILITY_NICKNAME, BTLSCR_MSG_TEMP, BTLSCR_MSG_BATTLER_TEMP, BTLSCR_SIDE_EFFECT_MON
+
+_156:
+    Wait 
+    SetHealthBoxStatusIcon BTLSCR_SIDE_EFFECT_MON, BATTLE_ANIMATION_POISONED
+    WaitButtonABTime 30
+    Call BATTLE_SUBSCRIPT_SOVEREIGN_POISON_PUPPETEER // Sovereign (item 11)
+    CompareVarToValue OPCODE_FLAG_SET, BTLVAR_BATTLE_CTX_STATUS, SYSCTL_TRY_SYNCHRONIZE_STATUS, _172
+    UpdateVar OPCODE_FLAG_ON, BTLVAR_BATTLE_CTX_STATUS, SYSCTL_TRY_SYNCHRONIZE_STATUS
+    End 
+
+_172:
+    UpdateVar OPCODE_FLAG_OFF, BTLVAR_BATTLE_CTX_STATUS, SYSCTL_TRY_SYNCHRONIZE_STATUS
+    End 
+
+_177:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _201
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _201
+    PrintAttackMessage 
+    Wait 
+    WaitButtonABTime 30
+
+_201:
+    // {0}’s {1} prevents poisoning!
+    PrintMessage BattleStrings_Text_PokemonsAbilityPreventsPoisoning_Ally, TAG_NICKNAME_ABILITY, BTLSCR_SIDE_EFFECT_MON, BTLSCR_SIDE_EFFECT_MON
+    GoTo _315
+    // {0}’s {1} suppressed {2}’s {3}!
+    PrintMessage BattleStrings_Text_PokemonsAbilitySuppressedPokemonsAbility_AllyAlly, TAG_NICKNAME_ABILITY_NICKNAME_ABILITY, BTLSCR_SIDE_EFFECT_MON, BTLSCR_SIDE_EFFECT_MON, BTLSCR_MSG_TEMP, BTLSCR_MSG_BATTLER_TEMP
+    GoTo _315
+
+_217:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _322
+    WaitButtonABTime 30
+    Call BATTLE_SUBSCRIPT_BUT_IT_FAILED
+    GoTo _322
+
+_243:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _322
+    WaitButtonABTime 30
+    // {0} is already poisoned.
+    PrintMessage BattleStrings_Text_PokemonIsAlreadyPoisoned_Ally, TAG_NICKNAME, BTLSCR_SIDE_EFFECT_MON
+    GoTo _315
+
+_266:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _322
+    WaitButtonABTime 30
+    // It doesn’t affect {0}...
+    PrintMessage BattleStrings_Text_ItDoesntAffectPokemon_Ally, TAG_NICKNAME, BTLSCR_SIDE_EFFECT_MON
+    GoTo _315
+
+_294:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _322
+    WaitButtonABTime 30
+    // {0} is protected by Safeguard!
+    PrintMessage BattleStrings_Text_PokemonIsProtectedBySafeguard_Ally, TAG_NICKNAME, BTLSCR_SIDE_EFFECT_MON
+
+_315:
+    Wait 
+    WaitButtonABTime 30
+    UpdateVar OPCODE_FLAG_ON, BTLVAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
+
+_322:
+    End 
+
+_sovereign_misty_1:
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _322
+    CompareVarToValue OPCODE_EQU, BTLVAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _322
+    WaitButtonABTime 30
+    // Sovereign (item 11): {0} surrounds itself with ...
+    PrintMessage BattleStrings_Text_SovereignProtectedByMistyTerrain_Ally, TAG_NICKNAME, BTLSCR_SIDE_EFFECT_MON
+    GoTo _315
+
+_sovereign_pastel_veil:
+    UpdateVar OPCODE_SET, BTLVAR_CALC_TEMP, ABILITY_PASTEL_VEIL
+    Call BATTLE_SUBSCRIPT_SOVEREIGN_VEIL
+    End 
+
+_sovereign_flower_veil:
+    UpdateVar OPCODE_SET, BTLVAR_CALC_TEMP, ABILITY_FLOWER_VEIL
+    Call BATTLE_SUBSCRIPT_SOVEREIGN_VEIL
+    End 

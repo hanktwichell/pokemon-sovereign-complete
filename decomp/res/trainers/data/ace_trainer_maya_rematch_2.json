@@ -1,0 +1,69 @@
+{
+    "name": "Maya",
+    "class": "TRAINER_CLASS_ACE_TRAINER_FEMALE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LICKILICKY",
+            "form": 0,
+            "level": 77,
+            "item": null,
+            "moves": [
+                "MOVE_BODY_SLAM",
+                "MOVE_POWER_WHIP",
+                "MOVE_ROLLOUT",
+                "MOVE_ZEN_HEADBUTT"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GARDEVOIR",
+            "form": 0,
+            "level": 77,
+            "item": null,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_MOONBLAST",
+                "MOVE_THUNDERBOLT",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROSERADE",
+            "form": 0,
+            "level": 77,
+            "item": null,
+            "moves": [
+                "MOVE_PETAL_DANCE",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_EXTRASENSORY",
+                "MOVE_DAZZLING_GLEAM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Oh, it’s you again!\r",
+                "I’ve regained my confidence.\n",
+                "Let’s have another battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": "You made me lose my confidence...\n"
+        }
+    ]
+}

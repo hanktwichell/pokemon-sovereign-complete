@@ -1,0 +1,36 @@
+{
+    "name": "Ismael",
+    "class": "TRAINER_CLASS_ARTIST",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SMEARGLE",
+            "form": 0,
+            "level": 37,
+            "item": null,
+            "moves": [
+                "MOVE_DARK_VOID",
+                "MOVE_PROTECT",
+                "MOVE_LEECH_SEED",
+                "MOVE_SUBSTITUTE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Does this mean I’m only talented as\n",
+                "an Artist?\n"
+            ]
+        }
+    ]
+}

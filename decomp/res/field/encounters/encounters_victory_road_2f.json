@@ -1,0 +1,213 @@
+{
+    "land_rate": 15,
+    "land_encounters": [
+        {
+            "level": 59,
+            "species": "SPECIES_STEELIX"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_MAGNETON"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_GRAVELER"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_MANDIBUZZ"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_KADABRA"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_OVERQWIL"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_LICKITUNG"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_HAXORUS"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_GOLBAT"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_GARGANACL"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_MAROWAK"
+        },
+        {
+            "level": 59,
+            "species": "SPECIES_STEELIX"
+        }
+    ],
+    "swarms": [
+        "SPECIES_STEELIX",
+        "SPECIES_MAGNETON"
+    ],
+    "day": [
+        "SPECIES_GRAVELER",
+        "SPECIES_MANDIBUZZ"
+    ],
+    "night": [
+        "SPECIES_GRAVELER",
+        "SPECIES_POLTEAGEIST"
+    ],
+    "radar": [
+        "SPECIES_LICKITUNG",
+        "SPECIES_GOLBAT",
+        "SPECIES_MAROWAK",
+        "SPECIES_GABITE"
+    ],
+    "rate_form0": 100,
+    "rate_form1": 100,
+    "rate_form2": 0,
+    "rate_form3": 0,
+    "rate_form4": 0,
+    "unown_table": 0,
+    "ruby": [
+        "SPECIES_MAROWAK",
+        "SPECIES_GABITE"
+    ],
+    "sapphire": [
+        "SPECIES_MAROWAK",
+        "SPECIES_GABITE"
+    ],
+    "emerald": [
+        "SPECIES_MAROWAK",
+        "SPECIES_GABITE"
+    ],
+    "firered": [
+        "SPECIES_MAROWAK",
+        "SPECIES_GABITE"
+    ],
+    "leafgreen": [
+        "SPECIES_MAROWAK",
+        "SPECIES_GABITE"
+    ],
+    "surf_rate": 0,
+    "surf_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "old_rod_rate": 0,
+    "old_rod_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "good_rod_rate": 0,
+    "good_rod_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "super_rod_rate": 0,
+    "super_rod_encounters": [
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        },
+        {
+            "level_max": 0,
+            "level_min": 0,
+            "species": "SPECIES_NONE"
+        }
+    ],
+    "map_category": {
+        "map_type": "dungeon",
+        "map_number": 6
+    }
+}

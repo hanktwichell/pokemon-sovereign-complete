@@ -1,0 +1,50 @@
+{
+  "key": 9267,
+  "messages": [
+    {
+      "id": "VeilstoneCityNortheastHouse_Text_FoundCreepyDisc",
+      "en_US": [
+        "I found this creepy looking disc\n",
+        "near Team Galactic’s building.\r",
+        "I have no idea what it is...\n",
+        "It looks kind of dangerous, actually.\r",
+        "Do you want it?\n",
+        "I’d love to have it taken away."
+      ]
+    },
+    {
+      "id": "VeilstoneCityNortheastHouse_Text_Excellent",
+      "en_US": [
+        "Excellent! Thanks!\n",
+        "Though I wonder what the disc is for...\r"
+      ]
+    },
+    {
+      "id": "VeilstoneCityNortheastHouse_Text_MaybeSellIt",
+      "en_US": [
+        "You don’t? Ahh...\n",
+        "Maybe I should sell it to somebody..."
+      ]
+    },
+    {
+      "id": "VeilstoneCityNortheastHouse_Text_GalacticsBuildingBugsMe",
+      "en_US": [
+        "Team Galactic’s building bugs me so\n",
+        "much, I can’t sleep well.\r",
+        "It’s so bizarre, like a robot that’s\n",
+        "about to start moving."
+      ]
+    },
+    {
+      "id": "VeilstoneCityNortheastHouse_Text_IDontUnderstandTheirIdea",
+      "en_US": [
+        "Those thorny things on the building...\n",
+        "The way it moves meaninglessly...\r",
+        "I don’t understand their idea of \n",
+        "“awesomely fashionable” at all.\r",
+        "Still, Team Galactic does seem to have\n",
+        "a huge supply of energy."
+      ]
+    }
+  ]
+}

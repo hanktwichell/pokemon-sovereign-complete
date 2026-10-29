@@ -1,0 +1,63 @@
+{
+    "name": "Grant",
+    "class": "TRAINER_CLASS_VETERAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LUCARIO",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": null,
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLEM",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": null,
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARAPTOR",
+            "form": 0,
+            "level": 45,
+            "item": null,
+            "moves": null,
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m a Veteran, yes, but don’t you\n",
+                "dare treat me like a senior citizen!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Grrr...\n",
+                "So young, and yet so talented!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’ll always remain young at heart.\n",
+                "Never let them say you’re too old!\n"
+            ]
+        }
+    ]
+}
