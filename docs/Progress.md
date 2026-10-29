@@ -84,3 +84,36 @@ so the cartridge moves to 256 MB on its own when they come, as the plan expected
 1. The full HeartGold sprite set with a compact lookup.
 2. Refresh the follower when the lead, the bike or surfing changes.
 3. Room in the save for Johto and Kanto's story markers, then the first map converter.
+
+## Oct 29, 2026: room in the save
+
+**4,096 more flags and 512 more vars for Johto and Kanto**, without moving any of Sinnoh's:
+- Flags (bits in `VarsFlags`): `NUM_FLAGS` 2912 -> 7008. The new IDs start at `COMPLETE_FLAGS_START` (2912), right
+  after the daily flags; flag IDs run up to 16383, so there was room in the numbering, only not in the save.
+- Vars: `VAR_COMPLETE_000` to `_1FF` after Sinnoh's last var (var IDs run 0x4000 to 0x7FFF).
+- The normal save block outgrew its 13 sectors, so `SAVE_PAGE_MAX` is 33 (was 32); the extra saves (Hall of Fame,
+  Battle Hall, recordings) move up one sector and still end at sector 45 of each copy's 64. `HEAP_SIZE_SAVE` grows by
+  the same 4 KB.
+- Sovereign Complete has its own save signature (`0x20261029`), so a Sovereign Platinum save loads as "no save data".
+
+**Tested** with `tools/complete/test_save.py` (test build): new flags and vars set through a test hook
+(`src/complete_test.c`), saved with `FieldSystem_Save`, the battery booted again and CONTINUEd: the four set flags and
+both vars came back, an unset new flag stayed clear, Sinnoh's last var kept its value. PASS. The regular build boots and
+the follower test still passes.
+
+## Oct 29, 2026: HeartGold's map assets are in
+
+`tools/complete/import_hgss_maps.py` brings in all of Johto and Kanto's terrain, textures and buildings, at fixed
+offsets after Platinum's (`docs/MapConversion.md` has the formats and the numbers): 676 land data blocks, 106 map
+texture sets, 562 building models, 104 building lists with their textures, 106 areas, and HeartGold's entries in the
+building material/shape table.
+
+- Tile behaviours: every number HeartGold's blocks use is checked. Reflective water and magma swap numbers to fit
+  Platinum's; the ladders move to 0x0D-0x0F because Platinum's own maps use 0x3C-0x3E; headbutt trees, whirlpools and
+  stop-sliding keep numbers Platinum never uses (`include/constants/field/complete_tile_behaviors.h`). They act as
+  plain ground until the engine gives them their HeartGold behaviour.
+- The ROM builds and boots with them: 159.1 MB on a 256 MB cartridge (104.3 MiB free); the build chose 256 MB by
+  itself.
+
+**Next:** Olivine City as a test map (`tools/complete/hgss_test_map.py`, `test_map_warp.py`): its 2x2 blocks, area
+and an empty events file under `MAP_HEADER_COMPLETE_OLIVINE_CITY`, reached with the test warp.
