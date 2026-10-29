@@ -34,21 +34,21 @@ _0071:
     GoTo _00E3
 _008F:
     SetFlag FLAG_HGSS_UNK_AB9
-    @ HGSS: BufferSealName 0, VAR_SPECIAL_x8000
+    BufferBallSealName 0, VAR_0x8000
     Message msg_0609_T26R0501_00006
     PlayFanfare SEQ_FANFA4_sseq
     Message msg_0609_T26R0501_00011
     WaitFanfare
     CompareVar VAR_0x8001, 0
     GoToIf 1, _00EB
-    @ HGSS: BufferSealName 0, VAR_SPECIAL_x8001
+    BufferBallSealName 0, VAR_0x8001
     Message msg_0609_T26R0501_00007
     PlayFanfare SEQ_FANFA4_sseq
     Message msg_0609_T26R0501_00011
     WaitFanfare
     CompareVar VAR_0x8002, 0
     GoToIf 1, _00EB
-    @ HGSS: BufferSealName 0, VAR_SPECIAL_x8002
+    BufferBallSealName 0, VAR_0x8002
     Message msg_0609_T26R0501_00008
     PlayFanfare SEQ_FANFA4_sseq
     Message msg_0609_T26R0501_00011

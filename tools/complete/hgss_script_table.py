@@ -292,6 +292,11 @@ COMMANDS = {
     'NopVar490': lambda a: [],  # does nothing in HeartGold either
     # The follower back in its ball (HeartGold's 600) and out again beside the player (606)
     'ScrCmd_600': lambda a: ['CompleteFollowerPutAway'],
+    # Ball seals, numbered alike in both games
+    'GetSealQuantity': one('CountSealOccurence {0}, {1}'),
+    'BufferSealName': one('BufferBallSealName {0}, {1}'),
+    'BufferSealNamePlural': one('BufferBallSealNamePlural {0}, {1}'),
+    'GetUniqueSealsQuantity': one('CountUniqueSealsInSealCase {0}'),
     'ScrCmd_116': points_box_show,
     'ScrCmd_117': points_box_hide,
     'ScrCmd_118': points_box_update,

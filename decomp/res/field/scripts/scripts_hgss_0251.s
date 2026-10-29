@@ -80,29 +80,29 @@ _00FA:
     SetVarFromValue VAR_0x8004, ITEM_MAX_REVIVE
     SetVarFromValue VAR_0x8005, 34
     SetVarFromValue VAR_0x8006, 39
-    @ HGSS: GetSealQuantity VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+    CountSealOccurence VAR_0x8004, VAR_RESULT
     CompareVar VAR_RESULT, 99
     GoToIf 1, _020C
-    @ HGSS: GetSealQuantity VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    CountSealOccurence VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 99
     GoToIf 1, _020C
-    @ HGSS: GetSealQuantity VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT
+    CountSealOccurence VAR_0x8006, VAR_RESULT
     CompareVar VAR_RESULT, 99
     GoToIf 1, _020C
     SetVarFromValue VAR_0x8000, 3
     SetVarFromValue VAR_0x8001, 3
     SetVarFromValue VAR_0x8002, 3
-    @ HGSS: GetSealQuantity VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+    CountSealOccurence VAR_0x8004, VAR_RESULT
     CompareVar VAR_RESULT, 96
     GoToIf 3, _01C2
     SubVar VAR_RESULT, 96
     SubVar VAR_0x8000, VAR_RESULT
-    @ HGSS: GetSealQuantity VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    CountSealOccurence VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 96
     GoToIf 3, _01C2
     SubVar VAR_RESULT, 96
     SubVar VAR_0x8001, VAR_RESULT
-    @ HGSS: GetSealQuantity VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT
+    CountSealOccurence VAR_0x8006, VAR_RESULT
     CompareVar VAR_RESULT, 96
     GoToIf 3, _01C2
     SubVar VAR_RESULT, 96
@@ -111,15 +111,15 @@ _01C2:
     GiveOrTakeSeal VAR_0x8004, VAR_0x8000
     GiveOrTakeSeal VAR_0x8005, VAR_0x8001
     GiveOrTakeSeal VAR_0x8006, VAR_0x8002
-    @ HGSS: BufferSealNamePlural 0, VAR_SPECIAL_x8004
+    BufferBallSealNamePlural 0, VAR_0x8004
     Message msg_0398_R39R0201_00020
     PlayFanfare SEQ_FANFA4_sseq
     WaitFanfare
-    @ HGSS: BufferSealNamePlural 0, VAR_SPECIAL_x8005
+    BufferBallSealNamePlural 0, VAR_0x8005
     Message msg_0398_R39R0201_00020
     PlayFanfare SEQ_FANFA4_sseq
     WaitFanfare
-    @ HGSS: BufferSealNamePlural 0, VAR_SPECIAL_x8006
+    BufferBallSealNamePlural 0, VAR_0x8006
     Message msg_0398_R39R0201_00020
     PlayFanfare SEQ_FANFA4_sseq
     WaitFanfare

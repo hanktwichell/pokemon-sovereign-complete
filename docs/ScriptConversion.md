@@ -59,7 +59,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   beside the player, as its warps do at the end (`CompleteFollowerPutAway`, which hides it without HeartGold's
   animation, and `CompleteFollowerReturn`). The points box (116 to 118) is Platinum's coin or Battle Points window;
   the Pokéathlon's points stay out with it. `NopVar490` does nothing and `ScriptOverlayCmd` loads HeartGold's own
-  code, so both are dropped.
+  code, so both are dropped. Ball seals are numbered alike; HeartGold's seal commands are Platinum's under other names.
 - Gifts: `NicknameInput` is Platinum's `OpenPokemonNamingScreen` (but for the Bug-Catching Contest's catch, step 5),
   and HeartGold's Togepi Egg is `CompleteGiveTogepiEgg`: Platinum's egg gift with Extrasensory, met in Johto.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
