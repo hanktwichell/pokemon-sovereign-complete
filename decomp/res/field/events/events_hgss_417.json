@@ -1,0 +1,238 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 2,
+            "z": 19,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 38,
+            "z": 2,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_EVERYWHERE_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0106_MAX_ELIXIR",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 17,
+            "z": 11,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0106_CALCIUM",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 17,
+            "z": 37,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0106_PROTEIN",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 37,
+            "z": 17,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_monstarball_4",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0106_MAX_REVIVE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 7,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_breakrock",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 38,
+            "z": 3,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_breakrock_2",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x11",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 37,
+            "z": 2,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_breakrock_3",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x12",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 3,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_breakrock_4",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x13",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 3,
+            "z": 19,
+            "y": 0
+        },
+        {
+            "id": "obj_EVERYWHERE_breakrock_5",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x14",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 2,
+            "z": 20,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 20,
+            "z": 22,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_1F",
+            "dest_warp_id": 6
+        },
+        {
+            "x": 20,
+            "z": 1,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_UPPER_MOUNTAINSIDE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 38,
+            "z": 8,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_UPPER_MOUNTAINSIDE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 38,
+            "z": 20,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_UPPER_MOUNTAINSIDE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 38,
+            "z": 32,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_UPPER_MOUNTAINSIDE",
+            "dest_warp_id": 3
+        },
+        {
+            "x": 34,
+            "z": 38,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_UPPER_MOUNTAINSIDE",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 20,
+            "z": 38,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_UPPER_MOUNTAINSIDE",
+            "dest_warp_id": 5
+        }
+    ],
+    "coord_events": []
+}

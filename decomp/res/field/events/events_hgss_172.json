@@ -1,0 +1,270 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 59,
+            "z": 40,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 43,
+            "z": 18,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D43R0103_gsrivel",
+            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_VICTORY_ROAD_RIVAL",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 33,
+            "z": 29,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0103_ULTRA_BALL",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 46,
+            "z": 19,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0103_TM79",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 33,
+            "z": 36,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0103_RARE_CANDY",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 15,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 33,
+            "z": 31,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock_2",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x11",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 33,
+            "z": 32,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock_3",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x12",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 33,
+            "z": 33,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock_4",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x13",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 43,
+            "z": 19,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock_5",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x14",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 45,
+            "z": 21,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock_6",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x15",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 47,
+            "z": 20,
+            "y": 0
+        },
+        {
+            "id": "obj_D43R0103_breakrock_7",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x16",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 42,
+            "z": 21,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 38,
+            "z": 14,
+            "dest_header_id": "MAP_HEADER_HGSS_INDIGO_PLATEAU",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 25,
+            "z": 45,
+            "dest_header_id": "MAP_HEADER_HGSS_VICTORY_ROAD_2F",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 49,
+            "z": 39,
+            "dest_header_id": "MAP_HEADER_HGSS_VICTORY_ROAD_2F",
+            "dest_warp_id": 3
+        },
+        {
+            "x": 54,
+            "z": 22,
+            "dest_header_id": "MAP_HEADER_HGSS_VICTORY_ROAD_2F",
+            "dest_warp_id": 5
+        },
+        {
+            "x": 5,
+            "z": 19,
+            "dest_header_id": "MAP_HEADER_HGSS_VICTORY_ROAD_2F",
+            "dest_warp_id": 7
+        },
+        {
+            "x": 38,
+            "z": 13,
+            "dest_header_id": "MAP_HEADER_HGSS_INDIGO_PLATEAU",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

@@ -1,0 +1,221 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 8,
+            "z": 21,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 12,
+            "z": 21,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T04GYM0101_sunglasses",
+            "graphics_id": "OBJ_EVENT_GFX_GYM_GUIDE",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 13,
+            "z": 21,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_gsswimmerw",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 6,
+            "movement_range_z": 0,
+            "x": 7,
+            "z": 16,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_gsswimmerw_2",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                1,
+                2,
+                0
+            ],
+            "movement_range_x": 9,
+            "movement_range_z": 0,
+            "x": 6,
+            "z": 13,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_gsswimmerw_3",
+            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                2,
+                2,
+                0
+            ],
+            "movement_range_x": 7,
+            "movement_range_z": 0,
+            "x": 14,
+            "z": 10,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_seaman_2",
+            "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 19,
+            "z": 8,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_seaman_2_2",
+            "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                1,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 18,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_gsleader11",
+            "graphics_id": "OBJ_EVENT_GFX_CRASHER_WAKE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 1,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_rocketm",
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_ROCKET",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 19,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_stop",
+            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_MACHINE_PART",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 3,
+            "z": 10,
+            "y": 0
+        },
+        {
+            "id": "obj_T04GYM0101_stop_2",
+            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_GYM_MACHINE_PART",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 4,
+            "z": 10,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 10,
+            "z": 25,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN",
+            "dest_warp_id": 4
+        }
+    ],
+    "coord_events": []
+}

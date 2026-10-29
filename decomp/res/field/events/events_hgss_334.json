@@ -1,0 +1,36 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 5,
+            "z": 2,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 3,
+            "z": 2,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 13,
+            "z": 9,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_1F",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 7,
+            "z": 2,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_RIGHT_ELEVATOR",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

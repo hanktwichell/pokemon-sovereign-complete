@@ -1,0 +1,269 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 682,
+            "z": 393,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 693,
+            "z": 396,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 685,
+            "z": 400,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 688,
+            "z": 407,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 682,
+            "z": 391,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T20_gsrivel",
+            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_RIVAL",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 682,
+            "z": 391,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 683,
+            "z": 399,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 685,
+            "z": 408,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_tsure_poke_static_marill",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_MARILL",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 695,
+            "z": 406,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_var_1",
+            "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIEND",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 688,
+            "z": 392,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_doctor",
+            "graphics_id": "OBJ_EVENT_GFX_PROF_ROWAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 703,
+            "z": 384,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 695,
+            "z": 403,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_gsmama",
+            "graphics_id": "OBJ_EVENT_GFX_MOM",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_MOM",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 695,
+            "z": 396,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_var_1_2",
+            "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIEND_2",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 694,
+            "z": 400,
+            "y": 0
+        },
+        {
+            "id": "obj_T20_tsure_poke_static_marill_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIEND_2",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 693,
+            "z": 400,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 684,
+            "z": 393,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 695,
+            "z": 396,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 679,
+            "z": 405,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK_SOUTHWEST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 690,
+            "z": 407,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK_RIVAL_HOUSE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 688,
+            "z": 392,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_2F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

@@ -1,0 +1,236 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 911,
+            "z": 298,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 890,
+            "z": 408,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 923,
+            "z": 316,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 916,
+            "z": 341,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R26_fishing_2",
+            "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 913,
+            "z": 403,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_mystery_2",
+            "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
+            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 923,
+            "z": 374,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_gswoman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 917,
+            "z": 344,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_gsman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 926,
+            "z": 330,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_gsman3_2",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 921,
+            "z": 322,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_gswoman3_2",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 913,
+            "z": 302,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R26_MAX_ELIXIR",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 910,
+            "z": 314,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_bonguri",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 920,
+            "z": 342,
+            "y": 0
+        },
+        {
+            "id": "obj_R26_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 914,
+            "z": 390,
+            "y": 3
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 923,
+            "z": 345,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_26_NORTH_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 907,
+            "z": 365,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_26_WEEK_SIBLINGS_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 909,
+            "z": 296,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_22_POKEMON_LEAGUE_RECEPTION_GATE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 910,
+            "z": 296,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_22_POKEMON_LEAGUE_RECEPTION_GATE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

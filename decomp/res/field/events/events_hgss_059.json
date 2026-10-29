@@ -1,0 +1,52 @@
+{
+    "bg_events": [],
+    "object_events": [
+        {
+            "id": "obj_T20R0102_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 7,
+            "z": 5,
+            "y": 0
+        },
+        {
+            "id": "obj_T20R0102_gsboy2",
+            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 2,
+            "x": 3,
+            "z": 9,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 12,
+            "z": 6,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK",
+            "dest_warp_id": 4
+        }
+    ],
+    "coord_events": []
+}

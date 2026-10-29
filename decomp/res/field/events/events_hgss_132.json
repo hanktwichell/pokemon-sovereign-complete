@@ -1,0 +1,56 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 10,
+            "z": 9,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 4,
+            "z": 9,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T23GYM0101_sunglasses",
+            "graphics_id": "OBJ_EVENT_GFX_GYM_GUIDE",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 9,
+            "z": 9,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 7,
+            "z": 11,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 7,
+            "z": 3,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_GYM",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

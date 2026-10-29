@@ -1,0 +1,151 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 6,
+            "z": 2,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 8,
+            "z": 2,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T02R0301_gswoman6",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 2,
+            "z": 13,
+            "y": 0
+        },
+        {
+            "id": "obj_T02R0301_gsman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 11,
+            "z": 13,
+            "y": 0
+        },
+        {
+            "id": "obj_T02R0301_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 0,
+            "x": 7,
+            "z": 11,
+            "y": 0
+        },
+        {
+            "id": "obj_T02R0301_gsgentleman",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6,
+            "z": 6,
+            "y": 0
+        },
+        {
+            "id": "obj_T02R0301_gswoman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 4,
+            "y": 0
+        },
+        {
+            "id": "obj_T02R0301_babyboy1_2",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 8,
+            "z": 9,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 5,
+            "z": 15,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 13,
+            "z": 3,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_TRAINER_HOUSE_B1F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

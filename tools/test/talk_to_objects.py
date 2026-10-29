@@ -187,7 +187,8 @@ def var_ids():
 
 
 def header_names():
-    return [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'map_headers.txt')) if line.strip()]
+    return [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'map_headers.txt'))
+            if line.strip() and not line.startswith('#')]  # Sovereign Complete: the file has comment lines now
 
 
 def way_in(maps, matrix, warps, taken):

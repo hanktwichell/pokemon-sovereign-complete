@@ -6,7 +6,8 @@
 #include "overlay005/map_prop_animation.h"
 #include "overlay005/map_prop_material_shape.h"
 
-#define MAX_MAP_PROP_MODEL_FILES 768
+// Sovereign Complete: indexed by building model number, which runs to 1151 with HeartGold's 562 (Platinum: 768)
+#define MAX_MAP_PROP_MODEL_FILES 1152
 
 typedef struct AreaDataManagerLoadData {
     int areaDataArchiveID;

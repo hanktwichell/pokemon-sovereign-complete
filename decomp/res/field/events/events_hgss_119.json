@@ -1,0 +1,113 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 45,
+            "z": 45,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 10,
+            "z": 39,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 45,
+            "z": 17,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D41R0101_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0101_FULL_RESTORE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 54,
+            "z": 15,
+            "y": 0
+        },
+        {
+            "id": "obj_D41R0101_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 12,
+            "z": 40,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 40,
+            "z": 61,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 15,
+            "z": 12,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_MOLTRES_CHAMBER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 34,
+            "z": 47,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_EXPERT_BELT_CHAMBER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 51,
+            "z": 46,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_LOWER_MOUNTAINSIDE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 53,
+            "z": 41,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_LOWER_MOUNTAINSIDE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 55,
+            "z": 24,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_LOWER_MOUNTAINSIDE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 32,
+            "z": 9,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_SILVER_CAVE_2F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

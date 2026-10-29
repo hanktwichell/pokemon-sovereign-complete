@@ -133,7 +133,7 @@ u16 MapMatrix_GetMapHeaderIDAtIndex(const MapMatrix *mapMatrix, const int index)
     return mapMatrix->data.mapHeaderIDs[index];
 }
 
-u8 MapMatrix_GetMatrixID(const MapMatrix *mapMatrix)
+u16 MapMatrix_GetMatrixID(const MapMatrix *mapMatrix)
 {
     return mapMatrix->matrixID;
 }

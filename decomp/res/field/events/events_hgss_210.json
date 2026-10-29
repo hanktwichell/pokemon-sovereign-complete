@@ -1,0 +1,102 @@
+{
+    "bg_events": [],
+    "object_events": [
+        {
+            "id": "obj_D27R0106_seaman_2",
+            "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                6,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6,
+            "z": 9,
+            "y": 0
+        },
+        {
+            "id": "obj_D27R0106_seaman_2_2",
+            "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 13,
+            "z": 7,
+            "y": 0
+        },
+        {
+            "id": "obj_D27R0106_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D27R0106_SUPER_REPEL",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 11,
+            "z": 3,
+            "y": 0
+        },
+        {
+            "id": "obj_D27R0106_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 2,
+            "z": 14,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 4,
+            "z": 5,
+            "dest_header_id": "MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_4F",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 10,
+            "z": 10,
+            "dest_header_id": "MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 10,
+            "z": 9,
+            "dest_header_id": "MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

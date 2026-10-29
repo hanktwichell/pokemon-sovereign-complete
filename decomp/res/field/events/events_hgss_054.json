@@ -1,0 +1,112 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1036,
+            "z": 502,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1033,
+            "z": 496,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 1030,
+            "z": 481,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 1044,
+            "z": 506,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 1041,
+            "z": 493,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T09_gsleader16",
+            "graphics_id": "OBJ_EVENT_GFX_VOLKNER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_25A",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1036,
+            "z": 494,
+            "y": 0
+        },
+        {
+            "id": "obj_T09_gsleader15",
+            "graphics_id": "OBJ_EVENT_GFX_BYRON",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_27D",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1035,
+            "z": 505,
+            "y": 0
+        },
+        {
+            "id": "obj_T09_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T09_MAGMARIZER",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1045,
+            "z": 497,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1039,
+            "z": 502,
+            "dest_header_id": "MAP_HEADER_HGSS_CINNABAR_ISLAND_POKECENTER_1F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

@@ -1,0 +1,379 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 401,
+            "z": 460,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 409,
+            "z": 471,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 417,
+            "z": 468,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 416,
+            "z": 461,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 432,
+            "z": 461,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 394,
+            "z": 461,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 421,
+            "z": 469,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T23_rocketm",
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_19F",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 434,
+            "z": 461,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_rocketm_2",
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_1A9",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 405,
+            "z": 472,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_gsoldman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 419,
+            "z": 460,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 2,
+            "x": 411,
+            "z": 468,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_gsman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 0,
+            "x": 397,
+            "z": 461,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_tsure_poke_static_slowpoke",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 431,
+            "z": 461,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_tsure_poke_static_slowpoke_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 414,
+            "z": 461,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_tsure_poke_static_slowpoke_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 411,
+            "z": 472,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_tsure_poke_static_slowpoke_4",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 397,
+            "z": 474,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_gsrivel",
+            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 384,
+            "z": 448,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_bonguri",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                30,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 396,
+            "z": 453,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 0,
+            "x": 407,
+            "z": 464,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_rocketm_3",
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_AZALEA_ROCKET_HARASSING_CIVILIAN",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 434,
+            "z": 463,
+            "y": 0
+        },
+        {
+            "id": "obj_T23_gsmiddleman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_AZALEA_HARASSED_CIVILIAN",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 433,
+            "z": 463,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 392,
+            "z": 462,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_ILEX_FOREST_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 392,
+            "z": 463,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_ILEX_FOREST_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 405,
+            "z": 471,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_GYM_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 410,
+            "z": 460,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 419,
+            "z": 468,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_CHARCOAL_KILN",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 419,
+            "z": 457,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 399,
+            "z": 454,
+            "dest_header_id": "MAP_HEADER_HGSS_AZALEA_KURT_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 433,
+            "z": 454,
+            "dest_header_id": "MAP_HEADER_HGSS_SLOWPOKE_WELL_ENTRANCE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

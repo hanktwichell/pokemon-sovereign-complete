@@ -1,0 +1,349 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 176,
+            "z": 362,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 175,
+            "z": 358,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 182,
+            "z": 370,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 179,
+            "z": 354,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 172,
+            "z": 344,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 170,
+            "z": 332,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 189,
+            "z": 357,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 185,
+            "z": 354,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T24_middlewoman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 1,
+            "x": 173,
+            "z": 360,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 1,
+            "x": 178,
+            "z": 352,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 177,
+            "z": 346,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_gsgirl1",
+            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 0,
+            "x": 173,
+            "z": 371,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_middlewoman1_2_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 181,
+            "z": 373,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_tsure_poke_static_suicune",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_SUICUNE",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CIANWOOD_SUICUNE",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 174,
+            "z": 330,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_minaki",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CIANWOOD_EUSINE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 176,
+            "z": 343,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_breakrock",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 170,
+            "z": 333,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_breakrock_2",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x11",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 169,
+            "z": 341,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_breakrock_3",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x13",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 171,
+            "z": 335,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_breakrock_4",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x14",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 166,
+            "z": 338,
+            "y": 0
+        },
+        {
+            "id": "obj_T24_breakrock_5",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x15",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 170,
+            "z": 342,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 172,
+            "z": 357,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 187,
+            "z": 369,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 179,
+            "z": 370,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_PHARMACY",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 170,
+            "z": 367,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_KIRKS_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 181,
+            "z": 362,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_CENTRAL_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 181,
+            "z": 354,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_CAMERONS_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 171,
+            "z": 347,
+            "dest_header_id": "MAP_HEADER_HGSS_CLIFF_EDGE_GATE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 167,
+            "z": 335,
+            "dest_header_id": "MAP_HEADER_HGSS_CIANWOOD_NORTH_HOUSE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

@@ -1,0 +1,86 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 6,
+            "z": 6,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D24R0202_babyboy1_12",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_OPENED_ALPH_ESCAPE_ROPE_SECRET_ROOM",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6,
+            "z": 2,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0202_babyboy1_13",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_21C",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 5,
+            "z": 7,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0202_gswoman6",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 8,
+            "z": 10,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 6,
+            "z": 17,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 6,
+            "z": 2,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_NORTHEAST_ENTRANCE_SECOND_ROOM",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

@@ -1,0 +1,373 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 429,
+            "z": 266,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 429,
+            "z": 286,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 440,
+            "z": 287,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 443,
+            "z": 292,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 442,
+            "z": 296,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 422,
+            "z": 263,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 424,
+            "z": 278,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 418,
+            "z": 314,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 423,
+            "z": 311,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D24R0101_mystery_2",
+            "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 422,
+            "z": 290,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D24R0101_POTION",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 435,
+            "z": 274,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_breakrock",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 424,
+            "z": 262,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_breakrock_2",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x11",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 423,
+            "z": 263,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_breakrock_3",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x13",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 426,
+            "z": 264,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_breakrock_4",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x15",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 417,
+            "z": 272,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_breakrock_5",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x16",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 416,
+            "z": 273,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D24R0101_HYPER_POTION",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 418,
+            "z": 273,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 435,
+            "z": 284,
+            "y": 0
+        },
+        {
+            "id": "obj_D24R0101_suit",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 441,
+            "z": 285,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 430,
+            "z": 261,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_36_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 431,
+            "z": 261,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_36_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 447,
+            "z": 293,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_32_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 447,
+            "z": 294,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_32_RUINS_OF_ALPH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 436,
+            "z": 266,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_NORTHEAST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 436,
+            "z": 309,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_SOUTHEAST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 425,
+            "z": 309,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_SOUTHWEST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 425,
+            "z": 289,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_NORTHWEST_ENTRANCE_FIRST_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 430,
+            "z": 284,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 431,
+            "z": 284,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 441,
+            "z": 285,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_RESEARCH_CENTER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 430,
+            "z": 284,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 431,
+            "z": 284,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 430,
+            "z": 284,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 431,
+            "z": 284,
+            "dest_header_id": "MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 419,
+            "z": 308,
+            "dest_header_id": "MAP_HEADER_HGSS_UNION_CAVE_1F",
+            "dest_warp_id": 6
+        },
+        {
+            "x": 419,
+            "z": 289,
+            "dest_header_id": "MAP_HEADER_HGSS_UNION_CAVE_1F",
+            "dest_warp_id": 7
+        }
+    ],
+    "coord_events": []
+}

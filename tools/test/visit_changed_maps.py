@@ -38,7 +38,8 @@ SYMBOLS = ('gSovereignTestWarpTarget', 'gSovereignTestIdleFrames', 'gSovereignTe
 def changed_maps():
     """[(map header ID, map header name, x, z)] for each changed map header that has a field map."""
     maps = Maps(DECOMP)
-    ids = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'map_headers.txt')) if line.strip()]
+    ids = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'map_headers.txt'))
+           if line.strip() and not line.startswith('#')]  # Sovereign Complete: the file has comment lines now
     changed = set()
     for path in subprocess.run(['git', 'diff', '--name-only', VANILLA_REF, '--',
                                 f'{DECOMP}/res/field/events', f'{DECOMP}/res/field/scripts'],

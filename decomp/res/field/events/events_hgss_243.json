@@ -1,0 +1,780 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 46,
+            "z": 49,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 50,
+            "z": 49,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 46,
+            "z": 48,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 47,
+            "z": 48,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 47,
+            "z": 49,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 50,
+            "z": 48,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 51,
+            "z": 49,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 51,
+            "z": 48,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 50,
+            "z": 39,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 51,
+            "z": 39,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 50,
+            "z": 38,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_EAST"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 50,
+            "z": 37,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_EAST"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 50,
+            "z": 36,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 51,
+            "z": 36,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_SOUTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 52,
+            "z": 39,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 52,
+            "z": 36,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_SOUTH"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 53,
+            "z": 36,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 53,
+            "z": 37,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_WEST"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 53,
+            "z": 38,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_WEST"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 53,
+            "z": 39,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 47,
+            "z": 19,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 72,
+            "z": 32,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 25,
+            "z": 32,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 35,
+            "z": 57,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 62,
+            "z": 57,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D32_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 44,
+            "z": 50,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsoldwoman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 49,
+            "z": 64,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsoldman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 48,
+            "z": 64,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsbabygirl1",
+            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 3,
+            "movement_range_z": 0,
+            "x": 41,
+            "z": 57,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 59,
+            "z": 45,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsbabyboy1",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 50,
+            "z": 19,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_idol",
+            "graphics_id": "OBJ_EVENT_GFX_IDOL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_SOUTH_AND_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 1,
+            "x": 26,
+            "z": 30,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_badman",
+            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 1,
+            "x": 67,
+            "z": 39,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsfighter",
+            "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 3,
+            "movement_range_z": 3,
+            "x": 38,
+            "z": 23,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_bfsw2",
+            "graphics_id": "OBJ_EVENT_GFX_FRONTIER_BOOTH_ATTENDANT",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 45,
+            "z": 43,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_bfsw2_2",
+            "graphics_id": "OBJ_EVENT_GFX_FRONTIER_BOOTH_ATTENDANT",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 45,
+            "z": 37,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_bfsw2_3",
+            "graphics_id": "OBJ_EVENT_GFX_FRONTIER_BOOTH_ATTENDANT",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 52,
+            "z": 43,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 0,
+            "x": 60,
+            "z": 29,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 59,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsgentleman",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 1,
+            "x": 38,
+            "z": 37,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsbabyboy1_2",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 55,
+            "z": 38,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsman2",
+            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 54,
+            "z": 49,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_cowgirl",
+            "graphics_id": "OBJ_EVENT_GFX_COWGIRL",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 0,
+            "x": 66,
+            "z": 50,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_fishing_2",
+            "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 1,
+            "x": 60,
+            "z": 37,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_picnicgirl_2",
+            "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 0,
+            "x": 45,
+            "z": 46,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gswoman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 0,
+            "x": 44,
+            "z": 61,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gswoman1_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 2,
+            "x": 54,
+            "z": 59,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 2,
+            "x": 42,
+            "z": 41,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_fishing_2_2",
+            "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_SOUTH_AND_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 1,
+            "x": 31,
+            "z": 40,
+            "y": 0
+        },
+        {
+            "id": "obj_D32_gsmiddleman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 70,
+            "z": 39,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 48,
+            "z": 17,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_TOWER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 49,
+            "z": 17,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_TOWER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 77,
+            "z": 34,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_FACTORY",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 77,
+            "z": 35,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_FACTORY",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 19,
+            "z": 34,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_HALL",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 19,
+            "z": 35,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_HALL",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 33,
+            "z": 62,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_CASTLE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 33,
+            "z": 63,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_CASTLE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 64,
+            "z": 62,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_ARCADE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 64,
+            "z": 63,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_ARCADE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 48,
+            "z": 52,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_FRONTIER_ACCESS_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 49,
+            "z": 52,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_FRONTIER_ACCESS_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 73,
+            "z": 34,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_FACTORY",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 23,
+            "z": 34,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_HALL",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 60,
+            "z": 62,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_ARCADE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 36,
+            "z": 62,
+            "dest_header_id": "MAP_HEADER_HGSS_BATTLE_FRONTIER_BATTLE_CASTLE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

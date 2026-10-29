@@ -1,0 +1,332 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 427,
+            "z": 177,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 432,
+            "z": 171,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 491,
+            "z": 172,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 504,
+            "z": 172,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 480,
+            "z": 182,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R42_fishing_2",
+            "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 483,
+            "z": 175,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_mania",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 495,
+            "z": 172,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_mount_2",
+            "graphics_id": "OBJ_EVENT_GFX_HIKER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 501,
+            "z": 177,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_bonguri",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                18,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 464,
+            "z": 184,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_bonguri_2",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                19,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 465,
+            "z": 184,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_bonguri_3",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                20,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 466,
+            "z": 184,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R42_SUPER_POTION",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 472,
+            "z": 176,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R42_DUBIOUS_DISC",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 477,
+            "z": 166,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R42_TM65",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 430,
+            "z": 169,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_tree",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 460,
+            "z": 181,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_mount_2_2",
+            "graphics_id": "OBJ_EVENT_GFX_HIKER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_42_HIKER",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 436,
+            "z": 171,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_tsure_poke_static_suicune",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_SUICUNE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_42_SUICUNE",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 466,
+            "z": 182,
+            "y": 0
+        },
+        {
+            "id": "obj_R42_minaki",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_42_EUSINE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 452,
+            "z": 181,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 422,
+            "z": 175,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_42_ECRUTEAK_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 422,
+            "z": 176,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_42_ECRUTEAK_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 436,
+            "z": 171,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 464,
+            "z": 175,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 466,
+            "z": 164,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 493,
+            "z": 171,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE",
+            "dest_warp_id": 3
+        }
+    ],
+    "coord_events": []
+}

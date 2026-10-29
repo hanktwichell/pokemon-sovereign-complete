@@ -1,0 +1,13 @@
+{
+    "bg_events": [],
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 5,
+            "z": 12,
+            "dest_header_id": "MAP_HEADER_HGSS_NATIONAL_PARK",
+            "dest_warp_id": 5
+        }
+    ],
+    "coord_events": []
+}

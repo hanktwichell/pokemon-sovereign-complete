@@ -1,0 +1,257 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1324,
+            "z": 106,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1321,
+            "z": 135,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1309,
+            "z": 137,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1317,
+            "z": 123,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1295,
+            "z": 144,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 1298,
+            "z": 110,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T04_gsman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 3,
+            "movement_range_z": 1,
+            "x": 1307,
+            "z": 119,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1297,
+            "z": 127,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_tsure_poke_static_slowbro",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1296,
+            "z": 127,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 1,
+            "x": 1314,
+            "z": 136,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_gsman2",
+            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 3,
+            "x": 1326,
+            "z": 116,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1300,
+            "z": 110,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1325,
+            "z": 108,
+            "y": 0
+        },
+        {
+            "id": "obj_T04_gsman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CERULEAN_CITY_MAN_OUTSIDE_CAVE",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1290,
+            "z": 108,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1305,
+            "z": 116,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_NORTH_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1319,
+            "z": 123,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_EAST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1304,
+            "z": 131,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_WEST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1309,
+            "z": 131,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1318,
+            "z": 134,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1308,
+            "z": 144,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1298,
+            "z": 144,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_BIKE_MANIAC_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1290,
+            "z": 107,
+            "dest_header_id": "MAP_HEADER_HGSS_CERULEAN_CAVE_1F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

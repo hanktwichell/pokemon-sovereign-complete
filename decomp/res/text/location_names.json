@@ -504,6 +504,442 @@
     {
       "id": "LocationNames_Text_RockPeakRuins",
       "en_US": "Rock Peak Ruins"
+    },
+    {
+      "id": "LocationNames_Text_NewBarkTown",
+      "en_US": "New Bark Town"
+    },
+    {
+      "id": "LocationNames_Text_CherrygroveCity",
+      "en_US": "Cherrygrove City"
+    },
+    {
+      "id": "LocationNames_Text_VioletCity",
+      "en_US": "Violet City"
+    },
+    {
+      "id": "LocationNames_Text_AzaleaTown",
+      "en_US": "Azalea Town"
+    },
+    {
+      "id": "LocationNames_Text_CianwoodCity",
+      "en_US": "Cianwood City"
+    },
+    {
+      "id": "LocationNames_Text_GoldenrodCity",
+      "en_US": "Goldenrod City"
+    },
+    {
+      "id": "LocationNames_Text_OlivineCity",
+      "en_US": "Olivine City"
+    },
+    {
+      "id": "LocationNames_Text_EcruteakCity",
+      "en_US": "Ecruteak City"
+    },
+    {
+      "id": "LocationNames_Text_MahoganyTown",
+      "en_US": "Mahogany Town"
+    },
+    {
+      "id": "LocationNames_Text_LakeOfRage",
+      "en_US": "Lake of Rage"
+    },
+    {
+      "id": "LocationNames_Text_BlackthornCity",
+      "en_US": "Blackthorn City"
+    },
+    {
+      "id": "LocationNames_Text_MtSilver",
+      "en_US": "Mt. Silver"
+    },
+    {
+      "id": "LocationNames_Text_PalletTown",
+      "en_US": "Pallet Town"
+    },
+    {
+      "id": "LocationNames_Text_ViridianCity",
+      "en_US": "Viridian City"
+    },
+    {
+      "id": "LocationNames_Text_PewterCity",
+      "en_US": "Pewter City"
+    },
+    {
+      "id": "LocationNames_Text_CeruleanCity",
+      "en_US": "Cerulean City"
+    },
+    {
+      "id": "LocationNames_Text_LavenderTown",
+      "en_US": "Lavender Town"
+    },
+    {
+      "id": "LocationNames_Text_VermilionCity",
+      "en_US": "Vermilion City"
+    },
+    {
+      "id": "LocationNames_Text_CeladonCity",
+      "en_US": "Celadon City"
+    },
+    {
+      "id": "LocationNames_Text_FuchsiaCity",
+      "en_US": "Fuchsia City"
+    },
+    {
+      "id": "LocationNames_Text_CinnabarIsland",
+      "en_US": "Cinnabar Island"
+    },
+    {
+      "id": "LocationNames_Text_IndigoPlateau",
+      "en_US": "Indigo Plateau"
+    },
+    {
+      "id": "LocationNames_Text_SaffronCity",
+      "en_US": "Saffron City"
+    },
+    {
+      "id": "LocationNames_Text_Route1",
+      "en_US": "Route 1"
+    },
+    {
+      "id": "LocationNames_Text_Route2",
+      "en_US": "Route 2"
+    },
+    {
+      "id": "LocationNames_Text_Route3",
+      "en_US": "Route 3"
+    },
+    {
+      "id": "LocationNames_Text_Route4",
+      "en_US": "Route 4"
+    },
+    {
+      "id": "LocationNames_Text_Route5",
+      "en_US": "Route 5"
+    },
+    {
+      "id": "LocationNames_Text_Route6",
+      "en_US": "Route 6"
+    },
+    {
+      "id": "LocationNames_Text_Route7",
+      "en_US": "Route 7"
+    },
+    {
+      "id": "LocationNames_Text_Route8",
+      "en_US": "Route 8"
+    },
+    {
+      "id": "LocationNames_Text_Route9",
+      "en_US": "Route 9"
+    },
+    {
+      "id": "LocationNames_Text_Route10",
+      "en_US": "Route 10"
+    },
+    {
+      "id": "LocationNames_Text_Route11",
+      "en_US": "Route 11"
+    },
+    {
+      "id": "LocationNames_Text_Route12",
+      "en_US": "Route 12"
+    },
+    {
+      "id": "LocationNames_Text_Route13",
+      "en_US": "Route 13"
+    },
+    {
+      "id": "LocationNames_Text_Route14",
+      "en_US": "Route 14"
+    },
+    {
+      "id": "LocationNames_Text_Route15",
+      "en_US": "Route 15"
+    },
+    {
+      "id": "LocationNames_Text_Route16",
+      "en_US": "Route 16"
+    },
+    {
+      "id": "LocationNames_Text_Route17",
+      "en_US": "Route 17"
+    },
+    {
+      "id": "LocationNames_Text_Route18",
+      "en_US": "Route 18"
+    },
+    {
+      "id": "LocationNames_Text_Route19",
+      "en_US": "Route 19"
+    },
+    {
+      "id": "LocationNames_Text_Route20",
+      "en_US": "Route 20"
+    },
+    {
+      "id": "LocationNames_Text_Route21",
+      "en_US": "Route 21"
+    },
+    {
+      "id": "LocationNames_Text_Route22",
+      "en_US": "Route 22"
+    },
+    {
+      "id": "LocationNames_Text_Route23",
+      "en_US": "Route 23"
+    },
+    {
+      "id": "LocationNames_Text_Route24",
+      "en_US": "Route 24"
+    },
+    {
+      "id": "LocationNames_Text_Route25",
+      "en_US": "Route 25"
+    },
+    {
+      "id": "LocationNames_Text_Route26",
+      "en_US": "Route 26"
+    },
+    {
+      "id": "LocationNames_Text_Route27",
+      "en_US": "Route 27"
+    },
+    {
+      "id": "LocationNames_Text_Route28",
+      "en_US": "Route 28"
+    },
+    {
+      "id": "LocationNames_Text_Route29",
+      "en_US": "Route 29"
+    },
+    {
+      "id": "LocationNames_Text_Route30",
+      "en_US": "Route 30"
+    },
+    {
+      "id": "LocationNames_Text_Route31",
+      "en_US": "Route 31"
+    },
+    {
+      "id": "LocationNames_Text_Route32",
+      "en_US": "Route 32"
+    },
+    {
+      "id": "LocationNames_Text_Route33",
+      "en_US": "Route 33"
+    },
+    {
+      "id": "LocationNames_Text_Route34",
+      "en_US": "Route 34"
+    },
+    {
+      "id": "LocationNames_Text_Route35",
+      "en_US": "Route 35"
+    },
+    {
+      "id": "LocationNames_Text_Route36",
+      "en_US": "Route 36"
+    },
+    {
+      "id": "LocationNames_Text_Route37",
+      "en_US": "Route 37"
+    },
+    {
+      "id": "LocationNames_Text_Route38",
+      "en_US": "Route 38"
+    },
+    {
+      "id": "LocationNames_Text_Route39",
+      "en_US": "Route 39"
+    },
+    {
+      "id": "LocationNames_Text_Route40",
+      "en_US": "Route 40"
+    },
+    {
+      "id": "LocationNames_Text_Route41",
+      "en_US": "Route 41"
+    },
+    {
+      "id": "LocationNames_Text_Route42",
+      "en_US": "Route 42"
+    },
+    {
+      "id": "LocationNames_Text_Route43",
+      "en_US": "Route 43"
+    },
+    {
+      "id": "LocationNames_Text_Route44",
+      "en_US": "Route 44"
+    },
+    {
+      "id": "LocationNames_Text_Route45",
+      "en_US": "Route 45"
+    },
+    {
+      "id": "LocationNames_Text_Route46",
+      "en_US": "Route 46"
+    },
+    {
+      "id": "LocationNames_Text_Route47",
+      "en_US": "Route 47"
+    },
+    {
+      "id": "LocationNames_Text_Route48",
+      "en_US": "Route 48"
+    },
+    {
+      "id": "LocationNames_Text_DiglettsCave",
+      "en_US": "DIGLETT’s Cave"
+    },
+    {
+      "id": "LocationNames_Text_MtMoon",
+      "en_US": "Mt. Moon"
+    },
+    {
+      "id": "LocationNames_Text_CeruleanCave",
+      "en_US": "Cerulean Cave"
+    },
+    {
+      "id": "LocationNames_Text_RockTunnel",
+      "en_US": "Rock Tunnel"
+    },
+    {
+      "id": "LocationNames_Text_PowerPlant",
+      "en_US": "Power Plant"
+    },
+    {
+      "id": "LocationNames_Text_SafariZone",
+      "en_US": "Safari Zone"
+    },
+    {
+      "id": "LocationNames_Text_SeafoamIslands",
+      "en_US": "Seafoam Islands"
+    },
+    {
+      "id": "LocationNames_Text_SproutTower",
+      "en_US": "Sprout Tower"
+    },
+    {
+      "id": "LocationNames_Text_BellTower",
+      "en_US": "Bell Tower"
+    },
+    {
+      "id": "LocationNames_Text_BurnedTower",
+      "en_US": "Burned Tower"
+    },
+    {
+      "id": "LocationNames_Text_NationalPark",
+      "en_US": "National Park"
+    },
+    {
+      "id": "LocationNames_Text_RadioTower",
+      "en_US": "Radio Tower"
+    },
+    {
+      "id": "LocationNames_Text_RuinsOfAlph",
+      "en_US": "Ruins of Alph"
+    },
+    {
+      "id": "LocationNames_Text_UnionCave",
+      "en_US": "Union Cave"
+    },
+    {
+      "id": "LocationNames_Text_SlowpokeWell",
+      "en_US": "SLOWPOKE Well"
+    },
+    {
+      "id": "LocationNames_Text_Lighthouse",
+      "en_US": "Lighthouse"
+    },
+    {
+      "id": "LocationNames_Text_TeamRocketHq",
+      "en_US": "Team Rocket HQ"
+    },
+    {
+      "id": "LocationNames_Text_IlexForest",
+      "en_US": "Ilex Forest"
+    },
+    {
+      "id": "LocationNames_Text_GoldenrodTunnel",
+      "en_US": "Goldenrod Tunnel"
+    },
+    {
+      "id": "LocationNames_Text_MtMortar",
+      "en_US": "Mt. Mortar"
+    },
+    {
+      "id": "LocationNames_Text_IcePath",
+      "en_US": "Ice Path"
+    },
+    {
+      "id": "LocationNames_Text_WhirlIslands",
+      "en_US": "Whirl Islands"
+    },
+    {
+      "id": "LocationNames_Text_MtSilverCave",
+      "en_US": "Mt. Silver Cave"
+    },
+    {
+      "id": "LocationNames_Text_DarkCave",
+      "en_US": "Dark Cave"
+    },
+    {
+      "id": "LocationNames_Text_VictoryRoadJk",
+      "en_US": "Victory Road"
+    },
+    {
+      "id": "LocationNames_Text_DragonsDen",
+      "en_US": "Dragon’s Den"
+    },
+    {
+      "id": "LocationNames_Text_TohjoFalls",
+      "en_US": "Tohjo Falls"
+    },
+    {
+      "id": "LocationNames_Text_ViridianForest",
+      "en_US": "Viridian Forest"
+    },
+    {
+      "id": "LocationNames_Text_PokeathlonDome",
+      "en_US": "Pokéathlon Dome"
+    },
+    {
+      "id": "LocationNames_Text_SsAqua",
+      "en_US": "S.S. Aqua"
+    },
+    {
+      "id": "LocationNames_Text_SafariZoneGate",
+      "en_US": "Safari Zone Gate"
+    },
+    {
+      "id": "LocationNames_Text_CliffCave",
+      "en_US": "Cliff Cave"
+    },
+    {
+      "id": "LocationNames_Text_FrontierAccess",
+      "en_US": "Frontier Access"
+    },
+    {
+      "id": "LocationNames_Text_BellchimeTrail",
+      "en_US": "Bellchime Trail"
+    },
+    {
+      "id": "LocationNames_Text_SinjohRuins",
+      "en_US": "Sinjoh Ruins"
+    },
+    {
+      "id": "LocationNames_Text_EmbeddedTower",
+      "en_US": "Embedded Tower"
+    },
+    {
+      "id": "LocationNames_Text_Pokewalker",
+      "en_US": "Pokéwalker"
+    },
+    {
+      "id": "LocationNames_Text_CliffEdgeGate",
+      "en_US": "Cliff Edge Gate"
     }
   ]
 }

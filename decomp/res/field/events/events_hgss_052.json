@@ -1,0 +1,373 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1204,
+            "z": 245,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1219,
+            "z": 252,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1229,
+            "z": 252,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1220,
+            "z": 237,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1204,
+            "z": 268,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1203,
+            "z": 238,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 1230,
+            "z": 272,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T07_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1228,
+            "z": 239,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_tsure_poke_static_poliwrath",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1229,
+            "z": 239,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 1,
+            "x": 1219,
+            "z": 241,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gswoman2",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 1,
+            "x": 1198,
+            "z": 242,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsgirl1",
+            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1207,
+            "z": 254,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 1,
+            "x": 1218,
+            "z": 254,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsboy2",
+            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1223,
+            "z": 266,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsoldman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1199,
+            "z": 268,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsoldman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1211,
+            "z": 250,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsleader12",
+            "graphics_id": "OBJ_EVENT_GFX_MAYLENE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_25D",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1200,
+            "z": 251,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsleader6",
+            "graphics_id": "OBJ_EVENT_GFX_CANDICE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_2E1",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1201,
+            "z": 251,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_tree",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1227,
+            "z": 267,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T07_TM67",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1195,
+            "z": 226,
+            "y": 0
+        },
+        {
+            "id": "obj_T07_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1200,
+            "z": 256,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1201,
+            "z": 237,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_DEPARTMENT_STORE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1218,
+            "z": 237,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1231,
+            "z": 237,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1218,
+            "z": 249,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_GAME_CORNER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1223,
+            "z": 249,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_PRIZE_CORNER",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1201,
+            "z": 266,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1225,
+            "z": 261,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_RESTAURANT",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

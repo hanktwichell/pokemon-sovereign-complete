@@ -1,0 +1,370 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 491,
+            "z": 257,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 488,
+            "z": 263,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 475,
+            "z": 257,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 485,
+            "z": 230,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 505,
+            "z": 254,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 481,
+            "z": 241,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T22_gsgirl3",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 492,
+            "z": 275,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_gsman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 2,
+            "x": 489,
+            "z": 254,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_19A",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 474,
+            "z": 252,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_gsoldwoman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 0,
+            "x": 479,
+            "z": 263,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_gsboy2",
+            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 462,
+            "z": 259,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T22_RARE_CANDY",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 504,
+            "z": 237,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T22_PP_UP",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 459,
+            "z": 229,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_dancer",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_VIOLET_KIMONO_GIRL",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 474,
+            "z": 261,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_bonguri",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                29,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 472,
+            "z": 275,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_breakrock",
+            "graphics_id": "OBJ_EVENT_GFX_ROCK_SMASH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 503,
+            "z": 261,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_juggrer",
+            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 500,
+            "z": 272,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_gswoman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 506,
+            "z": 268,
+            "y": 0
+        },
+        {
+            "id": "obj_T22_gsbabyboy1",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 482,
+            "z": 241,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 511,
+            "z": 269,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_31_VIOLET_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 511,
+            "z": 270,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_31_VIOLET_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 479,
+            "z": 257,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 454,
+            "z": 246,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_ROUTE_36_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 454,
+            "z": 247,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_ROUTE_36_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 487,
+            "z": 228,
+            "dest_header_id": "MAP_HEADER_HGSS_SPROUT_TOWER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 495,
+            "z": 257,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_POKEMON_SCHOOL",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 497,
+            "z": 271,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 459,
+            "z": 254,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_NORTHWEST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 484,
+            "z": 277,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_BELLSPROUT_ONYX_TRADE_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 469,
+            "z": 257,
+            "dest_header_id": "MAP_HEADER_HGSS_VIOLET_POKEMART",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

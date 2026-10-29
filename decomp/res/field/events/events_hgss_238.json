@@ -1,0 +1,182 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 33,
+            "z": 15,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 17,
+            "z": 73,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D38R0104_rock",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 26,
+            "z": 38,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0104_gsfighter",
+            "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 41,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0104_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0104_CARBOS",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 11,
+            "z": 58,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0104_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0104_PP_UP",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 36,
+            "z": 66,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0104_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0104_FULL_RESTORE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 52,
+            "z": 64,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0104_monstarball_4",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0104_MAX_ETHER",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 46,
+            "z": 45,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0104_monstarball_5",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0104_HYPER_POTION",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 40,
+            "z": 39,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 32,
+            "z": 71,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE",
+            "dest_warp_id": 10
+        },
+        {
+            "x": 21,
+            "z": 14,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_BACK",
+            "dest_warp_id": 7
+        },
+        {
+            "x": 21,
+            "z": 13,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_BACK",
+            "dest_warp_id": 7
+        },
+        {
+            "x": 32,
+            "z": 70,
+            "dest_header_id": "MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE",
+            "dest_warp_id": 10
+        }
+    ],
+    "coord_events": []
+}

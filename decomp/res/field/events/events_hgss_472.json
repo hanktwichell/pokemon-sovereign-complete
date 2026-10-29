@@ -1,0 +1,13 @@
+{
+    "bg_events": [],
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 21,
+            "z": 14,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_MAGNET_TRAIN_STATION_1F",
+            "dest_warp_id": 2
+        }
+    ],
+    "coord_events": []
+}

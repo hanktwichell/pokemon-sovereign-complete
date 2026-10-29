@@ -1,0 +1,19 @@
+{
+    "bg_events": [],
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 4,
+            "z": 18,
+            "dest_header_id": "MAP_HEADER_HGSS_POKEATHLON_DOME_INTERIOR_1F",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 3,
+            "z": 2,
+            "dest_header_id": "MAP_HEADER_HGSS_POKEATHLON_DOME_INTERIOR_2F",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

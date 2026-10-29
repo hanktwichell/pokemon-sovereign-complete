@@ -1,0 +1,56 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1260,
+            "z": 248,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 1261,
+            "z": 247,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R07_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R07_MENTAL_HERB",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1263,
+            "z": 226,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1273,
+            "z": 240,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_7_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1273,
+            "z": 241,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_7_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

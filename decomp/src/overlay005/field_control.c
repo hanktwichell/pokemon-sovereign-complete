@@ -35,6 +35,7 @@
 #include "comm_player_manager.h"
 #include "communication_information.h"
 #include "communication_system.h"
+#include "complete_map_info.h"
 #include "daycare_save.h"
 #include "encounter.h"
 #include "field_comm_manager.h"
@@ -1401,16 +1402,17 @@ static void Field_TrySetMapConnection(FieldSystem *fieldSystem)
 
     Location nextMap;
 
+    // Sovereign Complete: Johto and Kanto's overworld keeps the exit for Escape Rope and Dig too
     if (Field_MapConnection(fieldSystem, playerX, playerZ, &nextMap)) {
-        if (MapHeader_IsOnMainMatrix(fieldSystem->location->mapHeaderID) == TRUE && MapHeader_IsOnMainMatrix(nextMap.mapHeaderID) == FALSE) {
+        if (MapHeader_IsOnOverworldMatrix(fieldSystem->location->mapHeaderID) == TRUE && MapHeader_IsOnOverworldMatrix(nextMap.mapHeaderID) == FALSE) {
             Field_SetMapConnection(fieldSystem, playerX, playerZ, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar));
         }
     } else {
         Field_Step(fieldSystem, &playerX, &playerZ);
 
         if (Field_MapConnection(fieldSystem, playerX, playerZ, &nextMap)
-            && MapHeader_IsOnMainMatrix(fieldSystem->location->mapHeaderID) == TRUE
-            && MapHeader_IsOnMainMatrix(nextMap.mapHeaderID) == FALSE) {
+            && MapHeader_IsOnOverworldMatrix(fieldSystem->location->mapHeaderID) == TRUE
+            && MapHeader_IsOnOverworldMatrix(nextMap.mapHeaderID) == FALSE) {
 
             Field_SetMapConnection(fieldSystem, playerX, playerZ, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar));
         }

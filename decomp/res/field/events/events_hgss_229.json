@@ -1,0 +1,129 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 29,
+            "z": 11,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D40R0104_bozu",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 36,
+            "z": 30,
+            "y": 0
+        },
+        {
+            "id": "obj_D40R0104_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D40R0104_MAX_REVIVE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 17,
+            "y": 0
+        },
+        {
+            "id": "obj_D40R0104_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D40R0104_FULL_RESTORE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 29,
+            "z": 25,
+            "y": 0
+        },
+        {
+            "id": "obj_D40R0104_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D40R0104_MAX_ELIXIR",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 30,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 27,
+            "z": 28,
+            "dest_header_id": "MAP_HEADER_HGSS_WHIRL_ISLANDS_B1F",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 27,
+            "z": 27,
+            "dest_header_id": "MAP_HEADER_HGSS_WHIRL_ISLANDS_B1F",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 32,
+            "z": 14,
+            "dest_header_id": "MAP_HEADER_HGSS_WHIRL_ISLANDS_B1F",
+            "dest_warp_id": 11
+        },
+        {
+            "x": 32,
+            "z": 13,
+            "dest_header_id": "MAP_HEADER_HGSS_WHIRL_ISLANDS_B1F",
+            "dest_warp_id": 11
+        },
+        {
+            "x": 31,
+            "z": 31,
+            "dest_header_id": "MAP_HEADER_HGSS_WHIRL_ISLANDS_B3F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 31,
+            "z": 43,
+            "dest_header_id": "MAP_HEADER_HGSS_WHIRL_ISLANDS_B3F_LUGIA_CAVE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

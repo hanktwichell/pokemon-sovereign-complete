@@ -1,0 +1,96 @@
+{
+    "bg_events": [],
+    "object_events": [
+        {
+            "id": "obj_P01R0304_mount_2",
+            "graphics_id": "OBJ_EVENT_GFX_HIKER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_22A",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 21,
+            "z": 8,
+            "y": 0
+        },
+        {
+            "id": "obj_P01R0304_gsman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_22B",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 5,
+            "z": 4,
+            "y": 0
+        },
+        {
+            "id": "obj_P01R0304_gswoman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_22B",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 8,
+            "y": 0
+        },
+        {
+            "id": "obj_P01R0304_mania",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_22C",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 9,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 9,
+            "z": 2,
+            "dest_header_id": "MAP_HEADER_HGSS_SS_AQUA_1F",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 23,
+            "z": 2,
+            "dest_header_id": "MAP_HEADER_HGSS_SS_AQUA_1F",
+            "dest_warp_id": 2
+        }
+    ],
+    "coord_events": []
+}

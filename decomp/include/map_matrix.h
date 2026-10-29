@@ -15,7 +15,7 @@ typedef struct MapMatrixData {
 typedef struct MapMatrix {
     u8 width;
     u8 height;
-    u8 matrixID;
+    u16 matrixID; // Sovereign Complete: u8 in Platinum; Johto and Kanto's matrices go past 255
     MapMatrixData data;
 } MapMatrix;
 
@@ -33,7 +33,7 @@ u16 MapMatrix_GetMapHeaderIDAtIndex(const MapMatrix *mapMatrix, const int index)
 int MapMatrix_GetAltitudeAtCoords(const MapMatrix *mapMatrix, const int param1, const int x, const int y, const int width);
 int MapMatrix_GetWidth(const MapMatrix *mapMatrix);
 int MapMatrix_GetHeight(const MapMatrix *mapMatrix);
-u8 MapMatrix_GetMatrixID(const MapMatrix *mapMatrix);
+u16 MapMatrix_GetMatrixID(const MapMatrix *mapMatrix);
 const u16 MapMatrix_GetLandDataIDByIndex(const int index, const MapMatrix *mapMatrix);
 u16 MapMatrix_GetLandDataIDByIndex2(int index, const MapMatrix *mapMatrix);
 void MapMatrix_RevealSpringPath(MapMatrix *mapMatrix);

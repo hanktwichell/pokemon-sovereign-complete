@@ -1,0 +1,251 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1041,
+            "z": 239,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1025,
+            "z": 221,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1024,
+            "z": 256,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1038,
+            "z": 254,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1029,
+            "z": 230,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 1053,
+            "z": 247,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T02_gsoldman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_VIRIDIAN_CITY_OLD_MAN_OUTSIDE_GYM_LOCKED",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1045,
+            "z": 240,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_gsoldman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 1028,
+            "z": 235,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1008,
+            "z": 264,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 3,
+            "x": 1027,
+            "z": 255,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_tree",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1019,
+            "z": 235,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_tree_2",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x11",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1014,
+            "z": 261,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1037,
+            "z": 260,
+            "y": 0
+        },
+        {
+            "id": "obj_T02_gsoldman1_3",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_VIRIDIAN_CITY_OLD_MAN_OUTSIDE_GYM_UNLOCKED",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1047,
+            "z": 240,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1045,
+            "z": 239,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1034,
+            "z": 244,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_NORTHEAST_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1036,
+            "z": 253,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_TRAINER_HOUSE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1042,
+            "z": 253,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1032,
+            "z": 262,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1036,
+            "z": 280,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_ROUTE_1_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1037,
+            "z": 280,
+            "dest_header_id": "MAP_HEADER_HGSS_VIRIDIAN_ROUTE_1_GATEHOUSE",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

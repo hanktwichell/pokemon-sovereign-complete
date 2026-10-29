@@ -1,0 +1,105 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 938,
+            "z": 264,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R22_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 952,
+            "z": 271,
+            "y": 0
+        },
+        {
+            "id": "obj_R22_sakaki",
+            "graphics_id": "OBJ_EVENT_GFX_CYRUS",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_22_GIOVANNI_RIVAL",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 940,
+            "z": 270,
+            "y": 0
+        },
+        {
+            "id": "obj_R22_gsrivel",
+            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_22_GIOVANNI_RIVAL",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 944,
+            "z": 270,
+            "y": 0
+        },
+        {
+            "id": "obj_R22_var_1",
+            "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_22_FRIEND",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 948,
+            "z": 275,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 936,
+            "z": 266,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_22_POKEMON_LEAGUE_RECEPTION_GATE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 936,
+            "z": 267,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_22_POKEMON_LEAGUE_RECEPTION_GATE",
+            "dest_warp_id": 2
+        }
+    ],
+    "coord_events": []
+}

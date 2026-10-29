@@ -1,0 +1,128 @@
+{
+    "bg_events": [],
+    "object_events": [
+        {
+            "id": "obj_D17R0110_dancer",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 15,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R0110_dancer_2",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 14,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R0110_dancer_3",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 13,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R0110_dancer_4",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 16,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R0110_dancer_5",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 17,
+            "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R0110_hou_obj01",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_HO_OH",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_BELL_TOWER_HO_OH",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 15,
+            "z": 16,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 15,
+            "z": 24,
+            "dest_header_id": "MAP_HEADER_HGSS_BELL_TOWER_10F",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

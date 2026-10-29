@@ -1,0 +1,240 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 527,
+            "z": 154,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 532,
+            "z": 146,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 532,
+            "z": 99,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R43_campboy_2",
+            "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 526,
+            "z": 149,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_picnicgirl_2",
+            "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 526,
+            "z": 127,
+            "y": 4
+        },
+        {
+            "id": "obj_R43_mania",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 531,
+            "z": 122,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_mania_2",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 537,
+            "z": 111,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_mania_3",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 530,
+            "z": 104,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_fishing_2",
+            "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                7,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 520,
+            "z": 113,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_bonguri",
+            "graphics_id": "OBJ_EVENT_GFX_BERRY_SOIL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                21,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 513,
+            "z": 125,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R43_MAX_ETHER",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 532,
+            "z": 138,
+            "y": 0
+        },
+        {
+            "id": "obj_R43_tree",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 515,
+            "z": 128,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 524,
+            "z": 156,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_43_MAHOGANY_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 525,
+            "z": 156,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_43_MAHOGANY_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 537,
+            "z": 143,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_43_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 538,
+            "z": 143,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_43_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 537,
+            "z": 134,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_43_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 538,
+            "z": 134,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_43_GATEHOUSE",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

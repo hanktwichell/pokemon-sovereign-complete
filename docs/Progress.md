@@ -133,3 +133,52 @@ PASS. Screenshots in `.cache/test-map/`.
 
 **Next:** every Johto and Kanto map header and matrix (540 headers), with tables from HeartGold's values to Platinum's
 (`docs/MapConversion.md`), then their events.
+
+## Oct 29, 2026: every Johto and Kanto map is in
+
+**540 map headers, 280 matrices, 491 events files.** `tools/complete/import_hgss_headers.py` brings in all of
+HeartGold's map headers as `MAP_HEADER_HGSS_*`, in HeartGold's order (HeartGold map n is header 593 + n), with their
+matrices and HeartGold's values translated (`docs/MapConversion.md`); `tools/complete/import_hgss_events.py` brings
+in their warps, people and things, signs and hidden items. The Olivine-only test map is gone; Olivine is now
+`MAP_HEADER_HGSS_OLIVINE`, part of Johto and Kanto's one overworld matrix.
+
+What came with it:
+- **HeartGold's 17 cameras** (`CAMERA_TYPE_HGSS_*`): its outdoor camera looks down at 48.7° where Platinum's looks at
+  59.1°, so Johto and Kanto keep their look.
+- **Place names**: HeartGold's 109 Johto and Kanto names follow Sinnoh's 126 with HeartGold's own numbers, so the name
+  popup shows "Olivine City" and Pokémon caught in HeartGold or SoulSilver show where they were met.
+- **The overworld matrix** is 47x17, wider than Sinnoh's 30 but within the engine's 900 cells. The matrix ID went
+  from 8 to 16 bits: HeartGold's matrices run to 578, and number 512 would have read as Sinnoh's overworld.
+- **Escape Rope, Dig and the Vs. Seeker** count Johto and Kanto's overworld as an overworld (`MapHeader_IsOnOverworldMatrix`).
+- **HeartGold's 2,113 named flags** as `FLAG_HGSS_*` (HeartGold flag f is 2912 + f), so the hide flags work.
+- **People**: Platinum's sprite of the same kind until HeartGold's own come in with the art (Rocket grunts appear as
+  Galactic grunts, Johto's gym leaders as Sinnoh's); Sovereign's overworld legendaries stand in for Suicune, Lugia
+  and Ho-Oh. Until step 3 everyone runs a do-nothing script, trainers don't battle, and the 195 step-on scenes are
+  left out.
+- **Following Pokémon follow HeartGold's rules**: on some maps nobody follows, and in most buildings only Pokémon that
+  aren't too tall (HeartGold's own flag, 31 forms such as Steelix, Lugia and Wailord); Sinnoh's buildings use the same
+  rule. HeartGold's other per-map data (region, the Pokégear's map position, calls, radio) is in a side table
+  (`src/complete_map_info.c`) for step 5.
+
+**Tested** (test build):
+- `tools/complete/test_map_warp.py` on eight maps (Olivine, Vermilion, Olivine's Pokémon Center, Union Cave,
+  Ecruteak Gym, the Radio Tower, Viridian Forest, the player's room in New Bark): each loads and draws, the player
+  walks, the lead Pokémon follows, and walking into the first door leads to the right map (Olivine Gym, back out to
+  Olivine through the Pokémon Center's mat, Route 32 from Union Cave, Ecruteak from its Gym...). Vermilion, in Kanto,
+  sits past the 30th column of the matrix and works.
+- The follower test still passes.
+- `tools/complete/visit_hgss_maps.py` (new) warps into every Johto and Kanto map from the bedroom and checks that the
+  field runs and the heaps' block lists are whole. Its first run found a real bug: the area loader keeps a slot per
+  building model number, 768 in Platinum, and HeartGold's models run to 1151, so loading Routes 6, 7 and 11,
+  Vermilion or Celadon wrote past that array into the next heap block. Now 1,152 slots. With that fixed, in four
+  parallel runs: **518 maps ok, 0 failures**; the other 22 have no floor to stand on and are placeholders HeartGold
+  never shows (the unused Fight Area and Battle Tower maps, `MAP_HEADER_HGSS_NOTHING`...).
+- The regular build builds and boots.
+
+**Step 2's test is passed:** every Johto and Kanto map loads. Still to come for step 2: the ferry ports' and the
+Sinjoh Ruins' connections, which wait on the open decisions (unlock points, the land between).
+
+**Next (step 3):** HeartGold's scripts and text. `docs/ScriptConversion.md` has the findings so far; a first
+translator already covers 92% of HeartGold's script lines on paper, and the next piece is a few maps end to end (New
+Bark Town, the player's house, Elm's lab): text banks, translated scripts and the events' script numbers, checked by
+talking to people in the emulator.

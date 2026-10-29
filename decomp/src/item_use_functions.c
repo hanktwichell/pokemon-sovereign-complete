@@ -26,6 +26,7 @@
 #include "bag_context.h"
 #include "berry_patch_manager.h"
 #include "bg_window.h"
+#include "complete_map_info.h"
 #include "field_bgm.h"
 #include "field_map_change.h"
 #include "field_message.h"
@@ -751,7 +752,7 @@ static BOOL UseVsSeekerInField(ItemFieldUseContext *usageContext)
 
 static enum ItemUseCheckResult CanUseVsSeeker(const ItemUseContext *usageContext)
 {
-    if (MapHeader_IsOnMainMatrix(usageContext->mapHeaderID)) {
+    if (MapHeader_IsOnOverworldMatrix(usageContext->mapHeaderID)) { // Sovereign Complete: also Johto and Kanto
         return ITEM_USE_CAN_USE;
     }
 

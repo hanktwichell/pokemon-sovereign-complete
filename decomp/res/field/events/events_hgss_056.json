@@ -1,0 +1,349 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1321,
+            "z": 242,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1306,
+            "z": 234,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1292,
+            "z": 210,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1303,
+            "z": 210,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1323,
+            "z": 208,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1330,
+            "z": 208,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T11_gsboy1",
+            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 0,
+            "x": 1325,
+            "z": 211,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsgirl2",
+            "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 1299,
+            "z": 212,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gswoman2",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 0,
+            "x": 1293,
+            "z": 220,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1324,
+            "z": 220,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 1,
+            "movement_range_z": 1,
+            "x": 1332,
+            "z": 236,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsboy2",
+            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1301,
+            "z": 224,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gswoman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1311,
+            "z": 234,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsmiddleman1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 0,
+            "x": 1313,
+            "z": 243,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsmiddleman1_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1287,
+            "z": 215,
+            "y": 0
+        },
+        {
+            "id": "obj_T11_gsmiddleman1_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_27F",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1307,
+            "z": 236,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1300,
+            "z": 253,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_6_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1301,
+            "z": 253,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_6_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1337,
+            "z": 240,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_8_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1337,
+            "z": 241,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_8_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1300,
+            "z": 197,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_5_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1301,
+            "z": 197,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_5_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1290,
+            "z": 208,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_MAGNET_TRAIN_STATION_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1297,
+            "z": 218,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_COPYCAT_HOUSE_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1308,
+            "z": 229,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_SILPH_CO_HQ",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1309,
+            "z": 229,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_SILPH_CO_HQ",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1321,
+            "z": 204,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_FIGHTING_DOJO",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1328,
+            "z": 204,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_GYM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1318,
+            "z": 218,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_POKEMART",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1294,
+            "z": 242,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_POKECENTER_1F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1323,
+            "z": 242,
+            "dest_header_id": "MAP_HEADER_HGSS_SAFFRON_MR_PSYCHIC_HOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1280,
+            "z": 240,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_7_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1280,
+            "z": 241,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_7_SAFFRON_GATEHOUSE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

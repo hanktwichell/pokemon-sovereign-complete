@@ -20,6 +20,7 @@
 #include "vars_flags.h"
 
 #include "complete_follower_gfx.h"
+#include "complete_map_info.h"
 
 // Sovereign Complete: following Pokémon (prototype).
 //
@@ -27,33 +28,62 @@
 // hasn't fainted and has a walking sprite. Nobody follows while the player cycles or surfs, or while a partner
 // trainer (Cheryl, Riley...) walks with the player, since partners use the same follow-the-player movement. The
 // object is persistent, so it stays through zone changes on the overworld; warps and continuing a save remake it.
+// Each map's rule is HeartGold's: on some maps nobody follows, and in most buildings only Pokémon that aren't too tall
+// (HeartGold's flag, carried in sFollowerGfx); Sinnoh's buildings follow the same rule.
 
-static int FollowerGraphicsID(int species)
+static int FollowerGfxIndex(int species)
 {
     for (int i = 0; i < (int)NELEMS(sFollowerGfx); i++) {
         if (sFollowerGfx[i].species == species) {
-            return sFollowerGfx[i].graphicsID;
+            return i;
         }
     }
 
     return -1;
 }
 
-static int LeadFollowerGraphicsID(FieldSystem *fieldSystem)
+static int LeadSpecies(FieldSystem *fieldSystem)
 {
     Party *party = SaveData_GetParty(fieldSystem->saveData);
 
     if (Party_GetCurrentCount(party) == 0) {
-        return -1;
+        return SPECIES_NONE;
     }
 
     Pokemon *lead = Party_GetPokemonBySlotIndex(party, 0);
 
     if (Pokemon_GetValue(lead, MON_DATA_IS_EGG, NULL) || Pokemon_GetValue(lead, MON_DATA_HP, NULL) == 0) {
-        return -1;
+        return SPECIES_NONE;
     }
 
-    return FollowerGraphicsID(Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL));
+    return Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL);
+}
+
+// HeartGold's Diglett and Dugtrio stay in their ball in the Bell Tower.
+static BOOL IsBellTower(enum MapHeaderID mapHeaderID)
+{
+    return mapHeaderID == MAP_HEADER_HGSS_BELL_TOWER_1F
+        || (mapHeaderID >= MAP_HEADER_HGSS_BELL_TOWER_2F && mapHeaderID <= MAP_HEADER_HGSS_BELL_TOWER_9F)
+        || mapHeaderID == MAP_HEADER_HGSS_BELL_TOWER_ROOF
+        || mapHeaderID == MAP_HEADER_HGSS_BELL_TOWER_10F;
+}
+
+// The map's rule, as HeartGold's: some maps let nobody follow, and some (most buildings) only Pokémon that aren't too
+// tall (src/complete_map_info.c).
+static BOOL MayFollowHere(enum MapHeaderID mapHeaderID, int species, BOOL tooTall)
+{
+    if ((species == SPECIES_DIGLETT || species == SPECIES_DUGTRIO) && IsBellTower(mapHeaderID)) {
+        return FALSE;
+    }
+
+    switch (MapHeader_GetFollowMode(mapHeaderID)) {
+    case FOLLOW_MODE_PREVENT:
+        return FALSE;
+    case FOLLOW_MODE_HEIGHT_RESTRICT:
+        return !tooTall;
+    default:
+        return TRUE;
+    }
 }
 
 static BOOL CanFollow(FieldSystem *fieldSystem)
@@ -70,9 +100,11 @@ void CompleteFollower_Refresh(FieldSystem *fieldSystem)
         MapObject_Delete(follower);
     }
 
-    int graphicsID = LeadFollowerGraphicsID(fieldSystem);
+    int species = LeadSpecies(fieldSystem);
+    int gfx = FollowerGfxIndex(species);
 
-    if (graphicsID < 0 || !CanFollow(fieldSystem)) {
+    if (gfx < 0 || !CanFollow(fieldSystem)
+        || !MayFollowHere(fieldSystem->location->mapHeaderID, species, sFollowerGfx[gfx].tooTall)) {
         return;
     }
 
@@ -80,7 +112,7 @@ void CompleteFollower_Refresh(FieldSystem *fieldSystem)
         PlayerAvatar_GetXPos(fieldSystem->playerAvatar),
         PlayerAvatar_GetZPos(fieldSystem->playerAvatar),
         PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar),
-        graphicsID,
+        sFollowerGfx[gfx].graphicsID,
         MOVEMENT_TYPE_FOLLOW_PLAYER,
         fieldSystem->location->mapHeaderID);
 

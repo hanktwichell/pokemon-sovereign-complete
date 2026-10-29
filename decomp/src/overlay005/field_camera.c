@@ -157,6 +157,156 @@ static const CameraSettings sCameraTypes[] = {
         .nearPlaneDist = CAMERA_DEFAULT_NEAR_CLIP,
         .farPlaneDist = CAMERA_DEFAULT_FAR_CLIP,
     },
+    // Sovereign Complete: HeartGold's cameras, copied from its table (overlay 1, 0x02206478)
+    [CAMERA_TYPE_HGSS_DEFAULT] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xDD62, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_VIOLET_GYM] = {
+        .distance = FX32_CONST(404.3974609375),
+        .cameraAngle = { 0xE383, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x981,
+        .nearPlaneDist = FX32_ONE * 134,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_GOLDENROD_GYM] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xE3C2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_LIGHTHOUSE_ROOF] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xF242, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_INTERIOR] = {
+        .distance = FX32_CONST(1563.537841796875),
+        .cameraAngle = { 0xDC82, 0, 0 },
+        .projection = CAMERA_PROJECTION_ORTHOGRAPHIC,
+        .verticalFov = 0x281,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1735,
+    },
+    [CAMERA_TYPE_HGSS_AZALEA_GYM] = {
+        .distance = FX32_CONST(465.62255859375),
+        .cameraAngle = { 0xDDA2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x881,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1160,
+    },
+    [CAMERA_TYPE_HGSS_UNUSED_6] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xDFE2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1500,
+    },
+    [CAMERA_TYPE_HGSS_POKEATHLON_DOME] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xE1E2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_BATTLE_FRONTIER] = {
+        .distance = FX32_CONST(515.4560546875),
+        .cameraAngle = { 0xD922, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x770,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 900,
+    },
+    [CAMERA_TYPE_HGSS_VERMILION_GYM] = {
+        .distance = FX32_CONST(667.922119140625),
+        .cameraAngle = { 0xD582, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_WHIRL_ISLANDS_B3F] = {
+        .distance = FX32_CONST(316.501220703125),
+        .cameraAngle = { 0xDF42, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0xC81,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1700,
+    },
+    [CAMERA_TYPE_HGSS_UNUSED_11] = {
+        .distance = FX32_CONST(533.760009765625),
+        .cameraAngle = { 0xE3C2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x741,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_LUGIA_CAVE] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xDFE2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1700,
+    },
+    [CAMERA_TYPE_HGSS_BELL_TOWER_ROOF] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xF242, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1700,
+    },
+    [CAMERA_TYPE_HGSS_FUCHSIA_GYM] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xD4C2, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1200,
+    },
+    [CAMERA_TYPE_HGSS_DANCE_THEATER] = {
+        .distance = FX32_CONST(1563.537841796875),
+        .cameraAngle = { 0xDC82, 0, 0 },
+        .projection = CAMERA_PROJECTION_ORTHOGRAPHIC,
+        .verticalFov = 0x281,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 1735,
+    },
+    [CAMERA_TYPE_HGSS_BATTLE_FACILITY] = {
+        .distance = FX32_CONST(666.922119140625),
+        .cameraAngle = { 0xD602, 0, 0 },
+        .projection = CAMERA_PROJECTION_PERSPECTIVE,
+        .verticalFov = 0x5C1,
+        .nearPlaneDist = FX32_ONE * 150,
+        .farPlaneDist = FX32_ONE * 900,
+    },
+};
+
+// Sovereign Complete: HeartGold moves some cameras' position and target by an offset after placing them.
+static const VecFx32 sHGSSCameraOffsets[CAMERA_TYPE_HGSS_BATTLE_FACILITY - CAMERA_TYPE_HGSS_00 + 1] = {
+    [CAMERA_TYPE_HGSS_VIOLET_GYM - CAMERA_TYPE_HGSS_00] = { 0, 151552, -61440 },
+    [CAMERA_TYPE_HGSS_LIGHTHOUSE_ROOF - CAMERA_TYPE_HGSS_00] = { 0, 125381, -49353 },
+    [CAMERA_TYPE_HGSS_AZALEA_GYM - CAMERA_TYPE_HGSS_00] = { 0, 0, -98304 },
+    [CAMERA_TYPE_HGSS_POKEATHLON_DOME - CAMERA_TYPE_HGSS_00] = { 0, 97371, -92702 },
+    [CAMERA_TYPE_HGSS_WHIRL_ISLANDS_B3F - CAMERA_TYPE_HGSS_00] = { 0, 50673, -154740 },
+    [CAMERA_TYPE_HGSS_UNUSED_11 - CAMERA_TYPE_HGSS_00] = { 0, -32768, 0 },
+    [CAMERA_TYPE_HGSS_LUGIA_CAVE - CAMERA_TYPE_HGSS_00] = { 0, 0, -131072 },
+    [CAMERA_TYPE_HGSS_BELL_TOWER_ROOF - CAMERA_TYPE_HGSS_00] = { 0, 125381, -123081 },
+    [CAMERA_TYPE_HGSS_DANCE_THEATER - CAMERA_TYPE_HGSS_00] = { 0, 0, -188416 },
 };
 
 void FieldCamera_Create(const VecFx32 *_target, FieldSystem *fieldSystem, const enum CameraType configID, const BOOL withHistory)
@@ -171,6 +321,11 @@ void FieldCamera_Create(const VecFx32 *_target, FieldSystem *fieldSystem, const 
     Camera_InitWithTarget(target, config->distance, &config->cameraAngle, config->verticalFov, config->projection, TRUE, fieldSystem->camera);
     Camera_SetAsActive(fieldSystem->camera);
     Camera_SetClipping(config->nearPlaneDist, config->farPlaneDist, fieldSystem->camera);
+
+    // Sovereign Complete: HeartGold's cameras
+    if (configID >= CAMERA_TYPE_HGSS_00) {
+        Camera_Move(&sHGSSCameraOffsets[configID - CAMERA_TYPE_HGSS_00], fieldSystem->camera);
+    }
 
     if (withHistory) {
         Camera_InitHistory(FIELD_CAMERA_HISTORY_SIZE, FIELD_CAMERA_DELAY, CAMERA_DELAY_Y, HEAP_ID_FIELD1, fieldSystem->camera);

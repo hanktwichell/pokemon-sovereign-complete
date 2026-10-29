@@ -1,0 +1,69 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 0,
+            "x": 8,
+            "z": 4,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 0,
+            "x": 6,
+            "z": 4,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_NORTH"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_T20R0402_var_1",
+            "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 7,
+            "z": 7,
+            "y": 0
+        },
+        {
+            "id": "obj_T20R0402_tsure_poke_static_marill",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_WALK_EAST_SOUTH_WEST_NORTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 2,
+            "movement_range_z": 2,
+            "x": 4,
+            "z": 6,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 3,
+            "z": 4,
+            "dest_header_id": "MAP_HEADER_HGSS_NEW_BARK_RIVAL_HOUSE_1F",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

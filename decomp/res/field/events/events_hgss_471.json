@@ -1,0 +1,13 @@
+{
+    "bg_events": [],
+    "object_events": [],
+    "warp_events": [
+        {
+            "x": 10,
+            "z": 14,
+            "dest_header_id": "MAP_HEADER_HGSS_GOLDENROD_MAGNET_TRAIN_STATION_1F",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

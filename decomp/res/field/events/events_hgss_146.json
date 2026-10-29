@@ -1,0 +1,314 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 80,
+            "z": 396,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 112,
+            "z": 395,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R47_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R47_REVIVE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 117,
+            "z": 395,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R47_LAGGING_TAIL",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 108,
+            "z": 385,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R47_WAVE_INCENSE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 78,
+            "z": 399,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_monstarball_4",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R47_WHITE_FLUTE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 78,
+            "z": 363,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_mount_2",
+            "graphics_id": "OBJ_EVENT_GFX_HIKER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_47_EMBEDDED_TOWER_HIKER",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 86,
+            "z": 390,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_leader3",
+            "graphics_id": "OBJ_EVENT_GFX_CRASHER_WAKE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_47_CRASHER_WAKE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 99,
+            "z": 390,
+            "y": 13
+        },
+        {
+            "id": "obj_R47_gsman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                1,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 131,
+            "z": 384,
+            "y": 13
+        },
+        {
+            "id": "obj_R47_gswoman3",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                1,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 131,
+            "z": 383,
+            "y": 13
+        },
+        {
+            "id": "obj_R47_campboy_2",
+            "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 117,
+            "z": 390,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_gsman2",
+            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 100,
+            "z": 364,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_gswoman2",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 101,
+            "z": 364,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_mount_2_2",
+            "graphics_id": "OBJ_EVENT_GFX_HIKER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                2,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 135,
+            "z": 392,
+            "y": 0
+        },
+        {
+            "id": "obj_R47_gsleader5",
+            "graphics_id": "OBJ_EVENT_GFX_FANTINA",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_47_CHUCK",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 80,
+            "z": 371,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 149,
+            "z": 384,
+            "dest_header_id": "MAP_HEADER_HGSS_CLIFF_EDGE_GATE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 130,
+            "z": 385,
+            "dest_header_id": "MAP_HEADER_HGSS_CLIFF_CAVE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 131,
+            "z": 391,
+            "dest_header_id": "MAP_HEADER_HGSS_CLIFF_CAVE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 130,
+            "z": 381,
+            "dest_header_id": "MAP_HEADER_HGSS_CLIFF_CAVE",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 87,
+            "z": 389,
+            "dest_header_id": "MAP_HEADER_HGSS_EMBEDDED_TOWER_GROUDON_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 87,
+            "z": 389,
+            "dest_header_id": "MAP_HEADER_HGSS_EMBEDDED_TOWER_KYOGRE_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 87,
+            "z": 389,
+            "dest_header_id": "MAP_HEADER_HGSS_EMBEDDED_TOWER_RAYQUAZA_ROOM",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

@@ -1,0 +1,45 @@
+{
+    "bg_events": [],
+    "object_events": [
+        {
+            "id": "obj_T07R0204_gsbigman",
+            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 14,
+            "z": 11,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 12,
+            "z": 7,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_ROOF_ROOM",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 2,
+            "z": 4,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_LEFT_ELEVATOR",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 6,
+            "z": 4,
+            "dest_header_id": "MAP_HEADER_HGSS_CELADON_CONDOMINIUMS_RIGHT_ELEVATOR",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

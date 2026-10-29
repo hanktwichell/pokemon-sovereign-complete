@@ -1,0 +1,98 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 1,
+            "x": 1174,
+            "z": 424,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_R18_gsman2",
+            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1167,
+            "z": 434,
+            "y": 0
+        },
+        {
+            "id": "obj_R18_gsman2_2",
+            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                4,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1162,
+            "z": 435,
+            "y": 0
+        },
+        {
+            "id": "obj_R18_gang",
+            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1135,
+            "z": 424,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 1155,
+            "z": 426,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_18_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1155,
+            "z": 427,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_18_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 1162,
+            "z": 426,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_18_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 1162,
+            "z": 427,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_18_GATEHOUSE",
+            "dest_warp_id": 1
+        }
+    ],
+    "coord_events": []
+}

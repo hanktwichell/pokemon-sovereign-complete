@@ -1,0 +1,329 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 11,
+            "z": 71,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 26,
+            "z": 41,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 12,
+            "z": 46,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 47,
+            "z": 46,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 49,
+            "z": 18,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 32,
+            "z": 57,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        },
+        {
+            "script": 0,
+            "type": 2,
+            "x": 50,
+            "z": 58,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D46R0101_gsleader2",
+            "graphics_id": "OBJ_EVENT_GFX_GARDENIA",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_UNK_263",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 71,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_DIRE_HIT",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 23,
+            "z": 17,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_monstarball_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_BLUE_FLUTE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 42,
+            "z": 32,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_monstarball_3",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_LEAF_STONE",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 20,
+            "z": 49,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_monstarball_4",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_TM77",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 50,
+            "z": 60,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_tree",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x10",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 23,
+            "z": 70,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_tree_2",
+            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_MAP_LOCAL_0x11",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 42,
+            "z": 70,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_gsboy3",
+            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 2,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 48,
+            "z": 73,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_gsboy3_2",
+            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 1,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 47,
+            "z": 54,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_gsboy3_3",
+            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                3,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 47,
+            "z": 39,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_gsboy3_4",
+            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "movement_type": "MOVEMENT_TYPE_WALK_NORTH_EAST_SOUTH_WEST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                1,
+                0,
+                0
+            ],
+            "movement_range_x": 5,
+            "movement_range_z": 1,
+            "x": 37,
+            "z": 17,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_gsboy3_5",
+            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                5,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 14,
+            "z": 28,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 32,
+            "z": 77,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_2_VIRIDIAN_FOREST_SOUTH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 12,
+            "z": 15,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_2_VIRIDIAN_FOREST_NORTH_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 33,
+            "z": 77,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_2_VIRIDIAN_FOREST_SOUTH_GATEHOUSE",
+            "dest_warp_id": 1
+        },
+        {
+            "x": 13,
+            "z": 15,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_2_VIRIDIAN_FOREST_NORTH_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 12,
+            "z": 16,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_2_VIRIDIAN_FOREST_NORTH_GATEHOUSE",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 13,
+            "z": 16,
+            "dest_header_id": "MAP_HEADER_HGSS_ROUTE_2_VIRIDIAN_FOREST_NORTH_GATEHOUSE",
+            "dest_warp_id": 0
+        }
+    ],
+    "coord_events": []
+}

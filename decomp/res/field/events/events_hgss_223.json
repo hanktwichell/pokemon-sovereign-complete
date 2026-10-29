@@ -1,0 +1,167 @@
+{
+    "bg_events": [
+        {
+            "script": 0,
+            "type": 2,
+            "x": 15,
+            "z": 47,
+            "y": 0,
+            "player_facing_dir": "BG_EVENT_DIR_ALL"
+        }
+    ],
+    "object_events": [
+        {
+            "id": "obj_D39R0102_rock",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_1_INIT",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 13,
+            "y": 0
+        },
+        {
+            "id": "obj_D39R0102_rock_2",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_2_INIT",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 13,
+            "z": 14,
+            "y": 0
+        },
+        {
+            "id": "obj_D39R0102_rock_3",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_3_INIT",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 18,
+            "z": 12,
+            "y": 0
+        },
+        {
+            "id": "obj_D39R0102_rock_4",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ICE_PATH_BOULDER_4_INIT",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 12,
+            "y": 0
+        },
+        {
+            "id": "obj_D39R0102_rock_5",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 12,
+            "z": 44,
+            "y": 0
+        },
+        {
+            "id": "obj_D39R0102_monstarball",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D39R0102_IRON",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 13,
+            "z": 48,
+            "y": 0
+        }
+    ],
+    "warp_events": [
+        {
+            "x": 6,
+            "z": 21,
+            "dest_header_id": "MAP_HEADER_HGSS_ICE_PATH_1F",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 6,
+            "z": 20,
+            "dest_header_id": "MAP_HEADER_HGSS_ICE_PATH_1F",
+            "dest_warp_id": 2
+        },
+        {
+            "x": 25,
+            "z": 8,
+            "dest_header_id": "MAP_HEADER_HGSS_ICE_PATH_B2F",
+            "dest_warp_id": 0
+        },
+        {
+            "x": 27,
+            "z": 40,
+            "dest_header_id": "MAP_HEADER_HGSS_ICE_PATH_B2F",
+            "dest_warp_id": 4
+        },
+        {
+            "x": 6,
+            "z": 42,
+            "dest_header_id": "MAP_HEADER_HGSS_ICE_PATH_1F",
+            "dest_warp_id": 3
+        },
+        {
+            "x": 6,
+            "z": 41,
+            "dest_header_id": "MAP_HEADER_HGSS_ICE_PATH_1F",
+            "dest_warp_id": 3
+        }
+    ],
+    "coord_events": []
+}
