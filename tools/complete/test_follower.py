@@ -49,10 +49,24 @@ def follower(d, addr):
     return struct.unpack('<HH', bytes(d.emu.memory.unsigned[addr:addr + 4]))
 
 
-def walk(d, addr, check, where):
+def settle(d, idle_addr):
+    """Press A through any scene (Barry runs into the bedroom after the first step of a new game) until the field runs
+    freely: gSovereignTestIdleFrames, which counts frames with no script, task, warp or battle, keeps rising."""
+    idle = lambda: struct.unpack('<I', bytes(d.emu.memory.unsigned[idle_addr:idle_addr + 4]))[0]  # noqa: E731
+    for _ in range(80):
+        start = idle()
+        d.run(60)
+        if idle() - start >= 55:
+            return True
+        d.press('A', after=30)
+    return False
+
+
+def walk(d, addr, idle_addr, check, where):
     """Take each step; a step that moves the player must leave the follower on the tile the player left."""
     moved = 0
     for key in STEPS:
+        check(settle(d, idle_addr), f'{where}: the field is free before {key}')
         before = d.pos()
         d.press(key, frames=16, after=24)
         after, f = d.pos(), follower(d, addr)
@@ -67,6 +81,7 @@ def walk(d, addr, check, where):
 def main():
     rom = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, '..', '..', 'decomp/build_test/pokeplatinum.us.nds')
     addr = symbol(rom, 'gCompleteTestFollowerTile')
+    idle_addr = symbol(rom, 'gSovereignTestIdleFrames')
     check = Check()
     d = Driver(rom)
 
@@ -75,12 +90,14 @@ def main():
         d.do(action)
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'bedroom: a follower exists, on {f} (player on {d.pos()})')
-    walk(d, addr, check, 'bedroom')
+    walk(d, addr, idle_addr, check, 'bedroom')
 
+    check(settle(d, idle_addr), 'the field is free before the test warp')
     d.press('SELECT+L+R', frames=8, after=240)
+    check(settle(d, idle_addr), 'the field is free after the test warp')
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'after the test warp: a follower exists, on {f} (player on {d.pos()})')
-    walk(d, addr, check, 'after the warp')
+    walk(d, addr, idle_addr, check, 'after the warp')
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)
