@@ -38,6 +38,12 @@ BATTLE_OUTCOMES = {
     'BATTLE_OUTCOME_DRAW': 'BATTLE_RESULT_DRAW', 'BATTLE_OUTCOME_MON_CAUGHT': 'BATTLE_RESULT_CAPTURED_MON',
     'BATTLE_OUTCOME_PLAYER_FLED': 'BATTLE_RESULT_PLAYER_FLED', 'BATTLE_OUTCOME_FOE_FLED': 'BATTLE_RESULT_ENEMY_FLED',
 }
+# HeartGold's standard scripts with a Platinum one that does the same: a Mart's deliverymen shown or hidden as the
+# map loads (Platinum's shows its Mystery Gift deliveryman, scripts_mystery_gift_deliveryman.s)
+STD_SCRIPTS = {'std_hide_show_deliverymen': '10200', 'std_hide_show_deliverymen_2': '10200'}
+# Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman, whom HeartGold's
+# std_hide_show_deliverymen shows when Mom has bought something (she doesn't here), stays hidden
+NEW_GAME_FLAGS = ['FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN']
 SOUND_COMMANDS = {'PlaySE', 'WaitSE', 'StopSE', 'PlayFanfare', 'WaitFanfare', 'PlayCry', 'PlayMusic', 'PlayBGM'}
 
 
@@ -175,6 +181,8 @@ class Names:
             out = out if out in self.our_trainers else 'TRAINER_NONE'
         elif tok.startswith('RGB_'):
             out = 'COLOR_' + tok[len('RGB_'):]
+        elif tok in STD_SCRIPTS:
+            out = STD_SCRIPTS[tok]
         elif tok == 'obj_partner_poke':
             out = 'LOCALID_COMPLETE_FOLLOWER'
         elif tok == 'obj_player':
@@ -274,18 +282,17 @@ def engine_name(stem):
 
 def install(files, names, table, platinum_params, hg_params, report):
     """Write the translated scripts into the engine and register them (scripts.order, meson.build)."""
-    from import_hgss_headers import set_meson, set_order
+    from import_hgss_headers import set_meson, set_order, write_if_changed
     out_names = []
     for path in files:
         stem = os.path.splitext(os.path.basename(path))[0]
         body = translate_file(path, names, table, platinum_params, hg_params, report)
         text = '\n'.join(body)
         name = engine_name(stem)
-        with open(os.path.join(DECOMP, f'res/field/scripts/{name}.s'), 'w') as f:
-            f.write('\n'.join(file_header(path, text)) + '\n\n' + text + '\n')
+        write_if_changed(os.path.join(DECOMP, f'res/field/scripts/{name}.s'),
+                         '\n'.join(file_header(path, text)) + '\n\n' + text + '\n')
         out_names.append(name)
-    set_order('res/field/scripts/scripts.order', 'scripts_hgss_', [])
-    set_order('res/field/scripts/scripts.order', 'scripts_init_hgss_', out_names)
+    set_order('res/field/scripts/scripts.order', ('scripts_hgss_', 'scripts_init_hgss_'), out_names)
     set_meson('res/field/scripts/meson.build', "'scripts_init_route_220.s'", [n + '.s' for n in out_names])
     return out_names
 
@@ -299,7 +306,9 @@ def install_new_game(source_dir, names):
     """HeartGold's new game sets its flags (its scr_seq_0149: the people who come later in the story are hidden), and
     Sacred Gold's Mom sets its own on the first scene (scr_seq_0845_T20R0201's first script, which nothing can come
     before): both go into the engine's InitNewGame, between markers, so every new game starts with them."""
-    flags = []
+    from import_hgss_headers import write_if_changed
+
+    flags = list(NEW_GAME_FLAGS)
     for stem, first_only in (('scr_seq_0149', False), ('scr_seq_0845_T20R0201', True)):
         path = next(iter(glob.glob(os.path.join(source_dir, stem + '*.s'))), None)
         if path is None:
@@ -318,7 +327,7 @@ def install_new_game(source_dir, names):
         text = text[:text.index(NEW_GAME_MARK[0])] + text[text.index(NEW_GAME_MARK[1]) + len(NEW_GAME_MARK[1]):]
     block = NEW_GAME_MARK[0] + ''.join(f'    SetFlag {flag}\n' for flag in flags) + NEW_GAME_MARK[1]
     end = text.index('\n    End\n', text.index('InitNewGame:')) + 1
-    open(full, 'w').write(text[:end] + block + text[end:])
+    write_if_changed(full, text[:end] + block + text[end:])
     return len(flags)
 
 

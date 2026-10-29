@@ -36,7 +36,7 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from import_hgss_headers import edit, hg_headers  # noqa: E402
+from import_hgss_headers import edit, hg_headers, write_if_changed  # noqa: E402
 from import_hgss_field_items import ITEM_BALLS, hidden_item_script, item_ball_script  # noqa: E402
 from import_hgss_maps import DECOMP, HG  # noqa: E402
 from narc import read_narc  # noqa: E402
@@ -91,6 +91,14 @@ COMPLETE_VARS = [('VAR_COMPLETE_KURT_BALL', 0x1FE), ('VAR_COMPLETE_KURT_QUANTITY
 # res/field/scripts/scripts_common.s)
 STD_APRICORN_TREE = 2800
 COMMON_APRICORN_TREE = 0x80F
+# HeartGold's shared people with a Platinum script that does the same (the two games number these ranges alike,
+# include/script_manager.h): the Pokémon Center's Trainer Card attendant, the day-care couple and the Mart's Mystery
+# Gift deliveryman. Platinum's Colosseum, Union Room and Wi-Fi Club attendants walk the player through Platinum's
+# rooms (their doors are at fixed tiles), so HeartGold's (9001, 9003, 9203) keep script 0 for now, as do its B1F
+# Teala (9201) and Pichu check (9202), which Platinum lacks.
+STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201}
+# The deliveryman shows himself by Platinum's flag (scripts_mystery_gift_deliveryman.s)
+HIDDEN_FLAGS = {'FLAG_HGSS_HIDE_MYSTERY_GIFT_DELIVERYMAN': 'FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN'}
 
 
 def lines(path):
@@ -265,6 +273,8 @@ def main():
                 return n
             if n == STD_APRICORN_TREE:
                 return COMMON_APRICORN_TREE
+            if n in STD_PEOPLE:
+                return STD_PEOPLE[n]
             if own_scripts and 0 < n < 2000:  # a script the map's file lacks would run past its end
                 print(f'{sources[bank]}: script {n} past the map\'s {own_scripts}: script 0')
             return 0
@@ -301,7 +311,7 @@ def main():
                 'graphics_id': sprites.name(sprite),
                 'movement_type': movement_types[movement] if movement < SAME_MOVEMENT_TYPES else OTHER_MOVEMENT,
                 'trainer_type': trainer_types[kind] if trainer_name and kind else 'TRAINER_TYPE_NONE',
-                'hidden_flag': flag(hidden, names, platinum_local),
+                'hidden_flag': HIDDEN_FLAGS.get(flag(hidden, names, platinum_local), flag(hidden, names, platinum_local)),
                 'script': trainer_name or script_of(script),
                 'initial_dir': facing,
                 'data': [p0, p1, p2],
@@ -321,10 +331,9 @@ def main():
         coord_events = [{'script': script, 'x': x, 'z': z, 'width': width, 'length': length, 'y': y, 'value': value,
                          'var': var(var_id)}
                         for script, x, z, width, length, y, value, var_id in events['coords']] if own_scripts else []
-        with open(os.path.join(DECOMP, f'res/field/events/events_hgss_{bank:03d}.json'), 'w') as out:
-            json.dump({'bg_events': bg_events, 'object_events': object_events, 'warp_events': warp_events,
-                       'coord_events': coord_events}, out, indent=4)
-            out.write('\n')
+        write_if_changed(os.path.join(DECOMP, f'res/field/events/events_hgss_{bank:03d}.json'),
+                         json.dumps({'bg_events': bg_events, 'object_events': object_events,
+                                     'warp_events': warp_events, 'coord_events': coord_events}, indent=4) + '\n')
         totals['bg_events'] += len(bg_events)
         totals['object_events'] += len(object_events)
         totals['warp_events'] += len(warp_events)

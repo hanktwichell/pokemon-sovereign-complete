@@ -1,6 +1,6 @@
 #include "macros/scrcmd.inc"
 
 
-    @ HGSS (a standard script with no equivalent yet): InitScriptEntry_OnTransition std_hide_show_deliverymen
+    InitScriptEntry_OnTransition 10200
     InitScriptEntryEnd
     InitScriptEnd

@@ -142,7 +142,14 @@ HeartGold's standard scripts (`CallStd`, `include/constants/std_script.h`, 679 o
 Platinum's common scripts. The most used: the trainer battle script (390 uses), Rock Smash (103), item gifts (88 +
 20), a full bag (75), Cut (48), marts (42 + 33 + 14), Apricorn trees (31), Strength (29), the Pokémon Center's
 nurse and Wi-Fi counters (25 each, one per Pokémon Center), saving (18). They map to Platinum's common scripts by
-meaning; the HeartGold-only ones (Apricorn trees, the deliverymen) are added.
+meaning; the HeartGold-only ones (Apricorn trees) are added.
+
+Shared people work the same way: a person whose script is a standard one gets Platinum's that does the same
+(`STD_PEOPLE`, `tools/complete/import_hgss_events.py`). The two games number these ranges alike. The Trainer Card
+attendant, the day-care couple on Route 34 and the Marts' Mystery Gift deliveryman (shown by Platinum's flag, from
+Platinum's script as each Mart loads) are in. Mom's gift deliveryman stays hidden from the new game on, since Mom
+doesn't buy things here. Platinum's Colosseum, Union Room and Wi-Fi Club attendants walk the player through Platinum's
+rooms, with their doors at fixed tiles, so HeartGold's still do nothing; they come with link play.
 
 ## Text
 

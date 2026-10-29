@@ -128,6 +128,7 @@ InitNewGame:
     SetFlag FLAG_HIDE_VILLA_DELIVERY_GUY
     SetFlag FLAG_HIDE_VILLA_BOOK
     // Sovereign Complete: HeartGold's new game (tools/complete/translate_hgss_scripts.py)
+    SetFlag FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN
     SetFlag FLAG_HGSS_HIDE_ELMS_LAB_OFFICER
     SetFlag FLAG_HGSS_HIDE_ROUTE_29_FRIEND
     SetFlag FLAG_HGSS_HIDE_ROUTE_29_MARILL

@@ -164,21 +164,30 @@ def between_markers(text, block, before, comment):
     return text[:index] + body + text[index:]
 
 
+def write_if_changed(full, text, **kwargs):
+    """Write a file only if its text changes: an unchanged file keeps its time, so the build doesn't redo what
+    depends on it (generated/vars_flags.txt, which every source includes, rebuilds the whole game)."""
+    if os.path.exists(full) and open(full, newline='', **kwargs).read() == text:
+        return
+    with open(full, 'w', newline='', **kwargs) as f:
+        f.write(text)
+
+
 def edit(path, change):
     full = os.path.join(DECOMP, path)
     raw = open(full, newline='').read()
     text = change(raw)  # before the file is opened for writing, so a failed change leaves it as it was
-    open(full, 'w', newline='').write(text)
+    write_if_changed(full, text)
 
 
 def set_order(path, prefix, names):
-    """Drop the order file's earlier `prefix` entries and append names, keeping its line endings."""
+    """Drop the order file's earlier `prefix` entries (a prefix or a tuple of them) and append names, keeping its line
+    endings."""
     full = os.path.join(DECOMP, path)
     raw = open(full, 'rb').read().decode()
     newline = '\r\n' if '\r\n' in raw else '\n'
     lines = [line for line in raw.splitlines() if line and not line.startswith(prefix)]
-    with open(full, 'w', newline='') as f:
-        f.write(newline.join(lines + names) + newline)
+    write_if_changed(full, newline.join(lines + names) + newline)
 
 
 def set_meson(path, last_original, names):
