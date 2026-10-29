@@ -69,9 +69,13 @@ HeartGold keeps the same pieces in numbered NARCs (`files/a/...`), identified by
 
 These get appended after Platinum's own, with new numbers, and the converted area data and land data point at them.
 
-HeartGold's area record (`a/0/4/2`) is four u16: the building list (`a/0/4/3`), the texture set (`a/0/4/4`), a third
-field that is 0xFFFF on many maps (likely "no animated textures") and a fourth that looks like outdoor/indoor and
-lighting. A building list is a u16 count and that many building model numbers, like Platinum's prop model sets
+HeartGold's area record (`a/0/4/2`, 8 bytes) as its loader uses it (`AreaDataManager_Alloc`, still assembly in
+`asm/overlay_01_021FB878.s`):
+- u16 building list (`a/0/4/3`); its building textures are `a/0/7/0` at the same index (104 of each);
+- u16 map texture set (`a/0/4/4`);
+- u16, 0xFFFF on many maps: likely the animated-texture set;
+- u8 outdoor: 1 loads building models from `a/0/4/0` (and NARC 0x6B), 0 from `a/1/4/8` (indoor props, and NARC 0x6C);
+- u8, 1 on Olivine: likely lighting. A building list is a u16 count and that many building model numbers, like Platinum's prop model sets
 (`decomp/res/field/props/model_sets`).
 
 ## Tile behaviours
