@@ -221,14 +221,13 @@ _03A1:
 _03D4:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_815 0
     CompareVar VAR_HGSS_UNK_4143, 0
     CallIf 1, _0495
     CompareVar VAR_HGSS_UNK_4143, 1
     CallIf 1, _04A9
     CompareVar VAR_HGSS_UNK_4143, 2
     CallIf 1, _04BD
-    @ HGSS: ScrCmd_420 59
+    IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     @ HGSS: ScrCmd_436
     @ HGSS: ScrCmd_627 3
     CompareVar VAR_HGSS_UNK_4143, 2

@@ -263,7 +263,6 @@ _0377:
     End
 _03C7:
     CloseMessageWithoutErasing
-    @ HGSS: ScrCmd_815 0
     @ HGSS: ScrCmd_771
     GoTo _03E4
     End
@@ -317,7 +316,6 @@ _0443:
     End
 _0493:
     CloseMessageWithoutErasing
-    @ HGSS: ScrCmd_815 0
     @ HGSS: ScrCmd_772
     @ HGSS: ScrCmd_835 VAR_SPECIAL_x8005
     CompareVar VAR_0x8005, 6

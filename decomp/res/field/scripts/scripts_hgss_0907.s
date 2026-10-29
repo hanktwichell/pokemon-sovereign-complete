@@ -176,7 +176,6 @@ _024D:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_579
-    @ HGSS: ScrCmd_815 0
     @ HGSS: ScrCmd_166 VAR_SPECIAL_RESULT
     SetVarFromVar VAR_0x8004, VAR_RESULT
     @ HGSS: ScrCmd_165 VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
@@ -309,7 +308,6 @@ _04D3:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04CD
     CloseMessage
-    @ HGSS: ScrCmd_815 0
     CallCommonScript 0x802
     ReleaseAll
     End
@@ -348,7 +346,6 @@ _056E:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0568
     CloseMessage
-    @ HGSS: ScrCmd_815 0
     CallCommonScript 0x802
     ReleaseAll
     End

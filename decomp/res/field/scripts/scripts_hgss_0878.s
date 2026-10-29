@@ -117,7 +117,6 @@ _0178:
     GoTo _01DD
 _01B5:
     CloseMessage
-    @ HGSS: ScrCmd_815 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     OpenPokemonNamingScreen 1, VAR_RESULT

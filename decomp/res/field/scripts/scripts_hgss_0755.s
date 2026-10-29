@@ -501,7 +501,7 @@ _0869:
     Message msg_0464_T03R0101_00008
     WaitFanfare
     GivePokemon VAR_HGSS_UNK_407F, 20, 0, VAR_RESULT
-    @ HGSS: ScrCmd_420 116
+    IncrementGameRecord RECORD_POKEMON_RECEIVED_FROM_FOSSIL_REVIVAL
     SetVarFromValue VAR_HGSS_UNK_407F, 0
     Message msg_0464_T03R0101_00009
     ShowYesNoMenu VAR_RESULT
@@ -515,7 +515,7 @@ _0869:
     OpenPokemonNamingScreen VAR_MAP_LOCAL_0x00, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0BF5
-    @ HGSS: ScrCmd_420 50
+    IncrementGameRecord RECORD_POKEMON_NICKNAMED
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     ReleaseAll

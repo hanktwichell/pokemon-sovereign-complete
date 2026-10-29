@@ -26,7 +26,6 @@ scr_seq_T22PC0101_004:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _01BC
-    @ HGSS: ScrCmd_815 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
@@ -40,7 +39,6 @@ scr_seq_T22PC0101_004:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: ScrCmd_815 0
     @ HGSS: PromptEasyChat VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK

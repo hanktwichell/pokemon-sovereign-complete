@@ -279,7 +279,6 @@ _04F6:
     Call _053A
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
-    @ HGSS: ScrCmd_815 0
     @ HGSS: ScrCmd_412 57, 0, VAR_SPECIAL_RESULT
     @ HGSS: ScrCmd_412 52, 0, 0
     Message msg_0096_D31R0201_00011
@@ -306,7 +305,6 @@ _0560:
     @ HGSS: ScrCmd_412 31, 0, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _058F
-    @ HGSS: ScrCmd_815 0
 _058F:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -456,7 +454,7 @@ _0817:
     WaitSE SEQ_SE_DP_SAVE_sseq
     Return
 _0829:
-    @ HGSS: ScrCmd_420 59
+    IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_BATTLE_TOWER_ELEVATOR, 3, 6, DIR_NORTH
@@ -563,7 +561,6 @@ _09F7:
     Call _053A
     CompareVar VAR_RESULT, 0
     GoToIf 1, _085B
-    @ HGSS: ScrCmd_815 0
     Call _0A42
     CompareVar VAR_RESULT, 0
     GoToIf 5, _085B
@@ -583,7 +580,6 @@ _0A52:
     SetVarFromVar VAR_MAP_LOCAL_0x01, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 1, _0A81
-    @ HGSS: ScrCmd_815 0
 _0A81:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -632,7 +628,6 @@ _0B46:
     GoToIf 1, _085B
     CloseMessage
     SetVarFromValue VAR_MAP_LOCAL_0x01, 2
-    @ HGSS: ScrCmd_815 0
     Call _0A52
     CompareVar VAR_RESULT, 0
     GoToIf 5, _085B
@@ -727,7 +722,6 @@ _0C7D:
     Call _053A
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
-    @ HGSS: ScrCmd_815 0
     @ HGSS: ScrCmd_412 57, 0, VAR_SPECIAL_RESULT
     @ HGSS: ScrCmd_412 52, 0, 0
     Message msg_0096_D31R0201_00035

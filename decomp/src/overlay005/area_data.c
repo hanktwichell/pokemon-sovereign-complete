@@ -43,6 +43,60 @@ static void AreaData_StripTextureData(void *resourceFile, NNSG3dResTex *texture)
     Heap_Realloc(resourceFile, strippedTextureDataSize);
 }
 
+// Sovereign Complete: HeartGold's prop models (from 590: tools/complete/import_hgss_maps.py) each carry a copy of their
+// textures. Platinum binds a prop to its area's texture set and never reads the copy, which stays in the field heap:
+// Ecruteak Gym's four spotlights carry 49 KB each, more than the heap has room for. So the copy is cut off once the
+// model is bound, as the area's own sets are. Should a model's textures not all be in its area's set, its copy is
+// uploaded first and bound; a copy the same as one already uploaded for this area binds to that one.
+#define HGSS_FIRST_PROP_MODEL   590
+#define MAX_OWN_PROP_TEXTURES   8
+
+typedef struct OwnPropTexture {
+    u32 hash;
+    NNSG3dResTex *texture;
+} OwnPropTexture;
+
+static u32 AreaData_HashTexture(const NNSG3dResTex *texture)
+{
+    const u8 *bytes = (const u8 *)texture;
+    u32 hash = 2166136261u; // FNV-1a
+
+    for (u32 i = 0; i < texture->header.size; i++) {
+        hash = (hash ^ bytes[i]) * 16777619u;
+    }
+
+    return hash;
+}
+
+static void AreaData_BindHGSSPropModel(void *modelFile, NNSG3dResTex *areaTexture, OwnPropTexture *own, int *ownCount)
+{
+    NNSG3dResMdlSet *modelSet = NNS_G3dGetMdlSet((NNSG3dResFileHeader *)modelFile);
+    NNSG3dResTex *texture = NNS_G3dGetTex((NNSG3dResFileHeader *)modelFile);
+
+    if (texture == NULL || texture->texInfo.sizeTex == 0 || texture->texInfo.ofsTex == 0) {
+        return;
+    }
+
+    if (areaTexture == NULL || NNS_G3dBindMdlSet(modelSet, areaTexture) == FALSE) {
+        u32 hash = AreaData_HashTexture(texture);
+        int i;
+
+        for (i = 0; i < *ownCount && own[i].hash != hash; i++) {
+        }
+
+        if (i < *ownCount) {
+            NNS_G3dBindMdlSet(modelSet, own[i].texture);
+        } else if (*ownCount < MAX_OWN_PROP_TEXTURES && Easy3D_UploadTextureToVRAM(texture)) {
+            NNS_G3dBindMdlSet(modelSet, texture);
+            own[*ownCount].hash = hash;
+            own[*ownCount].texture = texture;
+            (*ownCount)++;
+        }
+    }
+
+    AreaData_StripTextureData(modelFile, texture);
+}
+
 AreaDataManager *AreaDataManager_Alloc(const int areaDataArchiveID, MapPropAnimationManager *mapPropAnimMan)
 {
     AreaDataManager *areaDataManager = Heap_Alloc(HEAP_ID_FIELD1, sizeof(AreaDataManager));
@@ -99,6 +153,8 @@ void AreaDataManager_Load(AreaDataManager *areaDataManager)
 
     int i;
     int mapPropModelAnimeListNARCFileCount = MapPropAnimationManager_GetAnimeListNARCFileCount(loadData->mapPropAnimMan);
+    OwnPropTexture ownTextures[MAX_OWN_PROP_TEXTURES]; // Sovereign Complete
+    int ownTextureCount = 0;
 
     for (i = 0; i < loadData->mapPropModelIDsCount; i++) {
         u16 mapPropModelID = areaDataManager->mapPropModelIDs[i + 1];
@@ -109,6 +165,11 @@ void AreaDataManager_Load(AreaDataManager *areaDataManager)
         if (mapPropModelID < mapPropModelAnimeListNARCFileCount) {
             NNSG3dResMdl *mapPropModel = NNS_G3dGetMdlByIdx(NNS_G3dGetMdlSet(areaDataManager->mapPropModelFiles[mapPropModelID]), 0);
             MapPropAnimationManager_LoadPropAnimations(mapPropModelID, mapPropModel, areaDataManager->mapPropTexture, loadData->mapPropAnimMan);
+        }
+
+        if (mapPropModelID >= HGSS_FIRST_PROP_MODEL) { // Sovereign Complete
+            AreaData_BindHGSSPropModel(areaDataManager->mapPropModelFiles[mapPropModelID], areaDataManager->mapPropTexture, ownTextures, &ownTextureCount);
+            continue;
         }
 
         BOOL textureBound = Easy3D_BindTextureToResource(areaDataManager->mapPropModelFiles[mapPropModelID], areaDataManager->mapPropTexture);

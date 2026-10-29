@@ -379,7 +379,6 @@ _05D7:
     AddObject obj_T11R0702_rotomg
     Return
 _05E1:
-    @ HGSS: ScrCmd_815 0
     GetPlayerMapPos VAR_0x8006, VAR_0x8007
     GetPlayerDir VAR_RESULT
     Warp MAP_HEADER_HGSS_SAFFRON_SILPH_CO_ROTOM_ROOM, VAR_0x8006, VAR_0x8007, VAR_RESULT

@@ -59,6 +59,7 @@ not the story around it. Use it with --chronicles.
 """
 import json
 import os
+import random  # Sovereign Complete
 import re
 import struct
 import sys
@@ -333,6 +334,30 @@ def u32(d, addr):
     return struct.unpack('<I', bytes(d.emu.memory.unsigned[addr:addr + 4]))[0]
 
 
+# Sovereign Complete: the card save's functions (the test build's map). The first save of a game writes its extra
+# block (Battle Videos and the rest) at once, as the Global Terminal's machines do before Wi-Fi: no vblank counts
+# for a while, which isn't a hang.
+SAVE_FUNCTIONS = ('SaveData_CardSave', 'SaveData_CardSave_Init', 'SaveData_CardSave_Main', 'SaveDataExtra_Save')
+SAVE_STALL_FRAMES = 3000
+
+
+def save_ranges():
+    if not hasattr(save_ranges, 'ranges'):
+        xmap = open(os.path.join(DECOMP, 'build_test', 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
+        save_ranges.ranges = [(int(m.group(1), 16), int(m.group(1), 16) + int(m.group(2), 16))
+                              for name in SAVE_FUNCTIONS
+                              for m in [re.search(r'^\s*([0-9A-F]{8}) ([0-9A-F]{8}) \.text\s+' + name + r'\b', xmap,
+                                                  re.M)]]
+    return save_ranges.ranges
+
+
+def saving(d):
+    """Whether the CPU is in the card save: its PC, or a return address on the stack, in one of its functions."""
+    r = d.emu.memory.register_arm9
+    words = [r.pc, r.lr] + list(struct.unpack('<64I', bytes(d.emu.memory.unsigned[r.sp:r.sp + 256])))
+    return any(lo <= w & ~1 < hi for w in words for lo, hi in save_ranges())
+
+
 def play_out(d, sym, limit, header=None, press_a=True, wait_for_script=False):
     """Play out what starts now (a script, a warp and any scene on entering the map, a battle) until the field is idle
     again (on header, if given). With press_a, A is pressed first, to talk. With wait_for_script, no input goes in
@@ -350,16 +375,20 @@ def play_out(d, sym, limit, header=None, press_a=True, wait_for_script=False):
         now = u32(d, sym['gSystem'] + VBLANK_COUNTER)
         stalled = stalled + STEP if now == vblank else 0
         vblank = now
-        if stalled >= HANG_FRAMES:
+        if stalled >= HANG_FRAMES and not (stalled < SAVE_STALL_FRAMES and saving(d)):  # Sovereign Complete
             return 'HANG', frames
         if u32(d, sym['gSovereignTestIdleFrames']) == before:
             started, idle = True, 0
             if wait_for_script and not u32(d, sym['gSovereignTestScripts']) & 0xffff:
                 continue
             step += 1
-            if step % 7 == 0:  # backs out of a menu the other inputs keep open (a shop, the party screen)
+            # Sovereign Complete: past half the limit the inputs come in a shuffled order, as a fixed one can keep
+            # time with a menu's loop (a prize counter: pick, yes, "not enough coins", the list again) and never
+            # press B on the list
+            pick = step if frames < limit // 2 else random.Random(step).choice((3, 7, 1))
+            if pick % 7 == 0:  # backs out of a menu the other inputs keep open (a shop, the party screen)
                 d.press('B', frames=4, after=0)
-            elif step % 3 == 0:  # text, prompts, and the move a tap opened in a battle
+            elif pick % 3 == 0:  # text, prompts, and the move a tap opened in a battle
                 d.press('A', frames=4, after=0)
             else:
                 d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=0)
@@ -377,6 +406,14 @@ def warp(d, sym, header, x, z, dir):
     starts on the way in. Returns play_out's result."""
     d.emu.memory.write_short(sym['gSovereignTestScripts'], 0)
     start_warp(d, sym, header, x, z, dir)
+    # Sovereign Complete: a script that started after the last one was played out (a trainer who spots the player
+    # just after they arrive) keeps the field from taking the warp, which the test build marks taken by clearing its
+    # header: that script plays out first, and the warp goes again.
+    pending = sym['gSovereignTestWarpTarget'] + WARP['header']
+    if struct.unpack('<H', bytes(d.emu.memory.unsigned[pending:pending + 2]))[0]:
+        play_out(d, sym, FRAME_LIMIT, press_a=False)
+        d.emu.memory.write_short(sym['gSovereignTestScripts'], 0)
+        start_warp(d, sym, header, x, z, dir)
     return play_out(d, sym, FRAME_LIMIT, header, press_a=False, wait_for_script=True)
 
 

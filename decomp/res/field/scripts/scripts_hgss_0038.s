@@ -18,7 +18,7 @@ scr_seq_D24R0102_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 28
     GoToIf 1, _01AF
     CompareVar VAR_HGSS_UNK_40EC, 1
@@ -41,7 +41,7 @@ scr_seq_D24R0102_001:
     GoToIf 1, _01F1
     CompareVar VAR_HGSS_UNOWN_REPORT_LEVEL, 4
     GoToIf 4, _0208
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0242
     @ HGSS: CheckSeenAllLetterUnown VAR_SPECIAL_RESULT
@@ -64,7 +64,7 @@ scr_seq_D24R0102_002:
     @ HGSS: CheckSeenAllLetterUnown VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _031D
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0326
     Message msg_0073_D24R0102_00019
@@ -119,7 +119,7 @@ _01E8:
     Message msg_0073_D24R0102_00017
     GoTo _0315
 _01F1:
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 28
     GoToIf 1, _048A
     GoTo _0493
@@ -204,7 +204,7 @@ _034C:
     End
 _0357:
     GoToIfSet FLAG_HGSS_SG_3FA9, _04F1
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 7
     GoToIf 1, _05C9
     CompareVar VAR_RESULT, 8
@@ -286,7 +286,7 @@ _04E8:
     GoTo _05EB
 _04F1:
     GoToIfSet FLAG_HGSS_SG_3FA8, _060C
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 14
     GoToIf 1, _0689
     CompareVar VAR_RESULT, 15
@@ -343,7 +343,7 @@ _0603:
     GoTo _05EB
 _060C:
     GoToIfSet FLAG_HGSS_SG_3FA7, _06AB
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 21
     GoToIf 1, _06C2
     CompareVar VAR_RESULT, 22
@@ -375,7 +375,7 @@ _0689:
     ReleaseAll
     End
 _06AB:
-    @ HGSS: ScrCmd_545 VAR_SPECIAL_RESULT
+    GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 28
     GoToIf 1, _06E4
     CloseMessage

@@ -22,7 +22,7 @@ scr_seq_R03_001:
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 386
     GoToIf 1, _0225
-    @ HGSS: ScrCmd_518 3
+    ChangeDeoxysForm 3
     GoTo _0273
 scr_seq_R03_002:
     PlaySE SE_CONFIRM_sseq_3
@@ -34,7 +34,7 @@ scr_seq_R03_002:
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 386
     GoToIf 1, _0282
-    @ HGSS: ScrCmd_518 2
+    ChangeDeoxysForm 2
     GoTo _02D0
 scr_seq_R03_003:
     PlaySE SE_CONFIRM_sseq_3
@@ -46,7 +46,7 @@ scr_seq_R03_003:
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 386
     GoToIf 1, _02DF
-    @ HGSS: ScrCmd_518 1
+    ChangeDeoxysForm 1
     GoTo _0345
 scr_seq_R03_004:
     PlaySE SE_CONFIRM_sseq_3
@@ -58,7 +58,7 @@ scr_seq_R03_004:
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 386
     GoToIf 1, _0354
-    @ HGSS: ScrCmd_518 0
+    ChangeDeoxysForm 0
     GoTo _03BE
 scr_seq_R03_000:
     DrawSignpostTextBox SIGNPOST_TYPE_LANDMARK
@@ -123,7 +123,7 @@ _021A:
     ReleaseAll
     End
 _0225:
-    @ HGSS: ScrCmd_518 3
+    ChangeDeoxysForm 3
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8006, VAR_0x8007
@@ -141,7 +141,7 @@ _0273:
     Message msg_0326_R03_00002
     GoTo _056E
 _0282:
-    @ HGSS: ScrCmd_518 2
+    ChangeDeoxysForm 2
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8006, VAR_0x8007
@@ -159,7 +159,7 @@ _02D0:
     Message msg_0326_R03_00003
     GoTo _056E
 _02DF:
-    @ HGSS: ScrCmd_518 1
+    ChangeDeoxysForm 1
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8006, VAR_0x8007
@@ -183,7 +183,7 @@ _0345:
     Message msg_0326_R03_00004
     GoTo _056E
 _0354:
-    @ HGSS: ScrCmd_518 0
+    ChangeDeoxysForm 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8006, VAR_0x8007

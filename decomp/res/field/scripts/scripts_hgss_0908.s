@@ -90,7 +90,6 @@ _016E:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0168
     CloseMessage
-    @ HGSS: ScrCmd_815 0
     CallCommonScript 0x802
     ReleaseAll
     End
@@ -129,7 +128,6 @@ _0209:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0203
     CloseMessage
-    @ HGSS: ScrCmd_815 0
     CallCommonScript 0x802
     ReleaseAll
     End

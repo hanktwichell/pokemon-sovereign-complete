@@ -126,7 +126,6 @@ _01FC:
     @ HGSS: ScrCmd_645 VAR_TEMP_x4002, VAR_TEMP_x4005, VAR_TEMP_x4006
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 5, _022E
-    @ HGSS: ScrCmd_815 0
 _022E:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -282,14 +281,13 @@ _04D7:
 _050A:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_815 0
     CompareVar VAR_HGSS_UNK_4149, 0
     CallIf 1, _05CB
     CompareVar VAR_HGSS_UNK_4149, 1
     CallIf 1, _05DF
     CompareVar VAR_HGSS_UNK_4149, 2
     CallIf 1, _05F3
-    @ HGSS: ScrCmd_420 59
+    IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     @ HGSS: ScrCmd_436
     @ HGSS: ScrCmd_627 15
     CompareVar VAR_HGSS_UNK_4149, 2

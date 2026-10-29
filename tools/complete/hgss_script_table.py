@@ -98,6 +98,11 @@ SCORE_EVENTS = {
 }
 
 
+# HeartGold's game stats (include/constants/game_stats.h) its scripts count, as Platinum's records
+GAME_RECORDS = {'50': 'RECORD_POKEMON_NICKNAMED', '59': 'RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE',
+                '116': 'RECORD_POKEMON_RECEIVED_FROM_FOSSIL_REVIVAL'}
+
+
 def score(a):
     event = SCORE_EVENTS.get(a[0], '')
     if event is None:
@@ -316,8 +321,19 @@ COMMANDS = {
     'ScrCmd_103': lambda a: ['RestoreCamera'],
     'ScrCmd_374': one('ShowObject {0}'),
     'ScrCmd_607': lambda a: ['CompleteFollowerReturn'],
-    # Link play (the Battle Tower's and the Union Room's wireless sync) and a heap check for HeartGold's debugging
-    **{f'ScrCmd_{n}': (lambda a: []) for n in (258, 261, 271, 283, 682)},
+    # Link play (the Battle Tower's and the Union Room's wireless sync), a heap check for HeartGold's debugging, and
+    # 815 (a field flag HeartGold's photo and Wi-Fi returns read; Platinum keeps none)
+    **{f'ScrCmd_{n}': (lambda a: []) for n in (258, 261, 271, 283, 682, 815)},
+    # Deoxys's form (518, the same code as Platinum's), the Unown letters (545: HeartGold counts those caught,
+    # Platinum keeps only those seen), and a game record (420) by meaning, as the numbers differ
+    'ScrCmd_518': one('ChangeDeoxysForm {0}'),
+    # Silph Co.'s Rotom room: Platinum's own commands for its Rotom room, the same code under other names
+    'GetOwnedRotomForms': one('GetRotomFormsInSave {0}, {1}, {2}, {3}, {4}'),
+    'CountTranformedRotomsInParty': one('GetPartyRotomCountAndFirst {0}, {1}'),
+    'UpdateRotomForm': one('SetRotomForm {0}, {1}, {2}, {3}'),
+    'ScrCmd_545': one('GetUnownFormsSeenCount {0}'),
+    'ScrCmd_420': lambda a: [f'IncrementGameRecord {GAME_RECORDS[a[0]]}'] if a[0] in GAME_RECORDS
+    else [f'@ HGSS: ScrCmd_420 {a[0]}'],
     # Doors in scenes (HeartGold's unnamed 307 to 311, its ov01_021E9AE8 and the rest): load a door's animation at a
     # tile, wait for it, free it, open, close. Platinum's door commands, with the same arguments.
     'ScrCmd_307': one('LoadDoorAnimation {0}, {1}, {2}, {3}, {4}'),

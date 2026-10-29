@@ -118,6 +118,14 @@ HeartGold's area record (`a/0/4/2`, 8 bytes) as its loader uses it (`AreaDataMan
 - u8, 1 on Olivine: likely lighting. A building list is a u16 count and that many building model numbers, like Platinum's prop model sets
 (`decomp/res/field/props/model_sets`).
 
+Each building model carries a copy of its textures, which the area's building texture set also holds: Platinum binds
+a building to its area's set, uploads that set to VRAM and cuts its texture data out of the field heap, but keeps each
+model's own copy in the heap unread. For HeartGold's models that copy is cut off too, once the model is bound
+(`src/overlay005/area_data.c`): Ecruteak Gym's four spotlights carry 49 KB each, and with them the field heap ran out
+on the way in (the game crashed reading a file into a NULL buffer). Should a model's textures not all be in its
+area's set, its own copy is uploaded and bound first, and a copy the same as one already uploaded for the area binds
+to that one.
+
 ## Building animations
 
 Doors, windmills, water wheels and the gym puzzles' gates and carts are animated building models. HeartGold keeps

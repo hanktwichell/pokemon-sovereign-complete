@@ -47,6 +47,16 @@ STORY = {
     ('events_wayward_cave_1f', 'coord 0'): [(('VAR_SOVEREIGN_MIRA_QUEST_STATE', 3),)],
 }
 
+# Sovereign Complete: maps where, in the test's new game, objects stand on trigger tiles they're away from when the
+# story arms those triggers: their hidden flags are set first (gSovereignTestVar from its fourth slot on, which the
+# way in applies; the first three are arrive()'s).
+HIDE_FIRST = {
+    # Sinjoh Ruins: the three tiles for choosing Dialga, Palkia or Giratina, where Sacred Gold's lake trio and the
+    # three legendaries stand before and after the Arceus event
+    'events_hgss_474': ('FLAG_HGSS_SG_3FCC', 'FLAG_HGSS_SG_3FCD', 'FLAG_HGSS_SG_3FCE', 'FLAG_HGSS_SG_3FC4',
+                        'FLAG_HGSS_SG_3FC5', 'FLAG_HGSS_SG_3FC6'),
+}
+
 
 def script_bodies(text):
     """[the code of each script, by its number from 1]: the lines under its ScriptEntry's label, to the next label."""
@@ -137,22 +147,38 @@ def main():
             if face is None:
                 result, frames = 'NOTILE', 0
             else:
-                result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face)
-                for var, value in story + ((trigger,) if trigger else ()):
-                    if var.isdigit():
-                        continue  # Sovereign Complete: a number, not a var (HeartGold's 0: the trigger always fires)
-                    if result == 'ok' and not set_var(d, sym, variables[var], value):
-                        result = 'NOVAR'
-                if result == 'ok':
-                    d.emu.memory.write_short(sym['gSovereignTestScripts'], 0)
-                    if trigger:
-                        d.press(KEYS[face], frames=16, after=0)
-                    result, frames = play_out(d, sym, FRAME_LIMIT, press_a=not trigger)
-                    started = u32(d, sym['gSovereignTestScripts'])
-                    if started & 0xffff and started >> 16 != script:
-                        result = f'OTHER {started >> 16}'  # another script ran (a scene, an object in the way)
-                    elif result == 'NOSCRIPT' and started & 0xffff:
-                        result = 'ok'  # it ended at once
+                def hide_first():
+                    for slot, flag in enumerate(HIDE_FIRST.get(events, ()), 3):
+                        d.emu.memory.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[flag])
+                        d.emu.memory.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, 1)
+
+                def attempt(wait):
+                    result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face, hide_first)
+                    if result == 'ok':
+                        d.run(wait)
+                    for var, value in story + ((trigger,) if trigger else ()):
+                        if var.isdigit():
+                            continue  # Sovereign Complete: a number, not a var (HeartGold's 0: the trigger always fires)
+                        if result == 'ok' and not set_var(d, sym, variables[var], value):
+                            result = 'NOVAR'
+                    if result == 'ok':
+                        d.emu.memory.write_short(sym['gSovereignTestScripts'], 0)
+                        if trigger:
+                            d.press(KEYS[face], frames=16, after=0)
+                        result, frames = play_out(d, sym, FRAME_LIMIT, press_a=not trigger)
+                        started = u32(d, sym['gSovereignTestScripts'])
+                        if started & 0xffff and started >> 16 != script:
+                            result = f'OTHER {started >> 16}'  # another script ran (a scene, an object in the way)
+                        elif result == 'NOSCRIPT' and started & 0xffff:
+                            result = 'ok'  # it ended at once
+                    return result, frames
+
+                # Sovereign Complete: someone walking about can step in the way; they're elsewhere a moment later, so
+                # an OTHER tries again after a wait (one standing there answers every time)
+                for wait in (0, 97, 211):
+                    result, frames = attempt(wait)
+                    if not result.startswith('OTHER'):
+                        break
             if result != 'ok':
                 bad += 1
                 if face is not None:

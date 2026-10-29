@@ -40,7 +40,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 98.1% of 83,001 lines. Besides trainers, gifts, trades and marts,
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 98.2% of 83,001 lines. Besides trainers, gifts, trades and marts,
   about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
   code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
   (friendship, ribbons, which are numbered alike, moves, egg counts), fossils, the National Dex, the starter, the
@@ -90,7 +90,10 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
 - `GetGameVersion` answers HeartGold (7): Sacred Gold is HeartGold, and its scripts branch on it for version-only
   scenes and Pokémon (Latias rather than Latios roams Kanto). Platinum's answer (12) took SoulSilver's branches wherever
   a script asked "is this HeartGold?". HeartGold's and Platinum's unnamed `ScrCmd_258` are no longer matched by name:
-  the numbers mean different commands (HeartGold's clears link flags for the Battle Tower).
+  the numbers mean different commands (HeartGold's clears link flags for the Battle Tower). Unnamed ones in HeartGold's
+  decomp are matched by what their code does: doors in scenes (307-311), the time of day (379), the free camera (102,
+  103), Deoxys's form (518), the Unown letters (545: HeartGold counts those caught, Platinum keeps only those seen, so
+  the Ruins of Alph's rewards count seen letters), and game records (420) by meaning, as their numbers differ.
 - Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
 
 ## Gym puzzles
