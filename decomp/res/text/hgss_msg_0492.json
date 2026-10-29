@@ -57,7 +57,9 @@
         "Erika: Losing leaves a\n",
         "bitter aftertaste...\r",
         "But knowing that there are strong\n",
-        "Trainers spurs me to do better..."
+        "Trainers spurs me to do better...\r",
+        "Incidentially, I’ve heard that they’re\n",
+        "allowing entry into Saffron City, now.\r"
       ]
     },
     {
@@ -71,6 +73,20 @@
         "Gym Leader: Erika\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0492_T07GYM0101_00007",
+      "en_US": [
+        "Erika: Ah... I should give you my\n",
+        "number, too.\r"
+      ]
+    },
+    {
+      "id": "msg_0492_T07GYM0101_00008",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Erika\n",
+        "in the Pokégear!"
       ]
     }
   ]

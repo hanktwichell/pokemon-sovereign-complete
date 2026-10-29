@@ -1,0 +1,58 @@
+{
+    "name": "Cybil",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BELLOSSOM",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EMPOLEON",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You look strong.\r",
+                "Good Trainers seek tough opponents\n",
+                "instinctively.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Nope! This won’t do at all.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "We all get better by experiencing many\n",
+                "battles. I battled a lot to become what\f",
+                "I am today--an elite.\n"
+            ]
+        }
+    ]
+}

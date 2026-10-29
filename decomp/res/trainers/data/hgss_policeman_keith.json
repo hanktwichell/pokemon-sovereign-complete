@@ -1,0 +1,43 @@
+{
+    "name": "Keith",
+    "class": "TRAINER_CLASS_POLICEMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GROWLITHE",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What’s with you?\n",
+                "What are you doing?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You don’t have to worry about the night\n",
+                "when you’re with strong Pokémon.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The group stealing other people’s\n",
+                "Pokémon seems to be growing lately.\f",
+                "You should be careful, too.\n"
+            ]
+        }
+    ]
+}

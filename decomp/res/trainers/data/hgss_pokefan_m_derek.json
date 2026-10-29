@@ -1,0 +1,62 @@
+{
+    "name": "Derek",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLEFFA",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFAIRY",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFABLE",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Is it OK to brag about my Pokémon?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I couldn’t brag...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’m not listening to your bragging!\n",
+                "We Pokéfans have a policy of not\f",
+                "listening to other people brag!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’ve been waiting!\n",
+                "I’ve been wanting to brag to you!\r",
+                "\n"
+            ]
+        }
+    ]
+}

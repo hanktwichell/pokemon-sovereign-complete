@@ -18,6 +18,41 @@
         "It’s a Wii!\r",
         "Wii is huge in Johto, too!"
       ]
+    },
+    {
+      "id": "msg_0546_T20R0202_00003",
+      "en_US": [
+        "What a comfy bed...\n",
+        "{STRVAR_1 3, 0, 0} took a nap."
+      ]
+    },
+    {
+      "id": "msg_0546_T20R0202_00004",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} had an awful nightmare,\n",
+        "and was unable to rest..."
+      ]
+    },
+    {
+      "id": "msg_0546_T20R0202_00005",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} began to sleep with\n",
+        "the protection of the {COLOR 2}Lunar Wing{COLOR 0}!\r"
+      ]
+    },
+    {
+      "id": "msg_0546_T20R0202_00006",
+      "en_US": [
+        "The cause of the nightmares appeared!\n",
+        "It’s a Darkrai!"
+      ]
+    },
+    {
+      "id": "msg_0546_T20R0202_00007",
+      "en_US": [
+        "The Darkrai disappeared into\n",
+        "the shadows..."
+      ]
     }
   ]
 }

@@ -1,0 +1,49 @@
+{
+    "name": "Elliot",
+    "class": "TRAINER_CLASS_CAMPER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SANDSHREW",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FLAAFFY",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m gonna show my girlfriend I’m\n",
+                "hot stuff!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I wish you would have lost for me...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I was humiliated in front of\n",
+                "my girlfriend...\n"
+            ]
+        }
+    ]
+}

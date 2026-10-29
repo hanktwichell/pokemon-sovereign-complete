@@ -15,7 +15,7 @@
     },
     {
       "id": "msg_0577_T24R0501_00001",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0577_T24R0501_00002",
@@ -33,23 +33,30 @@
     },
     {
       "id": "msg_0577_T24R0501_00004",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0577_T24R0501_00005",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0577_T24R0501_00006",
-      "garbage": 11
+      "garbage": 0
     },
     {
       "id": "msg_0577_T24R0501_00007",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0577_T24R0501_00008",
-      "garbage": 16
+      "garbage": 0
+    },
+    {
+      "id": "msg_0577_T24R0501_00009",
+      "en_US": [
+        "I apologise, but we’re waiting for\n",
+        "supplies. Could you come back later?"
+      ]
     }
   ]
 }

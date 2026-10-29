@@ -1,0 +1,56 @@
+{
+    "name": "Al",
+    "class": "TRAINER_CLASS_HGSS_BUG_CATCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_COMBEE",
+            "form": 0,
+            "level": 17,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PINECO",
+            "form": 0,
+            "level": 17,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KRICKETUNE",
+            "form": 0,
+            "level": 17,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You’ve come all this way, crossing the\n",
+                "web like a bug Pokémon!\r",
+                "Allow me to teach you the charms of bug\n",
+                "Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You proved how tough you are...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Just being in this Gym, I feel like I’ve\n",
+                "turned into a bug Pokémon!\n"
+            ]
+        }
+    ]
+}

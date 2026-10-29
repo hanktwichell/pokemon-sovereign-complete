@@ -24,14 +24,14 @@ _0035:
     GoToIf 1, _0077
     GoTo _0095
 _0059:
-    @ HGSS: FollowerPokeIsEventTrigger EVENT_ARCEUS_HALL_OF_ORIGIN, VAR_TEMP_x4005, VAR_TEMP_x4007
+    @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4005, VAR_TEMP_x4007
     CompareVar VAR_MAP_LOCAL_0x07, 1
     CallIf 1, _0097
     @ HGSS: NopVar490 VAR_TEMP_x4005
     @ HGSS: NopVar490 VAR_TEMP_x4007
     End
 _0077:
-    @ HGSS: FollowerPokeIsEventTrigger EVENT_ARCEUS_MOVIE_GIFT, VAR_TEMP_x4005, VAR_TEMP_x4006
+    @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4005, VAR_TEMP_x4006
     CompareVar VAR_MAP_LOCAL_0x06, 1
     CallIf 1, _0097
     @ HGSS: NopVar490 VAR_TEMP_x4005

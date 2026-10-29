@@ -1,0 +1,51 @@
+{
+    "name": "Shane",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 38,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLOWBRO",
+            "form": 0,
+            "level": 38,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey!\r",
+                "This is my secret place!\n",
+                "Get lost, you outsider!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I should have used my Moon Stone...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You’re working on a Pokédex?\r",
+                "Wow, you must know some pretty\n",
+                "rare Pokémon!\f",
+                "May I please see it? Please?\n"
+            ]
+        }
+    ]
+}

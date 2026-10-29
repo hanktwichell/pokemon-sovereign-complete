@@ -1,0 +1,56 @@
+{
+    "name": "Eric",
+    "class": "TRAINER_CLASS_HGSS_SUPER_NERD",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GRIMER",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KABUTO",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BRONZOR",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I got booted out of the Game Corner.\n",
+                "I kept winning at the new Coin game,\f",
+                "and they thought I was cheating...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Grumble...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I guess I have to do things fair\n",
+                "and square...\n"
+            ]
+        }
+    ]
+}

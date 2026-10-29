@@ -16,7 +16,6 @@ scr_seq_R43R0201_001:
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0037
     GoTo _0095
-_0031:
     GoTo _0066
 _0037:
     ApplyMovement obj_R43R0201_rocketm, _0114

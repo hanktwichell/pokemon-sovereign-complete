@@ -133,7 +133,7 @@ scr_seq_T25_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: PlayerOnBikeCheck VAR_SPECIAL_RESULT
+    CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01DD
     Message msg_0581_T25_00002

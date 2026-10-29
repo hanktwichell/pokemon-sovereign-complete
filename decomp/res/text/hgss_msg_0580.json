@@ -4,73 +4,165 @@
     {
       "id": "msg_0580_T24R0801_00000",
       "en_US": [
-        "I don’t remember the last time\n",
-        "someone came to visit me.\r",
-        "When I was young, I was a\n",
-        "Pokémon Trainer, too. I tried to reach\f",
-        "the tower and dive into the ocean.\r",
-        "I put a lot of effort into many things.\n",
-        "Well, I take things easy now, listening\f",
-        "to the waves and winds on this beach."
+        "Um...\n",
+        "Who did you say I was again?\r",
+        "...\n",
+        "...\r",
+        "Oh, yes, I remember now!\n",
+        "I’m the Move Deleter!\r"
       ]
     },
     {
       "id": "msg_0580_T24R0801_00001",
       "en_US": [
-        "Have you heard of the Bell Tower\n",
-        "in Ecruteak?\r",
-        "There are what they call Clear Bells\n",
-        "on top of the tower.\r",
-        "They don’t make a single noise\n",
-        "in strong winds.\r",
-        "There is only one way to make them ring.\r",
-        "It is to obtain another Clear Bell just\n",
-        "like the ones at the top of the tower.\f",
-        "I went after it when I was young.\f",
-        "But I never got one..."
+        "You’ve come to make me force your\n",
+        "Pokémon to forget some moves? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0580_T24R0801_00002",
-      "en_US": [
-        "Have you heard of Whirl Islands?\r",
-        "There are what they call Tidal Bells\n",
-        "at its waterfall basin.\r",
-        "They don’t make a single noise\n",
-        "in crashing waves.\r",
-        "There is only one way to make them ring.\r",
-        "It is to obtain another Tidal Bell just\n",
-        "like the ones at the waterfall basin.\f",
-        "I went after it when I was young.\f",
-        "But I never got one..."
-      ]
+      "en_US": "Which Pokémon should forget a move?\r"
     },
     {
       "id": "msg_0580_T24R0801_00003",
       "en_US": [
-        "Oh! You’ve managed to get a Clear Bell?\r",
-        "The old-time dream of mine...\n",
-        "I see...\f",
-        "You’ve done it...\r",
-        "...\n",
-        "...I can hear it!\r",
-        "The chime of the bells on the wind\n",
-        "coming from the direction of\f",
-        "the Bell Tower..."
+        "Remember me if there are moves that\n",
+        "need to be forgotten."
       ]
     },
     {
       "id": "msg_0580_T24R0801_00004",
       "en_US": [
-        "Oh! You’ve managed to get a Tidal Bell?\r",
-        "The old-time dream of mine...\n",
-        "I see...\f",
-        "You’ve done it...\r",
-        "...\n",
-        "...I can hear it!\r",
-        "The chime of the bells on the sea\n",
-        "breeze coming from the direction of\f",
-        "the Whirl Islands..."
+        "That Pokémon knows only one move,\n",
+        "so it can’t be forgotten...\r"
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00005",
+      "en_US": [
+        "What? That’s an Egg.\n",
+        "No Egg should know any moves.\r"
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00006",
+      "en_US": [
+        "OK, then.\n",
+        "Which move should be forgotten?\r"
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00007",
+      "en_US": [
+        "Hm! The move {STRVAR_1 6, 0, 0}?\n",
+        "Should that move be forgotten? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00008",
+      "en_US": [
+        "It worked perfectly!\r",
+        "Your Pokémon has forgotten the move\n",
+        "{STRVAR_1 6, 0, 0} completely."
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00009",
+      "en_US": [
+        "Me?\n",
+        "I’m the Pokémon Move Maniac.\r",
+        "I know every move that Pokémon learn\n",
+        "while they’re leveling up, and I can\f",
+        "make Pokémon remember those moves.\r",
+        "I can make a Pokémon of yours remember\n",
+        "a move if you’d like.\r",
+        "But...ahem! It’ll cost you.\r",
+        "I’ll make a Pokémon remember a move\n",
+        "if you’ll trade me a Heart Scale."
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00010",
+      "en_US": [
+        "Ha! That’s it! That’s an honest-to-\n",
+        "goodness Heart Scale!\r",
+        "Let me guess, you want me to teach\n",
+        "one of your Pokémon a move?\r"
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00011",
+      "en_US": [
+        "If any of your Pokémon needs to learn a\n",
+        "move, come back with a Heart Scale."
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00012",
+      "en_US": "Which Pokémon needs tutoring?\r"
+    },
+    {
+      "id": "msg_0580_T24R0801_00013",
+      "en_US": "Which move should I make it remember?\r"
+    },
+    {
+      "id": "msg_0580_T24R0801_00014",
+      "en_US": [
+        "Sorry...\r",
+        "There isn’t any move I can make\n",
+        "that Pokémon remember."
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00015",
+      "en_US": [
+        "Hunh?\r",
+        "Don’t you think it’d be tough for\n",
+        "an Egg to remember a move?\r",
+        "It’s not even hatched."
+      ]
+    },
+    {
+      "id": "msg_0580_T24R0801_00016",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00017",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00018",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00019",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00020",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00021",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00022",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00023",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00024",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0580_T24R0801_00025",
+      "en_US": [
+        "{STRVAR_1 3, 3, 0} handed over one\n",
+        "Heart Scale in exchange."
       ]
     }
   ]

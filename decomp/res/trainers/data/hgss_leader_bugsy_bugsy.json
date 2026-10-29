@@ -1,0 +1,122 @@
+{
+    "name": "Bugsy",
+    "class": "TRAINER_CLASS_HGSS_LEADER_BUGSY",
+    "items": [
+        "ITEM_MOOMOO_MILK"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BUTTERFREE",
+            "form": 0,
+            "level": 18,
+            "item": "ITEM_DAMP_ROCK",
+            "moves": [
+                "MOVE_U_TURN",
+                "MOVE_RAIN_DANCE",
+                "MOVE_CONFUSION",
+                "MOVE_AIR_CUTTER"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BEEDRILL",
+            "form": 0,
+            "level": 18,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_U_TURN",
+                "MOVE_TWINEEDLE",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_CUT"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PINSIR",
+            "form": 0,
+            "level": 19,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_VITAL_THROW",
+                "MOVE_FURY_CUTTER",
+                "MOVE_KNOCK_OFF",
+                "MOVE_BIND"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0,
+            "ability": "ABILITY_MOLD_BREAKER"
+        },
+        {
+            "species": "SPECIES_YANMA",
+            "form": 0,
+            "level": 18,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_U_TURN",
+                "MOVE_DETECT",
+                "MOVE_AIR_CUTTER",
+                "MOVE_ANCIENT_POWER"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HERACROSS",
+            "form": 0,
+            "level": 19,
+            "item": "ITEM_DAMP_ROCK",
+            "moves": [
+                "MOVE_AERIAL_ACE",
+                "MOVE_COUNTER",
+                "MOVE_BUG_BITE",
+                "MOVE_RAIN_DANCE"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SCYTHER",
+            "form": 0,
+            "level": 21,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_U_TURN",
+                "MOVE_QUICK_ATTACK",
+                "MOVE_WING_ATTACK",
+                "MOVE_SWORDS_DANCE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 12,
+            "ability": "ABILITY_TECHNICIAN"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Even though it’s my last Pokémon,\n",
+                "Bug Pokémon are tough!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Hang in there! Just a little more!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aw, that’s the end of it...\n"
+            ]
+        }
+    ]
+}

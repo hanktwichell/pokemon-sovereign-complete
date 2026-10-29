@@ -1,0 +1,35 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BULBASAUR",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHARMANDER",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SQUIRTLE",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

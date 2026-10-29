@@ -1,0 +1,53 @@
+{
+    "name": "Marley",
+    "class": "TRAINER_CLASS_TRAINER_MARLEY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SNEASEL",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_ICE_PUNCH",
+                "MOVE_PURSUIT",
+                "MOVE_AERIAL_ACE",
+                "MOVE_SLASH"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NINJASK",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_SWORDS_DANCE",
+                "MOVE_AERIAL_ACE",
+                "MOVE_X_SCISSOR",
+                "MOVE_SLASH"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 36,
+            "moves": [
+                "MOVE_FIRE_FANG",
+                "MOVE_THUNDER_FANG",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_MORNING_SUN"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

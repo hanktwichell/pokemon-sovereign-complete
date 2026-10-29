@@ -1,0 +1,33 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SCYTHER",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAWILE",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GRANBULL",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

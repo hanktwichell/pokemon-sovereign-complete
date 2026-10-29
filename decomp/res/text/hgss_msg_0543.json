@@ -4,55 +4,23 @@
     {
       "id": "msg_0543_T20R0101_00000",
       "en_US": [
-        "Professor Elm: Hi, {STRVAR_1 3, 0, 0}!\n",
-        "I’ve been waiting for you!\r",
-        "Do you know anything about\n",
-        "my research?\r",
-        "As you know, Pokémon are carried\n",
-        "in Poké Balls these days.\r",
-        "But before the Poké Ball was invented,\n",
-        "people used to walk with Pokémon.\f",
-        "Just like your friend Lyra does!\r",
-        "Poké Balls are great because you can\n",
-        "carry many Pokémon.\r",
-        "But walking with Pokémon must have\n",
-        "some advantages.\r",
-        "It could have something to do with how\n",
-        "Pokémon grow or evolve...\r",
-        "So I’m going to give you a Pokémon!\r",
-        "Can you walk beside this Pokémon,\n",
-        "outside of its Poké Ball, to see if this\f",
-        "brings any special feelings or bonds\f",
-        "between Pokémon and people?\r",
-        "The device over there has some Pokémon\n",
-        "you could choose from...\r"
+        "Professor Elm: Hi, {STRVAR_1 3, 0, 0}! I’ve been\n",
+        "waiting for you to arrive.\r",
+        "I’ve been curious about how Pokémon\n",
+        "feel walking outside their Poké Balls.\r",
+        "I was hoping I could have your help\n",
+        "with the tests...\r"
       ]
     },
     {
       "id": "msg_0543_T20R0101_00001",
       "en_US": [
-        "Professor Elm: Hi, {STRVAR_1 3, 0, 0}!\n",
-        "I’ve been waiting for you!\r",
-        "Do you know anything about\n",
-        "my research?\r",
-        "As you know, Pokémon are carried\n",
-        "in Poké Balls these days.\r",
-        "But before the Poké Ball was invented,\n",
-        "people used to walk with Pokémon.\f",
-        "Just like your friend Ethan does!\r",
-        "Poké Balls are great because you can\n",
-        "carry many Pokémon.\r",
-        "But walking with Pokémon must have\n",
-        "some advantages.\r",
-        "It could have something to do with how\n",
-        "Pokémon grow or evolve...\r",
-        "So I’m going to give you a Pokémon!\r",
-        "Can you walk beside this Pokémon,\n",
-        "outside of its Poké Ball, to see if this\f",
-        "brings any special feelings or bonds\f",
-        "between Pokémon and people?\r",
-        "The device over there has some Pokémon\n",
-        "you could choose from...\r"
+        "Professor Elm: Hi, {STRVAR_1 3, 0, 0}! I’ve been\n",
+        "waiting for you to arrive.\r",
+        "I’ve been curious about how Pokémon\n",
+        "feel walking outside their Poké Balls.\r",
+        "I was hoping I could have your help\n",
+        "with the tests...\r"
       ]
     },
     {
@@ -69,22 +37,12 @@
     {
       "id": "msg_0543_T20R0101_00004",
       "en_US": [
-        "Professor Elm: Hey, listen.\n",
-        "I have this acquaintance that people\f",
-        "call Mr. Pokémon.\r",
-        "He keeps finding weird things and\n",
-        "raving about his discoveries.\r",
-        "Anyway, I just got an email from him\n",
-        "saying that this time it’s real.\r",
-        "It’s probably another Pokémon Egg,\n",
-        "but we’re still so busy with our\f",
-        "Pokémon research...\r",
-        "Wait!\n",
-        "I know!\r",
-        "You can go in our place, right?\n",
-        "Can we count on you?\r",
-        "You can choose one of the Pokémon\n",
-        "over there.\r"
+        "Hey, listen. I know a person named\n",
+        "Mr. Pokémon who finds all sorts of\f",
+        "crazy stuff. He says he has something,\f",
+        "but we’re so busy with our research!\r",
+        "Can you pick it up for us? You can\n",
+        "take one of the Pokémon in the machine!\r"
       ]
     },
     {
@@ -811,7 +769,7 @@
       "id": "msg_0543_T20R0101_00075",
       "en_US": [
         "Professor Elm: That is quite a\n",
-        "rare PICHU!\f",
+        "rare Pichu!\f",
         "Can I take a look at it closely?\r"
       ]
     },
@@ -829,7 +787,7 @@
       "id": "msg_0543_T20R0101_00077",
       "en_US": [
         "You met it at the Ilex Forest?\r",
-        "A mysterious Pokémon called CELEBI\n",
+        "A mysterious Pokémon called Celebi\n",
         "has been sighted there, or so I heard.\r"
       ]
     },
@@ -841,14 +799,14 @@
       "id": "msg_0543_T20R0101_00079",
       "en_US": [
         "Professor Oak once wrote about\n",
-        "CELEBI and {COLOR 1}Time Travel{COLOR 0} in a research\f",
+        "Celebi and {COLOR 1}Time Travel{COLOR 0} in a research\f",
         "paper he presented at a conference!\r"
       ]
     },
     {
       "id": "msg_0543_T20R0101_00080",
       "en_US": [
-        "Professor Elm: CELEBI can use its\n",
+        "Professor Elm: Celebi can use its\n",
         "mystic power called {COLOR 1}Time Travel{COLOR 0}...to\f",
         "travel to the past and future.\r"
       ]
@@ -856,38 +814,38 @@
     {
       "id": "msg_0543_T20R0101_00081",
       "en_US": [
-        "If this PICHU has traveled through\n",
+        "If this Pichu has traveled through\n",
         "time, perhaps you should take\f",
         "extra care of it, {STRVAR_1 3, 0, 0}.\r",
-        "It seems that this PICHU has been\n",
+        "It seems that this Pichu has been\n",
         "affected by traveling so far through\f",
-        "time with CELEBI.\r",
+        "time with Celebi.\r",
         "I’ll inform the Pokémon Center of it.\r",
         "The lady at the reception should be\n",
         "able to tell you if anything may affect\f",
-        "that PICHU."
+        "that Pichu."
       ]
     },
     {
       "id": "msg_0543_T20R0101_00082",
       "en_US": [
-        "If this PICHU has traveled through\n",
+        "If this Pichu has traveled through\n",
         "time, perhaps you should take\f",
         "extra care of it, {STRVAR_1 3, 0, 0}.\r",
-        "It seems that this PICHU has been\n",
+        "It seems that this Pichu has been\n",
         "affected by traveling so far through\f",
-        "time with CELEBI.\r",
+        "time with Celebi.\r",
         "I’ll inform the Pokémon Center of it.\r",
         "The lady at the reception should be\n",
         "able to tell you if anything may affect\f",
-        "that PICHU."
+        "that Pichu."
       ]
     },
     {
       "id": "msg_0543_T20R0101_00083",
       "en_US": [
-        "Professor Elm: This PICHU doesn’t\n",
-        "seem like a regular PICHU.\f",
+        "Professor Elm: This Pichu doesn’t\n",
+        "seem like a regular Pichu.\f",
         "I’ll find out more about it."
       ]
     },
@@ -902,14 +860,14 @@
     {
       "id": "msg_0543_T20R0101_00086",
       "en_US": [
-        "Oh, wow, your Spiky-eared PICHU seems\n",
+        "Oh, wow, your Spiky-eared Pichu seems\n",
         "to like you a lot already, {STRVAR_1 3, 0, 0}.\r"
       ]
     },
     {
       "id": "msg_0543_T20R0101_00087",
       "en_US": [
-        "Oh, wow, your Spiky-eared PICHU seems\n",
+        "Oh, wow, your Spiky-eared Pichu seems\n",
         "to like you a lot already, {STRVAR_1 3, 0, 0}.\r"
       ]
     },
@@ -918,7 +876,7 @@
       "en_US": [
         "Something’s funny...\n",
         "I would expect it to evolve into\f",
-        "PIKACHU since it likes its Trainer\f",
+        "Pikachu since it likes its Trainer\f",
         "this much...\r"
       ]
     },
@@ -934,7 +892,7 @@
     {
       "id": "msg_0543_T20R0101_00090",
       "en_US": [
-        "It seems that this PICHU will never\n",
+        "It seems that this Pichu will never\n",
         "evolve. It’s so strange!\r",
         "Its structure and the traveling\n",
         "through time must have affected\f",
@@ -947,7 +905,7 @@
     {
       "id": "msg_0543_T20R0101_00091",
       "en_US": [
-        "Professor Elm: Your Spiky-eared PICHU\n",
+        "Professor Elm: Your Spiky-eared Pichu\n",
         "looks just fine!\r",
         "I’ve never heard of a Pokémon that\n",
         "doesn’t evolve when it’s\f",
@@ -1112,6 +1070,13 @@
         "You are making me all excited!\n",
         "I’ll give you a present for that.\f",
         "Please take it.\r"
+      ]
+    },
+    {
+      "id": "msg_0543_T20R0101_00106",
+      "en_US": [
+        "There’s a weird item in the bin...\n",
+        "Take it?"
       ]
     }
   ]

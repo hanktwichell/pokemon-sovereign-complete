@@ -1,0 +1,48 @@
+{
+    "name": "Edgar",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_OCTILLERY",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_POLITOED",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I fish until I can’t anymore.\n",
+                "I also battle until I drop.\f",
+                "That’s my relationship with my Pokémon.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Hmmmm... This isn’t right.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "That’s 100 wins to 101 losses.\r",
+                "I won’t battle again for a while.\n"
+            ]
+        }
+    ]
+}

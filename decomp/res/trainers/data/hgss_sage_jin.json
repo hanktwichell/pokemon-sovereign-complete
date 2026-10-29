@@ -1,0 +1,44 @@
+{
+    "name": "Jin",
+    "class": "TRAINER_CLASS_HGSS_SAGE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BELLSPROUT",
+            "form": 0,
+            "level": 12,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I train to find enlightenment\n",
+                "in Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "This little squirt sure made me hurt!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "As Pokémon grow stronger, so does\n",
+                "the Trainer.\r",
+                "No, wait. As the Trainer grows\n",
+                "stronger, so do the Pokémon.\n"
+            ]
+        }
+    ]
+}

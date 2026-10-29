@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8523,
             "type": 2,
             "x": 27,
             "z": 22,
@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D11R0105_ULTRA_BALL",
-            "script": 0,
+            "script": 7555,
             "initial_dir": 0,
             "data": [
                 0,
@@ -35,7 +35,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D11R0105_TM13",
-            "script": 0,
+            "script": 7556,
             "initial_dir": 0,
             "data": [
                 0,

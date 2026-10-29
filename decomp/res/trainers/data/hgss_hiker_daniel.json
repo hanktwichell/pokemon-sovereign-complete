@@ -1,0 +1,42 @@
+{
+    "name": "Daniel",
+    "class": "TRAINER_CLASS_HIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ONIX",
+            "form": 0,
+            "level": 16,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Whoa! What a surprise!\n",
+                "I didn’t expect to see anyone here!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whoa! I’m beaten big time!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I was conned into buying a\n",
+                "SlowpokeTail. I feel sorry for the\f",
+                "poor Pokémon.\n"
+            ]
+        }
+    ]
+}

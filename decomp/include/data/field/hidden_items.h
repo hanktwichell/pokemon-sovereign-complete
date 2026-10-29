@@ -2,6 +2,7 @@
 #define POKEPLATINUM_DATA_FIELD_HIDDEN_ITEMS_H
 
 #include "constants/items.h"
+#include "complete_items.h"
 #include "generated/vars_flags.h"
 
 typedef struct HiddenItem {
@@ -276,6 +277,8 @@ const HiddenItem gHiddenItems[] = {
     HIDDEN_ITEM_ENTRY(ITEM_NUGGET,       1, 2, FLAG_OBTAINED_HIDDEN_UNUSED_NUGGET_5),
     HIDDEN_ITEM_ENTRY(ITEM_NUGGET,       1, 2, FLAG_OBTAINED_HIDDEN_UNUSED_NUGGET_6),
     HIDDEN_ITEM_ENTRY(ITEM_NUGGET,       1, 2, FLAG_OBTAINED_HIDDEN_UNUSED_NUGGET_7),
+// Sovereign Complete: Johto's and Kanto's (include/complete_items.h)
+#include "data/field/hgss_hidden_items.h"
 };
 // clang-format on
 

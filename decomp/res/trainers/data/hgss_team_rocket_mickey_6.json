@@ -1,0 +1,20 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PINSIR",
+            "form": 1,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 27,
+            "gender": "male"
+        }
+    ],
+    "messages": []
+}

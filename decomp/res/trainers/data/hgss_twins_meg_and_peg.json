@@ -1,0 +1,80 @@
+{
+    "name": "Meg＆Peg",
+    "class": "TRAINER_CLASS_HGSS_TWINS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TROPIUS",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_1",
+            "en_US": [
+                "You think I’m a baby?\n",
+                "That’s not fair!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Oh! We lost!"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Baby is a rude name to call someone!"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_1",
+            "en_US": [
+                "You’ve got only one Pokémon?\n",
+                "Then I’m not battling with you."
+            ]
+        },
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_2",
+            "en_US": [
+                "I’m not a baby!\n",
+                "That’s not a nice thing to say!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Oh! We lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Sometimes, kids are smarter\n",
+                "than grown-ups!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_2",
+            "en_US": [
+                "If you don’t bring more Pokémon, then\n",
+                "you can’t play with everyone.\n"
+            ]
+        }
+    ]
+}

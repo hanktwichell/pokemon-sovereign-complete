@@ -32,7 +32,7 @@ _0062:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _009C
     @ HGSS: ScriptOverlayCmd 3, 0
-    @ HGSS: CheckCoinsImmediate VAR_SPECIAL_RESULT, 3
+    HasCoinsFromValue VAR_RESULT, 3
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00AB
     @ HGSS: ScriptOverlayCmd 3, 1
@@ -280,12 +280,12 @@ _0428:
     @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0508_T07R0401_00002
     @ HGSS: ScrCmd_116 0, 20, 2
-    @ HGSS: ShowMoneyBox 20, 7
+    ShowMoney 20, 7
 _043E:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 127, 0
-    AddMenuEntryImm 128, 1
-    AddMenuEntryImm 129, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 127, 0
+    AddMenuEntry 128, 1
+    AddMenuEntry 129, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -299,14 +299,14 @@ _048B:
     CheckMoney VAR_RESULT, 1000
     CompareVar VAR_RESULT, 0
     GoToIf 1, _052E
-    @ HGSS: CheckGiveCoins VAR_SPECIAL_RESULT, 50
-    Noop
+    CheckCanAddCoins VAR_RESULT, 50
+    .balign 4, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0523
     RemoveMoney 1000
-    @ HGSS: GiveCoins 50
+    AddCoins 50
     @ HGSS: ScrCmd_118 0
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
     Message msg_0508_T07R0401_00003
@@ -316,14 +316,14 @@ _04D7:
     CheckMoney VAR_RESULT, 10000
     CompareVar VAR_RESULT, 0
     GoToIf 1, _052E
-    @ HGSS: CheckGiveCoins VAR_SPECIAL_RESULT, 500
-    Noop
+    CheckCanAddCoins VAR_RESULT, 500
+    .balign 4, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0523
     RemoveMoney 10000
-    @ HGSS: GiveCoins 500
+    AddCoins 500
     @ HGSS: ScrCmd_118 0
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
     Message msg_0508_T07R0401_00003
@@ -353,11 +353,11 @@ scr_seq_T07R0401_005:
     CheckItem ITEM_COIN_CASE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _05AA
-    @ HGSS: CheckGiveCoins VAR_SPECIAL_RESULT, 18
+    CheckCanAddCoins VAR_RESULT, 18
     Noop
     CompareVar VAR_RESULT, 0
     GoToIf 1, _05B9
-    @ HGSS: GiveCoins 18
+    AddCoins 18
     BufferPlayerName 0
     Message msg_0508_T07R0401_00012
     PlayFanfare SEQ_FANFA4_sseq

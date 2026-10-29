@@ -1,0 +1,48 @@
+{
+    "name": "Dana",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [
+        "ITEM_MOOMOO_MILK"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GOLDUCK",
+            "form": 0,
+            "level": 69,
+            "moves": [
+                "MOVE_WATER_PULSE",
+                "MOVE_AMNESIA",
+                "MOVE_CONFUSION",
+                "MOVE_SCREECH"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 69,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_DISCHARGE",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_SIGNAL_BEAM"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I see. So that’s how you battle.\n"
+            ]
+        }
+    ]
+}

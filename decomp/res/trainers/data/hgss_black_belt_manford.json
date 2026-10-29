@@ -1,0 +1,50 @@
+{
+    "name": "Manford",
+    "class": "TRAINER_CLASS_HGSS_BLACK_BELT",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MEDICHAM",
+            "form": 0,
+            "level": 58,
+            "moves": [
+                "MOVE_ICE_PUNCH",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_FIRE_PUNCH",
+                "MOVE_DRAIN_PUNCH"
+            ],
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "How about you just slow down\n",
+                "and give me the chance to defeat you!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Looks like I’ve been beaten at my\n",
+                "own game...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Even though you’re so young, you\n",
+                "have the spirit of battle within.\r",
+                "You must have trained under a\n",
+                "well-known master!\n"
+            ]
+        }
+    ]
+}

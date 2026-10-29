@@ -28,6 +28,8 @@
 #include "overlay006/wild_encounters.h"
 
 #include "encounter.h"
+#include "complete_encounters.h"
+#include "complete_scrcmd.h"
 #include "field_battle_data_transfer.h"
 #include "field_overworld_state.h"
 #include "field_system.h"
@@ -518,6 +520,13 @@ BOOL WildEncounters_TryWildEncounter(FieldSystem *fieldSystem)
             encounterTable[i].species = encounterData->grassEncounters.encounters[i].species;
             encounterTable[i].maxLevel = encounterData->grassEncounters.encounters[i].level;
             encounterTable[i].minLevel = encounterData->grassEncounters.encounters[i].level;
+
+            // Sovereign Complete: Johto's and Kanto's grass has its own species at each time of day
+            int timed = CompleteEncounters_GrassSpecies(fieldSystem, i);
+
+            if (timed != 0) {
+                encounterTable[i].species = timed;
+            }
         }
 
         // Sovereign (decision 21): Trophy Garden and Great Marsh extras stay post-game (they followed the National Dex).
@@ -733,6 +742,13 @@ BOOL WildEncounters_TrySweetScentEncounter(FieldSystem *fieldSystem, FieldTask *
             encounterTable[i].species = encounterData->grassEncounters.encounters[i].species;
             encounterTable[i].maxLevel = encounterData->grassEncounters.encounters[i].level;
             encounterTable[i].minLevel = encounterData->grassEncounters.encounters[i].level;
+
+            // Sovereign Complete: Johto's and Kanto's grass has its own species at each time of day
+            int timed = CompleteEncounters_GrassSpecies(fieldSystem, i);
+
+            if (timed != 0) {
+                encounterTable[i].species = timed;
+            }
         }
 
         // Sovereign (decision 21): Trophy Garden and Great Marsh extras stay post-game (they followed the National Dex).
@@ -877,6 +893,13 @@ BOOL WildEncounters_TryMudEncounter(FieldSystem *fieldSystem, FieldBattleDTO **b
             encounterTable[i].species = encounterData->grassEncounters.encounters[i].species;
             encounterTable[i].maxLevel = encounterData->grassEncounters.encounters[i].level;
             encounterTable[i].minLevel = encounterData->grassEncounters.encounters[i].level;
+
+            // Sovereign Complete: Johto's and Kanto's grass has its own species at each time of day
+            int timed = CompleteEncounters_GrassSpecies(fieldSystem, i);
+
+            if (timed != 0) {
+                encounterTable[i].species = timed;
+            }
         }
 
         // Sovereign (decision 21): Trophy Garden and Great Marsh extras stay post-game (they followed the National Dex).
@@ -1513,6 +1536,14 @@ void CreateWildMon_Scripted(FieldSystem *fieldSystem, u16 species, u8 level, Fie
 
     WildEncounters_FieldParams encounterFieldParams;
     InitEncounterFieldParams(fieldSystem, firstPartyMon, NULL, &encounterFieldParams);
+
+    // Sovereign Complete: a shiny static encounter (CompleteStartWildBattle, src/complete_scrcmd.c), as the Poke
+    // Radar makes a shiny
+    if (gCompleteNextWildShiny) {
+        gCompleteNextWildShiny = FALSE;
+        CreateWildMonShinyWithGenderOrNature(species, level, 1, encounterFieldParams.trainerID, &encounterFieldParams, firstPartyMon, battleParams);
+        return;
+    }
 
     CreateWildMon(species, level, 1, &encounterFieldParams, firstPartyMon, battleParams);
     return;

@@ -1,0 +1,95 @@
+{
+    "name": "Vic＆Tara",
+    "class": "TRAINER_CLASS_HGSS_YOUNG_COUPLE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_WEATHER"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_MAGMORTAR",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_SUNNY_DAY",
+                "MOVE_FLAMETHROWER",
+                "MOVE_CONFUSE_RAY",
+                "MOVE_THUNDERBOLT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUNFLORA",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_SOLAR_BEAM",
+                "MOVE_RAZOR_LEAF",
+                "MOVE_INGRAIN",
+                "MOVE_MEGA_DRAIN"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Vic: All right! I’ll be able to show off\n",
+                "for Tara!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Vic: Oh no, my plans!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Vic: Tara’s already seen\n",
+                "me humiliated...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_1",
+            "en_US": [
+                "Vic: What is it? You want to battle?\n",
+                "If you want to battle with us, you need\f",
+                "more Pokémon, right?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Tara: I love to look at my boyfriend’s\n",
+                "face in profile while he’s battling!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Tara: Oh no, oh no...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Tara: Even though my boyfriend lost,\n",
+                "he’s still wonderful.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_2",
+            "en_US": [
+                "Tara: Oh? You’ve got only one Pokémon?\n",
+                "OK, we’ll try again another time.\n"
+            ]
+        }
+    ]
+}

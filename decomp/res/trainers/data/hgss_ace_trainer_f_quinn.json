@@ -1,0 +1,57 @@
+{
+    "name": "Quinn",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT",
+        "AI_FLAG_WEATHER"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FERALIGATR",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KANGASKHAN",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LICKILICKY",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You there!\n",
+                "Want to battle?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Down and out...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You’re strong.\n",
+                "You obviously have trained hard.\n"
+            ]
+        }
+    ]
+}

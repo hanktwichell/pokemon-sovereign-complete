@@ -17,6 +17,14 @@
         "Hey! You have a Pokédex.\f",
         "OK. You can go through."
       ]
+    },
+    {
+      "id": "msg_0337_R07R0101_00002",
+      "en_US": [
+        "Oh, hold up there! The city is\n",
+        "currently recovering from a blackout.\r",
+        "You’ll have to come back later."
+      ]
     }
   ]
 }

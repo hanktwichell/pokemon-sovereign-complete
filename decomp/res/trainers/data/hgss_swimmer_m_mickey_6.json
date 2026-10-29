@@ -1,0 +1,33 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_STARYU",
+            "form": 0,
+            "level": 13,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HORSEA",
+            "form": 0,
+            "level": 16,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

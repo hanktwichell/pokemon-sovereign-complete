@@ -1,0 +1,63 @@
+{
+    "name": "Nico",
+    "class": "TRAINER_CLASS_HGSS_SAGE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SUNKERN",
+            "form": 0,
+            "level": 8,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BELLSPROUT",
+            "form": 0,
+            "level": 8,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RALTS",
+            "form": 0,
+            "level": 8,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BELLSPROUT",
+            "form": 0,
+            "level": 8,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "However hard we battle, the tower will\n",
+                "stand strong.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I fought hard, but I’m too weak.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The flexible pillar protects the tower,\n",
+                "even from earthquakes.\n"
+            ]
+        }
+    ]
+}

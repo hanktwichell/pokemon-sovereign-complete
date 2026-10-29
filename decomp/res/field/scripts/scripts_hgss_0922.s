@@ -9,54 +9,30 @@
     ScriptEntry scr_seq_T27GYM0101_003
     ScriptEntry scr_seq_T27GYM0101_004
     ScriptEntry scr_seq_T27GYM0101_005
+    ScriptEntry scr_seq_T27GYM0101_006
     ScriptEntryEnd
 scr_seq_T27GYM0101_000:
     @ HGSS: EcruteakGymInit
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MORTY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
-    GoToIf 5, _00AC
-    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _00A6
+    GoToIf 5, _01AE
+    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _01B4
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MORTY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _0085
+    GoToIf 1, _01BA
     GetDayOfWeek VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
-    GoToIf 5, _0068
+    GoToIf 5, _01D5
     SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-    GoTo _0083
-_0068:
-    CompareVar VAR_MAP_LOCAL_0x00, 2
-    GoToIf 5, _007F
-    SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-    GoTo _0083
-_007F:
-    ClearFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-_0083:
-    End
-_0085:
-    GetDayOfWeek VAR_MAP_LOCAL_0x00
-    CompareVar VAR_MAP_LOCAL_0x00, 5
-    GoToIf 5, _00A0
-    SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-    GoTo _00A4
-_00A0:
-    ClearFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-_00A4:
-    End
-_00A6:
-    ClearFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-    End
-_00AC:
-    SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
-    End
+    GoTo _01EC
 scr_seq_T27GYM0101_004:
     LockAll
-    ApplyMovement obj_T27GYM0101_gsoldman1, _0108
+    ApplyMovement obj_T27GYM0101_gsoldman1, _0290
     WaitMovement
     Message msg_0614_T27GYM0101_00009
     CloseMessage
-    ApplyMovement obj_T27GYM0101_gsoldman1, _0118
-    ApplyMovement LOCALID_PLAYER, _0128
+    ApplyMovement obj_T27GYM0101_gsoldman1, _029E
+    ApplyMovement LOCALID_PLAYER, _02AC
     WaitMovement
     SetVarFromValue VAR_HGSS_UNK_4079, 1
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -66,79 +42,33 @@ scr_seq_T27GYM0101_004:
     WaitFadeScreen
     ReleaseAll
     End
-    .balign 4, 0
-_0108:
-    EmoteExclamationMark
-    WalkNormalSouth 3
-    Delay8
-    EndMovement
-    .balign 4, 0
-_0118:
-    WalkSlowSouth
-    LockDir
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_0128:
-    Delay8
-    WalkNormalSouth
-    Delay8
-    EndMovement
 scr_seq_T27GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _01D9
+    GoToIf 1, _01EE
     Message msg_0614_T27GYM0101_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_MORTY_MORTY, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_MORTY_MORTY, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _01EF
+    GoToIf 1, _0204
     Message msg_0614_T27GYM0101_00001
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_BADGE_GET
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetFlag FLAG_HGSS_UNK_998
     BufferPlayerName 0
     Message msg_0614_T27GYM0101_00002
     PlayFanfare SEQ_BADGE_sseq
     WaitFanfare
     Message msg_0614_T27GYM0101_00003
-    GoTo _019B
-_019B:
-    SetVar VAR_0x8004, ITEM_TM30
-    SetVar VAR_0x8005, 1
-    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
-    GoToIfEq VAR_RESULT, 0, _01CF
-    Common_GiveItemQuantity
-    SetFlag FLAG_HGSS_GOT_TM30_FROM_MORTY
-    Message msg_0614_T27GYM0101_00005
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_01CF:
-    Common_MessageBagIsFull
-    CloseMessage
-    ReleaseAll
-    End
-_01D9:
-    GoToIfUnset FLAG_HGSS_GOT_TM30_FROM_MORTY, _019B
-    Message msg_0614_T27GYM0101_00006
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_01EF:
-    BlackOutFromBattle
-    ReleaseAll
-    End
+    GoTo _020A
 scr_seq_T27GYM0101_002:
     LockAll
     PlaySE SEQ_SE_DP_GYURU_sseq
-    ApplyMovement LOCALID_PLAYER, _0230
+    ApplyMovement LOCALID_PLAYER, _02BA
     WaitMovement
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -147,8 +77,131 @@ scr_seq_T27GYM0101_002:
     WaitFadeScreen
     ReleaseAll
     End
+scr_seq_T27GYM0101_003:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    SetVarFromValue VAR_RESULT, 0
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _0257
+    Message msg_0614_T27GYM0101_00007
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+scr_seq_T27GYM0101_005:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    SetVarFromValue VAR_RESULT, 0
+    BufferPlayerName 0
+    CompareVar VAR_RESULT, 0
+    GoToIf 5, _0265
+    Message msg_0614_T27GYM0101_00010
+    GoTo _0270
+scr_seq_T27GYM0101_006:
+    BufferPlayerName 0
+    End
+_01AE:
+    SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
+    End
+_01B4:
+    ClearFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
+    End
+_01BA:
+    GetDayOfWeek VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 5
+    GoToIf 5, _0278
+    SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
+    GoTo _027E
+_01D5:
+    CompareVar VAR_MAP_LOCAL_0x00, 2
+    GoToIf 5, _0280
+    SetFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
+    GoTo _01EC
+_01EC:
+    End
+_01EE:
+    GoToIfUnset FLAG_HGSS_GOT_TM30_FROM_MORTY, _020A
+    Message msg_0614_T27GYM0101_00006
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0204:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_020A:
+    SetVar VAR_0x8004, ITEM_TM30
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, _0286
+    Common_GiveItemQuantity
+    SetVarFromValue VAR_HGSS_SG_61A7, 2
+    SetFlag FLAG_HGSS_GOT_TM30_FROM_MORTY
+    Message msg_0614_T27GYM0101_00005
+    Message msg_0614_T27GYM0101_00012
+    BufferPlayerName 0
+    Message msg_0614_T27GYM0101_00013
+    PlayFanfare SEQ_FANFA4_sseq
+    WaitFanfare
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_MORTY
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0257:
+    BufferPlayerName 0
+    Message msg_0614_T27GYM0101_00008
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0265:
+    Message msg_0614_T27GYM0101_00011
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0270:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0278:
+    ClearFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
+    End
+_027E:
+    End
+_0280:
+    ClearFlag FLAG_HGSS_HIDE_ECRUTEAK_GYM_MORTY
+    End
+_0286:
+    Common_MessageBagIsFull
+    CloseMessage
+    ReleaseAll
+    End
     .balign 4, 0
-_0230:
+_0290:
+    EmoteExclamationMark
+    WalkNormalSouth 3
+    Delay8
+    EndMovement
+    .balign 4, 0
+_029E:
+    WalkSlowSouth
+    LockDir
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_02AC:
+    Delay8
+    WalkNormalSouth
+    Delay8
+    EndMovement
+    .balign 4, 0
+_02BA:
     FaceSouth 2
     FaceWest 2
     FaceNorth 2
@@ -167,40 +220,4 @@ _0230:
     FaceEast
     SetInvisible 0
     EndMovement
-scr_seq_T27GYM0101_003:
-    PlaySE SE_CONFIRM_sseq_3
-    LockAll
-    FacePlayer
-    SetVarFromValue VAR_RESULT, 0
-    CompareVar VAR_RESULT, 1
-    GoToIf 1, _029E
-    Message msg_0614_T27GYM0101_00007
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_029E:
-    BufferPlayerName 0
-    Message msg_0614_T27GYM0101_00008
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-scr_seq_T27GYM0101_005:
-    PlaySE SE_CONFIRM_sseq_3
-    LockAll
-    FacePlayer
-    SetVarFromValue VAR_RESULT, 0
-    BufferPlayerName 0
-    CompareVar VAR_RESULT, 0
-    GoToIf 5, _02D3
-    Message msg_0614_T27GYM0101_00010
-    GoTo _02D6
-_02D3:
-    Message msg_0614_T27GYM0101_00011
-_02D6:
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
     .balign 4, 0

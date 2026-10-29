@@ -1,0 +1,229 @@
+{
+    "map": "R35",
+    "land": {
+        "rate": 25,
+        "slots": [
+            {
+                "level": 18,
+                "morning": "SPECIES_NIDORAN_F",
+                "day": "SPECIES_NIDORAN_F",
+                "night": "SPECIES_NIDORAN_F"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_NIDORAN_M",
+                "day": "SPECIES_NIDORAN_M",
+                "night": "SPECIES_NIDORAN_M"
+            },
+            {
+                "level": 19,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_MEOWTH"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_STUNKY",
+                "day": "SPECIES_STUNKY",
+                "night": "SPECIES_STUNKY"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_GLAMEOW",
+                "day": "SPECIES_GLAMEOW",
+                "night": "SPECIES_GLAMEOW"
+            },
+            {
+                "level": 19,
+                "morning": "SPECIES_STARAVIA",
+                "day": "SPECIES_STARAVIA",
+                "night": "SPECIES_NOCTOWL"
+            },
+            {
+                "level": 17,
+                "morning": "SPECIES_DITTO",
+                "day": "SPECIES_DITTO",
+                "night": "SPECIES_DITTO"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_YANMA",
+                "day": "SPECIES_YANMA",
+                "night": "SPECIES_YANMA"
+            },
+            {
+                "level": 17,
+                "morning": "SPECIES_ILLUMISE",
+                "day": "SPECIES_ILLUMISE",
+                "night": "SPECIES_ILLUMISE"
+            },
+            {
+                "level": 17,
+                "morning": "SPECIES_VOLBEAT",
+                "day": "SPECIES_VOLBEAT",
+                "night": "SPECIES_VOLBEAT"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_ILLUMISE",
+                "day": "SPECIES_ILLUMISE",
+                "night": "SPECIES_ILLUMISE"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_VOLBEAT",
+                "day": "SPECIES_VOLBEAT",
+                "night": "SPECIES_VOLBEAT"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 15,
+        "slots": [
+            {
+                "level_min": 28,
+                "level_max": 33,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 28,
+                "level_max": 33,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 33,
+                "level_max": 33,
+                "species": "SPECIES_GOLDUCK"
+            },
+            {
+                "level_min": 33,
+                "level_max": 33,
+                "species": "SPECIES_GOLDUCK"
+            },
+            {
+                "level_min": 33,
+                "level_max": 33,
+                "species": "SPECIES_GOLDUCK"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_PSYDUCK"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_PSYDUCK"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GYARADOS"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GYARADOS"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_SKUNTANK",
+        "SPECIES_PURUGLY"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_YANMA",
+        "SPECIES_YANMA"
+    ],
+    "swarm": {
+        "land": "SPECIES_ILLUMISE",
+        "surf": "SPECIES_PSYDUCK",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

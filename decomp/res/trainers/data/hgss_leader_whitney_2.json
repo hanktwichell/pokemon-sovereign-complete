@@ -1,0 +1,124 @@
+{
+    "name": "Whitney",
+    "class": "TRAINER_CLASS_HGSS_LEADER_WHITNEY",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_STANTLER",
+            "form": 0,
+            "level": 71,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_THRASH",
+                "MOVE_EARTHQUAKE",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_MEGAHORN"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LOPUNNY",
+            "form": 0,
+            "level": 69,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_ATTRACT",
+                "MOVE_BATON_PASS",
+                "MOVE_AGILITY",
+                "MOVE_SUBSTITUTE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BLISSEY",
+            "form": 0,
+            "level": 69,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SOFTBOILED",
+                "MOVE_ICE_BEAM",
+                "MOVE_FLAMETHROWER",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TOGEKISS",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_AURA_SPHERE",
+                "MOVE_FLAMETHROWER",
+                "MOVE_AIR_SLASH",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFABLE",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_GRAVITY",
+                "MOVE_BLIZZARD",
+                "MOVE_THUNDER",
+                "MOVE_FIRE_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_MAGIC_GUARD"
+        },
+        {
+            "species": "SPECIES_MILTANK",
+            "form": 0,
+            "level": 73,
+            "item": "ITEM_LUM_BERRY",
+            "moves": [
+                "MOVE_MILK_DRINK",
+                "MOVE_ATTRACT",
+                "MOVE_BODY_SLAM",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 7,
+            "ability": "ABILITY_SCRAPPY"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "H-hey! Just one left?\n",
+                "But... I ain’t losin’, you hear?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Poor me!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ugh...\n"
+            ]
+        }
+    ]
+}

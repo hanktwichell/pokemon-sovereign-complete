@@ -40,6 +40,16 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.1% of 83,001 lines. Besides trainers, gifts, trades and marts,
+  about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
+  code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
+  (friendship, ribbons, which are numbered alike, moves, egg counts), fossils, the National Dex, the starter, the
+  saving icon, `Random`, the hour, a Pokémon's picture in a window (HeartGold's unnamed 452 and 453), score events (by
+  meaning: their numbers differ), the party menus for trades and for choosing a Pokémon.
+- Menus: HeartGold's standard menu (`MenuInitStdGmm`, 108 of them) takes its entries from its own menu strings (its
+  bank 191), and they number past 255. `CompleteInitHGSSMenu` (`src/complete_scrcmd.c`) is Platinum's global text
+  menu reading that bank, and the entries are added with the 16-bit `AddMenuEntry`. Until now these menus showed
+  Platinum's menu strings at HeartGold's numbers.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
   clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
 - Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's
@@ -94,22 +104,4 @@ becomes a Platinum text bank, appended to `generated/text_banks.txt` (the bank n
 
 ## Sacred Gold's versions
 
-Sacred Gold changes 203 of HeartGold's 965 script files (some to twice their size: new gifts, trades, rematches,
-item givers), 145 of its 491 events files, most text banks (Pokémon names in plain case, its new lines) and the
-trainers and wild Pokémon. It is a binary hack, so these exist only in its ROM. `tools/complete/disasm_hgss_scripts.py`
-turns its compiled scripts back into pokeheartgold's script language, so the translator handles them as it does
-HeartGold's:
-
-- Commands by opcode from pokeheartgold's macros; movement lists where a command points to one; labels and entry
-  names as pokeheartgold's sources have them; HeartGold's shorthand rebuilt (`GoToIfSet`, `Compare` / `GoToIfEq`,
-  `Switch` / `Case`, `GiveItemNoCheck`, `SimpleNPCMsg`, the signs); arguments named as the sources name the same
-  argument of the same command (flags, vars, items, species, moves, messages, people, sounds, maps).
-- Sacred Gold's own habits: movement lists packed back to back with only the 2-byte end code, some not aligned, and
-  a few stretches no script reaches.
-- **Checked**: all 965 of HeartGold's files and all 965 of Sacred Gold's reassemble with pokeheartgold's own
-  toolchain to the same bytes. On HeartGold, 909 files come out as its sources' exact commands; the others differ only
-  in how a value is written (`ITEM_POKE_BALL` where the source wrote 4), and translating them gives the same scripts
-  as translating the sources.
-
-Next: Sacred Gold's events (the events importer reads its archive instead of HeartGold's) and text (decoded with the
-engine's msgenc, HeartGold's message names kept), then its scripts through the translator.
+The scripts the game uses are Sacred Gold's, disassembled from its ROM and translated as above: `docs/SacredGold.md`.

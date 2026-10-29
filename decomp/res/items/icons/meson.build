@@ -598,6 +598,12 @@ item_icon_pngs = files(
     'jade_orb.png',
     'lock_capsule.png',
     'enigma_stone.png',
+    'woodland_ore.png',
+    'serenade_orb.png',
+    'aubade_orb.png',
+    'chilled_ore.png',
+    'voltaic_ore.png',
+    'covenant_orb.png',
     # end of HeartGold's items
 )
 
@@ -1257,6 +1263,12 @@ item_icon_pals = files(
     'jade_orb.pal',
     'lock_capsule.pal',
     'enigma_stone.pal',
+    'woodland_ore.pal',
+    'serenade_orb.pal',
+    'aubade_orb.pal',
+    'chilled_ore.pal',
+    'voltaic_ore.pal',
+    'covenant_orb.pal',
     # end of HeartGold's items
 )
 

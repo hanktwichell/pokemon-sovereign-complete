@@ -1,0 +1,50 @@
+{
+    "name": "Hugh",
+    "class": "TRAINER_CLASS_HGSS_SUPER_NERD",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 48,
+            "moves": [
+                "MOVE_SMOKE_SCREEN",
+                "MOVE_TWISTER",
+                "MOVE_SURF",
+                "MOVE_WATERFALL"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Yo! Markus!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oops!\n",
+                "I really mixed you up!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I came to explore Mt. Mortar, but I got\n",
+                "separated from my partner...\r",
+                "Did you run into a Trainer who uses a\n",
+                "Slowpoke? That Slowpoke is really good\f",
+                "at using Strength.\n"
+            ]
+        }
+    ]
+}

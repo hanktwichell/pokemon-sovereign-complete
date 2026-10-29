@@ -1,0 +1,59 @@
+{
+    "name": "Benjamin",
+    "class": "TRAINER_CLASS_HIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GRAVELER",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FORRETRESS",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What’s the other side of Mt. Mortar\n",
+                "like, do you know?\r",
+                "If you can beat me, I’ll let you know.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Gwah ha ha!\n",
+                "I lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I said a pretty boastful lie. I’m sorry!\r",
+                "There’s this huge waterfall in the way,\n",
+                "so I’ve never been on the other side of\f",
+                "Mt. Mortar!\n"
+            ]
+        }
+    ]
+}

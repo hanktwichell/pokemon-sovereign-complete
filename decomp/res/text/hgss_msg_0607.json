@@ -81,6 +81,28 @@
         "Now you want to see my Ball Capsule?\r",
         "Battle me so I can show it to you! {YESNO 0}"
       ]
+    },
+    {
+      "id": "msg_0607_T26PC0101_00009",
+      "en_US": [
+        "Kimono Girl in front of\n",
+        "dance theater?"
+      ]
+    },
+    {
+      "id": "msg_0607_T26PC0101_00010",
+      "en_US": "Flags set."
+    },
+    {
+      "id": "msg_0607_T26PC0101_00011",
+      "en_US": "Flags set."
+    },
+    {
+      "id": "msg_0607_T26PC0101_00012",
+      "en_US": [
+        "Have you finished\n",
+        "the Lighthouse?"
+      ]
     }
   ]
 }

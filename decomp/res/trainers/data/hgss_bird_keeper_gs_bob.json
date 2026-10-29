@@ -1,0 +1,40 @@
+{
+    "name": "Bob",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NOCTOWL",
+            "form": 0,
+            "level": 61,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Cycling Road is a quick shortcut\n",
+                "to Celadon.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Whew!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you don’t have a Bicycle, you’re not\n",
+                "allowed to use the shortcut.\n"
+            ]
+        }
+    ]
+}

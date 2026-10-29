@@ -1,0 +1,49 @@
+{
+    "name": "Esteban",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GOLDUCK",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The teacher from the swimming class\n",
+                "where I learned to swim had a face just\f",
+                "like a Poliwhirl.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I’m sorry, Teacher...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Due to the incredible resemblance,\n",
+                "we called our teacher\f",
+                "Professor Poliwhirl!\n"
+            ]
+        }
+    ]
+}

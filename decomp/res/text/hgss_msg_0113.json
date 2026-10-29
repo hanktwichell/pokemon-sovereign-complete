@@ -25,15 +25,15 @@
     },
     {
       "id": "msg_0113_D35R0103_00003",
-      "en_US": "Ariana: Hold it right there!"
+      "en_US": "Ariana: Stop right there, pest!"
     },
     {
       "id": "msg_0113_D35R0103_00004",
       "en_US": [
         "Ariana: We can’t let a brat like you\n",
-        "do as you please forever.\r",
-        "It’ll hurt Team Rocket’s pride over and\n",
-        "over again. Making it lessen, you see.\r",
+        "do as you please again!\r",
+        "It’ll hurt Team Rocket’s pride each and\n",
+        "every time. Making it lessen, you see.\r",
         "...So, it’s time to finish you. However\n",
         "strong you may be, if the two of us\f",
         "fight at the same time, you’ll have no\f",
@@ -119,10 +119,10 @@
         "It’s this machine that’s causing all the\n",
         "problems. I don’t see a switch on it...\r",
         "We have no choice. We have to make all\n",
-        "the ELECTRODE faint.\r",
+        "the Electrode faint.\r",
         "That should stop this machine from\n",
         "transmitting that strange signal.\r",
-        "It’s no fault of the ELECTRODE, so it\n",
+        "It’s no fault of the Electrode, so it\n",
         "makes me feel sad.\r",
         "{STRVAR_1 3, 0, 0}, let’s split the job.\r"
       ]
@@ -133,10 +133,10 @@
         "It’s this machine that’s causing all the\n",
         "problems. I don’t see a switch on it...\r",
         "We have no choice. We have to make all\n",
-        "the ELECTRODE faint.\r",
+        "the Electrode faint.\r",
         "That should stop this machine from\n",
         "transmitting that strange signal.\r",
-        "It’s no fault of the ELECTRODE, so it\n",
+        "It’s no fault of the Electrode, so it\n",
         "makes me feel sad.\r",
         "{STRVAR_1 3, 0, 0}, let’s split the job.\r"
       ]
@@ -236,28 +236,28 @@
     {
       "id": "msg_0113_D35R0103_00024",
       "en_US": [
-        "MURKROW: The password is...\f",
+        "Chatot: The password is...\f",
         "Hail Giovanni.\r"
       ]
     },
     {
       "id": "msg_0113_D35R0103_00025",
       "en_US": [
-        "MURKROW: The password is...\f",
+        "Chatot: The password is...\f",
         "Hail Giovanni.\r"
       ]
     },
     {
       "id": "msg_0113_D35R0103_00026",
       "en_US": [
-        "MURKROW: The password is...\f",
+        "Chatot: The password is...\f",
         "Hail Giovanni.\r"
       ]
     },
     {
       "id": "msg_0113_D35R0103_00027",
       "en_US": [
-        "MURKROW screamed the password,\n",
+        "Chatot screamed the password,\n",
         "mimicking the voice of Petrel.\r",
         "..................\r",
         "The voice-recognition system unlocked\n",

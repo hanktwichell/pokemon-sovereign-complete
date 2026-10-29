@@ -5,9 +5,9 @@
             "id": "obj_R14_gsmiddleman1",
             "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_POKEFAN_M_TREVOR",
             "initial_dir": 1,
             "data": [
                 2,
@@ -24,9 +24,9 @@
             "id": "obj_R14_middlewoman1_2",
             "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEACHER_CLARICE",
             "initial_dir": 2,
             "data": [
                 4,
@@ -43,9 +43,9 @@
             "id": "obj_R14_gsman2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_ROY",
             "initial_dir": 3,
             "data": [
                 4,
@@ -62,9 +62,9 @@
             "id": "obj_R14_gsmiddleman1_2",
             "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_POKEFAN_M_CARTER",
             "initial_dir": 2,
             "data": [
                 5,
@@ -81,9 +81,9 @@
             "id": "obj_R14_gsman2_2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_JOSH",
             "initial_dir": 3,
             "data": [
                 5,
@@ -100,9 +100,9 @@
             "id": "obj_R14_gsboy1",
             "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCHOOL_KID_M_TORIN",
             "initial_dir": 3,
             "data": [
                 4,
@@ -119,9 +119,9 @@
             "id": "obj_R14_gsboy1_2",
             "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCHOOL_KID_M_CONNOR",
             "initial_dir": 3,
             "data": [
                 5,
@@ -138,9 +138,9 @@
             "id": "obj_R14_gsboy1_3",
             "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCHOOL_KID_M_TRAVIS",
             "initial_dir": 3,
             "data": [
                 5,
@@ -168,8 +168,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1345,
-            "z": 391,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -187,8 +187,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1352,
-            "z": 411,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -282,8 +282,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1353,
-            "z": 412,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -301,8 +301,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1353,
-            "z": 413,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -320,8 +320,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1352,
-            "z": 414,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {

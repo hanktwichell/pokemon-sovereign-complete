@@ -56,13 +56,13 @@ scr_seq_T22GYM0101_001:
     GoToIf 1, _0168
     Message msg_0558_T22GYM0101_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_FALKNER_FALKNER, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_FALKNER_FALKNER, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _017E
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_BADGE_GET
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
+    SetTrainerFlag TRAINER_HGSS_BIRD_KEEPER_GS_ROD
+    SetTrainerFlag TRAINER_HGSS_BIRD_KEEPER_GS_ABE
     SetVarFromValue VAR_HGSS_SCENE_VIOLET_CITY_OW, 1
     SetFlag FLAG_HGSS_UNK_192
     SetVarFromValue VAR_HGSS_SCENE_ELMS_LAB, 6

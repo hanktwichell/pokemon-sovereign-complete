@@ -1,0 +1,27 @@
+{
+    "name": "Joey",
+    "class": "TRAINER_CLASS_HGSS_YOUNGSTER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RATICATE",
+            "form": 0,
+            "level": 48,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "No...\n",
+                "I’m out of Pokémon that can fight.\n"
+            ]
+        }
+    ]
+}

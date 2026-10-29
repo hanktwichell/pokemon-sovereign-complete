@@ -161,6 +161,25 @@
             "x": 12,
             "z": 12,
             "y": 0
+        },
+        {
+            "id": "obj_T26PC0101_8",
+            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F56",
+            "script": 7,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 11,
+            "z": 17,
+            "y": 0
         }
     ],
     "warp_events": [

@@ -105,15 +105,18 @@ class Names:
         for alias, item in re.findall(r'#define\s+(TM_\w+|HM_\w+)\s+(ITEM_\w+)',
                                       open(os.path.join(HG, 'include/constants/items.h')).read()):
             self.shared[alias] = self.shared.get(item, 'ITEM_NONE')
-        # HeartGold's trainers come with step 4; until then they are TRAINER_NONE (some of HeartGold's names are also
-        # Sinnoh trainers' in Sovereign, so they must not be kept as they are).
+        # HeartGold's trainers are TRAINER_HGSS_* (tools/complete/import_hgss_trainers.py); before that, TRAINER_NONE
+        # (some of HeartGold's names are also Sinnoh trainers' in Sovereign, so they must not be kept as they are)
         self.hg_trainers = set(defines(os.path.join(HG, 'include/constants/trainers.h'), 'TRAINER_'))
+        self.our_trainers = {line.strip() for line in open(os.path.join(DECOMP, 'generated/trainers.txt'))}
         self.hg_mapsecs = defines(os.path.join(HG, 'include/constants/map_sections.h'), '')
         naix = open(os.path.join(DECOMP, 'build/res/sound/pl_sound_data.naix')).read()
         self.pl_sounds = set(re.findall(r'\b(SEQ_\w+|SE_\w+)\b', naix))
         self.unknown = collections.Counter()
 
     def flag(self, name):
+        if name.startswith('FLAG_SG_'):  # Sacred Gold's own (tools/complete/sacred_gold.py)
+            return 'FLAG_HGSS_SG_' + name[len('FLAG_SG_'):]
         n = self.hg_flags.get(name)
         if n is None:
             return None
@@ -124,6 +127,8 @@ class Names:
         return 'FLAG_HGSS_' + name[len('FLAG_'):]
 
     def var(self, name):
+        if name.startswith('VAR_SG_'):
+            return 'VAR_HGSS_SG_' + name[len('VAR_SG_'):]
         n = self.hg_vars.get(name)
         if n is None:
             return None
@@ -166,7 +171,8 @@ class Names:
             if out.endswith('_NONE') and not tok.endswith('_NONE'):
                 self.missing[tok] += 1
         elif tok in self.hg_trainers:
-            out = 'TRAINER_NONE'
+            out = 'TRAINER_HGSS_' + tok[len('TRAINER_'):]
+            out = out if out in self.our_trainers else 'TRAINER_NONE'
         elif tok.startswith('RGB_'):
             out = 'COLOR_' + tok[len('RGB_'):]
         elif tok == 'obj_partner_poke':
@@ -188,12 +194,24 @@ class Names:
 
 def translate_file(path, names, table, platinum_params, hg_params, report):
     out = []
-    for raw in open(path, errors='replace').read().splitlines():
+    text = open(path, errors='replace').read()
+    # movement lists start aligned in the engine's scripts too (Sacred Gold packs some unaligned, which its commands'
+    # sizes allowed; the engine's commands have other sizes)
+    movements = set(re.findall(r'^\s*ApplyMovement\s+[^,]+,\s*(\w+)', text, re.M))
+    for raw in text.splitlines():
         line = raw.strip()
         if not line or line.startswith('#include') or line.startswith('//'):
             continue
+        if line.endswith(':') and line[:-1] in movements and out[-1:] != ['    .balign 4, 0']:
+            out.append('    .balign 4, 0')
         if line.endswith(':') or line.startswith('#'):  # labels and the file's own #defines
             out.append(names.arg(line) if line.startswith('#define') else line)
+            continue
+        if line.startswith('.short 254') and '@ EndMovement' in line:  # Sacred Gold's 2-byte end of a movement list
+            out.append('    EndMovement')
+            continue
+        if line.startswith(('.byte', '.short', '.word')):  # bytes no script reaches (disasm_hgss_scripts.py)
+            out.append(f'    @ HGSS data: {line}')
             continue
         if line.startswith('.'):
             out.append('    ' + line)
@@ -230,6 +248,10 @@ def file_header(path, text):
     lines = ['#include "macros/scrcmd.inc"']
     if 'TEXT_BANK_' in text:
         lines.append('#include "generated/text_banks.h"')
+    if 'NPC_TRADE_' in text:
+        lines.append('#include "constants/npc_trades.h"')
+    if 'RIBBON_' in text:
+        lines.append('#include "generated/ribbons.h"')
     for bank in sorted(set(re.findall(r'\bmsg_(\d{4})\w*?_\d{5}\b', text))):
         lines.append(f'#include "res/text/bank/hgss_msg_{bank}.h"')
     lines.append('')

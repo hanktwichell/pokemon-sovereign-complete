@@ -76,6 +76,25 @@
             "x": 8,
             "z": 12,
             "y": 0
+        },
+        {
+            "id": "obj_T05R0601_4",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
         }
     ],
     "warp_events": [

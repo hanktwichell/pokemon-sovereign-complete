@@ -11,7 +11,7 @@
     {
       "id": "msg_0360_R22_00001",
       "en_US": [
-        "It seems that CELEBI has made you\n",
+        "It seems that Celebi has made you\n",
         "travel through time...\f",
         "to the past!\r"
       ]
@@ -112,7 +112,7 @@
         "Ethan: Ilex Forest has disappeared!\r",
         "...That’s not it.\n",
         "It’s more like we have been\f",
-        "transported somewhere else...?\r"
+        "transported soMewhere else...?\r"
       ]
     },
     {
@@ -121,7 +121,7 @@
         "Lyra: Ilex Forest has disappeared!\r",
         "...That’s not it.\n",
         "It’s more like we have been\f",
-        "transported somewhere else...?\r"
+        "transported soMewhere else...?\r"
       ]
     },
     {
@@ -144,13 +144,13 @@
       "id": "msg_0360_R22_00017",
       "en_US": [
         "Is that...am I looking at...\n",
-        "CELEBI?\r",
+        "Celebi?\r",
         "That explains it!\n",
-        "CELEBI must have caused all this!\r",
+        "Celebi must have caused all this!\r",
         "My grandpa once told me that\n",
-        "CELEBI can travel through time using\f",
+        "Celebi can travel through time using\f",
         "its mystic power called {COLOR 1}Time Travel{COLOR 0}!\r",
-        "CELEBI must have taken us back in time!\n",
+        "Celebi must have taken us back in time!\n",
         "Literally!\r"
       ]
     },
@@ -158,13 +158,13 @@
       "id": "msg_0360_R22_00018",
       "en_US": [
         "Is that...am I looking at...\n",
-        "CELEBI?\r",
+        "Celebi?\r",
         "That explains it!\n",
-        "CELEBI must have caused all this!\r",
+        "Celebi must have caused all this!\r",
         "My grandpa once told me that\n",
-        "CELEBI can travel through time using\f",
+        "Celebi can travel through time using\f",
         "its mystic power called {COLOR 1}Time Travel{COLOR 0}!\r",
-        "CELEBI must have taken us back in time!\n",
+        "Celebi must have taken us back in time!\n",
         "Literally!\r"
       ]
     },
@@ -212,14 +212,14 @@
       "id": "msg_0360_R22_00023",
       "en_US": [
         "Oh no! It’s happening again...!\r",
-        "It’s CELEBI’s {COLOR 1}Time Travel{COLOR 0}!\r"
+        "It’s Celebi’s {COLOR 1}Time Travel{COLOR 0}!\r"
       ]
     },
     {
       "id": "msg_0360_R22_00024",
       "en_US": [
         "Oh no! It’s happening again...!\r",
-        "It’s CELEBI’s {COLOR 1}Time Travel{COLOR 0}!\r"
+        "It’s Celebi’s {COLOR 1}Time Travel{COLOR 0}!\r"
       ]
     }
   ]

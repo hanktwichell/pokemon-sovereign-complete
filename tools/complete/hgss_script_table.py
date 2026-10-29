@@ -37,6 +37,10 @@ STD_SCRIPTS = {
     'std_bag_is_full': ['Common_MessageBagIsFull'],
     'std_pokecenter_pc': ['CallCommonScript 0x7E2'],
     'std_mart_intro': ['Common_VendorGreeting'],
+    # the common mart (the same stock by badges), and HeartGold's special mart VAR_0x8004
+    # (tools/complete/import_hgss_marts.py)
+    'std_pokemart': ['PokeMartCommon'],
+    'std_special_mart': ['AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00', 'PokeMartSpecialties VAR_0x8004'],
     'std_whited_out_to_mom': ['CallCommonScript 0x7E4'],
     'std_whited_out_to_pokecenter': ['CallCommonScript 0x7E5'],
     'std_global_terminal_globe': ['CallCommonScript 0x7E9'],
@@ -76,12 +80,52 @@ def call_std(a):
     return [f'@ HGSS: CallStd {a[0]}']
 
 
+# HeartGold's score events -> Platinum's trainer score events by meaning (numbered differently); the Pokéathlon's have
+# none (it is skipped), apricorns count as berries
+SCORE_EVENTS = {
+    'SCORE_EVENT_BADGE_GET': 'TRAINER_SCORE_EVENT_BADGE_EARNED',
+    'SCORE_EVENT_LEAGUE_WIN': 'TRAINER_SCORE_EVENT_HALL_OF_FAME_ENTRY',
+    'SCORE_EVENT_REGIONAL_DEX_COMPLETE': 'TRAINER_SCORE_EVENT_LOCAL_DEX_DIPLOMA_RECEIVED',
+    'SCORE_EVENT_NATIONAL_DEX_COMPLETE': 'TRAINER_SCORE_EVENT_NATIONAL_DEX_DIPLOMA_RECEIVED',
+    'SCORE_EVENT_APRICORN_HARVESTED': 'TRAINER_SCORE_EVENT_BERRY_HARVESTED',
+    'SCORE_EVENT_GOT_ALL_GOLD_PRINTS': 'TRAINER_SCORE_EVENT_ALL_BATTLE_FRONTIER_GOLD_PRINTS',
+    'SCORE_EVENT_BATTLE_FACTORY_SET_WON': 'TRAINER_SCORE_EVENT_BATTLE_FACTORY_ROUND_COMPLETED',
+    'SCORE_EVENT_BATTLE_CASTLE_SET_WON': 'TRAINER_SCORE_EVENT_BATTLE_CASTLE_ROUND_COMPLETED',
+    'SCORE_EVENT_BATTLE_HALL_SET_WON': 'TRAINER_SCORE_EVENT_BATTLE_HALL_ROUND_COMPLETED',
+    'SCORE_EVENT_BATTLE_ARCADE_SET_WON': 'TRAINER_SCORE_EVENT_BATTLE_ARCADE_ROUND_COMPLETED',
+    'SCORE_EVENT_POKEATHLON_WON': None,
+    'SCORE_EVENT_POKEATHLON_WON_LINK': None,
+}
+
+
+def score(a):
+    event = SCORE_EVENTS.get(a[0], '')
+    if event is None:
+        return []
+    return [f'IncrementTrainerScore {event}'] if event else [f'@ HGSS: AddSpecialGameStat {a[0]}']
+
+
+def trade(a):
+    """LoadNPCTrade n: HeartGold's nth trade, as tools/complete/import_hgss_trades.py names it."""
+    from import_hgss_trades import trade_names
+    return [f'InitNPCTrade {trade_names()[int(a[0], 0)]}']
+
+
 def one(template):
     """An entry that becomes one line: template uses {0}, {1}... for the arguments."""
     return lambda a: [template.format(*a)]
 
 
 COMMANDS = {
+    # Trainers (TRAINER_HGSS_*): HeartGold's extra bytes (a battle the player may lose without blacking out, and an
+    # unused one) have no Platinum argument yet
+    'TrainerBattle': one('StartTrainerBattle {0}, {1}'),
+    'MultiBattle': one('StartTagBattle {0}, {1}, {2}'),
+    'TrainerMessage': one('PrintTrainerDialogue {0}, {1}'),
+    # Gifts and static encounters: no gift in Sacred Gold sets a form or an ability; a static encounter may be shiny
+    'GiveMon': one('GivePokemon {0}, {1}, {2}, {5}'),
+    'WildBattle': lambda a: [f'CompleteStartWildBattle {a[0]}, {a[1]}, {a[2] if len(a) > 2 else 0}'],
+    'GetStaticEncounterOutcome': one('CompleteGetBattleResult {0}'),
     # Script structure
     'ScrDef': one('ScriptEntry {0}'),
     'ScrDefEnd': lambda a: ['ScriptEntryEnd'],
@@ -130,6 +174,17 @@ COMMANDS = {
     'CheckBattleWon': one('CheckWonBattle {0}'),
     'WhiteOut': lambda a: ['BlackOutFromBattle'],
     'RestoreOverworld': lambda a: ['ReturnToField'],
+    # Party menus: HeartGold's for a trade and for choosing a Pokémon are Platinum's of the same kinds, and its
+    # GetPartySelection reads and frees either one as Platinum's GetSelectedPartySlot does
+    'ScrCmd_566': lambda a: ['OpenPartyMenuForTrade'],
+    'PartySelectUI': lambda a: ['SelectMoveTutorPokemon'],
+    'GetPartySelection': one('GetSelectedPartySlot {0}'),
+    'SetMonMove': one('ResetPartyMonMoveSlot_Unused {0}, {1}, {2}'),
+    # Trades (tools/complete/import_hgss_trades.py): the same commands in the same order
+    'LoadNPCTrade': trade,
+    'NPCTradeGetReqSpecies': one('GetNPCTradeRequestedSpecies {0}'),
+    'NPCTradeExec': one('StartNPCTrade {0}'),
+    'NPCTradeEnd': lambda a: ['FinishNPCTrade'],
     # Items: HeartGold's ItemVars puts the item and count in VAR_0x8004 and VAR_0x8005, as Platinum's item scripts expect
     'ItemVars': item_vars,
     'GiveItemNoCheck': lambda a: item_vars(a) + ['Common_GiveItemQuantity'],
@@ -150,6 +205,69 @@ COMMANDS = {
     # More messages and the money box
     'NonNPCMsgVar': one('MessageVar {0}'),
     'HideMoneyBox': lambda a: ['HideMoney'],
+    # Money, coins, the party, the saving icon: Platinum's commands of the same arguments and code (ribbons are
+    # numbered the same in both games)
+    'ShowMoneyBox': one('ShowMoney {0}, {1}'),
+    'UpdateMoneyBox': lambda a: ['UpdateMoneyDisplay'],
+    'AddMoney': one('GiveMoney {0}'),
+    'SubMoneyVar': one('RemoveMoney2 {0}'),
+    'HasEnoughMoneyVar': one('CheckMoney2 {0}, {1}'),
+    'GiveCoins': one('AddCoins {0}'),
+    'CheckGiveCoins': one('CheckCanAddCoins {0}, {1}'),
+    'CheckCoinsImmediate': one('HasCoinsFromValue {0}, {1}'),
+    'MonHasMove': one('CheckPartyMonHasMove {0}, {1}, {2}'),
+    'MonGetFriendship': one('GetPartyMonFriendship {0}, {1}'),
+    'MonAddFriendship': one('IncreasePartyMonFriendship {0}, {1}'),
+    'GiveRibbon': one('SetPartyMonRibbon {0}, {1}'),
+    'MonHasRibbon': one('GetPartyMonRibbon {0}, {1}, {2}'),
+    'CountMonMoves': one('GetPartyMonMoveCount {0}, {1}'),
+    'PartyCountNotEgg': one('CountPartyNonEggs {0}'),
+    'PartyCountEgg': one('CountPartyEggs {0}'),
+    'PlayerHasSpecies': one('CheckPartyHasSpecies {0}, {1}'),
+    'Random': one('GetRandom {0}, {1}'),
+    'SetOrCopyVar': one('SetVar {0}, {1}'),
+    'AddWaitingIcon': lambda a: ['ShowSavingIcon'],
+    'ResetBGM': lambda a: ['PlayDefaultMusic'],
+    'PlayerOnBikeCheck': one('CheckPlayerOnBike {0}'),
+    'MovePerson': one('SetObjectEventPos {0}, {1}, {2}'),
+    'SaveGameNormal': one('TrySaveGame {0}'),
+    'WaitButtonOrDelay': one('WaitABPressTime {0}'),
+    'CountPCEmptySpace': one('GetPCBoxesFreeSlotCount {0}'),
+    'AddSpecialGameStat': score,
+    'AddSpecialGameStat2': score,
+    'CallIfNotDefeated': lambda a: [f'CheckTrainerFlag {a[0]}', f'CallIf 0, {a[1]}'],
+    # The starter (Platinum's starter var until the opening is decided), the National Dex, moves, fossils
+    'GetStarterChoice': one('GetPlayerStarterSpecies {0}'),
+    'NatDexFlagAction': one('GetSetNationalDexEnabled {0}, {1}'),
+    'CheckNationalDexComplete': one('CheckNationalDexCompleted {0}'),
+    'MonGetMove': one('GetPartyMonMove {0}, {1}, {2}'),
+    'MonForgetMove': one('ClearPartyMonMoveSlot {0}, {1}'),
+    'CountFossils': one('GetFossilCount {0}'),
+    'GetFossilPokemon': one('GetSpeciesFromFossil {0}, {1}'),
+    'GetFossilMinimumAmount': one('FindFossilAtThreshold {0}, {1}, {2}'),
+    # HeartGold's unnamed commands that are Platinum's: a Pokémon's picture in a window and taking it away, the hour,
+    # and one that does nothing (it reads a message slot and a value)
+    'ScrCmd_452': one('DrawPokemonPreview {0}, {1}'),
+    'ScrCmd_453': lambda a: ['RemovePokemonPreview'],
+    'ScrCmd_522': one('GetHour {0}'),
+    'ScrCmd_208': lambda a: [],
+    # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
+    # a move (HeartGold's form 1, read back by GetMoveSelection 1)
+    'SetObjectFacing': one('SetObjectEventDir {0}, {1}'),
+    'SetObjectMovementType': one('SetObjectEventMovementType {0}, {1}'),
+    'BufferSpeciesNameIndef': one('BufferSpeciesNameWithArticle {0}, {1}'),
+    'BufferTrainerClassNameIndef': one('BufferTrainerClassNameWithArticle {0}, {1}'),
+    'Capitalize': one('CapitalizeFirstLetter {0}'),
+    'BufferBoxMonNick': one('BufferMonNicknameFromPC {0}, {1}'),
+    'CountAliveMons': lambda a: [f'CountAliveMonsExcept {a[0]}, {a[1] if len(a) > 1 else 6}'],
+    'GetPartySlotWithSpecies': one('FindPartySlotWithSpecies {0}, {1}'),
+    'MonGetGender': one('GetPartyMonGender_Unused {0}, {1}'),
+    'CheckDaycareEgg': one('CheckDaycareHasEgg {0}'),
+    'PokemonSummaryScreen': lambda a: ([f'OpenSummaryScreenTeachMove {a[1]}, {a[2]}'] if a[0] == '1'
+                                       else [f'@ HGSS: PokemonSummaryScreen {", ".join(a)}']),
+    'GetMoveSelection': lambda a: ([f'GetSummarySelectedMoveSlot {a[1]}'] if a[0] == '1'
+                                   else [f'@ HGSS: GetMoveSelection {", ".join(a)}']),
+    'RemoveWaitingIcon': lambda a: ['HideSavingIcon'],
     'MakeObjectVisible': one('ShowObject {0}'),
     'Warp': lambda a: [f'Warp {a[0]}, {a[2]}, {a[3]}, {a[4]}'],
     'ScrCmd_066': one('AddMenuEntryImm {0}, {1}'),
@@ -170,9 +288,10 @@ COMMANDS = {
     # (the bytes are in the same order). An entry's middle argument is its help text (255: none), which Platinum's
     # menus don't have. HeartGold's yes/no is the touchscreen's buttons (GetMenuChoice between TouchscreenMenuHide
     # and TouchscreenMenuShow); Platinum's is a menu.
-    'MenuInitStdGmm': one('InitGlobalTextMenu {0}, {1}, {2}, {4}, {3}'),
+    # HeartGold's standard menu takes its strings from its own bank (191), not Platinum's; entries are 16-bit
+    'MenuInitStdGmm': one('CompleteInitHGSSMenu {0}, {1}, {2}, {4}, {3}'),
     'MenuInit': one('InitLocalTextMenu {0}, {1}, {2}, {4}, {3}'),
-    'MenuItemAdd': one('AddMenuEntryImm {0}, {2}'),
+    'MenuItemAdd': one('AddMenuEntry {0}, {2}'),
     'MenuExec': lambda a: ['ShowMenu'],
     'GetMenuChoice': one('ShowYesNoMenu {0}'),
     'TouchscreenMenuHide': lambda a: [],

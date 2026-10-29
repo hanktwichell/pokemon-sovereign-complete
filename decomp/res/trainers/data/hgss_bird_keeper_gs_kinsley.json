@@ -1,0 +1,55 @@
+{
+    "name": "Kinsley",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FARFETCHD",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FEAROW",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PELIPPER",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Surrounding yourself with bird Pokémon\n",
+                "gives you the feeling that someday you\f",
+                "might be able to fly, too!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I couldn’t fly...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I guess I just need to practice flapping\n",
+                "my wings more!\n"
+            ]
+        }
+    ]
+}

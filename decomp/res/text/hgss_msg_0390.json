@@ -179,6 +179,35 @@
         "Then you should go north here.\n",
         "See you around!\r"
       ]
+    },
+    {
+      "id": "msg_0390_R36_00019",
+      "en_US": [
+        "Boss Pokémon have been unlocked in\n",
+        "Route 34, Route 35,\f",
+        "Ilex Forest and Slowpoke Well!"
+      ]
+    },
+    {
+      "id": "msg_0390_R36_00020",
+      "en_US": [
+        "These trees may not be bricks, but I\n",
+        "can sure give you something to break\f",
+        "bricks with!\r"
+      ]
+    },
+    {
+      "id": "msg_0390_R36_00021",
+      "en_US": [
+        "Well, Brick Break is actually for\n",
+        "breaking barriers.\r",
+        "It’ll destroy any opponent’s Reflect\n",
+        "or Light Screen!"
+      ]
+    },
+    {
+      "id": "msg_0390_R36_00022",
+      "en_US": "Hiiiiii-ya!\r"
     }
   ]
 }

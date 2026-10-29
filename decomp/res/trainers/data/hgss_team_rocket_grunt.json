@@ -1,0 +1,50 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CACNEA",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NIDORINA",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Quit taking SlowpokeTails?\r",
+                "If we listened to you, Team Rocket’s\n",
+                "rep would be ruined!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Just...\n",
+                "Too strong...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "We need the money, but selling\n",
+                "SlowpokeTails?\r",
+                "It’s tough being a Team Rocket Grunt!\n"
+            ]
+        }
+    ]
+}

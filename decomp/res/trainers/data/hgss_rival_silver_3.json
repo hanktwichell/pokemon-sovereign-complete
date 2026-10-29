@@ -1,0 +1,38 @@
+{
+    "name": "Andrew",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_STARYU",
+            "form": 0,
+            "level": 17,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROSELIA",
+            "form": 0,
+            "level": 17,
+            "moves": [
+                "MOVE_PETAL_DANCE",
+                "MOVE_TOXIC",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

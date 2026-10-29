@@ -7,67 +7,42 @@
     ScriptEntry scr_seq_D51R0101_001
     ScriptEntry scr_seq_D51R0101_002
     ScriptEntry scr_seq_D51R0101_003
+    ScriptEntry scr_seq_D51R0101_004
     ScriptEntryEnd
 scr_seq_D51R0101_002:
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 5
-    GoToIf 1, _0021
-    End
-_0021:
-    SetPosition obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH
+    GoToIf 1, _0104
     End
 scr_seq_D51R0101_000:
     LockAll
-    ApplyMovement obj_D51R0101_mount_2, _007C
+    ApplyMovement obj_D51R0101_mount_2, _0112
     WaitMovement
-    ApplyMovement LOCALID_PLAYER, _0094
+    ApplyMovement LOCALID_PLAYER, _0128
     WaitMovement
     Message msg_0145_D51R0101_00000
     CloseMessage
-    ApplyMovement obj_D51R0101_mount_2, _009C
+    ApplyMovement obj_D51R0101_mount_2, _012E
     WaitMovement
     Message msg_0145_D51R0101_00001
     CloseMessage
-    ApplyMovement obj_D51R0101_mount_2, _00A8
+    ApplyMovement obj_D51R0101_mount_2, _0138
     WaitMovement
     SetPosition obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 5
     ReleaseAll
     End
-    .balign 4, 0
-_007C:
-    WalkOnSpotNormalNorth
-    EmoteExclamationMark
-    Delay8
-    WalkNormalNorth 3
-    WalkOnSpotNormalWest
-    EndMovement
-    .balign 4, 0
-_0094:
-    WalkOnSpotNormalEast
-    EndMovement
-    .balign 4, 0
-_009C:
-    EmoteExclamationMark
-    Delay8
-    EndMovement
-    .balign 4, 0
-_00A8:
-    WalkNormalSouth 4
-    WalkNormalWest
-    WalkNormalSouth 4
-    EndMovement
 scr_seq_D51R0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0145_D51R0101_00002
     CloseMessage
-    ApplyMovement obj_D51R0101_mount_2, _0108
+    ApplyMovement obj_D51R0101_mount_2, _0146
     WaitMovement
     @ HGSS: ScrCmd_307 0, 0, 20, 25, 77
     @ HGSS: ScrCmd_310 77
     @ HGSS: ScrCmd_308 77
-    ApplyMovement obj_D51R0101_mount_2, _0114
+    ApplyMovement obj_D51R0101_mount_2, _0150
     WaitMovement
     RemoveObject obj_D51R0101_mount_2
     SetFlag FLAG_HGSS_UNK_2DB
@@ -77,15 +52,6 @@ scr_seq_D51R0101_001:
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 6
     ReleaseAll
     End
-    .balign 4, 0
-_0108:
-    WalkNormalEast 7
-    WalkNormalNorth 2
-    EndMovement
-    .balign 4, 0
-_0114:
-    WalkNormalNorth
-    EndMovement
 scr_seq_D51R0101_003:
     DrawSignpostTextBox SIGNPOST_TYPE_LANDMARK
     SetSignpostCommand SIGNPOST_CMD_SCROLL_IN
@@ -93,4 +59,58 @@ scr_seq_D51R0101_003:
     DrawSignpostScrollingMessage msg_0145_D51R0101_00007, VAR_RESULT
     Common_HandleSignpostInput
     End
+scr_seq_D51R0101_004:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    Message msg_0145_D51R0101_00008
+    CloseMessage
+    ApplyMovement LOCALID_PLAYER, _0156
+    WaitMovement
+    RemoveObject obj_D51R0101_mount_2
+    SetVar VAR_0x8004, ITEM_ICICLE_PLATE
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    CloseMessage
+    ReleaseAll
+    End
+_0104:
+    SetPosition obj_D51R0101_mount_2, 13, 1, 28, DIR_NORTH
+    End
+    .balign 4, 0
+_0112:
+    WalkOnSpotNormalNorth
+    EmoteExclamationMark
+    Delay8
+    WalkNormalNorth 3
+    WalkOnSpotNormalWest
+    EndMovement
+    .balign 4, 0
+_0128:
+    WalkOnSpotNormalEast
+    EndMovement
+    .balign 4, 0
+_012E:
+    EmoteExclamationMark
+    Delay8
+    EndMovement
+    .balign 4, 0
+_0138:
+    WalkNormalSouth 4
+    WalkNormalWest
+    WalkNormalSouth 4
+    EndMovement
+    .balign 4, 0
+_0146:
+    WalkNormalEast 7
+    WalkNormalNorth 2
+    EndMovement
+    .balign 4, 0
+_0150:
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0156:
+    EmoteExclamationMark
+    EndMovement
     .balign 4, 0

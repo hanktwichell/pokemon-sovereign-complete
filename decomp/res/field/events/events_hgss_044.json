@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8401,
             "type": 2,
             "x": 649,
             "z": 289,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8530,
             "type": 2,
             "x": 640,
             "z": 341,
@@ -38,9 +38,9 @@
             "id": "obj_R45_mount_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_ERIK",
             "initial_dir": 2,
             "data": [
                 2,
@@ -57,9 +57,9 @@
             "id": "obj_R45_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_RYAN",
             "initial_dir": 3,
             "data": [
                 2,
@@ -76,9 +76,9 @@
             "id": "obj_R45_mount_2_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_PARRY",
             "initial_dir": 0,
             "data": [
                 4,
@@ -95,9 +95,9 @@
             "id": "obj_R45_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_KELLY",
             "initial_dir": 3,
             "data": [
                 5,
@@ -114,9 +114,9 @@
             "id": "obj_R45_gsfighter",
             "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BLACK_BELT_KENJI",
             "initial_dir": 0,
             "data": [
                 3,
@@ -133,9 +133,9 @@
             "id": "obj_R45_mount_2_3",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_TIMOTHY",
             "initial_dir": 2,
             "data": [
                 2,
@@ -152,9 +152,9 @@
             "id": "obj_R45_mount_2_4",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_MICHAEL",
             "initial_dir": 3,
             "data": [
                 4,
@@ -192,7 +192,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R45_ELIXIR",
-            "script": 0,
+            "script": 7488,
             "initial_dir": 0,
             "data": [
                 0,
@@ -211,7 +211,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R45_MAX_POTION",
-            "script": 0,
+            "script": 7489,
             "initial_dir": 0,
             "data": [
                 0,
@@ -230,7 +230,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R45_FULL_HEAL",
-            "script": 0,
+            "script": 7490,
             "initial_dir": 0,
             "data": [
                 0,
@@ -249,7 +249,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R45_NUGGET",
-            "script": 0,
+            "script": 7491,
             "initial_dir": 0,
             "data": [
                 0,
@@ -268,7 +268,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R45_REVIVE",
-            "script": 0,
+            "script": 7492,
             "initial_dir": 0,
             "data": [
                 0,

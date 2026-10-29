@@ -1,0 +1,20 @@
+{
+    "name": "Bethany",
+    "class": "TRAINER_CLASS_HGSS_MEDIUM",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HAUNTER",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

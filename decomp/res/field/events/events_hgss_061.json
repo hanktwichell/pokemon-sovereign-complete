@@ -74,6 +74,25 @@
             "x": 7,
             "z": 10,
             "y": 0
+        },
+        {
+            "id": "obj_T20R0202_3",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
         }
     ],
     "warp_events": [
@@ -84,5 +103,16 @@
             "dest_warp_id": 1
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 3,
+            "x": 2,
+            "z": 9,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "0"
+        }
+    ]
 }

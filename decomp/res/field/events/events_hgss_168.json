@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8341,
             "type": 2,
             "x": 78,
             "z": 305,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8430,
             "type": 2,
             "x": 86,
             "z": 300,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8431,
             "type": 2,
             "x": 100,
             "z": 299,
@@ -39,7 +39,7 @@
             "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 1,
             "initial_dir": 1,
             "data": [
@@ -49,8 +49,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 85,
-            "z": 313,
+            "x": 77,
+            "z": 310,
             "y": 0
         },
         {
@@ -58,7 +58,7 @@
             "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 4,
             "initial_dir": 1,
             "data": [
@@ -77,7 +77,7 @@
             "graphics_id": "OBJ_EVENT_GFX_JIGGLYPUFF",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 5,
             "initial_dir": 1,
             "data": [
@@ -93,10 +93,10 @@
         },
         {
             "id": "obj_D47_tsure_poke_static_kangaskhan",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 3,
             "initial_dir": 1,
             "data": [
@@ -115,7 +115,7 @@
             "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 2,
             "initial_dir": 1,
             "data": [
@@ -134,8 +134,27 @@
             "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 6,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 91,
+            "z": 308,
+            "y": 0
+        },
+        {
+            "id": "obj_D47_gsoldman1",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
+            "script": 7,
             "initial_dir": 1,
             "data": [
                 0,
@@ -149,30 +168,11 @@
             "y": 0
         },
         {
-            "id": "obj_D47_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
-            "script": 7,
-            "initial_dir": 1,
-            "data": [
-                0,
-                0,
-                0
-            ],
-            "movement_range_x": 0,
-            "movement_range_z": 0,
-            "x": 95,
-            "z": 311,
-            "y": 0
-        },
-        {
             "id": "obj_D47_gswoman1",
             "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 8,
             "initial_dir": 1,
             "data": [
@@ -187,13 +187,13 @@
             "y": 0
         },
         {
-            "id": "obj_D47_gswoman2",
+            "clone_id": 6,
             "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 10,
-            "initial_dir": 2,
+            "initial_dir": 1,
             "data": [
                 0,
                 0,
@@ -202,15 +202,15 @@
             "movement_range_x": 0,
             "movement_range_z": 0,
             "x": 97,
-            "z": 314,
+            "z": 294,
             "y": 0
         },
         {
             "id": "obj_D47_tsure_poke_static_butterfree",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 9,
             "initial_dir": 1,
             "data": [
@@ -227,11 +227,11 @@
         {
             "id": "obj_D47_tsure_poke_static_slowpoke",
             "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
-            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 11,
-            "initial_dir": 2,
+            "initial_dir": 1,
             "data": [
                 0,
                 0,
@@ -240,7 +240,7 @@
             "movement_range_x": 0,
             "movement_range_z": 0,
             "x": 98,
-            "z": 314,
+            "z": 294,
             "y": 0
         },
         {
@@ -248,7 +248,7 @@
             "graphics_id": "OBJ_EVENT_GFX_TWIN",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 13,
             "initial_dir": 1,
             "data": [
@@ -318,6 +318,101 @@
             "x": 95,
             "z": 294,
             "y": 0
+        },
+        {
+            "id": "obj_D47_15",
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FE0",
+            "script": 18,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 88,
+            "z": 294,
+            "y": 0
+        },
+        {
+            "clone_id": 15,
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FE0",
+            "script": 18,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 89,
+            "z": 294,
+            "y": 0
+        },
+        {
+            "id": "obj_D47_17",
+            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FDF",
+            "script": 19,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 88,
+            "z": 294,
+            "y": 0
+        },
+        {
+            "id": "obj_D47_18",
+            "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FDF",
+            "script": 20,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 89,
+            "z": 294,
+            "y": 0
+        },
+        {
+            "id": "obj_D47_19",
+            "graphics_id": "OBJ_EVENT_GFX_RILEY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FDF",
+            "script": 21,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 89,
+            "z": 295,
+            "y": 0
         }
     ],
     "warp_events": [
@@ -340,5 +435,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 22,
+            "x": 88,
+            "z": 295,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_SG_6130"
+        }
+    ]
 }

@@ -1,0 +1,56 @@
+{
+    "name": "Vance",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NOCTOWL",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PIDGEOT",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Do you know about the legendary\n",
+                "bird Pokémon?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whew! You’re hot stuff.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Articuno, Zapdos, and Moltres are the\n",
+                "three legendary bird Pokémon.\r",
+                "I heard there are other legendary\n",
+                "birds, though.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "How has it been?\n",
+                "Did you see the legendary Pokémon?\r"
+            ]
+        }
+    ]
+}

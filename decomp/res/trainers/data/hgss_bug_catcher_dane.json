@@ -1,0 +1,101 @@
+{
+    "name": "Cheria",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TROPIUS",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_LEAF_BLADE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_ROOST",
+                "MOVE_TAILWIND"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SWAMPERT",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_SURF",
+                "MOVE_EARTHQUAKE",
+                "MOVE_AVALANCHE",
+                "MOVE_YAWN"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MANECTRIC",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_FLAMETHROWER",
+                "MOVE_CRUNCH",
+                "MOVE_CAPTIVATE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TOGEKISS",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_AURA_SPHERE",
+                "MOVE_EXTREME_SPEED",
+                "MOVE_AIR_SLASH",
+                "MOVE_FLAMETHROWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FLYGON",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_FIRE_BLAST",
+                "MOVE_EARTHQUAKE",
+                "MOVE_U_TURN",
+                "MOVE_GIGA_DRAIN"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Welcome to Viridian Forest.\n",
+                "Enjoy my beautiful Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "That’s wonderful...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Pretty impressive!\r",
+                "I’m sure you can go anywhere with\n",
+                "that skill!\n"
+            ]
+        }
+    ]
+}

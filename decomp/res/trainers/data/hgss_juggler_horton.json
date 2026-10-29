@@ -1,0 +1,72 @@
+{
+    "name": "Horton",
+    "class": "TRAINER_CLASS_HGSS_JUGGLER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 1,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 2,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 3,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 4,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROTOM",
+            "form": 5,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m going to take you down!\n",
+                "Prepare to be shocked!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Gyaaah!\n",
+                "I was overpowered!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Lt. Surge hid the electric fences’\n",
+                "switches at the bottom of something...\r",
+                "There are two switches. Once you’ve\n",
+                "found the first, the second switch\f",
+                "should be right next to it.\n"
+            ]
+        }
+    ]
+}

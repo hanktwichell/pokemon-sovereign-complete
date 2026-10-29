@@ -254,12 +254,12 @@ scr_seq_D32_022:
     GoToIf 1, _0B02
 _045C:
     Message msg_0100_D32_00031
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 347, 0
-    AddMenuEntryImm 348, 1
-    AddMenuEntryImm 349, 2
-    AddMenuEntryImm 350, 3
-    AddMenuEntryImm 439, 4
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 347, 0
+    AddMenuEntry 348, 1
+    AddMenuEntry 349, 2
+    AddMenuEntry 350, 3
+    AddMenuEntry 439, 4
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -273,15 +273,15 @@ _045C:
     GoTo _0B02
 _04D1:
     SetVarFromValue VAR_0x8007, 0
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 354, 0
-    AddMenuEntryImm 355, 1
-    AddMenuEntryImm 356, 2
-    AddMenuEntryImm 357, 3
-    AddMenuEntryImm 358, 4
-    AddMenuEntryImm 359, 5
-    AddMenuEntryImm 379, 6
-    AddMenuEntryImm 440, 7
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 354, 0
+    AddMenuEntry 355, 1
+    AddMenuEntry 356, 2
+    AddMenuEntry 357, 3
+    AddMenuEntry 358, 4
+    AddMenuEntry 359, 5
+    AddMenuEntry 379, 6
+    AddMenuEntry 440, 7
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -300,50 +300,50 @@ _04D1:
     GoToIf 1, _0618
     GoTo _045C
 _0588:
-    SetVarFromValue VAR_0x8004, 46
+    SetVarFromValue VAR_0x8004, ITEM_PROTEIN
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 1
     GoTo _09F3
 _05A0:
-    SetVarFromValue VAR_0x8004, 49
+    SetVarFromValue VAR_0x8004, ITEM_CALCIUM
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 1
     GoTo _09F3
 _05B8:
-    SetVarFromValue VAR_0x8004, 47
+    SetVarFromValue VAR_0x8004, ITEM_IRON
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 1
     GoTo _09F3
 _05D0:
-    SetVarFromValue VAR_0x8004, 52
+    SetVarFromValue VAR_0x8004, ITEM_ZINC
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 1
     GoTo _09F3
 _05E8:
-    SetVarFromValue VAR_0x8004, 48
+    SetVarFromValue VAR_0x8004, ITEM_CARBOS
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 1
     GoTo _09F3
 _0600:
-    SetVarFromValue VAR_0x8004, 45
+    SetVarFromValue VAR_0x8004, ITEM_HP_UP
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 1
     GoTo _09F3
 _0618:
-    SetVarFromValue VAR_0x8004, 50
+    SetVarFromValue VAR_0x8004, ITEM_RARE_CANDY
     SetVarFromValue VAR_0x8005, 48
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _0630:
     SetVarFromValue VAR_0x8007, 1
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 360, 0
-    AddMenuEntryImm 361, 1
-    AddMenuEntryImm 362, 2
-    AddMenuEntryImm 363, 3
-    AddMenuEntryImm 364, 4
-    AddMenuEntryImm 365, 5
-    AddMenuEntryImm 440, 6
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 360, 0
+    AddMenuEntry 361, 1
+    AddMenuEntry 362, 2
+    AddMenuEntry 363, 3
+    AddMenuEntry 364, 4
+    AddMenuEntry 365, 5
+    AddMenuEntry 440, 6
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -360,46 +360,46 @@ _0630:
     GoToIf 1, _074A
     GoTo _045C
 _06D2:
-    SetVarFromValue VAR_0x8004, 289
+    SetVarFromValue VAR_0x8004, ITEM_POWER_BRACER
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _06EA:
-    SetVarFromValue VAR_0x8004, 290
+    SetVarFromValue VAR_0x8004, ITEM_POWER_BELT
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _0702:
-    SetVarFromValue VAR_0x8004, 291
+    SetVarFromValue VAR_0x8004, ITEM_POWER_LENS
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _071A:
-    SetVarFromValue VAR_0x8004, 292
+    SetVarFromValue VAR_0x8004, ITEM_POWER_BAND
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _0732:
-    SetVarFromValue VAR_0x8004, 293
+    SetVarFromValue VAR_0x8004, ITEM_POWER_ANKLET
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _074A:
-    SetVarFromValue VAR_0x8004, 294
+    SetVarFromValue VAR_0x8004, ITEM_POWER_WEIGHT
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _0762:
     SetVarFromValue VAR_0x8007, 2
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 366, 0
-    AddMenuEntryImm 367, 1
-    AddMenuEntryImm 368, 2
-    AddMenuEntryImm 369, 3
-    AddMenuEntryImm 370, 4
-    AddMenuEntryImm 372, 5
-    AddMenuEntryImm 375, 6
-    AddMenuEntryImm 440, 7
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 366, 0
+    AddMenuEntry 367, 1
+    AddMenuEntry 368, 2
+    AddMenuEntry 369, 3
+    AddMenuEntry 370, 4
+    AddMenuEntry 372, 5
+    AddMenuEntry 375, 6
+    AddMenuEntry 440, 7
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -418,50 +418,50 @@ _0762:
     GoToIf 1, _08A9
     GoTo _045C
 _0819:
-    SetVarFromValue VAR_0x8004, 272
+    SetVarFromValue VAR_0x8004, ITEM_TOXIC_ORB
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _0831:
-    SetVarFromValue VAR_0x8004, 273
+    SetVarFromValue VAR_0x8004, ITEM_FLAME_ORB
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 16
     GoTo _09F3
 _0849:
-    SetVarFromValue VAR_0x8004, 214
+    SetVarFromValue VAR_0x8004, ITEM_WHITE_HERB
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 32
     GoTo _09F3
 _0861:
-    SetVarFromValue VAR_0x8004, 271
+    SetVarFromValue VAR_0x8004, ITEM_POWER_HERB
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 32
     GoTo _09F3
 _0879:
-    SetVarFromValue VAR_0x8004, 213
+    SetVarFromValue VAR_0x8004, ITEM_BRIGHTPOWDER
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _0891:
-    SetVarFromValue VAR_0x8004, 230
+    SetVarFromValue VAR_0x8004, ITEM_FOCUS_BAND
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _08A9:
-    SetVarFromValue VAR_0x8004, 275
+    SetVarFromValue VAR_0x8004, ITEM_FOCUS_SASH
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _08C1:
     SetVarFromValue VAR_0x8007, 3
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 371, 0
-    AddMenuEntryImm 376, 1
-    AddMenuEntryImm 373, 2
-    AddMenuEntryImm 374, 3
-    AddMenuEntryImm 377, 4
-    AddMenuEntryImm 378, 5
-    AddMenuEntryImm 440, 7
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 371, 0
+    AddMenuEntry 376, 1
+    AddMenuEntry 373, 2
+    AddMenuEntry 374, 3
+    AddMenuEntry 377, 4
+    AddMenuEntry 378, 5
+    AddMenuEntry 440, 7
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -478,32 +478,32 @@ _08C1:
     GoToIf 1, _09DB
     GoTo _045C
 _0963:
-    SetVarFromValue VAR_0x8004, 220
+    SetVarFromValue VAR_0x8004, ITEM_CHOICE_BAND
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _097B:
-    SetVarFromValue VAR_0x8004, 287
+    SetVarFromValue VAR_0x8004, ITEM_CHOICE_SCARF
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _0993:
-    SetVarFromValue VAR_0x8004, 232
+    SetVarFromValue VAR_0x8004, ITEM_SCOPE_LENS
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _09AB:
-    SetVarFromValue VAR_0x8004, 266
+    SetVarFromValue VAR_0x8004, ITEM_MUSCLE_BAND
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _09C3:
-    SetVarFromValue VAR_0x8004, 326
+    SetVarFromValue VAR_0x8004, ITEM_RAZOR_CLAW
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
 _09DB:
-    SetVarFromValue VAR_0x8004, 327
+    SetVarFromValue VAR_0x8004, ITEM_RAZOR_FANG
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     GoTo _09F3
@@ -549,19 +549,16 @@ _0AB1:
     CompareVar VAR_0x8007, 0
     GoToIf 5, _0ACA
     GoTo _04D1
-_0AC4:
     GoTo _0B02
 _0ACA:
     CompareVar VAR_0x8007, 1
     GoToIf 5, _0AE3
     GoTo _0630
-_0ADD:
     GoTo _0B02
 _0AE3:
     CompareVar VAR_0x8007, 2
     GoToIf 5, _0AFC
     GoTo _0762
-_0AF6:
     GoTo _0B02
 _0AFC:
     GoTo _08C1
@@ -586,11 +583,11 @@ scr_seq_D32_024:
     GoToIf 1, _0B02
 _0B44:
     Message msg_0100_D32_00030
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 351, 0
-    AddMenuEntryImm 352, 1
-    AddMenuEntryImm 353, 2
-    AddMenuEntryImm 439, 4
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 351, 0
+    AddMenuEntry 352, 1
+    AddMenuEntry 353, 2
+    AddMenuEntry 439, 4
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -602,14 +599,14 @@ _0B44:
     GoTo _0B02
 _0BA4:
     SetVarFromValue VAR_0x8007, 0
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 380, 0
-    AddMenuEntryImm 381, 1
-    AddMenuEntryImm 382, 2
-    AddMenuEntryImm 383, 3
-    AddMenuEntryImm 384, 4
-    AddMenuEntryImm 385, 5
-    AddMenuEntryImm 440, 6
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 380, 0
+    AddMenuEntry 381, 1
+    AddMenuEntry 382, 2
+    AddMenuEntry 383, 3
+    AddMenuEntry 384, 4
+    AddMenuEntry 385, 5
+    AddMenuEntry 440, 6
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -626,49 +623,49 @@ _0BA4:
     GoToIf 1, _0CDC
     GoTo _0B44
 _0C46:
-    SetVarFromValue VAR_0x8004, 367
+    SetVarFromValue VAR_0x8004, ITEM_TM40
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 40
     SetVarFromValue VAR_0x8001, 332
     GoTo _0F40
 _0C64:
-    SetVarFromValue VAR_0x8004, 358
+    SetVarFromValue VAR_0x8004, ITEM_TM31
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 40
     SetVarFromValue VAR_0x8001, 280
     GoTo _0F40
 _0C82:
-    SetVarFromValue VAR_0x8004, 416
+    SetVarFromValue VAR_0x8004, ITEM_TM89
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 40
     SetVarFromValue VAR_0x8001, 369
     GoTo _0F40
 _0CA0:
-    SetVarFromValue VAR_0x8004, 408
+    SetVarFromValue VAR_0x8004, ITEM_TM81
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 64
     SetVarFromValue VAR_0x8001, 404
     GoTo _0F40
 _0CBE:
-    SetVarFromValue VAR_0x8004, 398
+    SetVarFromValue VAR_0x8004, ITEM_TM71
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 80
     SetVarFromValue VAR_0x8001, 444
     GoTo _0F40
 _0CDC:
-    SetVarFromValue VAR_0x8004, 353
+    SetVarFromValue VAR_0x8004, ITEM_TM26
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 80
     SetVarFromValue VAR_0x8001, 89
     GoTo _0F40
 _0CFA:
     SetVarFromValue VAR_0x8007, 1
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 386, 0
-    AddMenuEntryImm 387, 1
-    AddMenuEntryImm 388, 2
-    AddMenuEntryImm 389, 3
-    AddMenuEntryImm 440, 4
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 386, 0
+    AddMenuEntry 387, 1
+    AddMenuEntry 388, 2
+    AddMenuEntry 389, 3
+    AddMenuEntry 440, 4
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -681,39 +678,39 @@ _0CFA:
     GoToIf 1, _0DCC
     GoTo _0B44
 _0D72:
-    SetVarFromValue VAR_0x8004, 357
+    SetVarFromValue VAR_0x8004, ITEM_TM30
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 64
     SetVarFromValue VAR_0x8001, 247
     GoTo _0F40
 _0D90:
-    SetVarFromValue VAR_0x8004, 380
+    SetVarFromValue VAR_0x8004, ITEM_TM53
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 64
     SetVarFromValue VAR_0x8001, 412
     GoTo _0F40
 _0DAE:
-    SetVarFromValue VAR_0x8004, 363
+    SetVarFromValue VAR_0x8004, ITEM_TM36
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 80
     SetVarFromValue VAR_0x8001, 188
     GoTo _0F40
 _0DCC:
-    SetVarFromValue VAR_0x8004, 386
+    SetVarFromValue VAR_0x8004, ITEM_TM59
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 80
     SetVarFromValue VAR_0x8001, 406
     GoTo _0F40
 _0DEA:
     SetVarFromValue VAR_0x8007, 2
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 390, 0
-    AddMenuEntryImm 391, 1
-    AddMenuEntryImm 392, 2
-    AddMenuEntryImm 393, 3
-    AddMenuEntryImm 394, 4
-    AddMenuEntryImm 395, 5
-    AddMenuEntryImm 440, 6
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 390, 0
+    AddMenuEntry 391, 1
+    AddMenuEntry 392, 2
+    AddMenuEntry 393, 3
+    AddMenuEntry 394, 4
+    AddMenuEntry 395, 5
+    AddMenuEntry 440, 6
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -730,37 +727,37 @@ _0DEA:
     GoToIf 1, _0F22
     GoTo _0B44
 _0E8C:
-    SetVarFromValue VAR_0x8004, 333
+    SetVarFromValue VAR_0x8004, ITEM_TM06
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 32
     SetVarFromValue VAR_0x8001, 92
     GoTo _0F40
 _0EAA:
-    SetVarFromValue VAR_0x8004, 400
+    SetVarFromValue VAR_0x8004, ITEM_TM73
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 32
     SetVarFromValue VAR_0x8001, 86
     GoTo _0F40
 _0EC8:
-    SetVarFromValue VAR_0x8004, 388
+    SetVarFromValue VAR_0x8004, ITEM_TM61
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 32
     SetVarFromValue VAR_0x8001, 261
     GoTo _0F40
 _0EE6:
-    SetVarFromValue VAR_0x8004, 372
+    SetVarFromValue VAR_0x8004, ITEM_TM45
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 32
     SetVarFromValue VAR_0x8001, 213
     GoTo _0F40
 _0F04:
-    SetVarFromValue VAR_0x8004, 335
+    SetVarFromValue VAR_0x8004, ITEM_TM08
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     SetVarFromValue VAR_0x8001, 339
     GoTo _0F40
 _0F22:
-    SetVarFromValue VAR_0x8004, 331
+    SetVarFromValue VAR_0x8004, ITEM_TM04
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 48
     SetVarFromValue VAR_0x8001, 347
@@ -780,13 +777,11 @@ _0F76:
     CompareVar VAR_0x8007, 0
     GoToIf 5, _0F8F
     GoTo _0BA4
-_0F89:
     GoTo scr_seq_D32_023
 _0F8F:
     CompareVar VAR_0x8007, 1
     GoToIf 5, _0FA8
     GoTo _0CFA
-_0FA2:
     GoTo scr_seq_D32_023
 _0FA8:
     GoTo _0DEA

@@ -1,0 +1,50 @@
+{
+    "name": "Larry",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SLOWPOKE",
+            "form": 0,
+            "level": 15,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CUBONE",
+            "form": 0,
+            "level": 15,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I roam far and wide in search of\n",
+                "Pokémon.\r",
+                "Are you looking for Pokémon, too?\n",
+                "Then you’re my collecting rival!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ugh. My poor Pokémon...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Every Friday, you can hear Pokémon\n",
+                "roars from deep inside the cave.\n"
+            ]
+        }
+    ]
+}

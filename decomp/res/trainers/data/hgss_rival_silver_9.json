@@ -1,0 +1,124 @@
+{
+    "name": "Silver",
+    "class": "TRAINER_CLASS_HGSS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HONCHKROW",
+            "form": 0,
+            "level": 50,
+            "moves": [
+                "MOVE_DRILL_PECK",
+                "MOVE_DARK_PULSE",
+                "MOVE_NASTY_PLOT",
+                "MOVE_HEAT_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 50,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_RECOVER",
+                "MOVE_ENERGY_BALL",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDERBOLT",
+                "MOVE_ENERGY_BALL",
+                "MOVE_DESTINY_BOND"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTIVIRE",
+            "form": 0,
+            "level": 51,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_ICE_PUNCH",
+                "MOVE_EARTHQUAKE",
+                "MOVE_LIGHT_SCREEN"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 51,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_YAWN",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TYPHLOSION",
+            "form": 0,
+            "level": 53,
+            "moves": [
+                "MOVE_FIRE_BLAST",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_LOW_KICK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "I see. Seems it wasn’t just luck that’s\n",
+                "gotten you this far.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Humph! You were too strong...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...I couldn’t win...\r",
+                "I gave it everything I had...\r",
+                "What you possess, and what I lack...\n",
+                "I’m beginning to understand what\r",
+                "that Dragon Tamer said to me...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_WIN",
+            "en_US": [
+                "...Humph!\r",
+                "I knew it. Strength is everything.\n",
+                "Nothing else matters.\n"
+            ]
+        }
+    ]
+}

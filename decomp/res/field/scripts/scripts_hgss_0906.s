@@ -41,14 +41,13 @@ scr_seq_T25R1101_032:
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _00A3
     GoTo _00AB
-_009D:
     GoTo _00A9
 _00A3:
     GoTo _00FC
 _00A9:
     End
 _00AB:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _00C6
     SetFlag FLAG_HGSS_UNK_2DA
@@ -90,7 +89,7 @@ _013D:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0177
     @ HGSS: ScriptOverlayCmd 3, 0
-    @ HGSS: CheckCoinsImmediate VAR_SPECIAL_RESULT, 3
+    HasCoinsFromValue VAR_RESULT, 3
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0186
     @ HGSS: ScriptOverlayCmd 3, 1
@@ -441,12 +440,12 @@ _069B:
     @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0599_T25R1101_00002
     @ HGSS: ScrCmd_116 0, 20, 2
-    @ HGSS: ShowMoneyBox 20, 7
+    ShowMoney 20, 7
 _06B1:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 127, 0
-    AddMenuEntryImm 128, 1
-    AddMenuEntryImm 129, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 127, 0
+    AddMenuEntry 128, 1
+    AddMenuEntry 129, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -460,14 +459,14 @@ _06FE:
     CheckMoney VAR_RESULT, 1000
     CompareVar VAR_RESULT, 0
     GoToIf 1, _07A1
-    @ HGSS: CheckGiveCoins VAR_SPECIAL_RESULT, 50
+    CheckCanAddCoins VAR_RESULT, 50
     Noop
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0796
     RemoveMoney 1000
-    @ HGSS: GiveCoins 50
+    AddCoins 50
     @ HGSS: ScrCmd_118 0
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
     Message msg_0599_T25R1101_00003
@@ -477,14 +476,14 @@ _074A:
     CheckMoney VAR_RESULT, 10000
     CompareVar VAR_RESULT, 0
     GoToIf 1, _07A1
-    @ HGSS: CheckGiveCoins VAR_SPECIAL_RESULT, 500
+    CheckCanAddCoins VAR_RESULT, 500
     Noop
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0796
     RemoveMoney 10000
-    @ HGSS: GiveCoins 500
+    AddCoins 500
     @ HGSS: ScrCmd_118 0
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
     Message msg_0599_T25R1101_00003
@@ -513,9 +512,9 @@ scr_seq_T25R1101_001:
     @ HGSS: ScrCmd_116 0, 20, 2
 _07CE:
     InitLocalTextMenu 1, 1, 0, VAR_MAP_LOCAL_0x00, 1
-    AddMenuEntryImm 37, 0
-    AddMenuEntryImm 38, 1
-    AddMenuEntryImm 36, 2
+    AddMenuEntry 37, 0
+    AddMenuEntry 38, 1
+    AddMenuEntry 36, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 0
@@ -525,13 +524,13 @@ _07CE:
     GoTo _11F9
 _0816:
     InitLocalTextMenu 1, 1, 0, VAR_MAP_LOCAL_0x00, 1
-    AddMenuEntryImm 39, 0
-    AddMenuEntryImm 40, 1
-    AddMenuEntryImm 41, 2
-    AddMenuEntryImm 42, 3
-    AddMenuEntryImm 43, 4
-    AddMenuEntryImm 44, 5
-    AddMenuEntryImm 36, 6
+    AddMenuEntry 39, 0
+    AddMenuEntry 40, 1
+    AddMenuEntry 41, 2
+    AddMenuEntry 42, 3
+    AddMenuEntry 43, 4
+    AddMenuEntry 44, 5
+    AddMenuEntry 36, 6
     ShowMenu
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 0
@@ -549,11 +548,11 @@ _0816:
     GoTo _07CE
 _08B2:
     InitLocalTextMenu 1, 1, 0, VAR_MAP_LOCAL_0x00, 1
-    AddMenuEntryImm 45, 0
-    AddMenuEntryImm 46, 1
-    AddMenuEntryImm 47, 2
-    AddMenuEntryImm 48, 3
-    AddMenuEntryImm 36, 4
+    AddMenuEntry 45, 0
+    AddMenuEntry 46, 1
+    AddMenuEntry 47, 2
+    AddMenuEntry 48, 3
+    AddMenuEntry 36, 4
     ShowMenu
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 0
@@ -856,16 +855,15 @@ scr_seq_T25R1101_002:
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0EC7
     GoTo _0ECD
-_0EC1:
     GoTo _0ECD
 _0EC7:
     GoTo _0F2A
 _0ECD:
     InitLocalTextMenu 1, 1, 0, VAR_MAP_LOCAL_0x00, 1
-    AddMenuEntryImm 49, 0
-    AddMenuEntryImm 50, 1
-    AddMenuEntryImm 51, 2
-    AddMenuEntryImm 36, 3
+    AddMenuEntry 49, 0
+    AddMenuEntry 50, 1
+    AddMenuEntry 51, 2
+    AddMenuEntry 36, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 0
@@ -877,10 +875,10 @@ _0ECD:
     GoTo _11F9
 _0F2A:
     InitLocalTextMenu 1, 1, 0, VAR_MAP_LOCAL_0x00, 1
-    AddMenuEntryImm 49, 0
-    AddMenuEntryImm 52, 1
-    AddMenuEntryImm 51, 2
-    AddMenuEntryImm 36, 3
+    AddMenuEntry 49, 0
+    AddMenuEntry 52, 1
+    AddMenuEntry 51, 2
+    AddMenuEntry 36, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 0
@@ -891,16 +889,16 @@ _0F2A:
     GoToIf 1, _0F9F
     GoTo _11F9
 _0F87:
-    @ HGSS: SetOrCopyVar VAR_TEMP_x4002, 63
+    SetVar VAR_MAP_LOCAL_0x02, 63
     GoTo _0FB7
 _0F93:
-    @ HGSS: SetOrCopyVar VAR_TEMP_x4002, 23
+    SetVar VAR_MAP_LOCAL_0x02, 23
     GoTo _0FB7
 _0F9F:
-    @ HGSS: SetOrCopyVar VAR_TEMP_x4002, 147
+    SetVar VAR_MAP_LOCAL_0x02, 147
     GoTo _0FB7
 _0FAB:
-    @ HGSS: SetOrCopyVar VAR_TEMP_x4002, 27
+    SetVar VAR_MAP_LOCAL_0x02, 27
     GoTo _0FB7
 _0FB7:
     GetPartyCount VAR_0x8005
@@ -921,7 +919,6 @@ _0FD5:
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _1010
     GoTo _0ECD
-_100A:
     GoTo _1016
 _1010:
     GoTo _0F2A
@@ -953,7 +950,7 @@ _1082:
 _1093:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
-    @ HGSS: GiveMon VAR_TEMP_x4002, 15, 0, 0, 0, VAR_SPECIAL_RESULT
+    GivePokemon VAR_MAP_LOCAL_0x02, 15, 0, VAR_RESULT
     BufferPlayerName 0
     BufferSpeciesNameFromVar 1, VAR_MAP_LOCAL_0x02, 0, 0
     Message msg_0599_T25R1101_00015
@@ -979,7 +976,6 @@ _10FF:
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _111F
     GoTo _0ECD
-_1119:
     GoTo _1125
 _111F:
     GoTo _0F2A
@@ -992,37 +988,31 @@ _112C:
     CompareVar VAR_0x8004, 417
     GoToIf 5, _1145
     GoTo _0816
-_113F:
     GoTo _11C8
 _1145:
     CompareVar VAR_0x8004, 402
     GoToIf 5, _115E
     GoTo _0816
-_1158:
     GoTo _11C8
 _115E:
     CompareVar VAR_0x8004, 371
     GoToIf 5, _1177
     GoTo _0816
-_1171:
     GoTo _11C8
 _1177:
     CompareVar VAR_0x8004, 362
     GoToIf 5, _1190
     GoTo _0816
-_118A:
     GoTo _11C8
 _1190:
     CompareVar VAR_0x8004, 340
     GoToIf 5, _11A9
     GoTo _0816
-_11A3:
     GoTo _11C8
 _11A9:
     CompareVar VAR_0x8004, 351
     GoToIf 5, _11C2
     GoTo _0816
-_11BC:
     GoTo _11C8
 _11C2:
     GoTo _08B2
@@ -1036,7 +1026,6 @@ _11D3:
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _11F3
     GoTo _0ECD
-_11ED:
     GoTo _11F9
 _11F3:
     GoTo _0F2A

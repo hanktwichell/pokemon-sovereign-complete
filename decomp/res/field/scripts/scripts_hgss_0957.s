@@ -62,13 +62,13 @@ _00D2:
 _00EC:
     @ HGSS: ScrCmd_064 31, 3, 0, 1, VAR_SPECIAL_RESULT
     @ HGSS: ScrCmd_841 1
-    AddMenuEntryImm 168, 0
-    AddMenuEntryImm 59, 1
-    AddMenuEntryImm 52, 2
-    AddMenuEntryImm 23, 3
-    AddMenuEntryImm 142, 4
-    AddMenuEntryImm 141, 5
-    AddMenuEntryImm 24, 99
+    AddMenuEntryImm msg_0738_UNION_00168, 0
+    AddMenuEntryImm msg_0738_UNION_00059, 1
+    AddMenuEntryImm msg_0738_UNION_00052, 2
+    AddMenuEntryImm msg_0738_UNION_00023, 3
+    AddMenuEntryImm msg_0738_UNION_00142, 4
+    AddMenuEntryImm msg_0738_UNION_00141, 5
+    AddMenuEntryImm msg_0738_UNION_00024, 99
     @ HGSS: ScrCmd_585
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -113,7 +113,7 @@ _01A1:
     GoTo _00D2
     End
 _01ED:
-    @ HGSS: PartyCountNotEgg VAR_SPECIAL_RESULT
+    CountPartyNonEggs VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0264
     @ HGSS: ScrCmd_271 0, 3
@@ -197,7 +197,7 @@ _0353:
     GoToIf 1, _06C6
     @ HGSS: ScrCmd_267 1, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
-    @ HGSS: WaitButtonOrDelay 30
+    WaitABPressTime 30
     @ HGSS: ScrCmd_257 4
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -219,7 +219,7 @@ _03B3:
     GoToIf 1, _0726
     @ HGSS: ScrCmd_267 1, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
-    @ HGSS: WaitButtonOrDelay 30
+    WaitABPressTime 30
     @ HGSS: ScrCmd_257 5
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -230,7 +230,7 @@ _03B3:
     GoTo _0478
     End
 _03F6:
-    @ HGSS: PartyCountEgg VAR_SPECIAL_RESULT
+    CountPartyEggs VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _074F
     @ HGSS: ScrCmd_630 VAR_SPECIAL_RESULT
@@ -247,7 +247,7 @@ _0435:
     GoToIf 1, _076C
     @ HGSS: ScrCmd_267 1, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
-    @ HGSS: WaitButtonOrDelay 30
+    WaitABPressTime 30
     @ HGSS: ScrCmd_257 6
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -260,7 +260,6 @@ _0435:
 _0478:
     ReleaseAll
     End
-_047C:
     @ HGSS: ScrCmd_271 0, 1
     CloseMessage
     ReleaseAll
@@ -312,7 +311,7 @@ _0528:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _066C
-    @ HGSS: PartyCountEgg VAR_SPECIAL_RESULT
+    CountPartyEggs VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0698
     @ HGSS: PartyLegalCheck VAR_SPECIAL_RESULT
@@ -420,7 +419,6 @@ _06F6:
     WaitTime 30, VAR_RESULT
     GoTo _07BC
     End
-_071E:
     @ HGSS: ScrCmd_267 7, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
     WaitTime 30, VAR_RESULT
@@ -482,7 +480,7 @@ _07CC:
     PlaySE SEQ_SE_DP_BUTTON9_sseq
     @ HGSS: ScrCmd_264 1
     @ HGSS: ScrCmd_592 7
-    @ HGSS: WaitButtonOrDelay 30
+    WaitABPressTime 30
     GoTo _07E4
     End
 _07E4:
@@ -541,7 +539,7 @@ _08DB:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0952
-    @ HGSS: PartyCountNotEgg VAR_SPECIAL_RESULT
+    CountPartyNonEggs VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0963
     @ HGSS: ScrCmd_271 1, 0
@@ -648,7 +646,7 @@ _0AA2:
     GoToIf 1, _0A22
     @ HGSS: ScrCmd_271 1, 0
     CloseMessage
-    @ HGSS: PartyCountEgg VAR_SPECIAL_RESULT
+    CountPartyEggs VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _073E
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
@@ -719,7 +717,6 @@ _0BC2:
     @ HGSS: ScrCmd_266
     ReleaseAll
     End
-_0BCE:
     @ HGSS: ScrCmd_271 1, 1
     CloseMessage
     ReleaseAll
@@ -749,10 +746,10 @@ _0C1F:
 _0C2E:
     CallIfUnset FLAG_HGSS_UNK_069, _0C8C
     SetFlag FLAG_HGSS_UNK_069
-    InitGlobalTextMenu 21, 11, 0, VAR_RESULT, 1
-    AddMenuEntryImm 11, 0
-    AddMenuEntryImm 169, 1
-    AddMenuEntryImm 24, 2
+    CompleteInitHGSSMenu 21, 11, 0, VAR_RESULT, 1
+    AddMenuEntry 11, 0
+    AddMenuEntry 169, 1
+    AddMenuEntry 24, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -779,14 +776,14 @@ _0CA5:
     End
 _0CAF:
     Message msg_0738_UNION_00159
-    InitGlobalTextMenu 24, 3, 0, VAR_RESULT, 1
-    AddMenuEntryImm 52, 0
-    AddMenuEntryImm 23, 1
-    AddMenuEntryImm 142, 2
-    AddMenuEntryImm 59, 3
-    AddMenuEntryImm 170, 4
-    AddMenuEntryImm 141, 5
-    AddMenuEntryImm 13, 6
+    CompleteInitHGSSMenu 24, 3, 0, VAR_RESULT, 1
+    AddMenuEntry 52, 0
+    AddMenuEntry 23, 1
+    AddMenuEntry 142, 2
+    AddMenuEntry 59, 3
+    AddMenuEntry 170, 4
+    AddMenuEntry 141, 5
+    AddMenuEntry 13, 6
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -827,7 +824,6 @@ _0D9B:
     Message msg_0738_UNION_00163
     GoTo _0CAF
     End
-_0DAA:
     GoTo _0C2E
     End
     .balign 4, 0

@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8498,
             "type": 2,
             "x": 1035,
             "z": 101,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8499,
             "type": 2,
             "x": 1068,
             "z": 108,
@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8527,
             "type": 2,
             "x": 1038,
             "z": 119,
@@ -178,7 +178,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T03_WISE_GLASSES",
-            "script": 0,
+            "script": 7546,
             "initial_dir": 0,
             "data": [
                 0,
@@ -265,6 +265,25 @@
             "movement_range_z": 0,
             "x": 1039,
             "z": 83,
+            "y": 0
+        },
+        {
+            "id": "obj_T03_11",
+            "graphics_id": "OBJ_EVENT_GFX_CYNTHIA",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 16,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1068,
+            "z": 77,
             "y": 0
         }
     ],

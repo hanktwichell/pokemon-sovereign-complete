@@ -4,7 +4,7 @@
     {
       "id": "msg_0509_T07R0501_00000",
       "en_US": [
-        "I wanted PORYGON, but I was short\n",
+        "I wanted Porygon, but I was short\n",
         "by 100 Coins..."
       ]
     },
@@ -230,15 +230,15 @@
     },
     {
       "id": "msg_0509_T07R0501_00033",
-      "en_US": "MR. MIME{CURSOR_X 90}3,333 Coins"
+      "en_US": "Tyrogue{CURSOR_X 90}1,500 Coins"
     },
     {
       "id": "msg_0509_T07R0501_00034",
-      "en_US": "EEVEE{CURSOR_X 90}6,666 Coins"
+      "en_US": "Eevee{CURSOR_X 90}3,000 Coins"
     },
     {
       "id": "msg_0509_T07R0501_00035",
-      "en_US": "PORYGON{CURSOR_X 90}9,999 Coins"
+      "en_US": "Metang{CURSOR_X 90}4,500 Coins"
     }
   ]
 }

@@ -5,11 +5,10 @@
       "id": "msg_0070_D23R0106_00000",
       "en_US": [
         "Archer: Oh? You managed to get\n",
-        "this far...?\f",
+        "this far yet again...?\f",
         "You must be quite the Trainer.\r",
-        "We intend to take over this\n",
-        "Radio Tower and officially announce\f",
-        "our comeback.\r",
+        "We have taken over this Radio Tower\n",
+        "and officially announced our comeback.\r",
         "That should bring our boss Giovanni\n",
         "back from his solitary training.\r",
         "We are going to regain our\n",
@@ -121,6 +120,37 @@
         "This is what they call Fake Out.\r",
         "I really must go back to my office this\n",
         "time. See ya!\r"
+      ]
+    },
+    {
+      "id": "msg_0070_D23R0106_00010",
+      "en_US": [
+        "Archer: Giovanni, sir!\n",
+        "You’ve returned!"
+      ]
+    },
+    {
+      "id": "msg_0070_D23R0106_00011",
+      "en_US": [
+        "Giovanni: So, once again a child\n",
+        "defeats Team Rocket...\r",
+        "Is Team Rocket forever doomed to be\n",
+        "defeated by mere children...?\r",
+        "..."
+      ]
+    },
+    {
+      "id": "msg_0070_D23R0106_00012",
+      "en_US": [
+        "Giovanni: My arrival is marked by a\n",
+        "kid beating a Team Rocket executive?\r",
+        "Disgraceful.\r",
+        "Listen, kid. You’ve gotten yourself\n",
+        "involved in grown-up matters.\r",
+        "I will show you the power of Team\n",
+        "Rocket, and the fruits of our plans!\r",
+        "Prepare to experience a world of\n",
+        "pain!\r"
       ]
     }
   ]

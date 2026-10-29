@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8445,
             "type": 2,
             "x": 1095,
             "z": 121,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8438,
             "type": 2,
             "x": 1100,
             "z": 116,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8439,
             "type": 2,
             "x": 1160,
             "z": 105,
@@ -70,9 +70,9 @@
             "id": "obj_R03_gsboy2",
             "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_YOUNGSTER_WARREN",
             "initial_dir": 2,
             "data": [
                 4,
@@ -89,9 +89,9 @@
             "id": "obj_R03_fire",
             "graphics_id": "OBJ_EVENT_GFX_VENT",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FIREBREATHER_OTIS",
             "initial_dir": 0,
             "data": [
                 4,
@@ -108,9 +108,9 @@
             "id": "obj_R03_gsboy2_2",
             "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_YOUNGSTER_JIMMY",
             "initial_dir": 2,
             "data": [
                 4,
@@ -127,9 +127,9 @@
             "id": "obj_R03_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_DOUBLE_TEAM_ZAC_AND_JEN",
             "initial_dir": 1,
             "data": [
                 3,
@@ -146,9 +146,9 @@
             "id": "obj_R03_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_DOUBLE_TEAM_ZAC_AND_JEN",
             "initial_dir": 1,
             "data": [
                 3,
@@ -159,15 +159,16 @@
             "movement_range_z": 0,
             "x": 1105,
             "z": 107,
-            "y": 0
+            "y": 0,
+            "double_battle_id": 2
         },
         {
             "id": "obj_R03_fire_2",
             "graphics_id": "OBJ_EVENT_GFX_VENT",
             "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FIREBREATHER_BURT",
             "initial_dir": 1,
             "data": [
                 3,
@@ -184,9 +185,9 @@
             "id": "obj_R03_mount_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_BRUCE",
             "initial_dir": 1,
             "data": [
                 4,
@@ -203,9 +204,9 @@
             "id": "obj_R03_gsfighter",
             "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BLACK_BELT_MANFORD",
             "initial_dir": 3,
             "data": [
                 5,
@@ -222,9 +223,9 @@
             "id": "obj_R03_gsfighter_2",
             "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BLACK_BELT_ANDER",
             "initial_dir": 0,
             "data": [
                 4,
@@ -241,9 +242,9 @@
             "id": "obj_R03_mount_2_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_DWIGHT",
             "initial_dir": 2,
             "data": [
                 5,
@@ -260,9 +261,9 @@
             "id": "obj_R03_gsboy2_3",
             "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_YOUNGSTER_REGIS",
             "initial_dir": 2,
             "data": [
                 6,
@@ -281,7 +282,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R03_BIG_ROOT",
-            "script": 0,
+            "script": 7547,
             "initial_dir": 0,
             "data": [
                 0,
@@ -426,6 +427,44 @@
             "x": 1171,
             "z": 113,
             "y": 0
+        },
+        {
+            "id": "obj_R03_19",
+            "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_GOT_TM80_FROM_BROCK",
+            "script": 6,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1172,
+            "z": 103,
+            "y": 0
+        },
+        {
+            "id": "obj_R03_20",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F98",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
         }
     ],
     "warp_events": [
@@ -442,5 +481,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 8,
+            "x": 1097,
+            "z": 117,
+            "width": 1,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_SG_6132"
+        }
+    ]
 }

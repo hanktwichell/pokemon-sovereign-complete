@@ -4,35 +4,25 @@
     {
       "id": "msg_0381_R32PC0101_00000",
       "en_US": [
-        "This area is great for fishing.\n",
-        "Looking at all those people fishing,\f",
-        "did you feel like you wanted to try\f",
-        "fishing, too?\r",
-        "Would you like one of my Rods? {YESNO 0}"
+        "This area is great for fishing. You\n",
+        "can see loads of Water-type Pokémon.\r",
+        "Do you like Water-type Pokémon? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0381_R32PC0101_00001",
-      "garbage": 31
+      "garbage": 0
     },
     {
       "id": "msg_0381_R32PC0101_00002",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0381_R32PC0101_00003",
       "en_US": [
-        "When you want to go fishing,\n",
-        "face the water and use the Rod first.\r",
-        "Then concentrate and look closely\n",
-        "at the water!\r",
-        "An “!” appears when a Pokémon\n",
-        "has taken a bite!\r",
-        "Press the A Button quickly to pull back\n",
-        "on the line.\r",
-        "You’ll see what happens next.\r",
-        "If there’s water, be it the sea or\n",
-        "a stream, try out your Rod."
+        "That TM contains Water Pulse!\r",
+        "It pairs well with any Water\n",
+        "Pokémon you might come across."
       ]
     },
     {
@@ -111,6 +101,24 @@
         "be sure to visit him.\r",
         "Apricorn, Apricornier, Apricorniest!"
       ]
+    },
+    {
+      "id": "msg_0381_R32PC0101_00012",
+      "en_US": [
+        "This area is great for fishing.\n",
+        "Looking at all those people fishing,\f",
+        "did you feel like you wanted to try\f",
+        "fishing, too?\r",
+        "Do you like fishing, lass?{YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0381_R32PC0101_00013",
+      "en_US": "Wooper: Upah!"
+    },
+    {
+      "id": "msg_0381_R32PC0101_00014",
+      "en_US": "Fantastic! You should take this TM!\r"
     }
   ]
 }

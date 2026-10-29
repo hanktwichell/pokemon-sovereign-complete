@@ -1,0 +1,229 @@
+{
+    "map": "R37",
+    "land": {
+        "rate": 25,
+        "slots": [
+            {
+                "level": 21,
+                "morning": "SPECIES_GROWLITHE",
+                "day": "SPECIES_GROWLITHE",
+                "night": "SPECIES_GROWLITHE"
+            },
+            {
+                "level": 21,
+                "morning": "SPECIES_VULPIX",
+                "day": "SPECIES_VULPIX",
+                "night": "SPECIES_VULPIX"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_NIDORINO",
+                "day": "SPECIES_NIDORINO",
+                "night": "SPECIES_LINOONE"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_LEDIAN",
+                "day": "SPECIES_LEDIAN",
+                "night": "SPECIES_ARIADOS"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_NOCTOWL"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_NIDORINA",
+                "day": "SPECIES_NIDORINA",
+                "night": "SPECIES_MIGHTYENA"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_ZANGOOSE",
+                "day": "SPECIES_ZANGOOSE",
+                "night": "SPECIES_ZANGOOSE"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_SEVIPER",
+                "day": "SPECIES_SEVIPER",
+                "night": "SPECIES_SEVIPER"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_STANTLER",
+                "day": "SPECIES_STANTLER",
+                "night": "SPECIES_STANTLER"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_STANTLER",
+                "day": "SPECIES_STANTLER",
+                "night": "SPECIES_STANTLER"
+            },
+            {
+                "level": 24,
+                "morning": "SPECIES_STANTLER",
+                "day": "SPECIES_STANTLER",
+                "night": "SPECIES_STANTLER"
+            },
+            {
+                "level": 24,
+                "morning": "SPECIES_STANTLER",
+                "day": "SPECIES_STANTLER",
+                "night": "SPECIES_STANTLER"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_ARCANINE",
+        "SPECIES_NINETALES"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_ZANGOOSE",
+        "SPECIES_SEVIPER"
+    ],
+    "swarm": {
+        "land": "SPECIES_LEDYBA",
+        "surf": "SPECIES_NONE",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

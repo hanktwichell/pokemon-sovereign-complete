@@ -56,13 +56,13 @@ scr_seq_D32R0101_001:
     GoTo _012B
     End
 _00A6:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 451, 0
-    AddMenuEntryImm 452, 1
-    AddMenuEntryImm 453, 2
-    AddMenuEntryImm 454, 3
-    AddMenuEntryImm 455, 4
-    AddMenuEntryImm 456, 5
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 451, 0
+    AddMenuEntry 452, 1
+    AddMenuEntry 453, 2
+    AddMenuEntry 454, 3
+    AddMenuEntry 455, 4
+    AddMenuEntry 456, 5
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0

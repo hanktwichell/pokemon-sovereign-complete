@@ -268,6 +268,12 @@ def way_in_to(maps, matrix, grid, cur, header, taken, fallback):
     return way_in(maps, matrix, own, taken) or fallback
 
 
+def object_key(o):
+    """An object's name: its id, or for a clone (a second object with another's local ID, as HeartGold's maps have;
+    Sovereign Complete) its local ID and tile."""
+    return o['id'] if 'id' in o else f"clone_{o['clone_id']}@{o['x']},{o['z']}"
+
+
 def cases():
     """[(events, object id, header ID, (x, z) of the map's way in, x, z, facing, or None when no tile)] for each added
     or moved object."""
@@ -287,7 +293,7 @@ def cases():
                 continue
             header = header_at(headers_of, grid, x, z)
             stand = stand_next_to(maps, matrix, grid, warps, taken, x, z)
-            out.append((events, o['id'], ids.index(header), way_in_to(maps, matrix, grid, cur, header, taken,
+            out.append((events, object_key(o), ids.index(header), way_in_to(maps, matrix, grid, cur, header, taken,
                                                                        stand[:2])) + stand)
     return out
 
@@ -306,15 +312,15 @@ def object_scripts(events, oid):
     """(the object's script, the scripts of the other objects on its tile, the scripts of the map's other objects)."""
     path = os.path.join('decomp', 'res', 'field', 'events', events + '.json')
     objs = json.load(open(path))['object_events']
-    obj = next(o for o in objs if o['id'] == oid)
-    others = [o for o in objs if o['id'] != oid]
+    obj = next(o for o in objs if object_key(o) == oid)
+    others = [o for o in objs if object_key(o) != oid]
     return (script_id(obj), {script_id(o) for o in others if (o['x'], o['z']) == (obj['x'], obj['z'])},
             {script_id(o) for o in others})
 
 
 def object_event(events, oid):
     path = os.path.join('decomp', 'res', 'field', 'events', events + '.json')
-    return next(o for o in json.load(open(path))['object_events'] if o['id'] == oid)
+    return next(o for o in json.load(open(path))['object_events'] if object_key(o) == oid)
 
 
 def hidden_flag(events, oid):

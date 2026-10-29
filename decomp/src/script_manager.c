@@ -26,6 +26,8 @@
 #include "trainer_data.h"
 #include "vars_flags.h"
 
+#include "complete_trainers.h" // Sovereign Complete
+
 #ifdef SOVEREIGN_TEST
 #include "generated/abilities.h"
 #include "generated/items.h"
@@ -545,21 +547,26 @@ BOOL Script_IsTrainerDoubleBattle(u16 trainerID)
 
 BOOL Script_IsTrainerDefeated(FieldSystem *fieldSystem, u16 trainerID)
 {
-    return VarsFlags_CheckFlag(SaveData_GetVarsFlags(fieldSystem->saveData), TRAINER_DEFEATED_FLAGS_START + trainerID);
+    return VarsFlags_CheckFlag(SaveData_GetVarsFlags(fieldSystem->saveData), Trainer_DefeatedFlag(trainerID)); // Sovereign Complete
 }
 
 void Script_SetTrainerDefeated(FieldSystem *fieldSystem, u16 trainerID)
 {
-    VarsFlags_SetFlag(SaveData_GetVarsFlags(fieldSystem->saveData), TRAINER_DEFEATED_FLAGS_START + trainerID);
+    VarsFlags_SetFlag(SaveData_GetVarsFlags(fieldSystem->saveData), Trainer_DefeatedFlag(trainerID)); // Sovereign Complete
 }
 
 void Script_ClearTrainerDefeated(FieldSystem *fieldSystem, u16 trainerID)
 {
-    VarsFlags_ClearFlag(SaveData_GetVarsFlags(fieldSystem->saveData), TRAINER_DEFEATED_FLAGS_START + trainerID);
+    VarsFlags_ClearFlag(SaveData_GetVarsFlags(fieldSystem->saveData), Trainer_DefeatedFlag(trainerID)); // Sovereign Complete
 }
 
 u16 Script_GetHiddenItemFlag(u16 scriptID)
 {
+    // Sovereign Complete: Johto's and Kanto's hidden items keep HeartGold's flags (include/complete_items.h)
+    if (scriptID >= SCRIPT_ID_OFFSET_HIDDEN_ITEMS + HGSS_HIDDEN_ITEMS_START) {
+        return COMPLETE_FLAGS_START + HGSS_HIDDEN_ITEMS_FLAG_BASE + scriptID - SCRIPT_ID_OFFSET_HIDDEN_ITEMS - HGSS_HIDDEN_ITEMS_START;
+    }
+
     return scriptID - SCRIPT_ID_OFFSET_HIDDEN_ITEMS + HIDDEN_ITEM_FLAGS_START;
 }
 

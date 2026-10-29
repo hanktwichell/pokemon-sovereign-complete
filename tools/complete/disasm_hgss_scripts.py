@@ -40,6 +40,7 @@ import ndspy.rom
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from import_hgss_maps import HG, ROOT  # noqa: E402
+import sacred_gold  # noqa: E402
 
 SCR_SEQ = os.path.join(HG, 'files/fielddata/script/scr_seq')
 SCRDEF_END = 0xFD13
@@ -150,7 +151,7 @@ def family(token):
 class Names:
     """HeartGold's constants by family, and how its sources name each command's arguments."""
 
-    def __init__(self):
+    def __init__(self, items=None):
         self.values = parse_defines(script_headers())
         usage = collections.Counter()
         self.model = collections.defaultdict(collections.Counter)  # (command, position) -> Counter(family)
@@ -169,6 +170,13 @@ class Names:
             best = self.by_value[fam].get(value)
             if best is None or usage[name] > usage[best]:
                 self.by_value[fam][value] = name
+        # Sacred Gold's flags and vars past HeartGold's (tools/complete/sacred_gold.py)
+        for n in sacred_gold.SG_FLAGS:
+            self.by_value['FLAG_'].setdefault(n, sacred_gold.flag_name(n))
+        for n in sacred_gold.SG_VARS:
+            self.by_value['VAR_'].setdefault(n, sacred_gold.var_name(n))
+        # and its items in HeartGold's unused numbers (sacred_gold.rom_items)
+        self.by_value['ITEM_'].update(items or {})
 
     def kinds(self, command, position):
         return self.model.get((command, position), collections.Counter())
@@ -292,10 +300,10 @@ def scan(data, entries, table):
 
 
 class Disassembler:
-    def __init__(self):
+    def __init__(self, items=None):
         self.table = command_table()
         self.movements = movement_table()
-        self.names = Names()
+        self.names = Names(items)
 
     # naming
     def name(self, ctx, command, position, value, size):
@@ -303,6 +311,8 @@ class Disassembler:
         by_value = self.names.by_value
         if kinds['VAR_'] and value >= 0x4000 and value in by_value['VAR_']:
             return by_value['VAR_'][value]
+        if kinds['TRAINER_'] and value and value in by_value['TRAINER_']:  # 0 is no trainer
+            return by_value['TRAINER_'][value]
         symbolic = [(n, f) for f, n in kinds.items() if f not in ('num', 'VAR_', 'label')]
         if symbolic:
             count, fam = max(symbolic)
@@ -662,7 +672,8 @@ def source_commands(text):
 
 
 def check(numbers, rom):
-    dis = Disassembler()
+    items = sacred_gold.rom_items(rom)
+    dis = Disassembler(items)
     files = rom_scripts(rom)
     same_bytes = same_text = 0
     diffs = collections.Counter()
@@ -676,8 +687,11 @@ def check(numbers, rom):
             if inc.startswith('msgdata/') and os.path.exists(header):
                 defined |= set(re.findall(r'#define\s+(msg_\w+)', open(header).read()))
         extra = sorted(set(re.findall(r'\b(msg_\d{4}\w*_(\d{5}))\b', body)) - {(d, d[-5:]) for d in defined})
+        sg_names = sorted(set(re.findall(r'\b((?:FLAG|VAR)_SG_([0-9A-F]{4}))\b', body)))
         text = text.replace('#include "macros/script.inc"', '#include "macros/script.inc"\n' + ''.join(
-            f'#define {name} {int(index)}\n' for name, index in extra if name not in defined))
+            f'#define {name} {int(index)}\n' for name, index in extra if name not in defined) + ''.join(
+            f'#define {name} 0x{value}\n' for name, value in sg_names) + ''.join(
+            f'#define {name} {value}\n' for value, name in items.items() if re.search(rf'\b{name}\b', body)))
         got, err = reassemble(text, ctx.stem)
         if got is None:
             print(f'{ctx.stem}: does not assemble: {err}')
@@ -718,7 +732,7 @@ def main():
     rom, out = args[:2]
     files = rom_scripts(rom)
     numbers = [int(a) for a in args[2:]] or range(len(files))
-    dis = Disassembler()
+    dis = Disassembler(sacred_gold.rom_items(rom))
     os.makedirs(out, exist_ok=True)
     for number in numbers:
         ctx, body = dis.disassemble(files[number], number)

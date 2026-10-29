@@ -1,0 +1,33 @@
+{
+    "name": "Jose",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FARFETCHD",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHATOT",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Tweet!\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,229 @@
+{
+    "map": "D22R0102",
+    "land": {
+        "rate": 25,
+        "slots": [
+            {
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 12,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 12,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 12,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 12,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 14,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            },
+            {
+                "level": 14,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_WEEDLE"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_WEEDLE",
+        "SPECIES_WEEDLE"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_WEEDLE",
+        "SPECIES_WEEDLE"
+    ],
+    "swarm": {
+        "land": "SPECIES_WEEDLE",
+        "surf": "SPECIES_NONE",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

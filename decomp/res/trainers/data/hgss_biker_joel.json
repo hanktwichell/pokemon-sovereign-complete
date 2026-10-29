@@ -1,0 +1,46 @@
+{
+    "name": "Joel",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGMAR",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTABUZZ",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Wow. That’s a cool Bicycle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "But you don’t just look cool...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I look cool, but I’m weak, so I’m not\n",
+                "really cool. I have to train harder...\n"
+            ]
+        }
+    ]
+}

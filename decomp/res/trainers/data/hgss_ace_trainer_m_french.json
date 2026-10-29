@@ -1,0 +1,51 @@
+{
+    "name": "French",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [
+        "ITEM_DIRE_HIT"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MILOTIC",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LOPUNNY",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You!\n",
+                "I’ve been waiting for someone like you!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yep, just as strong as expected!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "That was a great fight!\n",
+                "Don’t you agree?\n"
+            ]
+        }
+    ]
+}

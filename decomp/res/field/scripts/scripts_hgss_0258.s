@@ -12,19 +12,8 @@
     ScriptEntry scr_seq_R45_004
     ScriptEntryEnd
 scr_seq_R45_002:
-    GoToIfUnset FLAG_HGSS_UNK_189, _0027
+    GoToIfUnset FLAG_HGSS_UNK_189, _00D7
     ClearFlag FLAG_HGSS_UNK_189
-    End
-_0027:
-    GetDayOfWeek VAR_MAP_LOCAL_0x00
-    CompareVar VAR_MAP_LOCAL_0x00, 3
-    GoToIf 1, _004B
-    CompareVar VAR_MAP_LOCAL_0x00, 6
-    GoToIf 1, _004B
-    SetFlag FLAG_HGSS_HIDE_CAMERON
-    End
-_004B:
-    ClearFlag FLAG_HGSS_HIDE_CAMERON
     End
 scr_seq_R45_001:
     PlaySE SE_CONFIRM_sseq_3
@@ -34,10 +23,10 @@ scr_seq_R45_001:
     MessageFromBank VAR_RESULT, 0
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0133
+    GoToIf 1, _00FB
     @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0147
+    GoToIf 1, _010F
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
     MessageFromBank VAR_RESULT, 1
     CloseMessage
@@ -46,74 +35,9 @@ scr_seq_R45_001:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 5, _00C2
-    ApplyMovement LOCALID_PLAYER, _015C
-    GoTo _00D2
-_00C2:
-    ApplyMovement LOCALID_PLAYER, _0168
-    ApplyMovement obj_R45_gsmiddleman1, _017C
-_00D2:
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    CompleteFollowerCheckActive VAR_RESULT
-    CompareVar VAR_RESULT, 1
-    GoToIf 5, _00F9
-    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0188
-    WaitMovement
-_00F9:
-    SetFlag FLAG_HGSS_UNK_189
-    FadeScreen 6, 1, 0, COLOR_BLACK
-    WaitFadeScreen
-    @ HGSS: CameronPhoto 47
-    LockAll
-    FadeScreen 6, 1, 1, COLOR_BLACK
-    WaitFadeScreen
-    ClearFlag FLAG_HGSS_UNK_189
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 2
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0133:
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 5
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0147:
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 3
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-    .balign 4, 0
-_015C:
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_0168:
-    WalkNormalNorth
-    WalkNormalWest
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_017C:
-    Delay8
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_0188:
-    WalkNormalEast
-    WalkNormalNorth
-    FaceSouth
-    EndMovement
+    GoToIf 5, _0123
+    ApplyMovement LOCALID_PLAYER, _0235
+    GoTo _0194
 scr_seq_R45_003:
     NPCMessage msg_0405_R45_00000
     End
@@ -131,4 +55,117 @@ scr_seq_R45_004:
     DrawSignpostScrollingMessage msg_0405_R45_00002, VAR_RESULT
     Common_HandleSignpostInput
     End
+_00D7:
+    GetDayOfWeek VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 3
+    GoToIf 1, _01F5
+    CompareVar VAR_MAP_LOCAL_0x00, 6
+    GoToIf 1, _01F5
+    SetFlag FLAG_HGSS_HIDE_CAMERON
+    End
+_00FB:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 5
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_010F:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 3
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0123:
+    ApplyMovement LOCALID_PLAYER, _023F
+    ApplyMovement obj_R45_gsmiddleman1, _0251
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompleteFollowerCheckActive VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _01FB
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _025B
+    WaitMovement
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 47
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0194:
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompleteFollowerCheckActive VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _01FB
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _025B
+    WaitMovement
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 47
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_01F5:
+    ClearFlag FLAG_HGSS_HIDE_CAMERON
+    End
+_01FB:
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 47
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+    .balign 4, 0
+_0235:
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_023F:
+    WalkNormalNorth
+    WalkNormalWest
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0251:
+    Delay8
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_025B:
+    WalkNormalEast
+    WalkNormalNorth
+    FaceSouth
+    EndMovement
     .balign 4, 0

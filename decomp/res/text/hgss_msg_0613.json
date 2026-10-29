@@ -4,11 +4,11 @@
     {
       "id": "msg_0613_T27FS0101_00000",
       "en_US": [
-        "My EEVEE evolved into an ESPEON.\r",
-        "But my friend’s EEVEE turned into\n",
-        "an UMBREON.\r",
+        "My Eevee evolved into an Espeon.\r",
+        "But my friend’s Eevee turned into\n",
+        "an Umbreon.\r",
         "I wonder why? We both were raising\n",
-        "our EEVEE in the same way..."
+        "our Eevee in the same way..."
       ]
     },
     {
@@ -16,6 +16,38 @@
       "en_US": [
         "If you use Revive, a Pokémon that has\n",
         "fainted will wake right up."
+      ]
+    },
+    {
+      "id": "msg_0613_T27FS0101_00002",
+      "en_US": [
+        "Fantina: Ohohoho!! You must be a\n",
+        "Trainer, non?\r",
+        "I have come from Sinnoh, and so\n",
+        "this region is très mystérieuse!\r",
+        "Enfin, I will explore! But you are\n",
+        "the first Trainer I have met.\r",
+        "I say to myself, I shall give you\n",
+        "a gift!\r",
+        "And so I will!\r"
+      ]
+    },
+    {
+      "id": "msg_0613_T27FS0101_00003",
+      "en_US": [
+        "Fantina: Will-o-Wisp is a spooky move!\r",
+        "A ghost move? Non!\r",
+        "But you will find many Ghost Pokémon\n",
+        "learn this technique!"
+      ]
+    },
+    {
+      "id": "msg_0613_T27FS0101_00004",
+      "en_US": [
+        "Fantina: The Sinnoh region has what\n",
+        "is known as Super Contests.\r",
+        "Enfin, I aim to be fantastique!\n",
+        "Ils sont un grand spectacle!"
       ]
     }
   ]

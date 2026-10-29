@@ -1,0 +1,42 @@
+{
+    "name": "Fran",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FLYGON",
+            "form": 0,
+            "level": 48,
+            "iv_scale": 60,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ve been training hard with Clair.\n",
+                "There’s no way I can lose!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Oh, that’s disappointing!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Oh...\n",
+                "Looks like I need more training, huh?\n"
+            ]
+        }
+    ]
+}

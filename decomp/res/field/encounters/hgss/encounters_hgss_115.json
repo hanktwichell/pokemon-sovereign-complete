@@ -1,0 +1,229 @@
+{
+    "map": "R05",
+    "land": {
+        "rate": 20,
+        "slots": [
+            {
+                "level": 48,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_MIGHTYENA"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_KADABRA",
+                "day": "SPECIES_KADABRA",
+                "night": "SPECIES_KADABRA"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_JIGGLYPUFF",
+                "day": "SPECIES_JIGGLYPUFF",
+                "night": "SPECIES_JIGGLYPUFF"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_MACHOP",
+                "day": "SPECIES_MACHOP",
+                "night": "SPECIES_MACHOP"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_MEDITITE",
+                "day": "SPECIES_MEDITITE",
+                "night": "SPECIES_MEDITITE"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_WEEPINBELL",
+                "day": "SPECIES_WEEPINBELL",
+                "night": "SPECIES_WEEPINBELL"
+            },
+            {
+                "level": 49,
+                "morning": "SPECIES_WEEPINBELL",
+                "day": "SPECIES_WEEPINBELL",
+                "night": "SPECIES_WEEPINBELL"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_CHATOT",
+                "day": "SPECIES_CHATOT",
+                "night": "SPECIES_PERSIAN"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_CHATOT",
+                "day": "SPECIES_CHATOT",
+                "night": "SPECIES_PERSIAN"
+            },
+            {
+                "level": 49,
+                "morning": "SPECIES_CHATOT",
+                "day": "SPECIES_CHATOT",
+                "night": "SPECIES_PERSIAN"
+            },
+            {
+                "level": 50,
+                "morning": "SPECIES_CHATOT",
+                "day": "SPECIES_CHATOT",
+                "night": "SPECIES_PERSIAN"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_MEDICHAM",
+        "SPECIES_MEDICHAM"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_STARAVIA",
+        "SPECIES_SWELLOW"
+    ],
+    "swarm": {
+        "land": "SPECIES_PIDGEY",
+        "surf": "SPECIES_NONE",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

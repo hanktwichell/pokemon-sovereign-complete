@@ -10,6 +10,8 @@
 #include "field/field_system.h"
 #include "overlay006/wild_encounters.h"
 
+#include "complete_encounters.h"
+#include "complete_map_info.h"
 #include "heap.h"
 #include "map_header.h"
 #include "map_object.h"
@@ -218,6 +220,12 @@ static void MapHeaderData_ParseEvents(MapHeaderData *data)
 void MapHeaderData_LoadWildEncounters(WildEncounters *data, enum MapHeaderID mapHeaderID)
 {
     memset(data, 0, sizeof(WildEncounters));
+    // Sovereign Complete: Johto's and Kanto's tables are HeartGold's (complete_encounters.c)
+    if (MapHeader_IsHGSS(mapHeaderID) && MapHeader_HasWildEncounters(mapHeaderID)) {
+        CompleteEncounters_Load(data, mapHeaderID);
+        return;
+    }
+
     if (MapHeader_HasWildEncounters(mapHeaderID)) {
         enum NarcID narcID = (GAME_VERSION == VERSION_DIAMOND || GAME_VERSION == VERSION_PLATINUM)
             ? NARC_INDEX_FIELDDATA__ENCOUNTDATA__PL_ENC_DATA

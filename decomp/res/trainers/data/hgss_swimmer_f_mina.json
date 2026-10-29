@@ -1,0 +1,54 @@
+{
+    "name": "Mina",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LUVDISC",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUMINEON",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_OCTILLERY",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Mmph? Mmmph mmmmphh?\n",
+                "Mmmmph mmmmmppphh!!!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Pwah!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I was trying to see how long I could\n",
+                "hold my breath!\n"
+            ]
+        }
+    ]
+}

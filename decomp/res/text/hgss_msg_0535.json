@@ -112,16 +112,16 @@
         "What a coincidence!\r",
         "I can feel great electric power around\n",
         "the Magnet Train station!\r",
-        "You had a PIKACHU, didn’t you?\n",
+        "You had a Pikachu, didn’t you?\n",
         "How about trading it for my\f",
-        "French PIKACHU? {YESNO 0}"
+        "French Surfing Pikachu? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0535_T11R0601_00013",
       "en_US": [
-        "Lt. Surge: My PIKACHU and\n",
-        "your PIKACHU up for a trade,\f",
+        "Lt. Surge: My Pikachu and\n",
+        "your Pikachu up for a trade,\f",
         "what do you think?"
       ]
     },
@@ -137,9 +137,9 @@
       "en_US": [
         "Lt. Surge: Shocking!\n",
         "I want to share my feelings for\f",
-        "PIKACHU with you!\r",
+        "Pikachu with you!\r",
         "I’m ready anytime, so just bring\n",
-        "a PIKACHU, OK?"
+        "a Pikachu, OK?"
       ]
     },
     {
@@ -155,8 +155,8 @@
       "en_US": [
         "Lt. Surge: What? That is not\n",
         "the right Pokémon!\r",
-        "I won’t trade my PIKACHU for\n",
-        "anything other than PIKACHU."
+        "I won’t trade my Pikachu for\n",
+        "anything other than Pikachu."
       ]
     },
     {
@@ -167,6 +167,13 @@
         "in their Poké Balls so they won’t lick\f",
         "other passengers’ faces.\f",
         "Thank you."
+      ]
+    },
+    {
+      "id": "msg_0535_T11R0601_00019",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
       ]
     }
   ]

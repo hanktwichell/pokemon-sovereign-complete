@@ -3,7 +3,7 @@
   "messages": [
     {
       "id": "msg_0435_00000",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0435_00001",
@@ -77,7 +77,7 @@
     },
     {
       "id": "msg_0435_00013",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0435_00014",
@@ -120,11 +120,11 @@
     },
     {
       "id": "msg_0435_00021",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0435_00022",
-      "garbage": 24
+      "garbage": 0
     },
     {
       "id": "msg_0435_00023",
@@ -150,15 +150,15 @@
     },
     {
       "id": "msg_0435_00027",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0435_00028",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0435_00029",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0435_00030",
@@ -178,7 +178,7 @@
     },
     {
       "id": "msg_0435_00034",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0435_00035",
@@ -190,7 +190,7 @@
     },
     {
       "id": "msg_0435_00037",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0435_00038",
@@ -198,15 +198,15 @@
     },
     {
       "id": "msg_0435_00039",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0435_00040",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0435_00041",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0435_00042",
@@ -233,7 +233,7 @@
     },
     {
       "id": "msg_0435_00047",
-      "garbage": 40
+      "garbage": 0
     },
     {
       "id": "msg_0435_00048",

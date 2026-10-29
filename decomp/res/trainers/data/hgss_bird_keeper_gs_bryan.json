@@ -1,0 +1,49 @@
+{
+    "name": "Bryan",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HOOTHOOT",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NOCTOWL",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What kinds of Poké Balls do you use?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yikes! Not fast enough!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Some Pokémon flee right away.\n",
+                "Try catching them with Kurt’s Fast Ball.\r",
+                "Whenever I find a Wht. Apricorn,\n",
+                "I take it to Kurt. He turns it into a\f",
+                "custom Ball.\n"
+            ]
+        }
+    ]
+}

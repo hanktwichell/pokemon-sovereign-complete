@@ -177,12 +177,12 @@ _0268:
     WaitCry
     CloseMessage
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: WildBattle SPECIES_SNORLAX, 50, 0
+    CompleteStartWildBattle SPECIES_SNORLAX, 50, 0
     ClearFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02AE
-    @ HGSS: GetStaticEncounterOutcome VAR_TEMP_x4005
+    CompleteGetBattleResult VAR_MAP_LOCAL_0x05
     CompareVar VAR_MAP_LOCAL_0x05, 4
     CallIf 1, _02B4
     SetFlag FLAG_HGSS_SNORLAX_MEET
@@ -195,7 +195,6 @@ _02AE:
 _02B4:
     SetFlag FLAG_HGSS_CAUGHT_SNORLAX
     Return
-_02BA:
     ReleaseAll
     End
 scr_seq_R12_002:

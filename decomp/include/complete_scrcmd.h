@@ -9,5 +9,12 @@ BOOL CompleteScrCmd_FollowerPause(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerWait(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerSetMovementType(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx);
+BOOL CompleteScrCmd_GetBattleResult(ScriptContext *ctx);
+BOOL CompleteScrCmd_StartWildBattle(ScriptContext *ctx);
+BOOL CompleteScrCmd_InitHGSSMenu(ScriptContext *ctx);
+
+// Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
+// makes the next scripted wild Pokémon shiny and clears it.
+extern BOOL gCompleteNextWildShiny;
 
 #endif // POKEPLATINUM_COMPLETE_SCRCMD_H

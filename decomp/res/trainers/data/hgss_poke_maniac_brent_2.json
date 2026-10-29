@@ -1,0 +1,41 @@
+{
+    "name": "Brent",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WORMADAM",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAICHU",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NIDOKING",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh, my poor Pokémon! Darlings!\n"
+            ]
+        }
+    ]
+}

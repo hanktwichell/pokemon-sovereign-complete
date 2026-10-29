@@ -1,0 +1,48 @@
+{
+    "name": "Brandon",
+    "class": "TRAINER_CLASS_SOCIALITE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SNUBBULL",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SPOINK",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I just got my Pokémon back from\n",
+                "Day Care. Let’s see how much stronger\f",
+                "it got!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Why does it end this way?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "My Pokémon knew moves I didn’t know it\n",
+                "had. That confounded me to no end!\n"
+            ]
+        }
+    ]
+}

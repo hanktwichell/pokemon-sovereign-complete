@@ -1,0 +1,56 @@
+{
+    "name": "Liz",
+    "class": "TRAINER_CLASS_PICNICKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDORAN_F",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PONYTA",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Uh-huh. Yeah, and you know...\r",
+                "Pardon? Pokémon battle?\n",
+                "I’m on the phone.\r",
+                "Oh, all right.\n",
+                "I’ll accept your challenge!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Pfft.\n",
+                "Before I could get serious, I lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "At least I can complain over the phone.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "You’re late! Let’s get started now!\r"
+            ]
+        }
+    ]
+}

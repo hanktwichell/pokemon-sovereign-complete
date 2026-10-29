@@ -1,0 +1,48 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARBOK",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Ha ha ha!\f",
+                "How boring. It was far too easy to take\n",
+                "over this place!\r",
+                "Come on, keep me amused!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Wh-who are you?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You beat me, and I won’t forget it!\n"
+            ]
+        }
+    ]
+}

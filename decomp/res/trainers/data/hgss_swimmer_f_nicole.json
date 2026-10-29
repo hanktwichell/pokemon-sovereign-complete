@@ -1,0 +1,53 @@
+{
+    "name": "Nicole",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AZUMARILL",
+            "form": 0,
+            "level": 62,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DEWGONG",
+            "form": 0,
+            "level": 62,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LAPRAS",
+            "form": 0,
+            "level": 62,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I feel so much lighter in water.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh, no!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Swimming exercises your full body.\n",
+                "It’s really good for you.\n"
+            ]
+        }
+    ]
+}

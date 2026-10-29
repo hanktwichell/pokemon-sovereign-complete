@@ -60,7 +60,7 @@
         "still many strong Trainers like you.\r",
         "Just wait and see.\r",
         "I’m going to become a lot\n",
-        "stronger, too."
+        "stronger, too.\r"
       ]
     },
     {
@@ -95,6 +95,20 @@
         "Leader: Brock\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0462_T03GYM0101_00010",
+      "en_US": [
+        "Brock: Here! Take my number!\n",
+        "We can have a rematch sometime!\r"
+      ]
+    },
+    {
+      "id": "msg_0462_T03GYM0101_00011",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Brock\n",
+        "in the Pokégear!"
       ]
     }
   ]

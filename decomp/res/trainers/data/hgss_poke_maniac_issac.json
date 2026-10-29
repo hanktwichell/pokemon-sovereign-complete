@@ -1,0 +1,47 @@
+{
+    "name": "Issac",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LICKITUNG",
+            "form": 0,
+            "level": 22,
+            "moves": [
+                "MOVE_FIRE_BLAST",
+                "MOVE_THUNDERBOLT",
+                "MOVE_BLIZZARD",
+                "MOVE_CUT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "My Pokémon just got a haircut!\n",
+                "I’ll show you how strong it is!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aiyeeee!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Your Pokémon will like you more if you\n",
+                "give them haircuts.\n"
+            ]
+        }
+    ]
+}

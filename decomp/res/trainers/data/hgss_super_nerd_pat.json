@@ -1,0 +1,50 @@
+{
+    "name": "Pat",
+    "class": "TRAINER_CLASS_HGSS_SUPER_NERD",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PORYGON2",
+            "form": 0,
+            "level": 60,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_SIGNAL_BEAM",
+                "MOVE_ICE_BEAM",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Mufufufu...\r",
+                "I have nothing to do with the\n",
+                "six-pack Trainers.\r",
+                "I waited here to beat you when you were\n",
+                "tired out by all the battles.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aren’t you tired at all?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’m sorry... I won’t cheat anymore...\n"
+            ]
+        }
+    ]
+}

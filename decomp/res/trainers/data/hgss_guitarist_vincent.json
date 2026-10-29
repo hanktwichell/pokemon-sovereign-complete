@@ -1,0 +1,57 @@
+{
+    "name": "Vincent",
+    "class": "TRAINER_CLASS_GUITARIST",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ELECTABUZZ",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNETON",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Lt. Surge saw my potential with\n",
+                "Electric-type Pokémon.\f",
+                "Think you can beat me?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ooh, how shocking!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The reason that Lt. Surge is protected\n",
+                "by electric fences isn’t because\f",
+                "he’s a coward! It’s so you won’t\f",
+                "underestimate his strength!\n"
+            ]
+        }
+    ]
+}

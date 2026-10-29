@@ -1,0 +1,42 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WOBBUFFET",
+            "form": 0,
+            "level": 42,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Oh, a kid? I don’t really like this, but\n",
+                "eliminate you I must.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I knew I’d lose...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I got wiped out on the last mission by a\n",
+                "kid, too. When we were abducting\f",
+                "Pokémon, this kid with long red hair and\f",
+                "mean-looking eyes just whomped me...\n"
+            ]
+        }
+    ]
+}

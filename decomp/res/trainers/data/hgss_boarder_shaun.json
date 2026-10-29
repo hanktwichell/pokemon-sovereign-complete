@@ -1,0 +1,46 @@
+{
+    "name": "Shaun",
+    "class": "TRAINER_CLASS_HGSS_BOARDER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLOYSTER",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WALREIN",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey, hey, you’re in my way!\n",
+                "Right!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I got kicked around...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "All right, please pass through!\n"
+            ]
+        }
+    ]
+}

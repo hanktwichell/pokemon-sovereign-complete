@@ -155,10 +155,10 @@ scr_seq_D31R0207_001:
     GoToIf 1, _02A7
     SetVarFromValue VAR_MAP_LOCAL_0x09, 0
     @ HGSS: ScrCmd_413 VAR_TEMP_x4009, 0, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-    @ HGSS: BufferSpeciesNameIndef 0, VAR_SPECIAL_x8004, 0, 0
+    BufferSpeciesNameWithArticle 0, VAR_0x8004
     BufferMoveName 1, VAR_0x8005
     @ HGSS: ScrCmd_413 VAR_TEMP_x4009, 1, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-    @ HGSS: BufferSpeciesNameIndef 2, VAR_SPECIAL_x8004, 0, 0
+    BufferSpeciesNameWithArticle 2, VAR_0x8004
     BufferMoveName 3, VAR_0x8005
     Message msg_0099_D31R0207_00006
     ShowYesNoMenu VAR_RESULT

@@ -1,0 +1,229 @@
+{
+    "map": "R24",
+    "land": {
+        "rate": 20,
+        "slots": [
+            {
+                "level": 49,
+                "morning": "SPECIES_WEEPINBELL",
+                "day": "SPECIES_WEEPINBELL",
+                "night": "SPECIES_WEEPINBELL"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_KIRLIA",
+                "day": "SPECIES_KIRLIA",
+                "night": "SPECIES_KIRLIA"
+            },
+            {
+                "level": 49,
+                "morning": "SPECIES_SKIPLOOM",
+                "day": "SPECIES_SKIPLOOM",
+                "night": "SPECIES_GLOOM"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_STARAVIA",
+                "day": "SPECIES_STARAVIA",
+                "night": "SPECIES_MIGHTYENA"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_NOCTOWL"
+            },
+            {
+                "level": 49,
+                "morning": "SPECIES_ROSELIA",
+                "day": "SPECIES_ROSELIA",
+                "night": "SPECIES_ROSELIA"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_SURSKIT",
+                "day": "SPECIES_SURSKIT",
+                "night": "SPECIES_SURSKIT"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_SKIPLOOM",
+                "day": "SPECIES_SKIPLOOM",
+                "night": "SPECIES_GLOOM"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_STARAVIA",
+                "day": "SPECIES_STARAVIA",
+                "night": "SPECIES_MIGHTYENA"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_NOCTOWL"
+            },
+            {
+                "level": 50,
+                "morning": "SPECIES_STARAVIA",
+                "day": "SPECIES_STARAVIA",
+                "night": "SPECIES_MIGHTYENA"
+            },
+            {
+                "level": 51,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_NOCTOWL"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 10,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 35,
+                "species": "SPECIES_HOPPIP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 35,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 50,
+                "species": "SPECIES_SKIPLOOM"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_MASQUERAIN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 50,
+                "species": "SPECIES_SKIPLOOM"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_SEAKING"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SEAKING"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_STARYU"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_DRATINI"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_DRAGONAIR"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_DRATINI"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_JUMPLUFF",
+        "SPECIES_JUMPLUFF"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_SURSKIT",
+        "SPECIES_SURSKIT"
+    ],
+    "swarm": {
+        "land": "SPECIES_WEEPINBELL",
+        "surf": "SPECIES_GOLDEEN",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

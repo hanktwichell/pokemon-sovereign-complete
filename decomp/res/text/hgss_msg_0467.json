@@ -34,20 +34,20 @@
     },
     {
       "id": "msg_0467_T04_00003",
-      "en_US": "SLOWBRO: Yarah?"
+      "en_US": "Slowbro: Yarah?"
     },
     {
       "id": "msg_0467_T04_00004",
-      "en_US": "SLOWBRO is full of the fighting spirit!"
+      "en_US": "Slowbro is full of the fighting spirit!"
     },
     {
       "id": "msg_0467_T04_00005",
       "en_US": [
-        "My SLOWBRO and I make an\n",
+        "My Slowbro and I make an\n",
         "awesome combination!\r",
-        "SLOWBRO, show me your Psychic!\r",
+        "Slowbro, show me your Psychic!\r",
         "...!\n",
-        "SLOWBRO’s Psychic hits hard!"
+        "Slowbro’s Psychic hits hard!"
       ]
     },
     {
@@ -146,6 +146,18 @@
     {
       "id": "msg_0467_T04_00018",
       "en_US": "It’s locked..."
+    },
+    {
+      "id": "msg_0467_T04_00019",
+      "en_US": "Mewtwo, caught?"
+    },
+    {
+      "id": "msg_0467_T04_00020",
+      "en_US": "Yes"
+    },
+    {
+      "id": "msg_0467_T04_00021",
+      "en_US": "No"
     }
   ]
 }

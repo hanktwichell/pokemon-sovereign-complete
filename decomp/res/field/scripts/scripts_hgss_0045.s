@@ -128,7 +128,7 @@ _0234:
 scr_seq_D24R0208_001:
     LockAll
     @ HGSS: OpenAlphHiddenRoom 3
-    @ HGSS: PlayerHasSpecies VAR_SPECIAL_RESULT, SPECIES_HO_OH
+    CheckPartyHasSpecies VAR_RESULT, SPECIES_HO_OH
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0264
     GoTo _0268

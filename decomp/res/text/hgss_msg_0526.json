@@ -21,10 +21,10 @@
         "That is only the selfish perception\n",
         "of people.\r",
         "Truly skilled Trainers should try to\n",
-        "win with the Pokémon they love best.\r",
+        "win with their favorites.\r",
         "I like your style.\n",
         "You understand what’s important.\r",
-        "Go on--the Champion is waiting.\r"
+        "Keep moving--the Champion is waiting.\r"
       ]
     },
     {
@@ -35,11 +35,47 @@
         "That is only the selfish perception\n",
         "of people.\r",
         "Truly skilled Trainers should try to\n",
-        "win with the Pokémon they love best.\r",
+        "win with their favorites.\r",
         "I like your style.\n",
         "You understand what’s important.\r",
-        "Go on--the Champion is waiting."
+        "Keep moving--the Champion is waiting."
       ]
+    },
+    {
+      "id": "msg_0526_T10R0501_00003",
+      "en_US": "Alakazam: Kazam!\r"
+    },
+    {
+      "id": "msg_0526_T10R0501_00004",
+      "en_US": [
+        "This Alakazam is offering to \n",
+        "Teleport you.\r",
+        "Which room would you\n",
+        "like to go to? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0526_T10R0501_00005",
+      "en_US": "Indigo Plateau: League Room 1"
+    },
+    {
+      "id": "msg_0526_T10R0501_00006",
+      "en_US": "Indigo Plateau: League Room 2"
+    },
+    {
+      "id": "msg_0526_T10R0501_00007",
+      "en_US": "Indigo Plateau: League Room 3"
+    },
+    {
+      "id": "msg_0526_T10R0501_00008",
+      "en_US": [
+        "Alakazam refused to Teleport you.\n",
+        "You have not defeated the Elite Four!"
+      ]
+    },
+    {
+      "id": "msg_0526_T10R0501_00009",
+      "en_US": "Indigo Plateau: Champion Room"
     }
   ]
 }

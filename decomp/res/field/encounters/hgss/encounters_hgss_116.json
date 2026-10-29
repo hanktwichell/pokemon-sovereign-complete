@@ -1,0 +1,229 @@
+{
+    "map": "R06",
+    "land": {
+        "rate": 20,
+        "slots": [
+            {
+                "level": 45,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_PERSIAN"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_KADABRA",
+                "day": "SPECIES_KADABRA",
+                "night": "SPECIES_KADABRA"
+            },
+            {
+                "level": 46,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 46,
+                "morning": "SPECIES_WEEPINBELL",
+                "day": "SPECIES_WEEPINBELL",
+                "night": "SPECIES_WEEPINBELL"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_WEEPINBELL",
+                "day": "SPECIES_WEEPINBELL",
+                "night": "SPECIES_WEEPINBELL"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_PERSIAN"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_KADABRA",
+                "day": "SPECIES_KADABRA",
+                "night": "SPECIES_KADABRA"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_CHERRIM",
+                "day": "SPECIES_CHERRIM",
+                "night": "SPECIES_GLOOM"
+            },
+            {
+                "level": 46,
+                "morning": "SPECIES_CHERRIM",
+                "day": "SPECIES_CHERRIM",
+                "night": "SPECIES_GLOOM"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_CHERRIM",
+                "day": "SPECIES_CHERRIM",
+                "night": "SPECIES_GLOOM"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_CHERRIM",
+                "day": "SPECIES_CHERRIM",
+                "night": "SPECIES_GLOOM"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 15,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 65,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 20,
+                "level_max": 50,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 35,
+                "level_max": 50,
+                "species": "SPECIES_GOLDUCK"
+            },
+            {
+                "level_min": 30,
+                "level_max": 40,
+                "species": "SPECIES_PSYDUCK"
+            },
+            {
+                "level_min": 35,
+                "level_max": 35,
+                "species": "SPECIES_PSYDUCK"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_POLIWAG"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_POLIWHIRL"
+            },
+            {
+                "level_min": 50,
+                "level_max": 50,
+                "species": "SPECIES_MAGIKARP"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_WHISMUR",
+        "SPECIES_LINOONE"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_BUIZEL",
+        "SPECIES_BIDOOF"
+    ],
+    "swarm": {
+        "land": "SPECIES_PIDGEY",
+        "surf": "SPECIES_PSYDUCK",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

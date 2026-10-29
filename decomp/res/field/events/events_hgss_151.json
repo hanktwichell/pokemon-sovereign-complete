@@ -5,9 +5,9 @@
             "id": "obj_D15R0103_bozu",
             "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAGE_JIN",
             "initial_dir": 2,
             "data": [
                 5,
@@ -24,9 +24,9 @@
             "id": "obj_D15R0103_bozu_2",
             "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAGE_NEAL",
             "initial_dir": 3,
             "data": [
                 4,
@@ -43,9 +43,9 @@
             "id": "obj_D15R0103_bozu_3",
             "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAGE_TROY",
             "initial_dir": 1,
             "data": [
                 1,
@@ -83,7 +83,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D15R0103_POTION",
-            "script": 0,
+            "script": 7337,
             "initial_dir": 0,
             "data": [
                 0,
@@ -102,7 +102,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D15R0103_ESCAPE_ROPE",
-            "script": 0,
+            "script": 7338,
             "initial_dir": 0,
             "data": [
                 0,

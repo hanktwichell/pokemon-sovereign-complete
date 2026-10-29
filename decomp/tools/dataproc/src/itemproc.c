@@ -108,15 +108,19 @@ static void RegisterIcons(Records icons, const char *type, const char *suffix)
 
 static void EmitHiddenItemScripts(void)
 {
-    size_t maxScriptID = 0;
+    size_t maxScriptID = 0, maxPlatinumScriptID = 0;
     for (size_t i = 0; i < NELEMS(gHiddenItems); i++) {
         if (gHiddenItems[i].script > maxScriptID) maxScriptID = gHiddenItems[i].script;
+        // Sovereign Complete: Johto's and Kanto's (HGSS_HIDDEN_ITEMS_START on) use HeartGold's flags
+        if (gHiddenItems[i].script < HGSS_HIDDEN_ITEMS_START && gHiddenItems[i].script > maxPlatinumScriptID) {
+            maxPlatinumScriptID = gHiddenItems[i].script;
+        }
     }
 
     size_t numScripts = maxScriptID + 1;
     size_t numFlags   = HIDDEN_ITEM_FLAGS_END - HIDDEN_ITEM_FLAGS_START + 1;
-    if (numScripts > numFlags) {
-        Driver_Fail("more hidden items defined (%zu) than there are hidden item flags (%zu)", numScripts, numFlags);
+    if (maxPlatinumScriptID + 1 > numFlags) {
+        Driver_Fail("more hidden items defined (%zu) than there are hidden item flags (%zu)", maxPlatinumScriptID + 1, numFlags);
     }
 
     for (size_t i = 0; i < numScripts; i++) TextFile_Printf(F_HIDDEN_ITEM_SCRIPTS, "    ScriptEntry HiddenItems_Item\n");

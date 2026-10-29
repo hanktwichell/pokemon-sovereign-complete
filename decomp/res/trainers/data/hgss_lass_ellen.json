@@ -1,0 +1,48 @@
+{
+    "name": "Ellen",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WIGGLYTUFF",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m second.\n",
+                "Now, it’s serious!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "How could I lose?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I did my best.\n",
+                "I have no regrets.\n"
+            ]
+        }
+    ]
+}

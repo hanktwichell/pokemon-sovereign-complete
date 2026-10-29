@@ -1,0 +1,47 @@
+{
+    "name": "Diana",
+    "class": "TRAINER_CLASS_HGSS_SKIER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SEEL",
+            "form": 0,
+            "level": 42,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DELIBIRD",
+            "form": 0,
+            "level": 42,
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "To get to Pryce, our Gym Leader,\n",
+                "you need to think before you skate.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I wouldn’t lose to you in skiing...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you don’t skate with precision,\n",
+                "you won’t get far in this Gym.\n"
+            ]
+        }
+    ]
+}

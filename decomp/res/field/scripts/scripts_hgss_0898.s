@@ -20,8 +20,8 @@ _002E:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_RESULT
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

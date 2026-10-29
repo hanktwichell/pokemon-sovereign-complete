@@ -1,0 +1,54 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDORINO",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LOUDRED",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You plan to rescue the Director?\n",
+                "So sad that won’t be possible--\f",
+                "because I’m going to beat you!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "No! Unbelievable!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I do not believe it! I was beaten!\n"
+            ]
+        }
+    ]
+}

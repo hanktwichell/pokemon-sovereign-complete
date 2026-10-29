@@ -25,14 +25,14 @@ scr_seq_T07R0106_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     Message msg_0499_T07R0106_00003
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     GoTo _005E
 _005E:
-    InitGlobalTextMenu 1, 1, 0, VAR_0x8000, 1
-    AddMenuEntryImm 209, 0
-    AddMenuEntryImm 210, 1
-    AddMenuEntryImm 211, 2
-    AddMenuEntryImm 212, 3
+    CompleteInitHGSSMenu 1, 1, 0, VAR_0x8000, 1
+    AddMenuEntry 209, 0
+    AddMenuEntry 210, 1
+    AddMenuEntry 211, 2
+    AddMenuEntry 212, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_0x8000
     CompareVar VAR_0x8008, 0
@@ -88,7 +88,7 @@ _011C:
     CallIf 1, _010C
     CompareVar VAR_0x8000, 2
     CallIf 1, _0114
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     BufferItemName 0, VAR_0x8001
     PlaySE SEQ_SE_DP_JIHANKI_sseq
     BufferItemName 0, VAR_0x8001
@@ -96,7 +96,7 @@ _011C:
     SetVar VAR_0x8004, VAR_0x8001
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
-    @ HGSS: Random VAR_SPECIAL_RESULT, 64
+    GetRandom VAR_RESULT, 64
     CompareVar VAR_RESULT, 0
     GoToIf 5, _01E7
     PlaySE SEQ_SE_DP_JIHANKI_sseq

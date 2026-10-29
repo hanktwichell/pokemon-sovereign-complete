@@ -1,0 +1,56 @@
+{
+    "name": "Edith",
+    "class": "TRAINER_CLASS_HGSS_MEDIUM",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRIFLOON",
+            "form": 0,
+            "level": 26,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MISDREAVUS",
+            "form": 0,
+            "level": 26,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FROSLASS",
+            "form": 0,
+            "level": 26,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I spent the spring with my Pokémon.\n",
+                "Then summer, autumn, and winter...\r",
+                "Then spring came again. We have\n",
+                "lived together for a long time.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Wins and losses--I experienced both.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Where did Pokémon come from?\n"
+            ]
+        }
+    ]
+}

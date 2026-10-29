@@ -1,0 +1,55 @@
+{
+    "name": "Shaye",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KANGASKHAN",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLAKING",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TAUROS",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m going to Kanto to test my skills.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I wanted to win!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Trainers from Johto can battle with\n",
+                "Kanto Gym Leaders.\n"
+            ]
+        }
+    ]
+}

@@ -79,12 +79,12 @@ scr_seq_D40R0107_000:
     SetVarFromValue VAR_0x8004, 70
     GoTo _013A
 _0134:
-    SetVarFromValue VAR_0x8004, 45
+    SetVarFromValue VAR_0x8004, 50
 _013A:
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: WildBattle VAR_TEMP_x400A, VAR_SPECIAL_x8004, 0
+    CompleteStartWildBattle VAR_MAP_LOCAL_0x0A, VAR_0x8004, 0
     ClearFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: GetStaticEncounterOutcome VAR_TEMP_x4005
+    CompleteGetBattleResult VAR_MAP_LOCAL_0x05
     CompareVar VAR_MAP_LOCAL_0x05, 2
     GoToIf 1, _019E
     CompareVar VAR_MAP_LOCAL_0x05, 3
@@ -458,7 +458,6 @@ _09A8:
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_09B0:
     WalkOnSpotNormalNorth
     EndMovement
     .balign 4, 0

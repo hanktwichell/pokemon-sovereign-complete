@@ -1,0 +1,56 @@
+{
+    "name": "???",
+    "class": "TRAINER_CLASS_HGSS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LUGIA",
+            "form": 0,
+            "level": 100,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_AEROBLAST",
+                "MOVE_ROOST",
+                "MOVE_REFLECT",
+                "MOVE_TOXIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HO_OH",
+            "form": 0,
+            "level": 100,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_SACRED_FIRE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_BRAVE_BIRD",
+                "MOVE_ROOST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MEWTWO",
+            "form": 0,
+            "level": 100,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_AURA_SPHERE",
+                "MOVE_ICE_BEAM",
+                "MOVE_RECOVER",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

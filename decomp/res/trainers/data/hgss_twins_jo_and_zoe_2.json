@@ -1,0 +1,38 @@
+{
+    "name": "Jo＆Zoe",
+    "class": "TRAINER_CLASS_HGSS_TWINS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_VILEPLUME",
+            "form": 0,
+            "level": 37,
+            "moves": [
+                "MOVE_GIGA_DRAIN",
+                "MOVE_STUN_SPORE",
+                "MOVE_DRAIN_PUNCH",
+                "MOVE_ATTRACT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VICTREEBEL",
+            "form": 0,
+            "level": 37,
+            "moves": [
+                "MOVE_GIGA_DRAIN",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

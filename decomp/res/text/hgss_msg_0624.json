@@ -26,6 +26,38 @@
         "evolve, but they also learn moves\f",
         "more slowly."
       ]
+    },
+    {
+      "id": "msg_0624_T28PC0101_00003",
+      "en_US": "Poliwhirl: Whialop!"
+    },
+    {
+      "id": "msg_0624_T28PC0101_00004",
+      "en_US": [
+        "Young man, you should treat your\n",
+        "Pokémon in a manner fit for a king!\r",
+        "Maybe this little accessory will\n",
+        "allow you to do so!\r"
+      ]
+    },
+    {
+      "id": "msg_0624_T28PC0101_00005",
+      "en_US": [
+        "Young lass, you should treat your\n",
+        "Pokémon in a manner fit for a king!\r",
+        "Maybe this little accessory will\n",
+        "allow you to do so!\r"
+      ]
+    },
+    {
+      "id": "msg_0624_T28PC0101_00006",
+      "en_US": [
+        "A King’s Rock will give your Pokémon\n",
+        "regal beauty!\r",
+        "Although, I have also heard allowing\n",
+        "the crown to touch certain Pokémon\f",
+        "can cause instantaneous evolution..."
+      ]
     }
   ]
 }

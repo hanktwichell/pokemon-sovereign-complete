@@ -1,0 +1,40 @@
+{
+    "name": "Kendra",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SLOWKING",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey, Trainer! How about you put on a\n",
+                "swimsuit, too?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I didn’t want to lose...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I wonder if there’s any place that sells\n",
+                "swimsuits that suit my Pokémon?\n"
+            ]
+        }
+    ]
+}

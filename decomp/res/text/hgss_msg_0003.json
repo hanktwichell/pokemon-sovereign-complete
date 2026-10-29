@@ -7,11 +7,21 @@
     },
     {
       "id": "msg_0003_EVERYWHERE_00001",
-      "en_US": "!"
+      "en_US": [
+        "It’s a tablet about a Pokémon.\n",
+        "It seems to exude power...\r",
+        "{STRVAR_1 3, 0, 0} read the engraved\n",
+        "writing...\r",
+        "A body of rock.\r",
+        "A body of ice.\r",
+        "A body of steel.\r",
+        "When gathers the three Pokémon,\n",
+        "the path shall open."
+      ]
     },
     {
       "id": "msg_0003_EVERYWHERE_00002",
-      "en_US": "!"
+      "en_US": "The tablet shattered."
     },
     {
       "id": "msg_0003_EVERYWHERE_00003",

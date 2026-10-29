@@ -117,7 +117,7 @@
         "If you do, I’ll feel even worse\n",
         "about having lost to you!\r",
         "...\n",
-        "Give it your all."
+        "Give it your all.\r"
       ]
     },
     {
@@ -131,6 +131,22 @@
         "Leader: Clair\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0631_T30GYM0101_00012",
+      "en_US": [
+        "Clair: And I will give you my number!\n",
+        "There will come a time where I’ll\f",
+        "prevail!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0631_T30GYM0101_00013",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Clair\n",
+        "in the Pokégear!"
       ]
     }
   ]

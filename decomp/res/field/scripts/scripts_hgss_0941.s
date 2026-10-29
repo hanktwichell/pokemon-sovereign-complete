@@ -1,5 +1,6 @@
 #include "macros/scrcmd.inc"
 #include "generated/text_banks.h"
+#include "generated/ribbons.h"
 #include "res/text/bank/hgss_msg_0629.h"
 
 #define LOCALID_COMPLETE_FOLLOWER 0xF0  // include/complete_follower.h
@@ -64,7 +65,7 @@ scr_seq_T30_006:
     LockAll
     FacePlayer
     GetFirstNonEggInParty VAR_0x8002
-    @ HGSS: MonHasRibbon VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002, RIBBON_SNOOZE
+    GetPartyMonRibbon VAR_RESULT, VAR_0x8002, RIBBON_SNOOZE
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0209
     GoToIfSet FLAG_HGSS_DAILY_GOT_SHOCK_RIBBON, _021D
@@ -118,7 +119,7 @@ _01DA:
     MessageFromBank VAR_RESULT, 48
     BufferPartyMonSpecies 0, VAR_0x8002
     MessageFromBank VAR_RESULT, 50
-    @ HGSS: GiveRibbon VAR_SPECIAL_x8002, RIBBON_SNOOZE
+    SetPartyMonRibbon VAR_0x8002, RIBBON_SNOOZE
     PlayFanfare SEQ_FANFA4_sseq
     WaitFanfare
     SetFlag FLAG_HGSS_DAILY_GOT_SHOCK_RIBBON

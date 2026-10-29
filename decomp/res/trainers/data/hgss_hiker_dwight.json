@@ -1,0 +1,53 @@
+{
+    "name": "Dwight",
+    "class": "TRAINER_CLASS_HIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGNEZONE",
+            "form": 0,
+            "level": 56,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STEELIX",
+            "form": 0,
+            "level": 56,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Peace!\r",
+                "...\n",
+                "...Huh?\r",
+                "When you meet the unknown on a\n",
+                "mountain road, all you want is peace,\f",
+                "right?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Peace--even though I lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Exchanging lighthearted greetings with\n",
+                "someone you don’t know...\r",
+                "That’s the best thing about mountains!\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "name": "Alan",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TANGELA",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I can properly prepare for any\n",
+                "Pokémon adversary!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Huh...?\n",
+                "Was my prediction incorrect?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Sniffle... I study for five hours\n",
+                "straight every day...\r",
+                "If you only read the textbook, I guess\n",
+                "you miss out on a lot.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’ve prepared perfectly, waiting\n",
+                "for you!\r"
+            ]
+        }
+    ]
+}

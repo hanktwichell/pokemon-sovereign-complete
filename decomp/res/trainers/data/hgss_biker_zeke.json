@@ -1,0 +1,47 @@
+{
+    "name": "Zeke",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PINSIR",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SCIZOR",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We’re the Kanto Pokémon Federation!\n",
+                "Rock on!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yikes! Sorry!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "We’ll try not to disturb anyone from\n",
+                "now on...\n"
+            ]
+        }
+    ]
+}

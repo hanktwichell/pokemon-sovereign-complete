@@ -203,7 +203,7 @@
       "en_US": [
         "The Battle Hall is where Pokémon battle\n",
         "one-on-one for as long as they can.\r",
-        "Even my MAGIKARP has a shot at\n",
+        "Even my Magikarp has a shot at\n",
         "number one!\r",
         "Wow!\r",
         "Just the thought of it makes\n",
@@ -249,7 +249,7 @@
     },
     {
       "id": "msg_0100_D32_00025",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0100_D32_00026",
@@ -267,7 +267,7 @@
     },
     {
       "id": "msg_0100_D32_00028",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0100_D32_00029",
@@ -289,11 +289,11 @@
     },
     {
       "id": "msg_0100_D32_00032",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0100_D32_00033",
-      "garbage": 46
+      "garbage": 0
     },
     {
       "id": "msg_0100_D32_00034",

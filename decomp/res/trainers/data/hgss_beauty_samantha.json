@@ -1,0 +1,55 @@
+{
+    "name": "Samantha",
+    "class": "TRAINER_CLASS_HGSS_BEAUTY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MEOWTH",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MUNCHLAX",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KECLEON",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Give it your best shot, or I’ll take\n",
+                "you down!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "No!\n",
+                "Oh, Meowth, I’m so sorry!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I taught Meowth moves for taking\n",
+                "on any type...\n"
+            ]
+        }
+    ]
+}

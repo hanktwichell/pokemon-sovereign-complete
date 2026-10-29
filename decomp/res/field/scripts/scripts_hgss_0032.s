@@ -114,7 +114,7 @@ _0184:
     ReleaseAll
     End
 scr_seq_D23R0104_007:
-    GoToIfDefeated TRAINER_NONE, _01F6
+    GoToIfDefeated TRAINER_HGSS_TEAM_ROCKET_F_GRUNT_4, _01F6
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     Message msg_0068_D23R0104_00012
@@ -129,11 +129,11 @@ _01C7:
     WaitMovement
     Message msg_0068_D23R0104_00013
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_F_GRUNT_4, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_F_GRUNT_4, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0209
-    SetTrainerFlag TRAINER_NONE
+    SetTrainerFlag TRAINER_HGSS_TEAM_ROCKET_F_GRUNT_4
     Message msg_0068_D23R0104_00014
     WaitButton
     CloseMessage

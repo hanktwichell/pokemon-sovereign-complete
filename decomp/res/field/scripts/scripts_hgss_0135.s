@@ -9,25 +9,19 @@
     ScriptEntry scr_seq_D52R0103_003
     ScriptEntryEnd
 scr_seq_D52R0103_002:
-    GoToIfSet FLAG_HGSS_ENGAGING_STATIC_POKEMON, _001F
-    End
-_001F:
-    SetFlag FLAG_HGSS_HIDE_EMBEDDED_TOWER_RAYQUAZA
-    RemoveObject obj_D52R0103_tsure_poke_static_rayquaza
+    GoToIfSet FLAG_HGSS_ENGAGING_STATIC_POKEMON, _0119
     End
 scr_seq_D52R0103_003:
     CompareVar VAR_HGSS_SCENE_EMBEDDED_TOWER, 7
-    GoToIf 4, _003C
+    GoToIf 4, _0123
     ClearFlag FLAG_HGSS_HIDE_EMBEDDED_TOWER_RAYQUAZA
-    End
-_003C:
     End
 scr_seq_D52R0103_001:
     LockAll
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    ApplyMovement LOCALID_PLAYER, _00B4
+    ApplyMovement LOCALID_PLAYER, _014A
     WaitMovement
     CompleteFollowerWait
     CompleteFollowerPause 1
@@ -37,7 +31,7 @@ scr_seq_D52R0103_001:
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    ApplyMovement LOCALID_PLAYER, _00B4
+    ApplyMovement LOCALID_PLAYER, _014A
     WaitMovement
     CompleteFollowerWait
     CompleteFollowerPause 1
@@ -52,11 +46,6 @@ scr_seq_D52R0103_001:
     SetVarFromValue VAR_HGSS_SCENE_EMBEDDED_TOWER, 6
     ReleaseAll
     End
-    .balign 4, 0
-_00B4:
-    WalkNormalNorth 8
-    Delay8 2
-    EndMovement
 scr_seq_D52R0103_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
@@ -68,30 +57,47 @@ scr_seq_D52R0103_000:
     WaitCry
     CloseMessage
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: WildBattle SPECIES_RAYQUAZA, 50, 0
+    CompleteStartWildBattle SPECIES_RAYQUAZA, 75, 0
     ClearFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0142
-    @ HGSS: GetStaticEncounterOutcome VAR_TEMP_x4002
+    GoToIf 1, _0125
+    CompleteGetBattleResult VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 3
-    GoToIf 1, _0123
+    GoToIf 1, _012B
     CompareVar VAR_MAP_LOCAL_0x02, 4
-    GoToIf 1, _0134
-_0123:
+    GoToIf 1, _013C
     Message msg_0150_D52R0103_00001
     WaitButton
     CloseMessage
     SetVarFromValue VAR_HGSS_SCENE_EMBEDDED_TOWER, 9
     ReleaseAll
     End
-_0134:
+_0119:
+    SetFlag FLAG_HGSS_HIDE_EMBEDDED_TOWER_RAYQUAZA
+    RemoveObject obj_D52R0103_tsure_poke_static_rayquaza
+    End
+_0123:
+    End
+_0125:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_012B:
+    Message msg_0150_D52R0103_00001
+    WaitButton
+    CloseMessage
+    SetVarFromValue VAR_HGSS_SCENE_EMBEDDED_TOWER, 9
+    ReleaseAll
+    End
+_013C:
     SetVarFromValue VAR_HGSS_SCENE_EMBEDDED_TOWER, 7
     SetFlag FLAG_HGSS_CAUGHT_RAYQUAZA
     ReleaseAll
     End
-_0142:
-    BlackOutFromBattle
-    ReleaseAll
-    End
+    .balign 4, 0
+_014A:
+    WalkNormalNorth 8
+    Delay8 2
+    EndMovement
     .balign 4, 0

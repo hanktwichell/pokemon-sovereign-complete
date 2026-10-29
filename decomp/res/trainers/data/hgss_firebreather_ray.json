@@ -1,0 +1,40 @@
+{
+    "name": "Ray",
+    "class": "TRAINER_CLASS_HGSS_FIREBREATHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VULPIX",
+            "form": 0,
+            "level": 16,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "If there’s light, a cave isn’t scary. If\n",
+                "you’re strong, Pokémon aren’t scary.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "FLASH!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It’s my Pokémon’s fire that lights up\n",
+                "this cave.\n"
+            ]
+        }
+    ]
+}

@@ -5545,6 +5545,28 @@
     .short \destVarID
     .endm
 
+    .macro CompleteGetBattleResult destVarID
+    .short SCRCMD_COMPLETEGETBATTLERESULT
+    .short \destVarID
+    .endm
+
+    .macro CompleteStartWildBattle species, level, shiny=0
+    .short SCRCMD_COMPLETESTARTWILDBATTLE
+    .short \species
+    .short \level
+    .byte \shiny
+    .endm
+
+    // HeartGold's standard menu: InitGlobalTextMenu with HeartGold's menu strings; AddMenuEntry adds its entries.
+    .macro CompleteInitHGSSMenu originX, originY, initialCursorPos, selectedOptionVar, canExitWithB=TRUE
+    .short SCRCMD_COMPLETEINITHGSSMENU
+    .byte \originX
+    .byte \originY
+    .byte \initialCursorPos
+    .byte \canExitWithB
+    .short \selectedOptionVar
+    .endm
+
     .text
     .globl _start
 _start:

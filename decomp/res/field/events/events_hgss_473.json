@@ -12,12 +12,12 @@
     "object_events": [
         {
             "id": "obj_D51R0101_mount_2",
-            "graphics_id": "OBJ_EVENT_GFX_HIKER",
-            "movement_type": "MOVEMENT_TYPE_NONE",
+            "graphics_id": "OBJ_EVENT_GFX_STRENGTH_BOULDER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "FLAG_HGSS_UNK_2DB",
-            "script": 2,
-            "initial_dir": 3,
+            "hidden_flag": "FLAG_HGSS_SG_3FAB",
+            "script": 5,
+            "initial_dir": 0,
             "data": [
                 0,
                 0,
@@ -25,8 +25,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 14,
-            "z": 11,
+            "x": 15,
+            "z": 14,
             "y": 0
         }
     ],

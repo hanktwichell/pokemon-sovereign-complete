@@ -150,7 +150,7 @@
         "{STRVAR_1 3, 1, 0}: You were watching me,\n",
         "{STRVAR_1 3, 0, 0}...\r",
         "Yeah, that’s right!\r",
-        "I never thought defeating five Kimono\n",
+        "I never thought defeating seven Kimono\n",
         "Girls would be so hard...\r",
         "I got beaten to a pulp...\r",
         "...\r",
@@ -183,6 +183,77 @@
         "by the Ecruteak Gym Leader. Me?\r",
         "I was a Trainer way back when.\n",
         "Ho ho ho!"
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00020",
+      "en_US": [
+        "Misa: Good day to you, {STRVAR_1 3, 0, 0}.\n",
+        "It’s been a while since we’ve met.\r"
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00021",
+      "en_US": [
+        "Misa: Have you heard of the Pokémon\n",
+        "known as Jirachi? They say it has the\f",
+        "capability to grant wishes when woken\f",
+        "up from its slumber.\r",
+        "But to do so, it must hear a {COLOR 1}sound\n",
+        "of purity{COLOR 0}.\r",
+        "Where could it be? They say it rests\n",
+        "in {COLOR 1}deep caverns{COLOR 0}, but I couldn’t say\f",
+        "where exactly.\r"
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00022",
+      "en_US": [
+        "Misa: Why am I telling you this?\r",
+        "Us Kimono Girls have reason to\n",
+        "believe Jirachi may be present in the\f",
+        "{COLOR 1}Johto{COLOR 0} region, and we can’t think of\f",
+        "anyone more suitable to check it out!\r",
+        "Good luck."
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00023",
+      "en_US": [
+        "Misa: Hello again, {STRVAR_1 3, 0, 0}.\n",
+        "Are you back to listen to me\f",
+        "once more?\r"
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00024",
+      "en_US": [
+        "Misa: Have you heard of the Pokémon\n",
+        "known as Jirachi? They say it has the\f",
+        "capability to grant wishes when woken\f",
+        "up from its slumber.\r",
+        "But to do so, it must hear a {COLOR 1}sound\n",
+        "of purity{COLOR 0}.\r",
+        "Where could it be? They say it rests\n",
+        "in {COLOR 1}deep caverns{COLOR 0}, but I couldn’t say\f",
+        "where exactly."
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00025",
+      "en_US": [
+        "What makes a slow Pokémon move\n",
+        "before a quick Pokémon?\r",
+        "Why, a Trick Room, of course!\r"
+      ]
+    },
+    {
+      "id": "msg_0612_T27_00026",
+      "en_US": [
+        "Trick Room is a powerful field move. It\n",
+        "reverses the turn order of Pokémon\f",
+        "caught in it. But be careful--it only\f",
+        "lasts for five turns!"
       ]
     }
   ]

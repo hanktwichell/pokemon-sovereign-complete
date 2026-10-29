@@ -1,0 +1,56 @@
+{
+    "name": "Ivan",
+    "class": "TRAINER_CLASS_CAMPER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DIGLETT",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LINOONE",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ZIGZAGOON",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ve been getting Pokémon data off my\n",
+                "radio. I think I’m good.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I give up!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Music on the radio changes the moods of\n",
+                "wild Pokémon.\n"
+            ]
+        }
+    ]
+}

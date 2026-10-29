@@ -1,0 +1,103 @@
+{
+    "name": "Elan＆Ida",
+    "class": "TRAINER_CLASS_HGSS_DOUBLE_TEAM",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_CLAYDOL",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_ICE_BEAM",
+                "MOVE_EARTH_POWER",
+                "MOVE_PSYCHIC",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 60,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HIPPOWDON",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_SLACK_OFF",
+                "MOVE_STONE_EDGE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 60,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Ida: I’m Ida!\n",
+                "Next to me is Elan!\f",
+                "Together, we’re a double team!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Ida: Wow. You’re really something.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Ida: If the only thing Gym Trainers\n",
+                "have is strength, they won’t do well.\r",
+                "Bringing out your opponent’s strength\n",
+                "is also very important!\r",
+                "Elan: You’re stronger than we\n",
+                "anticipated!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_1",
+            "en_US": [
+                "Ida: All right, let’s go!\r",
+                "I bet that’s what you were thinking!\n",
+                "But you’ve only got one Pokémon.\r",
+                "So we can’t battle.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Elan: All right, let’s get this fight\n",
+                "started! Come on!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Elan: Well, this is surprising.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Elan: Phew...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_2",
+            "en_US": [
+                "Elan: Huh?\n",
+                "Not enough Pokémon?\n"
+            ]
+        }
+    ]
+}

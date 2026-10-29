@@ -14,9 +14,9 @@
             "id": "obj_R02_gsboy3",
             "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_ROB",
             "initial_dir": 1,
             "data": [
                 4,
@@ -33,9 +33,9 @@
             "id": "obj_R02_gsboy3_2",
             "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_DOUG",
             "initial_dir": 2,
             "data": [
                 3,
@@ -63,8 +63,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1041,
-            "z": 218,
+            "x": 0,
+            "z": 0,
             "y": 0
         },
         {
@@ -82,8 +82,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1041,
-            "z": 210,
+            "x": 0,
+            "z": 0,
             "y": 0
         },
         {
@@ -101,8 +101,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1041,
-            "z": 200,
+            "x": 0,
+            "z": 0,
             "y": 0
         },
         {
@@ -111,7 +111,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R02_ELIXIR",
-            "script": 0,
+            "script": 7541,
             "initial_dir": 0,
             "data": [
                 0,

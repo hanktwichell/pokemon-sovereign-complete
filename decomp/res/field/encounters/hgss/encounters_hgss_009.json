@@ -1,0 +1,229 @@
+{
+    "map": "D24R0101",
+    "land": {
+        "rate": 10,
+        "slots": [
+            {
+                "level": 26,
+                "morning": "SPECIES_NATU",
+                "day": "SPECIES_NATU",
+                "night": "SPECIES_NATU"
+            },
+            {
+                "level": 27,
+                "morning": "SPECIES_NATU",
+                "day": "SPECIES_NATU",
+                "night": "SPECIES_NATU"
+            },
+            {
+                "level": 26,
+                "morning": "SPECIES_SMEARGLE",
+                "day": "SPECIES_SMEARGLE",
+                "night": "SPECIES_SMEARGLE"
+            },
+            {
+                "level": 27,
+                "morning": "SPECIES_SMEARGLE",
+                "day": "SPECIES_SMEARGLE",
+                "night": "SPECIES_SMEARGLE"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_SMEARGLE",
+                "day": "SPECIES_SMEARGLE",
+                "night": "SPECIES_SMEARGLE"
+            },
+            {
+                "level": 29,
+                "morning": "SPECIES_SMEARGLE",
+                "day": "SPECIES_SMEARGLE",
+                "night": "SPECIES_SMEARGLE"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_GIRAFARIG",
+                "day": "SPECIES_GIRAFARIG",
+                "night": "SPECIES_GIRAFARIG"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_GIRAFARIG",
+                "day": "SPECIES_GIRAFARIG",
+                "night": "SPECIES_GIRAFARIG"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_GIRAFARIG",
+                "day": "SPECIES_GIRAFARIG",
+                "night": "SPECIES_GIRAFARIG"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_GIRAFARIG",
+                "day": "SPECIES_GIRAFARIG",
+                "night": "SPECIES_GIRAFARIG"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_GIRAFARIG",
+                "day": "SPECIES_GIRAFARIG",
+                "night": "SPECIES_GIRAFARIG"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_GIRAFARIG",
+                "day": "SPECIES_GIRAFARIG",
+                "night": "SPECIES_GIRAFARIG"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 10,
+        "slots": [
+            {
+                "level_min": 25,
+                "level_max": 30,
+                "species": "SPECIES_WOOPER"
+            },
+            {
+                "level_min": 25,
+                "level_max": 30,
+                "species": "SPECIES_WOOPER"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_QUAGSIRE"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_QUAGSIRE"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_QUAGSIRE"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 20,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 15,
+                "species": "SPECIES_GEODUDE"
+            },
+            {
+                "level_min": 12,
+                "level_max": 15,
+                "species": "SPECIES_NOSEPASS"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 12,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 12,
+                "species": "SPECIES_REMORAID"
+            },
+            {
+                "level_min": 10,
+                "level_max": 12,
+                "species": "SPECIES_DRATINI"
+            },
+            {
+                "level_min": 10,
+                "level_max": 12,
+                "species": "SPECIES_DRATINI"
+            },
+            {
+                "level_min": 10,
+                "level_max": 12,
+                "species": "SPECIES_DRATINI"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 25,
+                "level_max": 30,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 25,
+                "level_max": 30,
+                "species": "SPECIES_REMORAID"
+            },
+            {
+                "level_min": 25,
+                "level_max": 30,
+                "species": "SPECIES_DRATINI"
+            },
+            {
+                "level_min": 25,
+                "level_max": 30,
+                "species": "SPECIES_DRATINI"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_DRAGONAIR"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GYARADOS"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_RELICANTH"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_DRAGONAIR"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_OCTILLERY"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_OCTILLERY"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_XATU",
+        "SPECIES_XATU"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_TOGEPI",
+        "SPECIES_TOGEPI"
+    ],
+    "swarm": {
+        "land": "SPECIES_NATU",
+        "surf": "SPECIES_WOOPER",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

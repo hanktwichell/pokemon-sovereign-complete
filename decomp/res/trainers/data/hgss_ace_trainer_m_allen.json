@@ -1,0 +1,68 @@
+{
+    "name": "Allen",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TROPIUS",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHARIZARD",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAICHU",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I can tell you’re a good Trainer by\n",
+                "looking at you.\r",
+                "I’m good at Pokémon, and I can see that\n",
+                "you are, too.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Tch! It’s a total loss on my part.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Wow. You have a lot of Badges.\n",
+                "No wonder you’re so tough.\r",
+                "I wonder if Ecruteak Gym’s Morty is\n",
+                "still in training?\f",
+                "He really hammered me.\n"
+            ]
+        }
+    ]
+}

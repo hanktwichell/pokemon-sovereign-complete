@@ -33,6 +33,72 @@
         "Huh?\n",
         "My own eyes deceived me?"
       ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00004",
+      "en_US": [
+        "Professor Oak: Oh! {STRVAR_1 3, 0, 0}! I see\n",
+        "you’ve found my secret retreat.\r",
+        "I used to like living in the depths\n",
+        "of a valley, but I’ve grown quite used\f",
+        "to the seaside in recent years!\r",
+        "Regardless! I’d like to gift you with\n",
+        "some Pokémon I give to trainers\f",
+        "starting in the Kanto region.\r",
+        "But first, I’d like you to show me\n",
+        "a Kanto starter of your own!\r"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00005",
+      "en_US": [
+        "The Pokémon behind you isn’t\n",
+        "a Kanto starter, I’m afraid!"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00006",
+      "en_US": [
+        "Oh! That is certainly a {STRVAR_1 0, 1, 0}...\n",
+        "I always was a fan of that Pokémon!\r",
+        "Very well, here you go!\r"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00007",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Charmander{COLOR 0} and {COLOR 2}Squirtle{COLOR 0}\n",
+        "from Professor Oak!"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00008",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Bulbasaur{COLOR 0} and {COLOR 2}Squirtle{COLOR 0}\n",
+        "from Professor Oak!"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00009",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Bulbasaur{COLOR 0} and\n",
+        "{COLOR 2}Charmander{COLOR 0} from Professor Oak!"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00010",
+      "en_US": [
+        "Professor Oak: I should probably\n",
+        "return to my lab in Pallet Town!\r",
+        "Until we meet again!"
+      ]
+    },
+    {
+      "id": "msg_0349_R12R0101_00011",
+      "en_US": [
+        "You’re going to have to make room\n",
+        "in your party, {STRVAR_1 3, 0, 0}!"
+      ]
     }
   ]
 }

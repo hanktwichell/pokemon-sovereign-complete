@@ -1,0 +1,56 @@
+{
+    "name": "Beckett",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GRAVELER",
+            "form": 0,
+            "level": 38,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VIBRAVA",
+            "form": 0,
+            "level": 38,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VENUSAUR",
+            "form": 0,
+            "level": 38,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I love Pokémon!\r",
+                "That’s why I started--and why I’ll keep\n",
+                "on collecting Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "How could you do this to me?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "What else do I like besides Pokémon?\r",
+                "Mary, on the radio. I bet she’s cute!\n"
+            ]
+        }
+    ]
+}

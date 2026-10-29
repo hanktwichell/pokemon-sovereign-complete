@@ -21,7 +21,7 @@
     ScriptEntry scr_seq_T25R1201_016
     ScriptEntry scr_seq_T25R1201_017
     ScriptEntryEnd
-    ScriptEntryEnd
+    @ HGSS data: .byte 19, 253
 scr_seq_T25R1201_001:
     CompareVar VAR_HGSS_UNK_4133, 6
     CallIf 1, _005B
@@ -35,7 +35,6 @@ scr_seq_T25R1201_002:
     CompareVar VAR_MAP_LOCAL_0x00, 8
     GoToIf 1, _0084
     GoTo _009D
-_007E:
     GoTo _0097
 _0084:
     CompareVar VAR_MAP_LOCAL_0x01, 2
@@ -75,7 +74,6 @@ _0108:
     WalkNormalSouth
     EndMovement
     .balign 4, 0
-_0110:
     WalkNormalSouth
     EndMovement
     .balign 4, 0
@@ -94,10 +92,10 @@ scr_seq_T25R1201_000:
     Message msg_0600_T25R1201_00000
 _014B:
 _014D:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 131, 0
-    AddMenuEntryImm 130, 1
-    AddMenuEntryImm 132, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 131, 0
+    AddMenuEntry 130, 1
+    AddMenuEntry 132, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -113,10 +111,10 @@ _01A4:
     GoTo _01AF
     End
 _01AF:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 133, 0
-    AddMenuEntryImm 134, 1
-    AddMenuEntryImm 135, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 133, 0
+    AddMenuEntry 134, 1
+    AddMenuEntry 135, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -140,7 +138,7 @@ _021C:
     GoTo _014D
     End
 _0227:
-    @ HGSS: PartyCountNotEgg VAR_SPECIAL_RESULT
+    CountPartyNonEggs VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0240
     GoTo _035F
@@ -222,7 +220,7 @@ _035F:
     GoTo _024D
     End
 _0378:
-    @ HGSS: CountPCEmptySpace VAR_SPECIAL_RESULT
+    GetPCBoxesFreeSlotCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0391
     GoTo _024D
@@ -289,9 +287,9 @@ scr_seq_T25R1201_011:
 _047C:
     Message msg_0600_T25R1201_00031
     InitLocalTextMenu 21, 11, 0, VAR_RESULT, 1
-    AddMenuEntryImm 33, 0
-    AddMenuEntryImm 34, 1
-    AddMenuEntryImm 35, 2
+    AddMenuEntry 33, 0
+    AddMenuEntry 34, 1
+    AddMenuEntry 35, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -328,9 +326,9 @@ scr_seq_T25R1201_012:
 _0517:
     Message msg_0600_T25R1201_00029
     InitLocalTextMenu 21, 11, 0, VAR_RESULT, 1
-    AddMenuEntryImm 33, 0
-    AddMenuEntryImm 34, 1
-    AddMenuEntryImm 35, 2
+    AddMenuEntry 33, 0
+    AddMenuEntry 34, 1
+    AddMenuEntry 35, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -397,7 +395,6 @@ _063A:
     Message msg_0600_T25R1201_00021
     GoTo _067F
     End
-_064A:
     Message msg_0600_T25R1201_00018
 _064D:
     Message msg_0600_T25R1201_00019

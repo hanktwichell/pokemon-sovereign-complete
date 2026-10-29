@@ -1,0 +1,52 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SKARMORY",
+            "form": 0,
+            "level": 44,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PILOSWINE",
+            "form": 0,
+            "level": 44,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Kwa ha ha!\r",
+                "Confounded by the doors, are we?\r",
+                "I’ll let you in on a secret if you can\n",
+                "beat me!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Uwww...\n",
+                "I blew it.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "All right. A hint!\r",
+                "Look at the color of the door switches.\n",
+                "You push a color switch, and the same\f",
+                "color door opens up...\n"
+            ]
+        }
+    ]
+}

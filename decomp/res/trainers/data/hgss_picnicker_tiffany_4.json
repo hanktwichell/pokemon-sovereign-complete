@@ -1,0 +1,71 @@
+{
+    "name": "Tiffany",
+    "class": "TRAINER_CLASS_PICNICKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLEFABLE",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_GRAVITY",
+                "MOVE_METRONOME",
+                "MOVE_BLIZZARD",
+                "MOVE_THUNDER"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFABLE",
+            "form": 0,
+            "level": 66,
+            "moves": [
+                "MOVE_GRAVITY",
+                "MOVE_METRONOME",
+                "MOVE_BLIZZARD",
+                "MOVE_FIRE_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFABLE",
+            "form": 0,
+            "level": 64,
+            "moves": [
+                "MOVE_GRAVITY",
+                "MOVE_METRONOME",
+                "MOVE_THUNDER",
+                "MOVE_BLIZZARD"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BLISSEY",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_SOFTBOILED",
+                "MOVE_METRONOME",
+                "MOVE_THUNDERBOLT",
+                "MOVE_FLAMETHROWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I played too much!\n"
+            ]
+        }
+    ]
+}

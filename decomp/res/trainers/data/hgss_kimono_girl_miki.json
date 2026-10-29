@@ -1,0 +1,35 @@
+{
+    "name": "Miki",
+    "class": "TRAINER_CLASS_HGSS_KIMONO_GIRL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FLAREON",
+            "form": 0,
+            "level": 50,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SUNNY_DAY",
+                "MOVE_FIRE_BLAST",
+                "MOVE_QUICK_ATTACK",
+                "MOVE_BITE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ooh, you’re good at Pokémon, too.\n"
+            ]
+        }
+    ]
+}

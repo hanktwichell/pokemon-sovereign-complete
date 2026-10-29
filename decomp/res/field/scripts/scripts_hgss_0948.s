@@ -31,8 +31,8 @@ _005D:
 _0068:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8002
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8002
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -41,7 +41,7 @@ _0068:
     GetPartyMonSpecies VAR_0x8002, VAR_0x8001
     CompareVar VAR_0x8001, 0
     GoToIf 1, _0134
-    @ HGSS: CountMonMoves VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002
+    GetPartyMonMoveCount VAR_RESULT, VAR_0x8002
     CompareVar VAR_RESULT, 1
     GoToIf 1, _013F
     Message msg_0635_T30R0601_00006
@@ -64,7 +64,7 @@ _0068:
     GoToIf 1, _005D
     End
 _011D:
-    @ HGSS: MonForgetMove VAR_SPECIAL_x8002, VAR_SPECIAL_x8001
+    ClearPartyMonMoveSlot VAR_0x8002, VAR_0x8001
     WaitFanfare
     Message msg_0635_T30R0601_00008
     WaitButton
@@ -98,8 +98,8 @@ scr_seq_T30R0601_001:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8005
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8005
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -222,7 +222,7 @@ _02F0:
     GoToIf 1, _0331
     GoTo _0346
 _0331:
-    @ HGSS: MonHasMove VAR_SPECIAL_RESULT, MOVE_DRACO_METEOR, VAR_TEMP_x4000
+    CheckPartyMonHasMove VAR_RESULT, MOVE_DRACO_METEOR, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0359
 _0346:
@@ -234,8 +234,8 @@ _0359:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8000
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8000
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -247,10 +247,10 @@ _0359:
     Call _042B
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02BB
-    @ HGSS: MonHasMove VAR_SPECIAL_RESULT, MOVE_DRACO_METEOR, VAR_SPECIAL_x8000
+    CheckPartyMonHasMove VAR_RESULT, MOVE_DRACO_METEOR, VAR_0x8000
     CompareVar VAR_RESULT, 1
     GoToIf 1, _02D1
-    @ HGSS: MonGetFriendship VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000
+    GetPartyMonFriendship VAR_RESULT, VAR_0x8000
     CompareVar VAR_RESULT, 255
     GoToIf 0, _02E1
     BufferPartyMonSpecies 0, VAR_0x8000
@@ -306,8 +306,8 @@ _04AC:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8000
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8000
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -323,7 +323,7 @@ _04AC:
     Call _06B0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0722
-    @ HGSS: MonGetFriendship VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000
+    GetPartyMonFriendship VAR_RESULT, VAR_0x8000
     CompareVar VAR_RESULT, 255
     GoToIf 0, _0715
     BufferPartyMonSpecies 0, VAR_0x8000
@@ -409,13 +409,13 @@ _06B0:
     GoToIf 1, _06DA
     GoTo _06E4
 _06D0:
-    @ HGSS: MonHasMove VAR_SPECIAL_RESULT, MOVE_BLAST_BURN, VAR_SPECIAL_x8000
+    CheckPartyMonHasMove VAR_RESULT, MOVE_BLAST_BURN, VAR_0x8000
     Return
 _06DA:
-    @ HGSS: MonHasMove VAR_SPECIAL_RESULT, MOVE_HYDRO_CANNON, VAR_SPECIAL_x8000
+    CheckPartyMonHasMove VAR_RESULT, MOVE_HYDRO_CANNON, VAR_0x8000
     Return
 _06E4:
-    @ HGSS: MonHasMove VAR_SPECIAL_RESULT, MOVE_FRENZY_PLANT, VAR_SPECIAL_x8000
+    CheckPartyMonHasMove VAR_RESULT, MOVE_FRENZY_PLANT, VAR_0x8000
     Return
 _06EE:
     Message msg_0635_T30R0601_00046

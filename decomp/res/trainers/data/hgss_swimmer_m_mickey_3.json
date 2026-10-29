@@ -1,0 +1,53 @@
+{
+    "name": "Archer",
+    "class": "TRAINER_CLASS_HGSS_EXECUTIVE_ARCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ZANGOOSE",
+            "form": 0,
+            "level": 38,
+            "moves": [
+                "MOVE_CRUSH_CLAW",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_X_SCISSOR",
+                "MOVE_DETECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GYARADOS",
+            "form": 0,
+            "level": 38,
+            "moves": [
+                "MOVE_WATERFALL",
+                "MOVE_BOUNCE",
+                "MOVE_ICE_FANG",
+                "MOVE_DRAGON_DANCE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HOUNDOOM",
+            "form": 0,
+            "level": 39,
+            "moves": [
+                "MOVE_FIRE_BLAST",
+                "MOVE_FAINT_ATTACK",
+                "MOVE_WILL_O_WISP",
+                "MOVE_THUNDER_FANG"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

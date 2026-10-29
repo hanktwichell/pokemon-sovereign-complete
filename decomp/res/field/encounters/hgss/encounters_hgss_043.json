@@ -1,0 +1,229 @@
+{
+    "map": "D40R0101",
+    "land": {
+        "rate": 5,
+        "slots": [
+            {
+                "level": 35,
+                "morning": "SPECIES_KRABBY",
+                "day": "SPECIES_KRABBY",
+                "night": "SPECIES_KRABBY"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_SEEL",
+                "day": "SPECIES_SEEL",
+                "night": "SPECIES_SEEL"
+            },
+            {
+                "level": 35,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
+            },
+            {
+                "level": 35,
+                "morning": "SPECIES_SPHEAL",
+                "day": "SPECIES_SPHEAL",
+                "night": "SPECIES_SPHEAL"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_SPHEAL",
+                "day": "SPECIES_SPHEAL",
+                "night": "SPECIES_SPHEAL"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
+            },
+            {
+                "level": 34,
+                "morning": "SPECIES_SHELLDER",
+                "day": "SPECIES_SHELLDER",
+                "night": "SPECIES_SHELLDER"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_SHELLDER",
+                "day": "SPECIES_SHELLDER",
+                "night": "SPECIES_SHELLDER"
+            },
+            {
+                "level": 35,
+                "morning": "SPECIES_SHELLDER",
+                "day": "SPECIES_SHELLDER",
+                "night": "SPECIES_SHELLDER"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_SHELLDER",
+                "day": "SPECIES_SHELLDER",
+                "night": "SPECIES_SHELLDER"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 10,
+        "slots": [
+            {
+                "level_min": 15,
+                "level_max": 25,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 32,
+                "level_max": 35,
+                "species": "SPECIES_SEADRA"
+            },
+            {
+                "level_min": 32,
+                "level_max": 38,
+                "species": "SPECIES_SEADRA"
+            },
+            {
+                "level_min": 32,
+                "level_max": 40,
+                "species": "SPECIES_SEADRA"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_HORSEA"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_HORSEA"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_HORSEA"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SEADRA"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SEADRA"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SEADRA"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SEADRA"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_KINGLER",
+        "SPECIES_DEWGONG"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_STARYU",
+        "SPECIES_STARYU"
+    ],
+    "swarm": {
+        "land": "SPECIES_KRABBY",
+        "surf": "SPECIES_TENTACOOL",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

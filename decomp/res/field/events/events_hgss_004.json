@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8425,
             "type": 2,
             "x": 33,
             "z": 10,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8426,
             "type": 2,
             "x": 39,
             "z": 20,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8428,
             "type": 2,
             "x": 14,
             "z": 7,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8427,
             "type": 2,
             "x": 23,
             "z": 7,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8429,
             "type": 2,
             "x": 17,
             "z": 7,
@@ -59,6 +59,44 @@
             "movement_range_z": 0,
             "x": 30,
             "z": 11,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R1101_1",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FD2",
+            "script": 7558,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 31,
+            "z": 20,
+            "y": 0
+        },
+        {
+            "id": "obj_D17R1101_2",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FA5",
+            "script": 5,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 26,
+            "z": 7,
             "y": 0
         }
     ],

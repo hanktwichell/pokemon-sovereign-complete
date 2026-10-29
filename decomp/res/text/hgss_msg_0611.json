@@ -115,6 +115,50 @@
         "Access your PC to delete\n",
         "some pictures."
       ]
+    },
+    {
+      "id": "msg_0611_T26R0701_00014",
+      "en_US": [
+        "Olivine is on the sea!\r",
+        "And if it’s on the sea, there is bound\n",
+        "to be something to catch!\r",
+        "I’ve fished here for 30 years.\r",
+        "Would you like to face the sea\n",
+        "and fish? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0611_T26R0701_00015",
+      "en_US": [
+        "Ah, hahah!\n",
+        "We have ourselves a new angler!"
+      ]
+    },
+    {
+      "id": "msg_0611_T26R0701_00016",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0611_T26R0701_00017",
+      "en_US": [
+        "Water-type Pokémon aren’t found\n",
+        "in the sea alone.\f",
+        "They go wherever there is water."
+      ]
+    },
+    {
+      "id": "msg_0611_T26R0701_00018",
+      "en_US": [
+        "Whaaat? You don’t like to fish!?\f",
+        "Incomprehensible!"
+      ]
+    },
+    {
+      "id": "msg_0611_T26R0701_00019",
+      "en_US": [
+        "How are things?\n",
+        "Land the big one?"
+      ]
     }
   ]
 }

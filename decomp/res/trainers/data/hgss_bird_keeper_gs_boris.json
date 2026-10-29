@@ -1,0 +1,54 @@
+{
+    "name": "Boris",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DODUO",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PELIPPER",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DODRIO",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "If you’re looking for Pokémon, you have\n",
+                "to look in the tall grass.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aiyeee!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Since you’re so strong, it must be fun\n",
+                "to battle.\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Clark",
+    "class": "TRAINER_CLASS_CAMPER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FLOATZEL",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Collect water!\n",
+                "Don’t let the fire go out!\f",
+                "Look out for wild Pokémon!\f",
+                "Let’s go, Campfire!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Pfuuuuhh...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It doesn’t matter what kind of\n",
+                "preparation you’ve done.\f",
+                "If you lose, you lose.\n"
+            ]
+        }
+    ]
+}

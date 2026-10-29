@@ -1,0 +1,53 @@
+{
+    "name": "Buck",
+    "class": "TRAINER_CLASS_TRAINER_BUCK",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_UMBREON",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_DARK_PULSE",
+                "MOVE_CONFUSE_RAY",
+                "MOVE_DOUBLE_TEAM",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TORKOAL",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_PROTECT",
+                "MOVE_TOXIC",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLAYDOL",
+            "form": 0,
+            "level": 36,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_EARTH_POWER",
+                "MOVE_ICE_BEAM",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

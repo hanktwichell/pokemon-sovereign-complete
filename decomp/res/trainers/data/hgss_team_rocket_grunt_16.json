@@ -1,0 +1,49 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KINGLER",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SHELGON",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The door won’t open?\r",
+                "Well, duh. It has to have a password\n",
+                "that only Team Rocket knows.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What? I lost?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Heh, I’m just a Team Rocket Grunt.\n",
+                "I don’t know the password.\f",
+                "Too bad for you.\n"
+            ]
+        }
+    ]
+}

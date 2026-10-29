@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8352,
             "type": 2,
             "x": 1,
             "z": 9,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8353,
             "type": 2,
             "x": 13,
             "z": 14,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8367,
             "type": 2,
             "x": 20,
             "z": 11,
@@ -374,7 +374,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D37R0103_AMULET_COIN",
-            "script": 0,
+            "script": 7381,
             "initial_dir": 0,
             "data": [
                 0,
@@ -393,7 +393,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D37R0103_BURN_HEAL",
-            "script": 0,
+            "script": 7380,
             "initial_dir": 0,
             "data": [
                 0,
@@ -412,7 +412,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D37R0103_ETHER",
-            "script": 0,
+            "script": 7382,
             "initial_dir": 0,
             "data": [
                 0,
@@ -431,7 +431,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D37R0103_ULTRA_BALL",
-            "script": 0,
+            "script": 7383,
             "initial_dir": 0,
             "data": [
                 0,
@@ -442,6 +442,25 @@
             "movement_range_z": 0,
             "x": 24,
             "z": 22,
+            "y": 0
+        },
+        {
+            "id": "obj_D37R0103_22",
+            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_GOT_TM19_FROM_ERIKA",
+            "script": 5,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1,
+            "z": 7,
             "y": 0
         }
     ],

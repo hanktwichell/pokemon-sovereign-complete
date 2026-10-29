@@ -1,0 +1,51 @@
+{
+    "name": "Timothy",
+    "class": "TRAINER_CLASS_HIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DUGTRIO",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RHYDON",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Why do I climb mountains?\n",
+                "Because they’re there.\r",
+                "Why do I train Pokémon?\n",
+                "Because they’re there!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Losses...\n",
+                "They’re there, too!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The best thing ever to happen to me was\n",
+                "discovering Pokémon.\n"
+            ]
+        }
+    ]
+}

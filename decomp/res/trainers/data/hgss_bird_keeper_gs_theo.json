@@ -1,0 +1,41 @@
+{
+    "name": "Theo",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DODRIO",
+            "form": 0,
+            "level": 32,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What are you here for? Just to stand\n",
+                "around and gawk? I suggest you leave!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You really are concerned...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "How in the world do you go up?\r",
+                "I want to visit the sick Pokémon, but I\n",
+                "can’t get up there...\n"
+            ]
+        }
+    ]
+}

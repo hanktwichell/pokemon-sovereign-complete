@@ -1,0 +1,56 @@
+{
+    "name": "Paulo",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRATINI",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 60,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SEADRA",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 60,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BAGON",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 60,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Your first battle against dragons?\n",
+                "I’ll show you how tough they are!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "That’s too bad.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You’ve met the Dragon Tamer Lance?\n",
+                "I don’t believe you.\n"
+            ]
+        }
+    ]
+}

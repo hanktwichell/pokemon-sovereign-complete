@@ -1,0 +1,28 @@
+{
+    "name": "Amy nd Mimi",
+    "class": "TRAINER_CLASS_HGSS_TWINS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_LEDYBA",
+            "form": 0,
+            "level": 10,
+            "iv_scale": 10,
+            "ball_seal": 0,
+            "ability": "ABILITY_EARLY_BIRD"
+        },
+        {
+            "species": "SPECIES_SPINARAK",
+            "form": 0,
+            "level": 10,
+            "iv_scale": 10,
+            "ball_seal": 0,
+            "ability": "ABILITY_INSOMNIA"
+        }
+    ],
+    "messages": []
+}

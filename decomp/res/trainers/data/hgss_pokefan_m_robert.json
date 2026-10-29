@@ -1,0 +1,47 @@
+{
+    "name": "Robert",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLOWBRO",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You really love Pokémon, don’t you?\n",
+                "I love Pokémon, too!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Looks like this means it’s my loss.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "My dearest, very important Pokémon...\n",
+                "I won’t forget what you did!\n"
+            ]
+        }
+    ]
+}

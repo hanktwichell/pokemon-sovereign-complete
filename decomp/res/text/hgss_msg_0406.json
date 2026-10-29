@@ -29,6 +29,13 @@
         "You never know what Pokémon\n",
         "you’re gonna get!"
       ]
+    },
+    {
+      "id": "msg_0406_R46_00004",
+      "en_US": [
+        "What’s this?\n",
+        "The Gligar dropped an item!\r"
+      ]
     }
   ]
 }

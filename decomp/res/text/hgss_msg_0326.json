@@ -46,6 +46,35 @@
         "Touching the meteorite balanced out\n",
         "the attributes of a certain Pokémon."
       ]
+    },
+    {
+      "id": "msg_0326_R03_00006",
+      "en_US": [
+        "Hey, kid! Want to buy my Magikarp\n",
+        "for $1,000,000?\r",
+        "What, you can’t even hold that\n",
+        "much?\r",
+        "Kids these days...\n",
+        "Think they’re spoilt..."
+      ]
+    },
+    {
+      "id": "msg_0326_R03_00007",
+      "en_US": [
+        "{STRVAR_1 0, 1, 0} feels an odd presence\n",
+        "around this area...\r"
+      ]
+    },
+    {
+      "id": "msg_0326_R03_00008",
+      "en_US": [
+        "There doesn’t appear to be anything,\n",
+        "though."
+      ]
+    },
+    {
+      "id": "msg_0326_R03_00009",
+      "en_US": "Deoxys vanished..."
     }
   ]
 }

@@ -24,51 +24,20 @@
     ScriptEntry scr_seq_R34_010
     ScriptEntry scr_seq_R34_011
     ScriptEntry scr_seq_R34_012
+    ScriptEntry scr_seq_R34_013
+    ScriptEntry scr_seq_R34_014
     ScriptEntryEnd
 scr_seq_R34_000:
     @ HGSS: GetFriendSprite VAR_OBJ_0
-    @ HGSS: CheckDaycareEgg VAR_TEMP_x4000
+    CheckDaycareHasEgg VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
-    GoToIf 1, _0057
-    @ HGSS: SetObjectMovementType obj_R34_gsoldman1, 16
-    GoTo _005D
-_0057:
-    @ HGSS: SetObjectMovementType obj_R34_gsoldman1, 15
-_005D:
-    GoToIfUnset FLAG_HGSS_UNK_189, _006E
-    ClearFlag FLAG_HGSS_UNK_189
-    End
-_006E:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
-    CompareVar VAR_MAP_LOCAL_0x00, 0
-    GoToIf 1, _009F
-    GetDayOfWeek VAR_MAP_LOCAL_0x00
-    CompareVar VAR_MAP_LOCAL_0x00, 3
-    GoToIf 1, _00A9
-    CompareVar VAR_MAP_LOCAL_0x00, 4
-    GoToIf 1, _00A9
-_009F:
-    SetFlag FLAG_HGSS_HIDE_CAMERON
-    GoTo _00AD
-_00A9:
-    ClearFlag FLAG_HGSS_HIDE_CAMERON
-_00AD:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 3
-    GoToIf 1, _00D5
-    CompareVar VAR_MAP_LOCAL_0x00, 4
-    GoToIf 1, _00D5
-    ClearFlag FLAG_HGSS_UNK_1D1
-    SetFlag FLAG_HGSS_UNK_1D2
-    End
-_00D5:
-    ClearFlag FLAG_HGSS_UNK_1D2
-    SetFlag FLAG_HGSS_UNK_1D1
-    End
+    GoToIf 1, _0351
+    SetObjectEventMovementType obj_R34_gsoldman1, 16
+    GoTo _0368
 scr_seq_R34_001:
     LockAll
-    ApplyMovement obj_R34_gsoldman1, _0130
-    ApplyMovement LOCALID_PLAYER, _0140
+    ApplyMovement obj_R34_gsoldman1, _0BC8
+    ApplyMovement LOCALID_PLAYER, _0BD6
     WaitMovement
     Message msg_0384_R34_00046
     BufferPlayerName 0
@@ -82,343 +51,35 @@ scr_seq_R34_001:
     WaitFanfare
     Message msg_0384_R34_00049
     CloseMessage
-    ApplyMovement obj_R34_gsoldman1, _014C
+    ApplyMovement obj_R34_gsoldman1, _0BE0
     WaitMovement
     SetVarFromValue VAR_HGSS_UNK_408E, 3
     ReleaseAll
     End
-    .balign 4, 0
-_0130:
-    EmoteExclamationMark
-    WalkNormalSouth
-    WalkNormalEast 2
-    EndMovement
-    .balign 4, 0
-_0140:
-    Delay8 3
-    WalkOnSpotNormalWest
-    EndMovement
-    .balign 4, 0
-_014C:
-    WalkNormalWest 2
-    WalkNormalNorth
-    WalkOnSpotNormalSouth
-    EndMovement
 scr_seq_R34_003:
     LockAll
     MessageGendered msg_0384_R34_00036, msg_0384_R34_00041
     CloseMessage
-    ApplyMovement obj_R34_gsoldman1, _0510
+    ApplyMovement obj_R34_gsoldman1, _0BEE
     WaitMovement
     Common_SetCounterpartBGM
-    ApplyMovement obj_R34_var_1, _049C
-    ApplyMovement obj_R34_tsure_poke_static_marill, _04B0
+    ApplyMovement obj_R34_var_1, _0BF4
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0C06
     WaitMovement
-    ApplyMovement obj_R34_gsoldman1, _0500
+    ApplyMovement obj_R34_gsoldman1, _0C14
     WaitMovement
     MessageGendered msg_0384_R34_00037, msg_0384_R34_00042
     CloseMessage
-    ApplyMovement obj_R34_var_1, _04F8
+    ApplyMovement obj_R34_var_1, _0C1A
     WaitMovement
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     BufferPlayerName 0
     CompareVar VAR_0x8004, 368
-    GoToIf 5, _01D4
-    ApplyMovement obj_R34_var_1, _04C0
-    ApplyMovement obj_R34_tsure_poke_static_marill, _04CC
-    ApplyMovement obj_R34_gsoldman1, _0494
-    GoTo _0207
-_01D4:
-    CompareVar VAR_0x8004, 369
-    GoToIf 5, _01FF
-    ApplyMovement obj_R34_var_1, _04C0
-    ApplyMovement obj_R34_tsure_poke_static_marill, _04CC
-    ApplyMovement obj_R34_gsoldman1, _0494
-    GoTo _0207
-_01FF:
-    ApplyMovement obj_R34_var_1, _0518
-_0207:
-    WaitMovement
-    MessageGendered msg_0384_R34_00038, msg_0384_R34_00043
-    CloseMessage
-    CompleteFollowerPause 0
-    CompleteFollowerWait
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    CompareVar VAR_0x8004, 363
-    GoToIf 5, _0234
-    ApplyMovement LOCALID_PLAYER, _0528
-    GoTo _02C3
-_0234:
-    CompareVar VAR_0x8004, 364
-    GoToIf 5, _024F
-    ApplyMovement LOCALID_PLAYER, _0534
-    GoTo _02C3
-_024F:
-    CompareVar VAR_0x8004, 365
-    GoToIf 5, _026A
-    ApplyMovement LOCALID_PLAYER, _053C
-    GoTo _02C3
-_026A:
-    CompareVar VAR_0x8004, 366
-    GoToIf 5, _0285
-    ApplyMovement LOCALID_PLAYER, _0548
-    GoTo _02C3
-_0285:
-    CompareVar VAR_0x8004, 367
-    GoToIf 5, _02A0
-    ApplyMovement LOCALID_PLAYER, _0554
-    GoTo _02C3
-_02A0:
-    CompareVar VAR_0x8004, 368
-    GoToIf 5, _02BB
-    ApplyMovement LOCALID_PLAYER, _0560
-    GoTo _02C3
-_02BB:
-    ApplyMovement LOCALID_PLAYER, _056C
-_02C3:
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    CompareVar VAR_0x8004, 368
-    GoToIf 5, _02EA
-    ApplyMovement obj_R34_var_1, _0510
-    GoTo _030D
-_02EA:
-    CompareVar VAR_0x8004, 369
-    GoToIf 5, _0305
-    ApplyMovement obj_R34_var_1, _0510
-    GoTo _030D
-_0305:
-    ApplyMovement obj_R34_var_1, _0508
-_030D:
-    WaitMovement
-    BufferPlayerName 0
-    MessageGendered msg_0384_R34_00039, msg_0384_R34_00044
-    CloseMessage
-    CompareVar VAR_0x8004, 368
-    GoToIf 5, _033B
-    ApplyMovement obj_R34_var_1, _04D4
-    ApplyMovement obj_R34_tsure_poke_static_marill, _04E8
-    GoTo _036E
-_033B:
-    CompareVar VAR_0x8004, 369
-    GoToIf 5, _035E
-    ApplyMovement obj_R34_var_1, _04D4
-    ApplyMovement obj_R34_tsure_poke_static_marill, _04E8
-    GoTo _036E
-_035E:
-    ApplyMovement obj_R34_var_1, _04E0
-    ApplyMovement obj_R34_tsure_poke_static_marill, _04F0
-_036E:
-    WaitMovement
-    BufferPlayerName 0
-    MessageGendered msg_0384_R34_00040, msg_0384_R34_00045
-    CloseMessage
-    CompleteFollowerPause 0
-    CompleteFollowerWait
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    CompareVar VAR_0x8004, 368
-    GoToIf 5, _03AE
-    ApplyMovement obj_R34_var_1, _0578
-    ApplyMovement obj_R34_tsure_poke_static_marill, _0590
-    ApplyMovement LOCALID_PLAYER, _05A4
-    GoTo _03F1
-_03AE:
-    CompareVar VAR_0x8004, 369
-    GoToIf 5, _03D9
-    ApplyMovement obj_R34_var_1, _0578
-    ApplyMovement obj_R34_tsure_poke_static_marill, _0590
-    ApplyMovement LOCALID_PLAYER, _05A4
-    GoTo _03F1
-_03D9:
-    ApplyMovement obj_R34_var_1, _0584
-    ApplyMovement obj_R34_tsure_poke_static_marill, _0598
-    ApplyMovement LOCALID_PLAYER, _05B4
-_03F1:
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    @ HGSS: ScrCmd_307 11, 12, 16, 26, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
-    ApplyMovement obj_R34_var_1, _05C4
-    ApplyMovement obj_R34_tsure_poke_static_marill, _05D0
-    WaitMovement
-    CompleteFollowerPause 0
-    CompleteFollowerWait
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    ApplyMovement LOCALID_PLAYER, _05E0
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
-    CompareVar VAR_RESULT, 1
-    GoToIf 5, _0455
-    @ HGSS: ScrCmd_600
-_0455:
-    FadeScreen 6, 1, 0, COLOR_BLACK
-    WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    WaitFadeScreen
-    @ HGSS: ScrCmd_309 77
-    SetVarFromValue VAR_HGSS_UNK_408E, 1
-    Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
-    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
-    FadeScreen 6, 1, 1, COLOR_BLACK
-    WaitFadeScreen
-    ReleaseAll
-    End
-    .balign 4, 0
-_0494:
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_049C:
-    WalkNormalSouth 6
-    WalkNormalEast 3
-    WalkNormalSouth 2
-    WalkOnSpotNormalEast
-    EndMovement
-    .balign 4, 0
-_04B0:
-    WalkNormalSouth 7
-    WalkNormalEast 3
-    WalkNormalSouth
-    EndMovement
-    .balign 4, 0
-_04C0:
-    WalkNormalSouth
-    WalkOnSpotNormalEast
-    EndMovement
-    .balign 4, 0
-_04CC:
-    WalkNormalSouth
-    EndMovement
-    .balign 4, 0
-_04D4:
-    WalkNormalEast
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_04E0:
-    WalkNormalSouth
-    EndMovement
-    .balign 4, 0
-_04E8:
-    WalkNormalSouth
-    EndMovement
-    .balign 4, 0
-_04F0:
-    WalkNormalSouth
-    EndMovement
-    .balign 4, 0
-_04F8:
-    EmoteExclamationMark
-    EndMovement
-    .balign 4, 0
-_0500:
-    WalkOnSpotNormalWest
-    EndMovement
-    .balign 4, 0
-_0508:
-    WalkOnSpotNormalEast
-    EndMovement
-    .balign 4, 0
-_0510:
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_0518:
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_0520:
-    SetInvisible
-    EndMovement
-    .balign 4, 0
-_0528:
-    WalkNormalEast
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_0534:
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_053C:
-    WalkNormalWest
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_0548:
-    WalkNormalWest 2
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_0554:
-    WalkNormalWest 3
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_0560:
-    WalkNormalWest 3
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_056C:
-    WalkNormalWest 4
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_0578:
-    WalkNormalEast 3
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_0584:
-    WalkNormalEast 4
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_0590:
-    WalkNormalEast 3
-    EndMovement
-    .balign 4, 0
-_0598:
-    WalkNormalSouth
-    WalkNormalEast 3
-    EndMovement
-    .balign 4, 0
-_05A4:
-    Delay8
-    WalkNormalEast 3
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_05B4:
-    Delay8
-    WalkNormalEast 4
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_05C4:
-    WalkNormalNorth
-    SetInvisible
-    EndMovement
-    .balign 4, 0
-_05D0:
-    WalkNormalEast
-    WalkNormalNorth
-    SetInvisible
-    EndMovement
-    .balign 4, 0
-_05E0:
-    WalkNormalNorth 2
-    SetInvisible
-    EndMovement
+    GoToIf 5, _0379
+    ApplyMovement obj_R34_var_1, _0C20
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0C2A
+    ApplyMovement obj_R34_gsoldman1, _0C30
+    GoTo _03A4
 scr_seq_R34_002:
     NPCMessage msg_0384_R34_00018
     End
@@ -430,10 +91,10 @@ scr_seq_R34_012:
     MessageFromBank VAR_RESULT, 0
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0727
+    GoToIf 1, _03D1
     @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _073B
+    GoToIf 1, _03E5
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
     MessageFromBank VAR_RESULT, 1
     CloseMessage
@@ -442,296 +103,68 @@ scr_seq_R34_012:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 5, _0678
-    ApplyMovement LOCALID_PLAYER, _0750
-    ApplyMovement obj_R34_gsmiddleman1_2, _079C
-    GoTo _06C6
-_0678:
-    CompareVar VAR_RESULT, 1
-    GoToIf 5, _0693
-    ApplyMovement LOCALID_PLAYER, _0768
-    GoTo _06C6
-_0693:
-    CompareVar VAR_RESULT, 3
-    GoToIf 5, _06B6
-    ApplyMovement LOCALID_PLAYER, _0788
-    ApplyMovement obj_R34_gsmiddleman1_2, _079C
-    GoTo _06C6
-_06B6:
-    ApplyMovement LOCALID_PLAYER, _0774
-    ApplyMovement obj_R34_gsmiddleman1_2, _079C
-_06C6:
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    CompleteFollowerCheckActive VAR_RESULT
-    CompareVar VAR_RESULT, 1
-    GoToIf 5, _06ED
-    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _07A8
-    WaitMovement
-_06ED:
-    SetFlag FLAG_HGSS_UNK_189
-    FadeScreen 6, 1, 0, COLOR_BLACK
-    WaitFadeScreen
-    @ HGSS: CameronPhoto 9
-    LockAll
-    FadeScreen 6, 1, 1, COLOR_BLACK
-    WaitFadeScreen
-    ClearFlag FLAG_HGSS_UNK_189
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 2
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0727:
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 5
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_073B:
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 3
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-    .balign 4, 0
-_0750:
-    WalkNormalEast
-    WalkNormalNorth 2
-    WalkNormalWest
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_0768:
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_0774:
-    WalkNormalNorth
-    WalkNormalWest
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_0788:
-    WalkNormalNorth
-    WalkNormalEast
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_079C:
-    Delay8
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_07A8:
-    WalkNormalEast
-    WalkNormalNorth
-    FaceSouth
-    EndMovement
+    GoToIf 5, _03F9
+    ApplyMovement LOCALID_PLAYER, _0C36
+    ApplyMovement obj_R34_gsmiddleman1_2, _0C4C
+    GoTo _0414
 scr_seq_R34_004:
     LockAll
-    @ HGSS: CountAliveMons VAR_TEMP_x4003, 6
+    CountAliveMonsExcept VAR_MAP_LOCAL_0x03, 6
     CompareVar VAR_MAP_LOCAL_0x03, 1
-    GoToIf 5, _07DB
-    GoTo _07E1
-_07D5:
-    GoTo _07E1
-_07DB:
-    GoTo _087D
-_07E1:
-    ApplyMovement obj_R34_gswoman3, _0918
-    StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _0944
-    WaitMovement
-    Message msg_0384_R34_00019
-    CloseMessage
-    @ HGSS: TrainerBattle TRAINER_ACE_TRAINER_F_IRENE, 0, 0, 0
-    CheckWonBattle VAR_RESULT
-    CompareVar VAR_RESULT, 0
-    GoToIf 1, _0912
-    ApplyMovement obj_R34_gswoman3, _094C
-    WaitMovement
-    Message msg_0384_R34_00021
-    CloseMessage
-    ApplyMovement obj_R34_gswoman3_2, _0924
-    StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _093C
-    WaitMovement
-    Message msg_0384_R34_00024
-    CloseMessage
-    @ HGSS: TrainerBattle TRAINER_ACE_TRAINER_F_JENN, 0, 0, 0
-    CheckWonBattle VAR_RESULT
-    CompareVar VAR_RESULT, 0
-    GoToIf 1, _0912
-    ApplyMovement obj_R34_gswoman3_2, _0954
-    WaitMovement
-    Message msg_0384_R34_00026
-    WaitButton
-    CloseMessage
-    GoTo _0908
-    End
-_087D:
-    ApplyMovement obj_R34_gswoman3, _0918
-    StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _0944
-    WaitMovement
-    Message msg_0384_R34_00019
-    CloseMessage
-    ApplyMovement obj_R34_gswoman3_2, _0924
-    PlayMusic SEQ_TOWN01_D_sseq
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _093C
-    WaitMovement
-    Message msg_0384_R34_00024
-    CloseMessage
-    @ HGSS: TrainerBattle TRAINER_ACE_TRAINER_F_JENN, 120, 0, 0
-    CheckWonBattle VAR_RESULT
-    CompareVar VAR_RESULT, 0
-    GoToIf 1, _0912
-    ApplyMovement obj_R34_gswoman3, _094C
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _0944
-    WaitMovement
-    Message msg_0384_R34_00021
-    CloseMessage
-    ApplyMovement obj_R34_gswoman3_2, _0954
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _093C
-    WaitMovement
-    Message msg_0384_R34_00026
-    WaitButton
-    CloseMessage
-_0908:
-    SetVarFromValue VAR_HGSS_UNK_4097, 1
-    ReleaseAll
-    End
-_0912:
-    BlackOutFromBattle
-    ReleaseAll
-    End
-    .balign 4, 0
-_0918:
-    EmoteExclamationMark
-    WalkNormalWest 4
-    EndMovement
-    .balign 4, 0
-_0924:
-    EmoteExclamationMark
-    WalkNormalEast 4
-    EndMovement
-    .balign 4, 0
-_0930:
-    EmoteExclamationMark
-    WalkNormalNorth 2
-    EndMovement
-    .balign 4, 0
-_093C:
-    FaceWest
-    EndMovement
-    .balign 4, 0
-_0944:
-    FaceEast
-    EndMovement
-    .balign 4, 0
-_094C:
-    JumpOnSpotFastWest 2
-    EndMovement
-    .balign 4, 0
-_0954:
-    JumpOnSpotFastEast 2
-    EndMovement
+    GoToIf 5, _0475
+    GoTo _047B
 scr_seq_R34_005:
     LockAll
     SetVarFromValue VAR_MAP_LOCAL_0x04, 777
-    ApplyMovement obj_R34_gswoman3_3, _0930
+    ApplyMovement obj_R34_gswoman3_3, _0C56
     StopMusic
     PlayMusic SEQ_TOWN01_D_sseq
     WaitMovement
     Message msg_0384_R34_00028
     CloseMessage
     StopMusic
-    @ HGSS: TrainerBattle TRAINER_ACE_TRAINER_F_KATE, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_ACE_TRAINER_F_KATE, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0912
+    GoToIf 1, _0515
     SetVarFromValue VAR_HGSS_UNK_4097, 2
-_09A0:
     Message msg_0384_R34_00030
     SetVar VAR_0x8004, ITEM_POWER_HERB
     SetVar VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
-    GoToIfEq VAR_RESULT, 0, _09EE
+    GoToIfEq VAR_RESULT, 0, _051B
     Common_GiveItemQuantity
     SetVarFromValue VAR_HGSS_UNK_4097, 3
     Message msg_0384_R34_00032
     WaitButton
     CloseMessage
-_09D5:
     CompareVar VAR_MAP_LOCAL_0x04, 777
-    GoToIf 5, _09EA
+    GoToIf 5, _0527
     ReleaseAll
-    GoTo _09EC
-_09EA:
-    ReleaseAll
-_09EC:
-    End
-_09EE:
-    Common_MessageBagIsFull
-    CloseMessage
-    GoTo _09D5
-    End
+    GoTo _052B
 scr_seq_R34_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     CompareVar VAR_HGSS_UNK_4097, 1
-    GoToIf 5, _0A1A
+    GoToIf 5, _052D
     Message msg_0384_R34_00022
-    GoTo _0A1D
-_0A1A:
-    Message msg_0384_R34_00023
-_0A1D:
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
+    GoTo _0538
 scr_seq_R34_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     CompareVar VAR_HGSS_UNK_4097, 1
-    GoToIf 5, _0A43
+    GoToIf 5, _0540
     Message msg_0384_R34_00026
-    GoTo _0A46
-_0A43:
-    Message msg_0384_R34_00027
-_0A46:
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
+    GoTo _054B
 scr_seq_R34_008:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     SetVarFromValue VAR_MAP_LOCAL_0x04, 555
     CompareVar VAR_HGSS_UNK_4097, 2
-    GoToIf 1, _09A0
+    GoToIf 1, _0553
     Message msg_0384_R34_00032
     WaitButton
     CloseMessage
@@ -758,4 +191,751 @@ scr_seq_R34_011:
     GetSignpostInput VAR_RESULT
     Common_HandleSignpostInput
     End
+scr_seq_R34_013:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    PlayCry SPECIES_KIRLIA, 0
+    WaitCry
+    CompleteStartWildBattle SPECIES_KIRLIA, 22, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0515
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    RemoveObject 16
+    SetFlag FLAG_HGSS_SG_3FF0
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ReleaseAll
+    End
+scr_seq_R34_014:
+    BufferPlayerName 0
+    End
+_0351:
+    SetObjectEventMovementType obj_R34_gsoldman1, 15
+    GoToIfUnset FLAG_HGSS_UNK_189, _059D
+    ClearFlag FLAG_HGSS_UNK_189
+    End
+_0368:
+    GoToIfUnset FLAG_HGSS_UNK_189, _059D
+    ClearFlag FLAG_HGSS_UNK_189
+    End
+_0379:
+    CompareVar VAR_0x8004, 369
+    GoToIf 5, _05D8
+    ApplyMovement obj_R34_var_1, _0C20
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0C2A
+    ApplyMovement obj_R34_gsoldman1, _0C30
+    GoTo _03A4
+_03A4:
+    WaitMovement
+    MessageGendered msg_0384_R34_00038, msg_0384_R34_00043
+    CloseMessage
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    CompareVar VAR_0x8004, 363
+    GoToIf 5, _060D
+    ApplyMovement LOCALID_PLAYER, _0C60
+    GoTo _0628
+_03D1:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 5
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_03E5:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 3
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_03F9:
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _064F
+    ApplyMovement LOCALID_PLAYER, _0C6A
+    GoTo _0414
+_0414:
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompleteFollowerCheckActive VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _0672
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0C74
+    WaitMovement
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 9
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0475:
+    GoTo _06AC
+_047B:
+    ApplyMovement obj_R34_gswoman3, _0C82
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0C8C
+    WaitMovement
+    Message msg_0384_R34_00019
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_ACE_TRAINER_F_IRENE, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0515
+    ApplyMovement obj_R34_gswoman3, _0C92
+    WaitMovement
+    Message msg_0384_R34_00021
+    CloseMessage
+    ApplyMovement obj_R34_gswoman3_2, _0C98
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0CA2
+    WaitMovement
+    Message msg_0384_R34_00024
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_ACE_TRAINER_F_JENN, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0515
+    ApplyMovement obj_R34_gswoman3_2, _0CA8
+    WaitMovement
+    Message msg_0384_R34_00026
+    WaitButton
+    CloseMessage
+    GoTo _0741
+_0515:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_051B:
+    Common_MessageBagIsFull
+    CloseMessage
+    GoTo _074B
+_0527:
+    ReleaseAll
+    End
+_052B:
+    End
+_052D:
+    Message msg_0384_R34_00023
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0538:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0540:
+    Message msg_0384_R34_00027
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_054B:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0553:
+    Message msg_0384_R34_00030
+    SetVar VAR_0x8004, ITEM_POWER_HERB
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, _051B
+    Common_GiveItemQuantity
+    SetVarFromValue VAR_HGSS_UNK_4097, 3
+    Message msg_0384_R34_00032
+    WaitButton
+    CloseMessage
+    CompareVar VAR_MAP_LOCAL_0x04, 777
+    GoToIf 5, _0527
+    ReleaseAll
+    GoTo _052B
+_059D:
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompareVar VAR_MAP_LOCAL_0x00, 0
+    GoToIf 1, _0760
+    GetDayOfWeek VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 3
+    GoToIf 1, _076A
+    CompareVar VAR_MAP_LOCAL_0x00, 4
+    GoToIf 1, _076A
+    SetFlag FLAG_HGSS_HIDE_CAMERON
+    GoTo _0796
+_05D8:
+    ApplyMovement obj_R34_var_1, _0CAE
+    WaitMovement
+    MessageGendered msg_0384_R34_00038, msg_0384_R34_00043
+    CloseMessage
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    CompareVar VAR_0x8004, 363
+    GoToIf 5, _060D
+    ApplyMovement LOCALID_PLAYER, _0C60
+    GoTo _0628
+_060D:
+    CompareVar VAR_0x8004, 364
+    GoToIf 5, _07BE
+    ApplyMovement LOCALID_PLAYER, _0CB4
+    GoTo _0628
+_0628:
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _07D9
+    ApplyMovement obj_R34_var_1, _0BEE
+    GoTo _07F4
+_064F:
+    CompareVar VAR_RESULT, 3
+    GoToIf 5, _0822
+    ApplyMovement LOCALID_PLAYER, _0CBA
+    ApplyMovement obj_R34_gsmiddleman1_2, _0C4C
+    GoTo _0414
+_0672:
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 9
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_06AC:
+    ApplyMovement obj_R34_gswoman3, _0C82
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0C8C
+    WaitMovement
+    Message msg_0384_R34_00019
+    CloseMessage
+    ApplyMovement obj_R34_gswoman3_2, _0C98
+    PlayMusic SEQ_TOWN01_D_sseq
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0CA2
+    WaitMovement
+    Message msg_0384_R34_00024
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_ACE_TRAINER_F_JENN, 120
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0515
+    ApplyMovement obj_R34_gswoman3, _0C92
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0C8C
+    WaitMovement
+    Message msg_0384_R34_00021
+    CloseMessage
+    ApplyMovement obj_R34_gswoman3_2, _0CA8
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0CA2
+    WaitMovement
+    Message msg_0384_R34_00026
+    WaitButton
+    CloseMessage
+    SetVarFromValue VAR_HGSS_UNK_4097, 1
+    ReleaseAll
+    End
+_0741:
+    SetVarFromValue VAR_HGSS_UNK_4097, 1
+    ReleaseAll
+    End
+_074B:
+    CompareVar VAR_MAP_LOCAL_0x04, 777
+    GoToIf 5, _0527
+    ReleaseAll
+    GoTo _052B
+_0760:
+    SetFlag FLAG_HGSS_HIDE_CAMERON
+    GoTo _0796
+_076A:
+    ClearFlag FLAG_HGSS_HIDE_CAMERON
+    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    CompareVar VAR_MAP_LOCAL_0x00, 3
+    GoToIf 1, _0893
+    CompareVar VAR_MAP_LOCAL_0x00, 4
+    GoToIf 1, _0893
+    ClearFlag FLAG_HGSS_UNK_1D1
+    SetFlag FLAG_HGSS_UNK_1D2
+    End
+_0796:
+    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    CompareVar VAR_MAP_LOCAL_0x00, 3
+    GoToIf 1, _0893
+    CompareVar VAR_MAP_LOCAL_0x00, 4
+    GoToIf 1, _0893
+    ClearFlag FLAG_HGSS_UNK_1D1
+    SetFlag FLAG_HGSS_UNK_1D2
+    End
+_07BE:
+    CompareVar VAR_0x8004, 365
+    GoToIf 5, _089D
+    ApplyMovement LOCALID_PLAYER, _0CCC
+    GoTo _0628
+_07D9:
+    CompareVar VAR_0x8004, 369
+    GoToIf 5, _08B8
+    ApplyMovement obj_R34_var_1, _0BEE
+    GoTo _07F4
+_07F4:
+    WaitMovement
+    BufferPlayerName 0
+    MessageGendered msg_0384_R34_00039, msg_0384_R34_00044
+    CloseMessage
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _08EE
+    ApplyMovement obj_R34_var_1, _0CD6
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0CE0
+    GoTo _0911
+_0822:
+    ApplyMovement LOCALID_PLAYER, _0CE6
+    ApplyMovement obj_R34_gsmiddleman1_2, _0C4C
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompleteFollowerCheckActive VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _0672
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0C74
+    WaitMovement
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 9
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0893:
+    ClearFlag FLAG_HGSS_UNK_1D2
+    SetFlag FLAG_HGSS_UNK_1D1
+    End
+_089D:
+    CompareVar VAR_0x8004, 366
+    GoToIf 5, _0951
+    ApplyMovement LOCALID_PLAYER, _0CF8
+    GoTo _0628
+_08B8:
+    ApplyMovement obj_R34_var_1, _0D02
+    WaitMovement
+    BufferPlayerName 0
+    MessageGendered msg_0384_R34_00039, msg_0384_R34_00044
+    CloseMessage
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _08EE
+    ApplyMovement obj_R34_var_1, _0CD6
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0CE0
+    GoTo _0911
+_08EE:
+    CompareVar VAR_0x8004, 369
+    GoToIf 5, _096C
+    ApplyMovement obj_R34_var_1, _0CD6
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0CE0
+    GoTo _0911
+_0911:
+    WaitMovement
+    BufferPlayerName 0
+    MessageGendered msg_0384_R34_00040, msg_0384_R34_00045
+    CloseMessage
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _09BC
+    ApplyMovement obj_R34_var_1, _0D08
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D12
+    ApplyMovement LOCALID_PLAYER, _0D18
+    GoTo _09E7
+_0951:
+    CompareVar VAR_0x8004, 367
+    GoToIf 5, _0A88
+    ApplyMovement LOCALID_PLAYER, _0D26
+    GoTo _0628
+_096C:
+    ApplyMovement obj_R34_var_1, _0D30
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D36
+    WaitMovement
+    BufferPlayerName 0
+    MessageGendered msg_0384_R34_00040, msg_0384_R34_00045
+    CloseMessage
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _09BC
+    ApplyMovement obj_R34_var_1, _0D08
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D12
+    ApplyMovement LOCALID_PLAYER, _0D18
+    GoTo _09E7
+_09BC:
+    CompareVar VAR_0x8004, 369
+    GoToIf 5, _0AA3
+    ApplyMovement obj_R34_var_1, _0D08
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D12
+    ApplyMovement LOCALID_PLAYER, _0D18
+    GoTo _09E7
+_09E7:
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    @ HGSS: ScrCmd_307 11, 12, 16, 26, 77
+    @ HGSS: ScrCmd_310 77
+    @ HGSS: ScrCmd_308 77
+    ApplyMovement obj_R34_var_1, _0D3C
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D46
+    WaitMovement
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    ApplyMovement LOCALID_PLAYER, _0D54
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _0B5C
+    @ HGSS: ScrCmd_600
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitSE SEQ_SE_DP_KAIDAN2_sseq
+    WaitFadeScreen
+    @ HGSS: ScrCmd_309 77
+    SetVarFromValue VAR_HGSS_UNK_408E, 1
+    Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
+    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ReleaseAll
+    End
+_0A88:
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _0B99
+    ApplyMovement LOCALID_PLAYER, _0D5E
+    GoTo _0628
+_0AA3:
+    ApplyMovement obj_R34_var_1, _0D68
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D72
+    ApplyMovement LOCALID_PLAYER, _0D7C
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    @ HGSS: ScrCmd_307 11, 12, 16, 26, 77
+    @ HGSS: ScrCmd_310 77
+    @ HGSS: ScrCmd_308 77
+    ApplyMovement obj_R34_var_1, _0D3C
+    ApplyMovement obj_R34_tsure_poke_static_marill, _0D46
+    WaitMovement
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    ApplyMovement LOCALID_PLAYER, _0D54
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _0B5C
+    @ HGSS: ScrCmd_600
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitSE SEQ_SE_DP_KAIDAN2_sseq
+    WaitFadeScreen
+    @ HGSS: ScrCmd_309 77
+    SetVarFromValue VAR_HGSS_UNK_408E, 1
+    Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
+    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ReleaseAll
+    End
+_0B5C:
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitSE SEQ_SE_DP_KAIDAN2_sseq
+    WaitFadeScreen
+    @ HGSS: ScrCmd_309 77
+    SetVarFromValue VAR_HGSS_UNK_408E, 1
+    Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
+    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ReleaseAll
+    End
+_0B99:
+    ApplyMovement LOCALID_PLAYER, _0D8A
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompareVar VAR_0x8004, 368
+    GoToIf 5, _07D9
+    ApplyMovement obj_R34_var_1, _0BEE
+    GoTo _07F4
+    .balign 4, 0
+_0BC8:
+    EmoteExclamationMark
+    WalkNormalSouth
+    WalkNormalEast 2
+    EndMovement
+    .balign 4, 0
+_0BD6:
+    Delay8 3
+    WalkOnSpotNormalWest
+    EndMovement
+    .balign 4, 0
+_0BE0:
+    WalkNormalWest 2
+    WalkNormalNorth
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0BEE:
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0BF4:
+    WalkNormalSouth 6
+    WalkNormalEast 3
+    WalkNormalSouth 2
+    WalkOnSpotNormalEast
+    EndMovement
+    .balign 4, 0
+_0C06:
+    WalkNormalSouth 7
+    WalkNormalEast 3
+    WalkNormalSouth
+    EndMovement
+    .balign 4, 0
+_0C14:
+    WalkOnSpotNormalWest
+    EndMovement
+    .balign 4, 0
+_0C1A:
+    EmoteExclamationMark
+    EndMovement
+    .balign 4, 0
+_0C20:
+    WalkNormalSouth
+    WalkOnSpotNormalEast
+    EndMovement
+    .balign 4, 0
+_0C2A:
+    WalkNormalSouth
+    EndMovement
+    .balign 4, 0
+_0C30:
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0C36:
+    WalkNormalEast
+    WalkNormalNorth 2
+    WalkNormalWest
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0C4C:
+    Delay8
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0C56:
+    EmoteExclamationMark
+    WalkNormalNorth 2
+    EndMovement
+    .balign 4, 0
+_0C60:
+    WalkNormalEast
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0C6A:
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0C74:
+    WalkNormalEast
+    WalkNormalNorth
+    FaceSouth
+    EndMovement
+    .balign 4, 0
+_0C82:
+    EmoteExclamationMark
+    WalkNormalWest 4
+    EndMovement
+    .balign 4, 0
+_0C8C:
+    FaceEast
+    EndMovement
+    .balign 4, 0
+_0C92:
+    JumpOnSpotFastWest 2
+    EndMovement
+    .balign 4, 0
+_0C98:
+    EmoteExclamationMark
+    WalkNormalEast 4
+    EndMovement
+    .balign 4, 0
+_0CA2:
+    FaceWest
+    EndMovement
+    .balign 4, 0
+_0CA8:
+    JumpOnSpotFastEast 2
+    EndMovement
+    .balign 4, 0
+_0CAE:
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0CB4:
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0CBA:
+    WalkNormalNorth
+    WalkNormalEast
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0CCC:
+    WalkNormalWest
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0CD6:
+    WalkNormalEast
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0CE0:
+    WalkNormalSouth
+    EndMovement
+    .balign 4, 0
+_0CE6:
+    WalkNormalNorth
+    WalkNormalWest
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0CF8:
+    WalkNormalWest 2
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D02:
+    WalkOnSpotNormalEast
+    EndMovement
+    .balign 4, 0
+_0D08:
+    WalkNormalEast 3
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D12:
+    WalkNormalEast 3
+    EndMovement
+    .balign 4, 0
+_0D18:
+    Delay8
+    WalkNormalEast 3
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D26:
+    WalkNormalWest 3
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D30:
+    WalkNormalSouth
+    EndMovement
+    .balign 4, 0
+_0D36:
+    WalkNormalSouth
+    EndMovement
+    .balign 4, 0
+_0D3C:
+    WalkNormalNorth
+    SetInvisible
+    EndMovement
+    .balign 4, 0
+_0D46:
+    WalkNormalEast
+    WalkNormalNorth
+    SetInvisible
+    EndMovement
+    .balign 4, 0
+_0D54:
+    WalkNormalNorth 2
+    SetInvisible
+    EndMovement
+    .balign 4, 0
+_0D5E:
+    WalkNormalWest 3
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D68:
+    WalkNormalEast 4
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D72:
+    WalkNormalSouth
+    WalkNormalEast 3
+    EndMovement
+    .balign 4, 0
+_0D7C:
+    Delay8
+    WalkNormalEast 4
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0D8A:
+    WalkNormalWest 4
+    WalkNormalNorth
+    EndMovement
     .balign 4, 0

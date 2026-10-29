@@ -1,0 +1,56 @@
+{
+    "name": "Tully",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_QWILFISH",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_OCTILLERY",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let me demonstrate the power of the\n",
+                "Pokémon I caught!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What? That’s not right.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I want to become the Trainer Champ\n",
+                "using the Pokémon I caught.\f",
+                "That’s the best part of fishing!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Me? I haven’t been waiting at all.\n",
+                "I didn’t know that fishing would be\f",
+                "so boring!\r"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_XATU",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_PECK",
+                "MOVE_NIGHT_SHADE",
+                "MOVE_SWIFT",
+                "MOVE_FUTURE_SIGHT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TANGELA",
+            "form": 0,
+            "level": 32,
+            "moves": [
+                "MOVE_POISON_POWDER",
+                "MOVE_VINE_WHIP",
+                "MOVE_BIND",
+                "MOVE_MEGA_DRAIN"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_YANMA",
+            "form": 0,
+            "level": 32,
+            "moves": [
+                "MOVE_QUICK_ATTACK",
+                "MOVE_DOUBLE_TEAM",
+                "MOVE_SONIC_BOOM",
+                "MOVE_SUPERSONIC"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_TAIL_WHIP",
+                "MOVE_SLAM",
+                "MOVE_AMNESIA",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

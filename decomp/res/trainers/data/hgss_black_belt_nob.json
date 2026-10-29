@@ -1,0 +1,62 @@
+{
+    "name": "Nob",
+    "class": "TRAINER_CLASS_HGSS_BLACK_BELT",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MACHOKE",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 40,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MONFERNO",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 40,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_COMBUSKEN",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HERACROSS",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Words are useless.\n",
+                "Let your fists do the talking!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I lost! \n",
+                "I’m speechless!\n"
+            ]
+        }
+    ]
+}

@@ -12,6 +12,18 @@
     {
       "id": "msg_0050_D02R0103_00001",
       "en_US": "We are closed for the day."
+    },
+    {
+      "id": "msg_0050_D02R0103_00002",
+      "en_US": "Shieeeeee!\r"
+    },
+    {
+      "id": "msg_0050_D02R0103_00003",
+      "en_US": "Cresselia flew away."
+    },
+    {
+      "id": "msg_0050_D02R0103_00004",
+      "en_US": "Cresselia left an item behind!\r"
     }
   ]
 }

@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0149_D52R0102_00000",
-      "en_US": "KYOGRE: Gyararoooah!\r"
+      "en_US": "Kyogre: Gyararoooah!\r"
     },
     {
       "id": "msg_0149_D52R0102_00001",
-      "en_US": "KYOGRE disappeared..."
+      "en_US": "Kyogre disappeared..."
     },
     {
       "id": "msg_0149_D52R0102_00002",
@@ -15,7 +15,7 @@
         "Well, hello!\n",
         "That was something you don’t see\f",
         "every day!\r",
-        "That Pokémon is KYOGRE,\n",
+        "That Pokémon is Kyogre,\n",
         "a legendary Pokémon in the Hoenn myth\f",
         "about the shaping of that region.\r",
         "I see...\f",
@@ -29,7 +29,7 @@
       "en_US": [
         "The Tower that binds together\n",
         "the sea, the land, and the sky...\r",
-        "KYOGRE was not the only Pokémon\n",
+        "Kyogre was not the only Pokémon\n",
         "described in the Hoenn myth...\r",
         "This place may still be hiding\n",
         "its secrets.\r"
@@ -40,12 +40,20 @@
       "en_US": [
         "The knowledgeable Pokémon Professor\n",
         "may be able to tell you more when you\f",
-        "show him KYOGRE.\r",
+        "show him Kyogre.\r",
         "Phew!\r",
         "There are so many connections between\n",
         "Pokémon and myths.\r",
         "See you around.\r"
       ]
+    },
+    {
+      "id": "msg_0149_D52R0102_00005",
+      "en_US": "Huh?\r"
+    },
+    {
+      "id": "msg_0149_D52R0102_00006",
+      "en_US": "The Blue Orb is changing colour..."
     }
   ]
 }

@@ -51,7 +51,7 @@
     },
     {
       "id": "msg_0312_00007",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0312_00008",
@@ -59,7 +59,7 @@
     },
     {
       "id": "msg_0312_00009",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0312_00010",
@@ -203,7 +203,7 @@
     },
     {
       "id": "msg_0312_00021",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0312_00022",
@@ -367,7 +367,7 @@
     {
       "id": "msg_0312_00040",
       "en_US": [
-        "The Speed & Jump Course consists of\n",
+        "The Speed and Jump Course consists of\n",
         "four events that require good\f",
         "Speed and Jump Performance.\r",
         "“Hurdle Dash”\n",
@@ -389,7 +389,7 @@
     {
       "id": "msg_0312_00041",
       "en_US": [
-        "The Jump & Skill Course consists of\n",
+        "The Jump and Skill Course consists of\n",
         "four events that require good\f",
         "Jump and Skill Performance.\r",
         "“Lamp Jump”\n",
@@ -411,7 +411,7 @@
     {
       "id": "msg_0312_00042",
       "en_US": [
-        "The Skill & Power Course consists of\n",
+        "The Skill and Power Course consists of\n",
         "four events that require good\f",
         "Skill and Power Performance.\r",
         "“Goal Roll”\n",
@@ -432,7 +432,7 @@
     {
       "id": "msg_0312_00043",
       "en_US": [
-        "The Power & Stamina Course consists\n",
+        "The Power and Stamina Course consists\n",
         "of four events that require good\f",
         "Power and Stamina Performance.\r",
         "“Block Smash”\n",
@@ -454,7 +454,7 @@
     {
       "id": "msg_0312_00044",
       "en_US": [
-        "The Stamina & Speed Course consists\n",
+        "The Stamina and Speed Course consists\n",
         "of four events that require good\f",
         "Stamina and Speed Performance.\r",
         "“Relay Run”\n",
@@ -507,63 +507,63 @@
     },
     {
       "id": "msg_0312_00048",
-      "garbage": 205
+      "garbage": 0
     },
     {
       "id": "msg_0312_00049",
-      "garbage": 28
+      "garbage": 0
     },
     {
       "id": "msg_0312_00050",
-      "garbage": 31
+      "garbage": 0
     },
     {
       "id": "msg_0312_00051",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0312_00052",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0312_00053",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0312_00054",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0312_00055",
-      "garbage": 154
+      "garbage": 0
     },
     {
       "id": "msg_0312_00056",
-      "garbage": 186
+      "garbage": 0
     },
     {
       "id": "msg_0312_00057",
-      "garbage": 90
+      "garbage": 0
     },
     {
       "id": "msg_0312_00058",
-      "garbage": 43
+      "garbage": 0
     },
     {
       "id": "msg_0312_00059",
-      "garbage": 49
+      "garbage": 0
     },
     {
       "id": "msg_0312_00060",
-      "garbage": 47
+      "garbage": 0
     },
     {
       "id": "msg_0312_00061",
-      "garbage": 152
+      "garbage": 0
     },
     {
       "id": "msg_0312_00062",
-      "garbage": 18
+      "garbage": 0
     }
   ]
 }

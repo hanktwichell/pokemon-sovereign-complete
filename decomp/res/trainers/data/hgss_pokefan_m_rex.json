@@ -1,0 +1,41 @@
+{
+    "name": "Rex",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PHANPY",
+            "form": 0,
+            "level": 45,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "My Phanpy is the cutest in the world.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "My Phanpy!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Take a look at this--this Phanpy’s\n",
+                "Absolutely adorable behavior!\r",
+                "Isn’t it wonderfully cute?\n",
+                "I just wanna squeeze it!\n"
+            ]
+        }
+    ]
+}

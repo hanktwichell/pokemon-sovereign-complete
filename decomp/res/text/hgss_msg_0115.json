@@ -6,10 +6,10 @@
       "en_US": [
         "Oh, man... My boss is going to be\n",
         "angry...\r",
-        "The FARFETCH’D that cut trees for\n",
+        "The Farfetch’d that cut trees for\n",
         "charcoal took off in the forest.\r",
         "Can you catch them for me?\n",
-        "FARFETCH’D have sensitive ears.\r",
+        "Farfetch’d have sensitive ears.\r",
         "If you step on a branch, they will face\n",
         "toward you. That’s your chance.\r",
         "Sneak up from behind and catch them...\n",
@@ -19,7 +19,7 @@
     {
       "id": "msg_0115_D36R0101_00001",
       "en_US": [
-        "Wow! You found a FARFETCH’D!\n",
+        "Wow! You found a Farfetch’d!\n",
         "Thank you!\r",
         "But...\n",
         "There is one more missing.\r",
@@ -42,15 +42,15 @@
     },
     {
       "id": "msg_0115_D36R0101_00003",
-      "en_US": "FARFETCH’D: Kwaa!\r"
+      "en_US": "Farfetch’d: Kwaa!\r"
     },
     {
       "id": "msg_0115_D36R0101_00004",
-      "en_US": "FARFETCH’D: Kwaa!"
+      "en_US": "Farfetch’d: Kwaa!"
     },
     {
       "id": "msg_0115_D36R0101_00005",
-      "en_US": "{STRVAR_1 3, 0, 0} caught the FARFETCH’D!\r"
+      "en_US": "{STRVAR_1 3, 0, 0} caught the Farfetch’d!\r"
     },
     {
       "id": "msg_0115_D36R0101_00006",
@@ -67,7 +67,7 @@
     },
     {
       "id": "msg_0115_D36R0101_00007",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0115_D36R0101_00008",
@@ -80,7 +80,7 @@
     },
     {
       "id": "msg_0115_D36R0101_00009",
-      "garbage": 15
+      "garbage": 0
     },
     {
       "id": "msg_0115_D36R0101_00010",
@@ -257,7 +257,7 @@
     {
       "id": "msg_0115_D36R0101_00035",
       "en_US": [
-        "FARFETCH’D noticed you!\n",
+        "Farfetch’d noticed you!\n",
         "It seems to face the direction of the\f",
         "noise when you step on a branch."
       ]
@@ -276,7 +276,7 @@
     {
       "id": "msg_0115_D36R0101_00038",
       "en_US": [
-        "It’s a PICHU...!\n",
+        "It’s a Pichu...!\n",
         "One of its ears is spiky!\r"
       ]
     },
@@ -290,7 +290,7 @@
     {
       "id": "msg_0115_D36R0101_00040",
       "en_US": [
-        "Spiky-eared PICHU has joined\n",
+        "Spiky-eared Pichu has joined\n",
         "your party!"
       ]
     },
@@ -307,7 +307,7 @@
     },
     {
       "id": "msg_0115_D36R0101_00043",
-      "en_US": "Spiky-eared PICHU: Zapzap chu!\r"
+      "en_US": "Spiky-eared Pichu: Zapzap chu!\r"
     },
     {
       "id": "msg_0115_D36R0101_00044",
@@ -317,7 +317,7 @@
       "id": "msg_0115_D36R0101_00045",
       "en_US": [
         "Would you like to give a nickname\n",
-        "to the Spiky-eared PICHU? {YESNO 0}"
+        "to the Spiky-eared Pichu? {YESNO 0}"
       ]
     },
     {
@@ -342,7 +342,7 @@
       "id": "msg_0115_D36R0101_00048",
       "en_US": [
         "Well, well, this must be...\r",
-        "This must be the PICHU that has lived in\n",
+        "This must be the Pichu that has lived in\n",
         "this forest for some time.\r",
         "When I saw it the first time, it looked\n",
         "lonely. It is full of energy today.\r"
@@ -386,7 +386,7 @@
     {
       "id": "msg_0115_D36R0101_00053",
       "en_US": [
-        "It seems that Spiky-eared PICHU\n",
+        "It seems that Spiky-eared Pichu\n",
         "wants to stay in your Poké Ball.\r"
       ]
     },
@@ -455,11 +455,11 @@
     },
     {
       "id": "msg_0115_D36R0101_00062",
-      "en_US": "Hey, my MARILL!\r"
+      "en_US": "Hey, my Marill!\r"
     },
     {
       "id": "msg_0115_D36R0101_00063",
-      "en_US": "Hey, my MARILL!\r"
+      "en_US": "Hey, my Marill!\r"
     },
     {
       "id": "msg_0115_D36R0101_00064",
@@ -505,6 +505,91 @@
         "It sure was an exhausting day, though.\n",
         "I better get going.\r",
         "See you!\r"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00068",
+      "en_US": [
+        "Boss Pokémon have been unlocked in\n",
+        "Route 32, Route 33 and Union Cave!"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00069",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} began to play the\n",
+        "Azure Flute!\r"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00070",
+      "en_US": "Bii!\r"
+    },
+    {
+      "id": "msg_0115_D36R0101_00071",
+      "en_US": [
+        "{COLOR 1}There’s the feel of a shy Pokémon\n",
+        "who will only come out once{COLOR 0}.\r",
+        "Do you want to try playing the\n",
+        "Azure Flute? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00072",
+      "en_US": "Man, where are the bugs today...\r"
+    },
+    {
+      "id": "msg_0115_D36R0101_00073",
+      "en_US": [
+        "Oh, hey! I wasn’t expecting to see any\n",
+        "Trainers while I was out hunting...\r",
+        "You know, Bugs might be nasty-mean,\n",
+        "but they’re so beautiful too!\r",
+        "I wouldn’t say ravishing, but still...\r",
+        "Anyway! I like you! Take this as a\n",
+        "token of our meeting!\r"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00074",
+      "en_US": [
+        "X-Scissor is a very normal Bug move,\n",
+        "but it’s decently strong!"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00075",
+      "en_US": "Gardenia: Ivysaur! Use Vine Whip!\r"
+    },
+    {
+      "id": "msg_0115_D36R0101_00076",
+      "en_US": [
+        "Gardenia: Oh, yes, that feels\n",
+        "fantastic!\r",
+        "...\r",
+        "It’s incredible! I don’t know how\n",
+        "long I can hold on! Keep it u-"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00077",
+      "en_US": [
+        "Gardenia: Ahhh! Er... H-hi... I don’t\n",
+        "suppose y-you saw that? I should have\f",
+        "g-guessed there would be passing\f",
+        "T-trainers...\r",
+        "I’ll give you this TM, if you\n",
+        "keep what you saw a secret!\r"
+      ]
+    },
+    {
+      "id": "msg_0115_D36R0101_00078",
+      "en_US": [
+        "Gardenia: The damage Grass Knot does\n",
+        "to opponents increases with how heavy\f",
+        "they are.\r",
+        "Anyway, I better be off. Goodbye!\n",
+        "No telling!"
       ]
     }
   ]

@@ -66,7 +66,7 @@ scr_seq_R24_002:
     PlayMusic SEQ_TOWN01_D_sseq
     Message msg_0362_R24_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_24, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_24, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _014A
@@ -128,7 +128,6 @@ scr_seq_R24_000:
     CompareVar VAR_HGSS_SCENE_ROUTE_24_ROCKET, 2
     GoToIf 5, _01B3
     GoTo _01DC
-_01AD:
     GoTo _01DC
 _01B3:
     CompareVar VAR_HGSS_SCENE_ROUTE_24_ROCKET, 3
@@ -136,7 +135,6 @@ _01B3:
     FacePlayer
     Message msg_0362_R24_00005
     GoTo _01DF
-_01CB:
     GoTo _01DC
 _01D1:
     FacePlayer
@@ -155,7 +153,6 @@ scr_seq_R24_001:
     CompareVar VAR_HGSS_SCENE_ROUTE_24_ROCKET, 2
     GoToIf 5, _0206
     GoTo _022F
-_0200:
     GoTo _022F
 _0206:
     CompareVar VAR_HGSS_SCENE_ROUTE_24_ROCKET, 3
@@ -163,7 +160,6 @@ _0206:
     FacePlayer
     Message msg_0362_R24_00008
     GoTo _0232
-_021E:
     GoTo _022F
 _0224:
     FacePlayer

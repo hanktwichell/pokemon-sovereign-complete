@@ -1,0 +1,51 @@
+{
+    "name": "Ryan",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SWELLOW",
+            "form": 0,
+            "level": 47,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTIVIRE",
+            "form": 0,
+            "level": 47,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What are your thoughts on\n",
+                "raising Pokémon?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You’ve won my respect.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I see you’re raising your Pokémon\n",
+                "with care.\r",
+                "The bond you build will save you in\n",
+                "tough situations.\n"
+            ]
+        }
+    ]
+}

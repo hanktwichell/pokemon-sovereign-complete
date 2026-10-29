@@ -8,7 +8,14 @@
     ScriptEntry scr_seq_T08R0601_003
     ScriptEntryEnd
 scr_seq_T08R0601_000:
-    NPCMessage msg_0518_T08R0601_00000
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfUnset FLAG_HGSS_SG_3F63, _0081
+    Message msg_0518_T08R0601_00000
+    WaitButton
+    CloseMessage
+    ReleaseAll
     End
 scr_seq_T08R0601_001:
     PlaySE SE_CONFIRM_sseq_3
@@ -39,6 +46,12 @@ scr_seq_T08R0601_003:
     PlayCry SPECIES_AIPOM, 0
     Message msg_0518_T08R0601_00003
     WaitCry
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0081:
+    Message msg_0518_T08R0601_00004
     WaitButton
     CloseMessage
     ReleaseAll

@@ -1,0 +1,90 @@
+{
+    "name": "Proton",
+    "class": "TRAINER_CLASS_HGSS_EXECUTIVE_PROTON",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VOLTORB",
+            "form": 0,
+            "level": 17,
+            "moves": [
+                "MOVE_SPARK",
+                "MOVE_SCREECH",
+                "MOVE_SELFDESTRUCT",
+                "MOVE_TOXIC"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ZUBAT",
+            "form": 0,
+            "level": 17,
+            "moves": [
+                "MOVE_WING_ATTACK",
+                "MOVE_GIGA_DRAIN",
+                "MOVE_SUPERSONIC",
+                "MOVE_TOXIC"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CACNEA",
+            "form": 0,
+            "level": 17,
+            "moves": [
+                "MOVE_NEEDLE_ARM",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_LEER",
+                "MOVE_TOXIC"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KOFFING",
+            "form": 0,
+            "level": 18,
+            "moves": [
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_SELFDESTRUCT",
+                "MOVE_FLAMETHROWER",
+                "MOVE_TOXIC"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "It doesn’t matter where we go, there’s\n",
+                "always someone who doesn’t agree\f",
+                "with us...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Are you serious? Did you come here\n",
+                "thinking you could mess with our plans?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Grr...\n",
+                "For a kid to be this good...\f",
+                "I didn’t see it coming.\n"
+            ]
+        }
+    ]
+}

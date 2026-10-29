@@ -1,0 +1,56 @@
+{
+    "name": "Denis",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SWABLU",
+            "form": 0,
+            "level": 29,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARAVIA",
+            "form": 0,
+            "level": 29,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FEAROW",
+            "form": 0,
+            "level": 29,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We’re pretty high up here. My bird\n",
+                "Pokémon are in prime form.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oops...\n",
+                "They crashed...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "My bird Pokémon trained in Cianwood.\n",
+                "Since I’ve lost, maybe we’ll go across\f",
+                "the sea.\n"
+            ]
+        }
+    ]
+}

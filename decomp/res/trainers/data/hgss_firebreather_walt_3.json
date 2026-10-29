@@ -1,0 +1,34 @@
+{
+    "name": "Walt",
+    "class": "TRAINER_CLASS_HGSS_FIREBREATHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SKUNTANK",
+            "form": 0,
+            "level": 53,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGMORTAR",
+            "form": 0,
+            "level": 53,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ow!\n",
+                "I scorched the tip of my nose!\n"
+            ]
+        }
+    ]
+}

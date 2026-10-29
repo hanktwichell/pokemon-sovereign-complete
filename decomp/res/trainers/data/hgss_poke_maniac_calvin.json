@@ -1,0 +1,45 @@
+{
+    "name": "Calvin",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KANGASKHAN",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I came all the way here to conduct my\n",
+                "Pokémon research.\r",
+                "Let me demonstrate my findings in a\n",
+                "real battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I’m the one who learned something from\n",
+                "your demonstration!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I should compile and announce my study\n",
+                "findings. I might even become famous\f",
+                "like Professor Elm.\n"
+            ]
+        }
+    ]
+}

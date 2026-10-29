@@ -87,6 +87,11 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **Pokétch, Pokégear or both:** both use the bottom screen.
 - **Art:** who draws the three-region Town Map and the walking sprites for #494–1025 and the newer forms (a community
   pack, credited, could cover most of them).
+- **Trade items from the bag:** Sacred Gold lets the trade-evolution items (Metal Coat, King's Rock, Dragon Scale,
+  Up-Grade, Dubious Disc, Protector, Electirizer, Magmarizer, Reaper Cloth, DeepSeaTooth, DeepSeaScale) be used from
+  the bag like a stone, so no trade is needed. Its own six evolution items are in (Covenant Orb for trades with no
+  item, and the rest: `docs/SacredGold.md`). Proposed: the trade items work from the bag too, in all three regions,
+  while trading still works.
 - **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
   a stand-in sprite.
 

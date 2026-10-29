@@ -11,11 +11,11 @@
     },
     {
       "id": "msg_0744_W40_00001",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00002",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00003",
@@ -26,11 +26,11 @@
     },
     {
       "id": "msg_0744_W40_00004",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00005",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00006",
@@ -41,11 +41,11 @@
     },
     {
       "id": "msg_0744_W40_00007",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00008",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00009",
@@ -56,11 +56,11 @@
     },
     {
       "id": "msg_0744_W40_00010",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00011",
-      "garbage": 31
+      "garbage": 0
     },
     {
       "id": "msg_0744_W40_00012",
@@ -140,6 +140,95 @@
     {
       "id": "msg_0744_W40_00020",
       "en_US": "Battle Frontier Ahead"
+    },
+    {
+      "id": "msg_0744_W40_00021",
+      "en_US": [
+        "Izumi: Ah, {STRVAR_1 3, 0, 0}!\n",
+        "It has been a long time.\r",
+        "In fact, I was looking for you.\n",
+        "I’ve got an Egg here that was\f",
+        "washed up on the shore,\f",
+        "but it’s a little special compared\f",
+        "to other Eggs you may have seen.\r",
+        "Would you be willing to take it? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00022",
+      "en_US": [
+        "Izumi: I see.\n",
+        "Come back if you change your mind."
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00023",
+      "en_US": "Izumi: Thank you, {STRVAR_1 3, 0, 0}!\r"
+    },
+    {
+      "id": "msg_0744_W40_00024",
+      "en_US": "{STRVAR_1 3, 0, 0} received the {COLOR 2}Manaphy Egg{COLOR 0}!"
+    },
+    {
+      "id": "msg_0744_W40_00025",
+      "en_US": [
+        "Izumi: You should be able to take\n",
+        "care of it the same as any other\f",
+        "Egg. I shall take my leave..."
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00026",
+      "en_US": [
+        "Izumi: Although I do want to give\n",
+        "this Egg to you...\r",
+        "...Your party is full."
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00027",
+      "en_US": [
+        "Izumi: Hello, again.\n",
+        "Do you wish to accept the Egg? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00028",
+      "en_US": [
+        "They say schools of Phione\n",
+        "sometimes cross the warm sea here.\r",
+        "You might encounter one if you’re\n",
+        "really lucky!\r",
+        "I’d like to see one...\r"
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00029",
+      "en_US": [
+        "That Pokémon you have behind you!\n",
+        "Sigh, that’s not a Phione..."
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00030",
+      "en_US": "That Pokémon you have behind you!\r"
+    },
+    {
+      "id": "msg_0744_W40_00031",
+      "en_US": [
+        "It’s a Phione!\n",
+        "Wow, you must be lucky!\r",
+        "Thank you for showing me.\n",
+        "Please, take these as thanks!\r"
+      ]
+    },
+    {
+      "id": "msg_0744_W40_00032",
+      "en_US": [
+        "Nobody really knows if Phione\n",
+        "counts as legendary or not.\r",
+        "Either way, it’s still so cute!"
+      ]
     }
   ]
 }

@@ -7,7 +7,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D17R0104_ESCAPE_ROPE",
-            "script": 0,
+            "script": 7399,
             "initial_dir": 0,
             "data": [
                 0,
@@ -26,7 +26,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D17R0104_ULTRA_BALL",
-            "script": 0,
+            "script": 7400,
             "initial_dir": 0,
             "data": [
                 0,
@@ -45,7 +45,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D17R0104_PP_UP",
-            "script": 0,
+            "script": 7401,
             "initial_dir": 0,
             "data": [
                 0,

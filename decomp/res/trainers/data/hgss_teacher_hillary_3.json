@@ -1,0 +1,35 @@
+{
+    "name": "Hillary",
+    "class": "TRAINER_CLASS_HGSS_TEACHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AMBIPOM",
+            "form": 0,
+            "level": 66,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LEDIAN",
+            "form": 0,
+            "level": 66,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I didn’t want to lose...\n"
+            ]
+        }
+    ]
+}

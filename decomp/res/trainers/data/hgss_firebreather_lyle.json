@@ -1,0 +1,40 @@
+{
+    "name": "Lyle",
+    "class": "TRAINER_CLASS_HGSS_FIREBREATHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TYPHLOSION",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m going to Kanto to put on\n",
+                "fire-breathing shows!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Fizzle... The flame’s tiny...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I guess fire is weak on the sea...\n",
+                "It doesn’t matter? Really?\n"
+            ]
+        }
+    ]
+}

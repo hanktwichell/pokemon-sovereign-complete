@@ -1,0 +1,54 @@
+{
+    "name": "Toby",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DODUO",
+            "form": 0,
+            "level": 27,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHATOT",
+            "form": 0,
+            "level": 27,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SWELLOW",
+            "form": 0,
+            "level": 27,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Fly high into the sky, my beloved\n",
+                "bird Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I feel like just flying away now.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I plan to train in Cianwood City to teach\n",
+                "my Pokémon how to Fly.\n"
+            ]
+        }
+    ]
+}

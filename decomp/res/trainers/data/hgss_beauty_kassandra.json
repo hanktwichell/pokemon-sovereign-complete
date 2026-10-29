@@ -1,0 +1,47 @@
+{
+    "name": "Kassandra",
+    "class": "TRAINER_CLASS_PARASOL_LADY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WEEPINBELL",
+            "form": 0,
+            "level": 24,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey hey there, you young Trainer!\n",
+                "Won’t you battle with me?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Wow, you’re strong...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You...\n",
+                "I wonder what your future holds...\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Jenn",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_STARYU",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 32,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Jenn: You can’t beat Irene and go\n",
+                "unpunished!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Jenn: So sorry, Irene! Sis!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Jenn: Don’t get cocky! My sister Kate\n",
+                "is tough!\n"
+            ]
+        }
+    ]
+}

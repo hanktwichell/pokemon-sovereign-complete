@@ -77,7 +77,7 @@ _00ED:
 _00FA:
     GoToIfUnset FLAG_HGSS_UNK_100, _00ED
     Message msg_0398_R39R0201_00001
-    SetVarFromValue VAR_0x8004, 29
+    SetVarFromValue VAR_0x8004, ITEM_MAX_REVIVE
     SetVarFromValue VAR_0x8005, 34
     SetVarFromValue VAR_0x8006, 39
     @ HGSS: GetSealQuantity VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
@@ -165,7 +165,7 @@ _0260:
     GoToIf 1, _0378
     End
 _028C:
-    SetVarFromValue VAR_0x8004, 155
+    SetVarFromValue VAR_0x8004, ITEM_ORAN_BERRY
     SetVarFromValue VAR_0x8005, 1
     CheckItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0

@@ -1,0 +1,61 @@
+{
+    "name": "Murphy",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CORSOLA",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CORSOLA",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CORSOLA",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CORSOLA",
+            "form": 0,
+            "level": 63,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Huh? I’ve caught a Trainer\n",
+                "instead of a Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "My fishing line got cut!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It’s said that the Pokémon that\n",
+                "escaped were huge. It’s the truth!\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "name": "Hope",
+    "class": "TRAINER_CLASS_PICNICKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I have a feeling that I can win.\n",
+                "Let’s see if I’m right!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aww, you are too strong.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I heard Clefairy appear at Mt. Moon.\n",
+                "But where could they be?\n"
+            ]
+        }
+    ]
+}

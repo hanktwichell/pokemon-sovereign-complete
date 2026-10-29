@@ -1,0 +1,52 @@
+{
+    "name": "Gregory",
+    "class": "TRAINER_CLASS_HGSS_GENTLEMAN",
+    "items": [
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MANECTRIC",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUXRAY",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You’re here to defeat Lt. Surge?\n",
+                "Not if I can help it!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Sorry I failed you, Lt. Surge, sir!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "When I was in the military, this is what\n",
+                "Lt. Surge taught me...\r",
+                "Lock the doors, watch out for fire,\n",
+                "and always have two electric fences\f",
+                "for safety!\n"
+            ]
+        }
+    ]
+}

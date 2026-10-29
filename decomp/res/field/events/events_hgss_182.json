@@ -41,9 +41,9 @@
             "id": "obj_D23R0105_rkanbuw",
             "graphics_id": "OBJ_EVENT_GFX_MARS",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
-            "script": 0,
+            "script": "TRAINER_HGSS_EXECUTIVE_ARIANA_ARIANA",
             "initial_dir": 3,
             "data": [
                 4,

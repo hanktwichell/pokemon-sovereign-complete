@@ -27,6 +27,64 @@
         "this rich, game-loving man renovated\f",
         "the Game Corner for the fun of it."
       ]
+    },
+    {
+      "id": "msg_0493_T07PC0101_00003",
+      "en_US": [
+        "Yo, {STRVAR_1 3, 0, 0}!\n",
+        "It’s been a while!\r",
+        "Since we’re both here and there’s\n",
+        "no rush, fancy a battle? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0493_T07PC0101_00004",
+      "en_US": [
+        "Really? I wasn’t expecting you\n",
+        "to turn down a challenge.\r",
+        "Oh well, I’m here all day.\n",
+        "Tell me if you want to fight!"
+      ]
+    },
+    {
+      "id": "msg_0493_T07PC0101_00005",
+      "en_US": "Awesome! Here I come, {STRVAR_1 3, 0, 0}!\r"
+    },
+    {
+      "id": "msg_0493_T07PC0101_00006",
+      "en_US": [
+        "Amazing! Your skills haven’t dulled\n",
+        "a bit since challenging Suicune!\r",
+        "Don’t be afraid to tell me\n",
+        "if you want a rematch, though!"
+      ]
+    },
+    {
+      "id": "msg_0493_T07PC0101_00007",
+      "en_US": [
+        "Oh, incredible! That’s {STRVAR_1 0, 1, 0} behind\n",
+        "you, isn’t it?\r",
+        "{STRVAR_1 3, 0, 0}, your skills never cease\n",
+        "to amaze me!\r",
+        "Speaking about amazing...\r",
+        "How about a battle to\n",
+        " show you how amazing\f",
+        "I can be, too? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0493_T07PC0101_00008",
+      "en_US": [
+        "That flowing mane...\n",
+        "That graceful pose...\r",
+        "Only such beauty could belong to\n",
+        "Suicune! Thank you for allowing me to\f",
+        "see it, {STRVAR_1 3, 0, 0}.\r",
+        "Although I don’t need to prove\n",
+        "anything to Suicune anymore...\r",
+        "Would you be up\n",
+        "for a friendly battle? {YESNO 0}"
+      ]
     }
   ]
 }

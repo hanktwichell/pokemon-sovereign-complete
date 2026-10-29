@@ -16,6 +16,22 @@
         "..................\r",
         "Sorry, am I prying too much?"
       ]
+    },
+    {
+      "id": "msg_0332_R05R0301_00001",
+      "en_US": [
+        "Oh, hold up there! The city is\n",
+        "currently having a blackout.\r",
+        "You’ll have to come back later."
+      ]
+    },
+    {
+      "id": "msg_0332_R05R0301_00002",
+      "en_US": [
+        "Oh, hold up there! The city is\n",
+        "currently recovering from a blackout.\r",
+        "You’ll have to come back later."
+      ]
     }
   ]
 }

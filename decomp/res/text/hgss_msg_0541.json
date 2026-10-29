@@ -61,7 +61,7 @@
     {
       "id": "msg_0541_T11R0802_00006",
       "en_US": [
-        "Copycat: Yay! That’s my CLEFAIRY\n",
+        "Copycat: Yay! That’s my Clefairy\n",
         "Poké Doll!\r",
         "See the tear where the right arm is\n",
         "sewn on? That’s proof!\r",
@@ -71,7 +71,7 @@
     },
     {
       "id": "msg_0541_T11R0802_00007",
-      "garbage": 19
+      "garbage": 0
     },
     {
       "id": "msg_0541_T11R0802_00008",
@@ -113,39 +113,39 @@
         "This Poké Doll looks just like the\n",
         "real thing...\r",
         "Aw! It moved!\n",
-        "It’s a real BANETTE!"
+        "It’s a real Banette!"
       ]
     },
     {
       "id": "msg_0541_T11R0802_00013",
-      "en_US": "BANETTE: Giggle!"
+      "en_US": "Banette: Giggle!"
     },
     {
       "id": "msg_0541_T11R0802_00014",
       "en_US": [
         "This is a flowerlike Poké Doll...\n",
-        "It is a CHERRIM Poké Doll!"
+        "It is a Cherrim Poké Doll!"
       ]
     },
     {
       "id": "msg_0541_T11R0802_00015",
       "en_US": [
         "This is a nose-like Poké Doll...\n",
-        "It is a NOSEPASS Poké Doll!"
+        "It is a Nosepass Poké Doll!"
       ]
     },
     {
       "id": "msg_0541_T11R0802_00016",
       "en_US": [
-        "It’s a CLEFAIRY!\n",
+        "It’s a Clefairy!\n",
         "Huh?\r",
-        "Oh, right. It’s a CLEFAIRY Poké Doll."
+        "Oh, right. It’s a Clefairy Poké Doll."
       ]
     },
     {
       "id": "msg_0541_T11R0802_00017",
       "en_US": [
-        "It’s a CLEFAIRY Poké Doll.\r",
+        "It’s a Clefairy Poké Doll.\r",
         "It has a tear where the right arm\n",
         "was sewn on."
       ]

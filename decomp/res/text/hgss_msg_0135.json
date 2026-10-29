@@ -240,6 +240,11 @@
     {
       "id": "msg_0135_D47R0101_00029",
       "en_US": [
+        "Huzzah! Thank you for defeating Team\n",
+        "Rocket! What a nightmare.\r",
+        "I owe you my gratitude.\r",
+        "Now, if I can resume what I was\n",
+        "going to say...\r",
         "Hi, I have been waiting for you!\n",
         "What do you think?\r",
         "This is a brand-new Safari Zone.\n",
@@ -256,7 +261,7 @@
         "Let me explain how the test works.\f",
         "It’s very easy.\r",
         "All you have to do is to catch one\n",
-        "GEODUDE at the Safari and show it to me.\r",
+        "Geodude at the Safari and show it to me.\r",
         "They are in the grass closest to the\n",
         "entrance. It shouldn’t take long\f",
         "before you catch one.\r",
@@ -279,7 +284,7 @@
       "id": "msg_0135_D47R0101_00032",
       "en_US": [
         "Oh, wonderful!\n",
-        "You’ve caught a GEODUDE!\f",
+        "You’ve caught a Geodude!\f",
         "You’ve passed the first test.\r",
         "..................\r",
         "Huh? Didn’t I tell you that there are\n",
@@ -296,7 +301,7 @@
     {
       "id": "msg_0135_D47R0101_00033",
       "en_US": [
-        "Show me the GEODUDE once you’ve\n",
+        "Show me the Geodude once you’ve\n",
         "caught one.\r",
         "They are in the grass closest to the\n",
         "entrance. It shouldn’t take long.\r",
@@ -308,10 +313,10 @@
       "en_US": [
         "I’ve been waiting for you!\n",
         "The test is ready.\r",
-        "This time can you catch a SANDSHREW\n",
+        "This time can you catch a Sandshrew\n",
         "and show it to me?\r",
         "Sounds easy, right? Not really!\n",
-        "SANDSHREW will not appear with the\f",
+        "Sandshrew will not appear with the\f",
         "current Safari Zone setting.\r",
         "And that’s where this comes in handy!\r"
       ]
@@ -336,11 +341,11 @@
         "I almost forgot!\r",
         "I was in the middle of explaining\n",
         "the second test, wasn’t I?\r",
-        "You will not see SANDSHREW\n",
+        "You will not see Sandshrew\n",
         "with the current Safari Zone Areas,\r",
         "so you have to use the Area Customizer\n",
         "to change them.\r",
-        "SANDSHREW live in the desert!\n",
+        "Sandshrew live in the desert!\n",
         "Good luck!"
       ]
     },
@@ -348,7 +353,7 @@
       "id": "msg_0135_D47R0101_00037",
       "en_US": [
         "You did it!\r",
-        "You caught a SANDSHREW!\n",
+        "You caught a Sandshrew!\n",
         "I knew you could do it.\r",
         "You’ve passed the test!\n",
         "You are now the Safari Zone Owner!\r"
@@ -388,8 +393,8 @@
     {
       "id": "msg_0135_D47R0101_00041",
       "en_US": [
-        "Show me the SANDSHREW once you’ve\n",
-        "caught one. SANDSHREW live in the\f",
+        "Show me the Sandshrew once you’ve\n",
+        "caught one. Sandshrew live in the\f",
         "desert! Good luck!"
       ]
     },
@@ -759,7 +764,7 @@
     },
     {
       "id": "msg_0135_D47R0101_00090",
-      "garbage": 55
+      "garbage": 0
     },
     {
       "id": "msg_0135_D47R0101_00091",

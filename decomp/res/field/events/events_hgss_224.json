@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8371,
             "type": 2,
             "x": 26,
             "z": 26,
@@ -92,7 +92,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D39R0103_TM72",
-            "script": 0,
+            "script": 7483,
             "initial_dir": 0,
             "data": [
                 0,
@@ -111,7 +111,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D39R0103_FULL_HEAL",
-            "script": 0,
+            "script": 7480,
             "initial_dir": 0,
             "data": [
                 0,
@@ -130,7 +130,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D39R0103_MAX_POTION",
-            "script": 0,
+            "script": 7481,
             "initial_dir": 0,
             "data": [
                 0,
@@ -141,6 +141,25 @@
             "movement_range_z": 0,
             "x": 5,
             "z": 12,
+            "y": 0
+        },
+        {
+            "id": "obj_D39R0103_7",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FD6",
+            "script": 4,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 55,
+            "z": 20,
             "y": 0
         }
     ],

@@ -1,0 +1,62 @@
+{
+    "name": "Donald",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SLOWPOKE",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CUBONE",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_OMANYTE",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I think you have some rare Pokémon\n",
+                "with you. Let me see them!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Gah! I lost!\n",
+                "That makes me mad!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Are you making a Pokédex?\n",
+                "Here’s a hot tip.\r",
+                "You want to battle as many Trainers as\n",
+                "you can when you see them on routes\f",
+                "and in caves.\r",
+                "Their Pokémon will be recorded in the\n",
+                "Pokédex, and they’ll also make your\f",
+                "Pokémon grow!\n"
+            ]
+        }
+    ]
+}

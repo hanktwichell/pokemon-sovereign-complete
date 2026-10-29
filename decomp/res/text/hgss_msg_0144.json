@@ -11,6 +11,31 @@
         "Do you want to go up the ladder\n",
         "or go down the ladder?"
       ]
+    },
+    {
+      "id": "msg_0144_D50R0101_00001",
+      "en_US": [
+        "Petrel: Come to mess up our plans?\r",
+        "I am a Team Rocket Executive, and\n",
+        "unlike that fool Proton, I won’t\f",
+        "be beaten so easily!\r"
+      ]
+    },
+    {
+      "id": "msg_0144_D50R0101_00002",
+      "en_US": [
+        "Petrel: I see. No matter, you’re bound\n",
+        "to be far too late already!\r",
+        "You don’t even know what we’re after!"
+      ]
+    },
+    {
+      "id": "msg_0144_D50R0101_00003",
+      "en_US": [
+        "Oh?\r",
+        "Petrel seems to have dropped\n",
+        "something...\r"
+      ]
     }
   ]
 }

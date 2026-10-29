@@ -24,7 +24,7 @@ _0033:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00CC
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 12
     GoToIf 5, _007F
     ClearFlag FLAG_HGSS_UNK_26F
@@ -49,7 +49,7 @@ _00C4:
 _00CA:
     End
 _00CC:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 18
     GoToIf 5, _00E7
     ClearFlag FLAG_HGSS_UNK_26F
@@ -75,7 +75,7 @@ scr_seq_T25R1006_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     Message msg_0597_T25R1006_00010
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -87,11 +87,11 @@ _0156:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04D2
     RemoveMoney 300
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
     Message msg_0597_T25R1006_00011
-    @ HGSS: Random VAR_SPECIAL_RESULT, 100
+    GetRandom VAR_RESULT, 100
     CompareVar VAR_RESULT, 40
     GoToIf 4, _01AD
     CompareVar VAR_RESULT, 4
@@ -102,7 +102,7 @@ _0156:
 _01AD:
     BufferNumber 0, 3
     Message msg_0597_T25R1006_00012
-    @ HGSS: Random VAR_SPECIAL_RESULT, 70
+    GetRandom VAR_RESULT, 70
     CompareVar VAR_RESULT, 60
     GoToIf 4, _021C
     CompareVar VAR_RESULT, 50
@@ -119,31 +119,31 @@ _01AD:
     GoToIf 4, _0288
     End
 _021C:
-    SetVarFromValue VAR_0x8004, 155
+    SetVarFromValue VAR_0x8004, ITEM_ORAN_BERRY
     SetVarFromValue VAR_0x8005, 1
     GoTo _0294
 _022E:
-    SetVarFromValue VAR_0x8004, 150
+    SetVarFromValue VAR_0x8004, ITEM_CHESTO_BERRY
     SetVarFromValue VAR_0x8005, 1
     GoTo _0294
 _0240:
-    SetVarFromValue VAR_0x8004, 151
+    SetVarFromValue VAR_0x8004, ITEM_PECHA_BERRY
     SetVarFromValue VAR_0x8005, 1
     GoTo _0294
 _0252:
-    SetVarFromValue VAR_0x8004, 152
+    SetVarFromValue VAR_0x8004, ITEM_RAWST_BERRY
     SetVarFromValue VAR_0x8005, 1
     GoTo _0294
 _0264:
-    SetVarFromValue VAR_0x8004, 153
+    SetVarFromValue VAR_0x8004, ITEM_ASPEAR_BERRY
     SetVarFromValue VAR_0x8005, 1
     GoTo _0294
 _0276:
-    SetVarFromValue VAR_0x8004, 156
+    SetVarFromValue VAR_0x8004, ITEM_PERSIM_BERRY
     SetVarFromValue VAR_0x8005, 1
     GoTo _0294
 _0288:
-    SetVarFromValue VAR_0x8004, 149
+    SetVarFromValue VAR_0x8004, ITEM_CHERI_BERRY
     SetVarFromValue VAR_0x8005, 1
 _0294:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
@@ -160,41 +160,41 @@ _02B5:
     GetDayOfWeek VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _02E4
-    SetVarFromValue VAR_0x8004, 11
+    SetVarFromValue VAR_0x8004, ITEM_LUXURY_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _038B
 _02E4:
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 5, _0303
-    SetVarFromValue VAR_0x8004, 8
+    SetVarFromValue VAR_0x8004, ITEM_NEST_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _038B
 _0303:
     CompareVar VAR_MAP_LOCAL_0x00, 2
     GoToIf 5, _0322
-    SetVarFromValue VAR_0x8004, 9
+    SetVarFromValue VAR_0x8004, ITEM_REPEAT_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _038B
 _0322:
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 5, _0341
-    SetVarFromValue VAR_0x8004, 6
+    SetVarFromValue VAR_0x8004, ITEM_NET_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _038B
 _0341:
     CompareVar VAR_MAP_LOCAL_0x00, 4
     GoToIf 5, _0360
-    SetVarFromValue VAR_0x8004, 15
+    SetVarFromValue VAR_0x8004, ITEM_QUICK_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _038B
 _0360:
     CompareVar VAR_MAP_LOCAL_0x00, 5
     GoToIf 5, _037F
-    SetVarFromValue VAR_0x8004, 13
+    SetVarFromValue VAR_0x8004, ITEM_DUSK_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _038B
 _037F:
-    SetVarFromValue VAR_0x8004, 10
+    SetVarFromValue VAR_0x8004, ITEM_TIMER_BALL
     SetVarFromValue VAR_0x8005, 1
 _038B:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
@@ -211,41 +211,41 @@ _03AC:
     GetDayOfWeek VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _03DB
-    SetVarFromValue VAR_0x8004, 329
+    SetVarFromValue VAR_0x8004, ITEM_TM02
     SetVarFromValue VAR_0x8005, 1
     GoTo _0482
 _03DB:
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 5, _03FA
-    SetVarFromValue VAR_0x8004, 392
+    SetVarFromValue VAR_0x8004, ITEM_TM65
     SetVarFromValue VAR_0x8005, 1
     GoTo _0482
 _03FA:
     CompareVar VAR_MAP_LOCAL_0x00, 2
     GoToIf 5, _0419
-    SetVarFromValue VAR_0x8004, 418
+    SetVarFromValue VAR_0x8004, ITEM_TM91
     SetVarFromValue VAR_0x8005, 1
     GoTo _0482
 _0419:
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 5, _0438
-    SetVarFromValue VAR_0x8004, 384
+    SetVarFromValue VAR_0x8004, ITEM_TM57
     SetVarFromValue VAR_0x8005, 1
     GoTo _0482
 _0438:
     CompareVar VAR_MAP_LOCAL_0x00, 4
     GoToIf 5, _0457
-    SetVarFromValue VAR_0x8004, 387
+    SetVarFromValue VAR_0x8004, ITEM_TM60
     SetVarFromValue VAR_0x8005, 1
     GoTo _0482
 _0457:
     CompareVar VAR_MAP_LOCAL_0x00, 5
     GoToIf 5, _0476
-    SetVarFromValue VAR_0x8004, 369
+    SetVarFromValue VAR_0x8004, ITEM_TM42
     SetVarFromValue VAR_0x8005, 1
     GoTo _0482
 _0476:
-    SetVarFromValue VAR_0x8004, 389
+    SetVarFromValue VAR_0x8004, ITEM_TM62
     SetVarFromValue VAR_0x8005, 1
 _0482:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
@@ -266,8 +266,8 @@ _04A3:
 _04B0:
     Message msg_0597_T25R1006_00015
     CloseMessage
-    @ HGSS: AddMoney 300
-    @ HGSS: UpdateMoneyBox
+    GiveMoney 300
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
     Message msg_0597_T25R1006_00017
@@ -449,14 +449,14 @@ scr_seq_T25R1006_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     Message msg_0597_T25R1006_00005
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     GoTo _0717
 _0717:
-    InitGlobalTextMenu 1, 1, 0, VAR_0x8000, 1
-    AddMenuEntryImm 209, 0
-    AddMenuEntryImm 210, 1
-    AddMenuEntryImm 211, 2
-    AddMenuEntryImm 212, 3
+    CompleteInitHGSSMenu 1, 1, 0, VAR_0x8000, 1
+    AddMenuEntry 209, 0
+    AddMenuEntry 210, 1
+    AddMenuEntry 211, 2
+    AddMenuEntry 212, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_0x8000
     CompareVar VAR_0x8008, 0
@@ -512,7 +512,7 @@ _07D5:
     CallIf 1, _07C5
     CompareVar VAR_0x8000, 2
     CallIf 1, _07CD
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     BufferItemName 0, VAR_0x8001
     PlaySE SEQ_SE_DP_JIHANKI_sseq
     BufferItemName 0, VAR_0x8001
@@ -520,7 +520,7 @@ _07D5:
     SetVar VAR_0x8004, VAR_0x8001
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
-    @ HGSS: Random VAR_SPECIAL_RESULT, 64
+    GetRandom VAR_RESULT, 64
     CompareVar VAR_RESULT, 0
     GoToIf 5, _08A0
     PlaySE SEQ_SE_DP_JIHANKI_sseq

@@ -13,21 +13,64 @@
     },
     {
       "id": "msg_0579_T24R0701_00001",
-      "en_US": [
-        "I heard that you can only see it if\n",
-        "you have a Silver Wing.\r",
-        "It must have the same scent as\n",
-        "the creature."
-      ]
+      "en_US": "Gligar: Guraiiga!"
     },
     {
       "id": "msg_0579_T24R0701_00002",
+      "en_US": "Sneasel: Nyulaa!"
+    },
+    {
+      "id": "msg_0579_T24R0701_00003",
       "en_US": [
-        "I’ve heard that the whirlpools around\n",
-        "the islands are caused by the\f",
-        "sea creature.\r",
-        "You might need a special move to\n",
-        "get past them."
+        "Hey, kid! Isn’t Gligar the\n",
+        "best Pokémon? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0579_T24R0701_00004",
+      "en_US": [
+        "You agree? Awesome. You should raise\n",
+        "your very own Gligar.\r",
+        "Then use this to evolve it!\r"
+      ]
+    },
+    {
+      "id": "msg_0579_T24R0701_00005",
+      "en_US": [
+        "Equip that item to a Gligar and level it\n",
+        "up at night. It should evolve into a\f",
+        "fabulous Gliscor!"
+      ]
+    },
+    {
+      "id": "msg_0579_T24R0701_00006",
+      "en_US": [
+        "Hey, kid! Isn’t Sneasel the\n",
+        "best Pokémon? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0579_T24R0701_00007",
+      "en_US": [
+        "You agree? Awesome. You should raise\n",
+        "your very own Sneasel.\r",
+        "Then use this to evolve it!\r"
+      ]
+    },
+    {
+      "id": "msg_0579_T24R0701_00008",
+      "en_US": [
+        "Equip that item to a Sneasel and level\n",
+        "it up at night. It should evolve into\f",
+        "an extravagant Weavile!"
+      ]
+    },
+    {
+      "id": "msg_0579_T24R0701_00009",
+      "en_US": [
+        "You don’t think so?\r",
+        "At first, I was overjoyed to see you.\r",
+        "Now, I only want you gone!"
       ]
     }
   ]

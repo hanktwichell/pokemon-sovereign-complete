@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8416,
             "type": 2,
             "x": 827,
             "z": 263,
@@ -24,7 +24,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T31_REAPER_CLOTH",
-            "script": 0,
+            "script": 7559,
             "initial_dir": 0,
             "data": [
                 0,

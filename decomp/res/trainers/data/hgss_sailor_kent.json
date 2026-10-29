@@ -1,0 +1,48 @@
+{
+    "name": "Kent",
+    "class": "TRAINER_CLASS_SAILOR",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WARTORTLE",
+            "form": 0,
+            "level": 29,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PELIPPER",
+            "form": 0,
+            "level": 29,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Jasmine must be worried sick about the\n",
+                "Pokémon here. She won’t even smile\f",
+                "these days.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I can’t manage a smile, either...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Speaking of being sick, I’ve heard\n",
+                "there’s a good Pharmacy in Cianwood.\n"
+            ]
+        }
+    ]
+}

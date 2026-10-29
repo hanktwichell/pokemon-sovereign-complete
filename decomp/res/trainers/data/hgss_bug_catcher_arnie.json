@@ -1,0 +1,55 @@
+{
+    "name": "Arnie",
+    "class": "TRAINER_CLASS_HGSS_BUG_CATCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PARAS",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VENONAT",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ll go anywhere if bug Pokémon\n",
+                "appear there.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I see. So you can battle that way.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "My Venonat won me the Bug-Catching\n",
+                "Contest at the National Park.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "As long as I’ve got bug Pokémon, it\n",
+                "doesn’t matter how long I have to wait.\f",
+                "I know I won’t get bored!\r"
+            ]
+        }
+    ]
+}

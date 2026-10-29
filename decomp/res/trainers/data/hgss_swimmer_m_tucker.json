@@ -1,0 +1,47 @@
+{
+    "name": "Tucker",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CLOYSTER",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_OMASTAR",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Pant, pant... Just...a little...\n",
+                "farther...to...Fuchsia...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I’m drowning!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I...asked my girlfriend to swim to\n",
+                "Fuchsia... Gasp...\n"
+            ]
+        }
+    ]
+}

@@ -23,8 +23,8 @@
         "I subjected you to everything I could\n",
         "muster. But my efforts failed.\r",
         "I must hone my skills.\r",
-        "Go on to the next room, and\n",
-        "put your abilities to the test!\r"
+        "Keep advancing in the League,\n",
+        "and put your abilities to the test!\r"
       ]
     },
     {
@@ -33,9 +33,38 @@
         "I subjected you to everything I could\n",
         "muster. But my efforts failed.\r",
         "I must hone my skills.\r",
-        "Go on to the next room, and\n",
-        "put your abilities to the test!"
+        "Keep advancing in the League,\n",
+        "and put your abilities to the test!"
       ]
+    },
+    {
+      "id": "msg_0524_T10R0301_00003",
+      "en_US": "Kadabra: Kazaa!\r"
+    },
+    {
+      "id": "msg_0524_T10R0301_00004",
+      "en_US": [
+        "This Kadabra is offering to \n",
+        "Teleport you.\r",
+        "Which room would you\n",
+        "like to go to? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0524_T10R0301_00005",
+      "en_US": "Indigo Plateau: League Room 1"
+    },
+    {
+      "id": "msg_0524_T10R0301_00006",
+      "en_US": "Indigo Plateau: League Room 3"
+    },
+    {
+      "id": "msg_0524_T10R0301_00007",
+      "en_US": "Indigo Plateau: League Room 4"
+    },
+    {
+      "id": "msg_0524_T10R0301_00008",
+      "en_US": "Refuse Teleportation"
     }
   ]
 }

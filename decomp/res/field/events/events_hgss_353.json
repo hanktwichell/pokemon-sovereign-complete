@@ -43,9 +43,9 @@
             "id": "obj_EVERYWHERE_skierw",
             "graphics_id": "OBJ_EVENT_GFX_SKIER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SKIER_DIANA",
             "initial_dir": 1,
             "data": [
                 3,
@@ -62,9 +62,9 @@
             "id": "obj_EVERYWHERE_boarder",
             "graphics_id": "OBJ_EVENT_GFX_SKIER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BOARDER_PATTON",
             "initial_dir": 2,
             "data": [
                 2,

@@ -33,7 +33,7 @@
       "id": "msg_0073_D24R0102_00003",
       "en_US": [
         "I managed to unravel quite a lot of the\n",
-        "mystery of UNOWN with your help!\r",
+        "mystery of Unown with your help!\r",
         "Thank you, thank you.\n",
         "Thank you, again!"
       ]
@@ -50,10 +50,10 @@
     {
       "id": "msg_0073_D24R0102_00005",
       "en_US": [
-        "Wow, did you catch an UNOWN?\n",
+        "Wow, did you catch an Unown?\n",
         "That’s wonderful!\r",
         "Come to think of it... How come we’ve\n",
-        "suddenly started to see UNOWN?"
+        "suddenly started to see Unown?"
       ]
     },
     {
@@ -62,9 +62,9 @@
         "You have to hear this!\n",
         "This is a big discovery!\r",
         "It was you who solved the stone-panel\n",
-        "puzzle that allowed UNOWN to appear.\r",
+        "puzzle that allowed Unown to appear.\r",
         "Those tablets are the key to waking\n",
-        "up UNOWN!\r",
+        "up Unown!\r",
         "Still... Why would anyone make such\n",
         "a key?\r"
       ]
@@ -76,7 +76,7 @@
         "This is a big discovery!\r",
         "If you turn on the radio in the ruins,\n",
         "you can receive mysterious radio waves!\r",
-        "It’s proof that UNOWN communicate\n",
+        "It’s proof that Unown communicate\n",
         "with each other using radio waves!\r"
       ]
     },
@@ -85,7 +85,7 @@
       "en_US": [
         "You have to hear this!\n",
         "This is a big discovery!\r",
-        "There are as many UNOWN as there are\n",
+        "There are as many Unown as there are\n",
         "letters in the alphabet!\r",
         "There have been 26 types confirmed.\n",
         "Why don’t you collect them all?\r"
@@ -94,9 +94,9 @@
     {
       "id": "msg_0073_D24R0102_00009",
       "en_US": [
-        "How do you like the UNOWN Report\n",
+        "How do you like the Unown Report\n",
         "I gave you?\r",
-        "UNOWN are recorded as you catch them.\n",
+        "Unown are recorded as you catch them.\n",
         "It is quite useful!"
       ]
     },
@@ -105,7 +105,7 @@
       "en_US": [
         "You have to hear this!\n",
         "This is a big discovery!\r",
-        "We have figured out that UNOWN are in a\n",
+        "We have figured out that Unown are in a\n",
         "certain order!\f",
         "Let me see your report.\r"
       ]
@@ -114,7 +114,7 @@
       "id": "msg_0073_D24R0102_00011",
       "en_US": [
         "There!\n",
-        "I put the UNOWN in the correct order!\f",
+        "I put the Unown in the correct order!\f",
         "We may be able to tell more about them.\r"
       ]
     },
@@ -122,7 +122,7 @@
       "id": "msg_0073_D24R0102_00012",
       "en_US": [
         "What?\n",
-        "You found a room with UNOWN symbols?\f",
+        "You found a room with Unown symbols?\f",
         "That is a big discovery!\r",
         "We will study them right away.\r"
       ]
@@ -132,10 +132,10 @@
       "en_US": [
         "You have to hear this!\n",
         "This is a big discovery!\r",
-        "We have found two new UNOWN symbols!\r",
+        "We have found two new Unown symbols!\r",
         "It means that...\n",
-        "There must be two more kinds of UNOWN\f",
-        "somewhere...\r"
+        "There must be two more kinds of Unown\f",
+        "soMewhere...\r"
       ]
     },
     {
@@ -144,15 +144,15 @@
         "You have to hear this!\n",
         "We are learning more and more about the\f",
         "symbols on the floor!\r",
-        "...It seems that UNOWN were living at\n",
+        "...It seems that Unown were living at\n",
         "the ruins with a human clan.\r",
         "It is thought that this clan made the\n",
         "Pokémon statues underground.\r",
-        "The UNOWN were easily scared and\n",
+        "The Unown were easily scared and\n",
         "wouldn’t go outside.\r",
         "When more and more people started to\n",
         "appear around the ruins, the clan that\f",
-        "wished to live in harmony with the UNOWN\f",
+        "wished to live in harmony with the Unown\f",
         "eventually left...\r",
         "Thanks to our research and your\n",
         "help, we have unraveled so much about\f",
@@ -172,7 +172,7 @@
     {
       "id": "msg_0073_D24R0102_00016",
       "en_US": [
-        "{STRVAR_1 3, 0, 0} opened the UNOWN Report\n",
+        "{STRVAR_1 3, 0, 0} opened the Unown Report\n",
         "and made notes!"
       ]
     },
@@ -215,7 +215,7 @@
         "I seem to be doing nothing?\r",
         "Come on!\n",
         "I may not look it, but I’m the one who\f",
-        "developed the UNOWN Report!"
+        "developed the Unown Report!"
       ]
     },
     {
@@ -229,7 +229,7 @@
       "id": "msg_0073_D24R0102_00022",
       "en_US": [
         "Mystery Pokémon\n",
-        "Name: UNOWN\f",
+        "Name: Unown\f",
         "A total of 26 kinds found."
       ]
     },
@@ -249,6 +249,104 @@
         "“Mysteries of the Ancients”\n",
         "“Code-Breaking Guidebook”\f",
         "“Weathering Ruins”"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00025",
+      "en_US": [
+        "They say the Ruins of Alph are\n",
+        "filled with many different Unown.\r",
+        "So why is it that none of\n",
+        "them are to be found?"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00026",
+      "en_US": [
+        "Oh, you’re the person who\n",
+        "released the Unown, right?\r",
+        "I don’t know how many different\n",
+        "Unown there are, but for every seven\f",
+        "different forms you catch, come and\f",
+        "see me. I’ll give you something nice!"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00027",
+      "en_US": [
+        "Oh, you’ve collected seven Unown!\r",
+        "Please, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00028",
+      "en_US": [
+        "This is a TM containing Hidden Power.\n",
+        "Its type and power are unpredictable!\r",
+        "You’ve probably seen the Unown\n",
+        "in the ruins use it."
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00029",
+      "en_US": [
+        "Ah, you’ve collected fourteen Unown!\r",
+        "Please, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00030",
+      "en_US": [
+        "This is an item that can give a boost\n",
+        "to our systems, but we don’t really\f",
+        "need it!\r",
+        "Who knows, perhaps there’s a\n",
+        "Pokémon who can use it somehow."
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00031",
+      "en_US": [
+        "Wow, you’ve collected twenty-one\n",
+        "Unown!\r",
+        "Please, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00032",
+      "en_US": [
+        "A Master Ball will let you catch any\n",
+        "one Pokémon without fail. It’s a very\f",
+        "rare item that was donated to us, but\f",
+        "we don’t really need it!\r",
+        "It’s the least I can give you\n",
+        "after all your hard work."
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00033",
+      "en_US": [
+        "Incredible, you’ve collected\n",
+        "twenty-eight Unown!\r",
+        "I think with that, our Unown research\n",
+        "is complete. You’ve been a great help!\r",
+        "Please, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00034",
+      "en_US": [
+        "A Lucky Egg is an item that is very hard\n",
+        "to come across, but has the ability\f",
+        "to multiply the experience a Pokémon\f",
+        "holding it receives!"
+      ]
+    },
+    {
+      "id": "msg_0073_D24R0102_00035",
+      "en_US": [
+        "Thank you so much for your help\n",
+        "with our research!"
       ]
     }
   ]

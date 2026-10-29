@@ -1,0 +1,49 @@
+{
+    "name": "Edward",
+    "class": "TRAINER_CLASS_HGSS_GENTLEMAN",
+    "items": [
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DELCATTY",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Oh, no. I’ve lost something that’s\n",
+                "very important.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I...I can’t find it...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I give up. You don’t have to look.\n",
+                "Just forget about it!\n"
+            ]
+        }
+    ]
+}

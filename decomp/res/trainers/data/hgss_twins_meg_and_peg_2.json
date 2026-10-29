@@ -1,0 +1,27 @@
+{
+    "name": "Meg nd Peg",
+    "class": "TRAINER_CLASS_HGSS_TWINS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_PHANPY",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TEDDIURSA",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 0,
+            "ball_seal": 0,
+            "ability": "ABILITY_HONEY_GATHER"
+        }
+    ],
+    "messages": []
+}

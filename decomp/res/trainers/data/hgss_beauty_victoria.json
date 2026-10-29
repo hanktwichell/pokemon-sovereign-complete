@@ -1,0 +1,62 @@
+{
+    "name": "Victoria",
+    "class": "TRAINER_CLASS_HGSS_BEAUTY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WHISMUR",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TEDDIURSA",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SNUBBULL",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LOUDRED",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Oh, you are a cute little Trainer!\n",
+                "I like you, but I won’t hold back!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Let’s see...\n",
+                "Oops, it’s over?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Wow, you must be good to beat me!\n",
+                "Keep it up!\n"
+            ]
+        }
+    ]
+}

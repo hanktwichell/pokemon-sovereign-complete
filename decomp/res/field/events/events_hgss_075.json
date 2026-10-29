@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8312,
             "type": 2,
             "x": 385,
             "z": 170,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8313,
             "type": 2,
             "x": 379,
             "z": 146,
@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8432,
             "type": 2,
             "x": 406,
             "z": 163,
@@ -57,7 +57,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8433,
             "type": 2,
             "x": 365,
             "z": 164,
@@ -223,7 +223,7 @@
             "movement_range_x": 0,
             "movement_range_z": 0,
             "x": 374,
-            "z": 153,
+            "z": 154,
             "y": 0
         },
         {
@@ -243,6 +243,63 @@
             "movement_range_z": 0,
             "x": 390,
             "z": 160,
+            "y": 0
+        },
+        {
+            "id": "obj_T27_9",
+            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FB3",
+            "script": 18,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 397,
+            "z": 174,
+            "y": 0
+        },
+        {
+            "id": "obj_T27_10",
+            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 19,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 361,
+            "z": 164,
+            "y": 0
+        },
+        {
+            "id": "obj_T27_11",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F72",
+            "script": 7438,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 370,
+            "z": 142,
             "y": 0
         }
     ],

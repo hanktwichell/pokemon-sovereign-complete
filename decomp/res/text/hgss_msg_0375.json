@@ -4,7 +4,7 @@
     {
       "id": "msg_0375_R30_00000",
       "en_US": [
-        "Go, RATTATA!\r",
+        "Go, Rattata!\r",
         "Tackle!\r"
       ]
     },
@@ -74,7 +74,7 @@
     },
     {
       "id": "msg_0375_R30_00007",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0375_R30_00008",
@@ -121,6 +121,91 @@
         "Trainers!\r",
         "When you run, the noise will\n",
         "attract them."
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00014",
+      "en_US": [
+        "Oh, hello. Mr. Pokémon said he was\n",
+        "expecting a young trainer to arrive...\r",
+        "Is your name {STRVAR_1 3, 0, 0}, by any chance?\r",
+        "I see. I guess you are the trainer\n",
+        "Mr. Pokémon was expecting!\r",
+        "My name is Cynthia. I’m a Pokémon\n",
+        "Trainer who hails from Sinnoh.\r"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00015",
+      "en_US": [
+        "Cynthia: Tell me, {STRVAR_1 3, 0, 0}, have you\n",
+        "heard a story that tells the tale of\f",
+        "the Legendary Trainer?\r"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00016",
+      "en_US": [
+        "Cynthia: You haven’t? I’ll briefly\n",
+        "explain. The story tells the tale of\f",
+        "how a trainer travels the lands of\f",
+        "Johto and Kanto, catching all the\f",
+        "Pokémon known to mankind. He captures\f",
+        "the most basic of Pokémon, and even\f",
+        "the most mythical of Pokémon, to\f",
+        "eventually come face to face with\f",
+        "the one who the Pokémon call god...\r"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00017",
+      "en_US": [
+        "Cynthia: The archaeology in the Johto\n",
+        "region appears to back the existence\f",
+        "of this story. It’s interesting, to\f",
+        "be sure.\r"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00018",
+      "en_US": [
+        "Cynthia: Thank you for listening to\n",
+        "me, {STRVAR_1 3, 0, 0}. You know, you remind me\f",
+        "of a trainer I knew from Sinnoh...\r",
+        "You may not know it yet, but I think\n",
+        "you are capable of great things.\r",
+        "In fact, I’d like to help you reach\n",
+        "your maximum potential!\r",
+        "Cynthia: Here, let me give you a\n",
+        "small gift.\r"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00019",
+      "en_US": "{STRVAR_1 3, 0, 0} received an Eevee!"
+    },
+    {
+      "id": "msg_0375_R30_00020",
+      "en_US": [
+        "Would you like to give\n",
+        "the Eevee a nickname? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00021",
+      "en_US": [
+        "Cynthia: The numerous possibilities of\n",
+        "evolution for Eevee make it a very\f",
+        "interesting Pokémon.\r",
+        "I wonder what you’ll decide\n",
+        "to evolve Eevee into...?\r"
+      ]
+    },
+    {
+      "id": "msg_0375_R30_00022",
+      "en_US": [
+        "Cynthia: Perhaps we’ll cross paths\n",
+        "again, {STRVAR_1 3, 0, 0}, but until then, farewell!"
       ]
     }
   ]

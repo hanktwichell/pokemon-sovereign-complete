@@ -19,11 +19,15 @@ as Platinum's, and the names (object IDs, sprites) from its JSON sources. docs/M
 - scripts: Cut trees, Rock Smash rocks and Strength boulders run the same scripts in both games (10000-10002). On maps
   whose scripts are translated (tools/complete/translate_hgss_scripts.py --install), people, signs and step-on
   triggers (coord events) run their own (HeartGold's numbering, 1 on); elsewhere they run Platinum's do-nothing script
-  0 and the step-on triggers are left out, since each one starts a scripted scene. Trainers are plain people until
-  step 4 (their sight would start a battle from the wrong script), and item balls and hidden items wait for
-  HeartGold's item tables.
+  0 and the step-on triggers are left out, since each one starts a scripted scene. Trainers are trainers once
+  tools/complete/import_hgss_trainers.py has added them (TRAINER_HGSS_*): the same trainer types and sight ranges,
+  the trainer as the script. Item balls and hidden items run their entries in Platinum's item scripts
+  (tools/complete/import_hgss_field_items.py), on every map.
 
-Usage: python3 tools/complete/import_hgss_events.py
+With --rom ROM (Sacred Gold's: .cache/sacredgold.nds), the events come from that ROM's events archive (a/0/3/2)
+instead, still named from pokeheartgold's sources; a person the ROM added gets the name obj_<MAP>_<local ID>.
+
+Usage: python3 tools/complete/import_hgss_events.py [--rom ROM]
 """
 import json
 import os
@@ -33,8 +37,10 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from import_hgss_headers import edit, hg_headers  # noqa: E402
+from import_hgss_field_items import ITEM_BALLS, hidden_item_script, item_ball_script  # noqa: E402
 from import_hgss_maps import DECOMP, HG  # noqa: E402
 from narc import read_narc  # noqa: E402
+import sacred_gold  # noqa: E402
 
 COMPLETE_FLAGS_START = 2912  # decomp/include/vars_flags.h
 MARK = 'Sovereign Complete: HeartGold flags (tools/complete/import_hgss_events.py)'
@@ -44,6 +50,11 @@ VAR_MARK_END = 'Sovereign Complete: end of HeartGold vars'
 HG_SAVED_VARS_START = 0x4030  # HeartGold's vars from here on are VAR_COMPLETE_000 on
 HG_MAP_LOCAL_FLAGS = range(1, 65)
 HG_NUM_FLAGS = 2912
+ITEM_BALL_SCRIPTS = range(7000, 7000 + ITEM_BALLS)  # HeartGold's (tools/complete/import_hgss_field_items.py)
+HIDDEN_ITEM_SCRIPTS = range(8000, 8800)
+BG_FACING, BG_HIDDEN_ITEM = 0, 2  # bg event kinds, the same in both games
+BG_DIR_ALL = 4
+TRAINER_SCRIPTS = range(3000, 7000)  # a trainer's battle: 3000 + trainer - 1, a double's second trainer 5000 + ...
 HGSS_HEADER_BASE_NAME = 'MAP_HEADER_HGSS_'
 FIELD_MOVE_SCRIPTS = (10000, 10001, 10002)  # Cut, Rock Smash, Strength: the same scripts in both games
 DYNAMIC = 4095  # "back where the player came from", the same in both games (MAP_HEADER_DYNAMIC)
@@ -131,6 +142,8 @@ def flag_names():
     for name, n in defines('include/constants/flags.h', 'FLAG_').items():
         if HG_MAP_LOCAL_FLAGS.stop <= n < HG_NUM_FLAGS and not name.endswith('_BASE'):
             names.setdefault(COMPLETE_FLAGS_START + n, 'FLAG_HGSS_' + name[len('FLAG_'):])
+    for n in sacred_gold.SG_FLAGS:  # Sacred Gold's own, after HeartGold's (tools/complete/sacred_gold.py)
+        names[sacred_gold.engine_flag(n)] = 'FLAG_HGSS_' + sacred_gold.flag_name(n)[len('FLAG_'):]
     return names
 
 
@@ -150,6 +163,8 @@ def flag(n, names, platinum_local):
         return '0'
     if n in HG_MAP_LOCAL_FLAGS:
         return platinum_local[n]
+    if n in sacred_gold.SG_FLAGS:
+        return names[sacred_gold.engine_flag(n)]
     assert n < HG_NUM_FLAGS, n
     return names.setdefault(COMPLETE_FLAGS_START + n, f'FLAG_HGSS_0x{n:03X}')
 
@@ -171,51 +186,90 @@ def main():
     headers = hg_headers()
     header_names = [HGSS_HEADER_BASE_NAME + name[len('MAP_'):] for name, _ in headers]
     movement_types = lines('generated/movement_types.txt')
+    trainer_types = lines('generated/trainer_types.txt')
+    hg_trainers = {n: name for name, n in defines('include/constants/trainers.h', 'TRAINER_').items()}
+    our_trainers = set(lines('generated/trainers.txt'))
+
+    def trainer(script):
+        """A trainer's script (3000 + trainer - 1, or 5000 + for a double battle's second) as the engine names it."""
+        name = 'TRAINER_HGSS_' + hg_trainers[script % 2000 - 1000 + 1][len('TRAINER_'):]
+        return name if name in our_trainers else None
     bg_dirs = lines('generated/bg_event_dirs.txt')
     platinum_local = map_local_flags()
     names = flag_names()
     sprites = Sprites()
-    archive = read_narc(os.path.join(HG, 'build/heartgold.us/files/fielddata/eventdata/zone_event.narc'))
+    if '--rom' in sys.argv:
+        import ndspy.narc
+        import ndspy.rom
+        rom = ndspy.rom.NintendoDSRom.fromFile(sys.argv[sys.argv.index('--rom') + 1])
+        archive = [bytes(f) for f in ndspy.narc.NARC(rom.getFileByName('a/0/3/2')).files]
+    else:
+        archive = read_narc(os.path.join(HG, 'build/heartgold.us/files/fielddata/eventdata/zone_event.narc'))
     sources = {int(f[:3]): f for f in os.listdir(os.path.join(HG, 'files/fielddata/eventdata/zone_event'))
                if f.endswith('.json')}
 
     banks = sorted({int(re.fullmatch(r'NARC_zone_event_(\d{3})\w*_bin', f['eventsBank']).group(1)) for _, f in headers})
     # The events banks whose map's scripts are translated (tools/complete/translate_hgss_scripts.py --install): they
-    # run their own scripts; the rest run script 0 until then.
-    scripted = set()
+    # run their own scripts, by number from 1 up to the file's count; the rest run script 0 until then.
+    scripted = {}
     for _, f in headers:
-        number = re.match(r'scr_seq_(\d{4})', f['scriptsBank']).group(1)
-        if os.path.exists(os.path.join(DECOMP, f'res/field/scripts/scripts_hgss_{number}.s')):
-            scripted.add(int(re.fullmatch(r'NARC_zone_event_(\d{3})\w*_bin', f['eventsBank']).group(1)))
+        path = os.path.join(DECOMP, 'res/field/scripts/scripts_hgss_{}.s'.format(
+            re.match(r'scr_seq_(\d{4})', f['scriptsBank']).group(1)))
+        if os.path.exists(path):
+            bank = int(re.fullmatch(r'NARC_zone_event_(\d{3})\w*_bin', f['eventsBank']).group(1))
+            count = len(re.findall(r'^\s+ScriptEntry ', open(path).read(), re.M))
+            scripted[bank] = min(count, scripted.get(bank, count))
     hg_vars = defines('include/constants/vars.h', 'VAR_')
     var_names = {}
     for name, n in sorted(hg_vars.items(), key=lambda item: item[1]):
         var_names.setdefault(n, name)
 
     def var(n):
+        if n == 0:  # no var: a step-on trigger that always runs (Sacred Gold has one)
+            return '0'
         if n >= 0x8000:
             return {0x800C: 'VAR_RESULT', 0x800D: 'VAR_LAST_TALKED'}.get(n, f'VAR_0x{n:04X}')
         if n < 0x4020:
             return f'VAR_MAP_LOCAL_0x{n - 0x4000:02X}'
         if n < HG_SAVED_VARS_START:
             return f'VAR_OBJ_GFX_ID_{n - 0x4020:X}'
+        if n in sacred_gold.SG_VARS:
+            return 'VAR_HGSS_' + sacred_gold.var_name(n)[len('VAR_'):]
         return 'VAR_HGSS_' + var_names[n][len('VAR_'):]
 
     totals = {'bg_events': 0, 'object_events': 0, 'warp_events': 0, 'coord_events': 0, 'coords left out': 0}
     for bank in banks:
         events = parse(archive[bank])
-        own_scripts = bank in scripted
-        script_of = lambda n: n if n in FIELD_MOVE_SCRIPTS or own_scripts and 0 < n < 2000 else 0  # noqa: E731
+        own_scripts = scripted.get(bank, 0)
+        def script_of(n):
+            if n in ITEM_BALL_SCRIPTS:
+                return item_ball_script(n - ITEM_BALL_SCRIPTS.start)
+            if n in HIDDEN_ITEM_SCRIPTS:
+                return hidden_item_script(n - HIDDEN_ITEM_SCRIPTS.start)
+            if n in FIELD_MOVE_SCRIPTS or 0 < n <= own_scripts:
+                return n
+            if own_scripts and 0 < n < 2000:  # a script the map's file lacks would run past its end
+                print(f'{sources[bank]}: script {n} past the map\'s {own_scripts}: script 0')
+            return 0
+
         source = json.load(open(os.path.join(HG, 'files/fielddata/eventdata/zone_event', sources[bank])))
         source_objects = source.get('objects', [])
-        assert len(source_objects) == len(events['objects']), bank
+        map_code = re.sub(r'^\d{3}_|\.json$', '', sources[bank])
+        # people a ROM's version added (Sacred Gold's) are named by their local ID
+        source_objects += [{'id': f'obj_{map_code}_{i}'} for i in range(len(source_objects), len(events['objects']))]
 
-        bg_events = [{'script': script_of(script), 'type': kind, 'x': x, 'z': z, 'y': y,
-                      'player_facing_dir': bg_dirs[direction]}
+        # A hidden item is one by its script: Sacred Gold gives one of its hidden items (Route 47's second DeepSeaTooth)
+        # a sign's kind, and two scripts of its own a hidden item's, whose flag the engine would work out from the
+        # script number (from any side, as a hidden item is found)
+        bg_events = [{'script': script_of(script),
+                      'type': BG_HIDDEN_ITEM if script in HIDDEN_ITEM_SCRIPTS else
+                      BG_FACING if kind == BG_HIDDEN_ITEM else kind,
+                      'x': x, 'z': z, 'y': y,
+                      'player_facing_dir': bg_dirs[BG_DIR_ALL if kind == BG_HIDDEN_ITEM else direction]}
                      for script, kind, x, z, y, direction in events['bgs']]
         object_events, seen_ids = [], set()
         for i, (record, named) in enumerate(zip(events['objects'], source_objects)):
-            local_id, sprite, movement, _, hidden, script, facing, p0, p1, p2, range_x, range_z, x, z, y = record
+            local_id, sprite, movement, kind, hidden, script, facing, p0, p1, p2, range_x, range_z, x, z, y = record
             obj = {}
             if local_id == i and named['id'] not in seen_ids:
                 obj['id'] = named['id']
@@ -223,12 +277,15 @@ def main():
             else:
                 obj['clone_id'] = local_id
             assert y % 0x10000 == 0, (bank, y)
+            # trainers: the same trainer types by number, the trainer's script (its sight range is data[0], as in
+            # HeartGold); people with a trainer type and another script stay plain people
+            trainer_name = trainer(script) if TRAINER_SCRIPTS.start <= script < TRAINER_SCRIPTS.stop else None
             obj.update({
                 'graphics_id': sprites.name(sprite),
                 'movement_type': movement_types[movement] if movement < SAME_MOVEMENT_TYPES else OTHER_MOVEMENT,
-                'trainer_type': 'TRAINER_TYPE_NONE',
+                'trainer_type': trainer_types[kind] if trainer_name and kind else 'TRAINER_TYPE_NONE',
                 'hidden_flag': flag(hidden, names, platinum_local),
-                'script': script_of(script),
+                'script': trainer_name or script_of(script),
                 'initial_dir': facing,
                 'data': [p0, p1, p2],
                 'movement_range_x': range_x,
@@ -237,6 +294,8 @@ def main():
                 'z': z,
                 'y': y // 0x10000,
             })
+            if trainer_name and script >= 5000:
+                obj['double_battle_id'] = 2
             object_events.append(obj)
         warp_events = [{'x': x, 'z': z, 'dest_header_id': header_names[header] if header != DYNAMIC else 'MAP_HEADER_DYNAMIC',
                         'dest_warp_id': anchor}
@@ -270,6 +329,9 @@ def main():
     var_block = [f'VAR_HGSS_{name[len("VAR_"):]} = VAR_COMPLETE_{n - HG_SAVED_VARS_START:03X}'
                  for name, n in sorted(hg_vars.items(), key=lambda item: item[1])
                  if HG_SAVED_VARS_START <= n < HG_SAVED_VARS_START + 0x200]
+    var_block += [f'VAR_HGSS_{sacred_gold.var_name(n)[len("VAR_"):]} = VAR_COMPLETE_{sacred_gold.engine_var_slot(n):03X}'
+                  for n in sacred_gold.SG_VARS]  # Sacred Gold's own, after HeartGold's
+
     def change_vars(text):
         text = re.sub(rf'# {re.escape(VAR_MARK)}\n.*?# {re.escape(VAR_MARK_END)}\n', '', text, flags=re.S)
         body = f'# {VAR_MARK}\n' + ''.join(f'{line}\n' for line in var_block) + f'# {VAR_MARK_END}\n'

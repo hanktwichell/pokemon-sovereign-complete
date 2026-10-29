@@ -1,0 +1,53 @@
+{
+    "name": "Cheryl",
+    "class": "TRAINER_CLASS_TRAINER_CHERYL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_OMINOUS_WIND",
+                "MOVE_FLY",
+                "MOVE_TOXIC",
+                "MOVE_THUNDERBOLT"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WOBBUFFET",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_ENCORE",
+                "MOVE_MIRROR_COAT",
+                "MOVE_COUNTER",
+                "MOVE_SAFEGUARD"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BLISSEY",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_ICE_BEAM",
+                "MOVE_SOFTBOILED",
+                "MOVE_COUNTER"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

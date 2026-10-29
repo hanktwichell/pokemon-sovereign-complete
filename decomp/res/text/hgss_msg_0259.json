@@ -89,6 +89,63 @@
         "They’re all itching to battle in\n",
         "their cabins."
       ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00011",
+      "en_US": [
+        "Welcome to... Cinnabar Island...\n",
+        "I suggest you... head north..."
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00012",
+      "en_US": [
+        "(There’s an odd feeling... as if a\n",
+        "legendary force wanted you here.)"
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00013",
+      "en_US": [
+        "You there! Do you know Phione?\r",
+        "If you can show me a Phione,\n",
+        "I’ll give you a reward!"
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00014",
+      "en_US": [
+        "By jove, it’s a real Phione!\r",
+        "But that’s not enough, you see!\r"
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00015",
+      "en_US": [
+        "If you can show me a Manaphy,\n",
+        "then I’ll really give you a reward!"
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00016",
+      "en_US": [
+        "By jove, it’s a real Manaphy!\r",
+        "Here, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00017",
+      "en_US": [
+        "Thank you, young sir!\n",
+        "Fare thee well!"
+      ]
+    },
+    {
+      "id": "msg_0259_P01R0301_00018",
+      "en_US": [
+        "Thank you, young lass!\n",
+        "Fare thee well!"
+      ]
     }
   ]
 }

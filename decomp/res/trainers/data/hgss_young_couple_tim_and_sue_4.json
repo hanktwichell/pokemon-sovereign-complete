@@ -1,0 +1,51 @@
+{
+    "name": "Tim＆Sue",
+    "class": "TRAINER_CLASS_HGSS_YOUNG_COUPLE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 69,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_CALM_MIND",
+                "MOVE_REFLECT",
+                "MOVE_RECOVER"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLDUCK",
+            "form": 0,
+            "level": 69,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_AMNESIA",
+                "MOVE_AQUA_JET",
+                "MOVE_BLIZZARD"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Tim: You’re the strongest!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Sue: Wa ha...\n"
+            ]
+        }
+    ]
+}

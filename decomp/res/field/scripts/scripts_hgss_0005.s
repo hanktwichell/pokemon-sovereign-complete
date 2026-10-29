@@ -1,4 +1,5 @@
 #include "macros/scrcmd.inc"
+#include "constants/npc_trades.h"
 #include "res/text/bank/hgss_msg_0047.h"
 
 #define obj_D01R0101_gsleader14 1
@@ -6,65 +7,11 @@
     ScriptEntry scr_seq_D01R0101_000
     ScriptEntry scr_seq_D01R0101_001
     ScriptEntry scr_seq_D01R0101_002
+    ScriptEntry scr_seq_D01R0101_003
     ScriptEntryEnd
 scr_seq_D01R0101_000:
-    GoToIfUnset FLAG_HGSS_UNK_189, _001F
+    GoToIfUnset FLAG_HGSS_UNK_189, _00A1
     ClearFlag FLAG_HGSS_UNK_189
-    End
-_001F:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BROCK, VAR_TEMP_x4001
-    CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _009E
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
-    CompareVar VAR_MAP_LOCAL_0x02, 1
-    GoToIf 1, _004D
-    GoTo _0102
-    End
-_004D:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 12
-    GoToIf 5, _0068
-    ClearFlag FLAG_HGSS_UNK_262
-    GoTo _009C
-_0068:
-    CompareVar VAR_MAP_LOCAL_0x00, 13
-    GoToIf 5, _007F
-    ClearFlag FLAG_HGSS_UNK_262
-    GoTo _009C
-_007F:
-    CompareVar VAR_MAP_LOCAL_0x00, 14
-    GoToIf 5, _0096
-    ClearFlag FLAG_HGSS_UNK_262
-    GoTo _009C
-_0096:
-    GoTo _0102
-_009C:
-    End
-_009E:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BROCK, VAR_TEMP_x4001
-    CompareVar VAR_MAP_LOCAL_0x01, 0
-    GoToIf 5, _0102
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 17
-    GoToIf 5, _00CC
-    ClearFlag FLAG_HGSS_UNK_262
-    GoTo _0100
-_00CC:
-    CompareVar VAR_MAP_LOCAL_0x00, 18
-    GoToIf 5, _00E3
-    ClearFlag FLAG_HGSS_UNK_262
-    GoTo _0100
-_00E3:
-    CompareVar VAR_MAP_LOCAL_0x00, 19
-    GoToIf 5, _00FA
-    ClearFlag FLAG_HGSS_UNK_262
-    GoTo _0100
-_00FA:
-    GoTo _0102
-_0100:
-    End
-_0102:
-    SetFlag FLAG_HGSS_UNK_262
     End
 scr_seq_D01R0101_001:
     PlaySE SE_CONFIRM_sseq_3
@@ -72,18 +19,46 @@ scr_seq_D01R0101_001:
     FacePlayer
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BROCK, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _01B6
+    GoToIf 1, _00CD
     CompareVar VAR_MAP_LOCAL_0x03, 1
-    GoToIf 4, _01AB
+    GoToIf 4, _00EF
     Message msg_0047_D01R0101_00001
-_0133:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0157
+    GoToIf 1, _00F8
     CompareVar VAR_RESULT, 1
-    GoToIf 4, _019A
+    GoToIf 4, _013B
     End
-_0157:
+scr_seq_D01R0101_002:
+    NPCMessage msg_0047_D01R0101_00000
+    End
+scr_seq_D01R0101_003:
+    LockAll
+    RemoveObject 4
+    SetVar VAR_0x8004, ITEM_EARTH_PLATE
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    CloseMessage
+    ReleaseAll
+    End
+_00A1:
+    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BROCK, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 1
+    GoToIf 1, _014C
+    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompareVar VAR_MAP_LOCAL_0x02, 1
+    GoToIf 1, _017A
+    GoTo _0195
+_00CD:
+    GetDayOfWeek VAR_0x8004
+    CompareVar VAR_0x8004, 1
+    GoToIf 5, _019B
+    GoToIfUnset FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN, _01B9
+    GoTo _01CF
+_00EF:
+    Message msg_0047_D01R0101_00005
+    GoTo _023D
+_00F8:
     BufferPlayerName 0
     Message msg_0047_D01R0101_00002
     PlayFanfare SEQ_FANFA4_sseq
@@ -102,42 +77,51 @@ _0157:
     WaitFadeScreen
     ReleaseAll
     End
-_019A:
+_013B:
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
     Message msg_0047_D01R0101_00004
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_01AB:
-    Message msg_0047_D01R0101_00005
-    GoTo _0133
+_014C:
+    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BROCK, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 0
+    GoToIf 5, _0195
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 17
+    GoToIf 5, _0261
+    ClearFlag FLAG_HGSS_UNK_262
+    GoTo _0278
+_017A:
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 12
+    GoToIf 5, _027A
+    ClearFlag FLAG_HGSS_UNK_262
+    GoTo _0291
+_0195:
+    SetFlag FLAG_HGSS_UNK_262
     End
-_01B6:
-    GetDayOfWeek VAR_0x8004
-    CompareVar VAR_0x8004, 1
-    GoToIf 5, _01D8
-    GoToIfUnset FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN, _0292
-    GoTo _020E
-_01D8:
+_019B:
     CompareVar VAR_0x8004, 4
-    GoToIf 5, _01F6
-    GoToIfUnset FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN, _0292
-    GoTo _020E
-_01F6:
-    CompareVar VAR_0x8004, 6
-    GoToIf 5, _020E
-    GoToIfUnset FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN, _0292
-_020E:
+    GoToIf 5, _0293
+    GoToIfUnset FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN, _01B9
+    GoTo _01CF
+_01B9:
+    CompareVar VAR_MAP_LOCAL_0x00, 111
+    GoToIf 5, _0319
+    Message msg_0047_D01R0101_00015
+    GoTo _03DF
+_01CF:
     CompareVar VAR_MAP_LOCAL_0x00, 55
-    GoToIf 1, _0357
+    GoToIf 1, _049E
     Message msg_0047_D01R0101_00006
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _027C
+    GoToIf 1, _04A9
     @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0287
+    GoToIf 1, _04B4
     Message msg_0047_D01R0101_00007
     CloseMessage
     SetFlag FLAG_HGSS_UNK_189
@@ -154,78 +138,182 @@ _020E:
     CloseMessage
     ReleaseAll
     End
-_027C:
-    Message msg_0047_D01R0101_00009
-    WaitButton
-    CloseMessage
-    ReleaseAll
+_023D:
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _00F8
+    CompareVar VAR_RESULT, 1
+    GoToIf 4, _013B
     End
-_0287:
-    Message msg_0047_D01R0101_00010
-    WaitButton
-    CloseMessage
-    ReleaseAll
+_0261:
+    CompareVar VAR_MAP_LOCAL_0x00, 18
+    GoToIf 5, _04BF
+    ClearFlag FLAG_HGSS_UNK_262
+    GoTo _0278
+_0278:
     End
-_0292:
-    CompareVar VAR_MAP_LOCAL_0x00, 111
-    GoToIf 5, _02A8
-    Message msg_0047_D01R0101_00015
-    GoTo _02AF
-_02A8:
-    BufferPlayerName 0
-    MessageGendered msg_0047_D01R0101_00011, msg_0047_D01R0101_00012
-_02AF:
+_027A:
+    CompareVar VAR_MAP_LOCAL_0x00, 13
+    GoToIf 5, _04D6
+    ClearFlag FLAG_HGSS_UNK_262
+    GoTo _0291
+_0291:
+    End
+_0293:
+    CompareVar VAR_0x8004, 6
+    GoToIf 5, _01CF
+    GoToIfUnset FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN, _01B9
+    CompareVar VAR_MAP_LOCAL_0x00, 55
+    GoToIf 1, _049E
+    Message msg_0047_D01R0101_00006
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0346
+    GoToIf 1, _04A9
+    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _04B4
+    Message msg_0047_D01R0101_00007
+    CloseMessage
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 86
+    FacePlayer
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    Message msg_0047_D01R0101_00008
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0319:
+    BufferPlayerName 0
+    MessageGendered msg_0047_D01R0101_00011, msg_0047_D01R0101_00012
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _04ED
     Message msg_0047_D01R0101_00013
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_566
-    @ HGSS: GetPartySelection VAR_SPECIAL_RESULT
+    OpenPartyMenuForTrade
+    GetSelectedPartySlot VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_RESULT, 255
-    GoToIf 1, _0346
-    @ HGSS: LoadNPCTrade 11
+    GoToIf 1, _04ED
+    InitNPCTrade NPC_TRADE_HGSS_HORNLETTE_RHYPERIOR
     SetVarFromVar VAR_0x8004, VAR_RESULT
     GetPartyMonSpecies VAR_0x8004, VAR_0x8005
-    @ HGSS: NPCTradeGetReqSpecies VAR_SPECIAL_RESULT
+    GetNPCTradeRequestedSpecies VAR_RESULT
     CompareVar VAR_0x8005, VAR_RESULT
-    GoToIf 5, _0339
-    @ HGSS: NPCTradeExec VAR_SPECIAL_x8004
-    @ HGSS: NPCTradeEnd
-    @ HGSS: SetMonMove VAR_SPECIAL_x8004, 0, MOVE_THUNDER_FANG
+    GoToIf 5, _04FE
+    StartNPCTrade VAR_0x8004
+    FinishNPCTrade
+    ResetPartyMonMoveSlot_Unused VAR_0x8004, 0, MOVE_THUNDER_FANG
     SetFlag FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN
     SetVarFromValue VAR_MAP_LOCAL_0x00, 55
     Message msg_0047_D01R0101_00016
     WaitButton
     CloseMessage
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    Message msg_0047_D01R0101_00019
+    SetVar VAR_0x8004, ITEM_COVENANT_ORB
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    CloseMessage
     ReleaseAll
     End
-_0339:
-    @ HGSS: NPCTradeEnd
-    Message msg_0047_D01R0101_00018
+_03DF:
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _04ED
+    Message msg_0047_D01R0101_00013
+    CloseMessage
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    OpenPartyMenuForTrade
+    GetSelectedPartySlot VAR_RESULT
+    ReturnToField
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    CompareVar VAR_RESULT, 255
+    GoToIf 1, _04ED
+    InitNPCTrade NPC_TRADE_HGSS_HORNLETTE_RHYPERIOR
+    SetVarFromVar VAR_0x8004, VAR_RESULT
+    GetPartyMonSpecies VAR_0x8004, VAR_0x8005
+    GetNPCTradeRequestedSpecies VAR_RESULT
+    CompareVar VAR_0x8005, VAR_RESULT
+    GoToIf 5, _04FE
+    StartNPCTrade VAR_0x8004
+    FinishNPCTrade
+    ResetPartyMonMoveSlot_Unused VAR_0x8004, 0, MOVE_FISSURE
+    SetFlag FLAG_HGSS_TRADE_BROCK_BONSLY_RHYHORN
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 55
+    Message msg_0047_D01R0101_00016
+    WaitButton
+    CloseMessage
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    Message msg_0047_D01R0101_00019
+    SetVar VAR_0x8004, ITEM_COVENANT_ORB
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    CloseMessage
+    ReleaseAll
+    End
+_049E:
+    Message msg_0047_D01R0101_00017
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_0346:
+_04A9:
+    Message msg_0047_D01R0101_00009
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_04B4:
+    Message msg_0047_D01R0101_00010
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_04BF:
+    CompareVar VAR_MAP_LOCAL_0x00, 19
+    GoToIf 5, _050B
+    ClearFlag FLAG_HGSS_UNK_262
+    GoTo _0278
+_04D6:
+    CompareVar VAR_MAP_LOCAL_0x00, 14
+    GoToIf 5, _0511
+    ClearFlag FLAG_HGSS_UNK_262
+    GoTo _0291
+_04ED:
     Message msg_0047_D01R0101_00014
     WaitButton
     CloseMessage
     ReleaseAll
     SetVarFromValue VAR_MAP_LOCAL_0x00, 111
     End
-_0357:
-    Message msg_0047_D01R0101_00017
+_04FE:
+    FinishNPCTrade
+    Message msg_0047_D01R0101_00018
     WaitButton
     CloseMessage
     ReleaseAll
     End
-scr_seq_D01R0101_002:
-    NPCMessage msg_0047_D01R0101_00000
-    End
+_050B:
+    GoTo _0195
+_0511:
+    GoTo _0195
     .balign 4, 0

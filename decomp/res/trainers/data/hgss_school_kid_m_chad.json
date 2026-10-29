@@ -1,0 +1,57 @@
+{
+    "name": "Chad",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MR_MIME",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let me try something I learned today.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I didn’t study enough, I guess.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I have to take so many tests, I don’t\n",
+                "have much time for Pokémon.\r",
+                "So when I do get to battle, I really\n",
+                "concentrate.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "You’ve come to the right place!\r",
+                "Time for me to try out everything I’ve\n",
+                "learned today!\r"
+            ]
+        }
+    ]
+}

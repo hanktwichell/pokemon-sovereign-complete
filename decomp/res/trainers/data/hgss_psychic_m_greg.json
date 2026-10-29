@@ -1,0 +1,61 @@
+{
+    "name": "Greg",
+    "class": "TRAINER_CLASS_HGSS_PSYCHIC_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GASTLY",
+            "form": 0,
+            "level": 23,
+            "moves": [
+                "MOVE_HYPNOSIS",
+                "MOVE_SPITE",
+                "MOVE_DREAM_EATER",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DROWZEE",
+            "form": 0,
+            "level": 25,
+            "moves": [
+                "MOVE_HYPNOSIS",
+                "MOVE_DISABLE",
+                "MOVE_DREAM_EATER",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Pokémon can’t do a thing if they are\n",
+                "asleep. I’ll show you how scary that is!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I lost. That’s pretty sad...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Making Pokémon sleep or paralyzing\n",
+                "them are good battle techniques.\n"
+            ]
+        }
+    ]
+}

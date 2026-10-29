@@ -45,7 +45,7 @@
     },
     {
       "id": "msg_0606_T26GYM0101_00004",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0606_T26GYM0101_00005",
@@ -53,7 +53,7 @@
         "Jasmine: It is called Iron Tail...\r",
         "Your Pokémon will hit the target\n",
         "with its hard tail, occasionally\f",
-        "lowering the target’s Defense..."
+        "lowering the target’s Defense...\r"
       ]
     },
     {
@@ -205,6 +205,28 @@
         "Leader: Jasmine\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0606_T26GYM0101_00025",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
+      ]
+    },
+    {
+      "id": "msg_0606_T26GYM0101_00026",
+      "en_US": [
+        "Here...\n",
+        "You can have my number...\r",
+        "...\r"
+      ]
+    },
+    {
+      "id": "msg_0606_T26GYM0101_00027",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Jasmine\n",
+        "in the Pokégear!"
       ]
     }
   ]

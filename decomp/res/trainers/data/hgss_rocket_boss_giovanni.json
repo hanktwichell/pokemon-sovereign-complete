@@ -1,0 +1,121 @@
+{
+    "name": "Giovanni",
+    "class": "TRAINER_CLASS_HGSS_ROCKET_BOSS",
+    "items": [
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PERSIAN",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_HYPNOSIS",
+                "MOVE_FAKE_OUT",
+                "MOVE_SLASH",
+                "MOVE_NIGHT_SLASH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KANGASKHAN",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_LOW_KICK",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NIDOKING",
+            "form": 0,
+            "level": 50,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_ICE_BEAM",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 49,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTH_POWER",
+                "MOVE_TOXIC",
+                "MOVE_ICE_BEAM",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RHYPERIOR",
+            "form": 0,
+            "level": 50,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_MEGAHORN",
+                "MOVE_STONE_EDGE",
+                "MOVE_HAMMER_ARM"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TAUROS",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_STONE_EDGE",
+                "MOVE_PAYBACK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "What in the world was that? Don’t tell\n",
+                "me some inexperienced kid can\f",
+                "possibly be that strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "What was that?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What in the world are you?\n"
+            ]
+        }
+    ]
+}

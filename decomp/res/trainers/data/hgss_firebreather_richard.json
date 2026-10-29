@@ -1,0 +1,55 @@
+{
+    "name": "Richard",
+    "class": "TRAINER_CLASS_HGSS_FIREBREATHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGBY",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLOWPOKE",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHARMELEON",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m practicing my fire breathing in the\n",
+                "Burned Tower! Don’t try this at home!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Pfooosh... Pfooosh... Pffffoooom...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Oops, please don’t misunderstand!\n",
+                "I’m not the reason that this tower is\f",
+                "burned up!\n"
+            ]
+        }
+    ]
+}

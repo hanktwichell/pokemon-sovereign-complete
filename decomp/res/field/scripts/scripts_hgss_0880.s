@@ -55,8 +55,8 @@ _00AD:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_TEMP_x4000
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 255
     GoToIf 5, _00F2
     Call _019A
@@ -86,7 +86,7 @@ _014C:
     Message msg_0576_T24R0201_00014
     GoTo _0192
 _0162:
-    @ HGSS: MonGetFriendship VAR_SPECIAL_RESULT, VAR_TEMP_x4000
+    GetPartyMonFriendship VAR_RESULT, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 149
     GoToIf 3, _0181
     Call _019A

@@ -50,7 +50,9 @@
         "It swaps Abilities between the user\f",
         "and the target.\r",
         "You will become a celebrated and\n",
-        "beloved Champion!"
+        "beloved Champion!\r",
+        "You should head over to the Seafoam\n",
+        "Islands. Take any route you want!\r"
       ]
     },
     {
@@ -88,6 +90,21 @@
         "Leader: Sabrina\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0531_T11GYM0101_00010",
+      "en_US": [
+        "Sabrina: I also feel that I should\n",
+        "give you my telephone number...\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0531_T11GYM0101_00011",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Sabrina\n",
+        "in the Pokégear!"
       ]
     }
   ]

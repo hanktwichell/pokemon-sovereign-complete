@@ -1,0 +1,36 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RATICATE",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MUK",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Surveillance cams are in the\n",
+                "Pokémon statues.\r",
+                "We’ll keep appearing until you trip a\n",
+                "secret switch.\n"
+            ]
+        }
+    ]
+}

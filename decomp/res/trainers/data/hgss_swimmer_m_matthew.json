@@ -1,0 +1,40 @@
+{
+    "name": "Matthew",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SEAKING",
+            "form": 0,
+            "level": 33,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Are you seeking the secrets of the\n",
+                "Whirl Islands?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ooh, you’ve got great endurance!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "A secret about the Whirl Islands...\n",
+                "It’s pitch black inside!\n"
+            ]
+        }
+    ]
+}

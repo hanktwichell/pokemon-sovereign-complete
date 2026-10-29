@@ -1,0 +1,25 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_BUG_CATCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VENOMOTH",
+            "form": 0,
+            "level": 40,
+            "moves": [
+                "MOVE_GUST",
+                "MOVE_SUPERSONIC",
+                "MOVE_PSYCHIC",
+                "MOVE_TOXIC"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

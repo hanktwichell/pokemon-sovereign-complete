@@ -1,0 +1,39 @@
+{
+    "name": "Harris",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FLAREON",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The cops shut down our Underground\n",
+                "Path! That really annoys me!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "F-forgive me!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Wiped out by some punk from Johto...\n"
+            ]
+        }
+    ]
+}

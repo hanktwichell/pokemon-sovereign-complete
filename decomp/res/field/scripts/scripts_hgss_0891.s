@@ -12,7 +12,7 @@ scr_seq_T25R0301_000:
     FacePlayer
     GetFirstNonEggInParty VAR_0x8000
     Message msg_0585_T25R0301_00000
-    @ HGSS: MonGetFriendship VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000
+    GetPartyMonFriendship VAR_RESULT, VAR_0x8000
     CompareVar VAR_RESULT, 250
     GoToIf 4, _006C
     CompareVar VAR_RESULT, 200

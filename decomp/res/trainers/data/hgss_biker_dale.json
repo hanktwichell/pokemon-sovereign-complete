@@ -1,0 +1,41 @@
+{
+    "name": "Dale",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VIBRAVA",
+            "form": 0,
+            "level": 59,
+            "item": "ITEM_NONE",
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You’re gonna lose!\n",
+                "I’ve got a hunch!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Maybe my hunch was a little off...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You’re so cool!\n",
+                "You don’t do anything halfway!\n"
+            ]
+        }
+    ]
+}

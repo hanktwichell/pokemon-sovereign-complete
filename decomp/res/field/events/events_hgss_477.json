@@ -19,25 +19,6 @@
             "x": 16,
             "z": 11,
             "y": 0
-        },
-        {
-            "id": "obj_D52R0102_mount_2",
-            "graphics_id": "OBJ_EVENT_GFX_HIKER",
-            "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "FLAG_HGSS_HIDE_EMBEDDED_TOWER_KYOGRE_HIKER",
-            "script": 0,
-            "initial_dir": 0,
-            "data": [
-                0,
-                0,
-                0
-            ],
-            "movement_range_x": 0,
-            "movement_range_z": 0,
-            "x": 16,
-            "z": 23,
-            "y": 0
         }
     ],
     "warp_events": [

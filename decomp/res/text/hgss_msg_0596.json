@@ -15,7 +15,7 @@
     },
     {
       "id": "msg_0596_T25R1005_00002",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0596_T25R1005_00003",
@@ -33,7 +33,7 @@
     },
     {
       "id": "msg_0596_T25R1005_00005",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0596_T25R1005_00006",
@@ -60,21 +60,21 @@
       "id": "msg_0596_T25R1005_00009",
       "en_US": [
         "I collect Pokémon.\n",
-        "Do you have a DROWZEE?\r",
-        "Want to trade it for my MACHOP? {YESNO 0}"
+        "Do you have a Noctowl?\r",
+        "Want to trade it for my Torkoal? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0596_T25R1005_00010",
       "en_US": [
-        "Yay! I got myself a DROWZEE!\f",
+        "Yay! I got myself a Noctowl!\f",
         "Thanks!"
       ]
     },
     {
       "id": "msg_0596_T25R1005_00011",
       "en_US": [
-        "Huh? That’s not DROWZEE.\n",
+        "Huh? That’s not Noctowl.\n",
         "What a letdown..."
       ]
     },
@@ -84,7 +84,7 @@
     },
     {
       "id": "msg_0596_T25R1005_00013",
-      "en_US": "Hi, how’s my old MACHOP doing?"
+      "en_US": "Hi, how’s my old Torkoal doing?"
     },
     {
       "id": "msg_0596_T25R1005_00014",
@@ -132,6 +132,17 @@
         "Modify Your Pokémon\n",
         "5F TM Corner"
       ]
+    },
+    {
+      "id": "msg_0596_T25R1005_00020",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
+      ]
+    },
+    {
+      "id": "msg_0596_T25R1005_00021",
+      "en_US": "Budew: Sewbomiii!"
     }
   ]
 }

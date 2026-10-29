@@ -1,0 +1,106 @@
+{
+    "name": "Richard",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ROSERADE",
+            "form": 0,
+            "level": 75,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_ENERGY_BALL",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_EXTRASENSORY"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HOUNDOOM",
+            "form": 0,
+            "level": 75,
+            "item": "ITEM_POWER_HERB",
+            "moves": [
+                "MOVE_SOLAR_BEAM",
+                "MOVE_FLAMETHROWER",
+                "MOVE_DARK_PULSE",
+                "MOVE_HIDDEN_POWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 75,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_DRAGON_DANCE",
+                "MOVE_OUTRAGE",
+                "MOVE_WATERFALL",
+                "MOVE_DRACO_METEOR"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNEZONE",
+            "form": 0,
+            "level": 75,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_FLASH_CANNON",
+                "MOVE_HIDDEN_POWER",
+                "MOVE_MAGNET_RISE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GARDEVOIR",
+            "form": 0,
+            "level": 75,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_THUNDERBOLT",
+                "MOVE_MAGICAL_LEAF",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Your Pokémon certainly look tough.\n",
+                "Let’s put them to the test!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I see...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Keep your eyes out for a pink blur.\n",
+                "They say it’ll appear to a strong\f",
+                "and kindhearted trainer.\n"
+            ]
+        }
+    ]
+}

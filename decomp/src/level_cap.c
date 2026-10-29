@@ -7,13 +7,14 @@
 #include "data/level_caps.h"
 #include "generated/vars_flags.h"
 
+#include "complete_trainers.h"
 #include "sovereign_options.h"
 #include "savedata.h"
 #include "vars_flags.h"
 
 static BOOL IsTrainerDefeated(VarsFlags *varsFlags, u16 trainerID)
 {
-    return VarsFlags_CheckFlag(varsFlags, TRAINER_DEFEATED_FLAGS_START + trainerID);
+    return VarsFlags_CheckFlag(varsFlags, Trainer_DefeatedFlag(trainerID)); // Sovereign Complete
 }
 
 static BOOL IsStepCleared(VarsFlags *varsFlags, const LevelCapStep *step)

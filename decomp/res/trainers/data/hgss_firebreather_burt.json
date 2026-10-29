@@ -1,0 +1,59 @@
+{
+    "name": "Burt",
+    "class": "TRAINER_CLASS_HGSS_FIREBREATHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 57,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_EXPLOSION",
+                "MOVE_DOUBLE_HIT",
+                "MOVE_SLUDGE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGCARGO",
+            "form": 0,
+            "level": 57,
+            "moves": [
+                "MOVE_LAVA_PLUME",
+                "MOVE_AMNESIA",
+                "MOVE_EARTH_POWER",
+                "MOVE_RECOVER"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Step right up and take a look!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yow! That’s hot!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The greatest fire-breather in Kanto,\n",
+                "that’s me.\r",
+                "But not the best Trainer...\n"
+            ]
+        }
+    ]
+}

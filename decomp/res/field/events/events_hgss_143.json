@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8385,
             "type": 2,
             "x": 11,
             "z": 71,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8387,
             "type": 2,
             "x": 26,
             "z": 41,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8516,
             "type": 2,
             "x": 12,
             "z": 46,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8517,
             "type": 2,
             "x": 47,
             "z": 46,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8518,
             "type": 2,
             "x": 49,
             "z": 18,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8519,
             "type": 2,
             "x": 32,
             "z": 57,
@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8520,
             "type": 2,
             "x": 50,
             "z": 58,
@@ -73,8 +73,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 25,
-            "z": 71,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -83,7 +83,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_DIRE_HIT",
-            "script": 0,
+            "script": 7542,
             "initial_dir": 0,
             "data": [
                 0,
@@ -102,7 +102,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_BLUE_FLUTE",
-            "script": 0,
+            "script": 7543,
             "initial_dir": 0,
             "data": [
                 0,
@@ -121,7 +121,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_LEAF_STONE",
-            "script": 0,
+            "script": 7544,
             "initial_dir": 0,
             "data": [
                 0,
@@ -140,7 +140,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D46R0101_TM77",
-            "script": 0,
+            "script": 7545,
             "initial_dir": 0,
             "data": [
                 0,
@@ -168,8 +168,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 23,
-            "z": 70,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -187,17 +187,17 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 42,
-            "z": 70,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
             "id": "obj_D46R0101_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_DANE",
             "initial_dir": 2,
             "data": [
                 3,
@@ -212,11 +212,11 @@
         },
         {
             "id": "obj_D46R0101_gsboy3_2",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_DION",
             "initial_dir": 1,
             "data": [
                 3,
@@ -231,11 +231,11 @@
         },
         {
             "id": "obj_D46R0101_gsboy3_3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_STACEY",
             "initial_dir": 3,
             "data": [
                 3,
@@ -250,11 +250,11 @@
         },
         {
             "id": "obj_D46R0101_gsboy3_4",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_WALK_NORTH_EAST_SOUTH_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_ELLIS",
             "initial_dir": 0,
             "data": [
                 1,
@@ -269,11 +269,11 @@
         },
         {
             "id": "obj_D46R0101_gsboy3_5",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_ABNER",
             "initial_dir": 3,
             "data": [
                 5,
@@ -284,6 +284,82 @@
             "movement_range_z": 0,
             "x": 14,
             "z": 28,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_12",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FC8",
+            "script": 3,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 22,
+            "z": 53,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_13",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 4,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_14",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 5,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_D46R0101_15",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FC8",
+            "script": 6,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         }
     ],

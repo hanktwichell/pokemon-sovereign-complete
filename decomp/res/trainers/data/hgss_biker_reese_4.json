@@ -1,0 +1,45 @@
+{
+    "name": "Reese",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARBOK",
+            "form": 0,
+            "level": 69,
+            "moves": [
+                "MOVE_GUNK_SHOT",
+                "MOVE_MUD_BOMB",
+                "MOVE_GASTRO_ACID",
+                "MOVE_CRUNCH"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 69,
+            "moves": [
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_DOUBLE_HIT",
+                "MOVE_SMOKE_SCREEN",
+                "MOVE_THUNDER"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whoa, you’re kickin’!\n"
+            ]
+        }
+    ]
+}

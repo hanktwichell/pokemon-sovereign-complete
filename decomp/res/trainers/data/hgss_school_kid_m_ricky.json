@@ -1,0 +1,50 @@
+{
+    "name": "Ricky",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AMBIPOM",
+            "form": 0,
+            "level": 54,
+            "item": "ITEM_HARD_STONE",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DODRIO",
+            "form": 0,
+            "level": 54,
+            "item": "ITEM_NONE",
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "There are some odd stone panels in the\n",
+                "Ruins of Alph.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I was taken down!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I read that there are four of those\n",
+                "stone panels.\n"
+            ]
+        }
+    ]
+}

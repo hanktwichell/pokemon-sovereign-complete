@@ -12,7 +12,7 @@
     {
       "id": "msg_0460_T03_00001",
       "en_US": [
-        "At night, CLEFAIRY come out to play\n",
+        "At night, Clefairy come out to play\n",
         "at Mt. Moon.\r",
         "But not every night."
       ]
@@ -33,11 +33,11 @@
     },
     {
       "id": "msg_0460_T03_00003",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0460_T03_00004",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0460_T03_00005",
@@ -50,21 +50,21 @@
     {
       "id": "msg_0460_T03_00006",
       "en_US": [
-        "Steven: It seems that LATIOS became\n",
+        "Steven: It seems that Latios became\n",
         "attracted to it in no time!\r"
       ]
     },
     {
       "id": "msg_0460_T03_00007",
       "en_US": [
-        "Steven: It seems that LATIAS became\n",
+        "Steven: It seems that Latias became\n",
         "attracted to it in no time!\r"
       ]
     },
     {
       "id": "msg_0460_T03_00008",
       "en_US": [
-        "I can feel that LATIOS is full of\n",
+        "I can feel that Latios is full of\n",
         "fighting spirit!\r",
         "I would love to challenge it,\n",
         "but I will let you go for it!"
@@ -73,7 +73,7 @@
     {
       "id": "msg_0460_T03_00009",
       "en_US": [
-        "I can feel that LATIAS is full of\n",
+        "I can feel that Latias is full of\n",
         "fighting spirit!\r",
         "I would love to challenge it,\n",
         "but I will let you go for it!"
@@ -81,19 +81,19 @@
     },
     {
       "id": "msg_0460_T03_00010",
-      "en_US": "LATIOS: Shuaaaann!\r"
+      "en_US": "Latios: Shuaaaann!\r"
     },
     {
       "id": "msg_0460_T03_00011",
-      "en_US": "LATIAS: Huaaaaann!\r"
+      "en_US": "Latias: Huaaaaann!\r"
     },
     {
       "id": "msg_0460_T03_00012",
-      "en_US": "LATIOS flew away to the distant sky...\r"
+      "en_US": "Latios flew away to the distant sky...\r"
     },
     {
       "id": "msg_0460_T03_00013",
-      "en_US": "LATIAS flew away to the distant sky...\r"
+      "en_US": "Latias flew away to the distant sky...\r"
     },
     {
       "id": "msg_0460_T03_00014",
@@ -123,7 +123,7 @@
       "en_US": [
         "Steven: Impressive!\n",
         "It was a great battle!\r",
-        "LATIOS will be back once it recovers\n",
+        "Latios will be back once it recovers\n",
         "to make amends for the defeat.\r"
       ]
     },
@@ -132,7 +132,7 @@
       "en_US": [
         "Steven: Impressive!\n",
         "It was a great battle!\r",
-        "LATIAS will be back once it recovers\n",
+        "Latias will be back once it recovers\n",
         "to make amends for the defeat.\r"
       ]
     },
@@ -178,6 +178,20 @@
     {
       "id": "msg_0460_T03_00024",
       "en_US": "The door’s locked..."
+    },
+    {
+      "id": "msg_0460_T03_00025",
+      "en_US": [
+        "Hm? There appears to be\n",
+        "something in this pile of dirt...\r"
+      ]
+    },
+    {
+      "id": "msg_0460_T03_00026",
+      "en_US": [
+        "Perhaps it was meant to be\n",
+        "an exhibit? Oh well..."
+      ]
     }
   ]
 }

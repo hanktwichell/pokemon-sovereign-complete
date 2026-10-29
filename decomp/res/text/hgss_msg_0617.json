@@ -4,6 +4,41 @@
     {
       "id": "msg_0617_T27R0401_00000",
       "en_US": [
+        "Hi! I collect cute Pokémon!\n",
+        "Do you have a Mime Jr.?\r",
+        "Wanna trade it for my Smoochum? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00001",
+      "en_US": [
+        "Wow! Thank you!\n",
+        "I always wanted Mime Jr.!"
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00002",
+      "garbage": 0
+    },
+    {
+      "id": "msg_0617_T27R0401_00003",
+      "en_US": [
+        "You don’t want to trade?\n",
+        "Aww, sugar!"
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00004",
+      "en_US": [
+        "Your Mime. Jr is sooo cute!\n",
+        "It even evolved into a Mr. Mime!\r",
+        "Is my old friend Smoochum a\n",
+        "sweepin’ dancin’ Jynx yet?"
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00005",
+      "en_US": [
         "This happened when I was young.\r",
         "The sky suddenly turned black.\n",
         "A giant Flying-type Pokémon was\f",
@@ -13,10 +48,31 @@
       ]
     },
     {
-      "id": "msg_0617_T27R0401_00001",
+      "id": "msg_0617_T27R0401_00006",
       "en_US": [
         "Is there really a Pokémon that big?\f",
         "If it exists, it must be powerful."
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00007",
+      "en_US": [
+        "Mister, that’s not Smoochum.\n",
+        "I know what Smoochum looks like!"
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00008",
+      "en_US": [
+        "Miss, that’s not Smoochum.\n",
+        "I know what Smoochum looks like!"
+      ]
+    },
+    {
+      "id": "msg_0617_T27R0401_00009",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
       ]
     }
   ]

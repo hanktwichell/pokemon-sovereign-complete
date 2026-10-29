@@ -1,0 +1,43 @@
+{
+    "name": "Michael",
+    "class": "TRAINER_CLASS_HIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 47,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Yo! You’re tough! But you know what?\n",
+                "When it comes to sheer toughness,\f",
+                "I’m the man!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "My Pokémon weren’t tough enough!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Boy, do I love HP Up! Mmmm, yum!\r",
+                "I keep drinking my Pokémon’s!\n",
+                "I can’t help it!\n"
+            ]
+        }
+    ]
+}

@@ -147,7 +147,7 @@
       "id": "msg_0130_D44R0103_00020",
       "en_US": [
         "By the way...\n",
-        "Have you heard of LUGIA?\r",
+        "Have you heard of Lugia?\r",
         "It is a Pokémon said to have lived\n",
         "around Whirl Islands once...\f",
         "...Never mind.\r",
@@ -158,12 +158,12 @@
       "id": "msg_0130_D44R0103_00021",
       "en_US": [
         "By the way...\n",
-        "Have you heard of LUGIA?\f",
+        "Have you heard of Lugia?\f",
         "Er...\r",
         "Between Olivine and Cianwood are\n",
         "islands called Whirl Islands.\r",
         "There is a huge waterfall deep in the\n",
-        "cave there. It is said that LUGIA\r",
+        "cave there. It is said that Lugia\r",
         "rests in the deep end of the\n",
         "waterfall basin...\r",
         "You need a Silver Wing to reach the\n",
@@ -174,7 +174,7 @@
       "id": "msg_0130_D44R0103_00022",
       "en_US": [
         "There is a huge waterfall deep in the\n",
-        "cave there. It is said that LUGIA\r",
+        "cave there. It is said that Lugia\r",
         "rests in the deep end of the\n",
         "waterfall basin...\r",
         "You need a Silver Wing to reach the\n",
@@ -209,7 +209,7 @@
         "Hm... Good to see you here.\r",
         "Your arrival is most fortunate.\n",
         "I have something for you.\r",
-        "Take this DRATINI as proof that I\n",
+        "Take this Dragonair as proof that I\n",
         "now know your worth.\r"
       ]
     },
@@ -217,7 +217,7 @@
       "id": "msg_0130_D44R0103_00027",
       "en_US": [
         "{STRVAR_1 3, 0, 0} received\n",
-        "DRATINI from the Master!"
+        "Dragonair from the Master!"
       ]
     },
     {
@@ -254,7 +254,7 @@
       "id": "msg_0130_D44R0103_00032",
       "en_US": [
         "Give a nickname to the\n",
-        "DRATINI you received? {YESNO 0}"
+        "Dragonair you received? {YESNO 0}"
       ]
     }
   ]

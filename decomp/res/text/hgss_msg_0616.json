@@ -6,12 +6,12 @@
       "en_US": [
         "Past here is the Bell Tower.\n",
         "This tower was built as a place of rest\f",
-        "for HO-OH, the legendary Flying-type\f",
+        "for Ho-oh, the legendary Flying-type\f",
         "Pokémon.\r",
-        "Since HO-OH left, many people have gone\n",
+        "Since Ho-oh left, many people have gone\n",
         "up to the tower to try to bring it back.\r",
         "But none have succeeded in making\n",
-        "HO-OH appear...\r",
+        "Ho-oh appear...\r",
         "Morty, the Gym Leader, is one who\n",
         "has tried.\r",
         "You don’t seem to have the Ecruteak\n",
@@ -25,7 +25,7 @@
       "id": "msg_0616_T27R0201_00001",
       "en_US": [
         "Morty, the Gym Leader, ascended this\n",
-        "tower to try to bring back HO-OH,\f",
+        "tower to try to bring back Ho-oh,\f",
         "because it no longer appears.\r",
         "Even he couldn’t bring it back.\r",
         "You don’t seem to have the Ecruteak\n",
@@ -40,12 +40,12 @@
       "en_US": [
         "Past here is the Bell Tower.\n",
         "This tower was built as a place of rest\f",
-        "for HO-OH, the legendary Flying-type\f",
+        "for Ho-oh, the legendary Flying-type\f",
         "Pokémon.\r",
-        "Since HO-OH left, many people have gone\n",
+        "Since Ho-oh left, many people have gone\n",
         "up to the tower to try to bring it back.\r",
         "But none have succeeded in making\n",
-        "HO-OH appear...\r",
+        "Ho-oh appear...\r",
         "Morty, the Gym Leader, is one who\n",
         "has tried.\r",
         "I see...\f",
@@ -72,7 +72,7 @@
     {
       "id": "msg_0616_T27R0201_00005",
       "en_US": [
-        "Having been able to witness HO-OH\n",
+        "Having been able to witness Ho-oh\n",
         "coming back to this tower is more than\f",
         "worth the training I have gone through."
       ]
@@ -106,13 +106,13 @@
       "id": "msg_0616_T27R0201_00008",
       "en_US": [
         "The Bell Tower shook!\r",
-        "It must be HO-OH...\n",
-        "HO-OH must have returned to the top!"
+        "It must be Ho-oh...\n",
+        "Ho-oh must have returned to the top!"
       ]
     },
     {
       "id": "msg_0616_T27R0201_00009",
-      "en_US": "Such a young one to take on HO-OH..."
+      "en_US": "Such a young one to take on Ho-oh..."
     },
     {
       "id": "msg_0616_T27R0201_00010",

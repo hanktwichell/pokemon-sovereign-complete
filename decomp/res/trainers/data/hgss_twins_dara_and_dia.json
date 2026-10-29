@@ -1,0 +1,26 @@
+{
+    "name": "Dara nd Dia",
+    "class": "TRAINER_CLASS_HGSS_TWINS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_MAREEP",
+            "form": 0,
+            "level": 16,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MARILL",
+            "form": 0,
+            "level": 16,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

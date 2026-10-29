@@ -1,0 +1,40 @@
+{
+    "name": "Owen",
+    "class": "TRAINER_CLASS_HGSS_YOUNGSTER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BLAZIKEN",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "There’s no cheating with Pokémon.\n",
+                "Let’s keep it fair and square!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Huh? How did this happen?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I fought fair and square.\n",
+                "I don’t regret this at all.\n"
+            ]
+        }
+    ]
+}

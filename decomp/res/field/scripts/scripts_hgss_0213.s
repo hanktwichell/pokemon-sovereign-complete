@@ -37,14 +37,13 @@ _006B:
     CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 5, _009D
     GoTo _012C
-_0097:
     GoTo _00A3
 _009D:
     GoTo _00A5
 _00A3:
     End
 _00A5:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 16
     GoToIf 5, _00C0
     ClearFlag FLAG_HGSS_UNK_270
@@ -62,7 +61,7 @@ _00DF:
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JANINE, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _012C
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 18
     GoToIf 5, _010D
     ClearFlag FLAG_HGSS_UNK_270

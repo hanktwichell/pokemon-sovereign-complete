@@ -69,59 +69,81 @@
     },
     {
       "id": "msg_0548_T20R0401_00006",
-      "garbage": 262
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00007",
-      "garbage": 264
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00008",
-      "garbage": 107
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00009",
-      "garbage": 107
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00010",
-      "garbage": 176
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00011",
-      "garbage": 107
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00012",
-      "garbage": 108
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00013",
-      "garbage": 100
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00014",
-      "garbage": 101
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00015",
-      "garbage": 100
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00016",
-      "garbage": 101
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00017",
-      "garbage": 128
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00018",
-      "garbage": 80
+      "garbage": 0
     },
     {
       "id": "msg_0548_T20R0401_00019",
-      "garbage": 24
+      "garbage": 0
+    },
+    {
+      "id": "msg_0548_T20R0401_00020",
+      "en_US": [
+        "It amazes me how much Lyra\n",
+        "loves Marill and Azumarill.\r",
+        "If I remember rightly, she has one\n",
+        "of each!\r",
+        "She doesn’t often bring\n",
+        "Azumarill out with her, though."
+      ]
+    },
+    {
+      "id": "msg_0548_T20R0401_00021",
+      "en_US": [
+        "It amazes me how much Ethan\n",
+        "loves Marill and Azumarill.\r",
+        "If I remember rightly, he has one\n",
+        "of each!\r",
+        "He doesn’t often bring\n",
+        "Azumarill out with him, though."
+      ]
     }
   ]
 }

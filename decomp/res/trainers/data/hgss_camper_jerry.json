@@ -1,0 +1,74 @@
+{
+    "name": "Jerry",
+    "class": "TRAINER_CLASS_CAMPER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAROWAK",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 80,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AGGRON",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 80,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BASTIODON",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 80,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SHUCKLE",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 80,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAMPARDOS",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 80,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The Trainers of this Gym use\n",
+                "Rock-type Pokémon.\r",
+                "Rock-type Pokémon have high Defense.\n",
+                "Battles could end up going a long time.\r",
+                "Are you ready for this?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I have to win these battles...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Hey, you! Trainer from Johto!\r",
+                "Brock is tough. He’ll punish you if you\n",
+                "don’t take him seriously.\n"
+            ]
+        }
+    ]
+}

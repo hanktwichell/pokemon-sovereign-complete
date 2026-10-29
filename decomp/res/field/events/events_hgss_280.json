@@ -24,9 +24,9 @@
             "id": "obj_P01R0303_gsgentleman",
             "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22B",
-            "script": 0,
+            "script": "TRAINER_HGSS_GENTLEMAN_EDWARD",
             "initial_dir": 3,
             "data": [
                 4,
@@ -43,9 +43,9 @@
             "id": "obj_P01R0303_thief",
             "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22C",
-            "script": 0,
+            "script": "TRAINER_HGSS_BURGLAR_COREY",
             "initial_dir": 0,
             "data": [
                 3,

@@ -1,0 +1,40 @@
+{
+    "name": "Parker",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HORSEA",
+            "form": 0,
+            "level": 43,
+            "moves": [
+                "MOVE_WATER_PULSE",
+                "MOVE_FOCUS_ENERGY",
+                "MOVE_TWISTER",
+                "MOVE_AGILITY"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0,
+            "ability": "ABILITY_SNIPER"
+        },
+        {
+            "species": "SPECIES_SEADRA",
+            "form": 0,
+            "level": 43,
+            "moves": [
+                "MOVE_WATER_PULSE",
+                "MOVE_FOCUS_ENERGY",
+                "MOVE_TWISTER",
+                "MOVE_AGILITY"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0,
+            "ability": "ABILITY_SNIPER"
+        }
+    ],
+    "messages": []
+}

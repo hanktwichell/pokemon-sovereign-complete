@@ -3,11 +3,11 @@
   "messages": [
     {
       "id": "msg_0148_D52R0101_00000",
-      "en_US": "GROUDON: Grrgggrrrrah!\r"
+      "en_US": "Groudon: Grrgggrrrrah!\r"
     },
     {
       "id": "msg_0148_D52R0101_00001",
-      "en_US": "GROUDON disappeared..."
+      "en_US": "Groudon disappeared..."
     },
     {
       "id": "msg_0148_D52R0101_00002",
@@ -15,7 +15,7 @@
         "Well, hello!\n",
         "That was something you don’t see\f",
         "every day!\r",
-        "That Pokémon is GROUDON,\n",
+        "That Pokémon is Groudon,\n",
         "a legendary Pokémon in the Hoenn myth\f",
         "about the shaping of that region.\r",
         "I see...\r",
@@ -28,7 +28,7 @@
       "en_US": [
         "The Tower that binds together\n",
         "the sea, the land, and the sky...\r",
-        "GROUDON was not the only Pokémon\n",
+        "Groudon was not the only Pokémon\n",
         "described in the Hoenn myth...\r",
         "This place may still be hiding\n",
         "its secrets...\r"
@@ -37,14 +37,22 @@
     {
       "id": "msg_0148_D52R0101_00004",
       "en_US": [
-        "The knowledgeable Pokémon Professor\n",
-        "may be able to tell you more when you\f",
-        "show him GROUDON.\r",
+        "Maybe you should try coming\n",
+        "back again with that new Orb you\f",
+        "just got!\r",
         "Phew!\r",
         "There are so many connections between\n",
         "Pokémon and myths.\r",
         "See you around.\r"
       ]
+    },
+    {
+      "id": "msg_0148_D52R0101_00005",
+      "en_US": "Huh?\r"
+    },
+    {
+      "id": "msg_0148_D52R0101_00006",
+      "en_US": "The Red Orb is changing colour..."
     }
   ]
 }

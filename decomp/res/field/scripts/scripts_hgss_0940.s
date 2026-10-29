@@ -23,7 +23,7 @@ _002F:
     End
 _003A:
     @ HGSS: ScriptOverlayCmd 0, 0
-    @ HGSS: PlayerHasSpecies VAR_SPECIAL_RESULT, SPECIES_MAGIKARP
+    CheckPartyHasSpecies VAR_RESULT, SPECIES_MAGIKARP
     CompareVar VAR_RESULT, 0
     GoToIf 5, _005A
     Message msg_0628_T29R0201_00002
@@ -33,8 +33,8 @@ _005A:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8002
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8002
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -56,7 +56,6 @@ _00B1:
     @ HGSS: BufferRecordSize 2, 3, SPECIES_MAGIKARP
     Message msg_0628_T29R0201_00007
     GoTo _0146
-_00DD:
     GoTo _0101
 _00E3:
     CompareVar VAR_RESULT, 1
@@ -67,7 +66,7 @@ _00E3:
 _0101:
     @ HGSS: BufferMonSize 0, 1, VAR_SPECIAL_x8002
     Message msg_0628_T29R0201_00004
-    SetVarFromValue VAR_0x8004, 38
+    SetVarFromValue VAR_0x8004, ITEM_ETHER
     SetVarFromValue VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0

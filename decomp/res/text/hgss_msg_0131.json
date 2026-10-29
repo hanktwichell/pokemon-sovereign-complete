@@ -192,7 +192,7 @@
     {
       "id": "msg_0131_D45R0102_00019",
       "en_US": [
-        "CELEBI is traveling through time!\n",
+        "Celebi is traveling through time!\n",
         "It is going back to the time before\f",
         "this strange adventure began...\r"
       ]
@@ -211,7 +211,7 @@
     {
       "id": "msg_0131_D45R0102_00022",
       "en_US": [
-        "CELEBI...!\r",
+        "Celebi...!\r",
         "We need it to get better, or we will\n",
         "never be able to go back to our time!\r"
       ]
@@ -219,18 +219,18 @@
     {
       "id": "msg_0131_D45R0102_00023",
       "en_US": [
-        "CELEBI...!\r",
+        "Celebi...!\r",
         "We need it to get better, or we will\n",
         "never be able to go back to our time!\r"
       ]
     },
     {
       "id": "msg_0131_D45R0102_00024",
-      "en_US": "Ethan used Max Revive on CELEBI!\r"
+      "en_US": "Ethan used Max Revive on Celebi!\r"
     },
     {
       "id": "msg_0131_D45R0102_00025",
-      "en_US": "Lyra used Max Revive on CELEBI!\r"
+      "en_US": "Lyra used Max Revive on Celebi!\r"
     },
     {
       "id": "msg_0131_D45R0102_00026",
@@ -245,6 +245,60 @@
         "{COLOR 1}Time Travel{COLOR 0}......!\r",
         "This is it! Please take us to our time!\r"
       ]
+    },
+    {
+      "id": "msg_0131_D45R0102_00028",
+      "en_US": [
+        "Hm? The radio seems to be working,\n",
+        "barely...\r"
+      ]
+    },
+    {
+      "id": "msg_0131_D45R0102_00029",
+      "en_US": [
+        "Which program do you\n",
+        "want to tune into? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0131_D45R0102_00030",
+      "en_US": "Sixteen Hours"
+    },
+    {
+      "id": "msg_0131_D45R0102_00031",
+      "en_US": "The Black Rock"
+    },
+    {
+      "id": "msg_0131_D45R0102_00032",
+      "en_US": "Menacing Boom"
+    },
+    {
+      "id": "msg_0131_D45R0102_00033",
+      "en_US": "Cross Attack"
+    },
+    {
+      "id": "msg_0131_D45R0102_00034",
+      "en_US": "Jaws on Land"
+    },
+    {
+      "id": "msg_0131_D45R0102_00035",
+      "en_US": "Cancel"
+    },
+    {
+      "id": "msg_0131_D45R0102_00036",
+      "en_US": "{STRVAR_1 3, 0, 0} left the radio alone."
+    },
+    {
+      "id": "msg_0131_D45R0102_00037",
+      "en_US": "{STRVAR_1 3, 0, 0} changed the radio channel...\r"
+    },
+    {
+      "id": "msg_0131_D45R0102_00038",
+      "en_US": "Huh?\r"
+    },
+    {
+      "id": "msg_0131_D45R0102_00039",
+      "en_US": "The radio seems busted..."
     }
   ]
 }

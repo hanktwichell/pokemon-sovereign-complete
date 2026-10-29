@@ -1,0 +1,49 @@
+{
+    "name": "Kenji",
+    "class": "TRAINER_CLASS_HGSS_BLACK_BELT",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HARIYAMA",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I was training here alone.\n",
+                "Behold the result of my hard work!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Waaaargh!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "This calls for extreme measures. I must\n",
+                "take to the hills and train in solitude.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’ve been studying while waiting for you\n",
+                "to come back...\r",
+                "Let me show you the results!\r"
+            ]
+        }
+    ]
+}

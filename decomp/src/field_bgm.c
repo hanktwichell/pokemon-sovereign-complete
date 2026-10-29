@@ -8,6 +8,7 @@
 
 #include "field/field_system.h"
 
+#include "complete_trainers.h"
 #include "field_overworld_state.h"
 #include "location.h"
 #include "map_header.h"
@@ -278,7 +279,7 @@ static void FieldBGM_GetFadeOutAndWaitFrames(FieldSystem *fieldSystem, int mode,
 
 u16 FieldBGM_GetEyesMeetForTrainer(enum TrainerID trainerID)
 {
-    u8 class = (u8)Trainer_LoadParam(trainerID, TRDATA_CLASS);
+    u8 class = (u8)CompleteTrainerClass_StandIn(Trainer_LoadParam(trainerID, TRDATA_CLASS)); // Sovereign Complete
     u16 i, bgmID = SEQ_EYE_KID_sseq;
 
     for (i = 0; i < NELEMS(sTrainerEncounterBGMs); i++) {

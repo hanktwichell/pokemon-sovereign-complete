@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8320,
             "type": 2,
             "x": 8,
             "z": 24,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8319,
             "type": 2,
             "x": 11,
             "z": 6,
@@ -79,9 +79,9 @@
             "id": "obj_D18R0101_fire",
             "graphics_id": "OBJ_EVENT_GFX_VENT",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FIREBREATHER_RICHARD",
             "initial_dir": 3,
             "data": [
                 3,
@@ -98,9 +98,9 @@
             "id": "obj_D18R0101_fire_2",
             "graphics_id": "OBJ_EVENT_GFX_VENT",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FIREBREATHER_NED",
             "initial_dir": 1,
             "data": [
                 3,
@@ -223,8 +223,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 7,
-            "z": 25,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -233,7 +233,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D18R0101_HP_UP",
-            "script": 0,
+            "script": 7396,
             "initial_dir": 0,
             "data": [
                 0,
@@ -252,7 +252,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D18R0101_ANTIDOTE",
-            "script": 0,
+            "script": 7395,
             "initial_dir": 0,
             "data": [
                 0,
@@ -282,6 +282,25 @@
             "movement_range_z": 0,
             "x": 14,
             "z": 7,
+            "y": 0
+        },
+        {
+            "id": "obj_D18R0101_14",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FE9",
+            "script": 5,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         }
     ],

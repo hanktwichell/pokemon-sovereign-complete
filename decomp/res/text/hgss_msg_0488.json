@@ -17,7 +17,7 @@
       "id": "msg_0488_T06R0301_00001",
       "en_US": [
         "Good! Then listen up!\r",
-        "So...my precious RAPIDASH...\r",
+        "So...my precious Rapidash...\r",
         "It’s...cute...lovely...smart...\n",
         "adorable...irresistible...plus...\f",
         "amazing... Don’t you think so?\f",
@@ -34,7 +34,7 @@
     },
     {
       "id": "msg_0488_T06R0301_00002",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0488_T06R0301_00003",
@@ -85,7 +85,7 @@
     {
       "id": "msg_0488_T06R0301_00009",
       "en_US": [
-        "I love the way CLEFAIRY opens up\n",
+        "I love the way Clefairy opens up\n",
         "its arms!\r",
         "It’s so adorable!"
       ]
@@ -93,7 +93,7 @@
     {
       "id": "msg_0488_T06R0301_00010",
       "en_US": [
-        "I love CLEFAIRY, but I could never\n",
+        "I love Clefairy, but I could never\n",
         "catch one.\r",
         "So I’m making do with a Poké Doll\n",
         "that I found."
@@ -102,7 +102,7 @@
     {
       "id": "msg_0488_T06R0301_00011",
       "en_US": [
-        "I love CLEFAIRY, but I could never\n",
+        "I love Clefairy, but I could never\n",
         "catch one. So I’m making do with a\f",
         "Poké Doll that I found.\r",
         "What?\n",
@@ -110,7 +110,7 @@
         "is sad...!\r",
         "OK. Could you take this Poké Doll\n",
         "back to that poor little girl?\r",
-        "I’ll befriend a real CLEFAIRY on\n",
+        "I’ll befriend a real Clefairy on\n",
         "my own one day!\r"
       ]
     },
@@ -125,28 +125,29 @@
       "id": "msg_0488_T06R0301_00013",
       "en_US": [
         "You watch. I’m going to get a\n",
-        "real CLEFAIRY as my friend."
+        "real Clefairy as my friend."
       ]
     },
     {
       "id": "msg_0488_T06R0301_00014",
       "en_US": [
-        "Look at my darling BAYLEEF!\r",
-        "The leaf on its head is so cute\n",
-        "and fashionable!"
+        "Look at my darling Skuntank!\r",
+        "It’s so...\r",
+        "...\r",
+        "Ugh..."
       ]
     },
     {
       "id": "msg_0488_T06R0301_00015",
       "en_US": [
-        "It’s a CLEFAIRY!\n",
+        "It’s a Clefairy!\n",
         "Huh?\r",
-        "Oh, right. It’s a CLEFAIRY Poké Doll."
+        "Oh, right. It’s a Clefairy Poké Doll."
       ]
     },
     {
       "id": "msg_0488_T06R0301_00016",
-      "en_US": "BAYLEEF: Li liif!"
+      "en_US": "Skuntank: Skuuu!"
     },
     {
       "id": "msg_0488_T06R0301_00017",
@@ -158,6 +159,21 @@
     {
       "id": "msg_0488_T06R0301_00018",
       "en_US": "If someone brags, brag right back!"
+    },
+    {
+      "id": "msg_0488_T06R0301_00019",
+      "en_US": [
+        "This Rapidash...\n",
+        "It’s so precious... and...\r",
+        "It’s...cute...lovely...smart...\n",
+        "adorable...irresistible...plus...\f",
+        "amazing...\r",
+        "Oh, so...wild...beautiful...\n",
+        "...kind...\r",
+        "Want to hug it... Warm and cuddly...\n",
+        "Oh, it’s...spectacular...captivating...\f",
+        "simply divine..."
+      ]
     }
   ]
 }

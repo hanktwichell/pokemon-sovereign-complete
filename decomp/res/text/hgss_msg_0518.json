@@ -13,15 +13,22 @@
     },
     {
       "id": "msg_0518_T08R0601_00001",
-      "en_US": "AIPOM: Pom Pom...?"
+      "en_US": "Aipom: Pom Pom...?"
     },
     {
       "id": "msg_0518_T08R0601_00002",
-      "en_US": "AIPOM: Pom Pom!"
+      "en_US": "Aipom: Pom Pom!"
     },
     {
       "id": "msg_0518_T08R0601_00003",
-      "en_US": "AIPOM: Pommm..."
+      "en_US": "Aipom: Pommm..."
+    },
+    {
+      "id": "msg_0518_T08R0601_00004",
+      "en_US": [
+        "Oh, crackers! Have you seen the\n",
+        "horde of Shellder outside?"
+      ]
     }
   ]
 }

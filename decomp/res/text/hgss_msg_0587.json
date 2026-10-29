@@ -81,6 +81,99 @@
         "refrain from keeping large Pokémon out\f",
         "at the station."
       ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00010",
+      "en_US": [
+        "Hello, sonny. Did you know that there\n",
+        "are some items that affect only\f",
+        "specific Pokémon in battle?\r",
+        "If you can show me one of those\n",
+        "Pokémon, I’ll give you their item.\r"
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00011",
+      "en_US": [
+        "Hello, lassie. Did you know that there\n",
+        "are some items that affect only\f",
+        "specific Pokémon in battle?\r",
+        "If you can show me one of those\n",
+        "Pokémon, I’ll give you their item.\r"
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00012",
+      "en_US": [
+        "That {STRVAR_1 0, 1, 0}...\n",
+        "I have no item that will help it."
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00013",
+      "en_US": [
+        "That {STRVAR_1 0, 1, 0}...\n",
+        "Yes, I have an item that will help it!\f",
+        "Let me see here...\r"
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00014",
+      "en_US": [
+        "Oh my! For this particular Pokémon,\n",
+        "I have two items to give you!\r"
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00015",
+      "en_US": [
+        "The Light Ball will multiply the\n",
+        "attacking stats of any Pikachu.\r",
+        "It will not work with Pikachu’s\n",
+        "evolutionary cousins, however!"
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00016",
+      "en_US": [
+        "The Stick will multiply the critical hit\n",
+        "ratio of any Farfetch’d."
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00017",
+      "en_US": [
+        "The Lucky Punch will multiply the\n",
+        "critical hit ratio of any Chansey."
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00018",
+      "en_US": [
+        "The DeepSea items will multiply\n",
+        "the special stats of any Clamperl."
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00019",
+      "en_US": [
+        "The Thick Club will multiply the\n",
+        "Attack stat of any Cubone or Marowak."
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00020",
+      "en_US": [
+        "The powder items will multiply\n",
+        "the Defense or Speed of any Ditto."
+      ]
+    },
+    {
+      "id": "msg_0587_T25R0501_00021",
+      "en_US": [
+        "That {STRVAR_1 0, 1, 0}...\n",
+        "I already gave you an item for it."
+      ]
     }
   ]
 }

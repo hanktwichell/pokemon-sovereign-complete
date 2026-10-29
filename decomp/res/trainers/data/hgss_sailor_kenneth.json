@@ -1,0 +1,44 @@
+{
+    "name": "Kenneth",
+    "class": "TRAINER_CLASS_SAILOR",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KINGLER",
+            "form": 0,
+            "level": 55,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m a sailor man!\r",
+                "But I’m training Pokémon, so I can\n",
+                "become the Champion!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "My lack of training is obvious...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Those Badges you’re carrying...\n",
+                "Let me guess.\r",
+                "Those are the ones you get when you\n",
+                "defeat Gym Leaders, right?\r",
+                "That means you’re pretty strong!\n"
+            ]
+        }
+    ]
+}

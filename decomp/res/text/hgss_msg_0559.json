@@ -3,39 +3,39 @@
   "messages": [
     {
       "id": "msg_0559_T22PC0101_00000",
-      "garbage": 84
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00001",
-      "garbage": 84
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00002",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00003",
-      "garbage": 144
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00004",
-      "garbage": 144
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00005",
-      "garbage": 47
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00006",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00007",
-      "garbage": 30
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00008",
-      "garbage": 30
+      "garbage": 0
     },
     {
       "id": "msg_0559_T22PC0101_00009",
@@ -232,6 +232,139 @@
         "a different kind of Trainer.\r",
         "So, how about telling me what kind of\n",
         "Trainer you like?\r"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00027",
+      "en_US": [
+        "Well, hello there, trainer!\r",
+        "Would you like to take a quiz? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00028",
+      "en_US": [
+        "Excellent! Let’s get started!\r",
+        "Question one!\r",
+        "Were any Hoenn Pokémon obtainable\n",
+        "within Fire Red and Leaf Green? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00029",
+      "en_US": "Aww... come back again!"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00030",
+      "en_US": [
+        "I’m sorry, but that’s the wrong\n",
+        "answer! Please, come and try again!"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00031",
+      "en_US": [
+        "Correct! Time for question two!\r",
+        "Is a Dragonair more than\n",
+        "thirteen feet long? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00032",
+      "en_US": [
+        "Correct! The semifinal question!\r",
+        "Is it true that Bulbasaur was\n",
+        "the first Pokémon created? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00033",
+      "en_US": [
+        "Correct! The final question!\r",
+        "Can Tropius be found within\n",
+        "Diamond and Pearl? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00034",
+      "en_US": [
+        "Congratulations!\n",
+        "You completed the quiz!\r",
+        "You can now pick a prized Pokémon!\n",
+        "Which would you like?"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00035",
+      "en_US": [
+        "Eh?\n",
+        "You don’t want any of them?"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00036",
+      "en_US": "Bulbasaur"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00037",
+      "en_US": "Charmander"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00038",
+      "en_US": "Squirtle"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00039",
+      "en_US": "Cancel"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00040",
+      "en_US": [
+        "Uhh...\n",
+        "Your party is too full..."
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00041",
+      "en_US": [
+        "Woohoo!\n",
+        "Look out for more of us Quiz Masters!"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00042",
+      "en_US": "As you wish!\r"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00043",
+      "en_US": "{STRVAR_1 3, 0, 0} received a {STRVAR_1 0, 1, 0}!"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00044",
+      "en_US": [
+        "Do you want to give a\n",
+        "nickname to the {STRVAR_1 0, 1, 0}?"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00045",
+      "en_US": "Which Pokémon do you want?"
+    },
+    {
+      "id": "msg_0559_T22PC0101_00046",
+      "en_US": [
+        "Hey, you’re a Trainer, right?\n",
+        "Regardless of whether you’re a\f",
+        "rookie or not, please, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0559_T22PC0101_00047",
+      "en_US": [
+        "The Exp. Share, when held by a\n",
+        "Pokémon, will give it a fraction\f",
+        "of whatever experience is earned in\f",
+        "a battle. Use it with weak Pokémon!"
       ]
     }
   ]

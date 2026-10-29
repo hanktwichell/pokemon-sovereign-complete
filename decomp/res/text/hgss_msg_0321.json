@@ -3,7 +3,14 @@
   "messages": [
     {
       "id": "msg_0321_R02R0101_00000",
-      "en_US": "This is DIGLETT’s Cave."
+      "en_US": "This is Diglett’s Cave."
+    },
+    {
+      "id": "msg_0321_R02R0101_00001",
+      "en_US": [
+        "Someone wasn’t thinking when\n",
+        "they were transporting this..."
+      ]
     }
   ]
 }

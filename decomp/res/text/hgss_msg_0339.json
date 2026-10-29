@@ -7,6 +7,16 @@
         "Have you been to Lavender Town?\n",
         "There’s a tall Radio Tower there."
       ]
+    },
+    {
+      "id": "msg_0339_R08R0201_00001",
+      "en_US": [
+        "Oh, hold up there! The city is\n",
+        "currently recovering from a blackout.\r",
+        "You’ll have to come back later.\r",
+        "If you want to go to Celadon,\n",
+        "you’ll have to take the long route."
+      ]
     }
   ]
 }

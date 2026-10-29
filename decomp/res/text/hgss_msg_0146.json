@@ -6,7 +6,7 @@
       "en_US": [
         "Cynthia: This is the {COLOR 1}Mystri Stage{COLOR 0}. The\n",
         "mythical stage built to show respect\f",
-        "for ARCEUS.\r",
+        "for Arceus.\r",
         "It is said that people used to\n",
         "celebrate its magnificent might with\f",
         "music and dance.\r",
@@ -19,7 +19,7 @@
       "en_US": [
         "Cynthia: This is the {COLOR 1}Mystri Stage{COLOR 0}. The\n",
         "mythical stage built to show respect\f",
-        "for ARCEUS.\r",
+        "for Arceus.\r",
         "It is said that people used to\n",
         "celebrate its magnificent might with\f",
         "music and dance.\r",
@@ -31,7 +31,7 @@
       "id": "msg_0146_D51R0201_00002",
       "en_US": [
         "Cynthia: The {COLOR 1}Mystri Stage{COLOR 0} allows a\n",
-        "single ARCEUS and nothing else to\f",
+        "single Arceus and nothing else to\f",
         "get on the stage...\r",
         "If you wish to go up there, you have\n",
         "to deposit your other Pokémon in\f",
@@ -41,7 +41,7 @@
     {
       "id": "msg_0146_D51R0201_00003",
       "en_US": [
-        "Cynthia: Bring your ARCEUS instead.\r",
+        "Cynthia: Bring your Arceus instead.\r",
         "Any other Pokémon may get blown away\n",
         "by the strong power lingering\f",
         "at the ruins.\r"
@@ -65,7 +65,7 @@
         "Cynthia: Depicted on the {COLOR 1}Mystri Stage{COLOR 0}\n",
         "are the Pokémon that shaped\f",
         "this world.\r",
-        "The circle in the middle is ARCEUS,\n",
+        "The circle in the middle is Arceus,\n",
         "the origin of it all...\r"
       ]
     },
@@ -75,7 +75,7 @@
         "Cynthia: According to an ancient\n",
         "document, time, space, and antimatter,\f",
         "or what combined we call the world,\f",
-        "shall be born when ARCEUS stands\f",
+        "shall be born when Arceus stands\f",
         "on the {COLOR 1}Mystri Stage{COLOR 0}.\r"
       ]
     },
@@ -83,7 +83,7 @@
       "id": "msg_0146_D51R0201_00007",
       "en_US": [
         "Cynthia: This is the pattern that\n",
-        "represents PALKIA, the master of\f",
+        "represents Palkia, the master of\f",
         "space and dimensions...\r"
       ]
     },
@@ -91,7 +91,7 @@
       "id": "msg_0146_D51R0201_00008",
       "en_US": [
         "Cynthia: This is the pattern that\n",
-        "represents DIALGA, the guardian\f",
+        "represents Dialga, the guardian\f",
         "of time...\r"
       ]
     },
@@ -99,7 +99,7 @@
       "id": "msg_0146_D51R0201_00009",
       "en_US": [
         "Cynthia: This is the pattern that\n",
-        "represents GIRATINA, the ruler of\f",
+        "represents Giratina, the ruler of\f",
         "the world that is on the opposite side\f",
         "of ours, the world of antimatter...\r"
       ]
@@ -107,9 +107,9 @@
     {
       "id": "msg_0146_D51R0201_00010",
       "en_US": [
-        "Cynthia: ARCEUS has accepted you as\n",
+        "Cynthia: Arceus has accepted you as\n",
         "a Trainer.\r",
-        "ARCEUS, having shaped the world,\n",
+        "Arceus, having shaped the world,\n",
         "is said to show you a glimpse of\f",
         "its true power.\r",
         "The power of possibly making life\n",
@@ -135,21 +135,21 @@
     {
       "id": "msg_0146_D51R0201_00013",
       "en_US": [
-        "Cynthia: So you choose DIALGA,\n",
+        "Cynthia: So you choose Dialga,\n",
         "the guardian of time? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0146_D51R0201_00014",
       "en_US": [
-        "Cynthia: So you choose PALKIA, the\n",
+        "Cynthia: So you choose Palkia, the\n",
         "master of space and dimensions? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0146_D51R0201_00015",
       "en_US": [
-        "Cynthia: So you choose GIRATINA,\n",
+        "Cynthia: So you choose Giratina,\n",
         "the ruler of the Distortion World? {YESNO 0}"
       ]
     },
@@ -172,7 +172,7 @@
         "Life that comes from an Egg will\n",
         "come to an end in due course...\f",
         "to begin anew...\r",
-        "That may be what ARCEUS\n",
+        "That may be what Arceus\n",
         "wanted to show us.\r",
         "\n"
       ]
@@ -191,19 +191,19 @@
     {
       "id": "msg_0146_D51R0201_00020",
       "en_US": [
-        "Cynthia: Of course... ARCEUS!\r",
+        "Cynthia: Of course... Arceus!\r",
         "So the source of the power I’ve felt\n",
-        "was ARCEUS!\r"
+        "was Arceus!\r"
       ]
     },
     {
       "id": "msg_0146_D51R0201_00021",
       "en_US": [
         "Cynthia: What is now the {COLOR 1}Sinjoh Ruins\n",
-        "{COLOR 0}was built to honor ARCEUS by the\f",
+        "{COLOR 0}was built to honor Arceus by the\f",
         "Sinnoh people...\r",
         "It’s an icebound temple that has been\n",
-        "waiting for ARCEUS for hundreds\f",
+        "waiting for Arceus for hundreds\f",
         "of years...\r"
       ]
     },
@@ -212,17 +212,17 @@
       "en_US": [
         "Cynthia: This is the {COLOR 1}Mystri Stage{COLOR 0}.\r",
         "It is designed to bring out the power\n",
-        "ARCEUS possesses.\r"
+        "Arceus possesses.\r"
       ]
     },
     {
       "id": "msg_0146_D51R0201_00023",
       "en_US": [
-        "Cynthia: ARCEUS is described in\n",
+        "Cynthia: Arceus is described in\n",
         "mythology as being the origin of\f",
         "everything and the source of\f",
         "all beings.\r",
-        "It is said that the power of ARCEUS\n",
+        "It is said that the power of Arceus\n",
         "is released on the {COLOR 1}Mystri Stage{COLOR 0}!\r"
       ]
     },
@@ -231,7 +231,7 @@
       "en_US": [
         "Cynthia: The {COLOR 1}Sinjoh Ruins{COLOR 0} are what\n",
         "remains of a temple built to show\f",
-        "respect for ARCEUS."
+        "respect for Arceus."
       ]
     },
     {
@@ -250,15 +250,15 @@
     },
     {
       "id": "msg_0146_D51R0201_00027",
-      "en_US": "Will you choose DIALGA? {YESNO 0}"
+      "en_US": "Will you choose Dialga? {YESNO 0}"
     },
     {
       "id": "msg_0146_D51R0201_00028",
-      "en_US": "Will you choose PALKIA? {YESNO 0}"
+      "en_US": "Will you choose Palkia? {YESNO 0}"
     },
     {
       "id": "msg_0146_D51R0201_00029",
-      "en_US": "Will you choose GIRATINA? {YESNO 0}"
+      "en_US": "Will you choose Giratina? {YESNO 0}"
     },
     {
       "id": "msg_0146_D51R0201_00030",
@@ -267,7 +267,7 @@
     {
       "id": "msg_0146_D51R0201_00031",
       "en_US": [
-        "It seems that only a single ARCEUS\n",
+        "It seems that only a single Arceus\n",
         "can stand here..."
       ]
     },
@@ -282,8 +282,234 @@
       "id": "msg_0146_D51R0201_00033",
       "en_US": [
         "It seems it no longer responds\n",
-        "to this ARCEUS..."
+        "to this Arceus..."
       ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00034",
+      "en_US": "Kyouuuun!\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00035",
+      "en_US": "Kyauun.\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00036",
+      "en_US": "Kyuuun...\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00037",
+      "en_US": "Gugyugubah!\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00038",
+      "en_US": "Gagyagyaah!\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00039",
+      "en_US": "Giygogagohgwooh!\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00040",
+      "en_US": [
+        "The centre of the stage regulates\n",
+        "the events of the Mystri Stage..."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00041",
+      "en_US": [
+        "It detects that there are still\n",
+        "Pokémon on the stage."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00042",
+      "en_US": [
+        "The stage acknowledges your Earth\n",
+        "Badge, and declares you strong\f",
+        "enough to challenge the rulers of\f",
+        "time, space and antimatter."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00043",
+      "en_US": "A"
+    },
+    {
+      "id": "msg_0146_D51R0201_00044",
+      "en_US": [
+        "As a reward for being able to capture\n",
+        "it, Dialga rewards you with its special\f",
+        "Orb.\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00045",
+      "en_US": "Dialga retreated into time..."
+    },
+    {
+      "id": "msg_0146_D51R0201_00046",
+      "en_US": "Palkia retreated into space..."
+    },
+    {
+      "id": "msg_0146_D51R0201_00047",
+      "en_US": [
+        "Giratina retreated into an\n",
+        "alternate dimension..."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00048",
+      "en_US": [
+        "As a reward for being able to capture\n",
+        "it, Palkia rewards you with its special\f",
+        "Orb.\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00049",
+      "en_US": [
+        "As a reward for being able to capture\n",
+        "it, Giratina rewards you with its special\f",
+        "Orb.\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00050",
+      "en_US": "Azelf vanished..."
+    },
+    {
+      "id": "msg_0146_D51R0201_00051",
+      "en_US": "Mesprit vanished..."
+    },
+    {
+      "id": "msg_0146_D51R0201_00052",
+      "en_US": "Uxie vanished..."
+    },
+    {
+      "id": "msg_0146_D51R0201_00053",
+      "en_US": [
+        "The stage determines if {STRVAR_1 3, 0, 0}\n",
+        "has accomplished the requirements to\f",
+        "challenge the beginning and end of\f",
+        "creation...\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00054",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} was judged to {COLOR 1}not have the\n",
+        "necessary items{COLOR 0} to continue the test."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00055",
+      "en_US": [
+        "The Egg produced gave out\n",
+        "a blinding white light...\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00056",
+      "en_US": [
+        "The otherworldly forces are\n",
+        "satisfied with {STRVAR_1 3, 0, 0}’s achievements!\r",
+        "You will have but {COLOR 1}one chance{COLOR 0} to\n",
+        "challenge the creator.\r",
+        "If you happen to have any Master Balls,\n",
+        "you may use them, though it would\f",
+        "destroy the challenge of the fight...\r",
+        "Do you want to continue? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00057",
+      "en_US": "Arceus: Dodogyuuun!\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00058",
+      "en_US": [
+        "After {STRVAR_1 3, 0, 0} failed to capture it,\n",
+        "Arceus left the Mystri Stage,\f",
+        "never to be seen by mankind again..."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00059",
+      "en_US": [
+        "After {STRVAR_1 3, 0, 0} captured Arceus,\n",
+        "the stage began to collapse.\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00060",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} hurried back to Cynthia, in\n",
+        "an effort to escape the Sinjoh Ruins.\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00061",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} and Cynthia teleported back\n",
+        "to Johto, as the ruins collapsed,\f",
+        "never again to be trespassed...\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00062",
+      "en_US": [
+        "Congratulations to you, {STRVAR_1 3, 0, 0}, for\n",
+        "completing {COLOR 1}Pokémon Sacred Gold{COLOR 0} and\f",
+        "{COLOR 2}Pokémon Storm Silver{COLOR 0}!"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00063",
+      "en_US": [
+        "This is, if you hadn’t already\n",
+        "figured it out, the {COLOR 1}bad ending{COLOR 0}.\r",
+        "If you don’t reset now and try to\n",
+        "capture Arceus, your playthrough will\f",
+        "forever remain...\r"
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00064",
+      "en_US": "...{COLOR 1}incomplete{COLOR 0}."
+    },
+    {
+      "id": "msg_0146_D51R0201_00065",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} was judged to {COLOR 1}not have\n",
+        "sufficiently proven himself{COLOR 0} to\f",
+        "continue the test."
+      ]
+    },
+    {
+      "id": "msg_0146_D51R0201_00066",
+      "en_US": "DEBUG 1\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00067",
+      "en_US": "DEBUG 2\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00068",
+      "en_US": "DEBUG 3\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00069",
+      "en_US": "DEBUG 4\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00070",
+      "en_US": "DEBUG 5\r"
+    },
+    {
+      "id": "msg_0146_D51R0201_00071",
+      "en_US": "DEBUG 6\r"
     }
   ]
 }

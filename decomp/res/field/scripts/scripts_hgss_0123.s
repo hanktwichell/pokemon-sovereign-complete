@@ -1,6 +1,5 @@
 #include "macros/scrcmd.inc"
 #include "res/text/bank/hgss_msg_0138.h"
-#include "res/text/bank/hgss_msg_0191.h"
 
 #define obj_D49R0101_gsleader3 1
 
@@ -33,7 +32,6 @@ scr_seq_D49R0101_023:
     SetFlag FLAG_HGSS_SYS_FLYPOINT_POKEATHLON
     End
     .balign 4, 0
-_0068:
     WalkOnSpotNormalWest
     EndMovement
     .balign 4, 0
@@ -249,10 +247,10 @@ scr_seq_D49R0101_001:
     GoToIf 1, _0400
     Message msg_0138_D49R0101_00049
 _0377:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm msg_0191_00325, 0
-    AddMenuEntryImm msg_0191_00324, 1
-    AddMenuEntryImm msg_0191_00323, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 325, 0
+    AddMenuEntry 324, 1
+    AddMenuEntry 323, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -260,7 +258,6 @@ _0377:
     CompareVar VAR_0x8008, 1
     GoToIf 1, _03D7
     GoTo _03E4
-_03C1:
     CloseMessage
     ReleaseAll
     End
@@ -304,10 +301,10 @@ scr_seq_D49R0101_002:
     GoToIfUnset FLAG_HGSS_UNK_115, _0529
     Message msg_0138_D49R0101_00054
 _0443:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 325, 0
-    AddMenuEntryImm 324, 1
-    AddMenuEntryImm 323, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 325, 0
+    AddMenuEntry 324, 1
+    AddMenuEntry 323, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -315,7 +312,6 @@ _0443:
     CompareVar VAR_0x8008, 1
     GoToIf 1, _04E8
     GoTo _051C
-_048D:
     CloseMessage
     ReleaseAll
     End
@@ -453,17 +449,16 @@ scr_seq_D49R0101_014:
     LockAll
     @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0138_D49R0101_00085
-    InitGlobalTextMenu 1, 1, 0, VAR_0x8000, 1
-    AddMenuEntryImm 337, 0
-    AddMenuEntryImm 338, 1
-    AddMenuEntryImm 12, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_0x8000, 1
+    AddMenuEntry 337, 0
+    AddMenuEntry 338, 1
+    AddMenuEntry 12, 2
     ShowMenu
     SetVarFromVar VAR_MAP_LOCAL_0x05, VAR_0x8000
     CompareVar VAR_MAP_LOCAL_0x05, 0
     GoToIf 5, _072E
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     GoTo _0759
-_0728:
     GoTo _0748
 _072E:
     CompareVar VAR_MAP_LOCAL_0x05, 1
@@ -479,11 +474,11 @@ _0748:
     End
 _0759:
     Message msg_0138_D49R0101_00086
-    InitGlobalTextMenu 1, 1, 0, VAR_0x8000, 1
-    AddMenuEntryImm 209, 0
-    AddMenuEntryImm 210, 1
-    AddMenuEntryImm 211, 2
-    AddMenuEntryImm 212, 3
+    CompleteInitHGSSMenu 1, 1, 0, VAR_0x8000, 1
+    AddMenuEntry 209, 0
+    AddMenuEntry 210, 1
+    AddMenuEntry 211, 2
+    AddMenuEntry 212, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_0x8000
     CompareVar VAR_0x8008, 0
@@ -589,7 +584,7 @@ _08F8:
     CallIf 1, _08CC
     CompareVar VAR_MAP_LOCAL_0x05, 0
     GoToIf 5, _097D
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     GoTo _098D
 _097D:
     CompareVar VAR_MAP_LOCAL_0x05, 1
@@ -603,7 +598,7 @@ _098D:
     SetVar VAR_0x8004, VAR_0x8001
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
-    @ HGSS: Random VAR_SPECIAL_RESULT, 64
+    GetRandom VAR_RESULT, 64
     CompareVar VAR_RESULT, 0
     GoToIf 5, _09E6
     PlaySE SEQ_SE_DP_JIHANKI_sseq
@@ -617,7 +612,6 @@ _09E6:
     CompareVar VAR_MAP_LOCAL_0x05, 0
     GoToIf 5, _09FF
     GoTo _0759
-_09F9:
     GoTo _0A05
 _09FF:
     GoTo _0A7F
@@ -662,11 +656,11 @@ _0A77:
     End
 _0A7F:
     Message msg_0138_D49R0101_00086
-    InitGlobalTextMenu 1, 1, 0, VAR_0x8000, 1
-    AddMenuEntryImm 339, 0
-    AddMenuEntryImm 340, 1
-    AddMenuEntryImm 341, 2
-    AddMenuEntryImm 212, 3
+    CompleteInitHGSSMenu 1, 1, 0, VAR_0x8000, 1
+    AddMenuEntry 339, 0
+    AddMenuEntry 340, 1
+    AddMenuEntry 341, 2
+    AddMenuEntry 212, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_0x8000
     CompareVar VAR_0x8008, 0
@@ -686,10 +680,10 @@ scr_seq_D49R0101_020:
 _0AF3:
     Message msg_0138_D49R0101_00093
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 94, 0
-    AddMenuEntryImm 95, 1
-    AddMenuEntryImm 96, 2
-    AddMenuEntryImm 97, 3
+    AddMenuEntry 94, 0
+    AddMenuEntry 95, 1
+    AddMenuEntry 96, 2
+    AddMenuEntry 97, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0

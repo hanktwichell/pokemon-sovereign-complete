@@ -1,0 +1,47 @@
+{
+    "name": "Chad",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT",
+        "AI_FLAG_SETUP_FIRST_TURN"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MR_MIME",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_BATON_PASS",
+                "MOVE_DOUBLE_TEAM",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_STONE_EDGE",
+                "MOVE_WOOD_HAMMER",
+                "MOVE_NONE",
+                "MOVE_NONE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I didn’t study enough, I guess.\n"
+            ]
+        }
+    ]
+}

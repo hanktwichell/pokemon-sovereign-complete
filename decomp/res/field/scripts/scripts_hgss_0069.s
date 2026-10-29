@@ -173,18 +173,18 @@ _02A1:
     GoTo _026E
     End
 _02AC:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 143, 0
-    AddMenuEntryImm 144, 1
-    AddMenuEntryImm 145, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 143, 0
+    AddMenuEntry 144, 1
+    AddMenuEntry 145, 2
     ShowMenu
     Return
 _02D2:
     Message msg_0096_D31R0201_00004
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 475, 0
-    AddMenuEntryImm 476, 1
-    AddMenuEntryImm 94, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 475, 0
+    AddMenuEntry 476, 1
+    AddMenuEntry 94, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -449,9 +449,9 @@ _0807:
     @ HGSS: ScrCmd_412 6, 0, 0
     Return
 _0817:
-    @ HGSS: AddWaitingIcon
-    @ HGSS: SaveGameNormal VAR_SPECIAL_RESULT
-    @ HGSS: RemoveWaitingIcon
+    ShowSavingIcon
+    TrySaveGame VAR_RESULT
+    HideSavingIcon
     PlaySE SEQ_SE_DP_SAVE_sseq
     WaitSE SEQ_SE_DP_SAVE_sseq
     Return
@@ -513,11 +513,11 @@ _08E6:
     End
 _0903:
     Message msg_0096_D31R0201_00037
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 143, 0
-    AddMenuEntryImm 155, 1
-    AddMenuEntryImm 144, 2
-    AddMenuEntryImm 145, 3
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 143, 0
+    AddMenuEntry 155, 1
+    AddMenuEntry 144, 2
+    AddMenuEntry 145, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -547,12 +547,12 @@ _0974:
     GoTo _085B
     End
 _09C1:
-    InitGlobalTextMenu 12, 7, 0, VAR_RESULT, 1
-    AddMenuEntryImm 143, 0
-    AddMenuEntryImm 153, 1
-    AddMenuEntryImm 154, 2
-    AddMenuEntryImm 144, 3
-    AddMenuEntryImm 145, 4
+    CompleteInitHGSSMenu 12, 7, 0, VAR_RESULT, 1
+    AddMenuEntry 143, 0
+    AddMenuEntry 153, 1
+    AddMenuEntry 154, 2
+    AddMenuEntry 144, 3
+    AddMenuEntry 145, 4
     ShowMenu
     Return
 _09F7:
@@ -619,7 +619,7 @@ _0ADF:
     @ HGSS: ScrCmd_411
     Message msg_0096_D31R0201_00056
     Call _0817
-    @ HGSS: WaitButtonOrDelay 30
+    WaitABPressTime 30
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
@@ -740,10 +740,10 @@ _0D40:
     GoToIf 1, _0855
 _0D55:
     Message msg_0096_D31R0201_00027
-    InitGlobalTextMenu 18, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 14, 0
-    AddMenuEntryImm 15, 1
-    AddMenuEntryImm 5, 2
+    CompleteInitHGSSMenu 18, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 14, 0
+    AddMenuEntry 15, 1
+    AddMenuEntry 5, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -1197,8 +1197,8 @@ _1506:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_RESULT
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_RESULT
     ReturnToField
     SetVarFromVar VAR_0x8000, VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK

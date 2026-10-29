@@ -1,0 +1,48 @@
+{
+    "name": "Gordon",
+    "class": "TRAINER_CLASS_RUIN_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SANDSHREW",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ONIX",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I found some good Pokémon in the grass!\n",
+                "I think they’ll do it for me!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Shucks. I thought I could win.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Each Pokémon has its own Nature.\n",
+                "They seem different every time I catch\f",
+                "one. So there must be many Natures!\n"
+            ]
+        }
+    ]
+}

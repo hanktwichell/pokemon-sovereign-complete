@@ -39,6 +39,18 @@
         "Bugsy: Will you give me your phone\n",
         "number? {YESNO 0}"
       ]
+    },
+    {
+      "id": "msg_0132_D46R0101_00005",
+      "en_US": "Myuu!"
+    },
+    {
+      "id": "msg_0132_D46R0101_00006",
+      "en_US": "Myuu!\r"
+    },
+    {
+      "id": "msg_0132_D46R0101_00007",
+      "en_US": "Mew returned to its hiding place..."
     }
   ]
 }

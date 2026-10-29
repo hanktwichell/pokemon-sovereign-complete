@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8302,
             "type": 2,
             "x": 555,
             "z": 319,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8301,
             "type": 2,
             "x": 572,
             "z": 390,
@@ -109,12 +109,12 @@
         },
         {
             "id": "obj_R30_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "graphics_id": "OBJ_EVENT_GFX_IDOL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
-            "initial_dir": 3,
+            "script": "TRAINER_HGSS_BUG_CATCHER_DON",
+            "initial_dir": 1,
             "data": [
                 3,
                 0,
@@ -122,17 +122,17 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 550,
-            "z": 298,
+            "x": 552,
+            "z": 299,
             "y": 0
         },
         {
             "id": "obj_R30_gsboy2",
             "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_30_YOUNGSTER_JOEY",
-            "script": 0,
+            "script": "TRAINER_HGSS_YOUNGSTER_JOEY",
             "initial_dir": 2,
             "data": [
                 4,
@@ -147,21 +147,21 @@
         },
         {
             "id": "obj_R30_gsboy2_2",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
-            "initial_dir": 1,
+            "script": "TRAINER_HGSS_YOUNGSTER_MIKEY",
+            "initial_dir": 2,
             "data": [
-                2,
+                4,
                 0,
                 0
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 552,
-            "z": 325,
+            "x": 554,
+            "z": 318,
             "y": 0
         },
         {
@@ -227,7 +227,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R30_ANTIDOTE",
-            "script": 0,
+            "script": 7329,
             "initial_dir": 0,
             "data": [
                 0,
@@ -246,7 +246,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R30_POTION",
-            "script": 0,
+            "script": 7330,
             "initial_dir": 0,
             "data": [
                 0,
@@ -333,6 +333,25 @@
             "movement_range_z": 0,
             "x": 557,
             "z": 366,
+            "y": 0
+        },
+        {
+            "id": "obj_R30_15",
+            "graphics_id": "OBJ_EVENT_GFX_CYNTHIA",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F5C",
+            "script": 12,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 568,
+            "z": 295,
             "y": 0
         }
     ],

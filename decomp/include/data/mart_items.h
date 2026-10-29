@@ -304,6 +304,331 @@ const u16 RareBerryStock_Route208[] = {
     SHOP_ITEM_END
 };
 
+// Sovereign Complete: Johto's and Kanto's special marts (tools/complete/import_hgss_marts.py)
+
+// CherrygrovePokemart
+const u16 HGSSMartSpecialties_00[] = {
+    ITEM_AIR_MAIL,
+    ITEM_HEAL_BALL,
+    SHOP_ITEM_END
+};
+
+// SafariZoneGate
+const u16 HGSSMartSpecialties_01[] = {
+    ITEM_DUSK_BALL,
+    ITEM_HEAL_BALL,
+    ITEM_NET_BALL,
+    SHOP_ITEM_END
+};
+
+// AzaleaPokemart
+const u16 HGSSMartSpecialties_02[] = {
+    ITEM_BLOOM_MAIL,
+    ITEM_HEAL_BALL,
+    ITEM_NET_BALL,
+    SHOP_ITEM_END
+};
+
+// GoldenrodDepartmentStore2f
+const u16 HGSSMartSpecialties_03[] = {
+    ITEM_POTION,
+    ITEM_SUPER_POTION,
+    ITEM_HYPER_POTION,
+    ITEM_MAX_POTION,
+    ITEM_REVIVE,
+    ITEM_ANTIDOTE,
+    ITEM_PARLYZ_HEAL,
+    ITEM_BURN_HEAL,
+    ITEM_ICE_HEAL,
+    ITEM_AWAKENING,
+    ITEM_FULL_HEAL,
+    SHOP_ITEM_END
+};
+
+// GoldenrodDepartmentStore2f
+const u16 HGSSMartSpecialties_04[] = {
+    ITEM_POKE_BALL,
+    ITEM_GREAT_BALL,
+    ITEM_ULTRA_BALL,
+    ITEM_ESCAPE_ROPE,
+    ITEM_POKE_DOLL,
+    ITEM_REPEL,
+    ITEM_SUPER_REPEL,
+    ITEM_MAX_REPEL,
+    ITEM_FIRE_STONE,
+    ITEM_THUNDERSTONE,
+    ITEM_WATER_STONE,
+    ITEM_LEAF_STONE,
+    SHOP_ITEM_END
+};
+
+// GoldenrodDepartmentStore3f
+const u16 HGSSMartSpecialties_05[] = {
+    ITEM_X_SPEED,
+    ITEM_X_ATTACK,
+    ITEM_X_DEFENSE,
+    ITEM_GUARD_SPEC,
+    ITEM_DIRE_HIT,
+    ITEM_X_ACCURACY,
+    ITEM_X_SPECIAL,
+    ITEM_X_SP_DEF,
+    SHOP_ITEM_END
+};
+
+// SafariZoneGate, GoldenrodDepartmentStore4f
+const u16 HGSSMartSpecialties_06[] = {
+    ITEM_PROTEIN,
+    ITEM_IRON,
+    ITEM_CALCIUM,
+    ITEM_ZINC,
+    ITEM_CARBOS,
+    ITEM_HP_UP,
+    SHOP_ITEM_END
+};
+
+// GoldenrodDepartmentStore5f
+const u16 HGSSMartSpecialties_07[] = {
+    ITEM_TM17,
+    ITEM_TM20,
+    ITEM_TM54,
+    ITEM_TM55,
+    ITEM_TM16,
+    ITEM_TM33,
+    ITEM_TM22,
+    ITEM_TM52,
+    ITEM_TM38,
+    ITEM_TM25,
+    ITEM_TM14,
+    ITEM_TM15,
+    SHOP_ITEM_END
+};
+
+// GoldenrodTunnelB1f
+const u16 HGSSMartSpecialties_08[] = {
+    ITEM_HEAL_POWDER,
+    ITEM_ENERGYPOWDER,
+    ITEM_ENERGY_ROOT,
+    ITEM_REVIVAL_HERB,
+    SHOP_ITEM_END
+};
+
+// EcruteakPokemart
+const u16 HGSSMartSpecialties_09[] = {
+    ITEM_AIR_MAIL,
+    ITEM_HEAL_BALL,
+    ITEM_NET_BALL,
+    SHOP_ITEM_END
+};
+
+// SaffronPokemart
+const u16 HGSSMartSpecialties_10[] = {
+    ITEM_TM01,
+    ITEM_HEAL_BALL,
+    ITEM_NET_BALL,
+    SHOP_ITEM_END
+};
+
+// CianwoodPharmacy
+const u16 HGSSMartSpecialties_11[] = {
+    ITEM_POTION,
+    ITEM_SUPER_POTION,
+    ITEM_HYPER_POTION,
+    ITEM_FULL_HEAL,
+    ITEM_REVIVE,
+    SHOP_ITEM_END
+};
+
+// FrontierAccessPokemart, BlackthornPokemart
+const u16 HGSSMartSpecialties_12[] = {
+    ITEM_SHINY_STONE,
+    ITEM_DUSK_STONE,
+    ITEM_DAWN_STONE,
+    SHOP_ITEM_END
+};
+
+// PokemonLeagueEntrance
+const u16 HGSSMartSpecialties_13[] = {
+    ITEM_ULTRA_BALL,
+    ITEM_MAX_REPEL,
+    ITEM_HYPER_POTION,
+    ITEM_MAX_POTION,
+    ITEM_FULL_RESTORE,
+    ITEM_REVIVE,
+    ITEM_FULL_HEAL,
+    SHOP_ITEM_END
+};
+
+// LavenderPokemart
+const u16 HGSSMartSpecialties_14[] = {
+    ITEM_TM30,
+    ITEM_NEST_BALL,
+    ITEM_DUSK_BALL,
+    ITEM_QUICK_BALL,
+    SHOP_ITEM_END
+};
+
+// CeruleanPokemart
+const u16 HGSSMartSpecialties_15[] = {
+    ITEM_TM59,
+    ITEM_DUSK_BALL,
+    ITEM_QUICK_BALL,
+    SHOP_ITEM_END
+};
+
+// ViridianPokemart
+const u16 HGSSMartSpecialties_16[] = {
+    ITEM_TM89,
+    ITEM_DUSK_BALL,
+    ITEM_QUICK_BALL,
+    SHOP_ITEM_END
+};
+
+// VioletPokemart, OlivinePokemart
+const u16 HGSSMartSpecialties_17[] = {
+    ITEM_AIR_MAIL,
+    ITEM_QUICK_BALL,
+    SHOP_ITEM_END
+};
+
+// CeladonDepartmentStore2f
+const u16 HGSSMartSpecialties_18[] = {
+    ITEM_POTION,
+    ITEM_SUPER_POTION,
+    ITEM_HYPER_POTION,
+    ITEM_MAX_POTION,
+    ITEM_REVIVE,
+    ITEM_ANTIDOTE,
+    ITEM_PARLYZ_HEAL,
+    ITEM_BURN_HEAL,
+    ITEM_ICE_HEAL,
+    ITEM_AWAKENING,
+    ITEM_FULL_HEAL,
+    SHOP_ITEM_END
+};
+
+// CeladonDepartmentStore2f
+const u16 HGSSMartSpecialties_19[] = {
+    ITEM_POKE_BALL,
+    ITEM_GREAT_BALL,
+    ITEM_ULTRA_BALL,
+    ITEM_ESCAPE_ROPE,
+    ITEM_POKE_DOLL,
+    ITEM_REPEL,
+    ITEM_SUPER_REPEL,
+    ITEM_MAX_REPEL,
+    ITEM_GRASS_MAIL,
+    ITEM_FLAME_MAIL,
+    ITEM_BUBBLE_MAIL,
+    ITEM_SPACE_MAIL,
+    SHOP_ITEM_END
+};
+
+// CeladonDepartmentStore3f
+const u16 HGSSMartSpecialties_20[] = {
+    ITEM_TM81,
+    ITEM_TM53,
+    ITEM_TM26,
+    ITEM_TM71,
+    ITEM_TM72,
+    ITEM_TM79,
+    ITEM_TM21,
+    ITEM_TM27,
+    ITEM_TM87,
+    ITEM_TM78,
+    ITEM_TM12,
+    ITEM_TM41,
+    SHOP_ITEM_END
+};
+
+// CeladonDepartmentStore4f, GoldenrodDepartmentStore5f
+const u16 HGSSMartSpecialties_21[] = {
+    ITEM_TM28,
+    ITEM_TM86,
+    ITEM_TM51,
+    SHOP_ITEM_END
+};
+
+// CeladonDepartmentStore5f
+const u16 HGSSMartSpecialties_22[] = {
+    ITEM_X_SPEED,
+    ITEM_X_ATTACK,
+    ITEM_X_DEFENSE,
+    ITEM_GUARD_SPEC,
+    ITEM_DIRE_HIT,
+    ITEM_X_ACCURACY,
+    ITEM_X_SPECIAL,
+    ITEM_X_SP_DEF,
+    SHOP_ITEM_END
+};
+
+// CeladonDepartmentStore5f
+const u16 HGSSMartSpecialties_23[] = {
+    ITEM_PROTEIN,
+    ITEM_IRON,
+    ITEM_CALCIUM,
+    ITEM_ZINC,
+    ITEM_CARBOS,
+    ITEM_HP_UP,
+    SHOP_ITEM_END
+};
+
+// VermilionPokemart
+const u16 HGSSMartSpecialties_24[] = {
+    ITEM_TM45,
+    ITEM_DUSK_BALL,
+    ITEM_QUICK_BALL,
+    SHOP_ITEM_END
+};
+
+// PewterPokemart
+const u16 HGSSMartSpecialties_25[] = {
+    ITEM_TM23,
+    ITEM_NEST_BALL,
+    ITEM_QUICK_BALL,
+    SHOP_ITEM_END
+};
+
+// FuchsiaPokemart
+const u16 HGSSMartSpecialties_26[] = {
+    ITEM_STEEL_MAIL,
+    ITEM_NET_BALL,
+    ITEM_HEAL_BALL,
+    SHOP_ITEM_END
+};
+
+// MountMoonSquareShop
+const u16 HGSSMartSpecialties_27[] = {
+    ITEM_POKE_DOLL,
+    ITEM_FRESH_WATER,
+    ITEM_SODA_POP,
+    ITEM_LEMONADE,
+    ITEM_REPEL,
+    ITEM_HEART_MAIL,
+    SHOP_ITEM_END
+};
+
+// MahoganySouvenirShop
+const u16 HGSSMartSpecialties_28[] = {
+    ITEM_TINYMUSHROOM,
+    ITEM_POKE_BALL,
+    ITEM_POTION,
+    SHOP_ITEM_END
+};
+
+// MahoganySouvenirShop
+const u16 HGSSMartSpecialties_29[] = {
+    ITEM_ULTRA_BALL,
+    ITEM_HYPER_POTION,
+    ITEM_TM11,
+    ITEM_TM18,
+    ITEM_TM37,
+    ITEM_TM07,
+    ITEM_TM48,
+    ITEM_TM92,
+    SHOP_ITEM_END
+};
+
+// end of Johto's and Kanto's special marts
 const u16 *PokeMartSpecialties[] = {
     [MART_SPECIALTIES_ID_JUBILIFE] = JubilifeMartSpecialties,
     [MART_SPECIALTIES_ID_OREBURGH] = OreburghMartSpecialties,
@@ -334,7 +659,39 @@ const u16 *PokeMartSpecialties[] = {
     [MART_SPECIALTIES_ID_MEGA_STONES_SNOWPOINT] = MegaStoneStock_Snowpoint,
     [MART_SPECIALTIES_ID_MEGA_STONES_SURVIVAL_AREA] = MegaStoneStock_SurvivalArea,
     [MART_SPECIALTIES_ID_EVOLUTION_ITEMS_SNOWPOINT] = SnowpointEvolutionItemStock,
-    [MART_SPECIALTIES_ID_RARE_BERRIES_ROUTE_208] = RareBerryStock_Route208
+    [MART_SPECIALTIES_ID_RARE_BERRIES_ROUTE_208] = RareBerryStock_Route208,
+    // Sovereign Complete: Johto's and Kanto's
+    [MART_SPECIALTIES_ID_HGSS_00] = HGSSMartSpecialties_00,
+    [MART_SPECIALTIES_ID_HGSS_01] = HGSSMartSpecialties_01,
+    [MART_SPECIALTIES_ID_HGSS_02] = HGSSMartSpecialties_02,
+    [MART_SPECIALTIES_ID_HGSS_03] = HGSSMartSpecialties_03,
+    [MART_SPECIALTIES_ID_HGSS_04] = HGSSMartSpecialties_04,
+    [MART_SPECIALTIES_ID_HGSS_05] = HGSSMartSpecialties_05,
+    [MART_SPECIALTIES_ID_HGSS_06] = HGSSMartSpecialties_06,
+    [MART_SPECIALTIES_ID_HGSS_07] = HGSSMartSpecialties_07,
+    [MART_SPECIALTIES_ID_HGSS_08] = HGSSMartSpecialties_08,
+    [MART_SPECIALTIES_ID_HGSS_09] = HGSSMartSpecialties_09,
+    [MART_SPECIALTIES_ID_HGSS_10] = HGSSMartSpecialties_10,
+    [MART_SPECIALTIES_ID_HGSS_11] = HGSSMartSpecialties_11,
+    [MART_SPECIALTIES_ID_HGSS_12] = HGSSMartSpecialties_12,
+    [MART_SPECIALTIES_ID_HGSS_13] = HGSSMartSpecialties_13,
+    [MART_SPECIALTIES_ID_HGSS_14] = HGSSMartSpecialties_14,
+    [MART_SPECIALTIES_ID_HGSS_15] = HGSSMartSpecialties_15,
+    [MART_SPECIALTIES_ID_HGSS_16] = HGSSMartSpecialties_16,
+    [MART_SPECIALTIES_ID_HGSS_17] = HGSSMartSpecialties_17,
+    [MART_SPECIALTIES_ID_HGSS_18] = HGSSMartSpecialties_18,
+    [MART_SPECIALTIES_ID_HGSS_19] = HGSSMartSpecialties_19,
+    [MART_SPECIALTIES_ID_HGSS_20] = HGSSMartSpecialties_20,
+    [MART_SPECIALTIES_ID_HGSS_21] = HGSSMartSpecialties_21,
+    [MART_SPECIALTIES_ID_HGSS_22] = HGSSMartSpecialties_22,
+    [MART_SPECIALTIES_ID_HGSS_23] = HGSSMartSpecialties_23,
+    [MART_SPECIALTIES_ID_HGSS_24] = HGSSMartSpecialties_24,
+    [MART_SPECIALTIES_ID_HGSS_25] = HGSSMartSpecialties_25,
+    [MART_SPECIALTIES_ID_HGSS_26] = HGSSMartSpecialties_26,
+    [MART_SPECIALTIES_ID_HGSS_27] = HGSSMartSpecialties_27,
+    [MART_SPECIALTIES_ID_HGSS_28] = HGSSMartSpecialties_28,
+    [MART_SPECIALTIES_ID_HGSS_29] = HGSSMartSpecialties_29,
+    // end of Johto's and Kanto's
 };
 
 const u16 VeilstoneDeptStoreStock_4F_UP[] = {

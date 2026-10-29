@@ -1,0 +1,54 @@
+{
+    "name": "Valerie",
+    "class": "TRAINER_CLASS_HGSS_BEAUTY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SKIPLOOM",
+            "form": 0,
+            "level": 27,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROSELIA",
+            "form": 0,
+            "level": 27,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VILEPLUME",
+            "form": 0,
+            "level": 27,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hi! Aren’t you a cute Trainer!\n",
+                "May I see your Pokémon?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I’m glad I got to see your Pokémon!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "When I see Pokémon, it seems to soothe\n",
+                "my nerves.\n"
+            ]
+        }
+    ]
+}

@@ -10,6 +10,7 @@
 
 #include "overlay005/encounter_effect.h"
 
+#include "complete_trainers.h"
 #include "field_battle_data_transfer.h"
 #include "party.h"
 #include "pokemon.h"
@@ -204,6 +205,17 @@ u32 EncEffects_CutInEffect(const FieldBattleDTO *dto)
 
 u32 EncEffects_BGM(const FieldBattleDTO *dto)
 {
+    // Sovereign Complete: a HeartGold class's trainer battle plays its Sinnoh stand-in's battle theme (a Gym Leader's
+    // for Johto's and Kanto's), with the plain cut-in (complete_trainers.h)
+    if ((dto->battleType & BATTLE_TYPE_TRAINER) && !(dto->battleType & BATTLE_TYPE_FRONTIER)
+        && CompleteTrainerClass_IsHGSS(dto->trainer[1].header.trainerType)) {
+        u32 standIn = EncEffects_TrainerClassEffect(CompleteTrainerClass_StandIn(dto->trainer[1].header.trainerType));
+
+        if (standIn != ENCEFF_NORMAL_TRAINER && !(dto->battleType & BATTLE_TYPE_DOUBLES)) {
+            return EncEffects_BGMForPair(standIn, dto);
+        }
+    }
+
     return EncEffects_BGMForPair(EncEffects_GetEffectPair(dto), dto);
 }
 

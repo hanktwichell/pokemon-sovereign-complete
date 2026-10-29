@@ -1,0 +1,229 @@
+{
+    "map": "T07",
+    "land": {
+        "rate": 0,
+        "slots": [
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            },
+            {
+                "level": 0,
+                "morning": "SPECIES_NONE",
+                "day": "SPECIES_NONE",
+                "night": "SPECIES_NONE"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 15,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GRIMER"
+            },
+            {
+                "level_min": 15,
+                "level_max": 15,
+                "species": "SPECIES_GRIMER"
+            },
+            {
+                "level_min": 15,
+                "level_max": 15,
+                "species": "SPECIES_MUK"
+            },
+            {
+                "level_min": 15,
+                "level_max": 15,
+                "species": "SPECIES_MUK"
+            },
+            {
+                "level_min": 15,
+                "level_max": 15,
+                "species": "SPECIES_MUK"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_NONE",
+        "SPECIES_NONE"
+    ],
+    "swarm": {
+        "land": "SPECIES_NONE",
+        "surf": "SPECIES_GRIMER",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

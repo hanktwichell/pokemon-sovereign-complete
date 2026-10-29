@@ -1,0 +1,62 @@
+{
+    "name": "Dwayne",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARBOK",
+            "form": 0,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SWALOT",
+            "form": 0,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MUK",
+            "form": 0,
+            "level": 57,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We’re the Kanto Pokémon Federation\n",
+                "Trainer group.\f",
+                "We’ll drive you under our wheels!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "S-sorry!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The Kanto Pokémon Federation will\n",
+                "never fall!\n"
+            ]
+        }
+    ]
+}

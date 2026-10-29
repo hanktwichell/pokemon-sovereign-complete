@@ -1,0 +1,60 @@
+{
+    "name": "Tommy",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_XATU",
+            "form": 0,
+            "level": 58,
+            "moves": [
+                "MOVE_CONFUSE_RAY",
+                "MOVE_NIGHT_SHADE",
+                "MOVE_FLY",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 58,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_CALM_MIND",
+                "MOVE_REFLECT",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let’s battle.\n",
+                "I won’t lose!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I forgot to do my hoMework!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Sayonara! I just learned that in my\n",
+                "foreign-language class.\n"
+            ]
+        }
+    ]
+}

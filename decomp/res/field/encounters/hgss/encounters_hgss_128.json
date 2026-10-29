@@ -1,0 +1,229 @@
+{
+    "map": "W21",
+    "land": {
+        "rate": 20,
+        "slots": [
+            {
+                "level": 54,
+                "morning": "SPECIES_TANGELA",
+                "day": "SPECIES_TANGELA",
+                "night": "SPECIES_TANGELA"
+            },
+            {
+                "level": 55,
+                "morning": "SPECIES_MR_MIME",
+                "day": "SPECIES_MR_MIME",
+                "night": "SPECIES_MR_MIME"
+            },
+            {
+                "level": 55,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 55,
+                "morning": "SPECIES_PELIPPER",
+                "day": "SPECIES_PELIPPER",
+                "night": "SPECIES_PELIPPER"
+            },
+            {
+                "level": 56,
+                "morning": "SPECIES_GASTRODON",
+                "day": "SPECIES_GASTRODON",
+                "night": "SPECIES_GASTRODON"
+            },
+            {
+                "level": 55,
+                "morning": "SPECIES_TANGELA",
+                "day": "SPECIES_TANGELA",
+                "night": "SPECIES_TANGELA"
+            },
+            {
+                "level": 57,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 57,
+                "morning": "SPECIES_PELIPPER",
+                "day": "SPECIES_PELIPPER",
+                "night": "SPECIES_PELIPPER"
+            },
+            {
+                "level": 57,
+                "morning": "SPECIES_MR_MIME",
+                "day": "SPECIES_MR_MIME",
+                "night": "SPECIES_MR_MIME"
+            },
+            {
+                "level": 59,
+                "morning": "SPECIES_MR_MIME",
+                "day": "SPECIES_MR_MIME",
+                "night": "SPECIES_MR_MIME"
+            },
+            {
+                "level": 56,
+                "morning": "SPECIES_TANGELA",
+                "day": "SPECIES_TANGELA",
+                "night": "SPECIES_TANGELA"
+            },
+            {
+                "level": 58,
+                "morning": "SPECIES_TANGELA",
+                "day": "SPECIES_TANGELA",
+                "night": "SPECIES_TANGELA"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 10,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 55,
+                "species": "SPECIES_WINGULL"
+            },
+            {
+                "level_min": 20,
+                "level_max": 55,
+                "species": "SPECIES_WAILMER"
+            },
+            {
+                "level_min": 25,
+                "level_max": 60,
+                "species": "SPECIES_PELIPPER"
+            },
+            {
+                "level_min": 20,
+                "level_max": 55,
+                "species": "SPECIES_WINGULL"
+            },
+            {
+                "level_min": 20,
+                "level_max": 55,
+                "species": "SPECIES_WAILMER"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_CHINCHOU"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SHELLDER"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACOOL"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 55,
+                "level_max": 55,
+                "species": "SPECIES_TENTACRUEL"
+            },
+            {
+                "level_min": 55,
+                "level_max": 55,
+                "species": "SPECIES_SHELLDER"
+            },
+            {
+                "level_min": 55,
+                "level_max": 55,
+                "species": "SPECIES_LANTURN"
+            },
+            {
+                "level_min": 55,
+                "level_max": 55,
+                "species": "SPECIES_SHELLDER"
+            },
+            {
+                "level_min": 55,
+                "level_max": 55,
+                "species": "SPECIES_LANTURN"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_TANGROWTH",
+        "SPECIES_TANGROWTH"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_FLOATZEL",
+        "SPECIES_LICKITUNG"
+    ],
+    "swarm": {
+        "land": "SPECIES_TANGELA",
+        "surf": "SPECIES_TENTACOOL",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

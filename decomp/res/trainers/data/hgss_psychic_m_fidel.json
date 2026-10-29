@@ -1,0 +1,49 @@
+{
+    "name": "Fidel",
+    "class": "TRAINER_CLASS_HGSS_PSYCHIC_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_XATU",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_FUTURE_SIGHT",
+                "MOVE_PSYCHO_SHIFT",
+                "MOVE_CONFUSE_RAY",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I can see it...\n",
+                "Everything there is to see about you...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I couldn’t foresee your power...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Strength in conviction...\r",
+                "You’re strong because you believe in\n",
+                "your Pokémon.\n"
+            ]
+        }
+    ]
+}

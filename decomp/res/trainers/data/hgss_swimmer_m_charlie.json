@@ -1,0 +1,54 @@
+{
+    "name": "Charlie",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SEEL",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SPHEAL",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TENTACRUEL",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The water’s warm here. I’m loose and\n",
+                "limber. Sure, I’ll take you on!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yikes! I’ve got prune skin!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Isn’t it relaxing, just floating\n",
+                "like this?\n"
+            ]
+        }
+    ]
+}

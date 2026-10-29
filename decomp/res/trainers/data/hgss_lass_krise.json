@@ -1,0 +1,57 @@
+{
+    "name": "Krise",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ODDISH",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GLOOM",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hello? Why are you staring at me?\r",
+                "Oh, a battle?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Hmmm...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I thought I did something wrong\n",
+                "because you kept staring at me.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "What?\n",
+                "Staring at people’s faces.\r",
+                "...Oh, didn’t I make a promise to\n",
+                "someone? Was that you?\r"
+            ]
+        }
+    ]
+}

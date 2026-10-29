@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8407,
             "type": 2,
             "x": 1327,
             "z": 41,
@@ -22,9 +22,9 @@
             "id": "obj_R25_gsboy1",
             "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCHOOL_KID_M_DUDLEY",
             "initial_dir": 1,
             "data": [
                 3,
@@ -41,9 +41,9 @@
             "id": "obj_R25_gsgirl1",
             "graphics_id": "OBJ_EVENT_GFX_LASS",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_LASS_ELLEN",
             "initial_dir": 0,
             "data": [
                 3,
@@ -60,9 +60,9 @@
             "id": "obj_R25_gsboy1_2",
             "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCHOOL_KID_M_JOE",
             "initial_dir": 2,
             "data": [
                 4,
@@ -79,9 +79,9 @@
             "id": "obj_R25_gsgirl1_2",
             "graphics_id": "OBJ_EVENT_GFX_LASS",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_LASS_LAURA",
             "initial_dir": 3,
             "data": [
                 4,
@@ -98,9 +98,9 @@
             "id": "obj_R25_gsgirl1_3",
             "graphics_id": "OBJ_EVENT_GFX_LASS",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_LASS_SHANNON",
             "initial_dir": 0,
             "data": [
                 3,
@@ -117,9 +117,9 @@
             "id": "obj_R25_campboy_2",
             "graphics_id": "OBJ_EVENT_GFX_CAMPER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_CAMPER_LLOYD",
             "initial_dir": 1,
             "data": [
                 2,
@@ -136,9 +136,9 @@
             "id": "obj_R25_gsassistantm",
             "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SUPER_NERD_PAT",
             "initial_dir": 2,
             "data": [
                 1,
@@ -223,8 +223,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1388,
-            "z": 40,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -233,7 +233,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R25_PROTEIN",
-            "script": 0,
+            "script": 7532,
             "initial_dir": 0,
             "data": [
                 0,

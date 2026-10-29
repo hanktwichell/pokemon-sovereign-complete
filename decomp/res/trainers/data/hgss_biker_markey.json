@@ -1,0 +1,40 @@
+{
+    "name": "Markey",
+    "class": "TRAINER_CLASS_HGSS_BIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TOXICROAK",
+            "form": 0,
+            "level": 61,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey hey hey!\n",
+                "You’re in my way! IN MY WAY!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I lost. I lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Won’t you give it a try? Would you like\n",
+                "to join my team?\n"
+            ]
+        }
+    ]
+}

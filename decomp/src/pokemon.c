@@ -28,6 +28,7 @@
 
 #include "ball_seal_info.h"
 #include "charcode_util.h"
+#include "complete_evolutions.h"
 #include "flags.h"
 #include "heap.h"
 #include "inlines.h"
@@ -4011,6 +4012,11 @@ u16 Pokemon_GetEvolutionTargetSpecies(Party *party, Pokemon *mon, u8 evoClass, u
             if (targetSpecies) {
                 break;
             }
+        }
+
+        // Sovereign Complete: Sacred Gold's evolution items, in place of a trade or a place (src/complete_evolutions.c)
+        if (targetSpecies == SPECIES_NONE) {
+            targetSpecies = CompleteEvolution_ByItem(monSpecies, speciesEvolutions, evoParam);
         }
 
         // Sovereign (FM): an item that evolves it into a form says so in the evolution type (Scroll of Waters:

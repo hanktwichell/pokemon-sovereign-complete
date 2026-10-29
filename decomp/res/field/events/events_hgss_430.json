@@ -3,12 +3,12 @@
     "object_events": [
         {
             "id": "obj_T03R0601_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-            "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FBA",
             "script": 1,
-            "initial_dir": 2,
+            "initial_dir": 0,
             "data": [
                 0,
                 0,
@@ -16,7 +16,26 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 8,
+            "x": 5,
+            "z": 3,
+            "y": 0
+        },
+        {
+            "id": "obj_T03R0601_1",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 2,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6,
             "z": 5,
             "y": 0
         }

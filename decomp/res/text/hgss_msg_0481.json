@@ -38,6 +38,44 @@
         "I didn’t treat them as Pokémon!\f",
         "I loved them like my grandchildren..."
       ]
+    },
+    {
+      "id": "msg_0481_T05R0601_00004",
+      "en_US": [
+        "The Pokémon that lived with me a\n",
+        "long time...\r",
+        "I didn’t treat them as Pokémon!\f",
+        "I loved them like my grandchildren...\r",
+        "Please, will you pay your respects?\r",
+        "I’m sure they’d like that... {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0481_T05R0601_00005",
+      "en_US": "..."
+    },
+    {
+      "id": "msg_0481_T05R0601_00006",
+      "en_US": [
+        "Thank you...\r",
+        "{STRVAR_1 3, 0, 0} began to pay his respects.\r"
+      ]
+    },
+    {
+      "id": "msg_0481_T05R0601_00007",
+      "en_US": [
+        "Thank you...\r",
+        "{STRVAR_1 3, 0, 0} began to pay her respects.\r"
+      ]
+    },
+    {
+      "id": "msg_0481_T05R0601_00008",
+      "en_US": [
+        "I only wish my grandchildren were\n",
+        "so obident to their elders...\r",
+        "I’d like you to take this in\n",
+        "gratitude.\r"
+      ]
     }
   ]
 }

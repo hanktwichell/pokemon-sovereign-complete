@@ -30,6 +30,187 @@
         "everybody used Apricorns to\f",
         "catch Pokémon.\n"
       ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00003",
+      "en_US": [
+        "Well, hello there, trainer!\r",
+        "Would you like to take a quiz? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00004",
+      "en_US": [
+        "Excellent! Let’s get started!\r",
+        "Question one!\r",
+        "Is Sableye the only Pokémon\n",
+        "able to have the Stall ability? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00005",
+      "en_US": "Aww... come back again!"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00006",
+      "en_US": [
+        "I’m sorry, but that’s the wrong\n",
+        "answer! Please, come and try again!"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00007",
+      "en_US": [
+        "Correct! Time for question two!\r",
+        "Is the Lax Incense required in\n",
+        "order to breed a Munchlax? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00008",
+      "en_US": [
+        "Correct! The semifinal question!\r",
+        "Is it true that Reversal has\n",
+        "a maximum power of 150? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00009",
+      "en_US": [
+        "Correct! The final question!\r",
+        "Does Gardevoir have a higher\n",
+        "base stat total than Alakazam? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00010",
+      "en_US": [
+        "Congratulations!\n",
+        "You completed the quiz!\r",
+        "You can now pick a prized Pokémon!\n",
+        "Which would you like?"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00011",
+      "en_US": [
+        "Eh?\n",
+        "You don’t want any of them?"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00012",
+      "en_US": "Treecko"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00013",
+      "en_US": "Torchic"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00014",
+      "en_US": "Mudkip"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00015",
+      "en_US": "Cancel"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00016",
+      "en_US": [
+        "Uhh...\n",
+        "Your party is too full..."
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00017",
+      "en_US": [
+        "Woohoo!\n",
+        "Look out for more of us Quiz Masters!"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00018",
+      "en_US": "As you wish!\r"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00019",
+      "en_US": "{STRVAR_1 3, 0, 0} received a {STRVAR_1 0, 1, 0}!"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00020",
+      "en_US": [
+        "Do you want to give a\n",
+        "nickname to {STRVAR_1 0, 1, 0}?"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00021",
+      "en_US": "Which Pokémon do you want?"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00022",
+      "en_US": [
+        "I collect Pokémon.\n",
+        "Do you have a Gible?\r",
+        "Want to trade it for my Beldum? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00023",
+      "en_US": [
+        "Yay! I got myself a Beldum!\f",
+        "Thanks!"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00024",
+      "en_US": [
+        "Huh? That’s not Gible.\n",
+        "That’s such a letdown..."
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00025",
+      "en_US": "You don’t want to trade? Darn..."
+    },
+    {
+      "id": "msg_0568_T23PC0101_00026",
+      "en_US": [
+        "Hi, how’s my Beldum doing?\n",
+        "Has it evolved yet?"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00027",
+      "en_US": "Hey, kid! Wanna rock out!? {YESNO 0}"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00028",
+      "en_US": [
+        "Ha ha!\n",
+        "Your answer barely matters!\r",
+        "You don’t even have an instrument!\r",
+        "But props for talking to me.\n",
+        "I’ll give you this to reward you!\r"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00029",
+      "en_US": [
+        "Shock Wave is a cool Electric-type\n",
+        "move that will never miss. Rock on!"
+      ]
+    },
+    {
+      "id": "msg_0568_T23PC0101_00030",
+      "en_US": "Voltorb: Bzzzzzzt!"
+    },
+    {
+      "id": "msg_0568_T23PC0101_00031",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
+      ]
     }
   ]
 }

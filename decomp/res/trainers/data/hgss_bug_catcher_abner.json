@@ -1,0 +1,103 @@
+{
+    "name": "Abner",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MILTANK",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_MILK_DRINK",
+                "MOVE_BODY_SLAM",
+                "MOVE_EARTHQUAKE",
+                "MOVE_ZEN_HEADBUTT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDERBOLT",
+                "MOVE_AIR_CUTTER",
+                "MOVE_SILVER_WIND"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AERODACTYL",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_STONE_EDGE",
+                "MOVE_FLY",
+                "MOVE_PROTECT",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GASTRODON",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_RECOVER",
+                "MOVE_SURF",
+                "MOVE_EARTHQUAKE",
+                "MOVE_BLIZZARD"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EXEGGUTOR",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_ENERGY_BALL",
+                "MOVE_PSYCHIC",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "If you think you’re strong enough to\n",
+                "be in here, I hope you can prove it\f",
+                "with action!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Thanks for your hard work,\n",
+                "my Pokémon...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You certainly are strong. Still, keep\n",
+                "your guard up. This forest is no place\f",
+                "for carelessness.\n"
+            ]
+        }
+    ]
+}

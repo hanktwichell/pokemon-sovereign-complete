@@ -1,0 +1,41 @@
+{
+    "name": "Denise",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MILOTIC",
+            "form": 0,
+            "level": 33,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The weather is so beautiful, I’m in\n",
+                "a daze!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ohhh!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "A sunburn is the worst for skin.\r",
+                "But I don’t use sunblock.\n",
+                "I won’t pollute the water.\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,127 @@
+{
+    "name": "Karen",
+    "class": "TRAINER_CLASS_HGSS_ELITE_FOUR_KAREN",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WEAVILE",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_FOCUS_SASH",
+            "moves": [
+                "MOVE_ICE_PUNCH",
+                "MOVE_FAKE_OUT",
+                "MOVE_LOW_KICK",
+                "MOVE_NIGHT_SLASH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SHIFTRY",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_SEED_BOMB",
+                "MOVE_LOW_KICK",
+                "MOVE_EXPLOSION"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_EARLY_BIRD"
+        },
+        {
+            "species": "SPECIES_HONCHKROW",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_BRAVE_BIRD",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_SUPERPOWER",
+                "MOVE_SUCKER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_SUPER_LUCK"
+        },
+        {
+            "species": "SPECIES_UMBREON",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_PAYBACK",
+                "MOVE_YAWN",
+                "MOVE_CURSE",
+                "MOVE_WISH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ABSOL",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_PSYCHO_CUT",
+                "MOVE_STONE_EDGE",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_SUPER_LUCK"
+        },
+        {
+            "species": "SPECIES_HOUNDOOM",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_NASTY_PLOT",
+                "MOVE_FIRE_BLAST",
+                "MOVE_DARK_PULSE",
+                "MOVE_HIDDEN_POWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 14,
+            "ability": "ABILITY_FLASH_FIRE"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "This is far from being backed into\n",
+                "a corner!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "You’re no ordinary Trainer to have\n",
+                "gotten this far.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Well, aren’t you good.\n",
+                "I like that in a Trainer.\n"
+            ]
+        }
+    ]
+}

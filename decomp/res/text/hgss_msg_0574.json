@@ -72,7 +72,7 @@
         "Chuck: That is Focus Punch.\r",
         "It doesn’t land if the foe you’re\n",
         "attacking hits you first, but it’s very\f",
-        "powerful if it manages to hit!"
+        "powerful if it manages to hit!\r"
       ]
     },
     {
@@ -125,6 +125,21 @@
         "Leader: Chuck\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0574_T24GYM0101_00015",
+      "en_US": [
+        "Chuck: I bet you’d make a great\n",
+        "training partner! Here, take my number!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0574_T24GYM0101_00016",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Chuck\n",
+        "in the Pokégear!"
       ]
     }
   ]

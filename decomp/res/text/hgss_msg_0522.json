@@ -16,16 +16,16 @@
       "en_US": [
         "Some Trainers suddenly feel\n",
         "discouraged and leave.\r",
-        "My ABRA can take you home.\n",
+        "My Abra can take you home.\n",
         "But...\r",
         "Trainers just Fly home lately...\n",
         "I feel left out.\f",
-        "I am sure my ABRA feels the same way."
+        "I am sure my Abra feels the same way."
       ]
     },
     {
       "id": "msg_0522_T10R0101_00002",
-      "en_US": "ABRA: Aabra..."
+      "en_US": "Abra: AAbra..."
     },
     {
       "id": "msg_0522_T10R0101_00003",
@@ -57,9 +57,13 @@
       "id": "msg_0522_T10R0101_00005",
       "en_US": [
         "Once you enter this door, you will be\n",
-        "facing one of the Elite Four.\r",
+        "facing the Elite Four.\r",
         "They are really tough!\n",
-        "You cannot exit once you enter.\f",
+        "You cannot exit once you enter.\r",
+        "The Pokémon helpers aside will let you\n",
+        "move as you please through the rooms,\f",
+        "but you must defeat all of the\f",
+        "Elite Four to challenge the Champion!\r",
         "Are you ready?\f",
         "Be courageous and go for it!\r"
       ]
@@ -68,9 +72,13 @@
       "id": "msg_0522_T10R0101_00006",
       "en_US": [
         "Once you enter this door, you will be\n",
-        "facing one of the Elite Four.\r",
+        "facing  the Elite Four.\r",
         "They are really tough!\n",
-        "You cannot exit once you enter.\f",
+        "You cannot exit once you enter.\r",
+        "The Pokémon helpers aside will let you\n",
+        "move as you please through the rooms,\f",
+        "but you must defeat all of the\f",
+        "Elite Four to challenge the Champion!\r",
         "Are you ready?\f",
         "Be courageous and go for it!"
       ]
@@ -190,6 +198,27 @@
     {
       "id": "msg_0522_T10R0101_00026",
       "en_US": "RETURN"
+    },
+    {
+      "id": "msg_0522_T10R0101_00027",
+      "en_US": "Tyranitar: Giraaas!"
+    },
+    {
+      "id": "msg_0522_T10R0101_00028",
+      "en_US": [
+        "When you need a strong Rock-type\n",
+        "move, there’s only one choice!\r",
+        "The fabulous Stone Edge!\r"
+      ]
+    },
+    {
+      "id": "msg_0522_T10R0101_00029",
+      "en_US": [
+        "Stone Edge is a powerful Rock move\n",
+        "with a high critical ratio!\r",
+        "It has a habit of missing a lot,\n",
+        "though..."
+      ]
     }
   ]
 }

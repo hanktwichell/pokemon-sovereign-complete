@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8336,
             "type": 2,
             "x": 511,
             "z": 82,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8337,
             "type": 2,
             "x": 547,
             "z": 79,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8402,
             "type": 2,
             "x": 542,
             "z": 37,
@@ -122,9 +122,9 @@
             "id": "obj_T29_fishing_2",
             "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_LAKE_OF_RAGE_FISHERMEN",
-            "script": 0,
+            "script": "TRAINER_HGSS_FISHERMAN_ANDRE",
             "initial_dir": 0,
             "data": [
                 0,
@@ -141,9 +141,9 @@
             "id": "obj_T29_fishing_2_2",
             "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_LAKE_OF_RAGE_FISHERMEN",
-            "script": 0,
+            "script": "TRAINER_HGSS_FISHERMAN_RAYMOND",
             "initial_dir": 2,
             "data": [
                 0,
@@ -160,9 +160,9 @@
             "id": "obj_T29_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1FE",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_ALTON",
             "initial_dir": 3,
             "data": [
                 2,
@@ -179,9 +179,9 @@
             "id": "obj_T29_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_LAKE_OF_RAGE_ACE_TRAINER_LOIS",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_LOIS",
             "initial_dir": 2,
             "data": [
                 0,
@@ -314,7 +314,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T29_TM43",
-            "script": 0,
+            "script": 7471,
             "initial_dir": 0,
             "data": [
                 0,
@@ -333,7 +333,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T29_RED_FLUTE",
-            "script": 0,
+            "script": 7473,
             "initial_dir": 0,
             "data": [
                 0,
@@ -409,7 +409,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T29_CHOICE_SPECS",
-            "script": 0,
+            "script": 7472,
             "initial_dir": 0,
             "data": [
                 0,

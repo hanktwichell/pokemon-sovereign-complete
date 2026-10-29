@@ -1,0 +1,76 @@
+{
+    "name": "Blake",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGNEZONE",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_SUPERSONIC",
+                "MOVE_FLASH_CANNON",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_ENERGY_BALL",
+                "MOVE_RECOVER"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LANTURN",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_SURF",
+                "MOVE_THUNDERBOLT",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You look pretty strong.\n",
+                "Let me battle you!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you prevail on this harsh trek, the\n",
+                "truth will be revealed!\r",
+                "Heh, sorry, I just wanted to say\n",
+                "something cool.\n"
+            ]
+        }
+    ]
+}

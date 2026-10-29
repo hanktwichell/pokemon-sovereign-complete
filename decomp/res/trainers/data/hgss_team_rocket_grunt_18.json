@@ -1,0 +1,55 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WEEPINBELL",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VENOMOTH",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DUSTOX",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You rotten little pest!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Grrrr...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Heh, only the one who guards the boss’s\n",
+                "room knows the password for that door.\r",
+                "Where’s the boss’s room?\n",
+                "Who knows? Go look for yourself.\n"
+            ]
+        }
+    ]
+}

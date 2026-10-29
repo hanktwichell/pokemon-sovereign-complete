@@ -1,0 +1,126 @@
+{
+    "name": "Misty",
+    "class": "TRAINER_CLASS_HGSS_LEADER_MISTY",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_POLITOED",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_RAIN_DANCE",
+                "MOVE_HYDRO_PUMP",
+                "MOVE_BLIZZARD",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_DRIZZLE"
+        },
+        {
+            "species": "SPECIES_MILOTIC",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SURF",
+                "MOVE_ICE_BEAM",
+                "MOVE_REST",
+                "MOVE_SLEEP_TALK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOREBYSS",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_ICE_BEAM",
+                "MOVE_PSYCHIC",
+                "MOVE_EARTH_POWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LANTURN",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SURF",
+                "MOVE_THUNDER",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_VOLT_ABSORB"
+        },
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_RINDO_BERRY",
+            "moves": [
+                "MOVE_CURSE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_WATERFALL",
+                "MOVE_RECOVER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_WATER_ABSORB"
+        },
+        {
+            "species": "SPECIES_STARMIE",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_BLIZZARD",
+                "MOVE_THUNDER",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 15,
+            "ability": "ABILITY_NATURAL_CURE"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Hmm... You’re pretty good...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Looks like you’re not just someone who\n",
+                "gets in the way...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Looks like this is it...\n"
+            ]
+        }
+    ]
+}

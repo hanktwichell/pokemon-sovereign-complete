@@ -14,7 +14,7 @@ scr_seq_T21FS0101_000:
     Common_VendorGreeting
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 0
-    @ HGSS: CallStd std_pokemart
+    PokeMartCommon
     ReleaseAll
     End
 scr_seq_T21FS0101_003:
@@ -24,7 +24,8 @@ scr_seq_T21FS0101_003:
     Common_VendorGreeting
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 0
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 scr_seq_T21FS0101_002:

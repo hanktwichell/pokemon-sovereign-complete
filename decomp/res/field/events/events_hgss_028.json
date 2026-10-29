@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8481,
             "type": 2,
             "x": 858,
             "z": 394,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8482,
             "type": 2,
             "x": 882,
             "z": 396,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8483,
             "type": 2,
             "x": 890,
             "z": 408,
@@ -65,9 +65,9 @@
             "id": "obj_R27_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_MEGAN",
             "initial_dir": 2,
             "data": [
                 3,
@@ -84,9 +84,9 @@
             "id": "obj_R27_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_BLAKE",
             "initial_dir": 0,
             "data": [
                 3,
@@ -103,9 +103,9 @@
             "id": "obj_R27_gsman2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_JOSE_2",
             "initial_dir": 3,
             "data": [
                 5,
@@ -122,9 +122,9 @@
             "id": "obj_R27_gsman3_2",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_BRIAN",
             "initial_dir": 3,
             "data": [
                 3,
@@ -141,9 +141,9 @@
             "id": "obj_R27_mystery_2",
             "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
             "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_PSYCHIC_M_ELI",
             "initial_dir": 0,
             "data": [
                 2,
@@ -160,9 +160,9 @@
             "id": "obj_R27_gswoman3_2",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_SOUTH_AND_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_REENA",
             "initial_dir": 0,
             "data": [
                 2,
@@ -181,7 +181,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R27_RARE_CANDY",
-            "script": 0,
+            "script": 7502,
             "initial_dir": 0,
             "data": [
                 0,
@@ -200,7 +200,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R27_TM02",
-            "script": 0,
+            "script": 7503,
             "initial_dir": 0,
             "data": [
                 0,
@@ -219,7 +219,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R27_DESTINY_KNOT",
-            "script": 0,
+            "script": 7504,
             "initial_dir": 0,
             "data": [
                 0,

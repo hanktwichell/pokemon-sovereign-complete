@@ -1,0 +1,56 @@
+{
+    "name": "Orson",
+    "class": "TRAINER_CLASS_HGSS_BURGLAR",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GROWLITHE",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KOFFING",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAPIDASH",
+            "form": 0,
+            "level": 44,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "They ditched this project before\n",
+                "they finished.\f",
+                "I’m searching for leftover loot.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "So strong...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The underground warehouse?\r",
+                "What do you want to go there for?\n",
+                "There’s nothing down there.\n"
+            ]
+        }
+    ]
+}

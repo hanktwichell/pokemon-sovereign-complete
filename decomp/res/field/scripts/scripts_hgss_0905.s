@@ -50,15 +50,15 @@ _00B1:
 _00BC:
     @ HGSS: ElevatorCurFloorBox 20, 1, VAR_ELEVATOR_LAST_FLOOR, VAR_ELEVATOR_LAST_FLOOR
     Message msg_0598_T25R1007_00000
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 121, 6
-    AddMenuEntryImm 120, 0
-    AddMenuEntryImm 119, 1
-    AddMenuEntryImm 118, 2
-    AddMenuEntryImm 117, 3
-    AddMenuEntryImm 116, 4
-    AddMenuEntryImm 122, 5
-    AddMenuEntryImm 126, 7
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 121, 6
+    AddMenuEntry 120, 0
+    AddMenuEntry 119, 1
+    AddMenuEntry 118, 2
+    AddMenuEntry 117, 3
+    AddMenuEntry 116, 4
+    AddMenuEntry 122, 5
+    AddMenuEntry 126, 7
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 6

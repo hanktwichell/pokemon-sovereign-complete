@@ -128,6 +128,187 @@
         "of dis set.\r",
         "Come back when ya need more, yah!\r"
       ]
+    },
+    {
+      "id": "msg_0512_T08_00016",
+      "en_US": "Shellder: Yerrrr!"
+    },
+    {
+      "id": "msg_0512_T08_00017",
+      "en_US": "Cloyster: Crouu."
+    },
+    {
+      "id": "msg_0512_T08_00018",
+      "en_US": [
+        "Did you want to challenge the Gym\n",
+        "Leader? This Shellder situation has\f",
+        "caused quite a ruckus...\r",
+        "Janine is probably around the city\n",
+        "somewhere, trying to fix it..."
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00019",
+      "en_US": [
+        "The recent volcano eruption at\n",
+        "Cinnabar Island caused the Pokémon of\f",
+        "Seafoam Islands to get riled up.\r",
+        "Now we’re swarmed with Shellder!\r",
+        "Eek!"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00020",
+      "en_US": [
+        "These Shellder are blocking half of\n",
+        "the city’s facilities. Fuchsia may not\f",
+        "be large, but this is still a humongous\f",
+        "inconvenience! Argh!"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00021",
+      "en_US": "Chansey: Chans!!"
+    },
+    {
+      "id": "msg_0512_T08_00022",
+      "en_US": "Cloyster: Neerrrr!!"
+    },
+    {
+      "id": "msg_0512_T08_00023",
+      "en_US": "Janine: Venomoth, use Bug Buzz!\r"
+    },
+    {
+      "id": "msg_0512_T08_00024",
+      "en_US": [
+        "Janine: Oh, hi! Say, you wouldn’t just\n",
+        "happen to be {STRVAR_1 3, 0, 0}, would you?\r",
+        "I’ve heard about you from the other\n",
+        "Kanto Gym Leaders, but you’ve picked\f",
+        "a great time to arrive!\r",
+        "Or bad, depending on how you see it...\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00025",
+      "en_US": [
+        "Janine: We need to get rid of this\n",
+        "swarm of Shellder and Cloyster!\r",
+        "I reckon that if we defeat all of the\n",
+        "Cloyster around town, the gangs should\f",
+        "pack up and leave.\r",
+        "But Nurse Joy and I are preoccupied\n",
+        "with this lot... there’s more inside the\f",
+        "Pal Park building, so this is going to\f",
+        "take us quite a while...\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00026",
+      "en_US": [
+        "Janine: Say, {STRVAR_1 3, 0, 0}, could you do me a\n",
+        "favour, and try to weed out any of\f",
+        "the Cloyster still hanging around the\f",
+        "city, please?"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00027",
+      "en_US": [
+        "Nurse Joy: Blast them with an\n",
+        "Ice Beam, Chansey!\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00028",
+      "en_US": [
+        "Nurse Joy: Oh, did you want to heal\n",
+        "your Pokémon? I’ve been too busy\f",
+        "helping out to attend the Pokémon\f",
+        "Center at the moment...\r",
+        "Let me heal them right here!\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00029",
+      "en_US": [
+        "Please come back any time!\r",
+        "Well, until the Shellder are gone..."
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00030",
+      "en_US": "Janine: I swear this is endless...\r"
+    },
+    {
+      "id": "msg_0512_T08_00031",
+      "en_US": [
+        "The Cloyster squared up, ready\n",
+        "to have a fight!\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00032",
+      "en_US": [
+        "It doesn’t look like fighting the\n",
+        "Shellder did much..."
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00033",
+      "en_US": [
+        "The Shellder is poised, ready\n",
+        "to attack!\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00034",
+      "en_US": [
+        "The Shellder may have been caught,\n",
+        "but another Shellder quickly took its\f",
+        "spot.\r",
+        "Fighting the Shellder doesn’t do\n",
+        "all that much..."
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00035",
+      "en_US": [
+        "After a leader Cloyster was defeated,\n",
+        "some of the Shellder left..."
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00036",
+      "en_US": [
+        "Thank you for saving me from that gang\n",
+        "of Pokémon! But, I was so frightened\f",
+        "that I can’t stop moving like this!"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00037",
+      "en_US": [
+        "Janine: Okay, Venomoth, pump up the\n",
+        "action! Silver Wind!\r"
+      ]
+    },
+    {
+      "id": "msg_0512_T08_00038",
+      "en_US": [
+        "Janine: Whew, that should do it!\n",
+        "I wonder if I handled that like\f",
+        "Dad would have chosen to...\r",
+        "Anyway, {STRVAR_1 3, 0, 0}, I really appreciate\n",
+        "the help you gave us in sorting this\f",
+        "whole situation out!\r",
+        "It would be my, er.... honour, to\n",
+        "battle with you for the Soul Badge!\r",
+        "Of course, you don’t have to do it\n",
+        "right now, technically...\r",
+        "Anyway! I’ll be in the Gym.\r",
+        "Don’t take too long, okay?"
+      ]
     }
   ]
 }

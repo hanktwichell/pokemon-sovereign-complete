@@ -28,7 +28,7 @@
     },
     {
       "id": "msg_0396_R39_00003",
-      "en_US": "MILTANK: Mooo!"
+      "en_US": "Miltank: Mooo!"
     },
     {
       "id": "msg_0396_R39_00004",
@@ -123,6 +123,86 @@
         "Your Photo Album is full.\r",
         "Access your PC to delete some pictures\n",
         "before you come back."
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00015",
+      "en_US": [
+        "Left step, right step, hop twice...\n",
+        "No, that’s not it!\r",
+        "Move to the left, move to the right,\n",
+        "criss-cross...\r",
+        "No! That’s wrong too!\r"
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00016",
+      "en_US": [
+        "Gah! You scared me.\r",
+        "You heard me trying to form dance\n",
+        "moves, huh?\r",
+        "I could really do with inspiration...\r"
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00017",
+      "en_US": [
+        "I bet if I were to see the graceful\n",
+        "dancing of a {COLOR 2}Bellossom{COLOR 0}, I’d know\f",
+        "exactly what to do!"
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00018",
+      "en_US": [
+        "Oh, wow! That’s a Bellossom behind\n",
+        "you, isn’t it?\r",
+        "Can you please ask it to\n",
+        "dance for me? I’d appreciate it! {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00019",
+      "en_US": [
+        "You won’t?\r",
+        "...\r",
+        "I was really hoping you would..."
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00020",
+      "en_US": "Yes! Thank you so much!\r"
+    },
+    {
+      "id": "msg_0396_R39_00021",
+      "en_US": [
+        "That did the trick! I definitely feel\n",
+        "a lot more inspired now. I can’t thank\f",
+        "you enough!\r",
+        "Here, this TM should be useful\n",
+        "for your Bellossom!\r"
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00022",
+      "en_US": "Oh!"
+    },
+    {
+      "id": "msg_0396_R39_00023",
+      "en_US": [
+        "While I was walking around here,\n",
+        "I found this weird cuboid object on\f",
+        "the ground.\r",
+        "I don’t know what it is, but it\n",
+        "feels somehow valuable.\r",
+        "I’d like you to have it!\r"
+      ]
+    },
+    {
+      "id": "msg_0396_R39_00024",
+      "en_US": [
+        "Thank you for everything.\n",
+        "Bye-bye!"
       ]
     }
   ]

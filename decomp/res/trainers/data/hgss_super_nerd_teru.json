@@ -1,0 +1,58 @@
+{
+    "name": "Teru",
+    "class": "TRAINER_CLASS_HGSS_SUPER_NERD",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGNEMITE",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VOLTORB",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PORYGON",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Do you consider the Pokémon types\n",
+                "in battle?\r",
+                "If you know about the different types\n",
+                "of Pokémon, you’ll do better in battle.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ow, ow, ow!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I know all the different types\n",
+                "of Pokémon.\f",
+                "But I only use one type.\n"
+            ]
+        }
+    ]
+}

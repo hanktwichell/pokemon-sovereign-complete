@@ -13,48 +13,11 @@
     ScriptEntry scr_seq_T26R0701_004
     ScriptEntry scr_seq_T26R0701_005
     ScriptEntry scr_seq_T26R0701_006
+    ScriptEntry scr_seq_T26R0701_007
     ScriptEntryEnd
 scr_seq_T26R0701_004:
-    GoToIfUnset FLAG_HGSS_UNK_189, _002F
+    GoToIfUnset FLAG_HGSS_UNK_189, _017F
     ClearFlag FLAG_HGSS_UNK_189
-    End
-_002F:
-    GetDayOfWeek VAR_MAP_LOCAL_0x00
-    CompareVar VAR_MAP_LOCAL_0x00, 5
-    GoToIf 5, _004A
-    SetFlag FLAG_HGSS_HIDE_CAMERON
-    GoTo _004E
-_004A:
-    SetFlag FLAG_HGSS_HIDE_CAMERON
-_004E:
-    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _00C3
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
-    CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _008F
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 13
-    GoToIf 5, _0087
-    ClearFlag FLAG_HGSS_UNK_2CB
-    GoTo _008D
-_0087:
-    GoTo _00C3
-_008D:
-    End
-_008F:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
-    CompareVar VAR_MAP_LOCAL_0x01, 0
-    GoToIf 5, _00C3
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 12
-    GoToIf 5, _00BD
-    ClearFlag FLAG_HGSS_UNK_2CB
-    GoTo _00C1
-_00BD:
-    SetFlag FLAG_HGSS_UNK_2CB
-_00C1:
-    End
-_00C3:
-    SetFlag FLAG_HGSS_UNK_2CB
     End
 scr_seq_T26R0701_006:
     NPCMessage msg_0611_T26R0701_00000
@@ -81,10 +44,10 @@ scr_seq_T26R0701_003:
     MessageFromBank VAR_RESULT, 0
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _025E
+    GoToIf 1, _019A
     @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0272
+    GoToIf 1, _01AE
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
     MessageFromBank VAR_RESULT, 1
     CloseMessage
@@ -93,29 +56,73 @@ scr_seq_T26R0701_003:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 5, _018C
-    ApplyMovement LOCALID_PLAYER, _0288
-    ApplyMovement obj_T26R0701_gsmiddleman1, _02C0
-    GoTo _01B7
-_018C:
+    GoToIf 5, _01C2
+    ApplyMovement LOCALID_PLAYER, _04F4
+    ApplyMovement obj_T26R0701_gsmiddleman1, _050A
+    GoTo _01DD
+scr_seq_T26R0701_005:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 1
+    GoToIf 1, _023E
+    CompareVar VAR_MAP_LOCAL_0x04, 1
+    GoToIf 4, _029F
+    Message msg_0611_T26R0701_00004
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _02A8
     CompareVar VAR_RESULT, 1
-    GoToIf 5, _01A7
-    ApplyMovement LOCALID_PLAYER, _02A0
-    GoTo _01B7
-_01A7:
-    ApplyMovement LOCALID_PLAYER, _02AC
-    ApplyMovement obj_T26R0701_gsmiddleman1, _02C0
-_01B7:
+    GoToIf 4, _02EB
+    End
+scr_seq_T26R0701_007:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfSet FLAG_HGSS_GOT_GOOD_ROD, _049B
+    Message msg_0611_T26R0701_00014
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _04A6
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _04DF
+    End
+_017F:
+    GetDayOfWeek VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 5
+    GoToIf 5, _02FC
+    SetFlag FLAG_HGSS_HIDE_CAMERON
+    GoTo _0339
+_019A:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 5
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_01AE:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 3
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_01C2:
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _0372
+    ApplyMovement LOCALID_PLAYER, _0514
+    GoTo _01DD
+_01DD:
     WaitMovement
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 5, _01DE
-    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _02CC
+    GoToIf 5, _03E3
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _051E
     WaitMovement
-_01DE:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -130,85 +137,34 @@ _01DE:
     CloseMessage
     ReleaseAll
     End
-_0218:
-    GetPlayerDir VAR_RESULT
-    CompareVarToValue VAR_RESULT, 0
-    GoToIf 5, _0237
-    ApplyMovement LOCALID_PLAYER, _0288
-    GoTo _025A
-_0237:
-    CompareVarToValue VAR_RESULT, 1
-    GoToIf 5, _0252
-    ApplyMovement LOCALID_PLAYER, _02A0
-    GoTo _025A
-_0252:
-    ApplyMovement LOCALID_PLAYER, _02AC
-_025A:
-    WaitMovement
-    Return
-_025E:
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 5
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0272:
-    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 3
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-    .balign 4, 0
-_0288:
-    WalkNormalEast
-    WalkNormalNorth 2
-    WalkNormalWest
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_02A0:
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_02AC:
-    WalkNormalNorth
-    WalkNormalWest
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_02C0:
-    Delay8
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_02CC:
-    WalkNormalEast
-    WalkNormalNorth
-    FaceSouth
-    EndMovement
-scr_seq_T26R0701_005:
-    PlaySE SE_CONFIRM_sseq_3
-    LockAll
-    FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
-    CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _038A
-    CompareVar VAR_MAP_LOCAL_0x04, 1
-    GoToIf 4, _037F
-    Message msg_0611_T26R0701_00004
-_0307:
+_023E:
+    Message msg_0611_T26R0701_00009
     ShowYesNoMenu VAR_RESULT
-    CompareVar VAR_RESULT, 0
-    GoToIf 1, _032B
     CompareVar VAR_RESULT, 1
-    GoToIf 4, _036E
+    GoToIf 1, _041D
+    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _0428
+    Message msg_0611_T26R0701_00010
+    CloseMessage
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 89
+    FacePlayer
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    Message msg_0611_T26R0701_00011
+    WaitButton
+    CloseMessage
+    ReleaseAll
     End
-_032B:
+_029F:
+    Message msg_0611_T26R0701_00008
+    GoTo _0433
+_02A8:
     BufferPlayerName 0
     Message msg_0611_T26R0701_00005
     PlayFanfare SEQ_FANFA4_sseq
@@ -227,51 +183,175 @@ _032B:
     WaitFadeScreen
     ReleaseAll
     End
-_036E:
+_02EB:
     SetVarFromValue VAR_MAP_LOCAL_0x04, 1
     Message msg_0611_T26R0701_00007
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_037F:
-    Message msg_0611_T26R0701_00008
-    GoTo _0307
-    End
-_038A:
-    Message msg_0611_T26R0701_00009
-    ShowYesNoMenu VAR_RESULT
+_02FC:
+    SetFlag FLAG_HGSS_HIDE_CAMERON
+    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _0457
+    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 1
+    GoToIf 1, _045D
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 13
+    GoToIf 5, _048B
+    ClearFlag FLAG_HGSS_UNK_2CB
+    GoTo _0491
+_0339:
+    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _0457
+    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 1
+    GoToIf 1, _045D
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 13
+    GoToIf 5, _048B
+    ClearFlag FLAG_HGSS_UNK_2CB
+    GoTo _0491
+_0372:
+    ApplyMovement LOCALID_PLAYER, _052C
+    ApplyMovement obj_T26R0701_gsmiddleman1, _050A
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _03EB
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
-    CompareVar VAR_RESULT, 1
-    GoToIf 1, _03F6
-    Message msg_0611_T26R0701_00010
-    CloseMessage
+    GoToIf 5, _03E3
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _051E
+    WaitMovement
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 89
-    FacePlayer
+    @ HGSS: CameronPhoto 25
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     ClearFlag FLAG_HGSS_UNK_189
-    Message msg_0611_T26R0701_00011
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_03EB:
+_03E3:
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 25
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 2
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_041D:
     Message msg_0611_T26R0701_00012
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_03F6:
+_0428:
     Message msg_0611_T26R0701_00013
     WaitButton
     CloseMessage
     ReleaseAll
     End
+_0433:
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _02A8
+    CompareVar VAR_RESULT, 1
+    GoToIf 4, _02EB
+    End
+_0457:
+    SetFlag FLAG_HGSS_UNK_2CB
+    End
+_045D:
+    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 0
+    GoToIf 5, _0457
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 12
+    GoToIf 5, _0493
+    ClearFlag FLAG_HGSS_UNK_2CB
+    GoTo _0499
+_048B:
+    GoTo _0457
+_0491:
+    End
+_0493:
+    SetFlag FLAG_HGSS_UNK_2CB
+    End
+_0499:
+    End
+_049B:
+    Message msg_0611_T26R0701_00019
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_04A6:
+    SetVar VAR_0x8004, ITEM_GOOD_ROD
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, _04EA
+    Message msg_0611_T26R0701_00015
+    WaitButton
+    Common_GiveItemQuantity
+    SetFlag FLAG_HGSS_GOT_GOOD_ROD
+    Message msg_0611_T26R0701_00017
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_04DF:
+    Message msg_0611_T26R0701_00018
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_04EA:
+    Common_MessageBagIsFull
+    CloseMessage
+    ReleaseAll
+    End
+    .balign 4, 0
+_04F4:
+    WalkNormalEast
+    WalkNormalNorth 2
+    WalkNormalWest
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_050A:
+    Delay8
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0514:
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_051E:
+    WalkNormalEast
+    WalkNormalNorth
+    FaceSouth
+    EndMovement
+    .balign 4, 0
+_052C:
+    WalkNormalNorth
+    WalkNormalWest
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
     .balign 4, 0

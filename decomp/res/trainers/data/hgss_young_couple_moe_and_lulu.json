@@ -1,0 +1,85 @@
+{
+    "name": "Moe nd Lulu",
+    "class": "TRAINER_CLASS_HGSS_YOUNG_COUPLE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_LUDICOLO",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SHIFTRY",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Moe: Do I look weak?\n",
+                "Don’t make me laugh!\f",
+                "When I’m with Lulu, I’ve got a hundred\f",
+                "times more courage!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Moe: Uwaaaahhh...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Moe: In short, you’re just\n",
+                "too strong...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_1",
+            "en_US": [
+                "Moe: You don’t have enough Pokémon to\n",
+                "fight with us.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Lulu: Moe and I make a great pair! You\n",
+                "should prepare yourself!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Lulu: Eeek!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Lulu: Don’t you misunderstand this!\n",
+                "It’s not that Moe’s weak, it’s that\f",
+                "you’re too strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_2",
+            "en_US": [
+                "Lulu: Uh-oh, you’ve got only one\n",
+                "Pokémon. You can’t battle with us\f",
+                "like that!\n"
+            ]
+        }
+    ]
+}

@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8530,
             "type": 2,
             "x": 640,
             "z": 341,
@@ -30,9 +30,9 @@
             "id": "obj_R46_mount_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_BAILEY",
             "initial_dir": 2,
             "data": [
                 3,
@@ -49,9 +49,9 @@
             "id": "obj_R46_campboy_2",
             "graphics_id": "OBJ_EVENT_GFX_CAMPER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_CAMPER_TED",
             "initial_dir": 3,
             "data": [
                 3,
@@ -68,9 +68,9 @@
             "id": "obj_R46_picnicgirl_2",
             "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_PICNICKER_ERIN",
             "initial_dir": 0,
             "data": [
                 4,
@@ -127,7 +127,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R46_X_SPEED",
-            "script": 0,
+            "script": 7493,
             "initial_dir": 0,
             "data": [
                 0,

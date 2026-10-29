@@ -2,21 +2,28 @@
 
 #include <nitro.h>
 
+#include "constants/heap.h"
+#include "constants/narc.h"
 #include "generated/genders.h"
+#include "generated/text_banks.h"
 
 #include "field/field_system.h"
+#include "overlay005/field_menu.h"
 #include "overlay005/script_message.h"
 
 #include "complete_follower.h"
+#include "encounter.h"
 #include "field_message.h"
 #include "field_script_context.h"
 #include "field_system.h"
 #include "inlines.h"
 #include "map_object.h"
+#include "message.h"
 #include "save_player.h"
 #include "script_manager.h"
 #include "trainer_info.h"
 #include "unk_020655F4.h"
+#include "vars_flags.h"
 
 // Sovereign Complete: script commands HeartGold's scripts need that Platinum lacks (tools/complete/hgss_script_table.py,
 // docs/ScriptConversion.md). Registered after Sovereign's own in include/data/scripts/scrcmd.h.
@@ -102,4 +109,51 @@ BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx)
 
     *destVar = Follower(ctx) != NULL;
     return FALSE;
+}
+
+// HeartGold's GetStaticEncounterOutcome: the last battle's result. Platinum keeps it as BATTLE_RESULT_*, whose values
+// are HeartGold's BATTLE_OUTCOME_* (win 1, lose 2, draw 3, caught 4, fled 5, foe fled 6).
+BOOL CompleteScrCmd_GetBattleResult(ScriptContext *ctx)
+{
+    int *battleResult = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_BATTLE_RESULT);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = *battleResult;
+    return FALSE;
+}
+
+BOOL gCompleteNextWildShiny;
+
+// HeartGold's WildBattle: a static encounter, shiny when its last argument is set (Sacred Gold's red Gyarados).
+BOOL CompleteScrCmd_StartWildBattle(ScriptContext *ctx)
+{
+    int *battleResult = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_BATTLE_RESULT);
+    u16 species = ScriptContext_GetVar(ctx);
+    u8 level = ScriptContext_GetVar(ctx);
+    u8 shiny = ScriptContext_ReadByte(ctx);
+
+    gCompleteNextWildShiny = shiny != 0;
+    Encounter_NewVsSpeciesAtLevel(ctx->task, species, level, battleResult, FALSE);
+    return TRUE;
+}
+
+// HeartGold's standard menu (MenuInitStdGmm): Platinum's global text menu, with its entries from HeartGold's menu
+// strings (its bank 191) in place of Platinum's. The menu frees the loader when it closes.
+BOOL CompleteScrCmd_InitHGSSMenu(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    FieldMenuManager **fieldMenuMan = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_FIELD_MENU_MANAGER);
+    StringTemplate **stringTemplate = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    u8 anchorX = ScriptContext_ReadByte(ctx);
+    u8 anchorY = ScriptContext_ReadByte(ctx);
+    u8 initialCursorPos = ScriptContext_ReadByte(ctx);
+    u8 canExitWithB = ScriptContext_ReadByte(ctx);
+    u16 selectedOptionVar = ScriptContext_ReadHalfWord(ctx);
+
+    *fieldMenuMan = FieldMenuManager_New(fieldSystem, anchorX, anchorY, initialCursorPos, canExitWithB, FieldSystem_GetVarPointer(fieldSystem, selectedOptionVar), *stringTemplate, FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_WINDOW), NULL);
+    MessageLoader_Free((*fieldMenuMan)->messageLoader);
+    (*fieldMenuMan)->messageLoader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0191, HEAP_ID_FIELD1);
+
+    ctx->data[0] = selectedOptionVar;
+    return TRUE;
 }

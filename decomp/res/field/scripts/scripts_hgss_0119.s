@@ -113,7 +113,6 @@ _01BC:
     WalkOnSpotNormalNorth
     EndMovement
     .balign 4, 0
-_01CC:
     WalkNormalSouth 4
     WalkNormalWest
     WalkOnSpotNormalNorth
@@ -249,23 +248,19 @@ _0370:
     FaceWest
     EndMovement
     .balign 4, 0
-_0384:
     WalkNormalEast
     Delay16
     FaceWest
     EndMovement
     .balign 4, 0
-_0394:
     WalkNormalWest
     EndMovement
     .balign 4, 0
-_039C:
     FaceSouth
     Delay16
     FaceWest
     EndMovement
     .balign 4, 0
-_03AC:
     FaceSouth
     EmoteExclamationMark
     EndMovement
@@ -308,11 +303,9 @@ _040C:
     FaceEast
     EndMovement
     .balign 4, 0
-_0418:
     FaceNorth
     EndMovement
     .balign 4, 0
-_0420:
     WalkNormalNorth 3
     FaceEast
     EndMovement
@@ -411,14 +404,14 @@ _0599:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0683
 _05AF:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 463, 0
-    AddMenuEntryImm 464, 1
-    AddMenuEntryImm 465, 2
-    AddMenuEntryImm 466, 3
-    AddMenuEntryImm 467, 4
-    AddMenuEntryImm 468, 5
-    AddMenuEntryImm 469, 6
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 463, 0
+    AddMenuEntry 464, 1
+    AddMenuEntry 465, 2
+    AddMenuEntry 466, 3
+    AddMenuEntry 467, 4
+    AddMenuEntry 468, 5
+    AddMenuEntry 469, 6
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -506,11 +499,11 @@ _0728:
     BufferNumber 1, VAR_RESULT
     Message msg_0135_D47R0101_00000
 _0736:
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0846
-    @ HGSS: CountPCEmptySpace VAR_SPECIAL_RESULT
+    GetPCBoxesFreeSlotCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0773
     GetPartyCount VAR_0x8004
@@ -525,7 +518,7 @@ _0773:
     Message msg_0135_D47R0101_00002
     PlaySE SEQ_SE_DP_REGI_sseq
     RemoveMoney 500
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     Message msg_0135_D47R0101_00004
     BufferPlayerName 0
     SetVarFromValue VAR_RESULT, 30
@@ -632,13 +625,13 @@ scr_seq_D47R0101_002:
     GoToIf 1, _09DC
     Message msg_0135_D47R0101_00019
 _0919:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 457, 0
-    AddMenuEntryImm 458, 1
-    AddMenuEntryImm 459, 2
-    AddMenuEntryImm 460, 3
-    AddMenuEntryImm 461, 4
-    AddMenuEntryImm 462, 5
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 457, 0
+    AddMenuEntry 458, 1
+    AddMenuEntry 459, 2
+    AddMenuEntry 460, 3
+    AddMenuEntry 461, 4
+    AddMenuEntry 462, 5
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -688,7 +681,7 @@ scr_seq_D47R0101_003:
     GoToIf 1, _0C21
 _09FC:
     @ HGSS: ScrCmd_247
-    @ HGSS: NatDexFlagAction 2, VAR_TEMP_x4000
+    GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0DF2
     CompareVar VAR_HGSS_UNK_4057, 6
@@ -710,10 +703,10 @@ _0A29:
     End
 _0A5D:
     Message msg_0135_D47R0101_00071
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 14, 0
-    AddMenuEntryImm 15, 1
-    AddMenuEntryImm 5, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 14, 0
+    AddMenuEntry 15, 1
+    AddMenuEntry 5, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -727,7 +720,7 @@ _0AAC:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0A5D
-    SetVarFromValue VAR_0x8004, 39
+    SetVarFromValue VAR_0x8004, ITEM_MAX_ETHER
     SetVarFromValue VAR_0x8005, 0
     @ HGSS: ScrCmd_226 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, 0, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
@@ -761,7 +754,7 @@ _0B2F:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0A5D
-    SetVarFromValue VAR_0x8004, 39
+    SetVarFromValue VAR_0x8004, ITEM_MAX_ETHER
     SetVarFromValue VAR_0x8005, 0
     @ HGSS: ScrCmd_227 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, 0, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
@@ -800,9 +793,9 @@ _0BB2:
     @ HGSS: ScrCmd_823 VAR_TEMP_x4000
     Message msg_0135_D47R0101_00082
     Message msg_0135_D47R0101_00088
-    @ HGSS: AddWaitingIcon
-    @ HGSS: SaveGameNormal VAR_SPECIAL_RESULT
-    @ HGSS: RemoveWaitingIcon
+    ShowSavingIcon
+    TrySaveGame VAR_RESULT
+    HideSavingIcon
     BufferPlayerName 0
     Message msg_0135_D47R0101_00089
     PlaySE SEQ_SE_DP_SAVE_sseq
@@ -818,7 +811,6 @@ _0BFC:
     CloseMessage
     ReleaseAll
     End
-_0C09:
     Message msg_0135_D47R0101_00085
     WaitButton
     CloseMessage
@@ -845,7 +837,7 @@ scr_seq_D47R0101_004:
     GoToIf 1, _0DFD
 _0C4C:
     @ HGSS: ScrCmd_247
-    @ HGSS: NatDexFlagAction 2, VAR_TEMP_x4000
+    GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0DF2
     @ HGSS: ScrCmd_824 VAR_TEMP_x4000
@@ -862,11 +854,11 @@ _0C84:
     ReleaseAll
     End
 _0C8F:
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0D9F
-    @ HGSS: CountPCEmptySpace VAR_SPECIAL_RESULT
+    GetPCBoxesFreeSlotCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0CCC
     GetPartyCount VAR_0x8004
@@ -881,7 +873,7 @@ _0CCC:
     Message msg_0135_D47R0101_00055
     PlaySE SEQ_SE_DP_REGI_sseq
     RemoveMoney 500
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     Message msg_0135_D47R0101_00057
     BufferPlayerName 0
     SetVarFromValue VAR_RESULT, 30
@@ -967,7 +959,7 @@ scr_seq_D47R0101_011:
     LockAll
     FacePlayer
     @ HGSS: ScrCmd_247
-    @ HGSS: NatDexFlagAction 2, VAR_TEMP_x4000
+    GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0E73
     CompareVar VAR_HGSS_UNK_4057, 6

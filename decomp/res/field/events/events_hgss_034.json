@@ -14,9 +14,9 @@
             "id": "obj_R33_mount_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_ANTHONY",
             "initial_dir": 0,
             "data": [
                 5,

@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8380,
             "type": 2,
             "x": 26,
             "z": 35,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8379,
             "type": 2,
             "x": 18,
             "z": 33,
@@ -24,7 +24,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0101_MAX_REVIVE",
-            "script": 0,
+            "script": 7506,
             "initial_dir": 0,
             "data": [
                 0,
@@ -43,7 +43,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0101_FULL_HEAL",
-            "script": 0,
+            "script": 7449,
             "initial_dir": 0,
             "data": [
                 0,
@@ -62,7 +62,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0101_POTION",
-            "script": 0,
+            "script": 7508,
             "initial_dir": 0,
             "data": [
                 0,

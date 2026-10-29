@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8526,
             "type": 2,
             "x": 9,
             "z": 30,
@@ -15,7 +15,7 @@
             "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
-            "hidden_flag": "0",
+            "hidden_flag": "FLAG_HGSS_SG_3FE7",
             "script": 1,
             "initial_dir": 1,
             "data": [
@@ -141,6 +141,25 @@
             "movement_range_z": 0,
             "x": 28,
             "z": 11,
+            "y": 0
+        },
+        {
+            "id": "obj_D50R0101_7",
+            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FE2",
+            "script": 3,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6,
+            "z": 29,
             "y": 0
         }
     ],

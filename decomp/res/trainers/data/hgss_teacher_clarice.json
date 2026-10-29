@@ -1,0 +1,53 @@
+{
+    "name": "Clarice",
+    "class": "TRAINER_CLASS_HGSS_TEACHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LINOONE",
+            "form": 0,
+            "level": 60,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROSERADE",
+            "form": 0,
+            "level": 60,
+            "item": "ITEM_NONE",
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "All right, let’s get this Pokémon\n",
+                "battle started!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "All right!\n",
+                "That concludes today’s battle.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Don’t relax just ’cause you won.\n",
+                "Once you get home, you should do a\f",
+                "full review!\n"
+            ]
+        }
+    ]
+}

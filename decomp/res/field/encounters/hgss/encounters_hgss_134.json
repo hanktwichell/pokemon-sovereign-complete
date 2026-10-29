@@ -1,0 +1,229 @@
+{
+    "map": "D43R0102",
+    "land": {
+        "rate": 10,
+        "slots": [
+            {
+                "level": 44,
+                "morning": "SPECIES_MACHOKE",
+                "day": "SPECIES_MACHOKE",
+                "night": "SPECIES_MACHOKE"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_HARIYAMA",
+                "day": "SPECIES_HARIYAMA",
+                "night": "SPECIES_HARIYAMA"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
+            },
+            {
+                "level": 44,
+                "morning": "SPECIES_LAIRON",
+                "day": "SPECIES_LAIRON",
+                "night": "SPECIES_LAIRON"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_LOUDRED",
+                "day": "SPECIES_LOUDRED",
+                "night": "SPECIES_LOUDRED"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_GRAVELER",
+                "day": "SPECIES_GRAVELER",
+                "night": "SPECIES_GRAVELER"
+            },
+            {
+                "level": 46,
+                "morning": "SPECIES_MEDICHAM",
+                "day": "SPECIES_MEDICHAM",
+                "night": "SPECIES_MEDICHAM"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_MAGNETON",
+                "day": "SPECIES_MAGNETON",
+                "night": "SPECIES_MAGNETON"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_VENOMOTH",
+                "day": "SPECIES_VENOMOTH",
+                "night": "SPECIES_VENOMOTH"
+            },
+            {
+                "level": 44,
+                "morning": "SPECIES_KADABRA",
+                "day": "SPECIES_KADABRA",
+                "night": "SPECIES_KADABRA"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_VENOMOTH",
+                "day": "SPECIES_VENOMOTH",
+                "night": "SPECIES_VENOMOTH"
+            },
+            {
+                "level": 44,
+                "morning": "SPECIES_KADABRA",
+                "day": "SPECIES_KADABRA",
+                "night": "SPECIES_KADABRA"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_EXPLOUD",
+        "SPECIES_AGGRON"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_CHIMECHO",
+        "SPECIES_MAROWAK"
+    ],
+    "swarm": {
+        "land": "SPECIES_GRAVELER",
+        "surf": "SPECIES_NONE",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

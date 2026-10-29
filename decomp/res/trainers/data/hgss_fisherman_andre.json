@@ -1,0 +1,41 @@
+{
+    "name": "Andre",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SEAKING",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let me battle with the Pokémon\n",
+                "I just caught!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I might be an expert angler, but I stink\n",
+                "as a Pokémon Trainer...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I won’t lose as an angler! I catch\n",
+                "Pokémon all day.\n"
+            ]
+        }
+    ]
+}

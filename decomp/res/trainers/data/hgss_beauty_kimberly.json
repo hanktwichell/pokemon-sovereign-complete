@@ -1,0 +1,19 @@
+{
+    "name": "Kimberly",
+    "class": "TRAINER_CLASS_HGSS_BEAUTY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CORSOLA",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

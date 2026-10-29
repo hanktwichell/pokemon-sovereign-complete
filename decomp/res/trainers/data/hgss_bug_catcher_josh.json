@@ -1,0 +1,43 @@
+{
+    "name": "Josh",
+    "class": "TRAINER_CLASS_HGSS_BUG_CATCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WORMADAM",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You saved all the Slowpoke?\n",
+                "Whew, you’re mighty!\r",
+                "But my grown-up Pokémon are pretty\n",
+                "tough, too!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Urrgggh!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you move the web with the switch,\n",
+                "you’ll be able to figure out where\f",
+                "the lift is going.\n"
+            ]
+        }
+    ]
+}

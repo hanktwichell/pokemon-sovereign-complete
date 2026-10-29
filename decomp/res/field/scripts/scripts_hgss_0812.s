@@ -25,8 +25,8 @@ _003B:
     GoToIf 5, _0052
     End
 _0052:
-    @ HGSS: MovePerson obj_T08R0201_workman, 8, 9
-    @ HGSS: SetObjectFacing obj_T08R0201_workman, DIR_WEST
+    SetObjectEventPos obj_T08R0201_workman, 8, 9
+    SetObjectEventDir obj_T08R0201_workman, DIR_WEST
     End
 _0062:
     CompareVar VAR_HGSS_PAL_PARK_HIGH_SCORE, 2000
@@ -65,11 +65,11 @@ _00E0:
     Message msg_0516_T08R0201_00005
     GoTo _00E9
 _00E9:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 194, 0
-    AddMenuEntryImm 195, 1
-    AddMenuEntryImm 196, 2
-    AddMenuEntryImm 198, 4
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 194, 0
+    AddMenuEntry 195, 1
+    AddMenuEntry 196, 2
+    AddMenuEntry 198, 4
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00CE
@@ -85,7 +85,7 @@ _0144:
     GoToIf 1, _0190
 _015C:
     SetVarFromValue VAR_RESULT, 0
-    @ HGSS: CountPCEmptySpace VAR_SPECIAL_RESULT
+    GetPCBoxesFreeSlotCount VAR_RESULT
     CompareVar VAR_RESULT, 6
     GoToIf 0, _0274
     SetVarFromValue VAR_RESULT, 0
@@ -104,10 +104,10 @@ _019B:
     MessageGendered msg_0516_T08R0201_00008, msg_0516_T08R0201_00009
     GoTo _01A8
 _01A8:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 199, 0
-    AddMenuEntryImm 200, 1
-    AddMenuEntryImm 201, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 199, 0
+    AddMenuEntry 200, 1
+    AddMenuEntry 201, 2
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _015C
@@ -258,7 +258,6 @@ _03DC:
 _03E8:
     WalkNormalSouth 4
     EndMovement
-_03F0:
     NPCMessage msg_0516_T08R0201_00025
     End
 scr_seq_T08R0201_004:
@@ -338,7 +337,7 @@ _051C:
     CheckItem ITEM_FASHION_CASE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
-    SetVarFromValue VAR_0x8004, 97
+    SetVarFromValue VAR_0x8004, ITEM_STABLE_MULCH
     SetVarFromValue VAR_0x8005, 1
     @ HGSS: ScrCmd_404 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
@@ -350,7 +349,7 @@ _055D:
     CheckItem ITEM_FASHION_CASE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
-    SetVarFromValue VAR_0x8004, 98
+    SetVarFromValue VAR_0x8004, ITEM_GOOEY_MULCH
     SetVarFromValue VAR_0x8005, 1
     @ HGSS: ScrCmd_404 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
@@ -415,7 +414,7 @@ _0669:
     CallIf 0, _07D3
     Return
 _06A5:
-    @ HGSS: Random VAR_SPECIAL_x8006, 8
+    GetRandom VAR_0x8006, 8
     CompareVar VAR_0x8006, 0
     CallIf 1, _0861
     CompareVar VAR_0x8006, 1
@@ -435,7 +434,7 @@ _06A5:
     Call _082F
     Return
 _071B:
-    @ HGSS: Random VAR_SPECIAL_x8006, 5
+    GetRandom VAR_0x8006, 5
     CompareVar VAR_0x8006, 0
     CallIf 1, _08A1
     CompareVar VAR_0x8006, 1
@@ -449,7 +448,7 @@ _071B:
     Call _082F
     Return
 _076A:
-    @ HGSS: Random VAR_SPECIAL_x8006, 7
+    GetRandom VAR_0x8006, 7
     CompareVar VAR_0x8006, 0
     CallIf 1, _08C9
     CompareVar VAR_0x8006, 1
@@ -467,7 +466,7 @@ _076A:
     Call _082F
     Return
 _07D3:
-    @ HGSS: Random VAR_SPECIAL_x8006, 6
+    GetRandom VAR_0x8006, 6
     CompareVar VAR_0x8006, 0
     CallIf 1, _0901
     CompareVar VAR_0x8006, 1

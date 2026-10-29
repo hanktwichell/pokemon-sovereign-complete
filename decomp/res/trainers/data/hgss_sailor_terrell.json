@@ -1,0 +1,42 @@
+{
+    "name": "Terrell",
+    "class": "TRAINER_CLASS_SAILOR",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_POLITOED",
+            "form": 0,
+            "level": 32,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Sailors are both kind and strong.\n",
+                "How about you?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You are both kind and strong...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Every time I come back to Olivine,\n",
+                "I visit the Gym.\r",
+                "The Gym Leader’s Pokémon type\n",
+                "changed without my noticing.\n"
+            ]
+        }
+    ]
+}

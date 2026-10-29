@@ -32,178 +32,57 @@
     ScriptEntryEnd
 scr_seq_T27R0501_013:
     CompareVar VAR_HGSS_UNK_410C, 1
-    GoToIf 2, _0057
+    GoToIf 2, _046D
     ShowObject obj_T27R0501_rocketm_2
-_0057:
     CompareVar VAR_HGSS_UNK_410C, 0
-    GoToIf 5, _007C
+    GoToIf 5, _04D2
     SetPosition obj_T27R0501_rocketm, 6, 0, 6, DIR_EAST
     SetPosition obj_T27R0501_dancer_3, 8, 0, 6, DIR_WEST
-_007C:
     CompareVar VAR_MAP_LOCAL_0x09, 222
-    GoToIf 5, _0110
+    GoToIf 5, _0512
     SetPosition obj_T27R0501_rocketm, 29, 0, 29, DIR_SOUTH
     ShowObject obj_T27R0501_rocketm
     GetPlayerDir VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
-    GoToIf 5, _00BC
+    GoToIf 5, _053A
     SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_SOUTH
-    GoTo _0106
-_00BC:
-    CompareVar VAR_MAP_LOCAL_0x00, 1
-    GoToIf 5, _00DB
-    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_NORTH
-    GoTo _0106
-_00DB:
-    CompareVar VAR_MAP_LOCAL_0x00, 2
-    GoToIf 5, _00FA
-    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_EAST
-    GoTo _0106
-_00FA:
-    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_WEST
-_0106:
-    @ HGSS: ScrCmd_374 obj_T27R0501_rocketm_2
-    SetVarFromValue VAR_MAP_LOCAL_0x09, 0
-_0110:
-    CompareVar VAR_MAP_LOCAL_0x0A, 10
-    GoToIf 1, _0136
-    CompareVar VAR_HGSS_UNK_410C, 3
-    GoToIf 5, _0136
-    SetPosition obj_T27R0501_dancer_3, 7, 0, 6, DIR_SOUTH
-_0136:
-    End
+    GoTo _0559
 scr_seq_T27R0501_015:
     LockAll
     Message msg_0618_T27R0501_00000
     CloseMessage
-    ApplyMovement obj_T27R0501_rocketm, _01CC
+    ApplyMovement obj_T27R0501_rocketm, _1074
     WaitMovement
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-    ApplyMovement 241, _01D4
+    ApplyMovement 241, _107A
     WaitMovement
     WaitTime 10, VAR_RESULT
-    ApplyMovement obj_T27R0501_rocketm, _01F0
+    ApplyMovement obj_T27R0501_rocketm, _1080
     WaitMovement
     Message msg_0618_T27R0501_00001
     CloseMessage
-    ApplyMovement obj_T27R0501_dancer_3, _01F8
+    ApplyMovement obj_T27R0501_dancer_3, _1086
     WaitMovement
     Message msg_0618_T27R0501_00002
     CloseMessage
-    ApplyMovement obj_T27R0501_rocketm, _0200
+    ApplyMovement obj_T27R0501_rocketm, _108C
     WaitMovement
     Message msg_0618_T27R0501_00003
     CloseMessage
-    ApplyMovement obj_T27R0501_dancer_3, _0208
+    ApplyMovement obj_T27R0501_dancer_3, _1092
     WaitMovement
     Message msg_0618_T27R0501_00004
     CloseMessage
-    ApplyMovement obj_T27R0501_rocketm, _0218
+    ApplyMovement obj_T27R0501_rocketm, _10A0
     WaitMovement
-    ApplyMovement obj_T27R0501_rocketm, _0220
-    ApplyMovement 241, _01DC
+    ApplyMovement obj_T27R0501_rocketm, _10A6
+    ApplyMovement 241, _1180
     WaitMovement
     @ HGSS: ScrCmd_103
     ReleaseAll
     SetVarFromValue VAR_HGSS_UNK_410C, 1
     End
-    .balign 4, 0
-_01CC:
-    FaceEast
-    EndMovement
-    .balign 4, 0
-_01D4:
-    WalkSlightlyFastNorth 9
-    EndMovement
-    .balign 4, 0
-_01DC:
-    Delay32
-    WalkSlightlyFastSouth 9
-    EndMovement
-    .balign 4, 0
-_01E8:
-    WalkNormalNorth 3
-    EndMovement
-    .balign 4, 0
-_01F0:
-    WalkNormalEast
-    EndMovement
-    .balign 4, 0
-_01F8:
-    WalkOnSpotFastWest
-    EndMovement
-    .balign 4, 0
-_0200:
-    JumpOnSpotFastEast 2
-    EndMovement
-    .balign 4, 0
-_0208:
-    LockDir
-    WalkNormalEast 2
-    UnlockDir
-    EndMovement
-    .balign 4, 0
-_0218:
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_0220:
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    Delay1
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    Delay1
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    Delay1
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    Delay1
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    Delay1
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    FaceWest
-    Delay1
-    FaceNorth
-    Delay1
-    FaceEast
-    Delay1
-    FaceSouth
-    EndMovement
 scr_seq_T27R0501_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
@@ -213,167 +92,65 @@ scr_seq_T27R0501_003:
     Message msg_0618_T27R0501_00005
     CloseMessage
     SetVarFromValue VAR_MAP_LOCAL_0x09, 222
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_26, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_26, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _040C
+    GoToIf 1, _058B
     Message msg_0618_T27R0501_00006
     CloseMessage
     GetPlayerDir VAR_0x8004
     CompareVar VAR_0x8004, 0
-    GoToIf 5, _0354
-    ApplyMovement obj_T27R0501_rocketm_2, _0414
-    GoTo _0392
-_0354:
-    CompareVar VAR_0x8004, 1
-    GoToIf 5, _036F
-    ApplyMovement obj_T27R0501_rocketm_2, _0424
-    GoTo _0392
-_036F:
-    CompareVar VAR_0x8004, 2
-    GoToIf 5, _038A
-    ApplyMovement obj_T27R0501_rocketm_2, _0434
-    GoTo _0392
-_038A:
-    ApplyMovement obj_T27R0501_rocketm_2, _0444
-_0392:
-    WaitMovement
-    Message msg_0618_T27R0501_00007
-    CloseMessage
-    CompareVar VAR_0x8004, 0
-    GoToIf 5, _03B4
-    ApplyMovement obj_T27R0501_rocketm_2, _0454
-    GoTo _03F2
-_03B4:
-    CompareVar VAR_0x8004, 1
-    GoToIf 5, _03CF
-    ApplyMovement obj_T27R0501_rocketm_2, _0460
-    GoTo _03F2
-_03CF:
-    CompareVar VAR_0x8004, 2
-    GoToIf 5, _03EA
-    ApplyMovement obj_T27R0501_rocketm_2, _046C
-    GoTo _03F2
-_03EA:
-    ApplyMovement obj_T27R0501_rocketm_2, _0478
-_03F2:
-    WaitMovement
-    RemoveObject obj_T27R0501_rocketm_2
-    SetFlag FLAG_HGSS_UNK_23A
-    ReleaseAll
-    SetVarFromValue VAR_HGSS_UNK_410C, 2
-    SetVarFromValue VAR_MAP_LOCAL_0x0A, 10
-    End
-_040C:
-    BlackOutFromBattle
-    ReleaseAll
-    End
-    .balign 4, 0
-_0414:
-    LockDir
-    WalkNormalNorth
-    UnlockDir
-    EndMovement
-    .balign 4, 0
-_0424:
-    LockDir
-    WalkNormalSouth
-    UnlockDir
-    EndMovement
-    .balign 4, 0
-_0434:
-    LockDir
-    WalkNormalWest
-    UnlockDir
-    EndMovement
-    .balign 4, 0
-_0444:
-    LockDir
-    WalkNormalEast
-    UnlockDir
-    EndMovement
-    .balign 4, 0
-_0454:
-    WalkFastWest 4
-    WalkFastSouth 12
-    EndMovement
-    .balign 4, 0
-_0460:
-    WalkFastWest 4
-    WalkFastSouth 10
-    EndMovement
-    .balign 4, 0
-_046C:
-    WalkFastWest 3
-    WalkFastSouth 10
-    EndMovement
-    .balign 4, 0
-_0478:
-    WalkFastSouth
-    WalkFastEast 3
-    WalkFastSouth 9
-    EndMovement
+    GoToIf 5, _0591
+    ApplyMovement obj_T27R0501_rocketm_2, _118A
+    GoTo _05AC
 scr_seq_T27R0501_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     CompareVar VAR_HGSS_UNK_410C, 1
-    GoToIf 1, _04B5
+    GoToIf 1, _05CE
     CompareVar VAR_MAP_LOCAL_0x0A, 10
-    GoToIf 1, _04C0
+    GoToIf 1, _05D9
     Message msg_0618_T27R0501_00010
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_04B5:
-    Message msg_0618_T27R0501_00008
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_04C0:
-    BufferPlayerName 0
-    Message msg_0618_T27R0501_00009
     WaitButton
     CloseMessage
     ReleaseAll
     End
 scr_seq_T27R0501_011:
     LockAll
-    ApplyMovement obj_T27R0501_gsgentleman, _05B4
+    ApplyMovement obj_T27R0501_gsgentleman, _1198
     WaitMovement
     Message msg_0618_T27R0501_00026
     SetVar VAR_0x8004, ITEM_HM03
     SetVar VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
-    GoToIfEq VAR_RESULT, 0, _05A9
+    GoToIfEq VAR_RESULT, 0, _05E7
     Common_GiveItemQuantity
     SetFlag FLAG_HGSS_GOT_HM03
     SetVarFromValue VAR_HGSS_UNK_410C, 3
     SetVarFromValue VAR_HGSS_UNK_4090, 1
     Message msg_0618_T27R0501_00028
     CloseMessage
-    ApplyMovement obj_T27R0501_gsgentleman, _05C4
+    ApplyMovement obj_T27R0501_gsgentleman, _11A6
     WaitMovement
     ReleaseAll
     End
 scr_seq_T27R0501_012:
     LockAll
-    ApplyMovement obj_T27R0501_gsgentleman, _05D8
+    ApplyMovement obj_T27R0501_gsgentleman, _11B8
     WaitMovement
     Message msg_0618_T27R0501_00026
     SetVar VAR_0x8004, ITEM_HM03
     SetVar VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
-    GoToIfEq VAR_RESULT, 0, _05A9
+    GoToIfEq VAR_RESULT, 0, _05E7
     Common_GiveItemQuantity
     SetFlag FLAG_HGSS_GOT_HM03
     SetVarFromValue VAR_HGSS_UNK_4090, 1
     SetVarFromValue VAR_HGSS_UNK_410C, 3
     Message msg_0618_T27R0501_00028
     CloseMessage
-    ApplyMovement obj_T27R0501_gsgentleman, _05E8
+    ApplyMovement obj_T27R0501_gsgentleman, _11C6
     WaitMovement
     ReleaseAll
     End
@@ -381,49 +158,12 @@ scr_seq_T27R0501_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_GOT_HM03, _059E
+    GoToIfSet FLAG_HGSS_GOT_HM03, _05F1
     Message msg_0618_T27R0501_00025
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_059E:
-    Message msg_0618_T27R0501_00029
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_05A9:
-    Common_MessageBagIsFull
-    CloseMessage
-    ReleaseAll
-    End
-    .balign 4, 0
-_05B4:
-    WalkNormalNorth
-    WalkNormalWest 5
-    WalkNormalNorth 2
-    EndMovement
-    .balign 4, 0
-_05C4:
-    WalkNormalSouth 2
-    WalkNormalEast 5
-    WalkNormalSouth
-    FaceNorth
-    EndMovement
-    .balign 4, 0
-_05D8:
-    WalkNormalNorth
-    WalkNormalEast 3
-    WalkNormalNorth 2
-    EndMovement
-    .balign 4, 0
-_05E8:
-    WalkNormalSouth 2
-    WalkNormalWest 3
-    WalkNormalSouth
-    FaceNorth
-    EndMovement
 scr_seq_T27R0501_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
@@ -440,65 +180,23 @@ scr_seq_T27R0501_002:
     LockAll
     FacePlayer
     CompareVar VAR_MAP_LOCAL_0x0A, 10
-    GoToIf 1, _0644
+    GoToIf 1, _05FC
     CompareVar VAR_HGSS_UNK_410C, 1
-    GoToIf 1, _064F
+    GoToIf 1, _0607
     Message msg_0618_T27R0501_00031
     WaitButton
     CloseMessage
     ReleaseAll
-    End
-_0644:
-    Message msg_0618_T27R0501_00033
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_064F:
-    CompareVar VAR_MAP_LOCAL_0x0B, 0
-    GoToIf 5, _0665
-    Message msg_0618_T27R0501_00032
-    GoTo _067E
-_0665:
-    CompareVar VAR_MAP_LOCAL_0x0B, 1
-    GoToIf 5, _067B
-    Message msg_0618_T27R0501_00034
-    GoTo _067E
-_067B:
-    Message msg_0618_T27R0501_00035
-_067E:
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    CompareVar VAR_MAP_LOCAL_0x0B, 2
-    GoToIf 4, _069D
-    AddVar VAR_MAP_LOCAL_0x0B, 1
-    GoTo _06A3
-_069D:
-    SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
-_06A3:
     End
 scr_seq_T27R0501_014:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     CompareVar VAR_MAP_LOCAL_0x0A, 10
-    GoToIf 1, _06D2
+    GoToIf 1, _061D
     CompareVar VAR_HGSS_UNK_410C, 1
-    GoToIf 1, _06DD
+    GoToIf 1, _0628
     Message msg_0618_T27R0501_00036
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_06D2:
-    Message msg_0618_T27R0501_00038
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_06DD:
-    Message msg_0618_T27R0501_00037
     WaitButton
     CloseMessage
     ReleaseAll
@@ -510,15 +208,9 @@ scr_seq_T27R0501_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_108, _0724
-    GoToIfSet FLAG_HGSS_UNK_109, _0724
+    GoToIfSet FLAG_HGSS_UNK_108, _0633
+    GoToIfSet FLAG_HGSS_UNK_109, _0633
     Message msg_0618_T27R0501_00019
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0724:
-    Message msg_0618_T27R0501_00040
     WaitButton
     CloseMessage
     ReleaseAll
@@ -527,15 +219,9 @@ scr_seq_T27R0501_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_108, _0758
-    GoToIfSet FLAG_HGSS_UNK_109, _0758
+    GoToIfSet FLAG_HGSS_UNK_108, _063E
+    GoToIfSet FLAG_HGSS_UNK_109, _063E
     Message msg_0618_T27R0501_00019
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0758:
-    Message msg_0618_T27R0501_00041
     WaitButton
     CloseMessage
     ReleaseAll
@@ -545,87 +231,24 @@ scr_seq_T27R0501_007:
     LockAll
     FacePlayer
     SetVarFromValue VAR_0x8000, 77
-    GoToIfSet FLAG_HGSS_UNK_108, _0868
-    GoToIfSet FLAG_HGSS_UNK_109, _0868
+    GoToIfSet FLAG_HGSS_UNK_108, _0649
+    GoToIfSet FLAG_HGSS_UNK_109, _0649
     Message msg_0618_T27R0501_00013
     ShowYesNoMenu VAR_0x8004
     CompareVar VAR_0x8004, 1
-    GoToIf 1, _0BD3
+    GoToIf 1, _065B
     CloseMessage
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 0
-    CallIf 5, _07BA
-    GoTo _0944
-    End
-_07BA:
-    CompleteFollowerPause 0
-    CompleteFollowerWait
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    CompareVar VAR_RESULT, 1
-    GoToIf 5, _07DF
-    ApplyMovement LOCALID_PLAYER, _0828
-    GoTo _080F
-_07DF:
-    CompareVar VAR_RESULT, 2
-    GoToIf 5, _07FA
-    ApplyMovement LOCALID_PLAYER, _083C
-    GoTo _080F
-_07FA:
-    CompareVar VAR_RESULT, 3
-    GoToIf 5, _080F
-    ApplyMovement LOCALID_PLAYER, _084C
-_080F:
-    ApplyMovement obj_T27R0501_dancer_6, _085C
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    Return
-    .balign 4, 0
-_0828:
-    WalkNormalEast
-    WalkNormalSouth 2
-    WalkNormalWest
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_083C:
-    WalkNormalSouth
-    WalkNormalWest
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_084C:
-    WalkNormalSouth
-    WalkNormalEast
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_085C:
-    Delay8 2
-    WalkOnSpotNormalSouth
-    EndMovement
-_0868:
-    BufferPlayerName 0
-    Message msg_0618_T27R0501_00042
-    WaitButton
-    CloseMessage
-    SetFlag FLAG_HGSS_UNK_107
-    ReleaseAll
-    End
+    CallIf 5, _066A
+    GoTo _068F
 scr_seq_T27R0501_008:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_108, _08A3
-    GoToIfSet FLAG_HGSS_UNK_109, _08A3
+    GoToIfSet FLAG_HGSS_UNK_108, _0863
+    GoToIfSet FLAG_HGSS_UNK_109, _0863
     Message msg_0618_T27R0501_00019
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_08A3:
-    Message msg_0618_T27R0501_00043
     WaitButton
     CloseMessage
     ReleaseAll
@@ -634,15 +257,9 @@ scr_seq_T27R0501_009:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_108, _08D7
-    GoToIfSet FLAG_HGSS_UNK_109, _08D7
+    GoToIfSet FLAG_HGSS_UNK_108, _086E
+    GoToIfSet FLAG_HGSS_UNK_109, _086E
     Message msg_0618_T27R0501_00019
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_08D7:
-    Message msg_0618_T27R0501_00044
     WaitButton
     CloseMessage
     ReleaseAll
@@ -654,138 +271,658 @@ scr_seq_T27R0501_016:
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    ApplyMovement LOCALID_PLAYER, _0BF4
+    ApplyMovement LOCALID_PLAYER, _11D8
     WaitMovement
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     GetGameVersion VAR_RESULT
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _092A
+    GoToIf 5, _0879
     Message msg_0618_T27R0501_00011
-    GoTo _092D
-_092A:
-    Message msg_0618_T27R0501_00012
-_092D:
-    ShowYesNoMenu VAR_0x8004
+    GoTo _0A67
+_046D:
+    CompareVar VAR_HGSS_UNK_410C, 0
+    GoToIf 5, _04D2
+    SetPosition obj_T27R0501_rocketm, 6, 0, 6, DIR_EAST
+    SetPosition obj_T27R0501_dancer_3, 8, 0, 6, DIR_WEST
+    CompareVar VAR_MAP_LOCAL_0x09, 222
+    GoToIf 5, _0512
+    SetPosition obj_T27R0501_rocketm, 29, 0, 29, DIR_SOUTH
+    ShowObject obj_T27R0501_rocketm
+    GetPlayerDir VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 0
+    GoToIf 5, _053A
+    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_SOUTH
+    GoTo _0559
+_04D2:
+    CompareVar VAR_MAP_LOCAL_0x09, 222
+    GoToIf 5, _0512
+    SetPosition obj_T27R0501_rocketm, 29, 0, 29, DIR_SOUTH
+    ShowObject obj_T27R0501_rocketm
+    GetPlayerDir VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 0
+    GoToIf 5, _053A
+    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_SOUTH
+    GoTo _0559
+_0512:
+    CompareVar VAR_MAP_LOCAL_0x0A, 10
+    GoToIf 1, _0C52
+    CompareVar VAR_HGSS_UNK_410C, 3
+    GoToIf 5, _0C52
+    SetPosition obj_T27R0501_dancer_3, 7, 0, 6, DIR_SOUTH
+    End
+_053A:
+    CompareVar VAR_MAP_LOCAL_0x00, 1
+    GoToIf 5, _0C54
+    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_NORTH
+    GoTo _0559
+_0559:
+    @ HGSS: ScrCmd_374 obj_T27R0501_rocketm_2
+    SetVarFromValue VAR_MAP_LOCAL_0x09, 0
+    CompareVar VAR_MAP_LOCAL_0x0A, 10
+    GoToIf 1, _0C52
+    CompareVar VAR_HGSS_UNK_410C, 3
+    GoToIf 5, _0C52
+    SetPosition obj_T27R0501_dancer_3, 7, 0, 6, DIR_SOUTH
+    End
+_058B:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_0591:
     CompareVar VAR_0x8004, 1
-    GoToIf 1, _0BD3
+    GoToIf 5, _0C73
+    ApplyMovement obj_T27R0501_rocketm_2, _11EE
+    GoTo _05AC
+_05AC:
+    WaitMovement
+    Message msg_0618_T27R0501_00007
     CloseMessage
-_0944:
+    CompareVar VAR_0x8004, 0
+    GoToIf 5, _0C8E
+    ApplyMovement obj_T27R0501_rocketm_2, _11FC
+    GoTo _0CA9
+_05CE:
+    Message msg_0618_T27R0501_00008
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_05D9:
+    BufferPlayerName 0
+    Message msg_0618_T27R0501_00009
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_05E7:
+    Common_MessageBagIsFull
+    CloseMessage
+    ReleaseAll
+    End
+_05F1:
+    Message msg_0618_T27R0501_00029
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_05FC:
+    Message msg_0618_T27R0501_00033
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0607:
+    CompareVar VAR_MAP_LOCAL_0x0B, 0
+    GoToIf 5, _0CC3
+    Message msg_0618_T27R0501_00032
+    GoTo _0CD9
+_061D:
+    Message msg_0618_T27R0501_00038
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0628:
+    Message msg_0618_T27R0501_00037
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0633:
+    Message msg_0618_T27R0501_00040
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_063E:
+    Message msg_0618_T27R0501_00041
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0649:
+    BufferPlayerName 0
+    Message msg_0618_T27R0501_00042
+    WaitButton
+    CloseMessage
+    SetFlag FLAG_HGSS_UNK_107
+    ReleaseAll
+    End
+_065B:
+    Message msg_0618_T27R0501_00014
+    WaitButton
+    CloseMessage
+    Call _0CF8
+    End
+_066A:
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _0D0D
+    ApplyMovement LOCALID_PLAYER, _1206
+    GoTo _0D28
+_068F:
     StopMusic
     PlayMusic SEQ_TOWN01_D_sseq
-    ApplyMovement obj_T27R0501_dancer_6, _0D74
+    ApplyMovement obj_T27R0501_dancer_6, _1218
     WaitMovement
     Message msg_0618_T27R0501_00045
     CloseMessage
     WaitTime 10, VAR_RESULT
-    @ HGSS: TrainerBattle TRAINER_KIMONO_GIRL_ZUKI, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_ZUKI, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0BC9
-    ApplyMovement obj_T27R0501_dancer_6, _0C0C
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_6, _1256
     WaitMovement
     StopMusic
     PlayMusic SEQ_TOWN01_D_sseq
-    ApplyMovement obj_T27R0501_dancer, _0C18
+    ApplyMovement obj_T27R0501_dancer, _1260
     WaitMovement
     Message msg_0618_T27R0501_00015
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_KIMONO_GIRL_NAOKO, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_NAOKO, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0BC9
-    ApplyMovement obj_T27R0501_dancer, _0C48
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer, _128E
     WaitMovement
     StopMusic
     PlayMusic SEQ_TOWN01_D_sseq
-    ApplyMovement obj_T27R0501_dancer_5, _0C54
+    ApplyMovement 13, _140C
+    WaitMovement
+    Message msg_0618_T27R0501_00046
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_MICKEY_4, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement 13, _143A
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement 14, _1448
+    WaitMovement
+    Message msg_0618_T27R0501_00047
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_MICKEY_5, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement 14, _1476
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_5, _1298
     WaitMovement
     Message msg_0618_T27R0501_00016
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_KIMONO_GIRL_MIKI, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_MIKI, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0BC9
-    ApplyMovement obj_T27R0501_dancer_5, _0C84
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_5, _12C6
     WaitMovement
     StopMusic
     PlayMusic SEQ_TOWN01_D_sseq
-    ApplyMovement obj_T27R0501_dancer_2, _0C90
+    ApplyMovement obj_T27R0501_dancer_2, _12D0
     WaitMovement
     Message msg_0618_T27R0501_00017
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_KIMONO_GIRL_SAYO, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_SAYO, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0BC9
-    ApplyMovement obj_T27R0501_dancer_2, _0CBC
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_2, _12FA
     WaitMovement
     StopMusic
     PlayMusic SEQ_TOWN01_D_sseq
-    ApplyMovement obj_T27R0501_dancer_4, _0CCC
+    ApplyMovement obj_T27R0501_dancer_4, _1308
     WaitMovement
     Message msg_0618_T27R0501_00018
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_KIMONO_GIRL_KUNI, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_KUNI, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0BC9
-    ApplyMovement obj_T27R0501_dancer_4, _0CF8
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_4, _1332
     WaitMovement
-    ApplyMovement obj_T27R0501_dancer_6, _0D08
+    ApplyMovement obj_T27R0501_dancer_6, _1340
     WaitMovement
     Message msg_0618_T27R0501_00020
     GetGameVersion VAR_RESULT
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _0AA4
+    GoToIf 5, _0D48
     SetVar VAR_0x8004, ITEM_CLEAR_BELL
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     SetFlag FLAG_HGSS_UNK_103
-    GoTo _0AB8
-_0AA4:
+    GoTo _0DA6
+_0863:
+    Message msg_0618_T27R0501_00043
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_086E:
+    Message msg_0618_T27R0501_00044
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0879:
+    Message msg_0618_T27R0501_00012
+    ShowYesNoMenu VAR_0x8004
+    CompareVar VAR_0x8004, 1
+    GoToIf 1, _065B
+    CloseMessage
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_6, _1218
+    WaitMovement
+    Message msg_0618_T27R0501_00045
+    CloseMessage
+    WaitTime 10, VAR_RESULT
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_ZUKI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_6, _1256
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer, _1260
+    WaitMovement
+    Message msg_0618_T27R0501_00015
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_NAOKO, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer, _128E
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement 13, _140C
+    WaitMovement
+    Message msg_0618_T27R0501_00046
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_MICKEY_4, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement 13, _143A
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement 14, _1448
+    WaitMovement
+    Message msg_0618_T27R0501_00047
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_MICKEY_5, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement 14, _1476
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_5, _1298
+    WaitMovement
+    Message msg_0618_T27R0501_00016
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_MIKI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_5, _12C6
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_2, _12D0
+    WaitMovement
+    Message msg_0618_T27R0501_00017
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_SAYO, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_2, _12FA
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_4, _1308
+    WaitMovement
+    Message msg_0618_T27R0501_00018
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_KUNI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_4, _1332
+    WaitMovement
+    ApplyMovement obj_T27R0501_dancer_6, _1340
+    WaitMovement
+    Message msg_0618_T27R0501_00020
+    GetGameVersion VAR_RESULT
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0D48
+    SetVar VAR_0x8004, ITEM_CLEAR_BELL
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_HGSS_UNK_103
+    GoTo _0DA6
+_0A67:
+    ShowYesNoMenu VAR_0x8004
+    CompareVar VAR_0x8004, 1
+    GoToIf 1, _065B
+    CloseMessage
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_6, _1218
+    WaitMovement
+    Message msg_0618_T27R0501_00045
+    CloseMessage
+    WaitTime 10, VAR_RESULT
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_ZUKI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_6, _1256
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer, _1260
+    WaitMovement
+    Message msg_0618_T27R0501_00015
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_NAOKO, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer, _128E
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement 13, _140C
+    WaitMovement
+    Message msg_0618_T27R0501_00046
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_MICKEY_4, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement 13, _143A
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement 14, _1448
+    WaitMovement
+    Message msg_0618_T27R0501_00047
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_MICKEY_5, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement 14, _1476
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_5, _1298
+    WaitMovement
+    Message msg_0618_T27R0501_00016
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_MIKI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_5, _12C6
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_2, _12D0
+    WaitMovement
+    Message msg_0618_T27R0501_00017
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_SAYO, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_2, _12FA
+    WaitMovement
+    StopMusic
+    PlayMusic SEQ_TOWN01_D_sseq
+    ApplyMovement obj_T27R0501_dancer_4, _1308
+    WaitMovement
+    Message msg_0618_T27R0501_00018
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_KIMONO_GIRL_KUNI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0D3E
+    ApplyMovement obj_T27R0501_dancer_4, _1332
+    WaitMovement
+    ApplyMovement obj_T27R0501_dancer_6, _1340
+    WaitMovement
+    Message msg_0618_T27R0501_00020
+    GetGameVersion VAR_RESULT
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0D48
+    SetVar VAR_0x8004, ITEM_CLEAR_BELL
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_HGSS_UNK_103
+    GoTo _0DA6
+_0C52:
+    End
+_0C54:
+    CompareVar VAR_MAP_LOCAL_0x00, 2
+    GoToIf 5, _0DF0
+    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_EAST
+    GoTo _0559
+_0C73:
+    CompareVar VAR_0x8004, 2
+    GoToIf 5, _0E2E
+    ApplyMovement obj_T27R0501_rocketm_2, _1346
+    GoTo _05AC
+_0C8E:
+    CompareVar VAR_0x8004, 1
+    GoToIf 5, _0E58
+    ApplyMovement obj_T27R0501_rocketm_2, _1354
+    GoTo _0CA9
+_0CA9:
+    WaitMovement
+    RemoveObject obj_T27R0501_rocketm_2
+    SetFlag FLAG_HGSS_UNK_23A
+    ReleaseAll
+    SetVarFromValue VAR_HGSS_UNK_410C, 2
+    SetVarFromValue VAR_MAP_LOCAL_0x0A, 10
+    End
+_0CC3:
+    CompareVar VAR_MAP_LOCAL_0x0B, 1
+    GoToIf 5, _0E73
+    Message msg_0618_T27R0501_00034
+    GoTo _0CD9
+_0CD9:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    CompareVar VAR_MAP_LOCAL_0x0B, 2
+    GoToIf 4, _0E95
+    AddVar VAR_MAP_LOCAL_0x0B, 1
+    GoTo _0E9D
+_0CF8:
+    CompareVar VAR_0x8000, 77
+    GoToIf 5, _0E9F
+    ReleaseAll
+    GoTo _0EA3
+_0D0D:
+    CompareVar VAR_RESULT, 2
+    GoToIf 5, _0EA5
+    ApplyMovement LOCALID_PLAYER, _135E
+    GoTo _0D28
+_0D28:
+    ApplyMovement obj_T27R0501_dancer_6, _136C
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    Return
+_0D3E:
+    BlackOutFromBattle
+    Call _0CF8
+    End
+_0D48:
     SetVar VAR_0x8004, ITEM_TIDAL_BELL
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     SetFlag FLAG_HGSS_UNK_104
-_0AB8:
     CloseMessage
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
     @ HGSS: ScreenShake 0, 2, 10, 6
     WaitSE SEQ_SE_DP_KI_GASYAN_sseq
     ClearFlag FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL
     AddObject obj_T27R0501_gsbabygirl1
-    ApplyMovement obj_T27R0501_gsbabygirl1, _0D10
+    ApplyMovement obj_T27R0501_gsbabygirl1, _1376
     WaitMovement
-    ApplyMovement obj_T27R0501_dancer_6, _0BEC
+    ApplyMovement obj_T27R0501_dancer_6, _1380
     WaitMovement
     GetGameVersion VAR_RESULT
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _0B02
+    GoToIf 5, _0ED0
     Message msg_0618_T27R0501_00021
-    GoTo _0B05
-_0B02:
-    Message msg_0618_T27R0501_00022
-_0B05:
+    GoTo _0EF8
+_0DA6:
     CloseMessage
-    ApplyMovement obj_T27R0501_dancer_6, _0BE4
+    PlaySE SEQ_SE_DP_KI_GASYAN_sseq
+    @ HGSS: ScreenShake 0, 2, 10, 6
+    WaitSE SEQ_SE_DP_KI_GASYAN_sseq
+    ClearFlag FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL
+    AddObject obj_T27R0501_gsbabygirl1
+    ApplyMovement obj_T27R0501_gsbabygirl1, _1376
+    WaitMovement
+    ApplyMovement obj_T27R0501_dancer_6, _1380
+    WaitMovement
+    GetGameVersion VAR_RESULT
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0ED0
+    Message msg_0618_T27R0501_00021
+    GoTo _0EF8
+_0DF0:
+    SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_WEST
+    @ HGSS: ScrCmd_374 obj_T27R0501_rocketm_2
+    SetVarFromValue VAR_MAP_LOCAL_0x09, 0
+    CompareVar VAR_MAP_LOCAL_0x0A, 10
+    GoToIf 1, _0C52
+    CompareVar VAR_HGSS_UNK_410C, 3
+    GoToIf 5, _0C52
+    SetPosition obj_T27R0501_dancer_3, 7, 0, 6, DIR_SOUTH
+    End
+_0E2E:
+    ApplyMovement obj_T27R0501_rocketm_2, _1386
+    WaitMovement
+    Message msg_0618_T27R0501_00007
+    CloseMessage
+    CompareVar VAR_0x8004, 0
+    GoToIf 5, _0C8E
+    ApplyMovement obj_T27R0501_rocketm_2, _11FC
+    GoTo _0CA9
+_0E58:
+    CompareVar VAR_0x8004, 2
+    GoToIf 5, _0F1D
+    ApplyMovement obj_T27R0501_rocketm_2, _1394
+    GoTo _0CA9
+_0E73:
+    Message msg_0618_T27R0501_00035
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    CompareVar VAR_MAP_LOCAL_0x0B, 2
+    GoToIf 4, _0E95
+    AddVar VAR_MAP_LOCAL_0x0B, 1
+    GoTo _0E9D
+_0E95:
+    SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
+    End
+_0E9D:
+    End
+_0E9F:
+    ReleaseAll
+    Return
+_0EA3:
+    Return
+_0EA5:
+    CompareVar VAR_RESULT, 3
+    GoToIf 5, _0D28
+    ApplyMovement LOCALID_PLAYER, _139E
+    ApplyMovement obj_T27R0501_dancer_6, _136C
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    Return
+_0ED0:
+    Message msg_0618_T27R0501_00022
+    CloseMessage
+    ApplyMovement obj_T27R0501_dancer_6, _13AC
     WaitMovement
     BufferPlayerName 0
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _0B2A
+    GoToIf 5, _0F3F
     Message msg_0618_T27R0501_00023
-    GoTo _0B2D
-_0B2A:
-    Message msg_0618_T27R0501_00024
-_0B2D:
+    GoTo _0FD7
+_0EF8:
     CloseMessage
-    ApplyMovement obj_T27R0501_dancer, _0D1C
-    ApplyMovement obj_T27R0501_dancer_2, _0D28
-    ApplyMovement obj_T27R0501_dancer_6, _0D38
-    ApplyMovement obj_T27R0501_dancer_4, _0D48
-    ApplyMovement obj_T27R0501_dancer_5, _0D58
-    ApplyMovement obj_T27R0501_gsbabygirl1, _0D64
+    ApplyMovement obj_T27R0501_dancer_6, _13AC
+    WaitMovement
+    BufferPlayerName 0
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0F3F
+    Message msg_0618_T27R0501_00023
+    GoTo _0FD7
+_0F1D:
+    ApplyMovement obj_T27R0501_rocketm_2, _13B2
+    WaitMovement
+    RemoveObject obj_T27R0501_rocketm_2
+    SetFlag FLAG_HGSS_UNK_23A
+    ReleaseAll
+    SetVarFromValue VAR_HGSS_UNK_410C, 2
+    SetVarFromValue VAR_MAP_LOCAL_0x0A, 10
+    End
+_0F3F:
+    Message msg_0618_T27R0501_00024
+    CloseMessage
+    ApplyMovement obj_T27R0501_dancer, _13C0
+    ApplyMovement obj_T27R0501_dancer_2, _13CA
+    ApplyMovement 14, _1484
+    ApplyMovement obj_T27R0501_dancer_6, _13D8
+    ApplyMovement obj_T27R0501_dancer_4, _13E6
+    ApplyMovement obj_T27R0501_dancer_5, _13F4
+    ApplyMovement obj_T27R0501_gsbabygirl1, _13FE
+    ApplyMovement 13, _1492
     WaitMovement
     RemoveObject obj_T27R0501_dancer
     RemoveObject obj_T27R0501_dancer_2
@@ -793,48 +930,176 @@ _0B2D:
     RemoveObject obj_T27R0501_dancer_4
     RemoveObject obj_T27R0501_dancer_5
     RemoveObject obj_T27R0501_gsbabygirl1
+    RemoveObject 14
+    RemoveObject 13
     SetFlag FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS
     SetFlag FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL
-    Call _0BB0
+    Call _0CF8
     SetVarFromValue VAR_HGSS_UNK_410C, 6
     SetVarFromValue VAR_HGSS_UNK_40FA, 1
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _0BAA
+    GoToIf 5, _106C
     ClearFlag FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS
-    GoTo _0BAE
-_0BAA:
-    ClearFlag FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS
-_0BAE:
-    End
-_0BB0:
-    CompareVar VAR_0x8000, 77
-    GoToIf 5, _0BC5
-    ReleaseAll
-    GoTo _0BC7
-_0BC5:
-    ReleaseAll
-_0BC7:
-    Return
-_0BC9:
-    BlackOutFromBattle
-    Call _0BB0
-    End
-_0BD3:
-    Message msg_0618_T27R0501_00014
-    WaitButton
+    GoTo _1072
+_0FD7:
     CloseMessage
-    Call _0BB0
+    ApplyMovement obj_T27R0501_dancer, _13C0
+    ApplyMovement obj_T27R0501_dancer_2, _13CA
+    ApplyMovement 14, _1484
+    ApplyMovement obj_T27R0501_dancer_6, _13D8
+    ApplyMovement obj_T27R0501_dancer_4, _13E6
+    ApplyMovement obj_T27R0501_dancer_5, _13F4
+    ApplyMovement obj_T27R0501_gsbabygirl1, _13FE
+    ApplyMovement 13, _1492
+    WaitMovement
+    RemoveObject obj_T27R0501_dancer
+    RemoveObject obj_T27R0501_dancer_2
+    RemoveObject obj_T27R0501_dancer_6
+    RemoveObject obj_T27R0501_dancer_4
+    RemoveObject obj_T27R0501_dancer_5
+    RemoveObject obj_T27R0501_gsbabygirl1
+    RemoveObject 14
+    RemoveObject 13
+    SetFlag FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS
+    SetFlag FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL
+    Call _0CF8
+    SetVarFromValue VAR_HGSS_UNK_410C, 6
+    SetVarFromValue VAR_HGSS_UNK_40FA, 1
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _106C
+    ClearFlag FLAG_HGSS_HIDE_BELL_TOWER_SUMMIT_KIMONO_GIRLS
+    GoTo _1072
+_106C:
+    ClearFlag FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS
+    End
+_1072:
     End
     .balign 4, 0
-_0BE4:
-    EmoteExclamationMark
+_1074:
+    FaceEast
     EndMovement
     .balign 4, 0
-_0BEC:
-    WalkOnSpotNormalWest
+_107A:
+    WalkSlightlyFastNorth 9
     EndMovement
     .balign 4, 0
-_0BF4:
+_1080:
+    WalkNormalEast
+    EndMovement
+    .balign 4, 0
+_1086:
+    WalkOnSpotFastWest
+    EndMovement
+    .balign 4, 0
+_108C:
+    JumpOnSpotFastEast 2
+    EndMovement
+    .balign 4, 0
+_1092:
+    LockDir
+    WalkNormalEast 2
+    UnlockDir
+    EndMovement
+    .balign 4, 0
+_10A0:
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_10A6:
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    Delay1
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    Delay1
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    Delay1
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    Delay1
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    Delay1
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    FaceWest
+    Delay1
+    FaceNorth
+    Delay1
+    FaceEast
+    Delay1
+    FaceSouth
+    EndMovement
+    .balign 4, 0
+_1180:
+    Delay32
+    WalkSlightlyFastSouth 9
+    EndMovement
+    .balign 4, 0
+_118A:
+    LockDir
+    WalkNormalNorth
+    UnlockDir
+    EndMovement
+    .balign 4, 0
+_1198:
+    WalkNormalNorth
+    WalkNormalWest 5
+    WalkNormalNorth 2
+    EndMovement
+    .balign 4, 0
+_11A6:
+    WalkNormalSouth 2
+    WalkNormalEast 5
+    WalkNormalSouth
+    FaceNorth
+    EndMovement
+    .balign 4, 0
+_11B8:
+    WalkNormalNorth
+    WalkNormalEast 3
+    WalkNormalNorth 2
+    EndMovement
+    .balign 4, 0
+_11C6:
+    WalkNormalSouth 2
+    WalkNormalWest 3
+    WalkNormalSouth
+    FaceNorth
+    EndMovement
+    .balign 4, 0
+_11D8:
     WalkNormalNorth 5
     WalkNormalWest 4
     WalkNormalNorth 5
@@ -842,12 +1107,48 @@ _0BF4:
     WalkOnSpotNormalNorth
     EndMovement
     .balign 4, 0
-_0C0C:
+_11EE:
+    LockDir
+    WalkNormalSouth
+    UnlockDir
+    EndMovement
+    .balign 4, 0
+_11FC:
+    WalkFastWest 4
+    WalkFastSouth 12
+    EndMovement
+    .balign 4, 0
+_1206:
+    WalkNormalEast
+    WalkNormalSouth 2
+    WalkNormalWest
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_1218:
+    FaceWest
+    Delay4
+    FaceNorth
+    Delay4
+    FaceEast
+    Delay4
+    FaceSouth
+    Delay4
+    FaceWest
+    Delay4
+    FaceNorth
+    Delay4
+    FaceEast
+    Delay4
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_1256:
     WalkNormalNorth
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0C18:
+_1260:
     FaceEast
     Delay2
     FaceNorth
@@ -861,12 +1162,12 @@ _0C18:
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0C48:
+_128E:
     WalkNormalWest 5
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0C54:
+_1298:
     FaceWest
     Delay2
     FaceNorth
@@ -880,12 +1181,12 @@ _0C54:
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0C84:
+_12C6:
     WalkNormalEast 5
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0C90:
+_12D0:
     FaceEast
     Delay2
     FaceNorth
@@ -898,13 +1199,13 @@ _0C90:
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0CBC:
+_12FA:
     WalkNormalWest 3
     WalkNormalNorth
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0CCC:
+_1308:
     FaceWest
     Delay2
     FaceNorth
@@ -917,70 +1218,158 @@ _0CCC:
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0CF8:
+_1332:
     WalkNormalEast 3
     WalkNormalNorth
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0D08:
+_1340:
     WalkNormalSouth
     EndMovement
     .balign 4, 0
-_0D10:
+_1346:
+    LockDir
+    WalkNormalWest
+    UnlockDir
+    EndMovement
+    .balign 4, 0
+_1354:
+    WalkFastWest 4
+    WalkFastSouth 10
+    EndMovement
+    .balign 4, 0
+_135E:
+    WalkNormalSouth
+    WalkNormalWest
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_136C:
+    Delay8 2
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_1376:
     WalkFastNorth 10
     WalkFastEast 3
     EndMovement
     .balign 4, 0
-_0D1C:
+_1380:
+    WalkOnSpotNormalWest
+    EndMovement
+    .balign 4, 0
+_1386:
+    LockDir
+    WalkNormalEast
+    UnlockDir
+    EndMovement
+    .balign 4, 0
+_1394:
+    WalkFastWest 3
+    WalkFastSouth 10
+    EndMovement
+    .balign 4, 0
+_139E:
+    WalkNormalSouth
+    WalkNormalEast
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_13AC:
+    EmoteExclamationMark
+    EndMovement
+    .balign 4, 0
+_13B2:
+    WalkFastSouth
+    WalkFastEast 3
+    WalkFastSouth 9
+    EndMovement
+    .balign 4, 0
+_13C0:
     WalkNormalEast
     WalkNormalSouth 11
     EndMovement
     .balign 4, 0
-_0D28:
+_13CA:
     Delay8
     WalkNormalWest
     WalkNormalSouth 12
     EndMovement
     .balign 4, 0
-_0D38:
+_13D8:
     Delay8
     WalkNormalEast 4
     WalkNormalSouth 11
     EndMovement
     .balign 4, 0
-_0D48:
+_13E6:
     Delay8
     WalkNormalEast
     WalkNormalSouth 12
     EndMovement
     .balign 4, 0
-_0D58:
+_13F4:
     WalkNormalWest
     WalkNormalSouth 11
     EndMovement
     .balign 4, 0
-_0D64:
+_13FE:
     Delay8 2
     WalkNormalEast 5
     WalkNormalSouth 11
     EndMovement
     .balign 4, 0
-_0D74:
+_140C:
     FaceWest
-    Delay4
+    Delay2
     FaceNorth
-    Delay4
+    Delay2
     FaceEast
-    Delay4
+    Delay2
     FaceSouth
-    Delay4
-    FaceWest
-    Delay4
-    FaceNorth
-    Delay4
-    FaceEast
-    Delay4
+    Delay2
+    WalkNormalSouth
+    WalkNormalEast 2
     WalkOnSpotNormalSouth
     EndMovement
+    .balign 4, 0
+_143A:
+    WalkNormalWest 2
+    WalkNormalNorth
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_1448:
+    FaceWest
+    Delay2
+    FaceNorth
+    Delay2
+    FaceEast
+    Delay2
+    FaceSouth
+    Delay2
+    WalkNormalSouth
+    WalkNormalWest 2
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_1476:
+    WalkNormalEast 2
+    WalkNormalNorth
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_1484:
+    Delay8
+    WalkNormalEast 2
+    WalkNormalSouth 12
+    EndMovement
+    .balign 4, 0
+_1492:
+    Delay8
+    WalkNormalWest 2
+    WalkNormalSouth 12
+    EndMovement
+    @ HGSS data: .byte 254, 0
     .balign 4, 0

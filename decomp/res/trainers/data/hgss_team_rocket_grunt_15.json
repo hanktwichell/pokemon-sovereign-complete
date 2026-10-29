@@ -1,0 +1,50 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARBOK",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGCARGO",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Heh heh. Feeling lucky, punk?\r",
+                "Go ahead, take another step.\n",
+                "We’ve got explosives set in the floor!\f",
+                "Step on one, and--BOOM!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Kaboom!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Where are the traps planted?\n",
+                "That... Well...\r",
+                "I don’t even remember!\n"
+            ]
+        }
+    ]
+}

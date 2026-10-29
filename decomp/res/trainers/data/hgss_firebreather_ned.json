@@ -1,0 +1,57 @@
+{
+    "name": "Ned",
+    "class": "TRAINER_CLASS_HGSS_FIREBREATHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KOFFING",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NUMEL",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_QUILAVA",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Don’t worry!\n",
+                "We fire-breathers know the true power\f",
+                "of fire better than anyone!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Thanks for such a heated battle!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The reason this tower’s burned is\n",
+                "that it was hit by lightning.\r",
+                "The fire I’m breathing is tiny\n",
+                "in comparison...\n"
+            ]
+        }
+    ]
+}

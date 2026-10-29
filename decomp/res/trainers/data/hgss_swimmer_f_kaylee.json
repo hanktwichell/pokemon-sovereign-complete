@@ -1,0 +1,48 @@
+{
+    "name": "Kaylee",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LUMINEON",
+            "form": 0,
+            "level": 32,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SEADRA",
+            "form": 0,
+            "level": 32,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m on my way to the Whirl Islands.\n",
+                "I’m going exploring with friends.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Is that how you do it?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "There’s supposed to be a big Pokémon\n",
+                "deep beneath the Whirl Islands.\f",
+                "I wonder what it could be?\n"
+            ]
+        }
+    ]
+}

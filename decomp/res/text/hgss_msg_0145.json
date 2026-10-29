@@ -39,12 +39,12 @@
     },
     {
       "id": "msg_0145_D51R0101_00003",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0145_D51R0101_00004",
       "en_US": [
-        "Cynthia: Bring your ARCEUS only.\r",
+        "Cynthia: Bring your Arceus only.\r",
         "Other Pokémon may get blown away by\n",
         "the strong power lingering at\f",
         "the ruins.\r"
@@ -53,7 +53,7 @@
     {
       "id": "msg_0145_D51R0101_00005",
       "en_US": [
-        "Cynthia: It seems your ARCEUS is\n",
+        "Cynthia: It seems your Arceus is\n",
         "resonating in harmony with the Ruins.\r",
         "It might just be me but I can\n",
         "feel that...\f",
@@ -65,11 +65,18 @@
     },
     {
       "id": "msg_0145_D51R0101_00006",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0145_D51R0101_00007",
       "en_US": "The Sinjoh Ruins"
+    },
+    {
+      "id": "msg_0145_D51R0101_00008",
+      "en_US": [
+        "Hm? There appears to be\n",
+        "something in this pile of snow...\r"
+      ]
     }
   ]
 }

@@ -1,0 +1,126 @@
+{
+    "name": "Koga",
+    "class": "TRAINER_CLASS_HGSS_ELITE_FOUR_KOGA",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TOXICROAK",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_CROSS_CHOP",
+                "MOVE_POISON_JAB",
+                "MOVE_ICE_PUNCH",
+                "MOVE_SUCKER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKUNTANK",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EXPLOSION",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_POISON_JAB",
+                "MOVE_FRUSTRATION"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_AFTERMATH"
+        },
+        {
+            "species": "SPECIES_MUK",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_BLACK_SLUDGE",
+            "moves": [
+                "MOVE_PAIN_SPLIT",
+                "MOVE_PAYBACK",
+                "MOVE_GUNK_SHOT",
+                "MOVE_ICE_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_STICKY_HOLD"
+        },
+        {
+            "species": "SPECIES_SWALOT",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_LEFTOVERS",
+            "moves": [
+                "MOVE_REST",
+                "MOVE_SLEEP_TALK",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VENOMOTH",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_BUG_BUZZ",
+                "MOVE_PSYCHIC",
+                "MOVE_U_TURN",
+                "MOVE_SLEEP_POWDER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_TINTED_LENS"
+        },
+        {
+            "species": "SPECIES_CROBAT",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_BRAVE_BIRD",
+                "MOVE_CROSS_POISON",
+                "MOVE_U_TURN",
+                "MOVE_HEAT_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 12
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "One Pokémon left?\r",
+                "Ha ha ha! I’ve been counting on this\n",
+                "one from the very beginning!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Ooooof...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ah!\n",
+                "You have proven your worth!\n"
+            ]
+        }
+    ]
+}

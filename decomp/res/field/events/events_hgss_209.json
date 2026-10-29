@@ -5,9 +5,9 @@
             "id": "obj_D27R0105_gsgirl1",
             "graphics_id": "OBJ_EVENT_GFX_LASS",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1DB",
-            "script": 0,
+            "script": "TRAINER_HGSS_LASS_CONNIE",
             "initial_dir": 1,
             "data": [
                 5,
@@ -24,9 +24,9 @@
             "id": "obj_D27R0105_gsgentleman",
             "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1DA",
-            "script": 0,
+            "script": "TRAINER_HGSS_GENTLEMAN_PRESTON",
             "initial_dir": 1,
             "data": [
                 5,
@@ -45,7 +45,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D27R0105_TM87",
-            "script": 0,
+            "script": 7416,
             "initial_dir": 0,
             "data": [
                 0,

@@ -58,7 +58,8 @@
     {
       "id": "msg_0116_D37R0101_00007",
       "en_US": [
-        "Lyra: When you follow this tunnel,\n",
+        "Lyra: That was fun!\r",
+        "Oh, when you follow this tunnel,\n",
         "you’ll see a Dress-Up Shop.\r",
         "That’s where your Pokémon can put on\n",
         "Accessories to dress up and\f",
@@ -88,7 +89,8 @@
     {
       "id": "msg_0116_D37R0101_00010",
       "en_US": [
-        "Ethan: When you follow this tunnel,\n",
+        "Ethan: Heh, that was fun!\r",
+        "Oh, when you follow this tunnel,\n",
         "you’ll see a Dress-Up Shop.\r",
         "That’s where your Pokémon can put on\n",
         "Accessories to dress up and\f",
@@ -106,6 +108,22 @@
         "Fashion Case, OK?\r",
         "I should get going.\n",
         "See you!\r"
+      ]
+    },
+    {
+      "id": "msg_0116_D37R0101_00012",
+      "en_US": [
+        "Lyra: I think it’s time that we\n",
+        "had a friendly battle! Are you ready?\r",
+        "Let’s go, Marill!\r"
+      ]
+    },
+    {
+      "id": "msg_0116_D37R0101_00013",
+      "en_US": [
+        "Ethan: I think it’s time that we\n",
+        "had a friendly battle! Are you ready?\r",
+        "Come on, Marill!\r"
       ]
     }
   ]

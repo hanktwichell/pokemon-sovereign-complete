@@ -5,11 +5,11 @@
       "id": "msg_0058_D17R0110_00000",
       "en_US": [
         "Zuki: Yes, this is where we welcome\n",
-        "HO-OH.\r",
+        "Ho-oh.\r",
         "When the dance we practiced for many\n",
         "days becomes one with the sound of the\f",
         "Clear Bell we entrusted to you,\r",
-        "then HO-OH shall come down from the\n",
+        "then Ho-oh shall come down from the\n",
         "great arch of the sky once again!\r"
       ]
     },
@@ -23,7 +23,7 @@
     {
       "id": "msg_0058_D17R0110_00002",
       "en_US": [
-        "That IS indeed HO-OH...\n",
+        "That IS indeed Ho-oh...\n",
         "The guardian of the sky around here\f",
         "from ancient times...\r",
         "So many have tried and tried, only\n",
@@ -37,26 +37,29 @@
       "id": "msg_0058_D17R0110_00003",
       "en_US": [
         "{STRVAR_1 3, 0, 0}, don’t you see?\r",
-        "HO-OH must have been waiting for\n",
+        "Ho-oh must have been waiting for\n",
         "someone like you all this time.\f",
         "Wouldn’t you agree...?\r"
       ]
     },
     {
       "id": "msg_0058_D17R0110_00004",
-      "en_US": "HO-OH: Shaoooh!\r"
+      "en_US": "Ho-oh: Shaoooh!\r"
     },
     {
       "id": "msg_0058_D17R0110_00005",
       "en_US": [
-        "You have done a great job.\n",
+        "You have done a great job.\r",
+        "Yet, to think this is but one small\n",
+        "step for the one who they call the\f",
+        "Legendary Trainer...\r",
         "Say hello to Professor Elm for us."
       ]
     },
     {
       "id": "msg_0058_D17R0110_00006",
       "en_US": [
-        "You have not only made HO-OH appear,\n",
+        "You have not only made Ho-oh appear,\n",
         "but you have also caught it...\r",
         "You are so wonderful.\n",
         "There is nothing more for us to say.\r",
@@ -69,7 +72,7 @@
       "en_US": [
         "If that is what you believe, we will not\n",
         "try to convince you otherwise.\r",
-        "Still, if you want to see HO-OH once\n",
+        "Still, if you want to see Ho-oh once\n",
         "more, perhaps you can come back here\f",
         "after everything has been settled..."
       ]
@@ -78,9 +81,9 @@
       "id": "msg_0058_D17R0110_00008",
       "en_US": [
         "I think when you turn your back to it,\n",
-        "HO-OH will not come back for\f",
+        "Ho-oh will not come back for\f",
         "some time...\r",
-        "If you want to see HO-OH, perhaps you\n",
+        "If you want to see Ho-oh, perhaps you\n",
         "can come back here after everything\f",
         "has been settled..."
       ]

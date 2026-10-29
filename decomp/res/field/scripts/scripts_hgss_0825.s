@@ -31,9 +31,9 @@ scr_seq_T10R0701_000:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    @ HGSS: PartyCountNotEgg VAR_SPECIAL_RESULT
+    CountPartyNonEggs VAR_RESULT
     @ HGSS: HallOfFameAnim VAR_SPECIAL_RESULT
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_LEAGUE_WIN
+    IncrementTrainerScore TRAINER_SCORE_EVENT_HALL_OF_FAME_ENTRY
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Call _01B4
@@ -59,7 +59,6 @@ _0105:
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _012D
     GoTo _023A
-_0127:
     GoTo _0133
 _012D:
     GoTo _024F

@@ -1,0 +1,100 @@
+{
+    "name": "Ethan",
+    "class": "TRAINER_CLASS_HGSS_PKMN_TRAINER_ETHAN",
+    "items": [
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDOKING",
+            "form": 0,
+            "level": 69,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_ICE_BEAM",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNEZONE",
+            "form": 0,
+            "level": 69,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_DISCHARGE",
+                "MOVE_FLASH_CANNON",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_REFLECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TANGROWTH",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_LEAF_STORM",
+                "MOVE_SYNTHESIS",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_EXTREME_SPEED",
+                "MOVE_MORNING_SUN",
+                "MOVE_WILL_O_WISP"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAMOSWINE",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_ICE_SHARD",
+                "MOVE_STONE_EDGE",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AZUMARILL",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_AQUA_TAIL",
+                "MOVE_AQUA_JET",
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_ICE_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 23
+        }
+    ],
+    "messages": []
+}

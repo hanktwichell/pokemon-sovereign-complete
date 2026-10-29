@@ -20,18 +20,18 @@ scr_seq_D02R0101_000:
     BufferRivalName 1
     Message msg_0049_D02R0101_00000
     CloseMessage
-    @ HGSS: GetStarterChoice VAR_SPECIAL_RESULT
+    GetPlayerStarterSpecies VAR_RESULT
     CompareVar VAR_RESULT, 152
     GoToIf 5, _005A
-    @ HGSS: TrainerBattle TRAINER_RIVAL_SILVER_15, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_15, 0
     GoTo _007D
 _005A:
     CompareVar VAR_RESULT, 155
     GoToIf 5, _0075
-    @ HGSS: TrainerBattle TRAINER_RIVAL_SILVER_16, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_16, 0
     GoTo _007D
 _0075:
-    @ HGSS: TrainerBattle TRAINER_RIVAL_SILVER_14, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_14, 0
 _007D:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -69,6 +69,5 @@ _00E8:
     WalkFastEast 5
     WalkFastSouth 9
     EndMovement
-_00F4:
     End
     .balign 4, 0

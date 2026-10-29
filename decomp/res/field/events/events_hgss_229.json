@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8375,
             "type": 2,
             "x": 29,
             "z": 11,
@@ -35,7 +35,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D40R0104_MAX_REVIVE",
-            "script": 0,
+            "script": 7427,
             "initial_dir": 0,
             "data": [
                 0,
@@ -54,7 +54,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D40R0104_FULL_RESTORE",
-            "script": 0,
+            "script": 7428,
             "initial_dir": 0,
             "data": [
                 0,
@@ -73,7 +73,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D40R0104_MAX_ELIXIR",
-            "script": 0,
+            "script": 7429,
             "initial_dir": 0,
             "data": [
                 0,

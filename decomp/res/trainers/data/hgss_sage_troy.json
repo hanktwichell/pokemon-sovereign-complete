@@ -1,0 +1,62 @@
+{
+    "name": "Troy",
+    "class": "TRAINER_CLASS_HGSS_SAGE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ABRA",
+            "form": 0,
+            "level": 12,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HOOTHOOT",
+            "form": 0,
+            "level": 12,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EXEGGCUTE",
+            "form": 0,
+            "level": 12,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HOPPIP",
+            "form": 0,
+            "level": 12,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Let me see how much you trust\n",
+                "your Pokémon.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yes, your trust is real!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It is not far to the Elder.\n"
+            ]
+        }
+    ]
+}

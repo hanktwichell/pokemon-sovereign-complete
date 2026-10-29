@@ -7,13 +7,19 @@
         "Fufufufu...\n",
         "I’m sorry to disappoint you...\r",
         "I’m only joking! I’m the real deal!\r",
-        "Janine of Fuchsia Gym, that’s me!\r"
+        "Janine of Fuchsia Gym, that’s me!\r",
+        "As I said before, thank you for\n",
+        "helping both me and everyone who lives\f",
+        "within Fuschia City!\r",
+        "But this is the Gym, so I must be\n",
+        "professional... Ahem!\r",
+        "It’s time for our battle!\r"
       ]
     },
     {
       "id": "msg_0514_T08GYM0101_00001",
       "en_US": [
-        "Janine: I see... You have defeated\n",
+        "Janine: So! You have defeated my\n",
         "Koga, my father and a member of the\f",
         "Elite Four, to come here.\r",
         "No wonder you are strong!\r",
@@ -43,7 +49,7 @@
         "Janine: I’m going to really apply\n",
         "myself and improve my skills.\r",
         "I want to become much better than\n",
-        "both my father and you!"
+        "both my father and you!\r"
       ]
     },
     {
@@ -138,6 +144,21 @@
         "Leader: Janine\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0514_T08GYM0101_00019",
+      "en_US": [
+        "Janine: Say, do you want my number?\n",
+        "I wouldn’t mind another battle...\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0514_T08GYM0101_00020",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Janine\n",
+        "in the Pokégear!"
       ]
     }
   ]

@@ -48,8 +48,8 @@ _009A:
     CallIf 1, _0696
     CompareVar VAR_MAP_LOCAL_0x04, 1
     CallIf 1, _06B5
-    AddMenuEntryImm 41, 2
-    AddMenuEntryImm 42, 3
+    AddMenuEntry 41, 2
+    AddMenuEntry 42, 3
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _013F
@@ -170,10 +170,10 @@ _02AE:
     End
 _02FE:
     Message msg_0109_D32R0501_00043
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 14, 0
-    AddMenuEntryImm 15, 1
-    AddMenuEntryImm 5, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 14, 0
+    AddMenuEntry 15, 1
+    AddMenuEntry 5, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -408,13 +408,13 @@ _0691:
 _0696:
     Message msg_0109_D32R0501_00001
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 38, 0
-    AddMenuEntryImm 39, 1
+    AddMenuEntry 38, 0
+    AddMenuEntry 39, 1
     Return
 _06B5:
     Message msg_0109_D32R0501_00004
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 40, 4
+    AddMenuEntry 40, 4
     Return
 _06CC:
     Message msg_0109_D32R0501_00002
@@ -432,9 +432,9 @@ scr_seq_D32R0501_001:
     GoTo _04CB
     End
 _06FD:
-    @ HGSS: AddWaitingIcon
-    @ HGSS: SaveGameNormal VAR_SPECIAL_RESULT
-    @ HGSS: RemoveWaitingIcon
+    ShowSavingIcon
+    TrySaveGame VAR_RESULT
+    HideSavingIcon
     PlaySE SEQ_SE_DP_SAVE_sseq
     WaitSE SEQ_SE_DP_SAVE_sseq
     Return
@@ -467,7 +467,7 @@ scr_seq_D32R0501_003:
     GoTo _0126
     End
 _0788:
-    @ HGSS: AddSpecialGameStat2 SCORE_EVENT_BATTLE_CASTLE_SET_WON
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BATTLE_CASTLE_ROUND_COMPLETED
     Return
 _078E:
     Message msg_0109_D32R0501_00035
@@ -490,13 +490,11 @@ scr_seq_D32R0501_004:
     GoTo _0126
     End
     .balign 4, 0
-_07C8:
     WalkNormalNorth 2
     Delay8
     WalkNormalNorth
     EndMovement
     .balign 4, 0
-_07D8:
     WalkNormalNorth 2
     Delay8
     WalkNormalNorth

@@ -6,7 +6,7 @@
       "en_US": [
         "Lt. Surge: Oh, yay!\n",
         "You have the Pokémon I love best:\f",
-        "PIKACHU!\r",
+        "Pikachu!\r",
         "Excellent!\n",
         "I’ll give you my telephone number! {YESNO 0}"
       ]
@@ -48,7 +48,7 @@
         "of seeing you at a place like this?\r",
         "I can feel electric power around\n",
         "the Power Plant.\r",
-        "You may want to catch a PIKACHU in\n",
+        "You may want to catch a Pikachu in\n",
         "the Viridian Forest and bring it here!"
       ]
     },
@@ -61,7 +61,7 @@
     },
     {
       "id": "msg_0341_R10_00007",
-      "en_US": "ZAPDOS: Rorrrrrkoom!\r"
+      "en_US": "Zapdos: Rorrrrrkoom!\r"
     },
     {
       "id": "msg_0341_R10_00008",
@@ -70,6 +70,16 @@
     {
       "id": "msg_0341_R10_00009",
       "en_US": "Rock Tunnel"
+    },
+    {
+      "id": "msg_0341_R10_00010",
+      "en_US": [
+        "{SIZE 200}What’s that?{SIZE 100}\r",
+        "{SIZE 200}You want to eat a Pikachu?{SIZE 100}\r",
+        "{SIZE 200}Ain’t that illegal?{SIZE 100}\r",
+        "(This old man seems a tad deaf.\n",
+        "Hopefully he’ll eventually move...)"
+      ]
     }
   ]
 }

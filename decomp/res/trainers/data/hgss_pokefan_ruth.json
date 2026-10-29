@@ -1,0 +1,54 @@
+{
+    "name": "Ruth",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_IGGLYBUFF",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_JIGGLYPUFF",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WIGGLYTUFF",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Such darling Pokémon. Let’s show our\n",
+                "Pokémon together at the same time.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I don’t mind losing.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Do you know about baby Pokémon?\n",
+                "I’ll bet they’re just adorable!\n"
+            ]
+        }
+    ]
+}

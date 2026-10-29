@@ -6,7 +6,7 @@
       "en_US": [
         "Elder: You showed us what you’ve got,\n",
         "and it is indeed good...\r",
-        "Take this Technical Machine.\r",
+        "Take this elemental stone.\r",
         "However, you should care more about\n",
         "your Pokémon.\r",
         "The way you treat your Pokémon can\n",
@@ -57,20 +57,16 @@
         "The way you battle is quite elegant.\r",
         "You should be able to stand up\n",
         "to Falkner.\r",
-        "And you should be able to make good use\n",
-        "of this...\r",
-        "It is a Technical Machine called Flash.\n",
-        "Take it with you!\r"
+        "Let me offer you a reward...\r",
+        "Tell me, what is your favourite\n",
+        "evolution of Eevee?"
       ]
     },
     {
       "id": "msg_0056_D15R0103_00005",
       "en_US": [
-        "When a Pokémon learns Flash, you can\n",
-        "illuminate caves no matter how dark\f",
-        "they may be.\r",
-        "You can try it on BELLSPROUT,\n",
-        "for example..."
+        "I hope you learn and grow from\n",
+        "your journey."
       ]
     },
     {
@@ -84,7 +80,7 @@
       "id": "msg_0056_D15R0103_00007",
       "en_US": [
         "It’s a powerful painting of a\n",
-        "BELLSPROUT."
+        "Bellsprout."
       ]
     },
     {
@@ -92,6 +88,61 @@
       "en_US": [
         "A Pokémon statue...\n",
         "It looks very distinguished."
+      ]
+    },
+    {
+      "id": "msg_0056_D15R0103_00009",
+      "en_US": "Vaporeon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00010",
+      "en_US": "Jolteon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00011",
+      "en_US": "Flareon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00012",
+      "en_US": "Espeon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00013",
+      "en_US": "Umbreon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00014",
+      "en_US": "Leafeon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00015",
+      "en_US": "Glaceon"
+    },
+    {
+      "id": "msg_0056_D15R0103_00016",
+      "en_US": [
+        "I see.\n",
+        "Then you should take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0056_D15R0103_00017",
+      "en_US": "None"
+    },
+    {
+      "id": "msg_0056_D15R0103_00018",
+      "en_US": [
+        "Really?\r",
+        "Please, you must have one!"
+      ]
+    },
+    {
+      "id": "msg_0056_D15R0103_00019",
+      "en_US": [
+        "Oh, and please, take this as well.\n",
+        "It’s a TM containing a move known\f",
+        "as Flash.\r",
+        "It will light your way in dark caverns.\r"
       ]
     }
   ]

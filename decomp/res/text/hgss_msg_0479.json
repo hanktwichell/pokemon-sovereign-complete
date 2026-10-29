@@ -4,10 +4,46 @@
     {
       "id": "msg_0479_T05R0301_00000",
       "en_US": [
-        "Lavender is a tiny, quiet town\n",
-        "at the foot of the mountains.\r",
-        "It’s gotten a bit busier since the\n",
-        "Radio Tower was built."
+        "Have you heard of the {COLOR 1}Magma Stone{COLOR 0}?\r",
+        "It’s a rare item said to have the\n",
+        "most awesome chemical properties.\r",
+        "If you happen to come across one,\n",
+        "please give it to me!\r",
+        "I’ll trade you a special item\n",
+        "in exchange for it!"
+      ]
+    },
+    {
+      "id": "msg_0479_T05R0301_00001",
+      "en_US": [
+        "Ah, you have a {COLOR 1}Magma Stone{COLOR 0}!\r",
+        "Would you be willing to trade it\n",
+        "for this rare Azure Flute?"
+      ]
+    },
+    {
+      "id": "msg_0479_T05R0301_00002",
+      "en_US": [
+        "Oh... really? Come back if you\n",
+        "change your mind..."
+      ]
+    },
+    {
+      "id": "msg_0479_T05R0301_00003",
+      "en_US": [
+        "Excellent! Here, take the{COLOR 2}\n",
+        "Azure Flute{COLOR 0}!\r"
+      ]
+    },
+    {
+      "id": "msg_0479_T05R0301_00004",
+      "en_US": [
+        "They say a trainer strong in both\n",
+        "strength and spirit can use that\f",
+        "flute to conduct wonders with shrines\f",
+        "and other legendary landmarks\f",
+        "around Johto and Kanto.\r",
+        "Me? I can’t do a thing with it!"
       ]
     }
   ]

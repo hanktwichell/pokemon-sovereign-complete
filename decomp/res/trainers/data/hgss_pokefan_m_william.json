@@ -1,0 +1,50 @@
+{
+    "name": "William",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MIME_JR",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 22,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We adore our Pokémon, even if they\n",
+                "dislike us. That’s what being a\f",
+                "Pokéfan is all about.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "M-my Pokémon!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I lost the battle, but my Pokémon win\n",
+                "the prize for being the most lovely.\r",
+                "Also, is it just me or is\n",
+                "the ground here really hard?\n"
+            ]
+        }
+    ]
+}

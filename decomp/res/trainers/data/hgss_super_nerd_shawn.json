@@ -1,0 +1,59 @@
+{
+    "name": "Shawn",
+    "class": "TRAINER_CLASS_HGSS_SUPER_NERD",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGNETON",
+            "form": 0,
+            "level": 53,
+            "item": "ITEM_NONE",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MUK",
+            "form": 0,
+            "level": 53,
+            "item": "ITEM_NUGGET",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ZANGOOSE",
+            "form": 0,
+            "level": 53,
+            "item": "ITEM_NONE",
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "What kinds of Poké Balls do you have\n",
+                "with you?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Wait! Stop! Don’t!\n",
+                "Please!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You should use the right Poké Balls to\n",
+                "fit the situation.\n"
+            ]
+        }
+    ]
+}

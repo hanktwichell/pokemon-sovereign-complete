@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8307,
             "type": 2,
             "x": 363,
             "z": 436,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8308,
             "type": 2,
             "x": 381,
             "z": 417,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8309,
             "type": 2,
             "x": 369,
             "z": 380,
@@ -52,12 +52,12 @@
     "object_events": [
         {
             "id": "obj_R34_gsboy2",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
-            "initial_dir": 1,
+            "script": "TRAINER_HGSS_YOUNGSTER_SAMUEL",
+            "initial_dir": 3,
             "data": [
                 5,
                 0,
@@ -65,17 +65,17 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 375,
-            "z": 443,
+            "x": 370,
+            "z": 447,
             "y": 0
         },
         {
             "id": "obj_R34_picnicgirl_2",
             "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_PICNICKER_GINA",
             "initial_dir": 3,
             "data": [
                 7,
@@ -92,9 +92,9 @@
             "id": "obj_R34_gsboy2_2",
             "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_YOUNGSTER_IAN",
             "initial_dir": 1,
             "data": [
                 5,
@@ -111,9 +111,9 @@
             "id": "obj_R34_policeman",
             "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1D2",
-            "script": 0,
+            "script": "TRAINER_HGSS_POLICEMAN_KEITH",
             "initial_dir": 2,
             "data": [
                 6,
@@ -130,9 +130,9 @@
             "id": "obj_R34_campboy_2",
             "graphics_id": "OBJ_EVENT_GFX_CAMPER",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_CAMPER_TODD",
             "initial_dir": 2,
             "data": [
                 5,
@@ -208,7 +208,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R34_NUGGET",
-            "script": 0,
+            "script": 7375,
             "initial_dir": 0,
             "data": [
                 0,
@@ -299,11 +299,11 @@
         },
         {
             "id": "obj_R34_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_SOCIALITE",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_POKEFAN_M_BRANDON",
             "initial_dir": 2,
             "data": [
                 3,
@@ -312,8 +312,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 381,
-            "z": 431,
+            "x": 375,
+            "z": 447,
             "y": 0
         },
         {
@@ -322,7 +322,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R34_TM63",
-            "script": 0,
+            "script": 7452,
             "initial_dir": 0,
             "data": [
                 0,
@@ -353,6 +353,44 @@
             "x": 363,
             "z": 414,
             "y": 1
+        },
+        {
+            "id": "obj_R34_16",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FF0",
+            "script": 14,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_R34_17",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F81",
+            "script": 7527,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 364,
+            "z": 422,
+            "y": 0
         }
     ],
     "warp_events": [

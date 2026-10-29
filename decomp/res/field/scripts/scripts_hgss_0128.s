@@ -83,7 +83,7 @@ scr_seq_D49R0107_005:
     WaitMovement
     ReleaseAll
     SetVarFromValue VAR_HGSS_UNK_40D3, 1
-    @ HGSS: NatDexFlagAction 2, VAR_TEMP_x4000
+    GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     CallIf 1, _0154
     End

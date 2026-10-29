@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8483,
             "type": 2,
             "x": 890,
             "z": 408,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8484,
             "type": 2,
             "x": 923,
             "z": 316,
@@ -38,9 +38,9 @@
             "id": "obj_R26_fishing_2",
             "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FISHERMAN_SCOTT",
             "initial_dir": 1,
             "data": [
                 3,
@@ -57,9 +57,9 @@
             "id": "obj_R26_mystery_2",
             "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_PSYCHIC_M_VERNON",
             "initial_dir": 2,
             "data": [
                 2,
@@ -76,9 +76,9 @@
             "id": "obj_R26_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_JOYCE",
             "initial_dir": 1,
             "data": [
                 5,
@@ -95,9 +95,9 @@
             "id": "obj_R26_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_GAVEN",
             "initial_dir": 2,
             "data": [
                 2,
@@ -114,9 +114,9 @@
             "id": "obj_R26_gsman3_2",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_JAKE",
             "initial_dir": 1,
             "data": [
                 3,
@@ -133,9 +133,9 @@
             "id": "obj_R26_gswoman3_2",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_JAMIE",
             "initial_dir": 1,
             "data": [
                 3,
@@ -154,7 +154,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R26_MAX_ELIXIR",
-            "script": 0,
+            "script": 7505,
             "initial_dir": 0,
             "data": [
                 0,

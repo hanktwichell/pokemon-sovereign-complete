@@ -22,8 +22,8 @@
     ScriptEntry scr_seq_D35R0104_008
     ScriptEntryEnd
 scr_seq_D35R0104_006:
-    GoToIfNotDefeated TRAINER_NONE, _004F
-    GoToIfNotDefeated TRAINER_NONE, _004F
+    GoToIfNotDefeated TRAINER_HGSS_TEAM_ROCKET_F_GRUNT_5, _004F
+    GoToIfNotDefeated TRAINER_HGSS_TEAM_ROCKET_GRUNT_19, _004F
     CompareVar VAR_HGSS_UNK_40AC, 3
     GoToIf 4, _004F
     SetVarFromValue VAR_HGSS_UNK_40AC, 2
@@ -258,7 +258,7 @@ _0331:
     WaitMovement
     Message msg_0114_D35R0104_00006
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_EXECUTIVE_PETREL_PETREL_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_EXECUTIVE_PETREL_PETREL_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0405
@@ -345,7 +345,6 @@ _047C:
     FaceEast
     EndMovement
     .balign 4, 0
-_04A0:
     WalkNormalEast
     EndMovement
     .balign 4, 0
@@ -387,8 +386,8 @@ scr_seq_D35R0104_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfNotDefeated TRAINER_NONE, _0561
-    GoToIfNotDefeated TRAINER_NONE, _0561
+    GoToIfNotDefeated TRAINER_HGSS_TEAM_ROCKET_F_GRUNT_5, _0561
+    GoToIfNotDefeated TRAINER_HGSS_TEAM_ROCKET_GRUNT_19, _0561
     BufferPlayerName 0
     Message msg_0114_D35R0104_00012
     CloseMessage

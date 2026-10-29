@@ -51,6 +51,5 @@ _0098:
 _00A4:
     WalkNormalSouth 2
     EndMovement
-_00AC:
     End
     .balign 4, 0

@@ -1,0 +1,39 @@
+{
+    "name": "Cady",
+    "class": "TRAINER_CLASS_HGSS_SKIER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WEAVILE",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "To beat the cold, try warm clothes and\n",
+                "a hot drink!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Argh, all the way out here!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "That was a hot battle!\n"
+            ]
+        }
+    ]
+}

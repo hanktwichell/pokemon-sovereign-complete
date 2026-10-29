@@ -1,0 +1,63 @@
+{
+    "name": "Wilton",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WAILMER",
+            "form": 0,
+            "level": 44,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WAILMER",
+            "form": 0,
+            "level": 46,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WAILORD",
+            "form": 0,
+            "level": 48,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Aack! You made me lose a Poliwag!\n",
+                "What are you going to do about it?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Just forget about it.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "That Poliwag that got away...\n",
+                "It was huge.\r",
+                "I swear it must’ve been 82 feet long!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Hey! I’ve been waiting for you!\r",
+                "...Oops, maybe I shouldn’t yell so loud.\n",
+                "The Poliwag ran away...\r"
+            ]
+        }
+    ]
+}

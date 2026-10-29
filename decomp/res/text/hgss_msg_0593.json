@@ -39,7 +39,7 @@
     {
       "id": "msg_0593_T25R1002_00004",
       "en_US": [
-        "I got my ABRA at the Game Corner.\f",
+        "I got my Smeargle at the Game Corner.\f",
         "Now it’s my best partner."
       ]
     },
@@ -47,7 +47,7 @@
       "id": "msg_0593_T25R1002_00005",
       "en_US": [
         "Oh, Team Rocket!\n",
-        "Please don’t take my ABRA away!"
+        "Please don’t take my Cacnea away!"
       ]
     },
     {
@@ -56,6 +56,38 @@
         "Your Travel Companion\n",
         "2F Trainer’s Market"
       ]
+    },
+    {
+      "id": "msg_0593_T25R1002_00007",
+      "en_US": [
+        "Hm? Who are you? A Pokémon Trainer, I\n",
+        "presume?\r",
+        "Your name is {STRVAR_1 3, 0, 0}? I see...\r",
+        "I’m Cynthia. I’m visiting Johto on\n",
+        "some archaeology business.\r",
+        "I assume you’ve seen the Ruins of Alph?\n",
+        "A very interesting place, indeed...\r",
+        "Well, {STRVAR_1 3, 0, 0}, perhaps we’ll cross paths\n",
+        "in the future. It was nice to meet you."
+      ]
+    },
+    {
+      "id": "msg_0593_T25R1002_00008",
+      "en_US": [
+        "Perhaps we’ll cross paths in the\n",
+        "future. It was nice to meet you."
+      ]
+    },
+    {
+      "id": "msg_0593_T25R1002_00009",
+      "en_US": [
+        "Hey, hey! Did you know they sell\n",
+        "some evolution stones here now?"
+      ]
+    },
+    {
+      "id": "msg_0593_T25R1002_00010",
+      "en_US": "Igglybuff: Buubuu!"
     }
   ]
 }

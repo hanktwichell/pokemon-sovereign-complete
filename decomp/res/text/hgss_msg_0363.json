@@ -98,7 +98,7 @@
     },
     {
       "id": "msg_0363_R25_00012",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0363_R25_00013",
@@ -134,14 +134,14 @@
         "...Go ahead.\r",
         "Since I met you in the Burned Tower\n",
         "at Ecruteak City, I’ve sort of known\f",
-        "that SUICUNE would choose you.\r"
+        "that Suicune would choose you.\r"
       ]
     },
     {
       "id": "msg_0363_R25_00017",
       "en_US": [
         "Eusine: Take a look at it!\n",
-        "SUICUNE is waiting for you!\f",
+        "Suicune is waiting for you!\f",
         "It has been waiting for a battle\f",
         "with a worthy Trainer to whom\f",
         "it can entrust itself!"
@@ -155,8 +155,9 @@
         "I have never seen a battle\n",
         "this intense!\f",
         "I have no regrets...\r",
-        "Farewell, SUICUNE!\n",
-        "Farewell...{STRVAR_1 3, 0, 0}!\r"
+        "Farewell, Suicune!\r",
+        "I’m going to return to my hometown.\f",
+        "I’ll likely see you again, {STRVAR_1 3, 0, 0}!\r"
       ]
     },
     {
@@ -165,10 +166,10 @@
         "Eusine: {STRVAR_1 3, 0, 0}...\n",
         "There is nothing to be ashamed of.\r",
         "No one can pick on you just because\n",
-        "you ran from SUICUNE.\r",
-        "It’s just that SUICUNE is such an\n",
+        "you ran from Suicune.\r",
+        "It’s just that Suicune is such an\n",
         "amazing Pokémon. That’s all.\f",
-        "Anyway, SUICUNE is gone again.\f",
+        "Anyway, Suicune is gone again.\f",
         "It’s back to square one...\r"
       ]
     }

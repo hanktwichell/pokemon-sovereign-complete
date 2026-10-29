@@ -1,0 +1,48 @@
+{
+    "name": "Kobe",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRAGONAIR",
+            "form": 0,
+            "level": 47,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_SURF",
+                "MOVE_OUTRAGE",
+                "MOVE_IRON_TAIL"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You! How dare you enter uninvited!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "S-strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The Shrine ahead is home to the Master\n",
+                "of our Dragon Tamer clan.\r",
+                "You’re not allowed to just go in!\n"
+            ]
+        }
+    ]
+}

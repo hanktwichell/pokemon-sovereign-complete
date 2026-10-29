@@ -76,7 +76,7 @@
     },
     {
       "id": "msg_0398_R39R0201_00009",
-      "en_US": "MILTANK: ...Moo...\r"
+      "en_US": "Miltank: ...Moo...\r"
     },
     {
       "id": "msg_0398_R39R0201_00010",
@@ -84,7 +84,7 @@
     },
     {
       "id": "msg_0398_R39R0201_00011",
-      "en_US": "MILTANK: Mooo!\r"
+      "en_US": "Miltank: Mooo!\r"
     },
     {
       "id": "msg_0398_R39R0201_00012",
@@ -92,26 +92,26 @@
     },
     {
       "id": "msg_0398_R39R0201_00013",
-      "en_US": "Give an Oran Berry to MILTANK? {YESNO 0}"
+      "en_US": "Give an Oran Berry to Miltank? {YESNO 0}"
     },
     {
       "id": "msg_0398_R39R0201_00014",
       "en_US": [
         "{STRVAR_1 3, 0, 0} gave an Oran Berry\n",
-        "to MILTANK."
+        "to Miltank."
       ]
     },
     {
       "id": "msg_0398_R39R0201_00015",
-      "en_US": "MILTANK became a little healthier!"
+      "en_US": "Miltank became a little healthier!"
     },
     {
       "id": "msg_0398_R39R0201_00016",
-      "en_US": "MILTANK is getting healthier!"
+      "en_US": "Miltank is getting healthier!"
     },
     {
       "id": "msg_0398_R39R0201_00017",
-      "en_US": "MILTANK became totally healthy!"
+      "en_US": "Miltank became totally healthy!"
     },
     {
       "id": "msg_0398_R39R0201_00018",
@@ -122,7 +122,7 @@
       "en_US": [
         "{STRVAR_1 3, 0, 0} wouldn’t give\n",
         "an Oran Berry.\r",
-        "MILTANK looks sad."
+        "Miltank looks sad."
       ]
     },
     {

@@ -1,0 +1,125 @@
+{
+    "name": "Will",
+    "class": "TRAINER_CLASS_HGSS_ELITE_FOUR_WILL",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_EXEGGUTOR",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_SLEEP_POWDER",
+                "MOVE_PSYCHIC",
+                "MOVE_TRICK_ROOM",
+                "MOVE_LEAF_STORM"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BRONZONG",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_LIGHT_CLAY",
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_EARTHQUAKE",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_REFLECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GARDEVOIR",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_FOCUS_BLAST",
+                "MOVE_WILL_O_WISP",
+                "MOVE_PSYCHIC",
+                "MOVE_THUNDERBOLT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_TRACE"
+        },
+        {
+            "species": "SPECIES_SLOWBRO",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_TRICK_ROOM",
+                "MOVE_SURF",
+                "MOVE_FLAMETHROWER",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_OWN_TEMPO"
+        },
+        {
+            "species": "SPECIES_JYNX",
+            "form": 0,
+            "level": 78,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_LOVELY_KISS",
+                "MOVE_ICE_BEAM",
+                "MOVE_PSYCHIC",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_XATU",
+            "form": 0,
+            "level": 81,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_HEAT_WAVE",
+                "MOVE_AIR_CUTTER",
+                "MOVE_PSYCHIC",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 9
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "We Psychics don’t give up even when\n",
+                "we’re down to the last Pokémon.\r",
+                "That’s what makes us so formidable!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Until we hit zero, our power is limitless.\n",
+                "I’m not giving up yet!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I... I can’t...believe it...\n"
+            ]
+        }
+    ]
+}

@@ -32,6 +32,35 @@
         "say anything...\f",
         "Go face your next challenge!"
       ]
+    },
+    {
+      "id": "msg_0525_T10R0401_00003",
+      "en_US": "Kadabra: Kazaa!\r"
+    },
+    {
+      "id": "msg_0525_T10R0401_00004",
+      "en_US": [
+        "This Kadabra is offering to \n",
+        "Teleport you.\r",
+        "Which room would you\n",
+        "like to go to? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0525_T10R0401_00005",
+      "en_US": "Indigo Plateau: League Room 1"
+    },
+    {
+      "id": "msg_0525_T10R0401_00006",
+      "en_US": "Indigo Plateau: League Room 2"
+    },
+    {
+      "id": "msg_0525_T10R0401_00007",
+      "en_US": "Indigo Plateau: League Room 4"
+    },
+    {
+      "id": "msg_0525_T10R0401_00008",
+      "en_US": "Refuse Teleportation"
     }
   ]
 }

@@ -131,11 +131,11 @@ scr_seq_T07R0203_000:
     @ HGSS: ShowCertificate 0
     ReturnToField
     SetFlag FLAG_HGSS_SAW_JOHTO_DEX_CERTIFICATE
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_REGIONAL_DEX_COMPLETE
+    IncrementTrainerScore TRAINER_SCORE_EVENT_LOCAL_DEX_DIPLOMA_RECEIVED
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
 _01ED:
-    @ HGSS: CheckNationalDexComplete VAR_SPECIAL_RESULT
+    CheckNationalDexCompleted VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0245
     GoToIfSet FLAG_HGSS_SAW_NATIONAL_DEX_CERTIFICATE, _023A
@@ -147,7 +147,7 @@ _01ED:
     @ HGSS: ShowCertificate 1
     ReturnToField
     SetFlag FLAG_HGSS_SAW_NATIONAL_DEX_CERTIFICATE
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_NATIONAL_DEX_COMPLETE
+    IncrementTrainerScore TRAINER_SCORE_EVENT_NATIONAL_DEX_DIPLOMA_RECEIVED
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
 _023A:

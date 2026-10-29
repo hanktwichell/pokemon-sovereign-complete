@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8461,
             "type": 2,
             "x": 24,
             "z": 21,
@@ -71,8 +71,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 2,
-            "z": 20,
+            "x": 15,
+            "z": 12,
             "y": 0
         },
         {
@@ -111,6 +111,25 @@
             "movement_range_z": 1,
             "x": 9,
             "z": 22,
+            "y": 0
+        },
+        {
+            "id": "obj_D32R0102_5",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F7F",
+            "script": 7393,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 2,
+            "z": 20,
             "y": 0
         }
     ],

@@ -46,8 +46,8 @@
         "Lt. Surge: That TM contains\n",
         "Shock Wave... Zzzap!\r",
         "Use it to go like lightning!\r",
-        "When you go north, you will see\n",
-        "a big city called Saffron!"
+        "You should head towards Celadon.\n",
+        "Take the Rock Tunnel route!\r"
       ]
     },
     {
@@ -55,8 +55,8 @@
       "en_US": [
         "Lt. Surge: Hey, kid!\n",
         "Still slugging and chugging away?\r",
-        "When you go north, you will see a\n",
-        "big city called Saffron!"
+        "You should head towards Celadon.\n",
+        "Take the Rock Tunnel route!"
       ]
     },
     {
@@ -125,6 +125,21 @@
         "Gym Leader: Lt. Surge\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0485_T06GYM0101_00015",
+      "en_US": [
+        "Lt. Surge: Perhaps we can have an\n",
+        "electrifying rematch, sometime!\f",
+        "I’ll give you my telephone number.\r"
+      ]
+    },
+    {
+      "id": "msg_0485_T06GYM0101_00016",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Lt. Surge\n",
+        "in the Pokégear!"
       ]
     }
   ]

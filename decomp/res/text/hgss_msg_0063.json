@@ -37,27 +37,27 @@
     },
     {
       "id": "msg_0063_D22R0102_00004",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00005",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00006",
       "en_US": [
-        "Ed: My PARASECT\n",
+        "Ed: My Parasect\n",
         "puts Pokémon to\f",
         "sleep with Spore."
       ]
     },
     {
       "id": "msg_0063_D22R0102_00007",
-      "garbage": 34
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00008",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00009",
@@ -68,11 +68,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00010",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00011",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00012",
@@ -86,11 +86,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00013",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00014",
-      "garbage": 36
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00015",
@@ -103,11 +103,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00016",
-      "garbage": 39
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00017",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00018",
@@ -120,11 +120,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00019",
-      "garbage": 46
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00020",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00021",
@@ -135,11 +135,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00022",
-      "garbage": 24
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00023",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00024",
@@ -151,11 +151,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00025",
-      "garbage": 30
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00026",
-      "garbage": 30
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00027",
@@ -166,11 +166,11 @@
     },
     {
       "id": "msg_0063_D22R0102_00028",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00029",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00030",
@@ -181,11 +181,19 @@
     },
     {
       "id": "msg_0063_D22R0102_00031",
-      "garbage": 35
+      "garbage": 0
     },
     {
       "id": "msg_0063_D22R0102_00032",
-      "garbage": 34
+      "garbage": 0
+    },
+    {
+      "id": "msg_0063_D22R0102_00033",
+      "en_US": [
+        "Huh?\r",
+        "There appears to be an item\n",
+        "buried beneath the grass...\r"
+      ]
     }
   ]
 }

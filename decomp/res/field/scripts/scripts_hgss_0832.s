@@ -38,6 +38,7 @@
     ScriptEntry scr_seq_T11R0101_017
     ScriptEntry scr_seq_T11R0101_018
     ScriptEntry scr_seq_T11R0101_019
+    ScriptEntry scr_seq_T11R0101_020
     ScriptEntryEnd
 scr_seq_T11R0101_003:
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_WHITNEY, VAR_TEMP_x4000
@@ -57,128 +58,19 @@ scr_seq_T11R0101_003:
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JASMINE, VAR_TEMP_x400E
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_PRYCE, VAR_TEMP_x400F
     CompareVar VAR_MAP_LOCAL_0x03, 0
-    GoToIf 5, _00C9
+    GoToIf 5, _0958
     SetFlag FLAG_HGSS_UNK_2B8
-    GoTo _00CD
-_00C9:
-    ClearFlag FLAG_HGSS_UNK_2B8
-_00CD:
-    CompareVar VAR_MAP_LOCAL_0x00, 0
-    GoToIf 5, _00E4
-    SetFlag FLAG_HGSS_UNK_2B5
-    GoTo _00E8
-_00E4:
-    ClearFlag FLAG_HGSS_UNK_2B5
-_00E8:
-    CompareVar VAR_MAP_LOCAL_0x01, 0
-    GoToIf 5, _00FF
-    SetFlag FLAG_HGSS_UNK_2B6
-    GoTo _0103
-_00FF:
-    ClearFlag FLAG_HGSS_UNK_2B6
-_0103:
-    CompareVar VAR_MAP_LOCAL_0x02, 0
-    GoToIf 5, _011A
-    SetFlag FLAG_HGSS_UNK_2B7
-    GoTo _011E
-_011A:
-    ClearFlag FLAG_HGSS_UNK_2B7
-_011E:
-    CompareVar VAR_MAP_LOCAL_0x04, 0
-    GoToIf 5, _0135
-    SetFlag FLAG_HGSS_UNK_2B9
-    GoTo _0139
-_0135:
-    ClearFlag FLAG_HGSS_UNK_2B9
-_0139:
-    CompareVar VAR_MAP_LOCAL_0x05, 0
-    GoToIf 5, _0150
-    SetFlag FLAG_HGSS_UNK_2BA
-    GoTo _0154
-_0150:
-    ClearFlag FLAG_HGSS_UNK_2BA
-_0154:
-    CompareVar VAR_MAP_LOCAL_0x06, 0
-    GoToIf 5, _016B
-    SetFlag FLAG_HGSS_UNK_2BB
-    GoTo _016F
-_016B:
-    ClearFlag FLAG_HGSS_UNK_2BB
-_016F:
-    CompareVar VAR_MAP_LOCAL_0x07, 0
-    GoToIf 5, _0186
-    SetFlag FLAG_HGSS_UNK_2BC
-    GoTo _018A
-_0186:
-    ClearFlag FLAG_HGSS_UNK_2BC
-_018A:
-    CompareVar VAR_MAP_LOCAL_0x08, 0
-    GoToIf 5, _01A1
-    SetFlag FLAG_HGSS_UNK_2BD
-    GoTo _01A5
-_01A1:
-    ClearFlag FLAG_HGSS_UNK_2BD
-_01A5:
-    CompareVar VAR_MAP_LOCAL_0x09, 0
-    GoToIf 5, _01BC
-    SetFlag FLAG_HGSS_UNK_2BE
-    GoTo _01C0
-_01BC:
-    ClearFlag FLAG_HGSS_UNK_2BE
-_01C0:
-    CompareVar VAR_MAP_LOCAL_0x0A, 0
-    GoToIf 5, _01D7
-    SetFlag FLAG_HGSS_UNK_2BF
-    GoTo _01DB
-_01D7:
-    ClearFlag FLAG_HGSS_UNK_2BF
-_01DB:
-    CompareVar VAR_MAP_LOCAL_0x0B, 0
-    GoToIf 5, _01F2
-    SetFlag FLAG_HGSS_UNK_2C0
-    GoTo _01F6
-_01F2:
-    ClearFlag FLAG_HGSS_UNK_2C0
-_01F6:
-    CompareVar VAR_MAP_LOCAL_0x0C, 0
-    GoToIf 5, _020D
-    SetFlag FLAG_HGSS_UNK_2C1
-    GoTo _0211
-_020D:
-    ClearFlag FLAG_HGSS_UNK_2C1
-_0211:
-    CompareVar VAR_MAP_LOCAL_0x0D, 0
-    GoToIf 5, _0228
-    SetFlag FLAG_HGSS_UNK_2C2
-    GoTo _022C
-_0228:
-    ClearFlag FLAG_HGSS_UNK_2C2
-_022C:
-    CompareVar VAR_MAP_LOCAL_0x0E, 0
-    GoToIf 5, _0243
-    SetFlag FLAG_HGSS_UNK_2C3
-    GoTo _0247
-_0243:
-    ClearFlag FLAG_HGSS_UNK_2C3
-_0247:
-    CompareVar VAR_MAP_LOCAL_0x0F, 0
-    GoToIf 5, _025E
-    SetFlag FLAG_HGSS_UNK_2C4
-    GoTo _0262
-_025E:
-    ClearFlag FLAG_HGSS_UNK_2C4
-_0262:
-    End
+    GoTo _0973
 scr_seq_T11R0101_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00008
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_WHITNEY_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_WHITNEY_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _02C1
+    GoToIf 1, _098A
     Message msg_0533_T11R0101_00009
     WaitButton
     CloseMessage
@@ -193,20 +85,16 @@ scr_seq_T11R0101_004:
     WaitFadeScreen
     ReleaseAll
     End
-_02C1:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00030
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_JANINE_JANINE_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_JANINE_JANINE_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0324
+    GoToIf 1, _0990
     Message msg_0533_T11R0101_00031
     WaitButton
     CloseMessage
@@ -221,20 +109,16 @@ scr_seq_T11R0101_005:
     WaitFadeScreen
     ReleaseAll
     End
-_0324:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00018
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_CLAIR_CLAIR_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_CLAIR_CLAIR_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0387
+    GoToIf 1, _0996
     Message msg_0533_T11R0101_00019
     WaitButton
     CloseMessage
@@ -249,20 +133,16 @@ scr_seq_T11R0101_006:
     WaitFadeScreen
     ReleaseAll
     End
-_0387:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00024
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_ERIKA_ERIKA_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_ERIKA_ERIKA_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _03EA
+    GoToIf 1, _099C
     Message msg_0533_T11R0101_00025
     WaitButton
     CloseMessage
@@ -277,20 +157,16 @@ scr_seq_T11R0101_007:
     WaitFadeScreen
     ReleaseAll
     End
-_03EA:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_008:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00026
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_MISTY_MISTY_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_MISTY_MISTY_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _044D
+    GoToIf 1, _09A2
     Message msg_0533_T11R0101_00027
     WaitButton
     CloseMessage
@@ -305,20 +181,16 @@ scr_seq_T11R0101_008:
     WaitFadeScreen
     ReleaseAll
     End
-_044D:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_009:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00032
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_BLAINE_BLAINE_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_BLAINE_BLAINE_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _04B0
+    GoToIf 1, _09A8
     Message msg_0533_T11R0101_00033
     WaitButton
     CloseMessage
@@ -333,20 +205,16 @@ scr_seq_T11R0101_009:
     WaitFadeScreen
     ReleaseAll
     End
-_04B0:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_010:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00034
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_BLUE_BLUE_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_BLUE_BLUE_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0513
+    GoToIf 1, _09AE
     Message msg_0533_T11R0101_00035
     WaitButton
     CloseMessage
@@ -361,20 +229,16 @@ scr_seq_T11R0101_010:
     WaitFadeScreen
     ReleaseAll
     End
-_0513:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_011:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00010
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_CHUCK_CHUCK_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_CHUCK_CHUCK_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0576
+    GoToIf 1, _09B4
     Message msg_0533_T11R0101_00011
     WaitButton
     CloseMessage
@@ -389,20 +253,16 @@ scr_seq_T11R0101_011:
     WaitFadeScreen
     ReleaseAll
     End
-_0576:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_012:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00028
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_BROCK_BROCK_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_BROCK_BROCK_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _05D9
+    GoToIf 1, _09BA
     Message msg_0533_T11R0101_00029
     WaitButton
     CloseMessage
@@ -417,20 +277,16 @@ scr_seq_T11R0101_012:
     WaitFadeScreen
     ReleaseAll
     End
-_05D9:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_013:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00006
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_BUGSY_BUGSY_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_BUGSY_BUGSY_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _063C
+    GoToIf 1, _09C0
     Message msg_0533_T11R0101_00007
     WaitButton
     CloseMessage
@@ -445,20 +301,16 @@ scr_seq_T11R0101_013:
     WaitFadeScreen
     ReleaseAll
     End
-_063C:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_014:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00022
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_SABRINA_SABRINA_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_SABRINA_SABRINA_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _069F
+    GoToIf 1, _09C6
     Message msg_0533_T11R0101_00023
     WaitButton
     CloseMessage
@@ -473,20 +325,16 @@ scr_seq_T11R0101_014:
     WaitFadeScreen
     ReleaseAll
     End
-_069F:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_015:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00004
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_FALKNER_FALKNER_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_FALKNER_FALKNER_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0702
+    GoToIf 1, _09CC
     Message msg_0533_T11R0101_00005
     WaitButton
     CloseMessage
@@ -501,20 +349,16 @@ scr_seq_T11R0101_015:
     WaitFadeScreen
     ReleaseAll
     End
-_0702:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_016:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00020
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_LT_SURGE_LT__SURGE_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_LT_SURGE_LT__SURGE_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0765
+    GoToIf 1, _09D2
     Message msg_0533_T11R0101_00021
     WaitButton
     CloseMessage
@@ -529,20 +373,16 @@ scr_seq_T11R0101_016:
     WaitFadeScreen
     ReleaseAll
     End
-_0765:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_017:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00014
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_MORTY_MORTY_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_MORTY_MORTY_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _07C8
+    GoToIf 1, _09D8
     Message msg_0533_T11R0101_00015
     WaitButton
     CloseMessage
@@ -557,20 +397,16 @@ scr_seq_T11R0101_017:
     WaitFadeScreen
     ReleaseAll
     End
-_07C8:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_018:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00012
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_JASMINE_JASMINE_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_JASMINE_JASMINE_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _082B
+    GoToIf 1, _09DE
     Message msg_0533_T11R0101_00013
     WaitButton
     CloseMessage
@@ -585,20 +421,16 @@ scr_seq_T11R0101_018:
     WaitFadeScreen
     ReleaseAll
     End
-_082B:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_019:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     Message msg_0533_T11R0101_00016
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_PRYCE_PRYCE_2, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_PRYCE_PRYCE_2, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _088E
+    GoToIf 1, _09E4
     Message msg_0533_T11R0101_00017
     WaitButton
     CloseMessage
@@ -613,22 +445,12 @@ scr_seq_T11R0101_019:
     WaitFadeScreen
     ReleaseAll
     End
-_088E:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T11R0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_BEAT_KARATE_KING, _08B2
+    GoToIfSet FLAG_HGSS_BEAT_KARATE_KING, _09EA
     Message msg_0533_T11R0101_00000
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_08B2:
-    Message msg_0533_T11R0101_00001
     WaitButton
     CloseMessage
     ReleaseAll
@@ -638,5 +460,480 @@ scr_seq_T11R0101_001:
     End
 scr_seq_T11R0101_002:
     NPCMessage msg_0533_T11R0101_00003
+    End
+scr_seq_T11R0101_020:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    Message msg_0533_T11R0101_00036
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _0A57
+    Message msg_0533_T11R0101_00037
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_LEADER_FALKNER_FALKNER_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_JANINE_JANINE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_BUGSY_BUGSY_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_BROCK_BROCK_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_MISTY_MISTY_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_SUPER_NERD_MICKEY_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_WHITNEY_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    StartTrainerBattle TRAINER_HGSS_LEADER_MORTY_MORTY_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_LT_SURGE_LT__SURGE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_SUPER_NERD_MICKEY_3, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_CHUCK_CHUCK_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_ERIKA_ERIKA_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_SABRINA_SABRINA_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    StartTrainerBattle TRAINER_HGSS_LEADER_JASMINE_JASMINE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_SUPER_NERD_MICKEY_4, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_PRYCE_PRYCE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_BLAINE_BLAINE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_LEADER_CLAIR_CLAIR_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    GetPlayerStarterSpecies VAR_RESULT
+    CompareVar VAR_RESULT, 152
+    GoToIf 1, _0A6D
+    CompareVar VAR_RESULT, 155
+    GoToIf 1, _0A8C
+    GoTo _0AAB
+_0958:
+    ClearFlag FLAG_HGSS_UNK_2B8
+    CompareVar VAR_MAP_LOCAL_0x00, 0
+    GoToIf 5, _0ACA
+    SetFlag FLAG_HGSS_UNK_2B5
+    GoTo _0AE5
+_0973:
+    CompareVar VAR_MAP_LOCAL_0x00, 0
+    GoToIf 5, _0ACA
+    SetFlag FLAG_HGSS_UNK_2B5
+    GoTo _0AE5
+_098A:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_0990:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_0996:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_099C:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09A2:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09A8:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09AE:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09B4:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09BA:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09C0:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09C6:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09CC:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09D2:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09D8:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09DE:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09E4:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_09EA:
+    Message msg_0533_T11R0101_00001
+    CloseMessage
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_JANINE
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_ERIKA
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_MISTY
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLAINE
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLUE
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_CHUCK
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_BROCK
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_BUGSY
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_SABRINA
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_FALKNER
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_LT__SURGE
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_MORTY
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_JASMINE
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
+    ReleaseAll
+    End
+_0A57:
+    Message msg_0533_T11R0101_00039
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0A62:
+    Message msg_0533_T11R0101_00038
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0A6D:
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_20, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    GoTo _0AFC
+_0A8C:
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_21, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    GoTo _0AFC
+_0AAB:
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_19, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    GoTo _0AFC
+_0ACA:
+    ClearFlag FLAG_HGSS_UNK_2B5
+    CompareVar VAR_MAP_LOCAL_0x01, 0
+    GoToIf 5, _0C4D
+    SetFlag FLAG_HGSS_UNK_2B6
+    GoTo _0C68
+_0AE5:
+    CompareVar VAR_MAP_LOCAL_0x01, 0
+    GoToIf 5, _0C4D
+    SetFlag FLAG_HGSS_UNK_2B6
+    GoTo _0C68
+_0AFC:
+    StartTrainerBattle TRAINER_HGSS_SUPER_NERD_MICKEY_5, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_WILL_WILL_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_KOGA_KOGA_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_BRUNO_BRUNO_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_KAREN_KAREN_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_SUPER_NERD_MICKEY_6, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    StartTrainerBattle TRAINER_HGSS_LEADER_BLUE_BLUE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    StartTrainerBattle TRAINER_HGSS_CHAMPION_LANCE_2, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    PlayFanfare SEQ_ASA_sseq
+    WaitFanfare
+    HealParty
+    @ HGSS: ScrCmd_436
+    ReturnToField
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    StartTrainerBattle TRAINER_HGSS_PKMN_TRAINER_RED_RED, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0A62
+    ReleaseAll
+    End
+_0C4D:
+    ClearFlag FLAG_HGSS_UNK_2B6
+    CompareVar VAR_MAP_LOCAL_0x02, 0
+    GoToIf 5, _0C7F
+    SetFlag FLAG_HGSS_UNK_2B7
+    GoTo _0C9A
+_0C68:
+    CompareVar VAR_MAP_LOCAL_0x02, 0
+    GoToIf 5, _0C7F
+    SetFlag FLAG_HGSS_UNK_2B7
+    GoTo _0C9A
+_0C7F:
+    ClearFlag FLAG_HGSS_UNK_2B7
+    CompareVar VAR_MAP_LOCAL_0x04, 0
+    GoToIf 5, _0CB1
+    SetFlag FLAG_HGSS_UNK_2B9
+    GoTo _0CCC
+_0C9A:
+    CompareVar VAR_MAP_LOCAL_0x04, 0
+    GoToIf 5, _0CB1
+    SetFlag FLAG_HGSS_UNK_2B9
+    GoTo _0CCC
+_0CB1:
+    ClearFlag FLAG_HGSS_UNK_2B9
+    CompareVar VAR_MAP_LOCAL_0x05, 0
+    GoToIf 5, _0CE3
+    SetFlag FLAG_HGSS_UNK_2BA
+    GoTo _0CFE
+_0CCC:
+    CompareVar VAR_MAP_LOCAL_0x05, 0
+    GoToIf 5, _0CE3
+    SetFlag FLAG_HGSS_UNK_2BA
+    GoTo _0CFE
+_0CE3:
+    ClearFlag FLAG_HGSS_UNK_2BA
+    CompareVar VAR_MAP_LOCAL_0x06, 0
+    GoToIf 5, _0D15
+    SetFlag FLAG_HGSS_UNK_2BB
+    GoTo _0D30
+_0CFE:
+    CompareVar VAR_MAP_LOCAL_0x06, 0
+    GoToIf 5, _0D15
+    SetFlag FLAG_HGSS_UNK_2BB
+    GoTo _0D30
+_0D15:
+    ClearFlag FLAG_HGSS_UNK_2BB
+    CompareVar VAR_MAP_LOCAL_0x07, 0
+    GoToIf 5, _0D47
+    SetFlag FLAG_HGSS_UNK_2BC
+    GoTo _0D62
+_0D30:
+    CompareVar VAR_MAP_LOCAL_0x07, 0
+    GoToIf 5, _0D47
+    SetFlag FLAG_HGSS_UNK_2BC
+    GoTo _0D62
+_0D47:
+    ClearFlag FLAG_HGSS_UNK_2BC
+    CompareVar VAR_MAP_LOCAL_0x08, 0
+    GoToIf 5, _0D79
+    SetFlag FLAG_HGSS_UNK_2BD
+    GoTo _0D94
+_0D62:
+    CompareVar VAR_MAP_LOCAL_0x08, 0
+    GoToIf 5, _0D79
+    SetFlag FLAG_HGSS_UNK_2BD
+    GoTo _0D94
+_0D79:
+    ClearFlag FLAG_HGSS_UNK_2BD
+    CompareVar VAR_MAP_LOCAL_0x09, 0
+    GoToIf 5, _0DAB
+    SetFlag FLAG_HGSS_UNK_2BE
+    GoTo _0DC6
+_0D94:
+    CompareVar VAR_MAP_LOCAL_0x09, 0
+    GoToIf 5, _0DAB
+    SetFlag FLAG_HGSS_UNK_2BE
+    GoTo _0DC6
+_0DAB:
+    ClearFlag FLAG_HGSS_UNK_2BE
+    CompareVar VAR_MAP_LOCAL_0x0A, 0
+    GoToIf 5, _0DDD
+    SetFlag FLAG_HGSS_UNK_2BF
+    GoTo _0DF8
+_0DC6:
+    CompareVar VAR_MAP_LOCAL_0x0A, 0
+    GoToIf 5, _0DDD
+    SetFlag FLAG_HGSS_UNK_2BF
+    GoTo _0DF8
+_0DDD:
+    ClearFlag FLAG_HGSS_UNK_2BF
+    CompareVar VAR_MAP_LOCAL_0x0B, 0
+    GoToIf 5, _0E0F
+    SetFlag FLAG_HGSS_UNK_2C0
+    GoTo _0E2A
+_0DF8:
+    CompareVar VAR_MAP_LOCAL_0x0B, 0
+    GoToIf 5, _0E0F
+    SetFlag FLAG_HGSS_UNK_2C0
+    GoTo _0E2A
+_0E0F:
+    ClearFlag FLAG_HGSS_UNK_2C0
+    CompareVar VAR_MAP_LOCAL_0x0C, 0
+    GoToIf 5, _0E41
+    SetFlag FLAG_HGSS_UNK_2C1
+    GoTo _0E5C
+_0E2A:
+    CompareVar VAR_MAP_LOCAL_0x0C, 0
+    GoToIf 5, _0E41
+    SetFlag FLAG_HGSS_UNK_2C1
+    GoTo _0E5C
+_0E41:
+    ClearFlag FLAG_HGSS_UNK_2C1
+    CompareVar VAR_MAP_LOCAL_0x0D, 0
+    GoToIf 5, _0E73
+    SetFlag FLAG_HGSS_UNK_2C2
+    GoTo _0E8E
+_0E5C:
+    CompareVar VAR_MAP_LOCAL_0x0D, 0
+    GoToIf 5, _0E73
+    SetFlag FLAG_HGSS_UNK_2C2
+    GoTo _0E8E
+_0E73:
+    ClearFlag FLAG_HGSS_UNK_2C2
+    CompareVar VAR_MAP_LOCAL_0x0E, 0
+    GoToIf 5, _0EA5
+    SetFlag FLAG_HGSS_UNK_2C3
+    GoTo _0EC0
+_0E8E:
+    CompareVar VAR_MAP_LOCAL_0x0E, 0
+    GoToIf 5, _0EA5
+    SetFlag FLAG_HGSS_UNK_2C3
+    GoTo _0EC0
+_0EA5:
+    ClearFlag FLAG_HGSS_UNK_2C3
+    CompareVar VAR_MAP_LOCAL_0x0F, 0
+    GoToIf 5, _0ED7
+    SetFlag FLAG_HGSS_UNK_2C4
+    GoTo _0EDD
+_0EC0:
+    CompareVar VAR_MAP_LOCAL_0x0F, 0
+    GoToIf 5, _0ED7
+    SetFlag FLAG_HGSS_UNK_2C4
+    GoTo _0EDD
+_0ED7:
+    ClearFlag FLAG_HGSS_UNK_2C4
+    End
+_0EDD:
     End
     .balign 4, 0

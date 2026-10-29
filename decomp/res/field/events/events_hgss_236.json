@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8345,
             "type": 2,
             "x": 54,
             "z": 68,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8346,
             "type": 2,
             "x": 43,
             "z": 20,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8440,
             "type": 2,
             "x": 34,
             "z": 74,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8441,
             "type": 2,
             "x": 60,
             "z": 37,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8442,
             "type": 2,
             "x": 61,
             "z": 71,
@@ -67,7 +67,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_ESCAPE_ROPE",
-            "script": 0,
+            "script": 7441,
             "initial_dir": 0,
             "data": [
                 0,
@@ -86,7 +86,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_NUGGET",
-            "script": 0,
+            "script": 7442,
             "initial_dir": 0,
             "data": [
                 0,
@@ -105,7 +105,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_IRON_BALL",
-            "script": 0,
+            "script": 7443,
             "initial_dir": 0,
             "data": [
                 0,
@@ -124,7 +124,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_MAX_POTION",
-            "script": 0,
+            "script": 7444,
             "initial_dir": 0,
             "data": [
                 0,
@@ -143,7 +143,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_IRON",
-            "script": 0,
+            "script": 7445,
             "initial_dir": 0,
             "data": [
                 0,
@@ -162,7 +162,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_MAX_REVIVE",
-            "script": 0,
+            "script": 7446,
             "initial_dir": 0,
             "data": [
                 0,
@@ -181,7 +181,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_ULTRA_BALL",
-            "script": 0,
+            "script": 7447,
             "initial_dir": 0,
             "data": [
                 0,
@@ -198,9 +198,9 @@
             "id": "obj_EVERYWHERE_mania",
             "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_POKE_MANIAC_HARRISON",
             "initial_dir": 1,
             "data": [
                 2,
@@ -217,9 +217,9 @@
             "id": "obj_EVERYWHERE_gsassistantm",
             "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SUPER_NERD_MARKUS",
             "initial_dir": 2,
             "data": [
                 3,
@@ -238,7 +238,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_FULL_INCENSE",
-            "script": 0,
+            "script": 7448,
             "initial_dir": 0,
             "data": [
                 0,
@@ -257,7 +257,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D38R0102_PROTECTOR",
-            "script": 0,
+            "script": 7449,
             "initial_dir": 0,
             "data": [
                 0,
@@ -268,6 +268,25 @@
             "movement_range_z": 0,
             "x": 38,
             "z": 75,
+            "y": 0
+        },
+        {
+            "id": "obj_D38R0102_12",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F7E",
+            "script": 7580,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 54,
+            "z": 68,
             "y": 0
         }
     ],

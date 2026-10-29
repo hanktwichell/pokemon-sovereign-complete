@@ -1,0 +1,66 @@
+{
+    "name": "Rod",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TAILLOW",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WINGULL",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NATU",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ZUBAT",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Ho ho!\r",
+                "You some kind of big shot? We’ll see\f",
+                "what happens if you get pushed around\n",
+                "up here. Think you’ll stagger and fall?\r",
+                "People here are training night and\n",
+                "day to become bird Pokémon masters.\r",
+                "Bring it on!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Gaaah!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Falkner’s skills are for real!\r",
+                "Don’t get cocky!"
+            ]
+        }
+    ]
+}

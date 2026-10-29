@@ -141,46 +141,41 @@ scr_seq_T22R0301_001:
 _0207:
     Message msg_0560_T22R0301_00013
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 24, 1
-    AddMenuEntryImm 25, 2
-    AddMenuEntryImm 26, 3
-    AddMenuEntryImm 27, 4
-    AddMenuEntryImm 28, 5
-    AddMenuEntryImm 29, 0
+    AddMenuEntry 24, 1
+    AddMenuEntry 25, 2
+    AddMenuEntry 26, 3
+    AddMenuEntry 27, 4
+    AddMenuEntry 28, 5
+    AddMenuEntry 29, 0
     ShowMenu
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0264
     Message msg_0560_T22R0301_00014
     GoTo _0207
-_025E:
     GoTo _02D8
 _0264:
     CompareVar VAR_RESULT, 2
     GoToIf 5, _0280
     Message msg_0560_T22R0301_00015
     GoTo _0207
-_027A:
     GoTo _02D8
 _0280:
     CompareVar VAR_RESULT, 3
     GoToIf 5, _029C
     Message msg_0560_T22R0301_00016
     GoTo _0207
-_0296:
     GoTo _02D8
 _029C:
     CompareVar VAR_RESULT, 4
     GoToIf 5, _02B8
     Message msg_0560_T22R0301_00017
     GoTo _0207
-_02B2:
     GoTo _02D8
 _02B8:
     CompareVar VAR_RESULT, 5
     GoToIf 5, _02D4
     Message msg_0560_T22R0301_00018
     GoTo _0207
-_02CE:
     GoTo _02D8
 _02D4:
     CloseMessage

@@ -50,7 +50,7 @@
         "Pryce: That TM contains Hail.\r",
         "It summons a hailstorm that lasts for\n",
         "five turns. The hailstorm damages\f",
-        "all types except Ice."
+        "all types except Ice.\r"
       ]
     },
     {
@@ -101,6 +101,23 @@
         "Your Photo Album is full.\r",
         "Access your PC to delete\n",
         "some pictures."
+      ]
+    },
+    {
+      "id": "msg_0622_T28GYM0101_00011",
+      "en_US": [
+        "Pryce: Incidentially, that was a good\n",
+        "battle.\r",
+        "In hope that we might face each other\n",
+        "again, I’ll give you my number.\r",
+        "...\r"
+      ]
+    },
+    {
+      "id": "msg_0622_T28GYM0101_00012",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Pryce\n",
+        "in the Pokégear!"
       ]
     }
   ]

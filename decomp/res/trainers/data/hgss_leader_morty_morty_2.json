@@ -1,0 +1,124 @@
+{
+    "name": "Morty",
+    "class": "TRAINER_CLASS_HGSS_LEADER_MORTY",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRIFBLIM",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_AIR_CUTTER",
+                "MOVE_THUNDERBOLT",
+                "MOVE_PAIN_SPLIT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_UNBURDEN"
+        },
+        {
+            "species": "SPECIES_BANETTE",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SHADOW_CLAW",
+                "MOVE_TRICK_ROOM",
+                "MOVE_DESTINY_BOND",
+                "MOVE_THUNDER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DUSKNOIR",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_WILL_O_WISP",
+                "MOVE_SHADOW_PUNCH",
+                "MOVE_PAIN_SPLIT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MISMAGIUS",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_NASTY_PLOT",
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDERBOLT",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SPIRITOMB",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_PAIN_SPLIT",
+                "MOVE_TOXIC",
+                "MOVE_PROTECT",
+                "MOVE_TORMENT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 74,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_HYPNOSIS",
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDER",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 14
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "No, it’s not over yet--not yet!\n",
+                "I still believe we can do it!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "We’ve got more discipline than\n",
+                "anyone else!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "How is this possible...\n"
+            ]
+        }
+    ]
+}

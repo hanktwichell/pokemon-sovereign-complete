@@ -1,0 +1,42 @@
+{
+    "name": "Liam",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GYARADOS",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Whoa! A nibble!\r",
+                "...Huh?\n",
+                "A battle? OK, let’s go!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "If you try to chase two Pokémon,\n",
+                "you won’t catch either one!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I should’ve asked you to wait until\n",
+                "I reeled that Pokémon in...\n"
+            ]
+        }
+    ]
+}

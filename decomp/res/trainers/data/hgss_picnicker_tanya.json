@@ -1,0 +1,57 @@
+{
+    "name": "Tanya",
+    "class": "TRAINER_CLASS_PICNICKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_EXEGGUTOR",
+            "form": 0,
+            "level": 61,
+            "moves": [
+                "MOVE_GIGA_DRAIN",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_EGG_BOMB",
+                "MOVE_HYPNOSIS"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SCEPTILE",
+            "form": 0,
+            "level": 61,
+            "moves": [
+                "MOVE_LEAF_BLADE",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_ENERGY_BALL",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Do you think a girls-only Gym is rare?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ohh... I lost...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Thanks for not going easy on me!\n"
+            ]
+        }
+    ]
+}

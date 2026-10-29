@@ -1,0 +1,66 @@
+{
+    "name": "Ross",
+    "class": "TRAINER_CLASS_HGSS_SCIENTIST_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_KOFFING",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PORYGON2",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I used to work for Silph, but now I run\n",
+                "research for Team Rocket.\r",
+                "A meddlesome child like you needs to be\n",
+                "punished.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "A mere tactical error cost me...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "A radio signal that drives Pokémon\n",
+                "mad... My experiment is a complete\f",
+                "success. My promotion is assured.\f",
+                "This loss means Absolutely nothing.\n"
+            ]
+        }
+    ]
+}

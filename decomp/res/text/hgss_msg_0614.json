@@ -50,14 +50,14 @@
     },
     {
       "id": "msg_0614_T27GYM0101_00004",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0614_T27GYM0101_00005",
       "en_US": [
         "Morty: It’s Shadow Ball. It causes\n",
         "damage and may reduce Special Defense.\f",
-        "Use it if it appeals to you."
+        "Use it if it appeals to you.\r"
       ]
     },
     {
@@ -115,6 +115,22 @@
         "Leader: Morty\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0614_T27GYM0101_00012",
+      "en_US": [
+        "Morty: I’ll give you my number, also.\r",
+        "I’ll be waiting to hear about\n",
+        "your travels!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0614_T27GYM0101_00013",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Morty\n",
+        "in the Pokégear!"
       ]
     }
   ]

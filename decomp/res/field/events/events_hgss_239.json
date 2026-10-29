@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8381,
             "type": 2,
             "x": 14,
             "z": 12,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8383,
             "type": 2,
             "x": 32,
             "z": 49,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8382,
             "type": 2,
             "x": 8,
             "z": 22,
@@ -57,9 +57,9 @@
             "id": "obj_D44R0102_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_KOBE",
             "initial_dir": 2,
             "data": [
                 3,
@@ -76,9 +76,9 @@
             "id": "obj_D44R0102_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_PIPER",
             "initial_dir": 3,
             "data": [
                 1,
@@ -95,9 +95,9 @@
             "id": "obj_D44R0102_gsbabygirl1",
             "graphics_id": "OBJ_EVENT_GFX_TWIN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_TWINS_CLEA_AND_GIL",
             "initial_dir": 3,
             "data": [
                 2,
@@ -114,9 +114,9 @@
             "id": "obj_D44R0102_gsbabygirl1_2",
             "graphics_id": "OBJ_EVENT_GFX_TWIN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_TWINS_CLEA_AND_GIL",
             "initial_dir": 3,
             "data": [
                 2,
@@ -127,7 +127,8 @@
             "movement_range_z": 0,
             "x": 6,
             "z": 31,
-            "y": 0
+            "y": 0,
+            "double_battle_id": 2
         },
         {
             "id": "obj_D44R0102_monstarball",
@@ -135,7 +136,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D44R0102_DRAGON_FANG",
-            "script": 0,
+            "script": 7487,
             "initial_dir": 0,
             "data": [
                 0,
@@ -173,7 +174,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D44R0102_CALCIUM",
-            "script": 0,
+            "script": 7485,
             "initial_dir": 0,
             "data": [
                 0,
@@ -192,7 +193,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D44R0102_MAX_ELIXIR",
-            "script": 0,
+            "script": 7486,
             "initial_dir": 0,
             "data": [
                 0,

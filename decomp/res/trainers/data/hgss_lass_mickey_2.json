@@ -1,0 +1,20 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MARILL",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

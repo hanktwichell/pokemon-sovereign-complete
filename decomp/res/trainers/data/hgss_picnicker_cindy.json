@@ -1,0 +1,33 @@
+{
+    "name": "Cindy",
+    "class": "TRAINER_CLASS_PICNICKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 62,
+            "moves": [
+                "MOVE_POISON_JAB",
+                "MOVE_EARTH_POWER",
+                "MOVE_BODY_SLAM",
+                "MOVE_ICE_BEAM"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh, dear!\n",
+                "I wanted to win!\n"
+            ]
+        }
+    ]
+}

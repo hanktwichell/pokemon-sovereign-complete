@@ -48,8 +48,8 @@ _009A:
     CallIf 1, _0586
     CompareVar VAR_MAP_LOCAL_0x04, 1
     CallIf 1, _05A5
-    AddMenuEntryImm 19, 2
-    AddMenuEntryImm 20, 3
+    AddMenuEntry 19, 2
+    AddMenuEntry 20, 3
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _013F
@@ -93,9 +93,9 @@ _015B:
 _0169:
     Message msg_0107_D32R0301_00007
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 21, 0
-    AddMenuEntryImm 22, 1
-    AddMenuEntryImm 23, 2
+    AddMenuEntry 21, 0
+    AddMenuEntry 22, 1
+    AddMenuEntry 23, 2
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01B2
@@ -131,10 +131,10 @@ _01D6:
     End
 _0226:
     Message msg_0107_D32R0301_00024
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 14, 0
-    AddMenuEntryImm 15, 1
-    AddMenuEntryImm 5, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 14, 0
+    AddMenuEntry 15, 1
+    AddMenuEntry 5, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -352,13 +352,13 @@ _0581:
 _0586:
     Message msg_0107_D32R0301_00001
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 16, 0
-    AddMenuEntryImm 17, 1
+    AddMenuEntry 16, 0
+    AddMenuEntry 17, 1
     Return
 _05A5:
     Message msg_0107_D32R0301_00004
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 18, 4
+    AddMenuEntry 18, 4
     Return
 _05BC:
     Message msg_0107_D32R0301_00002
@@ -376,9 +376,9 @@ scr_seq_D32R0301_001:
     GoTo _03A1
     End
 _05ED:
-    @ HGSS: AddWaitingIcon
-    @ HGSS: SaveGameNormal VAR_SPECIAL_RESULT
-    @ HGSS: RemoveWaitingIcon
+    ShowSavingIcon
+    TrySaveGame VAR_RESULT
+    HideSavingIcon
     PlaySE SEQ_SE_DP_SAVE_sseq
     WaitSE SEQ_SE_DP_SAVE_sseq
     Return
@@ -411,7 +411,7 @@ scr_seq_D32R0301_003:
     GoTo _0126
     End
 _067A:
-    @ HGSS: AddSpecialGameStat2 SCORE_EVENT_BATTLE_FACTORY_SET_WON
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BATTLE_FACTORY_ROUND_COMPLETED
     Return
 _0680:
     Message msg_0107_D32R0301_00013
@@ -432,15 +432,13 @@ _0697:
     Return
 scr_seq_D32R0301_004:
     GoTo _0126
-    End
     .balign 4, 0
-_06BC:
+    FaceWest 0
     WalkNormalNorth 2
     Delay8
     WalkNormalNorth
     EndMovement
     .balign 4, 0
-_06CC:
     WalkNormalNorth 2
     Delay8
     WalkNormalNorth

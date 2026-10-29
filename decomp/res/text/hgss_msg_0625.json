@@ -4,25 +4,115 @@
     {
       "id": "msg_0625_T28R0201_00000",
       "en_US": [
-        "I heard that a red GYARADOS appeared\n",
-        "at the Lake of Rage.\r",
-        "That’s odd, since even ordinary\n",
-        "GYARADOS are rare in that lake..."
+        "Riley: It’s good to see you again,\n",
+        "{STRVAR_1 3, 0, 0}.\r",
+        "Now that you’re here, I can finally\n",
+        "give you that reward I promised\f",
+        "for helping us to defeat Team Rocket!\r"
       ]
     },
     {
       "id": "msg_0625_T28R0201_00001",
       "en_US": [
-        "My top radio show?\n",
-        "I’d say Pokémon Music."
+        "Oh, your party is full. I can’t\n",
+        "give you my gift in that case..."
       ]
     },
     {
       "id": "msg_0625_T28R0201_00002",
+      "en_US": " {STRVAR_1 3, 0, 0} received an Egg!"
+    },
+    {
+      "id": "msg_0625_T28R0201_00003",
       "en_US": [
-        "I’ve been hearing laughter on\n",
-        "the radio...\f",
-        "It’s creepy."
+        "Riley: Within due course, that egg\n",
+        "will hatch into a {COLOR 2}Riolu{COLOR 0}.\r",
+        "When it does, I want you to\n",
+        "show it around the world!\r",
+        "I have no doubt that’s\n",
+        "in your capability, {STRVAR_1 3, 0, 0}!"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00004",
+      "en_US": [
+        "Riley: I hope Riolu is doing well with\n",
+        "you. We should have a battle sometime\f",
+        "in the future, wouldn’t you say?"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00005",
+      "en_US": [
+        "Buck: Hey, {STRVAR_1 3, 0, 0}! How’s it going?\n",
+        "We should totally have a smoking\f",
+        "hot battle sometime!"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00006",
+      "en_US": [
+        "Riley: Hello, {STRVAR_1 3, 0, 0}. Has that Riolu\n",
+        "been happy with you? If it has, it’s\f",
+        "probably evolved into Lucario by now!\r",
+        "Anyway, judging by the look that’s\n",
+        "currently on your face...\r",
+        "Are you looking to battle? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00007",
+      "en_US": "We’re going to pull out all the stops!\r"
+    },
+    {
+      "id": "msg_0625_T28R0201_00008",
+      "en_US": [
+        "Intelligence is the key to\n",
+        "being a truly skilled Trainer.\r",
+        "With the right knowledge, your\n",
+        "chances of victory are much improved!"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00009",
+      "en_US": [
+        "What’s that? You don’t want to battle?\n",
+        "Perhaps I sensed your aura wrong..."
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00010",
+      "en_US": [
+        "Buck: Yeah! {STRVAR_1 3, 0, 0}!\n",
+        "I’ve been hoping you’d show up!\r",
+        "How about we have that\n",
+        "smoking hot battle I mentioned! {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00011",
+      "en_US": [
+        "I’m telling you, I’m seriously tough!\r",
+        "...\r",
+        "Act surprised!\r"
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00012",
+      "en_US": [
+        "Whew, too much!\n",
+        "I better get back to training!\r",
+        "You know, {STRVAR_1 3, 0, 0}, I bet a battle\n",
+        "between you and my brother would\f",
+        "be so awesome to watch! "
+      ]
+    },
+    {
+      "id": "msg_0625_T28R0201_00013",
+      "en_US": [
+        "Huh, what? You said no?\r",
+        "That takes the wind right\n",
+        "outta my sails..."
       ]
     }
   ]

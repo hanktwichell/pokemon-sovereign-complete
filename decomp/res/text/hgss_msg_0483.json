@@ -15,13 +15,13 @@
       "en_US": [
         "My Pokémon is preparing the land\n",
         "for construction.\r",
-        "But I have no money to start\n",
-        "the project."
+        "But this odd tablet has stopped\n",
+        "our progress..."
       ]
     },
     {
       "id": "msg_0483_T06_00002",
-      "en_US": "MACHOP: Guooh gogogoh!"
+      "en_US": "Makuhita: Guooh gogogoh!"
     },
     {
       "id": "msg_0483_T06_00003",
@@ -116,7 +116,7 @@
         "But running on the water...\n",
         "is beyond me.\r",
         "Still, I am starting to see a pattern.\f",
-        "SUICUNE prefers water!\f",
+        "Suicune prefers water!\f",
         "That means...\r"
       ]
     },
@@ -130,23 +130,21 @@
     {
       "id": "msg_0483_T06_00016",
       "en_US": [
-        "Hi!\n",
-        "My name is Steven.\f",
-        "The Champion from the Hoenn region.\r",
-        "Have we met...before?\r",
-        "That’s not possible.\n",
-        "All the Trainers I have battled\f",
-        "seem to have the same look, anyway.\r",
-        "Especially the ones who gave me\n",
-        "tough battles...\r"
+        "Steven: Oh, hello, {STRVAR_1 3, 0, 0}.\n",
+        "I wasn’t expecting to find you here!\r",
+        "Have you had any luck collecting more\n",
+        "of the Plate items? I’ve read they may\f",
+        "be connected to a mysterious place\f",
+        "called the Mystri Stage. Maybe Cynthia\f",
+        "can help with that...\r"
       ]
     },
     {
       "id": "msg_0483_T06_00017",
       "en_US": [
         "Steven: By the way, have you heard of\n",
-        "a Pokémon called LATIAS?\r",
-        "I am investigating why LATIAS,\n",
+        "a Pokémon called Latias?\r",
+        "I’ve been investigating why Latias,\n",
         "a Pokémon from Hoenn, decided to\f",
         "leave Hoenn to come here.\r"
       ]
@@ -155,8 +153,8 @@
       "id": "msg_0483_T06_00018",
       "en_US": [
         "Steven: By the way, have you heard of\n",
-        "a Pokémon called LATIOS?\r",
-        "I am investigating why LATIOS,\n",
+        "a Pokémon called Latios?\r",
+        "I’ve been investigating why Latios,\n",
         "a Pokémon from Hoenn, decided to\f",
         "leave Hoenn to come here.\r"
       ]
@@ -164,9 +162,9 @@
     {
       "id": "msg_0483_T06_00019",
       "en_US": [
-        "LATIAS is a Pokémon that has a lot\n",
+        "Latias is a Pokémon that has a lot\n",
         "to do with Soul Dew, a gemlike Orb.\r",
-        "Considering the fact that LATIAS is now\n",
+        "Considering the fact that Latias is now\n",
         "in Kanto, it is possible to assume that\f",
         "this has to do with the Soul Dew.\r"
       ]
@@ -174,9 +172,9 @@
     {
       "id": "msg_0483_T06_00020",
       "en_US": [
-        "LATIOS is a Pokémon that has a lot\n",
+        "Latios is a Pokémon that has a lot\n",
         "to do with Soul Dew, a gemlike Orb.\r",
-        "Considering the fact that LATIOS is now\n",
+        "Considering the fact that Latios is now\n",
         "in Kanto, it is possible to assume that\f",
         "this has to do with Soul Dew.\r"
       ]
@@ -184,7 +182,7 @@
     {
       "id": "msg_0483_T06_00021",
       "en_US": [
-        "LATIAS is a Pokémon that travels\n",
+        "Latias is a Pokémon that travels\n",
         "a great distance.\r",
         "It’ll be difficult to find without any\n",
         "machine to track it with.\r",
@@ -195,7 +193,7 @@
     {
       "id": "msg_0483_T06_00022",
       "en_US": [
-        "LATIOS is a Pokémon that travels\n",
+        "Latios is a Pokémon that travels\n",
         "a great distance.\r",
         "It’ll be difficult to find without any\n",
         "machine to track it with.\r",
@@ -206,9 +204,91 @@
     {
       "id": "msg_0483_T06_00023",
       "en_US": [
-        "Steven: I must go.\n",
-        "May our journeys cross again.\r"
+        "Steven: While in the Kanto region, I’ve\n",
+        "been staying in a house in Pewter City.\f",
+        "You should come visit, if you have time!\f",
+        "Particularly if you happen to find that\f",
+        "Pokémon I just mentioned...\r",
+        "May our journeys cross again!\r"
       ]
+    },
+    {
+      "id": "msg_0483_T06_00024",
+      "en_US": [
+        "Are you looking to challenge the\n",
+        "Vermilion Gym?\r",
+        "Sorry, but our Gym Leader is\n",
+        "currently absent.\r",
+        "Why not check out the gyms in\n",
+        "Pewter and Cerulean City?"
+      ]
+    },
+    {
+      "id": "msg_0483_T06_00025",
+      "en_US": [
+        "Say, isn’t that a Machine Part\n",
+        "from the Power Plant?\n",
+        "Shouldn’t you return it?"
+      ]
+    },
+    {
+      "id": "msg_0483_T06_00026",
+      "en_US": [
+        "A mysterious structure that has\n",
+        "some odd words on it...\r",
+        "{COLOR 2}Bring here th spir f eo.\n",
+        "Wit and rt, eo shal me...{COLOR 0}\r",
+        "The writing is faded, and hard to\n",
+        "make out..."
+      ]
+    },
+    {
+      "id": "msg_0483_T06_00027",
+      "en_US": "A rush of wind..."
+    },
+    {
+      "id": "msg_0483_T06_00028",
+      "en_US": "Latias: Huaaaaann!\r"
+    },
+    {
+      "id": "msg_0483_T06_00029",
+      "en_US": "Latias: Huaaaaann!\r"
+    },
+    {
+      "id": "msg_0483_T06_00030",
+      "en_US": [
+        "The {COLOR 2}Soul Dew{COLOR 0} appears to be reacting\n",
+        "with the tablet and sending out a\f",
+        "signal...\r",
+        "If it attracts an Eon Pokémon, you’ll\n",
+        "have {COLOR 1}only one chance{COLOR 0} to challenge\f",
+        "it before it flies away.\r",
+        "Are you prepared to continue?"
+      ]
+    },
+    {
+      "id": "msg_0483_T06_00031",
+      "en_US": [
+        "What’s this? The {COLOR 2}Enigma Stone{COLOR 0} appears\n",
+        "to be changing form..."
+      ]
+    },
+    {
+      "id": "msg_0483_T06_00032",
+      "en_US": [
+        "My Pokémon is preparing the land\n",
+        "for construction.\r",
+        "With that tablet gone, we can\n",
+        "continue our progress!"
+      ]
+    },
+    {
+      "id": "msg_0483_T06_00033",
+      "en_US": "Latios: Shuaaaann!\r"
+    },
+    {
+      "id": "msg_0483_T06_00034",
+      "en_US": "Huh?"
     }
   ]
 }

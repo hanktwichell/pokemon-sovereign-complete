@@ -58,20 +58,18 @@ _00C3:
     CompareVar VAR_MAP_LOCAL_0x00, 6
     GoToIf 5, _00E0
     GoTo _0101
-_00DA:
     GoTo _00FF
 _00E0:
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _00F9
     GoTo _0101
-_00F3:
     GoTo _00FF
 _00F9:
     GoTo _0198
 _00FF:
     End
 _0101:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 14
     GoToIf 5, _0120
     ClearFlag FLAG_HGSS_UNK_25D
@@ -290,7 +288,6 @@ _0434:
     Message msg_0491_T07_00023
     GoTo _03BE
     End
-_0447:
     NPCMessage msg_0491_T07_00021
     End
     .balign 4, 0

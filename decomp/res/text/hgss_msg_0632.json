@@ -4,10 +4,12 @@
     {
       "id": "msg_0632_T30PC0101_00000",
       "en_US": [
-        "Deep inside far-off Indigo Plateau is\n",
-        "the Pokémon League.\r",
-        "I hear the best Trainers gather there\n",
-        "from around the country."
+        "Have you ever seen Clair’s signature\n",
+        "Pokémon? It’s a wonder to marvel at!\r",
+        "I’d love for my Horsea to match that\n",
+        "Pokémon, but it isn’t strong enough...\r",
+        "Say, you’re a Trainer, right? You might\n",
+        "find this item more useful than me.\r"
       ]
     },
     {
@@ -22,10 +24,42 @@
     {
       "id": "msg_0632_T30PC0101_00002",
       "en_US": [
-        "They say that behind the Pokémon Gym is\n",
-        "a special cave for Gym Leaders to train\f",
-        "themselves."
+        "They say that the Pokémon Mart here\n",
+        "got ahold of a large shipment of rare\f",
+        "evolution stones."
       ]
+    },
+    {
+      "id": "msg_0632_T30PC0101_00003",
+      "en_US": [
+        "That item is said to do something if\n",
+        "used on a Seadra..."
+      ]
+    },
+    {
+      "id": "msg_0632_T30PC0101_00004",
+      "en_US": [
+        "Evolution is so cool!\n",
+        "It’ll make your opponents drool!"
+      ]
+    },
+    {
+      "id": "msg_0632_T30PC0101_00005",
+      "en_US": [
+        "Since evolution is so cool,\n",
+        "I’ll give you a cool item!\r"
+      ]
+    },
+    {
+      "id": "msg_0632_T30PC0101_00006",
+      "en_US": [
+        "Come back tomorrow for\n",
+        "something even cooler!"
+      ]
+    },
+    {
+      "id": "msg_0632_T30PC0101_00007",
+      "en_US": "Horsea: Taatuu!"
     }
   ]
 }

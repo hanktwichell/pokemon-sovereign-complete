@@ -19,6 +19,22 @@
         "The Magnet Train is the most famous\n",
         "thing about Saffron."
       ]
+    },
+    {
+      "id": "msg_0335_R06R0201_00002",
+      "en_US": [
+        "Oh, hold up there! The city is\n",
+        "currently having a blackout.\r",
+        "You’ll have to come back later."
+      ]
+    },
+    {
+      "id": "msg_0335_R06R0201_00003",
+      "en_US": [
+        "Oh, hold up there! The city is\n",
+        "currently recovering from a blackout.\r",
+        "You’ll have to come back later."
+      ]
     }
   ]
 }

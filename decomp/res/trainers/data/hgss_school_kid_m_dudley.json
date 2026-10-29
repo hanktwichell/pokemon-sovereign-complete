@@ -1,0 +1,60 @@
+{
+    "name": "Dudley",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ODDISH",
+            "form": 0,
+            "level": 53,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GLOOM",
+            "form": 0,
+            "level": 56,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VILEPLUME",
+            "form": 0,
+            "level": 59,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Beat the six of us Trainers to win a\n",
+                "fabulous prize!\r",
+                "Think you’ve got what it takes?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whoo! Good stuff.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I did my best.\n",
+                "I have no regrets.\n"
+            ]
+        }
+    ]
+}

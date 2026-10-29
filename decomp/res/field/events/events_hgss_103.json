@@ -1,17 +1,17 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8356,
             "type": 2,
-            "x": 28,
-            "z": 60,
+            "x": 3,
+            "z": 44,
             "y": 0,
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8524,
             "type": 2,
-            "x": 3,
+            "x": 17,
             "z": 44,
             "y": 0,
             "player_facing_dir": "BG_EVENT_DIR_ALL"
@@ -62,7 +62,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D01R0101_PP_MAX",
-            "script": 0,
+            "script": 7517,
             "initial_dir": 0,
             "data": [
                 0,
@@ -81,7 +81,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D01R0101_ROCK_INCENSE",
-            "script": 0,
+            "script": 7518,
             "initial_dir": 0,
             "data": [
                 0,

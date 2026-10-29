@@ -4,12 +4,12 @@
     {
       "id": "msg_0586_T25R0401_00000",
       "en_US": [
-        "Bill: Hi, {STRVAR_1 3, 0, 0}! Would you do\n",
-        "something for me and take this EEVEE?\r",
-        "It came over when I was adjusting\n",
-        "Nintendo Wi-Fi Connection.\r",
+        "Bill: Hi, {STRVAR_1 3, 0, 0}! Would you do me a\n",
+        "favour and take this Castform?\r",
+        "It’s a rare Pokémon I obtained back\n",
+        "in the days when I was a Collector.\r",
         "Someone has to take care of it,\n",
-        "but I don’t like being outside.\r",
+        "but I don’t really have the time.\r",
         "Can I count on you to play with it,\n",
         "{STRVAR_1 3, 0, 0}? {YESNO 0}"
       ]
@@ -27,15 +27,17 @@
       "id": "msg_0586_T25R0401_00002",
       "en_US": [
         "{STRVAR_1 3, 0, 0} received\n",
-        "the EEVEE!"
+        "the Castform!"
       ]
     },
     {
       "id": "msg_0586_T25R0401_00003",
       "en_US": [
-        "Bill: Professor Elm said EEVEE can\n",
-        "evolve into seven different kinds\f",
-        "of Pokémon!"
+        "Bill: I received Castform as a gift\n",
+        "for helping the Weather Institute in\f",
+        "the Hoenn region with some problems.\r",
+        "I swear they give them out\n",
+        "by the dozen..."
       ]
     },
     {
@@ -63,12 +65,12 @@
       "id": "msg_0586_T25R0401_00007",
       "en_US": [
         "Give a nickname to\n",
-        "the EEVEE you received? {YESNO 0}"
+        "the Castform you received? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0586_T25R0401_00008",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0586_T25R0401_00009",

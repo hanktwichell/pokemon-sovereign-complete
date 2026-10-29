@@ -124,39 +124,39 @@
     },
     {
       "id": "msg_0635_T30R0601_00016",
-      "garbage": 24
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00017",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00018",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00019",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00020",
-      "garbage": 91
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00021",
-      "garbage": 34
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00022",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00023",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00024",
-      "garbage": 79
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00025",
@@ -243,31 +243,31 @@
     },
     {
       "id": "msg_0635_T30R0601_00035",
-      "garbage": 28
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00036",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00037",
-      "garbage": 88
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00038",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00039",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00040",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00041",
-      "garbage": 76
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00042",
@@ -285,7 +285,7 @@
         "you here...\r",
         "Very well.\r",
         "Let me reward your passion with some\n",
-        "absolutely astounding moves.\r",
+        "Absolutely astounding moves.\r",
         "They’re the ultimate moves!\r",
         "Shall I teach them to\n",
         "your Pokémon? {YESNO 0}"
@@ -315,7 +315,7 @@
     },
     {
       "id": "msg_0635_T30R0601_00047",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00048",
@@ -368,27 +368,27 @@
     },
     {
       "id": "msg_0635_T30R0601_00055",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00056",
-      "garbage": 88
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00057",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00058",
-      "garbage": 76
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00059",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00060",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0635_T30R0601_00061",
@@ -396,14 +396,14 @@
         "To the Pokémon listed here,\n",
         "the ultimate moves may be taught!\r",
         "The blazing Fire-type Pokémon\n",
-        "{CURSOR_X 7}CHARIZARD TYPHLOSION\f",
-        "{CURSOR_X 7}BLAZIKEN INFERNAPE\r",
+        "{CURSOR_X 7}Charizard Typhlosion\f",
+        "{CURSOR_X 7}Blaziken Infernape\r",
         "The restless Water-type Pokémon\n",
-        "{CURSOR_X 7}BLASTOISE FERALIGATR\f",
-        "{CURSOR_X 7}SWAMPERT EMPOLEON\r",
+        "{CURSOR_X 7}Blastoise Feraligatr\f",
+        "{CURSOR_X 7}Swampert Empoleon\r",
         "The quiet Grass-type Pokémon\n",
-        "{CURSOR_X 7}VENUSAUR MEGANIUM\f",
-        "{CURSOR_X 7}SCEPTILE TORTERRA"
+        "{CURSOR_X 7}Venusaur Meganium\f",
+        "{CURSOR_X 7}Sceptile Torterra"
       ]
     },
     {

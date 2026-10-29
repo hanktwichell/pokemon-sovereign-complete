@@ -58,7 +58,7 @@
     {
       "id": "msg_0564_T23_00005",
       "en_US": [
-        "The SLOWPOKE have disappeared\n",
+        "The Slowpoke have disappeared\n",
         "from town...\r",
         "I heard their tails are being sold\n",
         "somewhere."
@@ -67,9 +67,9 @@
     {
       "id": "msg_0564_T23_00006",
       "en_US": [
-        "The SLOWPOKE have returned.\r",
+        "The Slowpoke have returned.\r",
         "Knowing them, they could’ve just been\n",
-        "taking it easy somewhere."
+        "taking it easy soMewhere."
       ]
     },
     {
@@ -94,7 +94,7 @@
     {
       "id": "msg_0564_T23_00009",
       "en_US": [
-        "SLOWPOKE: ...\r",
+        "Slowpoke: ...\r",
         "...\r"
       ]
     },
@@ -128,19 +128,21 @@
     {
       "id": "msg_0564_T23_00014",
       "en_US": [
-        "SLOWPOKE Well\n",
+        "Slowpoke Well\n",
         "Also known as the Rainmaker Well.\r",
-        "Locals believe that a SLOWPOKE’s\n",
+        "Locals believe that a Slowpoke’s\n",
         "yawn summons the rain.\r",
-        "Records show that a SLOWPOKE’s yawn\n",
-        "ended a drought 400 years ago."
+        "Records show that a Slowpoke’s yawn\n",
+        "ended a drought 400 years ago.\r",
+        "People also report seeing a mysterious\n",
+        "purple Pokémon erupting from a stone."
       ]
     },
     {
       "id": "msg_0564_T23_00015",
       "en_US": [
         "Charcoal Kiln\r",
-        "We let our FARFETCH’D fetch branches\n",
+        "We let our Farfetch’d fetch branches\n",
         "for charcoal!"
       ]
     },
@@ -177,6 +179,51 @@
     {
       "id": "msg_0564_T23_00019",
       "en_US": "I knew we could count on Kurt!"
+    },
+    {
+      "id": "msg_0564_T23_00020",
+      "en_US": [
+        "Do you want to throw the\n",
+        "Odd Keystone into the well? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0564_T23_00021",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} threw the Odd Keystone\n",
+        "into the well.\r"
+      ]
+    },
+    {
+      "id": "msg_0564_T23_00022",
+      "en_US": [
+        "The Spiritomb calmed down and\n",
+        "retreated into the well’s depths..."
+      ]
+    },
+    {
+      "id": "msg_0564_T23_00023",
+      "en_US": "Yulaaah!\r"
+    },
+    {
+      "id": "msg_0564_T23_00024",
+      "en_US": [
+        "Huh! You found me! Darn!\r",
+        "Just kidding! I used to be a thief,\n",
+        "but then I...\r",
+        "No, no way am I saying that!\r",
+        "But, kid, thievery isn’t always bad.\n",
+        "I’ll let you prove it with this!\r"
+      ]
+    },
+    {
+      "id": "msg_0564_T23_00025",
+      "en_US": [
+        "Thief will allow you to steal an\n",
+        "item from your opponent.\r",
+        "Although, they must be holding one,\n",
+        "and your Pokémon must not!"
+      ]
     }
   ]
 }

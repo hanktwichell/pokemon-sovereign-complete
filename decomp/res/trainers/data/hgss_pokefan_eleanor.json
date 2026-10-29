@@ -1,0 +1,46 @@
+{
+    "name": "Eleanor",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SPINDA",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ILLUMISE",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "All right, Pokémon, time for a battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh, well...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It’s not that my Pokémon are weak!\n",
+                "It’s that your Pokémon are too strong!\n"
+            ]
+        }
+    ]
+}

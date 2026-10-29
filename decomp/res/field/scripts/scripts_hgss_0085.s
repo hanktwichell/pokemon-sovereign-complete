@@ -35,11 +35,11 @@ scr_seq_D32R0401_021:
     CallIf 4, _007A
     End
 _007A:
-    @ HGSS: MovePerson obj_D32R0401_var_10, 8, 11
+    SetObjectEventPos obj_D32R0401_var_10, 8, 11
     SetPosition obj_D32R0401_var_10, 8, 0, 11, DIR_WEST
     Return
 _0090:
-    @ HGSS: MovePerson obj_D32R0401_var_10, 13, 11
+    SetObjectEventPos obj_D32R0401_var_10, 13, 11
     SetPosition obj_D32R0401_var_10, 13, 0, 11, DIR_WEST
     Return
 scr_seq_D32R0401_020:
@@ -47,7 +47,7 @@ scr_seq_D32R0401_020:
     GoToIf 1, _00B5
     End
 _00B5:
-    @ HGSS: Random VAR_TEMP_x4007, 100
+    GetRandom VAR_MAP_LOCAL_0x07, 100
     CallIfUnset FLAG_HGSS_UNK_234, _00D5
     CompareVar VAR_MAP_LOCAL_0x07, 30
     GoToIf 0, _00DF
@@ -70,11 +70,11 @@ _00EC:
     GoToIf 4, _0139
     End
 _011D:
-    @ HGSS: Random VAR_UNK_4053, 4
+    GetRandom VAR_HGSS_UNK_4053, 4
     GoTo _0147
     End
 _012B:
-    @ HGSS: Random VAR_UNK_4053, 2
+    GetRandom VAR_HGSS_UNK_4053, 2
     GoTo _0147
     End
 _0139:
@@ -161,8 +161,8 @@ _0269:
     CallIf 1, _0872
     CompareVar VAR_MAP_LOCAL_0x04, 1
     CallIf 1, _0891
-    AddMenuEntryImm 19, 2
-    AddMenuEntryImm 20, 3
+    AddMenuEntry 19, 2
+    AddMenuEntry 20, 3
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _030E
@@ -269,9 +269,9 @@ _044A:
 _0484:
     BufferSpeciesNameFromVar 1, VAR_MAP_LOCAL_0x01, 0, 0
     Message msg_0108_D32R0401_00034
-    InitGlobalTextMenu 1, 1, 1, VAR_RESULT, 1
-    AddMenuEntryImm 42, 0
-    AddMenuEntryImm 43, 1
+    CompleteInitHGSSMenu 1, 1, 1, VAR_RESULT, 1
+    AddMenuEntry 42, 0
+    AddMenuEntry 43, 1
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -302,10 +302,10 @@ _04E0:
     End
 _052E:
     Message msg_0108_D32R0401_00030
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 14, 0
-    AddMenuEntryImm 15, 1
-    AddMenuEntryImm 5, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 14, 0
+    AddMenuEntry 15, 1
+    AddMenuEntry 5, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -522,13 +522,13 @@ _086D:
 _0872:
     Message msg_0108_D32R0401_00001
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 16, 0
-    AddMenuEntryImm 17, 1
+    AddMenuEntry 16, 0
+    AddMenuEntry 17, 1
     Return
 _0891:
     Message msg_0108_D32R0401_00004
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 18, 4
+    AddMenuEntry 18, 4
     Return
 _08A8:
     Message msg_0108_D32R0401_00002
@@ -546,9 +546,9 @@ scr_seq_D32R0401_001:
     GoTo _0689
     End
 _08D9:
-    @ HGSS: AddWaitingIcon
-    @ HGSS: SaveGameNormal VAR_SPECIAL_RESULT
-    @ HGSS: RemoveWaitingIcon
+    ShowSavingIcon
+    TrySaveGame VAR_RESULT
+    HideSavingIcon
     PlaySE SEQ_SE_DP_SAVE_sseq
     WaitSE SEQ_SE_DP_SAVE_sseq
     Return
@@ -579,7 +579,7 @@ scr_seq_D32R0401_003:
     GoTo _02F5
     End
 _0960:
-    @ HGSS: AddSpecialGameStat2 SCORE_EVENT_BATTLE_HALL_SET_WON
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BATTLE_HALL_ROUND_COMPLETED
     Return
 _0966:
     Message msg_0108_D32R0401_00013
@@ -602,13 +602,11 @@ scr_seq_D32R0401_004:
     GoTo _02F5
     End
     .balign 4, 0
-_09A0:
     WalkNormalNorth 2
     Delay8
     WalkNormalNorth
     EndMovement
     .balign 4, 0
-_09B0:
     WalkNormalNorth 2
     Delay8
     WalkNormalNorth

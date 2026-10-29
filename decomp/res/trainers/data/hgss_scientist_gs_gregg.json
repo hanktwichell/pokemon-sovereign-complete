@@ -1,0 +1,58 @@
+{
+    "name": "Gregg",
+    "class": "TRAINER_CLASS_HGSS_SCIENTIST_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAGNEMITE",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNETON",
+            "form": 0,
+            "level": 37,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PORYGON",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "This was once a ninja hideout.\r",
+                "There are traps to confound intruders\n",
+                "like you.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I see...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The PC on my desk is the switch\n",
+                "that deactivates the Persian\f",
+                "alarm system.\r",
+                "Don’t you ever touch it, OK?\n"
+            ]
+        }
+    ]
+}

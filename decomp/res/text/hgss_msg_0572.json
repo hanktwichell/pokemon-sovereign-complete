@@ -29,7 +29,7 @@
     },
     {
       "id": "msg_0572_T24_00003",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0572_T24_00004",
@@ -101,36 +101,35 @@
     {
       "id": "msg_0572_T24_00013",
       "en_US": [
-        "Boulders to the north of town can\n",
-        "be crushed.\r",
-        "They may be hiding something.\n",
-        "Your Pokémon could use Rock Smash to\f",
-        "break them."
+        "There are new residents in that house\n",
+        "up there. They said they are tutors..."
       ]
     },
     {
       "id": "msg_0572_T24_00014",
       "en_US": [
-        "Chuck, the Gym Leader, spars with\n",
-        "his Fighting-type Pokémon."
+        "I’ve heard these special items wash\n",
+        "up on the coast west of here.\r",
+        "They’re supposedly related to a\n",
+        "Pokémon that produces pearls..."
       ]
     },
     {
       "id": "msg_0572_T24_00015",
       "en_US": [
         "Eusine: Yo, {STRVAR_1 3, 0, 0}.\r",
-        "Wasn’t that SUICUNE just now?\r",
+        "Wasn’t that Suicune just now?\r",
         "I only caught a quick glimpse, but I\n",
-        "thought I saw SUICUNE running on\f",
+        "thought I saw Suicune running on\f",
         "the waves.\r",
-        "SUICUNE is beautiful and grand.\n",
+        "Suicune is beautiful and grand.\n",
         "And it races through towns and\f",
         "roads at simply awesome speeds.\r",
         "It’s wonderful...\r",
-        "I want to see SUICUNE up close...\r",
+        "I want to see Suicune up close...\r",
         "I’ve decided.\n",
         "I’ll battle you as a Trainer to earn\f",
-        "SUICUNE’s respect!\r",
+        "Suicune’s respect!\r",
         "Come on, {STRVAR_1 3, 0, 0}.\n",
         "Let’s battle now!"
       ]
@@ -139,10 +138,10 @@
       "id": "msg_0572_T24_00016",
       "en_US": [
         "You’re amazing, {STRVAR_1 3, 0, 0}!\r",
-        "I’m starting to understand why SUICUNE\n",
+        "I’m starting to understand why Suicune\n",
         "was keeping an eye on you.\r",
         "I’m going to keep searching\n",
-        "for SUICUNE.\r",
+        "for Suicune.\r",
         "I have a feeling we’ll see each other\n",
         "again. See you around!\r"
       ]
@@ -197,6 +196,71 @@
         "contact!\r",
         "The Safari Zone is just around the\n",
         "corner from this entrance!"
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00023",
+      "en_US": [
+        "Oh, hello.\r",
+        "...\r",
+        "A Pikachu was washed up on the shore.\n",
+        "It seems it was Surfing, but collapsed.\r",
+        "It could do with a kind trainer\n",
+        "to take care of it...\r",
+        "Oh? Are you a Trainer?\r"
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00024",
+      "en_US": [
+        "That Pokémon leading your party...\n",
+        "No, never mind..."
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00025",
+      "en_US": [
+        "That Pokémon leading your party...\n",
+        "It’s very happy, isn’t it?\r",
+        "Perhaps...\r",
+        "Would you be willing to take\n",
+        "care of this Pikachu?"
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00026",
+      "en_US": [
+        "You won’t?\r",
+        "How boorish of you..."
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00027",
+      "en_US": [
+        "Excellent... I’m very glad to hear it.\r",
+        "Here you go...\r"
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00028",
+      "en_US": [
+        "You can’t accept this Pikachu...\n",
+        "Your party is completely full."
+      ]
+    },
+    {
+      "id": "msg_0572_T24_00029",
+      "en_US": "{STRVAR_1 3, 0, 0} received the Pikachu!"
+    },
+    {
+      "id": "msg_0572_T24_00030",
+      "en_US": [
+        "Thank you...\r",
+        "Do you know of the Battle Frontier?\r",
+        "We may meet again if you visit\n",
+        "the Battle Castle.\r",
+        "A battle? No, I cannot do that...\n",
+        "I am sorry. Thank you, again."
       ]
     }
   ]

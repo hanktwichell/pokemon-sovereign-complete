@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0210_00000",
-      "garbage": 19
+      "garbage": 0
     },
     {
       "id": "msg_0210_00001",
-      "garbage": 11
+      "garbage": 0
     },
     {
       "id": "msg_0210_00002",
-      "garbage": 30
+      "garbage": 0
     },
     {
       "id": "msg_0210_00003",
@@ -30,7 +30,7 @@
     },
     {
       "id": "msg_0210_00005",
-      "garbage": 24
+      "garbage": 0
     },
     {
       "id": "msg_0210_00006",
@@ -41,11 +41,11 @@
     },
     {
       "id": "msg_0210_00007",
-      "garbage": 28
+      "garbage": 0
     },
     {
       "id": "msg_0210_00008",
-      "garbage": 28
+      "garbage": 0
     },
     {
       "id": "msg_0210_00009",

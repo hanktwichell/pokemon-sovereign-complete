@@ -1,0 +1,34 @@
+{
+    "name": "Lowell",
+    "class": "TRAINER_CLASS_HGSS_SCIENTIST_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RAPIDASH",
+            "form": 0,
+            "level": 65,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "It’s pure white in my head!\n"
+            ]
+        }
+    ]
+}

@@ -100,7 +100,7 @@
         "It can sometimes confuse your foe.\r",
         "You’ve managed to defeat Trainers\n",
         "all the way from Johto.\f",
-        "I’m sure you have a good use for it."
+        "I’m sure you have a good use for it.\r"
       ]
     },
     {
@@ -135,6 +135,20 @@
         "{STRVAR_1 3, 0, 0} picked up the black item\n",
         "that was by the pool.\r",
         "It’s a Part from a machine!\r"
+      ]
+    },
+    {
+      "id": "msg_0469_T04GYM0101_00017",
+      "en_US": [
+        "Misty: And just to make sure you aren’t\n",
+        "a pest, I’ll give you my number!\r"
+      ]
+    },
+    {
+      "id": "msg_0469_T04GYM0101_00018",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Misty\n",
+        "in the Pokégear!"
       ]
     }
   ]

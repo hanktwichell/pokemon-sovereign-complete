@@ -1,0 +1,60 @@
+{
+    "name": "Gideon",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LANTURN",
+            "form": 0,
+            "level": 63,
+            "moves": [
+                "MOVE_DISCHARGE",
+                "MOVE_SIGNAL_BEAM",
+                "MOVE_BUBBLE_BEAM",
+                "MOVE_CONFUSE_RAY"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MANTINE",
+            "form": 0,
+            "level": 63,
+            "moves": [
+                "MOVE_WATER_PULSE",
+                "MOVE_WING_ATTACK",
+                "MOVE_PSYBEAM",
+                "MOVE_CONFUSE_RAY"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Question is...did I become a fisherman\n",
+                "because I’m patient, or did I get more\f",
+                "patient because I’m a fisherman?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ummm... Hmmm...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "What’s the reason you became a\n",
+                "Pokémon Trainer?\n"
+            ]
+        }
+    ]
+}

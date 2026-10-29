@@ -10,6 +10,96 @@
         "Professor Elm lives, right?\f",
         "You’ve come a long way to get here."
       ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00001",
+      "en_US": [
+        "Oh! Are you a tourist?\r",
+        "You should take a look around\n",
+        "the wonders of Ecruteak City!\r",
+        "Explore the Burned and Bell towers!\n",
+        "Challenge the gym! It’s worth it!"
+      ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00002",
+      "en_US": [
+        "Boss Pokémon have been unlocked in\n",
+        "Route 37 and the Ruins of Alph!"
+      ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00003",
+      "en_US": [
+        "Oh! Are you a tourist?\r",
+        "You should take a look around Ecruteak!\n",
+        "Explore the towers! Challenge the gym!"
+      ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00004",
+      "en_US": [
+        "You... You wouldn’t happen to be \n",
+        "{STRVAR_1 3, 0, 0}, would you?\r",
+        "Ah, sorry, I should introduce myself.\r",
+        "My name is Steven.\n",
+        "I’m the Champion of the Hoenn Region.\r",
+        "Steven: Cynthia told me about a young \n",
+        "trainer who seemed different from the \f",
+        "rest...\r",
+        "I can see what she meant immediately.\r",
+        "Ahem!\r",
+        "Do you remember the story about the\n",
+        "Legendary Trainer that Cynthia\f",
+        "told you?\r",
+        "Another part of that story involves\n",
+        "the collection of Plates, special\f",
+        "items that resonate with the\f",
+        "Pokémon god.\r",
+        "It’s said there are sixteen in total,\n",
+        "and they are scattered across the\f",
+        "Johto and Kanto regions, as well\f",
+        "as very far north.\r",
+        "Each Plate represents an element,\n",
+        "such as Fire, Water, Electric, Steel...\r",
+        "They could be found anywhere. In the\n",
+        "modern age, they’re probably either\f",
+        "held by enthusiasts, buried in the\f",
+        "ground, or even just picked up by\f",
+        "random people.\r"
+      ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00005",
+      "en_US": [
+        "In fact, I wouldn’t be surprised if\n",
+        "one had ended up in the bin of a\f",
+        "research lab...\r"
+      ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00006",
+      "en_US": [
+        "How do I know these Plates exist?\n",
+        "Because I’ve already located one!\r",
+        "This is the Iron Plate, the Plate that\n",
+        "represents the element of Steel.\r",
+        "I’d like to leave it in your capable\n",
+        "hands, however. It can give your\f",
+        "Pokémon a small boost to some of their\f",
+        "moves, too, so it’ll be helpful!\r",
+        "Here. Don’t drop it!\r"
+      ]
+    },
+    {
+      "id": "msg_0395_R38R0101_00007",
+      "en_US": [
+        "You should try looking for the rest of\n",
+        "those Plates. You might even help\f",
+        "prove the legend true!\r",
+        "Well, it was nice meeting you--but until\n",
+        "we cross paths again, this is goodbye."
+      ]
     }
   ]
 }

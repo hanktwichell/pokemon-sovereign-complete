@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8322,
             "type": 2,
             "x": 291,
             "z": 175,
@@ -30,9 +30,9 @@
             "id": "obj_R38_gsboy1",
             "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCHOOL_KID_M_CHAD",
             "initial_dir": 3,
             "data": [
                 4,
@@ -49,9 +49,9 @@
             "id": "obj_R38_gsman2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_TOBY",
             "initial_dir": 3,
             "data": [
                 3,
@@ -68,9 +68,9 @@
             "id": "obj_R38_gsgirl1",
             "graphics_id": "OBJ_EVENT_GFX_LASS",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_WEST_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_LASS_DANA",
             "initial_dir": 1,
             "data": [
                 2,
@@ -87,9 +87,9 @@
             "id": "obj_R38_gswoman2",
             "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BEAUTY_VALERIE",
             "initial_dir": 1,
             "data": [
                 5,
@@ -106,9 +106,9 @@
             "id": "obj_R38_seaman_2",
             "graphics_id": "OBJ_EVENT_GFX_SAILOR",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAILOR_HARRY",
             "initial_dir": 3,
             "data": [
                 2,
@@ -146,7 +146,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R38_MAX_POTION",
-            "script": 0,
+            "script": 7410,
             "initial_dir": 0,
             "data": [
                 0,
@@ -165,7 +165,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R38_LAX_INCENSE",
-            "script": 0,
+            "script": 7411,
             "initial_dir": 0,
             "data": [
                 0,
@@ -176,6 +176,44 @@
             "movement_range_z": 0,
             "x": 297,
             "z": 186,
+            "y": 0
+        },
+        {
+            "id": "obj_R38_8",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FEA",
+            "script": 4,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_R38_9",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FD3",
+            "script": 7519,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 347,
+            "z": 175,
             "y": 0
         }
     ],

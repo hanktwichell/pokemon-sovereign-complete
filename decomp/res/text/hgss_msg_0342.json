@@ -32,6 +32,13 @@
         "a Power Plant south of this\f",
         "Pokémon Center!"
       ]
+    },
+    {
+      "id": "msg_0342_R10PC0101_00004",
+      "en_US": [
+        "This Blissey is giving out a free gift...\n",
+        "It’s probably worth taking one.\r"
+      ]
     }
   ]
 }

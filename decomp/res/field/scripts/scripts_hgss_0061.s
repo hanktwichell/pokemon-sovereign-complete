@@ -12,7 +12,7 @@ scr_seq_D26R0103_000:
     Message msg_0092_D26R0103_00000
     WaitABPress
     CloseMessage
-    SetVar VAR_0x8004, ITEM_KINGS_ROCK
+    SetVar VAR_0x8004, ITEM_TM18
     SetVar VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     GoToIfEq VAR_RESULT, 0, _005A
@@ -29,7 +29,5 @@ _005A:
     Common_MessageBagIsFull
     CloseMessage
     ReleaseAll
-    End
-_0064:
     End
     .balign 4, 0

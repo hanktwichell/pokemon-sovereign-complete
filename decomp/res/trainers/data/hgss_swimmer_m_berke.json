@@ -1,0 +1,58 @@
+{
+    "name": "Berke",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_QWILFISH",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LOMBRE",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MANTINE",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "See those islands that are blocked\n",
+                "by whirlpools?\f",
+                "There just has to be a secret!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What’s the secret to your strength?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It was a dark and stormy night...\r",
+                "I saw this giant Pokémon flying from\n",
+                "the Whirl Islands.\r",
+                "Feathers were scattering from its\n",
+                "silver wings.\n"
+            ]
+        }
+    ]
+}

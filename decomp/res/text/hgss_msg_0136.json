@@ -122,6 +122,72 @@
         "Warden Baoba’s Safari Zone\n",
         "Up and Running!"
       ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00012",
+      "en_US": [
+        "Kid, you want to go to the Safari Zone?\n",
+        "Then pay up - with your Pokémon!\r"
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00013",
+      "en_US": [
+        "Argh!\n",
+        "This isn’t over, kid!"
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00014",
+      "en_US": [
+        "Did you know?\n",
+        "We need help!"
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00015",
+      "en_US": [
+        "Stop right there! You aren’t foiling\n",
+        "our plans this time, trainer!\r"
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00016",
+      "en_US": [
+        "I’ll have to leave it to the\n",
+        "executives to crush you!"
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00017",
+      "en_US": [
+        "There’s no way you’re getting outta\n",
+        "this cave!\r"
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00018",
+      "en_US": [
+        "Beaten by a kid...\n",
+        "Sniff..."
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00019",
+      "en_US": [
+        "Team Rocket’s special boulder.\n",
+        "It’s impossible to move."
+      ]
+    },
+    {
+      "id": "msg_0136_D48R0101_00020",
+      "en_US": [
+        "Oh, hold up!\r",
+        "They haven’t finished with the\n",
+        "Safari Zone just yet!\r",
+        "But come back later!\n",
+        "It’ll be incredible! Yeah!"
+      ]
     }
   ]
 }

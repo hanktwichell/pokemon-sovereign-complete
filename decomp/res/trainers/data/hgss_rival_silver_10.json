@@ -1,0 +1,73 @@
+{
+    "name": "Silver",
+    "class": "TRAINER_CLASS_HGSS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MURKROW",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GASTLY",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KADABRA",
+            "form": 0,
+            "level": 19,
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CROCONAW",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Say, you’ve got a lot of nerve,\n",
+                "coming here...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "That’s ridiculous. There’s no way\n",
+                "I could lose to a wimp like you!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Humph!\n",
+                "Useless Pokémon!\r",
+                "Listen, you. You won only because my\n",
+                "Pokémon were weak.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_WIN",
+            "en_US": [
+                "...Humph!\n",
+                "I knew you were lying.\n"
+            ]
+        }
+    ]
+}

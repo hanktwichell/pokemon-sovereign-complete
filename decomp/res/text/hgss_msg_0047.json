@@ -4,7 +4,7 @@
     {
       "id": "msg_0047_D01R0101_00000",
       "en_US": [
-        "A bunch of DIGLETT popped out of the\n",
+        "A bunch of Diglett popped out of the\n",
         "ground! That was surprising!"
       ]
     },
@@ -85,24 +85,24 @@
       "id": "msg_0047_D01R0101_00011",
       "en_US": [
         "Brock: Hi, {STRVAR_1 3, 0, 0}!\n",
-        "Have you seen a Pokémon called BONSLY?\r",
+        "Have you seen a Pokémon called Bonsly?\r",
         "They say you have to get it from\n",
         "an Egg...\r",
         "I am having a hard time finding one.\n",
-        "If you happen to have a BONSLY,\f",
-        "could you trade it for my RHYHORN? {YESNO 0}"
+        "If you happen to have a Bonsly,\f",
+        "could you trade it for my Rhyperior? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0047_D01R0101_00012",
       "en_US": [
         "Brock: Hi, {STRVAR_1 3, 0, 0}!\n",
-        "Have you seen a Pokémon called BONSLY?\r",
+        "Have you seen a Pokémon called Bonsly?\r",
         "They say you have to get it from an\n",
         "Egg...\r",
         "I am having a hard time finding one.\n",
-        "If you happen to have a BONSLY,\f",
-        "could you trade it for my RHYHORN? {YESNO 0}"
+        "If you happen to have a Bonsly,\f",
+        "could you trade it for my Rhyperior? {YESNO 0}"
       ]
     },
     {
@@ -124,32 +124,32 @@
     {
       "id": "msg_0047_D01R0101_00015",
       "en_US": [
-        "Brock: I am looking for BONSLY.\n",
+        "Brock: I am looking for Bonsly.\n",
         "Are you saying you’ll trade\f",
-        "it for my RHYHORN? {YESNO 0}"
+        "it for my Rhyperior? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0047_D01R0101_00016",
       "en_US": [
         "Brock: Thank you!\n",
-        "I have been looking for BONSLY!\r",
-        "The RHYHORN I gave you knows the move\n",
-        "Thunder Fang! I trained it from an Egg.\r",
+        "I have been looking for Bonsly!\r",
+        "The Rhyperior I gave you knows the move\n",
+        "Fissure! It rarely learns that move!\r",
         "I’m so proud of it, because it can\n",
-        "take down Water-type Pokémon, which\f",
-        "usually are a tough matchup.\r",
+        "take down loads of Pokémon that\f",
+        "are usually a tough matchup.\r",
         "Take good care of it for me!"
       ]
     },
     {
       "id": "msg_0047_D01R0101_00017",
       "en_US": [
-        "Brock: That RHYHORN I gave you knows\n",
-        "Thunder Fang! I trained it from an Egg.\r",
+        "Brock: The Rhyperior I gave you knows the move\n",
+        "Fissure! It rarely learns that move!\r",
         "I’m so proud of it, because it can\n",
-        "take down Water-type Pokémon, which\f",
-        "usually are a tough matchup.\r",
+        "take down loads of Pokémon that\f",
+        "are usually a tough matchup.\r",
         "Take good care of it for me!\n",
         "\n"
       ]
@@ -158,7 +158,14 @@
       "id": "msg_0047_D01R0101_00018",
       "en_US": [
         "Brock: Hey, now!\n",
-        "That is not a BONSLY!"
+        "That is not a Bonsly!"
+      ]
+    },
+    {
+      "id": "msg_0047_D01R0101_00019",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
       ]
     }
   ]

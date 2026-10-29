@@ -34,7 +34,7 @@
       "en_US": [
         "The Copycat girl looked unhappy.\r",
         "She said she lost her cherished\n",
-        "Poké Doll--CLEFAIRY."
+        "Poké Doll--Clefairy."
       ]
     },
     {
@@ -126,6 +126,14 @@
       "en_US": [
         "Don’t Call Me Uncle Psychic!\n",
         "Mr. Psychic’s House"
+      ]
+    },
+    {
+      "id": "msg_0529_T11_00015",
+      "en_US": [
+        "Puny trainer! If you can’t even\n",
+        "get the Soul Badge, then we’re far\f",
+        "too strong for you!"
       ]
     }
   ]

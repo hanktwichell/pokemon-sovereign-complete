@@ -1,0 +1,141 @@
+{
+    "name": "Proton",
+    "class": "TRAINER_CLASS_HGSS_EXECUTIVE_PROTON",
+    "items": [
+        "ITEM_HYPER_POTION",
+        "ITEM_HYPER_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_RAIN_DANCE",
+                "MOVE_THUNDER",
+                "MOVE_EXPLOSION",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_PSYBEAM",
+                "MOVE_WILL_O_WISP"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CACTURNE",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_NEEDLE_ARM",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TAUROS",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_TAKE_DOWN",
+                "MOVE_ZEN_HEADBUTT",
+                "MOVE_EARTHQUAKE",
+                "MOVE_PAYBACK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CAMERUPT",
+            "form": 0,
+            "level": 45,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTH_POWER",
+                "MOVE_FIRE_BLAST",
+                "MOVE_PROTECT",
+                "MOVE_STONE_EDGE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CROBAT",
+            "form": 0,
+            "level": 46,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_CROSS_POISON",
+                "MOVE_BRAVE_BIRD",
+                "MOVE_HEAT_WAVE",
+                "MOVE_X_SCISSOR"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Proton: Now, wait just one second!\r",
+                "Aren’t you the one who got in\n",
+                "our way at the Slowpoke Well?\r",
+                "I see... You’re doing all this because\n",
+                "you want to make me angry. Be careful!\r",
+                "But since you seem to wish it, I’ll show\n",
+                "you the full extent of a Team Rocket\f",
+                "Executive’s wrath!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Seriously, you’d chase me this far?!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Ugh... What are you?!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Phew...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Proton: You may have won this time...\n",
+                "But all you did was make Team Rocket’s\f",
+                "wrath grow...\n"
+            ]
+        }
+    ]
+}

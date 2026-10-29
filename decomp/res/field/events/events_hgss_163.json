@@ -101,8 +101,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 4,
-            "z": 15,
+            "x": 6,
+            "z": 13,
             "y": 0
         },
         {
@@ -141,6 +141,25 @@
             "movement_range_z": 0,
             "x": 1,
             "z": 18,
+            "y": 0
+        },
+        {
+            "id": "obj_R32PC0101_7",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 5,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 5,
+            "z": 13,
             "y": 0
         }
     ],

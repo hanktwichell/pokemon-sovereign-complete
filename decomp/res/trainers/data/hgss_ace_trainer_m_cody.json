@@ -1,0 +1,52 @@
+{
+    "name": "Cody",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VIBRAVA",
+            "form": 0,
+            "level": 47,
+            "iv_scale": 60,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALTARIA",
+            "form": 0,
+            "level": 47,
+            "iv_scale": 60,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "It’s not as if we all use Dragon-type\n",
+                "Pokémon. It’s about more than that--\r",
+                "We’re interested in strong Pokémon.\n",
+                "That’s my theme!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Just what I expected.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I need to make my Pokémon stronger!\r",
+                "Pokémon and Trainers both need\n",
+                "to train!\n"
+            ]
+        }
+    ]
+}

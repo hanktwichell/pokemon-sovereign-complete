@@ -1,0 +1,127 @@
+{
+    "name": "Brock",
+    "class": "TRAINER_CLASS_HGSS_LEADER_BROCK",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_OMASTAR",
+            "form": 0,
+            "level": 58,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_BLIZZARD",
+                "MOVE_MUDDY_WATER",
+                "MOVE_TOXIC",
+                "MOVE_EARTH_POWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_SHELL_ARMOR"
+        },
+        {
+            "species": "SPECIES_RELICANTH",
+            "form": 0,
+            "level": 57,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_HEAD_SMASH",
+                "MOVE_AQUA_TAIL",
+                "MOVE_EARTHQUAKE",
+                "MOVE_DOUBLE_EDGE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_ROCK_HEAD"
+        },
+        {
+            "species": "SPECIES_KABUTOPS",
+            "form": 0,
+            "level": 58,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SWORDS_DANCE",
+                "MOVE_AQUA_TAIL",
+                "MOVE_STONE_EDGE",
+                "MOVE_AQUA_JET"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_BATTLE_ARMOR"
+        },
+        {
+            "species": "SPECIES_GOLEM",
+            "form": 0,
+            "level": 59,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_STONE_EDGE",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_EXPLOSION"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_STURDY"
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 59,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_STONE_EDGE",
+                "MOVE_WOOD_HAMMER",
+                "MOVE_LOW_KICK",
+                "MOVE_EXPLOSION"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_ROCK_HEAD"
+        },
+        {
+            "species": "SPECIES_ONIX",
+            "form": 0,
+            "level": 61,
+            "item": "ITEM_FOCUS_SASH",
+            "moves": [
+                "MOVE_TORMENT",
+                "MOVE_EARTHQUAKE",
+                "MOVE_STONE_EDGE",
+                "MOVE_EXPLOSION"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 12,
+            "ability": "ABILITY_STURDY"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Ah ha ha! It itches! It itches!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Ow ow ow ow ow...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Looks like you’re the stronger one...\n"
+            ]
+        }
+    ]
+}

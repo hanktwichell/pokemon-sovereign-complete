@@ -274,7 +274,7 @@
       "id": "msg_0108_D32R0401_00035",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have a single eligible Pokémon\n",
+        "You don’t have a single eliGible Pokémon\n",
         "of at least Lv. 30!\r"
       ]
     },
@@ -289,7 +289,7 @@
     },
     {
       "id": "msg_0108_D32R0401_00037",
-      "en_US": "Also, Eggs are ineligible to enter.\r"
+      "en_US": "Also, Eggs are ineliGible to enter.\r"
     },
     {
       "id": "msg_0108_D32R0401_00038",
@@ -528,7 +528,7 @@
       "id": "msg_0108_D32R0401_00061",
       "en_US": [
         "Slow...\r",
-        "My SLOWBRO is a cutie, but he’s even\n",
+        "My Slowbro is a cutie, but he’s even\n",
         "battled the Brain here.\r",
         "The Brain will take your Pokémon on at\n",
         "the same level, to be fair."
@@ -536,7 +536,7 @@
     },
     {
       "id": "msg_0108_D32R0401_00062",
-      "en_US": "SLOWBRO: ...Slow?"
+      "en_US": "Slowbro: ...Slow?"
     },
     {
       "id": "msg_0108_D32R0401_00063",
@@ -562,7 +562,7 @@
     {
       "id": "msg_0108_D32R0401_00065",
       "en_US": [
-        "You know how HOPPIP has two types--\n",
+        "You know how Hoppip has two types--\n",
         "Grass and Flying?\r",
         "That means it can appear as a\n",
         "Grass type and as a Flying type.\r",
@@ -860,7 +860,7 @@
         "All the glory you earned while battling\n",
         "so often on that shining stage...\r",
         "Just seeing you makes me feel all\n",
-        "happy inside. ♫"
+        "happy inside. ♪"
       ]
     },
     {

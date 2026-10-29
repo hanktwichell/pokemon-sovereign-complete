@@ -91,7 +91,7 @@ _015B:
 _015F:
     End
 _0161:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4001
+    GetHour VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 4, _017C
     SetFlag FLAG_HGSS_UNK_1B0
@@ -113,7 +113,8 @@ scr_seq_D37R0102_000:
     Message msg_0117_D37R0102_00000
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 8
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ClearFlag FLAG_HGSS_SPECIAL_MART_BITTER
     ReleaseAll
     End
@@ -122,7 +123,7 @@ scr_seq_D37R0102_001:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_DAILY_GOT_HAIRCUT, _0331
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     Message msg_0117_D37R0102_00010
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -139,8 +140,8 @@ _01F5:
     HideMoney
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_RESULT
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -150,9 +151,9 @@ _01F5:
     GetPartyMonSpecies VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0319
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     RemoveMoney 500
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     Message msg_0117_D37R0102_00012
     WaitABPress
     CloseMessage
@@ -167,7 +168,7 @@ _01F5:
     WaitABPress
     SetFlag FLAG_HGSS_DAILY_GOT_HAIRCUT
     Call _04C8
-    @ HGSS: Random VAR_SPECIAL_RESULT, 100
+    GetRandom VAR_RESULT, 100
     CompareVar VAR_RESULT, 40
     GoToIf 4, _02F6
     CompareVar VAR_RESULT, 10
@@ -175,7 +176,7 @@ _01F5:
     CompareVar VAR_RESULT, 0
     GoToIf 4, _02CA
 _02CA:
-    @ HGSS: MonAddFriendship 1, VAR_SPECIAL_x8005
+    IncreasePartyMonFriendship 1, VAR_0x8005
     BufferPartyMonNickname 0, VAR_0x8005
     Message msg_0117_D37R0102_00024
     WaitButton
@@ -183,7 +184,7 @@ _02CA:
     ReleaseAll
     End
 _02E0:
-    @ HGSS: MonAddFriendship 5, VAR_SPECIAL_x8005
+    IncreasePartyMonFriendship 5, VAR_0x8005
     BufferPartyMonNickname 0, VAR_0x8005
     Message msg_0117_D37R0102_00025
     WaitButton
@@ -191,7 +192,7 @@ _02E0:
     ReleaseAll
     End
 _02F6:
-    @ HGSS: MonAddFriendship 10, VAR_SPECIAL_x8005
+    IncreasePartyMonFriendship 10, VAR_0x8005
     BufferPartyMonNickname 0, VAR_0x8005
     Message msg_0117_D37R0102_00026
     WaitButton
@@ -229,7 +230,7 @@ scr_seq_D37R0102_002:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_DAILY_GOT_HAIRCUT, _04BD
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     Message msg_0117_D37R0102_00017
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -246,8 +247,8 @@ _0375:
     HideMoney
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_RESULT
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -257,9 +258,9 @@ _0375:
     GetPartyMonSpecies VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04A5
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     RemoveMoney 300
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     Message msg_0117_D37R0102_00019
     WaitABPress
     CloseMessage
@@ -273,7 +274,7 @@ _0375:
     Message msg_0117_D37R0102_00020
     WaitABPress
     SetFlag FLAG_HGSS_DAILY_GOT_HAIRCUT
-    @ HGSS: Random VAR_SPECIAL_RESULT, 100
+    GetRandom VAR_RESULT, 100
     CompareVar VAR_RESULT, 40
     GoToIf 4, _0444
     CompareVar VAR_RESULT, 10
@@ -282,7 +283,7 @@ _0375:
     GoToIf 4, _047C
 _0444:
     Call _04C8
-    @ HGSS: MonAddFriendship 1, VAR_SPECIAL_x8005
+    IncreasePartyMonFriendship 1, VAR_0x8005
     BufferPartyMonNickname 0, VAR_0x8005
     Message msg_0117_D37R0102_00024
     WaitButton
@@ -291,7 +292,7 @@ _0444:
     End
 _0460:
     Call _04C8
-    @ HGSS: MonAddFriendship 5, VAR_SPECIAL_x8005
+    IncreasePartyMonFriendship 5, VAR_0x8005
     BufferPartyMonNickname 0, VAR_0x8005
     Message msg_0117_D37R0102_00025
     WaitButton
@@ -300,7 +301,7 @@ _0460:
     End
 _047C:
     Call _04D8
-    @ HGSS: MonAddFriendship 10, VAR_SPECIAL_x8005
+    IncreasePartyMonFriendship 10, VAR_0x8005
     BufferPartyMonNickname 0, VAR_0x8005
     Message msg_0117_D37R0102_00026
     WaitButton
@@ -346,7 +347,7 @@ scr_seq_D37R0102_003:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_UNK_AB7, _0895
-    @ HGSS: ShowMoneyBox 20, 2
+    ShowMoney 20, 2
     Message msg_0117_D37R0102_00001
     SetVarFromValue VAR_MAP_LOCAL_0x03, 0
     SetVarFromValue VAR_MAP_LOCAL_0x04, 0
@@ -354,13 +355,13 @@ scr_seq_D37R0102_003:
     SetVarFromValue VAR_MAP_LOCAL_0x06, 0
     SetVarFromValue VAR_MAP_LOCAL_0x07, 0
 _0522:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 445, 0
-    AddMenuEntryImm 446, 1
-    AddMenuEntryImm 447, 2
-    AddMenuEntryImm 448, 3
-    AddMenuEntryImm 449, 4
-    AddMenuEntryImm 450, 7
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 445, 0
+    AddMenuEntry 446, 1
+    AddMenuEntry 447, 2
+    AddMenuEntry 448, 3
+    AddMenuEntry 449, 4
+    AddMenuEntry 450, 7
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -377,35 +378,35 @@ _0522:
 _05AB:
     CompareVar VAR_MAP_LOCAL_0x03, 1
     GoToIf 1, _086B
-    SetVarFromValue VAR_0x8004, 92
+    SetVarFromValue VAR_0x8004, ITEM_NUGGET
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 4500
     GoTo _0664
 _05D0:
     CompareVar VAR_MAP_LOCAL_0x04, 1
     GoToIf 1, _086B
-    SetVarFromValue VAR_0x8004, 88
+    SetVarFromValue VAR_0x8004, ITEM_PEARL
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 650
     GoTo _0664
 _05F5:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 1, _086B
-    SetVarFromValue VAR_0x8004, 89
+    SetVarFromValue VAR_0x8004, ITEM_BIG_PEARL
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 3500
     GoTo _0664
 _061A:
     CompareVar VAR_MAP_LOCAL_0x06, 1
     GoToIf 1, _086B
-    SetVarFromValue VAR_0x8004, 90
+    SetVarFromValue VAR_0x8004, ITEM_STARDUST
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 900
     GoTo _0664
 _063F:
     CompareVar VAR_MAP_LOCAL_0x07, 1
     GoToIf 1, _086B
-    SetVarFromValue VAR_0x8004, 91
+    SetVarFromValue VAR_0x8004, ITEM_STAR_PIECE
     SetVarFromValue VAR_0x8005, 1
     SetVarFromValue VAR_0x8006, 4600
     GoTo _0664
@@ -471,7 +472,7 @@ _0796:
     GoToIf 1, _087D
     RemoveMoney 4600
 _07C6:
-    @ HGSS: UpdateMoneyBox
+    UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
@@ -807,8 +808,8 @@ _0CCC:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_TEMP_x4002
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_MAP_LOCAL_0x02
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -900,67 +901,53 @@ _0E40:
     ReleaseAll
     End
     .balign 4, 0
-_0E4C:
     WalkSlowNorth 2
     EndMovement
     .balign 4, 0
-_0E54:
     WalkSlowWest
     WalkSlowNorth
     EndMovement
     .balign 4, 0
-_0E60:
     WalkSlowEast
     WalkSlowNorth
     EndMovement
     .balign 4, 0
-_0E6C:
     FaceSouth
     EndMovement
     .balign 4, 0
-_0E74:
     WalkSlowSouth 2
     FaceNorth
     EndMovement
     .balign 4, 0
-_0E80:
     WalkNormalWest
     FaceEast
     EndMovement
     .balign 4, 0
-_0E8C:
     WalkNormalWest
     FaceEast
     EndMovement
     .balign 4, 0
-_0E98:
     WalkNormalEast
     FaceWest
     EndMovement
     .balign 4, 0
-_0EA4:
     WalkNormalEast
     FaceSouth
     EndMovement
     .balign 4, 0
-_0EB0:
     WalkNormalEast
     FaceSouth
     EndMovement
     .balign 4, 0
-_0EBC:
     WalkNormalWest
     FaceSouth
     EndMovement
     .balign 4, 0
-_0EC8:
     FaceEast
     EndMovement
     .balign 4, 0
-_0ED0:
     FaceSouth
     EndMovement
-_0ED8:
     End
 scr_seq_D37R0102_006:
     PlaySE SE_CONFIRM_sseq_3
@@ -1057,7 +1044,6 @@ _1010:
     WalkFasterEast 2
     EndMovement
     .balign 4, 0
-_101C:
     WalkFasterNorth 2
     WalkFasterEast 4
     FaceWest

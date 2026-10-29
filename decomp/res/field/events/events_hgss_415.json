@@ -7,7 +7,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0104_EXPERT_BELT",
-            "script": 0,
+            "script": 7565,
             "initial_dir": 0,
             "data": [
                 0,

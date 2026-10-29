@@ -170,29 +170,29 @@
       "id": "msg_0377_R30R0201_00016",
       "en_US": [
         "Hm? That Red Scale! What’s that?\n",
-        "A red GYARADOS?\f",
+        "A red Gyarados?\f",
         "That’s rare! I... I want it...\r",
         "{STRVAR_1 3, 0, 0}, would you\n",
         "care to trade it?\r",
-        "I can offer this Exp. Share I got\n",
-        "from Professor Oak. {YESNO 0}"
+        "I can offer this Lucky Egg I got\n",
+        "from a Nurse Joy. {YESNO 0}"
       ]
     },
     {
       "id": "msg_0377_R30R0201_00017",
       "en_US": [
         "Hm? That Red Scale! What’s that?\n",
-        "A red GYARADOS?\f",
+        "A red Gyarados?\f",
         "That’s rare! I... I want it...\r",
         "{STRVAR_1 3, 0, 0}, would you\n",
         "care to trade it?\r",
-        "I can offer this Exp. Share I got\n",
-        "from Professor Oak. {YESNO 0}"
+        "I can offer this Lucky Egg I got\n",
+        "from a Nurse Joy. {YESNO 0}"
       ]
     },
     {
       "id": "msg_0377_R30R0201_00018",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0377_R30R0201_00019",

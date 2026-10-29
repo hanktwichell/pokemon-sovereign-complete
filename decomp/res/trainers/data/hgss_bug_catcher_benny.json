@@ -1,0 +1,61 @@
+{
+    "name": "Benny",
+    "class": "TRAINER_CLASS_HGSS_BUG_CATCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PARAS",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LEDIAN",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NINCADA",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKORUPI",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Bug Pokémon evolve young. So they get\n",
+                "stronger that much faster.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Just evolving isn’t enough!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you want to meet the Gym Leader, you\n",
+                "have to move the web using the switch.\n"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "name": "Tyson",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 64,
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_YAWN",
+                "MOVE_SURF",
+                "MOVE_AMNESIA"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_OCTILLERY",
+            "form": 0,
+            "level": 64,
+            "moves": [
+                "MOVE_SIGNAL_BEAM",
+                "MOVE_WRING_OUT",
+                "MOVE_OCTAZOOKA",
+                "MOVE_AURORA_BEAM"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Gotta keep going!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Glug...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "This arrogant guy was at\n",
+                "Cinnabar’s volcano.\n"
+            ]
+        }
+    ]
+}

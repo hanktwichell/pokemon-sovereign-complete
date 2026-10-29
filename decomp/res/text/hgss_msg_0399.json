@@ -55,7 +55,7 @@
     {
       "id": "msg_0399_R42_00007",
       "en_US": [
-        "Eusine: SUICUNE...\n",
+        "Eusine: Suicune...\n",
         "How brave it is!\f",
         "How refreshing it is!\f",
         "How beautiful it is!\f",
@@ -67,19 +67,19 @@
       "en_US": [
         "{STRVAR_1 3, 0, 0}!\n",
         "You seem to be around where\f",
-        "SUICUNE would appear.\r",
+        "Suicune would appear.\r",
         "Well, that’s OK.\n",
-        "My desire to search for SUICUNE is\f",
+        "My desire to search for Suicune is\f",
         "far beyond yours...\r",
         "My grandpa was...quite into myths.\n",
         "I’ve heard so many stories about\f",
-        "SUICUNE from him.\r"
+        "Suicune from him.\r"
       ]
     },
     {
       "id": "msg_0399_R42_00009",
       "en_US": [
-        "SUICUNE...\r",
+        "Suicune...\r",
         "I won’t stop following you until\n",
         "I’ve found out what you’re after...\r",
         "You hear me!\r"

@@ -229,6 +229,36 @@
         "I’d love to have one of those\n",
         "Pokégears, but my mom won’t let me."
       ]
+    },
+    {
+      "id": "msg_0556_T22_00028",
+      "en_US": [
+        "Boss Pokémon have been unlocked in\n",
+        "Routes 29, 31 and 46!"
+      ]
+    },
+    {
+      "id": "msg_0556_T22_00029",
+      "en_US": [
+        "Falkner: {STRVAR_1 3, 0, 0}, I must say, I\n",
+        "rather enjoyed our battle!\r",
+        "I’d like to give you my phone number.\n",
+        "It might be useful in the future!\r"
+      ]
+    },
+    {
+      "id": "msg_0556_T22_00030",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Falkner\n",
+        "in the Pokégear!"
+      ]
+    },
+    {
+      "id": "msg_0556_T22_00031",
+      "en_US": [
+        "Falkner: See you around, and good luck\n",
+        "with your future Gym challenges!"
+      ]
     }
   ]
 }

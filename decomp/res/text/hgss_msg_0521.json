@@ -8,6 +8,59 @@
         "The Ultimate Goal for Trainers!\n",
         "Pokémon League HQ"
       ]
+    },
+    {
+      "id": "msg_0521_T10_00001",
+      "en_US": "Steven: {STRVAR_1 3, 0, 0}! Wait!"
+    },
+    {
+      "id": "msg_0521_T10_00002",
+      "en_US": [
+        "Steven: Have you been hearing the calls\n",
+        "of the Eon Pokémon? I have reason to\f",
+        "believe they may want to test you..."
+      ]
+    },
+    {
+      "id": "msg_0521_T10_00003",
+      "en_US": [
+        "Steven: It’s them... these are truly\n",
+        "the Eon Pokémon of legend.\r",
+        "{STRVAR_1 3, 0, 0}, they’re looking to\n",
+        "challenge you!\r",
+        "Prove yourself to them - and to me -\n",
+        "to challenge the Pokémon League!\r",
+        "You should take these, too:\n",
+        "a little help from Hoenn’s Champion!"
+      ]
+    },
+    {
+      "id": "msg_0521_T10_00004",
+      "en_US": [
+        "Steven: You evidently haven’t proven\n",
+        "yourself to them, yet!\r",
+        "Although, if your Pokémon are in pain...\n",
+        "I’ll be happy to oblige with some help."
+      ]
+    },
+    {
+      "id": "msg_0521_T10_00005",
+      "en_US": "Latios: Shuaaaann!\r"
+    },
+    {
+      "id": "msg_0521_T10_00006",
+      "en_US": "Latias: Huaaaaann!\r"
+    },
+    {
+      "id": "msg_0521_T10_00007",
+      "en_US": [
+        "Steven: So, that’s that... you seem to\n",
+        "have made Latias and Latios happy.\r",
+        "I’m sure this won’t be the last time I\n",
+        "see you, {STRVAR_1 3, 0, 0}, but until then!\r",
+        "The best of luck with your Pokémon\n",
+        "League challenge!"
+      ]
     }
   ]
 }

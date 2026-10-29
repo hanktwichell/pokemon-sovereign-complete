@@ -3,87 +3,97 @@
   "messages": [
     {
       "id": "msg_0387_R35_00000",
-      "garbage": 45
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00001",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00002",
-      "garbage": 50
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} found\n",
+        "{STRVAR_1 8, 1, 0}!"
+      ]
     },
     {
       "id": "msg_0387_R35_00003",
-      "garbage": 24
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\n",
+        "in the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket."
+      ]
     },
     {
       "id": "msg_0387_R35_00004",
-      "garbage": 14
+      "en_US": [
+        "Obtained the {STRVAR_1 8, 0, 0}!\r",
+        "Too bad!\n",
+        "The Bag is full..."
+      ]
     },
     {
       "id": "msg_0387_R35_00005",
-      "garbage": 28
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00006",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00007",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00008",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00009",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00010",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00011",
-      "garbage": 28
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00012",
-      "garbage": 30
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00013",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00014",
-      "garbage": 104
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00015",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00016",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00017",
-      "garbage": 48
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00018",
-      "garbage": 15
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00019",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00020",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00021",
@@ -94,27 +104,27 @@
     },
     {
       "id": "msg_0387_R35_00022",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00023",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00024",
-      "garbage": 37
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00025",
-      "garbage": 19
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00026",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00027",
-      "garbage": 43
+      "garbage": 0
     },
     {
       "id": "msg_0387_R35_00028",
@@ -128,6 +138,28 @@
       "en_US": [
         "North to the National Park\n",
         "West to the Pokéathlon Dome"
+      ]
+    },
+    {
+      "id": "msg_0387_R35_00030",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} found\n",
+        "{STRVAR_1 8, 1, 0}!"
+      ]
+    },
+    {
+      "id": "msg_0387_R35_00031",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\n",
+        "in the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket."
+      ]
+    },
+    {
+      "id": "msg_0387_R35_00032",
+      "en_US": [
+        "Obtained the {STRVAR_1 8, 0, 0}!\r",
+        "Too bad!\n",
+        "The Bag is full..."
       ]
     }
   ]

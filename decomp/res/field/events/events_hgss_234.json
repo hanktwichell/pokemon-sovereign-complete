@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_NORTH"
         },
         {
-            "script": 0,
+            "script": 8354,
             "type": 2,
             "x": 20,
             "z": 29,
@@ -57,7 +57,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8355,
             "type": 2,
             "x": 48,
             "z": 14,
@@ -108,9 +108,9 @@
             "id": "obj_D35R0103_rocketm",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_GRUNT_18",
             "initial_dir": 2,
             "data": [
                 5,
@@ -127,9 +127,9 @@
             "id": "obj_D35R0103_rocketm_2",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_GRUNT_16",
             "initial_dir": 1,
             "data": [
                 5,
@@ -146,9 +146,9 @@
             "id": "obj_D35R0103_rocketm_3",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_GRUNT_17",
             "initial_dir": 1,
             "data": [
                 3,
@@ -357,7 +357,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D35R0103_TM46",
-            "script": 0,
+            "script": 7513,
             "initial_dir": 0,
             "data": [
                 0,
@@ -372,7 +372,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_murkrow",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_1",
@@ -391,7 +391,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_murkrow_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_2",
@@ -410,7 +410,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_murkrow_3",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_3",

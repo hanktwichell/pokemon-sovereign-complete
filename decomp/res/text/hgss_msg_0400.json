@@ -7,6 +7,33 @@
         "Mt. Mortar is like a maze inside.\f",
         "Be careful. Don’t get lost in there."
       ]
+    },
+    {
+      "id": "msg_0400_R42R0101_00001",
+      "en_US": [
+        "Please, wait! You don’t have the\n",
+        "Mineral Badge...\r",
+        "The Pokémon on this path are\n",
+        "far too treacherous for you."
+      ]
+    },
+    {
+      "id": "msg_0400_R42R0101_00002",
+      "en_US": [
+        "Have you heard about how aggressive\n",
+        "the Pokémon living around the mountain\f",
+        "have become?\r",
+        "It’s unbelievable!"
+      ]
+    },
+    {
+      "id": "msg_0400_R42R0101_00003",
+      "en_US": [
+        "I need to conduct more research! Have\n",
+        "you heard about the advancements of\f",
+        "the Legendary Trainer mythology?\r",
+        "It’s unbelievable!"
+      ]
     }
   ]
 }

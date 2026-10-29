@@ -1,0 +1,55 @@
+{
+    "name": "Patton",
+    "class": "TRAINER_CLASS_HGSS_BOARDER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SWINUB",
+            "form": 0,
+            "level": 41,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SNORUNT",
+            "form": 0,
+            "level": 41,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SMOOCHUM",
+            "form": 0,
+            "level": 41,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "This Gym has a slippery floor.\n",
+                "It’s fun, isn’t it?\r",
+                "But hey--we’re not playing games here!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Do you see how serious we are?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "This Gym is great.\n",
+                "I love snowboarding with my Pokémon!\n"
+            ]
+        }
+    ]
+}

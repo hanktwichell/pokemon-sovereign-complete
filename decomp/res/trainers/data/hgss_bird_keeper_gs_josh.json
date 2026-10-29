@@ -1,0 +1,49 @@
+{
+    "name": "Josh",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ALTARIA",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "My weight puts me in the\n",
+                "featherweight class!\r",
+                "...Huh? What do you mean that\n",
+                "doesn’t sound very strong?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I lost as lightly as a feather floats!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Maybe I should lie and say I’m in the\n",
+                "heavyweight class...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’m a stubborn featherweight.\n",
+                "I’ve been waiting here for you!\r"
+            ]
+        }
+    ]
+}

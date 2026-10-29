@@ -38,9 +38,9 @@
             "id": "obj_T23GYM0102_gsboy3",
             "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_AL",
             "initial_dir": 1,
             "data": [
                 1,
@@ -57,9 +57,9 @@
             "id": "obj_T23GYM0102_gsboy3_2",
             "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_BENNY",
             "initial_dir": 3,
             "data": [
                 4,
@@ -76,9 +76,9 @@
             "id": "obj_T23GYM0102_gsbabygirl1",
             "graphics_id": "OBJ_EVENT_GFX_TWIN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_TWINS_AMY_AND_MIMI",
             "initial_dir": 1,
             "data": [
                 1,
@@ -89,15 +89,16 @@
             "movement_range_z": 0,
             "x": 3,
             "z": 7,
-            "y": 0
+            "y": 0,
+            "double_battle_id": 2
         },
         {
             "id": "obj_T23GYM0102_gsbabygirl1_2",
             "graphics_id": "OBJ_EVENT_GFX_TWIN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_TWINS_AMY_AND_MIMI",
             "initial_dir": 1,
             "data": [
                 1,
@@ -114,9 +115,9 @@
             "id": "obj_T23GYM0102_gsboy3_3",
             "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_JOSH",
             "initial_dir": 1,
             "data": [
                 1,

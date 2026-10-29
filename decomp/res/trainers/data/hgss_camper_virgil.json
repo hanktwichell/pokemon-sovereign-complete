@@ -1,0 +1,57 @@
+{
+    "name": "Virgil",
+    "class": "TRAINER_CLASS_CAMPER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SLAKOTH",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VIGOROTH",
+            "form": 0,
+            "level": 48,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SLAKING",
+            "form": 0,
+            "level": 53,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Walking along with luggage and your\n",
+                "companion Pokémon gives a great feeling\f",
+                "of outdoor life!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Yaha! I lost!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Are you also on a solo journey?\n",
+                "See you again sometime. Bye for now!\n"
+            ]
+        }
+    ]
+}

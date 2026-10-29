@@ -4,19 +4,157 @@
     {
       "id": "msg_0590_T25R0801_00000",
       "en_US": [
-        "Once while I was battling, my Pokémon\n",
-        "couldn’t use any moves.\r",
-        "The Power Points, or PP, of its\n",
-        "moves were all gone."
+        "Cheryl: Oh, hello, {STRVAR_1 3, 0, 0}!\n",
+        "It’s nice to see you again when\f",
+        "we aren’t in a time of crisis.\r",
+        "Perhaps you’d be interested in a\n",
+        "bit of trading?\r",
+        "I’ve got a Chansey I’d be willing\n",
+        "to trade with you.\r",
+        "Have you got a Munchlax? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0590_T25R0801_00001",
       "en_US": [
-        "Sometimes, a healthy Pokémon\n",
-        "may be unable to use its moves.\r",
-        "If that happens, heal it at a\n",
-        "Pokémon Center or use an item."
+        "Thank you for trading with me.\n",
+        "I always wanted to try raising\f",
+        "a Snorlax."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00002",
+      "en_US": [
+        "Hmm? I don’t think that’s a\n",
+        "Munchlax, {STRVAR_1 3, 0, 0}..."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00003",
+      "en_US": [
+        "You don’t want to trade?\n",
+        "Well, that’s a shame."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00004",
+      "en_US": [
+        "It amazes me just how much Munchlax\n",
+        "eats. It’s expensive, but I wouldn’t\f",
+        "give it up for the world!\r",
+        "But enough about my end,\n",
+        "how is Chansey doing?"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00005",
+      "en_US": [
+        "Mira: Hey, {STRVAR_1 3, 0, 0}! We should have\n",
+        "a battle when we get stronger!"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00006",
+      "en_US": [
+        "Marley: Oh... {STRVAR_1 3, 0, 0}...\n",
+        "It’s good to see you are well...\r",
+        "We should battle at some point...\n",
+        "I’d like that...\r",
+        "Just a bit..."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00007",
+      "en_US": [
+        "Mira: Ohh! Mira has been waiting\n",
+        "for you to show up!\r",
+        "Mira wants to know if\n",
+        "you’d like to battle! {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00008",
+      "en_US": [
+        "You don’t want to?\n",
+        "Mira is disappointed..."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00009",
+      "en_US": [
+        "Mira found that fun. Mira wonders if\n",
+        "she can get stronger..."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00010",
+      "en_US": [
+        "Mira will show {STRVAR_1 3, 0, 0} how strong\n",
+        "she has gotten!\r"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00011",
+      "en_US": [
+        "Marley: Hello...\n",
+        "We’ve both grown quite strong...\r",
+        "Might you...\n",
+        "Wish to battle me? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00012",
+      "en_US": "Oh... You can be that mean?"
+    },
+    {
+      "id": "msg_0590_T25R0801_00013",
+      "en_US": "Excellent... Let’s get started...\r"
+    },
+    {
+      "id": "msg_0590_T25R0801_00014",
+      "en_US": [
+        "That was enjoyable... I like battling with you...\r",
+        "Just a tiny bit."
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00015",
+      "en_US": [
+        "Cheryl: I hope my Chansey is\n",
+        "doing well with you, {STRVAR_1 3, 0, 0}!\r",
+        "In the meanwhile, would you\n",
+        "like to have a battle? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00016",
+      "en_US": [
+        "I guess Pokémon aren’t always\n",
+        "able to fight, right?"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00017",
+      "en_US": [
+        "Giggle... This should be fun!\r",
+        "But let me warn you, my Pokémon\n",
+        "can be quite rambunctious!\r"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00018",
+      "en_US": [
+        "Being a Trainer isn’t easy. The more\n",
+        "you battle, the more you discover.\r",
+        "But being a Trainer is very rewarding,\n",
+        "wouldn’t you say?"
+      ]
+    },
+    {
+      "id": "msg_0590_T25R0801_00019",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
       ]
     }
   ]

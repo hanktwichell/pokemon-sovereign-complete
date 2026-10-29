@@ -17,7 +17,7 @@
     },
     {
       "id": "msg_0246_00002",
-      "garbage": 34
+      "garbage": 0
     },
     {
       "id": "msg_0246_00003",
@@ -74,11 +74,11 @@
     },
     {
       "id": "msg_0246_00008",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0246_00009",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0246_00010",
@@ -92,11 +92,11 @@
     },
     {
       "id": "msg_0246_00011",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0246_00012",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0246_00013",
@@ -192,11 +192,11 @@
     },
     {
       "id": "msg_0246_00024",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0246_00025",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0246_00026",
@@ -388,7 +388,7 @@
     {
       "id": "msg_0246_00051",
       "en_US": [
-        "Ed: My PARASECT makes Pokémon fall\n",
+        "Ed: My Parasect makes Pokémon fall\n",
         "asleep with Spore."
       ]
     },
@@ -455,14 +455,14 @@
       "en_US": [
         "Benny: ...... ...... ......\n",
         "...... ...... Ssssh!\r",
-        "You’ll scare off SCYTHER.\n",
+        "You’ll scare off Scyther.\n",
         "I’ll talk to you later."
       ]
     },
     {
       "id": "msg_0246_00061",
       "en_US": [
-        "Benny: Listen, I caught a SCYTHER\n",
+        "Benny: Listen, I caught a Scyther\n",
         "before, but I didn’t win."
       ]
     },
@@ -528,7 +528,7 @@
       "id": "msg_0246_00070",
       "en_US": [
         "Josh: I heard that somebody won with a\n",
-        "CATERPIE!"
+        "Caterpie!"
       ]
     },
     {

@@ -1,0 +1,45 @@
+{
+    "name": "Ron",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GASTRODON",
+            "form": 0,
+            "level": 40,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Would you get this?\r",
+                "Some red-haired kid made fun of my\n",
+                "precious Pokémon!\r",
+                "Humph! My Pokémon’s great!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "My Nidoking was outstanding!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "It’s OK for people to like different\n",
+                "types of Pokémon.\r",
+                "Pokémon isn’t just about having the\n",
+                "most powerful one.\n"
+            ]
+        }
+    ]
+}

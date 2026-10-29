@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8366,
             "type": 2,
             "x": 5,
             "z": 14,
@@ -14,9 +14,9 @@
             "id": "obj_EVERYWHERE_seaman_2",
             "graphics_id": "OBJ_EVENT_GFX_SAILOR",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAILOR_KENT",
             "initial_dir": 1,
             "data": [
                 4,
@@ -33,9 +33,9 @@
             "id": "obj_EVERYWHERE_gsman2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_DENIS",
             "initial_dir": 3,
             "data": [
                 6,
@@ -52,9 +52,9 @@
             "id": "obj_EVERYWHERE_gsman2_2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_THEO",
             "initial_dir": 2,
             "data": [
                 5,
@@ -73,7 +73,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D27R0104_ETHER",
-            "script": 0,
+            "script": 7415,
             "initial_dir": 0,
             "data": [
                 0,

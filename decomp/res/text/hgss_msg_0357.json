@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0357_R17_00000",
-      "garbage": 16
+      "garbage": 0
     },
     {
       "id": "msg_0357_R17_00001",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0357_R17_00002",
-      "garbage": 22
+      "garbage": 0
     }
   ]
 }

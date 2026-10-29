@@ -13,7 +13,7 @@ scr_seq_P01R0103_001:
     GoToIf 1, _0021
     End
 _0021:
-    @ HGSS: SetObjectFacing obj_P01R0103_seaman_2, DIR_SOUTH
+    SetObjectEventDir obj_P01R0103_seaman_2, DIR_SOUTH
     End
 scr_seq_P01R0103_000:
     PlaySE SE_CONFIRM_sseq_3
@@ -28,37 +28,31 @@ scr_seq_P01R0103_000:
     CompareVar VAR_RESULT, 0
     GoToIf 5, _006C
     GoTo _00EF
-_0066:
     GoTo _00EF
 _006C:
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0085
     GoTo _0142
-_007F:
     GoTo _00EF
 _0085:
     CompareVar VAR_RESULT, 2
     GoToIf 5, _009E
     GoTo _0142
-_0098:
     GoTo _00EF
 _009E:
     CompareVar VAR_RESULT, 3
     GoToIf 5, _00B7
     GoTo _00EF
-_00B1:
     GoTo _00EF
 _00B7:
     CompareVar VAR_RESULT, 4
     GoToIf 5, _00D0
     GoTo _0142
-_00CA:
     GoTo _00EF
 _00D0:
     CompareVar VAR_RESULT, 5
     GoToIf 5, _00E9
     GoTo _0142
-_00E3:
     GoTo _00EF
 _00E9:
     GoTo _0142

@@ -1,0 +1,56 @@
+{
+    "name": "Erin",
+    "class": "TRAINER_CLASS_PICNICKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PONYTA",
+            "form": 0,
+            "level": 22,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PIKACHU",
+            "form": 0,
+            "level": 22,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I raise Pokémon, too!\n",
+                "Will you battle with me?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh, bleah!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you’ve promised to have a rematch,\n",
+                "your opponent’s location will be marked\f",
+                "with an “!” on the map.\r",
+                "You can check it on your Pokégear.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Hey, have you gone and visited many\n",
+                "Gyms since then?\r"
+            ]
+        }
+    ]
+}

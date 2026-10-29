@@ -213,7 +213,8 @@ scr_seq_D35R0101_002:
     Message msg_0111_D35R0101_00000
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 28
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 _031C:
@@ -240,7 +241,8 @@ scr_seq_D35R0101_004:
     Message msg_0111_D35R0101_00010
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 29
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ClearFlag FLAG_HGSS_SPECIAL_MART_MAHOGANY_GOOD
     ReleaseAll
     End
@@ -272,7 +274,7 @@ _03DF:
 _03E5:
     GoTo _0552
 _03EB:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _0405
     Message msg_0111_D35R0101_00011

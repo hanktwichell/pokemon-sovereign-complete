@@ -1,0 +1,41 @@
+{
+    "name": "Boy",
+    "class": "TRAINER_CLASS_HGSS_PASSERBY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CYNDAQUIL",
+            "form": 0,
+            "level": 5,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "...Humph!\n",
+                "You’re doing OK for someone weak.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Humph!\n",
+                "Are you happy you won?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_WIN",
+            "en_US": [
+                "...Humph!\n",
+                "That was a waste of time.\n"
+            ]
+        }
+    ]
+}

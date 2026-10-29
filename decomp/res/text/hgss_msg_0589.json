@@ -73,7 +73,7 @@
     {
       "id": "msg_0589_T25R0601_00006",
       "en_US": [
-        "SHAYMIN, is it?\n",
+        "Shaymin, is it?\n",
         "It’s so cute!\r",
         "I know!\r",
         "Let me give it a flower!\n",
@@ -84,8 +84,8 @@
       "id": "msg_0589_T25R0601_00007",
       "en_US": [
         "The Gracidea will look perfect on\n",
-        "SHAYMIN!\f",
-        "Put it on SHAYMIN in the daylight."
+        "Shaymin!\f",
+        "Put it on Shaymin in the daylight."
       ]
     },
     {
@@ -130,6 +130,17 @@
       "en_US": [
         "Well... Excuse me, but\n",
         "you’re short of money."
+      ]
+    },
+    {
+      "id": "msg_0589_T25R0601_00014",
+      "en_US": [
+        "Have you heard of that cute\n",
+        "Pokémon called Shaymin?\r",
+        "I’ve heard it’s extremely shy,\n",
+        "but it’s oh-so-cute!\r",
+        "I wonder if one would ever\n",
+        "show up around here?"
       ]
     }
   ]

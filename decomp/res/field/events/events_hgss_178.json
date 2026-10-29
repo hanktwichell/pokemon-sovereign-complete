@@ -107,12 +107,12 @@
         },
         {
             "id": "obj_T25PC0101_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
-            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
+            "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
             "script": 4,
-            "initial_dir": 2,
+            "initial_dir": 3,
             "data": [
                 0,
                 0,
@@ -121,7 +121,7 @@
             "movement_range_x": 0,
             "movement_range_z": 0,
             "x": 5,
-            "z": 14,
+            "z": 13,
             "y": 0
         },
         {
@@ -141,6 +141,44 @@
             "movement_range_z": 0,
             "x": 3,
             "z": 17,
+            "y": 0
+        },
+        {
+            "id": "obj_T25PC0101_7",
+            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FF3",
+            "script": 6,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 4,
+            "z": 9,
+            "y": 0
+        },
+        {
+            "id": "obj_T25PC0101_8",
+            "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 5,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6,
+            "z": 13,
             "y": 0
         }
     ],

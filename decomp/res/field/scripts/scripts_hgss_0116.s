@@ -22,21 +22,15 @@
     ScriptEntry scr_seq_D47_014
     ScriptEntry scr_seq_D47_015
     ScriptEntry scr_seq_D47_016
+    ScriptEntry scr_seq_D47_017
+    ScriptEntry scr_seq_D47_018
+    ScriptEntry scr_seq_D47_019
+    ScriptEntry scr_seq_D47_020
+    ScriptEntry scr_seq_D47_021
     ScriptEntryEnd
 scr_seq_D47_014:
-    GoToIfUnset FLAG_HGSS_UNK_189, _0057
+    GoToIfUnset FLAG_HGSS_UNK_189, _0353
     ClearFlag FLAG_HGSS_UNK_189
-    End
-_0057:
-    GetDayOfWeek VAR_MAP_LOCAL_0x00
-    CompareVar VAR_MAP_LOCAL_0x00, 2
-    GoToIf 1, _007B
-    CompareVar VAR_MAP_LOCAL_0x00, 4
-    GoToIf 1, _007B
-    SetFlag FLAG_HGSS_HIDE_CAMERON
-    End
-_007B:
-    ClearFlag FLAG_HGSS_HIDE_CAMERON
     End
 scr_seq_D47_000:
     NPCMessage msg_0133_D47_00002
@@ -66,23 +60,9 @@ scr_seq_D47_005:
     LockAll
     FacePlayer
     CompareVar VAR_MAP_LOCAL_0x0B, 0
-    GoToIf 5, _0106
+    GoToIf 5, _0377
     Message msg_0133_D47_00007
-    GoTo _0109
-_0106:
-    Message msg_0133_D47_00008
-_0109:
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    CompareVar VAR_MAP_LOCAL_0x0B, 0
-    GoToIf 5, _0128
-    AddVar VAR_MAP_LOCAL_0x0B, 1
-    GoTo _012E
-_0128:
-    SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
-_012E:
-    End
+    GoTo _0399
 scr_seq_D47_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
@@ -91,7 +71,8 @@ scr_seq_D47_006:
     Common_VendorGreeting
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 6
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 scr_seq_D47_007:
@@ -101,15 +82,16 @@ scr_seq_D47_007:
     Message msg_0133_D47_00010
     Common_VendorGreeting
     CloseMessageWithoutErasing
-    SetVarFromValue VAR_0x8004, 14
-    @ HGSS: CallStd std_special_mart
+    SetVarFromValue VAR_0x8004, 1
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 scr_seq_D47_008:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    PlayCry SPECIES_BUTTERFREE, 0
+    PlayCry SPECIES_BEAUTIFLY, 0
     Message msg_0133_D47_00011
     WaitCry
     WaitButton
@@ -148,10 +130,10 @@ scr_seq_D47_013:
     MessageFromBank VAR_RESULT, 0
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0307
+    GoToIf 1, _03B8
     @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _031B
+    GoToIf 1, _03CC
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
     MessageFromBank VAR_RESULT, 1
     CloseMessage
@@ -160,35 +142,139 @@ scr_seq_D47_013:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 5, _0258
-    ApplyMovement LOCALID_PLAYER, _0330
-    ApplyMovement obj_D47_gsmiddleman1, _037C
-    GoTo _02A6
-_0258:
+    GoToIf 5, _03E0
+    ApplyMovement LOCALID_PLAYER, _055C
+    ApplyMovement obj_D47_gsmiddleman1, _0572
+    GoTo _03FB
+scr_seq_D47_015:
+    NPCMessage msg_0133_D47_00015
+    End
+scr_seq_D47_016:
+    NPCMessage msg_0133_D47_00016
+    End
+scr_seq_D47_017:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    Message msg_0133_D47_00018
+    SetFlag FLAG_HGSS_SG_3FFF
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+scr_seq_D47_018:
+    NPCMessage msg_0133_D47_00022
+    End
+scr_seq_D47_019:
+    NPCMessage msg_0133_D47_00019
+    End
+scr_seq_D47_020:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    BufferPlayerName 0
+    Message msg_0133_D47_00020
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+scr_seq_D47_021:
+    ApplyMovement 17, _057C
+    ApplyMovement 18, _057C
+    ApplyMovement LOCALID_PLAYER, _0582
+    ApplyMovement 19, _0582
+    WaitMovement
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    BufferPlayerName 0
+    BufferPlayerName 0
+    Message msg_0133_D47_00021
+    CloseMessage
+    StartTagBattle TRAINER_HGSS_BIKER_MICKEY_2, TRAINER_HGSS_SWIMMER_M_MICKEY_3, TRAINER_HGSS_SWIMMER_M_MICKEY_2
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _045C
+    Message msg_0133_D47_00023
+    WaitButton
+    CloseMessage
+    SetVarFromValue VAR_HGSS_SG_6130, 2
+    FadeScreen 8, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    RemoveObject 17
+    RemoveObject 18
+    SetFlag FLAG_HGSS_SG_3FDF
+    SetFlag FLAG_HGSS_SG_3FE8
+    ClearFlag FLAG_HGSS_SG_3FE7
+    FadeScreen 8, 1, 1, COLOR_BLACK
+    ApplyMovement 19, _0588
+    ApplyMovement LOCALID_PLAYER, _058E
+    WaitMovement
+    Message msg_0133_D47_00024
+    GoToIfSet FLAG_HGSS_GOT_EEVEE_FROM_BILL, _0462
+    Message msg_0133_D47_00025
+    Message msg_0133_D47_00027
+    WaitButton
+    CloseMessage
+    ApplyMovement 19, _0594
+    WaitMovement
+    RemoveObject 19
+    ReleaseAll
+    End
+_0353:
+    GetDayOfWeek VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 2
+    GoToIf 1, _047E
+    CompareVar VAR_MAP_LOCAL_0x00, 4
+    GoToIf 1, _047E
+    SetFlag FLAG_HGSS_HIDE_CAMERON
+    End
+_0377:
+    Message msg_0133_D47_00008
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    CompareVar VAR_MAP_LOCAL_0x0B, 0
+    GoToIf 5, _0484
+    AddVar VAR_MAP_LOCAL_0x0B, 1
+    GoTo _048C
+_0399:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    CompareVar VAR_MAP_LOCAL_0x0B, 0
+    GoToIf 5, _0484
+    AddVar VAR_MAP_LOCAL_0x0B, 1
+    GoTo _048C
+_03B8:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 5
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_03CC:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
+    MessageFromBank VAR_RESULT, 3
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_03E0:
     CompareVar VAR_RESULT, 1
-    GoToIf 5, _0273
-    ApplyMovement LOCALID_PLAYER, _0348
-    GoTo _02A6
-_0273:
-    CompareVar VAR_RESULT, 3
-    GoToIf 5, _0296
-    ApplyMovement LOCALID_PLAYER, _0368
-    ApplyMovement obj_D47_gsmiddleman1, _037C
-    GoTo _02A6
-_0296:
-    ApplyMovement LOCALID_PLAYER, _0354
-    ApplyMovement obj_D47_gsmiddleman1, _037C
-_02A6:
+    GoToIf 5, _048E
+    ApplyMovement LOCALID_PLAYER, _059A
+    GoTo _03FB
+_03FB:
     WaitMovement
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 1
-    GoToIf 5, _02CD
-    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0388
+    GoToIf 5, _04B1
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _05A4
     WaitMovement
-_02CD:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -203,22 +289,77 @@ _02CD:
     CloseMessage
     ReleaseAll
     End
-_0307:
+_045C:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_0462:
+    Message msg_0133_D47_00026
+    Message msg_0133_D47_00027
+    WaitButton
+    CloseMessage
+    ApplyMovement 19, _0594
+    WaitMovement
+    RemoveObject 19
+    ReleaseAll
+    End
+_047E:
+    ClearFlag FLAG_HGSS_HIDE_CAMERON
+    End
+_0484:
+    SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
+    End
+_048C:
+    End
+_048E:
+    CompareVar VAR_RESULT, 3
+    GoToIf 5, _04EB
+    ApplyMovement LOCALID_PLAYER, _05B2
+    ApplyMovement obj_D47_gsmiddleman1, _0572
+    GoTo _03FB
+_04B1:
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 38
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 5
+    MessageFromBank VAR_RESULT, 2
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_031B:
+_04EB:
+    ApplyMovement LOCALID_PLAYER, _05C4
+    ApplyMovement obj_D47_gsmiddleman1, _0572
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    CompleteFollowerCheckActive VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 5, _04B1
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _05A4
+    WaitMovement
+    SetFlag FLAG_HGSS_UNK_189
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: CameronPhoto 38
+    LockAll
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ClearFlag FLAG_HGSS_UNK_189
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
-    MessageFromBank VAR_RESULT, 3
+    MessageFromBank VAR_RESULT, 2
     WaitButton
     CloseMessage
     ReleaseAll
     End
     .balign 4, 0
-_0330:
+_055C:
     WalkNormalEast
     WalkNormalNorth 2
     WalkNormalWest
@@ -226,39 +367,53 @@ _0330:
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0348:
+_0572:
+    Delay8
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_057C:
+    FaceSouth
+    EndMovement
+    .balign 4, 0
+_0582:
+    FaceNorth
+    EndMovement
+    .balign 4, 0
+_0588:
+    FaceWest
+    EndMovement
+    .balign 4, 0
+_058E:
+    FaceEast
+    EndMovement
+    .balign 4, 0
+_0594:
+    WalkNormalSouth 11
+    EndMovement
+    .balign 4, 0
+_059A:
     WalkNormalNorth 3
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_0354:
+_05A4:
+    WalkNormalEast
+    WalkNormalNorth
+    FaceSouth
+    EndMovement
+    .balign 4, 0
+_05B2:
+    WalkNormalNorth
+    WalkNormalEast
+    WalkNormalNorth 3
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_05C4:
     WalkNormalNorth
     WalkNormalWest
     WalkNormalNorth 3
     WalkOnSpotNormalSouth
     EndMovement
-    .balign 4, 0
-_0368:
-    WalkNormalNorth
-    WalkNormalEast
-    WalkNormalNorth 3
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_037C:
-    Delay8
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_0388:
-    WalkNormalEast
-    WalkNormalNorth
-    FaceSouth
-    EndMovement
-scr_seq_D47_015:
-    NPCMessage msg_0133_D47_00015
-    End
-scr_seq_D47_016:
-    NPCMessage msg_0133_D47_00016
-    End
     .balign 4, 0

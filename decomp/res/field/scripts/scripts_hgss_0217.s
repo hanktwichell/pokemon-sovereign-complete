@@ -81,8 +81,8 @@ _0125:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8000
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8000
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -150,23 +150,23 @@ _024E:
     GoToIf 1, _02CC
     GoTo _02DE
 _0296:
-    SetVarFromValue VAR_0x8004, 85
+    SetVarFromValue VAR_0x8004, ITEM_LEAF_STONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _02A8:
-    SetVarFromValue VAR_0x8004, 82
+    SetVarFromValue VAR_0x8004, ITEM_FIRE_STONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _02BA:
-    SetVarFromValue VAR_0x8004, 229
+    SetVarFromValue VAR_0x8004, ITEM_EVERSTONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _02CC:
-    SetVarFromValue VAR_0x8004, 83
+    SetVarFromValue VAR_0x8004, ITEM_THUNDERSTONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _02DE:
-    SetVarFromValue VAR_0x8004, 84
+    SetVarFromValue VAR_0x8004, ITEM_WATER_STONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _02F0:
@@ -227,23 +227,23 @@ _03B6:
     GoToIf 1, _0434
     GoTo _0446
 _03FE:
-    SetVarFromValue VAR_0x8004, 229
+    SetVarFromValue VAR_0x8004, ITEM_EVERSTONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _0410:
-    SetVarFromValue VAR_0x8004, 85
+    SetVarFromValue VAR_0x8004, ITEM_LEAF_STONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _0422:
-    SetVarFromValue VAR_0x8004, 84
+    SetVarFromValue VAR_0x8004, ITEM_WATER_STONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _0434:
-    SetVarFromValue VAR_0x8004, 82
+    SetVarFromValue VAR_0x8004, ITEM_FIRE_STONE
     SetVarFromValue VAR_0x8005, 1
     GoTo _0452
 _0446:
-    SetVarFromValue VAR_0x8004, 83
+    SetVarFromValue VAR_0x8004, ITEM_THUNDERSTONE
     SetVarFromValue VAR_0x8005, 1
 _0452:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT

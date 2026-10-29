@@ -1,0 +1,123 @@
+{
+    "name": "Jasmine",
+    "class": "TRAINER_CLASS_HGSS_LEADER_JASMINE",
+    "items": [
+        "ITEM_HYPER_POTION",
+        "ITEM_HYPER_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_METANG",
+            "form": 0,
+            "level": 37,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_METAL_CLAW",
+                "MOVE_PSYCHIC",
+                "MOVE_BULLET_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGNETON",
+            "form": 0,
+            "level": 39,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_MAGNET_RISE",
+                "MOVE_FLASH_CANNON",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FORRETRESS",
+            "form": 0,
+            "level": 38,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_GYRO_BALL",
+                "MOVE_PAYBACK",
+                "MOVE_EXPLOSION",
+                "MOVE_BUG_BITE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKARMORY",
+            "form": 0,
+            "level": 39,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_STEEL_WING",
+                "MOVE_FLY",
+                "MOVE_TOXIC",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_ROCK_HEAD"
+        },
+        {
+            "species": "SPECIES_BRONZONG",
+            "form": 0,
+            "level": 38,
+            "item": "ITEM_DAMP_ROCK",
+            "moves": [
+                "MOVE_HYPNOSIS",
+                "MOVE_RAIN_DANCE",
+                "MOVE_PSYCHIC",
+                "MOVE_GYRO_BALL"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_STEELIX",
+            "form": 0,
+            "level": 40,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_STONE_EDGE",
+                "MOVE_IRON_TAIL",
+                "MOVE_SCREECH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 11,
+            "gender": "male"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Properly tempered steel won’t be made\n",
+                "rusty by things like this!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Steel will hang on to the very last!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Well done...\n"
+            ]
+        }
+    ]
+}

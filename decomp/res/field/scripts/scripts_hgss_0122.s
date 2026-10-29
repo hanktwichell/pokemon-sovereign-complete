@@ -117,7 +117,7 @@ _01D9:
     ApplyMovement obj_D49_thlonowner, _0424
     ApplyMovement obj_D49_tsure_poke_static_poliwrath, _0424
     WaitMovement
-    @ HGSS: PlayerOnBikeCheck VAR_SPECIAL_RESULT
+    CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _020C
     Message msg_0137_D49_00005
@@ -651,17 +651,16 @@ scr_seq_D49_015:
     GoToIfUnset FLAG_HGSS_UNK_997, _093E
     Message msg_0137_D49_00025
 _08D1:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 326, 0
-    AddMenuEntryImm 327, 1
-    AddMenuEntryImm 157, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 326, 0
+    AddMenuEntry 327, 1
+    AddMenuEntry 157, 2
     ShowMenu
     CompareVar VAR_RESULT, 0
     GoToIf 1, _091D
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0928
     GoTo _0933
-_0917:
     CloseMessage
     ReleaseAll
     End
@@ -745,22 +744,22 @@ scr_seq_D49_019:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 0
     GoToIfUnset FLAG_HGSS_UNK_997, _095F
 _0A1D:
-    @ HGSS: ShowMoneyBox 21, 1
+    ShowMoney 21, 1
     @ HGSS: ScrCmd_741 VAR_TEMP_x4007, VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002
     ApplyMovement obj_D49_shopm1_2, _0BEC
     WaitMovement
     Message msg_0137_D49_00033
 _0A3A:
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 328, 0
-    AddMenuEntryImm 329, 1
-    AddMenuEntryImm 44, 2
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 328, 0
+    AddMenuEntry 329, 1
+    AddMenuEntry 44, 2
     ShowMenu
     CompareVar VAR_RESULT, 2
     GoToIf 1, _0AD6
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0AF6
-    @ HGSS: HasEnoughMoneyVar VAR_SPECIAL_RESULT, VAR_SPECIAL_x8001
+    CheckMoney2 VAR_RESULT, VAR_0x8001
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0AEB
     Message msg_0137_D49_00034
@@ -770,7 +769,7 @@ _0A3A:
     HideMoney
     @ HGSS: ScrCmd_740 VAR_SPECIAL_x8000, VAR_SPECIAL_x8003
     ReturnToField
-    @ HGSS: ShowMoneyBox 21, 1
+    ShowMoney 21, 1
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_0x8003, 0
@@ -778,8 +777,8 @@ _0A3A:
     Message msg_0137_D49_00036
     GoTo _0AD9
 _0AD0:
-    @ HGSS: SubMoneyVar VAR_SPECIAL_x8001
-    @ HGSS: UpdateMoneyBox
+    RemoveMoney2 VAR_0x8001
+    UpdateMoneyDisplay
 _0AD6:
     Message msg_0137_D49_00035
 _0AD9:

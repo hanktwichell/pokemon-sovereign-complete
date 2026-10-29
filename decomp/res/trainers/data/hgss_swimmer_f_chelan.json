@@ -1,0 +1,47 @@
+{
+    "name": "Chelan",
+    "class": "TRAINER_CLASS_HGSS_SWIMMER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AZUMARILL",
+            "form": 0,
+            "level": 65,
+            "moves": [
+                "MOVE_WATERFALL",
+                "MOVE_ROLLOUT",
+                "MOVE_DEFENSE_CURL",
+                "MOVE_DIG"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I love bikinis!\n",
+                "If I had an electric bikini, I could wear\f",
+                "it even in winter!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Awww...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I suppose if you tried to swim in an\n",
+                "electric bikini, you’d get a shock!\n"
+            ]
+        }
+    ]
+}

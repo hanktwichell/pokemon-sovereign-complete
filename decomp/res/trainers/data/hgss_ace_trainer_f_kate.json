@@ -1,0 +1,50 @@
+{
+    "name": "Kate",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HORSEA",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SEADRA",
+            "form": 0,
+            "level": 32,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Kate: You sure were mean to my\n",
+                "little sisters!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Kate: No! I can’t believe I lost.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Kate: You’re too strong. I didn’t stand\n",
+                "a chance.\r",
+                "Here. You deserve this.\n"
+            ]
+        }
+    ]
+}

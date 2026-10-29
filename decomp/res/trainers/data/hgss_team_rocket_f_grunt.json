@@ -1,0 +1,58 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GRIMER",
+            "form": 0,
+            "level": 17,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_POOCHYENA",
+            "form": 0,
+            "level": 17,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GEODUDE",
+            "form": 0,
+            "level": 17,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Stop taking SlowpokeTails?\r",
+                "What?! You want us to disobey a direct\n",
+                "order from Executive Proton?\r",
+                "If you want to stop us, you’ll have to\n",
+                "defeat us all! Go ahead and try!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You rotten brat!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "SlowpokeTails grow back fast!\r",
+                "Besides, it was an order from Proton,\n",
+                "so I’m more concerned about that!\n"
+            ]
+        }
+    ]
+}

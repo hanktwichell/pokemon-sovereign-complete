@@ -13,10 +13,9 @@ scr_seq_D23R0106_000:
     SetFlag FLAG_HGSS_HIDE_ROCKET_TAKEOVER_2
     SetVarFromValue VAR_HGSS_UNK_4125, 0
     CompareVar VAR_HGSS_SCENE_ROCKET_TAKEOVER, 4
-    GoToIf 5, _002D
+    GoToIf 5, _0137
     ClearFlag FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1
     ClearFlag FLAG_HGSS_HIDE_ROCKET_TAKEOVER_2
-_002D:
     End
 scr_seq_D23R0106_001:
     PlaySE SE_CONFIRM_sseq_3
@@ -24,101 +23,186 @@ scr_seq_D23R0106_001:
     FacePlayer
     Message msg_0070_D23R0106_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_EXECUTIVE_ARCHER_ARCHER, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_EXECUTIVE_ARCHER_ARCHER, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _025D
+    GoToIf 1, _0139
     Message msg_0070_D23R0106_00001
+    CloseMessage
+    HealParty
+    AddObject 2
+    SetPosition 2, 8, 0, 12, DIR_WEST
+    ApplyMovement 2, _0464
+    WaitMovement
+    ApplyMovement obj_D23R0106_rkanbum, _047C
+    WaitMovement
+    ApplyMovement obj_D23R0106_rkanbum, _0484
+    ApplyMovement LOCALID_PLAYER, _0484
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0484
+    WaitMovement
+    StopMusic
+    Message msg_0070_D23R0106_00010
+    WaitButton
+    CloseMessage
+    Message msg_0070_D23R0106_00012
+    CloseMessage
+    StartTrainerBattle TRAINER_HGSS_ROCKET_BOSS_GIOVANNI, 0
+    CheckWonBattle VAR_RESULT
+    CompareVar VAR_RESULT, 0
+    GoToIf 1, _0139
+    Message msg_0070_D23R0106_00011
+    WaitButton
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     RemoveObject obj_D23R0106_rkanbum
+    RemoveObject 2
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     ClearFlag FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE
     FadeOutBGM 0, 30
     StopMusic
     WaitTime 15, VAR_RESULT
-    @ HGSS: ResetBGM
+    PlayDefaultMusic
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     SetPosition obj_D23R0106_gsgentleman, 8, 1, 12, DIR_SOUTH
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x00, 7
-    GoToIf 5, _00C1
-    ApplyMovement obj_D23R0106_gsgentleman, _0288
-    GoTo _0102
-_00C1:
+    GoToIf 5, _013F
+    ApplyMovement obj_D23R0106_gsgentleman, _048C
+    GoTo _016B
+    End
+_0137:
+    End
+_0139:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_013F:
     CompareVar VAR_MAP_LOCAL_0x00, 8
-    GoToIf 5, _00ED
-    ApplyMovement obj_D23R0106_gsgentleman, _02A4
+    GoToIf 5, _01B7
+    ApplyMovement obj_D23R0106_gsgentleman, _04A8
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 1
-    CallIf 1, _0263
-    GoTo _0102
-_00ED:
-    CompareVar VAR_MAP_LOCAL_0x00, 9
-    GoToIf 5, _0102
-    ApplyMovement obj_D23R0106_gsgentleman, _02C0
-_0102:
+    CallIf 1, _0218
+    GoTo _016B
+_016B:
     WaitMovement
     CompareVar VAR_MAP_LOCAL_0x00, 8
-    GoToIf 5, _0119
-    ApplyMovement LOCALID_PLAYER, _02EC
-_0119:
+    GoToIf 5, _023D
+    ApplyMovement LOCALID_PLAYER, _04C4
     WaitMovement
     Message msg_0070_D23R0106_00002
     GetGameVersion VAR_RESULT
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _014E
+    GoToIf 5, _0272
     SetVar VAR_0x8004, ITEM_RAINBOW_WING
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     SetFlag FLAG_HGSS_UNK_093
     Message msg_0070_D23R0106_00005
     CloseMessage
-    GoTo _0167
-_014E:
+    GoTo _02A6
+_01B7:
+    CompareVar VAR_MAP_LOCAL_0x00, 9
+    GoToIf 5, _016B
+    ApplyMovement obj_D23R0106_gsgentleman, _04CC
+    WaitMovement
+    CompareVar VAR_MAP_LOCAL_0x00, 8
+    GoToIf 5, _023D
+    ApplyMovement LOCALID_PLAYER, _04C4
+    WaitMovement
+    Message msg_0070_D23R0106_00002
+    GetGameVersion VAR_RESULT
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0272
+    SetVar VAR_0x8004, ITEM_RAINBOW_WING
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_HGSS_UNK_093
+    Message msg_0070_D23R0106_00005
+    CloseMessage
+    GoTo _02A6
+_0218:
+    .short SCRCMD_UNUSED_06A
+    .short LOCALID_COMPLETE_FOLLOWER
+    .short VAR_0x8004
+    .short VAR_0x8005
+    CompareVar VAR_0x8004, 7
+    GoToIf 5, _02C1
+    WaitTime 112, VAR_RESULT
+    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _04E8
+    Return
+_023D:
+    WaitMovement
+    Message msg_0070_D23R0106_00002
+    GetGameVersion VAR_RESULT
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0272
+    SetVar VAR_0x8004, ITEM_RAINBOW_WING
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_HGSS_UNK_093
+    Message msg_0070_D23R0106_00005
+    CloseMessage
+    GoTo _02A6
+_0272:
     SetVar VAR_0x8004, ITEM_SILVER_WING
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     SetFlag FLAG_HGSS_UNK_094
     Message msg_0070_D23R0106_00006
     CloseMessage
-_0167:
     CompareVar VAR_MAP_LOCAL_0x00, 7
-    GoToIf 5, _0182
-    ApplyMovement obj_D23R0106_gsgentleman, _02F4
-    GoTo _01B2
-_0182:
+    GoToIf 5, _02C3
+    ApplyMovement obj_D23R0106_gsgentleman, _04F8
+    GoTo _02DE
+_02A6:
+    CompareVar VAR_MAP_LOCAL_0x00, 7
+    GoToIf 5, _02C3
+    ApplyMovement obj_D23R0106_gsgentleman, _04F8
+    GoTo _02DE
+_02C1:
+    Return
+_02C3:
     CompareVar VAR_MAP_LOCAL_0x00, 8
-    GoToIf 5, _019D
-    ApplyMovement obj_D23R0106_gsgentleman, _0304
-    GoTo _01B2
-_019D:
-    CompareVar VAR_MAP_LOCAL_0x00, 9
-    GoToIf 5, _01B2
-    ApplyMovement obj_D23R0106_gsgentleman, _0314
-_01B2:
+    GoToIf 5, _030E
+    ApplyMovement obj_D23R0106_gsgentleman, _0508
+    GoTo _02DE
+_02DE:
     WaitMovement
-    ApplyMovement obj_D23R0106_gsgentleman, _0324
+    ApplyMovement obj_D23R0106_gsgentleman, _0518
     WaitMovement
-    ApplyMovement LOCALID_PLAYER, _02EC
+    ApplyMovement LOCALID_PLAYER, _04C4
     WaitMovement
     GetGameVersion VAR_RESULT
     CompareVar VAR_RESULT, 7
-    GoToIf 5, _01E2
+    GoToIf 5, _0353
     Message msg_0070_D23R0106_00007
-    GoTo _01E5
-_01E2:
+    GoTo _03CE
+_030E:
+    CompareVar VAR_MAP_LOCAL_0x00, 9
+    GoToIf 5, _02DE
+    ApplyMovement obj_D23R0106_gsgentleman, _0520
+    WaitMovement
+    ApplyMovement obj_D23R0106_gsgentleman, _0518
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _04C4
+    WaitMovement
+    GetGameVersion VAR_RESULT
+    CompareVar VAR_RESULT, 7
+    GoToIf 5, _0353
+    Message msg_0070_D23R0106_00007
+    GoTo _03CE
+_0353:
     Message msg_0070_D23R0106_00008
-_01E5:
     CloseMessage
-    ApplyMovement obj_D23R0106_gsgentleman, _032C
+    ApplyMovement obj_D23R0106_gsgentleman, _0530
     WaitMovement
     Message msg_0070_D23R0106_00009
     CloseMessage
-    ApplyMovement obj_D23R0106_gsgentleman, _0344
+    ApplyMovement obj_D23R0106_gsgentleman, _0548
     WaitMovement
     PlaySE SEQ_SE_DP_DOOR10_sseq
     WaitSE SEQ_SE_DP_DOOR10_sseq
@@ -132,9 +216,8 @@ _01E5:
     ClearFlag FLAG_HGSS_HIDE_RADIO_TOWER_5F_OFFICE_DIRECTOR
     SetFlag FLAG_HGSS_HIDE_RADIO_TOWER_5F_PETREL_REVEALED
     CompareVar VAR_HGSS_UNK_40F8, 2
-    GoToIf 5, _0241
+    GoToIf 5, _0446
     SetVarFromValue VAR_HGSS_UNK_40F8, 0
-_0241:
     SetVarFromValue VAR_HGSS_UNK_407A, 1
     ClearFlag FLAG_HGSS_HIDE_MAHOGANY_SHOP_SALESWOMAN
     SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_GUARD_INFRONT
@@ -142,23 +225,61 @@ _0241:
     SetFlag FLAG_HGSS_UNK_998
     SetFlag FLAG_HGSS_UNK_97D
     End
-_025D:
-    BlackOutFromBattle
+_03CE:
+    CloseMessage
+    ApplyMovement obj_D23R0106_gsgentleman, _0530
+    WaitMovement
+    Message msg_0070_D23R0106_00009
+    CloseMessage
+    ApplyMovement obj_D23R0106_gsgentleman, _0548
+    WaitMovement
+    PlaySE SEQ_SE_DP_DOOR10_sseq
+    WaitSE SEQ_SE_DP_DOOR10_sseq
+    WaitTime 8, VAR_RESULT
+    RemoveObject obj_D23R0106_gsgentleman
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    WaitSE SEQ_SE_DP_KAIDAN2_sseq
     ReleaseAll
+    SetVarFromValue VAR_HGSS_SCENE_ROCKET_TAKEOVER, 5
+    SetFlag FLAG_HGSS_BEAT_RADIO_TOWER_ROCKETS
+    ClearFlag FLAG_HGSS_HIDE_RADIO_TOWER_5F_OFFICE_DIRECTOR
+    SetFlag FLAG_HGSS_HIDE_RADIO_TOWER_5F_PETREL_REVEALED
+    CompareVar VAR_HGSS_UNK_40F8, 2
+    GoToIf 5, _0446
+    SetVarFromValue VAR_HGSS_UNK_40F8, 0
+    SetVarFromValue VAR_HGSS_UNK_407A, 1
+    ClearFlag FLAG_HGSS_HIDE_MAHOGANY_SHOP_SALESWOMAN
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_GUARD_INFRONT
+    ClearFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_GUARD_ASIDE
+    SetFlag FLAG_HGSS_UNK_998
+    SetFlag FLAG_HGSS_UNK_97D
     End
-_0263:
-    .short SCRCMD_UNUSED_06A
-    .short 253
-    .short VAR_0x8004
-    .short VAR_0x8005
-    CompareVar VAR_0x8004, 7
-    GoToIf 5, _0286
-    WaitTime 112, VAR_RESULT
-    ApplyMovement LOCALID_COMPLETE_FOLLOWER, _02DC
-_0286:
-    Return
+_0446:
+    SetVarFromValue VAR_HGSS_UNK_407A, 1
+    ClearFlag FLAG_HGSS_HIDE_MAHOGANY_SHOP_SALESWOMAN
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_GUARD_INFRONT
+    ClearFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_GUARD_ASIDE
+    SetFlag FLAG_HGSS_UNK_998
+    SetFlag FLAG_HGSS_UNK_97D
+    End
     .balign 4, 0
-_0288:
+_0464:
+    WalkNormalSouth
+    WalkNormalWest 4
+    WalkNormalNorth 7
+    WalkNormalEast 4
+    FaceNorth
+    EndMovement
+    .balign 4, 0
+_047C:
+    EmoteExclamationMark
+    EndMovement
+    .balign 4, 0
+_0484:
+    FaceSouth
+    EndMovement
+    .balign 4, 0
+_048C:
     WalkNormalSouth
     WalkNormalWest 4
     WalkNormalNorth 7
@@ -167,7 +288,7 @@ _0288:
     WalkOnSpotNormalWest
     EndMovement
     .balign 4, 0
-_02A4:
+_04A8:
     WalkNormalSouth
     WalkNormalWest 4
     WalkNormalNorth 7
@@ -176,7 +297,11 @@ _02A4:
     WalkOnSpotNormalEast
     EndMovement
     .balign 4, 0
-_02C0:
+_04C4:
+    WalkOnSpotNormalWest
+    EndMovement
+    .balign 4, 0
+_04CC:
     WalkNormalSouth
     WalkNormalWest 4
     WalkNormalNorth 7
@@ -185,39 +310,35 @@ _02C0:
     WalkOnSpotNormalEast
     EndMovement
     .balign 4, 0
-_02DC:
+_04E8:
     WalkNormalNorth
     WalkNormalEast
     WalkOnSpotNormalSouth
     EndMovement
     .balign 4, 0
-_02EC:
-    WalkOnSpotNormalWest
-    EndMovement
-    .balign 4, 0
-_02F4:
+_04F8:
     WalkNormalSouth 3
     WalkNormalWest 4
     EmoteExclamationMark
     EndMovement
     .balign 4, 0
-_0304:
+_0508:
     WalkNormalSouth 2
     WalkNormalWest 3
     EmoteExclamationMark
     EndMovement
     .balign 4, 0
-_0314:
+_0518:
+    WalkNormalEast
+    EndMovement
+    .balign 4, 0
+_0520:
     WalkNormalSouth 3
     WalkNormalWest 4
     EmoteExclamationMark
     EndMovement
     .balign 4, 0
-_0324:
-    WalkNormalEast
-    EndMovement
-    .balign 4, 0
-_032C:
+_0530:
     WalkNormalWest
     WalkNormalSouth
     EmoteExclamationMark
@@ -225,7 +346,7 @@ _032C:
     WalkOnSpotNormalNorth
     EndMovement
     .balign 4, 0
-_0344:
+_0548:
     WalkNormalSouth 6
     WalkNormalEast 4
     EndMovement

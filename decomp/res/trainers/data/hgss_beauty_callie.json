@@ -1,0 +1,48 @@
+{
+    "name": "Callie",
+    "class": "TRAINER_CLASS_HGSS_BEAUTY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GLOOM",
+            "form": 0,
+            "level": 24,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLOYSTER",
+            "form": 0,
+            "level": 25,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Oh, you are a cute little Trainer!\n",
+                "Why don’t you battle me?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You’re good...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Oh, I’ve learned something. There are\n",
+                "people like you out there who are very\f",
+                "skilled even though they’re young...\n"
+            ]
+        }
+    ]
+}

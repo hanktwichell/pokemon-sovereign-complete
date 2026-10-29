@@ -4,7 +4,7 @@
     {
       "id": "msg_0570_T23R0201_00000",
       "en_US": [
-        "All the SLOWPOKE have disappeared\n",
+        "All the Slowpoke have disappeared\n",
         "from the town.\r",
         "The forest’s protector may be\n",
         "angry with us...\r",
@@ -14,8 +14,8 @@
     {
       "id": "msg_0570_T23R0201_00001",
       "en_US": [
-        "The SLOWPOKE have returned...\r",
-        "But my FARFETCH’D haven’t come back.\n",
+        "The Slowpoke have returned...\r",
+        "But my Farfetch’d haven’t come back.\n",
         "My apprentice has gone to look for them\f",
         "in the Ilex Forest.\r",
         "It’s been ages now.\n",
@@ -34,8 +34,8 @@
     {
       "id": "msg_0570_T23R0201_00003",
       "en_US": [
-        "Where have all the SLOWPOKE gone?\n",
-        "Are they out playing somewhere?"
+        "Where have all the Slowpoke gone?\n",
+        "Are they out playing soMewhere?"
       ]
     },
     {
@@ -58,8 +58,8 @@
     {
       "id": "msg_0570_T23R0201_00006",
       "en_US": [
-        "The SLOWPOKE came back, and you even\n",
-        "found FARFETCH’D.\f",
+        "The Slowpoke came back, and you even\n",
+        "found Farfetch’d.\f",
         "You’re the coolest, man!"
       ]
     },
@@ -69,7 +69,7 @@
     },
     {
       "id": "msg_0570_T23R0201_00008",
-      "en_US": "FARFETCH’D: Kwaa!"
+      "en_US": "Farfetch’d: Kwaa!"
     }
   ]
 }

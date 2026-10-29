@@ -52,7 +52,7 @@
         "That must be hard on you.\n",
         "...\r",
         "That’s right!\n",
-        "I’ll give you a TENTACOOL!\r",
+        "I’ll give you a Tentacool!\r",
         "I just caught a little too many.\n",
         "I was going to release it,\f",
         "so take it. Go ahead!\r"
@@ -62,15 +62,56 @@
       "id": "msg_0575_T24PC0101_00005",
       "en_US": [
         "{STRVAR_1 3, 0, 0} received\n",
-        "the TENTACOOL!"
+        "the Tentacool!"
       ]
     },
     {
       "id": "msg_0575_T24PC0101_00006",
       "en_US": [
         "Want to give a nickname to\n",
-        "the TENTACOOL? {YESNO 0}"
+        "the Tentacool? {YESNO 0}"
       ]
+    },
+    {
+      "id": "msg_0575_T24PC0101_00007",
+      "en_US": [
+        "Hoo hah! Through singular discipline,\n",
+        "we will reign supreme!\r"
+      ]
+    },
+    {
+      "id": "msg_0575_T24PC0101_00008",
+      "en_US": [
+        "A Choice Band will boost your attack\n",
+        "strength by a generous amount.\r",
+        "The downside? Your Pokémon can only\n",
+        "use one attack until it leaves the\f",
+        "battle!"
+      ]
+    },
+    {
+      "id": "msg_0575_T24PC0101_00009",
+      "en_US": "Meditite: Asaaaan!"
+    },
+    {
+      "id": "msg_0575_T24PC0101_00010",
+      "en_US": [
+        "There’s a nifty little item I’d like\n",
+        "to gift you with for watching us.\r",
+        "It’s known as a Choice Band!\r"
+      ]
+    },
+    {
+      "id": "msg_0575_T24PC0101_00011",
+      "en_US": "We will be strong!\r"
+    },
+    {
+      "id": "msg_0575_T24PC0101_00012",
+      "en_US": "We will prevail!\r"
+    },
+    {
+      "id": "msg_0575_T24PC0101_00013",
+      "en_US": "Hoo hah!\r"
     }
   ]
 }

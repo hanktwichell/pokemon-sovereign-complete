@@ -250,27 +250,27 @@
     },
     {
       "id": "msg_0139_D49R0102_00018",
-      "en_US": "RATTATA: Ratta."
+      "en_US": "Rattata: Ratta."
     },
     {
       "id": "msg_0139_D49R0102_00019",
-      "en_US": "RATTATA: Grrrr."
+      "en_US": "Rattata: Grrrr."
     },
     {
       "id": "msg_0139_D49R0102_00020",
-      "en_US": "MACHOP: Awwwrr..."
+      "en_US": "Machop: Awwwrr..."
     },
     {
       "id": "msg_0139_D49R0102_00021",
-      "en_US": "MACHOP: Yahhh!"
+      "en_US": "Machop: Yahhh!"
     },
     {
       "id": "msg_0139_D49R0102_00022",
-      "en_US": "BUTTERFREE: Fluttah fluttah..."
+      "en_US": "Butterfree: Fluttah fluttah..."
     },
     {
       "id": "msg_0139_D49R0102_00023",
-      "en_US": "BUTTERFREE: Bing bing!"
+      "en_US": "Butterfree: Bing bing!"
     },
     {
       "id": "msg_0139_D49R0102_00024",
@@ -313,7 +313,7 @@
       "id": "msg_0139_D49R0102_00028",
       "en_US": [
         "Er... I...I will try to win at every\n",
-        "course with MAGIKARP!"
+        "course with Magikarp!"
       ]
     },
     {
@@ -321,7 +321,7 @@
       "en_US": [
         "Pokéathlete {STRVAR_1 3, 0, 0}!\r",
         "Er... How...how can I win at every\n",
-        "course with MAGIKARP?"
+        "course with Magikarp?"
       ]
     },
     {
@@ -348,7 +348,7 @@
         "Wow!\n",
         "That guy over there is Magnus,\f",
         "the Pokéathlon owner!\r",
-        "I heard he once beat a MACHAMP at\n",
+        "I heard he once beat a Machamp at\n",
         "arm wrestling. Could it be true?"
       ]
     },

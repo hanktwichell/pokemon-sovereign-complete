@@ -1,0 +1,19 @@
+{
+    "name": "Silver",
+    "class": "TRAINER_CLASS_HGSS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CHIKORITA",
+            "form": 0,
+            "level": 5,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

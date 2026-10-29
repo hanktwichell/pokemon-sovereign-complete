@@ -95,7 +95,7 @@
     {
       "id": "msg_0114_D35R0104_00006",
       "en_US": [
-        "Petrel: I am a Team Rocket Executive!\r",
+        "Petrel: So, you’re back again!\r",
         "You must be trying to sneak into the\n",
         "radio-transmitter room.\f",
         "Well, that’s not going to happen.\r",
@@ -126,19 +126,19 @@
     },
     {
       "id": "msg_0114_D35R0104_00008",
-      "en_US": "MURKROW: Hail Giovanni.\r"
+      "en_US": "Chatot: Hail Giovanni.\r"
     },
     {
       "id": "msg_0114_D35R0104_00009",
       "en_US": [
-        "MURKROW is mimicking\n",
+        "Chatot is mimicking\n",
         "the voice of Petrel!\r",
         "You may be able to...!?\r"
       ]
     },
     {
       "id": "msg_0114_D35R0104_00010",
-      "en_US": "MURKROW: Hail Giovanni.\r"
+      "en_US": "Chatot: Hail Giovanni.\r"
     },
     {
       "id": "msg_0114_D35R0104_00011",

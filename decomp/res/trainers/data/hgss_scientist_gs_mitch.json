@@ -1,0 +1,42 @@
+{
+    "name": "Mitch",
+    "class": "TRAINER_CLASS_HGSS_SCIENTIST_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DITTO",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I don’t care that Pokémon are hurt by\n",
+                "our experiment.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Thinking is my strong suit, not battling.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If we turn up the power of our radio\n",
+                "signal for broadcast nationwide...\r",
+                "The very thought excites me!\n"
+            ]
+        }
+    ]
+}

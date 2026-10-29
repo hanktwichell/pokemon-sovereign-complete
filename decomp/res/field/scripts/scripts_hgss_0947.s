@@ -1,4 +1,6 @@
 #include "macros/scrcmd.inc"
+#include "constants/npc_trades.h"
+#include "generated/ribbons.h"
 #include "res/text/bank/hgss_msg_0634.h"
 
 
@@ -19,24 +21,24 @@ _003B:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_566
-    @ HGSS: GetPartySelection VAR_SPECIAL_RESULT
+    OpenPartyMenuForTrade
+    GetSelectedPartySlot VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_RESULT, 255
     GoToIf 1, _00BF
-    @ HGSS: LoadNPCTrade 3
+    InitNPCTrade NPC_TRADE_HGSS_LOLA_SMOOCHUM
     SetVarFromVar VAR_0x8004, VAR_RESULT
     GetPartyMonSpecies VAR_0x8004, VAR_0x8005
-    @ HGSS: MonGetGender VAR_SPECIAL_x8004, VAR_SPECIAL_x8006
+    GetPartyMonGender_Unused VAR_0x8004, VAR_0x8006
     CompareVar VAR_0x8006, 0
     GoToIf 1, _00B2
-    @ HGSS: NPCTradeGetReqSpecies VAR_SPECIAL_RESULT
+    GetNPCTradeRequestedSpecies VAR_RESULT
     CompareVar VAR_0x8005, VAR_RESULT
     GoToIf 5, _00B2
-    @ HGSS: NPCTradeExec VAR_SPECIAL_x8004
-    @ HGSS: NPCTradeEnd
+    StartNPCTrade VAR_0x8004
+    FinishNPCTrade
     SetFlag FLAG_HGSS_TRADE_BLACKTHORN_CITY_DRAGONAIR_DODRIO
     Message msg_0634_T30R0301_00001
     WaitButton
@@ -44,7 +46,7 @@ _003B:
     ReleaseAll
     End
 _00B2:
-    @ HGSS: NPCTradeEnd
+    FinishNPCTrade
     Message msg_0634_T30R0301_00002
     WaitButton
     CloseMessage
@@ -67,7 +69,7 @@ scr_seq_T30R0301_001:
     LockAll
     FacePlayer
     GetFirstNonEggInParty VAR_0x8000
-    @ HGSS: MonHasRibbon VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, RIBBON_HOENN_EFFORT
+    GetPartyMonRibbon VAR_RESULT, VAR_0x8000, RIBBON_HOENN_EFFORT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0199
     BufferPartyMonSpecies 0, VAR_0x8000
@@ -76,7 +78,7 @@ scr_seq_T30R0301_001:
     CompareVar VAR_RESULT, 510
     GoToIf 0, _0136
     Message msg_0634_T30R0301_00006
-    @ HGSS: GiveRibbon VAR_SPECIAL_x8000, RIBBON_HOENN_EFFORT
+    SetPartyMonRibbon VAR_0x8000, RIBBON_HOENN_EFFORT
     PlayFanfare SEQ_FANFA4_sseq
     BufferPlayerName 1
     Message msg_0634_T30R0301_00007

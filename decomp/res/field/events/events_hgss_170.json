@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8328,
             "type": 2,
             "x": 38,
             "z": 15,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8329,
             "type": 2,
             "x": 36,
             "z": 19,
@@ -41,9 +41,9 @@
             "id": "obj_D26R0102_rocketm",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_GRUNT_2",
             "initial_dir": 1,
             "data": [
                 4,
@@ -60,9 +60,9 @@
             "id": "obj_D26R0102_rocketm_2",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_GRUNT",
             "initial_dir": 3,
             "data": [
                 4,
@@ -79,9 +79,9 @@
             "id": "obj_D26R0102_rocketw",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_F_GRUNT",
             "initial_dir": 2,
             "data": [
                 3,
@@ -176,7 +176,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D26R0102_SUPER_POTION",
-            "script": 0,
+            "script": 7369,
             "initial_dir": 0,
             "data": [
                 0,
@@ -187,6 +187,25 @@
             "movement_range_z": 0,
             "x": 34,
             "z": 5,
+            "y": 0
+        },
+        {
+            "id": "obj_D26R0102_9",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D26R0103_TM18",
+            "script": 7370,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 39,
+            "z": 15,
             "y": 0
         }
     ],

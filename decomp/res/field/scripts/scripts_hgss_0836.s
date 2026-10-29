@@ -17,6 +17,5 @@ _0038:
     WalkNormalWest 7
     WalkNormalNorth 2
     EndMovement
-_0044:
     End
     .balign 4, 0

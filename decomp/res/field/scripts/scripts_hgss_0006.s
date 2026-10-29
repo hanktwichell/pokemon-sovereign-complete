@@ -13,7 +13,8 @@ scr_seq_D02FS0101_001:
     Message msg_0048_D02FS0101_00001
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 27
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ClearFlag FLAG_HGSS_SPECIAL_MART_MT_MOON
     ReleaseAll
     End

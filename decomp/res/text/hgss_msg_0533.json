@@ -14,13 +14,8 @@
       "id": "msg_0533_T11R0101_00001",
       "en_US": [
         "Hello!\r",
-        "We are letting the Gym Leaders use the\n",
-        "Dojo while the Karate King is away.\r",
-        "You can give them a call when you\n",
-        "register their numbers.\r",
-        "They say they are happy to accept\n",
-        "your challenge as long as they are\f",
-        "not busy."
+        "I’m not on duty today, but let me\n",
+        "heal your Pokémon anyway!\r"
       ]
     },
     {
@@ -270,6 +265,41 @@
         "Blue: Hahaha!\n",
         "My scare tactic doesn’t scare you\f",
         "at all!"
+      ]
+    },
+    {
+      "id": "msg_0533_T11R0101_00036",
+      "en_US": [
+        "Hello!\r",
+        "Would you be interested in trying\n",
+        "the interregional training medley?\r",
+        "Challenge every Gym Leader, Elite Four\n",
+        "and others in a row with the aid of\f",
+        "virtual technology!\r",
+        "If you lose, you’ll have to\n",
+        "start from the beginning, but\f",
+        "otherwise there’s no repercussions!\r",
+        "Heals become more frequent the\n",
+        "further you climb!\r",
+        "What do you say? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0533_T11R0101_00037",
+      "en_US": "Fantastic! Let’s get started!\r"
+    },
+    {
+      "id": "msg_0533_T11R0101_00038",
+      "en_US": [
+        "Oh, that’s too bad!\n",
+        "Thanks for playing!"
+      ]
+    },
+    {
+      "id": "msg_0533_T11R0101_00039",
+      "en_US": [
+        "Oh, that’s too bad!\n",
+        "Come back again!"
       ]
     }
   ]

@@ -1,0 +1,60 @@
+{
+    "name": "Cathy",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_JIGGLYPUFF",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFAIRY",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HAPPINY",
+            "form": 0,
+            "level": 21,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I like cute Pokémon better than\n",
+                "strong Pokémon.\r",
+                "But I have strong and cute Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh, no, no, no!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’m training really hard to try to beat\n",
+                "Whitney, but I’m starting to get\f",
+                "discouraged...\r",
+                "What to do...\n",
+                "Well... If I lose, I’ll just try harder\f",
+                "next time!\n"
+            ]
+        }
+    ]
+}

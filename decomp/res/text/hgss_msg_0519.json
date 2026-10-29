@@ -155,6 +155,25 @@
         "Cinnabar Island\n",
         "The Ravaged Town of the Past"
       ]
+    },
+    {
+      "id": "msg_0519_T09_00022",
+      "en_US": [
+        "(This route appears treacherous...\n",
+        "It’s a good idea to turn back.)"
+      ]
+    },
+    {
+      "id": "msg_0519_T09_00023",
+      "en_US": "Gwogobo gwobobobo!\r"
+    },
+    {
+      "id": "msg_0519_T09_00024",
+      "en_US": "Heatran retreated underground..."
+    },
+    {
+      "id": "msg_0519_T09_00025",
+      "en_US": "Moltres flew off..."
     }
   ]
 }

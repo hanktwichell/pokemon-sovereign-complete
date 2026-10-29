@@ -1,0 +1,27 @@
+{
+    "name": "Izumi",
+    "class": "TRAINER_CLASS_HGSS_KIMONO_GIRL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_LEAFEON",
+            "form": 0,
+            "level": 50,
+            "moves": [
+                "MOVE_LEAF_BLADE",
+                "MOVE_X_SCISSOR",
+                "MOVE_SWORDS_DANCE",
+                "MOVE_SYNTHESIS"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

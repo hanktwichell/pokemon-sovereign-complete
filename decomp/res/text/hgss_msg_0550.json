@@ -4,32 +4,22 @@
     {
       "id": "msg_0550_T21_00000",
       "en_US": [
-        "You’re a rookie Trainer, aren’t you?\n",
-        "I can tell!\r",
-        "That’s OK! Everyone is a rookie\n",
-        "at some point!\r",
-        "If you’d like, I can teach you a\n",
-        "few things.\f",
-        "OK, then! Follow me!\r"
+        "You’re a rookie trainer, right? Let me\n",
+        "show you around! Follow me!\r"
       ]
     },
     {
       "id": "msg_0550_T21_00001",
       "en_US": [
-        "Ohh... I’m sorry.\n",
-        "I forgot that you weren’t wearing the\f",
-        "Running Shoes!\r",
-        "I’ll try to go as slow as possible, so\n",
-        "try keeping up!\r"
+        "Oh, please, let me show you around.\n",
+        "It won’t take long, I promise!\r"
       ]
     },
     {
       "id": "msg_0550_T21_00002",
       "en_US": [
         "This is a Pokémon Center. They heal\n",
-        "your Pokémon in no time at all.\r",
-        "You’ll be relying on them a lot, so\n",
-        "you better learn about them.\r"
+        "your Pokémon in no time at all.\r"
       ]
     },
     {
@@ -60,15 +50,8 @@
     {
       "id": "msg_0550_T21_00006",
       "en_US": [
-        "Here...\n",
-        "It’s my house!\r",
-        "For your effort keeping up with me,\n",
-        "I’ll give you my Running Shoes!\f",
-        "They’re still warm!\r",
-        "...\n",
-        "...\r",
-        "Got you, didn’t I?\n",
-        "Don’t worry, these are brand new!\r"
+        "And here is my house! As a reward for\n",
+        "following me, take this Old Rod!\r"
       ]
     },
     {
@@ -81,11 +64,8 @@
     {
       "id": "msg_0550_T21_00008",
       "en_US": [
-        "The instructions read,\n",
-        "“Touch the Sprint Button on the\f",
-        "Touch Screen to sprint.”\r",
-        "It also says,\n",
-        "“Hold the B Button down to sprint.”\r"
+        "Simply toss that rod into water, and\n",
+        "you have a chance of getting a bite.\r"
       ]
     },
     {
@@ -224,6 +204,27 @@
       "en_US": [
         "Guide Gent’s House\n",
         "Full-of-Energy, High-Speed Old Man"
+      ]
+    },
+    {
+      "id": "msg_0550_T21_00025",
+      "en_US": [
+        "Actually, I’d like to give you one\n",
+        "more thing. Something very special.\r"
+      ]
+    },
+    {
+      "id": "msg_0550_T21_00026",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received an Egg from the\n",
+        "Guide Gent!\r"
+      ]
+    },
+    {
+      "id": "msg_0550_T21_00027",
+      "en_US": [
+        "Keep it in your party and it should\n",
+        "eventually hatch. Good luck!\r"
       ]
     }
   ]

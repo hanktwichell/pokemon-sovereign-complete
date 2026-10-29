@@ -158,7 +158,6 @@ scr_seq_R14_002:
     ApplyMovement LOCALID_PLAYER, _0450
     WaitMovement
     GoTo _027C
-_0249:
     GoTo _0255
 _024F:
     GoTo _0255
@@ -180,13 +179,11 @@ _027C:
     CompareVar VAR_MAP_LOCAL_0x00, 1358
     GoToIf 5, _02B1
     GoTo _02D0
-_02AB:
     GoTo _02D0
 _02B1:
     CompareVar VAR_MAP_LOCAL_0x00, 1359
     GoToIf 5, _02CA
     GoTo _0382
-_02C4:
     GoTo _02D0
 _02CA:
     GoTo _03AD
@@ -278,22 +275,18 @@ _0450:
     EmoteExclamationMark
     EndMovement
     .balign 4, 0
-_0458:
     Delay4
     FaceWest
     EndMovement
     .balign 4, 0
-_0464:
     Delay4
     FaceNorth
     EndMovement
     .balign 4, 0
-_0470:
     Delay4
     FaceSouth
     EndMovement
     .balign 4, 0
-_047C:
     JumpFartherEast
     FaceWest
     EndMovement
@@ -386,7 +379,6 @@ _056C:
     FaceWest
     EndMovement
     .balign 4, 0
-_0578:
     EndMovement
     .balign 4, 0
 _057C:
@@ -411,7 +403,7 @@ scr_seq_R14_005:
     FacePlayer
     GoToIfSet FLAG_HGSS_GOT_LUCKY_PUNCH_FROM_ROUTE_14_WOMAN, _0658
     Message msg_0351_R14_00000
-    @ HGSS: PlayerOnBikeCheck VAR_SPECIAL_RESULT
+    CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0602
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
@@ -445,7 +437,7 @@ _064E:
     ReleaseAll
     End
 _0658:
-    @ HGSS: PlayerOnBikeCheck VAR_SPECIAL_RESULT
+    CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0680
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00

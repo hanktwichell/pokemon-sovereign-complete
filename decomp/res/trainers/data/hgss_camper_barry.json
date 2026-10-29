@@ -1,0 +1,35 @@
+{
+    "name": "Barry",
+    "class": "TRAINER_CLASS_CAMPER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NIDOKING",
+            "form": 0,
+            "level": 63,
+            "moves": [
+                "MOVE_POISON_JAB",
+                "MOVE_THUNDERBOLT",
+                "MOVE_EARTHQUAKE",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "My disguise was awesome!\n",
+                "Grrr!\n"
+            ]
+        }
+    ]
+}

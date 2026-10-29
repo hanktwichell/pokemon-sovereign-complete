@@ -75,23 +75,23 @@
     },
     {
       "id": "msg_0191_00018",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00019",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00020",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00021",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00022",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00023",
@@ -103,63 +103,63 @@
     },
     {
       "id": "msg_0191_00025",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00026",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00027",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00028",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00029",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00030",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00031",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00032",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00033",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00034",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00035",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00036",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00037",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00038",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00039",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00040",
@@ -195,19 +195,19 @@
     },
     {
       "id": "msg_0191_00048",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00049",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00050",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00051",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00052",
@@ -231,11 +231,11 @@
     },
     {
       "id": "msg_0191_00057",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00058",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00059",
@@ -243,15 +243,15 @@
     },
     {
       "id": "msg_0191_00060",
-      "garbage": 1
+      "garbage": 0
     },
     {
       "id": "msg_0191_00061",
-      "en_US": "SOMEONE’S PC"
+      "en_US": "Someone’s PC"
     },
     {
       "id": "msg_0191_00062",
-      "en_US": "BILL’S PC"
+      "en_US": "Bill’s PC"
     },
     {
       "id": "msg_0191_00063",
@@ -259,7 +259,7 @@
     },
     {
       "id": "msg_0191_00064",
-      "en_US": "HALL OF FAME"
+      "en_US": "Hall of Fame"
     },
     {
       "id": "msg_0191_00065",
@@ -267,55 +267,55 @@
     },
     {
       "id": "msg_0191_00066",
-      "en_US": "SWITCH OFF"
+      "en_US": "Switch Off"
     },
     {
       "id": "msg_0191_00067",
       "en_US": [
-        "DEPOSIT\n",
-        "POKéMON"
+        "Deposit\n",
+        "Pokémon"
       ]
     },
     {
       "id": "msg_0191_00068",
       "en_US": [
-        "WITHDRAW\n",
-        "POKéMON"
+        "Withdraw\n",
+        "Pokémon"
       ]
     },
     {
       "id": "msg_0191_00069",
       "en_US": [
-        "MOVE\n",
-        "POKéMON"
+        "Move\n",
+        "Pokémon"
       ]
     },
     {
       "id": "msg_0191_00070",
       "en_US": [
-        "MOVE\n",
-        "ITEMS"
+        "Move\n",
+        "Items"
       ]
     },
     {
       "id": "msg_0191_00071",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00072",
-      "en_US": "SEE YA!"
+      "en_US": "See ya!"
     },
     {
       "id": "msg_0191_00073",
-      "en_US": "MAILBOX"
+      "en_US": "Mailbox"
     },
     {
       "id": "msg_0191_00074",
-      "en_US": "BALL CAPSULES"
+      "en_US": "Ball Capsules"
     },
     {
       "id": "msg_0191_00075",
-      "en_US": "LOG OUT"
+      "en_US": "Log Out"
     },
     {
       "id": "msg_0191_00076",
@@ -347,7 +347,7 @@
     },
     {
       "id": "msg_0191_00080",
-      "garbage": 34
+      "garbage": 0
     },
     {
       "id": "msg_0191_00081",
@@ -383,35 +383,35 @@
     },
     {
       "id": "msg_0191_00086",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00087",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00088",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00089",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00090",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00091",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00092",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00093",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00094",
@@ -419,87 +419,87 @@
     },
     {
       "id": "msg_0191_00095",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0191_00096",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00097",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00098",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00099",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00100",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00101",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00102",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00103",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00104",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00105",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00106",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00107",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00108",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00109",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00110",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00111",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00112",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00113",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00114",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00115",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00116",
@@ -531,11 +531,11 @@
     },
     {
       "id": "msg_0191_00123",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00124",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00125",
@@ -595,11 +595,11 @@
     },
     {
       "id": "msg_0191_00139",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00140",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00141",
@@ -623,11 +623,11 @@
     },
     {
       "id": "msg_0191_00146",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00147",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00148",
@@ -643,11 +643,11 @@
     },
     {
       "id": "msg_0191_00151",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00152",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00153",
@@ -726,91 +726,91 @@
     },
     {
       "id": "msg_0191_00171",
-      "garbage": 14
+      "garbage": 0
     },
     {
       "id": "msg_0191_00172",
-      "garbage": 16
+      "garbage": 0
     },
     {
       "id": "msg_0191_00173",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0191_00174",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0191_00175",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0191_00176",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00177",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00178",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00179",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00180",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00181",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00182",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00183",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00184",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00185",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00186",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00187",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00188",
-      "garbage": 14
+      "garbage": 0
     },
     {
       "id": "msg_0191_00189",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00190",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00191",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00192",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00193",
@@ -830,7 +830,7 @@
     },
     {
       "id": "msg_0191_00197",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00198",
@@ -850,15 +850,15 @@
     },
     {
       "id": "msg_0191_00202",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00203",
-      "garbage": 4
+      "garbage": 0
     },
     {
       "id": "msg_0191_00204",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00205",
@@ -926,11 +926,11 @@
     },
     {
       "id": "msg_0191_00218",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00219",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00220",
@@ -938,11 +938,11 @@
     },
     {
       "id": "msg_0191_00221",
-      "garbage": 16
+      "garbage": 0
     },
     {
       "id": "msg_0191_00222",
-      "garbage": 16
+      "garbage": 0
     },
     {
       "id": "msg_0191_00223",
@@ -950,159 +950,159 @@
     },
     {
       "id": "msg_0191_00224",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00225",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00226",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00227",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00228",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00229",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00230",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00231",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00232",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00233",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00234",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00235",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00236",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00237",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00238",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00239",
-      "garbage": 10
+      "garbage": 0
     },
     {
       "id": "msg_0191_00240",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00241",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00242",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00243",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00244",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00245",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0191_00246",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00247",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00248",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00249",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00250",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00251",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00252",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00253",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00254",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00255",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00256",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00257",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00258",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00259",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0191_00260",
-      "garbage": 8
+      "garbage": 0
     },
     {
       "id": "msg_0191_00261",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00262",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00263",
@@ -1110,31 +1110,31 @@
     },
     {
       "id": "msg_0191_00264",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00265",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00266",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00267",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00268",
-      "garbage": 6
+      "garbage": 0
     },
     {
       "id": "msg_0191_00269",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00270",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00271",
@@ -1237,7 +1237,7 @@
     },
     {
       "id": "msg_0191_00295",
-      "garbage": 7
+      "garbage": 0
     },
     {
       "id": "msg_0191_00296",
@@ -1309,35 +1309,35 @@
     },
     {
       "id": "msg_0191_00313",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00314",
-      "garbage": 18
+      "garbage": 0
     },
     {
       "id": "msg_0191_00315",
-      "garbage": 18
+      "garbage": 0
     },
     {
       "id": "msg_0191_00316",
-      "garbage": 18
+      "garbage": 0
     },
     {
       "id": "msg_0191_00317",
-      "garbage": 14
+      "garbage": 0
     },
     {
       "id": "msg_0191_00318",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0191_00319",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0191_00320",
-      "garbage": 16
+      "garbage": 0
     },
     {
       "id": "msg_0191_00321",
@@ -1426,35 +1426,35 @@
     {
       "id": "msg_0191_00342",
       "en_US": [
-        "A. SPEED &\n",
+        "A. SPEED and\n",
         "JUMP COURSE"
       ]
     },
     {
       "id": "msg_0191_00343",
       "en_US": [
-        "B. JUMP &\n",
+        "B. JUMP and\n",
         "SKILL COURSE"
       ]
     },
     {
       "id": "msg_0191_00344",
       "en_US": [
-        "C. SKILL &\n",
+        "C. SKILL and\n",
         "POWER COURSE"
       ]
     },
     {
       "id": "msg_0191_00345",
       "en_US": [
-        "D. POWER &\n",
+        "D. POWER and\n",
         "STAMINA COURSE"
       ]
     },
     {
       "id": "msg_0191_00346",
       "en_US": [
-        "E. STAMINA &\n",
+        "E. STAMINA and\n",
         "SPEED COURSE"
       ]
     },
@@ -2097,19 +2097,19 @@
     },
     {
       "id": "msg_0191_00441",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0191_00442",
-      "garbage": 13
+      "garbage": 0
     },
     {
       "id": "msg_0191_00443",
-      "garbage": 12
+      "garbage": 0
     },
     {
       "id": "msg_0191_00444",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0191_00445",

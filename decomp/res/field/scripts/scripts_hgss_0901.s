@@ -14,7 +14,8 @@ scr_seq_T25R1003_000:
     Common_VendorGreeting
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 5
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 scr_seq_T25R1003_001:

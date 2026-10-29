@@ -1,0 +1,58 @@
+{
+    "name": "Chow",
+    "class": "TRAINER_CLASS_HGSS_SAGE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BELLSPROUT",
+            "form": 0,
+            "level": 9,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_EXEGGCUTE",
+            "form": 0,
+            "level": 9,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_POLIWAG",
+            "form": 0,
+            "level": 9,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "We stand guard in this tower.\r",
+                "Here, we express our gratitude to\n",
+                "show our respect for all Pokémon.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Th-thank you!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "All living beings coexist through\n",
+                "cooperation.\r",
+                "We must always be thankful for this.\n"
+            ]
+        }
+    ]
+}

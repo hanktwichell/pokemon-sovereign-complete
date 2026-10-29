@@ -34,6 +34,7 @@
 
 #include "bag.h"
 #include "communication_system.h"
+#include "complete_trainers.h"
 #include "flags.h"
 #include "heap.h"
 #include "item.h"
@@ -5865,7 +5866,7 @@ static BOOL BattleControllerPlayer_CheckBattleOver(BattleSystem *battleSys, Batt
         || (battleResult == BATTLE_RESULT_WIN && (battleType & BATTLE_TYPE_FRONTIER) && (battleType & BATTLE_TYPE_LINK) == FALSE)) {
         Trainer *trainer = BattleSystem_GetTrainer(battleSys, BATTLER_ENEMY_1);
 
-        switch (trainer->header.trainerType) {
+        switch (CompleteTrainerClass_StandIn(trainer->header.trainerType)) { // Sovereign Complete
         case TRAINER_CLASS_LEADER_ROARK:
         case TRAINER_CLASS_LEADER_GARDENIA:
         case TRAINER_CLASS_LEADER_WAKE:

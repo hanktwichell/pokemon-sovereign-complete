@@ -80,7 +80,7 @@
     },
     {
       "id": "msg_0137_D49_00008",
-      "en_US": "ODDISH: Odd! Odd!"
+      "en_US": "Oddish: Odd! Odd!"
     },
     {
       "id": "msg_0137_D49_00009",
@@ -88,7 +88,7 @@
     },
     {
       "id": "msg_0137_D49_00010",
-      "en_US": "MEOWTH: Nyaah!"
+      "en_US": "Meowth: Nyaah!"
     },
     {
       "id": "msg_0137_D49_00011",
@@ -136,7 +136,7 @@
     },
     {
       "id": "msg_0137_D49_00016",
-      "en_US": "PIDGEY: Po po!"
+      "en_US": "Pidgey: Po po!"
     },
     {
       "id": "msg_0137_D49_00017",
@@ -154,7 +154,7 @@
     },
     {
       "id": "msg_0137_D49_00018",
-      "en_US": "SLOWBRO: Whick!"
+      "en_US": "Slowbro: Whick!"
     },
     {
       "id": "msg_0137_D49_00019",
@@ -167,7 +167,7 @@
     },
     {
       "id": "msg_0137_D49_00020",
-      "en_US": "MACHOP: Machao!"
+      "en_US": "Machop: Machao!"
     },
     {
       "id": "msg_0137_D49_00021",
@@ -180,15 +180,15 @@
     },
     {
       "id": "msg_0137_D49_00022",
-      "en_US": "SLOWPOKE: Moah!"
+      "en_US": "Slowpoke: Moah!"
     },
     {
       "id": "msg_0137_D49_00023",
-      "en_US": "FARFETCH’D: Teree!"
+      "en_US": "Farfetch’d: Teree!"
     },
     {
       "id": "msg_0137_D49_00024",
-      "en_US": "PSYDUCK: Guack!"
+      "en_US": "Psyduck: Guack!"
     },
     {
       "id": "msg_0137_D49_00025",
@@ -339,7 +339,7 @@
       "id": "msg_0137_D49_00041",
       "en_US": [
         "Owner’s Comment\n",
-        "Somebody, somewhere put it together!\f",
+        "Somebody, soMewhere put it together!\f",
         "The mysterious {STRVAR_1 8, 1, 0}!\r",
         "It may go up.\n",
         "It may go down.\f",

@@ -155,6 +155,25 @@
             "x": 11,
             "z": 9,
             "y": 0
+        },
+        {
+            "id": "obj_T11R0702_6",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_GOT_TM19_FROM_ERIKA",
+            "script": 9,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 7,
+            "z": 3,
+            "y": 0
         }
     ],
     "warp_events": [

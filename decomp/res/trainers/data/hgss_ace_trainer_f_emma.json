@@ -1,0 +1,58 @@
+{
+    "name": "Emma",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MONFERNO",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GROTLE",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PRINPLUP",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "If the Pokémon I liked were there,\n",
+                "I’d go anywhere.\r",
+                "That’s what a real Trainer does.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I’d rather pet my Pokémon than battle!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Just once a week, a Pokémon comes to\n",
+                "the water’s edge.\r",
+                "I wanted to see that Pokémon...\n"
+            ]
+        }
+    ]
+}

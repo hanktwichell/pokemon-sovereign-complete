@@ -96,9 +96,8 @@
       "id": "msg_0542_T20_00015",
       "en_US": [
         "Lyra: {STRVAR_1 3, 0, 0}!\r",
-        "So you picked...\n",
-        "{STRVAR_1 0, 1, 0}!\r",
-        "That’s a cute Pokémon you have!\r",
+        "You got yourself a Pokémon!\r",
+        "I gotta say, it’s really cute!\r",
         "When you walk with it, it’ll become\n",
         "more friendly.\r",
         "You should turn around and talk to it\n",
@@ -112,9 +111,8 @@
       "id": "msg_0542_T20_00016",
       "en_US": [
         "Ethan: {STRVAR_1 3, 0, 0}!\r",
-        "So you picked...\n",
-        "{STRVAR_1 0, 1, 0}!\r",
-        "That’s a cute Pokémon you have!\r",
+        "You got yourself a Pokémon!\r",
+        "I gotta say, it’s really cute!\r",
         "When you walk with it, it’ll become\n",
         "more friendly.\r",
         "You should turn around and talk to it\n",
@@ -224,7 +222,7 @@
     },
     {
       "id": "msg_0542_T20_00033",
-      "en_US": "MARILL: Murfu.\r"
+      "en_US": "Azumarill: Murfu.\r"
     },
     {
       "id": "msg_0542_T20_00034",

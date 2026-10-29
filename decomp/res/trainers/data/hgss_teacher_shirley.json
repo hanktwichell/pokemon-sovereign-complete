@@ -1,0 +1,48 @@
+{
+    "name": "Shirley",
+    "class": "TRAINER_CLASS_HGSS_TEACHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAWILE",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WIGGLYTUFF",
+            "form": 0,
+            "level": 54,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Don’t lay a finger on my students!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aaack!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "We’re on a school trip to the ruins\n",
+                "outside Violet.\n"
+            ]
+        }
+    ]
+}

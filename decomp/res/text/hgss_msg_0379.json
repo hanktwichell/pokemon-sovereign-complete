@@ -10,7 +10,7 @@
     },
     {
       "id": "msg_0379_R31R0101_00001",
-      "garbage": 93
+      "garbage": 0
     },
     {
       "id": "msg_0379_R31R0101_00002",
@@ -50,11 +50,11 @@
     },
     {
       "id": "msg_0379_R31R0101_00006",
-      "en_US": "Let’s go, MARILL!\r"
+      "en_US": "Let’s go, Marill!\r"
     },
     {
       "id": "msg_0379_R31R0101_00007",
-      "en_US": "Come on, MARILL!\r"
+      "en_US": "Come on, Marill!\r"
     }
   ]
 }

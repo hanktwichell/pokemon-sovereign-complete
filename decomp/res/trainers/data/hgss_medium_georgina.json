@@ -1,0 +1,55 @@
+{
+    "name": "Georgina",
+    "class": "TRAINER_CLASS_HGSS_MEDIUM",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GASTLY",
+            "form": 0,
+            "level": 26,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DUSKULL",
+            "form": 0,
+            "level": 26,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SHUPPET",
+            "form": 0,
+            "level": 26,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Can you inflict any damage on\n",
+                "our Pokémon?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ah! Well done!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "We use only Ghost-type Pokémon.\r",
+                "No Normal-type attack can harm them!\n"
+            ]
+        }
+    ]
+}

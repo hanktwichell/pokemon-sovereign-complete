@@ -26,7 +26,6 @@ scr_seq_T11R0703_000:
     Message msg_0539_T11R0703_00000
     CloseMessage
     GoTo _0066
-_005C:
     ApplyMovement LOCALID_PLAYER, _0154
     WaitMovement
 _0066:

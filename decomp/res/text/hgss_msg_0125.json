@@ -5,11 +5,11 @@
       "id": "msg_0125_D40R0107_00000",
       "en_US": [
         "Zuki: That’s right.\n",
-        "This is where we welcome LUGIA.\r",
+        "This is where we welcome Lugia.\r",
         "When the dance we practiced many days\n",
         "becomes one with the sound of the\f",
         "Tidal Bell we entrusted with you, then\f",
-        "LUGIA shall come out from deep within\f",
+        "Lugia shall come out from deep within\f",
         "the waterfall basin once again!\r"
       ]
     },
@@ -23,7 +23,7 @@
     {
       "id": "msg_0125_D40R0107_00002",
       "en_US": [
-        "That is indeed LUGIA...\n",
+        "That is indeed Lugia...\n",
         "The guardian of these islands from\f",
         "ancient times...\r",
         "So many have tried again and again,\n",
@@ -37,14 +37,14 @@
       "id": "msg_0125_D40R0107_00003",
       "en_US": [
         "{STRVAR_1 3, 0, 0}, don’t you see?\r",
-        "LUGIA... It must have been waiting for\n",
+        "Lugia... It must have been waiting for\n",
         "someone like you all this time.\f",
         "Wouldn’t you agree...?"
       ]
     },
     {
       "id": "msg_0125_D40R0107_00004",
-      "en_US": "LUGIA: Gyaaas!\r"
+      "en_US": "Lugia: Gyaaas!\r"
     },
     {
       "id": "msg_0125_D40R0107_00005",
@@ -56,7 +56,7 @@
     {
       "id": "msg_0125_D40R0107_00006",
       "en_US": [
-        "You have not only made LUGIA appear,\n",
+        "You have not only made Lugia appear,\n",
         "but you also caught it...\r",
         "You are so wonderful.\n",
         "There is nothing more for us to say.\r",
@@ -69,7 +69,7 @@
       "en_US": [
         "If that is what you believe, we will not\n",
         "try to convince you otherwise.\r",
-        "Still, if you wish to see LUGIA once\n",
+        "Still, if you wish to see Lugia once\n",
         "more, perhaps you can come back here\f",
         "after all has been settled..."
       ]
@@ -78,9 +78,9 @@
       "id": "msg_0125_D40R0107_00008",
       "en_US": [
         "I think once you turn your back to it,\n",
-        "LUGIA will not come back for\f",
+        "Lugia will not come back for\f",
         "some time...\r",
-        "If you want to see LUGIA, perhaps you\n",
+        "If you want to see Lugia, perhaps you\n",
         "can come back here after all\f",
         "has been settled..."
       ]

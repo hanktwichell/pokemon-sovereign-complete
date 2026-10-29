@@ -1,0 +1,57 @@
+{
+    "name": "Julia",
+    "class": "TRAINER_CLASS_HGSS_BEAUTY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ABOMASNOW",
+            "form": 0,
+            "level": 62,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CARNIVINE",
+            "form": 0,
+            "level": 62,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PARASECT",
+            "form": 0,
+            "level": 62,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "How can I get you to understand my\n",
+                "hobby? Which is...\f",
+                "talking in a deep voice!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whoa!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The kindness of a woman\n",
+                "and the strength of a man...\r",
+                "I want to be a Trainer with both\n",
+                "those qualities!\n"
+            ]
+        }
+    ]
+}

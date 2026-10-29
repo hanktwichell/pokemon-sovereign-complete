@@ -1,0 +1,57 @@
+{
+    "name": "Marvin",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HUNTAIL",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOREBYSS",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TENTACRUEL",
+            "form": 0,
+            "level": 39,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m in a slump.\r",
+                "Maybe it’s the gear I’m using.\n",
+                "Let’s battle for a change of pace!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I lost, but I feel better anyway.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Kurt’s Lure Ball is the best for\n",
+                "catching hooked Pokémon.\r",
+                "It’s much more effective than an\n",
+                "Ultra Ball.\n"
+            ]
+        }
+    ]
+}

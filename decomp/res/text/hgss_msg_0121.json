@@ -24,14 +24,14 @@
     {
       "id": "msg_0121_D38R0104_00002",
       "en_US": [
-        "{STRVAR_1 3, 0, 0} received TYROGUE from\n",
+        "{STRVAR_1 3, 0, 0} received Tyrogue from\n",
         "the Karate King!"
       ]
     },
     {
       "id": "msg_0121_D38R0104_00003",
       "en_US": [
-        "TYROGUE is a Fighting type.\n",
+        "Tyrogue is a Fighting type.\n",
         "It evolves into a tougher Pokémon.\r",
         "Keep up the hard work. I’ll keep\n",
         "training too. Farewell!"
@@ -44,13 +44,111 @@
     {
       "id": "msg_0121_D38R0104_00005",
       "en_US": [
-        "Give a nickname to the TYROGUE you\n",
+        "Give a nickname to the Tyrogue you\n",
         "received? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0121_D38R0104_00006",
-      "garbage": 25
+      "garbage": 0
+    },
+    {
+      "id": "msg_0121_D38R0104_00007",
+      "en_US": "Zaza zari za...\r"
+    },
+    {
+      "id": "msg_0121_D38R0104_00008",
+      "en_US": [
+        "It’s Jirachi!\r",
+        "...\r",
+        "But it appears to be asleep,\n",
+        "despite the movement...\r"
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00009",
+      "en_US": "There’s no way to wake it up..."
+    },
+    {
+      "id": "msg_0121_D38R0104_00010",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} began to play the\n",
+        "Azure Flute!\r"
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00011",
+      "en_US": [
+        "Do you want to try playing the\n",
+        "Azure Flute? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00012",
+      "en_US": "Jirachi woke up!\r"
+    },
+    {
+      "id": "msg_0121_D38R0104_00013",
+      "en_US": [
+        "Jirachi asked {STRVAR_1 3, 0, 0} to\n",
+        "choose one wish...\r",
+        "But with a warning that the wish\n",
+        "could {COLOR 1}only be performed once{COLOR 0}...\r",
+        "What does {STRVAR_1 3, 0, 0}’s heart desire? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00014",
+      "en_US": "The Power of Money"
+    },
+    {
+      "id": "msg_0121_D38R0104_00015",
+      "en_US": "Extreme Gambling"
+    },
+    {
+      "id": "msg_0121_D38R0104_00016",
+      "en_US": "Delicious Sweets"
+    },
+    {
+      "id": "msg_0121_D38R0104_00017",
+      "en_US": "Challenge Jirachi"
+    },
+    {
+      "id": "msg_0121_D38R0104_00018",
+      "en_US": "Jirachi granted your wish...\r"
+    },
+    {
+      "id": "msg_0121_D38R0104_00019",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} was given $300,000!\n",
+        "(No matter how much room there is...)"
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00020",
+      "en_US": [
+        "Jirachi disappeared, not to be\n",
+        "seen again for a millenium..."
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00021",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0}’s Coin Case was completely\n",
+        "filled!"
+      ]
+    },
+    {
+      "id": "msg_0121_D38R0104_00022",
+      "en_US": "{STRVAR_1 3, 0, 0} was showered with sweets!"
+    },
+    {
+      "id": "msg_0121_D38R0104_00023",
+      "en_US": "Jirachi moved forward to attack!\r"
+    },
+    {
+      "en_US": "",
+      "id": "msg_0121_D38R0104_00024"
     }
   ]
 }

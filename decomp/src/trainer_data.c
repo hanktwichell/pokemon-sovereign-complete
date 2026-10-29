@@ -146,6 +146,14 @@ void Trainer_LoadMessage(int trainerID, enum TrainerMessageType msgType, String 
             break;
         }
 
+        // Sovereign Complete: stop at the end of the trainer's own messages, as Trainer_HasMessageType does. A trainer
+        // with no messages points at the table's start, and reading all of it (over 4,000 entries, a card read each)
+        // held the game up for seconds after the battle.
+        if (data[0] != trainerID) {
+            offset = size;
+            break;
+        }
+
         offset += 4;
     }
 

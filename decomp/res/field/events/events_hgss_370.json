@@ -14,9 +14,9 @@
             "id": "obj_R02R0101_gsboy3",
             "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BUG_CATCHER_ED",
             "initial_dir": 1,
             "data": [
                 3,
@@ -44,8 +44,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1034,
-            "z": 137,
+            "x": 0,
+            "z": 0,
             "y": 0
         },
         {
@@ -54,7 +54,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R02R0101_CARBOS",
-            "script": 0,
+            "script": 7540,
             "initial_dir": 0,
             "data": [
                 0,
@@ -84,6 +84,25 @@
             "movement_range_z": 0,
             "x": 1052,
             "z": 157,
+            "y": 0
+        },
+        {
+            "id": "obj_R02R0101_4",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_GOT_TM48_FROM_SABRINA",
+            "script": 2,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1047,
+            "z": 159,
             "y": 0
         }
     ],

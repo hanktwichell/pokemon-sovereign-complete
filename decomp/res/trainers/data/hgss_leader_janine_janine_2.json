@@ -1,0 +1,126 @@
+{
+    "name": "Janine",
+    "class": "TRAINER_CLASS_HGSS_LEADER_JANINE",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_TOXICROAK",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_CROSS_CHOP",
+                "MOVE_POISON_JAB",
+                "MOVE_STONE_EDGE",
+                "MOVE_SUCKER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_DRY_SKIN"
+        },
+        {
+            "species": "SPECIES_NIDOQUEEN",
+            "form": 0,
+            "level": 66,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_BLIZZARD",
+                "MOVE_THUNDER",
+                "MOVE_TOXIC_SPIKES"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_RIVALRY"
+        },
+        {
+            "species": "SPECIES_ARIADOS",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_BUG_BITE",
+                "MOVE_AGILITY",
+                "MOVE_SPIDER_WEB",
+                "MOVE_BATON_PASS"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TENTACRUEL",
+            "form": 0,
+            "level": 68,
+            "item": "ITEM_CHESTO_BERRY",
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_TOXIC_SPIKES",
+                "MOVE_REST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DRAPION",
+            "form": 0,
+            "level": 70,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_CROSS_POISON",
+                "MOVE_EARTHQUAKE",
+                "MOVE_CRUNCH",
+                "MOVE_AQUA_TAIL"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_SNIPER"
+        },
+        {
+            "species": "SPECIES_VENOMOTH",
+            "form": 0,
+            "level": 72,
+            "item": "ITEM_PAYAPA_BERRY",
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_BUG_BUZZ",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_HIDDEN_POWER"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 12,
+            "ability": "ABILITY_TINTED_LENS"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "You’ve got a great battle technique!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Not good. Seriously not good.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...!!!\n",
+                "So... So strong!\n"
+            ]
+        }
+    ]
+}

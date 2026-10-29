@@ -1,0 +1,99 @@
+{
+    "name": "Petrel",
+    "class": "TRAINER_CLASS_HGSS_EXECUTIVE_PETREL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SKUNTANK",
+            "form": 0,
+            "level": 41,
+            "moves": [
+                "MOVE_POISON_JAB",
+                "MOVE_FLAMETHROWER",
+                "MOVE_DIG",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CROBAT",
+            "form": 0,
+            "level": 41,
+            "moves": [
+                "MOVE_U_TURN",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_ATTRACT",
+                "MOVE_AERIAL_ACE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_RATICATE",
+            "form": 0,
+            "level": 41,
+            "moves": [
+                "MOVE_SUPER_FANG",
+                "MOVE_DOUBLE_EDGE",
+                "MOVE_CRUNCH",
+                "MOVE_QUICK_ATTACK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TOXICROAK",
+            "form": 0,
+            "level": 41,
+            "moves": [
+                "MOVE_CROSS_CHOP",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_X_SCISSOR",
+                "MOVE_STONE_EDGE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 43,
+            "moves": [
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_FIRE_BLAST",
+                "MOVE_THUNDER",
+                "MOVE_DARK_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Hey, you’re good!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Wow, strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I...I couldn’t do a thing...\n",
+                "Giovanni, please forgive me...\n"
+            ]
+        }
+    ]
+}

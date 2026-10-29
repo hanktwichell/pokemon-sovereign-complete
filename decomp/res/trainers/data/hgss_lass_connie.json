@@ -1,0 +1,42 @@
+{
+    "name": "Connie",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AZUMARILL",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Jasmine is this city’s Gym Leader.\n",
+                "I intend to bring her back with me.\r",
+                "Nobody better get in my way!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aaack! My Pokémon!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Right. Anybody would be worried if his or\n",
+                "her own Pokémon were hurt.\n"
+            ]
+        }
+    ]
+}

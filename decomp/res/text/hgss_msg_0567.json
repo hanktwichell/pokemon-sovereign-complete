@@ -43,7 +43,7 @@
     },
     {
       "id": "msg_0567_T23GYM0102_00004",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0567_T23GYM0102_00005",
@@ -61,6 +61,28 @@
         "Bugsy: Bug-type Pokémon are deep.\n",
         "There are many mysteries to explore.\r",
         "Study your top choices thoroughly."
+      ]
+    },
+    {
+      "id": "msg_0567_T23GYM0102_00007",
+      "en_US": [
+        "Boss Pokémon have been unlocked in\n",
+        "Route 32, Route 33 and Union Cave!"
+      ]
+    },
+    {
+      "id": "msg_0567_T23GYM0102_00008",
+      "en_US": [
+        "Bugsy: Maybe we can have a rematch\n",
+        "sometime! I’ll give you my number.\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0567_T23GYM0102_00009",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Bugsy\n",
+        "in the Pokégear!"
       ]
     }
   ]

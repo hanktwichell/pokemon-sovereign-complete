@@ -20,7 +20,7 @@
     {
       "id": "msg_0549_T20R0402_00002",
       "en_US": [
-        "Lyra: My MARILL is super cute...\n",
+        "Lyra: My Marill is super cute...\n",
         "But your {STRVAR_1 0, 1, 0} looks pretty\f",
         "good, too, {STRVAR_1 3, 0, 0}!"
       ]
@@ -28,14 +28,14 @@
     {
       "id": "msg_0549_T20R0402_00003",
       "en_US": [
-        "Ethan: My MARILL is super cool...\n",
+        "Ethan: My Marill is super cool...\n",
         "But your {STRVAR_1 0, 1, 0} looks pretty\f",
         "good, too, {STRVAR_1 3, 0, 0}!"
       ]
     },
     {
       "id": "msg_0549_T20R0402_00004",
-      "en_US": "MARILL: Qurururoon."
+      "en_US": "Marill: Qurururoon."
     },
     {
       "id": "msg_0549_T20R0402_00005",
@@ -225,6 +225,50 @@
       "en_US": [
         "You shouldn’t mess with someone\n",
         "else’s PC!"
+      ]
+    },
+    {
+      "id": "msg_0549_T20R0402_00019",
+      "en_US": [
+        "Is this Lyra’s Azumarill?\n",
+        "It seems to be keeping watch."
+      ]
+    },
+    {
+      "id": "msg_0549_T20R0402_00020",
+      "en_US": [
+        "Is this Ethan’s Azumarill?\n",
+        "It seems to be keeping watch."
+      ]
+    },
+    {
+      "id": "msg_0549_T20R0402_00021",
+      "en_US": "Azumarill: Qurururoon!\r"
+    },
+    {
+      "id": "msg_0549_T20R0402_00022",
+      "en_US": [
+        "While you’re here, {STRVAR_1 3, 0, 0},\n",
+        "do you want to have a battle? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0549_T20R0402_00023",
+      "en_US": "Awesome! Here I come!\r"
+    },
+    {
+      "id": "msg_0549_T20R0402_00024",
+      "en_US": "Great! Here I come!\r"
+    },
+    {
+      "id": "msg_0549_T20R0402_00025",
+      "en_US": "Oh, alright then. No problem..."
+    },
+    {
+      "id": "msg_0549_T20R0402_00026",
+      "en_US": [
+        "That was fun!\r",
+        "Tell me if you want to battle again."
       ]
     }
   ]

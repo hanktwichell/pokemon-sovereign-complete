@@ -98,11 +98,11 @@
     },
     {
       "id": "msg_0620_T28_00011",
-      "garbage": 43
+      "garbage": 0
     },
     {
       "id": "msg_0620_T28_00012",
-      "garbage": 44
+      "garbage": 0
     },
     {
       "id": "msg_0620_T28_00013",
@@ -119,14 +119,14 @@
     {
       "id": "msg_0620_T28_00014",
       "en_US": [
-        "Are you off to see the GYARADOS\n",
+        "Are you off to see the Gyarados\n",
         "rampage at the lake?"
       ]
     },
     {
       "id": "msg_0620_T28_00015",
       "en_US": [
-        "MAGIKARP have returned to\n",
+        "Magikarp have returned to\n",
         "Lake of Rage.\r",
         "That should be splendid news for the\n",
         "anglers there."
@@ -136,7 +136,7 @@
       "id": "msg_0620_T28_00016",
       "en_US": [
         "Visit Grandma’s shop. She sells\n",
-        "stuff that nobody else has...\r",
+        "special TMs that nobody else has...\r",
         "You want to buy stuff, right?\n",
         "So buy stuff at my grandma’s!"
       ]

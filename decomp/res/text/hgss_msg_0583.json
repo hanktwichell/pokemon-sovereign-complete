@@ -60,6 +60,152 @@
         "Team Rocket...\r",
         "But stay away from other places, OK?"
       ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00007",
+      "en_US": [
+        "Well, hello there, trainer!\r",
+        "Would you like to take a quiz? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00008",
+      "en_US": [
+        "Excellent! Let’s get started!\r",
+        "Question one!\r",
+        "Is it true that Giovanni owns\n",
+        "a Level 54 Nidoqueen in Yellow? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00009",
+      "en_US": "Aww... come back again!"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00010",
+      "en_US": [
+        "I’m sorry, but that’s the wrong\n",
+        "answer! Please, come and try again!"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00011",
+      "en_US": [
+        "Correct! Time for question number two!\r",
+        "Can Pikachu learn Surf\n",
+        "within Pokémon Yellow? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00012",
+      "en_US": [
+        "Correct! The semifinal question!\r",
+        "Can Magmar learn Overheat\n",
+        "in Fire Red or Leaf Green? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00013",
+      "en_US": [
+        "Correct! The final question!\r",
+        "Is it true that Nidorina and\n",
+        "Nidoqueen cannot breed? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00014",
+      "en_US": [
+        "Congratulations!\n",
+        "You completed the quiz!\r",
+        "You can now pick a prized Pokémon!\n",
+        "Which would you like?"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00015",
+      "en_US": [
+        "Eh?\n",
+        "You don’t want any of them?"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00016",
+      "en_US": "Turtwig"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00017",
+      "en_US": "Chimchar"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00018",
+      "en_US": "Piplup"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00019",
+      "en_US": "Cancel"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00020",
+      "en_US": [
+        "Uhh...\n",
+        "Your party is too full..."
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00021",
+      "en_US": [
+        "Woohoo!\n",
+        "Look out for more of us Quiz Masters!"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00022",
+      "en_US": "As you wish!\r"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00023",
+      "en_US": "{STRVAR_1 3, 0, 0} received a {STRVAR_1 0, 1, 0}!"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00024",
+      "en_US": [
+        "Do you want to give a\n",
+        "nickname to {STRVAR_1 0, 1, 0}?"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00025",
+      "en_US": "Which Pokémon do you want?"
+    },
+    {
+      "id": "msg_0583_T25PC0101_00026",
+      "en_US": [
+        "Brain is better than brawn!\r",
+        "Try this TM out and I bet you’ll\n",
+        "agree!\r"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00027",
+      "en_US": [
+        "Calm Mind raises the special stats\n",
+        "of a Pokémon that uses it!"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00028",
+      "en_US": [
+        "Brawn is better than brain!\r",
+        "Try this TM out and I bet you’ll\n",
+        "agree!\r"
+      ]
+    },
+    {
+      "id": "msg_0583_T25PC0101_00029",
+      "en_US": [
+        "Bulk Up raises the physical stats\n",
+        "of a Pokémon that uses it!"
+      ]
     }
   ]
 }

@@ -1,0 +1,54 @@
+{
+    "name": "Bobbie",
+    "class": "TRAINER_CLASS_RANCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_AIPOM",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PONYTA",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MILTANK",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hohoho! What say you to a battle,\n",
+                "lil’ Trainer?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Awaaargh!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Ya’ll don’t know half the fun of\n",
+                "doin’ the farm!\n"
+            ]
+        }
+    ]
+}

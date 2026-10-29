@@ -1,0 +1,51 @@
+{
+    "name": "Kay＆Tia",
+    "class": "TRAINER_CLASS_HGSS_TWINS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_AMNESIA",
+                "MOVE_SURF",
+                "MOVE_YAWN",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_QUAGSIRE",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_RAIN_DANCE",
+                "MOVE_SURF",
+                "MOVE_MUDDY_WATER",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Tia and Kay both lost...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Kay and Tia both lost...\n"
+            ]
+        }
+    ]
+}

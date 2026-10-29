@@ -1,0 +1,71 @@
+{
+    "name": "Irwin",
+    "class": "TRAINER_CLASS_HGSS_JUGGLER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 64,
+            "moves": [
+                "MOVE_ROLLOUT",
+                "MOVE_SPARK",
+                "MOVE_SONIC_BOOM",
+                "MOVE_CHARGE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 68,
+            "moves": [
+                "MOVE_CHARGE_BEAM",
+                "MOVE_CHARGE",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_SWIFT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 72,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_SCREECH",
+                "MOVE_CHARGE_BEAM",
+                "MOVE_RAIN_DANCE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 76,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_MIRROR_COAT",
+                "MOVE_MAGNET_RISE",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whew! That was a jolt!\n"
+            ]
+        }
+    ]
+}

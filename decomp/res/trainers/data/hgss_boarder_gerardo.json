@@ -1,0 +1,48 @@
+{
+    "name": "Gerardo",
+    "class": "TRAINER_CLASS_HGSS_BOARDER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SNEASEL",
+            "form": 0,
+            "level": 42,
+            "iv_scale": 10,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SEALEO",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 10,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I know Pryce’s secret.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "OK. I’ll tell you Pryce’s secret.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "The reason Pryce is strong...\r",
+                "It’s because every day he sits on top\n",
+                "of very cold ice and trains his body\f",
+                "and spirit!\n"
+            ]
+        }
+    ]
+}

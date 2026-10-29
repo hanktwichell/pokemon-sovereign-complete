@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8528,
             "type": 2,
             "x": 15,
             "z": 47,
@@ -111,7 +111,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D39R0102_IRON",
-            "script": 0,
+            "script": 7556,
             "initial_dir": 0,
             "data": [
                 0,

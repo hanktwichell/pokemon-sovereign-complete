@@ -51,7 +51,7 @@
         "It allows slower Pokémon to move\n",
         "before faster Pokémon for a while.\r",
         "It’s a very tricky move, isn’t it?\n",
-        "Hence the name!"
+        "Hence the name!\r"
       ]
     },
     {
@@ -110,6 +110,21 @@
         "Gym Leader: Blue\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0454_T02GYM0101_00011",
+      "en_US": [
+        "Blue: In hope that I’ll triumph over\n",
+        "you, here is my phone number!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0454_T02GYM0101_00012",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Blue\n",
+        "in the Pokégear!"
       ]
     }
   ]

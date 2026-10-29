@@ -1,0 +1,49 @@
+{
+    "name": "Hank",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PIDGEOTTO",
+            "form": 0,
+            "level": 18,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PIDGEOT",
+            "form": 0,
+            "level": 58,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m raising my Pokémon.\n",
+                "Want to battle with me?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Aw, I can’t believe I lost...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you have a specific Pokémon that you\n",
+                "want to raise, put it out first, then\f",
+                "switch it right away.\r",
+                "That’s how to do it.\n"
+            ]
+        }
+    ]
+}

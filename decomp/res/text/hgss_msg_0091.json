@@ -36,7 +36,7 @@
     {
       "id": "msg_0091_D26R0102_00003",
       "en_US": [
-        "A SLOWPOKE with its tail cut off...\r",
+        "A Slowpoke with its tail cut off...\r",
         "Huh? It has Mail. Read it? {YESNO 0}"
       ]
     },
@@ -45,13 +45,37 @@
       "en_US": [
         "{STRVAR_1 3, 0, 0} read the Mail.\r",
         "Be good and look after the house\n",
-        "with Grandpa and SLOWPOKE.\f",
+        "with Grandpa and Slowpoke.\f",
         "           Love, Dad"
       ]
     },
     {
       "id": "msg_0091_D26R0102_00005",
-      "en_US": "A SLOWPOKE with its tail cut off..."
+      "en_US": "A Slowpoke with its tail cut off..."
+    },
+    {
+      "id": "msg_0091_D26R0102_00006",
+      "en_US": [
+        "Haha!\n",
+        "Haha!\r",
+        "I am Carolyn!\n",
+        "I am Andrew!\r",
+        "We are the Rocket Twins!\n",
+        "We are the Rocket Twins!\r",
+        "Prepare to be crushed!\n",
+        "Prepare to be crushed!\r"
+      ]
+    },
+    {
+      "id": "msg_0091_D26R0102_00007",
+      "en_US": [
+        "Carolyn: We’ve been crushed!\n",
+        "Andrew: We’ve been crushed!"
+      ]
+    },
+    {
+      "id": "msg_0091_D26R0102_00008",
+      "en_US": "..."
     }
   ]
 }

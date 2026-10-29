@@ -1,0 +1,124 @@
+{
+    "name": "Chuck",
+    "class": "TRAINER_CLASS_HGSS_LEADER_CHUCK",
+    "items": [
+        "ITEM_HYPER_POTION",
+        "ITEM_HYPER_POTION"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PRIMEAPE",
+            "form": 0,
+            "level": 34,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SUBSTITUTE",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_FOCUS_PUNCH",
+                "MOVE_ROCK_SLIDE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_ANGER_POINT"
+        },
+        {
+            "species": "SPECIES_BRELOOM",
+            "form": 0,
+            "level": 33,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SPORE",
+                "MOVE_BULLET_SEED",
+                "MOVE_MACH_PUNCH",
+                "MOVE_FOCUS_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HITMONLEE",
+            "form": 0,
+            "level": 34,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_HI_JUMP_KICK",
+                "MOVE_ROCK_SLIDE",
+                "MOVE_BOUNCE",
+                "MOVE_FAKE_OUT"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_RECKLESS"
+        },
+        {
+            "species": "SPECIES_HITMONCHAN",
+            "form": 0,
+            "level": 34,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_ICE_PUNCH",
+                "MOVE_FIRE_PUNCH",
+                "MOVE_FOCUS_PUNCH",
+                "MOVE_SUBSTITUTE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_IRON_FIST"
+        },
+        {
+            "species": "SPECIES_HARIYAMA",
+            "form": 0,
+            "level": 33,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_FAKE_OUT",
+                "MOVE_WHIRLWIND",
+                "MOVE_CROSS_CHOP",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0,
+            "ability": "ABILITY_THICK_FAT"
+        },
+        {
+            "species": "SPECIES_POLIWRATH",
+            "form": 0,
+            "level": 35,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_HYPNOSIS",
+                "MOVE_FOCUS_PUNCH",
+                "MOVE_SURF",
+                "MOVE_ICE_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 8
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "We haven’t lost yet!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "No... Not...yet...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "We...lost...\n"
+            ]
+        }
+    ]
+}

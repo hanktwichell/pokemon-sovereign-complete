@@ -59,15 +59,15 @@ scr_seq_D17R0110_000:
     GetGameVersion VAR_RESULT
     CompareVar VAR_RESULT, 7
     GoToIf 5, _00FD
-    SetVarFromValue VAR_0x8004, 45
+    SetVarFromValue VAR_0x8004, 50
     GoTo _0103
 _00FD:
     SetVarFromValue VAR_0x8004, 70
 _0103:
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: WildBattle VAR_TEMP_x400A, VAR_SPECIAL_x8004, 0
+    CompleteStartWildBattle VAR_MAP_LOCAL_0x0A, VAR_0x8004, 0
     ClearFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: GetStaticEncounterOutcome VAR_TEMP_x4005
+    CompleteGetBattleResult VAR_MAP_LOCAL_0x05
     CompareVar VAR_MAP_LOCAL_0x05, 2
     GoToIf 1, _0167
     CompareVar VAR_MAP_LOCAL_0x05, 3
@@ -506,7 +506,6 @@ _091C:
     WalkSlowEast 2
     EndMovement
     .balign 4, 0
-_0924:
     WalkSlowSouth
     EndMovement
     .balign 4, 0

@@ -107,7 +107,7 @@ _01DA:
     WaitMovement
     Message msg_0069_D23R0105_00003
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_EXECUTIVE_PETREL_PETREL, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_EXECUTIVE_PETREL_PETREL, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _021D
@@ -193,7 +193,6 @@ _02C8:
     FaceWest
     EndMovement
     .balign 4, 0
-_02EC:
     FaceEast
     FaceSouth
     FaceWest

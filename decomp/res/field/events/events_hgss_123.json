@@ -26,7 +26,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D45R0101_MOON_STONE",
-            "script": 0,
+            "script": 7501,
             "initial_dir": 0,
             "data": [
                 0,

@@ -5,9 +5,9 @@
             "id": "obj_D15R0102_bozu",
             "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAGE_NICO",
             "initial_dir": 1,
             "data": [
                 2,
@@ -24,9 +24,9 @@
             "id": "obj_D15R0102_bozu_2",
             "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAGE_EDMOND",
             "initial_dir": 2,
             "data": [
                 6,
@@ -45,7 +45,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D15R0102_X_ACCURACY",
-            "script": 0,
+            "script": 7336,
             "initial_dir": 0,
             "data": [
                 0,

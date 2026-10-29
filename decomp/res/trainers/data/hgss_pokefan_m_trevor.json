@@ -1,0 +1,42 @@
+{
+    "name": "Trevor",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_JUMPLUFF",
+            "form": 0,
+            "level": 61,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Sometimes I go back to the places\n",
+                "I met my Pokémon.\f",
+                "They bring back good memories.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Where did I meet this Psyduck?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "When and where did I get my Pokémon...\r",
+                "I’ll bet if I checked my Trainer Memo,\n",
+                "I’d remember!\n"
+            ]
+        }
+    ]
+}

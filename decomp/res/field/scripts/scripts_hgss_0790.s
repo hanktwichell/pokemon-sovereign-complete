@@ -36,7 +36,8 @@ scr_seq_T07R0102_000:
     Common_VendorGreeting
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 18
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 scr_seq_T07R0102_001:
@@ -46,7 +47,8 @@ scr_seq_T07R0102_001:
     Common_VendorGreeting
     CloseMessageWithoutErasing
     SetVarFromValue VAR_0x8004, 19
-    @ HGSS: CallStd std_special_mart
+    AddVar VAR_0x8004, MART_SPECIALTIES_ID_HGSS_00
+    PokeMartSpecialties VAR_0x8004
     ReleaseAll
     End
 scr_seq_T07R0102_007:
@@ -115,7 +117,7 @@ _01A0:
     CompareVar VAR_RESULT, 1
     GoToIf 5, _01D8
     .short SCRCMD_UNUSED_06A
-    .short 253
+    .short LOCALID_COMPLETE_FOLLOWER
     .short VAR_0x8004
     .short VAR_0x8005
     CompareVar VAR_0x8005, 5

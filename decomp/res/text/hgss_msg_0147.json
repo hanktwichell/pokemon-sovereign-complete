@@ -37,7 +37,7 @@
         "the snowbound land freezes you\f",
         "to the core...\r",
         "Talk to the old man if you wish to go\n",
-        "back. ABRA should be able to take you\f",
+        "back. Abra should be able to take you\f",
         "where you come from."
       ]
     },
@@ -45,9 +45,9 @@
       "id": "msg_0147_D51R0301_00003",
       "en_US": [
         "Cynthia: I feel a familiar presence...\n",
-        "The power of DIALGA...\f",
-        "PALKIA...\f",
-        "or could it be GIRATINA?\r",
+        "The power of Dialga...\f",
+        "Palkia...\f",
+        "or could it be Giratina?\r",
         "It’s similar, but not quite the same...\r"
       ]
     },
@@ -64,7 +64,7 @@
     },
     {
       "id": "msg_0147_D51R0301_00005",
-      "garbage": 5
+      "garbage": 0
     },
     {
       "id": "msg_0147_D51R0301_00006",
@@ -107,7 +107,7 @@
     {
       "id": "msg_0147_D51R0301_00008",
       "en_US": [
-        "ARCEUS is said to have come out of\n",
+        "Arceus is said to have come out of\n",
         "an Egg.\r",
         "Johto people believe that Pokémon Eggs\n",
         "are the vessels of life, and thus\f",
@@ -134,7 +134,7 @@
       "en_US": [
         "You seem so out of place, not even\n",
         "knowing why you are here.\r",
-        "Do you want my ABRA to use a\n",
+        "Do you want my Abra to use a\n",
         "special power to take you home? {YESNO 0}"
       ]
     },
@@ -154,7 +154,46 @@
     },
     {
       "id": "msg_0147_D51R0301_00013",
-      "en_US": "ABRA: Aabra..."
+      "en_US": "Abra: AAbra..."
+    },
+    {
+      "id": "msg_0147_D51R0301_00014",
+      "en_US": [
+        "Cynthia: Regardless, do you wish\n",
+        "to return to {COLOR 2}Goldenrod City{COLOR 0}? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0147_D51R0301_00015",
+      "en_US": [
+        "Cynthia: Inform me when you are\n",
+        "ready to leave."
+      ]
+    },
+    {
+      "id": "msg_0147_D51R0301_00016",
+      "en_US": [
+        "Cynthia: I can feel a legendary\n",
+        "presence at the stage...\r",
+        "Representing knowledge, emotion or\n",
+        "willpower...\r"
+      ]
+    },
+    {
+      "id": "msg_0147_D51R0301_00017",
+      "en_US": [
+        "Cynthia: This place seems...\n",
+        "completely desolate.\r"
+      ]
+    },
+    {
+      "id": "msg_0147_D51R0301_00018",
+      "en_US": [
+        "Cynthia: I can feel a legendary\n",
+        "presence at the stage...\r",
+        "Representing antimatter, space or\n",
+        "time...\r"
+      ]
     }
   ]
 }

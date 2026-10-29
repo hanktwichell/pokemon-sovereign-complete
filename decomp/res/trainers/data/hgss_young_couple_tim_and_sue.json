@@ -1,0 +1,100 @@
+{
+    "name": "Tim＆Sue",
+    "class": "TRAINER_CLASS_HGSS_YOUNG_COUPLE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": true,
+    "party": [
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLDUCK",
+            "form": 0,
+            "level": 59,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Tim: I’ll give you a little hint.\r",
+                "Don’t you think my girlfriend’s much\n",
+                "stronger than I am?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_1",
+            "en_US": [
+                "Tim: You’re the strongest!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_1",
+            "en_US": [
+                "Tim: If you’ve beaten her, you must\n",
+                "be strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_1",
+            "en_US": [
+                "Tim: Are you collecting Pokémon? You\n",
+                "can’t fight us with just one Pokémon.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_REMATCH_1",
+            "en_US": [
+                "Tim: Hey, you came back! \n",
+                "While we were waiting for you, we became\f",
+                "much stronger!\r",
+                "Well, she did.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_PRE_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Sue: Women who don’t take love\n",
+                "seriously and who are reckless might\f",
+                "get hurt.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_DEFEAT_2",
+            "en_US": [
+                "Sue: Wa ha...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_DOUBLE_BATTLE_2",
+            "en_US": [
+                "Sue: That strength of yours...\r",
+                "I’ve got it! Are you in love?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_NOT_ENOUGH_POKEMON_2",
+            "en_US": [
+                "Sue: Let’s have a Pokémon battle after\n",
+                "you’ve gotten more than one Pokémon.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DOUBLE_BATTLE_REMATCH_2",
+            "en_US": [
+                "Sue: A woman in love is impatient.\r",
+                "But if she’s with her boyfriend,\n",
+                "waiting is never a chore!\r"
+            ]
+        }
+    ]
+}

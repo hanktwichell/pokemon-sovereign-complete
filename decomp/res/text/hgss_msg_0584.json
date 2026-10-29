@@ -21,7 +21,7 @@
     },
     {
       "id": "msg_0584_T25R0201_00002",
-      "garbage": 18
+      "garbage": 0
     },
     {
       "id": "msg_0584_T25R0201_00003",
@@ -43,7 +43,729 @@
     },
     {
       "id": "msg_0584_T25R0201_00005",
-      "en_US": "It’s a shiny new Bicycle!"
+      "en_US": "It’s a rusty old bicycle..."
+    },
+    {
+      "id": "msg_0584_T25R0201_00006",
+      "en_US": [
+        "Cynthia: {STRVAR_1 3, 0, 0}! It’s good to see you\n",
+        "again. This is an in-progress base that\f",
+        "is built for archaeologists, so it’s\f",
+        "a good place for me to stay around!\r",
+        "Cynthia: You know, if you find or get\n",
+        "given any ancient looking items, you\f",
+        "should bring them to me. I might be\f",
+        "able to help decipher their meaning."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00007",
+      "en_US": [
+        "Cynthia: If you find anything\n",
+        "interesting that looks ancient,\f",
+        "bring it to me. I might be able to\f",
+        "shed some light on it."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00008",
+      "en_US": [
+        "Cynthia: What is this item? Professor\n",
+        "Oak gave it to you? Hmm...\r",
+        "He said it’s called the Lock Capsule?\r",
+        "I heard this is somehow related to\n",
+        "the golems of legend...\r",
+        "Let me try something a moment..."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00009",
+      "en_US": [
+        "Cynthia: The capsule reacted very\n",
+        "strongly to that braille tablet\f",
+        "I obtained from the Hoenn region...\r",
+        "The Lock Capsule seems to be giving off\n",
+        "an aura!\r",
+        "I wonder what that could mean.\r",
+        "Perhaps the golems have surfaced\n",
+        "around Johto?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00010",
+      "en_US": [
+        "Cynthia: Are you searching for\n",
+        "Regirock, Regice, and Registeel?\r",
+        "It’s hard to guess, but could they’ve\n",
+        "appeared within Johto’s caves?\r",
+        "It might be worth your while to take a\n",
+        "deep look inside some of them."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00011",
+      "en_US": [
+        "Hello, welcome to the new Goldenrod\n",
+        "Archaeology Center!\r",
+        "This USED to be a bike shop, but they\n",
+        "haven’t cleared away half the trash...\r",
+        "Ahem! Will you need my help with the\n",
+        "revival of fossils, today?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00012",
+      "en_US": "Stone Market"
+    },
+    {
+      "id": "msg_0584_T25R0201_00013",
+      "en_US": "Fossil Revival"
+    },
+    {
+      "id": "msg_0584_T25R0201_00014",
+      "en_US": "Never Mind"
+    },
+    {
+      "id": "msg_0584_T25R0201_00015",
+      "en_US": [
+        "Welcome to the Archaeology\n",
+        "Center’s Fossil Service!\r",
+        "Would you like me to help you? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00016",
+      "en_US": "Come back again!"
+    },
+    {
+      "id": "msg_0584_T25R0201_00017",
+      "en_US": [
+        "Okay!\n",
+        "What would you like to get? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00018",
+      "en_US": [
+        "Fire Stone\n",
+        "$3,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00019",
+      "en_US": [
+        "Thunderstone\n",
+        "$3,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00020",
+      "en_US": [
+        "Water Stone\n",
+        "$3,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00021",
+      "en_US": [
+        "Leaf Stone\n",
+        "$3,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00022",
+      "en_US": [
+        "Sun Stone\n",
+        "$5,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00023",
+      "en_US": [
+        "Moon Stone\n",
+        "$5,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00024",
+      "en_US": "Dawn Stone{CURSOR_X 90}$10,000"
+    },
+    {
+      "id": "msg_0584_T25R0201_00025",
+      "en_US": "Shiny Stone{CURSOR_X 90}$10,000"
+    },
+    {
+      "id": "msg_0584_T25R0201_00026",
+      "en_US": "Dusk Stone{CURSOR_X 90}$10,000"
+    },
+    {
+      "id": "msg_0584_T25R0201_00027",
+      "en_US": "Cancel"
+    },
+    {
+      "id": "msg_0584_T25R0201_00028",
+      "en_US": "Common Stones"
+    },
+    {
+      "id": "msg_0584_T25R0201_00029",
+      "en_US": "Rare Stones"
+    },
+    {
+      "id": "msg_0584_T25R0201_00030",
+      "en_US": [
+        "Everstone\n",
+        "$1,000"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00031",
+      "en_US": [
+        "Uh... I hate to say it, but you\n",
+        "haven’t got enough money for that."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00032",
+      "en_US": [
+        "Cynthia: Ah, welcome back! You engaged\n",
+        "with the three golems? Intruiging...\r",
+        "I wonder if we can somehow find the\n",
+        "fourth golem, Regigigas.\r",
+        "I’ll do some research into it.\n",
+        "You should come back sometime later."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00033",
+      "en_US": [
+        "If you have any fossils on you, I can\n",
+        "use our technology to extract the DNA.\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00034",
+      "en_US": [
+        "Ah, you don’t wish to extract this\n",
+        "time? Very well, then."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00035",
+      "en_US": [
+        "I’ll see what I can do. Give me some\n",
+        "time and come back later."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00036",
+      "en_US": [
+        "I’ve extracted a {STRVAR_1 0, 0, 0} from your\n",
+        "fossil. Take good care of it.\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00037",
+      "en_US": [
+        "Oh..!\n",
+        "Your party seems full.\r",
+        "Why don’t you go to the PC\n",
+        "to make some room?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00038",
+      "en_US": [
+        "You haven’t got any fossils...\n",
+        "Maybe you should smash some rocks."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00039",
+      "en_US": [
+        "Do you want to extract a Pokémon\n",
+        "from the {STRVAR_1 8, 0, 0}? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00040",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received\n",
+        "the {STRVAR_1 0, 1, 0}!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00041",
+      "en_US": [
+        "Would you like to give a nickname\n",
+        "to the {STRVAR_1 0, 1, 0} you received? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00042",
+      "en_US": [
+        "Oh! Hello! Thank you for coming\n",
+        "to our archaelogical center!\r",
+        "This place used to be pretty\n",
+        "useless...\r",
+        "Then Cynthia showed up, and that all\n",
+        "changed. Her prowess is incredible!\r",
+        "That Steven Stone is pretty good\n",
+        "with archaeology, too...\r",
+        "Anyway, since this is your first visit,\n",
+        "let me give you a generous gift!\r",
+        "The best archaeology has to offer!\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00043",
+      "en_US": [
+        "You can often find these fossils if\n",
+        "you check under breakable rocks.\r",
+        "Treat those Skull and Armor Fossils\n",
+        "with care, though. As far as Johto is\f",
+        "concerned, they’re one-of-a-kind!\r",
+        "You can talk to the man at the counter\n",
+        "if you want to try reviving them..."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00044",
+      "en_US": [
+        "Nice to see you again. Isn’t this\n",
+        "place fantastic?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00045",
+      "en_US": [
+        "Cynthia: Oh! Is this what they\n",
+        "call the {COLOR 1}Red Chain{COLOR 0}?\r",
+        "This chain may lead us to\n",
+        "somewhere very special...\r",
+        "Yes, I believe this will lead us\n",
+        "to the {COLOR 1}Sinjoh Ruins{COLOR 0}.\r",
+        "Talk to me again if you\n",
+        "want to take a look."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00046",
+      "en_US": [
+        "Cynthia: Talk to me again if\n",
+        "you want to take a look."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00047",
+      "en_US": [
+        "Cynthia: Do you want to go\n",
+        "to the {COLOR 1}Sinjoh Ruins{COLOR 0}? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00048",
+      "en_US": [
+        "Woah! Isn’t that item you have there\n",
+        "what they call the Enigma Stone?\n",
+        "I heard about Steven’s excavation\n",
+        "of that!\r",
+        "Can I please take\n",
+        "a look at it!? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00049",
+      "en_US": [
+        "Aww, man...\n",
+        "Why not?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00050",
+      "en_US": "Yes! Thank you!\r"
+    },
+    {
+      "id": "msg_0584_T25R0201_00051",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} handed the Enigma Stone\n",
+        "over to the archaeologist."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00052",
+      "en_US": [
+        "This is quite an interesting stone...\n",
+        "Though it’s totally covered in dirt.\r",
+        "Let me give it a polish...\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00053",
+      "en_US": [
+        "I think... this is the legendary\n",
+        "Soul Dew!\r",
+        "They say it contains the {COLOR 1}spirit\n",
+        "of the Eon Pokémon{COLOR 0}.\r",
+        "Here, you should keep it.\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00054",
+      "en_US": [
+        "If by some chance you capture\n",
+        "a legendary Pokémon, please show it\f",
+        "to me!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00055",
+      "en_US": [
+        "This trophy holds the names of\n",
+        "those Pokémon who our researchers,\f",
+        "past and present fought so hard\f",
+        "to obtain information about.\r",
+        "They are known collectively as the\n",
+        "{COLOR 1}Legendary Pokémon{COLOR 0}.\r",
+        "Read on?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00056",
+      "en_US": [
+        "Professor Elm: So, you like {COLOR 3}Chikorita{COLOR 0},\n",
+        "the Grass-type Pokémon?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00057",
+      "en_US": [
+        "The {COLOR 2}Johto{COLOR 0} region is known for the\n",
+        "beasts of thunder, fire and water,\f",
+        "the guardians of sea and sky, and\f",
+        "the protector of the forest.\r",
+        "They are known as {COLOR 1}Raikou{COLOR 0}, {COLOR 1}Entei{COLOR 0},\n",
+        "{COLOR 1}Suicune{COLOR 0}, {COLOR 1}Lugia{COLOR 0}, {COLOR 1}Ho-oh{COLOR 0} and {COLOR 1}Celebi{COLOR 0}.\r",
+        "Read on?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00058",
+      "en_US": [
+        "The {COLOR 2}Hoenn{COLOR 0} region is known for the\n",
+        "golems of rock, ice and steel,\f",
+        "the twins known as the Eon Pokémon,\f",
+        "the titans of water, earth and sky,\f",
+        "the wishmaker and the alien virus.\r",
+        "They are known as {COLOR 1}Regirock{COLOR 0}, {COLOR 1}Regice{COLOR 0},\n",
+        "{COLOR 1}Registeel{COLOR 0}, {COLOR 1}Latias{COLOR 0}, {COLOR 1}Latios{COLOR 0}, {COLOR 1}Kyogre{COLOR 0},\f",
+        "{COLOR 1}Groudon{COLOR 0}, {COLOR 1}Rayquaza{COLOR 0}, {COLOR 1}Jirachi{COLOR 0} and {COLOR 1}Deoxys{COLOR 0}.\r",
+        "Read on?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00059",
+      "en_US": [
+        "The {COLOR 2}Sinnoh{COLOR 0} region is known for the\n",
+        "embodiments of knowledge, emotion and\f",
+        "willpower, the creators of time, space\f",
+        "and antimatter, the child of the\f",
+        "planet’s core, the leader of golems,\f",
+        "the protector of dreams, the prince\f",
+        "of the sea, the force of nightmare,\f",
+        "and the bringer of life and purity.\r",
+        "They are known as {COLOR 1}Uxie{COLOR 0}, {COLOR 1}Mesprit{COLOR 0},{COLOR 1}\n",
+        "Azelf{COLOR 0}, {COLOR 1}Dialga{COLOR 0}, {COLOR 1}Palkia{COLOR 0}, {COLOR 1}Giratina{COLOR 0},\f",
+        "{COLOR 1}Heatran{COLOR 0}, {COLOR 1}Regigigas{COLOR 0}, {COLOR 1}Cresselia{COLOR 0},\f",
+        "{COLOR 1}Manaphy{COLOR 0}, {COLOR 1}Darkrai{COLOR 0}, and {COLOR 1}Shaymin{COLOR 0}.\r",
+        "Read on?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00060",
+      "en_US": [
+        "Mythology also states the existence\n",
+        "of another legendary belonging to the\f",
+        "Sinnoh group, but little information is\f",
+        "known.\r",
+        "One carving suggests that this\n",
+        "legendary appears only when a\f",
+        "trainer has {COLOR 1}tamed every other of these\f",
+        "legendary Pokémon{COLOR 0} from the four\f",
+        "regions, making it a somewhat impossible \f",
+        "task for our scientists.\r",
+        "Read on?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00061",
+      "en_US": [
+        "Whether the more common Pokémon\n",
+        "{COLOR 1}Phione{COLOR 0} can be called legendary is\f",
+        "unknown. There is mixed evidence, but\f",
+        "for now we choose to declare\f",
+        "it as a regular Pokémon.\r",
+        "Read on?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00062",
+      "en_US": [
+        "The {COLOR 2}Unova{COLOR 0} region is also said to\n",
+        "contain a variety of legen...\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00063",
+      "en_US": [
+        "The rest of the pages are blank\n",
+        "or ripped..."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00064",
+      "en_US": [
+        "Perhaps you would like to battle?\r",
+        "I do want our Pokémon to have\n",
+        "a match. Are you prepared to be\f",
+        "my opponent? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00065",
+      "en_US": [
+        "Before I sent out my Pokémon,\n",
+        "my heart begins to race...\r",
+        "Interesting, my Pokémon in their Poké\n",
+        "Balls appear to be quite happy.\r",
+        "Could you be the reason?\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00066",
+      "en_US": [
+        "I see.\r",
+        "Perhaps a wise choice.\n",
+        "My Pokémon aren’t to be taken lightly."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00067",
+      "en_US": [
+        "You are indeed powerful...\n",
+        "I’d expect nothing less.\r",
+        "If you want to let our Pokémon\n",
+        "have another chance at battle,\f",
+        "please let me know."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00068",
+      "en_US": "Hey, you!"
+    },
+    {
+      "id": "msg_0584_T25R0201_00069",
+      "en_US": [
+        "You there! Do you know Phione?\r",
+        "If you can show me a Phione,\n",
+        "I’ll give you a reward!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00070",
+      "en_US": [
+        "By jove, it’s a real Phione!\r",
+        "But that’s not enough, you see!\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00071",
+      "en_US": [
+        "If you can show me a Manaphy,\n",
+        "then I’ll really give you a reward!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00072",
+      "en_US": [
+        "By jove, it’s a real Manaphy!\r",
+        "Here, take this!\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00073",
+      "en_US": [
+        "Thank you, young sir!\n",
+        "Fare thee well!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00074",
+      "en_US": [
+        "Thank you, young lass!\n",
+        "Fare thee well!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00075",
+      "en_US": [
+        "Cynthia: Congratulations on becoming\n",
+        "the Champion, {STRVAR_1 3, 0, 0}.\r",
+        "I’d like to give you a reward\n",
+        "in celebration.\r",
+        "However, first, I want you to show me\n",
+        "one of the Sinnoh starters or one\f",
+        "of their evolutions.\r",
+        "Can you do that, {STRVAR_1 3, 0, 0}?\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00076",
+      "en_US": [
+        "I hate to say it, but the Pokémon\n",
+        "behind you isn’t what I was looking for!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00077",
+      "en_US": [
+        "That is indeed one of the starters\n",
+        "given out by Rowan in Sinnoh!\r",
+        "So you own a {COLOR 1}{STRVAR_1 0, 1, 0}{COLOR 0}...\r",
+        "In that case, I’d like you to have\n",
+        "these two Pokémon!\r"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00078",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Chimchar{COLOR 0} and {COLOR 2}Piplup{COLOR 0}\n",
+        "from Cynthia!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00079",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Turtwig{COLOR 0} and {COLOR 2}Piplup{COLOR 0}\n",
+        "from Cynthia!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00080",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Turtwig{COLOR 0} and {COLOR 2}Chimchar{COLOR 0}\n",
+        "from Cynthia!"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00081",
+      "en_US": [
+        "Cynthia: You’ll do well with them,\n",
+        "I’m quite sure of that."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00082",
+      "en_US": [
+        "Your party’s too full, though. If you\n",
+        "can have at least two free slots, that\f",
+        "would be great."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00083",
+      "en_US": [
+        "Hey, mister!\n",
+        "Isn’t archaeology amazing?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00084",
+      "en_US": [
+        "Hey, miss!\n",
+        "Isn’t archaeology amazing?"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00085",
+      "en_US": [
+        "Hey, mister!\n",
+        "Do you wanna trade some items?\r",
+        "I’ve got some stuff you’re bound\n",
+        "to like!\r",
+        "Top is what you want!\n",
+        "Bottom is what I want! {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00086",
+      "en_US": [
+        "Hey, miss!\n",
+        "Do you wanna trade some items?\r",
+        "I’ve got some stuff you’re bound\n",
+        "to like!\r",
+        "Top is what you want!\n",
+        "Bottom is what I want! {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00087",
+      "en_US": [
+        "Sun Stone\n",
+        "Red Shard"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00088",
+      "en_US": [
+        "Moon Stone\n",
+        "Blue Shard"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00089",
+      "en_US": [
+        "Shiny Stone\n",
+        "Yellow Shard"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00090",
+      "en_US": [
+        "Dusk Stone\n",
+        "Green Shard"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00091",
+      "en_US": [
+        "Dawn Stone\n",
+        "Stardust"
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00092",
+      "en_US": [
+        "I don’t want\n",
+        "to trade."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00093",
+      "en_US": [
+        "You don’t have the item I wanted\n",
+        "in exchange for that..."
+      ]
+    },
+    {
+      "id": "msg_0584_T25R0201_00094",
+      "en_US": "Yay! Thank you! Here’s your item!\r"
+    },
+    {
+      "id": "msg_0584_T25R0201_00095",
+      "en_US": [
+        "You don’t want to trade items?\n",
+        "Aww... come back again!"
+      ]
     }
   ]
 }

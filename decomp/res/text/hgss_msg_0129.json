@@ -14,7 +14,7 @@
     },
     {
       "id": "msg_0129_D44R0102_00002",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0129_D44R0102_00003",
@@ -292,6 +292,29 @@
         "Your Photo Album is full.\r",
         "Access your PC and delete\n",
         "some pictures.\n"
+      ]
+    },
+    {
+      "id": "msg_0129_D44R0102_00034",
+      "en_US": [
+        "Clair: Well, you don’t need to be\n",
+        "so rude about it!\r"
+      ]
+    },
+    {
+      "id": "msg_0129_D44R0102_00035",
+      "en_US": [
+        "Clair: And I will give you my number!\n",
+        "There will come a time where I’ll\f",
+        "prevail!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0129_D44R0102_00036",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Clair\n",
+        "in the Pokégear!"
       ]
     }
   ]

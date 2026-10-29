@@ -1,0 +1,67 @@
+{
+    "name": "Irwin",
+    "class": "TRAINER_CLASS_HGSS_JUGGLER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_VOLTORB",
+            "form": 0,
+            "level": 12,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VOLTORB",
+            "form": 0,
+            "level": 16,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VOLTORB",
+            "form": 0,
+            "level": 20,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VOLTORB",
+            "form": 0,
+            "level": 24,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Behold my dexterity and grace!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Whew! That was a jolt!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I was going to dazzle you with my prize\n",
+                "Pokémon. But your prowess\f",
+                "electrified me!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Yo! I’ve been waiting!\r"
+            ]
+        }
+    ]
+}

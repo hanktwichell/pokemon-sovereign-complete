@@ -1,0 +1,49 @@
+{
+    "name": "Markus",
+    "class": "TRAINER_CLASS_HGSS_SUPER_NERD",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SLOWBRO",
+            "form": 0,
+            "level": 39,
+            "moves": [
+                "MOVE_CURSE",
+                "MOVE_SURF",
+                "MOVE_GROWL",
+                "MOVE_STRENGTH"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey! Hugh!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I mistook you for someone else...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I came to explore Mt. Mortar, but I got\n",
+                "separated from my partner...\r",
+                "Did you run into a Trainer who uses a\n",
+                "Seadra? That Seadra is really good at\f",
+                "using Waterfall.\n"
+            ]
+        }
+    ]
+}

@@ -14,9 +14,9 @@
             "id": "obj_R10R0101_mount_2",
             "graphics_id": "OBJ_EVENT_GFX_HIKER",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_HIKER_JIM",
             "initial_dir": 3,
             "data": [
                 3,
@@ -33,9 +33,9 @@
             "id": "obj_R10R0101_gsmiddleman1",
             "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_POKEFAN_M_ROBERT",
             "initial_dir": 3,
             "data": [
                 3,
@@ -73,7 +73,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R10R0101_TM69",
-            "script": 0,
+            "script": 7521,
             "initial_dir": 0,
             "data": [
                 0,

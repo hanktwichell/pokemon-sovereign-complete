@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8400,
             "type": 2,
             "x": 613,
             "z": 171,
@@ -30,9 +30,9 @@
             "id": "obj_R44_mystery_2",
             "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_PSYCHIC_M_PHIL",
             "initial_dir": 2,
             "data": [
                 5,
@@ -49,9 +49,9 @@
             "id": "obj_R44_fishing_2",
             "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FISHERMAN_EDGAR",
             "initial_dir": 0,
             "data": [
                 0,
@@ -68,9 +68,9 @@
             "id": "obj_R44_fishing_2_2",
             "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_FISHERMAN_WILTON",
             "initial_dir": 1,
             "data": [
                 1,
@@ -87,9 +87,9 @@
             "id": "obj_R44_gswoman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_F_CYBIL",
             "initial_dir": 2,
             "data": [
                 7,
@@ -106,9 +106,9 @@
             "id": "obj_R44_gsman3",
             "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_ACE_TRAINER_M_ALLEN",
             "initial_dir": 2,
             "data": [
                 7,
@@ -125,9 +125,9 @@
             "id": "obj_R44_mania",
             "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_POKE_MANIAC_ZACH",
             "initial_dir": 2,
             "data": [
                 7,
@@ -144,9 +144,9 @@
             "id": "obj_R44_gsman2",
             "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_BIRD_KEEPER_GS_VANCE",
             "initial_dir": 2,
             "data": [
                 4,
@@ -184,7 +184,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R44_MAX_REPEL",
-            "script": 0,
+            "script": 7474,
             "initial_dir": 0,
             "data": [
                 0,
@@ -203,7 +203,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R44_MAX_REVIVE",
-            "script": 0,
+            "script": 7475,
             "initial_dir": 0,
             "data": [
                 0,
@@ -222,7 +222,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_R44_ULTRA_BALL",
-            "script": 0,
+            "script": 7476,
             "initial_dir": 0,
             "data": [
                 0,
@@ -252,6 +252,25 @@
             "movement_range_z": 0,
             "x": 540,
             "z": 175,
+            "y": 0
+        },
+        {
+            "id": "obj_R44_12",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F87",
+            "script": 7581,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 612,
+            "z": 171,
             "y": 0
         }
     ],

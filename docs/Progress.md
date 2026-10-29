@@ -213,3 +213,29 @@ binary hack it has them only in its ROM. `tools/complete/disasm_hgss_scripts.py`
 HeartGold's script language: all 965 files of HeartGold and all 965 of Sacred Gold reassemble with pokeheartgold's own
 toolchain to the same bytes, and on HeartGold the translation of its output matches the translation of the sources.
 Next: Sacred Gold's events and text, then its scripts through the translator, so Johto and Kanto play as in Sacred Gold.
+
+## Oct 29, 2026: step 4 under way, Sacred Gold's content
+
+Johto and Kanto now follow Drayano's Sacred Gold, read from its ROM (`docs/SacredGold.md` has the details):
+- **Scripts, events and text** are Sacred Gold's: its 965 script files disassembled byte for byte and translated, its
+  145 changed events files (201 more people), its text, and its flags and vars past HeartGold's.
+- **Trainers:** all 737 of HeartGold's as Sacred Gold has them, parties on Sovereign's 1025 Pokémon, with their lines,
+  HeartGold's own defeated flags and its 68 trainer classes Platinum lacks (pictures converted, Sinnoh music
+  stand-ins until step 6). The battle test found a post-battle stall for the 37 trainers with no lines: the game read
+  the whole trainer message table, a card read per entry. Fixed in `Trainer_LoadMessage`.
+- **Wild Pokémon by time of day:** HeartGold's tables (morning, day, night; surfing; rods) as Sacred Gold has them,
+  read by the engine on Johto and Kanto maps (`src/complete_encounters.c`).
+- **Gifts and static encounters** (Sacred Gold's red Gyarados is shiny), **item balls** (255) and **hidden items**
+  (231, with HeartGold's flags), **trades** (13, Sacred Gold changed 9) and **Poké Marts** (30 special marts, 14
+  changed by Sacred Gold).
+- **Sacred Gold's six evolution items** (Covenant Orb in place of trades, Voltaic Ore for the magnetic field, and four
+  for Eevee) are items, and evolve as Sacred Gold has them, beside Sovereign's own ways. Open for the owner: Sacred
+  Gold's trade items used from the bag (`docs/Roadmap.md`).
+- About 60 more HeartGold script commands turned out to be Platinum's under other names; 97.1% of Sacred Gold's
+  83,001 script lines translate. HeartGold's standard menus (108) showed Platinum's menu strings at HeartGold's
+  numbers; they now read HeartGold's own menu strings (`CompleteInitHGSSMenu`).
+
+New tests: `tools/complete/test_hgss_hidden_items.py` (each hidden item found once and only once) and
+`tools/complete/test_hgss_encounters.py` (each map's wild Pokémon match its table at 6:00, 12:00 and 22:00). The
+regular build builds and boots; the full test run (every trainer, the wild tables, hidden items, every map, every
+scene, every person) is next on the new test build.

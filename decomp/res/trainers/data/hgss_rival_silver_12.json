@@ -1,0 +1,125 @@
+{
+    "name": "Silver",
+    "class": "TRAINER_CLASS_HGSS_RIVAL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HONCHKROW",
+            "form": 0,
+            "level": 45,
+            "moves": [
+                "MOVE_DRILL_PECK",
+                "MOVE_TOXIC",
+                "MOVE_PROTECT",
+                "MOVE_ROOST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGMAR",
+            "form": 0,
+            "level": 44,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_WILL_O_WISP",
+                "MOVE_PSYCHIC",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ELECTABUZZ",
+            "form": 0,
+            "level": 44,
+            "moves": [
+                "MOVE_THUNDERBOLT",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_PSYCHIC",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 45,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_GIGA_DRAIN",
+                "MOVE_THUNDER",
+                "MOVE_HYPNOSIS"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 45,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_SHOCK_WAVE",
+                "MOVE_ENERGY_BALL",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FERALIGATR",
+            "form": 0,
+            "level": 46,
+            "moves": [
+                "MOVE_WATERFALL",
+                "MOVE_SWORDS_DANCE",
+                "MOVE_CRUNCH",
+                "MOVE_ICE_FANG"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Hey, hey!\n",
+                "Why so serious?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "No way...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...Why...\n",
+                "Why do I lose?\r",
+                "I’ve assembled the toughest Pokémon.\n",
+                "I didn’t ease up on the gas.\r",
+                "So why do I lose?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_WIN",
+            "en_US": [
+                "Humph. This is my real power, wimp.\r",
+                "I’ll make Team Rocket history.\n",
+                "And I’m going to grind that Lance\f",
+                "under my heel.\n"
+            ]
+        }
+    ]
+}

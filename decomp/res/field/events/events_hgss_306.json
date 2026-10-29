@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8363,
             "type": 2,
             "x": 24,
             "z": 20,
@@ -16,7 +16,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D17R0105_RARE_CANDY",
-            "script": 0,
+            "script": 7402,
             "initial_dir": 0,
             "data": [
                 0,

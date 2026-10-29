@@ -1,0 +1,53 @@
+{
+    "name": "Lois",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SUNFLORA",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALTARIA",
+            "form": 0,
+            "level": 43,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "The red Gyarados?\n",
+                "That sounds scary.\f",
+                "It must be red with rage!\f",
+                "Me?\r",
+                "I’m not angry or anything, but\n",
+                "let’s battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Good going!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Come to think of it, I’ve seen a\n",
+                "pink Butterfree.\n"
+            ]
+        }
+    ]
+}

@@ -16,6 +16,15 @@
         "Cerulean City through this path under\f",
         "Saffron City."
       ]
+    },
+    {
+      "id": "msg_0334_R06_00002",
+      "en_US": [
+        "These Psyduck don’t appear to want\n",
+        "to budge...\r",
+        "It might be a good idea\n",
+        "to come back later."
+      ]
     }
   ]
 }

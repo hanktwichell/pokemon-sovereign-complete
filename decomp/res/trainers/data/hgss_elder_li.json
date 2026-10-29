@@ -1,0 +1,92 @@
+{
+    "name": "Li",
+    "class": "TRAINER_CLASS_HGSS_ELDER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_BELLSPROUT",
+            "form": 0,
+            "level": 12,
+            "moves": [
+                "MOVE_FLASH",
+                "MOVE_RAZOR_LEAF",
+                "MOVE_CUT",
+                "MOVE_GROWTH"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHINGLING",
+            "form": 0,
+            "level": 12,
+            "moves": [
+                "MOVE_CONFUSION",
+                "MOVE_FLASH",
+                "MOVE_ASTONISH",
+                "MOVE_UPROAR"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHERUBI",
+            "form": 0,
+            "level": 12,
+            "moves": [
+                "MOVE_MORNING_SUN",
+                "MOVE_FLASH",
+                "MOVE_MAGICAL_LEAF",
+                "MOVE_LEECH_SEED"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HOOTHOOT",
+            "form": 0,
+            "level": 14,
+            "moves": [
+                "MOVE_AGILITY",
+                "MOVE_HYPNOSIS",
+                "MOVE_AERIAL_ACE",
+                "MOVE_CONFUSION"
+            ],
+            "iv_scale": 200,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "So good of you to come here!\r",
+                "Sprout Tower is a place of training.\n",
+                "People and Pokémon test their bonds\f",
+                "to build a bright future together.\f",
+                "I am the final test.\r",
+                "Allow me to check the ties between\n",
+                "you and your Pokémon!"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ah, excellent!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You and your Pokémon should have no\n",
+                "problem using this move.\r",
+                "Take this Flash TM.\n"
+            ]
+        }
+    ]
+}

@@ -25,7 +25,7 @@
     },
     {
       "id": "msg_0451_T01R0301_00002",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0451_T01R0301_00003",
@@ -74,7 +74,10 @@
         "case, {STRVAR_1 3, 0, 0}.\r",
         "Go to the Pokémon League\n",
         "Reception Gate.\r",
-        "You can reach Mt. Silver from there."
+        "You can reach Mt. Silver from there.\r",
+        "It might be worth checking out\n",
+        "Viridan Forest, too.\r",
+        "I’ve heard odd reports about it..."
       ]
     },
     {
@@ -97,7 +100,10 @@
         "case, {STRVAR_1 3, 0, 0}.\r",
         "Go to the Pokémon League\n",
         "Reception Gate.\r",
-        "You can reach Mt. Silver from there."
+        "You can reach Mt. Silver from there.\r",
+        "It might be worth checking\n",
+        "Viridan Forest, too.\r",
+        "I’ve heard odd reports about it..."
       ]
     },
     {
@@ -153,8 +159,8 @@
       "en_US": [
         "Professor Oak: The legendary Pokémon\n",
         "that appear in the Hoenn myth?\r",
-        "You must be talking about KYOGRE\n",
-        "and GROUDON!\r"
+        "You must be talking about Kyogre\n",
+        "and Groudon!\r"
       ]
     },
     {
@@ -164,7 +170,7 @@
         "probably the ruins that has something\f",
         "to do with the Hoenn myth.\f",
         "If so, the other one must be around.\r",
-        "KYOGRE and GROUDON are said to have\n",
+        "Kyogre and Groudon are said to have\n",
         "shaped the seas and lands!\r",
         "Where those two are, the other Pokémon\n",
         "is said to appear as well...\f",
@@ -175,15 +181,15 @@
       "id": "msg_0451_T01R0301_00015",
       "en_US": [
         "Professor Oak: It’s not hard to imagine\n",
-        "that the Red Orb will make GROUDON\f",
+        "that the Red Orb will make Groudon\f",
         "appear at the Embedded Tower...\r",
         "However, according to Mr. Pokémon,\n",
-        "GROUDON does not show itself to\f",
+        "Groudon does not show itself to\f",
         "Trainers with golden hearts, but only\f",
         "to those with shining-silver spirits.\r",
         "It may be difficult for you alone to\n",
         "accomplish this, {STRVAR_1 3, 0, 0}.\r",
-        "But if you manage to obtain a GROUDON\n",
+        "But if you manage to obtain a Groudon\n",
         "that came from the Embedded Tower,\r",
         "please do come and show me both\n",
         "legendary Pokémon!\r",
@@ -195,15 +201,15 @@
       "id": "msg_0451_T01R0301_00016",
       "en_US": [
         "Professor Oak: It’s not hard to imagine\n",
-        "that the Red Orb will make GROUDON\f",
+        "that the Red Orb will make Groudon\f",
         "appear at the Embedded Tower...\r",
         "However, according to Mr. Pokémon,\n",
-        "GROUDON does not show itself to\f",
+        "Groudon does not show itself to\f",
         "Trainers with golden hearts, but only\f",
         "to those with shining-silver spirits.\r",
         "It may be difficult for you alone to\n",
         "accomplish this, {STRVAR_1 3, 0, 0}.\r",
-        "But if you manage to obtain a GROUDON\n",
+        "But if you manage to obtain a Groudon\n",
         "that came from the Embedded Tower,\r",
         "please do come and show me both\n",
         "legendary Pokémon!\r",
@@ -215,15 +221,15 @@
       "id": "msg_0451_T01R0301_00017",
       "en_US": [
         "Professor Oak: It’s not hard to imagine\n",
-        "that the Blue Orb will make KYOGRE\f",
+        "that the Blue Orb will make Kyogre\f",
         "appear at the Embedded Tower...\r",
         "However, according to Mr. Pokémon,\n",
-        "KYOGRE does not show itself to\f",
+        "Kyogre does not show itself to\f",
         "Trainers with shining-silver spirits,\f",
         "but only to those with golden hearts.\r",
         "It may be difficult for you alone to\n",
         "accomplish this, {STRVAR_1 3, 0, 0}.\r",
-        "But if you manage to obtain a KYOGRE\n",
+        "But if you manage to obtain a Kyogre\n",
         "that came from the Embedded Tower,\r",
         "please do come and show me both\n",
         "legendary Pokémon!\r",
@@ -235,15 +241,15 @@
       "id": "msg_0451_T01R0301_00018",
       "en_US": [
         "Professor Oak: It’s not hard to imagine\n",
-        "that the Blue Orb will make KYOGRE\f",
+        "that the Blue Orb will make Kyogre\f",
         "appear at the Embedded Tower...\r",
         "However, according to Mr. Pokémon,\n",
-        "KYOGRE does not show itself to\f",
+        "Kyogre does not show itself to\f",
         "Trainers with shining-silver spirits,\f",
         "but only to those with golden hearts.\r",
         "It may be difficult for you alone to\n",
         "accomplish this, {STRVAR_1 3, 0, 0}.\r",
-        "But if you manage to obtain a KYOGRE\n",
+        "But if you manage to obtain a Kyogre\n",
         "that came from the Embedded Tower,\r",
         "please do come and show me both\n",
         "legendary Pokémon!\r",
@@ -256,7 +262,7 @@
       "en_US": [
         "Professor Oak: You did it,\n",
         "{STRVAR_1 3, 0, 0}!\f",
-        "You caught both KYOGRE and GROUDON!\f",
+        "You caught both Kyogre and Groudon!\f",
         "OK!\f",
         "I would like to entrust this to you!\r"
       ]
@@ -266,7 +272,7 @@
       "en_US": [
         "Professor Oak: You did it,\n",
         "{STRVAR_1 3, 0, 0}!\f",
-        "You caught both KYOGRE and GROUDON!\f",
+        "You caught both Kyogre and Groudon!\f",
         "OK!\f",
         "I would like to entrust this to you!\r"
       ]
@@ -278,18 +284,18 @@
         "you received from Mr. Pokémon,\f",
         "doesn’t it?\r",
         "It is called the Jade Orb.\n",
-        "It has something to do with RAYQUAZA.\r",
+        "It has something to do with Rayquaza.\r",
         "Legend has it that the battle\n",
-        "between GROUDON and KYOGRE\f",
+        "between Groudon and Kyogre\f",
         "shaped the lands and seas of Hoenn.\r",
         "Volcanic eruptions and giant waves are\n",
         "said to have completely changed the\f",
         "shape of the land there.\r",
-        "But then RAYQUAZA came down to\n",
+        "But then Rayquaza came down to\n",
         "halt the battle.\r",
         "It is a Pokémon that rules the skies!\r",
         "If the Embedded Tower is related to\n",
-        "KYOGRE and GROUDON,\r",
+        "Kyogre and Groudon,\r",
         "then going there with that Jade Orb\n",
         "will surely make something happen.\r"
       ]
@@ -305,9 +311,9 @@
       "id": "msg_0451_T01R0301_00023",
       "en_US": [
         "Professor Oak: You have successfully\n",
-        "caught RAYQUAZA!\r",
+        "caught Rayquaza!\r",
         "The strong power of the Jade Orb\n",
-        "must have attracted RAYQUAZA there!\r",
+        "must have attracted Rayquaza there!\r",
         "Pokémon are sometimes greatly\n",
         "attracted by certain Orbs and Stones.\f",
         "No one knows why.\r",
@@ -327,7 +333,7 @@
         "By the way...\r",
         "Hmm? Those Pokémon!\f",
         "They were at the Embedded Tower?\r",
-        "They are KYOGRE and GROUDON--\n",
+        "They are Kyogre and Groudon--\n",
         "the Pokémon from the Hoenn myth!\r",
         "I never dreamed you would catch\n",
         "such Pokémon...\r",
@@ -347,7 +353,7 @@
         "By the way...\r",
         "Hmm? Those Pokémon!\f",
         "They were at the Embedded Tower?\r",
-        "They are KYOGRE and GROUDON--\n",
+        "They are Kyogre and Groudon--\n",
         "the Pokémon from the Hoenn myth!\r",
         "I never dreamed you would catch\n",
         "such Pokémon...\r",
@@ -363,7 +369,7 @@
     },
     {
       "id": "msg_0451_T01R0301_00027",
-      "garbage": 31
+      "garbage": 0
     },
     {
       "id": "msg_0451_T01R0301_00028",
@@ -511,21 +517,21 @@
       "id": "msg_0451_T01R0301_00043",
       "en_US": [
         "So, you’re claiming the\n",
-        "Fire Pokémon CHARMANDER? {YESNO 0}"
+        "Fire Pokémon Charmander? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0451_T01R0301_00044",
       "en_US": [
         "So, you’ve decided on the\n",
-        "Water Pokémon SQUIRTLE? {YESNO 0}"
+        "Water Pokémon Squirtle? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0451_T01R0301_00045",
       "en_US": [
         "So, you want to go with\n",
-        "the Grass Pokémon BULBASAUR? {YESNO 0}"
+        "the Grass Pokémon Bulbasaur? {YESNO 0}"
       ]
     },
     {
@@ -623,6 +629,59 @@
         "steps carved in them.\r",
         "You will discover all sorts\n",
         "of new things!"
+      ]
+    },
+    {
+      "id": "msg_0451_T01R0301_00058",
+      "en_US": [
+        "Professor Oak: {STRVAR_1 3, 0, 0}! I’ve heard you\n",
+        "were able to conquer Mt. Silver.\f",
+        "Congratulations!\r",
+        "You have been told the story of the\n",
+        "Legendary Trainer, have you not?\r",
+        "Well, after convening with professors\n",
+        "and researchers alike, we believe\f",
+        "the story is in fact, true!\r",
+        "Who is the Legendary Trainer?\r",
+        "We believe it might just happen to\n",
+        "be you, {STRVAR_1 3, 0, 0}!\r",
+        "It’s been said that the Legendary\n",
+        "Trainer can meet the creator, an\f",
+        "incredibly rare Pokémon who has never\f",
+        "been seen before!\r",
+        "However, there are two conditions.\r",
+        "The first is that the Trainer must\n",
+        "gather all sixteen Plate items.\r",
+        "I believe Steven has told you\n",
+        "of these previously, correct?\r",
+        "The second is that the Trainer must\n",
+        "capture every Pokémon lying around\f",
+        "the region.\r"
+      ]
+    },
+    {
+      "id": "msg_0451_T01R0301_00059",
+      "en_US": [
+        "From what I can gather, this\n",
+        "restriction applies to Pokémon native\f",
+        "to Kanto, Johto, Hoenn and Sinnoh.\r",
+        "With the recent migration wave, you\n",
+        "should be able to fulfil this condition\f",
+        "between Johto and Kanto alone, either\f",
+        "through capturing Wild Pokémon or\f",
+        "evolving the Pokémon you capture.\r",
+        "It means your National Pokédex will\n",
+        "need to be filled up to 492 different\f",
+        "entries!\r",
+        "With all that said, I hope you’ll be\n",
+        "inspired to prove the legend true.\f",
+        "Good luck, {STRVAR_1 3, 0, 0}.\f",
+        "Make us proud!\r",
+        "Incidentially, I’ve heard a certain\n",
+        "Mr. Pokémon has an item he wants to\f",
+        "give to you.\r",
+        "It might help complete your Pokédex,\n",
+        "so I would recommend going to see him."
       ]
     }
   ]

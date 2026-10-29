@@ -75,21 +75,21 @@
       "id": "msg_0345_R10R0202_00008",
       "en_US": [
         "I collect Pokémon.\n",
-        "Do you have a DUGTRIO?\r",
-        "Want to trade it for my MAGNETON? {YESNO 0}"
+        "Do you have a Quagsire?\r",
+        "Want to trade it for my Porygon2? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0345_R10R0202_00009",
       "en_US": [
-        "Yay! I got myself a DUGTRIO!\n",
+        "Yay! I got myself a Quagsire!\n",
         "Thanks!"
       ]
     },
     {
       "id": "msg_0345_R10R0202_00010",
       "en_US": [
-        "Huh? That’s not DUGTRIO.\n",
+        "Huh? That’s not Quagsire.\n",
         "What a letdown..."
       ]
     },
@@ -99,7 +99,7 @@
     },
     {
       "id": "msg_0345_R10R0202_00012",
-      "en_US": "Hi, how’s my old MAGNETON doing?"
+      "en_US": "Hi, how’s my old Porygon2 doing?"
     },
     {
       "id": "msg_0345_R10R0202_00013",
@@ -168,6 +168,21 @@
         "Use electricity wisely\n",
         "for a bright and pleasant life.\f",
         "           Kanto Power Plant"
+      ]
+    },
+    {
+      "id": "msg_0345_R10R0202_00020",
+      "en_US": [
+        "Manager: Hm! You should take this,\n",
+        "too. It’s a rare artifact, but\f",
+        "it’s no use to us here."
+      ]
+    },
+    {
+      "id": "msg_0345_R10R0202_00021",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
       ]
     }
   ]

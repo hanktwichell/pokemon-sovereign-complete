@@ -1,0 +1,69 @@
+{
+    "name": "Wade",
+    "class": "TRAINER_CLASS_HGSS_BUG_CATCHER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SPINARAK",
+            "form": 0,
+            "level": 7,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LEDYBA",
+            "form": 0,
+            "level": 7,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SURSKIT",
+            "form": 0,
+            "level": 7,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_NINCADA",
+            "form": 0,
+            "level": 7,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I caught a bunch of Pokémon.\n",
+                "Let me battle with you!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Awwwww...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You can catch Pokémon even if you have\n",
+                "six with you.\r",
+                "If you catch one, it’ll go to your Box\n",
+                "automatically.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I was waiting for you. Let’s battle!\r"
+            ]
+        }
+    ]
+}

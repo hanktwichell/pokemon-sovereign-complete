@@ -15,79 +15,28 @@ scr_seq_T30GYM0101_001:
     SetVarFromValue VAR_HGSS_UNK_4120, 0
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
-    GoToIf 5, _010C
+    GoToIf 5, _0179
     CompareVar VAR_HGSS_UNK_40FC, 2
-    GoToIf 4, _0044
-    End
-_0044:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
-    CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _00BD
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 6
-    GoToIf 5, _0072
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _00BB
-_0072:
-    CompareVar VAR_MAP_LOCAL_0x00, 7
-    GoToIf 5, _0089
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _00BB
-_0089:
-    CompareVar VAR_MAP_LOCAL_0x00, 8
-    GoToIf 5, _00A0
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _00BB
-_00A0:
-    CompareVar VAR_MAP_LOCAL_0x00, 9
-    GoToIf 5, _00B7
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _00BB
-_00B7:
-    ClearFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-_00BB:
-    End
-_00BD:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 16
-    GoToIf 5, _00D8
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _010A
-_00D8:
-    CompareVar VAR_MAP_LOCAL_0x00, 17
-    GoToIf 5, _00EF
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _010A
-_00EF:
-    CompareVar VAR_MAP_LOCAL_0x00, 18
-    GoToIf 5, _0106
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-    GoTo _010A
-_0106:
-    ClearFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
-_010A:
-    End
-_010C:
-    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoToIf 4, _017F
     End
 scr_seq_T30GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_0EA, _018E
-    GoToIfSet FLAG_HGSS_UNK_0D1, _017D
+    GoToIfSet FLAG_HGSS_UNK_0EA, _01AD
+    GoToIfSet FLAG_HGSS_UNK_0D1, _0208
     Message msg_0631_T30GYM0101_00003
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_CLAIR_CLAIR, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_CLAIR_CLAIR, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0188
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_BADGE_GET
+    GoToIf 1, _0213
+    SetTrainerFlag TRAINER_HGSS_ACE_TRAINER_M_PAULO
+    SetTrainerFlag TRAINER_HGSS_ACE_TRAINER_M_CODY
+    SetTrainerFlag TRAINER_HGSS_ACE_TRAINER_M_MIKE
+    SetTrainerFlag TRAINER_HGSS_ACE_TRAINER_F_FRAN
+    SetTrainerFlag TRAINER_HGSS_ACE_TRAINER_F_LOLA
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetFlag FLAG_HGSS_UNK_0D1
     SetFlag FLAG_HGSS_HIDE_BLACKTHORN_DEN_GUARD_INFRONT
     ClearFlag FLAG_HGSS_HIDE_BLACKTHRON_DEN_GUARD_ASIDE
@@ -96,42 +45,10 @@ scr_seq_T30GYM0101_000:
     CloseMessage
     ReleaseAll
     End
-_017D:
-    Message msg_0631_T30GYM0101_00005
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0188:
-    BlackOutFromBattle
-    ReleaseAll
-    End
-_018E:
-    GoToIfSet FLAG_HGSS_GOT_TM59_FROM_CLAIR, _01C8
-    Message msg_0631_T30GYM0101_00006
-    SetVar VAR_0x8004, ITEM_TM59
-    SetVar VAR_0x8005, 1
-    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
-    GoToIfEq VAR_RESULT, 0, _01D3
-    Common_GiveItemQuantity
-    SetFlag FLAG_HGSS_GOT_TM59_FROM_CLAIR
-    Message msg_0631_T30GYM0101_00007
-_01C8:
-    Message msg_0631_T30GYM0101_00009
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_01D3:
-    Message msg_0631_T30GYM0101_00008
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
 scr_seq_T30GYM0101_002:
     LockAll
     PlaySE SEQ_SE_DP_GYURU_sseq
-    ApplyMovement LOCALID_PLAYER, _0218
+    ApplyMovement LOCALID_PLAYER, _03E8
     WaitMovement
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -140,8 +57,217 @@ scr_seq_T30GYM0101_002:
     WaitFadeScreen
     ReleaseAll
     End
+scr_seq_T30GYM0101_003:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfSet FLAG_HGSS_UNK_0D1, _0219
+    Message msg_0631_T30GYM0101_00000
+    @ HGSS: ScrCmd_600
+    @ HGSS: SetFollowMonInhibitState 1
+    @ HGSS: ScrCmd_607
+    @ HGSS: ScrCmd_109 253, 56
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+scr_seq_T30GYM0101_004:
+    LockAll
+    GoToIfSet FLAG_HGSS_UNK_138, _0224
+    GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
+    CompareVar VAR_MAP_LOCAL_0x00, 12
+    GoToIf 5, _0241
+    ApplyMovement obj_T30GYM0101_sunglasses, _042E
+    ApplyMovement LOCALID_PLAYER, _043C
+    GoTo _0264
+scr_seq_T30GYM0101_005:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    SetVarFromValue VAR_RESULT, 0
+    BufferPlayerName 0
+    CompareVar VAR_RESULT, 0
+    GoToIf 5, _028A
+    Message msg_0631_T30GYM0101_00010
+    GoTo _0295
+_0179:
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    End
+_017F:
+    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompareVar VAR_MAP_LOCAL_0x01, 1
+    GoToIf 1, _029D
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 6
+    GoToIf 5, _02B8
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _02CF
+_01AD:
+    GoToIfSet FLAG_HGSS_GOT_TM59_FROM_CLAIR, _02D1
+    Message msg_0631_T30GYM0101_00006
+    SetVar VAR_0x8004, ITEM_TM59
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, _02DC
+    Common_GiveItemQuantity
+    SetFlag FLAG_HGSS_GOT_TM59_FROM_CLAIR
+    Message msg_0631_T30GYM0101_00007
+    Message msg_0631_T30GYM0101_00009
+    Message msg_0631_T30GYM0101_00012
+    BufferPlayerName 0
+    BufferPlayerName 0
+    Message msg_0631_T30GYM0101_00013
+    PlayFanfare SEQ_FANFA4_sseq
+    WaitFanfare
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0208:
+    Message msg_0631_T30GYM0101_00005
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0213:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_0219:
+    Message msg_0631_T30GYM0101_00001
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0224:
+    @ HGSS: ScrCmd_600
+    @ HGSS: SetFollowMonInhibitState 1
+    @ HGSS: ScrCmd_607
+    @ HGSS: ScrCmd_109 253, 56
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    ReleaseAll
+    End
+_0241:
+    CompareVar VAR_MAP_LOCAL_0x00, 13
+    GoToIf 5, _02E7
+    ApplyMovement obj_T30GYM0101_sunglasses, _0446
+    ApplyMovement LOCALID_PLAYER, _0454
+    GoTo _0264
+_0264:
+    WaitMovement
+    Message msg_0631_T30GYM0101_00002
+    CloseMessage
+    SetFlag FLAG_HGSS_UNK_138
+    CompareVar VAR_MAP_LOCAL_0x00, 12
+    GoToIf 5, _031D
+    ApplyMovement obj_T30GYM0101_sunglasses, _045E
+    GoTo _0338
+_028A:
+    Message msg_0631_T30GYM0101_00011
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0295:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_029D:
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 16
+    GoToIf 5, _0357
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _036E
+_02B8:
+    CompareVar VAR_MAP_LOCAL_0x00, 7
+    GoToIf 5, _0370
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _02CF
+_02CF:
+    End
+_02D1:
+    Message msg_0631_T30GYM0101_00009
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_02DC:
+    Message msg_0631_T30GYM0101_00008
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_02E7:
+    ApplyMovement obj_T30GYM0101_sunglasses, _0468
+    ApplyMovement LOCALID_PLAYER, _0472
+    WaitMovement
+    Message msg_0631_T30GYM0101_00002
+    CloseMessage
+    SetFlag FLAG_HGSS_UNK_138
+    CompareVar VAR_MAP_LOCAL_0x00, 12
+    GoToIf 5, _031D
+    ApplyMovement obj_T30GYM0101_sunglasses, _045E
+    GoTo _0338
+_031D:
+    CompareVar VAR_MAP_LOCAL_0x00, 13
+    GoToIf 5, _0387
+    ApplyMovement obj_T30GYM0101_sunglasses, _047C
+    GoTo _0338
+_0338:
+    WaitMovement
+    @ HGSS: ScrCmd_600
+    @ HGSS: SetFollowMonInhibitState 1
+    @ HGSS: ScrCmd_607
+    @ HGSS: ScrCmd_109 253, 56
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    ReleaseAll
+    End
+_0357:
+    CompareVar VAR_MAP_LOCAL_0x00, 17
+    GoToIf 5, _03AE
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _036E
+_036E:
+    End
+_0370:
+    CompareVar VAR_MAP_LOCAL_0x00, 8
+    GoToIf 5, _03C5
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _02CF
+_0387:
+    ApplyMovement obj_T30GYM0101_sunglasses, _0486
+    WaitMovement
+    @ HGSS: ScrCmd_600
+    @ HGSS: SetFollowMonInhibitState 1
+    @ HGSS: ScrCmd_607
+    @ HGSS: ScrCmd_109 253, 56
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    SetVarFromValue VAR_HGSS_UNK_4120, 1
+    ReleaseAll
+    End
+_03AE:
+    CompareVar VAR_MAP_LOCAL_0x00, 18
+    GoToIf 5, _03DC
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _036E
+_03C5:
+    CompareVar VAR_MAP_LOCAL_0x00, 9
+    GoToIf 5, _03E2
+    SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    GoTo _02CF
+_03DC:
+    ClearFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    End
+_03E2:
+    ClearFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
+    End
     .balign 4, 0
-_0218:
+_03E8:
     FaceSouth 2
     FaceWest 2
     FaceNorth 2
@@ -160,133 +286,50 @@ _0218:
     FaceEast
     SetInvisible 0
     EndMovement
-scr_seq_T30GYM0101_003:
-    PlaySE SE_CONFIRM_sseq_3
-    LockAll
-    FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_0D1, _0291
-    Message msg_0631_T30GYM0101_00000
-    @ HGSS: ScrCmd_600
-    @ HGSS: SetFollowMonInhibitState 1
-    @ HGSS: ScrCmd_607
-    @ HGSS: ScrCmd_109 253, 56
-    SetVarFromValue VAR_HGSS_UNK_4120, 1
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0291:
-    Message msg_0631_T30GYM0101_00001
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-scr_seq_T30GYM0101_004:
-    LockAll
-    GoToIfSet FLAG_HGSS_UNK_138, _0352
-    GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
-    CompareVar VAR_MAP_LOCAL_0x00, 12
-    GoToIf 5, _02D4
-    ApplyMovement obj_T30GYM0101_sunglasses, _0370
-    ApplyMovement LOCALID_PLAYER, _039C
-    GoTo _0307
-_02D4:
-    CompareVar VAR_MAP_LOCAL_0x00, 13
-    GoToIf 5, _02F7
-    ApplyMovement obj_T30GYM0101_sunglasses, _0380
-    ApplyMovement LOCALID_PLAYER, _03A8
-    GoTo _0307
-_02F7:
-    ApplyMovement obj_T30GYM0101_sunglasses, _0390
-    ApplyMovement LOCALID_PLAYER, _03B4
-_0307:
-    WaitMovement
-    Message msg_0631_T30GYM0101_00002
-    CloseMessage
-    SetFlag FLAG_HGSS_UNK_138
-    CompareVar VAR_MAP_LOCAL_0x00, 12
-    GoToIf 5, _032D
-    ApplyMovement obj_T30GYM0101_sunglasses, _03C0
-    GoTo _0350
-_032D:
-    CompareVar VAR_MAP_LOCAL_0x00, 13
-    GoToIf 5, _0348
-    ApplyMovement obj_T30GYM0101_sunglasses, _03CC
-    GoTo _0350
-_0348:
-    ApplyMovement obj_T30GYM0101_sunglasses, _03D8
-_0350:
-    WaitMovement
-_0352:
-    @ HGSS: ScrCmd_600
-    @ HGSS: SetFollowMonInhibitState 1
-    @ HGSS: ScrCmd_607
-    @ HGSS: ScrCmd_109 253, 56
-    SetVarFromValue VAR_HGSS_UNK_4120, 1
-    SetVarFromValue VAR_HGSS_UNK_4120, 1
-    ReleaseAll
-    End
     .balign 4, 0
-_0370:
+_042E:
     FaceWest
     EmoteExclamationMark
     WalkNormalWest 2
     EndMovement
     .balign 4, 0
-_0380:
+_043C:
+    Delay8 5
+    FaceEast
+    EndMovement
+    .balign 4, 0
+_0446:
     FaceWest
     EmoteExclamationMark
     WalkNormalWest
     EndMovement
     .balign 4, 0
-_0390:
-    FaceWest
-    EmoteExclamationMark
-    EndMovement
-    .balign 4, 0
-_039C:
-    Delay8 5
-    FaceEast
-    EndMovement
-    .balign 4, 0
-_03A8:
+_0454:
     Delay8 4
     FaceEast
     EndMovement
     .balign 4, 0
-_03B4:
-    Delay8 2
-    FaceEast
-    EndMovement
-    .balign 4, 0
-_03C0:
+_045E:
     WalkNormalEast 2
     FaceSouth
     EndMovement
     .balign 4, 0
-_03CC:
+_0468:
+    FaceWest
+    EmoteExclamationMark
+    EndMovement
+    .balign 4, 0
+_0472:
+    Delay8 2
+    FaceEast
+    EndMovement
+    .balign 4, 0
+_047C:
     WalkNormalEast
     FaceSouth
     EndMovement
     .balign 4, 0
-_03D8:
+_0486:
     FaceSouth
     EndMovement
-scr_seq_T30GYM0101_005:
-    PlaySE SE_CONFIRM_sseq_3
-    LockAll
-    FacePlayer
-    SetVarFromValue VAR_RESULT, 0
-    BufferPlayerName 0
-    CompareVar VAR_RESULT, 0
-    GoToIf 5, _0407
-    Message msg_0631_T30GYM0101_00010
-    GoTo _040A
-_0407:
-    Message msg_0631_T30GYM0101_00011
-_040A:
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
     .balign 4, 0

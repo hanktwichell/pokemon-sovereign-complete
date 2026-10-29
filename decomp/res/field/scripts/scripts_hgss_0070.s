@@ -101,7 +101,6 @@ _019A:
     WaitMovement
     Return
     .balign 4, 0
-_01B0:
     WalkNormalNorth 2
     FaceEast
     WalkNormalEast

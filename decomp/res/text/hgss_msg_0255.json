@@ -79,11 +79,10 @@
         "Professor Oak: Hello!\n",
         "You are starting to have the\f",
         "attitude of a Champion, {STRVAR_1 3, 0, 0}!\r",
-        "It’s time for your Pokédex to match\n",
+        "It’s time for your inventory to match\n",
         "who you are.\f",
-        "Let me see your Pokédex for a second.\r",
-        "I’ll upgrade your Pokédex with\n",
-        "the National Mode.\r"
+        "Let me give you an item known from\f",
+        "legends! This is the Lock Capsule...\r"
       ]
     },
     {
@@ -92,27 +91,26 @@
         "Professor Oak: Hello!\n",
         "You are starting to have the...\f",
         "attitude of a Champion, {STRVAR_1 3, 0, 0}!\r",
-        "It’s time for your Pokédex to match\n",
+        "It’s time for your inventory to match\n",
         "who you are.\f",
-        "Let me see your Pokédex for a second.\r",
-        "I’ll upgrade your Pokédex with\n",
-        "the National Mode.\r"
+        "Let me give you an item known from\f",
+        "legends! This is the Lock Capsule...\r"
       ]
     },
     {
       "id": "msg_0255_P01R0101_00011",
       "en_US": [
-        "{STRVAR_1 3, 0, 0}’s Pokédex was upgraded\n",
-        "with the National Mode!"
+        "Professor Oak: Now where did I put it...\n",
+        "Ah, here it is!\r"
       ]
     },
     {
       "id": "msg_0255_P01R0101_00012",
       "en_US": [
-        "Professor Oak: It won’t be easy to\n",
-        "complete the National Pokédex...\r",
-        "However, I’m sure you will make an\n",
-        "honest attempt on our behalf!\r"
+        "Professor Oak: It’s up to you to find\n",
+        "out what that item actually does!\r",
+        "Perhaps if you happen to know any\n",
+        "archaeologists, they can help...\r"
       ]
     },
     {

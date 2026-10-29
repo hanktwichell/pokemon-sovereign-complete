@@ -1,0 +1,44 @@
+{
+    "name": "Milton",
+    "class": "TRAINER_CLASS_HGSS_GENTLEMAN",
+    "items": [
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NINETALES",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I am but a Gentleman stopped on the\n",
+                "road. Would you care to join me in a\f",
+                "quick contest?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You were very skillful.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Stopping in the road for a battle isn’t\n",
+                "rude. No matter what, I am a\f",
+                "Gentleman first!\n"
+            ]
+        }
+    ]
+}

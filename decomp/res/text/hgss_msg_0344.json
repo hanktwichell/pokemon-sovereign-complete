@@ -3,15 +3,15 @@
   "messages": [
     {
       "id": "msg_0344_R10R0201_00000",
-      "garbage": 34
+      "garbage": 0
     },
     {
       "id": "msg_0344_R10R0201_00001",
-      "garbage": 46
+      "garbage": 0
     },
     {
       "id": "msg_0344_R10R0201_00002",
-      "garbage": 84
+      "garbage": 0
     },
     {
       "id": "msg_0344_R10R0201_00003",
@@ -58,21 +58,21 @@
       "id": "msg_0344_R10R0201_00009",
       "en_US": [
         "I collect Pokémon.\n",
-        "Do you have a DUGTRIO?\r",
-        "Want to trade it for my MAGNETON? {YESNO 0}"
+        "Do you have a Quagsire?\r",
+        "Want to trade it for my Porygon2? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0344_R10R0201_00010",
       "en_US": [
-        "Yay! I got myself a DUGTRIO!\n",
+        "Yay! I got myself a Quagsire!\n",
         "Thanks!"
       ]
     },
     {
       "id": "msg_0344_R10R0201_00011",
       "en_US": [
-        "Huh? That’s not DUGTRIO.\n",
+        "Huh? That’s not Quagsire.\n",
         "What a letdown..."
       ]
     },
@@ -82,7 +82,7 @@
     },
     {
       "id": "msg_0344_R10R0201_00013",
-      "en_US": "Hi, how’s my old MAGNETON doing?"
+      "en_US": "Hi, how’s my old Porygon2 doing?"
     },
     {
       "id": "msg_0344_R10R0201_00014",
@@ -102,6 +102,33 @@
         "Use electricity wisely\n",
         "for a bright and pleasant life.\f",
         "           Kanto Power Plant"
+      ]
+    },
+    {
+      "id": "msg_0344_R10R0201_00016",
+      "en_US": [
+        "Pokémon magazines!\r",
+        "Pokémon Pal...\n",
+        "Pokémon Handbook...\r",
+        "Adorable Pokémon...\r",
+        "Hm? There appears to be\n",
+        "something between the books...\r"
+      ]
+    },
+    {
+      "id": "msg_0344_R10R0201_00017",
+      "en_US": [
+        "Pokémon magazines!\r",
+        "Pokémon Pal...\n",
+        "Pokémon Handbook...\r",
+        "Adorable Pokémon..."
+      ]
+    },
+    {
+      "id": "msg_0344_R10R0201_00018",
+      "en_US": [
+        "After the conclusion of the trade, a\n",
+        "mysterious sphere appeared in midair...\r"
       ]
     }
   ]

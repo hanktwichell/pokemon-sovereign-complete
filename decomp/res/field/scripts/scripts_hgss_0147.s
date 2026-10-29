@@ -7,7 +7,7 @@
     ScriptEntryEnd
 scr_seq_HIROBA_000:
     LockAll
-    @ HGSS: Random VAR_SPECIAL_x8000, 5
+    GetRandom VAR_0x8000, 5
     SetVar VAR_0x8008, VAR_0x8000
     CompareVar VAR_0x8008, 0
     GoToIf 1, _0059

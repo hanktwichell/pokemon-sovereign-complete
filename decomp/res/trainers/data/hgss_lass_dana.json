@@ -1,0 +1,60 @@
+{
+    "name": "Dana",
+    "class": "TRAINER_CLASS_HGSS_LASS",
+    "items": [
+        "ITEM_MOOMOO_MILK"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PSYDUCK",
+            "form": 0,
+            "level": 28,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey, are you good at Pokémon?\r",
+                "If you’re really good, I want you to\n",
+                "teach me some things.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I see. So you can battle that way.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I know something good!\r",
+                "Moomoo Farm’s milk is famous for\n",
+                "its taste.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Oh, here you are again!\n",
+                "There’s so many more things I want to\f",
+                "learn from you!\r"
+            ]
+        }
+    ]
+}

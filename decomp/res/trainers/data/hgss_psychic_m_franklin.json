@@ -1,0 +1,48 @@
+{
+    "name": "Franklin",
+    "class": "TRAINER_CLASS_HGSS_PSYCHIC_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_METANG",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_XATU",
+            "form": 0,
+            "level": 64,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Psychic power is the power of\n",
+                "your mind.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Your mind has more power than mine!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "You made your mind stronger, not just\n",
+                "your abilities.\n"
+            ]
+        }
+    ]
+}

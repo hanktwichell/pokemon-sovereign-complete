@@ -53,15 +53,15 @@
     },
     {
       "id": "msg_0096_D31R0201_00005",
-      "garbage": 192
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00006",
-      "garbage": 258
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00007",
-      "garbage": 36
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00008",
@@ -121,11 +121,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00017",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00018",
-      "garbage": 9
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00019",
@@ -154,7 +154,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00022",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00023",
@@ -187,11 +187,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00024",
-      "garbage": 259
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00025",
-      "garbage": 36
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00026",
@@ -211,19 +211,19 @@
     },
     {
       "id": "msg_0096_D31R0201_00028",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00029",
-      "garbage": 15
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00030",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00031",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00032",
@@ -305,31 +305,31 @@
     },
     {
       "id": "msg_0096_D31R0201_00040",
-      "garbage": 32
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00041",
-      "garbage": 262
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00042",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00043",
-      "garbage": 15
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00044",
-      "garbage": 17
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00045",
-      "garbage": 55
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00046",
-      "garbage": 29
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00047",
@@ -348,15 +348,15 @@
     },
     {
       "id": "msg_0096_D31R0201_00049",
-      "garbage": 24
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00050",
-      "garbage": 31
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00051",
-      "garbage": 22
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00052",
@@ -410,7 +410,7 @@
     },
     {
       "id": "msg_0096_D31R0201_00059",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00060",
@@ -430,15 +430,15 @@
     },
     {
       "id": "msg_0096_D31R0201_00062",
-      "garbage": 42
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00063",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00064",
-      "garbage": 11
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00065",
@@ -449,15 +449,15 @@
     },
     {
       "id": "msg_0096_D31R0201_00066",
-      "garbage": 33
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00067",
-      "garbage": 26
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00068",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00069",
@@ -476,11 +476,11 @@
     },
     {
       "id": "msg_0096_D31R0201_00071",
-      "garbage": 44
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00072",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0096_D31R0201_00073",
@@ -529,12 +529,12 @@
         "couldn’t take any more.\r",
         "He’s going to do a 50-win streak\n",
         "for sure...\r",
-        "Right, PIKACHU?"
+        "Right, Pikachu?"
       ]
     },
     {
       "id": "msg_0096_D31R0201_00078",
-      "en_US": "PIKACHU: ..."
+      "en_US": "Pikachu: ..."
     },
     {
       "id": "msg_0096_D31R0201_00079",
@@ -555,12 +555,12 @@
         "so pathetic!\r",
         "...Actually, that’s the kind of mind-set\n",
         "that makes you lose with one hit!\r",
-        "Don’t let your guard down, PIKACHU!"
+        "Don’t let your guard down, Pikachu!"
       ]
     },
     {
       "id": "msg_0096_D31R0201_00081",
-      "en_US": "PIKACHU: Pichuu! Pichuu!"
+      "en_US": "Pikachu: Pichuu! Pichuu!"
     },
     {
       "id": "msg_0096_D31R0201_00082",
@@ -643,7 +643,7 @@
       "id": "msg_0096_D31R0201_00091",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -656,7 +656,7 @@
       "id": "msg_0096_D31R0201_00092",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -670,7 +670,7 @@
       "id": "msg_0096_D31R0201_00093",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -684,7 +684,7 @@
       "id": "msg_0096_D31R0201_00094",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -698,7 +698,7 @@
       "id": "msg_0096_D31R0201_00095",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -713,7 +713,7 @@
       "id": "msg_0096_D31R0201_00096",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -728,7 +728,7 @@
       "id": "msg_0096_D31R0201_00097",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -744,7 +744,7 @@
       "id": "msg_0096_D31R0201_00098",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -760,7 +760,7 @@
       "id": "msg_0096_D31R0201_00099",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -777,7 +777,7 @@
       "id": "msg_0096_D31R0201_00100",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -794,7 +794,7 @@
       "id": "msg_0096_D31R0201_00101",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -812,7 +812,7 @@
       "id": "msg_0096_D31R0201_00102",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -830,7 +830,7 @@
       "id": "msg_0096_D31R0201_00103",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -849,7 +849,7 @@
       "id": "msg_0096_D31R0201_00104",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -868,7 +868,7 @@
       "id": "msg_0096_D31R0201_00105",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -888,7 +888,7 @@
       "id": "msg_0096_D31R0201_00106",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -908,7 +908,7 @@
       "id": "msg_0096_D31R0201_00107",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -929,7 +929,7 @@
       "id": "msg_0096_D31R0201_00108",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",
@@ -950,7 +950,7 @@
       "id": "msg_0096_D31R0201_00109",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 0, 0} different Pokémon\n",
         "to enter.\r",
         "They also must be holding different\n",

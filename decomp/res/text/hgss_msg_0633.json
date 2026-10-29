@@ -4,23 +4,42 @@
     {
       "id": "msg_0633_T30R0201_00000",
       "en_US": [
-        "A clan of Trainers who can freely\n",
-        "command Dragon-type Pokémon lives\f",
-        "right here in Blackthorn.\r",
-        "As a result, there are many legends\n",
-        "about dragons in this town."
+        "I’m the Fishing Guru’s younger brother.\r",
+        "You seem to like fishing.\n",
+        "Am I right, or am I right?\f",
+        "People say I have keen eyes! {YESNO 0}"
       ]
     },
     {
       "id": "msg_0633_T30R0201_00001",
       "en_US": [
-        "Clair and Lance also trained here to\n",
-        "gain skills as Pokémon Trainers!"
+        "Yes, yes. Just as I thought!\r",
+        "Here, fishing fan!\n",
+        "Take this--it’s a Super Rod.\r"
       ]
     },
     {
       "id": "msg_0633_T30R0201_00002",
-      "en_US": "DRATINI: Draa!"
+      "en_US": [
+        "Try your hand at fishing wherever\n",
+        "there is water!\r",
+        "Remember--you can catch different\n",
+        "Pokémon depending on what Rod you use.\r",
+        "The waters around this area are\n",
+        "known in particular for harbouring\f",
+        "many Dragon-type Pokémon."
+      ]
+    },
+    {
+      "id": "msg_0633_T30R0201_00003",
+      "en_US": [
+        "Huh?\n",
+        "My own eyes deceived me?"
+      ]
+    },
+    {
+      "id": "msg_0633_T30R0201_00004",
+      "en_US": "Dragonair: Draa!"
     }
   ]
 }

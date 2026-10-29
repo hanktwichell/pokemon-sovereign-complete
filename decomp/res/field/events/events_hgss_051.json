@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8403,
             "type": 2,
             "x": 1324,
             "z": 306,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8468,
             "type": 2,
             "x": 1318,
             "z": 323,
@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8462,
             "type": 2,
             "x": 1312,
             "z": 336,
@@ -57,7 +57,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8463,
             "type": 2,
             "x": 1313,
             "z": 335,
@@ -65,7 +65,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8464,
             "type": 2,
             "x": 1315,
             "z": 335,
@@ -76,7 +76,7 @@
     "object_events": [
         {
             "id": "obj_T06_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -152,7 +152,7 @@
         },
         {
             "id": "obj_T06_tsure_poke_static_machop",
-            "graphics_id": "OBJ_EVENT_GFX_MACHOP",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_WALK_SOUTH_EAST_NORTH_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -298,8 +298,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 1300,
-            "z": 319,
+            "x": 0,
+            "z": 0,
             "y": 0
         },
         {
@@ -308,7 +308,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T06_LUCK_INCENSE",
-            "script": 0,
+            "script": 7515,
             "initial_dir": 0,
             "data": [
                 0,
@@ -327,7 +327,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T06_STICKY_BARB",
-            "script": 0,
+            "script": 7516,
             "initial_dir": 0,
             "data": [
                 0,
@@ -433,6 +433,82 @@
             "movement_range_z": 1,
             "x": 1298,
             "z": 311,
+            "y": 0
+        },
+        {
+            "id": "obj_T06_19",
+            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_GOT_TM03_FROM_MISTY",
+            "script": 15,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1295,
+            "z": 320,
+            "y": 0
+        },
+        {
+            "id": "obj_T06_20",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FCA",
+            "script": 16,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1319,
+            "z": 299,
+            "y": 0
+        },
+        {
+            "id": "obj_T06_21",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_T06_22",
+            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 3,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         }
     ],

@@ -1,0 +1,48 @@
+{
+    "name": "Beverly",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GRANBULL",
+            "form": 0,
+            "level": 23,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "My Pokémon is simply darling.\n",
+                "Let me tell you how proud my\f",
+                "darling makes me.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I can beat you in pride, but...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I must say, your Pokémon are quite\n",
+                "cute, too.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’ve been waiting here to brag to you\n",
+                "about my Pokémon!\r"
+            ]
+        }
+    ]
+}

@@ -15,7 +15,7 @@ _001F:
     End
 scr_seq_R16R0201_001:
     LockAll
-    @ HGSS: PlayerOnBikeCheck VAR_SPECIAL_RESULT
+    CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _006A
     ApplyMovement LOCALID_PLAYER, _0084

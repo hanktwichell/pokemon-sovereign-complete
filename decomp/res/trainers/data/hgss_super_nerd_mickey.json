@@ -1,0 +1,53 @@
+{
+    "name": "Mira",
+    "class": "TRAINER_CLASS_TRAINER_MIRA",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_PORYGON2",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_PSYBEAM",
+                "MOVE_TRI_ATTACK",
+                "MOVE_CONVERSION",
+                "MOVE_CONVERSION_2"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TOGETIC",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_METRONOME",
+                "MOVE_FLAMETHROWER",
+                "MOVE_WISH",
+                "MOVE_EXTRASENSORY"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_PSYBEAM",
+                "MOVE_CALM_MIND",
+                "MOVE_ROLE_PLAY",
+                "MOVE_RECOVER"
+            ],
+            "iv_scale": 100,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

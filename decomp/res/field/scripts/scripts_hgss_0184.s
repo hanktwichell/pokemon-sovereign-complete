@@ -4,6 +4,7 @@
 
     ScriptEntry scr_seq_R06_000
     ScriptEntry scr_seq_R06_001
+    ScriptEntry scr_seq_R06_002
     ScriptEntryEnd
 scr_seq_R06_000:
     NPCMessage msg_0334_R06_00000
@@ -14,5 +15,16 @@ scr_seq_R06_001:
     WaitForSignpostDone
     DrawSignpostScrollingMessage msg_0334_R06_00001, VAR_RESULT
     Common_HandleSignpostInput
+    End
+scr_seq_R06_002:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    PlayCry SPECIES_PSYDUCK, 0
+    WaitCry
+    Message msg_0334_R06_00002
+    WaitButton
+    CloseMessage
+    ReleaseAll
     End
     .balign 4, 0

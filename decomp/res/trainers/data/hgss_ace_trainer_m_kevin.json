@@ -1,0 +1,89 @@
+{
+    "name": "Kevin",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_WALREIN",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_ICE_BEAM",
+                "MOVE_SURF",
+                "MOVE_REST",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ARCANINE",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_FLARE_BLITZ",
+                "MOVE_EXTREME_SPEED",
+                "MOVE_CLOSE_COMBAT",
+                "MOVE_AERIAL_ACE"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ROSERADE",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_PETAL_DANCE",
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_EXTRASENSORY",
+                "MOVE_SHADOW_BALL"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 60,
+            "moves": [
+                "MOVE_THUNDER",
+                "MOVE_POWER_GEM",
+                "MOVE_SIGNAL_BEAM",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "But after seeing how you battle, I want\n",
+                "to see how I’ll fare.\r",
+                "How about it? Let me take you on.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I’ve never had a battle this good!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "That was a great battle!\r",
+                "You and your Pokémon are truly\n",
+                "outstanding!\n"
+            ]
+        }
+    ]
+}

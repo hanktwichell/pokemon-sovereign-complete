@@ -94,14 +94,14 @@
       "id": "msg_0109_D32R0501_00008",
       "en_US": [
         "Excuse me!\r",
-        "You don’t have {STRVAR_1 50, 0, 0} eligible Pokémon.\r",
+        "You don’t have {STRVAR_1 50, 0, 0} eliGible Pokémon.\r",
         "You must have {STRVAR_1 50, 1, 0} different Pokémon\n",
         "to enter.\r"
       ]
     },
     {
       "id": "msg_0109_D32R0501_00009",
-      "en_US": "Also, Eggs are ineligible to enter.\r"
+      "en_US": "Also, Eggs are ineliGible to enter.\r"
     },
     {
       "id": "msg_0109_D32R0501_00010",

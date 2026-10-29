@@ -374,7 +374,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_T25R1101_TM78",
-            "script": 0,
+            "script": 7387,
             "initial_dir": 0,
             "data": [
                 0,

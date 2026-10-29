@@ -5,9 +5,9 @@
             "id": "obj_EVERYWHERE_gsgentleman",
             "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_GENTLEMAN_ALFRED",
             "initial_dir": 3,
             "data": [
                 5,
@@ -24,9 +24,9 @@
             "id": "obj_EVERYWHERE_seaman_2",
             "graphics_id": "OBJ_EVENT_GFX_SAILOR",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAILOR_HUEY",
             "initial_dir": 2,
             "data": [
                 4,

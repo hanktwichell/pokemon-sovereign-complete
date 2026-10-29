@@ -84,42 +84,42 @@
       "id": "msg_0603_T25SP0101_00014",
       "en_US": [
         "SUBSTITUTE\n",
-        "2,000 Coins"
+        "1,000 Coins"
       ]
     },
     {
       "id": "msg_0603_T25SP0101_00015",
       "en_US": [
         "SWORDS DANCE\n",
-        "4,000 Coins"
+        "1,000 Coins"
       ]
     },
     {
       "id": "msg_0603_T25SP0101_00016",
       "en_US": [
         "REST\n",
-        "6,000 Coins"
+        "2,000 Coins"
       ]
     },
     {
       "id": "msg_0603_T25SP0101_00017",
       "en_US": [
         "FLAMETHROWER\n",
-        "10,000 Coins"
+        "4,000 Coins"
       ]
     },
     {
       "id": "msg_0603_T25SP0101_00018",
       "en_US": [
         "ICE BEAM\n",
-        "10,000 Coins"
+        "4,000 Coins"
       ]
     },
     {
       "id": "msg_0603_T25SP0101_00019",
       "en_US": [
         "THUNDERBOLT\n",
-        "10,000 Coins"
+        "4,000 Coins"
       ]
     },
     {
@@ -152,19 +152,19 @@
     },
     {
       "id": "msg_0603_T25SP0101_00024",
-      "en_US": "ABRA{CURSOR_X 103}200 Coins"
+      "en_US": "Smeargle{CURSOR_X 103}1,000 Coins"
     },
     {
       "id": "msg_0603_T25SP0101_00025",
-      "en_US": "EKANS{CURSOR_X 103}700 Coins"
+      "en_US": "Tangela{CURSOR_X 103}2,300 Coins"
     },
     {
       "id": "msg_0603_T25SP0101_00026",
-      "en_US": "DRATINI{CURSOR_X 90}2,100 Coins"
+      "en_US": "Porygon{CURSOR_X 103}3,500 Coins"
     },
     {
       "id": "msg_0603_T25SP0101_00027",
-      "en_US": "SANDSHREW{CURSOR_X 103}700 Coins"
+      "en_US": "Tangela{CURSOR_X 103}2,300 Coins"
     },
     {
       "id": "msg_0603_T25SP0101_00028",
@@ -182,11 +182,11 @@
     },
     {
       "id": "msg_0603_T25SP0101_00029",
-      "garbage": 2
+      "garbage": 0
     },
     {
       "id": "msg_0603_T25SP0101_00030",
-      "garbage": 3
+      "garbage": 0
     },
     {
       "id": "msg_0603_T25SP0101_00031",
@@ -275,6 +275,96 @@
         "Why don’t you sit across from me\n",
         "and show me how you play?"
       ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00042",
+      "en_US": [
+        "Hello, sir!\n",
+        "Would you like some coins?\r"
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00043",
+      "en_US": [
+        "Hello, madam!\n",
+        "Would you like some coins?\r"
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00044",
+      "en_US": [
+        "Oh, you don’t have a Coin Case...\n",
+        "You should talk to Mr. Game."
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00045",
+      "en_US": "100 COINS{CURSOR_X 90}$1,000"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00046",
+      "en_US": "1,000 COINS{CURSOR_X 90}$10,000"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00047",
+      "en_US": [
+        "I’m sorry...\n",
+        "You haven’t got enough money..."
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00048",
+      "en_US": [
+        "I’m sorry...\n",
+        "Your Coin Case is full..."
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00049",
+      "en_US": "How may I help?  {YESNO 0}"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00050",
+      "en_US": "We hope to help you again!"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00051",
+      "en_US": [
+        "Thank you for your purchase!\n",
+        "Would you like anything else?"
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00052",
+      "en_US": "Bellossom: Bel! Bel!\r"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00053",
+      "en_US": "Wynaut: Wynaut?"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00054",
+      "en_US": "Wobbuffet: Wobba!"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00055",
+      "en_US": [
+        "Spinda: Hello and welcome to\n",
+        "Spinda’s Café!\r",
+        "(...Uhh...)\r"
+      ]
+    },
+    {
+      "id": "msg_0603_T25SP0101_00056",
+      "en_US": "Spinda: Spin-dah!"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00057",
+      "en_US": "Ludicolo: Ludii!"
+    },
+    {
+      "id": "msg_0603_T25SP0101_00058",
+      "en_US": "Bellossom: Bellossommm!"
     }
   ]
 }

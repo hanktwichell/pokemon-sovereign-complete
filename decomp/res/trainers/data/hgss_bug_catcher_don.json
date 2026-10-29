@@ -1,0 +1,55 @@
+{
+    "name": "Carly",
+    "class": "TRAINER_CLASS_IDOL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_JIGGLYPUFF",
+            "form": 0,
+            "level": 6,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CLEFAIRY",
+            "form": 0,
+            "level": 6,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKITTY",
+            "form": 0,
+            "level": 6,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Hey, I just met you, and this is crazy!\n",
+                "But let’s have a battle.\r",
+                "I’ll win, maybe!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I lost so bad...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I hope to get into a career in singing.\n",
+                "Do you think I’m a good singer?\n"
+            ]
+        }
+    ]
+}

@@ -187,11 +187,11 @@ _02B8:
 _02BA:
     @ HGSS: GetBuenasPassword VAR_SPECIAL_x8000, VAR_SPECIAL_x8001
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 0
-    AddMenuEntryImm VAR_0x8000, 0
+    AddMenuEntry VAR_0x8000, 0
     AddVar VAR_0x8000, 1
-    AddMenuEntryImm VAR_0x8000, 1
+    AddMenuEntry VAR_0x8000, 1
     AddVar VAR_0x8000, 1
-    AddMenuEntryImm VAR_0x8000, 2
+    AddMenuEntry VAR_0x8000, 2
     ShowMenu
     SetFlag FLAG_HGSS_UNK_102
     SetFlag FLAG_HGSS_DAILY_BUENAS_PASSWORD
@@ -286,42 +286,42 @@ _0486:
     ReleaseAll
     End
 _0499:
-    SetVarFromValue VAR_0x8004, 4
+    SetVarFromValue VAR_0x8004, ITEM_POKE_BALL
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _04AD:
-    SetVarFromValue VAR_0x8004, 23
+    SetVarFromValue VAR_0x8004, ITEM_FULL_RESTORE
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _04C1:
-    SetVarFromValue VAR_0x8004, 46
+    SetVarFromValue VAR_0x8004, ITEM_PROTEIN
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _04D5:
-    SetVarFromValue VAR_0x8004, 47
+    SetVarFromValue VAR_0x8004, ITEM_IRON
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _04E9:
-    SetVarFromValue VAR_0x8004, 48
+    SetVarFromValue VAR_0x8004, ITEM_CARBOS
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _04FD:
-    SetVarFromValue VAR_0x8004, 92
+    SetVarFromValue VAR_0x8004, ITEM_NUGGET
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _0511:
-    SetVarFromValue VAR_0x8004, 50
+    SetVarFromValue VAR_0x8004, ITEM_RARE_CANDY
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End
 _0525:
-    SetVarFromValue VAR_0x8004, 45
+    SetVarFromValue VAR_0x8004, ITEM_HP_UP
     SetVarFromValue VAR_0x8005, 1
     GoTo _03F5
     End

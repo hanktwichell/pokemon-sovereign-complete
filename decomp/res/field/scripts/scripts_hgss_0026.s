@@ -15,6 +15,7 @@
     ScriptEntry scr_seq_D22R0102_010
     ScriptEntry scr_seq_D22R0102_011
     ScriptEntry scr_seq_D22R0102_012
+    ScriptEntry scr_seq_D22R0102_013
     ScriptEntryEnd
 scr_seq_D22R0102_003:
     PlaySE SE_CONFIRM_sseq_3
@@ -116,5 +117,19 @@ scr_seq_D22R0102_002:
     WaitForSignpostDone
     DrawSignpostScrollingMessage msg_0063_D22R0102_00002, VAR_RESULT
     Common_HandleSignpostInput
+    End
+scr_seq_D22R0102_013:
+    GoToIfSet FLAG_HGSS_SG_3F96, _0151
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    Message msg_0063_D22R0102_00033
+    SetVar VAR_0x8004, ITEM_INSECT_PLATE
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    CloseMessage
+    SetFlag FLAG_HGSS_SG_3F96
+    ReleaseAll
+    End
+_0151:
     End
     .balign 4, 0

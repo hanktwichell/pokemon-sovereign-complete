@@ -1,0 +1,48 @@
+{
+    "name": "Huey",
+    "class": "TRAINER_CLASS_SAILOR",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CRAWDAUNT",
+            "form": 0,
+            "level": 31,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Men of the sea are always spoiling for a\n",
+                "good fight!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Urf!\n",
+                "I lose!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "What power! How would you like to sail\n",
+                "the seas with me?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "Hey, you’re back!\n",
+                "Just in time for me to show off!\r"
+            ]
+        }
+    ]
+}

@@ -145,13 +145,12 @@ scr_seq_D35R0102_000:
     GoToIf 5, _02C4
     AddVar VAR_MAP_LOCAL_0x01, 1
     GoTo _02D0
-_02BE:
     GoTo _02D0
 _02C4:
     SubVar VAR_MAP_LOCAL_0x01, 1
     GoTo _036C
 _02D0:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 33, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 33, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 33, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -161,7 +160,7 @@ _02D0:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -172,7 +171,7 @@ _02D0:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -180,7 +179,7 @@ _02D0:
     WaitMovement
     GoTo _0402
 _036C:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 33, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 33, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 33, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -190,7 +189,7 @@ _036C:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -201,7 +200,7 @@ _036C:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -282,13 +281,12 @@ scr_seq_D35R0102_005:
     GoToIf 5, _04F7
     AddVar VAR_MAP_LOCAL_0x01, 1
     GoTo _0503
-_04F1:
     GoTo _0503
 _04F7:
     SubVar VAR_MAP_LOCAL_0x01, 1
     GoTo _05A9
 _0503:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 27, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 27, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 27, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -298,7 +296,7 @@ _0503:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -311,7 +309,7 @@ _0503:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -319,7 +317,7 @@ _0503:
     WaitMovement
     GoTo _0649
 _05A9:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 27, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 27, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 27, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -329,7 +327,7 @@ _05A9:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -342,7 +340,7 @@ _05A9:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -428,13 +426,12 @@ scr_seq_D35R0102_006:
     GoToIf 5, _073B
     AddVar VAR_MAP_LOCAL_0x01, 1
     GoTo _0747
-_0735:
     GoTo _0747
 _073B:
     SubVar VAR_MAP_LOCAL_0x01, 1
     GoTo _07ED
 _0747:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 33, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 33, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 33, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -444,7 +441,7 @@ _0747:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -457,7 +454,7 @@ _0747:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -465,7 +462,7 @@ _0747:
     WaitMovement
     GoTo _088D
 _07ED:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 33, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 33, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 33, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -475,7 +472,7 @@ _07ED:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -488,7 +485,7 @@ _07ED:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -514,13 +511,12 @@ scr_seq_D35R0102_007:
     GoToIf 5, _08EC
     AddVar VAR_MAP_LOCAL_0x01, 1
     GoTo _08F8
-_08E6:
     GoTo _08F8
 _08EC:
     SubVar VAR_MAP_LOCAL_0x01, 1
     GoTo _099E
 _08F8:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 33, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 33, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 33, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -530,7 +526,7 @@ _08F8:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -543,7 +539,7 @@ _08F8:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -551,7 +547,7 @@ _08F8:
     WaitMovement
     GoTo _0A3E
 _099E:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 33, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 33, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 33, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -561,7 +557,7 @@ _099E:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -574,7 +570,7 @@ _099E:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -599,13 +595,12 @@ scr_seq_D35R0102_008:
     GoToIf 5, _0A99
     AddVar VAR_MAP_LOCAL_0x01, 1
     GoTo _0AA5
-_0A93:
     GoTo _0AA5
 _0A99:
     SubVar VAR_MAP_LOCAL_0x01, 1
     GoTo _0B4B
 _0AA5:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 27, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 27, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 27, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -615,7 +610,7 @@ _0AA5:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -628,7 +623,7 @@ _0AA5:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -636,7 +631,7 @@ _0AA5:
     WaitMovement
     GoTo _0BEB
 _0B4B:
-    @ HGSS: MovePerson obj_D35R0102_rocketm, 27, 0
+    SetObjectEventPos obj_D35R0102_rocketm, 27, 0
     ClearFlag FLAG_HGSS_UNK_1E8
     AddObject obj_D35R0102_rocketm
     SetPosition obj_D35R0102_rocketm, 27, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
@@ -646,7 +641,7 @@ _0B4B:
     WaitMovement
     Message msg_0112_D35R0102_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_20, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_20, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -659,7 +654,7 @@ _0B4B:
     WaitMovement
     Message msg_0112_D35R0102_00001
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_21, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_21, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C03
@@ -683,14 +678,12 @@ scr_seq_D35R0102_001:
     GoToIf 5, _0C2B
     Message msg_0112_D35R0102_00002
     GoTo _0C4A
-_0C25:
     GoTo _0C4A
 _0C2B:
     CompareVar VAR_HGSS_UNK_40AD, 1
     GoToIf 5, _0C47
     Message msg_0112_D35R0102_00003
     GoTo _0C4A
-_0C41:
     GoTo _0C4A
 _0C47:
     Message msg_0112_D35R0102_00004
@@ -706,14 +699,12 @@ scr_seq_D35R0102_009:
     GoToIf 5, _0C74
     Message msg_0112_D35R0102_00002
     GoTo _0C4A
-_0C6E:
     GoTo _0C93
 _0C74:
     CompareVar VAR_HGSS_UNK_40AE, 1
     GoToIf 5, _0C90
     Message msg_0112_D35R0102_00003
     GoTo _0C4A
-_0C8A:
     GoTo _0C93
 _0C90:
     Message msg_0112_D35R0102_00004
@@ -726,14 +717,12 @@ scr_seq_D35R0102_010:
     GoToIf 5, _0CBB
     Message msg_0112_D35R0102_00002
     GoTo _0C4A
-_0CB5:
     GoTo _0CDA
 _0CBB:
     CompareVar VAR_HGSS_UNK_40AF, 1
     GoToIf 5, _0CD7
     Message msg_0112_D35R0102_00003
     GoTo _0C4A
-_0CD1:
     GoTo _0CDA
 _0CD7:
     Message msg_0112_D35R0102_00004
@@ -746,14 +735,12 @@ scr_seq_D35R0102_011:
     GoToIf 5, _0D02
     Message msg_0112_D35R0102_00002
     GoTo _0C4A
-_0CFC:
     GoTo _0D21
 _0D02:
     CompareVar VAR_HGSS_UNK_40B0, 1
     GoToIf 5, _0D1E
     Message msg_0112_D35R0102_00003
     GoTo _0C4A
-_0D08:
     GoTo _0D21
 _0D1E:
     Message msg_0112_D35R0102_00004
@@ -766,14 +753,12 @@ scr_seq_D35R0102_012:
     GoToIf 5, _0D49
     Message msg_0112_D35R0102_00002
     GoTo _0C4A
-_0D43:
     GoTo _0D68
 _0D49:
     CompareVar VAR_HGSS_UNK_40B1, 1
     GoToIf 5, _0D65
     Message msg_0112_D35R0102_00003
     GoTo _0C4A
-_0D5F:
     GoTo _0D68
 _0D65:
     Message msg_0112_D35R0102_00004
@@ -888,7 +873,7 @@ _0F24:
 scr_seq_D35R0102_013:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_KOFFING, 21
+    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -898,7 +883,7 @@ scr_seq_D35R0102_013:
 scr_seq_D35R0102_014:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 23
+    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -908,7 +893,7 @@ scr_seq_D35R0102_014:
 scr_seq_D35R0102_015:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GEODUDE, 21
+    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -918,7 +903,7 @@ scr_seq_D35R0102_015:
 scr_seq_D35R0102_016:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 23
+    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -928,7 +913,7 @@ scr_seq_D35R0102_016:
 scr_seq_D35R0102_017:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GEODUDE, 21
+    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -938,7 +923,7 @@ scr_seq_D35R0102_017:
 scr_seq_D35R0102_018:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 23
+    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -948,7 +933,7 @@ scr_seq_D35R0102_018:
 scr_seq_D35R0102_019:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 23
+    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -958,7 +943,7 @@ scr_seq_D35R0102_019:
 scr_seq_D35R0102_020:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_KOFFING, 21
+    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -968,7 +953,7 @@ scr_seq_D35R0102_020:
 scr_seq_D35R0102_021:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_KOFFING, 21
+    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -978,7 +963,7 @@ scr_seq_D35R0102_021:
 scr_seq_D35R0102_022:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GEODUDE, 21
+    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -988,7 +973,7 @@ scr_seq_D35R0102_022:
 scr_seq_D35R0102_023:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GEODUDE, 21
+    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -998,7 +983,7 @@ scr_seq_D35R0102_023:
 scr_seq_D35R0102_024:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_KOFFING, 21
+    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1008,7 +993,7 @@ scr_seq_D35R0102_024:
 scr_seq_D35R0102_025:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 23
+    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1018,7 +1003,7 @@ scr_seq_D35R0102_025:
 scr_seq_D35R0102_026:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 23
+    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1028,7 +1013,7 @@ scr_seq_D35R0102_026:
 scr_seq_D35R0102_027:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_KOFFING, 21
+    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1038,7 +1023,7 @@ scr_seq_D35R0102_027:
 scr_seq_D35R0102_028:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GEODUDE, 21
+    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF

@@ -1,0 +1,38 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_FISHERMAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_QWILFISH",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_TOXIC",
+                "MOVE_MINIMIZE",
+                "MOVE_SURF",
+                "MOVE_PIN_MISSILE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SEAKING",
+            "form": 0,
+            "level": 39,
+            "moves": [
+                "MOVE_ENDURE",
+                "MOVE_FLAIL",
+                "MOVE_FURY_ATTACK",
+                "MOVE_WATERFALL"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

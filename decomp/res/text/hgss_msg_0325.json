@@ -9,6 +9,23 @@
         "ups and downs.\r",
         "That’s why people get lost easily here."
       ]
+    },
+    {
+      "id": "msg_0325_R02R0501_00001",
+      "en_US": [
+        "Oh, hold up there! The forest is\n",
+        "currently under police lockdown.\r",
+        "You’ll have to come back later."
+      ]
+    },
+    {
+      "id": "msg_0325_R02R0501_00002",
+      "en_US": [
+        "Oh, you have the Earth Badge...\r",
+        "You can go through, but be careful.\n",
+        "The Pokémon in there have gotten\f",
+        "really rough!"
+      ]
     }
   ]
 }

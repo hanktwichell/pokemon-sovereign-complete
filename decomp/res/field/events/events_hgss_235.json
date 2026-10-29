@@ -24,9 +24,9 @@
             "id": "obj_D35R0104_assistantm",
             "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCIENTIST_GS_ROSS",
             "initial_dir": 0,
             "data": [
                 0,
@@ -43,9 +43,9 @@
             "id": "obj_D35R0104_assistantm_2",
             "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_SCIENTIST_GS_MITCH",
             "initial_dir": 3,
             "data": [
                 6,
@@ -62,9 +62,9 @@
             "id": "obj_D35R0104_rocketm_2",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_GRUNT_19",
             "initial_dir": 3,
             "data": [
                 5,
@@ -81,9 +81,9 @@
             "id": "obj_D35R0104_rocketw",
             "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
-            "script": 0,
+            "script": "TRAINER_HGSS_TEAM_ROCKET_F_GRUNT_5",
             "initial_dir": 0,
             "data": [
                 0,
@@ -174,7 +174,7 @@
         },
         {
             "id": "obj_D35R0104_tsure_poke_static_murkrow",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_1",
@@ -235,7 +235,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D35R0104_PROTEIN",
-            "script": 0,
+            "script": 7467,
             "initial_dir": 0,
             "data": [
                 0,
@@ -254,7 +254,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D35R0104_X_SPECIAL",
-            "script": 0,
+            "script": 7468,
             "initial_dir": 0,
             "data": [
                 0,
@@ -273,7 +273,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D35R0104_TM49",
-            "script": 0,
+            "script": 7465,
             "initial_dir": 0,
             "data": [
                 0,
@@ -292,7 +292,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D35R0104_FULL_HEAL",
-            "script": 0,
+            "script": 7466,
             "initial_dir": 0,
             "data": [
                 0,
@@ -307,7 +307,7 @@
         },
         {
             "id": "obj_D35R0104_tsure_poke_static_murkrow_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_MURKROW_2",
@@ -330,7 +330,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D35R0104_ULTRA_BALL",
-            "script": 0,
+            "script": 7469,
             "initial_dir": 0,
             "data": [
                 0,

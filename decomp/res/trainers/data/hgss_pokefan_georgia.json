@@ -1,0 +1,68 @@
+{
+    "name": "Georgia",
+    "class": "TRAINER_CLASS_HGSS_POKEFAN",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_FURRET",
+            "form": 0,
+            "level": 51,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MEGANIUM",
+            "form": 0,
+            "level": 51,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_AMPHAROS",
+            "form": 0,
+            "level": 51,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BELLOSSOM",
+            "form": 0,
+            "level": 51,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ESPEON",
+            "form": 0,
+            "level": 51,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’m going to shop at the Dept. Store\n",
+                "and then...\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "What was I going to do?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Oh, yes! I have to get my Pokémon out\n",
+                "of Day Care!\n"
+            ]
+        }
+    ]
+}

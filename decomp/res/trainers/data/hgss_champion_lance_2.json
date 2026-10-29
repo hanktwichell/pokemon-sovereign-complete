@@ -1,0 +1,128 @@
+{
+    "name": "Lance",
+    "class": "TRAINER_CLASS_HGSS_CHAMPION",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GYARADOS",
+            "form": 0,
+            "level": 84,
+            "item": "ITEM_LIFE_ORB",
+            "moves": [
+                "MOVE_AQUA_TAIL",
+                "MOVE_EARTHQUAKE",
+                "MOVE_STONE_EDGE",
+                "MOVE_BOUNCE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GARCHOMP",
+            "form": 0,
+            "level": 80,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EARTHQUAKE",
+                "MOVE_DRAGON_CLAW",
+                "MOVE_FIRE_BLAST",
+                "MOVE_STONE_EDGE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TYRANITAR",
+            "form": 0,
+            "level": 82,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_STONE_EDGE",
+                "MOVE_CRUNCH",
+                "MOVE_FIRE_BLAST",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FLYGON",
+            "form": 0,
+            "level": 84,
+            "item": "ITEM_YACHE_BERRY",
+            "moves": [
+                "MOVE_OUTRAGE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_U_TURN",
+                "MOVE_THUNDER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHARIZARD",
+            "form": 0,
+            "level": 84,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_SUNNY_DAY",
+                "MOVE_OVERHEAT",
+                "MOVE_AIR_SLASH",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DRAGONITE",
+            "form": 0,
+            "level": 88,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_AGILITY",
+                "MOVE_OUTRAGE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_FIRE_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 4
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "All right!\n",
+                "I thought this would never happen!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "I never give up, no matter what.\n",
+                "You must be the same?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...It’s over.\r",
+                "But it’s an odd feeling. I’m not angry\n",
+                "that I lost. In fact, I feel happy.\r",
+                "Happy that I witnessed the rise\n",
+                "of a great new Champion!\n"
+            ]
+        }
+    ]
+}

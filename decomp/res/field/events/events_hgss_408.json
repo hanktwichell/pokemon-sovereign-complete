@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8389,
             "type": 2,
             "x": 19,
             "z": 17,
@@ -130,7 +130,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D11R0102_GRIP_CLAW",
-            "script": 0,
+            "script": 7551,
             "initial_dir": 0,
             "data": [
                 0,
@@ -149,7 +149,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D11R0102_ICE_HEAL",
-            "script": 0,
+            "script": 7550,
             "initial_dir": 0,
             "data": [
                 0,

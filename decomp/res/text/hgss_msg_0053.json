@@ -45,7 +45,7 @@
         "Blaine: I did lose this time, but I’m\n",
         "going to win next time.\r",
         "When I rebuild my Cinnabar Gym,\n",
-        "we have to hold a rematch."
+        "we have to hold a rematch.\r"
       ]
     },
     {
@@ -211,6 +211,25 @@
         "the Trainer from Johto who has come to\f",
         "challenge that Gym Leader...\r",
         "I have witnessed a hot battle!"
+      ]
+    },
+    {
+      "id": "msg_0053_D11R0106_00026",
+      "en_US": "Moltres flew off..."
+    },
+    {
+      "id": "msg_0053_D11R0106_00027",
+      "en_US": [
+        "Blaine: I’ll give you my number for\n",
+        "when that eventually happens!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0053_D11R0106_00028",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Blaine\n",
+        "in the Pokégear!"
       ]
     }
   ]

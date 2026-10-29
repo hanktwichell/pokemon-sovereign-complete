@@ -239,6 +239,25 @@
             "x": 1307,
             "z": 236,
             "y": 0
+        },
+        {
+            "id": "obj_T11_10",
+            "graphics_id": "OBJ_EVENT_GFX_PSYCHIC",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_GOT_TM84_FROM_JANINE",
+            "script": 18,
+            "initial_dir": 1,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 1328,
+            "z": 205,
+            "y": 0
         }
     ],
     "warp_events": [

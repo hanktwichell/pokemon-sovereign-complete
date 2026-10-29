@@ -32,6 +32,21 @@
         "I’ll beat you down with all my power.\n",
         "...Humph! You keep at it until then.\r"
       ]
+    },
+    {
+      "id": "msg_0128_D43R0103_00002",
+      "en_US": [
+        "Oh! A trainer!\r",
+        "You may already be close, but\n",
+        "let me refresh your fighting spirit!"
+      ]
+    },
+    {
+      "id": "msg_0128_D43R0103_00003",
+      "en_US": [
+        "There we go!\n",
+        "You can make it!"
+      ]
     }
   ]
 }

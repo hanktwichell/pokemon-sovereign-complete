@@ -1,0 +1,125 @@
+{
+    "name": "Silver",
+    "class": "TRAINER_CLASS_HGSS_RIVAL",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HONCHKROW",
+            "form": 0,
+            "level": 77,
+            "moves": [
+                "MOVE_DRILL_PECK",
+                "MOVE_SUCKER_PUNCH",
+                "MOVE_THUNDER_WAVE",
+                "MOVE_SUPERPOWER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALAKAZAM",
+            "form": 0,
+            "level": 76,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_SHADOW_BALL",
+                "MOVE_ENERGY_BALL",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GENGAR",
+            "form": 0,
+            "level": 76,
+            "moves": [
+                "MOVE_SHADOW_BALL",
+                "MOVE_THUNDERBOLT",
+                "MOVE_HYPNOSIS",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 77,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_BLIZZARD",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_YAWN"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MAGMORTAR",
+            "form": 0,
+            "level": 77,
+            "moves": [
+                "MOVE_FIRE_BLAST",
+                "MOVE_THUNDERBOLT",
+                "MOVE_PSYCHIC",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MEGANIUM",
+            "form": 0,
+            "level": 78,
+            "moves": [
+                "MOVE_SEED_BOMB",
+                "MOVE_REFLECT",
+                "MOVE_TOXIC",
+                "MOVE_SYNTHESIS"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 24
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Why?!\n",
+                "I’ve still got one left!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "Do you think you’ve won already?\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "...\r",
+                "OK. I lost...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_WIN",
+            "en_US": [
+                "...\r",
+                "Whew...\n",
+                "With my partners,\f",
+                "I’m going to be the Champion!\n"
+            ]
+        }
+    ]
+}

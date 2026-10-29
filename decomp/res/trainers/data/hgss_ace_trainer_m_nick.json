@@ -1,0 +1,58 @@
+{
+    "name": "Nick",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CHARMELEON",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WARTORTLE",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_IVYSAUR",
+            "form": 0,
+            "level": 30,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "There are two kinds of people:\n",
+                "those with style and those without.\r",
+                "Which kind of person are you?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You’ve got dazzling style!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Your Pokémon style is stunning and\n",
+                "full of life, I admit.\r",
+                "You’ll just keep getting better!\n"
+            ]
+        }
+    ]
+}

@@ -28,7 +28,6 @@ _004D:
     CompareVar VAR_HGSS_SCENE_ROCKET_TAKEOVER, 4
     GoToIf 5, _0066
     GoTo _008B
-_0060:
     GoTo _0085
 _0066:
     CompareVar VAR_HGSS_SCENE_ROCKET_TAKEOVER, 3
@@ -259,11 +258,9 @@ _036C:
     WalkOnSpotNormalWest
     EndMovement
     .balign 4, 0
-_0374:
     WalkOnSpotNormalEast
     EndMovement
     .balign 4, 0
-_037C:
     WalkOnSpotNormalSouth
     EndMovement
 scr_seq_D23R0101_009:
@@ -271,7 +268,7 @@ scr_seq_D23R0101_009:
     SetPosition obj_D23R0101_gsrivel, 13, 1, 6, DIR_EAST
     Common_SetRivalBGM
     .short SCRCMD_UNUSED_06A
-    .short 6
+    .short obj_D23R0101_rocketm
     .short VAR_MAP_LOCAL_0x00
     .short VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 5
@@ -360,7 +357,7 @@ _0540:
     WaitMovement
     Message msg_0065_D23R0101_00023
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_TEAM_ROCKET_GRUNT_3, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_3, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0655
@@ -723,7 +720,7 @@ _0A2F:
     Message msg_0065_D23R0101_00033
     GoTo _0A4B
 _0A3D:
-    @ HGSS: BufferBoxMonNick 0, VAR_SPECIAL_x8001
+    BufferMonNicknameFromPC 0, VAR_0x8001
     Message msg_0065_D23R0101_00034
     GoTo _0A4B
 _0A4B:

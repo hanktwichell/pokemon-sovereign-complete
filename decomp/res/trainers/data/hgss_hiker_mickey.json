@@ -1,0 +1,52 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HIKER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GRAVELER",
+            "form": 0,
+            "level": 34,
+            "moves": [
+                "MOVE_MAGNITUDE",
+                "MOVE_SELFDESTRUCT",
+                "MOVE_DEFENSE_CURL",
+                "MOVE_ROLLOUT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLEM",
+            "form": 0,
+            "level": 36,
+            "moves": [
+                "MOVE_MAGNITUDE",
+                "MOVE_SELFDESTRUCT",
+                "MOVE_DEFENSE_CURL",
+                "MOVE_ROLLOUT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MACHOKE",
+            "form": 0,
+            "level": 34,
+            "moves": [
+                "MOVE_KARATE_CHOP",
+                "MOVE_VITAL_THROW",
+                "MOVE_HEADBUTT",
+                "MOVE_DIG"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

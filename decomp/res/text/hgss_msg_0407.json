@@ -106,6 +106,231 @@
         "Access your PC and delete\n",
         "some pictures."
       ]
+    },
+    {
+      "id": "msg_0407_R47_00010",
+      "en_US": "{STRVAR_1 3, 0, 0} found a note from Baoba!"
+    },
+    {
+      "id": "msg_0407_R47_00011",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} read the note.\r",
+        "{STRVAR_1 3, 0, 0}, I hope this reaches you.\r",
+        "There are five trainers here already\n",
+        "helping to defeat Team Rocket.\r",
+        "They’ve been informed of your arrival.\n",
+        "Team up with them, and defeat our foe!\r",
+        "Best of luck.\n",
+        "Baoba."
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00012",
+      "en_US": [
+        "Mira: Oh! You must be {STRVAR_1 3, 0, 0}!\r",
+        "Baoba asked Mira and her companions for\n",
+        "help, but he’s now stuck at the Safari\f",
+        "Zone. Mira never saw him, but she did\f",
+        "hear a Trainer called {STRVAR_1 3, 0, 0} would\f",
+        "be arriving!\r",
+        "Help Mira defeat these guys!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00013",
+      "en_US": [
+        "Defeat us?\n",
+        "We’ll see about that, punk!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00014",
+      "en_US": [
+        "...Gah!\n",
+        "Retreat!"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00015",
+      "en_US": [
+        "Mira: Thanks! There’s more of Team\n",
+        "Rocket up ahead, though.\r",
+        "Mira will heal your Pokémon!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00016",
+      "en_US": [
+        "Mira: Keep going! There’s even more\n",
+        "Team Rocket members ahead!"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00017",
+      "en_US": "Alakazam: Kazaa!"
+    },
+    {
+      "id": "msg_0407_R47_00018",
+      "en_US": [
+        "This Team Rocket designed boulder\n",
+        "refuses to budge!"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00019",
+      "en_US": [
+        "Upon inspection, the boulder cracked\n",
+        "and shattered."
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00020",
+      "en_US": [
+        "Buck: Aha! I was wondering when you\n",
+        "would arrive!\r",
+        "We came to help, but there’s more of\n",
+        "these Rocket goons than we can handle\f",
+        "alone... But, now you’re here!\r",
+        "Let’s take ’em down!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00021",
+      "en_US": "Brats! Rats! Gnats!\r"
+    },
+    {
+      "id": "msg_0407_R47_00022",
+      "en_US": [
+        "Yaa! Master Archer won’t be happy\n",
+        "with us..."
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00023",
+      "en_US": [
+        "Buck: Ehehehe! That was a smoking-hot\n",
+        "battle! It’s not over yet, though!\r",
+        "Lemme heal your Pokémon!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00024",
+      "en_US": [
+        "Buck: Baoba is still in the Safari\n",
+        "Zone Gate. You better help him!"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00025",
+      "en_US": "Claydol: Cuuwaydol!"
+    },
+    {
+      "id": "msg_0407_R47_00026",
+      "en_US": [
+        "Cheryl: Ah, you must be {STRVAR_1 3, 0, 0}.\r",
+        "I was told of your arrival, but I’m\n",
+        "surprised to see you so soon!\r",
+        "May we defeat these goons?\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00027",
+      "en_US": [
+        "The Safari Zone is ours!\n",
+        "You aren’t taking it back!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00028",
+      "en_US": "No way! How did we get beaten?"
+    },
+    {
+      "id": "msg_0407_R47_00029",
+      "en_US": [
+        "Cheryl: Thank you for your help.\n",
+        "You have my gratitude.\r",
+        "I’ll heal your Pokémon as thanks!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00030",
+      "en_US": "Cheryl: The Safari Zone must be saved!"
+    },
+    {
+      "id": "msg_0407_R47_00031",
+      "en_US": "Blissey: Buhliss!"
+    },
+    {
+      "id": "msg_0407_R47_00032",
+      "en_US": [
+        "Marley: I’ve been waiting for you...\r",
+        "We were able to hold them off...\n",
+        "But we couldn’t defeat them...\f",
+        "But now you’re here... We can.\f",
+        "That makes me happy...\r",
+        "Now, we should defeat these people...\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00033",
+      "en_US": [
+        "Some shy girl and a kid aren’t\n",
+        "going to beat us!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00034",
+      "en_US": "Ayeeh! What just happened!?"
+    },
+    {
+      "id": "msg_0407_R47_00035",
+      "en_US": [
+        "Marley: Thank you... I appreciate it...\n",
+        "Just a bit...\r",
+        "I’ll heal your Pokémon up...\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00036",
+      "en_US": [
+        "Marley: Bye-bye...\n",
+        "You’re almost there..."
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00037",
+      "en_US": "Arcanine: Arrrrrrrrr!"
+    },
+    {
+      "id": "msg_0407_R47_00038",
+      "en_US": [
+        "Ariana: Hold it!\r",
+        "You’ve gone far enough on this heroic\n",
+        "journey. Get ready for a thrashing!\r"
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00039",
+      "en_US": [
+        "Ariana: Tch... For a brat, you’re\n",
+        "very strong. I must inform Archer..."
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00040",
+      "en_US": [
+        "Marley: Were you expecting a\n",
+        "double battle...?\r",
+        "I already beat the Rockets..."
+      ]
+    },
+    {
+      "id": "msg_0407_R47_00041",
+      "en_US": [
+        "Oh?\r",
+        "Ariana seems to have dropped\n",
+        "something...\r"
+      ]
     }
   ]
 }

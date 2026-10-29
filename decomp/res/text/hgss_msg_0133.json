@@ -38,19 +38,19 @@
     },
     {
       "id": "msg_0133_D47_00004",
-      "en_US": "KANGASKHAN: .................."
+      "en_US": "Smeargle: .................."
     },
     {
       "id": "msg_0133_D47_00005",
       "en_US": [
         "This Safari Zone is great!\r",
         "I just kept going after Pokémon!\n",
-        "That made my JIGGLYPUFF upset though."
+        "That made my Jigglypuff upset though."
       ]
     },
     {
       "id": "msg_0133_D47_00006",
-      "en_US": "JIGGLYPUFF: Puu pupuu."
+      "en_US": "Jigglypuff: Puu pupuu."
     },
     {
       "id": "msg_0133_D47_00007",
@@ -94,20 +94,20 @@
     },
     {
       "id": "msg_0133_D47_00011",
-      "en_US": "BUTTERFREE: Flu flu."
+      "en_US": "Beautifly: Flu flu."
     },
     {
       "id": "msg_0133_D47_00012",
       "en_US": [
         "There are many Pokémon to choose from,\n",
         "but nothing beats the cuteness of\f",
-        "SLOWPOKE.\r",
+        "Slowpoke.\r",
         "People often say that I look like one!"
       ]
     },
     {
       "id": "msg_0133_D47_00013",
-      "en_US": "SLOWPOKE: ...Yawn?"
+      "en_US": "Slowpoke: ...Yawn?"
     },
     {
       "id": "msg_0133_D47_00014",
@@ -141,6 +141,101 @@
         "Feel free to come by and experience\f",
         "the wild!"
       ]
+    },
+    {
+      "id": "msg_0133_D47_00018",
+      "en_US": [
+        "Sorry! We’re currently closed for...\n",
+        "repairs! Fufufu!"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00019",
+      "en_US": "Talk to the boss!"
+    },
+    {
+      "id": "msg_0133_D47_00020",
+      "en_US": "Riley: {STRVAR_1 3, 0, 0}, get by my side!"
+    },
+    {
+      "id": "msg_0133_D47_00021",
+      "en_US": [
+        "Archer: Now that we’re in position... I\n",
+        "won’t let you interfere with our plans!\r"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00022",
+      "en_US": [
+        "Archer: Face me directly, like a\n",
+        "proper trainer!"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00023",
+      "en_US": [
+        "Archer: Hm. I wasn’t expecting that.\n",
+        "We have what we need regardless.\r",
+        "Don’t expect me to be so generous\n",
+        "next time!"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00024",
+      "en_US": [
+        "Riley: Whew, that should free this area\n",
+        "from Team Rocket. You’ve been a great\f",
+        "help to us, {STRVAR_1 3, 0, 0}. Thank you.\r"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00025",
+      "en_US": [
+        "My companions and I are living in Johto\n",
+        "currently, as our co-operation was\f",
+        "requested with the new Battle Frontier\f",
+        "they have been putting up here.\r",
+        "I’ve heard the Battle Frontier is now\n",
+        "close to completion--it just needs a\f",
+        "little bit more time.\r",
+        "Perhaps you’d like to visit us\n",
+        "sometime in the future?\r",
+        "Buck and myself have a little house\n",
+        "in Mahogany Town, and the girls are\f",
+        "in Goldenrod City. I’m sure they’d\f",
+        "all like to see you again!\r"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00026",
+      "en_US": [
+        "My companions and I are living in Johto\n",
+        "currently, as our co-operation was\f",
+        "requested with the new Battle Frontier\f",
+        "they have been putting up here.\r",
+        "I’ve heard the Battle Frontier is now\n",
+        "close to completion--it just needs a\f",
+        "little bit more time.\r",
+        "Perhaps you’d like to visit us\n",
+        "sometime in the future?\r",
+        "Buck and myself have a little house\n",
+        "in Mahogany Town, and the girls are\f",
+        "in Goldenrod City. I’m sure they’d\f",
+        "all like to see you again!\r"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00027",
+      "en_US": [
+        "At any rate, people should start\n",
+        "returning to the area now that\f",
+        "those goons are gone.\r",
+        "I’ll see you around, {STRVAR_1 3, 0, 0}!"
+      ]
+    },
+    {
+      "id": "msg_0133_D47_00028",
+      "en_US": "I’ll see you around, {STRVAR_1 3, 0, 0}!"
     }
   ]
 }

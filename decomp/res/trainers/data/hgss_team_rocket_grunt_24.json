@@ -1,0 +1,28 @@
+{
+    "name": "Grunt",
+    "class": "TRAINER_CLASS_HGSS_TEAM_ROCKET",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_CROBAT",
+            "form": 0,
+            "level": 60,
+            "iv_scale": 30,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ayieeeh! No, no, no, believe it I can’t!\n",
+                "Strong very much be you! Match I am\f",
+                "not to you!\n"
+            ]
+        }
+    ]
+}

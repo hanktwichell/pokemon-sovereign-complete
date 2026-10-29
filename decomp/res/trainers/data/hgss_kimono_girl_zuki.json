@@ -1,0 +1,35 @@
+{
+    "name": "Zuki",
+    "class": "TRAINER_CLASS_HGSS_KIMONO_GIRL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_UMBREON",
+            "form": 0,
+            "level": 50,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_TOXIC",
+                "MOVE_PROTECT",
+                "MOVE_CONFUSE_RAY",
+                "MOVE_DARK_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I don’t have any Pokémon left...\n"
+            ]
+        }
+    ]
+}

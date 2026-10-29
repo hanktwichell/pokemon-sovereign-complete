@@ -1,0 +1,51 @@
+{
+    "name": "Joey",
+    "class": "TRAINER_CLASS_HGSS_YOUNGSTER",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RATTATA",
+            "form": 0,
+            "level": 7,
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I just lost, so I’m trying to find\n",
+                "more Pokémon.\r",
+                "Wait! You look weak! Come on,\n",
+                "let’s battle!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh...\n",
+                "I’m out of Pokémon that can fight.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I knew it--if you don’t have many\n",
+                "Pokémon, battles are harder!\f",
+                "I need to catch more Pokémon!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "I’ve been waiting!\n",
+                "Let’s battle now!\r"
+            ]
+        }
+    ]
+}

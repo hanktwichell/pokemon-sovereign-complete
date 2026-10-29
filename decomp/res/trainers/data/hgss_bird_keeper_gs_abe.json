@@ -1,0 +1,58 @@
+{
+    "name": "Abe",
+    "class": "TRAINER_CLASS_HGSS_BIRD_KEEPER_GS",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SPEAROW",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 30,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DODUO",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_PIDGEY",
+            "form": 0,
+            "level": 11,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I can’t believe how ridiculously high\n",
+                "this is! But from up here, you can tell\f",
+                "what it feels like to be a bird Pokémon!\r",
+                "Let me see if you’re good enough to\n",
+                "face Falkner!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "This can’t be true!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Even though you’re a rookie Trainer,\n",
+                "you’re not bothered by these heights\f",
+                "at all... You’re really something!\n"
+            ]
+        }
+    ]
+}

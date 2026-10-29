@@ -1,0 +1,100 @@
+{
+    "name": "Eliza",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SHARPEDO",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_CRUNCH",
+                "MOVE_EARTHQUAKE",
+                "MOVE_AQUA_JET"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BLISSEY",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_FLAMETHROWER",
+                "MOVE_ICE_BEAM",
+                "MOVE_THUNDERBOLT",
+                "MOVE_SOFTBOILED"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SUDOWOODO",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_STONE_EDGE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_WOOD_HAMMER",
+                "MOVE_HAMMER_ARM"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DUSKNOIR",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_SHADOW_PUNCH",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_EARTHQUAKE",
+                "MOVE_WILL_O_WISP"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SCIZOR",
+            "form": 0,
+            "level": 75,
+            "moves": [
+                "MOVE_X_SCISSOR",
+                "MOVE_BULLET_PUNCH",
+                "MOVE_SUPERPOWER",
+                "MOVE_PURSUIT"
+            ],
+            "iv_scale": 250,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "There are tales of a shy legendary\n",
+                "Pokémon wandering around this forest.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Your resolve is impressive...\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "Even if you catch a glimpse of that\n",
+                "Pokémon, it’ll probably run away!\n"
+            ]
+        }
+    ]
+}

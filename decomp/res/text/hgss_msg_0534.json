@@ -17,6 +17,42 @@
         "TM29 is Psychic.\r",
         "It may lower the target’s Sp. Def."
       ]
+    },
+    {
+      "id": "msg_0534_T11R0501_00002",
+      "en_US": [
+        "You! I feel great psychic potential\n",
+        "erupting from your body!\r",
+        "Prove to me it is true! Show me a\n",
+        "Psychic-type Pokémon who has reached\f",
+        "the end of two evolutions!"
+      ]
+    },
+    {
+      "id": "msg_0534_T11R0501_00003",
+      "en_US": [
+        "You! I feel great psychic potential\n",
+        "erupting from your body!\r",
+        "Prove to me it is true! Show me a\n",
+        "Psychic-type Pokémon who has reached\f",
+        "the end of two evolutions!\r"
+      ]
+    },
+    {
+      "id": "msg_0534_T11R0501_00004",
+      "en_US": [
+        "Ah! That {STRVAR_1 0, 1, 0} behind you!\n",
+        "It proves your potential!\f",
+        "You are worthy of this item!\r"
+      ]
+    },
+    {
+      "id": "msg_0534_T11R0501_00005",
+      "en_US": [
+        "That item is an ancient relic that\n",
+        "bonds with strong psychic powers.\r",
+        "Treat it well!"
+      ]
     }
   ]
 }

@@ -1,0 +1,89 @@
+{
+    "name": "Joyce",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RAICHU",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_SURF",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_THUNDERBOLT",
+                "MOVE_THUNDER_WAVE"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BLASTOISE",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_HYDRO_CANNON",
+                "MOVE_BLIZZARD",
+                "MOVE_FOCUS_BLAST",
+                "MOVE_RAIN_DANCE"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_CHARIZARD",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_BLAST_BURN",
+                "MOVE_AIR_SLASH",
+                "MOVE_EARTHQUAKE",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MEGANIUM",
+            "form": 0,
+            "level": 49,
+            "moves": [
+                "MOVE_FRENZY_PLANT",
+                "MOVE_EARTHQUAKE",
+                "MOVE_LIGHT_SCREEN",
+                "MOVE_REFLECT"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Since you’ve come this far, you must be\n",
+                "good. I’m going to give this battle\f",
+                "everything I’ve got!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "No! I don’t believe this!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’ve defeated eight Gym Leaders, so I\n",
+                "was feeling confident.\r",
+                "I’ll have to try harder next time.\n"
+            ]
+        }
+    ]
+}

@@ -4,9 +4,9 @@
     {
       "id": "msg_0134_D47PC0101_00000",
       "en_US": [
-        "Those who come to a Pokémon Center\n",
-        "often take good care of their Pokémon.\f",
-        "Wouldn’t you agree?"
+        "Were you aware that any Porygon is\n",
+        "capable of evolving into a Porygon2?\r",
+        "You just need to Up-Grade it!\r"
       ]
     },
     {
@@ -16,6 +16,131 @@
         "find a Pokémon Center, when you’re\f",
         "just about to fall flat...\r",
         "Then it feels like you are in paradise!"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00002",
+      "en_US": [
+        "Hello, and welcome to\n",
+        "the Pokémon Center.\r",
+        "We restore your tired Pokémon\n",
+        "to full health.\r",
+        "Would you like to rest your\n",
+        "Pokémon? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00003",
+      "en_US": "Please, come back again any time!"
+    },
+    {
+      "id": "msg_0134_D47PC0101_00004",
+      "en_US": "Too bad, brat!"
+    },
+    {
+      "id": "msg_0134_D47PC0101_00005",
+      "en_US": [
+        "Archer: So, you’re the kid who’s been\n",
+        "messing with our plans? For someone so\f",
+        "young, I’m surprised you took out\f",
+        "Proton, Petrel and Ariana so easily...\r",
+        "Oh well, no matter. I can destroy\n",
+        "you right here!\r"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00006",
+      "en_US": [
+        "Riley: {STRVAR_1 3, 0, 0}! Hold on!\n",
+        "I’ll help you take these guys down!\r"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00007",
+      "en_US": [
+        "Archer: Another contender? Very well,\n",
+        "this could actually be interesting.\r",
+        "But this isn’t the place.\n",
+        "I’ll be in front of the Safari Zone.\r",
+        "If you haven’t lost your nerve."
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00008",
+      "en_US": [
+        "Archer: You there!\n",
+        "Let us fight together!\r"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00009",
+      "en_US": "Grunt: Yes, sir!\r"
+    },
+    {
+      "id": "msg_0134_D47PC0101_00010",
+      "en_US": [
+        "Archer: Hm. I wasn’t expecting that.\n",
+        "We have what we need regardless.\r",
+        "Don’t expect me to be so generous\n",
+        "next time!"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00011",
+      "en_US": [
+        "Riley: Whew, that should free this area\n",
+        "from Team Rocket. You’ve been a great\f",
+        "help to us, {STRVAR_1 3, 0, 0}. Thank you.\r"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00012",
+      "en_US": [
+        "Incidentially, did you ever talk to\n",
+        "Bill? He has a gift for you that I\f",
+        "might’ve had something to do with...\r"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00013",
+      "en_US": [
+        "What’s that? Bill gave you a Riolu\n",
+        "that came from me? Ah, so my aura\f",
+        "predicted correctly... I felt that\f",
+        "Riolu would be placed in the hands\f",
+        "of a good trainer, and it\f",
+        "appears I was right!\r"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00014",
+      "en_US": [
+        "At any rate, people should start\n",
+        "returning to the area now that\f",
+        "those goons are gone.\r",
+        "I’ll see you around, {STRVAR_1 3, 0, 0}!"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00015",
+      "en_US": [
+        "I’ll see you in front of the\n",
+        "Safari Zone, {STRVAR_1 3, 0, 0}!"
+      ]
+    },
+    {
+      "id": "msg_0134_D47PC0101_00016",
+      "en_US": "See you outside, sucker!"
+    },
+    {
+      "id": "msg_0134_D47PC0101_00017",
+      "en_US": "Porygon2: Pori!"
+    },
+    {
+      "id": "msg_0134_D47PC0101_00018",
+      "en_US": [
+        "Just use that Up-Grade on any\n",
+        "Porygon, and it will evolve!"
       ]
     }
   ]

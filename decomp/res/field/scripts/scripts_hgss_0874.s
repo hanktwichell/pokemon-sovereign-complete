@@ -1,6 +1,7 @@
 #include "macros/scrcmd.inc"
 #include "res/text/bank/hgss_msg_0571.h"
 
+#define LOCALID_COMPLETE_FOLLOWER 0xF0  // include/complete_follower.h
 #define obj_T23R0501_gantetsu 0
 #define obj_T23R0501_gsbabygirl1 1
 
@@ -26,7 +27,7 @@ scr_seq_T23R0501_005:
     WaitMovement
     BufferPlayerName 0
     Message msg_0571_T23R0501_00001
-    SetVarFromValue VAR_0x8004, 492
+    SetVarFromValue VAR_0x8004, ITEM_FAST_BALL
     SetVarFromValue VAR_0x8005, 1
     Common_GiveItemQuantityNoLineFeed
     SetFlag FLAG_HGSS_UNK_07C
@@ -46,7 +47,6 @@ scr_seq_T23R0501_001:
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00A7
     GoTo _00C7
-_00A1:
     GoTo _00AF
 _00A7:
     ApplyMovement obj_T23R0501_gantetsu, _02E0
@@ -65,7 +65,7 @@ _00C7:
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
     .short SCRCMD_UNUSED_06A
-    .short 253
+    .short LOCALID_COMPLETE_FOLLOWER
     .short VAR_MAP_LOCAL_0x02
     .short VAR_MAP_LOCAL_0x03
     CompareVar VAR_MAP_LOCAL_0x02, 5
@@ -135,7 +135,6 @@ _01EE:
     Message msg_0571_T23R0501_00010
     GoTo _021F
     End
-_01F9:
     Message msg_0571_T23R0501_00009
     GoTo _021F
     End
@@ -186,8 +185,7 @@ _0289:
     CloseMessage
     ReleaseAll
     End
-_0294:
-    ApplyMovement 1, _0304
+    ApplyMovement obj_T23R0501_gsbabygirl1, _0304
     WaitMovement
     ReleaseAll
     End

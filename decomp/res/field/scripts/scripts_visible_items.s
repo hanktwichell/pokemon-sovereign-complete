@@ -330,6 +330,263 @@
     ScriptEntry VisibleItems_Unused7325_Nugget
     ScriptEntry VisibleItems_Unused7326_Nugget
     ScriptEntry VisibleItems_TryGiveItem
+    // Sovereign Complete: Johto's and Kanto's item balls (tools/complete/import_hgss_field_items.py)
+    ScriptEntry VisibleItems_HGSS_Route29_Potion
+    ScriptEntry VisibleItems_HGSS_Route30_Antidote
+    ScriptEntry VisibleItems_HGSS_Route30_Potion
+    ScriptEntry VisibleItems_HGSS_Route31_Potion
+    ScriptEntry VisibleItems_HGSS_Route31_PokeBall
+    ScriptEntry VisibleItems_HGSS_Violet_RareCandy
+    ScriptEntry VisibleItems_HGSS_Violet_PpUp
+    ScriptEntry VisibleItems_HGSS_SproutTower1f_ParlyzHeal
+    ScriptEntry VisibleItems_HGSS_SproutTower2f_XAccuracy
+    ScriptEntry VisibleItems_HGSS_SproutTower3f_Potion
+    ScriptEntry VisibleItems_HGSS_SproutTower3f_EscapeRope
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlph_TM29
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlph_HyperPotion
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_HealPowder
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_Energypowder
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_OranBerry
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_PechaBerry
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_TM80
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_SerenadeOrb
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_SitrusBerry
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_MoonStone
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_Stardust
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_StarPiece
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_LeppaBerry
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_MysticWater
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_ToxicOrb
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_FlameOrb
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_LifeOrb
+    ScriptEntry VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_LeppaBerry
+    ScriptEntry VisibleItems_HGSS_Route32_Repel
+    ScriptEntry VisibleItems_HGSS_Route32_GreatBall
+    ScriptEntry VisibleItems_HGSS_Route32_TM09
+    ScriptEntry VisibleItems_HGSS_NationalPark_ShellBell
+    ScriptEntry VisibleItems_HGSS_UnionCave1f_XAttack
+    ScriptEntry VisibleItems_HGSS_UnionCave1f_GreatBall
+    ScriptEntry VisibleItems_HGSS_UnionCave1f_Potion
+    ScriptEntry VisibleItems_HGSS_UnionCave1f_Awakening
+    ScriptEntry VisibleItems_HGSS_UnionCaveB1f_XDefense
+    ScriptEntry VisibleItems_HGSS_UnionCaveB1f_TM39
+    ScriptEntry VisibleItems_HGSS_UnionCaveB2f_Elixir
+    ScriptEntry VisibleItems_HGSS_UnionCaveB2f_HyperPotion
+    ScriptEntry VisibleItems_HGSS_SlowpokeWellB1f_SuperPotion
+    ScriptEntry VisibleItems_HGSS_SlowpokeWellB1f_KingsRock
+    ScriptEntry VisibleItems_HGSS_IlexForest_Revive
+    ScriptEntry VisibleItems_HGSS_IlexForest_WoodlandOre
+    ScriptEntry VisibleItems_HGSS_IcePath1f_ChilledOre
+    ScriptEntry VisibleItems_HGSS_IlexForest_Ether
+    ScriptEntry VisibleItems_HGSS_Route34_Nugget
+    ScriptEntry VisibleItems_HGSS_Route40_TM63
+    ScriptEntry VisibleItems_HGSS_GoldenrodTunnelWarehouse_TM82
+    ScriptEntry VisibleItems_HGSS_GoldenrodTunnelWarehouse_MaxEther
+    ScriptEntry VisibleItems_HGSS_GoldenrodTunnelWarehouse_UltraBall
+    ScriptEntry VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_BurnHeal
+    ScriptEntry VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_AmuletCoin
+    ScriptEntry VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_Ether
+    ScriptEntry VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_UltraBall
+    ScriptEntry VisibleItems_HGSS_GoldenrodTunnelB2f_FullHeal
+    ScriptEntry VisibleItems_HGSS_GoldenrodTunnelB2f_SmokeBall
+    ScriptEntry VisibleItems_HGSS_Unused7386_CoinCase
+    ScriptEntry VisibleItems_HGSS_GoldenrodGameCornerJp_TM78
+    ScriptEntry VisibleItems_HGSS_GoldenrodRadioTower4f_UltraBall
+    ScriptEntry VisibleItems_HGSS_Route35_TM66
+    ScriptEntry VisibleItems_HGSS_Unused7390_ParlyzHeal
+    ScriptEntry VisibleItems_HGSS_Route32_SootheBell
+    ScriptEntry VisibleItems_HGSS_NationalPark_TM28
+    ScriptEntry VisibleItems_HGSS_NationalPark_ShinyStone
+    ScriptEntry VisibleItems_HGSS_Route36_HyperPotion
+    ScriptEntry VisibleItems_HGSS_BurnedTower1f_Antidote
+    ScriptEntry VisibleItems_HGSS_BurnedTower1f_HpUp
+    ScriptEntry VisibleItems_HGSS_BurnedTowerB1f_TM50
+    ScriptEntry VisibleItems_HGSS_BellTower3f_FullHeal
+    ScriptEntry VisibleItems_HGSS_BellTower4f_EscapeRope
+    ScriptEntry VisibleItems_HGSS_BellTower4f_UltraBall
+    ScriptEntry VisibleItems_HGSS_BellTower4f_PpUp
+    ScriptEntry VisibleItems_HGSS_BellTower5f_RareCandy
+    ScriptEntry VisibleItems_HGSS_BellTower6f_MaxPotion
+    ScriptEntry VisibleItems_HGSS_BellTower6f_FullHeal
+    ScriptEntry VisibleItems_HGSS_BellTower7f_MaxRevive
+    ScriptEntry VisibleItems_HGSS_BellTower8f_FullRestore
+    ScriptEntry VisibleItems_HGSS_BellTower8f_MaxElixir
+    ScriptEntry VisibleItems_HGSS_BellTower8f_Nugget
+    ScriptEntry VisibleItems_HGSS_BellTower9f_HpUp
+    ScriptEntry VisibleItems_HGSS_Route38_MaxPotion
+    ScriptEntry VisibleItems_HGSS_Route38_LaxIncense
+    ScriptEntry VisibleItems_HGSS_Route39_TM60
+    ScriptEntry VisibleItems_HGSS_Route39_TM19
+    ScriptEntry VisibleItems_HGSS_OlivineLighthouseExterior_RareCandy
+    ScriptEntry VisibleItems_HGSS_OlivineLighthouse3f_Ether
+    ScriptEntry VisibleItems_HGSS_OlivineLighthouse4f_TM87
+    ScriptEntry VisibleItems_HGSS_OlivineLighthouse5f_SuperRepel
+    ScriptEntry VisibleItems_HGSS_OlivineLighthouseLightRoom_SuperPotion
+    ScriptEntry VisibleItems_HGSS_Route40_TM88
+    ScriptEntry VisibleItems_HGSS_WhirlIslands1f_UltraBall
+    ScriptEntry VisibleItems_HGSS_WhirlIslands1f_UltraBall_93
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB1f_EscapeRope
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB1f_Carbos
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB1f_FullRestore
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB1f_Nugget
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB1f_Calcium
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB2f_MaxRevive
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB2f_FullRestore
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB2f_MaxElixir
+    ScriptEntry VisibleItems_HGSS_WhirlIslandsB3f_RareCandy
+    ScriptEntry VisibleItems_HGSS_Route47_Revive
+    ScriptEntry VisibleItems_HGSS_Route47_LaggingTail
+    ScriptEntry VisibleItems_HGSS_Route47_WaveIncense
+    ScriptEntry VisibleItems_HGSS_Route47_WhiteFlute
+    ScriptEntry VisibleItems_HGSS_Route48_Nugget
+    ScriptEntry VisibleItems_HGSS_Route42_AubadeOrb
+    ScriptEntry VisibleItems_HGSS_Route42_VoltaicOre
+    ScriptEntry VisibleItems_HGSS_Ecruteak_TM65
+    ScriptEntry VisibleItems_HGSS_MountMortar1fEntrance_Ether
+    ScriptEntry VisibleItems_HGSS_MountMortar1fEntrance_Revive
+    ScriptEntry VisibleItems_HGSS_Route42_EscapeRope
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_Nugget
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_IronBall
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_MaxPotion
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_Iron
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_MaxRevive
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_UltraBall
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_FullIncense
+    ScriptEntry VisibleItems_HGSS_VictoryRoad1f_Protector
+    ScriptEntry VisibleItems_HGSS_MountMortar2f_RareCandy
+    ScriptEntry VisibleItems_HGSS_MountMortar2f_MaxPotion
+    ScriptEntry VisibleItems_HGSS_Route34_TM40
+    ScriptEntry VisibleItems_HGSS_MountMortar2f_Elixir
+    ScriptEntry VisibleItems_HGSS_MountMortar2f_DragonScale
+    ScriptEntry VisibleItems_HGSS_MountMortar2f_EscapeRope
+    ScriptEntry VisibleItems_HGSS_MountMortarB1f_Carbos
+    ScriptEntry VisibleItems_HGSS_MountMortarB1f_PpUp
+    ScriptEntry VisibleItems_HGSS_MountMortarB1f_FullRestore
+    ScriptEntry VisibleItems_HGSS_MountMortarB1f_MaxEther
+    ScriptEntry VisibleItems_HGSS_MountMortarB1f_HyperPotion
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB1f_HyperPotion
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB1f_GuardSpec
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB1f_Nugget
+    ScriptEntry VisibleItems_HGSS_OlivineLighthouseExterior_TM47
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB3f_TM49
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB3f_FullHeal
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB3f_DubiousDisc
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB3f_XSpecial
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB3f_UltraBall
+    ScriptEntry VisibleItems_HGSS_Route43_MaxEther
+    ScriptEntry VisibleItems_HGSS_LakeOfRage_TM43
+    ScriptEntry VisibleItems_HGSS_LakeOfRage_ChoiceSpecs
+    ScriptEntry VisibleItems_HGSS_LakeOfRage_RedFlute
+    ScriptEntry VisibleItems_HGSS_Route44_MaxRepel
+    ScriptEntry VisibleItems_HGSS_Route44_MaxRevive
+    ScriptEntry VisibleItems_HGSS_Route44_UltraBall
+    ScriptEntry VisibleItems_HGSS_IcePath1f_HM07
+    ScriptEntry VisibleItems_HGSS_IcePath1f_Protein
+    ScriptEntry VisibleItems_HGSS_IcePath1f_PpUp
+    ScriptEntry VisibleItems_HGSS_IcePathB2f_FullHeal
+    ScriptEntry VisibleItems_HGSS_IcePathB2f_MaxPotion
+    ScriptEntry VisibleItems_HGSS_IcePathB3f_Nevermeltice
+    ScriptEntry VisibleItems_HGSS_IcePathB2f_TM72
+    ScriptEntry VisibleItems_HGSS_Unused7484_Iron
+    ScriptEntry VisibleItems_HGSS_DragonsDen_Calcium
+    ScriptEntry VisibleItems_HGSS_DragonsDen_MaxElixir
+    ScriptEntry VisibleItems_HGSS_DragonsDen_DragonFang
+    ScriptEntry VisibleItems_HGSS_Route45_Elixir
+    ScriptEntry VisibleItems_HGSS_Route45_MaxPotion
+    ScriptEntry VisibleItems_HGSS_Route45_FullHeal
+    ScriptEntry VisibleItems_HGSS_Route45_Nugget
+    ScriptEntry VisibleItems_HGSS_Route45_Revive
+    ScriptEntry VisibleItems_HGSS_Route46_XSpeed
+    ScriptEntry VisibleItems_HGSS_DarkCaveRoute45Side_TM54
+    ScriptEntry VisibleItems_HGSS_DarkCaveRoute45Side_Revive
+    ScriptEntry VisibleItems_HGSS_Unused7496_DreadPlate
+    ScriptEntry VisibleItems_HGSS_DarkCaveRoute31Side_HyperPotion
+    ScriptEntry VisibleItems_HGSS_DarkCaveRoute31Side_FullHeal
+    ScriptEntry VisibleItems_HGSS_DarkCaveRoute31Side_DireHit
+    ScriptEntry VisibleItems_HGSS_DarkCaveRoute31Side_BlackFlute
+    ScriptEntry VisibleItems_HGSS_Route35_MoonStone
+    ScriptEntry VisibleItems_HGSS_Route27_RareCandy
+    ScriptEntry VisibleItems_HGSS_Route27_VoltaicOre
+    ScriptEntry VisibleItems_HGSS_Route27_DestinyKnot
+    ScriptEntry VisibleItems_HGSS_Route26_MaxElixir
+    ScriptEntry VisibleItems_HGSS_VictoryRoad1f_MaxRevive
+    ScriptEntry VisibleItems_HGSS_Unused7507_FullHeal
+    ScriptEntry VisibleItems_HGSS_VictoryRoad1f_Potion
+    ScriptEntry VisibleItems_HGSS_VictoryRoad2f_TM26
+    ScriptEntry VisibleItems_HGSS_VictoryRoad2f_HpUp
+    ScriptEntry VisibleItems_HGSS_VictoryRoad2f_FullRestore
+    ScriptEntry VisibleItems_HGSS_VictoryRoad3f_UltraBall
+    ScriptEntry VisibleItems_HGSS_TeamRocketHeadquartersB2f_TM79
+    ScriptEntry VisibleItems_HGSS_VictoryRoad3f_RareCandy
+    ScriptEntry VisibleItems_HGSS_Vermilion_LuckIncense
+    ScriptEntry VisibleItems_HGSS_Vermilion_StickyBarb
+    ScriptEntry VisibleItems_HGSS_DiglettCave_EarthPlate
+    ScriptEntry VisibleItems_HGSS_DiglettCave_RockIncense
+    ScriptEntry VisibleItems_HGSS_Route6_TM62
+    ScriptEntry VisibleItems_HGSS_Route8_TM41
+    ScriptEntry VisibleItems_HGSS_Route10South_TM69
+    ScriptEntry VisibleItems_HGSS_RockTunnel1f_Elixir
+    ScriptEntry VisibleItems_HGSS_RockTunnel1f_TM56
+    ScriptEntry VisibleItems_HGSS_RockTunnelB1f_Iron
+    ScriptEntry VisibleItems_HGSS_RockTunnelB1f_PpUp
+    ScriptEntry VisibleItems_HGSS_RockTunnelB1f_Revive
+    ScriptEntry VisibleItems_HGSS_Route34_OvalStone
+    ScriptEntry VisibleItems_HGSS_Route9_TM91
+    ScriptEntry VisibleItems_HGSS_Route9_FullRestore
+    ScriptEntry VisibleItems_HGSS_Route9_LightClay
+    ScriptEntry VisibleItems_HGSS_Route9_MaxPotion
+    ScriptEntry VisibleItems_HGSS_Route25_Protein
+    ScriptEntry VisibleItems_HGSS_Route7_MentalHerb
+    ScriptEntry VisibleItems_HGSS_Celadon_TM67
+    ScriptEntry VisibleItems_HGSS_Route12_Calcium
+    ScriptEntry VisibleItems_HGSS_Route12_YellowFlute
+    ScriptEntry VisibleItems_HGSS_Route15_PpUp
+    ScriptEntry VisibleItems_HGSS_Route15_RoseIncense
+    ScriptEntry VisibleItems_HGSS_MountMortar1fEntrance_TM76
+    ScriptEntry VisibleItems_HGSS_Route2East_Carbos
+    ScriptEntry VisibleItems_HGSS_Route2_Elixir
+    ScriptEntry VisibleItems_HGSS_Route11_DireHit
+    ScriptEntry VisibleItems_HGSS_ViridianForest_BlueFlute
+    ScriptEntry VisibleItems_HGSS_ViridianForest_LeafStone
+    ScriptEntry VisibleItems_HGSS_ViridianForest_TM77
+    ScriptEntry VisibleItems_HGSS_Pewter_WiseGlasses
+    ScriptEntry VisibleItems_HGSS_Route3_BigRoot
+    ScriptEntry VisibleItems_HGSS_Route4_HpUp
+    ScriptEntry VisibleItems_HGSS_IcePath1f_Magmarizer
+    ScriptEntry VisibleItems_HGSS_SeafoamIslandsB1f_IceHeal
+    ScriptEntry VisibleItems_HGSS_SeafoamIslandsB1f_GripClaw
+    ScriptEntry VisibleItems_HGSS_SeafoamIslandsB2f_WaterStone
+    ScriptEntry VisibleItems_HGSS_SeafoamIslandsB3f_Revive
+    ScriptEntry VisibleItems_HGSS_SeafoamIslandsB3f_BigPearl
+    ScriptEntry VisibleItems_HGSS_SeafoamIslandsB4f_UltraBall
+    ScriptEntry VisibleItems_HGSS_IcePathB1f_TM13
+    ScriptEntry VisibleItems_HGSS_Route19_TM55
+    ScriptEntry VisibleItems_HGSS_BellchimeTower_TM35
+    ScriptEntry VisibleItems_HGSS_MountSilver_ReaperCloth
+    ScriptEntry VisibleItems_HGSS_MountSilverCave1f_FullRestore
+    ScriptEntry VisibleItems_HGSS_MountSilverCaveUpperMountainside_PureIncense
+    ScriptEntry VisibleItems_HGSS_Route35_DawnStone
+    ScriptEntry VisibleItems_HGSS_MountSilverCaveLowerMountainside_EscapeRope
+    ScriptEntry VisibleItems_HGSS_MountSilverCaveLowerMountainside_TM76
+    ScriptEntry VisibleItems_HGSS_MountSilverCaveExpertBeltChamber_ExpertBelt
+    ScriptEntry VisibleItems_HGSS_MountSilverCave2f_MaxElixir
+    ScriptEntry VisibleItems_HGSS_MountSilverCave2f_Calcium
+    ScriptEntry VisibleItems_HGSS_MountSilverCave2f_Protein
+    ScriptEntry VisibleItems_HGSS_MountSilverCave2f_MaxRevive
+    ScriptEntry VisibleItems_HGSS_CeruleanCave1f_MaxElixir
+    ScriptEntry VisibleItems_HGSS_CeruleanCave1f_FullRestore
+    ScriptEntry VisibleItems_HGSS_CeruleanCave1f_Nugget
+    ScriptEntry VisibleItems_HGSS_CeruleanCave1f_SeaIncense
+    ScriptEntry VisibleItems_HGSS_CeruleanCave2f_PpUp
+    ScriptEntry VisibleItems_HGSS_CeruleanCave2f_UltraBall
+    ScriptEntry VisibleItems_HGSS_Olivine_TM24
+    ScriptEntry VisibleItems_HGSS_CeruleanCave2f_OddIncense
+    ScriptEntry VisibleItems_HGSS_CeruleanCaveB1f_MaxRevive
+    ScriptEntry VisibleItems_HGSS_CeruleanCaveB1f_UltraBall
+    ScriptEntry VisibleItems_HGSS_MountMortar1fBack_DuskStone
+    ScriptEntry VisibleItems_HGSS_Route44_Electirizer
+    ScriptEntry VisibleItems_HGSS_CeruleanCaveB1f_BlackSludge
+    // end of Johto's and Kanto's item balls
     ScriptEntryEnd
 
 VisibleItems_Route202_Potion:
@@ -2426,3 +2683,1536 @@ VisibleItems_SetAltMusicGalacticHQ1F:
 VisibleItems_MessageObtainedPlate:
     Common_PrintPlateObtainedMessage
     Return
+
+// Sovereign Complete: the scripts of Johto's and Kanto's item balls (their entries are above)
+
+VisibleItems_HGSS_Route29_Potion:
+    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route30_Antidote:
+    SetVar VAR_0x8008, ITEM_ANTIDOTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route30_Potion:
+    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route31_Potion:
+    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route31_PokeBall:
+    SetVar VAR_0x8008, ITEM_POKE_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Violet_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Violet_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SproutTower1f_ParlyzHeal:
+    SetVar VAR_0x8008, ITEM_PARLYZ_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SproutTower2f_XAccuracy:
+    SetVar VAR_0x8008, ITEM_X_ACCURACY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SproutTower3f_Potion:
+    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SproutTower3f_EscapeRope:
+    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlph_TM29:
+    SetVar VAR_0x8008, ITEM_TM29
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlph_HyperPotion:
+    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_HealPowder:
+    SetVar VAR_0x8008, ITEM_HEAL_POWDER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_Energypowder:
+    SetVar VAR_0x8008, ITEM_ENERGYPOWDER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_OranBerry:
+    SetVar VAR_0x8008, ITEM_ORAN_BERRY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNortheastEntranceSecondRoom_PechaBerry:
+    SetVar VAR_0x8008, ITEM_PECHA_BERRY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_TM80:
+    SetVar VAR_0x8008, ITEM_TM80
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_SerenadeOrb:
+    SetVar VAR_0x8008, ITEM_SERENADE_ORB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_SitrusBerry:
+    SetVar VAR_0x8008, ITEM_SITRUS_BERRY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSoutheastEntranceSecondRoom_MoonStone:
+    SetVar VAR_0x8008, ITEM_MOON_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_Stardust:
+    SetVar VAR_0x8008, ITEM_STARDUST
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_StarPiece:
+    SetVar VAR_0x8008, ITEM_STAR_PIECE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_LeppaBerry:
+    SetVar VAR_0x8008, ITEM_LEPPA_BERRY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphSouthwestEntranceSecondRoom_MysticWater:
+    SetVar VAR_0x8008, ITEM_MYSTIC_WATER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_ToxicOrb:
+    SetVar VAR_0x8008, ITEM_TOXIC_ORB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_FlameOrb:
+    SetVar VAR_0x8008, ITEM_FLAME_ORB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_LifeOrb:
+    SetVar VAR_0x8008, ITEM_LIFE_ORB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_LeppaBerry:
+    SetVar VAR_0x8008, ITEM_LEPPA_BERRY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route32_Repel:
+    SetVar VAR_0x8008, ITEM_REPEL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route32_GreatBall:
+    SetVar VAR_0x8008, ITEM_GREAT_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route32_TM09:
+    SetVar VAR_0x8008, ITEM_TM09
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_NationalPark_ShellBell:
+    SetVar VAR_0x8008, ITEM_SHELL_BELL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCave1f_XAttack:
+    SetVar VAR_0x8008, ITEM_X_ATTACK
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCave1f_GreatBall:
+    SetVar VAR_0x8008, ITEM_GREAT_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCave1f_Potion:
+    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCave1f_Awakening:
+    SetVar VAR_0x8008, ITEM_AWAKENING
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCaveB1f_XDefense:
+    SetVar VAR_0x8008, ITEM_X_DEFENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCaveB1f_TM39:
+    SetVar VAR_0x8008, ITEM_TM39
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCaveB2f_Elixir:
+    SetVar VAR_0x8008, ITEM_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_UnionCaveB2f_HyperPotion:
+    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SlowpokeWellB1f_SuperPotion:
+    SetVar VAR_0x8008, ITEM_SUPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SlowpokeWellB1f_KingsRock:
+    SetVar VAR_0x8008, ITEM_KINGS_ROCK
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IlexForest_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IlexForest_WoodlandOre:
+    SetVar VAR_0x8008, ITEM_WOODLAND_ORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePath1f_ChilledOre:
+    SetVar VAR_0x8008, ITEM_CHILLED_ORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IlexForest_Ether:
+    SetVar VAR_0x8008, ITEM_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route34_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route40_TM63:
+    SetVar VAR_0x8008, ITEM_TM63
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodTunnelWarehouse_TM82:
+    SetVar VAR_0x8008, ITEM_TM82
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodTunnelWarehouse_MaxEther:
+    SetVar VAR_0x8008, ITEM_MAX_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodTunnelWarehouse_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_BurnHeal:
+    SetVar VAR_0x8008, ITEM_BURN_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_AmuletCoin:
+    SetVar VAR_0x8008, ITEM_AMULET_COIN
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_Ether:
+    SetVar VAR_0x8008, ITEM_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodDepartmentStoreBasement_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodTunnelB2f_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodTunnelB2f_SmokeBall:
+    SetVar VAR_0x8008, ITEM_SMOKE_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Unused7386_CoinCase:
+    SetVar VAR_0x8008, ITEM_COIN_CASE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodGameCornerJp_TM78:
+    SetVar VAR_0x8008, ITEM_TM78
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_GoldenrodRadioTower4f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route35_TM66:
+    SetVar VAR_0x8008, ITEM_TM66
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Unused7390_ParlyzHeal:
+    SetVar VAR_0x8008, ITEM_PARLYZ_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route32_SootheBell:
+    SetVar VAR_0x8008, ITEM_SOOTHE_BELL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_NationalPark_TM28:
+    SetVar VAR_0x8008, ITEM_TM28
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_NationalPark_ShinyStone:
+    SetVar VAR_0x8008, ITEM_SHINY_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route36_HyperPotion:
+    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BurnedTower1f_Antidote:
+    SetVar VAR_0x8008, ITEM_ANTIDOTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BurnedTower1f_HpUp:
+    SetVar VAR_0x8008, ITEM_HP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BurnedTowerB1f_TM50:
+    SetVar VAR_0x8008, ITEM_TM50
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower3f_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower4f_EscapeRope:
+    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower4f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower4f_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower5f_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower6f_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower6f_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower7f_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower8f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower8f_MaxElixir:
+    SetVar VAR_0x8008, ITEM_MAX_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower8f_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellTower9f_HpUp:
+    SetVar VAR_0x8008, ITEM_HP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route38_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route38_LaxIncense:
+    SetVar VAR_0x8008, ITEM_LAX_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route39_TM60:
+    SetVar VAR_0x8008, ITEM_TM60
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route39_TM19:
+    SetVar VAR_0x8008, ITEM_TM19
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_OlivineLighthouseExterior_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_OlivineLighthouse3f_Ether:
+    SetVar VAR_0x8008, ITEM_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_OlivineLighthouse4f_TM87:
+    SetVar VAR_0x8008, ITEM_TM87
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_OlivineLighthouse5f_SuperRepel:
+    SetVar VAR_0x8008, ITEM_SUPER_REPEL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_OlivineLighthouseLightRoom_SuperPotion:
+    SetVar VAR_0x8008, ITEM_SUPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route40_TM88:
+    SetVar VAR_0x8008, ITEM_TM88
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslands1f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslands1f_UltraBall_93:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB1f_EscapeRope:
+    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB1f_Carbos:
+    SetVar VAR_0x8008, ITEM_CARBOS
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB1f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB1f_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB1f_Calcium:
+    SetVar VAR_0x8008, ITEM_CALCIUM
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB2f_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB2f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB2f_MaxElixir:
+    SetVar VAR_0x8008, ITEM_MAX_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_WhirlIslandsB3f_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route47_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route47_LaggingTail:
+    SetVar VAR_0x8008, ITEM_LAGGING_TAIL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route47_WaveIncense:
+    SetVar VAR_0x8008, ITEM_WAVE_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route47_WhiteFlute:
+    SetVar VAR_0x8008, ITEM_WHITE_FLUTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route48_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route42_AubadeOrb:
+    SetVar VAR_0x8008, ITEM_AUBADE_ORB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route42_VoltaicOre:
+    SetVar VAR_0x8008, ITEM_VOLTAIC_ORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Ecruteak_TM65:
+    SetVar VAR_0x8008, ITEM_TM65
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fEntrance_Ether:
+    SetVar VAR_0x8008, ITEM_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fEntrance_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route42_EscapeRope:
+    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_IronBall:
+    SetVar VAR_0x8008, ITEM_IRON_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_Iron:
+    SetVar VAR_0x8008, ITEM_IRON
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_FullIncense:
+    SetVar VAR_0x8008, ITEM_FULL_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad1f_Protector:
+    SetVar VAR_0x8008, ITEM_PROTECTOR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar2f_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar2f_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route34_TM40:
+    SetVar VAR_0x8008, ITEM_TM40
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar2f_Elixir:
+    SetVar VAR_0x8008, ITEM_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar2f_DragonScale:
+    SetVar VAR_0x8008, ITEM_DRAGON_SCALE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar2f_EscapeRope:
+    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortarB1f_Carbos:
+    SetVar VAR_0x8008, ITEM_CARBOS
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortarB1f_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortarB1f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortarB1f_MaxEther:
+    SetVar VAR_0x8008, ITEM_MAX_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortarB1f_HyperPotion:
+    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB1f_HyperPotion:
+    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB1f_GuardSpec:
+    SetVar VAR_0x8008, ITEM_GUARD_SPEC
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB1f_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_OlivineLighthouseExterior_TM47:
+    SetVar VAR_0x8008, ITEM_TM47
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB3f_TM49:
+    SetVar VAR_0x8008, ITEM_TM49
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB3f_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB3f_DubiousDisc:
+    SetVar VAR_0x8008, ITEM_DUBIOUS_DISC
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB3f_XSpecial:
+    SetVar VAR_0x8008, ITEM_X_SPECIAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB3f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route43_MaxEther:
+    SetVar VAR_0x8008, ITEM_MAX_ETHER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_LakeOfRage_TM43:
+    SetVar VAR_0x8008, ITEM_TM43
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_LakeOfRage_ChoiceSpecs:
+    SetVar VAR_0x8008, ITEM_CHOICE_SPECS
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_LakeOfRage_RedFlute:
+    SetVar VAR_0x8008, ITEM_RED_FLUTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route44_MaxRepel:
+    SetVar VAR_0x8008, ITEM_MAX_REPEL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route44_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route44_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePath1f_HM07:
+    SetVar VAR_0x8008, ITEM_HM07
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePath1f_Protein:
+    SetVar VAR_0x8008, ITEM_PROTEIN
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePath1f_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePathB2f_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePathB2f_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePathB3f_Nevermeltice:
+    SetVar VAR_0x8008, ITEM_NEVERMELTICE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePathB2f_TM72:
+    SetVar VAR_0x8008, ITEM_TM72
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Unused7484_Iron:
+    SetVar VAR_0x8008, ITEM_IRON
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DragonsDen_Calcium:
+    SetVar VAR_0x8008, ITEM_CALCIUM
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DragonsDen_MaxElixir:
+    SetVar VAR_0x8008, ITEM_MAX_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DragonsDen_DragonFang:
+    SetVar VAR_0x8008, ITEM_DRAGON_FANG
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route45_Elixir:
+    SetVar VAR_0x8008, ITEM_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route45_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route45_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route45_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route45_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route46_XSpeed:
+    SetVar VAR_0x8008, ITEM_X_SPEED
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DarkCaveRoute45Side_TM54:
+    SetVar VAR_0x8008, ITEM_TM54
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DarkCaveRoute45Side_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Unused7496_DreadPlate:
+    SetVar VAR_0x8008, ITEM_DREAD_PLATE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DarkCaveRoute31Side_HyperPotion:
+    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DarkCaveRoute31Side_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DarkCaveRoute31Side_DireHit:
+    SetVar VAR_0x8008, ITEM_DIRE_HIT
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DarkCaveRoute31Side_BlackFlute:
+    SetVar VAR_0x8008, ITEM_BLACK_FLUTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route35_MoonStone:
+    SetVar VAR_0x8008, ITEM_MOON_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route27_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route27_VoltaicOre:
+    SetVar VAR_0x8008, ITEM_VOLTAIC_ORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route27_DestinyKnot:
+    SetVar VAR_0x8008, ITEM_DESTINY_KNOT
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route26_MaxElixir:
+    SetVar VAR_0x8008, ITEM_MAX_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad1f_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Unused7507_FullHeal:
+    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad1f_Potion:
+    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad2f_TM26:
+    SetVar VAR_0x8008, ITEM_TM26
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad2f_HpUp:
+    SetVar VAR_0x8008, ITEM_HP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad2f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad3f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_TeamRocketHeadquartersB2f_TM79:
+    SetVar VAR_0x8008, ITEM_TM79
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_VictoryRoad3f_RareCandy:
+    SetVar VAR_0x8008, ITEM_RARE_CANDY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Vermilion_LuckIncense:
+    SetVar VAR_0x8008, ITEM_LUCK_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Vermilion_StickyBarb:
+    SetVar VAR_0x8008, ITEM_STICKY_BARB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DiglettCave_EarthPlate:
+    SetVar VAR_0x8008, ITEM_EARTH_PLATE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_DiglettCave_RockIncense:
+    SetVar VAR_0x8008, ITEM_ROCK_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route6_TM62:
+    SetVar VAR_0x8008, ITEM_TM62
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route8_TM41:
+    SetVar VAR_0x8008, ITEM_TM41
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route10South_TM69:
+    SetVar VAR_0x8008, ITEM_TM69
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RockTunnel1f_Elixir:
+    SetVar VAR_0x8008, ITEM_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RockTunnel1f_TM56:
+    SetVar VAR_0x8008, ITEM_TM56
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RockTunnelB1f_Iron:
+    SetVar VAR_0x8008, ITEM_IRON
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RockTunnelB1f_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_RockTunnelB1f_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route34_OvalStone:
+    SetVar VAR_0x8008, ITEM_OVAL_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route9_TM91:
+    SetVar VAR_0x8008, ITEM_TM91
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route9_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route9_LightClay:
+    SetVar VAR_0x8008, ITEM_LIGHT_CLAY
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route9_MaxPotion:
+    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route25_Protein:
+    SetVar VAR_0x8008, ITEM_PROTEIN
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route7_MentalHerb:
+    SetVar VAR_0x8008, ITEM_MENTAL_HERB
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Celadon_TM67:
+    SetVar VAR_0x8008, ITEM_TM67
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route12_Calcium:
+    SetVar VAR_0x8008, ITEM_CALCIUM
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route12_YellowFlute:
+    SetVar VAR_0x8008, ITEM_YELLOW_FLUTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route15_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route15_RoseIncense:
+    SetVar VAR_0x8008, ITEM_ROSE_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fEntrance_TM76:
+    SetVar VAR_0x8008, ITEM_TM76
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route2East_Carbos:
+    SetVar VAR_0x8008, ITEM_CARBOS
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route2_Elixir:
+    SetVar VAR_0x8008, ITEM_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route11_DireHit:
+    SetVar VAR_0x8008, ITEM_DIRE_HIT
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_ViridianForest_BlueFlute:
+    SetVar VAR_0x8008, ITEM_BLUE_FLUTE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_ViridianForest_LeafStone:
+    SetVar VAR_0x8008, ITEM_LEAF_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_ViridianForest_TM77:
+    SetVar VAR_0x8008, ITEM_TM77
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Pewter_WiseGlasses:
+    SetVar VAR_0x8008, ITEM_WISE_GLASSES
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route3_BigRoot:
+    SetVar VAR_0x8008, ITEM_BIG_ROOT
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route4_HpUp:
+    SetVar VAR_0x8008, ITEM_HP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePath1f_Magmarizer:
+    SetVar VAR_0x8008, ITEM_MAGMARIZER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SeafoamIslandsB1f_IceHeal:
+    SetVar VAR_0x8008, ITEM_ICE_HEAL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SeafoamIslandsB1f_GripClaw:
+    SetVar VAR_0x8008, ITEM_GRIP_CLAW
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SeafoamIslandsB2f_WaterStone:
+    SetVar VAR_0x8008, ITEM_WATER_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SeafoamIslandsB3f_Revive:
+    SetVar VAR_0x8008, ITEM_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SeafoamIslandsB3f_BigPearl:
+    SetVar VAR_0x8008, ITEM_BIG_PEARL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_SeafoamIslandsB4f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_IcePathB1f_TM13:
+    SetVar VAR_0x8008, ITEM_TM13
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route19_TM55:
+    SetVar VAR_0x8008, ITEM_TM55
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_BellchimeTower_TM35:
+    SetVar VAR_0x8008, ITEM_TM35
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilver_ReaperCloth:
+    SetVar VAR_0x8008, ITEM_REAPER_CLOTH
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCave1f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCaveUpperMountainside_PureIncense:
+    SetVar VAR_0x8008, ITEM_PURE_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route35_DawnStone:
+    SetVar VAR_0x8008, ITEM_DAWN_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCaveLowerMountainside_EscapeRope:
+    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCaveLowerMountainside_TM76:
+    SetVar VAR_0x8008, ITEM_TM76
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCaveExpertBeltChamber_ExpertBelt:
+    SetVar VAR_0x8008, ITEM_EXPERT_BELT
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCave2f_MaxElixir:
+    SetVar VAR_0x8008, ITEM_MAX_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCave2f_Calcium:
+    SetVar VAR_0x8008, ITEM_CALCIUM
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCave2f_Protein:
+    SetVar VAR_0x8008, ITEM_PROTEIN
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountSilverCave2f_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave1f_MaxElixir:
+    SetVar VAR_0x8008, ITEM_MAX_ELIXIR
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave1f_FullRestore:
+    SetVar VAR_0x8008, ITEM_FULL_RESTORE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave1f_Nugget:
+    SetVar VAR_0x8008, ITEM_NUGGET
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave1f_SeaIncense:
+    SetVar VAR_0x8008, ITEM_SEA_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave2f_PpUp:
+    SetVar VAR_0x8008, ITEM_PP_UP
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave2f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Olivine_TM24:
+    SetVar VAR_0x8008, ITEM_TM24
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCave2f_OddIncense:
+    SetVar VAR_0x8008, ITEM_ODD_INCENSE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCaveB1f_MaxRevive:
+    SetVar VAR_0x8008, ITEM_MAX_REVIVE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCaveB1f_UltraBall:
+    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_MountMortar1fBack_DuskStone:
+    SetVar VAR_0x8008, ITEM_DUSK_STONE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_Route44_Electirizer:
+    SetVar VAR_0x8008, ITEM_ELECTIRIZER
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+
+VisibleItems_HGSS_CeruleanCaveB1f_BlackSludge:
+    SetVar VAR_0x8008, ITEM_BLACK_SLUDGE
+    SetVar VAR_0x8009, 1
+    GoTo VisibleItems_TryGiveItem
+    End
+// end of the scripts of Johto's and Kanto's item balls

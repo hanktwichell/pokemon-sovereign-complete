@@ -1,0 +1,109 @@
+{
+    "name": "Reena",
+    "class": "TRAINER_CLASS_HGSS_ACE_TRAINER_F",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HYPNO",
+            "form": 0,
+            "level": 47,
+            "moves": [
+                "MOVE_PSYCHIC",
+                "MOVE_POISON_GAS",
+                "MOVE_DISABLE",
+                "MOVE_FOCUS_BLAST"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VILEPLUME",
+            "form": 0,
+            "level": 47,
+            "moves": [
+                "MOVE_PETAL_DANCE",
+                "MOVE_TOXIC",
+                "MOVE_PROTECT",
+                "MOVE_AROMATHERAPY"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_BUTTERFREE",
+            "form": 0,
+            "level": 47,
+            "moves": [
+                "MOVE_POISON_POWDER",
+                "MOVE_PSYCHIC",
+                "MOVE_BUG_BUZZ",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GASTRODON",
+            "form": 0,
+            "level": 47,
+            "moves": [
+                "MOVE_TOXIC",
+                "MOVE_SURF",
+                "MOVE_EARTHQUAKE",
+                "MOVE_PROTECT"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FORRETRESS",
+            "form": 0,
+            "level": 47,
+            "moves": [
+                "MOVE_TOXIC",
+                "MOVE_TOXIC_SPIKES",
+                "MOVE_PROTECT",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 50,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "You came from New Bark Town?\n",
+                "You must be exhausted.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oh! You’re much too strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If you’re that energetic, you can\n",
+                "definitely make it to the\f",
+                "Pokémon League!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_REMATCH",
+            "en_US": [
+                "You said you came from New Bark Town,\n",
+                "right? I’ll watch and see how far\f",
+                "you’ll go!\r"
+            ]
+        }
+    ]
+}

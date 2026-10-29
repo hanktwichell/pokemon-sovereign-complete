@@ -32,7 +32,7 @@
     },
     {
       "id": "msg_0066_D23R0102_00003",
-      "en_US": "JIGGLYPUFF: Jiggly..."
+      "en_US": "Jigglypuff: Jiggly..."
     },
     {
       "id": "msg_0066_D23R0102_00004",
@@ -243,7 +243,7 @@
     },
     {
       "id": "msg_0066_D23R0102_00031",
-      "garbage": 25
+      "garbage": 0
     },
     {
       "id": "msg_0066_D23R0102_00032",
@@ -300,15 +300,15 @@
     },
     {
       "id": "msg_0066_D23R0102_00040",
-      "en_US": "CYNDAQUIL"
+      "en_US": "Cyndaquil"
     },
     {
       "id": "msg_0066_D23R0102_00041",
-      "en_US": "TOTODILE"
+      "en_US": "Totodile"
     },
     {
       "id": "msg_0066_D23R0102_00042",
-      "en_US": "CHIKORITA"
+      "en_US": "Chikorita"
     },
     {
       "id": "msg_0066_D23R0102_00043",
@@ -336,27 +336,27 @@
     },
     {
       "id": "msg_0066_D23R0102_00049",
-      "en_US": "PIKACHU"
+      "en_US": "Pikachu"
     },
     {
       "id": "msg_0066_D23R0102_00050",
-      "en_US": "RATTATA"
+      "en_US": "Rattata"
     },
     {
       "id": "msg_0066_D23R0102_00051",
-      "en_US": "GEODUDE"
+      "en_US": "Geodude"
     },
     {
       "id": "msg_0066_D23R0102_00052",
-      "en_US": "HOOTHOOT"
+      "en_US": "Hoothoot"
     },
     {
       "id": "msg_0066_D23R0102_00053",
-      "en_US": "SPINARAK"
+      "en_US": "Spinarak"
     },
     {
       "id": "msg_0066_D23R0102_00054",
-      "en_US": "DROWZEE"
+      "en_US": "Drowzee"
     },
     {
       "id": "msg_0066_D23R0102_00055",

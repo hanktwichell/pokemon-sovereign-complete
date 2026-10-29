@@ -67,9 +67,9 @@ scr_seq_T25R1203_011:
 _0113:
     Message msg_0602_T25R1203_00011
     InitLocalTextMenu 21, 11, 0, VAR_RESULT, 1
-    AddMenuEntryImm 13, 0
-    AddMenuEntryImm 14, 1
-    AddMenuEntryImm 15, 2
+    AddMenuEntry 13, 0
+    AddMenuEntry 14, 1
+    AddMenuEntry 15, 2
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0

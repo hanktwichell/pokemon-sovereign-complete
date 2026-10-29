@@ -1,0 +1,27 @@
+{
+    "name": "Misa",
+    "class": "TRAINER_CLASS_HGSS_KIMONO_GIRL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_GLACEON",
+            "form": 0,
+            "level": 50,
+            "moves": [
+                "MOVE_BLIZZARD",
+                "MOVE_SHADOW_BALL",
+                "MOVE_ICE_SHARD",
+                "MOVE_WATER_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

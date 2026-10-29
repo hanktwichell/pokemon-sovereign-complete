@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8330,
             "type": 2,
             "x": 15,
             "z": 37,
@@ -25,7 +25,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8331,
             "type": 2,
             "x": 36,
             "z": 26,
@@ -33,7 +33,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8332,
             "type": 2,
             "x": 39,
             "z": 12,
@@ -41,7 +41,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8333,
             "type": 2,
             "x": 33,
             "z": 14,
@@ -49,7 +49,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8511,
             "type": 2,
             "x": 50,
             "z": 30,
@@ -57,7 +57,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8512,
             "type": 2,
             "x": 28,
             "z": 26,
@@ -65,15 +65,15 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8513,
             "type": 2,
-            "x": 10,
-            "z": 32,
+            "x": 12,
+            "z": 21,
             "y": 0,
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8514,
             "type": 2,
             "x": 53,
             "z": 48,
@@ -81,7 +81,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8515,
             "type": 2,
             "x": 42,
             "z": 17,
@@ -210,7 +210,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D36R0101_REVIVE",
-            "script": 0,
+            "script": 7371,
             "initial_dir": 0,
             "data": [
                 0,
@@ -229,7 +229,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D36R0101_X_ATTACK",
-            "script": 0,
+            "script": 7372,
             "initial_dir": 0,
             "data": [
                 0,
@@ -248,7 +248,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D36R0101_ANTIDOTE",
-            "script": 0,
+            "script": 7373,
             "initial_dir": 0,
             "data": [
                 0,
@@ -257,8 +257,8 @@
             ],
             "movement_range_x": 0,
             "movement_range_z": 0,
-            "x": 20,
-            "z": 30,
+            "x": 6666,
+            "z": 6666,
             "y": 0
         },
         {
@@ -267,7 +267,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D36R0101_ETHER",
-            "script": 0,
+            "script": 7374,
             "initial_dir": 0,
             "data": [
                 0,
@@ -430,6 +430,82 @@
             "movement_range_z": 0,
             "x": 10,
             "z": 46,
+            "y": 0
+        },
+        {
+            "id": "obj_D36R0101_18",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FEF",
+            "script": 25,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_D36R0101_19",
+            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 0,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 6666,
+            "z": 6666,
+            "y": 0
+        },
+        {
+            "id": "obj_D36R0101_20",
+            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "0",
+            "script": 26,
+            "initial_dir": 2,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 10,
+            "z": 32,
+            "y": 0
+        },
+        {
+            "id": "obj_D36R0101_21",
+            "graphics_id": "OBJ_EVENT_GFX_GARDENIA",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3F6E",
+            "script": 27,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 29,
+            "z": 26,
             "y": 0
         }
     ],

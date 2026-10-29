@@ -1,0 +1,229 @@
+{
+    "map": "R27",
+    "land": {
+        "rate": 25,
+        "slots": [
+            {
+                "level": 42,
+                "morning": "SPECIES_DODUO",
+                "day": "SPECIES_DODUO",
+                "night": "SPECIES_WOOPER"
+            },
+            {
+                "level": 43,
+                "morning": "SPECIES_SKIPLOOM",
+                "day": "SPECIES_SKIPLOOM",
+                "night": "SPECIES_HOUNDOUR"
+            },
+            {
+                "level": 42,
+                "morning": "SPECIES_PONYTA",
+                "day": "SPECIES_PONYTA",
+                "night": "SPECIES_PONYTA"
+            },
+            {
+                "level": 43,
+                "morning": "SPECIES_PONYTA",
+                "day": "SPECIES_PONYTA",
+                "night": "SPECIES_PONYTA"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_DODRIO",
+                "day": "SPECIES_DODRIO",
+                "night": "SPECIES_DODRIO"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_RAPIDASH",
+                "day": "SPECIES_RAPIDASH",
+                "night": "SPECIES_RAPIDASH"
+            },
+            {
+                "level": 44,
+                "morning": "SPECIES_SANDSLASH",
+                "day": "SPECIES_SANDSLASH",
+                "night": "SPECIES_SANDSLASH"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_SANDSLASH",
+                "day": "SPECIES_SANDSLASH",
+                "night": "SPECIES_SANDSLASH"
+            },
+            {
+                "level": 44,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
+            },
+            {
+                "level": 44,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 10,
+        "slots": [
+            {
+                "level_min": 30,
+                "level_max": 40,
+                "species": "SPECIES_BUIZEL"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_BUIZEL"
+            },
+            {
+                "level_min": 45,
+                "level_max": 50,
+                "species": "SPECIES_FLOATZEL"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_BUIZEL"
+            },
+            {
+                "level_min": 45,
+                "level_max": 50,
+                "species": "SPECIES_FLOATZEL"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 25,
+                "level_max": 35,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_LUVDISC"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 25,
+                "level_max": 25,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 37,
+                "level_max": 37,
+                "species": "SPECIES_LUVDISC"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 1,
+                "level_max": 39,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 39,
+                "level_max": 41,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 38,
+                "level_max": 42,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 47,
+                "level_max": 47,
+                "species": "SPECIES_LUVDISC"
+            },
+            {
+                "level_min": 53,
+                "level_max": 53,
+                "species": "SPECIES_LUVDISC"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_JUMPLUFF",
+        "SPECIES_JUMPLUFF"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_GRUMPIG",
+        "SPECIES_GRUMPIG"
+    ],
+    "swarm": {
+        "land": "SPECIES_DODUO",
+        "surf": "SPECIES_FEEBAS",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

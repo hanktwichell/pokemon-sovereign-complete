@@ -1,0 +1,39 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_SAGE",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_NOCTOWL",
+            "form": 0,
+            "level": 32,
+            "moves": [
+                "MOVE_FORESIGHT",
+                "MOVE_HYPNOSIS",
+                "MOVE_TAKE_DOWN",
+                "MOVE_PSYCHIC"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_FLAREON",
+            "form": 0,
+            "level": 32,
+            "moves": [
+                "MOVE_SAND_ATTACK",
+                "MOVE_FLAMETHROWER",
+                "MOVE_QUICK_ATTACK",
+                "MOVE_BITE"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

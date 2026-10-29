@@ -35,5 +35,16 @@
             "dest_warp_id": 0
         }
     ],
-    "coord_events": []
+    "coord_events": [
+        {
+            "script": 2,
+            "x": 3,
+            "z": 8,
+            "width": 20,
+            "length": 1,
+            "y": 0,
+            "value": 0,
+            "var": "VAR_HGSS_SG_6134"
+        }
+    ]
 }

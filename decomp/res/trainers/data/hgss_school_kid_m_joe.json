@@ -1,0 +1,59 @@
+{
+    "name": "Joe",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_YANMA",
+            "form": 0,
+            "level": 57,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VAPOREON",
+            "form": 0,
+            "level": 57,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_TANGROWTH",
+            "form": 0,
+            "level": 57,
+            "item": "ITEM_SITRUS_BERRY",
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "Here’s No. 3!\n",
+                "I won’t be easy.\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Ow! Stomped flat!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I did my best.\n",
+                "I have no regrets.\n"
+            ]
+        }
+    ]
+}

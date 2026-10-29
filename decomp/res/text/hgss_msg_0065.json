@@ -46,7 +46,7 @@
       "en_US": [
         "You are correct.\n",
         "The second question!\r",
-        "NIDORINA can only be female.\n",
+        "Nidorina can only be female.\n",
         "True? {YESNO 0}"
       ]
     },
@@ -65,7 +65,7 @@
         "You are correct again.\n",
         "The fourth question!\r",
         "It’s impossible to use a TM on\n",
-        "MAGIKARP. True? {YESNO 0}"
+        "Magikarp. True? {YESNO 0}"
       ]
     },
     {

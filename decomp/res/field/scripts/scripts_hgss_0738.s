@@ -12,7 +12,7 @@ scr_seq_T01R0201_000:
     CompareVar VAR_HGSS_UNK_4122, 7
     GoToIf 1, _003B
 _001F:
-    @ HGSS: ScrCmd_522 VAR_SPECIAL_RESULT
+    GetHour VAR_RESULT
     CompareVar VAR_RESULT, 15
     GoToIf 1, _0056
     Message msg_0449_T01R0201_00000
@@ -47,8 +47,8 @@ _00A7:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: PartySelectUI
-    @ HGSS: GetPartySelection VAR_SPECIAL_x8004
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8004
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -64,7 +64,7 @@ _00F0:
     Message msg_0449_T01R0201_00003
     WaitSE SEQ_SE_DP_FW367_sseq
     WaitTime 15, VAR_RESULT
-    @ HGSS: MonAddFriendship 10, VAR_SPECIAL_x8004
+    IncreasePartyMonFriendship 10, VAR_0x8004
     @ HGSS: MonAddContestValue VAR_SPECIAL_x8004, 1, 32
     @ HGSS: MonAddContestValue VAR_SPECIAL_x8004, 5, 22
     CompareVar VAR_HGSS_UNK_4122, 7

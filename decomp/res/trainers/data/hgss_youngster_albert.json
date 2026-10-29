@@ -1,0 +1,48 @@
+{
+    "name": "Joan",
+    "class": "TRAINER_CLASS_PARASOL_LADY",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_MAREEP",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DRIFLOON",
+            "form": 0,
+            "level": 14,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I haven’t seen you around before.\n",
+                "So you think you’re pretty tough?\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "You’re strong!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "I’m going to try to be the best with my\n",
+                "prized Pokémon. I’m not using the\f",
+                "same tough Pokémon as everyone else.\n"
+            ]
+        }
+    ]
+}

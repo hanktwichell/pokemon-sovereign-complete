@@ -60,7 +60,7 @@
     },
     {
       "id": "msg_0582_T25GYM0101_00006",
-      "garbage": 27
+      "garbage": 0
     },
     {
       "id": "msg_0582_T25GYM0101_00007",
@@ -74,7 +74,7 @@
         "Pokéathlon Dome is now open right next\f",
         "to the National Park.\r",
         "You should go try it, since you’re\n",
-        "so good at battling with your Pokémon!"
+        "so good at battling with your Pokémon!\r"
       ]
     },
     {
@@ -120,6 +120,20 @@
         "Leader: Whitney\n",
         "Certified Trainer!\f",
         "{STRVAR_1 3, 0, 0}"
+      ]
+    },
+    {
+      "id": "msg_0582_T25GYM0101_00014",
+      "en_US": [
+        "Whitney: Oh! I’ll give you my number!\r",
+        "... ... ...\r"
+      ]
+    },
+    {
+      "id": "msg_0582_T25GYM0101_00015",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} registered Whitney\n",
+        "in the Pokégear!"
       ]
     }
   ]

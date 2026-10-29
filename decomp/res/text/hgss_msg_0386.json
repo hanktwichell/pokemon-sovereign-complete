@@ -12,7 +12,7 @@
     },
     {
       "id": "msg_0386_R34R0201_00001",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0386_R34R0201_00002",
@@ -25,7 +25,7 @@
     },
     {
       "id": "msg_0386_R34R0201_00003",
-      "en_US": "BUTTERFREE: Freeh!"
+      "en_US": "Mothim: Mothhh!"
     },
     {
       "id": "msg_0386_R34R0201_00004",
@@ -37,6 +37,46 @@
         "I think that it must be a\n",
         "Grass-type Pokémon."
       ]
+    },
+    {
+      "id": "msg_0386_R34R0201_00005",
+      "en_US": [
+        "Cynthia: Well, hello, {STRVAR_1 3, 0, 0}! I had a\n",
+        "feeling I might see you pass through\f",
+        "here. You’re probably wondering why\f",
+        "I’m even here?\r"
+      ]
+    },
+    {
+      "id": "msg_0386_R34R0201_00006",
+      "en_US": [
+        "Cynthia: I found an odd little artifact\n",
+        "that I felt you might somehow be able\f",
+        "to use. It’s known as an Odd Keystone.\r",
+        "Here, you can have it!\r"
+      ]
+    },
+    {
+      "id": "msg_0386_R34R0201_00007",
+      "en_US": [
+        "It might be worth taking it to the\n",
+        "Well in Azalea Town. I’ve heard of\f",
+        "sightings of a weird Pokémon there.\r"
+      ]
+    },
+    {
+      "id": "msg_0386_R34R0201_00008",
+      "en_US": [
+        "Cynthia: I hope it proves useful to\n",
+        "you. On a side note, you should come\f",
+        "visit the new archaelogical building\f",
+        "in Goldenrod City. It’s in the process\f",
+        "of replacing that old bike shop...\r"
+      ]
+    },
+    {
+      "id": "msg_0386_R34R0201_00009",
+      "en_US": "Cynthia: Well then, see you!"
     }
   ]
 }

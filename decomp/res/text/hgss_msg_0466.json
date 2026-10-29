@@ -4,14 +4,331 @@
     {
       "id": "msg_0466_T03R0601_00000",
       "en_US": [
-        "I used to enjoy snoozing\n",
-        "with the radio on...\r",
-        "It’s broken and is being fixed now.\r",
-        "...\n",
-        "...\f",
-        "...\f",
-        "...\r",
-        "It’s too quiet to fall asleep!"
+        "Ah, {STRVAR_1 3, 0, 0}, I see you found the\n",
+        "place I said I was staying in.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00001",
+      "en_US": [
+        "Tell me, {STRVAR_1 3, 0, 0}...\n",
+        "Did you find any trace of the\f",
+        "Eon Pokémon I told you of previously?\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00002",
+      "en_US": [
+        "Perhaps not...\r",
+        "If you do happen to capture it,\n",
+        "I’d appreciate if you could show\f",
+        "me Latias in person."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00003",
+      "en_US": [
+        "Oh! That Pokémon following you...\r",
+        "That definitely appears to be Latias.\r",
+        "Hm?"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00004",
+      "en_US": [
+        "Perhaps not...\r",
+        "If you do happen to capture it,\n",
+        "I’d appreciate if you could show\f",
+        "me Latios in person."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00005",
+      "en_US": [
+        "This stone I excavated seems\n",
+        "to be reacting to Latias...\r",
+        "Perhaps you should take it\n",
+        "to be checked by an expert.\r",
+        "There’s somebody in Goldenrod City who\n",
+        "might be fit for the job.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00006",
+      "en_US": "Hi!\r"
+    },
+    {
+      "id": "msg_0466_T03R0601_00007",
+      "en_US": [
+        "Oh! That Pokémon following you...\r",
+        "That definitely appears to be Latios.\r",
+        "Hm?"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00008",
+      "en_US": [
+        "You should take the {COLOR 2}Enigma Stone{COLOR 0}\n",
+        "to be checked by an expert.\r",
+        "There’s somebody in Goldenrod City who\n",
+        "might be fit for the job."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00009",
+      "en_US": [
+        "This stone I excavated seems\n",
+        "to be reacting to Latios...\r",
+        "Perhaps you should take it\n",
+        "to be checked by an expert.\r",
+        "There’s somebody in Goldenrod City who\n",
+        "might be fit for the job.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00010",
+      "en_US": [
+        "I wonder if Regigigas could be\n",
+        "in Johto or Kanto, too.\r",
+        "It recently disappeared from the\n",
+        "Snowpoint Temple in Sinnoh,\f",
+        "but definitely wasn’t captured.\r",
+        "Of course, if it is around, it probably\n",
+        "won’t wake up {COLOR 1}unless Regirock, Regice\f",
+        "and Registeel are nearby{COLOR 0}.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00011",
+      "en_US": [
+        "Although, it’s a mystery why\n",
+        "it’d be here in the first place..."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00012",
+      "en_US": [
+        "A dusty book with an interesting\n",
+        "cover design. Read the book?"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00013",
+      "en_US": [
+        "This chapter holds the names of\n",
+        "those Pokémon who our researchers,\f",
+        "past and present fought so hard\f",
+        "to obtain information about.\r",
+        "They are known collectively as the\n",
+        "{COLOR 1}Legendary Pokémon{COLOR 0}.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00014",
+      "en_US": [
+        "The {COLOR 2}Kanto{COLOR 0} region is known for the birds\n",
+        "of ice, thunder and fire, for the\f",
+        "elusive parent of all DNA and its\f",
+        "genetically engineered child.\r",
+        "They are known as {COLOR 1}Articuno{COLOR 0}, {COLOR 1}Zapdos{COLOR 0},\n",
+        "{COLOR 1}Moltres{COLOR 0}, {COLOR 1}Mewtwo{COLOR 0} and {COLOR 1}Mew{COLOR 0}.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00015",
+      "en_US": [
+        "The {COLOR 2}Johto{COLOR 0} region is known for the\n",
+        "beasts of thunder, fire and water,\f",
+        "the guardians of sea and sky, and\f",
+        "the protector of the forest.\r",
+        "They are known as {COLOR 1}Raikou{COLOR 0}, {COLOR 1}Entei{COLOR 0},\n",
+        "{COLOR 1}Suicune{COLOR 0}, {COLOR 1}Lugia{COLOR 0}, {COLOR 1}Ho-oh{COLOR 0} and {COLOR 1}Celebi{COLOR 0}.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00016",
+      "en_US": [
+        "The {COLOR 2}Hoenn{COLOR 0} region is known for the\n",
+        "titans of rock, ice and steel,\f",
+        "the twins known as the Eon Pokémon,\f",
+        "the guardians of water, earth and sky,\f",
+        "the wishmaker and the alien virus.\r",
+        "They are known as {COLOR 1}Regirock{COLOR 0}, {COLOR 1}Regice{COLOR 0},\n",
+        "{COLOR 1}Registeel{COLOR 0}, {COLOR 1}Latias{COLOR 0}, {COLOR 1}Latios{COLOR 0}, {COLOR 1}Kyogre{COLOR 0},\f",
+        "{COLOR 1}Groudon{COLOR 0}, {COLOR 1}Rayquaza{COLOR 0}, {COLOR 1}Jirachi{COLOR 0} and {COLOR 1}Deoxys{COLOR 0}.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00017",
+      "en_US": [
+        "The {COLOR 2}Sinnoh{COLOR 0} region is known for the\n",
+        "embodiments of knowledge, emotion and\f",
+        "willpower, the creators of time, space\f",
+        "and antimatter, the child of the\f",
+        "planet’s core, the leader of titans,\f",
+        "the protector of dreams, the prince\f",
+        "of the sea, the force of nightmares,\f",
+        "and the bringer of life and purity.\r",
+        "They are known as {COLOR 1}Uxie{COLOR 0}, {COLOR 1}Mesprit{COLOR 0},{COLOR 1}\n",
+        "Azelf{COLOR 0}, {COLOR 1}Dialga{COLOR 0}, {COLOR 1}Palkia{COLOR 0}, {COLOR 1}Giratina{COLOR 0},\f",
+        "{COLOR 1}Heatran{COLOR 0}, {COLOR 1}Regigigas{COLOR 0}, {COLOR 1}Cresselia{COLOR 0},\f",
+        "{COLOR 1}Manaphy{COLOR 0}, {COLOR 1}Darkrai{COLOR 0}, and {COLOR 1}Shaymin{COLOR 0}.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00018",
+      "en_US": [
+        "Mythology also states the existence\n",
+        "of another legendary belonging to the\f",
+        "Sinnoh group, but little information is\f",
+        "known.\r",
+        "A carving suggests the collection of\n",
+        "all sixteen Plate items is necessary\f",
+        "to even catch a glimpse of the\f",
+        "legendary. The Plate items are said\f",
+        "to naturally gravitate towards their\f",
+        "elements, but between the ground we\f",
+        "walk on and the people who populate\f",
+        "our world, they could be anywhere.\f",
+        "As such, researching this unknown\f",
+        "legendary is incredibly difficult for\f",
+        "our scientists to manage.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00019",
+      "en_US": [
+        "Whether the more common Pokémon\n",
+        "{COLOR 1}Phione{COLOR 0} can be called legendary is\f",
+        "unknown. There is mixed evidence, but\f",
+        "for now we choose to declare\f",
+        "it as a regular Pokémon.\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00020",
+      "en_US": [
+        "The {COLOR 2}Unova{COLOR 0} region is also said to\n",
+        "contain a variety of legendary...\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00021",
+      "en_US": [
+        "The rest of the pages are blank\n",
+        "or ripped..."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00022",
+      "en_US": "Read on? {YESNO 0}"
+    },
+    {
+      "id": "msg_0466_T03R0601_00023",
+      "en_US": [
+        "Steven: Legendaries are incredible.\n",
+        "I’ve been reading up on them with\f",
+        "that book on my table.\r",
+        "Even as a Champion, I rarely get\n",
+        "to see such interesting Pokémon..."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00024",
+      "en_US": [
+        "While we’re here, would you\n",
+        "consider a friendly battle? {YESNO 0}"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00025",
+      "en_US": [
+        "I’m glad to hear that as being your\n",
+        "answer. It’s been a while since I’ve\f",
+        "competed against a trainer like you,\f",
+        "but I’m sure I’ll enjoy it!\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00026",
+      "en_US": [
+        "An expert performance, if I\n",
+        "say so myself. Tell me if you want to\f",
+        "have another go."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00027",
+      "en_US": [
+        "Do you think the Champion of\n",
+        "Hoenn is too tough for you?\r",
+        "You won’t know until you try!"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00028",
+      "en_US": [
+        "Steven: I’ve heard you’re\n",
+        "an impeccable Trainer, and I’d like\f",
+        "to give you a gift.\r",
+        "Before I do, though, I don’t\n",
+        "suppose you’d be able to show\f",
+        "me a Treecko, Torchic, Mudkip, or\f",
+        "one of their evolutions?\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00029",
+      "en_US": [
+        "The Pokémon behind you isn’t\n",
+        "one of the ones I mentioned, I’m afraid.\r",
+        "Regardless, I’ll be waiting for you to\n",
+        "bring the correct one to me."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00030",
+      "en_US": [
+        "Oh, yes, that is one of the Pokémon\n",
+        "I wanted you to bring.\r",
+        "So you own a {STRVAR_1 0, 1, 0}...\r",
+        "In that case, I shall gift you\n",
+        "with these!\r"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00031",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Torchic{COLOR 0} and {COLOR 2}Mudkip{COLOR 0}\n",
+        "from Steven!"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00032",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Treecko{COLOR 0} and {COLOR 2}Mudkip{COLOR 0}\n",
+        "from Steven!"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00033",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received {COLOR 2}Treecko{COLOR 0} and {COLOR 2}Torchic{COLOR 0}\n",
+        "from Steven!"
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00034",
+      "en_US": [
+        "Steven: Please do take good care\n",
+        "of them. It’ll make me happy."
+      ]
+    },
+    {
+      "id": "msg_0466_T03R0601_00035",
+      "en_US": [
+        "Your party... you don’t have\n",
+        "enough free space to receive my gifts."
       ]
     }
   ]

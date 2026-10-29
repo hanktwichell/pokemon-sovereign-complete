@@ -1,0 +1,42 @@
+{
+    "name": "Zach",
+    "class": "TRAINER_CLASS_HGSS_POKE_MANIAC",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_PRIORITIZE_EXTREMES"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_SLOWKING",
+            "form": 0,
+            "level": 47,
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_PRE_BATTLE",
+            "en_US": [
+                "I’ll do anything to get my hands on\n",
+                "rare Pokémon!\r"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Oooh, your Pokémon are so appealing.\n"
+            ]
+        },
+        {
+            "type": "TRMSG_POST_BATTLE",
+            "en_US": [
+                "If a Pokémon has different colors than\n",
+                "usual, it’s more valuable.\r",
+                "What? You mean that’s not true?\n"
+            ]
+        }
+    ]
+}

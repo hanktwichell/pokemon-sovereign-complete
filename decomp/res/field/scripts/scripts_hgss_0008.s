@@ -9,13 +9,11 @@ scr_seq_D02R0102_000:
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 5, _002E
     GoTo _004F
-_0028:
     GoTo _004D
 _002E:
     CompareVar VAR_MAP_LOCAL_0x00, 2
     GoToIf 5, _0047
     GoTo _008E
-_0041:
     GoTo _004D
 _0047:
     GoTo _004D
@@ -47,6 +45,5 @@ _00C5:
     GoTo _004D
 _00CB:
     End
-_00CD:
     End
     .balign 4, 0

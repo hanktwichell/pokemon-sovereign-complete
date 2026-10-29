@@ -228,7 +228,6 @@ _0350:
     LockDir
     EndMovement
     .balign 4, 0
-_0368:
     LockDir
     WalkFastEast 2
     UnlockDir

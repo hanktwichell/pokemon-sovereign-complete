@@ -1,0 +1,52 @@
+{
+    "name": "Mickey",
+    "class": "TRAINER_CLASS_HGSS_SCHOOL_KID_M",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_ELECTRODE",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_SCREECH",
+                "MOVE_SONIC_BOOM",
+                "MOVE_ROLLOUT",
+                "MOVE_LIGHT_SCREEN"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GROWLITHE",
+            "form": 0,
+            "level": 35,
+            "moves": [
+                "MOVE_SUNNY_DAY",
+                "MOVE_LEER",
+                "MOVE_TAKE_DOWN",
+                "MOVE_FLAME_WHEEL"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_VILEPLUME",
+            "form": 0,
+            "level": 37,
+            "moves": [
+                "MOVE_SOLAR_BEAM",
+                "MOVE_SLEEP_POWDER",
+                "MOVE_ACID",
+                "MOVE_MOONLIGHT"
+            ],
+            "iv_scale": 0,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

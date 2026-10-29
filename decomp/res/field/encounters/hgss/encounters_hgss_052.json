@@ -1,0 +1,229 @@
+{
+    "map": "R42",
+    "land": {
+        "rate": 25,
+        "slots": [
+            {
+                "level": 32,
+                "morning": "SPECIES_FLAAFFY",
+                "day": "SPECIES_FLAAFFY",
+                "night": "SPECIES_FLAAFFY"
+            },
+            {
+                "level": 32,
+                "morning": "SPECIES_FEAROW",
+                "day": "SPECIES_FEAROW",
+                "night": "SPECIES_GOLBAT"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_HIPPOPOTAS",
+                "day": "SPECIES_HIPPOPOTAS",
+                "night": "SPECIES_HIPPOPOTAS"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_CACNEA",
+                "day": "SPECIES_CACNEA",
+                "night": "SPECIES_CACNEA"
+            },
+            {
+                "level": 32,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
+            },
+            {
+                "level": 32,
+                "morning": "SPECIES_SANDSLASH",
+                "day": "SPECIES_SANDSLASH",
+                "night": "SPECIES_SANDSLASH"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_MUNCHLAX",
+                "day": "SPECIES_MUNCHLAX",
+                "night": "SPECIES_MUNCHLAX"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_MUNCHLAX",
+                "day": "SPECIES_MUNCHLAX",
+                "night": "SPECIES_MUNCHLAX"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_TRAPINCH",
+                "day": "SPECIES_TRAPINCH",
+                "night": "SPECIES_TRAPINCH"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_TRAPINCH",
+                "day": "SPECIES_TRAPINCH",
+                "night": "SPECIES_TRAPINCH"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_TRAPINCH",
+                "day": "SPECIES_TRAPINCH",
+                "night": "SPECIES_TRAPINCH"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_TRAPINCH",
+                "day": "SPECIES_TRAPINCH",
+                "night": "SPECIES_TRAPINCH"
+            }
+        ]
+    },
+    "surf": {
+        "rate": 10,
+        "slots": [
+            {
+                "level_min": 28,
+                "level_max": 32,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 28,
+                "level_max": 35,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 28,
+                "level_max": 37,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 33,
+                "level_max": 40,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 33,
+                "level_max": 40,
+                "species": "SPECIES_SEAKING"
+            }
+        ]
+    },
+    "rock_smash": {
+        "rate": 0,
+        "slots": [
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            },
+            {
+                "level_min": 0,
+                "level_max": 0,
+                "species": "SPECIES_NONE"
+            }
+        ]
+    },
+    "old_rod": {
+        "rate": 25,
+        "slots": [
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_CARVANHA"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_CARVANHA"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_GOLDEEN"
+            }
+        ]
+    },
+    "super_rod": {
+        "rate": 75,
+        "slots": [
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_CARVANHA"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SHARPEDO"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SEAKING"
+            }
+        ]
+    },
+    "radio_hoenn": [
+        "SPECIES_CACTURNE",
+        "SPECIES_VIBRAVA"
+    ],
+    "radio_sinnoh": [
+        "SPECIES_TYROGUE",
+        "SPECIES_TYROGUE"
+    ],
+    "swarm": {
+        "land": "SPECIES_MAREEP",
+        "surf": "SPECIES_GOLDEEN",
+        "night_fishing": "SPECIES_NONE",
+        "fishing": "SPECIES_NONE"
+    }
+}

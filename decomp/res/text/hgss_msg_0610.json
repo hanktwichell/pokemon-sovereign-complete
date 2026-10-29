@@ -4,45 +4,73 @@
     {
       "id": "msg_0610_T26R0601_00000",
       "en_US": [
-        "Olivine is on the sea!\r",
-        "And if it’s on the sea, there is bound\n",
-        "to be something to catch!\r",
-        "I’ve fished here for 30 years.\r",
-        "Would you like to face the sea\n",
-        "and fish? {YESNO 0}"
+        "Hey, kid! Don’t you love the sun?\n",
+        "It’s so bright, hot and elegant!\r",
+        "Don’t you agree? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0610_T26R0601_00001",
       "en_US": [
-        "Ah, hahah!\n",
-        "We have ourselves a new angler!"
+        "Hey, kid! Don’t you love the moon?\n",
+        "It’s so magical, cold and beautiful!\r",
+        "Don’t you agree? {YESNO 0}"
       ]
     },
     {
       "id": "msg_0610_T26R0601_00002",
-      "garbage": 20
+      "en_US": [
+        "Come back again tomorrow!\r",
+        "I’ll tell you more about the wonders\n",
+        "we see above us!"
+      ]
     },
     {
       "id": "msg_0610_T26R0601_00003",
       "en_US": [
-        "Water-type Pokémon aren’t found\n",
-        "in the sea alone.\f",
-        "They go wherever there is water."
+        "I like your style! Let me share an\n",
+        "item with you that represents what\f",
+        "the sun stands for!\r"
       ]
     },
     {
       "id": "msg_0610_T26R0601_00004",
       "en_US": [
-        "Whaaat? You don’t like to fish!?\f",
-        "Incomprehensible!"
+        "I like your style! Let me share an\n",
+        "item with you that represents what\f",
+        "the moon stands for!\r"
       ]
     },
     {
       "id": "msg_0610_T26R0601_00005",
       "en_US": [
-        "How are things?\n",
-        "Land the big one?"
+        "Eh? You don’t agree?\r",
+        "You don’t appreciate astronomy, kid!"
+      ]
+    },
+    {
+      "id": "msg_0610_T26R0601_00006",
+      "en_US": [
+        "My brother’s always been interested\n",
+        "in astronomy. It’s all he talks about.\r",
+        "That said, he has so much trouble\n",
+        "getting people to listen to him..."
+      ]
+    },
+    {
+      "id": "msg_0610_T26R0601_00007",
+      "en_US": "Clefable: Clwff!"
+    },
+    {
+      "id": "msg_0610_T26R0601_00008",
+      "en_US": "Sunflora: Suuuuun!"
+    },
+    {
+      "id": "msg_0610_T26R0601_00009",
+      "en_US": [
+        "The Sun Stone and Moon Stone\n",
+        "are such cool items!\r",
+        "The Moon Stone evolved our Clefairy!"
       ]
     }
   ]

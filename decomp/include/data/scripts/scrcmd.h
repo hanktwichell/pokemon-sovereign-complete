@@ -869,6 +869,9 @@ ScriptCommand(SCRCMD_COMPLETEFOLLOWERPAUSE,                               Comple
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERWAIT,                                CompleteScrCmd_FollowerWait)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERSETMOVEMENTTYPE,                     CompleteScrCmd_FollowerSetMovementType)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERCHECKACTIVE,                         CompleteScrCmd_FollowerCheckActive)
+ScriptCommand(SCRCMD_COMPLETEGETBATTLERESULT,                            CompleteScrCmd_GetBattleResult)
+ScriptCommand(SCRCMD_COMPLETESTARTWILDBATTLE,                           CompleteScrCmd_StartWildBattle)
+ScriptCommand(SCRCMD_COMPLETEINITHGSSMENU,                              CompleteScrCmd_InitHGSSMenu)
 
 // clang-format on
 

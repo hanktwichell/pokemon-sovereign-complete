@@ -31,7 +31,6 @@ scr_seq_T02R0302_002:
 _0063:
     Message msg_0458_T02R0302_00012
     GoTo _0091
-_006C:
     ReleaseAll
     End
     .balign 4, 0

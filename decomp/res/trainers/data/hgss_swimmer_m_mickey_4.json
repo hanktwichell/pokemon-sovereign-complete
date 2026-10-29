@@ -1,0 +1,66 @@
+{
+    "name": "Petrel",
+    "class": "TRAINER_CLASS_HGSS_EXECUTIVE_PETREL",
+    "items": [],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_RATICATE",
+            "form": 0,
+            "level": 36,
+            "moves": [
+                "MOVE_HYPER_FANG",
+                "MOVE_SUPER_FANG",
+                "MOVE_CRUNCH",
+                "MOVE_FLAME_WHEEL"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GOLBAT",
+            "form": 0,
+            "level": 36,
+            "moves": [
+                "MOVE_WING_ATTACK",
+                "MOVE_POISON_FANG",
+                "MOVE_SUPER_FANG",
+                "MOVE_HYPNOSIS"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_WEEZING",
+            "form": 0,
+            "level": 37,
+            "moves": [
+                "MOVE_SLUDGE_BOMB",
+                "MOVE_PAIN_SPLIT",
+                "MOVE_FIRE_BLAST",
+                "MOVE_THUNDER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SKUNTANK",
+            "form": 0,
+            "level": 36,
+            "moves": [
+                "MOVE_POISON_JAB",
+                "MOVE_FLAMETHROWER",
+                "MOVE_NIGHT_SLASH",
+                "MOVE_DOUBLE_EDGE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": []
+}

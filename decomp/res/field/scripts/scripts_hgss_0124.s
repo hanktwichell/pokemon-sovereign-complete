@@ -34,11 +34,11 @@ _006A:
     SetFlag FLAG_HGSS_UNK_0FA
 _0071:
     Message msg_0139_D49R0102_00002
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 272, 0
-    AddMenuEntryImm 296, 1
-    AddMenuEntryImm 297, 2
-    AddMenuEntryImm 12, 3
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 272, 0
+    AddMenuEntry 296, 1
+    AddMenuEntry 297, 2
+    AddMenuEntry 12, 3
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -51,13 +51,13 @@ _0071:
     End
 _00D5:
     Message msg_0139_D49R0102_00003
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 308, 0
-    AddMenuEntryImm 309, 1
-    AddMenuEntryImm 310, 2
-    AddMenuEntryImm 311, 3
-    AddMenuEntryImm 312, 4
-    AddMenuEntryImm 13, 5
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 308, 0
+    AddMenuEntry 309, 1
+    AddMenuEntry 310, 2
+    AddMenuEntry 311, 3
+    AddMenuEntry 312, 4
+    AddMenuEntry 13, 5
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 5
@@ -75,51 +75,51 @@ _00D5:
     End
 _0166:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 0
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 298, 0
-    AddMenuEntryImm 299, 1
-    AddMenuEntryImm 304, 6
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 298, 0
+    AddMenuEntry 299, 1
+    AddMenuEntry 304, 6
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _0288
     End
 _01A0:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 1
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 301, 3
-    AddMenuEntryImm 300, 2
-    AddMenuEntryImm 307, 9
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 301, 3
+    AddMenuEntry 300, 2
+    AddMenuEntry 307, 9
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _0288
     End
 _01DA:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 2
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 306, 8
-    AddMenuEntryImm 307, 9
-    AddMenuEntryImm 299, 1
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 306, 8
+    AddMenuEntry 307, 9
+    AddMenuEntry 299, 1
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _0288
     End
 _0214:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 3
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 305, 7
-    AddMenuEntryImm 304, 6
-    AddMenuEntryImm 301, 3
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 305, 7
+    AddMenuEntry 304, 6
+    AddMenuEntry 301, 3
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _0288
     End
 _024E:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 4
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 303, 5
-    AddMenuEntryImm 302, 4
-    AddMenuEntryImm 298, 0
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 303, 5
+    AddMenuEntry 302, 4
+    AddMenuEntry 298, 0
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _0288
     End
@@ -212,7 +212,7 @@ _03DB:
     WaitButton
     CloseMessage
     StopMusic
-    @ HGSS: ResetBGM
+    PlayDefaultMusic
     @ HGSS: ProcessSoundplate
     ReleaseAll
     End

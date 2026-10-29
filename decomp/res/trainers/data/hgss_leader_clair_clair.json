@@ -1,0 +1,125 @@
+{
+    "name": "Clair",
+    "class": "TRAINER_CLASS_HGSS_LEADER_CLAIR",
+    "items": [
+        "ITEM_HYPER_POTION",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_DRAGONAIR",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_THUNDER_WAVE",
+                "MOVE_SURF",
+                "MOVE_FIRE_BLAST",
+                "MOVE_DRAGON_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_GYARADOS",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_DRAGON_DANCE",
+                "MOVE_OUTRAGE",
+                "MOVE_WATERFALL",
+                "MOVE_EARTHQUAKE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_DRAGONAIR",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_EXTREME_SPEED",
+                "MOVE_AQUA_TAIL",
+                "MOVE_OUTRAGE",
+                "MOVE_DRAGON_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_SALAMENCE",
+            "form": 0,
+            "level": 50,
+            "item": "ITEM_WHITE_HERB",
+            "moves": [
+                "MOVE_FIRE_BLAST",
+                "MOVE_HYDRO_PUMP",
+                "MOVE_DRACO_METEOR",
+                "MOVE_DRAGON_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_ALTARIA",
+            "form": 0,
+            "level": 48,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_ROOST",
+                "MOVE_ICE_BEAM",
+                "MOVE_FLAMETHROWER",
+                "MOVE_DRAGON_PULSE"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_KINGDRA",
+            "form": 0,
+            "level": 50,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_HYDRO_PUMP",
+                "MOVE_DRAGON_PULSE",
+                "MOVE_BLIZZARD",
+                "MOVE_SWAGGER"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 15,
+            "ability": "ABILITY_SNIPER"
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "One Pokémon left?\n",
+                "This is where the real battle begins!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "You’re kidding, right?\n",
+                "I’m supposed to win! I already decided!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "I lost? ...\r",
+                "I don’t believe it.\n",
+                "There must be some mistake...\n"
+            ]
+        }
+    ]
+}

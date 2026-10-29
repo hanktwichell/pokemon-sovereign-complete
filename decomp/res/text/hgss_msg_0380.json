@@ -61,7 +61,7 @@
     },
     {
       "id": "msg_0380_R32_00006",
-      "garbage": 20
+      "garbage": 0
     },
     {
       "id": "msg_0380_R32_00007",
@@ -90,7 +90,7 @@
     },
     {
       "id": "msg_0380_R32_00011",
-      "garbage": 21
+      "garbage": 0
     },
     {
       "id": "msg_0380_R32_00012",
@@ -145,6 +145,13 @@
     {
       "id": "msg_0380_R32_00019",
       "en_US": "Union Cave ahead"
+    },
+    {
+      "id": "msg_0380_R32_00020",
+      "en_US": [
+        "What’s this?\n",
+        "The Skiploom dropped an item!\r"
+      ]
     }
   ]
 }

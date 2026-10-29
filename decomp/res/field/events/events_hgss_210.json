@@ -5,9 +5,9 @@
             "id": "obj_D27R0106_seaman_2",
             "graphics_id": "OBJ_EVENT_GFX_SAILOR",
             "movement_type": "MOVEMENT_TYPE_NONE",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAILOR_TERRELL",
             "initial_dir": 2,
             "data": [
                 6,
@@ -24,9 +24,9 @@
             "id": "obj_D27R0106_seaman_2_2",
             "graphics_id": "OBJ_EVENT_GFX_SAILOR",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-            "trainer_type": "TRAINER_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
-            "script": 0,
+            "script": "TRAINER_HGSS_SAILOR_ROBERTO",
             "initial_dir": 1,
             "data": [
                 5,
@@ -45,7 +45,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D27R0106_SUPER_REPEL",
-            "script": 0,
+            "script": 7417,
             "initial_dir": 0,
             "data": [
                 0,

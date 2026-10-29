@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8376,
             "type": 2,
             "x": 45,
             "z": 45,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8377,
             "type": 2,
             "x": 10,
             "z": 39,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8501,
             "type": 2,
             "x": 45,
             "z": 17,
@@ -32,7 +32,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D41R0101_FULL_RESTORE",
-            "script": 0,
+            "script": 7560,
             "initial_dir": 0,
             "data": [
                 0,
@@ -62,6 +62,25 @@
             "movement_range_z": 0,
             "x": 12,
             "z": 40,
+            "y": 0
+        },
+        {
+            "id": "obj_D41R0101_2",
+            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "movement_type": "MOVEMENT_TYPE_NONE",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_HGSS_SG_3FB5",
+            "script": 3,
+            "initial_dir": 0,
+            "data": [
+                0,
+                0,
+                0
+            ],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 15,
+            "z": 13,
             "y": 0
         }
     ],

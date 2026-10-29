@@ -57,13 +57,13 @@ scr_seq_D49R0106_002:
     GoToIf 1, _03AC
 _00BC:
     Message msg_0142_D49R0106_00006
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 308, 0
-    AddMenuEntryImm 309, 1
-    AddMenuEntryImm 310, 2
-    AddMenuEntryImm 311, 3
-    AddMenuEntryImm 312, 4
-    AddMenuEntryImm 135, 5
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 308, 0
+    AddMenuEntry 309, 1
+    AddMenuEntry 310, 2
+    AddMenuEntry 311, 3
+    AddMenuEntry 312, 4
+    AddMenuEntry 135, 5
     ShowMenu
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 5
@@ -81,51 +81,51 @@ _00BC:
     End
 _014D:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 0
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 298, 0
-    AddMenuEntryImm 299, 1
-    AddMenuEntryImm 304, 6
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 298, 0
+    AddMenuEntry 299, 1
+    AddMenuEntry 304, 6
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _026F
     End
 _0187:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 1
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 301, 3
-    AddMenuEntryImm 300, 2
-    AddMenuEntryImm 307, 9
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 301, 3
+    AddMenuEntry 300, 2
+    AddMenuEntry 307, 9
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _026F
     End
 _01C1:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 2
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 306, 8
-    AddMenuEntryImm 307, 9
-    AddMenuEntryImm 299, 1
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 306, 8
+    AddMenuEntry 307, 9
+    AddMenuEntry 299, 1
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _026F
     End
 _01FB:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 3
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 305, 7
-    AddMenuEntryImm 304, 6
-    AddMenuEntryImm 301, 3
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 305, 7
+    AddMenuEntry 304, 6
+    AddMenuEntry 301, 3
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _026F
     End
 _0235:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 4
-    InitGlobalTextMenu 1, 1, 0, VAR_RESULT, 1
-    AddMenuEntryImm 303, 5
-    AddMenuEntryImm 302, 4
-    AddMenuEntryImm 298, 0
-    AddMenuEntryImm 13, 10
+    CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
+    AddMenuEntry 303, 5
+    AddMenuEntry 302, 4
+    AddMenuEntry 298, 0
+    AddMenuEntry 13, 10
     ShowMenu
     GoTo _026F
     End

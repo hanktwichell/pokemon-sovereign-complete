@@ -132,39 +132,39 @@ _01D4:
     End
     .balign 4, 0
 _0224:
-    MoveAction_105 1
+    MoveAction_105
     SetInvisible
     EndMovement
     End
     .balign 4, 0
 _0234:
-    MoveAction_106 1
+    MoveAction_106
     SetInvisible
     EndMovement
     End
     .balign 4, 0
 _0244:
-    MoveAction_107 1
+    MoveAction_107
     FaceEast
     EndMovement
     End
     .balign 4, 0
 _0254:
     Delay4 6
-    MoveAction_108 1
+    MoveAction_108
     SetInvisible
     EndMovement
     End
     .balign 4, 0
 _0268:
-    MoveAction_109 1
+    MoveAction_109
     FaceEast
     EndMovement
     End
     .balign 4, 0
 _0278:
     Delay4 6
-    MoveAction_110 1
+    MoveAction_110
     SetInvisible
     EndMovement
     End
@@ -223,12 +223,12 @@ scr_seq_D18R0102_001:
     PlayCry SPECIES_SUICUNE, 0
     WaitCry
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
-    @ HGSS: WildBattle SPECIES_SUICUNE, 40, 0
+    CompleteStartWildBattle SPECIES_SUICUNE, 40, 0
     ClearFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _035C
-    @ HGSS: GetStaticEncounterOutcome VAR_TEMP_x4002
+    CompleteGetBattleResult VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 3
     GoToIf 1, _0358
     CompareVar VAR_MAP_LOCAL_0x02, 4

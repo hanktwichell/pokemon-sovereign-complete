@@ -1,7 +1,7 @@
 {
     "bg_events": [
         {
-            "script": 0,
+            "script": 8485,
             "type": 2,
             "x": 15,
             "z": 27,
@@ -9,7 +9,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8486,
             "type": 2,
             "x": 28,
             "z": 38,
@@ -17,7 +17,7 @@
             "player_facing_dir": "BG_EVENT_DIR_ALL"
         },
         {
-            "script": 0,
+            "script": 8489,
             "type": 2,
             "x": 57,
             "z": 42,
@@ -32,7 +32,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0102_TM26",
-            "script": 0,
+            "script": 7509,
             "initial_dir": 0,
             "data": [
                 0,
@@ -51,7 +51,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0102_HP_UP",
-            "script": 0,
+            "script": 7510,
             "initial_dir": 0,
             "data": [
                 0,
@@ -70,7 +70,7 @@
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ITEMBALL_D43R0102_FULL_RESTORE",
-            "script": 0,
+            "script": 7511,
             "initial_dir": 0,
             "data": [
                 0,

@@ -30,8 +30,6 @@
 #define obj_D37R0104_stop_4 32
 #define obj_D37R0104_stop_5 33
 #define obj_D37R0104_stop_6 34
-#define GATE_OPEN 0
-#define GATE_CLOSED 1
 
     ScriptEntry scr_seq_D37R0104_000
     ScriptEntry scr_seq_D37R0104_001
@@ -47,16 +45,16 @@ scr_seq_D37R0104_006:
     GoToIf 5, _0033
     ClearFlag FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1
 _0033:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x01, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x02, GATE_CLOSED
-    SetVarFromValue VAR_MAP_LOCAL_0x03, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x04, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x05, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x06, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x07, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x08, GATE_OPEN
-    SetVarFromValue VAR_MAP_LOCAL_0x09, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x01, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x02, 1
+    SetVarFromValue VAR_MAP_LOCAL_0x03, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x04, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x05, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x08, 0
+    SetVarFromValue VAR_MAP_LOCAL_0x09, 1
     End
 scr_seq_D37R0104_005:
     ShowObject obj_D37R0104_stop_3
@@ -65,227 +63,227 @@ scr_seq_D37R0104_005:
     ShowObject obj_D37R0104_stop_4
     ShowObject obj_D37R0104_stop_5
     ShowObject obj_D37R0104_stop_6
-    GoToIfSet FLAG_HGSS_OPENED_GOLDENROD_PURPLE_GATE, _open_purple_gate
+    GoToIfSet FLAG_HGSS_OPENED_GOLDENROD_PURPLE_GATE, _0096
     End
-_open_purple_gate:
+_0096:
     SetPosition obj_D37R0104_purplegate_left, 18, 0, 14, DIR_NORTH
     SetPosition obj_D37R0104_purplegate_right, 24, 0, 14, DIR_NORTH
     SetPosition obj_D37R0104_stop_6, 24, 0, 14, DIR_NORTH
     End
 scr_seq_D37R0104_002:
     LockAll
-    CompareVar VAR_MAP_LOCAL_0x01, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00F5
     ApplyMovement obj_D37R0104_gate1_left, _05CC
     ApplyMovement obj_D37R0104_gate1_right, _05D4
     ApplyMovement obj_D37R0104_stop_2, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x01, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x01, 1
     GoTo _0113
 _00F5:
     ApplyMovement obj_D37R0104_gate1_left, _05DC
     ApplyMovement obj_D37R0104_gate1_right, _05E4
     ApplyMovement obj_D37R0104_stop_2, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x01, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x01, 0
 _0113:
-    CompareVar VAR_MAP_LOCAL_0x03, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x03, 0
     GoToIf 5, _013C
     ApplyMovement obj_D37R0104_gate3_top, _05EC
     ApplyMovement obj_D37R0104_gate3_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x03, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x03, 1
     GoTo _0152
 _013C:
     ApplyMovement obj_D37R0104_gate3_top, _05FC
     ApplyMovement obj_D37R0104_gate3_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x03, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x03, 0
 _0152:
-    CompareVar VAR_MAP_LOCAL_0x05, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x05, 0
     GoToIf 5, _0183
     ApplyMovement obj_D37R0104_gate5_left, _05CC
     ApplyMovement obj_D37R0104_gate5_right, _05D4
     ApplyMovement obj_D37R0104_stop_4, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x05, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x05, 1
     GoTo _01A1
 _0183:
     ApplyMovement obj_D37R0104_gate5_left, _05DC
     ApplyMovement obj_D37R0104_gate5_right, _05E4
     ApplyMovement obj_D37R0104_stop_4, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x05, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x05, 0
 _01A1:
-    CompareVar VAR_MAP_LOCAL_0x06, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x06, 0
     GoToIf 5, _01D2
     ApplyMovement obj_D37R0104_gate6_left, _05CC
     ApplyMovement obj_D37R0104_gate6_right, _05D4
     ApplyMovement obj_D37R0104_stop_5, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x06, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 1
     GoTo _01F0
 _01D2:
     ApplyMovement obj_D37R0104_gate6_left, _05DC
     ApplyMovement obj_D37R0104_gate6_right, _05E4
     ApplyMovement obj_D37R0104_stop_5, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x06, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 0
 _01F0:
-    CompareVar VAR_MAP_LOCAL_0x07, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x07, 0
     GoToIf 5, _0219
     ApplyMovement obj_D37R0104_gate7_top, _05EC
     ApplyMovement obj_D37R0104_gate7_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x07, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 1
     GoTo _022F
 _0219:
     ApplyMovement obj_D37R0104_gate7_top, _05FC
     ApplyMovement obj_D37R0104_gate7_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x07, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
 _022F:
-    CompareVar VAR_MAP_LOCAL_0x08, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x08, 0
     GoToIf 5, _0258
     ApplyMovement obj_D37R0104_gate8_top, _05EC
     ApplyMovement obj_D37R0104_gate8_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x08, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x08, 1
     GoTo _026E
 _0258:
     ApplyMovement obj_D37R0104_gate8_top, _05FC
     ApplyMovement obj_D37R0104_gate8_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x08, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x08, 0
 _026E:
     WaitMovement
     ReleaseAll
     End
 scr_seq_D37R0104_001:
     LockAll
-    CompareVar VAR_MAP_LOCAL_0x00, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _02AD
     ApplyMovement obj_D37R0104_gate0_left, _05CC
     ApplyMovement obj_D37R0104_gate0_right, _05D4
     ApplyMovement obj_D37R0104_stop_3, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x00, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 1
     GoTo _02CB
 _02AD:
     ApplyMovement obj_D37R0104_gate0_left, _05DC
     ApplyMovement obj_D37R0104_gate0_right, _05E4
     ApplyMovement obj_D37R0104_stop_3, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x00, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
 _02CB:
-    CompareVar VAR_MAP_LOCAL_0x02, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 5, _02F4
     ApplyMovement obj_D37R0104_gate2_top, _05EC
     ApplyMovement obj_D37R0104_gate2_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x02, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x02, 1
     GoTo _030A
 _02F4:
     ApplyMovement obj_D37R0104_gate2_top, _05FC
     ApplyMovement obj_D37R0104_gate2_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x02, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
 _030A:
-    CompareVar VAR_MAP_LOCAL_0x04, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x04, 0
     GoToIf 5, _033B
     ApplyMovement obj_D37R0104_gate4_left, _05CC
     ApplyMovement obj_D37R0104_gate4_right, _05D4
     ApplyMovement obj_D37R0104_stop, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x04, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x04, 1
     GoTo _0359
 _033B:
     ApplyMovement obj_D37R0104_gate4_left, _05DC
     ApplyMovement obj_D37R0104_gate4_right, _05E4
     ApplyMovement obj_D37R0104_stop, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x04, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x04, 0
 _0359:
-    CompareVar VAR_MAP_LOCAL_0x06, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x06, 0
     GoToIf 5, _038A
     ApplyMovement obj_D37R0104_gate6_left, _05CC
     ApplyMovement obj_D37R0104_gate6_right, _05D4
     ApplyMovement obj_D37R0104_stop_5, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x06, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 1
     GoTo _03A8
 _038A:
     ApplyMovement obj_D37R0104_gate6_left, _05DC
     ApplyMovement obj_D37R0104_gate6_right, _05E4
     ApplyMovement obj_D37R0104_stop_5, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x06, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 0
 _03A8:
-    CompareVar VAR_MAP_LOCAL_0x08, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x08, 0
     GoToIf 5, _03D1
     ApplyMovement obj_D37R0104_gate8_top, _05EC
     ApplyMovement obj_D37R0104_gate8_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x08, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x08, 1
     GoTo _03E7
 _03D1:
     ApplyMovement obj_D37R0104_gate8_top, _05FC
     ApplyMovement obj_D37R0104_gate8_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x08, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x08, 0
 _03E7:
-    CompareVar VAR_MAP_LOCAL_0x09, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x09, 0
     GoToIf 5, _0410
     ApplyMovement obj_D37R0104_gate9_top, _05EC
     ApplyMovement obj_D37R0104_gate9_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x09, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x09, 1
     GoTo _0426
 _0410:
     ApplyMovement obj_D37R0104_gate9_top, _05FC
     ApplyMovement obj_D37R0104_gate9_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x09, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x09, 0
 _0426:
     WaitMovement
     ReleaseAll
     End
 scr_seq_D37R0104_000:
     LockAll
-    CompareVar VAR_MAP_LOCAL_0x02, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 5, _045D
     ApplyMovement obj_D37R0104_gate2_top, _05EC
     ApplyMovement obj_D37R0104_gate2_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x02, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x02, 1
     GoTo _0473
 _045D:
     ApplyMovement obj_D37R0104_gate2_top, _05FC
     ApplyMovement obj_D37R0104_gate2_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x02, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
 _0473:
-    CompareVar VAR_MAP_LOCAL_0x03, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x03, 0
     GoToIf 5, _049C
     ApplyMovement obj_D37R0104_gate3_top, _05EC
     ApplyMovement obj_D37R0104_gate3_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x03, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x03, 1
     GoTo _04B2
 _049C:
     ApplyMovement obj_D37R0104_gate3_top, _05FC
     ApplyMovement obj_D37R0104_gate3_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x03, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x03, 0
 _04B2:
-    CompareVar VAR_MAP_LOCAL_0x04, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x04, 0
     GoToIf 5, _04E3
     ApplyMovement obj_D37R0104_gate4_left, _05CC
     ApplyMovement obj_D37R0104_gate4_right, _05D4
     ApplyMovement obj_D37R0104_stop, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x04, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x04, 1
     GoTo _0501
 _04E3:
     ApplyMovement obj_D37R0104_gate4_left, _05DC
     ApplyMovement obj_D37R0104_gate4_right, _05E4
     ApplyMovement obj_D37R0104_stop, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x04, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x04, 0
 _0501:
-    CompareVar VAR_MAP_LOCAL_0x05, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x05, 0
     GoToIf 5, _0532
     ApplyMovement obj_D37R0104_gate5_left, _05CC
     ApplyMovement obj_D37R0104_gate5_right, _05D4
     ApplyMovement obj_D37R0104_stop_4, _060C
-    SetVarFromValue VAR_MAP_LOCAL_0x05, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x05, 1
     GoTo _0550
 _0532:
     ApplyMovement obj_D37R0104_gate5_left, _05DC
     ApplyMovement obj_D37R0104_gate5_right, _05E4
     ApplyMovement obj_D37R0104_stop_4, _0614
-    SetVarFromValue VAR_MAP_LOCAL_0x05, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x05, 0
 _0550:
-    CompareVar VAR_MAP_LOCAL_0x07, GATE_OPEN
+    CompareVar VAR_MAP_LOCAL_0x07, 0
     GoToIf 5, _0579
     ApplyMovement obj_D37R0104_gate7_top, _05EC
     ApplyMovement obj_D37R0104_gate7_bottom, _05F4
-    SetVarFromValue VAR_MAP_LOCAL_0x07, GATE_CLOSED
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 1
     GoTo _058F
 _0579:
     ApplyMovement obj_D37R0104_gate7_top, _05FC
     ApplyMovement obj_D37R0104_gate7_bottom, _0604
-    SetVarFromValue VAR_MAP_LOCAL_0x07, GATE_OPEN
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
 _058F:
     WaitMovement
     ReleaseAll
@@ -358,18 +356,18 @@ scr_seq_D37R0104_004:
     BufferRivalName 0
     Message msg_0119_D37R0104_00000
     CloseMessage
-    @ HGSS: GetStarterChoice VAR_SPECIAL_RESULT
+    GetPlayerStarterSpecies VAR_RESULT
     CompareVar VAR_RESULT, 152
     GoToIf 5, _067D
-    @ HGSS: TrainerBattle TRAINER_RIVAL_SILVER_18, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_18, 0
     GoTo _06A0
 _067D:
     CompareVar VAR_RESULT, 155
     GoToIf 5, _0698
-    @ HGSS: TrainerBattle TRAINER_RIVAL_SILVER_12, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_12, 0
     GoTo _06A0
 _0698:
-    @ HGSS: TrainerBattle TRAINER_RIVAL_SILVER_17, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_17, 0
 _06A0:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0

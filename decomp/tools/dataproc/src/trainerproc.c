@@ -16,6 +16,7 @@
 #include "generated/vars_flags.h"
 
 #include "struct_defs/trainer_data.h"
+#include "data/hgss_trainers.h" // Sovereign Complete
 
 static const char *enumFile = NULL;
 static const char *baseDir  = NULL;
@@ -112,7 +113,9 @@ static size_t          numMessages     = 0;
 
 static void EmitTrainerScripts(void)
 {
-    size_t numFlags = TRAINER_DEFEATED_FLAGS_END - TRAINER_DEFEATED_FLAGS_START + 1;
+    // Sovereign Complete: HeartGold's trainers use HeartGold's own defeated flags (include/complete_trainers.h)
+    size_t numFlags = TRAINER_DEFEATED_FLAGS_END - TRAINER_DEFEATED_FLAGS_START + 1
+        + (TRAINER_HGSS_LAST - TRAINER_HGSS_FIRST + 1);
     if (MAX_TRAINERS > numFlags) {
         Driver_Fail("more trainers defined (%d) than there are trainer flags (%zu)", MAX_TRAINERS, numFlags);
     }

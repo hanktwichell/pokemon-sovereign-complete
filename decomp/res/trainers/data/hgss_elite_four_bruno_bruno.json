@@ -1,0 +1,121 @@
+{
+    "name": "Bruno",
+    "class": "TRAINER_CLASS_HGSS_ELITE_FOUR_BRUNO",
+    "items": [
+        "ITEM_FULL_RESTORE",
+        "ITEM_FULL_RESTORE"
+    ],
+    "ai_flags": [
+        "AI_FLAG_BASIC",
+        "AI_FLAG_EVAL_ATTACK",
+        "AI_FLAG_EXPERT"
+    ],
+    "double_battle": false,
+    "party": [
+        {
+            "species": "SPECIES_HITMONTOP",
+            "form": 0,
+            "level": 53,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_COUNTER",
+                "MOVE_FAKE_OUT",
+                "MOVE_HI_JUMP_KICK",
+                "MOVE_SUCKER_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HITMONLEE",
+            "form": 0,
+            "level": 52,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_HI_JUMP_KICK",
+                "MOVE_STONE_EDGE",
+                "MOVE_EARTHQUAKE",
+                "MOVE_BLAZE_KICK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HARIYAMA",
+            "form": 0,
+            "level": 55,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_SUBSTITUTE",
+                "MOVE_FOCUS_PUNCH",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_PAYBACK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_LUCARIO",
+            "form": 0,
+            "level": 54,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_AURA_SPHERE",
+                "MOVE_DARK_PULSE",
+                "MOVE_PSYCHIC",
+                "MOVE_EXTREME_SPEED"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_HITMONCHAN",
+            "form": 0,
+            "level": 52,
+            "item": "ITEM_NONE",
+            "moves": [
+                "MOVE_FIRE_PUNCH",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_ICE_PUNCH",
+                "MOVE_HI_JUMP_KICK"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        },
+        {
+            "species": "SPECIES_MACHAMP",
+            "form": 0,
+            "level": 55,
+            "item": "ITEM_SITRUS_BERRY",
+            "moves": [
+                "MOVE_DYNAMIC_PUNCH",
+                "MOVE_STONE_EDGE",
+                "MOVE_THUNDER_PUNCH",
+                "MOVE_BULLET_PUNCH"
+            ],
+            "iv_scale": 255,
+            "ball_seal": 0
+        }
+    ],
+    "messages": [
+        {
+            "type": "TRMSG_LAST_BATTLER",
+            "en_US": [
+                "Fight as hard as you can ’til you faint!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_LAST_BATTLER_HALF_HP",
+            "en_US": [
+                "We’re standing firm!\n"
+            ]
+        },
+        {
+            "type": "TRMSG_DEFEAT",
+            "en_US": [
+                "Why?!\n",
+                "...How could we lose?\n"
+            ]
+        }
+    ]
+}

@@ -7,200 +7,35 @@
     ScriptEntry scr_seq_D51R0301_001
     ScriptEntry scr_seq_D51R0301_002
     ScriptEntry scr_seq_D51R0301_003
+    ScriptEntry scr_seq_D51R0301_004
     ScriptEntryEnd
 scr_seq_D51R0301_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GoToIfSet FLAG_HGSS_UNK_09E, _002E
+    GoToIfSet FLAG_HGSS_UNK_09E, _0146
     Message msg_0147_D51R0301_00000
     CloseMessage
     SetFlag FLAG_HGSS_UNK_09E
-_002E:
-    @ HGSS: PlayerHasSpecies VAR_SPECIAL_RESULT, SPECIES_ARCEUS
+    CheckPartyHasSpecies VAR_RESULT, SPECIES_ARCEUS
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _004C
+    GoToIf 1, _0164
     Message msg_0147_D51R0301_00002
     WaitButton
     CloseMessage
     ReleaseAll
     End
-_004C:
-    ApplyMovement obj_D51R0301_champion, _0188
-    WaitMovement
-    Message msg_0147_D51R0301_00001
-    CloseMessage
-    GetPlayerDir VAR_MAP_LOCAL_0x02
-    CompareVar VAR_MAP_LOCAL_0x02, 0
-    GoToIf 5, _0078
-    GoTo _0107
-_0072:
-    GoTo _0097
-_0078:
-    CompareVar VAR_MAP_LOCAL_0x02, 1
-    GoToIf 5, _0091
-    GoTo _00CF
-_008B:
-    GoTo _0097
-_0091:
-    GoTo _0097
-_0097:
-    ApplyMovement obj_D51R0301_champion, _0194
-    WaitMovement
-    ApplyMovement obj_D51R0301_champion, _01A0
-    WaitMovement
-    Message msg_0147_D51R0301_00003
-    CloseMessage
-    ApplyMovement obj_D51R0301_champion, _01A8
-    WaitMovement
-    Message msg_0147_D51R0301_00004
-    CloseMessage
-    ApplyMovement obj_D51R0301_champion, _01B4
-    WaitMovement
-    GoTo _0167
-_00CF:
-    ApplyMovement obj_D51R0301_champion, _01C4
-    WaitMovement
-    ApplyMovement obj_D51R0301_champion, _01D0
-    WaitMovement
-    Message msg_0147_D51R0301_00003
-    CloseMessage
-    ApplyMovement obj_D51R0301_champion, _01D8
-    WaitMovement
-    Message msg_0147_D51R0301_00004
-    CloseMessage
-    ApplyMovement obj_D51R0301_champion, _01E0
-    WaitMovement
-    GoTo _0167
-_0107:
-    ApplyMovement obj_D51R0301_champion, _01F0
-    WaitMovement
-    CompleteFollowerPause 0
-    CompleteFollowerWait
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    ApplyMovement LOCALID_PLAYER, _01FC
-    WaitMovement
-    CompleteFollowerWait
-    CompleteFollowerPause 1
-    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    ApplyMovement obj_D51R0301_champion, _0204
-    WaitMovement
-    Message msg_0147_D51R0301_00003
-    CloseMessage
-    ApplyMovement obj_D51R0301_champion, _020C
-    WaitMovement
-    ApplyMovement LOCALID_PLAYER, _022C
-    WaitMovement
-    Message msg_0147_D51R0301_00004
-    CloseMessage
-    ApplyMovement obj_D51R0301_champion, _021C
-    WaitMovement
-    GoTo _0167
-_0167:
-    PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    SetFlag FLAG_HGSS_UNK_2DD
-    RemoveObject obj_D51R0301_champion
-    ClearFlag FLAG_HGSS_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA
-    WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 7
-    ReleaseAll
-    End
-    .balign 4, 0
-_0188:
-    EmoteExclamationMark
-    Delay8
-    EndMovement
-    .balign 4, 0
-_0194:
-    WalkOnSpotNormalNorth
-    WalkSlowNorth 2
-    EndMovement
-    .balign 4, 0
-_01A0:
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_01A8:
-    WalkNormalSouth 2
-    WalkOnSpotNormalEast
-    EndMovement
-    .balign 4, 0
-_01B4:
-    WalkNormalSouth 2
-    WalkNormalWest 4
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_01C4:
-    WalkOnSpotNormalSouth
-    WalkSlowSouth
-    EndMovement
-    .balign 4, 0
-_01D0:
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_01D8:
-    WalkNormalNorth
-    EndMovement
-    .balign 4, 0
-_01E0:
-    WalkNormalSouth 2
-    WalkNormalWest 4
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_01F0:
-    WalkOnSpotNormalNorth
-    WalkSlowNorth 2
-    EndMovement
-    .balign 4, 0
-_01FC:
-    WalkSlowNorth
-    EndMovement
-    .balign 4, 0
-_0204:
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_020C:
-    WalkNormalEast
-    WalkNormalSouth 2
-    WalkOnSpotNormalWest
-    EndMovement
-    .balign 4, 0
-_021C:
-    WalkNormalSouth 2
-    WalkNormalWest 5
-    WalkOnSpotNormalSouth
-    EndMovement
-    .balign 4, 0
-_022C:
-    WalkOnSpotNormalEast
-    EndMovement
 scr_seq_D51R0301_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 13
-    GoToIf 4, _026E
-    GoToIfSet FLAG_HGSS_UNK_09D, _0263
+    GoToIf 4, _018A
+    GoToIfSet FLAG_HGSS_UNK_09D, _0195
     Message msg_0147_D51R0301_00007
     WaitButton
     CloseMessage
     SetFlag FLAG_HGSS_UNK_09D
-    ReleaseAll
-    End
-_0263:
-    Message msg_0147_D51R0301_00008
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_026E:
-    Message msg_0147_D51R0301_00009
-    WaitButton
-    CloseMessage
     ReleaseAll
     End
 scr_seq_D51R0301_002:
@@ -210,69 +45,18 @@ scr_seq_D51R0301_002:
     Message msg_0147_D51R0301_00010
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _02A6
+    GoToIf 1, _01A0
     CompareVar VAR_RESULT, 1
-    GoToIf 4, _030C
-_02A6:
+    GoToIf 4, _01CC
     Message msg_0147_D51R0301_00011
     CloseMessage
     PlaySE SEQ_SE_DP_TELE_sseq
-    ApplyMovement LOCALID_PLAYER, _0318
+    ApplyMovement LOCALID_PLAYER, _03A7
     WaitMovement
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 13
-    GoToIf 5, _02D2
+    GoToIf 5, _01D7
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 10
-    GoTo _02E4
-_02D2:
-    SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 1
-    SetFlag FLAG_HGSS_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA
-    ClearFlag FLAG_HGSS_UNK_2DD
-    ClearFlag FLAG_HGSS_UNK_2DB
-_02E4:
-    FadeScreen 6, 1, 0, COLOR_BLACK
-    WaitFadeScreen
-    Warp MAP_HEADER_HGSS_NEW_BARK, 695, 397, DIR_SOUTH
-    FadeScreen 6, 1, 1, COLOR_BLACK
-    WaitFadeScreen
-    ReleaseAll
-    End
-_030C:
-    Message msg_0147_D51R0301_00012
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-    .balign 4, 0
-_0318:
-    FaceEast
-    Delay4
-    FaceSouth
-    Delay4
-    FaceWest
-    Delay4
-    FaceNorth
-    Delay4
-    FaceEast
-    Delay2
-    FaceSouth
-    Delay2
-    FaceWest
-    Delay2
-    FaceNorth
-    Delay2
-    FaceEast
-    FaceSouth
-    FaceWest
-    FaceNorth
-    FaceEast
-    FaceSouth
-    FaceWest
-    FaceNorth
-    FaceEast
-    FaceSouth
-    FaceWest
-    FaceNorth
-    EndMovement
+    GoTo _0211
 scr_seq_D51R0301_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
@@ -284,4 +68,281 @@ scr_seq_D51R0301_003:
     CloseMessage
     ReleaseAll
     End
+scr_seq_D51R0301_004:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    GoToIfUnset FLAG_HGSS_SG_3FCE, _0239
+    GoToIfUnset FLAG_HGSS_SG_3FCD, _0239
+    GoToIfUnset FLAG_HGSS_SG_3FCC, _0239
+    GoToIfUnset FLAG_HGSS_SG_3FC6, _0242
+    GoToIfUnset FLAG_HGSS_SG_3FC5, _0242
+    GoToIfUnset FLAG_HGSS_SG_3FC4, _0242
+    Message msg_0147_D51R0301_00017
+    GoTo _024B
+_0146:
+    CheckPartyHasSpecies VAR_RESULT, SPECIES_ARCEUS
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _0164
+    Message msg_0147_D51R0301_00002
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0164:
+    ApplyMovement obj_D51R0301_champion, _0419
+    WaitMovement
+    Message msg_0147_D51R0301_00001
+    CloseMessage
+    GetPlayerDir VAR_MAP_LOCAL_0x02
+    CompareVar VAR_MAP_LOCAL_0x02, 0
+    GoToIf 5, _0295
+    GoTo _02A8
+_018A:
+    Message msg_0147_D51R0301_00009
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0195:
+    Message msg_0147_D51R0301_00008
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_01A0:
+    Message msg_0147_D51R0301_00011
+    CloseMessage
+    PlaySE SEQ_SE_DP_TELE_sseq
+    ApplyMovement LOCALID_PLAYER, _03A7
+    WaitMovement
+    CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 13
+    GoToIf 5, _01D7
+    SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 10
+    GoTo _0211
+_01CC:
+    Message msg_0147_D51R0301_00012
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_01D7:
+    SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 1
+    SetFlag FLAG_HGSS_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA
+    ClearFlag FLAG_HGSS_UNK_2DD
+    ClearFlag FLAG_HGSS_UNK_2DB
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    Warp MAP_HEADER_HGSS_NEW_BARK, 695, 397, DIR_SOUTH
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ReleaseAll
+    End
+_0211:
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    Warp MAP_HEADER_HGSS_NEW_BARK, 695, 397, DIR_SOUTH
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ReleaseAll
+    End
+_0239:
+    Message msg_0147_D51R0301_00016
+    GoTo _024B
+_0242:
+    Message msg_0147_D51R0301_00018
+    GoTo _024B
+_024B:
+    Message msg_0147_D51R0301_00014
+    ShowYesNoMenu VAR_RESULT
+    CompareVar VAR_RESULT, 1
+    GoToIf 1, _0308
+    CloseMessage
+    @ HGSS: ScrCmd_600
+    PlaySE SEQ_SE_PL_BOWABOWA_sseq
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    Warp MAP_HEADER_HGSS_GOLDENROD_BIKE_SHOP, 7, 4, DIR_NORTH
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    @ HGSS: ScrCmd_606
+    ReleaseAll
+    End
+_0295:
+    CompareVar VAR_MAP_LOCAL_0x02, 1
+    GoToIf 5, _0313
+    GoTo _0319
+_02A8:
+    ApplyMovement obj_D51R0301_champion, _0423
+    WaitMovement
+    CompleteFollowerPause 0
+    CompleteFollowerWait
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
+    ApplyMovement LOCALID_PLAYER, _042D
+    WaitMovement
+    CompleteFollowerWait
+    CompleteFollowerPause 1
+    CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    ApplyMovement obj_D51R0301_champion, _0433
+    WaitMovement
+    Message msg_0147_D51R0301_00003
+    CloseMessage
+    ApplyMovement obj_D51R0301_champion, _0439
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, _0447
+    WaitMovement
+    Message msg_0147_D51R0301_00004
+    CloseMessage
+    ApplyMovement obj_D51R0301_champion, _044D
+    WaitMovement
+    GoTo _0351
+_0308:
+    Message msg_0147_D51R0301_00015
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0313:
+    GoTo _036F
+_0319:
+    ApplyMovement obj_D51R0301_champion, _045B
+    WaitMovement
+    ApplyMovement obj_D51R0301_champion, _0465
+    WaitMovement
+    Message msg_0147_D51R0301_00003
+    CloseMessage
+    ApplyMovement obj_D51R0301_champion, _046B
+    WaitMovement
+    Message msg_0147_D51R0301_00004
+    CloseMessage
+    ApplyMovement obj_D51R0301_champion, _0471
+    WaitMovement
+    GoTo _0351
+_0351:
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    SetFlag FLAG_HGSS_UNK_2DD
+    RemoveObject obj_D51R0301_champion
+    ClearFlag FLAG_HGSS_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA
+    WaitSE SEQ_SE_DP_KAIDAN2_sseq
+    SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 7
+    ReleaseAll
+    End
+_036F:
+    ApplyMovement obj_D51R0301_champion, _047F
+    WaitMovement
+    ApplyMovement obj_D51R0301_champion, _0489
+    WaitMovement
+    Message msg_0147_D51R0301_00003
+    CloseMessage
+    ApplyMovement obj_D51R0301_champion, _048F
+    WaitMovement
+    Message msg_0147_D51R0301_00004
+    CloseMessage
+    ApplyMovement obj_D51R0301_champion, _0499
+    WaitMovement
+    GoTo _0351
+    .balign 4, 0
+_03A7:
+    FaceEast
+    Delay4
+    FaceSouth
+    Delay4
+    FaceWest
+    Delay4
+    FaceNorth
+    Delay4
+    FaceEast
+    Delay2
+    FaceSouth
+    Delay2
+    FaceWest
+    Delay2
+    FaceNorth
+    Delay2
+    FaceEast
+    FaceSouth
+    FaceWest
+    FaceNorth
+    FaceEast
+    FaceSouth
+    FaceWest
+    FaceNorth
+    FaceEast
+    FaceSouth
+    FaceWest
+    FaceNorth
+    EndMovement
+    .balign 4, 0
+_0419:
+    EmoteExclamationMark
+    Delay8
+    EndMovement
+    .balign 4, 0
+_0423:
+    WalkOnSpotNormalNorth
+    WalkSlowNorth 2
+    EndMovement
+    .balign 4, 0
+_042D:
+    WalkSlowNorth
+    EndMovement
+    .balign 4, 0
+_0433:
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_0439:
+    WalkNormalEast
+    WalkNormalSouth 2
+    WalkOnSpotNormalWest
+    EndMovement
+    .balign 4, 0
+_0447:
+    WalkOnSpotNormalEast
+    EndMovement
+    .balign 4, 0
+_044D:
+    WalkNormalSouth 2
+    WalkNormalWest 5
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_045B:
+    WalkOnSpotNormalSouth
+    WalkSlowSouth
+    EndMovement
+    .balign 4, 0
+_0465:
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_046B:
+    WalkNormalNorth
+    EndMovement
+    .balign 4, 0
+_0471:
+    WalkNormalSouth 2
+    WalkNormalWest 4
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_047F:
+    WalkOnSpotNormalNorth
+    WalkSlowNorth 2
+    EndMovement
+    .balign 4, 0
+_0489:
+    WalkOnSpotNormalSouth
+    EndMovement
+    .balign 4, 0
+_048F:
+    WalkNormalSouth 2
+    WalkOnSpotNormalEast
+    EndMovement
+    .balign 4, 0
+_0499:
+    WalkNormalSouth 2
+    WalkNormalWest 4
+    WalkOnSpotNormalSouth
+    EndMovement
     .balign 4, 0

@@ -71,6 +71,14 @@
     {
       "id": "msg_0262_P01R0306_00008",
       "en_US": "I had lots of fun!"
+    },
+    {
+      "id": "msg_0262_P01R0306_00009",
+      "en_US": [
+        "We’ve had a slight detour!\r",
+        "Fast Ship S.S. Aqua\n",
+        "has arrived on Cinnabar Island."
+      ]
     }
   ]
 }

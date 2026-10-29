@@ -12,84 +12,38 @@
 scr_seq_T25GYM0101_004:
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
-    GoToIf 5, _0106
-    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _0100
+    GoToIf 5, _0184
+    GoToIfUnset FLAG_HGSS_GAME_CLEAR, _018A
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
-    GoToIf 1, _00AF
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
+    GoToIf 1, _0190
+    GetHour VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 12
-    GoToIf 5, _0062
+    GoToIf 5, _01AB
     SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00AD
-_0062:
-    CompareVar VAR_MAP_LOCAL_0x00, 13
-    GoToIf 5, _0079
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00AD
-_0079:
-    CompareVar VAR_MAP_LOCAL_0x00, 14
-    GoToIf 5, _0090
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00AD
-_0090:
-    CompareVar VAR_MAP_LOCAL_0x00, 15
-    GoToIf 5, _00A7
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00AD
-_00A7:
-    GoTo _0100
-_00AD:
-    End
-_00AF:
-    @ HGSS: ScrCmd_522 VAR_TEMP_x4000
-    CompareVar VAR_MAP_LOCAL_0x00, 18
-    GoToIf 5, _00CA
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00FE
-_00CA:
-    CompareVar VAR_MAP_LOCAL_0x00, 19
-    GoToIf 5, _00E1
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00FE
-_00E1:
-    CompareVar VAR_MAP_LOCAL_0x00, 20
-    GoToIf 5, _00F8
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    GoTo _00FE
-_00F8:
-    GoTo _0100
-_00FE:
-    End
-_0100:
-    ClearFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    End
-_0106:
-    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
-    End
+    GoTo _01C2
 scr_seq_T25GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _0202
-    GoToIfSet FLAG_HGSS_UNK_0B7, _01A0
+    GoToIf 1, _01C4
+    GoToIfSet FLAG_HGSS_UNK_0B7, _01DA
     CompareVar VAR_HGSS_UNK_410A, 1
-    GoToIf 1, _017D
+    GoToIf 1, _0245
     Message msg_0582_T25GYM0101_00000
     CloseMessage
-    @ HGSS: TrainerBattle TRAINER_LEADER_WHITNEY, 0, 0, 0
+    StartTrainerBattle TRAINER_HGSS_LEADER_WHITNEY, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
-    GoToIf 1, _0218
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    SetTrainerFlag TRAINER_NONE
-    @ HGSS: AddSpecialGameStat SCORE_EVENT_BADGE_GET
+    GoToIf 1, _0268
+    SetTrainerFlag TRAINER_HGSS_LASS_CARRIE
+    SetTrainerFlag TRAINER_HGSS_LASS_CATHY
+    SetTrainerFlag TRAINER_HGSS_BEAUTY_VICTORIA
+    SetTrainerFlag TRAINER_HGSS_BEAUTY_SAMANTHA
+    IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetPosition obj_T25GYM0101_gsgirl1, 13, 0, 15, DIR_NORTH
-_017D:
     Message msg_0582_T25GYM0101_00002
     WaitButton
     CloseMessage
@@ -100,55 +54,17 @@ _017D:
     ClearFlag FLAG_HGSS_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_UNLOCKED
     SetFlag FLAG_HGSS_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_LOCKED
     End
-_01A0:
-    Message msg_0582_T25GYM0101_00003
-    BufferPlayerName 0
-    Message msg_0582_T25GYM0101_00004
-    PlayFanfare SEQ_BADGE_sseq
-    WaitFanfare
-    SetVarFromValue VAR_HGSS_UNK_410A, 2
-    ClearFlag FLAG_HGSS_UNK_084
-    SetFlag FLAG_HGSS_UNK_998
-    Message msg_0582_T25GYM0101_00005
-_01C4:
-    SetVar VAR_0x8004, ITEM_TM45
-    SetVar VAR_0x8005, 1
-    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
-    GoToIfEq VAR_RESULT, 0, _01F8
-    Common_GiveItemQuantity
-    Message msg_0582_T25GYM0101_00007
-    WaitButton
-    CloseMessage
-    SetFlag FLAG_HGSS_GOT_TM45_FROM_WHITNEY
-    ReleaseAll
-    End
-_01F8:
-    Common_MessageBagIsFull
-    CloseMessage
-    ReleaseAll
-    End
-_0202:
-    GoToIfUnset FLAG_HGSS_GOT_TM45_FROM_WHITNEY, _01C4
-    Message msg_0582_T25GYM0101_00008
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_0218:
-    BlackOutFromBattle
-    ReleaseAll
-    End
 scr_seq_T25GYM0101_001:
     LockAll
-    ApplyMovement obj_T25GYM0101_gsgirl1, _0260
+    ApplyMovement obj_T25GYM0101_gsgirl1, _0334
     WaitMovement
     Message msg_0582_T25GYM0101_00009
     CloseMessage
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
-    ApplyMovement obj_T25GYM0101_gsgirl1, _026C
-    ApplyMovement LOCALID_PLAYER, _0278
+    ApplyMovement obj_T25GYM0101_gsgirl1, _033E
+    ApplyMovement LOCALID_PLAYER, _0348
     WaitMovement
     CompleteFollowerWait
     CompleteFollowerPause 1
@@ -156,35 +72,14 @@ scr_seq_T25GYM0101_001:
     SetFlag FLAG_HGSS_UNK_0B7
     ReleaseAll
     End
-    .balign 4, 0
-_0260:
-    EmoteExclamationMark
-    WalkNormalNorth 3
-    EndMovement
-    .balign 4, 0
-_026C:
-    WalkNormalSouth 3
-    WalkOnSpotNormalNorth
-    EndMovement
-    .balign 4, 0
-_0278:
-    Delay8
-    WalkNormalNorth
-    EndMovement
 scr_seq_T25GYM0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
-    GoToIf 1, _02AA
+    GoToIf 1, _026E
     Message msg_0582_T25GYM0101_00010
-    WaitButton
-    CloseMessage
-    ReleaseAll
-    End
-_02AA:
-    Message msg_0582_T25GYM0101_00011
     WaitButton
     CloseMessage
     ReleaseAll
@@ -196,14 +91,150 @@ scr_seq_T25GYM0101_003:
     SetVarFromValue VAR_RESULT, 0
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
-    GoToIf 5, _02DC
+    GoToIf 5, _0279
     Message msg_0582_T25GYM0101_00012
-    GoTo _02DF
-_02DC:
-    Message msg_0582_T25GYM0101_00013
-_02DF:
+    GoTo _0284
+_0184:
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    End
+_018A:
+    ClearFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    End
+_0190:
+    GetHour VAR_MAP_LOCAL_0x00
+    CompareVar VAR_MAP_LOCAL_0x00, 18
+    GoToIf 5, _028C
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    GoTo _02A3
+_01AB:
+    CompareVar VAR_MAP_LOCAL_0x00, 13
+    GoToIf 5, _02A5
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    GoTo _01C2
+_01C2:
+    End
+_01C4:
+    GoToIfUnset FLAG_HGSS_GOT_TM45_FROM_WHITNEY, _02BC
+    Message msg_0582_T25GYM0101_00008
     WaitButton
     CloseMessage
     ReleaseAll
     End
+_01DA:
+    Message msg_0582_T25GYM0101_00003
+    BufferPlayerName 0
+    Message msg_0582_T25GYM0101_00004
+    PlayFanfare SEQ_BADGE_sseq
+    WaitFanfare
+    SetVarFromValue VAR_HGSS_UNK_410A, 2
+    ClearFlag FLAG_HGSS_UNK_084
+    SetFlag FLAG_HGSS_UNK_998
+    Message msg_0582_T25GYM0101_00005
+    SetVar VAR_0x8004, ITEM_TM45
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, _02F0
+    Common_GiveItemQuantity
+    Message msg_0582_T25GYM0101_00007
+    Message msg_0582_T25GYM0101_00014
+    BufferPlayerName 0
+    Message msg_0582_T25GYM0101_00015
+    PlayFanfare SEQ_FANFA4_sseq
+    WaitFanfare
+    @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
+    WaitButton
+    CloseMessage
+    SetFlag FLAG_HGSS_GOT_TM45_FROM_WHITNEY
+    ReleaseAll
+    End
+_0245:
+    Message msg_0582_T25GYM0101_00002
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    SetVarFromValue VAR_HGSS_UNK_410A, 1
+    SetFlag FLAG_HGSS_UNK_084
+    SetVarFromValue VAR_HGSS_UNK_40DA, 1
+    ClearFlag FLAG_HGSS_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_UNLOCKED
+    SetFlag FLAG_HGSS_HIDE_PARK_SOUTH_GATE_POKEATHLON_ENTHUSIASTS_LOCKED
+    End
+_0268:
+    BlackOutFromBattle
+    ReleaseAll
+    End
+_026E:
+    Message msg_0582_T25GYM0101_00011
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0279:
+    Message msg_0582_T25GYM0101_00013
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_0284:
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+_028C:
+    CompareVar VAR_MAP_LOCAL_0x00, 19
+    GoToIf 5, _02FA
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    GoTo _02A3
+_02A3:
+    End
+_02A5:
+    CompareVar VAR_MAP_LOCAL_0x00, 14
+    GoToIf 5, _0311
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    GoTo _01C2
+_02BC:
+    SetVar VAR_0x8004, ITEM_TM45
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, _02F0
+    Common_GiveItemQuantity
+    Message msg_0582_T25GYM0101_00007
+    WaitButton
+    CloseMessage
+    SetFlag FLAG_HGSS_GOT_TM45_FROM_WHITNEY
+    ReleaseAll
+    End
+_02F0:
+    Common_MessageBagIsFull
+    CloseMessage
+    ReleaseAll
+    End
+_02FA:
+    CompareVar VAR_MAP_LOCAL_0x00, 20
+    GoToIf 5, _0328
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    GoTo _02A3
+_0311:
+    CompareVar VAR_MAP_LOCAL_0x00, 15
+    GoToIf 5, _032E
+    SetFlag FLAG_HGSS_HIDE_GOLDENROD_GYM_WHITNEY
+    GoTo _01C2
+_0328:
+    GoTo _018A
+_032E:
+    GoTo _018A
+    .balign 4, 0
+_0334:
+    EmoteExclamationMark
+    WalkNormalNorth 3
+    EndMovement
+    .balign 4, 0
+_033E:
+    WalkNormalSouth 3
+    WalkOnSpotNormalNorth
+    EndMovement
+    .balign 4, 0
+_0348:
+    Delay8
+    WalkNormalNorth
+    EndMovement
     .balign 4, 0
