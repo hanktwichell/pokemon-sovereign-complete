@@ -19,10 +19,13 @@ HeartGold, with Drayano's **Pokémon Sacred Gold** as the blueprint for their tr
   on (Hokkaido and Honshu).
 - Two new links join them:
   - **By sea:** the S.S. Aqua runs between three main ports, one in each region: **Olivine City** (Johto),
-    **Vermilion City** (Kanto) and **Canalave City** (Sinnoh). From any port you can sail to the other two regions.
+    **Vermilion City** (Kanto) and **Canalave City** (Sinnoh). Once a route is unlocked, you can sail from any port to
+    the other two regions whenever you like.
     In Sinnoh, Canalave's menu also keeps its local stops, Iron Island and Fullmoon Island.
   - **On foot:** a path from the Ruins of Alph through the Sinjoh Ruins to Mt. Coronet.
 - Johto and Kanto stay joined as they are in HeartGold. Snowpoint's ship to the Fight Area stays as it is.
+- **The story** runs Johto, then Kanto, then Sinnoh. It starts in New Bark Town and ends at Spear Pillar, as Sovereign
+  Platinum does.
 
 ## What it's built from
 
@@ -30,13 +33,13 @@ HeartGold, with Drayano's **Pokémon Sacred Gold** as the blueprint for their tr
 |---|---|
 | Engine, Sinnoh, the 1025 Pokémon and their forms, Megas, Champions battle rules, test tools | Pokémon Sovereign Platinum, on the [pret/pokeplatinum](https://github.com/pret/pokeplatinum) decompilation |
 | Johto and Kanto: maps, people, scripts, music | HeartGold, rebuilt from the [pret/pokeheartgold](https://github.com/pret/pokeheartgold) decompilation |
-| Johto and Kanto: trainers, wild Pokémon, items, balance | Drayano's Sacred Gold (patches added at step 0, with his okay) |
+| Johto and Kanto: trainers, wild Pokémon, items, balance | Drayano's Sacred Gold, used with his permission (patches added at step 0) |
 
 ## The plan at a glance
 
 | | Estimate |
 |---|---|
-| Building | about 3½–6½ weeks of nonstop Claude sessions |
+| Building | about 3½–7 weeks of nonstop Claude sessions |
 | Your playthrough | 80–120 hours of play |
 | Start to release | about 2–3 months, at 2 hours of play a day |
 
@@ -50,7 +53,7 @@ file here: `.gitignore` blocks them.
 
 ## Credits
 
-- Drayano: Pokémon Sacred Gold and Pokémon Renegade Platinum.
+- Drayano: Pokémon Sacred Gold and Pokémon Renegade Platinum, used with his permission.
 - pret: the pokeplatinum and pokeheartgold decompilations.
 - Everything credited in Sovereign Platinum's `CITATIONS.md`.
 
