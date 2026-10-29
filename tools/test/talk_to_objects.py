@@ -78,6 +78,8 @@ START_FRAMES = 90  # a script that hasn't started by then never will
 SCENES_SEEN = {
     'events_sunyshore_city': ('VAR_SUNYSHORE_CITY_STATE', 1),  # Flint at the gate, as the player comes from Route 222
     'events_stark_mountain_room_1': ('VAR_STARK_MOUNTAIN_ROOM_1_STATE', 1),  # Mars and Jupiter, with Buck along
+    # Sovereign Complete: Ecruteak Gym before Morty is back, where a sage walks the player out to the city
+    'events_hgss_077': ('VAR_HGSS_UNK_4079', 1),
 }
 # Scripts that run longer: the Battleground's Battle Marathon is 24 battles in a row.
 LONG_SCRIPTS = {('events_battleground', 'LOCALID_SOVEREIGN_MARATHON_GUIDE'): 300000}
@@ -334,25 +336,22 @@ def u32(d, addr):
     return struct.unpack('<I', bytes(d.emu.memory.unsigned[addr:addr + 4]))[0]
 
 
-# Sovereign Complete: the card save's functions (the test build's map). The first save of a game writes its extra
-# block (Battle Videos and the rest) at once, as the Global Terminal's machines do before Wi-Fi: no vblank counts
-# for a while, which isn't a hang.
-SAVE_FUNCTIONS = ('SaveData_CardSave', 'SaveData_CardSave_Init', 'SaveData_CardSave_Main', 'SaveDataExtra_Save')
+# Sovereign Complete: a save stalls the vblank count for a while, which isn't a hang: the first one of a game writes
+# its extra block (Battle Videos and the rest) at once, as the Global Terminal's machines do before Wi-Fi, and a full
+# save writes every block. The save's functions are the test build's map's SaveData* ones.
 SAVE_STALL_FRAMES = 3000
 
 
 def save_ranges():
     if not hasattr(save_ranges, 'ranges'):
         xmap = open(os.path.join(DECOMP, 'build_test', 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
-        save_ranges.ranges = [(int(m.group(1), 16), int(m.group(1), 16) + int(m.group(2), 16))
-                              for name in SAVE_FUNCTIONS
-                              for m in [re.search(r'^\s*([0-9A-F]{8}) ([0-9A-F]{8}) \.text\s+' + name + r'\b', xmap,
-                                                  re.M)]]
+        save_ranges.ranges = [(int(start, 16), int(start, 16) + int(size, 16)) for start, size in
+                              re.findall(r'^\s*([0-9A-F]{8}) ([0-9A-F]{8}) \.text\s+SaveData\w*', xmap, re.M)]
     return save_ranges.ranges
 
 
 def saving(d):
-    """Whether the CPU is in the card save: its PC, or a return address on the stack, in one of its functions."""
+    """Whether the CPU is in the save: its PC, or a return address on the stack, in one of its functions."""
     r = d.emu.memory.register_arm9
     words = [r.pc, r.lr] + list(struct.unpack('<64I', bytes(d.emu.memory.unsigned[r.sp:r.sp + 256])))
     return any(lo <= w & ~1 < hi for w in words for lo, hi in save_ranges())

@@ -24,7 +24,7 @@ scr_seq_T11R0702_006:
     SetFlag FLAG_HGSS_HIDE_SILPH_ROTOM_FROST
     SetFlag FLAG_HGSS_HIDE_SILPH_ROTOM_FAN
     SetFlag FLAG_HGSS_HIDE_SILPH_ROTOM_MOW
-    @ HGSS: GetOwnedRotomForms VAR_TEMP_x4000, VAR_TEMP_x4001, VAR_TEMP_x4002, VAR_TEMP_x4003, VAR_TEMP_x4004
+    GetRotomFormsInSave VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01, VAR_MAP_LOCAL_0x02, VAR_MAP_LOCAL_0x03, VAR_MAP_LOCAL_0x04
     CompareVar VAR_MAP_LOCAL_0x00, 0
     CallIf 1, _01A2
     CompareVar VAR_MAP_LOCAL_0x01, 0
@@ -64,7 +64,7 @@ scr_seq_T11R0702_005:
 scr_seq_T11R0702_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: CountTranformedRotomsInParty VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT
+    GetPartyRotomCountAndFirst VAR_0x8003, VAR_RESULT
     CompareVar VAR_0x8003, 0
     GoToIf 1, _0240
     Message msg_0538_T11R0702_00013
@@ -133,7 +133,7 @@ _01C0:
     CallIf 1, _02CA
     CompareVar VAR_0x8004, 5
     CallIf 1, _02CF
-    @ HGSS: CountTranformedRotomsInParty VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT
+    GetPartyRotomCountAndFirst VAR_0x8003, VAR_RESULT
     CompareVar VAR_0x8003, 1
     GoToIf 4, _02D4
     ShowYesNoMenu VAR_RESULT
@@ -146,7 +146,7 @@ _0240:
     CloseMessage
     GoTo _03D0
 _024D:
-    @ HGSS: CountTranformedRotomsInParty VAR_SPECIAL_x8003, VAR_SPECIAL_RESULT
+    GetPartyRotomCountAndFirst VAR_0x8003, VAR_RESULT
     SetVarFromVar VAR_0x8000, VAR_RESULT
     CompareVar VAR_0x8003, 2
     GoToIf 4, _03D4
@@ -250,7 +250,7 @@ _03D4:
 _043F:
     BufferPartyMonNickname 0, VAR_0x8000
     Message msg_0538_T11R0702_00011
-    @ HGSS: UpdateRotomForm VAR_SPECIAL_x8000, 0, 0, 0
+    SetRotomForm VAR_0x8000, 0, 0, 0
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
@@ -512,7 +512,7 @@ _088A:
     Message msg_0538_T11R0702_00010
     GoTo _089E
 _089E:
-    @ HGSS: UpdateRotomForm VAR_SPECIAL_x8000, VAR_SPECIAL_x8002, VAR_SPECIAL_x8001, VAR_SPECIAL_x8004
+    SetRotomForm VAR_0x8000, VAR_0x8002, VAR_0x8001, VAR_0x8004
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage

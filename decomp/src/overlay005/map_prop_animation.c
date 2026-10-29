@@ -859,6 +859,11 @@ void MapPropOneShotAnimationManager_PlayAnimation(MapPropOneShotAnimationManager
     GF_ASSERT(tag != 0);
 
     MapPropOneShotAnimation *oneShotAnimation = MapPropOneShotAnimationManager_GetAnimation(oneShotAnimMan, tag);
+
+    if (oneShotAnimation == NULL) { // Sovereign Complete: a door a script names but no door stands at
+        return;
+    }
+
     MapPropAnimation *animation = MapPropOneShotAnimation_SwitchAnimation(oneShotAnimation, mapPropAnimIndex);
 
     MapPropAnimation_SetAnimationPaused(animation, FALSE);
@@ -869,6 +874,11 @@ void MapPropOneShotAnimationManager_PlayAnimationWithSoundEffect(MapPropOneShotA
     GF_ASSERT(tag != 0);
 
     MapPropOneShotAnimation *oneShotAnimation = MapPropOneShotAnimationManager_GetAnimation(oneShotAnimMan, tag);
+
+    if (oneShotAnimation == NULL) { // Sovereign Complete: a door a script names but no door stands at
+        return;
+    }
+
     MapPropAnimation *animation = MapPropOneShotAnimation_SwitchAnimation(oneShotAnimation, mapPropAnimIndex);
 
     if (soundEffectID != 0) {
@@ -883,6 +893,10 @@ void MapPropOneShotAnimationManager_UnloadAnimation(MapPropAnimationManager *ani
     GF_ASSERT(tag != 0);
     MapPropOneShotAnimation *oneShotAnimation = MapPropOneShotAnimationManager_GetAnimation(oneShotAnimMan, tag);
 
+    if (oneShotAnimation == NULL) { // Sovereign Complete: a door a script names but no door stands at
+        return;
+    }
+
     MapPropAnimationManager_UnloadOneShotAnimation(animMan, oneShotAnimation);
     MapPropOneShotAnimation_Reset(oneShotAnimation);
 }
@@ -892,7 +906,7 @@ MapPropAnimation *MapPropOneShotAnimationManager_GetCurrentAnimation(MapPropOneS
     GF_ASSERT(tag != 0);
 
     MapPropOneShotAnimation *oneShotAnimation = MapPropOneShotAnimationManager_GetAnimation(oneShotAnimMan, tag);
-    return oneShotAnimation->currentAnimation;
+    return oneShotAnimation != NULL ? oneShotAnimation->currentAnimation : NULL; // Sovereign Complete: as above
 }
 
 const BOOL MapPropOneShotAnimationManager_IsAnimationLoopFinished(MapPropOneShotAnimationManager *const oneShotAnimMan, const int tag)
@@ -900,11 +914,15 @@ const BOOL MapPropOneShotAnimationManager_IsAnimationLoopFinished(MapPropOneShot
     MapPropAnimation *animation = MapPropOneShotAnimationManager_GetCurrentAnimation(oneShotAnimMan, tag);
     GF_ASSERT(animation != NULL);
 
+    if (animation == NULL) { // Sovereign Complete: nothing to wait for
+        return TRUE;
+    }
+
     return MapPropAnimation_IsLoopFinished(animation) != FALSE;
 }
 
 const int MapPropOneShotAnimationManager_GetAnimationMapPropModelID(MapPropOneShotAnimationManager *const oneShotAnimMan, const int tag)
 {
     MapPropOneShotAnimation *oneShotAnimation = MapPropOneShotAnimationManager_GetAnimation(oneShotAnimMan, tag);
-    return oneShotAnimation->mapPropModelID;
+    return oneShotAnimation != NULL ? oneShotAnimation->mapPropModelID : 0; // Sovereign Complete: as above
 }

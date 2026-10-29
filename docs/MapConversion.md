@@ -132,7 +132,8 @@ Doors, windmills, water wheels and the gym puzzles' gates and carts are animated
 them as Platinum does: the animation files (`a/1/0/6`, 273 of them; Platinum's `arc/bm_anime.narc`) and, for each
 building model, a list of up to four with its flags (`a/1/0/7` for the outdoor models, `a/1/0/8` for the indoor ones;
 Platinum keeps one list for all its models, `arc/bm_anime_list.narc`). HeartGold's list entry has one word more,
-which its code never reads. `tools/complete/import_hgss_prop_animations.py` adds the animations after Platinum's 98
+whose first byte marks a door and picks its sound (hinged, sliding, the chime of Platinum's Veilstone store, or
+HeartGold's own sliding paper door). `tools/complete/import_hgss_prop_animations.py` adds the animations after Platinum's 98
 (`res/field/props/animations`) and gives each of HeartGold's models its list entry at its new number (outdoor
 590 + k, indoor 930 + k): 240 of HeartGold's 562 models are animated.
 
@@ -145,6 +146,11 @@ The two engines differ in how they play them, and `src/overlay005/map_prop_anima
   in the evening), and HeartGold shows the current one; 37 of its models do. Platinum has no such flag and played all
   four. The copies now show the first animation's object, which is set up again with the current time's animation when
   the time of day changes.
+- Platinum knows its doors from lists in its code (`src/overlay005/ov5_021D431C.c`: walking in and out, and the
+  scripts' `LoadDoorAnimation`), so HeartGold's 56 doors were never found: no door opened, and a scene that opens one
+  (Mom coming out in New Bark) played an animation that wasn't loaded, writing through a NULL pointer. The import tool
+  now writes HeartGold's doors and their sounds to `include/data/complete_hgss_doors.h` for those lists, and a door
+  animation that isn't loaded is skipped rather than played.
 - HeartGold's towns play up to 14 animations at once (Platinum's 11), besides a door's, so Platinum's limit of 16 a
   map is now 24.
 

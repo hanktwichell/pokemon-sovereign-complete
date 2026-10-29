@@ -7,6 +7,7 @@
 
 #include "struct_decls/map_object.h"
 
+#include "data/complete_hgss_doors.h" // Sovereign Complete
 #include "field/field_system.h"
 #include "overlay005/area_data.h"
 #include "overlay005/fieldmap.h"
@@ -98,7 +99,8 @@ BOOL ov5_021D433C(FieldSystem *fieldSystem, UnkStruct_ov5_021D432C *param1)
             card_door_nsbmd,
             pokecenter_inside_counter_door_nsbmd,
             hotel_grand_lake_door_nsbmd,
-            elevator_door_nsbmd
+            elevator_door_nsbmd,
+            HGSS_DOOR_MODELS // Sovereign Complete: HeartGold's (include/data/complete_hgss_doors.h)
         };
 
         param1->unk_20 = 0;
@@ -257,7 +259,8 @@ BOOL ov5_021D453C(FieldSystem *fieldSystem, UnkStruct_ov5_021D432C *param1)
             card_door_nsbmd,
             pokecenter_inside_counter_door_nsbmd,
             hotel_grand_lake_door_nsbmd,
-            elevator_door_nsbmd
+            elevator_door_nsbmd,
+            HGSS_DOOR_MODELS // Sovereign Complete: HeartGold's (include/data/complete_hgss_doors.h)
         };
 
         param1->unk_20 = 0;
@@ -465,6 +468,22 @@ static void ov5_021D47DC(Camera *camera, u8 *param1)
 
 static u8 DoorAnimation_GetSoundEffectType(const int doorModelID)
 {
+    // Sovereign Complete: HeartGold's doors, by the sound its own list gives each
+    static const int hgssSlidingDoors[] = { HGSS_SLIDING_DOOR_MODELS };
+    static const int hgssChimeDoors[] = { HGSS_CHIME_DOOR_MODELS };
+
+    for (int i = 0; i < NELEMS(hgssSlidingDoors); i++) {
+        if (doorModelID == hgssSlidingDoors[i]) {
+            return DOOR_SOUND_EFFECT_TYPE_SLIDING;
+        }
+    }
+
+    for (int i = 0; i < NELEMS(hgssChimeDoors); i++) {
+        if (doorModelID == hgssChimeDoors[i]) {
+            return DOOR_SOUND_EFFECT_TYPE_VEILSTONE_DPT_STORE_CHIME;
+        }
+    }
+
     if (doorModelID == veilstone_dpt_store_door_nsbmd) {
         return DOOR_SOUND_EFFECT_TYPE_VEILSTONE_DPT_STORE_CHIME;
     }
@@ -737,7 +756,8 @@ void DoorAnimation_FindDoorAndLoad(FieldSystem *fieldSystem, const int x, const 
         card_door_nsbmd,
         pokecenter_inside_counter_door_nsbmd,
         hotel_grand_lake_door_nsbmd,
-        elevator_door_nsbmd
+        elevator_door_nsbmd,
+        HGSS_DOOR_MODELS // Sovereign Complete: HeartGold's (include/data/complete_hgss_doors.h)
     };
 
     TerrainCollisionHitbox_Init(x, z, -1, 0, 3, 1, &hitbox);
