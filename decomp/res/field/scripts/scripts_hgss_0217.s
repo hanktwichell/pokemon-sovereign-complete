@@ -12,7 +12,7 @@ scr_seq_R25R0101_000:
     Message msg_0364_R25R0101_00000
     SetFlag FLAG_HGSS_UNK_14E
 _0020:
-    GetGameVersion VAR_0x8002
+    SetVarFromValue VAR_0x8002, 7
     CompareVar VAR_0x8002, 8
     GoToIf 5, _0037
     GoTo _00B1

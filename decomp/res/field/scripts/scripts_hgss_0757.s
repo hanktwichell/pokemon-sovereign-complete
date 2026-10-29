@@ -24,7 +24,7 @@ scr_seq_T03R0601_000:
     WaitMovement
     Message msg_0466_T03R0601_00000
     SetFlag FLAG_HGSS_SG_3FB9
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _04C1
     GoTo _04EE
@@ -221,7 +221,7 @@ _039B:
     WaitMovement
     Message msg_0466_T03R0601_00000
     SetFlag FLAG_HGSS_SG_3FB9
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _04C1
     GoTo _04EE
@@ -285,7 +285,7 @@ _049D:
     ApplyMovement obj_T03R0601_gsoldman1, _0706
     WaitMovement
     Message msg_0466_T03R0601_00006
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _04C1
     GoTo _04EE

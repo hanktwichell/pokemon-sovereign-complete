@@ -11,7 +11,7 @@
     ScriptEntry scr_seq_R39R0201_004
     ScriptEntryEnd
 scr_seq_R39R0201_004:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0047
     CompareVar VAR_MAP_LOCAL_0x00, 1

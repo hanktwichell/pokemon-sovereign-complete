@@ -18,7 +18,7 @@ scr_seq_D15R0103_001:
     ApplyMovement LOCALID_PLAYER, _0360
     WaitMovement
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _036A
     WaitMovement
     ApplyMovement obj_D15R0103_chourou, _0370
@@ -45,7 +45,7 @@ scr_seq_D15R0103_001:
     Common_FadeToDefaultMusic2
     ApplyMovement 241, _03D6
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     ReleaseAll
     End
 scr_seq_D15R0103_002:

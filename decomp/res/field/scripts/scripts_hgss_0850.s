@@ -442,9 +442,9 @@ _068A:
     CloseMessage
     ApplyMovement obj_T21_gsoldman1, _0D46
     WaitMovement
-    @ HGSS: ScrCmd_307 17, 12, 14, 17, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 17, 12, 14, 17, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T21_gsoldman1, _0D46
     WaitMovement
     ReleaseObject obj_T21_gsoldman1
@@ -453,9 +453,9 @@ _068A:
     RemoveObject obj_T21_gsoldman1
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     SetFlag FLAG_HGSS_HIDE_CHERRYGROVE_GUIDE_GENT
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Common_FadeToDefaultMusic3
     SetVarFromValue VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW, 1
     End
@@ -638,9 +638,9 @@ _099A:
     CloseMessage
     ApplyMovement obj_T21_gsoldman1, _0D46
     WaitMovement
-    @ HGSS: ScrCmd_307 17, 12, 14, 17, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 17, 12, 14, 17, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T21_gsoldman1, _0D46
     WaitMovement
     ReleaseObject obj_T21_gsoldman1
@@ -649,9 +649,9 @@ _099A:
     RemoveObject obj_T21_gsoldman1
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     SetFlag FLAG_HGSS_HIDE_CHERRYGROVE_GUIDE_GENT
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Common_FadeToDefaultMusic3
     SetVarFromValue VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW, 1
     End

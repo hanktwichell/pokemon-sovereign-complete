@@ -71,8 +71,8 @@ _00E2:
     RemoveObject obj_D18R0102_tsure_poke_static_raikou
     RemoveObject obj_D18R0102_tsure_poke_static_entei
     RemoveObject obj_D18R0102_tsure_poke_static_suicune
-    @ HGSS: CreateRoamer 0
-    @ HGSS: CreateRoamer 1
+    ActivateRoamingPokemon ROAMING_SLOT_RAIKOU
+    ActivateRoamingPokemon ROAMING_SLOT_ENTEI
     WaitTime 15, VAR_RESULT
     ClearFlag FLAG_HGSS_HIDE_BURNED_TOWER_B1F_EUSINE
     PlaySE SEQ_SE_DP_KAIDAN2_sseq

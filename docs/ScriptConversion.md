@@ -40,7 +40,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.7% of 83,001 lines. Besides trainers, gifts, trades and marts,
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 98.1% of 83,001 lines. Besides trainers, gifts, trades and marts,
   about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
   code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
   (friendship, ribbons, which are numbered alike, moves, egg counts), fossils, the National Dex, the starter, the
@@ -61,7 +61,10 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   the Pokéathlon's points stay out with it. `NopVar490` does nothing and `ScriptOverlayCmd` loads HeartGold's own
   code, so both are dropped. Ball seals are numbered alike; HeartGold's seal commands are Platinum's under other names.
 - Gifts: `NicknameInput` is Platinum's `OpenPokemonNamingScreen` (but for the Bug-Catching Contest's catch, step 5),
-  and HeartGold's Togepi Egg is `CompleteGiveTogepiEgg`: Platinum's egg gift with Extrasensory, met in Johto.
+  and HeartGold's Togepi Egg is `CompleteGiveTogepiEgg`: Platinum's egg gift with Extrasensory. HeartGold's gift places
+  (where an egg came from) are Platinum's 13 and two more, Mr. Pokémon (the Togepi Egg) and Primo (his Mareep, Wooper
+  and Slugma eggs), now added to `res/text/special_met_location_names.json` at HeartGold's numbers, so `GiveEgg`
+  keeps them.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
   clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
 - Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's
@@ -84,6 +87,10 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   flag, so `CompleteStartWildBattle` too. `FollowerPokeIsEventTrigger` asks whether a party Pokémon is a distributed
   event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, read from its met data); Sacred Gold gives these
   through its own events instead (the Azure Flute, the Plates), so the answer is no.
+- `GetGameVersion` answers HeartGold (7): Sacred Gold is HeartGold, and its scripts branch on it for version-only
+  scenes and Pokémon (Latias rather than Latios roams Kanto). Platinum's answer (12) took SoulSilver's branches wherever
+  a script asked "is this HeartGold?". HeartGold's and Platinum's unnamed `ScrCmd_258` are no longer matched by name:
+  the numbers mean different commands (HeartGold's clears link flags for the Battle Tower).
 - Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
 
 ## Gym puzzles

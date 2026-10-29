@@ -126,7 +126,7 @@ scr_seq_D44R0103_003:
     WaitFanfare
     ApplyMovement obj_D44R0103_chourou, _1036
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _03D6
     Message msg_0130_D44R0103_00020
@@ -138,7 +138,7 @@ scr_seq_D44R0103_000:
     GoToIfSet FLAG_HGSS_GOT_DRATINI_FROM_MASTER_LONG_AGO, _044D
     GoToIfSet FLAG_HGSS_GOT_DRATINI_FROM_MASTER_JUST_NOW, _0458
     GoToIfSet FLAG_HGSS_GOT_TM59_FROM_CLAIR, _0467
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0484
     Message msg_0130_D44R0103_00020
@@ -409,7 +409,7 @@ _056D:
     WaitFanfare
     ApplyMovement obj_D44R0103_chourou, _1036
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _03D6
     Message msg_0130_D44R0103_00020
@@ -502,7 +502,7 @@ _07A0:
     WaitFanfare
     ApplyMovement obj_D44R0103_chourou, _1036
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _03D6
     Message msg_0130_D44R0103_00020
@@ -585,7 +585,7 @@ _0994:
     WaitFanfare
     ApplyMovement obj_D44R0103_chourou, _1036
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _03D6
     Message msg_0130_D44R0103_00020
@@ -658,7 +658,7 @@ _0B49:
     WaitFanfare
     ApplyMovement obj_D44R0103_chourou, _1036
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _03D6
     Message msg_0130_D44R0103_00020
@@ -721,7 +721,7 @@ _0CBF:
     WaitFanfare
     ApplyMovement obj_D44R0103_chourou, _1036
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _03D6
     Message msg_0130_D44R0103_00020

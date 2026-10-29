@@ -64,7 +64,7 @@ scr_seq_R29_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_379 VAR_SPECIAL_RESULT
+    GetTimeOfDay VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0329
     Message msg_0373_R29_00012

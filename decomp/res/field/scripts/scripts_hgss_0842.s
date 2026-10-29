@@ -353,9 +353,9 @@ scr_seq_T20_011:
     LockAll
     CompareVar VAR_MAP_LOCAL_0x07, 2
     GoToIf 1, _1691
-    @ HGSS: ScrCmd_307 21, 12, 23, 12, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 23, 12, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     ClearFlag FLAG_HGSS_HIDE_NEW_BARK_MOM
     AddObject obj_T20_gsmama
@@ -367,9 +367,9 @@ scr_seq_T20_011:
     BufferPlayerName 0
     Message msg_0542_T20_00021
     CloseMessage
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     CompleteFollowerPause 0
     CompleteFollowerWait
@@ -418,18 +418,18 @@ scr_seq_T20_011:
     GoTo _1653
     ApplyMovement obj_T20_gsmama, _1EC4
     WaitMovement
-    @ HGSS: ScrCmd_307 21, 12, 23, 12, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 23, 12, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T20_gsmama, _1ECC
     WaitMovement
     SetFlag FLAG_HGSS_HIDE_NEW_BARK_MOM
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     RemoveObject obj_T20_gsmama
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     AddVar VAR_MAP_LOCAL_0x07, 1
     ReleaseAll
     End
@@ -868,16 +868,16 @@ _101D:
     ReleaseAll
     End
 _1034:
-    @ HGSS: ScrCmd_307 21, 12, 12, 9, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 12, 9, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     AddObject obj_T20_doctor
     SetPosition obj_T20_doctor, 684, 0, 393, DIR_SOUTH
     ApplyMovement obj_T20_doctor, _1BE0
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Message msg_0542_T20_00017
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _18AC
@@ -986,29 +986,29 @@ _1289:
     GoToIf 5, _12D2
     ApplyMovement obj_T20_doctor, _1C48
     WaitMovement
-    @ HGSS: ScrCmd_307 21, 12, 12, 9, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 12, 9, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T20_doctor, _1BE8
     WaitMovement
     RemoveObject obj_T20_doctor
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     SetVarFromValue VAR_HGSS_SCENE_NEW_BARK_WEST_EXIT, 1
     ReleaseAll
     End
 _12D2:
     WaitMovement
-    @ HGSS: ScrCmd_307 21, 12, 12, 9, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 12, 9, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T20_doctor, _1BE8
     WaitMovement
     RemoveObject obj_T20_doctor
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     SetVarFromValue VAR_HGSS_SCENE_NEW_BARK_WEST_EXIT, 1
     ReleaseAll
     End
@@ -1114,9 +1114,9 @@ _14A0:
     ReleaseAll
     End
 _14B4:
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     CompleteFollowerPause 0
     CompleteFollowerWait
@@ -1188,34 +1188,34 @@ _15EE:
 _160B:
     ApplyMovement obj_T20_gsmama, _1EC4
     WaitMovement
-    @ HGSS: ScrCmd_307 21, 12, 23, 12, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 23, 12, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T20_gsmama, _1ECC
     WaitMovement
     SetFlag FLAG_HGSS_HIDE_NEW_BARK_MOM
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     RemoveObject obj_T20_gsmama
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     AddVar VAR_MAP_LOCAL_0x07, 1
     ReleaseAll
     End
 _1653:
-    @ HGSS: ScrCmd_307 21, 12, 23, 12, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 21, 12, 23, 12, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T20_gsmama, _1ECC
     WaitMovement
     SetFlag FLAG_HGSS_HIDE_NEW_BARK_MOM
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     RemoveObject obj_T20_gsmama
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     AddVar VAR_MAP_LOCAL_0x07, 1
     ReleaseAll
     End

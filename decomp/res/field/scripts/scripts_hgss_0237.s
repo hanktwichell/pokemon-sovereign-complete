@@ -477,7 +477,7 @@ _0760:
     GoTo _0796
 _076A:
     ClearFlag FLAG_HGSS_HIDE_CAMERON
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _0893
     CompareVar VAR_MAP_LOCAL_0x00, 4
@@ -486,7 +486,7 @@ _076A:
     SetFlag FLAG_HGSS_UNK_1D2
     End
 _0796:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _0893
     CompareVar VAR_MAP_LOCAL_0x00, 4
@@ -613,9 +613,9 @@ _09E7:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    @ HGSS: ScrCmd_307 11, 12, 16, 26, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 11, 12, 16, 26, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_R34_var_1, _0D3C
     ApplyMovement obj_R34_tsure_poke_static_marill, _0D46
     WaitMovement
@@ -635,7 +635,7 @@ _09E7:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     WaitFadeScreen
-    @ HGSS: ScrCmd_309 77
+    UnloadAnimation 77
     SetVarFromValue VAR_HGSS_UNK_408E, 1
     Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
     @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
@@ -656,9 +656,9 @@ _0AA3:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    @ HGSS: ScrCmd_307 11, 12, 16, 26, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 11, 12, 16, 26, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_R34_var_1, _0D3C
     ApplyMovement obj_R34_tsure_poke_static_marill, _0D46
     WaitMovement
@@ -678,7 +678,7 @@ _0AA3:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     WaitFadeScreen
-    @ HGSS: ScrCmd_309 77
+    UnloadAnimation 77
     SetVarFromValue VAR_HGSS_UNK_408E, 1
     Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
     @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
@@ -690,7 +690,7 @@ _0B5C:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     WaitFadeScreen
-    @ HGSS: ScrCmd_309 77
+    UnloadAnimation 77
     SetVarFromValue VAR_HGSS_UNK_408E, 1
     Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
     @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411

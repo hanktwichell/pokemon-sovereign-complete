@@ -594,14 +594,14 @@ _0BE7:
     CloseMessage
     ApplyMovement obj_T22_gsbigman, _1046
     WaitMovement
-    @ HGSS: ScrCmd_307 15, 8, 15, 1, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 15, 8, 15, 1, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T22_gsbigman, _104C
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     RemoveObject obj_T22_gsbigman
     SetFlag FLAG_HGSS_UNK_19A
     ClearFlag FLAG_HGSS_HIDE_EARL_IN_SCHOOL

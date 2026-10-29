@@ -11,7 +11,7 @@
     ScriptEntryEnd
 scr_seq_D02R0103_002:
     ShowObject obj_D02R0103_stop
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 3
     GoToIf 5, _010E
     SetPosition obj_D02R0103_stop, 18, 0, 10, DIR_SOUTH

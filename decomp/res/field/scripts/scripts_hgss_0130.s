@@ -39,16 +39,16 @@ scr_seq_D51R0101_001:
     CloseMessage
     ApplyMovement obj_D51R0101_mount_2, _0146
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, 20, 25, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 0, 0, 20, 25, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_D51R0101_mount_2, _0150
     WaitMovement
     RemoveObject obj_D51R0101_mount_2
     SetFlag FLAG_HGSS_UNK_2DB
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 6
     ReleaseAll
     End

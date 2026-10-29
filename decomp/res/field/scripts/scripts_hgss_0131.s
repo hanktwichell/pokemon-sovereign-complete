@@ -568,7 +568,7 @@ _078F:
     FadeScreen 6, 1, 1, COLOR_WHITE
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1330
     WaitMovement
     ReleaseObject 8
@@ -590,7 +590,7 @@ _078F:
     ApplyMovement 8, _1342
     ApplyMovement 241, _133C
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     LockObject 8
     PlayCry SPECIES_ARCEUS, 0
     Message msg_0146_D51R0201_00057
@@ -619,7 +619,7 @@ _078F:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _134E
     WaitMovement
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -747,7 +747,7 @@ _0C81:
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1360
     WaitMovement
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -844,7 +844,7 @@ _0E83:
     @ HGSS: ScrCmd_820 0
     SetVarFromValue VAR_HGSS_UNK_4104, 0
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     GetPlayerDir VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x09, 483
     GoToIf 5, _0F74
@@ -853,7 +853,7 @@ _0EB5:
     @ HGSS: ScrCmd_820 0
     SetVarFromValue VAR_HGSS_UNK_4104, 0
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     GetPlayerDir VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x09, 483
     GoToIf 5, _0F74
@@ -1027,7 +1027,7 @@ _11DB:
     FadeScreen 6, 30, 1, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1504
     WaitMovement
     CompareVar VAR_MAP_LOCAL_0x09, 483
@@ -1052,7 +1052,7 @@ _1260:
     FadeScreen 6, 30, 1, COLOR_BLACK
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1504
     WaitMovement
     CompareVar VAR_MAP_LOCAL_0x09, 483

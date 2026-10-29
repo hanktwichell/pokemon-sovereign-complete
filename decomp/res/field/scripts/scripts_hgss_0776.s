@@ -48,13 +48,13 @@ scr_seq_T06_013:
     CloseMessage
     ApplyMovement obj_T06_daigo, _0A60
     WaitMovement
-    GetGameVersion VAR_MAP_LOCAL_0x04
+    SetVarFromValue VAR_MAP_LOCAL_0x04, 7
     CompareVar VAR_MAP_LOCAL_0x04, 8
     GoToIf 1, _0330
     DrawPokemonPreview SPECIES_LATIAS, 1
     Message msg_0483_T06_00017
     CloseMessage
-    @ HGSS: CreateRoamer 2
+    ActivateRoamingPokemon ROAMING_SLOT_LATIAS
     RemovePokemonPreview
     ApplyMovement obj_T06_daigo, _0A60
     WaitMovement
@@ -210,7 +210,7 @@ _0330:
     DrawPokemonPreview SPECIES_LATIOS, 0
     Message msg_0483_T06_00018
     CloseMessage
-    @ HGSS: CreateRoamer 3
+    ActivateRoamingPokemon ROAMING_SLOT_LATIOS
     RemovePokemonPreview
     ApplyMovement obj_T06_daigo, _0A60
     WaitMovement
@@ -401,7 +401,7 @@ _0620:
     FadeScreen 11, 5, 0, COLOR_WHITE
     WaitFadeScreen
     RemoveObject 20
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0919
     SetPosition 22, 1319, 0, 299, DIR_SOUTH

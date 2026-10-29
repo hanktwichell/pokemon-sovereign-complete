@@ -325,7 +325,7 @@ extern struct SovereignTestWatch gSovereignTestWatch[SOVEREIGN_TEST_WATCHES];
 extern struct SovereignTestRoamer gSovereignTestRoamers[ROAMING_SLOT_MAX];
 // When set, the next SELECT+L+R first releases these roaming slots (bit 0 the first...), as the Legend Archivist's
 // ActivateRoamingPokemon does.
-extern u16 gSovereignTestRoamerRelease;
+extern u32 gSovereignTestRoamerRelease; // Sovereign Complete: was u16, for HeartGold's roamers (slots 13 to 16)
 // When set, a wild survey (gSovereignTestWildSurvey) meets the roaming Pokémon on the map too, as a step in the grass
 // would, and records them as it records the others. With SOVEREIGN_TEST_SURVEY_ROAMERS_BATTLE, the first roamer met
 // is battled for real too, and the survey ends there.

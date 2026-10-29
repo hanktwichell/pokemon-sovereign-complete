@@ -13,7 +13,7 @@ scr_seq_D17R0101_000:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_CAUGHT_HO_OH, _00A0
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 8
     GoToIf 1, _00AB
     GoToIfSet FLAG_HGSS_UNK_108, _00B6
@@ -131,7 +131,7 @@ _01DF:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0279
     Message msg_0057_D17R0101_00000
@@ -141,7 +141,7 @@ _0215:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0279
     Message msg_0057_D17R0101_00000

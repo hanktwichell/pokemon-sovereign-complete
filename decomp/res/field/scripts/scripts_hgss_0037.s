@@ -170,14 +170,14 @@ _02AA:
     CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _04C3
-    @ HGSS: ScrCmd_307 13, 8, 25, 29, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 13, 8, 25, 29, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ClearFlag FLAG_HGSS_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT
     AddObject obj_D24R0101_suit
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     ApplyMovement obj_D24R0101_suit, _07CE
     ApplyMovement LOCALID_PLAYER, _07E4
     GetPlayerDir VAR_MAP_LOCAL_0x01
@@ -189,14 +189,14 @@ _0320:
     CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _04C3
-    @ HGSS: ScrCmd_307 13, 8, 25, 29, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 13, 8, 25, 29, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ClearFlag FLAG_HGSS_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT
     AddObject obj_D24R0101_suit
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     ApplyMovement obj_D24R0101_suit, _07CE
     ApplyMovement LOCALID_PLAYER, _07E4
     GetPlayerDir VAR_MAP_LOCAL_0x01

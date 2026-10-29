@@ -290,20 +290,20 @@ _044C:
     GoTo _0655
     End
 _046D:
-    @ HGSS: ScrCmd_307 0, 0, 8, 2, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 0, 0, 8, 2, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     Return
 _0480:
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Return
 _048B:
     Call _046D
     ApplyMovement obj_D31R0207_bfsw1, _06AC
     WaitMovement
-    @ HGSS: ScrCmd_374 obj_player
+    ShowObject LOCALID_PLAYER
     ApplyMovement LOCALID_PLAYER, _069C
     WaitMovement
     Call _0480

@@ -867,7 +867,7 @@ _0DCC:
     WaitMovement
     Message msg_0543_T20R0101_00046
     BufferPlayerName 0
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0FD8
     GoToIfUnset FLAG_HGSS_UNK_108, _0FED

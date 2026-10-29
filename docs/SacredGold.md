@@ -42,7 +42,7 @@ HeartGold's sources (`docs/ScriptConversion.md`):
   in how a value is written (`ITEM_POKE_BALL` where the source wrote 4), and translating them gives the same scripts
   as translating the sources.
 
-Sacred Gold's scripts have 83,001 command lines (HeartGold's 77,988); 97.7% translate. What's left is HeartGold's own
+Sacred Gold's scripts have 83,001 command lines (HeartGold's 77,988); 98.1% translate. What's left is HeartGold's own
 features (the photographer, phone calls and rematches, the Pokéathlon and Battle Frontier menus...), for step 5.
 
 ## Text
@@ -187,6 +187,25 @@ keep one set of grass slots and swap two of them by day and by night. So Johto a
   Platinum's twilight counts as day).
 - For step 5: Rock Smash encounters (Platinum's Rock Smash only breaks the rock), the radio's Hoenn and Sinnoh
   sounds, swarms (Platinum's swarms are Sinnoh's), headbutt trees.
+
+## Roamers
+
+HeartGold's four roamers are Platinum roaming slots after Sovereign's 13 (`generated/roaming_slots.txt`): Raikou and
+Entei (Lv. 40) roam Johto from the Burned Tower scene, Latias (Lv. 35) roams Kanto once Steven tells of it in Vermilion
+(Sacred Gold, like HeartGold, gives Latias; Latios is the one met at the Vermilion plaque, so its slot is only there for
+HeartGold's `CreateRoamer 3`). Sacred Gold keeps HeartGold's roamers as they are.
+- `src/roaming_pokemon.c` has HeartGold's 41 roaming routes after Sinnoh's 29, Johto's 16 then Kanto's 25, with
+  HeartGold's neighbours (`sRoamerAdjacencyTable`; up to six, so a route's list grows by one). A roamer's random moves
+  stay in its own region, as in HeartGold (Sinnoh's for Sovereign's own roamers); its moves to a route nearby stay
+  there anyway.
+- Sinnoh Now's roamer news flash names Sinnoh's routes and roamers only.
+- The save grows by 84 bytes (four roamers and their route numbers), which the normal block has room for.
+- HeartGold keeps no state for its roamers, so they have no state var as Sovereign's do. Its `CreateRoamer n` is
+  `ActivateRoamingPokemon` with the slot.
+- `tools/complete/test_hgss_roamers.py` releases the four and flies between Johto's and Kanto's routes: each must
+  start with its species, level and HP in its region, move to another route of its region on every flight, and be met
+  in surveys on its route. Battles, catching and walking are Sovereign's `tools/test/roamers.py`, the same code for
+  every slot, which keeps to Sovereign's roamers.
 
 ## Still to come in this step
 

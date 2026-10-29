@@ -50,7 +50,7 @@ _009F:
 scr_seq_D24R0205_000:
     LockAll
     ApplyMovement LOCALID_PLAYER, _018C
-    @ HGSS: ScrCmd_374 obj_player
+    ShowObject LOCALID_PLAYER
     WaitMovement
     CompleteScreenShake 0, 1, 1, 8
     GoToIfSet FLAG_HGSS_UNK_111, _016F

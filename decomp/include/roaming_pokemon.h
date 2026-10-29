@@ -35,8 +35,56 @@ enum RoamerRouteIndex {
     RI_ROUTE_222,
     RI_VALLEY_WINDWORKS_OUTSIDE,
     RI_FUEGO_IRONWORKS_OUTSIDE,
+    // Sovereign Complete: HeartGold's roaming routes, Johto's then Kanto's (its field_roamer.c)
+    RI_HGSS_ROUTE_29,
+    RI_HGSS_ROUTE_30,
+    RI_HGSS_ROUTE_31,
+    RI_HGSS_ROUTE_32,
+    RI_HGSS_ROUTE_33,
+    RI_HGSS_ROUTE_34,
+    RI_HGSS_ROUTE_35,
+    RI_HGSS_ROUTE_36,
+    RI_HGSS_ROUTE_37,
+    RI_HGSS_ROUTE_38,
+    RI_HGSS_ROUTE_39,
+    RI_HGSS_ROUTE_42,
+    RI_HGSS_ROUTE_43,
+    RI_HGSS_ROUTE_44,
+    RI_HGSS_ROUTE_45,
+    RI_HGSS_ROUTE_46,
+    RI_HGSS_ROUTE_1,
+    RI_HGSS_ROUTE_2,
+    RI_HGSS_ROUTE_3,
+    RI_HGSS_ROUTE_4,
+    RI_HGSS_ROUTE_5,
+    RI_HGSS_ROUTE_6,
+    RI_HGSS_ROUTE_7,
+    RI_HGSS_ROUTE_8,
+    RI_HGSS_ROUTE_9,
+    RI_HGSS_ROUTE_10,
+    RI_HGSS_ROUTE_11,
+    RI_HGSS_ROUTE_12,
+    RI_HGSS_ROUTE_13,
+    RI_HGSS_ROUTE_14,
+    RI_HGSS_ROUTE_15,
+    RI_HGSS_ROUTE_16,
+    RI_HGSS_ROUTE_17,
+    RI_HGSS_ROUTE_18,
+    RI_HGSS_ROUTE_19,
+    RI_HGSS_ROUTE_20,
+    RI_HGSS_ROUTE_21,
+    RI_HGSS_ROUTE_22,
+    RI_HGSS_ROUTE_24,
+    RI_HGSS_ROUTE_26,
+    RI_HGSS_ROUTE_28,
     RI_MAX,
 };
+
+// Sovereign Complete: each roamer roams its own region's routes, Sinnoh's, Johto's or Kanto's (HeartGold's Raikou and
+// Entei roam Johto, its Latias and Latios Kanto).
+#define RI_SINNOH_START 0
+#define RI_JOHTO_START  RI_HGSS_ROUTE_29
+#define RI_KANTO_START  RI_HGSS_ROUTE_1
 
 void RoamingPokemon_MoveToRandomMap(SpecialEncounter *speEnc, const u8 roamerSlot);
 void RoamingPokemon_RandomizeAllLocations(SpecialEncounter *speEnc);

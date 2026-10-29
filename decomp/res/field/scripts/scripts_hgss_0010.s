@@ -31,7 +31,7 @@ scr_seq_D02R0104_002:
     LockAll
     ClearFlag FLAG_HGSS_UNK_298
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _03B6
     ApplyMovement obj_D02R0104_tsure_poke_static_clefairy, _03BC
     ApplyMovement obj_D02R0104_tsure_poke_static_clefairy_2, _03C6
@@ -103,7 +103,7 @@ scr_seq_D02R0104_002:
     SetFlag FLAG_HGSS_UNK_AB5
     ApplyMovement 241, _07D8
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     ReleaseAll
     End
 scr_seq_D02R0104_001:
@@ -130,7 +130,7 @@ _026E:
     GoToIf 5, _0304
     GoTo _0310
 _0281:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 3
     GoToIf 1, _032D
     SetVarFromValue VAR_HGSS_UNK_40F6, 1
@@ -141,7 +141,7 @@ _029E:
     GoToIf 5, _0339
     GoTo _033F
 _02B1:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 3
     GoToIf 1, _0356
     GoTo _0358
@@ -163,7 +163,7 @@ _0304:
     SetFlag FLAG_HGSS_UNK_26E
     End
 _0310:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 1, _032D
     SetVarFromValue VAR_HGSS_UNK_40F6, 1
@@ -176,7 +176,7 @@ _032D:
 _0339:
     GoTo _0358
 _033F:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 1, _0356
     GoTo _0358

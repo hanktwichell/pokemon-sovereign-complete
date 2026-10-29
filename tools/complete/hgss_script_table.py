@@ -152,6 +152,8 @@ COMMANDS = {
     # Team Rocket's traps (Voltorb, Graveler, Weezing) and Azalea's Spiritomb: HeartGold's wild battle without the
     # legendary flag
     'RocketTrapBattle': lambda a: [f'CompleteStartWildBattle {a[0]}, {a[1]}, 0'],
+    # HeartGold's roamers 0 to 3 (Raikou, Entei, Latias, Latios) are Platinum roaming slots past Sovereign's
+    'CreateRoamer': lambda a: [f'ActivateRoamingPokemon ROAMING_SLOT_{("RAIKOU", "ENTEI", "LATIAS", "LATIOS")[int(a[0], 0)]}'],
     # Script structure
     'ScrDef': one('ScriptEntry {0}'),
     'ScrDefEnd': lambda a: ['ScriptEntryEnd'],
@@ -304,6 +306,25 @@ COMMANDS = {
     'ScrCmd_117': points_box_hide,
     'ScrCmd_118': points_box_update,
     'ScrCmd_606': lambda a: ['CompleteFollowerReturn'],
+    # Unnamed in HeartGold's decomp, Platinum's commands by what they do: the time of day (the same order: morning,
+    # day, evening, night, late night), a live object's movement type, the free camera (HeartGold's 102 and 103, which
+    # its scripts move as object 241, Platinum's LOCALID_CAMERA), showing an object again, the follower back beside
+    # the player (as 606)
+    'ScrCmd_379': one('GetTimeOfDay {0}'),
+    'ScrCmd_109': one('SetMovementType {0}, {1}'),
+    'ScrCmd_102': one('AddFreeCamera {0}, {1}'),
+    'ScrCmd_103': lambda a: ['RestoreCamera'],
+    'ScrCmd_374': one('ShowObject {0}'),
+    'ScrCmd_607': lambda a: ['CompleteFollowerReturn'],
+    # Link play (the Battle Tower's and the Union Room's wireless sync) and a heap check for HeartGold's debugging
+    **{f'ScrCmd_{n}': (lambda a: []) for n in (258, 261, 271, 283, 682)},
+    # Doors in scenes (HeartGold's unnamed 307 to 311, its ov01_021E9AE8 and the rest): load a door's animation at a
+    # tile, wait for it, free it, open, close. Platinum's door commands, with the same arguments.
+    'ScrCmd_307': one('LoadDoorAnimation {0}, {1}, {2}, {3}, {4}'),
+    'ScrCmd_308': one('WaitForAnimation {0}'),
+    'ScrCmd_309': one('UnloadAnimation {0}'),
+    'ScrCmd_310': one('PlayDoorOpenAnimation {0}'),
+    'ScrCmd_311': one('PlayDoorCloseAnimation {0}'),
     # HeartGold's gym puzzles (src/complete_gyms.c)
     'VermilionGymInit': lambda a: ['CompleteVermilionGymInit'],
     'VermilionGymCanCheck': one('CompleteVermilionGymCanCheck {0}, {1}'),
@@ -352,6 +373,9 @@ COMMANDS = {
     'BufferSpeciesName': one('BufferSpeciesNameFromVar {0}, {1}, {2}, {3}'),
     # Johto and Kanto's 16 badges aren't in the save yet (step 7): none counts as won.
     'CheckBadge': one('SetVarFromValue {1}, 0'),
+    # Sacred Gold is HeartGold (7; SoulSilver is 8): its scripts branch on it for version-exclusive scenes and Pokémon.
+    # Platinum's GetGameVersion gives Platinum's 12, which took SoulSilver's branches where they test for HeartGold.
+    'GetGameVersion': one('SetVarFromValue {0}, 7'),
     # Whether a party Pokémon is a distributed event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, checked
     # by its met data): Sacred Gold gives these through its own events (the Azure Flute, the Plates), so none is.
     'FollowerPokeIsEventTrigger': one('SetVarFromValue {2}, 0'),

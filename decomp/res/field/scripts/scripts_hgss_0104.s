@@ -73,7 +73,7 @@ scr_seq_D40R0107_000:
     Message msg_0125_D40R0107_00004
     WaitCry
     CloseMessage
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0134
     SetVarFromValue VAR_0x8004, 70

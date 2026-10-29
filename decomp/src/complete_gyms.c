@@ -15,9 +15,7 @@
 #include "overlay005/land_data.h"
 #include "overlay005/map_prop.h"
 #include "overlay005/map_prop_animation.h"
-#include "overlay005/ov5_021EB1A0.h"
 
-#include "billboard.h"
 #include "camera.h"
 #include "field_system.h"
 #include "field_task.h"
@@ -1637,9 +1635,10 @@ BOOL CompleteScrCmd_BlackthornGymInit(ScriptContext *ctx)
 }
 
 // Ecruteak Gym (HeartGold's ecruteak.c and InitEcruteakGym): the gym is dark, so the path between its pits doesn't show,
-// and only people show in the dark. Its four sages carry candles, which go out as each loses. HeartGold binds a candle
-// to its sage from its common trainer script; here a task keeps each candle on its sage, and puts it out when the
-// sage's trainer flag is set.
+// and only people show in the dark: their sprites, made after this, don't take the fog (CompleteEcruteakGym_IsDark, in
+// Platinum's list of models the fog leaves alone). Its four sages carry candles, which go out as each loses. HeartGold
+// binds a candle to its sage from its common trainer script; here a task keeps each candle on its sage, and puts it
+// out when the sage's trainer flag is set.
 
 #define ECRUTEAK_CANDLE     HGSS_INDOOR_MODEL(128)
 #define ECRUTEAK_SAGES      4
@@ -1658,6 +1657,13 @@ typedef struct EcruteakGymData {
     u8 shrink[ECRUTEAK_SAGES];
 } EcruteakGymData;
 
+static BOOL sEcruteakDark;
+
+BOOL CompleteEcruteakGym_IsDark(void)
+{
+    return sEcruteakDark;
+}
+
 static BOOL EcruteakGym_SageBeaten(FieldSystem *fieldSystem, MapObject *sage)
 {
     return sage != NULL && Script_IsTrainerDefeated(fieldSystem, Script_GetTrainerID(MapObject_GetScript(sage)));
@@ -1668,17 +1674,6 @@ static void EcruteakGym_Task(SysTask *sysTask, void *param)
     EcruteakGymData *gym = param;
     FieldSystem *fieldSystem = gym->fieldSystem;
     EcruteakGymPersistedData *data = PersistedData(fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_ECRUTEAK_GYM);
-    MapObject *mapObj;
-    int index = 0;
-
-    // people show in the dark (HeartGold's ApplyFogToMapObjects)
-    while (MapObjectMan_FindObjectWithStatus(fieldSystem->mapObjMan, &mapObj, &index, MAP_OBJ_STATUS_0)) {
-        Billboard *billboard = ov5_021EB1A0(mapObj);
-
-        if (billboard != NULL) {
-            NNS_G3dMdlSetMdlFogEnableFlagAll(Billboard_GetModel(billboard), FALSE);
-        }
-    }
 
     for (int i = 0; i < ECRUTEAK_SAGES; i++) {
         MapProp *candle = MapPropManager_GetLoadedPropSafely(fieldSystem->mapPropManager, gym->candleProps[i]);
@@ -1721,6 +1716,7 @@ void CompleteEcruteakGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
     fieldSystem->unk_04->dynamicMapFeaturesData = gym;
 
     // the dark: black fog at its thickest everywhere
+    sEcruteakDark = TRUE;
     memset(fogDensity, 127, sizeof(fogDensity));
     FogManager_ApplyParameters(fieldSystem->fogMan, FOG_PARAMETER_ALL, TRUE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x0020, 0);
     FogManager_ApplyColor(fieldSystem->fogMan, FOG_PARAMETER_ALL, GX_RGB(0, 0, 0), 31);
@@ -1750,6 +1746,7 @@ void CompleteEcruteakGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
 {
     EcruteakGymData *gym = fieldSystem->unk_04->dynamicMapFeaturesData;
 
+    sEcruteakDark = FALSE;
     SysTask_Done(gym->task);
     Heap_Free(gym);
     fieldSystem->unk_04->dynamicMapFeaturesData = NULL;

@@ -23,6 +23,7 @@
 
 #include "berry_patch_graphics.h"
 #include "billboard.h"
+#include "complete_gyms.h" // Sovereign Complete
 #include "enums.h"
 #include "heap.h"
 #include "map_object.h"
@@ -1311,6 +1312,10 @@ static u32 ov5_021EDD50(int param0)
 {
     int v0 = ov5_021EDD2C(param0);
     const int *v1 = gFogIgnoredModels;
+
+    if (CompleteEcruteakGym_IsDark()) { // Sovereign Complete: in Ecruteak Gym's dark, no one takes the fog
+        return 0;
+    }
 
     do {
         if (*v1 == v0) {

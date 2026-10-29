@@ -55,7 +55,7 @@ _009A:
     GoToIfUnset FLAG_HGSS_CAUGHT_SNORLAX, _020C
 _0105:
     CallIfUnset FLAG_HGSS_CAUGHT_SUICUNE, _0227
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _012D
     GoTo _023A
@@ -154,18 +154,18 @@ _0264:
     Return
 _026A:
     SetVarFromValue VAR_HGSS_ROAMER_ENTEI_STATUS, 0
-    @ HGSS: CreateRoamer 1
+    ActivateRoamingPokemon ROAMING_SLOT_ENTEI
     Return
 _0275:
     SetVarFromValue VAR_HGSS_ROAMER_RAIKOU_STATUS, 0
-    @ HGSS: CreateRoamer 0
+    ActivateRoamingPokemon ROAMING_SLOT_RAIKOU
     Return
 _0280:
     SetVarFromValue VAR_HGSS_ROAMER_LATIAS_STATUS, 0
-    @ HGSS: CreateRoamer 2
+    ActivateRoamingPokemon ROAMING_SLOT_LATIAS
     Return
 _028B:
     SetVarFromValue VAR_HGSS_ROAMER_LATIOS_STATUS, 0
-    @ HGSS: CreateRoamer 3
+    ActivateRoamingPokemon ROAMING_SLOT_LATIOS
     Return
     .balign 4, 0

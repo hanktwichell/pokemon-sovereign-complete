@@ -184,22 +184,22 @@ _033E:
     Message msg_0137_D49_00002
     CloseMessage
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _0400
     WaitMovement
     Message msg_0137_D49_00003
     CloseMessage
     ApplyMovement 241, _0408
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     Message msg_0137_D49_00004
     CloseMessage
     ApplyMovement obj_D49_thlonowner, _06C8
     ApplyMovement obj_D49_tsure_poke_static_poliwrath, _06D0
     WaitMovement
-    @ HGSS: ScrCmd_307 1, 0, 10, 22, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 1, 0, 10, 22, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_D49_thlonowner, _06DC
     ApplyMovement obj_D49_tsure_poke_static_poliwrath, _06E4
     WaitMovement
@@ -215,9 +215,9 @@ _033E:
     RemoveObject obj_D49_tsure_poke_static_poliwrath
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     ReleaseAll
     SetVarFromValue VAR_HGSS_UNK_40DB, 1
     SetFlag FLAG_HGSS_UNK_225

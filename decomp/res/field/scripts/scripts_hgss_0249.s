@@ -229,7 +229,7 @@ _032B:
     End
 _034F:
     ClearFlag FLAG_HGSS_HIDE_CAMERON
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _04D1
     CompareVar VAR_MAP_LOCAL_0x00, 4
@@ -237,7 +237,7 @@ _034F:
     ClearFlag FLAG_HGSS_UNK_226
     GoTo _050E
 _037B:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _04D1
     CompareVar VAR_MAP_LOCAL_0x00, 4
@@ -433,7 +433,7 @@ _06B4:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0854
     WaitMovement
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _0862
     FadeOutBGM 0, 50
     PlayMusic SEQ_TOWN01_D_sseq
@@ -449,7 +449,7 @@ _06B4:
     PlayMusic SEQ_ROAD_A_D_sseq
     ApplyMovement 241, _093C
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     LockAll
     Message msg_0396_R39_00021
     SetVar VAR_0x8004, ITEM_TM53

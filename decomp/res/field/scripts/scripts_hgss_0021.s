@@ -56,7 +56,7 @@ scr_seq_D17R0110_000:
     Message msg_0058_D17R0110_00004
     WaitCry
     CloseMessage
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _00FD
     SetVarFromValue VAR_0x8004, 50

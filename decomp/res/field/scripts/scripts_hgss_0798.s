@@ -55,15 +55,15 @@ scr_seq_T07R0203_010:
     ApplyMovement obj_T07R0203_var_1, _015C
     ApplyMovement obj_T07R0203_tsure_poke_static_marill, _016C
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, 3, 2, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 0, 0, 3, 2, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_T07R0203_var_1, _0180
     ApplyMovement obj_T07R0203_tsure_poke_static_marill, _018C
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Common_FadeToDefaultMusic
     SetVarFromValue VAR_HGSS_UNK_412C, 1
     SetPosition obj_T07R0203_var_1, 29, 0, 29, DIR_WEST

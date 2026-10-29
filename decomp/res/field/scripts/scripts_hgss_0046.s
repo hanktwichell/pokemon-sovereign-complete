@@ -8,7 +8,7 @@
     ScriptEntryEnd
 scr_seq_D24R0209_000:
     ApplyMovement LOCALID_PLAYER, _0064
-    @ HGSS: ScrCmd_374 obj_player
+    ShowObject LOCALID_PLAYER
     WaitMovement
     CompleteScreenShake 0, 1, 1, 8
     SetVarFromValue VAR_HGSS_UNK_40D8, 0

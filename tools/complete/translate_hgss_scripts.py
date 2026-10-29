@@ -232,7 +232,8 @@ def translate_file(path, names, table, platinum_params, hg_params, report):
             out += ['    ' + x for x in table[name](args)]
             report['table'] += 1
         elif name in platinum_params and len(args) <= len(platinum_params[name]) \
-                and len(hg_params.get(name, args)) == len(platinum_params[name]):
+                and len(hg_params.get(name, args)) == len(platinum_params[name]) \
+                and not re.match(r'ScrCmd_\d+$', name):  # unnamed in both decomps: the same number is no match
             out.append('    ' + (name + ' ' + ', '.join(args)).rstrip())
             report['same'] += 1
         else:

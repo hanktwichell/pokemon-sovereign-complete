@@ -91,7 +91,8 @@ KEY = {(0, -1): 'UP', (0, 1): 'DOWN', (-1, 0): 'LEFT', (1, 0): 'RIGHT'}
 
 
 def slot_names():
-    return [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'roaming_slots.txt')) if line.strip()]
+    return [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'roaming_slots.txt'))
+            if line.strip() and not line.startswith('#')]  # Sovereign Complete: the list has comments
 
 
 def released():
@@ -99,6 +100,8 @@ def released():
     found = set()
     for path in glob.glob(os.path.join(DECOMP, 'res', 'field', 'scripts', '*.s')):
         found |= set(re.findall(r'ActivateRoamingPokemon (ROAMING_SLOT_\w+)', open(path, encoding='utf-8').read()))
+    # Sovereign Complete: HeartGold's roamers roam Johto and Kanto (tools/complete/test_hgss_roamers.py)
+    found -= {'ROAMING_SLOT_RAIKOU', 'ROAMING_SLOT_ENTEI', 'ROAMING_SLOT_LATIAS', 'ROAMING_SLOT_LATIOS'}
     return sorted(found, key=slot_names().index)
 
 

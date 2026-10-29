@@ -13,7 +13,7 @@ scr_seq_T26R0601_000:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_DAILY_RECEIVED_PLATE_FROM_AQUA_CAPTAIN, _00D9
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _00E4
     CompareVar VAR_MAP_LOCAL_0x00, 4

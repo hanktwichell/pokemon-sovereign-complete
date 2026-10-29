@@ -27,7 +27,7 @@ scr_seq_D40R0104_000:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_CAUGHT_LUGIA, _010D
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 8
     GoToIf 1, _0093
     GoToIfSet FLAG_HGSS_UNK_106, _00C5
@@ -53,7 +53,7 @@ _00B4:
     SetFlag FLAG_HGSS_UNK_106
     End
 _00C5:
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 8
     GoToIf 5, _00EC
     GoToIfSet FLAG_HGSS_UNK_109, _00F7

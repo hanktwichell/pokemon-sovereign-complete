@@ -61,7 +61,7 @@ _00E2:
 _00EE:
     ApplyMovement LOCALID_PLAYER, _01DC
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, VAR_TEMP_x4002, VAR_TEMP_x4003, 77
+    LoadDoorAnimation 0, 0, VAR_MAP_LOCAL_0x02, VAR_MAP_LOCAL_0x03, 77
     Call _08AF
     ApplyMovement LOCALID_PLAYER, _01BC
     ApplyMovement obj_D47R0101_counterm_3, _01F4
@@ -90,7 +90,7 @@ _0172:
     SetVarFromValue VAR_MAP_LOCAL_0x02, 19
     SetVarFromValue VAR_MAP_LOCAL_0x03, 5
 _017E:
-    @ HGSS: ScrCmd_307 0, 0, VAR_TEMP_x4002, VAR_TEMP_x4003, 77
+    LoadDoorAnimation 0, 0, VAR_MAP_LOCAL_0x02, VAR_MAP_LOCAL_0x03, 77
     Call _08AF
     ApplyMovement LOCALID_PLAYER, _01BC
     WaitMovement
@@ -532,7 +532,7 @@ _0773:
     CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _08C4
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, 5, 5, 77
+    LoadDoorAnimation 0, 0, 5, 5, 77
     Call _08AF
     ApplyMovement LOCALID_PLAYER, _08D0
     WaitMovement
@@ -594,13 +594,13 @@ _0899:
     ReleaseAll
     End
 _08AF:
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     Return
 _08B7:
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Return
     .balign 4, 0
 _08C4:
@@ -732,18 +732,15 @@ _0AAC:
     GoTo _0BB2
     End
 _0B05:
-    @ HGSS: ScrCmd_283
     GoTo _0A5D
     End
 _0B11:
-    @ HGSS: ScrCmd_283
     Message msg_0135_D47R0101_00087
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _0B20:
-    @ HGSS: ScrCmd_283
     Message msg_0135_D47R0101_00085
     WaitButton
     CloseMessage
@@ -766,18 +763,15 @@ _0B2F:
     GoTo _0BB2
     End
 _0B88:
-    @ HGSS: ScrCmd_283
     GoTo _0A5D
     End
 _0B94:
-    @ HGSS: ScrCmd_283
     Message msg_0135_D47R0101_00087
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _0BA3:
-    @ HGSS: ScrCmd_283
     Message msg_0135_D47R0101_00085
     WaitButton
     CloseMessage
@@ -788,7 +782,6 @@ _0BB2:
     Message msg_0135_D47R0101_00081
     @ HGSS: ScrCmd_257 96
     @ HGSS: ScrCmd_822
-    @ HGSS: ScrCmd_283
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     @ HGSS: ScrCmd_823 VAR_TEMP_x4000
     Message msg_0135_D47R0101_00082
@@ -887,7 +880,7 @@ _0CCC:
     CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _08C4
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, 19, 5, 77
+    LoadDoorAnimation 0, 0, 19, 5, 77
     Call _08AF
     ApplyMovement LOCALID_PLAYER, _08D0
     WaitMovement

@@ -34,7 +34,7 @@ scr_seq_T03_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _02B3
     GoToIfSet FLAG_HGSS_UNK_094, _02F4
@@ -120,7 +120,7 @@ scr_seq_T03_012:
     WaitMovement
     ApplyMovement obj_T03_daigo, _087E
     WaitMovement
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0419
     Message msg_0460_T03_00006
@@ -132,7 +132,7 @@ scr_seq_T03_010:
     @ HGSS: ScrCmd_546 0, VAR_TEMP_x4000
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _048C
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0490
     SetVarFromValue VAR_MAP_LOCAL_0x0A, 381
@@ -185,7 +185,7 @@ _02AD:
 _02B3:
     GoToIfSet FLAG_HGSS_UNK_093, _02F4
     Message msg_0460_T03_00002
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _059E
     SetVarFromValue VAR_0x8004, ITEM_SILVER_WING
@@ -203,7 +203,7 @@ _02F4:
     End
 _02FF:
     Message msg_0460_T03_00002
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _059E
     SetVarFromValue VAR_0x8004, ITEM_SILVER_WING
@@ -262,7 +262,7 @@ _03E1:
     End
 _03EF:
     GoToIfSet FLAG_HGSS_SG_3FFF, _0490
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0671
     SetFlag FLAG_HGSS_HIDE_PEWTER_CITY_LATIOS
@@ -277,7 +277,7 @@ _0419:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0681
     Message msg_0460_T03_00008
@@ -290,7 +290,7 @@ _0454:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0681
     Message msg_0460_T03_00008
@@ -317,7 +317,7 @@ _0490:
     GoToIf 1, _06A8
     CompareVar VAR_RESULT, 0
     GoToIf 1, _06C2
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _06E1
     Message msg_0460_T03_00012
@@ -338,7 +338,7 @@ _0508:
     GoToIf 1, _06A8
     CompareVar VAR_RESULT, 0
     GoToIf 1, _06C2
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _06E1
     Message msg_0460_T03_00012
@@ -429,7 +429,7 @@ _06A0:
     BlackOutFromBattle
     GoTo _048C
 _06A8:
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _06E1
     Message msg_0460_T03_00012
@@ -452,14 +452,14 @@ _06F9:
     GoToIf 1, _048C
     GoTo _076C
 _070E:
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _07D3
     ClearFlag FLAG_HGSS_HIDE_PEWTER_CITY_LATIOS
     GoTo _07D9
 _0729:
     ClearFlag FLAG_HGSS_HIDE_PEWTER_CITY_STEVEN
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _07D3
     ClearFlag FLAG_HGSS_HIDE_PEWTER_CITY_LATIOS
@@ -488,7 +488,7 @@ _076C:
     GoToIf 1, _07F2
     CompareVar VAR_MAP_LOCAL_0x00, 4
     GoToIf 1, _080C
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0817
     Message msg_0460_T03_00016
@@ -507,7 +507,7 @@ _07E1:
     SetVarFromValue VAR_HGSS_UNK_4083, 4
     GoTo _0836
 _07F2:
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0817
     Message msg_0460_T03_00016

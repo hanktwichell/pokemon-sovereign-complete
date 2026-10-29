@@ -18,7 +18,7 @@
 
 typedef struct NearbyRoutes {
     u16 numPossibilities;
-    u16 adjacentRouteIndexes[5];
+    u16 adjacentRouteIndexes[6]; // Sovereign Complete: 6 for HeartGold's Route 5
 } NearbyRoutes;
 
 static void MoveRoamerRandom(SpecialEncounter *speEnc, const u8 roamerSlot, const int playerPreviousMap);
@@ -144,6 +144,171 @@ static const NearbyRoutes sNearbyRoutes[RI_MAX] = {
         1,
         { RI_ROUTE_205_SOUTH, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
     },
+    // Sovereign Complete: HeartGold's roaming routes and their neighbours (its sRoamerAdjacencyTable)
+    [RI_HGSS_ROUTE_29] = {
+        2,
+        { RI_HGSS_ROUTE_30, RI_HGSS_ROUTE_46, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_30] = {
+        2,
+        { RI_HGSS_ROUTE_29, RI_HGSS_ROUTE_31, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_31] = {
+        3,
+        { RI_HGSS_ROUTE_30, RI_HGSS_ROUTE_32, RI_HGSS_ROUTE_36, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_32] = {
+        3,
+        { RI_HGSS_ROUTE_31, RI_HGSS_ROUTE_33, RI_HGSS_ROUTE_36, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_33] = {
+        2,
+        { RI_HGSS_ROUTE_32, RI_HGSS_ROUTE_34, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_34] = {
+        2,
+        { RI_HGSS_ROUTE_33, RI_HGSS_ROUTE_35, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_35] = {
+        2,
+        { RI_HGSS_ROUTE_34, RI_HGSS_ROUTE_36, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_36] = {
+        3,
+        { RI_HGSS_ROUTE_31, RI_HGSS_ROUTE_32, RI_HGSS_ROUTE_37, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_37] = {
+        3,
+        { RI_HGSS_ROUTE_36, RI_HGSS_ROUTE_38, RI_HGSS_ROUTE_42, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_38] = {
+        3,
+        { RI_HGSS_ROUTE_37, RI_HGSS_ROUTE_39, RI_HGSS_ROUTE_42, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_39] = {
+        1,
+        { RI_HGSS_ROUTE_38, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_42] = {
+        4,
+        { RI_HGSS_ROUTE_37, RI_HGSS_ROUTE_38, RI_HGSS_ROUTE_43, RI_HGSS_ROUTE_44, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_43] = {
+        2,
+        { RI_HGSS_ROUTE_42, RI_HGSS_ROUTE_44, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_44] = {
+        3,
+        { RI_HGSS_ROUTE_42, RI_HGSS_ROUTE_43, RI_HGSS_ROUTE_46, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_45] = {
+        2,
+        { RI_HGSS_ROUTE_44, RI_HGSS_ROUTE_46, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_46] = {
+        2,
+        { RI_HGSS_ROUTE_29, RI_HGSS_ROUTE_45, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_1] = {
+        2,
+        { RI_HGSS_ROUTE_2, RI_HGSS_ROUTE_22, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_2] = {
+        3,
+        { RI_HGSS_ROUTE_1, RI_HGSS_ROUTE_22, RI_HGSS_ROUTE_3, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_3] = {
+        2,
+        { RI_HGSS_ROUTE_2, RI_HGSS_ROUTE_4, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_4] = {
+        3,
+        { RI_HGSS_ROUTE_3, RI_HGSS_ROUTE_5, RI_HGSS_ROUTE_24, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_5] = {
+        6,
+        { RI_HGSS_ROUTE_4, RI_HGSS_ROUTE_6, RI_HGSS_ROUTE_7, RI_HGSS_ROUTE_8, RI_HGSS_ROUTE_9, RI_HGSS_ROUTE_24 },
+    },
+    [RI_HGSS_ROUTE_6] = {
+        3,
+        { RI_HGSS_ROUTE_7, RI_HGSS_ROUTE_8, RI_HGSS_ROUTE_11, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_7] = {
+        4,
+        { RI_HGSS_ROUTE_5, RI_HGSS_ROUTE_6, RI_HGSS_ROUTE_8, RI_HGSS_ROUTE_16, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_8] = {
+        5,
+        { RI_HGSS_ROUTE_5, RI_HGSS_ROUTE_6, RI_HGSS_ROUTE_7, RI_HGSS_ROUTE_10, RI_HGSS_ROUTE_12, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_9] = {
+        4,
+        { RI_HGSS_ROUTE_4, RI_HGSS_ROUTE_5, RI_HGSS_ROUTE_10, RI_HGSS_ROUTE_24, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_10] = {
+        3,
+        { RI_HGSS_ROUTE_8, RI_HGSS_ROUTE_9, RI_HGSS_ROUTE_12, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_11] = {
+        2,
+        { RI_HGSS_ROUTE_6, RI_HGSS_ROUTE_12, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_12] = {
+        4,
+        { RI_HGSS_ROUTE_8, RI_HGSS_ROUTE_10, RI_HGSS_ROUTE_11, RI_HGSS_ROUTE_13, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_13] = {
+        2,
+        { RI_HGSS_ROUTE_12, RI_HGSS_ROUTE_14, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_14] = {
+        2,
+        { RI_HGSS_ROUTE_13, RI_HGSS_ROUTE_15, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_15] = {
+        3,
+        { RI_HGSS_ROUTE_14, RI_HGSS_ROUTE_18, RI_HGSS_ROUTE_19, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_16] = {
+        2,
+        { RI_HGSS_ROUTE_7, RI_HGSS_ROUTE_22, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_17] = {
+        2,
+        { RI_HGSS_ROUTE_16, RI_HGSS_ROUTE_18, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_18] = {
+        3,
+        { RI_HGSS_ROUTE_15, RI_HGSS_ROUTE_17, RI_HGSS_ROUTE_19, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_19] = {
+        2,
+        { RI_HGSS_ROUTE_15, RI_HGSS_ROUTE_18, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_20] = {
+        2,
+        { RI_HGSS_ROUTE_19, RI_HGSS_ROUTE_21, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_21] = {
+        2,
+        { RI_HGSS_ROUTE_1, RI_HGSS_ROUTE_19, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_22] = {
+        4,
+        { RI_HGSS_ROUTE_1, RI_HGSS_ROUTE_2, RI_HGSS_ROUTE_26, RI_HGSS_ROUTE_28, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_24] = {
+        3,
+        { RI_HGSS_ROUTE_4, RI_HGSS_ROUTE_5, RI_HGSS_ROUTE_9, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_26] = {
+        2,
+        { RI_HGSS_ROUTE_22, RI_HGSS_ROUTE_28, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
+    [RI_HGSS_ROUTE_28] = {
+        3,
+        { RI_HGSS_ROUTE_22, RI_HGSS_ROUTE_26, RI_HGSS_ROUTE_9, 0xFFFF, 0xFFFF, 0xFFFF },
+    },
 };
 
 // All outdoor areas with encounters on the mainland except Trophy Garden, Great Marsh, and the ones past Sunyshore City
@@ -177,6 +342,48 @@ static const int RoamingPokemonRoutes[RI_MAX] = {
     [RI_ROUTE_222] = MAP_HEADER_ROUTE_222,
     [RI_VALLEY_WINDWORKS_OUTSIDE] = MAP_HEADER_VALLEY_WINDWORKS_OUTSIDE,
     [RI_FUEGO_IRONWORKS_OUTSIDE] = MAP_HEADER_FUEGO_IRONWORKS_OUTSIDE,
+    // Sovereign Complete
+    [RI_HGSS_ROUTE_29] = MAP_HEADER_HGSS_ROUTE_29,
+    [RI_HGSS_ROUTE_30] = MAP_HEADER_HGSS_ROUTE_30,
+    [RI_HGSS_ROUTE_31] = MAP_HEADER_HGSS_ROUTE_31,
+    [RI_HGSS_ROUTE_32] = MAP_HEADER_HGSS_ROUTE_32,
+    [RI_HGSS_ROUTE_33] = MAP_HEADER_HGSS_ROUTE_33,
+    [RI_HGSS_ROUTE_34] = MAP_HEADER_HGSS_ROUTE_34,
+    [RI_HGSS_ROUTE_35] = MAP_HEADER_HGSS_ROUTE_35,
+    [RI_HGSS_ROUTE_36] = MAP_HEADER_HGSS_ROUTE_36,
+    [RI_HGSS_ROUTE_37] = MAP_HEADER_HGSS_ROUTE_37,
+    [RI_HGSS_ROUTE_38] = MAP_HEADER_HGSS_ROUTE_38,
+    [RI_HGSS_ROUTE_39] = MAP_HEADER_HGSS_ROUTE_39,
+    [RI_HGSS_ROUTE_42] = MAP_HEADER_HGSS_ROUTE_42,
+    [RI_HGSS_ROUTE_43] = MAP_HEADER_HGSS_ROUTE_43,
+    [RI_HGSS_ROUTE_44] = MAP_HEADER_HGSS_ROUTE_44,
+    [RI_HGSS_ROUTE_45] = MAP_HEADER_HGSS_ROUTE_45,
+    [RI_HGSS_ROUTE_46] = MAP_HEADER_HGSS_ROUTE_46,
+    [RI_HGSS_ROUTE_1] = MAP_HEADER_HGSS_ROUTE_1,
+    [RI_HGSS_ROUTE_2] = MAP_HEADER_HGSS_ROUTE_2,
+    [RI_HGSS_ROUTE_3] = MAP_HEADER_HGSS_ROUTE_3,
+    [RI_HGSS_ROUTE_4] = MAP_HEADER_HGSS_ROUTE_4,
+    [RI_HGSS_ROUTE_5] = MAP_HEADER_HGSS_ROUTE_5,
+    [RI_HGSS_ROUTE_6] = MAP_HEADER_HGSS_ROUTE_6,
+    [RI_HGSS_ROUTE_7] = MAP_HEADER_HGSS_ROUTE_7,
+    [RI_HGSS_ROUTE_8] = MAP_HEADER_HGSS_ROUTE_8,
+    [RI_HGSS_ROUTE_9] = MAP_HEADER_HGSS_ROUTE_9,
+    [RI_HGSS_ROUTE_10] = MAP_HEADER_HGSS_ROUTE_10,
+    [RI_HGSS_ROUTE_11] = MAP_HEADER_HGSS_ROUTE_11,
+    [RI_HGSS_ROUTE_12] = MAP_HEADER_HGSS_ROUTE_12,
+    [RI_HGSS_ROUTE_13] = MAP_HEADER_HGSS_ROUTE_13,
+    [RI_HGSS_ROUTE_14] = MAP_HEADER_HGSS_ROUTE_14,
+    [RI_HGSS_ROUTE_15] = MAP_HEADER_HGSS_ROUTE_15,
+    [RI_HGSS_ROUTE_16] = MAP_HEADER_HGSS_ROUTE_16,
+    [RI_HGSS_ROUTE_17] = MAP_HEADER_HGSS_ROUTE_17,
+    [RI_HGSS_ROUTE_18] = MAP_HEADER_HGSS_ROUTE_18,
+    [RI_HGSS_ROUTE_19] = MAP_HEADER_HGSS_ROUTE_19,
+    [RI_HGSS_ROUTE_20] = MAP_HEADER_HGSS_ROUTE_20,
+    [RI_HGSS_ROUTE_21] = MAP_HEADER_HGSS_ROUTE_21,
+    [RI_HGSS_ROUTE_22] = MAP_HEADER_HGSS_ROUTE_22,
+    [RI_HGSS_ROUTE_24] = MAP_HEADER_HGSS_ROUTE_24,
+    [RI_HGSS_ROUTE_26] = MAP_HEADER_HGSS_ROUTE_26,
+    [RI_HGSS_ROUTE_28] = MAP_HEADER_HGSS_ROUTE_28,
 };
 
 void RoamingPokemon_MoveToRandomMap(SpecialEncounter *speEnc, const u8 roamerSlot)
@@ -307,6 +514,23 @@ void RoamingPokemon_ActivateSlot(SaveData *saveData, const u8 slot)
         species = SPECIES_SPECTRIER;
         level = 70;
         break;
+    // Sovereign Complete: HeartGold's roamers, at its levels (Sacred Gold keeps them)
+    case ROAMING_SLOT_RAIKOU:
+        species = SPECIES_RAIKOU;
+        level = 40;
+        break;
+    case ROAMING_SLOT_ENTEI:
+        species = SPECIES_ENTEI;
+        level = 40;
+        break;
+    case ROAMING_SLOT_LATIAS:
+        species = SPECIES_LATIAS;
+        level = 35;
+        break;
+    case ROAMING_SLOT_LATIOS:
+        species = SPECIES_LATIOS;
+        level = 35;
+        break;
     default:
         GF_ASSERT(FALSE);
         return;
@@ -331,16 +555,39 @@ void RoamingPokemon_ActivateSlot(SaveData *saveData, const u8 slot)
     MoveRoamerRandom(speEnc, slot, previouslyVisitedMap);
 }
 
+// Sovereign Complete: the routes of the roamer's region (RI_SINNOH_START, RI_JOHTO_START, RI_KANTO_START).
+static void RoamerRegionRoutes(const u8 roamerSlot, u8 *first, u8 *count)
+{
+    switch (roamerSlot) {
+    case ROAMING_SLOT_RAIKOU:
+    case ROAMING_SLOT_ENTEI:
+        *first = RI_JOHTO_START;
+        *count = RI_KANTO_START - RI_JOHTO_START;
+        break;
+    case ROAMING_SLOT_LATIAS:
+    case ROAMING_SLOT_LATIOS:
+        *first = RI_KANTO_START;
+        *count = RI_MAX - RI_KANTO_START;
+        break;
+    default:
+        *first = RI_SINNOH_START;
+        *count = RI_JOHTO_START - RI_SINNOH_START;
+        break;
+    }
+}
+
 static void MoveRoamerRandom(SpecialEncounter *specialEncounter, const u8 roamerSlot, const int playerPreviousMap)
 {
     u8 newIndex;
     int currentRoute;
     int newRoute;
+    u8 firstRoute, routeCount;
 
     currentRoute = RoamingPokemonRoutes[SpecialEncounter_GetRoamerRouteIndex(specialEncounter, roamerSlot)];
+    RoamerRegionRoutes(roamerSlot, &firstRoute, &routeCount);
 
     while (TRUE) {
-        newIndex = LCRNG_RandMod(RI_MAX);
+        newIndex = firstRoute + LCRNG_RandMod(routeCount); // Sovereign Complete: was LCRNG_RandMod(RI_MAX)
         newRoute = RoamingPokemonRoutes[newIndex];
 
         if ((newRoute != playerPreviousMap) && (newRoute != currentRoute)) {

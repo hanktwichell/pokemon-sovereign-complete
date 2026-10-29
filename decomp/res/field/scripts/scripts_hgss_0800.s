@@ -10,7 +10,7 @@ scr_seq_T07R0205_000:
     FacePlayer
     GoToIfSet FLAG_HGSS_GOT_SPELL_TAG_FROM_CELADON_CITY_MAN, _0071
     Message msg_0505_T07R0205_00000
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _0045
     CompareVar VAR_MAP_LOCAL_0x00, 4

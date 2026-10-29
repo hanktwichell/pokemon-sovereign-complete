@@ -210,7 +210,7 @@ _0330:
 scr_seq_D24R0216_005:
     LockAll
     ApplyMovement LOCALID_PLAYER, _038C
-    @ HGSS: ScrCmd_374 obj_player
+    ShowObject LOCALID_PLAYER
     WaitMovement
     CompleteScreenShake 0, 1, 1, 8
     SetVarFromValue VAR_HGSS_UNK_40CE, 0

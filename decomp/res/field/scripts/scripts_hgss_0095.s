@@ -51,7 +51,7 @@ scr_seq_D37R0103_000:
     ApplyMovement obj_D37R0103_stop_3, _0556
     WaitMovement
     SetFlag FLAG_HGSS_UNK_096
-    @ HGSS: ScrCmd_109 0, 9
+    SetMovementType 0, 9
     ReleaseAll
     End
 scr_seq_D37R0103_001:
@@ -98,7 +98,7 @@ scr_seq_D37R0103_004:
 _013A:
     GoToIfSet FLAG_HGSS_UNK_097, _0265
     GoToIfSet FLAG_HGSS_UNK_098, _02F0
-    @ HGSS: ScrCmd_109 0, 9
+    SetMovementType 0, 9
     SetPosition obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
     SetPosition obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
     SetPosition obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
@@ -135,7 +135,7 @@ _0241:
     GoTo _041A
 _0265:
     GoToIfSet FLAG_HGSS_UNK_098, _0457
-    @ HGSS: ScrCmd_109 0, 9
+    SetMovementType 0, 9
     SetPosition obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
     SetPosition obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
     SetPosition obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
@@ -148,7 +148,7 @@ _0265:
     SetPosition obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH
     End
 _02F0:
-    @ HGSS: ScrCmd_109 0, 9
+    SetMovementType 0, 9
     SetPosition obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
     SetPosition obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
     SetPosition obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
@@ -197,7 +197,7 @@ _041A:
     ReleaseAll
     End
 _0457:
-    @ HGSS: ScrCmd_109 0, 9
+    SetMovementType 0, 9
     SetPosition obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
     SetPosition obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
     SetPosition obj_D37R0103_stop, 19, 0, 17, DIR_NORTH

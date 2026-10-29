@@ -92,7 +92,7 @@ scr_seq_R30R0201_002:
     ApplyMovement obj_R30R0201_gsgentleman, _03E0
     WaitMovement
     BufferPlayerName 0
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0331
     SetVarFromValue VAR_0x8004, 534

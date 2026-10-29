@@ -54,7 +54,6 @@ _00BC:
     End
 _00D2:
     @ HGSS: ScrCmd_257 100
-    @ HGSS: ScrCmd_261 11
     @ HGSS: ScrCmd_267 22, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
     GoTo _00EC
@@ -85,11 +84,9 @@ _00EC:
     GoToIf 1, _03F6
     CompareVar VAR_0x8008, 7
     GoToIf 1, _07A0
-    @ HGSS: ScrCmd_271 0, 7
     GoTo _0784
     End
 _0184:
-    @ HGSS: ScrCmd_271 0, 1
     @ HGSS: ScrCmd_267 9, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01A1
@@ -98,7 +95,6 @@ _01A1:
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
     GoToIf 1, _06AE
-    @ HGSS: ScrCmd_261 5
     @ HGSS: ScrCmd_267 1, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
     WaitTime 30, VAR_RESULT
@@ -116,7 +112,6 @@ _01ED:
     CountPartyNonEggs VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0264
-    @ HGSS: ScrCmd_271 0, 3
     @ HGSS: ScrCmd_267 9, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _021B
@@ -125,7 +120,6 @@ _021B:
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
     GoToIf 1, _06F6
-    @ HGSS: ScrCmd_261 7
     @ HGSS: ScrCmd_267 1, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
     WaitTime 30, VAR_RESULT
@@ -147,7 +141,6 @@ _0276:
     @ HGSS: PartyCountMonsAtOrBelowLevel VAR_SPECIAL_RESULT, 30
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0324
-    @ HGSS: ScrCmd_271 0, 2
     @ HGSS: ScrCmd_267 9, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02A6
@@ -156,7 +149,6 @@ _02A6:
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
     GoToIf 1, _06DE
-    @ HGSS: ScrCmd_261 6
     @ HGSS: ScrCmd_267 1, VAR_SPECIAL_RESULT
     MessageVar VAR_RESULT
     WaitTime 30, VAR_RESULT
@@ -186,7 +178,6 @@ _0324:
     GoTo _00D2
     End
 _0336:
-    @ HGSS: ScrCmd_271 0, 4
     @ HGSS: ScrCmd_267 9, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0353
@@ -208,7 +199,6 @@ _0353:
     GoTo _0478
     End
 _0396:
-    @ HGSS: ScrCmd_271 0, 5
     @ HGSS: ScrCmd_267 9, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _03B3
@@ -236,7 +226,6 @@ _03F6:
     @ HGSS: ScrCmd_630 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0761
-    @ HGSS: ScrCmd_271 0, 6
     @ HGSS: ScrCmd_267 9, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0435
@@ -260,7 +249,6 @@ _0435:
 _0478:
     ReleaseAll
     End
-    @ HGSS: ScrCmd_271 0, 1
     CloseMessage
     ReleaseAll
     End
@@ -431,7 +419,6 @@ _0726:
     GoTo _07BC
     End
 _073E:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00036
     GoTo _0BC2
     End
@@ -486,7 +473,6 @@ _07CC:
 _07E4:
     Message msg_0738_UNION_00009
     @ HGSS: ScrCmd_257 100
-    @ HGSS: ScrCmd_261 11
     @ HGSS: ScrCmd_273 VAR_SPECIAL_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 1
@@ -511,7 +497,6 @@ _0863:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _08CA
-    @ HGSS: ScrCmd_271 1, 0
     CloseMessage
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
@@ -521,7 +506,6 @@ _0863:
     WaitTime 30, VAR_RESULT
     @ HGSS: ScrCmd_257 1
     CloseMessage
-    @ HGSS: ScrCmd_261 5
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_160
@@ -530,7 +514,6 @@ _0863:
     GoTo _07E4
     End
 _08CA:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00017
     GoTo _0BC2
     End
@@ -542,7 +525,6 @@ _08DB:
     CountPartyNonEggs VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0963
-    @ HGSS: ScrCmd_271 1, 0
     CloseMessage
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
@@ -551,22 +533,18 @@ _08DB:
     WaitTime 30, VAR_RESULT
     @ HGSS: ScrCmd_257 3
     CloseMessage
-    @ HGSS: ScrCmd_261 7
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_161
     ReturnToField
-    @ HGSS: ScrCmd_261 11
     Call _0BDA
     GoTo _07E4
     End
 _0952:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00020
     GoTo _0BC2
     End
 _0963:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00029
     GoTo _0BC2
     End
@@ -578,7 +556,6 @@ _0974:
     @ HGSS: PartyCountMonsAtOrBelowLevel VAR_SPECIAL_RESULT, 30
     CompareVar VAR_RESULT, 2
     GoToIf 0, _0A33
-    @ HGSS: ScrCmd_271 1, 0
     CloseMessage
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
@@ -587,7 +564,6 @@ _0974:
     WaitTime 30, VAR_RESULT
     @ HGSS: ScrCmd_257 2
     CloseMessage
-    @ HGSS: ScrCmd_261 6
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_350
@@ -603,17 +579,14 @@ _0974:
     CompareVar VAR_RESULT, 2
     GoToIf 1, _0B8B
     @ HGSS: ScrCmd_230
-    @ HGSS: ScrCmd_261 11
     Call _0BDA
     GoTo _07E4
     End
 _0A22:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00023
     GoTo _0BC2
     End
 _0A33:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00024
     GoTo _0BC2
     End
@@ -622,7 +595,6 @@ _0A44:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0A22
-    @ HGSS: ScrCmd_271 1, 0
     CloseMessage
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
@@ -631,7 +603,6 @@ _0A44:
     WaitTime 30, VAR_RESULT
     @ HGSS: ScrCmd_257 5
     CloseMessage
-    @ HGSS: ScrCmd_261 2
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_162
@@ -644,7 +615,6 @@ _0AA2:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0A22
-    @ HGSS: ScrCmd_271 1, 0
     CloseMessage
     CountPartyEggs VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -656,7 +626,6 @@ _0AA2:
     WaitTime 30, VAR_RESULT
     @ HGSS: ScrCmd_257 6
     CloseMessage
-    @ HGSS: ScrCmd_261 13
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_629
@@ -669,7 +638,6 @@ _0B11:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0B6F
-    @ HGSS: ScrCmd_271 1, 0
     CloseMessage
     @ HGSS: ScrCmd_272 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 7
@@ -678,7 +646,6 @@ _0B11:
     WaitTime 30, VAR_RESULT
     @ HGSS: ScrCmd_257 4
     CloseMessage
-    @ HGSS: ScrCmd_261 1
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     @ HGSS: ScrCmd_159
@@ -687,7 +654,6 @@ _0B11:
     ReleaseAll
     End
 _0B6F:
-    @ HGSS: ScrCmd_271 1, 1
     Message msg_0738_UNION_00028
     GoTo _0BC2
     End
@@ -696,7 +662,6 @@ _0B80:
     GoTo _0BC2
     End
 _0B8B:
-    @ HGSS: ScrCmd_261 11
     Message msg_0738_UNION_00025
     WaitTime 30, VAR_RESULT
     GoTo _0BC2
@@ -717,7 +682,6 @@ _0BC2:
     @ HGSS: ScrCmd_266
     ReleaseAll
     End
-    @ HGSS: ScrCmd_271 1, 1
     CloseMessage
     ReleaseAll
     End

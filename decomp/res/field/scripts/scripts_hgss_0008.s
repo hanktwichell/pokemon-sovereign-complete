@@ -20,7 +20,7 @@ _0047:
 _004D:
     End
 _004F:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 3
     GoToIf 5, _0086
     SetWarpEventPos 1, 1, 7
@@ -33,7 +33,7 @@ _0086:
 _008C:
     End
 _008E:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4001
+    GetTimeOfDay VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 5, _00C5
     SetWarpEventPos 1, 1, 7

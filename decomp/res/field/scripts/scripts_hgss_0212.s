@@ -80,7 +80,7 @@ scr_seq_R22_003:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _03DC
     WaitMovement
     FadeOutBGM 0, 30
@@ -126,7 +126,7 @@ scr_seq_R22_003:
     ApplyMovement 241, _03E8
     ApplyMovement obj_R22_gsrivel, _0404
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     BufferRivalName 0
     Message msg_0360_R22_00007
     CloseMessage

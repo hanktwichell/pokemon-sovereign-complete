@@ -34,9 +34,9 @@ scr_seq_T27_015:
     End
 scr_seq_T27_012:
     LockAll
-    @ HGSS: ScrCmd_307 11, 5, 25, 23, 1
-    @ HGSS: ScrCmd_310 1
-    @ HGSS: ScrCmd_308 1
+    LoadDoorAnimation 11, 5, 25, 23, 1
+    PlayDoorOpenAnimation 1
+    WaitForAnimation 1
     ApplyMovement LOCALID_PLAYER, _0586
     WaitMovement
     LockObject LOCALID_COMPLETE_FOLLOWER
@@ -235,20 +235,20 @@ _0370:
     ClearFlag FLAG_HGSS_HIDE_CAMERON
     GoTo _04D9
 _038B:
-    @ HGSS: ScrCmd_607
+    CompleteFollowerReturn
     ReleaseObject LOCALID_COMPLETE_FOLLOWER
     SetVarFromValue VAR_HGSS_UNK_4079, 0
-    @ HGSS: ScrCmd_311 1
-    @ HGSS: ScrCmd_308 1
-    @ HGSS: ScrCmd_309 1
+    PlayDoorCloseAnimation 1
+    WaitForAnimation 1
+    UnloadAnimation 1
     ReleaseAll
     End
 _03A4:
     ReleaseObject LOCALID_COMPLETE_FOLLOWER
     SetVarFromValue VAR_HGSS_UNK_4079, 0
-    @ HGSS: ScrCmd_311 1
-    @ HGSS: ScrCmd_308 1
-    @ HGSS: ScrCmd_309 1
+    PlayDoorCloseAnimation 1
+    WaitForAnimation 1
+    UnloadAnimation 1
     ReleaseAll
     End
 _03BB:

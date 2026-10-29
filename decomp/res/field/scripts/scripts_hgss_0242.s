@@ -52,7 +52,7 @@ scr_seq_R35R0201_010:
     CompleteFollowerReturn
     GoTo _00C4
 _00C2:
-    @ HGSS: ScrCmd_607
+    CompleteFollowerReturn
 _00C4:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _00E8
     WaitMovement
@@ -283,7 +283,7 @@ _03E3:
     CompleteFollowerReturn
     GoTo _042A
 _0428:
-    @ HGSS: ScrCmd_607
+    CompleteFollowerReturn
 _042A:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _00E8
     WaitMovement

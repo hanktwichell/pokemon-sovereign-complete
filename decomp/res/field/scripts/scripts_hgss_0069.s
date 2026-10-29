@@ -421,15 +421,15 @@ _078F:
     ApplyMovement VAR_MAP_LOCAL_0x02, _1348
     ApplyMovement LOCALID_PLAYER, _1360
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, VAR_TEMP_x4003, 2, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 0, 0, VAR_MAP_LOCAL_0x03, 2, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement VAR_MAP_LOCAL_0x02, _1354
     ApplyMovement LOCALID_PLAYER, _136C
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Return
 _07CF:
     GoTo _0829
@@ -769,7 +769,6 @@ _0DEC:
     GoTo _0D55
     End
 _0DF4:
-    @ HGSS: ScrCmd_283
     GoTo _0D55
     End
 _0DFE:
@@ -789,11 +788,9 @@ _0E44:
     GoTo _0D55
     End
 _0E4C:
-    @ HGSS: ScrCmd_283
     GoTo _0D55
     End
 _0E56:
-    ScrCmd_258
     @ HGSS: ScrCmd_257 1
     @ HGSS: ScrCmd_412 58, 0, 0
     GoTo _0E6C
@@ -810,7 +807,6 @@ _0E6C:
     GoToIf 1, _0EFF
     CompareVar VAR_0x8008, 3
     GoToIf 1, _0F1D
-    ScrCmd_258
     @ HGSS: ScrCmd_257 2
     @ HGSS: ScrCmd_412 57, 0, VAR_SPECIAL_x8004
     @ HGSS: ScrCmd_451 VAR_SPECIAL_RESULT
@@ -843,9 +839,7 @@ _0F1D:
     GoTo _0855
     End
 _0F48:
-    ScrCmd_258
     @ HGSS: ScrCmd_257 8
-    @ HGSS: ScrCmd_283
     Return
 _0F52:
     Call _0113
@@ -856,7 +850,6 @@ _0F52:
     @ HGSS: BattleTowerSetUpMultiBattle
     Message msg_0096_D31R0201_00032
     WaitTime 30, VAR_RESULT
-    ScrCmd_258
     @ HGSS: ScrCmd_257 3
     GoTo _06CD
     End

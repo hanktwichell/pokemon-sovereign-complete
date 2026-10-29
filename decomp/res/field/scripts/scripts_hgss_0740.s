@@ -386,7 +386,7 @@ _05F7:
     ApplyMovement obj_T01R0301_ookido, _0AE2
     GoTo _07AB
 _062A:
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 8
     GoToIf 1, _07D3
     BufferPlayerName 0

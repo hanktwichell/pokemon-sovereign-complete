@@ -902,7 +902,7 @@ u32 gSovereignTestBattleSeed;
 u8 gSovereignTestNoExp;
 u16 gSovereignTestCaughtAllBut;
 u8 gSovereignTestRareWildRoll;
-u16 gSovereignTestRoamerRelease;
+u32 gSovereignTestRoamerRelease; // Sovereign Complete: was u16
 u8 gSovereignTestSurveyRoamers;
 u8 gSovereignTestPoketchApp;
 

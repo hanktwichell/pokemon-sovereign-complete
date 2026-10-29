@@ -264,8 +264,8 @@ BOOL CompleteScrCmd_BufferFloorName(ScriptContext *ctx)
     return FALSE;
 }
 
-// HeartGold's Togepi Egg (GiveTogepiEgg): Platinum's egg gift with Extrasensory in its first free move slot. It is met
-// in Johto, as Platinum's gift places lack HeartGold's Mr. Pokémon.
+// HeartGold's Togepi Egg (GiveTogepiEgg): Platinum's egg gift with Extrasensory in its first free move slot, from
+// Mr. Pokémon (HeartGold's gift place 13, which Sovereign Complete adds after Platinum's).
 BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx)
 {
     FieldSystem *fieldSystem = ctx->fieldSystem;
@@ -277,7 +277,7 @@ BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx)
 
     Pokemon *egg = Pokemon_New(HEAP_ID_FIELD2);
     Pokemon_Init(egg);
-    Egg_CreateEgg(egg, SPECIES_TOGEPI, 1, SaveData_GetTrainerInfo(fieldSystem->saveData), 3, SpecialMetLoc_GetId(1, SPECIAL_METLOC_NAME_JOHTO));
+    Egg_CreateEgg(egg, SPECIES_TOGEPI, 1, SaveData_GetTrainerInfo(fieldSystem->saveData), 3, SpecialMetLoc_GetId(1, SPECIAL_METLOC_NAME_MR_POKEMON));
 
     int slot;
 

@@ -844,7 +844,7 @@ scr_seq_T25R1101_002:
     FacePlayer
     Message msg_0599_T25R1101_00016
     ShowCoins 20, 2
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0EC7
     GoTo _0ECD
@@ -908,7 +908,7 @@ _0FD5:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _1016
     CloseMessage
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _1010
     GoTo _0ECD
@@ -965,7 +965,7 @@ _10FB:
     SubtractCoinsFromValue 2100
 _10FF:
     UpdateCoinDisplay
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _111F
     GoTo _0ECD
@@ -1015,7 +1015,7 @@ _11C8:
     End
 _11D3:
     Message msg_0599_T25R1101_00009
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _11F3
     GoTo _0ECD

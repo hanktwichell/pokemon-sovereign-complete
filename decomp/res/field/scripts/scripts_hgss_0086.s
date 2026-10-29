@@ -36,7 +36,6 @@ scr_seq_D32R0501_005:
     GoTo _0074
     End
 _0074:
-    @ HGSS: ScrCmd_682 0
     CompareVar VAR_MAP_LOCAL_0x04, 0
     CallIf 1, _068C
     CompareVar VAR_MAP_LOCAL_0x04, 1
@@ -199,7 +198,6 @@ _0395:
     GoTo _02FE
     End
 _039D:
-    @ HGSS: ScrCmd_283
     GoTo _02FE
     End
 _03A7:
@@ -219,11 +217,9 @@ _03ED:
     GoTo _02FE
     End
 _03F5:
-    @ HGSS: ScrCmd_283
     GoTo _02FE
     End
 _03FF:
-    ScrCmd_258
     @ HGSS: ScrCmd_257 136
     GetPartyMonSpecies VAR_MAP_LOCAL_0x02, VAR_0x8000
     GetPartyMonSpecies VAR_MAP_LOCAL_0x05, VAR_0x8001
@@ -235,7 +231,6 @@ _03FF:
     GoToIf 1, _0488
     CompareVar VAR_0x8008, 3
     GoToIf 1, _049E
-    ScrCmd_258
     @ HGSS: ScrCmd_257 138
     Message msg_0109_D32R0501_00045
     CompareVar VAR_HGSS_UNK_4148, 2
@@ -269,9 +264,7 @@ _04B9:
     GoTo _0126
     End
 _04C1:
-    ScrCmd_258
     @ HGSS: ScrCmd_257 139
-    @ HGSS: ScrCmd_283
     Return
 _04CB:
     CompareVar VAR_HGSS_UNK_4148, 0
@@ -301,10 +294,8 @@ _04FE:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_682 1
     End
 _055F:
-    @ HGSS: ScrCmd_283
     Return
 _0563:
     Message msg_0109_D32R0501_00032
@@ -325,7 +316,6 @@ _057E:
 _0599:
     @ HGSS: NPCMsgVar msg_0109_D32R0501_00032
     WaitTime 10, VAR_RESULT
-    ScrCmd_258
     @ HGSS: ScrCmd_257 137
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _0618
@@ -423,7 +413,6 @@ _06D1:
     Message msg_0109_D32R0501_00005
     Return
 scr_seq_D32R0501_001:
-    @ HGSS: ScrCmd_682 0
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
     SetVarFromValue VAR_HGSS_UNK_4147, 0
     Message msg_0109_D32R0501_00033

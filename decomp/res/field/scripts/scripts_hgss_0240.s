@@ -152,7 +152,7 @@ _0226:
     End
 _0262:
     ClearFlag FLAG_HGSS_HIDE_CAMERON
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _03B8
     CompareVar VAR_MAP_LOCAL_0x00, 4
@@ -161,7 +161,7 @@ _0262:
     SetFlag FLAG_HGSS_UNK_1CE
     End
 _028E:
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _03B8
     CompareVar VAR_MAP_LOCAL_0x00, 4

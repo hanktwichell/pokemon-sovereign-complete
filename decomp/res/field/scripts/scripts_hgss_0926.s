@@ -27,7 +27,7 @@ scr_seq_T27R0201_000:
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0096
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _008B
     Message msg_0616_T27R0201_00000
@@ -40,7 +40,7 @@ _008E:
     ReleaseAll
     End
 _0096:
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _00B0
     Message msg_0616_T27R0201_00002
@@ -90,7 +90,7 @@ scr_seq_T27R0201_001:
     FacePlayer
     GoToIfSet FLAG_HGSS_UNK_108, _0162
     GoToIfSet FLAG_HGSS_UNK_103, _0157
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _014C
     Message msg_0616_T27R0201_00006

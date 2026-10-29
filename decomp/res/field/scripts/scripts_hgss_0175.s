@@ -89,7 +89,7 @@ scr_seq_R03_006:
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _045E
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 0, _045E
     GoTo _0469
@@ -112,7 +112,7 @@ scr_seq_R03_007:
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _045E
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 4
     GoToIf 0, _045E
     GoTo _0499
@@ -233,7 +233,7 @@ _03FC:
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _045E
-    @ HGSS: ScrCmd_379 VAR_TEMP_x4000
+    GetTimeOfDay VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _045E
     GoTo _0499

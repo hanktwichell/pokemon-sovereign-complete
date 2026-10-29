@@ -179,7 +179,7 @@ _028D:
     Message msg_0122_D39R0101_00005
     CloseMessage
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement obj_D39R0101_dancer, _043A
     ApplyMovement 241, _0458
     WaitMovement
@@ -195,7 +195,7 @@ _028D:
     SetVarFromValue VAR_HGSS_UNK_40E8, 1
     ApplyMovement 241, _0464
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     ReleaseAll
     End
 _02ED:

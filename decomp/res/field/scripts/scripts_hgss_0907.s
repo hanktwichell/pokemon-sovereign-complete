@@ -47,13 +47,13 @@ _009D:
     ReleaseAll
     End
 _00A7:
-    @ HGSS: ScrCmd_307 0, 0, 8, 2, 77
+    LoadDoorAnimation 0, 0, 8, 2, 77
     Call _00F5
-    @ HGSS: ScrCmd_374 obj_player
+    ShowObject LOCALID_PLAYER
     ApplyMovement LOCALID_PLAYER, _0108
     WaitMovement
     Call _00FD
-    @ HGSS: ScrCmd_307 0, 0, 8, 4, 77
+    LoadDoorAnimation 0, 0, 8, 4, 77
     Call _00F5
     ApplyMovement LOCALID_PLAYER, _0118
     WaitMovement
@@ -61,13 +61,13 @@ _00A7:
     SetVarFromValue VAR_HGSS_UNK_4133, 0
     Return
 _00F5:
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     Return
 _00FD:
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     Return
     .balign 4, 0
 _0108:
@@ -160,12 +160,12 @@ _024D:
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _03A0
     WaitMovement
-    @ HGSS: ScrCmd_307 0, 0, 8, 4, 77
+    LoadDoorAnimation 0, 0, 8, 4, 77
     Call _00F5
     ApplyMovement LOCALID_PLAYER, _03B4
     WaitMovement
     Call _00FD
-    @ HGSS: ScrCmd_307 0, 0, 8, 2, 77
+    LoadDoorAnimation 0, 0, 8, 2, 77
     Call _00F5
     ApplyMovement LOCALID_PLAYER, _03AC
     WaitMovement

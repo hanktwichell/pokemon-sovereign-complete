@@ -54,7 +54,7 @@ scr_seq_T27R0501_015:
     ApplyMovement obj_T27R0501_rocketm, _1074
     WaitMovement
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
-    @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _107A
     WaitMovement
     WaitTime 10, VAR_RESULT
@@ -79,7 +79,7 @@ scr_seq_T27R0501_015:
     ApplyMovement obj_T27R0501_rocketm, _10A6
     ApplyMovement 241, _1180
     WaitMovement
-    @ HGSS: ScrCmd_103
+    RestoreCamera
     ReleaseAll
     SetVarFromValue VAR_HGSS_UNK_410C, 1
     End
@@ -276,7 +276,7 @@ scr_seq_T27R0501_016:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0879
     Message msg_0618_T27R0501_00011
@@ -318,7 +318,7 @@ _053A:
     SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_NORTH
     GoTo _0559
 _0559:
-    @ HGSS: ScrCmd_374 obj_T27R0501_rocketm_2
+    ShowObject obj_T27R0501_rocketm_2
     SetVarFromValue VAR_MAP_LOCAL_0x09, 0
     CompareVar VAR_MAP_LOCAL_0x0A, 10
     GoToIf 1, _0C52
@@ -513,7 +513,7 @@ _068F:
     ApplyMovement obj_T27R0501_dancer_6, _1340
     WaitMovement
     Message msg_0618_T27R0501_00020
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0D48
     SetVar VAR_0x8004, ITEM_CLEAR_BELL
@@ -627,7 +627,7 @@ _0879:
     ApplyMovement obj_T27R0501_dancer_6, _1340
     WaitMovement
     Message msg_0618_T27R0501_00020
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0D48
     SetVar VAR_0x8004, ITEM_CLEAR_BELL
@@ -728,7 +728,7 @@ _0A67:
     ApplyMovement obj_T27R0501_dancer_6, _1340
     WaitMovement
     Message msg_0618_T27R0501_00020
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0D48
     SetVar VAR_0x8004, ITEM_CLEAR_BELL
@@ -810,7 +810,7 @@ _0D48:
     WaitMovement
     ApplyMovement obj_T27R0501_dancer_6, _1380
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0ED0
     Message msg_0618_T27R0501_00021
@@ -826,14 +826,14 @@ _0DA6:
     WaitMovement
     ApplyMovement obj_T27R0501_dancer_6, _1380
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0ED0
     Message msg_0618_T27R0501_00021
     GoTo _0EF8
 _0DF0:
     SetPosition obj_T27R0501_rocketm_2, 7, 0, 6, DIR_WEST
-    @ HGSS: ScrCmd_374 obj_T27R0501_rocketm_2
+    ShowObject obj_T27R0501_rocketm_2
     SetVarFromValue VAR_MAP_LOCAL_0x09, 0
     CompareVar VAR_MAP_LOCAL_0x0A, 10
     GoToIf 1, _0C52

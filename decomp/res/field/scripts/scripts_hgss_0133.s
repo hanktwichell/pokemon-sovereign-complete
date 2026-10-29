@@ -11,7 +11,7 @@
 scr_seq_D52R0101_001:
     CompareVar VAR_HGSS_SCENE_EMBEDDED_TOWER, 4
     GoToIf 4, _00A1
-    GetGameVersion VAR_MAP_LOCAL_0x00
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 7
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _00A3
     GoTo _00A3

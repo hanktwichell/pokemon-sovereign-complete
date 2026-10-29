@@ -36,7 +36,9 @@ from talk_to_objects import (DECOMP, FRAME_LIMIT, SYMBOLS, arrive, event_maps, h
 
 # The way the player faces to read a bg event: the step from the player's tile to it.
 BG_DIRS = {'BG_EVENT_DIR_NORTH': ((0, -1),), 'BG_EVENT_DIR_SOUTH': ((0, 1),), 'BG_EVENT_DIR_WEST': ((-1, 0),),
-           'BG_EVENT_DIR_EAST': ((1, 0),), 'BG_EVENT_DIR_ALL': DIRS}
+           'BG_EVENT_DIR_EAST': ((1, 0),), 'BG_EVENT_DIR_ALL': DIRS,
+           # Sovereign Complete: HeartGold's signs read from either side, which Platinum's engine has too
+           'BG_EVENT_DIR_NORTH_SOUTH': ((0, -1), (0, 1)), 'BG_EVENT_DIR_WEST_EAST': ((-1, 0), (1, 0))}
 KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')  # by enum FaceDirection
 # Events whose script takes another branch later in the story: (events, event) -> [the vars set first, for each run
 # after the first].
@@ -137,6 +139,8 @@ def main():
             else:
                 result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face)
                 for var, value in story + ((trigger,) if trigger else ()):
+                    if var.isdigit():
+                        continue  # Sovereign Complete: a number, not a var (HeartGold's 0: the trigger always fires)
                     if result == 'ok' and not set_var(d, sym, variables[var], value):
                         result = 'NOVAR'
                 if result == 'ok':

@@ -47,5 +47,6 @@ void CompleteEcruteakGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem);
 void CompleteEcruteakGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem);
 
 BOOL CompleteScrCmd_EcruteakGymInit(ScriptContext *ctx);
+BOOL CompleteEcruteakGym_IsDark(void);
 
 #endif // POKEPLATINUM_COMPLETE_GYMS_H

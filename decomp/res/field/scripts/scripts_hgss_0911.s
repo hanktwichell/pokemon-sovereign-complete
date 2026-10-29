@@ -49,16 +49,16 @@ scr_seq_T26_000:
 scr_seq_T26_001:
     LockAll
     FadeOutBGM 0, 3
-    @ HGSS: ScrCmd_307 8, 7, 13, 14, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 8, 7, 13, 14, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ClearFlag FLAG_HGSS_HIDE_OLIVINE_RIVAL
     AddObject obj_T26_gsrivel
     ApplyMovement obj_T26_gsrivel, _05B8
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     ApplyMovement LOCALID_PLAYER, _05C2
     WaitMovement
     Common_SetRivalBGM

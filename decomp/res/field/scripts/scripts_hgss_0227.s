@@ -43,16 +43,16 @@ scr_seq_R30_000:
     End
 scr_seq_R30_002:
     LockAll
-    @ HGSS: ScrCmd_307 17, 11, 11, 3, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 17, 11, 11, 3, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ClearFlag FLAG_HGSS_HIDE_ROUTE_30_APRICORN_MAN
     AddObject obj_R30_gsmiddleman1
     ApplyMovement obj_R30_gsmiddleman1, _03CC
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     ApplyMovement obj_R30_gsmiddleman1, _03D2
     WaitMovement
     Message msg_0375_R30_00005
@@ -161,14 +161,14 @@ _0258:
     CloseMessage
     ApplyMovement obj_R30_gsmiddleman1, _03FC
     WaitMovement
-    @ HGSS: ScrCmd_307 17, 11, 11, 3, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 17, 11, 11, 3, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_R30_gsmiddleman1, _0402
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     RemoveObject obj_R30_gsmiddleman1
     SetFlag FLAG_HGSS_HIDE_ROUTE_30_APRICORN_MAN
     ReleaseAll
@@ -197,14 +197,14 @@ _02EE:
     CloseMessage
     ApplyMovement obj_R30_gsmiddleman1, _03FC
     WaitMovement
-    @ HGSS: ScrCmd_307 17, 11, 11, 3, 77
-    @ HGSS: ScrCmd_310 77
-    @ HGSS: ScrCmd_308 77
+    LoadDoorAnimation 17, 11, 11, 3, 77
+    PlayDoorOpenAnimation 77
+    WaitForAnimation 77
     ApplyMovement obj_R30_gsmiddleman1, _0402
     WaitMovement
-    @ HGSS: ScrCmd_311 77
-    @ HGSS: ScrCmd_308 77
-    @ HGSS: ScrCmd_309 77
+    PlayDoorCloseAnimation 77
+    WaitForAnimation 77
+    UnloadAnimation 77
     RemoveObject obj_R30_gsmiddleman1
     SetFlag FLAG_HGSS_HIDE_ROUTE_30_APRICORN_MAN
     ReleaseAll

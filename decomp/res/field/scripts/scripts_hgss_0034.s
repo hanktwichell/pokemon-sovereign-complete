@@ -94,7 +94,7 @@ _016B:
     ApplyMovement LOCALID_PLAYER, _04C4
     WaitMovement
     Message msg_0070_D23R0106_00002
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0272
     SetVar VAR_0x8004, ITEM_RAINBOW_WING
@@ -114,7 +114,7 @@ _01B7:
     ApplyMovement LOCALID_PLAYER, _04C4
     WaitMovement
     Message msg_0070_D23R0106_00002
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0272
     SetVar VAR_0x8004, ITEM_RAINBOW_WING
@@ -137,7 +137,7 @@ _0218:
 _023D:
     WaitMovement
     Message msg_0070_D23R0106_00002
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0272
     SetVar VAR_0x8004, ITEM_RAINBOW_WING
@@ -176,7 +176,7 @@ _02DE:
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _04C4
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0353
     Message msg_0070_D23R0106_00007
@@ -190,7 +190,7 @@ _030E:
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _04C4
     WaitMovement
-    GetGameVersion VAR_RESULT
+    SetVarFromValue VAR_RESULT, 7
     CompareVar VAR_RESULT, 7
     GoToIf 5, _0353
     Message msg_0070_D23R0106_00007
