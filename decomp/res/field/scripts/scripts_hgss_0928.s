@@ -802,7 +802,7 @@ _0D48:
     SetFlag FLAG_HGSS_UNK_104
     CloseMessage
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitSE SEQ_SE_DP_KI_GASYAN_sseq
     ClearFlag FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL
     AddObject obj_T27R0501_gsbabygirl1
@@ -818,7 +818,7 @@ _0D48:
 _0DA6:
     CloseMessage
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitSE SEQ_SE_DP_KI_GASYAN_sseq
     ClearFlag FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL
     AddObject obj_T27R0501_gsbabygirl1

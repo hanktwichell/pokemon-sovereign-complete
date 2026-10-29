@@ -145,13 +145,13 @@ scr_seq_D36R0101_016:
     ApplyMovement obj_D36R0101_gsbigman, _2272
     WaitMovement
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
-    @ HGSS: ScreenShake 0, 2, 10, 5
+    CompleteScreenShake 0, 2, 10, 5
     ApplyMovement obj_D36R0101_gsbigman, _2278
     WaitMovement
     ApplyMovement obj_D36R0101_gsbigman, _2272
     WaitMovement
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
-    @ HGSS: ScreenShake 0, 2, 10, 5
+    CompleteScreenShake 0, 2, 10, 5
     ApplyMovement obj_D36R0101_gsbigman, _2278
     WaitMovement
     SetVarFromValue VAR_HGSS_UNK_40EA, 1
@@ -268,7 +268,7 @@ scr_seq_D36R0101_012:
     CompareVar VAR_HGSS_UNK_412B, 1
     GoToIf 1, _0B72
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
-    @ HGSS: FollowerPokeIsEventTrigger 0, VAR_TEMP_x4000, VAR_TEMP_x4001
+    SetVarFromValue VAR_MAP_LOCAL_0x01, 0
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0BD0
     GoTo _0B9A
@@ -725,7 +725,7 @@ _0B9A:
     GoToIf 4, _0B72
     GoToIfUnset FLAG_HGSS_BEAT_RADIO_TOWER_ROCKETS, _0B72
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x06
-    @ HGSS: FollowerPokeIsEventTrigger 3, VAR_TEMP_x4006, VAR_TEMP_x4007
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
     CompareVar VAR_MAP_LOCAL_0x07, 0
     GoToIf 5, _1195
     GoTo _0B72

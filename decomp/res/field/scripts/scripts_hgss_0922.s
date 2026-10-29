@@ -12,7 +12,7 @@
     ScriptEntry scr_seq_T27GYM0101_006
     ScriptEntryEnd
 scr_seq_T27GYM0101_000:
-    @ HGSS: EcruteakGymInit
+    CompleteEcruteakGymInit
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MORTY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _01AE

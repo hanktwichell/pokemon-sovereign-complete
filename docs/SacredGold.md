@@ -42,7 +42,7 @@ HeartGold's sources (`docs/ScriptConversion.md`):
   in how a value is written (`ITEM_POKE_BALL` where the source wrote 4), and translating them gives the same scripts
   as translating the sources.
 
-Sacred Gold's scripts have 83,001 command lines (HeartGold's 77,988); 97.6% translate. What's left is HeartGold's own
+Sacred Gold's scripts have 83,001 command lines (HeartGold's 77,988); 97.7% translate. What's left is HeartGold's own
 features (the photographer, phone calls and rematches, the Pokéathlon and Battle Frontier menus...), for step 5.
 
 ## Text

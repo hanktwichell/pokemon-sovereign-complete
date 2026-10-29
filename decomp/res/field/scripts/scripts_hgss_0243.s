@@ -128,7 +128,7 @@ scr_seq_R36_011:
     GoToIfSet FLAG_HGSS_SG_3F77, _03AF
     Message msg_0390_R36_00022
     CloseMessage
-    @ HGSS: ScreenShake 3, 3, 15, 5
+    CompleteScreenShake 3, 3, 15, 5
     FacePlayer
     Message msg_0390_R36_00020
     SetVar VAR_0x8004, ITEM_TM31

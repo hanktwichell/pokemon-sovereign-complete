@@ -241,6 +241,8 @@ New tests: `tools/complete/test_hgss_hidden_items.py` (each hidden item found on
 
 Test results on the new test build:
 - **Trainers:** all 737 battle and end cleanly.
+- **Wild Pokémon:** every Johto and Kanto table, by time of day (6:00, 12:00, 22:00), surfing and the three rods: 29,664
+  Pokémon made by the game's own encounter code, every one of them a species and level its table allows.
 - **Hidden items:** of 243, 234 are found once and only once. Seven lie under something (an item ball, a person,
   Articuno at Seafoam), so A talks to that first, as in HeartGold; two have no tile beside them the player can reach.
 - **A hang the hidden-item test found:** 38 items on Route 3, Route 32, Route 34, Route 35 and most Kanto towns hung
@@ -248,5 +250,5 @@ Test results on the new test build:
   HeartGold building with two or more animations playing linked one to itself in the second copy's list, so NNS
   looped forever. Fixed in Platinum's animation manager, which now also shows HeartGold's time-of-day windows (one
   animation for each time of day) as HeartGold does (`docs/MapConversion.md`). All 46 items on those maps pass now.
-- **Gym puzzles:** Vermilion's trash cans, Violet's lift, Azalea's Spinarak carts, Cianwood's winch and Blackthorn's
-  floors over the lava are ported (`docs/ScriptConversion.md`, "Gym puzzles").
+- **Gym puzzles:** Vermilion's trash cans, Violet's lift, Azalea's Spinarak carts, Cianwood's winch, Ecruteak's
+  dark and Blackthorn's floors over the lava are ported (`docs/ScriptConversion.md`, "Gym puzzles").

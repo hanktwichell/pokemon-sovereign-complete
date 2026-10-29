@@ -40,7 +40,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.6% of 83,001 lines. Besides trainers, gifts, trades and marts,
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.7% of 83,001 lines. Besides trainers, gifts, trades and marts,
   about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
   code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
   (friendship, ribbons, which are numbered alike, moves, egg counts), fossils, the National Dex, the starter, the
@@ -77,6 +77,13 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   `CompleteFollowerSetMovementType`, `CompleteFollowerCheckActive`). A scene unpauses the follower (pause 0), waits
   for its step to finish (HeartGold's `MapObject_IsMovementPaused` is Platinum's `LocalMapObj_CheckAnimationFinished`,
   despite its name), parks it, moves everyone, then pauses it again (1) and lets it follow before `ReleaseAll`.
+- `ScreenShake` (30 scenes: the Ruins of Alph's puzzles, Lugia's cave, Route 36's Sudowoodo, the Sinjoh Ruins...) is
+  `CompleteScreenShake`, ported from HeartGold's code: the camera sways on a sine wave, by up to its x and y, a number
+  of times. HeartGold keeps the sway in 16 bits, so its one shake of 20 sways by 4; the port does the same.
+- `RocketTrapBattle` (Team Rocket's traps and Azalea's Spiritomb) is HeartGold's wild battle without the legendary
+  flag, so `CompleteStartWildBattle` too. `FollowerPokeIsEventTrigger` asks whether a party Pokémon is a distributed
+  event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, read from its met data); Sacred Gold gives these
+  through its own events instead (the Azure Flute, the Plates), so the answer is no.
 - Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
 
 ## Gym puzzles
@@ -84,7 +91,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
 HeartGold keeps each gym's puzzle in a "gymmick": 32 bytes of saved state that the gym's script sets up on the way
 in, and code the map's loading runs. Platinum has the same thing as its dynamic map features (Pastoria's water,
 Canalave's platforms): the same 32 bytes (`PersistedMapFeatures`), with an init, free and collision function for each
-feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as five new
+feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as six new
 features, each with the script commands its gym uses:
 - **Vermilion** (`CompleteVermilionGymInit`, `...CanCheck`, `...LockAction`, `...ResampleCans`): the two switches in
   the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. HeartGold
@@ -100,16 +107,19 @@ features, each with the script commands its gym uses:
 - **Blackthorn** (`CompleteBlackthornGymInit`, and a check on every step, as for Canalave's platforms): three floors
   over the lava, moved and turned by the buttons on them, stopping at walls and ground; the floors are walkable and
   the rest of the lava isn't. Until now the lava was plain ground.
+- **Ecruteak** (`CompleteEcruteakGymInit`): the dark, which hides the path between the gym's pits (black fog at its
+  thickest; people don't take it, as in HeartGold), and the sages' candles, which go out as each loses. HeartGold binds
+  a candle to its sage from its common trainer script, which Platinum's trainers don't use, so a task keeps each
+  candle on its sage and puts it out once the sage's trainer flag is set. A sage beaten before keeps their candle out
+  (HeartGold lit them all again).
 
 HeartGold's gyms find the parts that move among the map's own buildings, which Platinum keeps per loaded map chunk;
 `FindMapProp` looks there. HeartGold's own sound effects for these (the cart, the floors) wait for step 6; the floors
 use Platinum's lift sound meanwhile.
 
-Still to port: Ecruteak's dark (HeartGold's fog, with the sages' candles going out as they lose), which hides the
-path between the gym's pits, so that until then the path shows; and two touches on top of gyms that already play
-through: Fuchsia's invisible walls flashing when bumped (the walls are in the map's collision) and Viridian's arrow
-tiles lighting up (they are slide tiles, which Platinum's engine already has). Their init commands are left out until
-then.
+Still to port: two touches on top of gyms that already play through: Fuchsia's invisible walls flashing when bumped
+(the walls are in the map's collision) and Viridian's arrow tiles lighting up (they are slide tiles, which Platinum's
+engine already has). Their init commands are left out until then.
 
 ## Standard scripts
 

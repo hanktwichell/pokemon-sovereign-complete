@@ -890,6 +890,8 @@ ScriptCommand(SCRCMD_COMPLETEAZALEAGYMINIT,                             Complete
 ScriptCommand(SCRCMD_COMPLETEAZALEAGYMRIDE,                             CompleteScrCmd_AzaleaGymRide)
 ScriptCommand(SCRCMD_COMPLETEAZALEAGYMSWITCH,                           CompleteScrCmd_AzaleaGymSwitch)
 ScriptCommand(SCRCMD_COMPLETEBLACKTHORNGYMINIT,                         CompleteScrCmd_BlackthornGymInit)
+ScriptCommand(SCRCMD_COMPLETEECRUTEAKGYMINIT,                           CompleteScrCmd_EcruteakGymInit)
+ScriptCommand(SCRCMD_COMPLETESCREENSHAKE,                               CompleteScrCmd_ScreenShake)
 
 // clang-format on
 

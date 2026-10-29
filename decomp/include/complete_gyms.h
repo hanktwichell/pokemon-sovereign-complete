@@ -43,4 +43,9 @@ BOOL CompleteBlackthornGym_CheckButton(FieldSystem *fieldSystem);
 
 BOOL CompleteScrCmd_BlackthornGymInit(ScriptContext *ctx);
 
+void CompleteEcruteakGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem);
+void CompleteEcruteakGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem);
+
+BOOL CompleteScrCmd_EcruteakGymInit(ScriptContext *ctx);
+
 #endif // POKEPLATINUM_COMPLETE_GYMS_H

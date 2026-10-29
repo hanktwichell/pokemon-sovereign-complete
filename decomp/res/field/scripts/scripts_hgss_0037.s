@@ -57,7 +57,7 @@ scr_seq_D24R0101_004:
 scr_seq_D24R0101_007:
     LockAll
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x05
-    @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4005, VAR_TEMP_x4006
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 0
     CompareVar VAR_MAP_LOCAL_0x06, 0
     GoToIf 1, _02AA
     GoTo _0320
@@ -164,7 +164,7 @@ _0249:
     ReleaseAll
     End
 _02AA:
-    @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4005, VAR_TEMP_x4007
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
     CompareVar VAR_MAP_LOCAL_0x07, 0
     GoToIf 1, _04C3
     CheckPlayerOnBike VAR_RESULT

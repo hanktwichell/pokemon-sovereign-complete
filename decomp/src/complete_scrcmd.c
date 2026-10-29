@@ -17,8 +17,11 @@
 #include "overlay005/field_menu.h"
 #include "overlay005/script_message.h"
 
+#include "camera.h"
 #include "complete_follower.h"
 #include "encounter.h"
+#include "field_task.h"
+#include "heap.h"
 #include "field_message.h"
 #include "field_overworld_state.h"
 #include "field_script_context.h"
@@ -302,5 +305,67 @@ BOOL CompleteScrCmd_CheckStaticNotBeaten(ScriptContext *ctx)
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
 
     *destVar = *battleResult != BATTLE_RESULT_WIN && *battleResult != BATTLE_RESULT_CAPTURED_MON;
+    return TRUE;
+}
+
+typedef struct ScreenShake {
+    VecFx32 offset;
+    fx32 amplitudeX;
+    fx32 amplitudeY;
+    u16 cycles;
+    u16 frames;
+    u16 frame;
+} ScreenShake;
+
+static BOOL CompleteScreenShake_Task(FieldTask *task)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
+    ScreenShake *shake = FieldTask_GetEnv(task);
+    VecFx32 offset = { 0, 0, 0 };
+    VecFx32 delta;
+
+    if (++shake->frame < shake->frames) {
+        fx32 sine = FX_SinIdx((u16)(0x10000 * shake->frame / shake->frames));
+        offset.x = FX_Mul(sine, shake->amplitudeX);
+        offset.y = FX_Mul(sine, shake->amplitudeY);
+    } else {
+        shake->frame = 0;
+        shake->cycles--;
+    }
+
+    VEC_Subtract(&offset, &shake->offset, &delta);
+    Camera_Move(&delta, fieldSystem->camera);
+    shake->offset = offset;
+
+    if (shake->cycles == 0) {
+        Heap_Free(shake);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+// HeartGold's ScreenShake x, y, cycles, frames (its ov02_02246714): the camera sways by up to x and y on a sine wave of
+// that many frames, that many times, then comes back.
+BOOL CompleteScrCmd_ScreenShake(ScriptContext *ctx)
+{
+    u16 amplitudeX = ScriptContext_GetVar(ctx);
+    u16 amplitudeY = ScriptContext_GetVar(ctx);
+    u16 cycles = ScriptContext_GetVar(ctx);
+    u16 frames = ScriptContext_GetVar(ctx);
+
+    if (cycles == 0 || frames == 0) {
+        return FALSE;
+    }
+
+    ScreenShake *shake = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(ScreenShake));
+    shake->offset = (VecFx32) { 0, 0, 0 };
+    shake->amplitudeX = (s16)(amplitudeX * FX32_ONE); // HeartGold keeps them in 16 bits: its 20 sways by 4
+    shake->amplitudeY = (s16)(amplitudeY * FX32_ONE);
+    shake->cycles = cycles;
+    shake->frames = frames;
+    shake->frame = 0;
+
+    FieldTask_InitCall(ctx->fieldSystem->task, CompleteScreenShake_Task, shake);
     return TRUE;
 }

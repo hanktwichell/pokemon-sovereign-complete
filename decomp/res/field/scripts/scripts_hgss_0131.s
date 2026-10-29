@@ -68,10 +68,10 @@ scr_seq_D51R0201_001:
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 8
     GoToIf 1, _05E4
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x05
-    @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4005, VAR_TEMP_x4006
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 0
     CompareVar VAR_MAP_LOCAL_0x06, 1
     GoToIf 1, _05EF
-    @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4005, VAR_TEMP_x4007
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
     CompareVar VAR_MAP_LOCAL_0x07, 1
     GoToIf 1, _05EF
     Message msg_0146_D51R0201_00024
@@ -546,7 +546,7 @@ _078F:
     CloseMessage
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0C75
-    @ HGSS: ScreenShake 3, 3, 25, 5
+    CompleteScreenShake 3, 3, 25, 5
     SetVarFromValue VAR_HGSS_SG_6131, 2
     FadeOutBGM 0, 30
     @ HGSS: UnownCircle
@@ -691,10 +691,10 @@ _0C0F:
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
     CompareVar VAR_HGSS_UNK_4102, 1
     GoToIf 5, _0DAA
-    @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0DE5
-    @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0DED
     GoTo _0DF5
@@ -736,12 +736,12 @@ _0C81:
     Message msg_0146_D51R0201_00059
     CloseMessage
     SetFlag FLAG_HGSS_SG_3F8D
-    @ HGSS: ScreenShake 3, 3, 15, 5
+    CompleteScreenShake 3, 3, 15, 5
     ApplyMovement LOCALID_PLAYER, _135A
     Message msg_0146_D51R0201_00060
     WaitMovement
     CloseMessage
-    @ HGSS: ScreenShake 3, 3, 15, 5
+    CompleteScreenShake 3, 3, 15, 5
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -796,10 +796,10 @@ _0DA1:
 _0DAA:
     CompareVar VAR_HGSS_UNK_4102, 2
     GoToIf 5, _0EE1
-    @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0DE5
-    @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0DED
     GoTo _0DF5

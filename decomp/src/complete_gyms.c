@@ -11,10 +11,13 @@
 #include "field/field_system.h"
 #include "field/field_system_sub2_t.h"
 #include "overlay005/dynamic_terrain_height.h"
+#include "overlay005/fog_manager.h"
 #include "overlay005/land_data.h"
 #include "overlay005/map_prop.h"
 #include "overlay005/map_prop_animation.h"
+#include "overlay005/ov5_021EB1A0.h"
 
+#include "billboard.h"
 #include "camera.h"
 #include "field_system.h"
 #include "field_task.h"
@@ -28,6 +31,7 @@
 #include "savedata_misc.h"
 #include "script_manager.h"
 #include "sound_playback.h"
+#include "sys_task.h"
 #include "terrain_collision_manager.h"
 #include "unk_020655F4.h"
 
@@ -1632,3 +1636,130 @@ BOOL CompleteScrCmd_BlackthornGymInit(ScriptContext *ctx)
     return FALSE;
 }
 
+// Ecruteak Gym (HeartGold's ecruteak.c and InitEcruteakGym): the gym is dark, so the path between its pits doesn't show,
+// and only people show in the dark. Its four sages carry candles, which go out as each loses. HeartGold binds a candle
+// to its sage from its common trainer script; here a task keeps each candle on its sage, and puts it out when the
+// sage's trainer flag is set.
+
+#define ECRUTEAK_CANDLE     HGSS_INDOOR_MODEL(128)
+#define ECRUTEAK_SAGES      4
+#define ECRUTEAK_FIRST_SAGE 2 // obj_T27GYM0101_itako to _itako_4
+
+typedef struct EcruteakGymPersistedData {
+    u8 candlesOut[ECRUTEAK_SAGES];
+    u8 fresh; // just set up by the gym's script: the candles of sages beaten before are out already
+} EcruteakGymPersistedData;
+
+typedef struct EcruteakGymData {
+    FieldSystem *fieldSystem;
+    SysTask *task;
+    u8 candleProps[ECRUTEAK_SAGES];
+    u8 delay[ECRUTEAK_SAGES];
+    u8 shrink[ECRUTEAK_SAGES];
+} EcruteakGymData;
+
+static BOOL EcruteakGym_SageBeaten(FieldSystem *fieldSystem, MapObject *sage)
+{
+    return sage != NULL && Script_IsTrainerDefeated(fieldSystem, Script_GetTrainerID(MapObject_GetScript(sage)));
+}
+
+static void EcruteakGym_Task(SysTask *sysTask, void *param)
+{
+    EcruteakGymData *gym = param;
+    FieldSystem *fieldSystem = gym->fieldSystem;
+    EcruteakGymPersistedData *data = PersistedData(fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_ECRUTEAK_GYM);
+    MapObject *mapObj;
+    int index = 0;
+
+    // people show in the dark (HeartGold's ApplyFogToMapObjects)
+    while (MapObjectMan_FindObjectWithStatus(fieldSystem->mapObjMan, &mapObj, &index, MAP_OBJ_STATUS_0)) {
+        Billboard *billboard = ov5_021EB1A0(mapObj);
+
+        if (billboard != NULL) {
+            NNS_G3dMdlSetMdlFogEnableFlagAll(Billboard_GetModel(billboard), FALSE);
+        }
+    }
+
+    for (int i = 0; i < ECRUTEAK_SAGES; i++) {
+        MapProp *candle = MapPropManager_GetLoadedPropSafely(fieldSystem->mapPropManager, gym->candleProps[i]);
+        MapObject *sage = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, ECRUTEAK_FIRST_SAGE + i);
+
+        if (data->candlesOut[i]) {
+            continue;
+        }
+
+        if (sage != NULL) {
+            VecFx32 position;
+            MapObject_GetPosPtr(sage, &position);
+            MapProp_SetPosition(candle, &position);
+        }
+
+        // HeartGold's Task_ExtinguishCandle: half a second, then the flame shrinks away
+        if (EcruteakGym_SageBeaten(fieldSystem, sage) && gym->delay[i]++ >= 30) {
+            if (gym->shrink[i] == 0) {
+                gym->shrink[i] = 1; // HeartGold's candle sound is its own (step 6)
+            }
+
+            if (++gym->shrink[i] >= 4) {
+                MapProp_SetHidden(candle, TRUE);
+                data->candlesOut[i] = TRUE;
+            }
+
+            candle->scale.x = candle->scale.y = candle->scale.z = FX32_ONE / gym->shrink[i];
+        }
+    }
+}
+
+void CompleteEcruteakGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
+{
+    EcruteakGymPersistedData *data = PersistedData(fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_ECRUTEAK_GYM);
+    EcruteakGymData *gym = Heap_Alloc(HEAP_ID_FIELD1, sizeof(EcruteakGymData));
+    char fogDensity[G3X_FOG_DENSITY_TABLE_SIZE];
+
+    memset(gym, 0, sizeof(EcruteakGymData));
+    gym->fieldSystem = fieldSystem;
+    fieldSystem->unk_04->dynamicMapFeaturesData = gym;
+
+    // the dark: black fog at its thickest everywhere
+    memset(fogDensity, 127, sizeof(fogDensity));
+    FogManager_ApplyParameters(fieldSystem->fogMan, FOG_PARAMETER_ALL, TRUE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x0020, 0);
+    FogManager_ApplyColor(fieldSystem->fogMan, FOG_PARAMETER_ALL, GX_RGB(0, 0, 0), 31);
+    FogManager_ApplyDensityTable(fieldSystem->fogMan, fogDensity);
+
+    for (int i = 0; i < ECRUTEAK_SAGES; i++) {
+        MapObject *sage = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, ECRUTEAK_FIRST_SAGE + i);
+        VecFx32 position = { 0, 0, 0 };
+
+        if (data->fresh) {
+            data->candlesOut[i] = EcruteakGym_SageBeaten(fieldSystem, sage);
+        }
+
+        if (sage != NULL) {
+            MapObject_GetPosPtr(sage, &position);
+        }
+
+        gym->candleProps[i] = MapPropManager_LoadOne(fieldSystem->mapPropManager, fieldSystem->areaDataManager, ECRUTEAK_CANDLE, &position, NULL, fieldSystem->mapPropAnimMan);
+        MapProp_SetHidden(MapPropManager_GetLoadedPropSafely(fieldSystem->mapPropManager, gym->candleProps[i]), data->candlesOut[i]);
+    }
+
+    data->fresh = FALSE;
+    gym->task = SysTask_Start(EcruteakGym_Task, gym, 0);
+}
+
+void CompleteEcruteakGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
+{
+    EcruteakGymData *gym = fieldSystem->unk_04->dynamicMapFeaturesData;
+
+    SysTask_Done(gym->task);
+    Heap_Free(gym);
+    fieldSystem->unk_04->dynamicMapFeaturesData = NULL;
+}
+
+// HeartGold's EcruteakGymInit: the candles are lit (but those of the sages beaten before).
+BOOL CompleteScrCmd_EcruteakGymInit(ScriptContext *ctx)
+{
+    EcruteakGymPersistedData *data = InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_ECRUTEAK_GYM);
+
+    data->fresh = TRUE;
+    return FALSE;
+}

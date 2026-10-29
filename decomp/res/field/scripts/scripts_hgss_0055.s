@@ -23,12 +23,12 @@ _0035:
     GoToIf 1, _0077
     GoTo _0095
 _0059:
-    @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4005, VAR_TEMP_x4007
+    SetVarFromValue VAR_MAP_LOCAL_0x07, 0
     CompareVar VAR_MAP_LOCAL_0x07, 1
     CallIf 1, _0097
     End
 _0077:
-    @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4005, VAR_TEMP_x4006
+    SetVarFromValue VAR_MAP_LOCAL_0x06, 0
     CompareVar VAR_MAP_LOCAL_0x06, 1
     CallIf 1, _0097
     End
@@ -212,7 +212,7 @@ scr_seq_D24R0218_006:
     ApplyMovement LOCALID_PLAYER, _038C
     @ HGSS: ScrCmd_374 obj_player
     WaitMovement
-    @ HGSS: ScreenShake 0, 1, 1, 8
+    CompleteScreenShake 0, 1, 1, 8
     SetVarFromValue VAR_HGSS_UNK_40CE, 0
     ReleaseAll
     End

@@ -25,7 +25,7 @@ scr_seq_D24R0206_000:
     End
 _0046:
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _02A4
     WaitMovement
@@ -136,7 +136,7 @@ scr_seq_D24R0206_002:
     LockAll
     GoToIfSet FLAG_HGSS_OPENED_ALPH_WATER_STONE_SECRET_ROOM, _0292
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _02A4
     WaitMovement

@@ -23,7 +23,7 @@ scr_seq_D24R0208_000:
     End
 _0042:
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _0298
     WaitMovement
@@ -137,7 +137,7 @@ _0264:
     End
 _0268:
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _0298
     WaitMovement

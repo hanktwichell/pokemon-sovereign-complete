@@ -5660,6 +5660,20 @@
     .short SCRCMD_COMPLETEBLACKTHORNGYMINIT
     .endm
 
+    // Ecruteak: the dark, and the sages' candles lit but for those of sages beaten before.
+    .macro CompleteEcruteakGymInit
+    .short SCRCMD_COMPLETEECRUTEAKGYMINIT
+    .endm
+
+    // HeartGold's ScreenShake: the camera sways by up to x and y on a sine wave of that many frames, cycles times.
+    .macro CompleteScreenShake x, y, cycles, frames
+    .short SCRCMD_COMPLETESCREENSHAKE
+    .short \x
+    .short \y
+    .short \cycles
+    .short \frames
+    .endm
+
     .text
     .globl _start
 _start:

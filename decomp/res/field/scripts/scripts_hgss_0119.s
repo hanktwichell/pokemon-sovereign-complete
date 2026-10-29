@@ -1021,7 +1021,7 @@ _0EF1:
     ReleaseAll
     End
 _0EFC:
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
     Message msg_0135_D47R0101_00091
     WaitButton

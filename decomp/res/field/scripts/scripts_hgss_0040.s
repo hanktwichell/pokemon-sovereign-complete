@@ -10,7 +10,7 @@ scr_seq_D24R0203_000:
     ApplyMovement LOCALID_PLAYER, _0064
     @ HGSS: ScrCmd_374 obj_player
     WaitMovement
-    @ HGSS: ScreenShake 0, 1, 1, 8
+    CompleteScreenShake 0, 1, 1, 8
     SetVarFromValue VAR_HGSS_UNK_40CD, 0
     CompareVar VAR_HGSS_UNK_40ED, 1
     GoToIf 1, _004D

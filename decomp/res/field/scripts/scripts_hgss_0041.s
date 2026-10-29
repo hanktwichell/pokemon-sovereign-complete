@@ -26,7 +26,7 @@ scr_seq_D24R0204_000:
     End
 _0046:
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _02BC
     WaitMovement
@@ -142,7 +142,7 @@ scr_seq_D24R0204_002:
     @ HGSS: ScrCmd_183 VAR_SPECIAL_x8000
     WaitTime 2, VAR_0x8004
     GoToIfSet FLAG_HGSS_OPENED_ALPH_FLASH_SECRET_ROOM, _02A9
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _02BC
     WaitMovement

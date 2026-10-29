@@ -149,6 +149,9 @@ COMMANDS = {
     'GiveMon': one('GivePokemon {0}, {1}, {2}, {5}'),
     'WildBattle': lambda a: [f'CompleteStartWildBattle {a[0]}, {a[1]}, {a[2] if len(a) > 2 else 0}'],
     'GetStaticEncounterOutcome': one('CompleteGetBattleResult {0}'),
+    # Team Rocket's traps (Voltorb, Graveler, Weezing) and Azalea's Spiritomb: HeartGold's wild battle without the
+    # legendary flag
+    'RocketTrapBattle': lambda a: [f'CompleteStartWildBattle {a[0]}, {a[1]}, 0'],
     # Script structure
     'ScrDef': one('ScriptEntry {0}'),
     'ScrDefEnd': lambda a: ['ScriptEntryEnd'],
@@ -314,6 +317,8 @@ COMMANDS = {
     'AzaleaGymSpinarak': one('CompleteAzaleaGymRide {0}'),
     'AzaleaGymSwitch': one('CompleteAzaleaGymSwitch {0}'),
     'BlackthornGymInit': lambda a: ['CompleteBlackthornGymInit'],
+    'EcruteakGymInit': lambda a: ['CompleteEcruteakGymInit'],
+    'ScreenShake': one('CompleteScreenShake {0}, {1}, {2}, {3}'),
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)
@@ -347,6 +352,9 @@ COMMANDS = {
     'BufferSpeciesName': one('BufferSpeciesNameFromVar {0}, {1}, {2}, {3}'),
     # Johto and Kanto's 16 badges aren't in the save yet (step 7): none counts as won.
     'CheckBadge': one('SetVarFromValue {1}, 0'),
+    # Whether a party Pokémon is a distributed event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, checked
+    # by its met data): Sacred Gold gives these through its own events (the Azure Flute, the Plates), so none is.
+    'FollowerPokeIsEventTrigger': one('SetVarFromValue {2}, 0'),
     'GiveBadge': lambda a: [],  # (Platinum's GiveBadge would give a Sinnoh badge)
     # Menus. HeartGold's take x, y, cursor, can-cancel, result var; Platinum's macros list the var before can-cancel
     # (the bytes are in the same order). An entry's middle argument is its help text (255: none), which Platinum's

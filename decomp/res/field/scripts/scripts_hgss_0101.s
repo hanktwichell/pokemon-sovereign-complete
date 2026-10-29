@@ -12,7 +12,7 @@ scr_seq_D39R0103_000:
     WaitTime 1, VAR_RESULT
     @ HGSS: ScrCmd_374 obj_player
     WaitMovement
-    @ HGSS: ScreenShake 0, 1, 1, 8
+    CompleteScreenShake 0, 1, 1, 8
     SetVarFromValue VAR_HGSS_UNK_40AB, 0
     End
 scr_seq_D39R0103_001:

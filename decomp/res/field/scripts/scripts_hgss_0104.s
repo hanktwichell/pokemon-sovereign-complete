@@ -371,7 +371,7 @@ scr_seq_D40R0107_005:
     WaitTime 32, VAR_RESULT
     @ HGSS: TempBGM SEQ_GS_E_LUGIA
     WaitTime 48, VAR_RESULT
-    @ HGSS: ScreenShake 3, 3, 15, 5
+    CompleteScreenShake 3, 3, 15, 5
     WaitTime 10, VAR_RESULT
     WaitTime 70, VAR_RESULT
     @ HGSS: LegendCutsceneLugiaEyeGlimmerEffect

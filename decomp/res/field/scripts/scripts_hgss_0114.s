@@ -243,7 +243,7 @@ _0374:
 _0428:
     Message msg_0131_D45R0102_00037
     CloseMessage
-    @ HGSS: ScreenShake 3, 0, 15, 5
+    CompleteScreenShake 3, 0, 15, 5
     Message msg_0131_D45R0102_00038
     CloseMessage
     PlayCry VAR_0x8004, 0

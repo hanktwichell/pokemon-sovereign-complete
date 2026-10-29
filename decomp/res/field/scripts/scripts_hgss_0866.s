@@ -176,7 +176,7 @@ scr_seq_T23_018:
     WaitCry
     CloseMessage
     RemoveItem ITEM_ODD_KEYSTONE, 1, VAR_RESULT
-    @ HGSS: RocketTrapBattle SPECIES_SPIRITOMB, 20
+    CompleteStartWildBattle SPECIES_SPIRITOMB, 20, 0
     CompleteGetBattleResult VAR_MAP_LOCAL_0x02
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0

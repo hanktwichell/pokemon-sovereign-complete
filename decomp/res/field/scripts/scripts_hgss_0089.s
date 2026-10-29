@@ -873,7 +873,7 @@ _0F24:
 scr_seq_D35R0102_013:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
+    CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -883,7 +883,7 @@ scr_seq_D35R0102_013:
 scr_seq_D35R0102_014:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
+    CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -893,7 +893,7 @@ scr_seq_D35R0102_014:
 scr_seq_D35R0102_015:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
+    CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -903,7 +903,7 @@ scr_seq_D35R0102_015:
 scr_seq_D35R0102_016:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
+    CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -913,7 +913,7 @@ scr_seq_D35R0102_016:
 scr_seq_D35R0102_017:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
+    CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -923,7 +923,7 @@ scr_seq_D35R0102_017:
 scr_seq_D35R0102_018:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
+    CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -933,7 +933,7 @@ scr_seq_D35R0102_018:
 scr_seq_D35R0102_019:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
+    CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -943,7 +943,7 @@ scr_seq_D35R0102_019:
 scr_seq_D35R0102_020:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
+    CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -953,7 +953,7 @@ scr_seq_D35R0102_020:
 scr_seq_D35R0102_021:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
+    CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -963,7 +963,7 @@ scr_seq_D35R0102_021:
 scr_seq_D35R0102_022:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
+    CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -973,7 +973,7 @@ scr_seq_D35R0102_022:
 scr_seq_D35R0102_023:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
+    CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -983,7 +983,7 @@ scr_seq_D35R0102_023:
 scr_seq_D35R0102_024:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
+    CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -993,7 +993,7 @@ scr_seq_D35R0102_024:
 scr_seq_D35R0102_025:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
+    CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1003,7 +1003,7 @@ scr_seq_D35R0102_025:
 scr_seq_D35R0102_026:
     LockAll
     @ HGSS: ScrCmd_708 0
-    @ HGSS: RocketTrapBattle SPECIES_VOLTORB, 35
+    CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1013,7 +1013,7 @@ scr_seq_D35R0102_026:
 scr_seq_D35R0102_027:
     LockAll
     @ HGSS: ScrCmd_708 1
-    @ HGSS: RocketTrapBattle SPECIES_WEEZING, 37
+    CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF
@@ -1023,7 +1023,7 @@ scr_seq_D35R0102_027:
 scr_seq_D35R0102_028:
     LockAll
     @ HGSS: ScrCmd_708 2
-    @ HGSS: RocketTrapBattle SPECIES_GRAVELER, 36
+    CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11FF

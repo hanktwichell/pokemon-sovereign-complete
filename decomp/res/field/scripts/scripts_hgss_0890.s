@@ -461,7 +461,7 @@ _07BB:
     WaitFadeScreen
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScreenShake 0, 20, 10, 10
+    CompleteScreenShake 0, 20, 10, 10
     PlaySE SEQ_SE_DP_KI_GASYAN_sseq
     WaitSE SEQ_SE_DP_KI_GASYAN_sseq
     Message msg_0584_T25R0201_00009

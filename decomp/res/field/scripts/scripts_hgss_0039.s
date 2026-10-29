@@ -27,7 +27,7 @@ scr_seq_D24R0202_000:
 _004A:
     SetFlag FLAG_HGSS_UNK_188
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _02AC
     WaitMovement
@@ -138,7 +138,7 @@ scr_seq_D24R0202_002:
     LockAll
     GoToIfSet FLAG_HGSS_OPENED_ALPH_ESCAPE_ROPE_SECRET_ROOM, _029A
     WaitTime 2, VAR_0x8004
-    @ HGSS: ScreenShake 0, 2, 10, 6
+    CompleteScreenShake 0, 2, 10, 6
     WaitTime 10, VAR_0x8004
     ApplyMovement LOCALID_PLAYER, _02AC
     WaitMovement
