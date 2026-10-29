@@ -134,8 +134,9 @@
       "en_US": [
         "Brock: Thank you!\n",
         "I have been looking for Bonsly!\r",
-        "The Rhyperior I gave you knows the move\n",
-        "Fissure! It rarely learns that move!\r",
+        "The Rhyperior I gave you knows\n",
+        "the move Fissure!\r",
+        "It rarely learns that move!\r",
         "I’m so proud of it, because it can\n",
         "take down loads of Pokémon that\f",
         "are usually a tough matchup.\r",
@@ -145,8 +146,9 @@
     {
       "id": "msg_0047_D01R0101_00017",
       "en_US": [
-        "Brock: The Rhyperior I gave you knows the move\n",
-        "Fissure! It rarely learns that move!\r",
+        "Brock: The Rhyperior I gave you\n",
+        "knows the move Fissure!\r",
+        "It rarely learns that move!\r",
         "I’m so proud of it, because it can\n",
         "take down loads of Pokémon that\f",
         "are usually a tough matchup.\r",

@@ -2362,6 +2362,10 @@ static BOOL ScrCmd_LockObject(ScriptContext *ctx)
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
     MapObject *mapObj = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, ScriptContext_ReadHalfWord(ctx));
+    if (mapObj == NULL) { // Sovereign Complete: an object a script names but the map doesn't have, as ApplyMovement does
+        return FALSE;
+    }
+
     MapObject_SetPauseMovementOn(mapObj);
 
     return FALSE;
@@ -2372,6 +2376,10 @@ static BOOL ScrCmd_ReleaseObject(ScriptContext *ctx)
     FieldSystem *fieldSystem = ctx->fieldSystem;
 
     MapObject *mapObj = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, ScriptContext_ReadHalfWord(ctx));
+    if (mapObj == NULL) { // Sovereign Complete: an object a script names but the map doesn't have, as ApplyMovement does
+        return FALSE;
+    }
+
     MapObject_SetPauseMovementOff(mapObj);
 
     return FALSE;
@@ -2539,6 +2547,10 @@ static BOOL ScrCmd_SetObjectFlagIsPersistent(ScriptContext *ctx)
     MapObject *mapObj = MapObjMan_LocalMapObjByIndex(ctx->fieldSystem->mapObjMan, ScriptContext_GetVar(ctx));
     u8 flag = ScriptContext_ReadByte(ctx);
 
+    if (mapObj == NULL) { // Sovereign Complete: an object a script names but the map doesn't have, as ApplyMovement does
+        return FALSE;
+    }
+
     MapObject_SetFlagIsPersistent(mapObj, flag);
     return FALSE;
 }
@@ -2547,6 +2559,10 @@ static BOOL ScrCmd_SetMovementType(ScriptContext *ctx)
 {
     MapObject *mapObj = MapObjMan_LocalMapObjByIndex(ctx->fieldSystem->mapObjMan, ScriptContext_GetVar(ctx));
     u16 movementType = ScriptContext_ReadHalfWord(ctx);
+
+    if (mapObj == NULL) { // Sovereign Complete: an object a script names but the map doesn't have, as ApplyMovement does
+        return FALSE;
+    }
 
     MapObject_SwitchMovementType(mapObj, movementType);
     return FALSE;
@@ -4959,6 +4975,10 @@ static BOOL ScrCmd_SetPosition(ScriptContext *ctx)
     u16 dir = ScriptContext_GetVar(ctx);
 
     MapObject *mapObject = MapObjMan_LocalMapObjByIndex(ctx->fieldSystem->mapObjMan, localID);
+
+    if (mapObject == NULL) { // Sovereign Complete: an object a script names but the map doesn't have, as ApplyMovement does
+        return FALSE;
+    }
 
     MapObject_SetPosDirFromCoords(mapObject, x, y, z, dir);
     MapObject_RecalculateObjectHeight(mapObject);

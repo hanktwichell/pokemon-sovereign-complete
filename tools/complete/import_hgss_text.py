@@ -35,6 +35,25 @@ MSGENC = os.path.join(DECOMP, 'build/tools/msgenc')
 
 PREFIX = 'TEXT_BANK_HGSS_MSG_'
 SHARED = ['0752', '0211', '0030', '0435', '0191']  # GetStdMsgNaix's four banks and the menu entries
+# Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
+# the line breaks moved
+TEXT_FIXES = {
+    'msg_0584_T25R0201_00048': ['Woah! Isn’t that item you have there\n', 'what they call the Enigma Stone?\r',
+                                'I heard about Steven’s excavation\n', 'of that!\r', 'Can I please take\n',
+                                'a look at it!? {YESNO 0}'],
+    'msg_0047_D01R0101_00016': ['Brock: Thank you!\n', 'I have been looking for Bonsly!\r',
+                                'The Rhyperior I gave you knows\n', 'the move Fissure!\r',
+                                'It rarely learns that move!\r', 'I’m so proud of it, because it can\n',
+                                'take down loads of Pokémon that\f', 'are usually a tough matchup.\r',
+                                'Take good care of it for me!'],
+    'msg_0047_D01R0101_00017': ['Brock: The Rhyperior I gave you\n', 'knows the move Fissure!\r',
+                                'It rarely learns that move!\r', 'I’m so proud of it, because it can\n',
+                                'take down loads of Pokémon that\f', 'are usually a tough matchup.\r',
+                                'Take good care of it for me!\n', '\n'],
+    'msg_0574_T24GYM0101_00015': ['Chuck: I bet you’d make a great\n', 'training partner!\r',
+                                  'Here, take my number!\r', '... ... ...\r'],
+    'msg_0590_T25R0801_00014': ['That was enjoyable...\n', 'I like battling with you...\r', 'Just a tiny bit.'],
+}
 
 
 def wanted_banks(scripts):
@@ -181,6 +200,9 @@ def main():
         while len(data['messages']) <= highest.get(bank, -1):
             print(f'msg_{bank}: no message {len(data["messages"])}, which a script shows; left empty')
             data = with_names(data, data['messages'] + [{'en_US': ''}], bank)
+        for m in data['messages']:
+            if m['id'] in TEXT_FIXES:
+                m['en_US'] = TEXT_FIXES[m['id']]
         with open(os.path.join(DECOMP, f'res/text/hgss_msg_{bank}.json'), 'w', encoding='utf-8') as f:
             f.write(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
         names.append(f'{PREFIX}{bank}')

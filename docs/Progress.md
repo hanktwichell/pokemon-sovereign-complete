@@ -269,6 +269,11 @@ Test results on the new test build:
   - **HeartGold's new-game flags were never set**: its new-game script hides the people who come later in the story,
     and Sacred Gold's Mom hides its own in her first scene. Neither ran, so those people stood on their maps from the
     start, some on step-on triggers. Both sets (165 flags) are now in the engine's new game.
+  - **Scenes crashed when someone in them wasn't on the map** (Lyra on Route 29, the rival in Cherrygrove and on
+    Route 25, Vermilion): five of Platinum's object commands (lock, release, movement type, position, persistence)
+    wrote through a NULL pointer for an object the map lacks, over the interrupt handlers. They now skip it, as
+    `ApplyMovement` already did. HeartGold's movement-type command also set its follower to types past Platinum's
+    table (Blackthorn Gym's entrance); the engine's follower code sets its own.
   - The test itself: a trainer who spots the player just after a warp, the first full save (which stops the vblank
     for a while), a prize counter's menu loop, Ecruteak Gym's kick-out scene and Sinjoh's choosing tiles each needed
     handling.
