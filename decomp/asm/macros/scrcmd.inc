@@ -5599,6 +5599,28 @@
     .short SCRCMD_COMPLETEFOLLOWERRETURN
     .endm
 
+    // HeartGold's gym puzzles (src/complete_gyms.c). Vermilion: switches hidden in trash cans 0 to 14 open its two
+    // gates; CanCheck tells what a can holds, LockAction opens gate 0 or 1 (or closes gate 0 again, relock 1).
+    .macro CompleteVermilionGymInit
+    .short SCRCMD_COMPLETEVERMILIONGYMINIT
+    .endm
+
+    .macro CompleteVermilionGymCanCheck can, destVarID
+    .short SCRCMD_COMPLETEVERMILIONGYMCANCHECK
+    .byte \can
+    .short \destVarID
+    .endm
+
+    .macro CompleteVermilionGymLockAction gate, relock
+    .short SCRCMD_COMPLETEVERMILIONGYMLOCKACTION
+    .byte \gate
+    .byte \relock
+    .endm
+
+    .macro CompleteVermilionGymResampleCans
+    .short SCRCMD_COMPLETEVERMILIONGYMRESAMPLECANS
+    .endm
+
     .text
     .globl _start
 _start:

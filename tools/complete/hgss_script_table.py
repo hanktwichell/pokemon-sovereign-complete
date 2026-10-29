@@ -301,6 +301,11 @@ COMMANDS = {
     'ScrCmd_117': points_box_hide,
     'ScrCmd_118': points_box_update,
     'ScrCmd_606': lambda a: ['CompleteFollowerReturn'],
+    # HeartGold's gym puzzles (src/complete_gyms.c)
+    'VermilionGymInit': lambda a: ['CompleteVermilionGymInit'],
+    'VermilionGymCanCheck': one('CompleteVermilionGymCanCheck {0}, {1}'),
+    'VermilionGymLockAction': one('CompleteVermilionGymLockAction {0}, {1}'),
+    'ResampleVermilionGymCans': lambda a: ['CompleteVermilionGymResampleCans'],
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)

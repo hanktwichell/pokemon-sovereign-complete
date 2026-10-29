@@ -7,7 +7,8 @@
 
 #define MAP_PROP_ANIME_LIST_FILE_ARCHIVE_IDS_COUNT 4
 
-#define MAP_PROP_ANIMATION_MANAGER_MAX_ANIMATIONS               16
+// Sovereign Complete: 24 rather than 16, for HeartGold's towns (up to 14 animations playing, besides a door's)
+#define MAP_PROP_ANIMATION_MANAGER_MAX_ANIMATIONS               24
 #define MAP_PROP_ANIMATION_MANAGER_MAX_BICYCLE_SLOPE_ANIMATIONS 2
 
 #define MAP_PROP_ONE_SHOT_ANIMATION_MAX_ANIMATIONS 4
@@ -44,12 +45,27 @@ typedef struct MapPropAnimeListFile {
     int animeArchiveIDs[MAP_PROP_ANIME_LIST_FILE_ARCHIVE_IDS_COUNT];
 } MapPropAnimeListFile;
 
+// Sovereign Complete: a HeartGold building with flags 8 has an animation for each time of day (morning, day, evening,
+// night: its windows light up), and shows the current one. Its copies show the first animation's object, which
+// MapPropAnimationManager_AdvanceAnimations sets up again with the current time's as the time changes.
+#define MAP_PROP_ANIME_LIST_FLAGS_TIME_OF_DAY            (1 << 3)
+#define MAP_PROP_ANIMATION_MANAGER_MAX_TIME_OF_DAY_PROPS 4
+
+typedef struct TimeOfDayPropAnimations {
+    MapPropAnimation *animations[MAP_PROP_ANIME_LIST_FILE_ARCHIVE_IDS_COUNT];
+    NNSG3dResMdl *model;
+    NNSG3dResTex *texture;
+} TimeOfDayPropAnimations;
+
 typedef struct MapPropAnimationManager {
     NNSFndAllocator allocator;
     MapPropAnimation animations[MAP_PROP_ANIMATION_MANAGER_MAX_ANIMATIONS];
     BicycleSlopeAnimation bicycleSlopeAnimations[MAP_PROP_ANIMATION_MANAGER_MAX_BICYCLE_SLOPE_ANIMATIONS];
     NARC *animeNARC;
     NARC *animeListNARC;
+    TimeOfDayPropAnimations timeOfDayProps[MAP_PROP_ANIMATION_MANAGER_MAX_TIME_OF_DAY_PROPS]; // Sovereign Complete
+    u8 timeOfDayPropCount; // Sovereign Complete
+    u8 timeOfDayIndex; // Sovereign Complete: the animation shown, 0 to 3
 } MapPropAnimationManager;
 
 typedef struct MapPropOneShotAnimationList {

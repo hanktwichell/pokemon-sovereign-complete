@@ -7,6 +7,7 @@ a tile next to the item facing it and presses A. Then it checks what the game di
 - ok: the item's own script ran to its end, and a second A press from the same tile starts nothing (its flag, the one
   the engine checks for that event, is set: Script_GetHiddenItemFlag);
 - NOSCRIPT: nothing ran; OTHER and a script: another one ran instead; AGAIN: the item's script ran a second time;
+- UNDER: an object stands on it (an item ball or a person, as in HeartGold), and A talks to that first;
 - NOTILE: no tile next to it the player can reach; HANG, STUCK, HEAP and NOWARP as in talk_to_objects.py.
 
 From the repo root, with the test build and a bedroom state (tools/test/new_game.sh):
@@ -24,6 +25,7 @@ from talk_to_objects import (DECOMP, FRAME_LIMIT, SYMBOLS, arrive, event_maps, h
 
 HIDDEN_ITEM = 2  # BG_EVENT_TYPE_HIDDEN_ITEM
 SCRIPTS = range(8300, 8800)  # Johto's and Kanto's (import_hgss_field_items.hidden_item_script)
+UNDER = {}  # (events, script): the script of the object standing on the item, if one does
 
 
 def cases():
@@ -37,6 +39,7 @@ def cases():
         matrix = headers_of[0][1]
         warps = [(w['x'], w['z']) for w in cur.get('warp_events', [])]
         taken = {(o['x'], o['z']) for o in cur.get('object_events', [])}
+        on_tile = {(o['x'], o['z']): o['script'] for o in cur.get('object_events', [])}
         for bg in cur.get('bg_events', []):
             if bg['type'] != HIDDEN_ITEM or bg['script'] not in SCRIPTS:
                 continue
@@ -45,6 +48,7 @@ def cases():
             stand = stand_next_to(maps, matrix, grid, warps, taken, x, z)
             out.append((events, bg['script'], ids.index(header),
                         way_in_to(maps, matrix, grid, cur, header, taken, stand[:2])) + stand)
+            UNDER[events, bg['script']] = on_tile.get((x, z))
     return out
 
 
@@ -87,7 +91,9 @@ def main():
                 result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face)
                 if result == 'ok':
                     result, frames = pick_up(d, sym, header, script, x, z, face)
-            if result != 'ok':
+                if result == f'OTHER {UNDER[events, script]}':
+                    result = 'UNDER'
+            if result not in ('ok', 'UNDER'):
                 bad += 1
                 if face is not None:
                     d.screenshot().save(os.path.join(out, f'{index:03d}_{events}_{script}.png'))

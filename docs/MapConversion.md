@@ -126,7 +126,19 @@ building model, a list of up to four with its flags (`a/1/0/7` for the outdoor m
 Platinum keeps one list for all its models, `arc/bm_anime_list.narc`). HeartGold's list entry has one word more,
 which its code never reads. `tools/complete/import_hgss_prop_animations.py` adds the animations after Platinum's 98
 (`res/field/props/animations`) and gives each of HeartGold's models its list entry at its new number (outdoor
-590 + k, indoor 930 + k): 240 of HeartGold's 562 models are animated. Both games load at most 16 animations a map.
+590 + k, indoor 930 + k): 240 of HeartGold's 562 models are animated.
+
+The two engines differ in how they play them, and `src/overlay005/map_prop_animation.c` takes HeartGold's ways:
+- Platinum loads a model's animations once for its area, and every copy of the model on the map shares them; HeartGold
+  loads them for each copy. NNS links a shared animation object into each copy's list, so with two or more animations
+  playing on a model, a second copy would link one to itself and the game hung (Route 3, Route 32 and most Kanto towns,
+  found by the hidden-item test). An animation already in a copy's list is no longer added again.
+- A model with flags 8 has four animations, one per time of day (morning, day, evening, night: windows that light up
+  in the evening), and HeartGold shows the current one; 37 of its models do. Platinum has no such flag and played all
+  four. The copies now show the first animation's object, which is set up again with the current time's animation when
+  the time of day changes.
+- HeartGold's towns play up to 14 animations at once (Platinum's 11), besides a door's, so Platinum's limit of 16 a
+  map is now 24.
 
 ## Tile behaviours
 

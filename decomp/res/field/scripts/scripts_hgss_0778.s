@@ -38,7 +38,7 @@
 scr_seq_T06GYM0101_021:
     GoToIfSet FLAG_HGSS_HIDE_VERMILION_GYM_STOPS, _0271
     ClearFlag FLAG_HGSS_SYS_SOLVED_LT_SURGE_GYM
-    @ HGSS: VermilionGymInit
+    CompleteVermilionGymInit
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _02BF
@@ -61,49 +61,49 @@ scr_seq_T06GYM0101_022:
     ShowObject obj_T06GYM0101_stop_6
     End
 scr_seq_T06GYM0101_000:
-    @ HGSS: VermilionGymCanCheck 0, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 0, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_001:
-    @ HGSS: VermilionGymCanCheck 1, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 1, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_002:
-    @ HGSS: VermilionGymCanCheck 2, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 2, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_003:
-    @ HGSS: VermilionGymCanCheck 3, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 3, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_004:
-    @ HGSS: VermilionGymCanCheck 4, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 4, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_005:
-    @ HGSS: VermilionGymCanCheck 5, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 5, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_006:
-    @ HGSS: VermilionGymCanCheck 6, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 6, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_007:
-    @ HGSS: VermilionGymCanCheck 7, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 7, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_008:
-    @ HGSS: VermilionGymCanCheck 8, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 8, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_009:
-    @ HGSS: VermilionGymCanCheck 9, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 9, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_010:
-    @ HGSS: VermilionGymCanCheck 10, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 10, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_011:
-    @ HGSS: VermilionGymCanCheck 11, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 11, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_012:
-    @ HGSS: VermilionGymCanCheck 12, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 12, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_013:
-    @ HGSS: VermilionGymCanCheck 13, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 13, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_014:
-    @ HGSS: VermilionGymCanCheck 14, VAR_SPECIAL_RESULT
+    CompleteVermilionGymCanCheck 14, VAR_RESULT
     GoTo _02F7
 scr_seq_T06GYM0101_015:
     End
@@ -172,7 +172,7 @@ scr_seq_T06GYM0101_025:
     Message msg_0485_T06GYM0101_00013
     GoTo _03B6
 _0271:
-    @ HGSS: VermilionGymInit
+    CompleteVermilionGymInit
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _02BF
@@ -288,7 +288,7 @@ _0401:
     Message msg_0485_T06GYM0101_00009
     WaitButton
     CloseMessage
-    @ HGSS: VermilionGymLockAction 1, 0
+    CompleteVermilionGymLockAction 1, 0
     SetFlag FLAG_HGSS_SYS_SOLVED_LT_SURGE_GYM
     Message msg_0485_T06GYM0101_00012
     WaitButton
@@ -301,7 +301,7 @@ _0425:
     Message msg_0485_T06GYM0101_00009
     WaitButton
     CloseMessage
-    @ HGSS: VermilionGymLockAction 0, 0
+    CompleteVermilionGymLockAction 0, 0
     Message msg_0485_T06GYM0101_00011
     WaitButton
     CloseMessage
@@ -313,8 +313,8 @@ _0441:
     Message msg_0485_T06GYM0101_00010
     WaitButton
     CloseMessage
-    @ HGSS: VermilionGymLockAction 0, 1
-    @ HGSS: ResampleVermilionGymCans
+    CompleteVermilionGymLockAction 0, 1
+    CompleteVermilionGymResampleCans
     ReleaseAll
     End
 _0458:

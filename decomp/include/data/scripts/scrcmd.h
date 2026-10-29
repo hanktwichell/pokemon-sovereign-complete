@@ -878,6 +878,10 @@ ScriptCommand(SCRCMD_COMPLETEGIVETOGEPIEGG,                             Complete
 ScriptCommand(SCRCMD_COMPLETECHECKSTATICNOTBEATEN,                      CompleteScrCmd_CheckStaticNotBeaten)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERPUTAWAY,                           CompleteScrCmd_FollowerPutAway)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERRETURN,                            CompleteScrCmd_FollowerReturn)
+ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMINIT,                          CompleteScrCmd_VermilionGymInit)
+ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMCANCHECK,                      CompleteScrCmd_VermilionGymCanCheck)
+ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMLOCKACTION,                    CompleteScrCmd_VermilionGymLockAction)
+ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMRESAMPLECANS,                  CompleteScrCmd_VermilionGymResampleCans)
 
 // clang-format on
 

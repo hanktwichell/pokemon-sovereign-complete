@@ -12,6 +12,7 @@
 #include "overlay008/gym_features.h"
 #include "overlay009/ov9_02249960.h"
 
+#include "complete_gyms.h" // Sovereign Complete
 #include "field_system.h"
 #include "persisted_map_features.h"
 #include "platform_lift.h"
@@ -28,7 +29,8 @@ const static DynamicMapFeaturesInitFunc sInitFuncs[DYNAMIC_MAP_FEATURES_COUNT] =
     PlatformLift_DynamicMapFeaturesInit,
     EternaGym_DynamicMapFeaturesInit,
     DistWorld_DynamicMapFeaturesInit,
-    Villa_DynamicMapFeaturesInit
+    Villa_DynamicMapFeaturesInit,
+    CompleteVermilionGym_DynamicMapFeaturesInit // Sovereign Complete
 };
 
 const static DynamicMapFeaturesFreeFunc sFreeFuncs[DYNAMIC_MAP_FEATURES_COUNT] = {
@@ -42,7 +44,8 @@ const static DynamicMapFeaturesFreeFunc sFreeFuncs[DYNAMIC_MAP_FEATURES_COUNT] =
     NULL,
     EternaGym_DynamicMapFeaturesFree,
     DistWorld_DynamicMapFeaturesFree,
-    Villa_DynamicMapFeaturesFree
+    Villa_DynamicMapFeaturesFree,
+    CompleteVermilionGym_DynamicMapFeaturesFree // Sovereign Complete
 };
 
 const static DynamicMapFeaturesCheckCollisionFunc sCheckCollisionFuncs[DYNAMIC_MAP_FEATURES_COUNT] = {
@@ -56,7 +59,8 @@ const static DynamicMapFeaturesCheckCollisionFunc sCheckCollisionFuncs[DYNAMIC_M
     NULL,
     EternaGym_DynamicMapFeaturesCheckCollision,
     DistWorld_DynamicMapFeaturesCheckCollision,
-    Villa_DynamicMapFeaturesCheckCollision
+    Villa_DynamicMapFeaturesCheckCollision,
+    NULL // Sovereign Complete
 };
 
 void DynamicMapFeatures_Init(FieldSystem *fieldSystem)

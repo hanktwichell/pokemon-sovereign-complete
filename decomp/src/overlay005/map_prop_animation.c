@@ -6,11 +6,69 @@
 
 #include "overlay008/gym_features.h"
 
+#include "generated/time_of_day.h"
+
 #include "heap.h"
 #include "narc.h"
+#include "rtc.h"
 #include "sound_playback.h"
 
 #define ANIME_ARCHIVE_ID_NONE -1
+
+// Sovereign Complete: whether the animation is in the render object's lists already. A building's copies share its
+// animations, and NNS adds an animation together with the ones linked after it (in another copy's list), so a
+// building with several animations has them all with its first: adding the next one again would link it to itself
+// (and NNS would loop forever).
+static BOOL RenderObjHasAnimationObj(const NNSG3dRenderObj *renderObj, const NNSG3dAnmObj *animationObj)
+{
+    const NNSG3dAnmObj *lists[3] = { renderObj->anmMat, renderObj->anmJnt, renderObj->anmVis };
+
+    for (int i = 0; i < 3; i++) {
+        for (const NNSG3dAnmObj *p = lists[i]; p != NULL; p = p->next) {
+            if (p == animationObj) {
+                return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
+}
+
+static void AddAnimationObjToRenderObj(NNSG3dRenderObj *renderObj, NNSG3dAnmObj *animationObj)
+{
+    if (!RenderObjHasAnimationObj(renderObj, animationObj)) {
+        NNS_G3dRenderObjAddAnmObj(renderObj, animationObj);
+    }
+}
+
+// Sovereign Complete: HeartGold's time of day for its buildings' windows (sTimeOfDayVisualState): morning, day,
+// evening, then night for night and late night.
+static u8 TimeOfDayPropAnimationIndex(void)
+{
+    enum TimeOfDay timeOfDay = GetTimeOfDay();
+    return timeOfDay >= TIMEOFDAY_NIGHT ? 3 : timeOfDay;
+}
+
+// Shows the time's animation on the building's copies: its first animation's object, set up with that one.
+static void TimeOfDayPropAnimations_Show(TimeOfDayPropAnimations *prop, u8 index)
+{
+    NNSG3dAnmObj *shown = prop->animations[0]->animationObj;
+
+    if (prop->animations[index] == NULL) {
+        return;
+    }
+
+    void *resAnm = NNS_G3dGetAnmByIdx(prop->animations[index]->animationFile, 0);
+
+    // the same kind of animation, so the object's size fits
+    if (((const NNSG3dResAnmHeader *)resAnm)->category0 != ((const NNSG3dResAnmHeader *)shown->resAnm)->category0) {
+        return;
+    }
+
+    NNSG3dAnmObj *next = shown->next;
+    NNS_G3dAnmObjInit(shown, resAnm, prop->model, prop->texture);
+    shown->next = next;
+}
 
 static BOOL BicycleSlopeAnimation_Load(BicycleSlopeAnimation *bicycleSlopeAnims, NNSG3dRenderObj *renderObj, MapPropAnimation *animation, const u8 animeArchiveID)
 {
@@ -105,6 +163,9 @@ MapPropAnimationManager *MapPropAnimationManager_New(void)
         manager->bicycleSlopeAnimations[i].animeArchiveID = 0;
     }
 
+    manager->timeOfDayPropCount = 0; // Sovereign Complete
+    manager->timeOfDayIndex = TimeOfDayPropAnimationIndex();
+
     HeapExp_FndInitAllocator(&manager->allocator, HEAP_ID_FIELD1, 4);
 
     manager->animeNARC = NARC_ctor(NARC_INDEX_ARC__BM_ANIME, HEAP_ID_FIELD1);
@@ -198,11 +259,24 @@ void MapPropAnimationManager_LoadPropAnimations(const int mapPropModelID, NNSG3d
         return;
     }
 
+    // Sovereign Complete: a time-of-day building's animations (MAP_PROP_ANIME_LIST_FLAGS_TIME_OF_DAY)
+    TimeOfDayPropAnimations *timeOfDayProp = NULL;
+
+    if (animeListFile.flags == MAP_PROP_ANIME_LIST_FLAGS_TIME_OF_DAY && manager->timeOfDayPropCount < MAP_PROP_ANIMATION_MANAGER_MAX_TIME_OF_DAY_PROPS) {
+        timeOfDayProp = &manager->timeOfDayProps[manager->timeOfDayPropCount++];
+        timeOfDayProp->model = mapPropModel;
+        timeOfDayProp->texture = mapPropTexture;
+
+        for (i = 0; i < MAP_PROP_ANIME_LIST_FILE_ARCHIVE_IDS_COUNT; i++) {
+            timeOfDayProp->animations[i] = NULL;
+        }
+    }
+
     for (int i = 0; i < MAP_PROP_ANIME_LIST_FILE_ARCHIVE_IDS_COUNT; i++) {
         animeArchiveID = animeListFile.animeArchiveIDs[i];
 
         if (animeArchiveID == ANIME_ARCHIVE_ID_NONE || MapPropAnimation_CheckDeferredLoadingFlag(animeListFile.flags)) {
-            return;
+            break; // Sovereign Complete: was return, for the time of day below
         }
 
         for (j = 0; j < MAP_PROP_ANIMATION_MANAGER_MAX_ANIMATIONS; j++) {
@@ -225,11 +299,24 @@ void MapPropAnimationManager_LoadPropAnimations(const int mapPropModelID, NNSG3d
                     manager->animations[j].loopCount = 1;
                 }
 
+                if (timeOfDayProp != NULL) { // Sovereign Complete
+                    timeOfDayProp->animations[i] = &manager->animations[j];
+                }
+
                 break;
             }
         }
 
         GF_ASSERT(j != MAP_PROP_ANIMATION_MANAGER_MAX_ANIMATIONS);
+    }
+
+    // Sovereign Complete
+    if (timeOfDayProp != NULL) {
+        if (timeOfDayProp->animations[0] == NULL) {
+            manager->timeOfDayPropCount--;
+        } else if (manager->timeOfDayIndex != 0) {
+            TimeOfDayPropAnimations_Show(timeOfDayProp, manager->timeOfDayIndex);
+        }
     }
 }
 
@@ -266,7 +353,7 @@ BOOL MapPropAnimationManager_AddAnimationToRenderObj(const int mapPropModelID, c
             }
 
             if (addAnimationObj) {
-                NNS_G3dRenderObjAddAnmObj(mapPropRenderObj, manager->animations[i].animationObj);
+                AddAnimationObjToRenderObj(mapPropRenderObj, manager->animations[i].animationObj); // Sovereign Complete
             }
 
             return TRUE;
@@ -298,6 +385,18 @@ BOOL MapPropAnimationManager_AddAllAnimationsToRenderObj(const int mapPropModelI
         return FALSE;
     }
 
+    // Sovereign Complete: a time-of-day building shows its first animation's object (TimeOfDayPropAnimations_Show)
+    if (animeListFile.flags == MAP_PROP_ANIME_LIST_FLAGS_TIME_OF_DAY) {
+        for (i = 0; i < manager->timeOfDayPropCount; i++) {
+            if (manager->timeOfDayProps[i].animations[0]->animeArchiveID == animeListFile.animeArchiveIDs[0]) {
+                AddAnimationObjToRenderObj(mapPropRenderObj, manager->timeOfDayProps[i].animations[0]->animationObj);
+                return TRUE;
+            }
+        }
+
+        return FALSE;
+    }
+
     for (i = 0; i < MAP_PROP_ANIME_LIST_FILE_ARCHIVE_IDS_COUNT; i++) {
         animeArchiveID = animeListFile.animeArchiveIDs[i];
 
@@ -314,7 +413,7 @@ BOOL MapPropAnimationManager_AddAllAnimationsToRenderObj(const int mapPropModelI
                 }
 
                 if (addAnimationObj) {
-                    NNS_G3dRenderObjAddAnmObj(mapPropRenderObj, manager->animations[j].animationObj);
+                    AddAnimationObjToRenderObj(mapPropRenderObj, manager->animations[j].animationObj); // Sovereign Complete
                     res = TRUE;
                 }
 
@@ -331,6 +430,8 @@ void MapPropAnimationManager_UnloadAllAnimations(MapPropAnimationManager *manage
     if (manager == NULL) {
         return;
     }
+
+    manager->timeOfDayPropCount = 0; // Sovereign Complete
 
     for (int i = 0; i < MAP_PROP_ANIMATION_MANAGER_MAX_ANIMATIONS; i++) {
         if (manager->animations[i].loaded) {
@@ -543,6 +644,17 @@ void MapPropAnimationManager_AdvanceAnimations(MapPropAnimationManager *manager)
     }
 
     BicycleSlopeAnimation_ResetFinishedAnimations(manager->bicycleSlopeAnimations);
+
+    // Sovereign Complete: HeartGold's buildings follow the time of day (its FieldSystemUnkSub104_SwitchTimeOfDay)
+    u8 timeOfDayIndex = TimeOfDayPropAnimationIndex();
+
+    if (timeOfDayIndex != manager->timeOfDayIndex) {
+        manager->timeOfDayIndex = timeOfDayIndex;
+
+        for (int i = 0; i < manager->timeOfDayPropCount; i++) {
+            TimeOfDayPropAnimations_Show(&manager->timeOfDayProps[i], timeOfDayIndex);
+        }
+    }
 }
 
 BOOL MapPropAnimation_IsLoopFinished(const MapPropAnimation *animation)
