@@ -50,15 +50,17 @@ def follower(d, addr):
 
 
 def settle(d, idle_addr):
-    """Press A through any scene (Barry runs into the bedroom after the first step of a new game) until the field runs
-    freely: gSovereignTestIdleFrames, which counts frames with no script, task, warp or battle, keeps rising."""
+    """Press B through any scene (Barry runs into the bedroom after the first step of a new game) until the field runs
+    freely: gSovereignTestIdleFrames counts the field's updates with no script, task, warp or battle. The field
+    updates at 30 Hz, so a free second adds about 30. B advances text and closes menus but never starts a
+    conversation (the test warp leaves the player facing the Veilstone Store clerk, whom A would talk to)."""
     idle = lambda: struct.unpack('<I', bytes(d.emu.memory.unsigned[idle_addr:idle_addr + 4]))[0]  # noqa: E731
-    for _ in range(80):
+    for _ in range(40):
         start = idle()
         d.run(60)
-        if idle() - start >= 55:
+        if idle() - start >= 20:
             return True
-        d.press('A', after=30)
+        d.press('B', after=30)
     return False
 
 
