@@ -41,6 +41,19 @@ BATTLE_OUTCOMES = {
 # HeartGold's standard scripts with a Platinum one that does the same: a Mart's deliverymen shown or hidden as the
 # map loads (Platinum's shows its Mystery Gift deliveryman, scripts_mystery_gift_deliveryman.s)
 STD_SCRIPTS = {'std_hide_show_deliverymen': '10200', 'std_hide_show_deliverymen_2': '10200'}
+# HeartGold's standard script files the engine has as they are, translated, at their own script IDs
+# (include/script_manager.h): the Bug-Catching Contest's (its 10400 on, here 11000 on: Platinum has 10400) and the
+# Johto Safari Zone's (its 8800 on, here 11100 on: Platinum's Safari game has 8800)
+STD_FILES = {'scr_seq_0151': (10400, 11000), 'scr_seq_0262': (8800, 11100)}
+STD_FILE_SCRIPTS = 100  # the most scripts one has
+
+
+def std_file_script(n):
+    """The engine's script ID for HeartGold's standard script n in one of STD_FILES, or None."""
+    for hg_start, start in STD_FILES.values():
+        if hg_start <= n < hg_start + STD_FILE_SCRIPTS:
+            return start + n - hg_start
+    return None
 # Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman, whom HeartGold's
 # std_hide_show_deliverymen shows when Mom has bought something (she doesn't here), stays hidden
 NEW_GAME_FLAGS = ['FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN']
@@ -183,6 +196,8 @@ class Names:
             out = 'COLOR_' + tok[len('RGB_'):]
         elif tok in STD_SCRIPTS:
             out = STD_SCRIPTS[tok]
+        elif tok in self.hg_std and std_file_script(self.hg_std[tok]) is not None:
+            out = str(std_file_script(self.hg_std[tok]))
         elif tok == 'obj_partner_poke':
             out = 'LOCALID_COMPLETE_FOLLOWER'
         elif tok == 'obj_player':
@@ -363,6 +378,7 @@ def main():
         for _, f in hg_headers():
             for key in ('scriptsBank', 'scriptHeaderBank'):
                 used.add(re.sub(r'_bin$', '', f[key]))
+        used.update(STD_FILES)
         files = [f for f in files if os.path.splitext(os.path.basename(f))[0] in used]
         install(files, names, COMMANDS, platinum_params, hg_params, report)
         print(f'{install_new_game(source_dir, names)} of HeartGold\'s new game flags in InitNewGame')

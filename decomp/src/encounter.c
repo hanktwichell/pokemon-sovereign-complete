@@ -52,6 +52,7 @@
 #include "unk_0203D1B8.h"
 #include "unk_020528D0.h"
 #include "vars_flags.h"
+#include "complete_bug_contest.h" // Sovereign Complete
 
 #include "data/sovereign_totem_trials.h"
 
@@ -90,6 +91,7 @@ static BOOL FieldTask_Encounter(FieldTask *task);
 static BOOL FieldTask_LinkEncounter(FieldTask *task);
 static BOOL FieldTask_WiFiEncounter(FieldTask *task);
 static BOOL FieldTask_SafariEncounter(FieldTask *task);
+static BOOL FieldTask_BugContestEncounter(FieldTask *task); // Sovereign Complete
 static BOOL FieldTask_PalParkEncounter(FieldTask *task);
 static BOOL FieldTask_CatchingTutorialEncounter(FieldTask *task);
 static BOOL FieldTask_LinkEncounterWithRecording(FieldTask *task);
@@ -384,7 +386,10 @@ static void FreeWildEncounter(WildEncounter *encounter)
 
 void Encounter_NewVsWild(FieldSystem *fieldSystem, FieldBattleDTO *dto)
 {
-    if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) != FALSE) {
+    if (dto->battleType & BATTLE_TYPE_BUG_CONTEST) { // Sovereign Complete
+        Encounter *encounter = NewEncounter(dto, EncEffects_CutInEffect(dto), EncEffects_BGM(dto), NULL);
+        FieldSystem_CreateTask(fieldSystem, FieldTask_BugContestEncounter, encounter);
+    } else if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) != FALSE) {
         Encounter *encounter = NewEncounter(dto, EncEffects_CutInEffect(dto), EncEffects_BGM(dto), NULL);
         FieldSystem_CreateTask(fieldSystem, FieldTask_SafariEncounter, encounter);
     } else {
@@ -395,7 +400,10 @@ void Encounter_NewVsWild(FieldSystem *fieldSystem, FieldBattleDTO *dto)
 
 void Encounter_StartVsWild(FieldSystem *fieldSystem, FieldTask *task, FieldBattleDTO *dto)
 {
-    if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) != FALSE) {
+    if (dto->battleType & BATTLE_TYPE_BUG_CONTEST) { // Sovereign Complete
+        Encounter *encounter = NewEncounter(dto, EncEffects_CutInEffect(dto), EncEffects_BGM(dto), NULL);
+        FieldTask_InitJump(task, FieldTask_BugContestEncounter, encounter);
+    } else if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) != FALSE) {
         Encounter *encounter = NewEncounter(dto, EncEffects_CutInEffect(dto), EncEffects_BGM(dto), NULL);
         FieldTask_InitJump(task, FieldTask_SafariEncounter, encounter);
     } else {
@@ -482,6 +490,87 @@ static BOOL FieldTask_WildEncounter(FieldTask *task)
             return TRUE;
         }
         break;
+    }
+
+    return FALSE;
+}
+
+// Sovereign Complete: the Bug-Catching Contest's battles, as the Great Marsh's (HeartGold's Task_BugContestEncounter)
+static void BugContest_WarpToJudging(FieldTask *task)
+{
+    Location location;
+
+    Location_Set(&location, MAP_HEADER_HGSS_NATIONAL_PARK, -1, 46, 50, DIR_NORTH);
+    FieldTask_ChangeMapByLocation(task, &location);
+}
+
+static BOOL FieldTask_BugContestEncounter(FieldTask *task)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
+    Encounter *encounter = FieldTask_GetEnv(task);
+    int *state = FieldTask_GetState(task);
+
+    switch (*state) {
+    case 0:
+        MapObjectMan_PauseAllMovement(fieldSystem->mapObjMan);
+        GameRecords_IncrementRecordValue(SaveData_GetGameRecords(fieldSystem->saveData), RECORD_WILD_BATTLES_FOUGHT);
+        FieldTransition_StartEncounterEffect(task, encounter->introEffectID, encounter->battleBGM);
+        (*state)++;
+        break;
+
+    case 1:
+        FieldTransition_FinishMap(task);
+        (*state)++;
+        break;
+
+    case 2:
+        CallBattleTask(task, encounter->dto);
+        (*state)++;
+        break;
+
+    case 3:
+        UpdateFieldSystemFromDTO(encounter->dto, fieldSystem);
+        CompleteBugContest_SetSportBalls(encounter->dto->countSafariBalls);
+
+        if (encounter->dto->bugContestCaught) {
+            CompleteBugContest_KeepMon(encounter->dto->bugContestMon);
+        }
+
+        UpdateGameRecords(fieldSystem, encounter->dto);
+        UpdateJournal(fieldSystem, encounter->dto);
+
+        if (CheckPlayerWonBattle(encounter->dto->resultMask) == FALSE) {
+            Party_HealAllMembers(SaveData_GetParty(fieldSystem->saveData));
+            BugContest_WarpToJudging(task);
+        } else if (encounter->dto->countSafariBalls == 0 && encounter->dto->resultMask != BATTLE_RESULT_CAPTURED_MON) {
+            BugContest_WarpToJudging(task);
+        }
+
+        (*state)++;
+        break;
+
+    case 4:
+        FieldTransition_StartMap(task);
+        (*state)++;
+        break;
+
+    case 5:
+        MapObjectMan_UnpauseAllMovement(fieldSystem->mapObjMan);
+        FieldTransition_FadeIn(task);
+        (*state)++;
+        break;
+
+    case 6:
+        if (encounter->dto->countSafariBalls == 0 && encounter->dto->resultMask == BATTLE_RESULT_CAPTURED_MON) {
+            ScriptManager_Start(task, SCRIPT_ID(COMPLETE_BUG_CONTEST, 1), NULL, NULL);
+        }
+
+        (*state)++;
+        break;
+
+    case 7:
+        FreeEncounter(encounter);
+        return TRUE;
     }
 
     return FALSE;

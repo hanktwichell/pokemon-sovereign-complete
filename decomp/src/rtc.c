@@ -72,6 +72,10 @@ static void GetTimeCallback(RTCResult result, void *data)
     if (gSovereignTestClock.month) {
         state->date.month = gSovereignTestClock.month;
     }
+
+    if (gSovereignTestClock.weekday) { // Sovereign Complete
+        state->date.week = gSovereignTestClock.weekday - 1;
+    }
 #endif
     state->readInProgress = 0;
 }

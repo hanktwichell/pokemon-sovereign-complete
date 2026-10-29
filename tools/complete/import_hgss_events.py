@@ -97,6 +97,9 @@ COMMON_APRICORN_TREE = 0x80F
 # rooms (their doors are at fixed tiles), so HeartGold's (9001, 9003, 9203) keep script 0 for now, as do its B1F
 # Teala (9201) and Pichu check (9202), which Platinum lacks.
 STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201}
+# People running one of the standard script files translated as they are (translate_hgss_scripts.py's STD_FILES):
+# the Bug-Catching Contest's contestants and prize keeper
+STD_PEOPLE.update({n: 11000 + n - 10400 for n in range(10400, 10429)})
 # The deliveryman shows himself by Platinum's flag (scripts_mystery_gift_deliveryman.s)
 HIDDEN_FLAGS = {'FLAG_HGSS_HIDE_MYSTERY_GIFT_DELIVERYMAN': 'FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN'}
 

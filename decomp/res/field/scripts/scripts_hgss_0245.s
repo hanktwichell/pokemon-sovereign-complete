@@ -40,7 +40,7 @@ scr_seq_R36R0201_002:
     LockAll
     ApplyMovement LOCALID_PLAYER, _0120
     WaitMovement
-    @ HGSS: CallStd std_bug_contest_guard_ask_end
+    CallCommonScript 11006
     CompareVar VAR_HGSS_UNK_4118, 1
     GoToIf 5, _011A
     CompleteFollowerPause 0
@@ -88,7 +88,7 @@ scr_seq_R36R0201_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CallStd std_bug_contest_guard_start
+    CallCommonScript 11005
     CompareVar VAR_HGSS_UNK_4118, 1
     GoToIf 5, _0231
     GoToIfSet FLAG_HGSS_UNK_1C4, _01BA

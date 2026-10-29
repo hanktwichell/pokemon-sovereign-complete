@@ -145,6 +145,17 @@ FieldBattleDTO *FieldBattleDTO_NewSafari(enum HeapID heapID, int countSafariBall
     return dto;
 }
 
+// Sovereign Complete: a Bug-Catching Contest battle (src/complete_bug_contest.c)
+FieldBattleDTO *FieldBattleDTO_NewBugContest(enum HeapID heapID, int countSportBalls, BOOL hasMon)
+{
+    FieldBattleDTO *dto = FieldBattleDTO_New(heapID, BATTLE_TYPE_BUG_CONTEST);
+
+    dto->countSafariBalls = countSportBalls;
+    dto->bugContestHasMon = hasMon;
+    dto->bugContestMon = Pokemon_New(heapID);
+    return dto;
+}
+
 FieldBattleDTO *FieldBattleDTO_NewPalPark(enum HeapID heapID, int countParkBalls)
 {
     FieldBattleDTO *dto = FieldBattleDTO_New(heapID, BATTLE_TYPE_PAL_PARK);
@@ -207,6 +218,10 @@ void FieldBattleDTO_Free(FieldBattleDTO *dto)
     for (i = 0; i < 4; i++) {
         GF_ASSERT(dto->chatotCries[i] != NULL);
         Heap_Free(dto->chatotCries[i]);
+    }
+
+    if (dto->bugContestMon != NULL) { // Sovereign Complete: a Bug-Catching Contest battle's
+        Heap_Free(dto->bugContestMon);
     }
 
     Heap_Free(dto->bag);

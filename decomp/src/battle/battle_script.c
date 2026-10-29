@@ -11550,17 +11550,27 @@ static void BattleScript_CatchMonTask(SysTask *task, void *inData)
     case SEQ_CATCH_MON_WAIT_FADE_FOR_ASK_NICKNAME:
         if (PaletteData_GetSelectedBuffersMask(paletteData) == 0) {
             data->seqNum = SEQ_CATCH_MON_PRINT_YES_NO_GIVE_NICKNAME;
+
+            // Sovereign Complete: a Bug-Catching Contest catch has no nickname; with one kept, it asks which to keep
+            if ((BattleSystem_GetBattleType(data->battleSys) & BATTLE_TYPE_BUG_CONTEST) && !data->battleSys->bugContestHasMon) {
+                data->seqNum = SEQ_CATCH_MON_DIDNT_GIVE_NICKNAME;
+            }
+
             sub_02015738(BattleSystem_GetPaletteAnimator(data->battleSys), 0);
             PaletteData_SetAutoTransparent(paletteData, TRUE);
         }
         break;
     case SEQ_CATCH_MON_PRINT_YES_NO_GIVE_NICKNAME:
         int v15 = battler | (data->battleCtx->selectedPartySlot[battler]);
-        BattleController_EmitShowYesNoMenu(data->battleSys, data->battleCtx, 0, BattleStrings_Text_GiveANicknameToTheCaughtPokemonYesNo, 5, NULL, v15);
+        BattleController_EmitShowYesNoMenu(data->battleSys, data->battleCtx, 0, (BattleSystem_GetBattleType(data->battleSys) & BATTLE_TYPE_BUG_CONTEST) ? BattleStrings_Text_CompleteKeepThisPokemonYesNo : BattleStrings_Text_GiveANicknameToTheCaughtPokemonYesNo, 5, NULL, v15); // Sovereign Complete: the contest's question
         data->seqNum++;
         break;
     case SEQ_CATCH_MON_PROCESS_INPUT_GIVE_NICKNAME:
-        if (BattleContext_IOBufferVal(data->battleCtx, 0)) {
+        if (BattleContext_IOBufferVal(data->battleCtx, 0) && (BattleSystem_GetBattleType(data->battleSys) & BATTLE_TYPE_BUG_CONTEST)) {
+            // Sovereign Complete: No keeps the Pokémon kept before
+            data->battleSys->bugContestRelease = BattleContext_IOBufferVal(data->battleCtx, 0) == PLAYER_INPUT_CANCEL;
+            data->seqNum = SEQ_CATCH_MON_DIDNT_GIVE_NICKNAME;
+        } else if (BattleContext_IOBufferVal(data->battleCtx, 0)) {
             if (BattleContext_IOBufferVal(data->battleCtx, 0) == PLAYER_INPUT_CANCEL) {
                 data->seqNum = SEQ_CATCH_MON_DIDNT_GIVE_NICKNAME;
             } else {
@@ -11647,7 +11657,18 @@ static void BattleScript_CatchMonTask(SysTask *task, void *inData)
             BattleSystem_InitCaptureAttempt(data->battleSys, mon);
             BattleController_EmitIncrementRecord(data->battleSys, 0, 0, RECORD_CAUGHT_POKEMON);
 
-            if (Party_AddPokemon(party, mon) == TRUE) {
+            if (BattleSystem_GetBattleType(data->battleSys) & BATTLE_TYPE_BUG_CONTEST) {
+                // Sovereign Complete: the Bug-Catching Contest keeps it (src/complete_bug_contest.c), not the party
+                if (!data->battleSys->bugContestRelease) {
+                    Pokemon_Copy(mon, data->battleSys->bugContestMon);
+                    data->battleSys->bugContestCaught = TRUE;
+                }
+
+                sub_02015738(BattleSystem_GetPaletteAnimator(data->battleSys), 1);
+                PaletteData_StartFade(paletteData, PLTTBUF_MAIN_BG_F | PLTTBUF_SUB_BG_F | PLTTBUF_MAIN_OBJ_F | PLTTBUF_SUB_OBJ_F, 0xFFFF, 1, 0, 16, 0);
+                PokemonSpriteManager_StartFadeAll(monSpriteMan, 0, 16, 0, 0);
+                data->seqNum = SEQ_CATCH_MON_DONE;
+            } else if (Party_AddPokemon(party, mon) == TRUE) {
                 if (data->seqNum == SEQ_CATCH_MON_DIDNT_GIVE_NICKNAME) {
                     sub_02015738(BattleSystem_GetPaletteAnimator(data->battleSys), 1);
                     PaletteData_StartFade(paletteData, PLTTBUF_MAIN_BG_F | PLTTBUF_SUB_BG_F | PLTTBUF_MAIN_OBJ_F | PLTTBUF_SUB_OBJ_F, 0xFFFF, 1, 0, 16, 0);

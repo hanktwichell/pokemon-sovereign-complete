@@ -175,6 +175,7 @@ struct SovereignTestBreed {
 struct SovereignTestClock {
     u8 hour; // when set, the hour + 1
     u8 month; // when set, the month (1 to 12)
+    u8 weekday; // Sovereign Complete: when set, the weekday + 1 (Sunday is 0; the Bug-Catching Contest's days)
 };
 
 struct SovereignTestPartner {

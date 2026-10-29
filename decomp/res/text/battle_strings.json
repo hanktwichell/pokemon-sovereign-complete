@@ -11311,6 +11311,20 @@
         "The foe’s {STRVAR_1 1, 0, 0}\n",
         "used up all its electricity!"
       ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteYoureOutOfSportBalls",
+      "en_US": [
+        "Announcer: You’re out of\n",
+        "Sport Balls! Game over!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteKeepThisPokemonYesNo",
+      "en_US": [
+        "Keep the caught {STRVAR_1 1, 0, 0} instead\n",
+        "of the Pokémon you kept before?{YESNO 0}"
+      ]
     }
   ]
 }

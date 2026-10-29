@@ -5709,6 +5709,65 @@
     .short SCRCMD_COMPLETEKURTCLEAR
     .endm
 
+    // The Bug-Catching Contest (src/complete_bug_contest.c), as HeartGold's commands 785-790: starting (0, with the
+    // weekday) or ending (1) it, a place's winner, the judging (the player's place, prize and caught species), the
+    // caught Pokémon's name (TRUE if it goes to a box), the minutes left, and whether entrant 0-9 is in today's.
+    .macro CompleteBugContestAction action, weekdayVar
+    .short SCRCMD_COMPLETEBUGCONTESTACTION
+    .byte \action
+    .short \weekdayVar
+    .endm
+
+    .macro CompleteBufferBugContestWinner place
+    .short SCRCMD_COMPLETEBUFFERBUGCONTESTWINNER
+    .byte \place
+    .endm
+
+    .macro CompleteJudgeBugContest placeVar, prizeVar, speciesVar
+    .short SCRCMD_COMPLETEJUDGEBUGCONTEST
+    .short \placeVar
+    .short \prizeVar
+    .short \speciesVar
+    .endm
+
+    .macro CompleteBufferBugContestMonNick idx, destVar
+    .short SCRCMD_COMPLETEBUFFERBUGCONTESTMONNICK
+    .byte \idx
+    .short \destVar
+    .endm
+
+    .macro CompleteBugContestGetTimeLeft idx
+    .short SCRCMD_COMPLETEBUGCONTESTGETTIMELEFT
+    .byte \idx
+    .endm
+
+    .macro CompleteIsBugContestantRegistered idVar, destVar
+    .short SCRCMD_COMPLETEISBUGCONTESTANTREGISTERED
+    .short \idVar
+    .short \destVar
+    .endm
+
+    // The caught Pokémon joins the party for Platinum's naming screen (its slot in destVar), and leaves after
+    .macro CompleteBugContestNicknameStart destVar
+    .short SCRCMD_COMPLETEBUGCONTESTNICKNAMESTART
+    .short \destVar
+    .endm
+
+    .macro CompleteBugContestNicknameEnd
+    .short SCRCMD_COMPLETEBUGCONTESTNICKNAMEEND
+    .endm
+
+    // HeartGold's SetFlagVar and ClearFlagVar: the flag a variable holds, by HeartGold's number (src/complete_scrcmd.c)
+    .macro CompleteSetHGSSFlagFromVar varID
+    .short SCRCMD_COMPLETESETHGSSFLAGFROMVAR
+    .short \varID
+    .endm
+
+    .macro CompleteClearHGSSFlagFromVar varID
+    .short SCRCMD_COMPLETECLEARHGSSFLAGFROMVAR
+    .short \varID
+    .endm
+
     .text
     .globl _start
 _start:

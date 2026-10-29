@@ -726,6 +726,7 @@ static void BattleMain_CopyBattleSysToDTOAndFree(ApplicationManager *appMan)
     dto->poketch = battleSys->poketch;
     dto->captureAttempt = battleSys->captureAttempt;
     dto->countSafariBalls = battleSys->safariBalls;
+    dto->bugContestCaught = battleSys->bugContestCaught; // Sovereign Complete
     dto->resultMask = battleSys->resultMask & (0xC0 ^ 0xFF);
     dto->caughtBattlerIdx = battleSys->caughtBattlerIdx;
     dto->leveledUpMonsMask = BattleContext_Get(battleSys, battleSys->battleCtx, BATTLECTX_LEVEL_UP_MONS, NULL);
@@ -1072,6 +1073,8 @@ static void BattleSys_New(BattleSystem *battleSys, FieldBattleDTO *dto)
     battleSys->metBebe = dto->metBebe;
     battleSys->megaUnlocked = dto->megaUnlocked;
     battleSys->isFishing = dto->isFishing; // Sovereign Complete
+    battleSys->bugContestHasMon = dto->bugContestHasMon;
+    battleSys->bugContestMon = dto->bugContestMon;
     battleSys->fieldWeather = dto->fieldWeather;
     battleSys->records = dto->records;
 

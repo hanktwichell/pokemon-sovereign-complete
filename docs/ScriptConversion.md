@@ -151,6 +151,11 @@ Platinum's script as each Mart loads) are in. Mom's gift deliveryman stays hidde
 doesn't buy things here. Platinum's Colosseum, Union Room and Wi-Fi Club attendants walk the player through Platinum's
 rooms, with their doors at fixed tiles, so HeartGold's still do nothing; they come with link play.
 
+Two of HeartGold's standard script files are translated as they are, as map script files are, and get script IDs of
+their own (`STD_FILES`): the Bug-Catching Contest's (`scr_seq_0151`, HeartGold's 10400 on, here 11000 on) and the
+Johto Safari Zone's (`scr_seq_0262`, HeartGold's 8800 on, here 11100 on); HeartGold's numbers are Platinum's daily
+trainers and Safari game there. A `CallStd` to one of them becomes a `CallCommonScript` to its new number.
+
 ## Text
 
 HeartGold's message banks (`files/msgdata/msg/*.json`) have Platinum's layout (`key`, then `messages` with `id` and

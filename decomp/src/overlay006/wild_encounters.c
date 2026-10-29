@@ -59,6 +59,8 @@
 #include "unk_020559DC.h"
 #include "vars_flags.h"
 
+#include "complete_bug_contest.h" // Sovereign Complete
+
 #include "data/regional_forms_park.h"
 #include "data/sovereign_rare_wild.h"
 
@@ -115,6 +117,7 @@ static u8 ModifyEncounterRateWithFieldParams(const BOOL isFishingEncounter, cons
 static void CreateWildSingleBattle(FieldSystem *fieldSystem, const BOOL param1, FieldBattleDTO **param2);
 static void WildEncounters_ReplaceGreatMarshDailyEncounters(FieldSystem *fieldSystem, const BOOL safariGameActive, const BOOL param2, EncounterSlot *encTable);
 static BOOL RepelPreventsEncounter(const u8 param0, const WildEncounters_FieldParams *param1);
+static FieldBattleDTO *BugContestBattle(FieldSystem *fieldSystem, Pokemon *firstPartyMon, const WildEncounters_FieldParams *encounterFieldParams);
 static void AddRoamerToEnemyParty(const u32 param0, Roamer *param1, FieldBattleDTO *param2);
 static BOOL TryEncounterRoamer(FieldSystem *fieldSystem, Roamer **param1);
 static BOOL AddWildMonToParty(const int partySlot, const WildEncounters_FieldParams *fieldParams, Pokemon *mon, FieldBattleDTO *battleParams);
@@ -469,6 +472,27 @@ BOOL WildEncounters_TryWildEncounter(FieldSystem *fieldSystem)
         return FALSE;
     }
 
+    // Sovereign Complete: the Bug-Catching Contest's own Pokémon, at the map's own rate (src/complete_bug_contest.c)
+    if (CompleteBugContest_IsRunning() && encounterType == ENCOUNTER_TYPE_GRASS) {
+        battleParams = BugContestBattle(fieldSystem, firstPartyMon, &encounterFieldParams);
+
+        if (battleParams == NULL) {
+            return FALSE;
+        }
+
+#ifdef SOVEREIGN_TEST
+        if (surveying) { // a survey (tools/complete/test_hgss_bug_contest.py) writes it down, with no battle
+            SovereignTest_RecordWildParty(battleParams);
+            FieldBattleDTO_Free(battleParams);
+            return FALSE;
+        }
+#endif
+
+        Encounter_NewVsWild(fieldSystem, battleParams);
+        fieldSystem->wildBattleMetadata.encounterAttempts = 0;
+        return TRUE;
+    }
+
     if (SystemFlag_CheckHasPartner(SaveData_GetVarsFlags(fieldSystem->saveData))) {
         withPartner = TRUE;
     } else {
@@ -708,6 +732,18 @@ BOOL WildEncounters_TrySweetScentEncounter(FieldSystem *fieldSystem, FieldTask *
     encounterFieldParams.ignoreAbilityBlock = TRUE;
 
     memset(&radarData, 0, sizeof(RadarEncounterData));
+
+    // Sovereign Complete: Sweet Scent in the Bug-Catching Contest brings out its own Pokémon
+    if (CompleteBugContest_IsRunning() && encounterType == ENCOUNTER_TYPE_GRASS) {
+        battleParams = BugContestBattle(fieldSystem, firstPartyMon, &encounterFieldParams);
+
+        if (battleParams == NULL) {
+            return FALSE;
+        }
+
+        Encounter_StartVsWild(fieldSystem, param1, battleParams);
+        return TRUE;
+    }
 
     if (SystemFlag_CheckHasPartner(SaveData_GetVarsFlags(fieldSystem->saveData))) {
         withPartner = TRUE;
@@ -1861,4 +1897,24 @@ static void InitEncounterFieldParams(FieldSystem *fieldSystem, Pokemon *firstPar
     }
 
     encounterFieldParams->trainerID = TrainerInfo_ID(SaveData_GetTrainerInfo(fieldSystem->saveData));
+}
+
+// Sovereign Complete: a Bug-Catching Contest battle with one of the day's Pokémon (HeartGold's
+// FieldSystem_GenerateBugContestEncounter), or NULL if Repel keeps it away
+static FieldBattleDTO *BugContestBattle(FieldSystem *fieldSystem, Pokemon *firstPartyMon, const WildEncounters_FieldParams *encounterFieldParams)
+{
+    u16 species;
+    u8 level;
+
+    CompleteBugContest_GetEncounter(&species, &level);
+
+    if (RepelPreventsEncounter(level, encounterFieldParams)) {
+        return NULL;
+    }
+
+    FieldBattleDTO *battleParams = FieldBattleDTO_NewBugContest(HEAP_ID_FIELD2, CompleteBugContest_GetSportBalls(), CompleteBugContest_HasCaught());
+
+    FieldBattleDTO_Init(battleParams, fieldSystem);
+    CreateWildMon(species, level, BATTLER_ENEMY_1, encounterFieldParams, firstPartyMon, battleParams);
+    return battleParams;
 }

@@ -899,6 +899,16 @@ ScriptCommand(SCRCMD_COMPLETEKURTTAKEAPRICORNS,                         Complete
 ScriptCommand(SCRCMD_COMPLETEKURTBALLCOUNT,                             CompleteScrCmd_KurtBallCount)
 ScriptCommand(SCRCMD_COMPLETEKURTBALL,                                  CompleteScrCmd_KurtBall)
 ScriptCommand(SCRCMD_COMPLETEKURTCLEAR,                                 CompleteScrCmd_KurtClear)
+ScriptCommand(SCRCMD_COMPLETEBUGCONTESTACTION,                          CompleteScrCmd_BugContestAction)
+ScriptCommand(SCRCMD_COMPLETEBUFFERBUGCONTESTWINNER,                    CompleteScrCmd_BufferBugContestWinner)
+ScriptCommand(SCRCMD_COMPLETEJUDGEBUGCONTEST,                           CompleteScrCmd_JudgeBugContest)
+ScriptCommand(SCRCMD_COMPLETEBUFFERBUGCONTESTMONNICK,                   CompleteScrCmd_BufferBugContestMonNick)
+ScriptCommand(SCRCMD_COMPLETEBUGCONTESTGETTIMELEFT,                     CompleteScrCmd_BugContestGetTimeLeft)
+ScriptCommand(SCRCMD_COMPLETEISBUGCONTESTANTREGISTERED,                 CompleteScrCmd_IsBugContestantRegistered)
+ScriptCommand(SCRCMD_COMPLETESETHGSSFLAGFROMVAR,                        CompleteScrCmd_SetHGSSFlagFromVar)
+ScriptCommand(SCRCMD_COMPLETECLEARHGSSFLAGFROMVAR,                      CompleteScrCmd_ClearHGSSFlagFromVar)
+ScriptCommand(SCRCMD_COMPLETEBUGCONTESTNICKNAMESTART,                   CompleteScrCmd_BugContestNicknameStart)
+ScriptCommand(SCRCMD_COMPLETEBUGCONTESTNICKNAMEEND,                     CompleteScrCmd_BugContestNicknameEnd)
 
 // clang-format on
 

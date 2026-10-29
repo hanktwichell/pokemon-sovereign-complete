@@ -34,6 +34,7 @@
 #define BATTLE_TYPE_ROAMER         (1 << 8)
 #define BATTLE_TYPE_PAL_PARK       (1 << 9)
 #define BATTLE_TYPE_CATCH_TUTORIAL (1 << 10)
+#define BATTLE_TYPE_BUG_CONTEST    (1 << 11) // Sovereign Complete: HeartGold's Bug-Catching Contest
 #define BATTLE_TYPE_DEBUG          (1 << 31)
 
 #define BATTLE_TYPE_TRAINER_SINGLES          (BATTLE_TYPE_SINGLES | BATTLE_TYPE_TRAINER)

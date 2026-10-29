@@ -236,6 +236,7 @@ Static main
 	Object src/complete_encounters.c
 	Object src/complete_gyms.c
 	Object src/complete_apricorns.c
+	Object src/complete_bug_contest.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c

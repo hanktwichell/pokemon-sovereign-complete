@@ -65,7 +65,7 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from battle_all_trainers import (DECOMP, HANG_FRAMES, STEP, SWITCH_FRAMES, TAPS, VBLANK_COUNTER,  # noqa: E402
+from battle_all_trainers import (DECOMP, TEST_BUILD, HANG_FRAMES, STEP, SWITCH_FRAMES, TAPS, VBLANK_COUNTER,  # noqa: E402
                                  heap_info, symbols)
 from heap_check import heap_problems  # noqa: E402
 from check_object_tiles import (DIRS, TABLE, WINDOW, Maps, can_turn, explore, vanilla_events,  # noqa: E402
@@ -185,7 +185,7 @@ PARTY = 6  # the test save's party
 
 def var_ids():
     """{var or flag name: its number}, from the build's generated enum."""
-    text = open(os.path.join(DECOMP, 'build_test', 'generated', 'vars_flags.py'), encoding='utf-8').read()
+    text = open(os.path.join(DECOMP, TEST_BUILD, 'generated', 'vars_flags.py'), encoding='utf-8').read()
     return {name: int(value) for name, value in re.findall(r'^\s+(\w+)\s+=\s+(\d+)$', text, re.M)}
 
 
@@ -344,7 +344,7 @@ SAVE_STALL_FRAMES = 3000
 
 def save_ranges():
     if not hasattr(save_ranges, 'ranges'):
-        xmap = open(os.path.join(DECOMP, 'build_test', 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
+        xmap = open(os.path.join(DECOMP, TEST_BUILD, 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
         save_ranges.ranges = [(int(start, 16), int(start, 16) + int(size, 16)) for start, size in
                               re.findall(r'^\s*([0-9A-F]{8}) ([0-9A-F]{8}) \.text\s+SaveData\w*', xmap, re.M)]
     return save_ranges.ranges

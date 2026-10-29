@@ -85,6 +85,7 @@
 #include "unk_0205C22C.h"
 #include "unk_0206B9D8.h"
 #include "vars_flags.h"
+#include "complete_bug_contest.h" // Sovereign Complete
 
 #include "res/graphics/start_menu/start_menu.naix"
 #include "res/text/bank/easy_chat.h"
@@ -277,7 +278,9 @@ void StartMenu_Open(FieldSystem *fieldSystem)
 {
     StartMenu *menu = StartMenu_New();
 
-    if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
+    if (CompleteBugContest_IsRunning()) { // Sovereign Complete: the Bug-Catching Contest
+        menu->hideOptionFlags = HIDE_OPTION_SAVE | HIDE_OPTION_CHAT | HIDE_OPTION_BAG;
+    } else if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
         menu->hideOptionFlags = StartMenu_GetSafariHiddenOptions(fieldSystem);
     } else if (SystemFlag_CheckInPalPark(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
         menu->hideOptionFlags = StartMenu_GetPalParkHiddenOptions(fieldSystem);
@@ -617,7 +620,8 @@ static void StartMenu_PrintBallCount(FieldTask *fieldTask)
     StartMenu *menu = FieldTask_GetEnv(fieldTask);
 
     BOOL inPalPark;
-    if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
+    BOOL inBugContest = CompleteBugContest_IsRunning(); // Sovereign Complete: its Sport Balls
+    if (inBugContest || SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
         inPalPark = FALSE;
     } else if (SystemFlag_CheckInPalPark(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
         inPalPark = TRUE;
@@ -634,7 +638,9 @@ static void StartMenu_PrintBallCount(FieldTask *fieldTask)
 
     String *string;
     // doesn't match as !inPalPark
-    if (inPalPark == FALSE) {
+    if (inBugContest) {
+        string = MessageLoader_GetNewString(loader, StartMenu_Text_CompleteSportBalls);
+    } else if (inPalPark == FALSE) {
         string = MessageLoader_GetNewString(loader, StartMenu_Text_SafariBalls);
     } else {
         string = MessageLoader_GetNewString(loader, StartMenu_Text_ParkBalls);
@@ -647,7 +653,9 @@ static void StartMenu_PrintBallCount(FieldTask *fieldTask)
     String *countString = String_Init(32, HEAP_ID_FIELD2);
     String *fmtString = MessageLoader_GetNewString(loader, StartMenu_Text_BallStock);
 
-    if (!inPalPark) {
+    if (inBugContest) {
+        StringTemplate_SetNumber(template, 0, CompleteBugContest_GetSportBalls(), 2, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    } else if (!inPalPark) {
         u16 *safariBallCount = FieldOverworldState_GetSafariBallCount(SaveData_GetFieldOverworldState(fieldSystem->saveData));
 
         StringTemplate_SetNumber(template, 0, *safariBallCount, 2, PADDING_MODE_NONE, CHARSET_MODE_EN);
@@ -673,7 +681,8 @@ static void StartMenu_EraseBallCount(FieldTask *fieldTask)
     StartMenu *menu = FieldTask_GetEnv(fieldTask);
 
     if (!SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData))
-        && !SystemFlag_CheckInPalPark(SaveData_GetVarsFlags(fieldSystem->saveData))) {
+        && !SystemFlag_CheckInPalPark(SaveData_GetVarsFlags(fieldSystem->saveData))
+        && !CompleteBugContest_IsRunning()) { // Sovereign Complete
         return;
     }
 
@@ -1451,7 +1460,9 @@ static BOOL StartMenu_SelectRetire(FieldTask *fieldTask)
     Window_Remove(&menu->primaryWindow);
     StartMenu_EraseBallCount(fieldTask);
 
-    if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
+    if (CompleteBugContest_IsRunning()) { // Sovereign Complete: HeartGold's std_bug_contest_retire
+        ScriptManager_Change(fieldTask, SCRIPT_ID(COMPLETE_BUG_CONTEST, 4), NULL);
+    } else if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
         ScriptManager_Change(fieldTask, SCRIPT_ID(SAFARI_GAME, 21), NULL);
     } else {
         ScriptManager_Change(fieldTask, 4, NULL);

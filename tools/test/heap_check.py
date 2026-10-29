@@ -11,6 +11,7 @@ import re
 import struct
 
 DECOMP = 'decomp'
+TEST_BUILD = os.environ.get('TEST_BUILD', 'build_test')  # Sovereign Complete: another test build's directory
 EXP_HEAP = 0x45585048  # 'EXPH'
 FREE_BLOCK, USED_BLOCK = 0x4652, 0x5544  # 'FR', 'UD'
 # struct HeapInfo (src/heap.c): heapHandles, ..., heapIdxs at 16, totalNumHeaps at 20, maxHeaps at 24.
@@ -23,7 +24,7 @@ BLOCK_SIZE, PREV, NEXT = 4, 8, 12
 
 def heap_info_address():
     """The address of sHeapInfo, from the test build's map."""
-    xmap = open(os.path.join(DECOMP, 'build_test', 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
+    xmap = open(os.path.join(DECOMP, TEST_BUILD, 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
     return int(re.search(r'^\s*([0-9A-F]{8}) [0-9A-F]{8} \.bss\s+sHeapInfo\b', xmap, re.M).group(1), 16)
 
 

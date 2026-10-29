@@ -143,6 +143,12 @@ struct BattleSystem {
     u8 recordedChatter[MAX_BATTLERS];
     BOOL megaUnlocked; // Sovereign (E8): the player may Mega Evolve (FieldBattleDTO.megaUnlocked)
     BOOL isFishing; // Sovereign Complete: FieldBattleDTO.isFishing
+    // Sovereign Complete: the Bug-Catching Contest's catch (FieldBattleDTO.bugContest*), and whether the player let
+    // this battle's go for the one already kept
+    BOOL bugContestHasMon;
+    BOOL bugContestCaught;
+    BOOL bugContestRelease;
+    Pokemon *bugContestMon;
 };
 
 #endif // POKEPLATINUM_STRUCT_BATTLE_SYSTEM_H

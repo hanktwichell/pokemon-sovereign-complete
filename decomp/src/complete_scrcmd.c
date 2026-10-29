@@ -347,6 +347,25 @@ static BOOL CompleteScreenShake_Task(FieldTask *task)
 
 // HeartGold's ScreenShake x, y, cycles, frames (its ov02_02246714): the camera sways by up to x and y on a sine wave of
 // that many frames, that many times, then comes back.
+#define HGSS_MAP_LOCAL_FLAGS_END 65
+
+static u16 HGSSFlag(u16 flag)
+{
+    return flag < HGSS_MAP_LOCAL_FLAGS_END ? flag : COMPLETE_FLAGS_START + flag;
+}
+
+BOOL CompleteScrCmd_SetHGSSFlagFromVar(ScriptContext *ctx)
+{
+    FieldSystem_SetFlag(ctx->fieldSystem, HGSSFlag(ScriptContext_GetVar(ctx)));
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_ClearHGSSFlagFromVar(ScriptContext *ctx)
+{
+    FieldSystem_ClearFlag(ctx->fieldSystem, HGSSFlag(ScriptContext_GetVar(ctx)));
+    return FALSE;
+}
+
 BOOL CompleteScrCmd_ScreenShake(ScriptContext *ctx)
 {
     u16 amplitudeX = ScriptContext_GetVar(ctx);

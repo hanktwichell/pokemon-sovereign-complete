@@ -85,6 +85,7 @@ static void BattleControllerPlayer_ItemCommand(BattleSystem *battleSys, BattleCo
 static void BattleControllerPlayer_SwitchCommand(BattleSystem *battleSys, BattleContext *battleCtx);
 static void BattleControllerPlayer_FleeCommand(BattleSystem *battleSys, BattleContext *battleCtx);
 static void BattleControllerPlayer_SafariBallCommand(BattleSystem *battleSys, BattleContext *battleCtx);
+static void BattleControllerPlayer_SportBallCommand(BattleSystem *battleSys, BattleContext *battleCtx); // Sovereign Complete
 static void BattleControllerPlayer_SafariBaitCommand(BattleSystem *battleSys, BattleContext *battleCtx);
 static void BattleControllerPlayer_SafariRockCommand(BattleSystem *battleSys, BattleContext *battleCtx);
 static void BattleControllerPlayer_SafariFleeCommand(BattleSystem *battleSys, BattleContext *battleCtx);
@@ -163,6 +164,7 @@ static const BattleControlFunc sBattleControlCommands[] = {
     [BATTLE_CONTROL_SAFARI_BAIT] = BattleControllerPlayer_SafariBaitCommand,
     [BATTLE_CONTROL_SAFARI_ROCK] = BattleControllerPlayer_SafariRockCommand,
     [BATTLE_CONTROL_SAFARI_WAIT] = BattleControllerPlayer_SafariFleeCommand,
+    [BATTLE_CONTROL_SPORT_BALL] = BattleControllerPlayer_SportBallCommand, // Sovereign Complete
     [BATTLE_CONTROL_EXEC_SCRIPT] = BattleControllerPlayer_ExecScript,
     [BATTLE_CONTROL_BEFORE_MOVE] = BattleControllerPlayer_BeforeMove,
     [BATTLE_CONTROL_TRY_MOVE] = BattleControllerPlayer_TryMove,
@@ -519,7 +521,11 @@ static void BattleControllerPlayer_CommandSelectionInput(BattleSystem *battleSys
                     break;
 
                 case PLAYER_INPUT_ITEM:
-                    if (BattleSystem_GetBattleType(battleSys) & BATTLE_TYPE_FRONTIER_LINK) {
+                    if (BattleSystem_GetBattleType(battleSys) & BATTLE_TYPE_BUG_CONTEST) { // Sovereign Complete: a Sport Ball
+                        battleCtx->curCommandState[i] = COMMAND_SELECTION_CLEAR_TOUCH_SCREEN;
+                        battleCtx->nextCommandState[i] = COMMAND_SELECTION_WAIT;
+                        battleCtx->battlerActions[i][BATTLE_ACTION_PICK_COMMAND] = BATTLE_CONTROL_SPORT_BALL;
+                    } else if (BattleSystem_GetBattleType(battleSys) & BATTLE_TYPE_FRONTIER_LINK) {
                         msg.id = 593; // "Items can’t be used here."
                         msg.tags = TAG_NONE;
                         BattleController_EmitSetAlertMessage(battleSys, i, msg);
@@ -2481,6 +2487,20 @@ static void BattleControllerPlayer_SafariBallCommand(BattleSystem *battleSys, Ba
     int balls = BattleSystem_GetNumSafariBalls(battleSys) - 1;
     BattleSystem_SetNumSafariBalls(battleSys, balls);
     BattleController_EmitRefreshHPGauge(battleSys, battleCtx, BATTLER_US);
+}
+
+// Sovereign Complete: the Bug-Catching Contest's Sport Ball (HeartGold's BattleControllerPlayer_CatchingContestThrowBall)
+static void BattleControllerPlayer_SportBallCommand(BattleSystem *battleSys, BattleContext *battleCtx)
+{
+    LOAD_SUBSEQ(subscript_complete_throw_sport_ball);
+
+    battleCtx->attacker = BATTLER_US;
+    battleCtx->defender = BATTLER_THEM;
+    battleCtx->command = BATTLE_CONTROL_EXEC_SCRIPT;
+    battleCtx->commandNext = BATTLE_CONTROL_MOVE_END;
+    battleCtx->msgItemTemp = ITEM_SPORT_BALL;
+
+    BattleSystem_SetNumSafariBalls(battleSys, BattleSystem_GetNumSafariBalls(battleSys) - 1);
 }
 
 static void BattleControllerPlayer_SafariBaitCommand(BattleSystem *battleSys, BattleContext *battleCtx)

@@ -77,6 +77,8 @@ def item_vars(a):
 def call_std(a):
     if a[0] in STD_SCRIPTS:
         return STD_SCRIPTS[a[0]]
+    if a[0].isdigit():  # one of HeartGold's the engine has as it is (translate_hgss_scripts.py's STD_FILES)
+        return [f'CallCommonScript {a[0]}']
     return [f'@ HGSS: CallStd {a[0]}']
 
 
@@ -237,6 +239,18 @@ COMMANDS = {
     'GiveItem': one('AddItem {0}, {1}, {2}'),
     'TakeItem': one('RemoveItem {0}, {1}, {2}'),
     'HasSpaceForItem': one('CanFitItem {0}, {1}, {2}'),
+    'GoToIfNoItemSpace2': lambda a: item_vars(a[:2]) + ['CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT',
+                                                         f'GoToIfNe VAR_RESULT, 1, {a[2]}'],
+    # The Bug-Catching Contest (src/complete_bug_contest.c), HeartGold's 785-790, and HeartGold's flags held in a
+    # variable (its flag numbers, which the engine moves past its own)
+    'BugContestAction': one('CompleteBugContestAction {0}, {1}'),
+    'BufferBugContestWinner': one('CompleteBufferBugContestWinner {0}'),
+    'JudgeBugContest': one('CompleteJudgeBugContest {0}, {1}, {2}'),
+    'BufferBugContestMonNick': one('CompleteBufferBugContestMonNick {0}, {1}'),
+    'BugContestGetTimeLeft': one('CompleteBugContestGetTimeLeft {0}'),
+    'IsBugContestantRegistered': one('CompleteIsBugContestantRegistered {0}, {1}'),
+    'SetFlagVar': one('CompleteSetHGSSFlagFromVar {0}'),
+    'ClearFlagVar': one('CompleteClearHGSSFlagFromVar {0}'),
     # Signs: HeartGold's types are Platinum's (map, arrow, landmark, scrolling). A direction sign's third argument picks
     # HeartGold's sign picture, which isn't in yet (Platinum's default).
     'TrainerTipsEx': lambda a: [f'DrawSignpostTextBox {SIGN_TYPES[int(a[0])]}', 'SetSignpostCommand SIGNPOST_CMD_SCROLL_IN',
@@ -255,9 +269,11 @@ COMMANDS = {
     'BufferDeptStoreFloorNo': one('CompleteBufferFloorName {0}, {1}'),
     'ElevatorCurFloorBox': one('ShowCurrentFloor {0}, {1}, {2}'),
     'ElevatorAnim': one('PlayElevatorAnimation {0}, {1}'),
-    # The naming screen for a party Pokémon (HeartGold's slot 255 is the Bug-Catching Contest's catch: step 5)
+    # The naming screen for a party Pokémon, or (slot 255) the Bug-Catching Contest's catch, which joins the party
+    # for it (src/complete_bug_contest.c)
     'NicknameInput': lambda a: ([f'OpenPokemonNamingScreen {a[0]}, {a[1]}'] if a[0] != '255'
-                                else [f'@ HGSS: NicknameInput {", ".join(a)}']),
+                                else ['CompleteBugContestNicknameStart VAR_0x8004',
+                                      f'OpenPokemonNamingScreen VAR_0x8004, {a[1]}', 'CompleteBugContestNicknameEnd']),
     'GiveTogepiEgg': lambda a: ['CompleteGiveTogepiEgg'],
     # after a static battle: its form 0 reads the battle just fought (form 1 reads a var HeartGold's engine sets)
     'StaticWildWonOrCaughtCheck': lambda a: ([f'CompleteCheckStaticNotBeaten {a[0]}'] if a[1] == '0'

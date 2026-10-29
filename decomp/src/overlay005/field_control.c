@@ -88,6 +88,7 @@
 #include "unk_0205A0D8.h"
 #include "unk_0205B33C.h"
 #include "vars_flags.h"
+#include "complete_bug_contest.h" // Sovereign Complete
 #include "wireless_manager.h"
 
 static BOOL Field_CheckMapTransition(FieldSystem *fieldSystem, const FieldInput *input);
@@ -515,6 +516,12 @@ BOOL FieldInput_Process(const FieldInput *input, FieldSystem *fieldSystem)
             MapObjectMan_PauseAllMovement(fieldSystem->mapObjMan);
             return TRUE;
         }
+    }
+
+    // Sovereign Complete: the Bug-Catching Contest's time is up (src/complete_bug_contest.c)
+    if (input->dummy5 == FALSE && CompleteBugContest_IsTimeUp()) {
+        ScriptManager_Set(fieldSystem, SCRIPT_ID(COMPLETE_BUG_CONTEST, 0), NULL);
+        return TRUE;
     }
 
     if (input->movement) {

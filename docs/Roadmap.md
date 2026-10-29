@@ -1,6 +1,6 @@
 # Pokémon Sovereign Complete: Roadmap
 
-_Drafted Oct 28, 2026; updated Oct 29. Not started: work begins after Pokémon Sovereign Platinum is released._
+_Drafted Oct 28, 2026; updated Oct 29. Work started Oct 29, 2026, on the owner's go-ahead: steps 1 and 2 are done, 3 to 5 are under way (`docs/Progress.md` is the log, `docs/Features.md` and `docs/Music.md` the plans for steps 5 and 6)._
 
 ## Summary
 

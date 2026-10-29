@@ -56,6 +56,7 @@ enum BattleControlSequence {
     BATTLE_CONTROL_SCREEN_WIPE,
     BATTLE_CONTROL_FIGHT_END,
     BATTLE_CONTROL_END_WAIT,
+    BATTLE_CONTROL_SPORT_BALL, // Sovereign Complete: the Bug-Catching Contest's
 };
 
 enum BattleControllerPlayerInput {

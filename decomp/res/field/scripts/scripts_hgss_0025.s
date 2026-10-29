@@ -237,7 +237,7 @@ _03EA:
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     SetVarFromValue VAR_MAP_LOCAL_0x01, 10
     SetVarFromValue VAR_MAP_LOCAL_0x02, 48
-    @ HGSS: IsBugContestantRegistered VAR_TEMP_x4000, VAR_TEMP_x4004
+    CompleteIsBugContestantRegistered VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x04
     CompareVar VAR_MAP_LOCAL_0x04, 1
     GoToIf 5, _07B3
     SetPosition VAR_MAP_LOCAL_0x01, VAR_MAP_LOCAL_0x02, 0, 50, DIR_NORTH
@@ -454,7 +454,7 @@ _07B3:
     GoToIf 0, _07D2
     Return
 _07D2:
-    @ HGSS: IsBugContestantRegistered VAR_TEMP_x4000, VAR_TEMP_x4004
+    CompleteIsBugContestantRegistered VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x04
     CompareVar VAR_MAP_LOCAL_0x04, 1
     GoToIf 5, _07B3
     SetPosition VAR_MAP_LOCAL_0x01, VAR_MAP_LOCAL_0x02, 0, 50, DIR_NORTH

@@ -45,6 +45,7 @@ from check_trainer_party import compare_party  # noqa: E402
 from heap_check import heap_info_address, heap_problems  # noqa: E402
 
 DECOMP = 'decomp'
+TEST_BUILD = os.environ.get('TEST_BUILD', 'build_test')  # Sovereign Complete: another test build's directory
 # Both are FIGHT in the command menu; in the move menu the second move and the third (the test Garchomp's Dazzling
 # Gleam and Play Rough, both Fairy). The tap switches between them every SWITCH_FRAMES, so Torment, Disable or a move
 # out of PP can't hold the battle up.
@@ -58,7 +59,7 @@ VBLANK_COUNTER = 0x2C  # offsetof(System, vblankCounter)
 
 def symbols(names=('gSovereignTestBattleTrainer', 'gSovereignTestGodMode', 'gSovereignTestIdleFrames', 'gSystem')):
     """The addresses of these .bss symbols and of Party_AddPokemon, from the test build's map."""
-    xmap = open(os.path.join(DECOMP, 'build_test', 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
+    xmap = open(os.path.join(DECOMP, TEST_BUILD, 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
 
     def find(name, section):
         return int(re.search(r'^\s*([0-9A-F]{8}) [0-9A-F]{8} \.' + section + r'\s+' + name + r'\b', xmap, re.M)

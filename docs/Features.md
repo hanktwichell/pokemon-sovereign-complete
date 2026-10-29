@@ -58,33 +58,41 @@ What drawing them takes, from both decomps (the rest of the original plan is don
   game has a Park Ball icon.
 - Also: the trade room's Ball animations are in a prebuilt archive.
 
-## Bug-Catching Contest (planned)
+## Bug-Catching Contest
 
 National Park's contest, Tuesdays, Thursdays and Saturdays: 20 Sport Balls, 20 real-time minutes, one Pokémon kept,
-judged against five of ten Bug Catchers. How HeartGold runs it, and where each part goes here:
+judged against five of ten Bug Catchers. HeartGold's own parts, and where each went:
 
-- **The contest** (HeartGold's `src/overlay_bug_contest.c` and helpers in `src/unk_0206D494.c`): never saved; made
-  at the gate (the party is backed up to the lead Pokémon alone) and freed after the judging (the party comes back,
-  and the caught Pokémon joins it or a box). The ten contestants' entries (`data/mushi/mushi_trainer.bin`, one picked
-  each by weekday and National Dex), the four encounter sets (`data/mushi/mushi_encount.bin`: no National Dex, then
-  Tuesday, Thursday, Saturday) and the score (species 60-100, level, IVs, HP) go into a new
-  `src/complete_bug_contest.c`, modelled on Platinum's Pal Park Catching Show (`src/catching_show.c`). Prizes: Sun
-  Stone (with the National Dex, one of ten stones), Everstone, Sitrus Berry, Shed Shell.
-- **Script commands** (HeartGold's 785-790): start and end it, the judging, each place's winner, the caught
-  Pokémon's name, the minutes left, whether a contestant is in today. Its standard scripts (HeartGold's
-  `scr_seq_0151`, 29 of them: the gate, time up, last ball, retiring, the judging, the contestants' lines) become
-  common scripts, as the Apricorn tree did.
-- **Encounters:** land and Sweet Scent use the contest table while it runs (slots 20/20/10/10/10/10/5/5/5/5%,
-  never shiny); the map's own rate still decides when.
-- **Battle:** a contest battle type (the lead still gains experience), the Sport Ball command in place of BAG (×1.5),
-  the ball count and the caught Pokémon on the bottom screen, the out-of-balls end, and a catch that goes to the
-  contest instead of the party, without the nickname prompt.
-- **Field:** the time-up check each frame and the minute count (Platinum's clock update), Retire and the Sport Ball
-  count in the start menu (as the Great Marsh's Safari Balls), no saving or registered item.
-- **Keep or swap:** HeartGold's screen is an app still in assembly with its own graphics; here, a message and a
-  yes/no choice.
-- **Its Ball:** the Sport Ball is kept on the caught Pokémon as Kurt's Balls are (above). Its throw graphics and the
-  contest music come with the Balls' graphics and step 6.
+- **The contest** (HeartGold's `src/overlay_bug_contest.c` and helpers in `src/unk_0206D494.c`) is
+  `src/complete_bug_contest.c`. It is never saved: it lives on the field's heap from the gate (the party is put away
+  but for its first Pokémon that can battle) to the judging (the party comes back, and the caught Pokémon joins it or
+  a box). The ten contestants' entries (one picked each by weekday and National Dex), the four encounter sets (no
+  National Dex, then Tuesday, Thursday, Saturday) and the score (species 60-100, level, IVs, HP) are HeartGold's
+  (`include/data/complete_bug_contest.h`, from `tools/complete/import_hgss_bug_contest.py`; Sacred Gold's are the
+  same). Prizes: Sun Stone (with the National Dex, one of ten stones), Everstone, Sitrus Berry, Shed Shell. The 20
+  minutes are counted from the console clock.
+- **Scripts:** HeartGold's contest scripts (`scr_seq_0151`: the gate, time up, last Ball, retiring, the judging, the
+  contestants' lines) are translated as they are (`scripts_hgss_0151.s`), at script IDs 11000 on (HeartGold's 10400
+  on, which are Platinum's daily trainers here). Its six commands are `Complete*` commands, and HeartGold's
+  flags held in a variable (the contestants' hide flags) have two of their own.
+- **Encounters:** grass and Sweet Scent bring out the day's set while it runs (slots 20/20/10/10/10/10/5/5/5/5%); the
+  map's own rate still decides when.
+- **Battle:** a contest battle type (the lead still gains experience), where BAG throws a Sport Ball (×1.5), as the
+  Great Marsh's BALL throws a Safari Ball. A catch gets no nickname and goes to the contest, not the party; with one
+  already kept, the battle asks which to keep, where HeartGold has a screen of its own after the battle (an app still
+  in assembly). The last Ball missing ends the battle and the contest; losing heals the party and ends it.
+- **Field:** the time-up check runs each frame the field takes input, as HeartGold's; the start menu shows the Sport
+  Balls left and Retire (HeartGold's retire script), with no Bag or saving.
+- **The nickname** at the judging: Platinum's naming screen names a party Pokémon, so the caught one joins the
+  contest's one-Pokémon party for it, and leaves after.
+
+- **Test:** `tools/complete/test_hgss_bug_contest.py` enters at Route 36's gate on a Tuesday, surveys the contest's
+  grass (every Pokémon is one of the day's ten, at its levels), catches one with a Sport Ball (the contest keeps it,
+  with 19 Balls left), and lets the time run out: the announcement, the National Park, the judging, and the party back
+  with the caught Pokémon in its Sport Ball. All four parts pass.
+
+Left: the Sport Ball and the bug net on the battle's bottom screen (HeartGold's BALL label and Ball count, with the
+kept Pokémon), the Sport Ball's own graphics, the contest's music and fanfares (step 6), and the Pokégear calls.
 
 ## Johto Safari Zone (planned)
 

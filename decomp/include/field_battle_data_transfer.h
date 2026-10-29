@@ -90,11 +90,17 @@ typedef struct FieldBattleDTO {
     u32 recordingStopped;
     BOOL megaUnlocked; // Sovereign (E8): the player has the Mega Ring (FLAG_SOVEREIGN_MEGA_UNLOCKED)
     BOOL isFishing; // Sovereign Complete: a wild Pokémon hooked with a rod (HeartGold's Lure Ball)
+    // Sovereign Complete: the Bug-Catching Contest's catch (its Sport Balls are countSafariBalls): whether one is
+    // already kept, and the one the battle keeps, if any (bugContestCaught)
+    BOOL bugContestHasMon;
+    BOOL bugContestCaught;
+    Pokemon *bugContestMon;
 } FieldBattleDTO;
 
 FieldBattleDTO *FieldBattleDTO_New(enum HeapID heapID, u32 battleType);
 FieldBattleDTO *FieldBattleDTO_NewSafari(enum HeapID heapID, int countSafariBalls);
 FieldBattleDTO *FieldBattleDTO_NewPalPark(enum HeapID heapID, int countParkBalls);
+FieldBattleDTO *FieldBattleDTO_NewBugContest(enum HeapID heapID, int countSportBalls, BOOL hasMon); // Sovereign Complete
 FieldBattleDTO *FieldBattleDTO_NewCatchingTutorial(enum HeapID heapID, const FieldSystem *fieldSystem);
 void FieldBattleDTO_Free(FieldBattleDTO *dto);
 void FieldBattleDTO_AddPokemonToBattler(FieldBattleDTO *dto, Pokemon *src, int battler);

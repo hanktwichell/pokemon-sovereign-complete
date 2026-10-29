@@ -8,6 +8,6 @@
     InitScriptEntry_OnTransition _EV_scr_seq_D22R0101_025 + 1
     InitScriptEntryEnd
 scr_seq_D22R0101_map_scripts_2:
-    @ HGSS (a standard script with no equivalent yet): InitScriptGoToIfEqual VAR_UNK_40F7, 1, std_bug_contest_judging
+    InitScriptGoToIfEqual VAR_HGSS_UNK_40F7, 1, 11007
     InitScriptFrameTableEnd
     InitScriptEnd

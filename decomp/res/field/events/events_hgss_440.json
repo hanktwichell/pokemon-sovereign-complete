@@ -94,7 +94,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_DON",
-            "script": 0,
+            "script": 11008,
             "initial_dir": 2,
             "data": [
                 0,
@@ -113,7 +113,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_ED",
-            "script": 0,
+            "script": 11010,
             "initial_dir": 1,
             "data": [
                 0,
@@ -132,7 +132,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_ACE_TRAINER_ABBY",
-            "script": 0,
+            "script": 11012,
             "initial_dir": 0,
             "data": [
                 0,
@@ -151,7 +151,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_POKEFAN_WILLIAM",
-            "script": 0,
+            "script": 11014,
             "initial_dir": 2,
             "data": [
                 0,
@@ -170,7 +170,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_BENNY",
-            "script": 0,
+            "script": 11016,
             "initial_dir": 0,
             "data": [
                 0,
@@ -189,7 +189,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_CAMPER_BARRY",
-            "script": 0,
+            "script": 11018,
             "initial_dir": 3,
             "data": [
                 0,
@@ -208,7 +208,7 @@
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_PICNICKER_CINDY",
-            "script": 0,
+            "script": 11020,
             "initial_dir": 0,
             "data": [
                 0,
@@ -227,7 +227,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_JOSH",
-            "script": 0,
+            "script": 11022,
             "initial_dir": 0,
             "data": [
                 0,
@@ -246,7 +246,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_YOUNGSTER_SAMUEL",
-            "script": 0,
+            "script": 11024,
             "initial_dir": 3,
             "data": [
                 0,
@@ -265,7 +265,7 @@
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_SCHOOL_KID_KIPP",
-            "script": 0,
+            "script": 11026,
             "initial_dir": 1,
             "data": [
                 0,

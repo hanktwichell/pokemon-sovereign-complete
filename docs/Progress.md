@@ -305,3 +305,17 @@ Test results on the new test build:
   something standing on the tile (the Rotom room's appliances, hidden items under people or balls), tiles the test
   can't reach (Azalea Gym's cart track, Rocket HQ's Electrodes, the Ruins of Alph's hidden rooms, which have no way in
   but falling, water on Route 47), and the Global Terminal's Wi-Fi machine waiting for a connection.
+
+## Oct 29, 2026: the Bug-Catching Contest
+
+- **The Bug-Catching Contest** works as in HeartGold (`docs/Features.md`): the gate on contest days, 20 Sport Balls
+  and 20 minutes, the day's Pokémon, five of ten Bug Catchers, the judging and its prizes, and the party back with
+  the catch. HeartGold's contest scripts are translated as they are; its battle asks which Pokémon to keep where
+  HeartGold opens a screen of its own. New test: `tools/complete/test_hgss_bug_contest.py`, all four parts pass (entry,
+  encounters, a Sport Ball catch, time up and the judging). The Ball test still passes.
+- **Test tools:** the test clock can set the weekday, a survey on the contest's grass writes its Pokémon down, and
+  the harnesses can read another test build's symbols (`TEST_BUILD`).
+- **Signs and triggers, second half:** of 628, 600 run to their end. New ones to look at: Violet Gym's lift trigger
+  and Lance's room (no script ran), Mt. Moon Square's Clefairy dance (stuck), and two more on Route 47. The rest are
+  the known kinds (things on the tile, tiles the test can't reach, Sacred Gold's signs moved off the map in Oak's
+  lab).
