@@ -20,8 +20,26 @@ worktree:
 - with our own edit to `tools/test/drive.py` on an older Sovereign, the sync kept the edit and took Sovereign's change
   too.
 
-**`tools/complete/build_heartgold.sh`** builds HeartGold from pret/pokeheartgold at `ce27b413` (`HEARTGOLD_COMMIT`)
-into `.cache/`, checks it is the retail ROM, and applies Drayano's Sacred Gold (Complete) patch.
+**The engine builds and boots.** `make -C decomp rom` builds `pokeplatinum.us.nds` with no errors, and the headless
+boot test (`tools/test/boot_smoke.py`) passes: the opening plays through to Professor Rowan's introduction. Since the
+source trees are identical to Sovereign's at `448a6a41`, this is Sovereign Platinum's build.
+
+**HeartGold and Sacred Gold.** `tools/complete/build_heartgold.sh` builds HeartGold from pret/pokeheartgold at
+`ce27b413` (`HEARTGOLD_COMMIT`) into `.cache/` and applies Drayano's Sacred Gold (Complete) patch.
+- HeartGold: SHA-1 `4fcded0e…`, the retail US ROM.
+- Drayano's patches turned out to be in the XDelta 1 format (`%XDZ004%`), which xdelta3 can't read: the script uses
+  XDelta 1.1.3 (apt package `xdelta`).
+- His readme's CRC32 (`FFD28F00`) and the patch's source MD5 (`ae2a483d…`) belong to a different dump of HeartGold, the
+  same 128 MB; ours is `c180a0e9` / `258cea3a…`. The bytes that differ are ones the patch never reads: Sacred Gold comes
+  out with exactly the MD5 the patch records for its output, `50f6ff3e…` (131,037,664 bytes; SHA-1 `ddb83b93…`). So it
+  is byte-for-byte Drayano's Sacred Gold, and the script now checks that instead of the input's CRC32.
 
 **Build environment.** The network proxy refuses GitHub's source-archive downloads; the wrapdb mirror the build
 falls back to is allowed (see `CLAUDE.md`, Building). The toolchain download (Metroskrew) and the git subprojects work.
+
+**Next:**
+1. The following-Pokémon prototype (the owner's requirement): the lead Pokémon walks behind the player on every map,
+   starting from Platinum's Amity Square follower (a variable-sprite object switched to `MOVEMENT_TYPE_FOLLOW_PLAYER`)
+   and HeartGold's `src/follow_mon.c` rules and sprites.
+2. Room in the save for Johto and Kanto's story markers.
+3. The first converter: one Johto map into Platinum's format.

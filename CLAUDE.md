@@ -24,13 +24,16 @@ work.
 
 - `make -C decomp rom` builds `decomp/build/pokeplatinum.us.nds`. Dependencies are in `decomp/INSTALL.md`; on Linux:
   `bison flex g++ gcc-arm-none-eabi make ninja-build pkg-config wget python3 xz-utils nasm libc6:i386 libpng-dev`, and
-  `xdelta3` for the HeartGold script.
+  `xdelta` (XDelta 1.1.3; Drayano's patches are in the XDelta 1 format, which xdelta3 can't read) for the HeartGold
+  script. The emulator tests need `pip install py-desmume pillow pyyaml` and `libgl1 libglib2.0-0t64 libx11-6`.
 - In cloud sessions the network proxy refuses GitHub's source-archive downloads (`github.com/<owner>/<repo>/archive/...`).
   Meson then falls back to each wrap's `source_fallback_url` (the wrapdb mirror), which is allowed, after several
   retries. To skip the retries, put the tarball from the fallback URL into `decomp/subprojects/packagecache/` first,
   named as the wrap's `source_filename`, and check it against `source_hash`.
-- `tools/complete/build_heartgold.sh` builds `.cache/heartgold.nds` (the retail HeartGold US ROM, checked by SHA-1 and
-  by the CRC32 in Drayano's readme) and `.cache/sacredgold.nds` (Sacred Gold, Complete version).
+- `tools/complete/build_heartgold.sh` builds `.cache/heartgold.nds` (the retail HeartGold US ROM, checked by SHA-1)
+  and `.cache/sacredgold.nds` (Sacred Gold, Complete version, checked against the MD5 the patch records for it).
+- Boot check: `python3 tools/test/boot_smoke.py decomp/build/pokeplatinum.us.nds .cache/smoke` (with
+  `SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy`).
 
 ## Game files
 

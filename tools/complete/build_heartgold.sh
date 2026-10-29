@@ -7,11 +7,12 @@
 # events from Sacred Gold itself, the way Sovereign Platinum took Renegade Platinum's. Drayano has given his okay to
 # build on his games. Both games are built here into .cache/ (ignored by git) and are never committed.
 #
-# The source is pinned to HEARTGOLD_COMMIT. Its build is the retail HeartGold (US) ROM, which is also the ROM Drayano's
-# patch expects (his readme gives its CRC32, FFD28F00); this checks both, and xdelta3 checks the patch's own source
-# checksum before patching.
+# The source is pinned to HEARTGOLD_COMMIT; its build must be the retail HeartGold (US) ROM (checked by SHA-1).
+# Drayano's patches are in the XDelta 1 format (not xdelta3's VCDIFF). His readme's CRC32 (FFD28F00) and the patch's
+# source MD5 describe a different dump of the same game, the same size; its differing bytes are ones the patch never
+# reads. So the check that counts is the output's: the patch records Sacred Gold's MD5, and the result must match it.
 #
-# Needs the decomp build dependencies (decomp/INSTALL.md) and xdelta3.
+# Needs the decomp build dependencies (decomp/INSTALL.md) and XDelta 1 (apt package xdelta, version 1.1.3).
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -21,7 +22,6 @@ src=.cache/pokeheartgold
 commit="$(cat HEARTGOLD_COMMIT)"
 patch="Sacred Gold & Storm Silver V1.05 5/Patches/Complete Version - EVERYTHING/SacredGoldComplete.patch"
 retail_sha1=4fcded0e2713dc03929845de631d0932ea2b5a37
-retail_crc32=ffd28f00
 
 if [ ! -d "$src/.git" ]; then
     git init -q "$src"
@@ -36,12 +36,18 @@ make -C "$src" -j"$(nproc)"
 cp "$src/build/heartgold.us/pokeheartgold.us.nds" .cache/heartgold.nds
 
 sha1="$(sha1sum .cache/heartgold.nds | cut -d' ' -f1)"
-crc32="$(python3 -c 'import sys, zlib; print("%08x" % zlib.crc32(open(sys.argv[1], "rb").read()))' .cache/heartgold.nds)"
-if [ "$sha1" != "$retail_sha1" ] || [ "$crc32" != "$retail_crc32" ]; then
-    echo "HeartGold built, but it isn't the retail ROM: SHA-1 $sha1, CRC32 $crc32" >&2
+if [ "$sha1" != "$retail_sha1" ]; then
+    echo "HeartGold built, but it isn't the retail ROM: SHA-1 $sha1" >&2
     exit 1
 fi
-echo "HeartGold (US): SHA-1 $sha1, CRC32 $crc32 (retail; matches Drayano's readme)"
+echo "HeartGold (US): .cache/heartgold.nds, SHA-1 $sha1 (retail)"
 
-xdelta3 -d -f -s .cache/heartgold.nds "$patch" .cache/sacredgold.nds
-echo "Sacred Gold (Complete, v1.05): .cache/sacredgold.nds, SHA-1 $(sha1sum .cache/sacredgold.nds | cut -d' ' -f1)"
+want_md5="$(xdelta info "$patch" 2>&1 | sed -n 's/^xdelta: output md5: *//p')"
+xdelta patch "$patch" .cache/heartgold.nds .cache/sacredgold.nds
+got_md5="$(md5sum .cache/sacredgold.nds | cut -d' ' -f1)"
+if [ -z "$want_md5" ] || [ "$got_md5" != "$want_md5" ]; then
+    echo "Sacred Gold doesn't match the MD5 the patch records: got $got_md5, want $want_md5" >&2
+    exit 1
+fi
+echo "Sacred Gold (Complete, v1.05): .cache/sacredgold.nds, MD5 $got_md5 (as the patch records)," \
+    "SHA-1 $(sha1sum .cache/sacredgold.nds | cut -d' ' -f1)"
