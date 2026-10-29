@@ -6,7 +6,8 @@ the entire Gen IV universe: Sinnoh, Johto and Kanto in one world.
 It's a ROM hack built on the engine of
 [**Pokémon Sovereign Platinum**](https://github.com/hanktwichell/pokemon-imperial-platinum): all 1025 Pokémon and
 every form, Mega Evolution and Primal Reversion, and battle rules from Pokémon Champions. Johto and Kanto come over from
-HeartGold, with Drayano's **Pokémon Sacred Gold** as the blueprint for their trainers, wild Pokémon and balance.
+HeartGold, with Drayano's **Pokémon Sacred Gold** as the blueprint for their trainers, wild Pokémon and balance. Your
+lead Pokémon follows you through all three regions, as in HeartGold.
 
 > **Status: planned, not started.** Work begins after Sovereign Platinum is released. The plan and the time estimate
 > are in [`docs/Roadmap.md`](docs/Roadmap.md).
@@ -39,7 +40,7 @@ HeartGold, with Drayano's **Pokémon Sacred Gold** as the blueprint for their tr
 
 | | Estimate |
 |---|---|
-| Building | about 3½–7 weeks of nonstop Claude sessions |
+| Building | about 4–7½ weeks of nonstop Claude sessions |
 | Your playthrough | 80–120 hours of play |
 | Start to release | about 2–3 months, at 2 hours of play a day |
 

@@ -6,7 +6,7 @@ _Drafted Oct 28, 2026; updated Oct 29. Not started: work begins after Pokémon S
 
 | | Fast case | Slow case |
 |---|---|---|
-| Building (Claude, nonstop) | 25½ days (about 3½ weeks) | 49 days (about 7 weeks) |
+| Building (Claude, nonstop) | 26½ days (about 4 weeks) | 51 days (about 7½ weeks) |
 | Your playthrough (80–120 hours at 2 h a day) | 40 days | 60 days |
 | Start to release | about 8 weeks | about 12½ weeks |
 
@@ -32,11 +32,11 @@ features we keep; Johto and Kanto's music; a bigger save file; a three-region To
 | # | Step | Who | Days | Done when |
 |---|---|---|---|---|
 | 0 | **Before starting.** Release Sovereign Platinum; answer the open decisions below; add Sacred Gold's patch files to this repo (Drayano's okay is given) | You | — | Sovereign is out and the decisions are answered |
-| 1 | **Groundwork.** New project from the finished Sovereign; room in the save for about 2,250 more story markers; a plan for the full sound memory; tools that convert HeartGold's maps, scripts and data | Claude | 2–4 | The project builds and boots with the bigger save, and one Johto map converts cleanly |
+| 1 | **Groundwork.** New project from the finished Sovereign; room in the save for about 2,250 more story markers; a plan for the full sound memory; tools that convert HeartGold's maps, scripts and data; a first following-Pokémon prototype | Claude | 2–4 | The project builds and boots with the bigger save, and one Johto map converts cleanly |
 | 2 | **Maps.** All 541 Johto and Kanto maps with buildings, collision and connections; the three ferry ports and the Sinjoh Ruins path | Claude | 3–6 | Every new map loads in the visit-every-map test |
 | 3 | **Events and scripts.** Translate about 965 HeartGold script files (113,000 lines) into Platinum's script language: every person, sign, gym, cutscene and Team Rocket scene. The biggest step | Claude | 5–10 | Every person, sign and trigger on the new maps runs to its end in the automated test |
 | 4 | **Sacred Gold's content.** Trainers, wild Pokémon by time of day, items, gifts and trades, rebuilt on Sovereign's 1025 Pokémon and trainer format | Claude | 2–4 | Every new trainer battles cleanly and every wild table matches the plan. Your playthrough can start |
-| 5 | **HeartGold features.** The ones kept below | Claude | 5½–10 with the default picks | Each kept feature works in the test build |
+| 5 | **HeartGold features.** The ones kept below | Claude | 6½–12 with the default picks | Each kept feature works in the test build |
 | 6 | **Music.** Johto and Kanto's soundtracks, fitted into sound memory that's already full | Claude | 1–3 | Every new map plays its own music with no memory errors |
 | 7 | **Joining the world.** Town Map and Fly map for three regions; the ferry menu at each port and its unlocks; level curve and level caps across 24 gyms and 2 Leagues. Sinnoh comes third, so its trainers, wild Pokémon and Totem trials move up to follow Kanto, with teams evolved and movesets updated to match | Both | 5–8 | A new game plays from New Bark Town to Spear Pillar with no dead ends |
 | 8 | **Automated testing.** Sovereign's test tools over every new map, trainer, gift and event, plus the fixes they turn up | Claude | 2–4 | Every test passes |
@@ -57,13 +57,15 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   Only Sinnoh has local stops today: Canalave's boat to Iron Island and Fullmoon Island. Snowpoint's ship to the Fight
   Area stays separate. The menus and ferry scenes fit inside steps 2 and 7's estimates.
 - **Drayano's okay (Oct 29, 2026).** Given: his games can be used as a base.
+- **Following Pokémon (Oct 29, 2026).** Required, as in HeartGold. A first working version comes early, in step 1, to
+  prove it before the big conversion work; it counts toward step 5's days.
 - **Pokéathlon (Oct 29, 2026).** Skipped.
 
 ### HeartGold features
 
 | Feature | Default | Days | Notes |
 |---|---|---|---|
-| Following Pokémon | Keep | 3–5 | The biggest single feature. Platinum's Amity Square is a head start. HeartGold has walking sprites for #1–493; #494–1025 and the forms need a community pack or an artist |
+| Following Pokémon | Required (decided) | 4–7 | The biggest single feature. The movement starts from Platinum's own follow-the-player code (Amity Square's walking Pokémon, partner trainers like Cheryl). The behaviour ports HeartGold's follower code (`src/follow_mon.c`, about 2,000 lines): which Pokémon may follow where, surfing, cycling, doors, shiny, forms, talking to it. HeartGold's 627 walking sprites cover #1–493 with female and form variants; #494–1025 and newer forms need a community pack or an artist. Platinum's Sinnoh cutscenes were written without a follower, so each one is checked with a follower out |
 | Pokégear phone and radio | Keep | 1–2 | Phone rematches and radio shows; beside the Pokétch or replacing it |
 | Bug-Catching Contest | Keep | ½–1 | National Park's timed contest |
 | Johto Safari Zone | Keep | ½–1 | Including the objects you place to change what appears |
@@ -83,7 +85,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.
 - **Pokétch, Pokégear or both:** both use the bottom screen.
-- **Art:** who draws the three-region Town Map and, if following Pokémon stays, the walking sprites for #494–1025.
+- **Art:** who draws the three-region Town Map and the walking sprites for #494–1025 and the newer forms (a community
+  pack, credited, could cover most of them).
+- **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
+  a stand-in sprite.
 
 Hoenn and the Sevii Islands aren't in scope. There's no DS version of Hoenn, so it would be built from scratch.
 
