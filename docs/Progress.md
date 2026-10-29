@@ -315,7 +315,14 @@ Test results on the new test build:
   encounters, a Sport Ball catch, time up and the judging). The Ball test still passes.
 - **Test tools:** the test clock can set the weekday, a survey on the contest's grass writes its Pokémon down, and
   the harnesses can read another test build's symbols (`TEST_BUILD`).
-- **Signs and triggers, second half:** of 628, 600 run to their end. New ones to look at: Violet Gym's lift trigger
-  and Lance's room (no script ran), Mt. Moon Square's Clefairy dance (stuck), and two more on Route 47. The rest are
-  the known kinds (things on the tile, tiles the test can't reach, Sacred Gold's signs moved off the map in Oak's
-  lab).
+- **Signs and triggers, second half:** of 628, 600 ran to their end at first. Looked into:
+  - **Johto's Elite Four and Lance never started their battles.** Their classes are HeartGold's, which take the map's
+    own cut-in, and the League rooms' terrains weren't in that choice (Platinum's own League has cut-ins of its own),
+    so the effect index was left unset and the cut-in never ended. Those terrains now take the plain one
+    (`CutInEffects_ForBattle`). Lance's scene now runs through his battle to its end.
+  - The test, not the game: Violet Gym's lift has its gym guide on it until Sprout Tower is done (as in HeartGold;
+    the test hides him first), Lance's room walks the player six tiles in on every entering (the test arrives that
+    much further out), and Mt. Moon Square's Clefairy dance happens on Monday nights (the test sets the clock).
+  - Left as test limits: two of Route 47's triggers are on a bridge the test reaches from the high side, and Sacred
+    Gold moved three of Oak's lab's signs off the map. The rest are the known kinds (things on the tile, tiles the
+    test can't reach).

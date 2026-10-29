@@ -1325,6 +1325,9 @@ u32 CutInEffects_ForBattle(const FieldBattleDTO *param0)
     case TERRAIN_CAVE:
         v1 = 2 * 2;
         break;
+    default: // Sovereign Complete: the League's and Frontier's terrains, which Johto's Elite Four and Lance (HeartGold's classes, with no cut-in of their own) fight on; it was left unset
+        v1 = 0 * 2;
+        break;
     }
 
     if (v0 > 0) {

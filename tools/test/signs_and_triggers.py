@@ -55,7 +55,16 @@ HIDE_FIRST = {
     # three legendaries stand before and after the Arceus event
     'events_hgss_474': ('FLAG_HGSS_SG_3FCC', 'FLAG_HGSS_SG_3FCD', 'FLAG_HGSS_SG_3FCE', 'FLAG_HGSS_SG_3FC4',
                         'FLAG_HGSS_SG_3FC5', 'FLAG_HGSS_SG_3FC6'),
+    # Violet Gym: the gym guide who stands on the lift until Sprout Tower is done (HeartGold's design)
+    'events_hgss_131': ('FLAG_HGSS_HIDE_VIOLET_GYM_GYM_GUY_AFTER_SPROUT',),
 }
+# Sovereign Complete: maps whose scene on entering (every entering, the test's own warp too) walks the player this many
+# tiles north: the test arrives that many tiles south of its tile, and the scene brings it there. Lance's room.
+ENTRY_WALK = {'events_hgss_276': 6}
+# Sovereign Complete: maps whose scenes only happen on a day and hour (gSovereignTestClock): Mt. Moon Square's
+# Clefairy dance on Monday night
+CLOCK_FIRST = {'events_hgss_465': (1, 21)}
+CLOCK_WEEKDAY = 2  # offsetof(struct SovereignTestClock, weekday)
 
 
 def script_bodies(text):
@@ -148,12 +157,17 @@ def main():
                 result, frames = 'NOTILE', 0
             else:
                 def hide_first():
+                    if events in CLOCK_FIRST:
+                        weekday, hour = CLOCK_FIRST[events]
+                        d.emu.memory.write_byte(sym['gSovereignTestClock'], hour + 1)
+                        d.emu.memory.write_byte(sym['gSovereignTestClock'] + CLOCK_WEEKDAY, weekday + 1)
                     for slot, flag in enumerate(HIDE_FIRST.get(events, ()), 3):
                         d.emu.memory.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[flag])
                         d.emu.memory.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, 1)
 
                 def attempt(wait):
-                    result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face, hide_first)
+                    result, frames = arrive(d, sym, state, variables, events, header, way_in, x,
+                                            z + ENTRY_WALK.get(events, 0), face, hide_first)
                     if result == 'ok':
                         d.run(wait)
                     for var, value in story + ((trigger,) if trigger else ()):
