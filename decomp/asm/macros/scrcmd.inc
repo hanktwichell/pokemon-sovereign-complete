@@ -5621,6 +5621,45 @@
     .short SCRCMD_COMPLETEVERMILIONGYMRESAMPLECANS
     .endm
 
+    // Violet: the lift starts down; Lift takes it (and the player) up, or down.
+    .macro CompleteVioletGymInit
+    .short SCRCMD_COMPLETEVIOLETGYMINIT
+    .endm
+
+    .macro CompleteVioletGymLift
+    .short SCRCMD_COMPLETEVIOLETGYMLIFT
+    .endm
+
+    // Cianwood: the waterfall runs; TurnWinch stops it (destVarID 1), or does nothing once it has stopped (0).
+    .macro CompleteCianwoodGymInit
+    .short SCRCMD_COMPLETECIANWOODGYMINIT
+    .endm
+
+    .macro CompleteCianwoodGymTurnWinch destVarID
+    .short SCRCMD_COMPLETECIANWOODGYMTURNWINCH
+    .short \destVarID
+    .endm
+
+    // Azalea: Ride takes the cart waiting at a stop (0 to 11) along its route; Switch flips switch 0 or 1.
+    .macro CompleteAzaleaGymInit
+    .short SCRCMD_COMPLETEAZALEAGYMINIT
+    .endm
+
+    .macro CompleteAzaleaGymRide stop
+    .short SCRCMD_COMPLETEAZALEAGYMRIDE
+    .byte \stop
+    .endm
+
+    .macro CompleteAzaleaGymSwitch switch
+    .short SCRCMD_COMPLETEAZALEAGYMSWITCH
+    .byte \switch
+    .endm
+
+    // Blackthorn: the floors where the gym starts them (the player moves and turns them with their buttons).
+    .macro CompleteBlackthornGymInit
+    .short SCRCMD_COMPLETEBLACKTHORNGYMINIT
+    .endm
+
     .text
     .globl _start
 _start:

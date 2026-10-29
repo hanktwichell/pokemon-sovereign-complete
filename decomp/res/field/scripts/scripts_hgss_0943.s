@@ -11,7 +11,7 @@
     ScriptEntry scr_seq_T30GYM0101_005
     ScriptEntryEnd
 scr_seq_T30GYM0101_001:
-    @ HGSS: BlackthornGymInit
+    CompleteBlackthornGymInit
     SetVarFromValue VAR_HGSS_UNK_4120, 0
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0

@@ -306,6 +306,14 @@ COMMANDS = {
     'VermilionGymCanCheck': one('CompleteVermilionGymCanCheck {0}, {1}'),
     'VermilionGymLockAction': one('CompleteVermilionGymLockAction {0}, {1}'),
     'ResampleVermilionGymCans': lambda a: ['CompleteVermilionGymResampleCans'],
+    'VioletGymInit': lambda a: ['CompleteVioletGymInit'],
+    'VioletGymElevator': lambda a: ['CompleteVioletGymLift'],
+    'CianwoodGymInit': lambda a: ['CompleteCianwoodGymInit'],
+    'CianwoodGymTurnWinch': one('CompleteCianwoodGymTurnWinch {0}'),
+    'AzaleaGymInit': lambda a: ['CompleteAzaleaGymInit'],
+    'AzaleaGymSpinarak': one('CompleteAzaleaGymRide {0}'),
+    'AzaleaGymSwitch': one('CompleteAzaleaGymSwitch {0}'),
+    'BlackthornGymInit': lambda a: ['CompleteBlackthornGymInit'],
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)

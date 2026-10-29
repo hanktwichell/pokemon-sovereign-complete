@@ -35,6 +35,7 @@
 #include "comm_player_manager.h"
 #include "communication_information.h"
 #include "communication_system.h"
+#include "complete_gyms.h" // Sovereign Complete
 #include "complete_map_info.h"
 #include "daycare_save.h"
 #include "encounter.h"
@@ -1062,6 +1063,11 @@ static BOOL Field_ProcessStep(FieldSystem *fieldSystem)
     }
 
     if (PersistedMapFeatures_IsCurrentDynamicMap(fieldSystem, DYNAMIC_MAP_FEATURES_DISTORTION_WORLD) == TRUE && DistWorld_HandlePlayerPositionChanged(fieldSystem) == TRUE) {
+        return TRUE;
+    }
+
+    // Sovereign Complete: Blackthorn Gym's floor buttons (src/complete_gyms.c)
+    if (PersistedMapFeatures_IsCurrentDynamicMap(fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM) == TRUE && CompleteBlackthornGym_CheckButton(fieldSystem)) {
         return TRUE;
     }
 

@@ -21,7 +21,7 @@
     ScriptEntry scr_seq_T23GYM0102_016
     ScriptEntryEnd
 scr_seq_T23GYM0102_016:
-    @ HGSS: AzaleaGymInit
+    CompleteAzaleaGymInit
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BUGSY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _015E
@@ -72,46 +72,46 @@ scr_seq_T23GYM0102_001:
 scr_seq_T23GYM0102_000:
     End
 scr_seq_T23GYM0102_002:
-    @ HGSS: AzaleaGymSpinarak 0
+    CompleteAzaleaGymRide 0
     End
 scr_seq_T23GYM0102_003:
-    @ HGSS: AzaleaGymSpinarak 1
+    CompleteAzaleaGymRide 1
     End
 scr_seq_T23GYM0102_004:
-    @ HGSS: AzaleaGymSpinarak 2
+    CompleteAzaleaGymRide 2
     End
 scr_seq_T23GYM0102_005:
-    @ HGSS: AzaleaGymSpinarak 3
+    CompleteAzaleaGymRide 3
     End
 scr_seq_T23GYM0102_006:
-    @ HGSS: AzaleaGymSpinarak 4
+    CompleteAzaleaGymRide 4
     End
 scr_seq_T23GYM0102_007:
-    @ HGSS: AzaleaGymSpinarak 5
+    CompleteAzaleaGymRide 5
     End
 scr_seq_T23GYM0102_008:
-    @ HGSS: AzaleaGymSpinarak 6
+    CompleteAzaleaGymRide 6
     End
 scr_seq_T23GYM0102_009:
-    @ HGSS: AzaleaGymSpinarak 7
+    CompleteAzaleaGymRide 7
     End
 scr_seq_T23GYM0102_010:
-    @ HGSS: AzaleaGymSpinarak 8
+    CompleteAzaleaGymRide 8
     End
 scr_seq_T23GYM0102_011:
-    @ HGSS: AzaleaGymSpinarak 9
+    CompleteAzaleaGymRide 9
     End
 scr_seq_T23GYM0102_012:
-    @ HGSS: AzaleaGymSpinarak 10
+    CompleteAzaleaGymRide 10
     End
 scr_seq_T23GYM0102_013:
-    @ HGSS: AzaleaGymSpinarak 11
+    CompleteAzaleaGymRide 11
     End
 scr_seq_T23GYM0102_014:
-    @ HGSS: AzaleaGymSwitch 0
+    CompleteAzaleaGymSwitch 0
     End
 scr_seq_T23GYM0102_015:
-    @ HGSS: AzaleaGymSwitch 1
+    CompleteAzaleaGymSwitch 1
     End
 _015E:
     SetFlag FLAG_HGSS_HIDE_AZALEA_GYM_BUGSY

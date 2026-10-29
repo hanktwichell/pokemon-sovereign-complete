@@ -237,6 +237,16 @@ Johto and Kanto now follow Drayano's Sacred Gold, read from its ROM (`docs/Sacre
   lighthouse and Silph Co. elevators translate too, with HeartGold's floor numbers and names (97.2%).
 
 New tests: `tools/complete/test_hgss_hidden_items.py` (each hidden item found once and only once) and
-`tools/complete/test_hgss_encounters.py` (each map's wild Pokémon match its table at 6:00, 12:00 and 22:00). The
-regular build builds and boots; the full test run (every trainer, the wild tables, hidden items, every map, every
-scene, every person) is next on the new test build.
+`tools/complete/test_hgss_encounters.py` (each map's wild Pokémon match its table at 6:00, 12:00 and 22:00).
+
+Test results on the new test build:
+- **Trainers:** all 737 battle and end cleanly.
+- **Hidden items:** of 243, 234 are found once and only once. Seven lie under something (an item ball, a person,
+  Articuno at Seafoam), so A talks to that first, as in HeartGold; two have no tile beside them the player can reach.
+- **A hang the hidden-item test found:** 38 items on Route 3, Route 32, Route 34, Route 35 and most Kanto towns hung
+  the game on the way in. Platinum shares a building model's animations across every copy of it on the map, and a
+  HeartGold building with two or more animations playing linked one to itself in the second copy's list, so NNS
+  looped forever. Fixed in Platinum's animation manager, which now also shows HeartGold's time-of-day windows (one
+  animation for each time of day) as HeartGold does (`docs/MapConversion.md`). All 46 items on those maps pass now.
+- **Gym puzzles:** Vermilion's trash cans, Violet's lift, Azalea's Spinarak carts, Cianwood's winch and Blackthorn's
+  floors over the lava are ported (`docs/ScriptConversion.md`, "Gym puzzles").

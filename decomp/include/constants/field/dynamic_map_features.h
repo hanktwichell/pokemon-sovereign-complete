@@ -14,6 +14,10 @@ enum DynamicMapFeatureID {
     DYNAMIC_MAP_FEATURES_DISTORTION_WORLD,
     DYNAMIC_MAP_FEATURES_VILLA,
     DYNAMIC_MAP_FEATURES_HGSS_VERMILION_GYM, // Sovereign Complete: HeartGold's gyms (src/complete_gyms.c)
+    DYNAMIC_MAP_FEATURES_HGSS_VIOLET_GYM, // Sovereign Complete
+    DYNAMIC_MAP_FEATURES_HGSS_CIANWOOD_GYM, // Sovereign Complete
+    DYNAMIC_MAP_FEATURES_HGSS_AZALEA_GYM, // Sovereign Complete
+    DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM, // Sovereign Complete
     DYNAMIC_MAP_FEATURES_COUNT
 };
 

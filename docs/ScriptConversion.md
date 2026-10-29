@@ -79,6 +79,38 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   despite its name), parks it, moves everyone, then pauses it again (1) and lets it follow before `ReleaseAll`.
 - Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
 
+## Gym puzzles
+
+HeartGold keeps each gym's puzzle in a "gymmick": 32 bytes of saved state that the gym's script sets up on the way
+in, and code the map's loading runs. Platinum has the same thing as its dynamic map features (Pastoria's water,
+Canalave's platforms): the same 32 bytes (`PersistedMapFeatures`), with an init, free and collision function for each
+feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as five new
+features, each with the script commands its gym uses:
+- **Vermilion** (`CompleteVermilionGymInit`, `...CanCheck`, `...LockAction`, `...ResampleCans`): the two switches in
+  the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. HeartGold
+  opens both gates once the player has the Thunder Badge; until step 7 puts Johto's and Kanto's badges in the save,
+  Lt. Surge's win (which hides the stops) stands in for it.
+- **Violet** (`CompleteVioletGymInit`, `CompleteVioletGymLift`): the lift to Falkner's floor, which is Platinum's
+  platform lift with HeartGold's model, place and speed. The following Pokémon rides along, as in HeartGold.
+- **Azalea** (`CompleteAzaleaGymInit`, `...Ride`, `...Switch`): four Spinarak carts between twelve stops; the two
+  switches set the points, which decide each cart's route. The rider and the follower move with the cart, and the
+  camera jolts when it stops.
+- **Cianwood** (`CompleteCianwoodGymInit`, `...TurnWinch`): after Chuck's battle the winch stops his waterfall, with
+  the camera panning to it.
+- **Blackthorn** (`CompleteBlackthornGymInit`, and a check on every step, as for Canalave's platforms): three floors
+  over the lava, moved and turned by the buttons on them, stopping at walls and ground; the floors are walkable and
+  the rest of the lava isn't. Until now the lava was plain ground.
+
+HeartGold's gyms find the parts that move among the map's own buildings, which Platinum keeps per loaded map chunk;
+`FindMapProp` looks there. HeartGold's own sound effects for these (the cart, the floors) wait for step 6; the floors
+use Platinum's lift sound meanwhile.
+
+Still to port: Ecruteak's dark (HeartGold's fog, with the sages' candles going out as they lose), which hides the
+path between the gym's pits, so that until then the path shows; and two touches on top of gyms that already play
+through: Fuchsia's invisible walls flashing when bumped (the walls are in the map's collision) and Viridian's arrow
+tiles lighting up (they are slide tiles, which Platinum's engine already has). Their init commands are left out until
+then.
+
 ## Standard scripts
 
 HeartGold's standard scripts (`CallStd`, `include/constants/std_script.h`, 679 of them) are numbered from 2000 like

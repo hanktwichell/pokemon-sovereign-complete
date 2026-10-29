@@ -8,7 +8,7 @@
     ScriptEntry scr_seq_T24GYM0101_003
     ScriptEntryEnd
 scr_seq_T24GYM0101_001:
-    @ HGSS: CianwoodGymInit
+    CompleteCianwoodGymInit
     ClearFlag FLAG_HGSS_SYS_CIANWOOD_WATERFALL_DISABLE
     End
 scr_seq_T24GYM0101_000:
@@ -133,7 +133,7 @@ _01A9:
     CloseMessage
     SetFlag FLAG_HGSS_SYS_CIANWOOD_WATERFALL_DISABLE
     PlaySE SEQ_SE_DP_SHIP03_sseq
-    @ HGSS: CianwoodGymTurnWinch VAR_TEMP_x4000
+    CompleteCianwoodGymTurnWinch VAR_MAP_LOCAL_0x00
     ReleaseAll
     End
     .balign 4, 0

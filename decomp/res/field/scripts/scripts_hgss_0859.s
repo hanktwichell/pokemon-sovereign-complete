@@ -10,7 +10,7 @@
     ScriptEntry scr_seq_T22GYM0101_005
     ScriptEntryEnd
 scr_seq_T22GYM0101_000:
-    @ HGSS: VioletGymInit
+    CompleteVioletGymInit
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00A7
@@ -144,6 +144,6 @@ _01F2:
     End
 scr_seq_T22GYM0101_004:
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
-    @ HGSS: VioletGymElevator
+    CompleteVioletGymLift
     End
     .balign 4, 0

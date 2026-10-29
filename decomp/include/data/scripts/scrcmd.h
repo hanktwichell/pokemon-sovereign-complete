@@ -882,6 +882,14 @@ ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMINIT,                          Complete
 ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMCANCHECK,                      CompleteScrCmd_VermilionGymCanCheck)
 ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMLOCKACTION,                    CompleteScrCmd_VermilionGymLockAction)
 ScriptCommand(SCRCMD_COMPLETEVERMILIONGYMRESAMPLECANS,                  CompleteScrCmd_VermilionGymResampleCans)
+ScriptCommand(SCRCMD_COMPLETEVIOLETGYMINIT,                             CompleteScrCmd_VioletGymInit)
+ScriptCommand(SCRCMD_COMPLETEVIOLETGYMLIFT,                             CompleteScrCmd_VioletGymLift)
+ScriptCommand(SCRCMD_COMPLETECIANWOODGYMINIT,                           CompleteScrCmd_CianwoodGymInit)
+ScriptCommand(SCRCMD_COMPLETECIANWOODGYMTURNWINCH,                      CompleteScrCmd_CianwoodGymTurnWinch)
+ScriptCommand(SCRCMD_COMPLETEAZALEAGYMINIT,                             CompleteScrCmd_AzaleaGymInit)
+ScriptCommand(SCRCMD_COMPLETEAZALEAGYMRIDE,                             CompleteScrCmd_AzaleaGymRide)
+ScriptCommand(SCRCMD_COMPLETEAZALEAGYMSWITCH,                           CompleteScrCmd_AzaleaGymSwitch)
+ScriptCommand(SCRCMD_COMPLETEBLACKTHORNGYMINIT,                         CompleteScrCmd_BlackthornGymInit)
 
 // clang-format on
 

@@ -30,7 +30,11 @@ const static DynamicMapFeaturesInitFunc sInitFuncs[DYNAMIC_MAP_FEATURES_COUNT] =
     EternaGym_DynamicMapFeaturesInit,
     DistWorld_DynamicMapFeaturesInit,
     Villa_DynamicMapFeaturesInit,
-    CompleteVermilionGym_DynamicMapFeaturesInit // Sovereign Complete
+    CompleteVermilionGym_DynamicMapFeaturesInit, // Sovereign Complete
+    CompleteVioletGym_DynamicMapFeaturesInit, // Sovereign Complete
+    CompleteCianwoodGym_DynamicMapFeaturesInit, // Sovereign Complete
+    CompleteAzaleaGym_DynamicMapFeaturesInit, // Sovereign Complete
+    CompleteBlackthornGym_DynamicMapFeaturesInit // Sovereign Complete
 };
 
 const static DynamicMapFeaturesFreeFunc sFreeFuncs[DYNAMIC_MAP_FEATURES_COUNT] = {
@@ -45,7 +49,11 @@ const static DynamicMapFeaturesFreeFunc sFreeFuncs[DYNAMIC_MAP_FEATURES_COUNT] =
     EternaGym_DynamicMapFeaturesFree,
     DistWorld_DynamicMapFeaturesFree,
     Villa_DynamicMapFeaturesFree,
-    CompleteVermilionGym_DynamicMapFeaturesFree // Sovereign Complete
+    CompleteVermilionGym_DynamicMapFeaturesFree, // Sovereign Complete
+    CompleteVioletGym_DynamicMapFeaturesFree, // Sovereign Complete
+    CompleteCianwoodGym_DynamicMapFeaturesFree, // Sovereign Complete
+    CompleteAzaleaGym_DynamicMapFeaturesFree, // Sovereign Complete
+    CompleteBlackthornGym_DynamicMapFeaturesFree // Sovereign Complete
 };
 
 const static DynamicMapFeaturesCheckCollisionFunc sCheckCollisionFuncs[DYNAMIC_MAP_FEATURES_COUNT] = {
@@ -60,7 +68,11 @@ const static DynamicMapFeaturesCheckCollisionFunc sCheckCollisionFuncs[DYNAMIC_M
     EternaGym_DynamicMapFeaturesCheckCollision,
     DistWorld_DynamicMapFeaturesCheckCollision,
     Villa_DynamicMapFeaturesCheckCollision,
-    NULL // Sovereign Complete
+    NULL, // Sovereign Complete
+    NULL, // Sovereign Complete
+    NULL, // Sovereign Complete
+    NULL, // Sovereign Complete
+    CompleteBlackthornGym_DynamicMapFeaturesCheckCollision // Sovereign Complete
 };
 
 void DynamicMapFeatures_Init(FieldSystem *fieldSystem)
