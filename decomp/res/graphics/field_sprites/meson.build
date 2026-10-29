@@ -657,6 +657,35 @@ field_sprites_nsbtxs += custom_target(
     ],
 )
 
+# Sovereign Complete: following Pokémon (tools/complete/gen_follower_sprites.py) [list]
+field_sprites_textures_complete_followers_32 = [
+    { 'file': 'pokemon/follower/follower_garchomp.png', 'basename': 'scfol001'},
+    { 'file': 'pokemon/follower/follower_turtwig.png', 'basename': 'scfol002'},
+    { 'file': 'pokemon/follower/follower_starly.png', 'basename': 'scfol003'},
+    { 'file': 'pokemon/follower/follower_gallade.png', 'basename': 'scfol004'},
+    { 'file': 'pokemon/follower/follower_pikachu.png', 'basename': 'scfol005'},
+]
+field_sprites_textures_complete_followers_64 = [
+]
+foreach texture : field_sprites_textures_complete_followers_32
+    field_sprites_nsbtxs += custom_target(
+        input: files(texture['file']),
+        build_subdir: field_sprites_private_dir,
+        output: '@BASENAME@.nsbtx',
+        command: [nitrobtx_exe, 'pack', '--texture', '@INPUT@', '--name', texture['basename'],
+                  '--spritesheet', '--frame-height', '32', '--extract-palette', '@OUTPUT@'],
+    )
+endforeach
+foreach texture : field_sprites_textures_complete_followers_64
+    field_sprites_nsbtxs += custom_target(
+        input: files(texture['file']),
+        build_subdir: field_sprites_private_dir,
+        output: '@BASENAME@.nsbtx',
+        command: [nitrobtx_exe, 'pack', '--texture', '@INPUT@', '--name', texture['basename'],
+                  '--spritesheet', '--frame-height', '64', '--extract-palette', '@OUTPUT@'],
+    )
+endforeach
+# Sovereign Complete: end of following Pokémon [list]
 foreach texture : field_sprites_textures_32_px_single_palette
     field_sprites_nsbtxs += custom_target(
         input: files(texture['file']),

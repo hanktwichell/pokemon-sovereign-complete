@@ -25,6 +25,7 @@
 #include "field_map_change.h"
 #include "field_overworld_state.h"
 #include "field_system.h"
+#include "complete_follower.h" // Sovereign Complete: following Pokémon
 #include "field_task.h"
 #include "game_overlay.h"
 #include "heap.h"
@@ -269,6 +270,7 @@ static BOOL HandleInputsEventsAndProcesses(FieldSystem *fieldSystem)
     if (fieldSystem->runningFieldMap && fieldSystem->playerAvatar != NULL) {
         gSovereignTestPlayerTile[0] = PlayerAvatar_GetXPos(fieldSystem->playerAvatar);
         gSovereignTestPlayerTile[1] = PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+        CompleteFollower_TestRecordTile(fieldSystem); // Sovereign Complete: the follower's tile, for its tests
     }
 
     if (fieldSystem->runningFieldMap && FieldSystem_IsRunningTask(fieldSystem) == FALSE) {

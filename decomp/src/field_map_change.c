@@ -27,6 +27,7 @@
 #include "communication_system.h"
 #include "field_bgm.h"
 #include "field_map_change_flags.h"
+#include "complete_follower.h" // Sovereign Complete: following Pokémon
 #include "field_message.h"
 #include "field_overworld_state.h"
 #include "field_overworld_weather.h"
@@ -349,6 +350,7 @@ static void FieldMapChange_CreateObjects(FieldSystem *fieldSystem)
     fieldSystem->playerAvatar = PlayerAvatar_New(fieldSystem->mapObjMan, fieldSystem->location->x, fieldSystem->location->z, fieldSystem->location->faceDirection, playerData->playerState, gender, 0, playerData);
 
     sub_0203A418(fieldSystem);
+    CompleteFollower_Refresh(fieldSystem); // Sovereign Complete: the lead Pokémon follows the player
     MapObjectMan_StopAllMovement(fieldSystem->mapObjMan);
 }
 
@@ -369,6 +371,7 @@ static void FieldMapChange_LoadObjects(FieldSystem *fieldSystem)
     int gender = TrainerInfo_Gender(SaveData_GetTrainerInfo(fieldSystem->saveData));
 
     fieldSystem->playerAvatar = PlayerAvatar_NewLoad(fieldSystem->mapObjMan, playerData, gender);
+    CompleteFollower_Refresh(fieldSystem); // Sovereign Complete: the lead Pokémon follows the player
 
     MapObjectMan_StopAllMovement(fieldSystem->mapObjMan);
 }
