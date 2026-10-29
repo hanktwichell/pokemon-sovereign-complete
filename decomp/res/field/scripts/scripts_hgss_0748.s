@@ -62,7 +62,6 @@ _0091:
     ApplyMovement LOCALID_PLAYER, _017C
     WaitMovement
     CompleteFollowerReturn
-    SetMovementType 253, 56
     SetVarFromValue VAR_HGSS_UNK_412E, 4
     ReleaseAll
     End
@@ -97,7 +96,6 @@ scr_seq_T02R0302_001:
     WaitMovement
     @ HGSS: SetFollowMonInhibitState 0
     CompleteFollowerReturn
-    SetMovementType 253, 48
     SetVarFromValue VAR_HGSS_UNK_412E, 3
     ReleaseAll
     End

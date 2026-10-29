@@ -139,6 +139,16 @@ def trade(a):
     return [f'InitNPCTrade {trade_names()[int(a[0], 0)]}']
 
 
+def set_movement_type(a):
+    """HeartGold's 109 (an object's movement type). Its follower (object 253) has its own movement types there, which
+    the engine's follower code sets itself; a type past the 47 both games share would index past Platinum's table."""
+    if a[0] == '253':
+        return []
+    if not a[1].isdigit() or int(a[1]) >= 47:
+        return [f'@ HGSS: ScrCmd_109 {a[0]}, {a[1]}']
+    return [f'SetMovementType {a[0]}, {a[1]}']
+
+
 def one(template):
     """An entry that becomes one line: template uses {0}, {1}... for the arguments."""
     return lambda a: [template.format(*a)]
@@ -316,7 +326,7 @@ COMMANDS = {
     # its scripts move as object 241, Platinum's LOCALID_CAMERA), showing an object again, the follower back beside
     # the player (as 606)
     'ScrCmd_379': one('GetTimeOfDay {0}'),
-    'ScrCmd_109': one('SetMovementType {0}, {1}'),
+    'ScrCmd_109': set_movement_type,
     'ScrCmd_102': one('AddFreeCamera {0}, {1}'),
     'ScrCmd_103': lambda a: ['RestoreCamera'],
     'ScrCmd_374': one('ShowObject {0}'),

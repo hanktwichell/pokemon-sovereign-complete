@@ -66,7 +66,6 @@ scr_seq_T02GYM0101_001:
     CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     CompleteFollowerReturn
-    SetMovementType 253, 56
     SetVarFromValue VAR_HGSS_UNK_4127, 1
     WaitButton
     CloseMessage
@@ -143,7 +142,6 @@ _0206:
     CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     CompleteFollowerReturn
-    SetMovementType 253, 56
     SetVarFromValue VAR_HGSS_UNK_4127, 1
     ReleaseAll
     End
@@ -194,7 +192,6 @@ _02C1:
     CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     CompleteFollowerReturn
-    SetMovementType 253, 56
     SetVarFromValue VAR_HGSS_UNK_4127, 1
     ReleaseAll
     End
@@ -264,7 +261,6 @@ _0423:
     CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     CompleteFollowerReturn
-    SetMovementType 253, 56
     SetVarFromValue VAR_HGSS_UNK_4127, 1
     ReleaseAll
     End
