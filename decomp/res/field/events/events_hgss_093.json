@@ -595,7 +595,7 @@
         },
         {
             "id": "obj_D22R0101_29",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_SHAYMIN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FBE",

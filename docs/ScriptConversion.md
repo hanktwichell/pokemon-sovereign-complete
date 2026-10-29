@@ -94,6 +94,11 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   decomp are matched by what their code does: doors in scenes (307-311), the time of day (379), the free camera (102,
   103), Deoxys's form (518), the Unown letters (545: HeartGold counts those caught, Platinum keeps only those seen, so
   the Ruins of Alph's rewards count seen letters), and game records (420) by meaning, as their numbers differ.
+- **A new game** sets HeartGold's starting flags too: its new-game script (`scr_seq_0149`, Sacred Gold's version)
+  hides the people who come later in the story (Elm's lab officer, the Olivine rival, Route 12's Snorlax...), and
+  Sacred Gold's Mom hides its own added people in her first scene. Neither ran here, so those people stood on their
+  maps from the start (on Ecruteak's and Sinjoh's step-on triggers, among others). The translator now writes both sets
+  of flags (165) into the engine's `InitNewGame` (`res/field/scripts/scripts_init_new_game.s`, between markers).
 - Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
 
 ## Gym puzzles

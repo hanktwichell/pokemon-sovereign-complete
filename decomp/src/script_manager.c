@@ -516,6 +516,9 @@ void FieldSystem_ClearDailyFlags(FieldSystem *fieldSystem)
     VarsFlags *varsFlags = SaveData_GetVarsFlags(fieldSystem->saveData);
 
     memset(VarsFlags_GetFlagChunk(varsFlags, DAILY_FLAGS_START), 0, (DAILY_FLAGS_END - DAILY_FLAGS_START + 1) / 8);
+    // Sovereign Complete: HeartGold's daily flags, and the Apricorn trees
+    memset(VarsFlags_GetFlagChunk(varsFlags, COMPLETE_DAILY_FLAGS_START), 0, COMPLETE_DAILY_FLAGS_COUNT / 8);
+    memset(VarsFlags_GetFlagChunk(varsFlags, COMPLETE_APRICORN_TREE_FLAGS_START), 0, COMPLETE_APRICORN_TREE_FLAGS_COUNT / 8);
 }
 
 void FieldSystem_SetScriptParameters(FieldSystem *fieldSystem, u16 scriptParam0, u16 scriptParam1, u16 scriptParam2, u16 scriptParam3)

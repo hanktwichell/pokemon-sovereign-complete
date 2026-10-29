@@ -892,6 +892,13 @@ ScriptCommand(SCRCMD_COMPLETEAZALEAGYMSWITCH,                           Complete
 ScriptCommand(SCRCMD_COMPLETEBLACKTHORNGYMINIT,                         CompleteScrCmd_BlackthornGymInit)
 ScriptCommand(SCRCMD_COMPLETEECRUTEAKGYMINIT,                           CompleteScrCmd_EcruteakGymInit)
 ScriptCommand(SCRCMD_COMPLETESCREENSHAKE,                               CompleteScrCmd_ScreenShake)
+ScriptCommand(SCRCMD_COMPLETEAPRICORNTREE,                              CompleteScrCmd_ApricornTree)
+ScriptCommand(SCRCMD_COMPLETEAPRICORNTREEPICK,                          CompleteScrCmd_ApricornTreePick)
+ScriptCommand(SCRCMD_COMPLETECOUNTAPRICORNS,                            CompleteScrCmd_CountApricorns)
+ScriptCommand(SCRCMD_COMPLETEKURTTAKEAPRICORNS,                         CompleteScrCmd_KurtTakeApricorns)
+ScriptCommand(SCRCMD_COMPLETEKURTBALLCOUNT,                             CompleteScrCmd_KurtBallCount)
+ScriptCommand(SCRCMD_COMPLETEKURTBALL,                                  CompleteScrCmd_KurtBall)
+ScriptCommand(SCRCMD_COMPLETEKURTCLEAR,                                 CompleteScrCmd_KurtClear)
 
 // clang-format on
 

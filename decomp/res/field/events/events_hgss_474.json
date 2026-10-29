@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_D51R0201_1",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_UXIE",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FCE",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_D51R0201_2",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_MESPRIT",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FCD",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_D51R0201_3",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_AZELF",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FCC",
@@ -98,7 +98,7 @@
         },
         {
             "id": "obj_D51R0201_5",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_DIALGA",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FC6",
@@ -117,7 +117,7 @@
         },
         {
             "id": "obj_D51R0201_6",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_PALKIA",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FC5",
@@ -136,7 +136,7 @@
         },
         {
             "id": "obj_D51R0201_7",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_GIRATINA_ALTERED",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FC4",
@@ -155,7 +155,7 @@
         },
         {
             "id": "obj_D51R0201_8",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_ARCEUS",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

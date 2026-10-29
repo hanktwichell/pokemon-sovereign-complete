@@ -10,6 +10,13 @@
 #define COMPLETE_FLAGS_START 2912
 #define COMPLETE_FLAGS_COUNT 4096
 #define NUM_FLAGS            (COMPLETE_FLAGS_START + COMPLETE_FLAGS_COUNT)
+// HeartGold's daily flags (its DAILY_FLAG_BASE and NUM_DAILY_FLAGS), cleared each day with Sinnoh's
+#define COMPLETE_DAILY_FLAGS_START (COMPLETE_FLAGS_START + 0xAA0)
+#define COMPLETE_DAILY_FLAGS_COUNT 192
+// Johto and Kanto's Apricorn trees picked today (src/complete_apricorns.c), past HeartGold's and Sacred Gold's flags,
+// cleared each day too
+#define COMPLETE_APRICORN_TREE_FLAGS_START (COMPLETE_FLAGS_START + 0xC60)
+#define COMPLETE_APRICORN_TREE_FLAGS_COUNT 32
 
 #define NUM_UNKNOWN_FLAGS 64
 

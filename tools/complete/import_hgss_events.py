@@ -22,7 +22,7 @@ as Platinum's, and the names (object IDs, sprites) from its JSON sources. docs/M
   0 and the step-on triggers are left out, since each one starts a scripted scene. Trainers are trainers once
   tools/complete/import_hgss_trainers.py has added them (TRAINER_HGSS_*): the same trainer types and sight ranges,
   the trainer as the script. Item balls and hidden items run their entries in Platinum's item scripts
-  (tools/complete/import_hgss_field_items.py), on every map.
+  (tools/complete/import_hgss_field_items.py), on every map; Apricorn trees run CommonScript_CompleteApricornTree.
 
 With --rom ROM (Sacred Gold's: .cache/sacredgold.nds), the events come from that ROM's events archive (a/0/3/2)
 instead, still named from pokeheartgold's sources; a person the ROM added gets the name obj_<MAP>_<local ID>.
@@ -76,7 +76,7 @@ SPRITE_STAND_INS = {
     'BFSW1': 'FRONTIER_MULTI_ATTENDANT', 'BFSW2': 'FRONTIER_BOOTH_ATTENDANT', 'WIFISM': 'WIFI_PLAZA_ATTENDANT_M',
     'WIFISF': 'WIFI_PLAZA_ATTENDANT_F', 'RED': 'PLAYER_M', 'DAIGO': 'GENTLEMAN', 'KABIGON': 'STRENGTH_BOULDER',
     'YADON': 'PSYDUCK', 'RGYARADOSU': 'MAGIKARP', 'ROTOMF': 'ROTOM_FAN', 'ROTOMS': 'ROTOM_FROST',
-    'ROTOMI': 'ROTOM_HEAT', 'ROTOMW': 'ROTOM_WASH', 'ROTOMG': 'ROTOM_MOW', 'ICE': 'ICE_ROCK', 'BONGURI': 'BERRY_SOIL',
+    'ROTOMI': 'ROTOM_HEAT', 'ROTOMW': 'ROTOM_WASH', 'ROTOMG': 'ROTOM_MOW', 'ICE': 'ICE_ROCK',
     'HOU_OBJ01': 'LEGENDARY_HO_OH', 'LUG_OBJ01': 'LEGENDARY_LUGIA', 'LEAG_DOOR2': 'ELITE_FOUR_ROOM_DOOR',
     'USOKKY': 'CUT_TREE', 'GSWOMAN6': 'BEAUTY', 'MONO_PIP': 'CLEFAIRY', 'JUPETTA': 'DRIFLOON', 'MEDAL': 'POKEBALL',
     'SCROLL': 'BOOK', 'FIRE': 'VENT', 'POKEWALL': 'BOLLARD', 'AJI_PERU': 'MIDDLE_AGED_MAN',
@@ -84,6 +84,13 @@ SPRITE_STAND_INS = {
 SPRITE_BY_KEYWORD = [('LEADER', 'GYM_GUIDE'), ('SIGN', 'SIGNBOARD'), ('TOROPHY', 'POKEBALL'), ('GATE', 'BOLLARD'),
                      ('BABYBOY', 'NINJA_BOY'), ('HERO', 'PLAYER_M')]
 SPRITE_FALLBACK = 'MIDDLE_AGED_MAN'
+# Sovereign Complete's own vars, on Sacred Gold's last two (61BE and 61BF), which its scripts never use: the Ball Kurt
+# is making and how many (src/complete_apricorns.c)
+COMPLETE_VARS = [('VAR_COMPLETE_KURT_BALL', 0x1FE), ('VAR_COMPLETE_KURT_QUANTITY', 0x1FF)]
+# HeartGold's Apricorn tree script (its std_apricorn_tree) and the engine's (CommonScript_CompleteApricornTree,
+# res/field/scripts/scripts_common.s)
+STD_APRICORN_TREE = 2800
+COMMON_APRICORN_TREE = 0x80F
 
 
 def lines(path):
@@ -115,15 +122,23 @@ class Sprites:
         if n < SAME_SPRITES:
             return self.by_number(n)
         hg = self.hg.get(n, f'{n}')
-        pokemon = re.fullmatch(r'FOLLOWER_MON_STATIC_(\w+?)(_SPIKY)?', hg)
+        # HeartGold's static Pokémon, and Sacred Gold's Pokémon standing about (its lake trio at Sinjoh, the
+        # legendaries it adds): the engine's sprite of that Pokémon where it has one (Giratina's Altered Forme)
+        pokemon = re.fullmatch(r'FOLLOWER_MON_(STATIC_)?(\w+?)(_SPIKY|_NORMAL|_F|_M)?', hg)
         if pokemon:
-            for candidate in (f'LEGENDARY_{pokemon.group(1)}', pokemon.group(1), f'FOLLOWER_{pokemon.group(1)}'):
+            name = pokemon.group(2)
+            for candidate in (f'LEGENDARY_{name}', name, f'{name}_ALTERED', f'FOLLOWER_{name}'):
                 if f'OBJ_EVENT_GFX_{candidate}' in self.platinum:
                     return f'OBJ_EVENT_GFX_{candidate}'
-            return 'OBJ_EVENT_GFX_POKEBALL'
+            if pokemon.group(1):
+                return 'OBJ_EVENT_GFX_POKEBALL'
+            self.unmatched.add(hg)
+            return f'OBJ_EVENT_GFX_{SPRITE_FALLBACK}'
         leader = re.fullmatch(r'GSLEADER(\d+)', hg)
         if leader:  # Johto's leaders 1-8 and Kanto's 9-16 as Sinnoh's eight
             return self.by_number(self.dp_names[f'LEADER{(int(leader.group(1)) - 1) % 8 + 1}'])
+        if hg.startswith('BONGURI'):  # Apricorn trees: Platinum's berry soil would show Sinnoh's berry patches
+            return 'OBJ_EVENT_GFX_CUT_TREE'
         if hg in SPRITE_STAND_INS:
             return f'OBJ_EVENT_GFX_{SPRITE_STAND_INS[hg]}'
         base = re.sub(r'_\d+$', '', re.sub(r'^GS', '', hg))  # GSWOMAN1 -> WOMAN1, SEAMAN_2 -> SEAMAN
@@ -248,6 +263,8 @@ def main():
                 return hidden_item_script(n - HIDDEN_ITEM_SCRIPTS.start)
             if n in FIELD_MOVE_SCRIPTS or 0 < n <= own_scripts:
                 return n
+            if n == STD_APRICORN_TREE:
+                return COMMON_APRICORN_TREE
             if own_scripts and 0 < n < 2000:  # a script the map's file lacks would run past its end
                 print(f'{sources[bank]}: script {n} past the map\'s {own_scripts}: script 0')
             return 0
@@ -331,6 +348,7 @@ def main():
                  if HG_SAVED_VARS_START <= n < HG_SAVED_VARS_START + 0x200]
     var_block += [f'VAR_HGSS_{sacred_gold.var_name(n)[len("VAR_"):]} = VAR_COMPLETE_{sacred_gold.engine_var_slot(n):03X}'
                   for n in sacred_gold.SG_VARS]  # Sacred Gold's own, after HeartGold's
+    var_block += [f'{name} = VAR_COMPLETE_{slot:03X}' for name, slot in COMPLETE_VARS]
 
     def change_vars(text):
         text = re.sub(rf'# {re.escape(VAR_MARK)}\n.*?# {re.escape(VAR_MARK_END)}\n', '', text, flags=re.S)

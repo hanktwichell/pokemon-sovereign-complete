@@ -167,7 +167,8 @@ def between_markers(text, block, before, comment):
 def edit(path, change):
     full = os.path.join(DECOMP, path)
     raw = open(full, newline='').read()
-    open(full, 'w', newline='').write(change(raw))
+    text = change(raw)  # before the file is opened for writing, so a failed change leaves it as it was
+    open(full, 'w', newline='').write(text)
 
 
 def set_order(path, prefix, names):

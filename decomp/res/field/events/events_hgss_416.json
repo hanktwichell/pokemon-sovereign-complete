@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_D41R0105_tsure_poke_static_moltres",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_REGIGIGAS",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MT_SILVER_CAVE_MOLTRES",

@@ -974,6 +974,59 @@
         "Will you still take on a double\n",
         "battle?"
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTree",
+      "en_US": "It’s an Apricorn Tree!\r"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreeItsA",
+      "en_US": "...It’s a {STRVAR_1 8, 1, 0}!\r"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreeNone",
+      "en_US": "There are no Apricorns..."
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreeObtained",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} obtained\n",
+        "the {STRVAR_1 8, 1, 0}!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreePutInBox",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\n",
+        "in the Apricorn Box!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreeNoBoxYet",
+      "en_US": [
+        "...Well, that’s what was going to\n",
+        "happen, except there’s no Apricorn\f",
+        "Box yet!\r",
+        "{STRVAR_1 3, 0, 0} gave up on the\n",
+        "{STRVAR_1 8, 1, 0}..."
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreeBoxFull",
+      "en_US": [
+        "...Well, that’s what was going to\n",
+        "happen, except...\f",
+        "The Apricorn Box is full!\r",
+        "{STRVAR_1 3, 0, 0} gave up on the\n",
+        "{STRVAR_1 8, 1, 0}..."
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteApricornTreeNoBox",
+      "en_US": [
+        "Since there’s nothing to put it in,\n",
+        "there’s no reason to take it..."
+      ]
     }
   ]
 }

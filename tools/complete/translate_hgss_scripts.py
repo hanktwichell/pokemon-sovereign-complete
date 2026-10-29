@@ -290,6 +290,38 @@ def install(files, names, table, platinum_params, hg_params, report):
     return out_names
 
 
+NEW_GAME = 'res/field/scripts/scripts_init_new_game.s'
+NEW_GAME_MARK = ("    // Sovereign Complete: HeartGold's new game (tools/complete/translate_hgss_scripts.py)\n",
+                 "    // end of HeartGold's new game\n")
+
+
+def install_new_game(source_dir, names):
+    """HeartGold's new game sets its flags (its scr_seq_0149: the people who come later in the story are hidden), and
+    Sacred Gold's Mom sets its own on the first scene (scr_seq_0845_T20R0201's first script, which nothing can come
+    before): both go into the engine's InitNewGame, between markers, so every new game starts with them."""
+    flags = []
+    for stem, first_only in (('scr_seq_0149', False), ('scr_seq_0845_T20R0201', True)):
+        path = next(iter(glob.glob(os.path.join(source_dir, stem + '*.s'))), None)
+        if path is None:
+            continue
+        text = open(path, errors='replace').read()
+        if first_only:  # the first script's lines, to its End
+            text = text[text.index('_000:'):]
+            text = text[:text.index('\tEnd')]
+        for name in re.findall(r'^\s*SetFlag\s+(\w+)', text, re.M):
+            flag = names.arg(name)
+            if (not first_only or flag.startswith('FLAG_HGSS_SG_')) and flag not in flags:
+                flags.append(flag)
+    full = os.path.join(DECOMP, NEW_GAME)
+    text = open(full).read()
+    if NEW_GAME_MARK[0] in text:
+        text = text[:text.index(NEW_GAME_MARK[0])] + text[text.index(NEW_GAME_MARK[1]) + len(NEW_GAME_MARK[1]):]
+    block = NEW_GAME_MARK[0] + ''.join(f'    SetFlag {flag}\n' for flag in flags) + NEW_GAME_MARK[1]
+    end = text.index('\n    End\n', text.index('InitNewGame:')) + 1
+    open(full, 'w').write(text[:end] + block + text[end:])
+    return len(flags)
+
+
 def main():
     from hgss_script_table import COMMANDS
     from import_hgss_headers import hg_headers
@@ -324,6 +356,7 @@ def main():
                 used.add(re.sub(r'_bin$', '', f[key]))
         files = [f for f in files if os.path.splitext(os.path.basename(f))[0] in used]
         install(files, names, COMMANDS, platinum_params, hg_params, report)
+        print(f'{install_new_game(source_dir, names)} of HeartGold\'s new game flags in InitNewGame')
     else:
         for path in files:
             lines = translate_file(path, names, COMMANDS, platinum_params, hg_params, report)

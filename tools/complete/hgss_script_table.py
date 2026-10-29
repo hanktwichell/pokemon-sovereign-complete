@@ -327,6 +327,13 @@ COMMANDS = {
     # Deoxys's form (518, the same code as Platinum's), the Unown letters (545: HeartGold counts those caught,
     # Platinum keeps only those seen), and a game record (420) by meaning, as the numbers differ
     'ScrCmd_518': one('ChangeDeoxysForm {0}'),
+    # Kurt's Apricorn Balls (src/complete_apricorns.c): the Apricorns are bag items, so the player picks one in the bag
+    # where HeartGold opens its Apricorn Box (739); how many Balls Kurt is making (735), which (737), and giving them
+    'ScrCmd_735': one('CompleteKurtBallCount {0}'),
+    'ScrCmd_737': one('CompleteKurtBall {0}'),
+    'ScrCmd_739': lambda a: ['OpenItemsBag', 'CompleteKurtTakeApricorns'],
+    'ClearKurtApricorn': lambda a: ['CompleteKurtClear'],
+    'GetTotalApricornCount': one('CompleteCountApricorns {0}'),
     # Silph Co.'s Rotom room: Platinum's own commands for its Rotom room, the same code under other names
     'GetOwnedRotomForms': one('GetRotomFormsInSave {0}, {1}, {2}, {3}, {4}'),
     'CountTranformedRotomsInParty': one('GetPartyRotomCountAndFirst {0}, {1}'),

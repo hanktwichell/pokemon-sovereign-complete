@@ -5674,6 +5674,41 @@
     .short \frames
     .endm
 
+    // Kurt's Apricorn Balls (src/complete_apricorns.c): the Apricorn tree the player talks to (its Apricorn, or
+    // ITEM_NONE if picked today), picking it, every Apricorn the player has, and Kurt taking the Apricorn picked in
+    // the bag (after OpenItemsBag), how many Balls he is making, which, and giving them.
+    .macro CompleteApricornTree destVar
+    .short SCRCMD_COMPLETEAPRICORNTREE
+    .short \destVar
+    .endm
+
+    .macro CompleteApricornTreePick
+    .short SCRCMD_COMPLETEAPRICORNTREEPICK
+    .endm
+
+    .macro CompleteCountApricorns destVar
+    .short SCRCMD_COMPLETECOUNTAPRICORNS
+    .short \destVar
+    .endm
+
+    .macro CompleteKurtTakeApricorns
+    .short SCRCMD_COMPLETEKURTTAKEAPRICORNS
+    .endm
+
+    .macro CompleteKurtBallCount destVar
+    .short SCRCMD_COMPLETEKURTBALLCOUNT
+    .short \destVar
+    .endm
+
+    .macro CompleteKurtBall destVar
+    .short SCRCMD_COMPLETEKURTBALL
+    .short \destVar
+    .endm
+
+    .macro CompleteKurtClear
+    .short SCRCMD_COMPLETEKURTCLEAR
+    .endm
+
     .text
     .globl _start
 _start:

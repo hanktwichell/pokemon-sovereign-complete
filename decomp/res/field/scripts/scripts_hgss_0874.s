@@ -86,10 +86,10 @@ _011A:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_735 VAR_SPECIAL_x8000
+    CompleteKurtBallCount VAR_0x8000
     CompareVar VAR_0x8000, 0
     GoToIf 5, _01A5
-    @ HGSS: GetTotalApricornCount VAR_SPECIAL_RESULT
+    CompleteCountApricorns VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _020F
     ApplyMovement obj_T23R0501_gantetsu, _02BC
@@ -98,11 +98,12 @@ _011A:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_739
+    OpenItemsBag
+    CompleteKurtTakeApricorns
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_735 VAR_SPECIAL_RESULT
+    CompleteKurtBallCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0189
     Message msg_0571_T23R0501_00006
@@ -121,11 +122,11 @@ _01A5:
     GoToIfSet FLAG_HGSS_DAILY_KURT_MAKING_BALLS, _0204
     BufferPlayerName 0
     Message msg_0571_T23R0501_00008
-    @ HGSS: ScrCmd_737 VAR_SPECIAL_x8004
+    CompleteKurtBall VAR_0x8004
     CanFitItem VAR_0x8004, VAR_0x8000, VAR_RESULT
     SetVarFromVar VAR_0x8005, VAR_0x8000
     Common_GiveItemQuantity
-    @ HGSS: ClearKurtApricorn
+    CompleteKurtClear
     CompareVar VAR_HGSS_UNK_413B, 10
     GoToIf 4, _01EE
     AddVar VAR_HGSS_UNK_413B, 1

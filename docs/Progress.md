@@ -252,3 +252,31 @@ Test results on the new test build:
   animation for each time of day) as HeartGold does (`docs/MapConversion.md`). All 46 items on those maps pass now.
 - **Gym puzzles:** Vermilion's trash cans, Violet's lift, Azalea's Spinarak carts, Cianwood's winch, Ecruteak's
   dark and Blackthorn's floors over the lava are ported (`docs/ScriptConversion.md`, "Gym puzzles").
+
+## Oct 29, 2026: step 3's tests, roamers, Kurt's Apricorn Balls
+
+- **Roamers:** Raikou and Entei roam Johto, Latias and Latios Kanto, as in HeartGold (four new roaming slots, each
+  kept to its region's routes; `docs/SacredGold.md`, "Roamers"). New test: `tools/complete/test_hgss_roamers.py`.
+- **The signs and triggers test** (`tools/test/signs_and_triggers.py`, every sign, hidden item and step-on trigger on
+  the new maps) found:
+  - **Ecruteak Gym crashed on the way in.** Its four spotlights carry 49 KB of textures each, the field heap ran out,
+    and a file was then read into a NULL buffer over the interrupt handlers. Platinum binds a building to its area's
+    texture set and never reads a model's own copy, which now goes once HeartGold's models are bound
+    (`docs/MapConversion.md`).
+  - **None of HeartGold's 56 doors opened**, and a scene that opens one (Mom coming out in New Bark) played an
+    animation that was never loaded, writing through a NULL pointer. HeartGold's doors are now in Platinum's door
+    lists, with their sounds, and a door animation that isn't loaded is skipped.
+  - **HeartGold's new-game flags were never set**: its new-game script hides the people who come later in the story,
+    and Sacred Gold's Mom hides its own in her first scene. Neither ran, so those people stood on their maps from the
+    start, some on step-on triggers. Both sets (165 flags) are now in the engine's new game.
+  - The test itself: a trainer who spots the player just after a warp, the first full save (which stops the vblank
+    for a while), a prize counter's menu loop, Ecruteak Gym's kick-out scene and Sinjoh's choosing tiles each needed
+    handling.
+- **Script commands:** about 15 more of HeartGold's map to Platinum's (`GetGameVersion` answers HeartGold, doors in
+  scenes, the Rotom room, Deoxys's form, the Unown count, game records); 98.2% of Sacred Gold's lines translate.
+- **HeartGold's daily flags** weren't cleared each day (Kurt, the haircut brothers, Union Cave's Lapras, the Trainer
+  House, the Bug-Catching Contest); they are now.
+- **Kurt's Apricorn Balls** (step 5): the 31 Apricorn trees, the Apricorns as bag items and Kurt's Balls
+  (`docs/Features.md`). The Balls can't be thrown yet: they need their battle graphics.
+- **Sacred Gold's Pokémon** standing about (its lake trio at Sinjoh, Mew, the legendaries it adds) show the engine's
+  sprite of that Pokémon where it has one, not a stand-in person.

@@ -288,7 +288,7 @@
         },
         {
             "id": "obj_D46R0101_12",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_MEW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FC8",
@@ -307,7 +307,7 @@
         },
         {
             "id": "obj_D46R0101_13",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_MEW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -326,7 +326,7 @@
         },
         {
             "id": "obj_D46R0101_14",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_MEW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -345,7 +345,7 @@
         },
         {
             "id": "obj_D46R0101_15",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_LEGENDARY_MEW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FC8",

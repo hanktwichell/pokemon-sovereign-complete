@@ -88,6 +88,7 @@
     ScriptEntry CommonScript_SovereignStake @ 0x80C
     ScriptEntry CommonScript_SovereignE4AskFormat @ 0x80D
     ScriptEntry CommonScript_SovereignE4CheckLoneMon @ 0x80E
+    ScriptEntry CommonScript_CompleteApricornTree @ 0x80F
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -1911,6 +1912,51 @@ CommonScript_SovereignE4CheckLoneMon:
 CommonScript_SovereignE4KeepDoubles:
     SetVar VAR_RESULT, 1
     ReturnCommonScript
+    End
+
+// Sovereign Complete: Johto and Kanto's Apricorn trees (HeartGold's std_apricorn_tree, its scr_seq_0150), one
+// Apricorn each a day, for players with the Apricorn Box Kurt gives (src/complete_apricorns.c).
+CommonScript_CompleteApricornTree:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    Message CommonStrings_Text_CompleteApricornTree
+    CloseMessage
+    CheckItem ITEM_APRICORN_BOX, 1, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompleteApricornTreeNoBox
+    CompleteApricornTree VAR_0x8000
+    GoToIfEq VAR_0x8000, ITEM_NONE, CommonScript_CompleteApricornTreeNone
+    BufferPlayerName 0
+    BufferItemName 1, VAR_0x8000
+    Message CommonStrings_Text_CompleteApricornTreeItsA
+    CloseMessage
+    CanFitItem VAR_0x8000, 1, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompleteApricornTreeFull
+    PlayFanfare SEQ_FANFA4_sseq
+    Message CommonStrings_Text_CompleteApricornTreeObtained
+    WaitFanfare
+    AddItem VAR_0x8000, 1, VAR_RESULT
+    CompleteApricornTreePick
+    Message CommonStrings_Text_CompleteApricornTreePutInBox
+    GoTo CommonScript_CompleteApricornTreeEnd
+    End
+
+CommonScript_CompleteApricornTreeFull:
+    Message CommonStrings_Text_CompleteApricornTreeBoxFull
+    GoTo CommonScript_CompleteApricornTreeEnd
+    End
+
+CommonScript_CompleteApricornTreeNone:
+    WaitTime 15, VAR_RESULT
+    Message CommonStrings_Text_CompleteApricornTreeNone
+    GoTo CommonScript_CompleteApricornTreeEnd
+    End
+
+CommonScript_CompleteApricornTreeNoBox:
+    Message CommonStrings_Text_CompleteApricornTreeNoBox
+CommonScript_CompleteApricornTreeEnd:
+    WaitButton
+    CloseMessage
+    ReleaseAll
     End
 
     .balign 4, 0

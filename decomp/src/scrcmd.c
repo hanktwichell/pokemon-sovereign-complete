@@ -114,6 +114,7 @@
 #include "field_overworld_state.h"
 #include "field_script_context.h"
 #include "complete_scrcmd.h" // Sovereign Complete: commands for HeartGold's scripts
+#include "complete_apricorns.h" // Sovereign Complete: Kurt's Apricorn Balls
 #include "complete_gyms.h" // Sovereign Complete: HeartGold's gym puzzles
 #include "field_system.h"
 #include "field_task.h"
