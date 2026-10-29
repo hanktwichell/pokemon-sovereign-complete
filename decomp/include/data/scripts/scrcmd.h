@@ -875,6 +875,7 @@ ScriptCommand(SCRCMD_COMPLETEINITHGSSMENU,                              Complete
 ScriptCommand(SCRCMD_COMPLETEGETELEVATORFLOOR,                          CompleteScrCmd_GetElevatorFloor)
 ScriptCommand(SCRCMD_COMPLETEBUFFERFLOORNAME,                           CompleteScrCmd_BufferFloorName)
 ScriptCommand(SCRCMD_COMPLETEGIVETOGEPIEGG,                             CompleteScrCmd_GiveTogepiEgg)
+ScriptCommand(SCRCMD_COMPLETECHECKSTATICNOTBEATEN,                      CompleteScrCmd_CheckStaticNotBeaten)
 
 // clang-format on
 

@@ -180,7 +180,7 @@ scr_seq_D35R0103_004:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0901
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_TEMP_x4000, 0
+    CompleteCheckStaticNotBeaten VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0907
     SetFlag FLAG_HGSS_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_1
@@ -198,7 +198,7 @@ scr_seq_D35R0103_005:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0901
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_TEMP_x4000, 0
+    CompleteCheckStaticNotBeaten VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0936
     SetFlag FLAG_HGSS_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_2
@@ -216,7 +216,7 @@ scr_seq_D35R0103_006:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0901
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_TEMP_x4000, 0
+    CompleteCheckStaticNotBeaten VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _093A
     SetFlag FLAG_HGSS_REMOVED_ROCKET_HIDEOUT_B3F_ELECTRODE_3
@@ -274,7 +274,7 @@ _040C:
     GoToIf 4, _0949
     End
 _0440:
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_TEMP_x4000, 1
+    @ HGSS: StaticWildWonOrCaughtCheck VAR_MAP_LOCAL_0x00, 1
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0976
     CompareVar VAR_MAP_LOCAL_0x0A, 1

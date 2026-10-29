@@ -216,6 +216,9 @@ COMMANDS = {
     'NicknameInput': lambda a: ([f'OpenPokemonNamingScreen {a[0]}, {a[1]}'] if a[0] != '255'
                                 else [f'@ HGSS: NicknameInput {", ".join(a)}']),
     'GiveTogepiEgg': lambda a: ['CompleteGiveTogepiEgg'],
+    # after a static battle: its form 0 reads the battle just fought (form 1 reads a var HeartGold's engine sets)
+    'StaticWildWonOrCaughtCheck': lambda a: ([f'CompleteCheckStaticNotBeaten {a[0]}'] if a[1] == '0'
+                                             else [f'@ HGSS: StaticWildWonOrCaughtCheck {", ".join(a)}']),
     'HideMoneyBox': lambda a: ['HideMoney'],
     # Money, coins, the party, the saving icon: Platinum's commands of the same arguments and code (ribbons are
     # numbered the same in both games)

@@ -107,7 +107,8 @@ these land in save space HeartGold leaves unused. Here they get real places afte
 `GiveMon` becomes `GivePokemon` (no gift in Sacred Gold sets a form or an ability); `WildBattle` becomes
 `CompleteStartWildBattle`, which can make the Pokémon shiny (Sacred Gold's red Gyarados, as the Poké Radar makes a
 shiny); `GetStaticEncounterOutcome` becomes `CompleteGetBattleResult`, since Platinum's battle results have HeartGold's
-numbers.
+numbers, and `StaticWildWonOrCaughtCheck` (whether the Pokémon got away) `CompleteCheckStaticNotBeaten`. Its other
+form, which reads a var HeartGold's engine sets after a battle (once, in the Ruins of Alph), waits.
 
 ## Items and evolutions
 

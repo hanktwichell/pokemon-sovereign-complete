@@ -313,7 +313,7 @@ _0460:
     CompleteGetBattleResult VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     CallIf 1, _05D1
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_TEMP_x4000, 0
+    CompleteCheckStaticNotBeaten VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _05D7
     ReleaseAll
@@ -370,7 +370,7 @@ _0567:
     CompleteGetBattleResult VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     CallIf 1, _05D1
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_TEMP_x4000, 0
+    CompleteCheckStaticNotBeaten VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _05D7
     ReleaseAll

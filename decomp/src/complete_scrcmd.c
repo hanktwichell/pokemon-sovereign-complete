@@ -2,6 +2,7 @@
 
 #include <nitro.h>
 
+#include "constants/battle.h"
 #include "constants/heap.h"
 #include "constants/moves.h"
 #include "constants/narc.h"
@@ -271,4 +272,15 @@ BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx)
     Party_AddPokemon(party, egg);
     Heap_Free(egg);
     return FALSE;
+}
+
+// HeartGold's StaticWildWonOrCaughtCheck (its form 0, from the battle just fought): whether the Pokémon got away,
+// neither beaten nor caught.
+BOOL CompleteScrCmd_CheckStaticNotBeaten(ScriptContext *ctx)
+{
+    int *battleResult = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_BATTLE_RESULT);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = *battleResult != BATTLE_RESULT_WIN && *battleResult != BATTLE_RESULT_CAPTURED_MON;
+    return TRUE;
 }

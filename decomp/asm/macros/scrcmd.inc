@@ -5584,6 +5584,12 @@
     .short SCRCMD_COMPLETEGIVETOGEPIEGG
     .endm
 
+    // destVarID: whether the static Pokémon just fought got away (neither beaten nor caught).
+    .macro CompleteCheckStaticNotBeaten destVarID
+    .short SCRCMD_COMPLETECHECKSTATICNOTBEATEN
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:
