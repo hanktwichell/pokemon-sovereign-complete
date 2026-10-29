@@ -15,7 +15,7 @@ scr_seq_T11R0602_000:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE

@@ -12,7 +12,6 @@
     ScriptEntry scr_seq_D24R0216_006
     ScriptEntryEnd
 scr_seq_D24R0216_004:
-    @ HGSS: NopVar490 VAR_TEMP_x4004
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 10
     GoToIf 1, _0035
     GoTo _0095
@@ -27,15 +26,11 @@ _0059:
     @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4005, VAR_TEMP_x4007
     CompareVar VAR_MAP_LOCAL_0x07, 1
     CallIf 1, _0097
-    @ HGSS: NopVar490 VAR_TEMP_x4005
-    @ HGSS: NopVar490 VAR_TEMP_x4007
     End
 _0077:
     @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4005, VAR_TEMP_x4006
     CompareVar VAR_MAP_LOCAL_0x06, 1
     CallIf 1, _0097
-    @ HGSS: NopVar490 VAR_TEMP_x4005
-    @ HGSS: NopVar490 VAR_TEMP_x4006
     End
 _0095:
     End

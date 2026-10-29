@@ -43,7 +43,7 @@ scr_seq_T27_012:
     @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _038B
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     GoTo _03A4
 scr_seq_T27_005:
     LockAll

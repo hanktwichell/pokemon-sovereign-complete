@@ -88,7 +88,7 @@ scr_seq_T11R0702_008:
     WaitCry
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     BufferPlayerName 0
     ApplyMovement LOCALID_PLAYER, _094A
@@ -98,7 +98,7 @@ scr_seq_T11R0702_008:
     Warp MAP_HEADER_HGSS_GOLDENROD, 352, 369, DIR_SOUTH
     FadeScreen 6, 1, 1, COLOR_WHITE
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     Message msg_0538_T11R0702_00045
     WaitButton
     CloseMessage
@@ -207,7 +207,6 @@ _031E:
     CallIf 1, _04E1
     CompareVar VAR_MAP_LOCAL_0x0A, 1
     CallIf 1, _04E8
-    @ HGSS: NopVar490 VAR_TEMP_x4006
     GoTo _026C
 _0376:
     CompareVar VAR_0x8004, 1
@@ -386,7 +385,6 @@ _05E1:
     Warp MAP_HEADER_HGSS_SAFFRON_SILPH_CO_ROTOM_ROOM, VAR_0x8006, VAR_0x8007, VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NopVar490 VAR_TEMP_x400B
     CompareVar VAR_MAP_LOCAL_0x0A, 1
     CallIf 1, _04E8
     GoTo _03D0
@@ -415,13 +413,10 @@ _06A6:
     SetVarFromValue VAR_0x8002, 0
     GoTo _071E
 _06B2:
-    @ HGSS: NopVar490 VAR_TEMP_x4007
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 479
     GoToIf 5, _076C
-    @ HGSS: NopVar490 VAR_TEMP_x4000
-    @ HGSS: NopVar490 VAR_SPECIAL_x8000
     CompareVar VAR_MAP_LOCAL_0x00, VAR_0x8000
     GoToIf 5, _0790
     ReleaseObject LOCALID_COMPLETE_FOLLOWER
@@ -437,7 +432,6 @@ _06B2:
     GoToIf 1, _07BA
     GoTo _07E0
 _071E:
-    @ HGSS: NopVar490 VAR_TEMP_x4005
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 479
@@ -476,7 +470,6 @@ _07BA:
     WaitButton
     CompareVar VAR_MAP_LOCAL_0x0A, 1
     CallIf 1, _04E8
-    @ HGSS: NopVar490 VAR_TEMP_x400D
     GoTo _026C
 _07E0:
     FadeScreen 6, 1, 0, COLOR_BLACK

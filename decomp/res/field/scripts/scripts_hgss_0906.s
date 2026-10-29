@@ -88,11 +88,9 @@ _013D:
     CheckItem ITEM_COIN_CASE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0177
-    @ HGSS: ScriptOverlayCmd 3, 0
     HasCoinsFromValue VAR_RESULT, 3
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0186
-    @ HGSS: ScriptOverlayCmd 3, 1
     SetVarFromValue VAR_MAP_LOCAL_0x01, 0
     Return
 _0177:
@@ -105,7 +103,6 @@ _0186:
     Message msg_0599_T25R1101_00026
     WaitButton
     CloseMessage
-    @ HGSS: ScriptOverlayCmd 3, 1
     SetVarFromValue VAR_MAP_LOCAL_0x01, 1
     Return
 scr_seq_T25R1101_011:
@@ -437,9 +434,8 @@ scr_seq_T25R1101_000:
     ReleaseAll
     End
 _069B:
-    @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0599_T25R1101_00002
-    @ HGSS: ScrCmd_116 0, 20, 2
+    ShowCoins 20, 2
     ShowMoney 20, 7
 _06B1:
     CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
@@ -465,7 +461,7 @@ _06FE:
     GoToIf 1, _0796
     RemoveMoney 1000
     AddCoins 50
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
@@ -482,7 +478,7 @@ _074A:
     GoToIf 1, _0796
     RemoveMoney 10000
     AddCoins 500
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
@@ -498,18 +494,16 @@ _07A1:
 _07A4:
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_117
+    HideCoins
     HideMoney
-    @ HGSS: ScriptOverlayCmd 3, 1
     ReleaseAll
     End
 scr_seq_T25R1101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0599_T25R1101_00007
-    @ HGSS: ScrCmd_116 0, 20, 2
+    ShowCoins 20, 2
 _07CE:
     InitLocalTextMenu 1, 1, 0, VAR_MAP_LOCAL_0x00, 1
     AddMenuEntry 37, 0
@@ -584,7 +578,7 @@ _096D:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 2000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -612,7 +606,7 @@ _09F8:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 4000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -640,7 +634,7 @@ _0A83:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 6000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -668,7 +662,7 @@ _0B0E:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 10000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -696,7 +690,7 @@ _0B99:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 10000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -724,7 +718,7 @@ _0C24:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 10000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -752,7 +746,7 @@ _0CAF:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 1000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -780,7 +774,7 @@ _0D3A:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 1000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -808,7 +802,7 @@ _0DC5:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 1000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -836,7 +830,7 @@ _0E50:
     Message msg_0599_T25R1101_00011
     PlaySE SEQ_SE_DP_REGI_sseq
     SubtractCoinsFromValue 1000
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
     BufferPocketName 1, VAR_RESULT
@@ -848,9 +842,8 @@ scr_seq_T25R1101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0599_T25R1101_00016
-    @ HGSS: ScrCmd_116 0, 20, 2
+    ShowCoins 20, 2
     GetGameVersion VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _0EC7
@@ -971,7 +964,7 @@ _10E4:
 _10FB:
     SubtractCoinsFromValue 2100
 _10FF:
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     GetGameVersion VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 7
     GoToIf 5, _111F
@@ -1036,8 +1029,7 @@ _11F9:
     GoTo _1208
     End
 _1208:
-    @ HGSS: ScrCmd_117
-    @ HGSS: ScriptOverlayCmd 3, 1
+    HideCoins
     ReleaseAll
     End
 scr_seq_T25R1101_003:

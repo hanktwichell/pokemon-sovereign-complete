@@ -192,15 +192,13 @@ _02B7:
 _0309:
     Message msg_0121_D38R0104_00018
     Message msg_0121_D38R0104_00021
-    @ HGSS: ScriptOverlayCmd 3, 0
-    @ HGSS: ScrCmd_116 0, 20, 2
+    ShowCoins 20, 2
     AddCoins 10000
     AddCoins 10000
     AddCoins 10000
     AddCoins 10000
     AddCoins 10000
-    @ HGSS: ScrCmd_117
-    @ HGSS: ScriptOverlayCmd 3, 1
+    HideCoins
     WaitFanfare
     WaitButton
     CloseMessage

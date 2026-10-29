@@ -60,7 +60,6 @@ scr_seq_P01R0301_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: NopVar490 VAR_SCENE_SS_AQUA
     CompareVar VAR_HGSS_SCENE_SS_AQUA, 7
     GoToIf 0, _01DD
     Message msg_0259_P01R0301_00009

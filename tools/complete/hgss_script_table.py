@@ -105,6 +105,29 @@ def score(a):
     return [f'IncrementTrainerScore {event}'] if event else [f'@ HGSS: AddSpecialGameStat {a[0]}']
 
 
+# HeartGold's points box (its 116 shows it, 117 hides it, 118 updates it): coins (type 0) and Battle Points (1) are
+# Platinum's windows, which share one slot and one hide; the Pokéathlon's points (2) are skipped with it. The last type
+# shown decides the hide (a box is shown before it is hidden in each file).
+POINTS_BOX = {'shown': None}
+
+
+def points_box_show(a):
+    POINTS_BOX['shown'] = a[0]
+    if a[0] == '0':
+        return [f'ShowCoins {a[1]}, {a[2]}']
+    if a[0] == '1':
+        return [f'ShowBattlePoints {a[1]}, {a[2]}']
+    return [f'@ HGSS: ScrCmd_116 {", ".join(a)}']
+
+
+def points_box_hide(a):
+    return ['HideCoins'] if POINTS_BOX['shown'] in ('0', '1') else ['@ HGSS: ScrCmd_117']
+
+
+def points_box_update(a):
+    return {'0': ['UpdateCoinDisplay'], '1': ['UpdateBPDisplay']}.get(a[0], [f'@ HGSS: ScrCmd_118 {a[0]}'])
+
+
 def trade(a):
     """LoadNPCTrade n: HeartGold's nth trade, as tools/complete/import_hgss_trades.py names it."""
     from import_hgss_trades import trade_names
@@ -266,6 +289,14 @@ COMMANDS = {
     'ScrCmd_453': lambda a: ['RemovePokemonPreview'],
     'ScrCmd_522': one('GetHour {0}'),
     'ScrCmd_208': lambda a: [],
+    'NopVar490': lambda a: [],  # does nothing in HeartGold either
+    # The follower back in its ball (HeartGold's 600) and out again beside the player (606)
+    'ScrCmd_600': lambda a: ['CompleteFollowerPutAway'],
+    'ScrCmd_116': points_box_show,
+    'ScrCmd_117': points_box_hide,
+    'ScrCmd_118': points_box_update,
+    'ScrCmd_606': lambda a: ['CompleteFollowerReturn'],
+    'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)
     'SetObjectFacing': one('SetObjectEventDir {0}, {1}'),

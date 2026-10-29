@@ -36,15 +36,11 @@ _0061:
     @ HGSS: FollowerPokeIsEventTrigger 1, VAR_TEMP_x4005, VAR_TEMP_x4007
     CompareVar VAR_MAP_LOCAL_0x07, 1
     CallIf 1, _009F
-    @ HGSS: NopVar490 VAR_TEMP_x4005
-    @ HGSS: NopVar490 VAR_TEMP_x4007
     End
 _007F:
     @ HGSS: FollowerPokeIsEventTrigger 2, VAR_TEMP_x4005, VAR_TEMP_x4006
     CompareVar VAR_MAP_LOCAL_0x06, 1
     CallIf 1, _009F
-    @ HGSS: NopVar490 VAR_TEMP_x4005
-    @ HGSS: NopVar490 VAR_TEMP_x4006
     End
 _009D:
     End

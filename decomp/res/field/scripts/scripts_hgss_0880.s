@@ -65,7 +65,6 @@ _00F2:
     @ HGSS: CheckReturnLoanMon 6, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 0
     CallIf 5, _019A
-    @ HGSS: NopVar490 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0120
     Message msg_0576_T24R0201_00008

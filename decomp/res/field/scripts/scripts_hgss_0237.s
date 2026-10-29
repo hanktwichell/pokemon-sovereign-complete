@@ -631,7 +631,7 @@ _09E7:
     @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0B5C
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     WaitFadeScreen
@@ -674,7 +674,7 @@ _0AA3:
     @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0B5C
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     WaitFadeScreen

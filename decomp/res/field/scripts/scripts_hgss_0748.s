@@ -55,7 +55,7 @@ _0091:
     SetVarFromVar VAR_RESULT, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00ED
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     HealParty
     Message msg_0458_T02R0302_00002
     CloseMessage
@@ -96,7 +96,7 @@ scr_seq_T02R0302_001:
     ApplyMovement LOCALID_PLAYER, _0184
     WaitMovement
     @ HGSS: SetFollowMonInhibitState 0
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     @ HGSS: ScrCmd_109 253, 48
     SetVarFromValue VAR_HGSS_UNK_412E, 3
     ReleaseAll

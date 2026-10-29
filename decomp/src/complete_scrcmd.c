@@ -114,6 +114,26 @@ BOOL CompleteScrCmd_FollowerSetMovementType(ScriptContext *ctx)
     return TRUE;
 }
 
+// HeartGold's ScrCmd_600: the follower goes back in its ball (before healing, a warp or a scene). Here it hides,
+// without HeartGold's animation, and stays an object for the commands that follow.
+BOOL CompleteScrCmd_FollowerPutAway(ScriptContext *ctx)
+{
+    MapObject *follower = Follower(ctx);
+
+    if (follower != NULL) {
+        MapObject_SetHidden(follower, TRUE);
+    }
+
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_606, what its warps do at the end: the follower comes out again beside the player.
+BOOL CompleteScrCmd_FollowerReturn(ScriptContext *ctx)
+{
+    CompleteFollower_Refresh(ctx->fieldSystem);
+    return FALSE;
+}
+
 // HeartGold's ScrCmd_729: whether a Pokémon is following.
 BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx)
 {

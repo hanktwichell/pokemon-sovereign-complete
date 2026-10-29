@@ -16,6 +16,8 @@ BOOL CompleteScrCmd_GetElevatorFloor(ScriptContext *ctx);
 BOOL CompleteScrCmd_BufferFloorName(ScriptContext *ctx);
 BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckStaticNotBeaten(ScriptContext *ctx);
+BOOL CompleteScrCmd_FollowerPutAway(ScriptContext *ctx);
+BOOL CompleteScrCmd_FollowerReturn(ScriptContext *ctx);
 
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.

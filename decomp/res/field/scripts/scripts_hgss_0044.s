@@ -21,7 +21,6 @@ _004D:
 scr_seq_D24R0207_001:
     CompareVar VAR_HGSS_UNK_40D5, 1
     GoToIf 5, _0064
-    @ HGSS: NopVar490 VAR_UNK_40D5
     ShowObject LOCALID_PLAYER
 _0064:
     End

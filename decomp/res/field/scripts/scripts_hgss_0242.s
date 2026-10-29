@@ -49,7 +49,7 @@ scr_seq_R35R0201_010:
     @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _00C2
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     GoTo _00C4
 _00C2:
     @ HGSS: ScrCmd_607
@@ -280,7 +280,7 @@ _03E3:
     @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0428
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     GoTo _042A
 _0428:
     @ HGSS: ScrCmd_607

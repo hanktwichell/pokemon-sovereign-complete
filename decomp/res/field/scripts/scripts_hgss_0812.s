@@ -123,7 +123,7 @@ _01FB:
     CloseMessage
     ApplyMovement obj_T08R0201_workman, _0280
     WaitMovement
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _0294
     WaitMovement
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -133,7 +133,7 @@ _01FB:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _02A0
     WaitMovement
     ReleaseObject LOCALID_COMPLETE_FOLLOWER
@@ -177,7 +177,7 @@ scr_seq_T08R0201_002:
     WaitMovement
     ApplyMovement obj_T08R0201_workman, _03BC
     WaitMovement
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 scr_seq_T08R0201_001:
@@ -232,7 +232,7 @@ _03A1:
     WaitMovement
     ApplyMovement obj_T08R0201_workman, _03BC
     WaitMovement
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
     .balign 4, 0

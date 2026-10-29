@@ -272,7 +272,7 @@ scr_seq_T20_010:
     @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _1306
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen

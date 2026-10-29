@@ -31,11 +31,9 @@ _0062:
     CheckItem ITEM_COIN_CASE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _009C
-    @ HGSS: ScriptOverlayCmd 3, 0
     HasCoinsFromValue VAR_RESULT, 3
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00AB
-    @ HGSS: ScriptOverlayCmd 3, 1
     SetVarFromValue VAR_MAP_LOCAL_0x01, 0
     Return
 _009C:
@@ -48,7 +46,6 @@ _00AB:
     Message msg_0508_T07R0401_00022
     WaitButton
     CloseMessage
-    @ HGSS: ScriptOverlayCmd 3, 1
     SetVarFromValue VAR_MAP_LOCAL_0x01, 1
     Return
 scr_seq_T07R0401_010:
@@ -277,9 +274,8 @@ scr_seq_T07R0401_000:
     ReleaseAll
     End
 _0428:
-    @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0508_T07R0401_00002
-    @ HGSS: ScrCmd_116 0, 20, 2
+    ShowCoins 20, 2
     ShowMoney 20, 7
 _043E:
     CompleteInitHGSSMenu 1, 1, 0, VAR_RESULT, 1
@@ -305,7 +301,7 @@ _048B:
     GoToIf 1, _0523
     RemoveMoney 1000
     AddCoins 50
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
@@ -322,7 +318,7 @@ _04D7:
     GoToIf 1, _0523
     RemoveMoney 10000
     AddCoins 500
-    @ HGSS: ScrCmd_118 0
+    UpdateCoinDisplay
     UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     WaitSE SEQ_SE_DP_REGI_sseq
@@ -338,16 +334,14 @@ _052E:
 _0531:
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_117
+    HideCoins
     HideMoney
-    @ HGSS: ScriptOverlayCmd 3, 1
     ReleaseAll
     End
 scr_seq_T07R0401_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScriptOverlayCmd 3, 0
     GoToIfSet FLAG_HGSS_UNK_17C, _059B
     Message msg_0508_T07R0401_00011
     CheckItem ITEM_COIN_CASE, 1, VAR_RESULT
@@ -368,21 +362,18 @@ _059B:
     WaitButton
     CloseMessage
     ReleaseAll
-    @ HGSS: ScriptOverlayCmd 3, 1
     End
 _05AA:
     Message msg_0508_T07R0401_00014
     WaitButton
     CloseMessage
     ReleaseAll
-    @ HGSS: ScriptOverlayCmd 3, 1
     End
 _05B9:
     Message msg_0508_T07R0401_00015
     WaitButton
     CloseMessage
     ReleaseAll
-    @ HGSS: ScriptOverlayCmd 3, 1
     End
 scr_seq_T07R0401_001:
     NPCMessage msg_0508_T07R0401_00007

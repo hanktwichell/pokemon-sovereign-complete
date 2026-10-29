@@ -63,7 +63,7 @@ scr_seq_T30GYM0101_003:
     FacePlayer
     GoToIfSet FLAG_HGSS_UNK_0D1, _0219
     Message msg_0631_T30GYM0101_00000
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56
@@ -142,7 +142,7 @@ _0219:
     ReleaseAll
     End
 _0224:
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56
@@ -219,7 +219,7 @@ _031D:
     GoTo _0338
 _0338:
     WaitMovement
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56
@@ -242,7 +242,7 @@ _0370:
 _0387:
     ApplyMovement obj_T30GYM0101_sunglasses, _0486
     WaitMovement
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56

@@ -303,7 +303,7 @@ scr_seq_D51R0201_014:
     LockAll
     ApplyMovement LOCALID_PLAYER, _1314
     WaitMovement
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     Message msg_0146_D51R0201_00040
     WaitButton
     CloseMessage
@@ -317,7 +317,7 @@ scr_seq_D51R0201_014:
     SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0B3A
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 scr_seq_D51R0201_015:
@@ -360,7 +360,6 @@ _0644:
     GetPartyCount VAR_0x8004
     CompareVar VAR_0x8004, 1
     GoToIf 1, _0C0F
-    @ HGSS: NopVar490 VAR_TEMP_x4008
     SetVarFromValue VAR_MAP_LOCAL_0x0A, 2
     Return
 _0661:
@@ -475,7 +474,7 @@ _0778:
     Message msg_0146_D51R0201_00041
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _078F:
@@ -658,7 +657,7 @@ _0B3A:
     SetFlag FLAG_HGSS_SG_3FC3
     FadeScreen 11, 5, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0B9D:
@@ -682,7 +681,6 @@ _0BBC:
     ApplyMovement obj_D51R0201_champion, _1354
     GoTo _0D5A
 _0BE7:
-    @ HGSS: NopVar490 VAR_TEMP_x4009
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0D86
@@ -704,25 +702,25 @@ _0C4E:
     Message msg_0146_D51R0201_00054
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0C5B:
     Message msg_0146_D51R0201_00065
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0C68:
     Message msg_0146_D51R0201_00065
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0C75:
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0C7B:
@@ -1030,8 +1028,6 @@ _11DB:
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-    @ HGSS: NopVar490 VAR_SPECIAL_x8004
-    @ HGSS: NopVar490 VAR_SPECIAL_x8005
     ApplyMovement 241, _1504
     WaitMovement
     CompareVar VAR_MAP_LOCAL_0x09, 483
@@ -1057,8 +1053,6 @@ _1260:
     WaitFadeScreen
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     @ HGSS: ScrCmd_102 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
-    @ HGSS: NopVar490 VAR_SPECIAL_x8004
-    @ HGSS: NopVar490 VAR_SPECIAL_x8005
     ApplyMovement 241, _1504
     WaitMovement
     CompareVar VAR_MAP_LOCAL_0x09, 483

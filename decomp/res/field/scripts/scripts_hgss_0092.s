@@ -1890,7 +1890,6 @@ _1E1E:
     GetPartyCount VAR_MAP_LOCAL_0x09
     SubVar VAR_MAP_LOCAL_0x09, 1
     SetVarFromValue VAR_MAP_LOCAL_0x0A, 0
-    @ HGSS: NopVar490 VAR_TEMP_x4009
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     OpenPokemonNamingScreen VAR_MAP_LOCAL_0x09, VAR_MAP_LOCAL_0x0A
@@ -1927,7 +1926,6 @@ _1ED9:
     GetPartyCount VAR_MAP_LOCAL_0x09
     SubVar VAR_MAP_LOCAL_0x09, 1
     SetVarFromValue VAR_MAP_LOCAL_0x0A, 0
-    @ HGSS: NopVar490 VAR_TEMP_x4009
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     OpenPokemonNamingScreen VAR_MAP_LOCAL_0x09, VAR_MAP_LOCAL_0x0A
@@ -2023,7 +2021,6 @@ _20AF:
     GetPartyCount VAR_MAP_LOCAL_0x09
     SubVar VAR_MAP_LOCAL_0x09, 1
     SetVarFromValue VAR_MAP_LOCAL_0x0A, 0
-    @ HGSS: NopVar490 VAR_TEMP_x4009
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     OpenPokemonNamingScreen VAR_MAP_LOCAL_0x09, VAR_MAP_LOCAL_0x0A

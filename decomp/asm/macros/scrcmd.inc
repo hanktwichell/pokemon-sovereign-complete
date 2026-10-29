@@ -5590,6 +5590,15 @@
     .short \destVarID
     .endm
 
+    // The follower goes back in its ball (it hides), and comes out again beside the player.
+    .macro CompleteFollowerPutAway
+    .short SCRCMD_COMPLETEFOLLOWERPUTAWAY
+    .endm
+
+    .macro CompleteFollowerReturn
+    .short SCRCMD_COMPLETEFOLLOWERRETURN
+    .endm
+
     .text
     .globl _start
 _start:

@@ -74,7 +74,7 @@ scr_seq_T11GYM0101_002:
     GoTo _021C
 scr_seq_T11GYM0101_003:
     LockAll
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     ApplyMovement LOCALID_PLAYER, _022E
     WaitMovement

@@ -35,7 +35,7 @@ scr_seq_T20R0202_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     ApplyMovement LOCALID_PLAYER, _0256
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     BufferPlayerName 0
     GoToIfSet FLAG_HGSS_SG_3FC0, _00CD
     Message msg_0546_T20R0202_00003
@@ -53,7 +53,7 @@ scr_seq_T20R0202_002:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _00C2:
@@ -75,7 +75,7 @@ _00CD:
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _00FE:
@@ -94,7 +94,7 @@ _00FE:
     ClearFlag FLAG_HGSS_SG_3FBF
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0154:
@@ -138,7 +138,7 @@ _01D2:
     CallIf 1, _024C
     CompareVar VAR_MAP_LOCAL_0x02, 5
     GoToIf 1, _023F
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0239:
@@ -149,12 +149,12 @@ _023F:
     Message msg_0546_T20R0202_00007
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _024C:
     SetFlag FLAG_HGSS_SG_3FC0
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
     .balign 4, 0

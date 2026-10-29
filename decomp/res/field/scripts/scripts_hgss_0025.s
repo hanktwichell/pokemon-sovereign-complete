@@ -237,7 +237,6 @@ _03EA:
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     SetVarFromValue VAR_MAP_LOCAL_0x01, 10
     SetVarFromValue VAR_MAP_LOCAL_0x02, 48
-    @ HGSS: ScriptOverlayCmd 1, 0
     @ HGSS: IsBugContestantRegistered VAR_TEMP_x4000, VAR_TEMP_x4004
     CompareVar VAR_MAP_LOCAL_0x04, 1
     GoToIf 5, _07B3
@@ -247,7 +246,6 @@ _03EA:
     AddVar VAR_MAP_LOCAL_0x01, 1
     CompareVar VAR_MAP_LOCAL_0x00, 10
     GoToIf 0, _07D2
-    @ HGSS: ScriptOverlayCmd 1, 1
     Return
 _0450:
     CompareVar VAR_HGSS_UNK_40F7, 1
@@ -454,7 +452,6 @@ _07B3:
     AddVar VAR_MAP_LOCAL_0x01, 1
     CompareVar VAR_MAP_LOCAL_0x00, 10
     GoToIf 0, _07D2
-    @ HGSS: ScriptOverlayCmd 1, 1
     Return
 _07D2:
     @ HGSS: IsBugContestantRegistered VAR_TEMP_x4000, VAR_TEMP_x4004
@@ -466,7 +463,6 @@ _07D2:
     AddVar VAR_MAP_LOCAL_0x01, 1
     CompareVar VAR_MAP_LOCAL_0x00, 10
     GoToIf 0, _07D2
-    @ HGSS: ScriptOverlayCmd 1, 1
     Return
 _0816:
     SetFlag FLAG_HGSS_HIDE_CAMERON

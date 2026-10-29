@@ -158,14 +158,14 @@ _024B:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0308
     CloseMessage
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_GOLDENROD_BIKE_SHOP, 7, 4, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0295:

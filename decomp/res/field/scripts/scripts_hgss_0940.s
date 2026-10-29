@@ -22,7 +22,6 @@ _002F:
     ReleaseAll
     End
 _003A:
-    @ HGSS: ScriptOverlayCmd 0, 0
     CheckPartyHasSpecies VAR_RESULT, SPECIES_MAGIKARP
     CompareVar VAR_RESULT, 0
     GoToIf 5, _005A
@@ -82,7 +81,6 @@ _0146:
     WaitButton
 _0148:
     CloseMessage
-    @ HGSS: ScriptOverlayCmd 0, 1
     ReleaseAll
     End
     .balign 4, 0

@@ -42,7 +42,7 @@ _0062:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0200
     WaitMovement
     ReleaseObject LOCALID_COMPLETE_FOLLOWER
@@ -73,7 +73,7 @@ _00EE:
     Message msg_0135_D47R0101_00009
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 scr_seq_D47R0101_007:
@@ -99,7 +99,7 @@ _017E:
     Message msg_0135_D47R0101_00009
     WaitButton
     CloseMessage
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
     .balign 4, 0
@@ -529,7 +529,7 @@ _0773:
     Message msg_0135_D47R0101_00006
     CloseMessage
     HideMoney
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _08C4
     WaitMovement
     @ HGSS: ScrCmd_307 0, 0, 5, 5, 77
@@ -547,7 +547,7 @@ _0773:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0200
     WaitMovement
     ReleaseObject LOCALID_COMPLETE_FOLLOWER
@@ -884,7 +884,7 @@ _0CCC:
     Message msg_0135_D47R0101_00059
     CloseMessage
     HideMoney
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _08C4
     WaitMovement
     @ HGSS: ScrCmd_307 0, 0, 19, 5, 77
@@ -902,7 +902,7 @@ _0CCC:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0200
     WaitMovement
     ReleaseObject LOCALID_COMPLETE_FOLLOWER

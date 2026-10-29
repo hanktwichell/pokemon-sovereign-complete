@@ -83,7 +83,7 @@ scr_seq_D37R0103_004:
     CloseMessage
     PlayCry SPECIES_CLAYDOL, 0
     WaitCry
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     ApplyMovement LOCALID_PLAYER, _055C
     WaitMovement
@@ -92,7 +92,7 @@ scr_seq_D37R0103_004:
     Warp MAP_HEADER_HGSS_SAFFRON_SILPH_CO_ROTOM_ROOM, 5, 9, DIR_SOUTH
     FadeScreen 6, 1, 1, COLOR_WHITE
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _013A:

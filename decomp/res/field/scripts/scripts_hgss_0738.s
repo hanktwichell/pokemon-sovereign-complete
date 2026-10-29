@@ -8,7 +8,6 @@ scr_seq_T01R0201_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: NopVar490 VAR_UNK_4122
     CompareVar VAR_HGSS_UNK_4122, 7
     GoToIf 1, _003B
 _001F:
@@ -52,7 +51,6 @@ _00A7:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NopVar490 VAR_SPECIAL_x8004
     CompareVar VAR_0x8004, 255
     GoToIf 1, _0147
     GetPartyMonSpecies VAR_0x8004, VAR_MAP_LOCAL_0x00

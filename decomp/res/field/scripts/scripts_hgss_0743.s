@@ -63,7 +63,7 @@ scr_seq_T02GYM0101_001:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01FB
     Message msg_0454_T02GYM0101_00006
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56
@@ -140,7 +140,7 @@ _01FB:
     ReleaseAll
     End
 _0206:
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56
@@ -191,7 +191,7 @@ _02A6:
     GoTo _02C1
 _02C1:
     WaitMovement
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56
@@ -261,7 +261,7 @@ _0408:
 _0423:
     ApplyMovement obj_T02GYM0101_sunglasses, _0502
     WaitMovement
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     @ HGSS: SetFollowMonInhibitState 1
     @ HGSS: ScrCmd_607
     @ HGSS: ScrCmd_109 253, 56

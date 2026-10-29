@@ -447,7 +447,6 @@ scr_seq_D49R0101_019:
 scr_seq_D49R0101_014:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScriptOverlayCmd 3, 0
     Message msg_0138_D49R0101_00085
     CompleteInitHGSSMenu 1, 1, 0, VAR_0x8000, 1
     AddMenuEntry 337, 0
@@ -470,7 +469,6 @@ _0748:
     WaitButton
     CloseMessage
     ReleaseAll
-    @ HGSS: ScriptOverlayCmd 3, 1
     End
 _0759:
     Message msg_0138_D49R0101_00086
@@ -638,7 +636,6 @@ _0A35:
 _0A52:
     @ HGSS: ScrCmd_117
 _0A54:
-    @ HGSS: ScriptOverlayCmd 3, 1
     ReleaseAll
     End
 _0A5C:
@@ -651,7 +648,6 @@ _0A5C:
 _0A75:
     @ HGSS: ScrCmd_117
 _0A77:
-    @ HGSS: ScriptOverlayCmd 3, 1
     ReleaseAll
     End
 _0A7F:

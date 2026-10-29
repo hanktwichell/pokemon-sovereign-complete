@@ -173,7 +173,7 @@ _027F:
     SetVarFromValue VAR_HGSS_LOAN_SPEAROW, 2
     CompareVar VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     GoToIf 5, _016F
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     SetVar VAR_0x8004, ITEM_TM44
     SetVar VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
@@ -237,7 +237,7 @@ _0364:
     SetVarFromValue VAR_HGSS_LOAN_SPEAROW, 2
     CompareVar VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     GoToIf 5, _016F
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     SetVar VAR_0x8004, ITEM_TM44
     SetVar VAR_0x8005, 1
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT

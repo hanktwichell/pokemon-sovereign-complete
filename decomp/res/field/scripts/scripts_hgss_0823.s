@@ -88,7 +88,7 @@ _012D:
     ReleaseAll
     End
 _014B:
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     ApplyMovement LOCALID_PLAYER, _0270
     WaitMovement
@@ -97,11 +97,11 @@ _014B:
     Warp MAP_HEADER_HGSS_POKEMON_LEAGUE_WILL_ROOM, 6, 15, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0185:
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     ApplyMovement LOCALID_PLAYER, _0270
     WaitMovement
@@ -110,11 +110,11 @@ _0185:
     Warp MAP_HEADER_HGSS_POKEMON_LEAGUE_KOGA_ROOM, 6, 15, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _01BF:
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     ApplyMovement LOCALID_PLAYER, _0270
     WaitMovement
@@ -123,7 +123,7 @@ _01BF:
     Warp MAP_HEADER_HGSS_POKEMON_LEAGUE_BRUNO_ROOM, 6, 15, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _01F9:
@@ -131,7 +131,7 @@ _01F9:
     GoToIfUnset FLAG_HGSS_DEFEATED_KOGA, _0265
     GoToIfUnset FLAG_HGSS_DEFEATED_BRUNO, _0265
     GoToIfUnset FLAG_HGSS_DEFEATED_KAREN, _0265
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     ApplyMovement LOCALID_PLAYER, _0270
     WaitMovement
@@ -140,7 +140,7 @@ _01F9:
     Warp MAP_HEADER_HGSS_POKEMON_LEAGUE_LANCE_ROOM, 6, 28, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _025F:

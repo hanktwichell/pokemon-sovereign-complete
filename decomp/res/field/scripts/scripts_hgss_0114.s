@@ -137,7 +137,7 @@ _022B:
     SetPosition obj_D45R0102_sakaki, 6, 1, 6, DIR_SOUTH
     SetPosition obj_D45R0102_var_1, 5, 1, 7, DIR_NORTH
     ShowObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     End
 _024B:
     SetPosition obj_D45R0102_sakaki, 6, 1, 4, DIR_NORTH

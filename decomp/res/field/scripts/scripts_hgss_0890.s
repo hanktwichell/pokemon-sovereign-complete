@@ -304,7 +304,6 @@ _04E8:
     ReleaseAll
     End
 _0502:
-    @ HGSS: ScriptOverlayCmd 2, 0
     GoToIfSet FLAG_MAP_LOCAL_0x01, _0874
     CompareVar VAR_HGSS_UNK_407F, 0
     GoToIf 5, _0881
@@ -482,14 +481,14 @@ _082A:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0C1E
     CloseMessage
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_SINJOH_RUINS_CABIN, 5, 6, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_606
+    CompleteFollowerReturn
     ReleaseAll
     End
 _0874:
@@ -572,7 +571,6 @@ _08A6:
 _0A4B:
     WaitButton
     CloseMessage
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _0A57:
@@ -694,7 +692,6 @@ _0C3C:
     @ HGSS: ScrCmd_420 50
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _0CC3:
@@ -838,13 +835,11 @@ _0F0C:
     ReleaseAll
     End
 _0F4D:
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _0F55:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _0F69:

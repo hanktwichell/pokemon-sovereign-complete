@@ -40,7 +40,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.2% of 83,001 lines. Besides trainers, gifts, trades and marts,
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 97.6% of 83,001 lines. Besides trainers, gifts, trades and marts,
   about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
   code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
   (friendship, ribbons, which are numbered alike, moves, egg counts), fossils, the National Dex, the starter, the
@@ -55,6 +55,11 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   animation are Platinum's. HeartGold counts floors from the bottom and has a 6F, Platinum counts the floors above and
   stops at 5F, so `CompleteGetElevatorFloor` (HeartGold's floor table) and `CompleteBufferFloorName` (its floor names)
   keep HeartGold's scripts as they are.
+- The follower: HeartGold's 600 puts it back in its ball before healing, a warp or a scene, and 606 brings it out
+  beside the player, as its warps do at the end (`CompleteFollowerPutAway`, which hides it without HeartGold's
+  animation, and `CompleteFollowerReturn`). The points box (116 to 118) is Platinum's coin or Battle Points window;
+  the Pokéathlon's points stay out with it. `NopVar490` does nothing and `ScriptOverlayCmd` loads HeartGold's own
+  code, so both are dropped.
 - Gifts: `NicknameInput` is Platinum's `OpenPokemonNamingScreen` (but for the Bug-Catching Contest's catch, step 5),
   and HeartGold's Togepi Egg is `CompleteGiveTogepiEgg`: Platinum's egg gift with Extrasensory, met in Johto.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so

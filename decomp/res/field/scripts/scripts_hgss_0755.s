@@ -46,7 +46,6 @@ scr_seq_T03R0101_014:
     @ HGSS: ScrCmd_546 0, VAR_TEMP_x4000
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _03AB
-    @ HGSS: NopVar490 VAR_TEMP_x4007
     SetVarFromValue VAR_HGSS_UNK_4083, 1
     ClearFlag FLAG_HGSS_HIDE_STEVEN_IN_HOUSE_BEFORE_LATIS
     SetFlag FLAG_HGSS_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS
@@ -60,7 +59,6 @@ scr_seq_T03R0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScriptOverlayCmd 2, 0
     GoToIfSet FLAG_MAP_LOCAL_0x01, _03B9
     CompareVar VAR_HGSS_UNK_407F, 0
     GoToIf 5, _03C6
@@ -247,7 +245,6 @@ _03A1:
     SetFlag FLAG_HGSS_HIDE_STEVEN_IN_HOUSE_AFTER_LATIS
     End
 _03AB:
-    @ HGSS: NopVar490 VAR_TEMP_x4006
     SetFlag FLAG_HGSS_HIDE_STEVEN_IN_HOUSE_BEFORE_LATIS
     GoTo _0858
 _03B9:
@@ -330,7 +327,6 @@ _03EB:
 _0590:
     WaitButton
     CloseMessage
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _059C:
@@ -379,7 +375,6 @@ _05DF:
 _0640:
     End
 _0642:
-    @ HGSS: NopVar490 VAR_UNK_4083
     @ HGSS: ScrCmd_344 0, 0
     SetPosition obj_T03R0101_daigo, 26, 0, 7, DIR_SOUTH
     GoTo _0640
@@ -523,7 +518,6 @@ _0869:
     @ HGSS: ScrCmd_420 50
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _08F0:
@@ -698,13 +692,11 @@ _0BC9:
     SetFlag FLAG_HGSS_HIDE_CAMERON
     End
 _0BED:
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _0BF5:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScriptOverlayCmd 2, 1
     ReleaseAll
     End
 _0C09:

@@ -245,8 +245,7 @@ scr_seq_D32_022:
     LockAll
     FacePlayer
     SetVarFromValue VAR_0x8000, 0
-    @ HGSS: ScriptOverlayCmd 3, 0
-    @ HGSS: ScrCmd_116 1, 21, 1
+    ShowBattlePoints 21, 1
     Message msg_0100_D32_00021
     ShowYesNoMenu VAR_RESULT
     CloseMessage
@@ -525,7 +524,7 @@ _0A24:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0A85
     @ HGSS: ScrCmd_556 VAR_SPECIAL_x8006
-    @ HGSS: ScrCmd_118 1
+    UpdateBPDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     BufferItemName 0, VAR_0x8004
     GetItemPocket VAR_0x8004, VAR_RESULT
@@ -563,20 +562,18 @@ _0AE3:
 _0AFC:
     GoTo _08C1
 _0B02:
-    @ HGSS: ScrCmd_117
+    HideCoins
     Message msg_0100_D32_00022
     WaitButton
     CloseMessage
     ReleaseAll
-    @ HGSS: ScriptOverlayCmd 3, 1
     End
 scr_seq_D32_024:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     SetVarFromValue VAR_0x8000, 1
-    @ HGSS: ScriptOverlayCmd 3, 0
-    @ HGSS: ScrCmd_116 1, 21, 1
+    ShowBattlePoints 21, 1
     Message msg_0100_D32_00021
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
@@ -858,7 +855,7 @@ scr_seq_D32_032:
     End
 scr_seq_D32_033:
     LockAll
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _10B0
     WaitMovement
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -875,7 +872,7 @@ _10B0:
     EndMovement
 scr_seq_D32_034:
     LockAll
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _10F4
     WaitMovement
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -892,7 +889,7 @@ _10F4:
     EndMovement
 scr_seq_D32_035:
     LockAll
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _1138
     WaitMovement
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -909,7 +906,7 @@ _1138:
     EndMovement
 scr_seq_D32_036:
     LockAll
-    @ HGSS: ScrCmd_600
+    CompleteFollowerPutAway
     ApplyMovement LOCALID_PLAYER, _117C
     WaitMovement
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
