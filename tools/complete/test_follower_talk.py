@@ -5,15 +5,17 @@ turns to face it and talks to it (A, then A through its messages and yes to any 
 
 1. **Chosen:** the talk HeartGold's tables choose for the moment. Passes when a talk ran with an interaction and showed
    at least one message, and the field is free again with the follower where it was and its sprite back in place.
-2. **Question:** interaction 6 (it nudges the player: a motion, its cry, "Nudge it back?"), whose yes leads to 766 (a
-   hop, then a message). Passes when both ran: a motion, the question, and 766's message last.
+2. **Question:** interaction 6 (it nudges the player: a motion, its cry, an emote, "Nudge it back?"), whose yes leads
+   to 766 (a hop, then a message). Passes when both ran: a motion, the emote (HeartGold's first), the question, and
+   766's message last.
 3. **Accessory:** interaction 963, in which it hands over an accessory (a White Fluff). Passes when the Fashion Case has
    one more White Fluff.
 4. **Shiny Leaf:** interaction 1018: five motions, then it finds the first Shiny Leaf (and +5 friendship, +120 mood).
    Passes when the lead wears that leaf and its friendship and mood went up.
 
 The test build's gCompleteTestFollowerTalk (include/complete_test.h) asks for an interaction (force) and reports what
-the talk did. Results: a line per part, and a screenshot of each talk's first message in OUT_DIR.
+the talk did. Results: a line per part, and a screenshot of each talk's first message (and of an emote, emote_*.png) in
+OUT_DIR.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
@@ -35,8 +37,9 @@ DOWN = 0  # the test warp's facing (enum FaceDirection + 1, or 0 for down)
 SYMBOLS = tuple(set(TALK_SYMBOLS) | {'gCompleteTestFollowerTalk', 'gCompleteTestFollowerTile'})
 # struct CompleteTestFollowerTalk
 TALK = dict(force=0, talks=2, interaction=4, messages=6, lastMessage=8, motions=10, questions=11, offsetBack=12,
-            mood=13, friendship=14, shinyLeaves=15, accessories=16)
+            mood=13, friendship=14, shinyLeaves=15, accessories=16, emotes=18, lastEmote=19)
 NUDGE, NUDGE_BACK, NUDGE_BACK_MESSAGE = 6, 766, 624  # interaction 766's message: msg_0265's 623, + 1
+NUDGE_EMOTE = 1
 ACCESSORY_FIND = 963
 LEAF_FIND, FIRST_LEAF = 1018, 1
 DELTA = {'UP': (0, -1), 'DOWN': (0, 1), 'LEFT': (-1, 0), 'RIGHT': (1, 0)}
@@ -59,7 +62,7 @@ def main():
 
     def field(name):
         at = talk_addr + TALK[name]
-        if name in ('motions', 'questions', 'offsetBack', 'friendship', 'shinyLeaves'):
+        if name in ('motions', 'questions', 'offsetBack', 'friendship', 'shinyLeaves', 'emotes', 'lastEmote'):
             return mem.unsigned[at]
         if name == 'mood':
             return struct.unpack('<b', bytes(mem.unsigned[at:at + 1]))[0]
@@ -102,12 +105,16 @@ def main():
         """Talk to the follower and play it out: A while the field is busy, until it has been idle a while."""
         talks = field('talks')
         d.press('A', frames=4, after=0)
-        frames, idle, shot_taken = 0, 0, False
+        frames, idle, shot_taken, emote_shot = 0, 0, False, False
         while frames < 6000:
             before = u32(sym['gSovereignTestIdleFrames'])
             d.run(20)
             frames += 20
             idle_frames = u32(sym['gSovereignTestIdleFrames']) - before
+            if not emote_shot and field('emotes'):
+                d.run(8)  # the bubble pops up
+                d.screenshot().save(os.path.join(out, 'emote_' + shot))
+                emote_shot = True
             if idle_frames >= 9:
                 idle += 1
                 if idle >= 6:
@@ -147,7 +154,7 @@ def main():
         results.append(f'{part}: {problem or "ok"}')
         print(results[-1], flush=True)
         print(f'     interaction {field("interaction")}, {field("messages")} messages (last {field("lastMessage")}), '
-              f'{field("motions")} motions, {field("questions")} questions', flush=True)
+              f'{field("motions")} motions, {field("questions")} questions, {field("emotes")} emotes', flush=True)
 
     # 1. The talk the tables choose
     problem = go_and_talk(0, 'chosen.png')
@@ -163,6 +170,8 @@ def main():
         if field('interaction') != NUDGE or not field('motions') or field('questions') != 1:
             problem = f'not the nudge: interaction {field("interaction")}, {field("motions")} motions, ' \
                 f'{field("questions")} questions'
+        elif field('emotes') != 1 or field('lastEmote') != NUDGE_EMOTE:
+            problem = f'emotes: {field("emotes")}, the last {field("lastEmote")} (the nudge shows emote {NUDGE_EMOTE})'
         elif field('lastMessage') != NUDGE_BACK_MESSAGE:
             problem = f'the yes did not lead to {NUDGE_BACK}: last message {field("lastMessage")}'
     report('question', problem)

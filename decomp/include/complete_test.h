@@ -116,6 +116,8 @@ typedef struct CompleteTestFollowerTalk {
     u8 friendship;
     u8 shinyLeaves;
     u16 accessories; // the Fashion Case's count of the last accessory found
+    u8 emotes; // the emotes it showed, and the last
+    u8 lastEmote;
 } CompleteTestFollowerTalk;
 
 extern CompleteTestFollowerTalk gCompleteTestFollowerTalk;

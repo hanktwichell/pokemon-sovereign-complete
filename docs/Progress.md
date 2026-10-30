@@ -549,4 +549,6 @@ Test results on the new test build:
   hop and a line), the nudge's question and its yes (three motions, the follow-up's line), an accessory found (a White
   Fluff in the Fashion Case) and a Shiny Leaf (worn, mood 120). `tools/complete/test_follower.py` still passes. A file
   of an overlay has to be in `main.lsf.in`'s list for it, or it's linked outside the overlay and calls into it crash.
-- Not yet: HeartGold's emote bubbles over the follower (next).
+- **The emotes:** HeartGold's 14 bubbles over the follower (a heart, faces, "...", "!"...) pop up and play their two
+  frames, as in HeartGold, in a billboard of Platinum's field effects whose model, frames and frame sequence come from
+  the talk's archive. The test checks the nudge's heart, and the screenshots show the bubbles over the follower.

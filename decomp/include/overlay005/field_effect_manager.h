@@ -61,6 +61,10 @@ void ov5_021DFA14(FieldEffectManager *param0, u32 param1, u32 param2);
 void ov5_021DFA30(FieldEffectManager *param0, u32 param1);
 void ov5_021DFA3C(FieldEffectManager *param0, u32 param1, u32 param2, u32 param3);
 void ov5_021DFA7C(FieldEffectManager *param0, u32 param1);
+// Sovereign Complete: a billboard's resources from another archive (HeartGold's emotes over the follower)
+void FieldEffectManager_LoadModelFromNARC(FieldEffectManager *fieldEffMan, u32 slotID, NARC *narc, u32 memberIndex);
+void FieldEffectManager_LoadMetadataFromNARC(FieldEffectManager *fieldEffMan, u32 slotID, NARC *narc, u32 memberIndex);
+void FieldEffectManager_LoadTextureFromNARC(FieldEffectManager *fieldEffMan, u32 slotID, NARC *narc, u32 memberIndex);
 void FieldEffectManager_LoadModel(FieldEffectManager *fieldEffMan, Simple3DModel *model, u32 modelIndex, u32 memberIdx, BOOL allocAtEnd);
 void FieldEffectManager_LoadAnimation(FieldEffectManager *fieldEffMan, Simple3DAnimation *anim, u32 unused, u32 memberIndex, BOOL allocAtEnd);
 void FieldEffectManager_ApplyAnimCopyToModel(FieldEffectManager *fieldEffMan, Simple3DAnimation *destAnim, const Simple3DModel *model, Simple3DAnimation *srcAnim, u32 unused);

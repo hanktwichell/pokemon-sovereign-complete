@@ -282,12 +282,14 @@ assembly), in `src/overlay006/complete_follower_talk.c` and `CommonScript_Comple
   the follower is out. HeartGold's smaller changes (some medicines, TMs, surviving poison) aren't ported.
 - **Shiny Leaves** are kept per Pokémon (another spare byte), and the crown Lyra or Ethan makes from all five in
   their room in New Bark Town works (HeartGold's `GetShinyLeafCount` and `TryGiveShinyLeafCrown`).
-- **Not ported yet:** the emotes (HeartGold's bubbles over the follower: a heart, faces, "...", "!"; they need their own
-  billboard), so the steps run without them. The few choices that ask about Pokéathlon performance never come up, as
-  in a game without the Pokéathlon.
+- **The emotes:** HeartGold's 14 bubbles over the follower (a heart, faces, "...", "!"...), its model and two-frame
+  pictures (also in the archive), pop up as in HeartGold and play their frames, as a billboard of Platinum's field
+  effects loaded from the archive (`FieldEffectManager_Load*FromNARC`). None on a bridge, as in HeartGold.
+- **Not ported:** the few choices that ask about Pokéathlon performance never come up, as in a game without the
+  Pokéathlon.
 
-Test: `tools/complete/test_follower_talk.py` (a talk the tables choose in New Bark Town; a nudge, its question and the
-yes; an accessory found; a Shiny Leaf, with the friendship and mood it brings).
+Test: `tools/complete/test_follower_talk.py` (a talk the tables choose in New Bark Town; a nudge, its emote, its
+question and the yes; an accessory found; a Shiny Leaf, with the friendship and mood it brings).
 
 ## Stand-ins
 

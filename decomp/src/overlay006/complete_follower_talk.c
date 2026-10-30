@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "constants/battle/condition.h"
+#include "constants/field/map_tile_behaviors.h"
 #include "constants/heap.h"
 #include "constants/items.h"
 #include "constants/map_object.h"
@@ -19,9 +20,12 @@
 
 #include "data/hgss_follower_talk.h"
 #include "field/field_system.h"
+#include "overlay005/field_effect_manager.h"
+#include "overlay005/ov5_021ECC20.h"
 #include "overlay005/script_message.h"
 #include "res/sound/pl_sound_data.naix"
 
+#include "billboard.h"
 #include "complete_follower.h"
 #include "complete_follower_talk.h"
 #include "complete_test.h"
@@ -40,6 +44,7 @@
 #include "math_util.h"
 #include "message.h"
 #include "narc.h"
+#include "overworld_anim_manager.h"
 #include "party.h"
 #include "player_avatar.h"
 #include "pokemon.h"
@@ -64,8 +69,9 @@
 // - the interactions: up to five steps (a motion, a message, a cry, an emote), then a yes or no leading to another
 //   interaction, a change to friendship and to the mood, and an accessory or a Shiny Leaf the Pokémon found.
 // - the motions: hops, shakes and turns, a keyframe at a time.
-// CommonScript_CompleteFollowerTalk runs it with the commands below. Not ported yet: the emotes (HeartGold's own
-// bubbles over the follower) and the Pokéathlon performance a few choices ask about.
+// - the emotes: bubbles over the follower (a heart, faces, "...", "!"...), HeartGold's model and frames.
+// CommonScript_CompleteFollowerTalk runs it with the commands below. Not ported: the Pokéathlon performance a few
+// choices ask about.
 
 #define TALK_STEPS              5
 #define TALK_KEYFRAMES          10
@@ -80,6 +86,7 @@
 #define HGSS_MSG_0040_LEAF      97 // "found a Shiny Leaf! ... put the Shiny Leaf on ...!"
 #define HGSS_MSG_0040_HAS_LEAF  98 // "... already has a Shiny Leaf!"
 #define SHINY_LEAVES            5
+#define EMOTE_RESOURCES         900 // the emote's model, sequence, frames and billboard template, apart from the field effects'
 
 typedef struct FollowerTalkChoice {
     u8 hp;
@@ -186,6 +193,7 @@ typedef struct FollowerTalk {
     u8 effectsDone;
     u8 findingDone;
     u8 over;
+    OverworldAnimManager *emote;
 #ifdef SOVEREIGN_TEST
     VecFx32 talkOffset; // the follower's sprite offset as the talk began
     u16 accessory;
@@ -643,6 +651,173 @@ static void SetTalkNames(FieldSystem *fieldSystem)
     StringTemplate_SetItemName(sTalk->template, 4, Pokemon_GetValue(mon, MON_DATA_HELD_ITEM, NULL));
 }
 
+// An emote over the follower (HeartGold's ov01_02203AB4 and its effect, ov01_02203BB4 to ov01_02203DF8): the bubble
+// pops up, plays its frames and stays two frames more. One at a time; the talk ends it.
+typedef struct FollowerEmote {
+    int state;
+    int timer;
+    int step;
+    BOOL done;
+    fx32 height;
+    fx32 rise;
+    MapObject *follower;
+    int localID;
+    int mapHeaderID;
+    FieldEffectManager *fieldEffMan;
+    Billboard *billboard;
+} FollowerEmote;
+
+typedef struct FollowerEmoteParams {
+    MapObject *follower;
+    FieldEffectManager *fieldEffMan;
+    u16 emote;
+} FollowerEmoteParams;
+
+// The frame sequence all fourteen share (HeartGold's a/1/0/3 member 150): the bubble's two frames by turns. Platinum's
+// billboards read its numbers as the frames each step starts on; HeartGold's ov01_02203DF8 counts them as how long
+// each step lasts, as here: after the first frame, 4 frames of the second, 8 of the first, 12 of the second.
+static const u8 sEmoteSteps[] = { 0, 4, 8, 12 };
+
+static const BillboardAnim sEmoteAnims[] = {
+    { 0, 15, BILLBOARD_ANIM_TYPE_LOOP },
+    { 0, 0, BILLBOARD_ANIM_TYPE_TABLE_END },
+};
+
+static BOOL FollowerEmote_Init(OverworldAnimManager *manager, void *context)
+{
+    FollowerEmote *emote = context;
+    const FollowerEmoteParams *params = OverworldAnimManager_GetUserData(manager);
+    NARC *narc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__FOLLOWER_TALK, HEAP_ID_FIELD3);
+    VecFx32 pos;
+
+    emote->follower = params->follower;
+    emote->fieldEffMan = params->fieldEffMan;
+    emote->localID = MapObject_GetLocalID(emote->follower);
+    emote->mapHeaderID = MapObject_GetMapHeaderID(emote->follower);
+    emote->rise = FX32_ONE * 6;
+
+    FieldEffectManager_LoadModelFromNARC(emote->fieldEffMan, EMOTE_RESOURCES, narc, FOLLOWER_TALK_MEMBER_EMOTE_MODEL);
+    FieldEffectManager_LoadMetadataFromNARC(emote->fieldEffMan, EMOTE_RESOURCES, narc, FOLLOWER_TALK_MEMBER_EMOTE_SEQUENCE);
+    FieldEffectManager_LoadTextureFromNARC(emote->fieldEffMan, EMOTE_RESOURCES, narc, FOLLOWER_TALK_MEMBER_EMOTE_FRAMES + params->emote - 1);
+    NARC_dtor(narc);
+
+    ov5_021DF864(emote->fieldEffMan, EMOTE_RESOURCES, EMOTE_RESOURCES, EMOTE_RESOURCES, EMOTE_RESOURCES, 0, sEmoteAnims);
+    OverworldAnimManager_GetPosition(manager, &pos);
+    emote->billboard = ov5_021DF84C(emote->fieldEffMan, EMOTE_RESOURCES, &pos);
+    NNS_G3dMdlSetMdlFogEnableFlagAll(Billboard_GetModel(emote->billboard), 0);
+    Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq); // as HeartGold's
+    return TRUE;
+}
+
+static void FollowerEmote_Exit(OverworldAnimManager *manager, void *context)
+{
+    FollowerEmote *emote = context;
+
+    Billboard_Delete(emote->billboard);
+    ov5_021DF9D4(emote->fieldEffMan, EMOTE_RESOURCES);
+    ov5_021DFA08(emote->fieldEffMan, EMOTE_RESOURCES);
+    ov5_021DFA30(emote->fieldEffMan, EMOTE_RESOURCES);
+    ov5_021DFA7C(emote->fieldEffMan, EMOTE_RESOURCES);
+}
+
+static void FollowerEmote_Tick(OverworldAnimManager *manager, void *context)
+{
+    FollowerEmote *emote = context;
+
+    switch (emote->state) {
+    case 0: // up it pops
+        emote->height += emote->rise;
+
+        if (emote->height > 0) {
+            emote->rise -= FX32_ONE * 2;
+        } else {
+            emote->height = 0;
+            emote->state++;
+        }
+        break;
+    case 1: // its frames
+        if (++emote->timer >= sEmoteSteps[emote->step]) {
+            emote->timer = 0;
+
+            if (++emote->step >= (int)NELEMS(sEmoteSteps)) {
+                emote->state++;
+                break;
+            }
+
+            Billboard_SetFrameNum(emote->billboard, sEmoteSteps[emote->step] * FX32_ONE);
+            Billboard_TryRequestVRAMTransfer(emote->billboard);
+        }
+        break;
+    case 2:
+        if (++emote->timer >= 2) {
+            emote->state++;
+            emote->done = TRUE;
+        }
+        break;
+    }
+}
+
+static void FollowerEmote_Render(OverworldAnimManager *manager, void *context)
+{
+    FollowerEmote *emote = context;
+    VecFx32 pos;
+
+    if (emote->done || sub_02062764(emote->follower, emote->localID, emote->mapHeaderID) == 0) {
+        Billboard_SetDrawFlag(emote->billboard, FALSE);
+        return;
+    }
+
+    ov5_021ECDA0(emote->follower, &pos); // over the follower, as Platinum's own bubbles sit over people
+    pos.y += FX32_ONE * 32 + emote->height;
+    pos.z += FX32_ONE;
+    Billboard_SetPos(emote->billboard, &pos);
+}
+
+static const OverworldAnimManagerFuncs sFollowerEmoteFuncs = {
+    sizeof(FollowerEmote),
+    FollowerEmote_Init,
+    FollowerEmote_Exit,
+    FollowerEmote_Tick,
+    FollowerEmote_Render,
+};
+
+static void EndEmote(FollowerTalk *talk)
+{
+    if (talk->emote != NULL) {
+        OverworldAnimManager_Finish(talk->emote);
+        talk->emote = NULL;
+    }
+}
+
+// HeartGold shows none while the follower is on a bridge (its sub_0205BB04)
+static void StartEmote(FieldSystem *fieldSystem, FollowerTalk *talk, u16 emote)
+{
+    MapObject *follower = Follower(fieldSystem);
+
+    if (emote == 0 || emote > FOLLOWER_TALK_EMOTES || follower == NULL) {
+        return;
+    }
+
+    u8 behavior = TerrainCollisionManager_GetTileBehavior(fieldSystem, MapObject_GetX(follower), MapObject_GetZ(follower));
+
+    if (behavior == TILE_BEHAVIOR_BRIDGE || behavior == TILE_BEHAVIOR_BRIDGE_OVER_CAVE || behavior == TILE_BEHAVIOR_UNUSED_x2E) {
+        return;
+    }
+
+    FollowerEmoteParams params = { follower, fieldSystem->fieldEffMan, emote };
+    VecFx32 pos;
+
+    EndEmote(talk);
+    MapObject_GetPosPtr(follower, &pos);
+    talk->emote = FieldEffectManager_InitAnimManager(fieldSystem->fieldEffMan, &sFollowerEmoteFuncs, &pos, 0, &params,
+        MapObject_GetTaskBasePriority(follower) + 1);
+
+#ifdef SOVEREIGN_TEST
+    gCompleteTestFollowerTalk.emotes++;
+    gCompleteTestFollowerTalk.lastEmote = emote;
+#endif
+}
+
 // A keyframe of a motion (HeartGold's ov02_0224FD9C and ov02_0224FDF8): a nudge, a cry, a facing
 static void StartKeyframe(FollowerTalk *talk, MapObject *follower, const FollowerTalkKeyframe *keyframe)
 {
@@ -807,6 +982,8 @@ BOOL CompleteScrCmd_FollowerTalkStart(ScriptContext *ctx)
     gCompleteTestFollowerTalk.lastMessage = 0;
     gCompleteTestFollowerTalk.motions = 0;
     gCompleteTestFollowerTalk.questions = 0;
+    gCompleteTestFollowerTalk.emotes = 0;
+    gCompleteTestFollowerTalk.lastEmote = 0;
     gCompleteTestFollowerTalk.offsetBack = FALSE;
     MapObject_GetSpritePosOffset(follower, &sTalk->talkOffset);
 #endif
@@ -857,6 +1034,7 @@ BOOL CompleteScrCmd_FollowerTalkStep(ScriptContext *ctx)
         }
     }
 
+    StartEmote(fieldSystem, talk, step->emote);
     talk->step++;
     talk->phase = PHASE_MOTION;
 
@@ -893,7 +1071,25 @@ BOOL CompleteScrCmd_FollowerTalkAnswer(ScriptContext *ctx)
     return FALSE;
 }
 
-// CompleteFollowerTalkEnd: the talk is over
+// Once its last emote is over, the talk's done with
+static BOOL FreeTalkAfterEmote(ScriptContext *ctx)
+{
+    if (sTalk->emote != NULL && !((FollowerEmote *)OverworldAnimManager_GetFuncsContext(sTalk->emote))->done) {
+        return FALSE;
+    }
+
+    EndEmote(sTalk);
+
+    if (sTalk->template != NULL) {
+        StringTemplate_Free(sTalk->template);
+    }
+
+    Heap_Free(sTalk);
+    sTalk = NULL;
+    return TRUE;
+}
+
+// CompleteFollowerTalkEnd: the talk is over (once its last emote is)
 BOOL CompleteScrCmd_FollowerTalkEnd(ScriptContext *ctx)
 {
 #ifdef SOVEREIGN_TEST
@@ -914,13 +1110,13 @@ BOOL CompleteScrCmd_FollowerTalkEnd(ScriptContext *ctx)
     }
 #endif
 
-    if (sTalk != NULL) {
-        if (sTalk->template != NULL) {
-            StringTemplate_Free(sTalk->template);
-        }
+    if (sTalk == NULL) {
+        return FALSE;
+    }
 
-        Heap_Free(sTalk);
-        sTalk = NULL;
+    if (!FreeTalkAfterEmote(ctx)) {
+        ScriptContext_Pause(ctx, FreeTalkAfterEmote);
+        return TRUE;
     }
 
     return FALSE;

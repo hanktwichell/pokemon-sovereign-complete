@@ -12,13 +12,15 @@ HeartGold's archives (.cache/pokeheartgold/files; Sacred Gold leaves them as the
   accessory or a Shiny Leaf it finds.
 - a/2/2/2, the 108 motions, ten 8-byte keyframes each (a facing, frames, a nudge in x, height and z, a cry).
 - a/2/3/1, a byte per species (#1-493): the kind of Pokémon, which some choices ask for.
+- From a/1/0/3, its field effects: the emote bubbles a step can show over the follower (its ov01_02203AB4): their
+  model (member 130), each bubble's two frames (members 2 to 15, 32x32) and the frame sequence they all share (150).
 
 The packed archive (decomp/res/prebuilt/fielddata/complete_follower_talk/follower_talk.narc) keeps HeartGold's layouts,
 with what means something else in the engine translated: a choice's map (HeartGold's map n is MAP_HEADER_HGSS_EVERYWHERE
 + n), its flag (HeartGold's flag n is the engine's FLAG_HGSS_ one, 2912 + n) and its tile behaviour
 (tools/complete/import_hgss_maps.py's table). Its members, in decomp/include/data/hgss_follower_talk.h: the species' kinds, the general choices, the places'
 choices (by HeartGold's mapsec, which is the engine's location number for Johto, Kanto and the places both games share),
-the interactions and the motions.
+the interactions, the motions and the emotes' model, frames and sequence.
 
 Usage: python3 tools/complete/import_hgss_follower_talk.py
 """
@@ -35,6 +37,7 @@ from sacred_gold import SG_FLAGS, engine_flag  # noqa: E402
 OUT = os.path.join(DECOMP, 'res/prebuilt/fielddata/complete_follower_talk/follower_talk.narc')
 HEADER = os.path.join(DECOMP, 'include/data/hgss_follower_talk.h')
 CHOICE_SIZE, INTERACTION_SIZE, MOTION_SIZE = 20, 52, 80
+EMOTE_MODEL, EMOTE_FRAMES, EMOTE_SEQUENCE = 130, range(2, 16), 150  # in a/1/0/3 (HeartGold's ov01_02209544)
 
 
 def our_flag(n):
@@ -69,13 +72,16 @@ def main():
     interactions = read_narc(os.path.join(files, 'a/2/2/1'))
     motions = read_narc(os.path.join(files, 'a/2/2/2'))
     kinds = read_narc(os.path.join(files, 'a/2/3/1'))[0]
+    effects = read_narc(os.path.join(files, 'a/1/0/3'))
+    emotes = [effects[EMOTE_MODEL]] + [effects[i] for i in EMOTE_FRAMES] + [effects[EMOTE_SEQUENCE]]
+    assert all(effects[i] == effects[EMOTE_SEQUENCE] for i in range(EMOTE_SEQUENCE, EMOTE_SEQUENCE + len(EMOTE_FRAMES)))
     assert len(choices[0]) == 70 * CHOICE_SIZE and all(len(m) == 30 * CHOICE_SIZE for m in choices[1:])
     assert all(len(m) == INTERACTION_SIZE for m in interactions) and all(len(m) == MOTION_SIZE for m in motions)
 
     base = map_header_base()
     choices = [b''.join(translate_choice(m[i:i + CHOICE_SIZE], base) for i in range(0, len(m), CHOICE_SIZE))
                for m in choices]
-    members = [kinds] + choices + interactions + motions
+    members = [kinds] + choices + interactions + motions + emotes
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     write_narc(OUT, members)
 
@@ -95,6 +101,10 @@ def main():
         f'#define FOLLOWER_TALK_INTERACTIONS        {len(interactions)}',
         f'#define FOLLOWER_TALK_MEMBER_MOTIONS      {2 + places + len(interactions)} // + the motion - 1',
         f'#define FOLLOWER_TALK_MOTIONS             {len(motions)}',
+        f'#define FOLLOWER_TALK_MEMBER_EMOTE_MODEL  {2 + places + len(interactions) + len(motions)}',
+        f'#define FOLLOWER_TALK_MEMBER_EMOTE_FRAMES {3 + places + len(interactions) + len(motions)} // + the emote - 1',
+        f'#define FOLLOWER_TALK_EMOTES              {len(EMOTE_FRAMES)}',
+        f'#define FOLLOWER_TALK_MEMBER_EMOTE_SEQUENCE {3 + places + len(interactions) + len(motions) + len(EMOTE_FRAMES)}',
         f'#define FOLLOWER_TALK_KINDS               {len(kinds)} // species #1 on',
         '',
         '#define FOLLOWER_TALK_GENERAL_CHOICES     70',
@@ -106,7 +116,7 @@ def main():
     ]
     open(HEADER, 'w').write('\n'.join(lines))
     print(f'{len(members)} members ({os.path.getsize(OUT)} bytes): {places} places, {len(interactions)} interactions, '
-          f'{len(motions)} motions')
+          f'{len(motions)} motions, {len(EMOTE_FRAMES)} emotes')
 
 
 if __name__ == '__main__':

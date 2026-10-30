@@ -625,6 +625,32 @@ void ov5_021DFA7C(FieldEffectManager *fieldEffMan, u32 slotID)
     TextureResourceManager_RemoveTextureWithID(v0->texResMan, slotID);
 }
 
+// Sovereign Complete: a billboard's model, frame sequence and frames from an archive of its own rather than the field
+// effects' (HeartGold's emote bubbles over the following Pokémon, src/overlay006/complete_follower_talk.c). They're
+// freed as the field effects' are (ov5_021DFA08, ov5_021DFA30, ov5_021DFA7C).
+void FieldEffectManager_LoadModelFromNARC(FieldEffectManager *fieldEffMan, u32 slotID, NARC *narc, u32 memberIndex)
+{
+    ResourceHeap_LoadMemberFromNARC(fieldEffMan->unk_20->modelResHeap, slotID, narc, memberIndex, FALSE);
+}
+
+void FieldEffectManager_LoadMetadataFromNARC(FieldEffectManager *fieldEffMan, u32 slotID, NARC *narc, u32 memberIndex)
+{
+    ResourceHeap_LoadMemberFromNARC(fieldEffMan->unk_20->metadataResHeap, slotID, narc, memberIndex, FALSE);
+}
+
+void FieldEffectManager_LoadTextureFromNARC(FieldEffectManager *fieldEffMan, u32 slotID, NARC *narc, u32 memberIndex)
+{
+    UnkStruct_ov5_021DF8FC *v0 = fieldEffMan->unk_20;
+    void *data = FieldEffectManager_HeapAlloc(fieldEffMan, NARC_GetMemberSize(narc, memberIndex), TRUE);
+
+    NARC_ReadWholeMember(narc, memberIndex, data);
+
+    TextureResource *texture = TextureResourceManager_AddTextureAndAllocVRam(v0->texResMan, data, slotID, 1, GetHeapID(fieldEffMan));
+
+    GF_ASSERT(texture != NULL);
+    UploadTextureResourceToVRamDuringVBlank(fieldEffMan, slotID, v0->texResMan);
+}
+
 static void UploadTextureResourceToVRamDuringVBlank(FieldEffectManager *fieldEffMan, u32 texID, TextureResourceManager *texResMan)
 {
     FieldEffectTexture *tex = FieldEffectManager_HeapAlloc(fieldEffMan, sizeof(FieldEffectTexture), TRUE);
