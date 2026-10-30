@@ -86,6 +86,9 @@ SCENES_SEEN = {
     # Dragon's Den's shrine: the elder's quiz on entering, which asks again until each answer is right
     'events_hgss_259': ('VAR_HGSS_UNK_40C3', 1),
 }
+# Sovereign Complete: maps no player reaches, whose people the test leaves out: HeartGold's Union Room, whose
+# fifty people are link play's stand-ins (its Pokémon Centers' link attendants wait for link play).
+UNREACHABLE = {'events_hgss_001'}
 # Scripts that run longer: the Battleground's Battle Marathon is 24 battles in a row.
 LONG_SCRIPTS = {('events_battleground', 'LOCALID_SOVEREIGN_MARATHON_GUIDE'): 300000}
 WARP = {'header': 0, 'x': 2, 'z': 4, 'dir': 6}  # struct SovereignTestWarpTarget
@@ -291,6 +294,8 @@ def cases():
     ids = header_names()
     out = []
     for events, headers_of, cur, grid in event_maps():
+        if events in UNREACHABLE:  # Sovereign Complete
+            continue
         matrix = headers_of[0][1]
         path = os.path.join('decomp', 'res', 'field', 'events', events + '.json')
         old = {(o['graphics_id'], o['x'], o['z']) for o in vanilla_events(path).get('object_events', [])}
