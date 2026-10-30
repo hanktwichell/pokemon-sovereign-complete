@@ -545,9 +545,10 @@ Test results on the new test build:
   battle starts, and the test only pressed B. It now fights it (as the trainer test does). Over all 540 Johto and Kanto
   maps: 517 ok, 22 placeholders with no floor, and Dragon's Den's shrine, whose elders' quiz on arrival the test's
   answers keep failing (as before).
-- **Tested:** `tools/complete/test_follower_talk.py`, all four parts pass: the talk the tables chose in New Bark Town (a
+- **Tested:** `tools/complete/test_follower_talk.py`, all five parts pass: the talk the tables chose in New Bark Town (a
   hop and a line), the nudge's question and its yes (three motions, the follow-up's line), an accessory found (a White
-  Fluff in the Fashion Case) and a Shiny Leaf (worn, mood 120). `tools/complete/test_follower.py` still passes. A file
+  Fluff in the Fashion Case), a Shiny Leaf (worn, mood 120) and a talk in Twinleaf Town, where only the general choices
+  apply (Garchomp "is wandering", interaction 205). `tools/complete/test_follower.py` still passes. A file
   of an overlay has to be in `main.lsf.in`'s list for it, or it's linked outside the overlay and calls into it crash.
 - **The emotes:** HeartGold's 14 bubbles over the follower (a heart, faces, "...", "!"...) pop up and play their two
   frames, as in HeartGold, in a billboard of Platinum's field effects whose model, frames and frame sequence come from

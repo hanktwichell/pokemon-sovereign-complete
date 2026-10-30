@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Check talking to the following Pokémon (src/overlay006/complete_follower_talk.c) in the test build, from the bedroom
-state. The player warps to New Bark Town (the lead, the test party's Garchomp, follows), steps away from the follower,
-turns to face it and talks to it (A, then A through its messages and yes to any question):
+state. The player warps to New Bark Town (Twinleaf Town for the last part; the lead, the test party's Garchomp,
+follows), steps away from the follower, turns to face it and talks to it (A, then A through its messages and yes to any
+question):
 
 1. **Chosen:** the talk HeartGold's tables choose for the moment. Passes when a talk ran with an interaction and showed
    at least one message, and the field is free again with the follower where it was and its sprite back in place.
@@ -12,6 +13,7 @@ turns to face it and talks to it (A, then A through its messages and yes to any 
    one more White Fluff.
 4. **Shiny Leaf:** interaction 1018: five motions, then it finds the first Shiny Leaf (and +5 friendship, +120 mood).
    Passes when the lead wears that leaf and its friendship and mood went up.
+5. **Sinnoh:** a talk the tables choose in Twinleaf Town, where only the general choices apply. Passes as part 1 does.
 
 The test build's gCompleteTestFollowerTalk (include/complete_test.h) asks for an interaction (force) and reports what
 the talk did. Results: a line per part, and a screenshot of each talk's first message (and of an emote, emote_*.png) in
@@ -33,6 +35,7 @@ from talk_to_objects import SYMBOLS as TALK_SYMBOLS, header_names, start_warp  #
 from test_map_warp import walkable_tile  # noqa: E402
 
 MAP = 'MAP_HEADER_HGSS_NEW_BARK'
+SINNOH_MAP = 'MAP_HEADER_TWINLEAF_TOWN'
 DOWN = 0  # the test warp's facing (enum FaceDirection + 1, or 0 for down)
 SYMBOLS = tuple(set(TALK_SYMBOLS) | {'gCompleteTestFollowerTalk', 'gCompleteTestFollowerTile'})
 # struct CompleteTestFollowerTalk
@@ -135,13 +138,13 @@ def main():
             return 'the follower\'s sprite was not back in place after its motions'
         return ''
 
-    def go_and_talk(force, shot):
+    def go_and_talk(force, shot, where=MAP):
         d.load_state(state)
         d.run(30)
-        x, z = walkable_tile(MAP)
-        start_warp(d, sym, names.index(MAP), x, z, DOWN)
+        x, z = walkable_tile(where)
+        start_warp(d, sym, names.index(where), x, z, DOWN)
         if not settle():
-            return 'New Bark Town never settled'
+            return f'{where} never settled'
         problem = face_follower()
         if problem:
             return problem
@@ -193,9 +196,17 @@ def main():
     report('leaf', problem)
     print(f'     leaves {field("shinyLeaves"):#x}, mood {field("mood")}, friendship {field("friendship")}')
 
+    # 5. Sinnoh
+    problem = go_and_talk(0, 'sinnoh.png', SINNOH_MAP)
+    if not problem and not field('interaction'):
+        problem = 'no interaction fitted'
+    elif not problem and not field('messages'):
+        problem = 'no message'
+    report('sinnoh', problem)
+
     ok = sum(r.endswith(': ok') for r in results)
-    print(f'{ok} of 4 parts ok')
-    sys.exit(0 if ok == 4 else 1)
+    print(f'{ok} of {len(results)} parts ok')
+    sys.exit(0 if ok == len(results) == 5 else 1)
 
 
 if __name__ == '__main__':
