@@ -9,7 +9,7 @@ scr_seq_R18_000:
     GoToIfSet FLAG_HGSS_UNK_149, _0017
     End
 _0017:
-    @ HGSS: SetBikeStateLock 1
+    ForceBicycling 1
     End
 scr_seq_R18_001:
     DrawSignpostInstantMessage msg_0358_R18_00000, SIGNPOST_TYPE_ARROW

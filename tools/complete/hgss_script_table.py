@@ -350,6 +350,8 @@ COMMANDS = {
     'PlaceStarterBallsInElmsLab': lambda a: ['CompletePlaceStarterBalls'],
     # The Hall of Fame: Platinum's machine, then Johto's game clear (src/clear_game.c's ClearGame_Johto)
     'HallOfFameAnim': one('PlayHallOfFameHealingAnimation {0}'),
+    # Kanto's Cycling Road keeps the player on the bike, as Platinum's Route 206 does
+    'SetBikeStateLock': one('ForceBicycling {0}'),
     'HOFCredits': one('CompleteJohtoClearGame {0}'),
     # Where the player comes back after blacking out: HeartGold's spawn points follow Platinum's
     # (tools/complete/import_hgss_spawns.py)

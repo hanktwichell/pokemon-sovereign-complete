@@ -6,7 +6,7 @@
     ScriptEntry scr_seq_R16_001
     ScriptEntryEnd
 scr_seq_R16_000:
-    @ HGSS: SetBikeStateLock 1
+    ForceBicycling 1
     SetFlag FLAG_HGSS_UNK_149
     End
 scr_seq_R16_001:

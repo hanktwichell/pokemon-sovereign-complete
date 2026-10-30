@@ -11,7 +11,7 @@ scr_seq_R16R0201_003:
     GoToIfSet FLAG_HGSS_UNK_149, _001F
     End
 _001F:
-    @ HGSS: SetBikeStateLock 1
+    ForceBicycling 1
     End
 scr_seq_R16R0201_001:
     LockAll
@@ -33,7 +33,7 @@ scr_seq_R16R0201_001:
     ReleaseAll
     End
 _006A:
-    @ HGSS: SetBikeStateLock 1
+    ForceBicycling 1
     SetVarFromValue VAR_HGSS_UNK_4129, 1
     SetVarFromValue VAR_HGSS_UNK_412A, 1
     SetFlag FLAG_HGSS_UNK_149
@@ -48,7 +48,7 @@ _008C:
     WalkNormalEast
     EndMovement
 scr_seq_R16R0201_002:
-    @ HGSS: SetBikeStateLock 0
+    ForceBicycling 0
     SetVarFromValue VAR_HGSS_UNK_4129, 0
     SetVarFromValue VAR_HGSS_UNK_412A, 0
     ClearFlag FLAG_HGSS_UNK_149
