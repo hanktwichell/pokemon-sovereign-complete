@@ -357,7 +357,8 @@ def u32(d, addr):
 
 # Sovereign Complete: a save stalls the vblank count for a while, which isn't a hang: the first one of a game writes
 # its extra block (Battle Videos and the rest) at once, as the Global Terminal's machines do before Wi-Fi, and a full
-# save writes every block. The save's functions are the test build's map's SaveData* ones.
+# save writes every block. The save's functions are the test build's map's SaveData* ones, and the card library's
+# (CARD_*, CARDi_*), which a full save's long copies run under.
 SAVE_STALL_FRAMES = 3000
 
 
@@ -365,7 +366,8 @@ def save_ranges():
     if not hasattr(save_ranges, 'ranges'):
         xmap = open(os.path.join(DECOMP, TEST_BUILD, 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
         save_ranges.ranges = [(int(start, 16), int(start, 16) + int(size, 16)) for start, size in
-                              re.findall(r'^\s*([0-9A-F]{8}) ([0-9A-F]{8}) \.text\s+SaveData\w*', xmap, re.M)]
+                              re.findall(r'^\s*([0-9A-F]{8}) ([0-9A-F]{8}) \.text\s+(?:SaveData|CARDi?_)\w*', xmap,
+                                         re.M)]
     return save_ranges.ranges
 
 
