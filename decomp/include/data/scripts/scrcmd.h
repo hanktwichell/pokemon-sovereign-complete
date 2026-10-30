@@ -920,6 +920,7 @@ ScriptCommand(SCRCMD_COMPLETESAFARICHALLENGECOMPLETED,                  Complete
 ScriptCommand(SCRCMD_COMPLETESAFARISTAMPBAOBA,                          CompleteScrCmd_SafariStampBaoba)
 ScriptCommand(SCRCMD_COMPLETESAFARIADDAREAENTRIES,                      CompleteScrCmd_SafariAddAreaEntries)
 ScriptCommand(SCRCMD_COMPLETESAFARISETAREA,                             CompleteScrCmd_SafariSetArea)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERISTOOTALL,                         CompleteScrCmd_FollowerIsTooTall)
 
 // clang-format on
 

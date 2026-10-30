@@ -5837,6 +5837,12 @@
     .short \varID
     .endm
 
+    // destVarID: whether the following Pokémon is too tall for most buildings (HeartGold's flag)
+    .macro CompleteFollowerIsTooTall destVarID
+    .short SCRCMD_COMPLETEFOLLOWERISTOOTALL
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:

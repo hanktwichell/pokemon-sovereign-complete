@@ -9,6 +9,7 @@ BOOL CompleteScrCmd_FollowerPause(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerWait(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerSetMovementType(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx);
+BOOL CompleteScrCmd_FollowerIsTooTall(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetBattleResult(ScriptContext *ctx);
 BOOL CompleteScrCmd_StartWildBattle(ScriptContext *ctx);
 BOOL CompleteScrCmd_InitHGSSMenu(ScriptContext *ctx);

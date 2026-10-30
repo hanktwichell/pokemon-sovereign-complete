@@ -8,6 +8,8 @@
 #define LOCALID_COMPLETE_FOLLOWER 0xF0
 
 void CompleteFollower_Refresh(FieldSystem *fieldSystem);
+// Whether the lead is too tall to follow in most buildings (HeartGold's flag).
+BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem);
 
 #ifdef SOVEREIGN_TEST
 // Test build: the follower's tile each field frame (u16 x, then u16 z; 0xFFFF, 0xFFFF when nobody follows), for

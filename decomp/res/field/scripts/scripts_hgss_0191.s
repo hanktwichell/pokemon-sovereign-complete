@@ -50,7 +50,7 @@ scr_seq_R10_000:
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02F1
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _02F1
     CompleteFollowerPutAway
@@ -169,7 +169,7 @@ _0299:
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0372
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0372
     CompleteFollowerPutAway

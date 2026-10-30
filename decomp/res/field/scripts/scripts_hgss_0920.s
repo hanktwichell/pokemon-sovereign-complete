@@ -40,7 +40,7 @@ scr_seq_T27_012:
     ApplyMovement LOCALID_PLAYER, _0586
     WaitMovement
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _038B
     CompleteFollowerReturn

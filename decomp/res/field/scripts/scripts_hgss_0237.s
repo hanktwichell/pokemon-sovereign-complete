@@ -628,7 +628,7 @@ _09E7:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0B5C
     CompleteFollowerPutAway
@@ -671,7 +671,7 @@ _0AA3:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0B5C
     CompleteFollowerPutAway

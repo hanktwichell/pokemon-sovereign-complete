@@ -92,6 +92,13 @@ static BOOL CanFollow(FieldSystem *fieldSystem)
         && !SystemFlag_CheckHasPartner(SaveData_GetVarsFlags(fieldSystem->saveData));
 }
 
+BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem)
+{
+    int gfx = FollowerGfxIndex(LeadSpecies(fieldSystem));
+
+    return gfx >= 0 && sFollowerGfx[gfx].tooTall;
+}
+
 void CompleteFollower_Refresh(FieldSystem *fieldSystem)
 {
     MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);

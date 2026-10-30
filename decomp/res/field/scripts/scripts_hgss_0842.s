@@ -269,7 +269,7 @@ scr_seq_T20_010:
     CompleteFollowerCheckActive VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _1306
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _1306
     CompleteFollowerPutAway

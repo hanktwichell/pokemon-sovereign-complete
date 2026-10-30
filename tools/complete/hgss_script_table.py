@@ -485,6 +485,7 @@ COMMANDS = {
     'WaitFollowingPokemonMovement': lambda a: ['CompleteFollowerWait'],
     'FollowingPokemonMovement': lambda a: [f'CompleteFollowerSetMovementType {FOLLOWER_MOVEMENT_TYPES[int(a[0])]}'],
     'ScrCmd_729': one('CompleteFollowerCheckActive {0}'),
+    'ScrCmd_596': one('CompleteFollowerIsTooTall {0}'),
     'ScrCmd_609': lambda a: [],  # resets the follower's movement after a scene; the engine's follower needs none yet
     'GenderMsgBox': one('MessageGendered {0}, {1}'),
 }

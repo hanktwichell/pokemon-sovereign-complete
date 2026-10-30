@@ -146,6 +146,16 @@ BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx)
     return FALSE;
 }
 
+// HeartGold's ScrCmd_596: whether the following Pokémon is too tall for most buildings, so that a script puts it away
+// before the player goes into one (Route 10's Power Plant).
+BOOL CompleteScrCmd_FollowerIsTooTall(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = Follower(ctx) != NULL && CompleteFollower_IsTooTall(ctx->fieldSystem);
+    return FALSE;
+}
+
 // HeartGold's GetStaticEncounterOutcome: the last battle's result. Platinum keeps it as BATTLE_RESULT_*, whose values
 // are HeartGold's BATTLE_OUTCOME_* (win 1, lose 2, draw 3, caught 4, fled 5, foe fled 6).
 BOOL CompleteScrCmd_GetBattleResult(ScriptContext *ctx)

@@ -46,7 +46,7 @@ scr_seq_R35R0201_010:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _00C2
     CompleteFollowerReturn
@@ -277,7 +277,7 @@ _03E3:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     LockObject LOCALID_COMPLETE_FOLLOWER
-    @ HGSS: ScrCmd_596 VAR_SPECIAL_RESULT
+    CompleteFollowerIsTooTall VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0428
     CompleteFollowerReturn
