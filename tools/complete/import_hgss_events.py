@@ -95,10 +95,10 @@ STD_APRICORN_TREE = 2800
 COMMON_APRICORN_TREE = 0x80F
 # HeartGold's shared people with a Platinum script that does the same (the two games number these ranges alike,
 # include/script_manager.h): the Pokémon Center's Trainer Card attendant, the day-care couple and the Mart's Mystery
-# Gift deliveryman. Platinum's Colosseum, Union Room and Wi-Fi Club attendants walk the player through Platinum's
-# rooms (their doors are at fixed tiles), so HeartGold's (9001, 9003, 9203) keep script 0 for now, as do its B1F
-# Teala (9201) and Pichu check (9202), which Platinum lacks.
-STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201}
+# Gift deliveryman, and Mom's deliveryman next to him (a script added to that file). Platinum's Colosseum, Union Room
+# and Wi-Fi Club attendants walk the player through Platinum's rooms (their doors are at fixed tiles), so HeartGold's
+# (9001, 9003, 9203) keep script 0 for now, as do its B1F Teala (9201) and Pichu check (9202), which Platinum lacks.
+STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201, 10202: 10202}
 # People running one of the standard script files translated as they are (translate_hgss_scripts.py's STD_FILES):
 # the Bug-Catching Contest's contestants and prize keeper
 STD_PEOPLE.update({n: 11000 + n - 10400 for n in range(10400, 10429)})

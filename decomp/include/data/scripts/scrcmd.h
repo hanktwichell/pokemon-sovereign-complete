@@ -955,6 +955,15 @@ ScriptCommand(SCRCMD_COMPLETEPHONECALLANSWER,                          CompleteS
 ScriptCommand(SCRCMD_COMPLETEPHONECALLEND,                             CompleteScrCmd_PhoneCallEnd)
 ScriptCommand(SCRCMD_COMPLETEPHONESETCALLTRIGGER,                      CompleteScrCmd_PhoneSetCallTrigger)
 ScriptCommand(SCRCMD_COMPLETEGETFRIENDSPRITE,                          CompleteScrCmd_GetFriendSprite)
+ScriptCommand(SCRCMD_COMPLETEPHONECLEARCALLTRIGGER,                    CompleteScrCmd_PhoneClearCallTrigger)
+ScriptCommand(SCRCMD_COMPLETEMOMGIFTCHECK,                             CompleteScrCmd_MomGiftCheck)
+ScriptCommand(SCRCMD_COMPLETEMOMGIFTPEEK,                              CompleteScrCmd_MomGiftPeek)
+ScriptCommand(SCRCMD_COMPLETEMOMGIFTTAKE,                              CompleteScrCmd_MomGiftTake)
+ScriptCommand(SCRCMD_COMPLETEBANKCHECKBALANCE,                         CompleteScrCmd_BankCheckBalance)
+ScriptCommand(SCRCMD_COMPLETEBANKORWALLETISFULL,                       CompleteScrCmd_BankOrWalletIsFull)
+ScriptCommand(SCRCMD_COMPLETEBANKSHOWBALANCE,                          CompleteScrCmd_BankShowBalance)
+ScriptCommand(SCRCMD_COMPLETEBANKHIDEBALANCE,                          CompleteScrCmd_BankHideBalance)
+ScriptCommand(SCRCMD_COMPLETEBANKTRANSACTION,                          CompleteScrCmd_BankTransaction)
 
 // clang-format on
 

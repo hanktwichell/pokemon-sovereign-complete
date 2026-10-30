@@ -126,7 +126,8 @@ def main():
     import ndspy.rom
 
     hg = hg_values('include/constants/phone_scripts.h', 'include/constants/items.h', 'include/constants/flags.h',
-                   'include/constants/trainers.h', 'include/constants/trainer_class.h')
+                   'include/constants/trainers.h', 'include/constants/trainer_class.h',
+                   'include/constants/phone_constants.h')
     internal = os.path.join(HG, 'include', 'application', 'pokegear', 'phone', 'phone_internal.h')
     call_types = enum_values(internal, 'PHONECALLTYPE_GENERIC')
     generic_kinds = enum_values(internal, 'PHONECALLGENERIC_NIL')
@@ -219,6 +220,9 @@ def main():
     constants += ['']
     constants += [f'#define {name:<46} {hg[name]}' for name in sorted(hg, key=hg.get)
                   if name.startswith('PHONESCRIPTTYPE_')]
+    constants += ['', '// HeartGold\'s call triggers (src/overlay006/complete_phone_calls.c)']
+    constants += [f'#define {name:<46} {hg[name]}' for name in sorted(hg, key=hg.get)
+                  if name.startswith('CALL_TRIGGER_') or name == 'NUM_CALL_TRIGGERS']
     constants += ['', '#endif // POKEPLATINUM_CONSTANTS_HGSS_PHONE_H']
     open(CONSTANTS, 'w').write('\n'.join(constants) + '\n')
     print(f'{CONTACTS} contacts, {len(sets)} rematch sets, {len(defs)} call scripts, {len(headers)} checks, '

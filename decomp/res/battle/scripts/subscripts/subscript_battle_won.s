@@ -63,8 +63,17 @@ _087:
 _121:
     CompareVarToValue OPCODE_FLAG_SET, BTLVAR_BATTLE_TYPE, BATTLE_TYPE_FRONTIER, _150
     PayPrizeMoney 
+    // Sovereign Complete: with Mom's savings on, HeartGold's message says she gets some (src/complete_phone.c)
+    CompareVarToValue OPCODE_EQU, BTLVAR_COMPLETE_MOMS_SAVINGS, FALSE, _complete_prize
+    // {0} got ${1} for winning! Sent some to Mom!
+    PrintMessage BattleStrings_Text_CompletePlayerGotMoneyForWinningSentSomeToMom, TAG_TRNAME_NUM, BTLSCR_PLAYER, BTLSCR_MSG_TEMP
+    GoTo _complete_prize_wait
+
+_complete_prize:
     // {0} got ${1} for winning!
     PrintMessage BattleStrings_Text_PlayerGotMoneyForWinning, TAG_TRNAME_NUM, BTLSCR_PLAYER, BTLSCR_MSG_TEMP
+
+_complete_prize_wait:
     Wait 
     WaitButtonABTime 60
 

@@ -11325,6 +11325,14 @@
         "Keep the caught {STRVAR_1 1, 0, 0} instead\n",
         "of the Pokémon you kept before?{YESNO 0}"
       ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePlayerGotMoneyForWinningSentSomeToMom",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} got ${STRVAR_1 54, 1, 0}\n",
+        "for winning!\r",
+        "Sent some to Mom!\r"
+      ]
     }
   ]
 }

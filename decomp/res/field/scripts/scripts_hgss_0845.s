@@ -188,7 +188,7 @@ _02CA:
     End
 _02DD:
     Message msg_0545_T20R0201_00020
-    @ HGSS: ScrCmd_795 1, 1
+    CompleteBankShowBalance
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 1
     AddMenuEntry 29, 0
     AddMenuEntry 30, 1
@@ -267,14 +267,14 @@ _03C7:
     ReleaseAll
     End
 _0443:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteBankOrWalletIsFull 1, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _055D
-    SetVarFromValue VAR_RESULT, 0
+    CompleteBankCheckBalance VAR_RESULT, 1
     CompareVar VAR_RESULT, 0
     GoToIf 1, _056C
-    SetVarFromValue VAR_RESULT, 1
-    @ HGSS: ScrCmd_796
+    CompleteBankTransaction 1, VAR_RESULT
+    CompleteBankHideBalance
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
     GoToIf 1, _057B
@@ -283,14 +283,14 @@ _0443:
     ReleaseAll
     End
 _0499:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteBankOrWalletIsFull 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05A0
     CheckMoney2 VAR_RESULT, 1
     CompareVar VAR_RESULT, 0
     GoToIf 1, _05AF
-    SetVarFromValue VAR_RESULT, 1
-    @ HGSS: ScrCmd_796
+    CompleteBankTransaction 0, VAR_RESULT
+    CompleteBankHideBalance
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
     GoToIf 1, _05BE
@@ -301,7 +301,7 @@ _0499:
 _04ED:
     Message msg_0545_T20R0201_00025
     ShowYesNoMenu VAR_RESULT
-    @ HGSS: ScrCmd_796
+    CompleteBankHideBalance
     CompareVar VAR_RESULT, 0
     GoToIf 5, _05D5
     BufferPlayerName 0
@@ -309,7 +309,7 @@ _04ED:
     SetFlag FLAG_HGSS_SYS_MOMS_SAVINGS
     GoTo _05E4
 _0517:
-    @ HGSS: ScrCmd_796
+    CompleteBankHideBalance
     Message msg_0545_T20R0201_00021
     WaitButton
     CloseMessage
@@ -345,14 +345,14 @@ _054E:
     ReleaseAll
     End
 _055D:
-    @ HGSS: ScrCmd_796
+    CompleteBankHideBalance
     Message msg_0545_T20R0201_00028
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _056C:
-    @ HGSS: ScrCmd_796
+    CompleteBankHideBalance
     Message msg_0545_T20R0201_00022
     WaitButton
     CloseMessage
@@ -374,14 +374,14 @@ _0595:
     ReleaseAll
     End
 _05A0:
-    @ HGSS: ScrCmd_796
+    CompleteBankHideBalance
     Message msg_0545_T20R0201_00027
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _05AF:
-    @ HGSS: ScrCmd_796
+    CompleteBankHideBalance
     Message msg_0545_T20R0201_00026
     WaitButton
     CloseMessage

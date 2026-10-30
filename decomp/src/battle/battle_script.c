@@ -10370,6 +10370,8 @@ static void *BattleScript_VarAddress(BattleSystem *battleSys, BattleContext *bat
         return &battleCtx->sovereignMudSportTurns;
     case BTLVAR_SOVEREIGN_WATER_SPORT_TURNS: // Sovereign
         return &battleCtx->sovereignWaterSportTurns;
+    case BTLVAR_COMPLETE_MOMS_SAVINGS: // Sovereign Complete: read-only
+        return &battleSys->momsSavings;
     case BTLVAR_SOVEREIGN_DRAGON_CHEER_SIDE_EFFECT_MON: // Sovereign (item 11)
         return &battleCtx->sovereignDragonCheer[battleCtx->sideEffectMon];
     case BTLVAR_SOVEREIGN_LASER_FOCUS_SIDE_EFFECT_MON: // Sovereign (item 11)

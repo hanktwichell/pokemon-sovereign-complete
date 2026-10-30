@@ -573,11 +573,17 @@ COMMANDS = {
     'PartyMonIsMine': one('CompletePartyMonIsNotMine {0}, {1}'),  # HeartGold's name, but 1 means another trainer's
     'GetEVTotal': one('CompleteGetEVTotal {0}, {1}'),  # Blackthorn's effort checker
     'CheckSeenAllLetterUnown': one('CompleteCheckSeenAllUnownLetters {0}'),  # the Ruins of Alph researchers
-    # Mom's savings in New Bark Town (HeartGold keeps them with the Pokégear's data, and takes the amount on its own
-    # number window): until they're ported, she has none saved and a deposit is called off
-    'CheckBankBalance': one('SetVarFromValue {0}, 0'),
-    'BankOrWalletIsFull': one('SetVarFromValue {1}, 0'),
-    'BankTransaction': one('SetVarFromValue {1}, 1'),
+    # Mom's savings (src/overlay006/complete_moms_savings.c): her bank in New Bark Town, with its savings box, and her
+    # gifts, which the Marts' deliveryman has (scripts_mystery_gift_deliveryman.s); a call trigger called off
+    'CheckBankBalance': one('CompleteBankCheckBalance {0}, {1}'),
+    'BankOrWalletIsFull': one('CompleteBankOrWalletIsFull {0}, {1}'),
+    'BankTransaction': one('CompleteBankTransaction {0}, {1}'),
+    'ScrCmd_795': lambda a: ['CompleteBankShowBalance'],  # its place: the savings box has its own, by the menu
+    'ScrCmd_796': one('CompleteBankHideBalance'),
+    'MomGiftCheck': one('CompleteMomGiftCheck {0}'),
+    'ScrCmd_811': one('CompleteMomGiftPeek {0}, {1}'),
+    'ScrCmd_812': one('CompleteMomGiftTake'),
+    'UnsetPhoneCallTrigger': one('CompletePhoneClearCallTrigger {0}'),
     # Whether the radio plays a channel (5: the Poké Flute, which wakes Snorlax on Routes 11 and 12). Until the radio
     # comes (with the Pokétch and Pokégear question), the Poké Flute plays once the player has the Expansion Card
     'RadioMusicIsPlaying': lambda a: ([f'SetVarFromValue {a[1]}, FLAG_HGSS_GOT_EXPN_CARD', f'CheckFlagFromVar {a[1]}, {a[1]}']

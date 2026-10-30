@@ -1073,6 +1073,7 @@ static void BattleSys_New(BattleSystem *battleSys, FieldBattleDTO *dto)
     battleSys->metBebe = dto->metBebe;
     battleSys->megaUnlocked = dto->megaUnlocked;
     battleSys->isFishing = dto->isFishing; // Sovereign Complete
+    battleSys->momsSavings = dto->momsSavings; // Sovereign Complete
     battleSys->bugContestHasMon = dto->bugContestHasMon;
     battleSys->bugContestMon = dto->bugContestMon;
     battleSys->fieldWeather = dto->fieldWeather;

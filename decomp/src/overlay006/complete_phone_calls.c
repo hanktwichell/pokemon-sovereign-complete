@@ -1230,3 +1230,15 @@ BOOL CompleteScrCmd_PhoneSetCallTrigger(ScriptContext *ctx)
     CompletePhone_SetCallTrigger(ctx->fieldSystem->saveData, trigger, soon);
     return FALSE;
 }
+
+// HeartGold's ScrCmd_149 (UnsetPhoneCallTrigger): a call trigger is called off (Mom's, once her gift is picked up)
+BOOL CompleteScrCmd_PhoneClearCallTrigger(ScriptContext *ctx)
+{
+    u8 trigger = ScriptContext_ReadByte(ctx);
+
+    if (trigger < NUM_CALL_TRIGGERS) {
+        SaveData_GetCompletePhone(ctx->fieldSystem->saveData)->callTriggerFlags[trigger / 8] &= ~(1 << (trigger % 8));
+    }
+
+    return FALSE;
+}

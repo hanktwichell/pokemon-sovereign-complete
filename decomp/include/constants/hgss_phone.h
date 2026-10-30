@@ -117,4 +117,20 @@
 #define PHONESCRIPTTYPE_ITEM                           4
 #define PHONESCRIPTTYPE_WORD                           5
 
+// HeartGold's call triggers (src/overlay006/complete_phone_calls.c)
+#define CALL_TRIGGER_ELM_EGG_HATCHED                   0
+#define CALL_TRIGGER_ELM_POKERUS                       1
+#define CALL_TRIGGER_BIKE_SHOP_STEPS                   2
+#define CALL_TRIGGER_BILL_PC_FULL                      3
+#define CALL_TRIGGER_OAK_DEX_PROGRESS                  4
+#define CALL_TRIGGER_DAYCARE_HAS_EGG                   5
+#define CALL_TRIGGER_BAOBA_NEW_POKEMON                 6
+#define CALL_TRIGGER_BAOBA_NEXT_TEST                   7
+#define CALL_TRIGGER_BAOBA_OBJECT_ARRANGEMENT          8
+#define CALL_TRIGGER_BAOBA_MORE_OBJECTS                9
+#define CALL_TRIGGER_BAOBA_EVEN_MORE_OBJECTS           10
+#define CALL_TRIGGER_BAOBA_MEMORY_LOSS                 11
+#define CALL_TRIGGER_MOM_BOUGHT_SOMETHING              12
+#define NUM_CALL_TRIGGERS                              13
+
 #endif // POKEPLATINUM_CONSTANTS_HGSS_PHONE_H

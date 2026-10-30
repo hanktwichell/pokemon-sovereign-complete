@@ -28,6 +28,7 @@
 #include "chatot_cry.h"
 #include "comm_manager.h"
 #include "communication_system.h"
+#include "complete_phone.h"
 #include "field_overworld_state.h"
 #include "game_options.h"
 #include "game_records.h"
@@ -289,6 +290,7 @@ void FieldBattleDTO_InitFromGameState(FieldBattleDTO *dto, const FieldSystem *fi
     dto->visitedContestHall = PokemonSummaryScreen_ShowContestData(saveData);
     dto->metBebe = SystemFlag_CheckMetBebe(SaveData_GetVarsFlags(saveData));
     dto->megaUnlocked = VarsFlags_CheckFlag(SaveData_GetVarsFlags(saveData), FLAG_SOVEREIGN_MEGA_UNLOCKED);
+    dto->momsSavings = VarsFlags_CheckFlag(SaveData_GetVarsFlags(saveData), FLAG_HGSS_SYS_MOMS_SAVINGS); // Sovereign Complete
     dto->fieldWeather = FieldOverworldState_GetWeather(fieldOverworldState);
     dto->bagCursor = bagCursor;
     dto->subscreenCursorOn = subscreenCursorOn;
@@ -445,6 +447,7 @@ void FieldBattleDTO_UpdateFieldSystem(const FieldBattleDTO *dto, FieldSystem *fi
     Pokedex *pokedex = SaveData_GetPokedex(fieldSystem->saveData);
     u16 *fieldSysSafariBalls = FieldOverworldState_GetSafariBallCount(SaveData_GetFieldOverworldState(fieldSystem->saveData));
 
+    CompletePhone_MomSavingsAfterBattle(fieldSystem->saveData, trainerInfo, dto->trainerInfo[BATTLER_PLAYER_1]); // Sovereign Complete
     TrainerInfo_Copy(dto->trainerInfo[BATTLER_PLAYER_1], trainerInfo);
     Party_Copy(dto->parties[BATTLER_PLAYER_1], party);
     Bag_Copy(dto->bag, bag);

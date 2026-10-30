@@ -54,8 +54,8 @@ def std_file_script(n):
         if hg_start <= n < hg_start + count:
             return start + n - hg_start
     return None
-# Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman, whom HeartGold's
-# std_hide_show_deliverymen shows when Mom has bought something (she doesn't here), stays hidden
+# Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman stays hidden until she buys
+# something (Platinum's Mart script then shows him, scripts_mystery_gift_deliveryman.s)
 NEW_GAME_FLAGS = ['FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN']
 SOUND_COMMANDS = {'PlaySE', 'WaitSE', 'StopSE', 'PlayFanfare', 'WaitFanfare', 'PlayCry', 'PlayMusic', 'PlayBGM'}
 

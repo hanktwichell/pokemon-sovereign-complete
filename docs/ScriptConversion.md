@@ -159,8 +159,8 @@ meaning; the HeartGold-only ones (Apricorn trees) are added.
 Shared people work the same way: a person whose script is a standard one gets Platinum's that does the same
 (`STD_PEOPLE`, `tools/complete/import_hgss_events.py`). The two games number these ranges alike. The Trainer Card
 attendant, the day-care couple on Route 34 and the Marts' Mystery Gift deliveryman (shown by Platinum's flag, from
-Platinum's script as each Mart loads) are in. Mom's gift deliveryman stays hidden from the new game on, since Mom
-doesn't buy things here. Platinum's Colosseum, Union Room and Wi-Fi Club attendants walk the player through Platinum's
+Platinum's script as each Mart loads) are in, and Mom's gift deliveryman next to him (a script added to Platinum's, which
+shows him too when Mom bought something). Platinum's Colosseum, Union Room and Wi-Fi Club attendants walk the player through Platinum's
 rooms, with their doors at fixed tiles, so HeartGold's still do nothing; they come with link play.
 
 Two of HeartGold's standard script files are translated as they are, as map script files are, and get script IDs of

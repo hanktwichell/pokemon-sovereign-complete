@@ -486,3 +486,15 @@ Test results on the new test build:
   end, none hung (the Union Room's people are left out now). Against the last run, 43 more ran and 16 fewer: those 16
   are people who wander about, whom the test reaches some runs and not others, and Cameron, who stands somewhere new
   each day. The one still stuck is in the Pokéathlon Dome (a menu the test keeps reopening), as before.
+
+## Oct 30, 2026: Mom's savings
+
+- **Her share, her shopping, her deliveryman and her bank** (`docs/Features.md`, "Mom's savings"): with her savings
+  on, a quarter of what a battle brings goes to her (the prize message says so), she buys HeartGold's list of things and
+  Berries with it and calls about them, the Marts' deliveryman hands them over, and at home she has HeartGold's bank
+  menu, with the savings and the wallet in a box and an amount window where HeartGold has its touch screen's number
+  pad. Her deliveryman was hidden for good before; the call triggers' names come from HeartGold now
+  (`constants/hgss_phone.h`), and the script lines that clear one translate (Elm's after the Egg hatches, too).
+- 98.7% of Sacred Gold's script lines translate (1,072 left). `tools/complete/test_hgss_phone.py` has three more parts:
+  her share of Joey's rematch prize and the Super Potion she buys, the Cherrygrove Mart's deliveryman, and a withdrawal
+  at home; all eight pass.

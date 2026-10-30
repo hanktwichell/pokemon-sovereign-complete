@@ -90,6 +90,7 @@ typedef struct FieldBattleDTO {
     u32 recordingStopped;
     BOOL megaUnlocked; // Sovereign (E8): the player has the Mega Ring (FLAG_SOVEREIGN_MEGA_UNLOCKED)
     BOOL isFishing; // Sovereign Complete: a wild Pokémon hooked with a rod (HeartGold's Lure Ball)
+    BOOL momsSavings; // Sovereign Complete: Mom saves part of the prize money (FLAG_HGSS_SYS_MOMS_SAVINGS)
     // Sovereign Complete: the Bug-Catching Contest's catch (its Sport Balls are countSafariBalls): whether one is
     // already kept, and the one the battle keeps, if any (bugContestCaught)
     BOOL bugContestHasMon;

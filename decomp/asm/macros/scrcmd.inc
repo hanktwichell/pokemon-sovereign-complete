@@ -6053,6 +6053,52 @@
     .short \destVarID
     .endm
 
+    .macro CompletePhoneClearCallTrigger trigger
+    .short SCRCMD_COMPLETEPHONECLEARCALLTRIGGER
+    .byte \trigger
+    .endm
+
+    .macro CompleteMomGiftCheck destVarID
+    .short SCRCMD_COMPLETEMOMGIFTCHECK
+    .short \destVarID
+    .endm
+
+    .macro CompleteMomGiftPeek itemVarID, quantityVarID
+    .short SCRCMD_COMPLETEMOMGIFTPEEK
+    .short \itemVarID
+    .short \quantityVarID
+    .endm
+
+    .macro CompleteMomGiftTake
+    .short SCRCMD_COMPLETEMOMGIFTTAKE
+    .endm
+
+    .macro CompleteBankCheckBalance destVarID, amount
+    .short SCRCMD_COMPLETEBANKCHECKBALANCE
+    .short \destVarID
+    .long \amount
+    .endm
+
+    .macro CompleteBankOrWalletIsFull which, destVarID
+    .short SCRCMD_COMPLETEBANKORWALLETISFULL
+    .short \which
+    .short \destVarID
+    .endm
+
+    .macro CompleteBankShowBalance
+    .short SCRCMD_COMPLETEBANKSHOWBALANCE
+    .endm
+
+    .macro CompleteBankHideBalance
+    .short SCRCMD_COMPLETEBANKHIDEBALANCE
+    .endm
+
+    .macro CompleteBankTransaction mode, destVarID
+    .short SCRCMD_COMPLETEBANKTRANSACTION
+    .short \mode
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:

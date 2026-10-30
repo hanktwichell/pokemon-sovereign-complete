@@ -219,11 +219,28 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
 - **Stand-ins until the Pokétch and Pokégear question is answered** (`docs/Roadmap.md`): a call is answered at once
   (HeartGold's Pokégear rings until the player opens it), and the player can't call anyone, as that needs the
   Pokégear's contact list: so Gym Leaders' rematches (arranged by calling them on their day), Oak's Pokédex rating by
-  phone and the Day-Care's news wait for it. Mom keeps the savings flag the call sets; the savings themselves come with
-  her bank.
+  phone and the Day-Care's news wait for it.
+
+## Mom's savings
+
+HeartGold's (its `mom_gift.c`, the battle's money hand-back, and Mom's bank), in `src/complete_phone.c` and
+`src/overlay006/complete_moms_savings.c`, with the balance and her shopping in the phone's save:
+
+- **Her share:** with her savings on (her Route 30 call, or her at home), a quarter of the money a battle brings goes to
+  her, to ¥999,999, and the prize message says so ("Sent some to Mom!", a marked block of Platinum's
+  `subscript_battle_won.s`).
+- **Her shopping:** HeartGold's list (a Super Potion at ¥900 saved, a Repel at ¥4,000, ... a Focus Sash at ¥50,000,
+  each once), or five of a type-resist Berry each time her savings pass another ¥3,000; up to five things wait at a
+  time. She calls about it (HeartGold's call trigger).
+- **The deliveryman** in Johto's and Kanto's Marts shows as the Mart loads when she bought something, and hands it over,
+  one thing a visit (Platinum's Mart script, with HeartGold's lines).
+- **Her bank at home:** HeartGold's menu (withdraw, deposit, change the setting), with the savings and the wallet in a
+  box. HeartGold takes the amount on the touch screen's number pad; here a window above the message box does: up and
+  down change the digit under the cursor (red), left and right move it, A confirms and B gives up.
 
 Test: `tools/complete/test_hgss_phone.py` (Youngster Joey on Route 30: his number after the battle, a rematch, a gift;
-his call; Mom's call on Route 30).
+his call; Mom's call on Route 30; her share of his rematch's prize and the Super Potion she buys; the Cherrygrove Mart's
+deliveryman; a withdrawal at home).
 
 ## Stand-ins
 
@@ -234,9 +251,6 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   (`src/voltorb_flip/`) and its own graphics.
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
-- **Mom's savings** (New Bark Town): her call on Route 30 sets whether she saves ("The Pokégear phone", above), and the
-  save keeps her balance, but her share of the prize money, what she buys with it and her bank in New Bark Town aren't
-  ported yet: until they are, she has nothing saved, and a deposit is called off.
 - **The radio's Poké Flute** (Snorlax on Routes 11 and 12): HeartGold's Snorlax wakes when the Pokégear's radio plays
   the Poké Flute channel, which needs the Expansion Card. Until the radio comes (the same question), the Poké Flute
   counts as playing once the player has the Expansion Card, and every other radio check finds nothing playing.

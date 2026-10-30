@@ -579,6 +579,7 @@ Overlay overlay6
 	Object src/overlay006/wild_encounters.c
 	Object src/overlay006/complete_field_encounters.c
 	Object src/overlay006/complete_phone_calls.c
+	Object src/overlay006/complete_moms_savings.c
 	Object src/overlay006/great_marsh_lookout_sprite.c
 	Object src/overlay006/great_marsh_binoculars.c
 	Object src/overlay006/great_marsh_tram.c

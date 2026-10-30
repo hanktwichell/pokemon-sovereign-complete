@@ -535,7 +535,7 @@ _0864:
 _08C7:
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
-    @ HGSS: UnsetPhoneCallTrigger CALL_TRIGGER_ELM_EGG_HATCHED
+    CompletePhoneClearCallTrigger CALL_TRIGGER_ELM_EGG_HATCHED
     CompareVar VAR_MAP_LOCAL_0x01, 175
     GoToIf 1, _0DCC
     CompareVar VAR_MAP_LOCAL_0x01, 176
