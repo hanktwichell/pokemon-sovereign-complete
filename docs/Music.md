@@ -50,7 +50,8 @@ memory, measured from both decomps and both built archives.
    archive's music players played on a map as the game plays it, a trainer battle, and New Bark Town's song, the
    fanfares and a battle there; no load may fail. All three parts pass: every song loads (the credits' in their own
    scene, where the game plays them), the tightest of Sinnoh's leaving 9 KB and of HeartGold's map songs 67 KB; a battle
-   leaves 5 KB; and in New Bark Town, its song loads, each of HeartGold's 23 fanfares plays over it (each given back as
+   leaves 5 KB (3 KB on Oct 30, after the scene themes: the archive's info and file tables, 45 and 37 KB, stay in sound
+   memory, and each song adds about 64 bytes to them); and in New Bark Town, its song loads, each of HeartGold's 23 fanfares plays over it (each given back as
    a script's WaitFanfare gives it), and a battle with HeartGold's trainer theme loads: 11 KB to spare at the least.
 6. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
