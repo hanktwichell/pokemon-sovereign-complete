@@ -3,7 +3,8 @@
 
 For each map, from a save state in the bedroom, this warps (gSovereignTestWarpTarget, SELECT+L+R) to the free floor
 tile that tools/complete/test_map_warp.py picks (beside the map's first person, else its first warp), then waits until
-the field is idle on that map (gSovereignTestIdleFrames counts up and gSovereignTestIdleMapHeaderID is the map). Then:
+the field is idle on that map (gSovereignTestIdleFrames counts up and gSovereignTestIdleMapHeaderID is the map), in
+god mode, so a trainer who spots the player on arrival is beaten at once. Then:
 - ok: idle, with the heaps' block lists whole (tools/test/heap_check.py);
 - HEAP: idle, but a heap's block lists are broken (a bad free during the load);
 - FAIL: not idle within the time limit (a crash, a hang, or a scene on entry: rerun it with --scene, which pages
@@ -14,7 +15,8 @@ Each map's last screen is saved to OUT_DIR as NNN_<map>_<result>.png.
 
 Maps run in HeartGold's order; --shard K/N runs every Nth map from the Kth, so N processes can share the list.
 
-Needs the test build (tools/test/build_test_rom.sh) and a bedroom save state made with it (tools/test/new_game.sh).
+Needs the test build (tools/test/build_test_rom.sh) and a bedroom save state made with it (tools/test/new_game.sh);
+TEST_BUILD picks another test build's folder (decomp/build_test by default).
 From the repo root:
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/visit_hgss_maps.py \\
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--shard K/N] [--scene] [NAME ...]
@@ -41,7 +43,8 @@ def hgss_headers():
 
 
 def symbol(name):
-    xmap = open(os.path.join(ROOT, 'decomp/build_test/main.nef.xMAP'), encoding='utf-8', errors='replace').read()
+    build = os.environ.get('TEST_BUILD', 'build_test')  # another test build's folder
+    xmap = open(os.path.join(ROOT, 'decomp', build, 'main.nef.xMAP'), encoding='utf-8', errors='replace').read()
     return int(re.search(r'^\s*([0-9A-F]{8}) [0-9A-F]{8} \.bss\s+' + name + r'\b', xmap, re.M).group(1), 16)
 
 
@@ -60,8 +63,8 @@ def main():
     only = {a.upper() for a in args[3:]}
     os.makedirs(out, exist_ok=True)
     os.chdir(ROOT)
-    target, idle_addr, map_addr = (symbol(s) for s in ('gSovereignTestWarpTarget', 'gSovereignTestIdleFrames',
-                                                       'gSovereignTestIdleMapHeaderID'))
+    target, idle_addr, map_addr, god_mode = (symbol(s) for s in (
+        'gSovereignTestWarpTarget', 'gSovereignTestIdleFrames', 'gSovereignTestIdleMapHeaderID', 'gSovereignTestGodMode'))
     heaps = heap_info_address()
     d = Driver(rom, state)
 
@@ -80,6 +83,7 @@ def main():
         else:
             d.load_state(state)
             d.run(30)
+            d.emu.memory.write_byte(god_mode, 1)  # a trainer who spots the player on arrival is beaten at once
             for offset, value in ((0, header), (2, x), (4, z), (6, 2)):  # facing down
                 d.emu.memory.write_short(target + offset, value)
             d.press('SELECT+L+R', frames=8, after=0)
