@@ -682,3 +682,45 @@ Test results on the new test build:
   in Sacred Gold.
 - **Sovereign's own gift test** (`tools/test/gift_pokemon.py`) on this build: all 45 of Sovereign's gifts pass, as
   before Johto and Kanto came in.
+- **The gift test covers trades and quizzes too:** eight of Sacred Gold's in-game trades (the Pokémon asked for added
+  to the party; yes, and it's picked on the party screen; the trade scene plays) each give the trader's Pokémon at the
+  given one's level with its held item: Perry's Porygon2, Bexxi's Espeon, Razor's Gligar, Robotnik's Beldum, Mimi's
+  Chansey, Squillaci's Torkoal, Moxxi's Skarmory and Lola's Smoochum. The Pokémon Centers' quizzes, passed, give
+  their starters (Violet's Bulbasaur, Azalea's Treecko, Goldenrod's Turtwig). Not covered: Lt. Surge's trade (he waits
+  at the Magnet Train station only on a rematch day arranged by phone), and Brock's, Jasmine's and Steven's, which
+  come with battles and story steps.
+- **And the other regions' starters,** which go by the lead's species (the test build makes it Bulbasaur, Treecko or
+  Turtwig: `gCompleteTestLeadSpecies`): Route 12's fisherman gives Charmander and Squirtle, the Hoenn gentleman Torchic
+  and Mudkip, and Cynthia in Goldenrod's Bike Shop Chimchar and Piplup (once Mom's later scene has cleared Sacred
+  Gold's flag for it). All pass.
+
+## Oct 30, 2026: what HeartGold's code set, and Sovereign's own tests
+
+- **A check for dead ends:** every HeartGold flag a script or an object reads, and every var a script compares, against
+  everything that sets it (scripts, `RemoveObject`'s hide flags, item balls, C code). Of 307 flags read and never set,
+  most are item balls (set as they're picked up) and people HeartGold never shows either. What HeartGold set from its
+  own code, and Complete didn't:
+  - **Elm's Togepi.** HeartGold sets a flag as his Togepi Egg hatches, and only then does Elm, shown the Togepi, give
+    the Everstone; it also has him call. Both happen now (`CompletePhone_EggHatched`, from Platinum's hatch). The
+    Egg is told by where it came from (Mr. Pokémon), as Complete's gift doesn't save its personality as HeartGold's
+    does. New test `tools/complete/test_hgss_togepi.py`: the aide's Egg hatches by Platinum's hatch scene (the test
+    build readies it: `gCompleteTestHatchEggs`), the flag and Elm's call are set, and Elm gives the Everstone and
+    calls his call off. It passes.
+  - **The phone's other call triggers** (`docs/Features.md`, "The Pokégear phone"): Bill's when the boxes are full and
+    Oak's at each 50 caught he hasn't rated, after wild battles; the Day-Care Man's when an Egg turns up (called off
+    when he offers it); Elm's when a nurse finds Pokérus. Only Mom's was set before. Left out: the Bike Shop's, which
+    needs a count of steps on the bike.
+  - **The roamers' status.** HeartGold marks a roamer knocked out (2) or caught (1), and its Hall of Fame sets a
+    knocked-out one roaming again. Nothing set it, so a knocked-out Raikou, Entei, Latias or Latios was gone for good;
+    it's set as Sovereign's roamers' states are now. `tools/complete/test_hgss_roamers.py` battles each once now: all
+    four were knocked out (each is slower than the test party's lead) and marked 2. It no longer counts Route 16 as a
+    problem: HeartGold's Route 16 has no wild Pokémon, so a roamer there is never met, in HeartGold too.
+  - The rest wait on the owner (the Battle Frontier's progress, the radio's Buena, the Pokéathlon's) or HeartGold
+    never sets them either.
+- **Sovereign's own tests on Complete's build,** to show Johto and Kanto broke nothing of Sinnoh's: the battle
+  mechanics suite (`tools/test/battle_mechanics.py`) matches all 526 of Sovereign's recorded cases; the rare wild
+  Pokémon (`rare_wild.py`) pass 52 of 52; the roamers (`roamers.py`) pass, with the eight roamers Sovereign's scripts
+  release, flights and walks, a battle with each, a catch and the Pokétch's marking map; the gifts pass 45 of 45
+  (above). Two of Sovereign's tools read Complete's data wrongly, and now leave HeartGold's to the tests made for it:
+  `roamers.py` counted names past the end of `enum RoamerRouteIndex` as routes, and `wild_forms.py` read HeartGold's
+  encounter tables in Sovereign's format.

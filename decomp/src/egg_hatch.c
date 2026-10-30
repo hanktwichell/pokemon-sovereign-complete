@@ -13,6 +13,7 @@
 #include "overlay005/daycare.h"
 
 #include "bg_window.h"
+#include "complete_phone.h" // Sovereign Complete
 #include "field_system.h"
 #include "field_task.h"
 #include "field_transition.h"
@@ -199,6 +200,7 @@ static BOOL FieldTask_HatchEgg(FieldTask *fieldTask)
         Pokemon_SetValue(mon, MON_DATA_SPECIES_NAME, NULL);
 
         SaveData_UpdateCatchRecords(FieldSystem_GetSaveData(fieldSystem), app->args.mon);
+        CompletePhone_EggHatched(FieldSystem_GetSaveData(fieldSystem), app->args.mon); // Sovereign Complete: Elm's Togepi
 
         if (app->nicknameMon == TRUE) {
             app->state = 3;

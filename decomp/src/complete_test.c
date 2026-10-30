@@ -3,6 +3,7 @@
 #include <nitro.h>
 
 #include "constants/savedata/vars_flags.h"
+#include "generated/species.h"
 
 #include "field/field_system.h"
 #include "overlay005/save_info_window.h"
@@ -11,6 +12,9 @@
 #include "complete_safari.h"
 #include "field_battle_data_transfer.h"
 #include "field_task.h"
+#include "party.h"
+#include "pokemon.h"
+#include "script_manager.h"
 #include "sound.h"
 #include "sound_playback.h"
 #include "sound_system.h"
@@ -33,6 +37,8 @@ CompleteTestSaveProbe gCompleteTestSaveProbe;
 CompleteTestScriptPos gCompleteTestScriptPos;
 u16 gCompleteTestKeepFlagClear;
 u8 gCompleteTestOutbreakMap;
+u16 gCompleteTestLeadSpecies;
+u8 gCompleteTestHatchEggs;
 CompleteTestFieldEncounter gCompleteTestFieldEncounter;
 
 // An encounter leaves a loss to its caller (a script's BlackOutFromBattle) and doesn't bring the field back, so the field
@@ -164,8 +170,48 @@ static void PlaySong(void)
     }
 }
 
+// tools/complete/test_hgss_gifts.py: the party's lead becomes this species (for the gifts that go by the lead's)
+static void SetLeadSpecies(FieldSystem *fieldSystem)
+{
+    if (gCompleteTestLeadSpecies == SPECIES_NONE) {
+        return;
+    }
+
+    Pokemon *lead = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), 0);
+    u32 species = gCompleteTestLeadSpecies;
+
+    Pokemon_SetValue(lead, MON_DATA_SPECIES, &species);
+    Pokemon_CalcLevelAndStats(lead);
+    gCompleteTestLeadSpecies = SPECIES_NONE;
+}
+
+// tools/complete/test_hgss_togepi.py: the party's Eggs have no egg cycles left, and the hatch starts as a step starts
+// it when one is due (Field_UpdateDaycare's script)
+static void HatchEggs(FieldSystem *fieldSystem)
+{
+    if (!gCompleteTestHatchEggs) {
+        return;
+    }
+
+    Party *party = SaveData_GetParty(fieldSystem->saveData);
+    u8 cycles = 0;
+
+    for (int i = 0; i < Party_GetCurrentCount(party); i++) {
+        Pokemon *mon = Party_GetPokemonBySlotIndex(party, i);
+
+        if (Pokemon_GetValue(mon, MON_DATA_IS_EGG, NULL)) {
+            Pokemon_SetValue(mon, MON_DATA_FRIENDSHIP, &cycles);
+        }
+    }
+
+    gCompleteTestHatchEggs = FALSE;
+    ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, 31), NULL);
+}
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
+    SetLeadSpecies(fieldSystem);
+    HatchEggs(fieldSystem);
     PlaySong();
     CompleteFollower_TestRecordTile(fieldSystem);
     SaveProbe(fieldSystem);

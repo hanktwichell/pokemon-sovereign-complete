@@ -45,6 +45,14 @@ extern u16 gCompleteTestKeepFlagClear;
 // day's outbreak map is this entry of its table + 1, in place of the day's pick.
 extern u8 gCompleteTestOutbreakMap;
 
+// The gifts that go by the lead's species (tools/complete/test_hgss_gifts.py): when set, the next free field frame makes
+// the party's lead this species (then 0).
+extern u16 gCompleteTestLeadSpecies;
+
+// tools/complete/test_hgss_togepi.py: when set, the next free field frame hatches the party's Eggs, by the script a step
+// starts when one is due (then FALSE).
+extern u8 gCompleteTestHatchEggs;
+
 // The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
 // tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks
 // have held (src/overlay006/complete_field_encounters.c): how many, and the last.

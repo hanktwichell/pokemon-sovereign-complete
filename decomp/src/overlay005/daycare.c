@@ -15,6 +15,7 @@
 #include "field/field_system.h"
 
 #include "chatot_cry.h"
+#include "complete_phone.h" // Sovereign Complete
 #include "daycare_save.h"
 #include "game_records.h"
 #include "heap.h"
@@ -988,6 +989,7 @@ BOOL Daycare_Update(Daycare *daycare, Party *party, FieldSystem *fieldSystem)
 
             if (compatibilityScore > rand) {
                 Daycare_SetInheritedNature(daycare);
+                CompletePhone_DaycareHasEgg(fieldSystem->saveData); // Sovereign Complete: the Day-Care Man's call
             }
         }
     }

@@ -5,6 +5,7 @@
 
 #include "field/field_system_decl.h"
 #include "field_script_context.h"
+#include "pokemon.h"
 #include "savedata.h"
 #include "trainer_info.h"
 
@@ -47,6 +48,9 @@ void CompletePhone_Register(SaveData *saveData, u8 contact);
 void CompletePhone_SetCallTrigger(SaveData *saveData, u8 trigger, BOOL soon);
 BOOL CompletePhone_MomGiftsFull(CompletePhoneSave *phone);
 void CompletePhone_MomSavingsAfterBattle(SaveData *saveData, const TrainerInfo *before, TrainerInfo *after);
+void CompletePhone_AfterWildBattle(SaveData *saveData);
+void CompletePhone_EggHatched(SaveData *saveData, Pokemon *mon);
+void CompletePhone_DaycareHasEgg(SaveData *saveData);
 
 // The minutes since the last call (HeartGold's ring manager's, which isn't saved either)
 void CompletePhone_AddMinutes(int minutes);

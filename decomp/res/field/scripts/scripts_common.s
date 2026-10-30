@@ -202,6 +202,8 @@ CommonScript_NurseCheckPokerus:
 
 CommonScript_NurseIdentifiedPokerus:
     SetFlag FLAG_POKECENTER_IDENTIFIED_POKERUS
+    // Sovereign Complete: and Elm calls about it, as in HeartGold (its nurse, scr_seq_0003)
+    CompletePhoneSetCallTrigger CALL_TRIGGER_ELM_POKERUS, FALSE
     ApplyMovement LOCALID_PLAYER, CommonScript_Movement_PlayerRetrievePokemon
     WaitMovement
     SetPlayerState PLAYER_TRANSITION_WALKING

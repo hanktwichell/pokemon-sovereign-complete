@@ -216,10 +216,17 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   Mom's on Route 30 about saving money, Oak's, Baoba's) play where HeartGold plays them. **Incoming calls:** ten
   minutes after the last call, on a map with a signal, a step may bring a call: a call trigger's, or half the time a
   random caller from the phone book (HeartGold's three groups, not one on the same map or one who called lately).
+- **Call triggers,** set where HeartGold sets them (`src/complete_phone.c`): Elm's when his Togepi Egg hatches (it
+  also sets the flag his lab script asks for before he gives the Everstone; the Egg is told by its origin, Mr.
+  Pokémon, where HeartGold saves its personality), and his Pokérus call when a nurse finds Pokérus; Bill's when the
+  boxes are full and Oak's at each 50 caught he hasn't rated, after a wild battle; the Day-Care Man's when an Egg
+  turns up (called off when he offers it); Mom's when she buys something. Baoba's calls happen without the phone (the Safari Zone, above). HeartGold's Day-Care Man
+  then asks whether to keep calling, which Platinum's doesn't, so he calls about the first Egg only. Left out: the Bike
+  Shop's call after 1,024 steps on the bike (nothing counts them, and the call changes nothing).
 - **Stand-ins until the Pokétch and Pokégear question is answered** (`docs/Roadmap.md`): a call is answered at once
   (HeartGold's Pokégear rings until the player opens it), and the player can't call anyone, as that needs the
-  Pokégear's contact list: so Gym Leaders' rematches (arranged by calling them on their day), Oak's Pokédex rating by
-  phone and the Day-Care's news wait for it.
+  Pokégear's contact list: so Gym Leaders' rematches (arranged by calling them on their day), Black Belt Kenji's
+  breaks on Route 45 (he only answers, never calls), Oak's Pokédex rating by phone and the Day-Care's news wait for it.
 
 ## Mom's savings
 

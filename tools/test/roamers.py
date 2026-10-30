@@ -116,8 +116,9 @@ def routes():
     """([the header of each route index], [the route indexes next to each]) from RoamingPokemonRoutes and
     sNearbyRoutes."""
     header = open(os.path.join(DECOMP, 'include', 'roaming_pokemon.h'), encoding='utf-8').read()
-    index = {name: i for i, name in enumerate(re.findall(r'(RI_\w+)', header[header.index('enum RoamerRouteIndex'):]))
-             if name != 'RI_MAX'}
+    body = header[header.index('enum RoamerRouteIndex'):]
+    body = body[:body.index('};')]  # Sovereign Complete: the enum alone (the defines after it name its entries again)
+    index = {name: i for i, name in enumerate(re.findall(r'(RI_\w+)', body)) if name != 'RI_MAX'}
     text = open(os.path.join(DECOMP, 'src', 'roaming_pokemon.c'), encoding='utf-8').read()
     table = text[text.index('RoamingPokemonRoutes[RI_MAX]'):]
     headers = [None] * len(index)
@@ -230,7 +231,9 @@ def main():
         def where(map_id):
             return ids[map_id][len('MAP_HEADER_'):].lower() if map_id < len(ids) else hex(map_id)
 
-        missing = [h for h in route_headers if h not in places]
+        # Sovereign Complete: Sovereign's roamers roam Sinnoh's routes; Johto's and Kanto's are HeartGold's roamers'
+        # (tools/complete/test_hgss_roamers.py)
+        missing = [h for h in route_headers if h not in places and not h.startswith('MAP_HEADER_HGSS_')]
         if missing:
             say(f'NOPLACE: no tile with wild encounters on {missing}', True)
         flights = [h for h in route_headers if h in places]

@@ -200,12 +200,15 @@ HeartGold's `CreateRoamer 3`). Sacred Gold keeps HeartGold's roamers as they are
   there anyway.
 - Sinnoh Now's roamer news flash names Sinnoh's routes and roamers only.
 - The save grows by 84 bytes (four roamers and their route numbers), which the normal block has room for.
-- HeartGold keeps no state for its roamers, so they have no state var as Sovereign's do. Its `CreateRoamer n` is
-  `ActivateRoamingPokemon` with the slot.
+- HeartGold's `CreateRoamer n` is `ActivateRoamingPokemon` with the slot. Its roamers' status vars (caught 1, knocked
+  out 2, as Platinum numbers its roamers' states) are set after the battle as Sovereign's roamers' are
+  (`SystemVars_SetRoamingSpeciesState`), so one knocked out roams again after the Hall of Fame, as in HeartGold, and
+  one caught doesn't.
 - `tools/complete/test_hgss_roamers.py` releases the four and flies between Johto's and Kanto's routes: each must
   start with its species, level and HP in its region, move to another route of its region on every flight, and be met
-  in surveys on its route. Battles, catching and walking are Sovereign's `tools/test/roamers.py`, the same code for
-  every slot, which keeps to Sovereign's roamers.
+  in surveys on its route; then it battles each once and checks its status var (knocked out 2, or fled 0). HeartGold's
+  Route 16 has no wild Pokémon, so a roamer there is never met, as in HeartGold. Catching and walking are Sovereign's
+  `tools/test/roamers.py`, the same code for every slot, which keeps to Sovereign's roamers.
 
 ## Still to come in this step
 

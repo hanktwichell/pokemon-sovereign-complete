@@ -4,12 +4,19 @@
 
 #include "constants/savedata/save_table.h"
 #include "generated/items.h"
+#include "generated/species.h"
 #include "generated/vars_flags.h"
+#include "res/text/bank/special_met_location_names.h"
 
 #include "inlines.h"
 #include "math_util.h"
+#include "pc_boxes.h"
+#include "pokedex.h"
+#include "pokemon.h"
 #include "savedata.h"
+#include "savedata/save_table.h"
 #include "trainer_info.h"
+#include "unk_02017038.h"
 #include "vars_flags.h"
 
 // Sovereign Complete: the phone's save (include/complete_phone.h), which the main module keeps so the save can set it
@@ -81,6 +88,61 @@ void CompletePhone_SetCallTrigger(SaveData *saveData, u8 trigger, BOOL soon)
     if (soon && sMinutesSinceCall < 9) {
         sMinutesSinceCall = 9;
     }
+}
+
+// HeartGold's sub_02093070 and sub_020930C4, after a wild battle (src/encounter.c): Bill calls once, when the boxes
+// are full, and Oak each time the National Pokédex's caught count reaches another 50 (up to 450) he hasn't rated
+void CompletePhone_AfterWildBattle(SaveData *saveData)
+{
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
+
+    if (CompletePhone_IsRegistered(saveData, PHONE_CONTACT_BILL)
+        && !VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_SYS_GOT_BILL_PC_FULL_CALL)
+        && PCBoxes_FirstEmptyBox(SaveData_GetPCBoxes(saveData)) == MAX_PC_BOXES) {
+        CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_BILL_PC_FULL, TRUE);
+    }
+
+    int fifties = Pokedex_CountCaught_National(SaveData_GetPokedex(saveData)) / 50;
+
+    if (CompletePhone_IsRegistered(saveData, PHONE_CONTACT_PROF__OAK) && fifties > 0
+        && !VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION + (fifties > 9 ? 9 : fifties))) {
+        CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_OAK_DEX_PROGRESS, FALSE);
+    }
+}
+
+// HeartGold's sub_02093134 and MonIsFromTogepiEgg, as an Egg hatches (src/egg_hatch.c): Elm's Togepi Egg, the only
+// Egg from Mr. Pokémon (CompleteScrCmd_GiveTogepiEgg), hatched with the player as its trainer. Elm calls, and has
+// something for the player at the lab (FLAG_HGSS_SYS_HATCHED_TOGEPI_EGG). HeartGold tells it by the personality and
+// gender it saved with the gift.
+void CompletePhone_EggHatched(SaveData *saveData, Pokemon *mon)
+{
+    TrainerInfo *trainerInfo = SaveData_GetTrainerInfo(saveData);
+    u16 species = Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL);
+
+    if ((species != SPECIES_TOGEPI && species != SPECIES_TOGETIC && species != SPECIES_TOGEKISS)
+        || Pokemon_GetValue(mon, MON_DATA_EGG_LOCATION, NULL) != SpecialMetLoc_GetId(1, SPECIAL_METLOC_NAME_MR_POKEMON)
+        || Pokemon_GetValue(mon, MON_DATA_OT_ID, NULL) != TrainerInfo_ID(trainerInfo)
+        || Pokemon_GetValue(mon, MON_DATA_OT_GENDER, NULL) != TrainerInfo_Gender(trainerInfo)) {
+        return;
+    }
+
+    CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_ELM_EGG_HATCHED, TRUE);
+    VarsFlags_SetFlag(SaveData_GetVarsFlags(saveData), FLAG_HGSS_SYS_HATCHED_TOGEPI_EGG);
+}
+
+// HeartGold's sub_0209316C, as the Day-Care finds an Egg (src/overlay005/daycare.c): the Day-Care Man calls about it,
+// the first time, and after that if the player asked him to (FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS)
+void CompletePhone_DaycareHasEgg(SaveData *saveData)
+{
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
+
+    if (!CompletePhone_IsRegistered(saveData, PHONE_CONTACT_DAY_C_MAN)
+        || (VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_SYS_TRIGGER_EGG_CALL)
+            && !VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS))) {
+        return;
+    }
+
+    CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_DAYCARE_HAS_EGG, TRUE);
 }
 
 // HeartGold's sub_02092E34, as the field's clock moves on (src/unk_020559DC.c): the first time is the time away from

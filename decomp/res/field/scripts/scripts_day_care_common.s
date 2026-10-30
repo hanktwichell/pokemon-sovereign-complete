@@ -25,6 +25,8 @@ DayCareCommon_Man:
     End
 
 DayCareCommon_ManEggWaiting:
+    // Sovereign Complete: his call about the Egg is called off, as in HeartGold (its Day-Care Man, scr_seq_0265)
+    CompletePhoneClearCallTrigger CALL_TRIGGER_DAYCARE_HAS_EGG
     Message DayCareCommon_Text_PokemonHoldingEggYouWantIt
     ShowYesNoMenu VAR_RESULT
     GoToIfEq VAR_RESULT, MENU_YES, DayCareCommon_TryGiveEgg

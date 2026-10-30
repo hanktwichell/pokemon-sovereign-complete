@@ -114,7 +114,9 @@ def cases():
     encounters = {}
     for name, block in re.findall(r'\[(MAP_HEADER_\w+)\] = \{(.*?)\n    \},', headers, re.S):
         archive = dict(re.findall(r'\.(\w+) = (\w+)', block)).get('wildEncountersArchiveID')
-        if archive and archive.startswith('encounters_'):
+        # Sovereign Complete: Johto's and Kanto's tables are HeartGold's, in their own format
+        # (tools/complete/test_hgss_encounters.py)
+        if archive and archive.startswith('encounters_') and not archive.startswith('encounters_hgss_'):
             encounters[name] = archive
     zones = park_zones()
     out = []

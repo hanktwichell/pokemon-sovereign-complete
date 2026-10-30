@@ -53,6 +53,7 @@
 #include "unk_020528D0.h"
 #include "vars_flags.h"
 #include "complete_bug_contest.h" // Sovereign Complete
+#include "complete_phone.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 
 #include "data/sovereign_totem_trials.h"
@@ -239,6 +240,7 @@ static BOOL FieldTask_Encounter(FieldTask *task)
             || encounter->dto->battleType == BATTLE_TYPE_ROAMER
             || encounter->dto->battleType == BATTLE_TYPE_AI_PARTNER) {
             FieldSystem_SaveTVSegment_CatchThatPokemonShow(fieldSystem, encounter->dto->captureAttempt, encounter->dto->resultMask);
+            CompletePhone_AfterWildBattle(fieldSystem->saveData); // Sovereign Complete: Bill's and Oak's calls
         }
 
         if (CheckPlayerWonEncounter(encounter) == FALSE) {
@@ -445,6 +447,7 @@ static BOOL FieldTask_WildEncounter(FieldTask *task)
     case 3:
         UpdateFieldSystemFromDTO(encounter->dto, fieldSystem);
         FieldSystem_SaveTVSegment_CatchThatPokemonShow(fieldSystem, encounter->dto->captureAttempt, encounter->dto->resultMask);
+        CompletePhone_AfterWildBattle(fieldSystem->saveData); // Sovereign Complete: Bill's and Oak's calls
 
         if (CheckPlayerWonBattle(encounter->dto->resultMask) == 0) {
             FreeWildEncounter(encounter);
@@ -616,6 +619,7 @@ static BOOL FieldTask_SafariEncounter(FieldTask *task)
             Pokemon *caughtMon = Party_GetPokemonBySlotIndex(encounter->dto->parties[1], 0);
 
             TVBroadcast_UpdateSafariGameData(broadcast, caughtMon);
+            CompletePhone_AfterWildBattle(fieldSystem->saveData); // Sovereign Complete: Bill's and Oak's calls
         }
 
         UpdateGameRecords(fieldSystem, encounter->dto);

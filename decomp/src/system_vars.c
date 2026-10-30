@@ -569,6 +569,24 @@ void SystemVars_SetRoamingSpeciesState(VarsFlags *varsFlags, u16 species, u16 st
     case SPECIES_SPECTRIER:
         TrySetVarToValue(varsFlags, VAR_ROAMING_SPECTRIER_STATE, state);
         break;
+
+    // Sovereign Complete: HeartGold's roamers, in its status vars (caught 1, knocked out 2, numbered as these states
+    // are), which its Hall of Fame reads to set a knocked-out one roaming again (scripts_hgss_0825)
+    case SPECIES_RAIKOU:
+        TrySetVarToValue(varsFlags, VAR_HGSS_ROAMER_RAIKOU_STATUS, state);
+        break;
+
+    case SPECIES_ENTEI:
+        TrySetVarToValue(varsFlags, VAR_HGSS_ROAMER_ENTEI_STATUS, state);
+        break;
+
+    case SPECIES_LATIAS:
+        TrySetVarToValue(varsFlags, VAR_HGSS_ROAMER_LATIAS_STATUS, state);
+        break;
+
+    case SPECIES_LATIOS:
+        TrySetVarToValue(varsFlags, VAR_HGSS_ROAMER_LATIOS_STATUS, state);
+        break;
     }
 }
 

@@ -14,7 +14,12 @@ RoamingPokemon_ActivateSlot as the script command does) and reads each slot as t
   encounters, no battle) with the roamers in it (gSovereignTestSurveyRoamers): about half the encounters must be a
   roamer on the route (between MEET_SHARE of them), each that roamer itself (its species, level and personality), and
   no roamer from elsewhere. It flies until each has been met in MEET_TIMES surveys (at most FLIGHTS_MAX flights).
-Battles, catching and walking are tools/test/roamers.py's, the same code for every slot.
+- **Battles:** it flies on until it has battled each once, as tools/test/roamers.py does (a survey that starts a
+  battle with the first roamer it meets; god mode): one slower than the test party's lead is knocked out on its first
+  turn, and a faster one flees (Platinum's roamers' AI). Afterwards its status var
+  (VAR_HGSS_ROAMER_<NAME>_STATUS, read through gSovereignTestWatch) must say so: 2 and no longer roaming when knocked
+  out (HeartGold's Hall of Fame sets it roaming again), 0 and still roaming when it fled.
+Catching and walking are tools/test/roamers.py's, the same code for every slot.
 
 From the repo root, with the test build and a bedroom state (tools/test/new_game.sh):
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_roamers.py \\
@@ -26,11 +31,14 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from roamers import FLIGHTS_MAX, MEET_SHARE, MEET_TIMES, read_roamers, routes, slot_names, slot_species  # noqa: E402
-from talk_to_objects import HOUR, SYMBOLS, header_names, symbols, warp  # noqa: E402
+from roamers import (FLIGHTS_MAX, MEET_SHARE, MEET_TIMES, ROAMER_STATE_DEFEATED, ROAMER_STATE_ROAMING,  # noqa: E402
+                     SURVEY_ROAMERS_BATTLE, read_roamers, routes, slot_names, slot_species)
+from talk_to_objects import FRAME_LIMIT, HOUR, SYMBOLS, header_names, play_out, symbols, var_ids, warp  # noqa: E402
 from test_hgss_encounters import cases  # noqa: E402
 from wild_forms import MON_SIZE, SURVEY, TERRAINS, run_survey, species_names  # noqa: E402
 
+# Roaming routes with no wild Pokémon, where a roamer is never met, in HeartGold too (its ENCDATA_NA)
+NO_WILD = {'MAP_HEADER_HGSS_ROUTE_16'}
 REGIONS = {'ROAMING_SLOT_RAIKOU': 'johto', 'ROAMING_SLOT_ENTEI': 'johto',
            'ROAMING_SLOT_LATIAS': 'kanto', 'ROAMING_SLOT_LATIOS': 'kanto'}
 
@@ -41,7 +49,7 @@ def main():
     rom, state, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('gSovereignTestWildSurvey', 'gSovereignTestRoamers', 'gSovereignTestRoamerRelease',
-                             'gSovereignTestSurveyRoamers'))
+                             'gSovereignTestSurveyRoamers', 'gSovereignTestWatch'))
     names, ids, species = slot_names(), header_names(), species_names()
     expected = slot_species()
     slots = [names.index(s) for s in REGIONS]
@@ -76,7 +84,7 @@ def main():
         def where(map_id):
             return ids[map_id][len('MAP_HEADER_'):].lower() if map_id < len(ids) else hex(map_id)
 
-        missing = [h for h in route_headers[johto_start:] if h not in places]
+        missing = [h for h in route_headers[johto_start:] if h not in places and h not in NO_WILD]
         if missing:
             say(f'NOPLACE: no tile on {missing}', True)
 
@@ -107,10 +115,11 @@ def main():
         say(f'release: {", ".join(f"{name(s)} on {where(roamers[s][0])}" for s in slots)}')
 
         flight = {'flown': 0, 'moves': 0, 'left': header_id}
-        met = {slot: 0 for slot in slots}
-        surveys = 0
-        while flight['flown'] < FLIGHTS_MAX and min(met.values()) < MEET_TIMES:
-            # The next route: each in turn, spread out (7 is prime to the 41 routes)
+
+        def fly():
+            """The next flight, to each route in turn, spread out (7 is prime to the 41 routes): every roamer still
+            roaming must move to another route of its region. Returns (the route's header ID, its terrain, the
+            roamers), or None if the warp failed."""
             header = flights[(flight['flown'] * 7 + 1) % len(flights)]
             header_id, (x, z), terrain = places[header]
             if header_id == flight['left']:
@@ -121,17 +130,27 @@ def main():
             flight['flown'] += 1
             if result != 'ok':
                 say(f'flight {flight["flown"]} to {header}: {result} {frames}', True)
-                break
+                return None
             roamers = read_roamers(d, sym)
             for slot in slots:
                 old, new = before[slot][0], roamers[slot][0]
+                if not old:
+                    continue  # no longer roaming (knocked out)
                 flight['moves'] += 1
                 if region_of.get(new) != REGIONS[names[slot]] or route_ids[roamers[slot][1]] != new or new == old \
                         or new == flight['left']:
                     say(f'flight {flight["flown"]} to {where(header_id)} from {where(flight["left"])}: {name(slot)} '
                         f'went from {where(old)} to {where(new)} (route {roamers[slot][1]})', True)
             flight['left'] = header_id
+            return header_id, terrain, roamers
 
+        met = {slot: 0 for slot in slots}
+        surveys = 0
+        while flight['flown'] < FLIGHTS_MAX and min(met.values()) < MEET_TIMES:
+            flown = fly()
+            if not flown:
+                break
+            header_id, terrain, roamers = flown
             here = [slot for slot in slots if roamers[slot][0] == header_id]
             if not here:
                 continue
@@ -161,6 +180,46 @@ def main():
         for slot in slots:
             if met[slot] < MEET_TIMES:
                 say(f'meeting: {name(slot)} met in {met[slot]} surveys in {flight["flown"]} flights', True)
+
+        # Battles: each roamer once, then its status var
+        variables = var_ids()
+        watch = sym['gSovereignTestWatch']
+        for i, slot in enumerate(slots):  # struct SovereignTestWatch: var, value
+            mem.write_short(watch + 4 * i, variables[f'VAR_HGSS_ROAMER_{name(slot).upper()}_STATUS'])
+
+        def status_of(slot):
+            at = watch + 4 * slots.index(slot) + 2
+            return struct.unpack('<H', bytes(mem.unsigned[at:at + 2]))[0]
+
+        battled = {}
+        limit = flight['flown'] + FLIGHTS_MAX
+        while len(battled) < len(slots) and flight['flown'] < limit:
+            flown = fly()
+            if not flown:
+                break
+            header_id, terrain, roamers = flown
+            if not any(roamers[slot][0] == header_id for slot in slots if slot not in battled):
+                continue
+            mem.write_byte(sym['gSovereignTestSurveyRoamers'], SURVEY_ROAMERS_BATTLE)
+            count = run_survey(d, survey, terrain_index.index(terrain))
+            mem.write_byte(sym['gSovereignTestSurveyRoamers'], 0)
+            at = survey + SURVEY['mons'] + (count - 1) * MON_SIZE
+            last = struct.unpack('<IHBB', bytes(mem.unsigned[at:at + MON_SIZE])) if count > 0 else None
+            here = {(roamers[s][3], roamers[s][2], roamers[s][5]): s for s in slots if roamers[s][0] == header_id}
+            slot = here.get((last[1], last[3], last[0])) if last else None
+            if slot is None:  # no roamer met in the survey's encounters, so no battle
+                continue
+            result, frames = play_out(d, sym, FRAME_LIMIT, header_id, press_a=False)
+            after, status = read_roamers(d, sym), status_of(slot)
+            fled = after[slot][0] != 0
+            battled[slot] = 'fled' if fled else 'knocked out'
+            ok = status == (ROAMER_STATE_ROAMING if fled else ROAMER_STATE_DEFEATED)
+            if result != 'ok' or not ok:
+                d.screenshot().save(os.path.join(out, f'battle_{name(slot)}.png'))
+                say(f'battle with {name(slot)} on {where(header_id)}: {result} after {frames} frames; '
+                    f'{battled[slot]}, status {status} (screenshot: battle_{name(slot)}.png)', True)
+        say(f'battles: {len(battled)} of {len(slots)} roamers battled: ' +
+            ', '.join(f'{name(s)} {battled[s]}' for s in slots if s in battled), len(battled) < len(slots))
         say(f'{bad} problems')
     sys.exit(1 if bad else 0)
 
