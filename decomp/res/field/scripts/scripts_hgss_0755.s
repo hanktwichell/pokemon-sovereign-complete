@@ -43,7 +43,7 @@ scr_seq_T03R0101_014:
     CheckItem ITEM_ENIGMA_STONE, 1, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _03AB
-    @ HGSS: ScrCmd_546 0, VAR_TEMP_x4000
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _03AB
     SetVarFromValue VAR_HGSS_UNK_4083, 1
@@ -114,7 +114,7 @@ scr_seq_T03R0101_016:
     CheckItem ITEM_ENIGMA_STONE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _065E
-    @ HGSS: ScrCmd_546 0, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _065E
     ApplyMovement obj_T03R0101_daigo, _0D53

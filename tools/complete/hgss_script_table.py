@@ -458,6 +458,9 @@ COMMANDS = {
     # Whether a party Pokémon is a distributed event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, checked
     # by its met data): Sacred Gold gives these through its own events (the Azure Flute, the Plates), so none is.
     'FollowerPokeIsEventTrigger': one('SetVarFromValue {2}, 0'),
+    # Whether a Mystery Gift event has unlocked an encounter (0: the Enigma Stone's, for Pewter City's Latios or Latias):
+    # none ever arrives, and Sacred Gold gives the second Lati at Vermilion City's plaque instead, so it hasn't.
+    'ScrCmd_546': one('SetVarFromValue {1}, 0'),
     'GiveBadge': lambda a: [],  # (Platinum's GiveBadge would give a Sinnoh badge)
     # Menus. HeartGold's take x, y, cursor, can-cancel, result var; Platinum's macros list the var before can-cancel
     # (the bytes are in the same order). An entry's middle argument is its help text (255: none), which Platinum's

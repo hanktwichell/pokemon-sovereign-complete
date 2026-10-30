@@ -129,7 +129,7 @@ scr_seq_T03_010:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_546 0, VAR_TEMP_x4000
+    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _048C
     SetVarFromValue VAR_RESULT, 7
