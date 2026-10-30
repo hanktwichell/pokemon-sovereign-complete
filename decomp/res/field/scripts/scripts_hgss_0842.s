@@ -33,7 +33,7 @@
     ScriptEntry scr_seq_T20_017
     ScriptEntryEnd
 scr_seq_T20_006:
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     GoToIfUnset FLAG_HGSS_UNK_189, _0A05
     ClearFlag FLAG_HGSS_UNK_189
     End
@@ -925,7 +925,7 @@ _114F:
     ApplyMovement LOCALID_PLAYER, _18D8
     WaitMovement
     Message msg_0542_T20_00018
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PROF__ELM
+    CompletePhoneRegister PHONE_CONTACT_PROF__ELM
     BufferPlayerName 0
     Message msg_0542_T20_00019
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
@@ -941,7 +941,7 @@ _114F:
 _11AF:
     WaitMovement
     Message msg_0542_T20_00018
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PROF__ELM
+    CompletePhoneRegister PHONE_CONTACT_PROF__ELM
     BufferPlayerName 0
     Message msg_0542_T20_00019
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq

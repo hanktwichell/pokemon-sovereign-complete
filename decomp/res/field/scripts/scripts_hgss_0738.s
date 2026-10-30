@@ -20,7 +20,7 @@ _001F:
     ReleaseAll
     End
 _003B:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BLUE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BLUE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _001F
     GoTo _015D
@@ -101,7 +101,7 @@ _016D:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _019D
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLUE
+    CompletePhoneRegister PHONE_CONTACT_BLUE
     BufferPlayerName 0
     Message msg_0449_T01R0201_00009
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq

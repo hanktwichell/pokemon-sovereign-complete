@@ -21,7 +21,10 @@ scr_seq_T28_005:
     CompareVar VAR_HGSS_UNK_40F8, 0
     GoToIf 5, _01BB
     SetVarFromValue VAR_HGSS_UNK_40F8, 2
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 2
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 2
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_MIDGAME_BADGES, 5
     End
 scr_seq_T28_000:
@@ -102,7 +105,10 @@ scr_seq_T28_009:
     BufferPlayerName 0
     End
 _01BB:
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 2
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 2
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_MIDGAME_BADGES, 5
     End
 _01D9:

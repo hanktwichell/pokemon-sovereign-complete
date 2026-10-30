@@ -47,6 +47,7 @@ enum SaveTableEntryID {
     SAVE_TABLE_ENTRY_EMAIL,
     SAVE_TABLE_ENTRY_WIFI_PLAZA_QUESTIONS,
     SAVE_TABLE_ENTRY_COMPLETE_SAFARI, // Sovereign Complete: the Johto Safari Zone (src/complete_safari.c)
+    SAVE_TABLE_ENTRY_COMPLETE_PHONE, // Sovereign Complete: the Pokégear phone (src/complete_phone.c)
     SAVE_TABLE_ENTRY_PC_BOXES,
 
     SAVE_TABLE_ENTRY_MAX

@@ -117,6 +117,7 @@
 #include "complete_apricorns.h" // Sovereign Complete: Kurt's Apricorn Balls
 #include "complete_bug_contest.h" // Sovereign Complete: the Bug-Catching Contest
 #include "complete_safari.h" // Sovereign Complete: the Johto Safari Zone
+#include "complete_phone.h" // Sovereign Complete: the Pokégear phone
 #include "complete_gyms.h" // Sovereign Complete: HeartGold's gym puzzles
 #include "field_system.h"
 #include "field_task.h"

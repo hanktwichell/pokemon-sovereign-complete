@@ -535,7 +535,7 @@ _083A:
     ReleaseAll
     End
 _085E:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CHUCK, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_CHUCK, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0805
     GetDayOfWeek VAR_MAP_LOCAL_0x02

@@ -10,11 +10,11 @@
     ScriptEntry scr_seq_T25GYM0101_004
     ScriptEntryEnd
 scr_seq_T25GYM0101_004:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_WHITNEY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0184
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _018A
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_WHITNEY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0190
     GetHour VAR_MAP_LOCAL_0x00
@@ -142,7 +142,7 @@ _01DA:
     Message msg_0582_T25GYM0101_00015
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
+    CompletePhoneRegister PHONE_CONTACT_WHITNEY
     WaitButton
     CloseMessage
     SetFlag FLAG_HGSS_GOT_TM45_FROM_WHITNEY

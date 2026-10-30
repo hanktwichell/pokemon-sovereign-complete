@@ -149,7 +149,7 @@ _021B:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0401
     Message msg_0396_R39_00006
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BAOBA
+    CompletePhoneRegister PHONE_CONTACT_BAOBA
     BufferPlayerName 0
     Message msg_0396_R39_00008
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
@@ -253,7 +253,7 @@ _03A3:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0401
     Message msg_0396_R39_00006
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BAOBA
+    CompletePhoneRegister PHONE_CONTACT_BAOBA
     BufferPlayerName 0
     Message msg_0396_R39_00008
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
@@ -318,7 +318,7 @@ _04AE:
 _04D1:
     SetFlag FLAG_HGSS_UNK_226
     GoToIfUnset FLAG_HGSS_TRADE_LT_SURGE_PIKACHU, _0661
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0661
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -328,7 +328,7 @@ _04D1:
     GoTo _067E
 _050E:
     GoToIfUnset FLAG_HGSS_TRADE_LT_SURGE_PIKACHU, _0661
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0661
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -338,7 +338,7 @@ _050E:
     GoTo _067E
 _0547:
     Message msg_0396_R39_00006
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BAOBA
+    CompletePhoneRegister PHONE_CONTACT_BAOBA
     BufferPlayerName 0
     Message msg_0396_R39_00008
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq

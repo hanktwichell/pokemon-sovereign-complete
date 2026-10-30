@@ -23,10 +23,10 @@
     ScriptEntryEnd
 scr_seq_D11R0106_009:
     GoToIfSet FLAG_HGSS_SG_3FB6, _039B
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _039D
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _03A3
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
@@ -270,7 +270,7 @@ _041F:
     Message msg_0053_D11R0106_00028
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLAINE
+    CompletePhoneRegister PHONE_CONTACT_BLAINE
     WaitButton
     CloseMessage
     ReleaseAll

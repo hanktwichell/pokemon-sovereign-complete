@@ -12,7 +12,7 @@
 scr_seq_T02GYM0101_002:
     @ HGSS: ViridianGymInit
     SetVarFromValue VAR_HGSS_UNK_4127, 0
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BLUE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BLUE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _017E
     CompareVar VAR_HGSS_UNK_40FD, 0
@@ -128,7 +128,7 @@ _01AE:
     Message msg_0454_T02GYM0101_00012
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLUE
+    CompletePhoneRegister PHONE_CONTACT_BLUE
     WaitButton
     CloseMessage
     ReleaseAll

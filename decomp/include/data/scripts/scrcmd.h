@@ -941,6 +941,20 @@ ScriptCommand(SCRCMD_COMPLETEPARTYMONISNOTMINE,                         Complete
 ScriptCommand(SCRCMD_COMPLETEGETEVTOTAL,                                CompleteScrCmd_GetEVTotal)
 ScriptCommand(SCRCMD_COMPLETECHECKSEENALLUNOWNLETTERS,                  CompleteScrCmd_CheckSeenAllUnownLetters)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERPLACE,                             CompleteScrCmd_FollowerPlace)
+ScriptCommand(SCRCMD_COMPLETEPHONEREGISTER,                            CompleteScrCmd_PhoneRegister)
+ScriptCommand(SCRCMD_COMPLETEPHONECHECKREGISTERED,                     CompleteScrCmd_PhoneCheckRegistered)
+ScriptCommand(SCRCMD_COMPLETEPHONEGETREMATCH,                          CompleteScrCmd_PhoneGetRematch)
+ScriptCommand(SCRCMD_COMPLETEPHONEENDREMATCH,                          CompleteScrCmd_PhoneEndRematch)
+ScriptCommand(SCRCMD_COMPLETEPHONELOADCONTACT,                         CompleteScrCmd_PhoneLoadContact)
+ScriptCommand(SCRCMD_COMPLETEPHONECONTACTMESSAGE,                      CompleteScrCmd_PhoneContactMessage)
+ScriptCommand(SCRCMD_COMPLETEPHONETAKEGIFT,                            CompleteScrCmd_PhoneTakeGift)
+ScriptCommand(SCRCMD_COMPLETEPHONEREMATCHGIFT,                         CompleteScrCmd_PhoneRematchGift)
+ScriptCommand(SCRCMD_COMPLETEPHONECALLSTART,                           CompleteScrCmd_PhoneCallStart)
+ScriptCommand(SCRCMD_COMPLETEPHONECALLMESSAGE,                         CompleteScrCmd_PhoneCallMessage)
+ScriptCommand(SCRCMD_COMPLETEPHONECALLANSWER,                          CompleteScrCmd_PhoneCallAnswer)
+ScriptCommand(SCRCMD_COMPLETEPHONECALLEND,                             CompleteScrCmd_PhoneCallEnd)
+ScriptCommand(SCRCMD_COMPLETEPHONESETCALLTRIGGER,                      CompleteScrCmd_PhoneSetCallTrigger)
+ScriptCommand(SCRCMD_COMPLETEGETFRIENDSPRITE,                          CompleteScrCmd_GetFriendSprite)
 
 // clang-format on
 

@@ -3,6 +3,8 @@
 #include "generated/trainer_message_types.h"
 #include "constants/approach_type.h"
 #include "res/trainers/trainer_scripts.h"
+#include "generated/text_banks.h"
+#include "constants/menu.h"
 
 
 Battles_Trainer:
@@ -38,10 +40,14 @@ Battles_DoTrainerBattle:
     CheckWonBattle VAR_RESULT
     GoToIfEq VAR_RESULT, FALSE, Battles_LostBattle
     SetTrainerFlag VAR_0x8004
+    Call Battles_CompletePhoneAfterBattle // Sovereign Complete: HeartGold's phone trainers
     ReleaseAll
     End
 
 Battles_TryRematch:
+    Call Battles_CompletePhoneDefeated // Sovereign Complete: HeartGold's phone trainers
+    GoToIfEq VAR_RESULT, 0xFFFF, Battles_CompletePhoneDone
+    GoToIfNe VAR_RESULT, TRAINER_NONE, Battles_Rematch
     GetRematchTrainerID VAR_0x8004, VAR_RESULT
     GoToIfNe VAR_RESULT, TRAINER_NONE, Battles_Rematch
     GoTo Battles_PostBattleMessage
@@ -145,6 +151,7 @@ Battles_ApproachingTrainerSingles:
     GetApproachingTrainerID 0, VAR_RESULT
     SetVar VAR_0x8004, VAR_RESULT
     SetTrainerFlag VAR_0x8004
+    Call Battles_CompletePhoneAfterBattle // Sovereign Complete: HeartGold's phone trainers
     ReleaseAll
     End
 
@@ -179,6 +186,7 @@ Battles_ApproachingTrainerDoubles:
     GetApproachingTrainerID 1, VAR_RESULT
     SetVar VAR_0x8005, VAR_RESULT
     SetTrainerFlag VAR_0x8005
+    Call Battles_CompletePhoneAfterDoubleBattle // Sovereign Complete: HeartGold's phone trainers
     ReleaseAll
     End
 
@@ -219,6 +227,7 @@ Battles_ApproachingTrainerVS2:
     GetApproachingTrainerID 1, VAR_RESULT
     SetVar VAR_0x8005, VAR_RESULT
     SetTrainerFlag VAR_0x8005
+    Call Battles_CompletePhoneAfterDoubleBattle // Sovereign Complete: HeartGold's phone trainers
     ReleaseAll
     End
 
@@ -233,3 +242,94 @@ Battles_WaitTrainer1VS2TaskDone:
     Return
 
     .balign 4, 0
+
+// Sovereign Complete: HeartGold's phone trainers (its scr_seq_0953; src/overlay006/complete_phone_calls.c). A trainer
+// with a Pokégear number asks for the player's after the first battle; when talked to after that, they battle again if
+// a call asked for a rematch, hand over a gift a call promised, or ask for the number again. A rematch won ends the
+// rematch, and some of them give an item for it. VAR_0x8006 holds the contact.
+Battles_CompletePhoneDefeated:
+    SetVar VAR_RESULT, TRAINER_NONE
+    CompletePhoneLoadContact VAR_0x8004, VAR_0x8006
+    GoToIfEq VAR_0x8006, PHONE_CONTACT_NONE, Battles_CompletePhoneReturn
+    CompletePhoneGetRematch VAR_0x8006, VAR_RESULT
+    GoToIfNe VAR_RESULT, TRAINER_NONE, Battles_CompletePhoneReturn
+    CompletePhoneTakeGift VAR_0x8006, VAR_0x8005
+    GoToIfNe VAR_0x8005, ITEM_NONE, Battles_CompletePhoneGiveGift
+    CompletePhoneCheckRegistered VAR_0x8006, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, Battles_CompletePhoneAskAgain
+    SetVar VAR_RESULT, TRAINER_NONE
+    Return
+
+Battles_CompletePhoneAfterDoubleBattle:
+    CompletePhoneLoadContact VAR_0x8004, VAR_0x8006
+    GoToIfNe VAR_0x8006, PHONE_CONTACT_NONE, Battles_CompletePhoneAfterBattleContact
+    CompletePhoneLoadContact VAR_0x8005, VAR_0x8006
+    GoToIfNe VAR_0x8006, PHONE_CONTACT_NONE, Battles_CompletePhoneAfterBattleContact
+    Return
+
+Battles_CompletePhoneAfterBattle:
+    CompletePhoneLoadContact VAR_0x8004, VAR_0x8006
+    GoToIfEq VAR_0x8006, PHONE_CONTACT_NONE, Battles_CompletePhoneReturn
+Battles_CompletePhoneAfterBattleContact:
+    CompletePhoneGetRematch VAR_0x8006, VAR_RESULT
+    GoToIfNe VAR_RESULT, TRAINER_NONE, Battles_CompletePhoneAfterRematch
+    CompletePhoneCheckRegistered VAR_0x8006, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, Battles_CompletePhoneAskFirst
+    Return
+
+Battles_CompletePhoneAfterRematch:
+    CompletePhoneEndRematch VAR_0x8006
+    CompletePhoneRematchGift VAR_0x8006, VAR_0x8005
+    GoToIfNe VAR_0x8005, ITEM_NONE, Battles_CompletePhoneGiveGift
+    Return
+
+Battles_CompletePhoneGiveGift:
+    CompletePhoneContactMessage VAR_0x8006, 4, VAR_0x8000, VAR_0x8001
+    BufferPlayerName 0
+    MessageFromBank VAR_0x8000, VAR_0x8001
+    SetVar VAR_0x8004, VAR_0x8005
+    SetVar VAR_0x8005, 1
+    GoToIfCannotFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT, Battles_CompletePhoneBagIsFull
+    Common_GiveItemQuantityNoLineFeed
+    GoTo Battles_CompletePhoneGiftEnd
+
+Battles_CompletePhoneBagIsFull:
+    Common_MessageBagIsFull
+Battles_CompletePhoneGiftEnd:
+    CloseMessage
+    SetVar VAR_RESULT, 0xFFFF
+    Return
+
+Battles_CompletePhoneAskFirst:
+    CompletePhoneContactMessage VAR_0x8006, 0, VAR_0x8000, VAR_0x8001
+    GoTo Battles_CompletePhoneAsk
+
+Battles_CompletePhoneAskAgain:
+    CompletePhoneContactMessage VAR_0x8006, 3, VAR_0x8000, VAR_0x8001
+Battles_CompletePhoneAsk:
+    BufferPlayerName 0
+    MessageFromBank VAR_0x8000, VAR_0x8001
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, Battles_CompletePhoneDeclined
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
+    WaitFanfare
+    MessageFromBank TEXT_BANK_HGSS_MSG_0040, 101
+    CompletePhoneRegister VAR_0x8006
+    CompletePhoneContactMessage VAR_0x8006, 1, VAR_0x8000, VAR_0x8001
+    GoTo Battles_CompletePhoneAnswer
+
+Battles_CompletePhoneDeclined:
+    CompletePhoneContactMessage VAR_0x8006, 2, VAR_0x8000, VAR_0x8001
+Battles_CompletePhoneAnswer:
+    MessageFromBank VAR_0x8000, VAR_0x8001
+    WaitButton
+    CloseMessage
+    SetVar VAR_RESULT, 0xFFFF
+    Return
+
+Battles_CompletePhoneReturn:
+    Return
+
+Battles_CompletePhoneDone:
+    ReleaseAll
+    End

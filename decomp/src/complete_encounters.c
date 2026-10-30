@@ -4,11 +4,13 @@
 #include <string.h>
 
 #include "constants/narc.h"
+#include "generated/species.h"
 #include "generated/time_of_day.h"
 
 #include "field/field_system.h"
 
 #include "complete_map_info.h"
+#include "inlines.h"
 #include "location.h"
 #include "map_header.h"
 #include "narc.h"
@@ -155,4 +157,20 @@ u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species
     *minLevel = sTable.rockSmash[slot].levelMin;
     *maxLevel = sTable.rockSmash[slot].levelMax;
     return *species != 0 ? sTable.rockSmashRate : 0;
+}
+
+u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing, int time)
+{
+    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+        return SPECIES_RATTATA;
+    }
+
+    Read(mapHeaderID);
+
+    if (fishing) {
+        int slot = LCRNG_RandMod(5);
+        return slot == 3 && time == HGSS_NIGHT ? sTable.nightFishing : sTable.goodRod[slot].species;
+    }
+
+    return sTable.landSpecies[time][LCRNG_RandMod(HGSS_LAND_SLOTS)];
 }

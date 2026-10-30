@@ -20,7 +20,7 @@
     ScriptEntry scr_seq_T07R0203_013
     ScriptEntryEnd
 scr_seq_T07R0203_008:
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     SetVarFromValue VAR_HGSS_UNK_4125, 0
     End
 scr_seq_T07R0203_011:

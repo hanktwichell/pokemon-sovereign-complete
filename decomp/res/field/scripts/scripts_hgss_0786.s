@@ -7,10 +7,10 @@
     ScriptEntry scr_seq_T07GYM0101_002
     ScriptEntryEnd
 scr_seq_T07GYM0101_002:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00E9
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00EF
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
@@ -98,7 +98,7 @@ _0143:
     Message msg_0492_T07GYM0101_00008
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_ERIKA
+    CompletePhoneRegister PHONE_CONTACT_ERIKA
     WaitButton
     CloseMessage
     ReleaseAll

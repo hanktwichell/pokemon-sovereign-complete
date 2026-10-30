@@ -546,6 +546,17 @@ COMMANDS = {
     'FollowingPokemonMovement': lambda a: [f'CompleteFollowerSetMovementType {FOLLOWER_MOVEMENT_TYPES[int(a[0])]}'],
     'ScrCmd_729': one('CompleteFollowerCheckActive {0}'),
     'ScrCmd_605': one('CompleteFollowerPlace {0}, {1}'),
+    # The Pokégear phone's book and rematches (src/overlay006/complete_phone_calls.c): HeartGold's commands, with the
+    # contact named where HeartGold's takes the one LoadPhoneDat loaded
+    'RegisterGearNumber': one('CompletePhoneRegister {0}'),
+    'CheckRegisteredPhoneNumber': one('CompletePhoneCheckRegistered {0}, {1}'),
+    'GetPhoneBookRematch': one('CompletePhoneGetRematch {0}, {1}'),
+    'ScrCmd_462': one('CompletePhoneEndRematch {0}'),
+    # A call from a map script (HeartGold's PhoneCall macro, std_phone_call), and a call trigger set
+    'PhoneCall': lambda a: [f'SetVar VAR_0x8004, {a[0]}', f'SetVar VAR_0x8005, {a[1]}', f'SetVar VAR_0x8006, {a[2]}',
+                            'CallCommonScript 0x813'],
+    'ScrCmd_148': one('CompletePhoneSetCallTrigger {0}, {1}'),
+    'GetFriendSprite': one('CompleteGetFriendSprite {0}'),  # Lyra's or Ethan's look, by the player's gender
     'ScrCmd_608': lambda a: [],  # the follower's ball effect as it comes out, not ported
     'ScrCmd_596': one('CompleteFollowerIsTooTall {0}'),
     'ScrCmd_723': boat_cutscene,

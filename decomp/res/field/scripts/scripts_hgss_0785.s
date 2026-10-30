@@ -45,7 +45,7 @@ _007A:
 _0091:
     SetFlag FLAG_HGSS_HIDE_CAMERON
 _0095:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _015E
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
@@ -92,7 +92,7 @@ _0156:
 _015C:
     End
 _015E:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0198
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -187,7 +187,7 @@ scr_seq_T07_014:
     Common_HandleSignpostInput
     End
 scr_seq_T07_016:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _046C
     CompareVar VAR_MAP_LOCAL_0x05, 2
@@ -260,7 +260,7 @@ _03E2:
     Message msg_0491_T07_00020
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_ERIKA
+    CompletePhoneRegister PHONE_CONTACT_ERIKA
     Message msg_0491_T07_00021
     WaitButton
     CloseMessage

@@ -238,6 +238,7 @@ Static main
 	Object src/complete_apricorns.c
 	Object src/complete_bug_contest.c
 	Object src/complete_safari.c
+	Object src/complete_phone.c
 	Object src/complete_sound.c
 	Object src/complete_rival.c
 	Object src/complete_badges.c
@@ -577,6 +578,7 @@ Overlay overlay6
 	Object src/overlay006/ov6_0223E140.c
 	Object src/overlay006/wild_encounters.c
 	Object src/overlay006/complete_field_encounters.c
+	Object src/overlay006/complete_phone_calls.c
 	Object src/overlay006/great_marsh_lookout_sprite.c
 	Object src/overlay006/great_marsh_binoculars.c
 	Object src/overlay006/great_marsh_tram.c

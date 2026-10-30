@@ -24,6 +24,7 @@
 #include "generated/roaming_slots.h"
 #include "constants/hgss_spawns.h" // Sovereign Complete: HeartGold's spawn points' warp IDs
 #include "constants/hgss_badges.h" // Sovereign Complete: Johto's and Kanto's badges
+#include "constants/hgss_phone.h" // Sovereign Complete: the Pokégear phone
 #include "constants/complete_field_encounters.h" // Sovereign Complete: Headbutt trees and Rock Smash
 #include "generated/save_types.h"
 #include "res/sound/pl_sound_data.naix"
@@ -5969,6 +5970,87 @@
     .short SCRCMD_COMPLETEFOLLOWERPLACE
     .byte \dir
     .byte \facing
+    .endm
+
+    .macro CompletePhoneRegister contact
+    .short SCRCMD_COMPLETEPHONEREGISTER
+    .short \contact
+    .endm
+
+    .macro CompletePhoneCheckRegistered contact, destVarID
+    .short SCRCMD_COMPLETEPHONECHECKREGISTERED
+    .short \contact
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneGetRematch contact, destVarID
+    .short SCRCMD_COMPLETEPHONEGETREMATCH
+    .short \contact
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneEndRematch contact
+    .short SCRCMD_COMPLETEPHONEENDREMATCH
+    .short \contact
+    .endm
+
+    .macro CompletePhoneLoadContact trainerID, destVarID
+    .short SCRCMD_COMPLETEPHONELOADCONTACT
+    .short \trainerID
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneContactMessage contact, kind, bankVarID, messageVarID
+    .short SCRCMD_COMPLETEPHONECONTACTMESSAGE
+    .short \contact
+    .byte \kind
+    .short \bankVarID
+    .short \messageVarID
+    .endm
+
+    .macro CompletePhoneTakeGift contact, destVarID
+    .short SCRCMD_COMPLETEPHONETAKEGIFT
+    .short \contact
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneRematchGift contact, destVarID
+    .short SCRCMD_COMPLETEPHONEREMATCHGIFT
+    .short \contact
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneCallStart contact, kind, script, destVarID
+    .short SCRCMD_COMPLETEPHONECALLSTART
+    .short \contact
+    .short \kind
+    .short \script
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneCallMessage destVarID
+    .short SCRCMD_COMPLETEPHONECALLMESSAGE
+    .short \destVarID
+    .endm
+
+    .macro CompletePhoneCallAnswer value
+    .short SCRCMD_COMPLETEPHONECALLANSWER
+    .short \value
+    .endm
+
+    .macro CompletePhoneCallEnd
+    .short SCRCMD_COMPLETEPHONECALLEND
+    .endm
+
+    .macro CompletePhoneSetCallTrigger trigger, soon
+    .short SCRCMD_COMPLETEPHONESETCALLTRIGGER
+    .byte \trigger
+    .byte \soon
+    .endm
+
+    .macro CompleteGetFriendSprite destVarID
+    .short SCRCMD_COMPLETEGETFRIENDSPRITE
+    .short \destVarID
     .endm
 
     .text

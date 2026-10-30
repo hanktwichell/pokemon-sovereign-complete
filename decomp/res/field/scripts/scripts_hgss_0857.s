@@ -23,7 +23,10 @@
     ScriptEntryEnd
 scr_seq_T22_000:
     SetFlag FLAG_HGSS_GOT_PICK_UP_EGG_CALL_FROM_ELM
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 1
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 1
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_SCENE_VIOLET_CITY_OW, 2
     ClearFlag FLAG_HGSS_HIDE_VIOLET_SHOP_LAB_AIDE
     SetFlag FLAG_HGSS_HIDE_ELMS_LAB_AIDE
@@ -60,7 +63,7 @@ scr_seq_T22_004:
     WaitMovement
     BufferPlayerName 0
     Message msg_0556_T22_00029
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_FALKNER
+    CompletePhoneRegister PHONE_CONTACT_FALKNER
     BufferPlayerName 0
     Message msg_0556_T22_00030
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq

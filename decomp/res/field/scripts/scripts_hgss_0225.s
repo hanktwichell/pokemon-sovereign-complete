@@ -18,7 +18,7 @@
     ScriptEntry scr_seq_R29_009
     ScriptEntryEnd
 scr_seq_R29_000:
-    @ HGSS: GetFriendSprite VAR_OBJ_1
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_1
     CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _01DA

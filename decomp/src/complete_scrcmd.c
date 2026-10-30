@@ -9,6 +9,7 @@
 #include "constants/narc.h"
 #include "generated/genders.h"
 #include "generated/map_headers.h"
+#include "generated/object_events_gfx.h"
 #include "generated/species.h"
 #include "generated/text_banks.h"
 #include "generated/trainers.h"
@@ -717,4 +718,14 @@ BOOL CompleteScrCmd_ScreenShake(ScriptContext *ctx)
 
     FieldTask_InitCall(ctx->fieldSystem->task, CompleteScreenShake_Task, shake);
     return TRUE;
+}
+
+// HeartGold's GetFriendSprite: the childhood friend's look, the player sprite of the other gender (Platinum's stand in
+// for Ethan's and Lyra's, as the maps' player sprites do: tools/complete/import_hgss_events.py)
+BOOL CompleteScrCmd_GetFriendSprite(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = TrainerInfo_Gender(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData)) == GENDER_MALE ? OBJ_EVENT_GFX_PLAYER_F : OBJ_EVENT_GFX_PLAYER_M;
+    return FALSE;
 }

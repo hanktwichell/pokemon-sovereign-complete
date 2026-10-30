@@ -13,7 +13,7 @@
 scr_seq_T30GYM0101_001:
     CompleteBlackthornGymInit
     SetVarFromValue VAR_HGSS_UNK_4120, 0
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0179
     CompareVar VAR_HGSS_UNK_40FC, 2
@@ -94,7 +94,7 @@ _0179:
     SetFlag FLAG_HGSS_HIDE_BLACKTHORN_GYM_CLAIR
     End
 _017F:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _029D
     GetHour VAR_MAP_LOCAL_0x00
@@ -119,7 +119,7 @@ _01AD:
     Message msg_0631_T30GYM0101_00013
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
+    CompletePhoneRegister PHONE_CONTACT_CLAIR
     WaitButton
     CloseMessage
     ReleaseAll

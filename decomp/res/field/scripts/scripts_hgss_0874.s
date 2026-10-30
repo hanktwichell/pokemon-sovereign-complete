@@ -174,7 +174,7 @@ _026E:
     Message msg_0571_T23R0501_00016
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_KURT
+    CompletePhoneRegister PHONE_CONTACT_KURT
     Message msg_0571_T23R0501_00017
     WaitButton
     CloseMessage
@@ -253,7 +253,7 @@ _0332:
     ReleaseAll
     End
 _0348:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_KURT, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_KURT, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 1, _02A2
     GoToIfSet FLAG_HGSS_GAME_CLEAR, _0371

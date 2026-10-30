@@ -16,7 +16,7 @@
     ScriptEntry scr_seq_T04GYM0101_007
     ScriptEntryEnd
 scr_seq_T04GYM0101_007:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0267
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x00
@@ -26,7 +26,7 @@ scr_seq_T04GYM0101_007:
     GoToIf 1, _026F
     CompareVar VAR_HGSS_SCENE_ROUTE_25, 2
     GoToIf 1, _026F
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0275
     GetHour VAR_MAP_LOCAL_0x00
@@ -230,7 +230,7 @@ _0349:
     Message msg_0469_T04GYM0101_00018
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_MISTY
+    CompletePhoneRegister PHONE_CONTACT_MISTY
     WaitButton
     CloseMessage
     ReleaseAll

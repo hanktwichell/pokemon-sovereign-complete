@@ -42,7 +42,10 @@ _0079:
 _008E:
     End
 scr_seq_T02_011:
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__OAK, 2, 0
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__OAK
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 0
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_UNK_4096, 2
     End
 scr_seq_T02_000:

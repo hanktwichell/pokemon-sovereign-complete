@@ -8,10 +8,10 @@
     ScriptEntry scr_seq_T03GYM0101_003
     ScriptEntryEnd
 scr_seq_T03GYM0101_003:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BROCK, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BROCK, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0109
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BROCK, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BROCK, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _010F
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
@@ -111,7 +111,7 @@ _016A:
     Message msg_0462_T03GYM0101_00011
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BROCK
+    CompletePhoneRegister PHONE_CONTACT_BROCK
     WaitButton
     CloseMessage
     ReleaseAll

@@ -10,7 +10,7 @@
     ScriptEntry scr_seq_R31R0101_002
     ScriptEntryEnd
 scr_seq_R31R0101_001:
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     End
 scr_seq_R31R0101_000:
     LockAll

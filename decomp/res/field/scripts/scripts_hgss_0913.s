@@ -16,12 +16,12 @@
     ScriptEntry scr_seq_T26GYM0101_008
     ScriptEntryEnd
 scr_seq_T26GYM0101_007:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0232
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _0238
     ClearFlag FLAG_HGSS_HIDE_JASMINE_IN_GYM
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _023A
     GetHour VAR_MAP_LOCAL_0x00
@@ -66,7 +66,7 @@ scr_seq_T26GYM0101_000:
     Message msg_0606_T26GYM0101_00027
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_JASMINE
+    CompletePhoneRegister PHONE_CONTACT_JASMINE
     WaitButton
     CloseMessage
     ReleaseAll
@@ -149,7 +149,7 @@ _025B:
     End
 _025D:
     GoToIfUnset FLAG_HGSS_GOT_TM23_FROM_JASMINE, _042A
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _045E
     Message msg_0606_T26GYM0101_00006
@@ -278,7 +278,7 @@ _03F6:
 _03FC:
     End
 _03FE:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0238
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02

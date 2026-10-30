@@ -34,7 +34,7 @@ scr_seq_T25R0401_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BILL, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BILL, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0147
     CompareVar VAR_HGSS_UNK_410D, 1
@@ -133,7 +133,7 @@ _01B7:
 _01C4:
     BufferPlayerName 0
     Message msg_0586_T25R0401_00013
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BILL
+    CompletePhoneRegister PHONE_CONTACT_BILL
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     WaitButton

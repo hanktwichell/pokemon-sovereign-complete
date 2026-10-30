@@ -41,6 +41,7 @@
 #include "unk_0202F1D4.h"
 #include "unk_02030CE8.h"
 #include "vars_flags.h"
+#include "complete_phone.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 #include "wifi_history_save_data.h"
 #include "wifi_list.h"
@@ -85,6 +86,7 @@ const SaveTableEntry gSaveTable[] = {
     { SAVE_TABLE_ENTRY_EMAIL, SAVE_BLOCK_ID_NORMAL, (SaveEntrySizeFunc)Email_SaveSize, (SaveEntryInitFunc)Email_Init },
     { SAVE_TABLE_ENTRY_WIFI_PLAZA_QUESTIONS, SAVE_BLOCK_ID_NORMAL, (SaveEntrySizeFunc)WiFiPlazaQuestion_SaveSize, (SaveEntryInitFunc)WiFiPlazaQuestion_Init },
     { SAVE_TABLE_ENTRY_COMPLETE_SAFARI, SAVE_BLOCK_ID_NORMAL, (SaveEntrySizeFunc)CompleteSafari_SaveSize, (SaveEntryInitFunc)CompleteSafari_InitSave }, // Sovereign Complete
+    { SAVE_TABLE_ENTRY_COMPLETE_PHONE, SAVE_BLOCK_ID_NORMAL, (SaveEntrySizeFunc)CompletePhone_SaveSize, (SaveEntryInitFunc)CompletePhone_InitSave }, // Sovereign Complete
     { SAVE_TABLE_ENTRY_PC_BOXES, SAVE_BLOCK_ID_BOXES, (SaveEntrySizeFunc)PCBoxes_SaveSize, (SaveEntryInitFunc)PCBoxes_Init },
 };
 

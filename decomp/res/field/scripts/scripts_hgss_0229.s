@@ -127,7 +127,7 @@ _019C:
     CloseMessage
     BufferPlayerName 0
     Message msg_0377_R30R0201_00015
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PROF__OAK
+    CompletePhoneRegister PHONE_CONTACT_PROF__OAK
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     CloseMessage

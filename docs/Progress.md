@@ -461,3 +461,28 @@ Test results on the new test build:
   ported). Scenes that move the player now also set where Escape Rope and Dig lead (HeartGold's `ScrCmd_582`,
   Platinum's exit location), and Celebi's time travel fades to white until its own scene is ported. Test:
   `tools/complete/test_hgss_starter.py` (passes; the follower stands east of the player after the gift).
+
+## Oct 30, 2026: the Pokégear phone
+
+- **The phone book and phone trainers.** HeartGold's phone was missing: its trainers never asked for the player's
+  number, so Sacred Gold's rematches (63 trainers' teams, up to five each) could never be fought, and Gym Leaders'
+  phone lines were left out. The phone book is now in the save (a new save entry of 456 bytes, in the room the normal
+  block had: 1,900 bytes), with HeartGold's data (`tools/complete/import_hgss_phone.py`: Sacred Gold's phone book,
+  HeartGold's call tables and rematch sets, which Sacred Gold's overlays hold unchanged, and the 75 callers' text
+  banks). Johto's and Kanto's trainers go through Platinum's trainer script, which now takes HeartGold's phone steps
+  (its `scr_seq_0953`): the number after the first battle, a rematch when a call asked for one, a promised gift, the
+  number asked again, an item after some rematches.
+- **Calls,** in the message box: map scripts' calls (Elm's panic call, Mom's on Route 30, Oak's, Baoba's; their text
+  was lost before), and incoming calls as the player walks (call triggers, and random callers ten minutes after the
+  last call, as HeartGold's ring manager picks them). Calls are answered at once, and calling someone waits for the
+  Pokétch and Pokégear question (`docs/Features.md`, "The Pokégear phone").
+- **The childhood friend's look.** HeartGold's `GetFriendSprite` (Lyra's look for a boy, Ethan's for a girl) wasn't
+  translated, so in its nine scenes the friend wore the boy's player sprite whoever played. It now picks Platinum's
+  player sprite of the other gender (`CompleteGetFriendSprite`; Lucas and Dawn stand in for Ethan and Lyra, as on the
+  maps).
+- 98.7% of Sacred Gold's script lines translate (1,082 left). New test: `tools/complete/test_hgss_phone.py` (Joey on
+  Route 30: his number, his rematch, his promised gift, a random call from him, and Mom's call; all five pass).
+- **Talk to everyone, again** on this morning's build (before the phone): 2,336 people and things, 1,923 ran to their
+  end, none hung (the Union Room's people are left out now). Against the last run, 43 more ran and 16 fewer: those 16
+  are people who wander about, whom the test reaches some runs and not others, and Cameron, who stands somewhere new
+  each day. The one still stuck is in the Pokéathlon Dome (a menu the test keeps reopening), as before.

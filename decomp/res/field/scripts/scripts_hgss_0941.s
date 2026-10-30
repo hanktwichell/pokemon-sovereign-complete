@@ -57,7 +57,10 @@ _00BF:
 _00C3:
     End
 scr_seq_T30_007:
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 3
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 3
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_UNK_407B, 2
     End
 scr_seq_T30_006:

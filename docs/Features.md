@@ -197,6 +197,34 @@ fade-out when there isn't (`src/cutscenes/boat_cutscene/boat_cutscene.c`), as at
 scenes and the cabin's rest play as in Sacred Gold. Test: `tools/complete/test_hgss_ferry.py` (boarding at each port,
 and arriving at each).
 
+## The Pokégear phone
+
+HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call tables,
+`tools/complete/import_hgss_phone.py`; the 75 callers' text banks) and its code (`src/complete_phone.c`, the save;
+`src/overlay006/complete_phone_calls.c`, the rest):
+
+- **The phone book** is saved (`SAVE_TABLE_ENTRY_COMPLETE_PHONE`, 456 bytes: the contacts in the order registered, who
+  wants a rematch, the gifts kept for the player, Mom's savings and the last random callers). Scripts register numbers
+  and ask about them as HeartGold's do (`CompletePhoneRegister`, `CompletePhoneCheckRegistered`).
+- **Phone trainers:** a trainer with a number asks for the player's after the first battle; talked to after that, they
+  battle again when a call asked for a rematch (their next team, as HeartGold's rematch sets and their unlocks go), hand
+  over a gift a call promised, or ask for the number again; a rematch won ends it, and some give an item for it
+  (HeartGold's `scr_seq_0953`, in a marked block of Platinum's `scripts_battles.s`). Gym Leaders' rematches follow
+  their own scripts, as in HeartGold.
+- **Calls** show in the field's message box: the ring, the caller's greeting and lines (with HeartGold's text and
+  its choices: a rematch, a gift, a word, a flag), any yes or no, and the click. Map scripts' calls (Elm's panic call,
+  Mom's on Route 30 about saving money, Oak's, Baoba's) play where HeartGold plays them. **Incoming calls:** ten
+  minutes after the last call, on a map with a signal, a step may bring a call: a call trigger's, or half the time a
+  random caller from the phone book (HeartGold's three groups, not one on the same map or one who called lately).
+- **Stand-ins until the Pokétch and Pokégear question is answered** (`docs/Roadmap.md`): a call is answered at once
+  (HeartGold's Pokégear rings until the player opens it), and the player can't call anyone, as that needs the
+  Pokégear's contact list: so Gym Leaders' rematches (arranged by calling them on their day), Oak's Pokédex rating by
+  phone and the Day-Care's news wait for it. Mom keeps the savings flag the call sets; the savings themselves come with
+  her bank.
+
+Test: `tools/complete/test_hgss_phone.py` (Youngster Joey on Route 30: his number after the battle, a rematch, a gift;
+his call; Mom's call on Route 30).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
@@ -206,8 +234,9 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   (`src/voltorb_flip/`) and its own graphics.
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
-- **Mom's savings** (New Bark Town): HeartGold keeps them with the Pokégear's data and takes amounts on its own number
-  window. Until they come (with the Pokétch and Pokégear question), she has nothing saved, and a deposit is called off.
+- **Mom's savings** (New Bark Town): her call on Route 30 sets whether she saves ("The Pokégear phone", above), and the
+  save keeps her balance, but her share of the prize money, what she buys with it and her bank in New Bark Town aren't
+  ported yet: until they are, she has nothing saved, and a deposit is called off.
 - **The radio's Poké Flute** (Snorlax on Routes 11 and 12): HeartGold's Snorlax wakes when the Pokégear's radio plays
   the Poké Flute channel, which needs the Expansion Card. Until the radio comes (the same question), the Poké Flute
   counts as playing once the player has the Expansion Card, and every other radio check finds nothing playing.

@@ -26,6 +26,7 @@
 #include "unk_0206B9D8.h"
 #include "vars_flags.h"
 #include "wifi_history_save_data.h"
+#include "complete_phone.h" // Sovereign Complete
 
 static void FieldSystem_HandleDailyEvents(FieldSystem *fieldSystem, s32 param1);
 static void sub_02055B64(FieldSystem *fieldSystem, s32 param1, const RTCTime *param2);
@@ -126,6 +127,7 @@ static void sub_02055B64(FieldSystem *fieldSystem, s32 param1, const RTCTime *rt
 
     Party *party = SaveData_GetParty(fieldSystem->saveData);
     Party_SetShayminForm(party, param1, rtcTime);
+    CompletePhone_AddMinutes(param1); // Sovereign Complete: the Pokégear phone's next call
 }
 
 enum TimeOfDay FieldSystem_GetTimeOfDay(const FieldSystem *fieldSystem)

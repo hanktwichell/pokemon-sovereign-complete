@@ -1,4 +1,5 @@
 #include "macros/scrcmd.inc"
+#include "generated/text_banks.h"
 #include "generated/player_transitions.h"
 #include "generated/time_of_day.h"
 #include "generated/tutor_locations.h"
@@ -92,6 +93,8 @@
     ScriptEntry CommonScript_CompleteHeadbutt @ 0x810
     ScriptEntry CommonScript_CompleteRockSmashFind @ 0x811
     ScriptEntry CommonScript_CompleteWhirlpool @ 0x812
+    ScriptEntry CommonScript_CompletePhoneCall @ 0x813
+    ScriptEntry CommonScript_CompletePhoneIncomingCall @ 0x814
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2093,3 +2096,42 @@ CommonScript_CompleteWhirlpoolMovementEast:
     EndMovement
 
     .balign 4, 0
+
+// Sovereign Complete: a phone call (src/overlay006/complete_phone_calls.c), in the message box: from a map script
+// (HeartGold's PhoneCall: the contact, the kind of call and its script in VAR_0x8004 to VAR_0x8006), or the one the
+// field chose as the player walked (CompletePhone_TryIncomingCall)
+CommonScript_CompletePhoneCall:
+    CompletePhoneCallStart VAR_0x8004, VAR_0x8005, VAR_0x8006, VAR_RESULT
+    Call CommonScript_CompletePhoneTalk
+    ReturnCommonScript
+    End
+
+CommonScript_CompletePhoneIncomingCall:
+    LockAll
+    CompletePhoneCallStart PHONE_CONTACT_NONE, 0, 0, VAR_RESULT
+    Call CommonScript_CompletePhoneTalk
+    ReleaseAll
+    End
+
+CommonScript_CompletePhoneTalk:
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompletePhoneEnd
+    PlaySE SEQ_SE_PL_CALL_sseq
+    WaitSE SEQ_SE_PL_CALL_sseq
+    PlaySE SEQ_SE_PL_CALL_sseq
+    WaitSE SEQ_SE_PL_CALL_sseq
+CommonScript_CompletePhoneNextMessage:
+    CompletePhoneCallMessage VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, CommonScript_CompletePhoneHangUp
+    GoToIfEq VAR_RESULT, 1, CommonScript_CompletePhoneNextMessage
+    ShowYesNoMenu VAR_RESULT
+    CompletePhoneCallAnswer VAR_RESULT
+    GoTo CommonScript_CompletePhoneNextMessage
+
+CommonScript_CompletePhoneHangUp:
+    WaitButton
+    MessageFromBank TEXT_BANK_HGSS_MSG_0271, 36
+    WaitTime 30, VAR_RESULT
+    CloseMessage
+CommonScript_CompletePhoneEnd:
+    CompletePhoneCallEnd
+    Return

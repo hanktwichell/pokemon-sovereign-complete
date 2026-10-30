@@ -25,7 +25,7 @@ scr_seq_R10_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01FE
     CheckPlayerOnBike VAR_RESULT
@@ -106,7 +106,7 @@ _01B5:
     End
 _01C3:
     GoToIfUnset FLAG_HGSS_CAUGHT_ZAPDOS, _01FC
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01FC
     GetHour VAR_MAP_LOCAL_0x00
@@ -144,7 +144,7 @@ _0245:
     Message msg_0341_R10_00001
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_LT__SURGE
+    CompletePhoneRegister PHONE_CONTACT_LT__SURGE
     Message msg_0341_R10_00002
     WaitButton
     CloseMessage

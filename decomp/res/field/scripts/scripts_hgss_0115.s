@@ -13,7 +13,7 @@
     ScriptEntry scr_seq_D46R0101_007
     ScriptEntryEnd
 scr_seq_D46R0101_001:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BUGSY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BUGSY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01BF
     GoToIfSet FLAG_HGSS_GAME_CLEAR, _01C5
@@ -130,7 +130,7 @@ _01E5:
     Message msg_0132_D46R0101_00001
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BUGSY
+    CompletePhoneRegister PHONE_CONTACT_BUGSY
     Message msg_0132_D46R0101_00002
     WaitButton
     CloseMessage

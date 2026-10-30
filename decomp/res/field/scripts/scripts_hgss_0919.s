@@ -64,7 +64,7 @@ scr_seq_T26R0701_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _023E
     CompareVar VAR_MAP_LOCAL_0x04, 1
@@ -169,7 +169,7 @@ _02A8:
     Message msg_0611_T26R0701_00005
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_JASMINE
+    CompletePhoneRegister PHONE_CONTACT_JASMINE
     Message msg_0611_T26R0701_00006
     WaitButton
     CloseMessage
@@ -193,7 +193,7 @@ _02EB:
 _02FC:
     SetFlag FLAG_HGSS_HIDE_CAMERON
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _0457
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _045D
     GetHour VAR_MAP_LOCAL_0x00
@@ -203,7 +203,7 @@ _02FC:
     GoTo _0491
 _0339:
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _0457
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _045D
     GetHour VAR_MAP_LOCAL_0x00
@@ -275,7 +275,7 @@ _0457:
     SetFlag FLAG_HGSS_UNK_2CB
     End
 _045D:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JASMINE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0457
     GetHour VAR_MAP_LOCAL_0x00

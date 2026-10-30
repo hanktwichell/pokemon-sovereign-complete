@@ -25,7 +25,7 @@
     ScriptEntry scr_seq_T20R0101_015
     ScriptEntryEnd
 scr_seq_T20R0101_010:
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     GoToIfSet FLAG_HGSS_ELMS_LAB_PREVENT_PLAYER_ESCAPE, _058F
     CompareVar VAR_HGSS_SCENE_ELMS_LAB, 0
     GoToIf 5, _05A1

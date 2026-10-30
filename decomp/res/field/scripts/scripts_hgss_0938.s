@@ -220,7 +220,7 @@ _038F:
     Message msg_0626_T29_00014
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
+    CompletePhoneRegister PHONE_CONTACT_PRYCE
     Message msg_0626_T29_00015
     WaitButton
     CloseMessage
@@ -381,7 +381,7 @@ _0581:
     GoToIf 1, _0657
     End
 _05BD:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_PRYCE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_PRYCE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _066D
     GoToIfSet FLAG_HGSS_GAME_CLEAR, _0677

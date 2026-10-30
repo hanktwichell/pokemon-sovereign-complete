@@ -23,10 +23,10 @@
     ScriptEntryEnd
 scr_seq_T08GYM0101_000:
     @ HGSS: FuchsiaGymInit
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JANINE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0245
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JANINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _024B
     CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x02
@@ -293,7 +293,7 @@ _0424:
     Message msg_0514_T08GYM0101_00020
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_JANINE
+    CompletePhoneRegister PHONE_CONTACT_JANINE
     WaitButton
     CloseMessage
     ReleaseAll

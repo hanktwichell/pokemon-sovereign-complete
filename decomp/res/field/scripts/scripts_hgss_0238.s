@@ -49,10 +49,10 @@ scr_seq_R34R0101_001:
     GetPlayerGender VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _00C6
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_LYRA
+    CompletePhoneRegister PHONE_CONTACT_LYRA
     GoTo _00CA
 _00C6:
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_ETHAN
+    CompletePhoneRegister PHONE_CONTACT_ETHAN
 _00CA:
     BufferPlayerName 0
     MessageGendered msg_0385_R34R0101_00007, msg_0385_R34R0101_00017

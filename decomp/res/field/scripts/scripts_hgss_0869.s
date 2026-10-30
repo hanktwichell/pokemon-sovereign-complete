@@ -22,7 +22,7 @@
     ScriptEntryEnd
 scr_seq_T23GYM0102_016:
     CompleteAzaleaGymInit
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BUGSY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BUGSY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _015E
     GoToIfSet FLAG_HGSS_GAME_CLEAR, _0164
@@ -65,7 +65,7 @@ scr_seq_T23GYM0102_001:
     Message msg_0567_T23GYM0102_00009
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BUGSY
+    CompletePhoneRegister PHONE_CONTACT_BUGSY
     WaitButton
     CloseMessage
     ReleaseAll
@@ -118,7 +118,7 @@ _015E:
     SetFlag FLAG_HGSS_HIDE_AZALEA_GYM_BUGSY
     End
 _0164:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BUGSY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BUGSY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01B4
     GetDayOfWeek VAR_MAP_LOCAL_0x02

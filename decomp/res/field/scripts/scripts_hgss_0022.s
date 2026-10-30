@@ -17,7 +17,7 @@ scr_seq_D17R1101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MORTY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_MORTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0118
     CompareVar VAR_MAP_LOCAL_0x02, 1
@@ -59,10 +59,10 @@ scr_seq_D17R1101_004:
     End
 _00CC:
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _01D6
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MORTY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_MORTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _01D6
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MORTY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_MORTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01DC
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -102,7 +102,7 @@ _0182:
     Message msg_0059_D17R1101_00001
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_MORTY
+    CompletePhoneRegister PHONE_CONTACT_MORTY
     Message msg_0059_D17R1101_00002
     WaitButton
     CloseMessage

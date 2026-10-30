@@ -26,7 +26,7 @@ scr_seq_P01R0102_005:
     ClearFlag FLAG_HGSS_UNK_189
     End
 _0054:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_SABRINA, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_SABRINA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0097
     CompleteCheckBadge BADGE_ID_HGSS_MARSH, VAR_MAP_LOCAL_0x00
@@ -40,7 +40,7 @@ _0080:
     ClearFlag FLAG_HGSS_UNK_2C9
     End
 _0097:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_SABRINA, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_SABRINA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00C1
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -186,7 +186,7 @@ scr_seq_P01R0102_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_SABRINA, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_SABRINA, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0322
     CompareVar VAR_MAP_LOCAL_0x04, 1
@@ -204,7 +204,7 @@ _02C3:
     Message msg_0256_P01R0102_00005
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_SABRINA
+    CompletePhoneRegister PHONE_CONTACT_SABRINA
     Message msg_0256_P01R0102_00006
     WaitButton
     CloseMessage

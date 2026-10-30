@@ -41,22 +41,22 @@
     ScriptEntry scr_seq_T11R0101_020
     ScriptEntryEnd
 scr_seq_T11R0101_003:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_WHITNEY, VAR_TEMP_x4000
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JANINE, VAR_TEMP_x4001
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CLAIR, VAR_TEMP_x4002
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_ERIKA, VAR_TEMP_x4003
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MISTY, VAR_TEMP_x4004
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BLAINE, VAR_TEMP_x4005
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BLUE, VAR_TEMP_x4006
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CHUCK, VAR_TEMP_x4007
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BROCK, VAR_TEMP_x4008
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BUGSY, VAR_TEMP_x4009
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_SABRINA, VAR_TEMP_x400A
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_FALKNER, VAR_TEMP_x400B
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x400C
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MORTY, VAR_TEMP_x400D
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JASMINE, VAR_TEMP_x400E
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_PRYCE, VAR_TEMP_x400F
+    CompletePhoneGetRematch PHONE_CONTACT_WHITNEY, VAR_MAP_LOCAL_0x00
+    CompletePhoneGetRematch PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
+    CompletePhoneGetRematch PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x02
+    CompletePhoneGetRematch PHONE_CONTACT_ERIKA, VAR_MAP_LOCAL_0x03
+    CompletePhoneGetRematch PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x04
+    CompletePhoneGetRematch PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x05
+    CompletePhoneGetRematch PHONE_CONTACT_BLUE, VAR_MAP_LOCAL_0x06
+    CompletePhoneGetRematch PHONE_CONTACT_CHUCK, VAR_MAP_LOCAL_0x07
+    CompletePhoneGetRematch PHONE_CONTACT_BROCK, VAR_MAP_LOCAL_0x08
+    CompletePhoneGetRematch PHONE_CONTACT_BUGSY, VAR_MAP_LOCAL_0x09
+    CompletePhoneGetRematch PHONE_CONTACT_SABRINA, VAR_MAP_LOCAL_0x0A
+    CompletePhoneGetRematch PHONE_CONTACT_FALKNER, VAR_MAP_LOCAL_0x0B
+    CompletePhoneGetRematch PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x0C
+    CompletePhoneGetRematch PHONE_CONTACT_MORTY, VAR_MAP_LOCAL_0x0D
+    CompletePhoneGetRematch PHONE_CONTACT_JASMINE, VAR_MAP_LOCAL_0x0E
+    CompletePhoneGetRematch PHONE_CONTACT_PRYCE, VAR_MAP_LOCAL_0x0F
     CompareVar VAR_MAP_LOCAL_0x03, 0
     GoToIf 5, _0958
     SetFlag FLAG_HGSS_UNK_2B8
@@ -76,7 +76,7 @@ scr_seq_T11R0101_004:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 17
+    CompletePhoneEndRematch 17
     SetFlag FLAG_HGSS_UNK_2B5
     RemoveObject obj_T11R0101_gsleader3
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -100,7 +100,7 @@ scr_seq_T11R0101_005:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 26
+    CompletePhoneEndRematch 26
     SetFlag FLAG_HGSS_UNK_2B6
     RemoveObject obj_T11R0101_gsleader13
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -124,7 +124,7 @@ scr_seq_T11R0101_006:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 27
+    CompletePhoneEndRematch 27
     SetFlag FLAG_HGSS_UNK_2B7
     RemoveObject obj_T11R0101_gsleader8
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -148,7 +148,7 @@ scr_seq_T11R0101_007:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 28
+    CompletePhoneEndRematch 28
     SetFlag FLAG_HGSS_UNK_2B8
     RemoveObject obj_T11R0101_gsleader12
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -172,7 +172,7 @@ scr_seq_T11R0101_008:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 29
+    CompletePhoneEndRematch 29
     SetFlag FLAG_HGSS_UNK_2B9
     RemoveObject obj_T11R0101_gsleader11
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -196,7 +196,7 @@ scr_seq_T11R0101_009:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 30
+    CompletePhoneEndRematch 30
     SetFlag FLAG_HGSS_UNK_2BA
     RemoveObject obj_T11R0101_gsleader15
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -220,7 +220,7 @@ scr_seq_T11R0101_010:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 31
+    CompletePhoneEndRematch 31
     SetFlag FLAG_HGSS_UNK_2BB
     RemoveObject obj_T11R0101_gsleader16
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -244,7 +244,7 @@ scr_seq_T11R0101_011:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 32
+    CompletePhoneEndRematch 32
     SetFlag FLAG_HGSS_UNK_2BC
     RemoveObject obj_T11R0101_gsleader5
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -268,7 +268,7 @@ scr_seq_T11R0101_012:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 33
+    CompletePhoneEndRematch 33
     SetFlag FLAG_HGSS_UNK_2BD
     RemoveObject obj_T11R0101_gsleader14
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -292,7 +292,7 @@ scr_seq_T11R0101_013:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 34
+    CompletePhoneEndRematch 34
     SetFlag FLAG_HGSS_UNK_2BE
     RemoveObject obj_T11R0101_gsleader2
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -316,7 +316,7 @@ scr_seq_T11R0101_014:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 35
+    CompletePhoneEndRematch 35
     SetFlag FLAG_HGSS_UNK_2BF
     RemoveObject obj_T11R0101_gsleader10
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -340,7 +340,7 @@ scr_seq_T11R0101_015:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 18
+    CompletePhoneEndRematch 18
     SetFlag FLAG_HGSS_UNK_2C0
     RemoveObject obj_T11R0101_gsleader1
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -364,7 +364,7 @@ scr_seq_T11R0101_016:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 36
+    CompletePhoneEndRematch 36
     SetFlag FLAG_HGSS_UNK_2C1
     RemoveObject obj_T11R0101_gsleader9
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -388,7 +388,7 @@ scr_seq_T11R0101_017:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 37
+    CompletePhoneEndRematch 37
     SetFlag FLAG_HGSS_UNK_2C2
     RemoveObject obj_T11R0101_gsleader4
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -412,7 +412,7 @@ scr_seq_T11R0101_018:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 38
+    CompletePhoneEndRematch 38
     SetFlag FLAG_HGSS_UNK_2C3
     RemoveObject obj_T11R0101_gsleader6
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -436,7 +436,7 @@ scr_seq_T11R0101_019:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_462 39
+    CompletePhoneEndRematch 39
     SetFlag FLAG_HGSS_UNK_2C4
     RemoveObject obj_T11R0101_gsleader7
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -663,22 +663,22 @@ _09EA:
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_JANINE
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_ERIKA
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_MISTY
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLAINE
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLUE
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CHUCK
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BROCK
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BUGSY
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_SABRINA
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_FALKNER
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_LT__SURGE
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_MORTY
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_JASMINE
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
+    CompletePhoneRegister PHONE_CONTACT_WHITNEY
+    CompletePhoneRegister PHONE_CONTACT_JANINE
+    CompletePhoneRegister PHONE_CONTACT_CLAIR
+    CompletePhoneRegister PHONE_CONTACT_ERIKA
+    CompletePhoneRegister PHONE_CONTACT_MISTY
+    CompletePhoneRegister PHONE_CONTACT_BLAINE
+    CompletePhoneRegister PHONE_CONTACT_BLUE
+    CompletePhoneRegister PHONE_CONTACT_CHUCK
+    CompletePhoneRegister PHONE_CONTACT_BROCK
+    CompletePhoneRegister PHONE_CONTACT_BUGSY
+    CompletePhoneRegister PHONE_CONTACT_SABRINA
+    CompletePhoneRegister PHONE_CONTACT_FALKNER
+    CompletePhoneRegister PHONE_CONTACT_LT__SURGE
+    CompletePhoneRegister PHONE_CONTACT_MORTY
+    CompletePhoneRegister PHONE_CONTACT_JASMINE
+    CompletePhoneRegister PHONE_CONTACT_PRYCE
     ReleaseAll
     End
 _0A57:

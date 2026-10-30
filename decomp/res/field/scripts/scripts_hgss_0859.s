@@ -11,10 +11,10 @@
     ScriptEntryEnd
 scr_seq_T22GYM0101_000:
     CompleteVioletGymInit
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_FALKNER, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00A7
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_FALKNER, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _007E
     CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x01

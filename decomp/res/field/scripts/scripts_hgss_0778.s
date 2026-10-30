@@ -39,11 +39,11 @@ scr_seq_T06GYM0101_021:
     GoToIfSet FLAG_HGSS_HIDE_VERMILION_GYM_STOPS, _0271
     ClearFlag FLAG_HGSS_SYS_SOLVED_LT_SURGE_GYM
     CompleteVermilionGymInit
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _02BF
     GoToIfUnset FLAG_HGSS_CAUGHT_ZAPDOS, _02C5
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _02CB
     GetHour VAR_MAP_LOCAL_0x00
@@ -174,11 +174,11 @@ scr_seq_T06GYM0101_025:
     GoTo _03B6
 _0271:
     CompleteVermilionGymInit
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _02BF
     GoToIfUnset FLAG_HGSS_CAUGHT_ZAPDOS, _02C5
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_LT__SURGE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_LT__SURGE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _02CB
     GetHour VAR_MAP_LOCAL_0x00
@@ -242,7 +242,7 @@ _0356:
     Message msg_0485_T06GYM0101_00016
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_LT__SURGE
+    CompletePhoneRegister PHONE_CONTACT_LT__SURGE
     WaitButton
     CloseMessage
     ReleaseAll

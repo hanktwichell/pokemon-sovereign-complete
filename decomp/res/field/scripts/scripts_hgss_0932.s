@@ -51,17 +51,17 @@ scr_seq_T28GYM0101_000:
     Message msg_0622_T28GYM0101_00012
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
+    CompletePhoneRegister PHONE_CONTACT_PRYCE
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _00E2:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_PRYCE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_PRYCE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _01AA
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _01B0
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_PRYCE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_PRYCE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01B0
     GetHour VAR_MAP_LOCAL_0x00
@@ -98,7 +98,7 @@ _014A:
     Message msg_0622_T28GYM0101_00012
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
+    CompletePhoneRegister PHONE_CONTACT_PRYCE
     WaitButton
     CloseMessage
     ReleaseAll

@@ -91,7 +91,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **The land between:** northern Honshu, between Kanto and Sinnoh, is empty on the real map. The Sinjoh Ruins path
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.
-- **Pokétch, Pokégear or both:** both use the bottom screen.
+- **Pokétch, Pokégear or both:** both use the bottom screen. The phone's data and calls are in (`docs/Features.md`,
+  "The Pokégear phone"): calls show in the message box and are answered at once. What waits on this: the player
+  calling someone (the contact list), and with it Gym Leaders' rematches, Oak's Pokédex rating by phone and the
+  Day-Care's news; the radio; the Town Map's Johto and Kanto.
 - **Johto's Battle Frontier:** keep it (its five facilities, Battle Points and the move tutors who take them), or leave
   it closed, with Sinnoh's as the game's Battle Frontier. Its scripts are in; the facilities' own HeartGold code isn't.
 - **The Pokéathlon Dome:** open (the building and its people, without the Pokéathlon) or closed, now that the Pokéathlon

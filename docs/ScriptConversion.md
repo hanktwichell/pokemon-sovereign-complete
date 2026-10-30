@@ -107,6 +107,12 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   of flags (165) into the engine's `InitNewGame` (`res/field/scripts/scripts_init_new_game.s`, between markers).
 - **Badges:** HeartGold's `GiveBadge` and `CheckBadge` are `CompleteGiveBadge` and `CompleteCheckBadge`, on Johto's and
   Kanto's badges, which the trainer info keeps beside Sinnoh's (`src/complete_badges.c`; `docs/Features.md`, "Badges").
+- **The phone:** HeartGold's `RegisterGearNumber`, `CheckRegisteredPhoneNumber`, `GetPhoneBookRematch` and
+  `ScrCmd_462` (the rematch is fought) are `CompletePhoneRegister`, `CompletePhoneCheckRegistered`,
+  `CompletePhoneGetRematch` and `CompletePhoneEndRematch` (`src/overlay006/complete_phone_calls.c`). Its phone
+  trainers' shared script (`scr_seq_0953`, where HeartGold's trainers start) isn't translated: Johto's and Kanto's
+  trainers use Platinum's (`scripts_battles.s`), with HeartGold's phone steps added in a marked block there
+  (`docs/Features.md`, "The Pokégear phone").
 
 ## Gym puzzles
 

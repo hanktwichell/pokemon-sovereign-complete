@@ -30,7 +30,7 @@ scr_seq_R22R0101_007:
     ClearFlag FLAG_HGSS_UNK_189
     End
 _006B:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JANINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00DF
     CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x02
@@ -58,7 +58,7 @@ _00D7:
 _00DD:
     End
 _00DF:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_JANINE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _012C
     GetHour VAR_MAP_LOCAL_0x00
@@ -345,7 +345,7 @@ scr_seq_R22R0101_008:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JANINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0553
     CompareVar VAR_MAP_LOCAL_0x05, 1
@@ -363,7 +363,7 @@ _04F4:
     Message msg_0361_R22R0101_00008
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_JANINE
+    CompletePhoneRegister PHONE_CONTACT_JANINE
     Message msg_0361_R22R0101_00009
     WaitButton
     CloseMessage

@@ -48,7 +48,7 @@ scr_seq_D44R0102_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01F0
     CompareVar VAR_MAP_LOCAL_0x02, 1
@@ -110,7 +110,7 @@ _015E:
     Message msg_0129_D44R0102_00036
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
+    CompletePhoneRegister PHONE_CONTACT_CLAIR
     WaitButton
     CloseMessage
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
@@ -158,7 +158,7 @@ _025A:
     Message msg_0129_D44R0102_00010
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
+    CompletePhoneRegister PHONE_CONTACT_CLAIR
     Message msg_0129_D44R0102_00011
     WaitButton
     CloseMessage
@@ -399,7 +399,7 @@ _0685:
     ClearFlag FLAG_HGSS_HIDE_CHAMPIONS_ROOM_RETREAT
     GoTo _069C
 _069C:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _080F
     GetHour VAR_MAP_LOCAL_0x00
@@ -474,7 +474,7 @@ _07D7:
     End
 _07DD:
     SetFlag FLAG_HGSS_HIDE_CHAMPIONS_ROOM_RETREAT
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _080F
     GetHour VAR_MAP_LOCAL_0x00
@@ -483,7 +483,7 @@ _07DD:
     ClearFlag FLAG_HGSS_HIDE_VICTORY_ROAD_CLAIR
     GoTo _0854
 _080F:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_CLAIR, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_CLAIR, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _085E
     GetHour VAR_MAP_LOCAL_0x00

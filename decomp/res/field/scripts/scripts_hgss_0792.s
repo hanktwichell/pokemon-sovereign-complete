@@ -17,7 +17,7 @@ scr_seq_T07R0104_004:
     ClearFlag FLAG_HGSS_UNK_189
     End
 scr_seq_T07R0104_005:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_FALKNER, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00FF
     CompareVar VAR_MAP_LOCAL_0x04, 1
@@ -58,7 +58,7 @@ scr_seq_T07R0104_003:
     ReleaseAll
     End
 _00D3:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_FALKNER, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01FF
     CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x00
@@ -128,7 +128,7 @@ _01DB:
     GoToIf 4, _02C0
     End
 _01FF:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_FALKNER, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0256
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -163,7 +163,7 @@ _026B:
     End
 _0276:
     Message msg_0497_T07R0104_00005
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_FALKNER
+    CompletePhoneRegister PHONE_CONTACT_FALKNER
     BufferPlayerName 0
     Message msg_0497_T07R0104_00006
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq

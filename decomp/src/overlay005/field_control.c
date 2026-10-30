@@ -94,6 +94,7 @@
 #include "complete_bug_contest.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 #include "wireless_manager.h"
+#include "complete_phone.h" // Sovereign Complete
 
 static BOOL Field_CheckMapTransition(FieldSystem *fieldSystem, const FieldInput *input);
 static u16 Field_TileBehaviorToScript(FieldSystem *fieldSystem, u8 behavior);
@@ -1145,6 +1146,10 @@ static BOOL Field_ProcessStep(FieldSystem *fieldSystem)
     }
 
     if (Field_UpdateRepel(fieldSystem) == TRUE) {
+        return TRUE;
+    }
+
+    if (CompletePhone_TryIncomingCall(fieldSystem) == TRUE) { // Sovereign Complete: the Pokégear phone rings
         return TRUE;
     }
 

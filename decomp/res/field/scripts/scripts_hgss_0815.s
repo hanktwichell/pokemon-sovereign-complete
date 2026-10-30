@@ -45,7 +45,7 @@ scr_seq_T09_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0364
     CompareVar VAR_MAP_LOCAL_0x04, 1
@@ -252,7 +252,7 @@ _03CE:
     Message msg_0519_T09_00011
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BLAINE
+    CompletePhoneRegister PHONE_CONTACT_BLAINE
     Message msg_0519_T09_00012
     WaitButton
     CloseMessage
@@ -304,7 +304,7 @@ _0455:
     End
 _0464:
     SetFlag FLAG_HGSS_UNK_25A
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BLUE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BLUE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _052E
     CompareVar VAR_HGSS_UNK_40FD, 0
@@ -361,7 +361,7 @@ _050A:
     GoToIf 4, _0411
     End
 _052E:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _05DD
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
@@ -370,7 +370,7 @@ _052E:
     GoTo _0626
 _055A:
     SetFlag FLAG_HGSS_UNK_25A
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _05DD
     CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
@@ -394,7 +394,7 @@ _05C2:
     ApplyMovement obj_T09_gsleader16, _0748
     GoTo _0666
 _05DD:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BLAINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0626
     GetDayOfWeek VAR_MAP_LOCAL_0x02

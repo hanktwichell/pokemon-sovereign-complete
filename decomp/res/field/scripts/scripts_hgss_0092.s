@@ -44,7 +44,7 @@
     ScriptEntry scr_seq_D36R0101_026
     ScriptEntryEnd
 scr_seq_D36R0101_000:
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     GoToIfUnset FLAG_HGSS_UNK_189, _06A7
     ClearFlag FLAG_HGSS_UNK_189
     GoTo _06EF

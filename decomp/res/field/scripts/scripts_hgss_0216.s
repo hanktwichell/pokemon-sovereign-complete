@@ -39,7 +39,7 @@ scr_seq_R25_009:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0341
     CompareVar VAR_MAP_LOCAL_0x02, 1
@@ -157,10 +157,10 @@ _0258:
     GoToIf 1, _0591
     CompareVar VAR_HGSS_SCENE_ROUTE_25, 2
     GoToIf 1, _0591
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0597
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _059D
     GetHour VAR_MAP_LOCAL_0x00
@@ -227,7 +227,7 @@ _03CE:
     Message msg_0363_R25_00002
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_MISTY
+    CompletePhoneRegister PHONE_CONTACT_MISTY
     Message msg_0363_R25_00003
     WaitButton
     CloseMessage
@@ -331,10 +331,10 @@ _0523:
     GoToIf 1, _0591
     CompareVar VAR_HGSS_SCENE_ROUTE_25, 2
     GoToIf 1, _0591
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0597
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_MISTY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_MISTY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _059D
     GetHour VAR_MAP_LOCAL_0x00

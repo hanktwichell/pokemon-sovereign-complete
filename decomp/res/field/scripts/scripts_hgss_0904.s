@@ -18,10 +18,10 @@ scr_seq_T25R1006_006:
     End
 _0033:
     GoToIfUnset FLAG_HGSS_GAME_CLEAR, _011D
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_WHITNEY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _011D
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_WHITNEY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00CC
     GetHour VAR_MAP_LOCAL_0x00
@@ -358,7 +358,7 @@ scr_seq_T25R1006_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_WHITNEY, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_WHITNEY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _067A
     CompareVar VAR_MAP_LOCAL_0x02, 1
@@ -376,7 +376,7 @@ _061B:
     Message msg_0597_T25R1006_00026
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
+    CompletePhoneRegister PHONE_CONTACT_WHITNEY
     Message msg_0597_T25R1006_00027
     WaitButton
     CloseMessage

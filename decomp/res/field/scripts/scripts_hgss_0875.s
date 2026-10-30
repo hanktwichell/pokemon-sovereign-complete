@@ -243,7 +243,10 @@ _03B5:
     CompareVar VAR_HGSS_UNK_40F8, 0
     GoToIf 5, _050F
     SetVarFromValue VAR_HGSS_UNK_40F8, 2
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 2
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 2
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_MIDGAME_BADGES, 5
     ReleaseAll
     End
@@ -256,7 +259,7 @@ _03F6:
     ReleaseAll
     End
 _040E:
-    @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_CHUCK, VAR_TEMP_x4001
+    CompletePhoneCheckRegistered PHONE_CONTACT_CHUCK, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _052F
     CompareVar VAR_MAP_LOCAL_0x02, 1
@@ -331,7 +334,10 @@ _0504:
     ReleaseAll
     End
 _050F:
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 2
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 2
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_MIDGAME_BADGES, 5
     ReleaseAll
     End
@@ -349,7 +355,7 @@ _0543:
     Message msg_0572_T24_00008
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CHUCK
+    CompletePhoneRegister PHONE_CONTACT_CHUCK
     Message msg_0572_T24_00009
     WaitButton
     CloseMessage

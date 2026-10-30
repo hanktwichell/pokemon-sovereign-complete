@@ -21,7 +21,10 @@
     ScriptEntryEnd
 scr_seq_R30_001:
     SetFlag FLAG_HGSS_GOT_ELMS_PANIC_CALL
-    @ HGSS: PhoneCall PHONE_CONTACT_PROF__ELM, 2, 0
+    SetVar VAR_0x8004, PHONE_CONTACT_PROF__ELM
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 0
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_SCENE_ROUTE_30_OW, 3
     End
 scr_seq_R30_000:
@@ -70,7 +73,10 @@ scr_seq_R30_003:
     End
 scr_seq_R30_004:
     LockAll
-    @ HGSS: PhoneCall PHONE_CONTACT_MOTHER, 2, 0
+    SetVar VAR_0x8004, PHONE_CONTACT_MOTHER
+    SetVar VAR_0x8005, 2
+    SetVar VAR_0x8006, 0
+    CallCommonScript 0x813
     SetVarFromValue VAR_HGSS_SCENE_ROUTE_30_PHONE_CALL, 0
     SetFlag FLAG_HGSS_TALKED_TO_MOM_AFTER_NAMING_RIVAL
     ReleaseAll

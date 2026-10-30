@@ -216,7 +216,7 @@ _033F:
     WaitMovement
     MessageGendered msg_0066_D23R0102_00024, msg_0066_D23R0102_00025
     CloseMessage
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_BUENA
+    CompletePhoneRegister PHONE_CONTACT_BUENA
     Message msg_0066_D23R0102_00026
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare

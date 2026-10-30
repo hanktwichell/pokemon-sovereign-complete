@@ -98,7 +98,7 @@ _0126:
     Message msg_0574_T24GYM0101_00016
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_CHUCK
+    CompletePhoneRegister PHONE_CONTACT_CHUCK
     WaitButton
     CloseMessage
     ReleaseAll

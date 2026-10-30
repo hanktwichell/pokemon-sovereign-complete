@@ -21,4 +21,9 @@ int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot);
 // HeartGold picks at 80% and 20%) and the rate (%) a smashed rock has one, or 0 off Johto and Kanto or with none.
 u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species, u8 *minLevel, u8 *maxLevel);
 
+// A wild Pokémon of the map's at random, for a phone call (HeartGold's getRandomEncounterSlot): from the grass at
+// HeartGold's time of day (0 morning, 1 day, 2 night), or for a Fisherman from the Good Rod; a Rattata where there's
+// none
+u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing, int time);
+
 #endif // POKEPLATINUM_COMPLETE_ENCOUNTERS_H

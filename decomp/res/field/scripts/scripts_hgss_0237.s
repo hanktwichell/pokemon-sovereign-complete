@@ -28,7 +28,7 @@
     ScriptEntry scr_seq_R34_014
     ScriptEntryEnd
 scr_seq_R34_000:
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     CheckDaycareHasEgg VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0351
@@ -41,11 +41,11 @@ scr_seq_R34_001:
     WaitMovement
     Message msg_0384_R34_00046
     BufferPlayerName 0
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_DAY_C_MAN
+    CompletePhoneRegister PHONE_CONTACT_DAY_C_MAN
     Message msg_0384_R34_00047
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
-    @ HGSS: RegisterGearNumber PHONE_CONTACT_DAY_C_LADY
+    CompletePhoneRegister PHONE_CONTACT_DAY_C_LADY
     Message msg_0384_R34_00048
     PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare

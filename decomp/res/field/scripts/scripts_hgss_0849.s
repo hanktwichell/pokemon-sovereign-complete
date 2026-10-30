@@ -11,7 +11,7 @@
     ScriptEntryEnd
 scr_seq_T20R0402_002:
     GoToIfSet FLAG_HGSS_HIDE_NEW_BARK_FRIENDS_ROOM_FRIEND, _00BC
-    @ HGSS: GetFriendSprite VAR_OBJ_0
+    CompleteGetFriendSprite VAR_OBJ_GFX_ID_0
     End
 scr_seq_T20R0402_000:
     PlaySE SE_CONFIRM_sseq_3

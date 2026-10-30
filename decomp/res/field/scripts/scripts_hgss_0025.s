@@ -614,7 +614,7 @@ _0A17:
     ReleaseAll
     End
 _0A85:
-    @ HGSS: GetPhoneBookRematch PHONE_CONTACT_BUGSY, VAR_TEMP_x4001
+    CompletePhoneGetRematch PHONE_CONTACT_BUGSY, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0BB6
     GetDayOfWeek VAR_MAP_LOCAL_0x00
