@@ -1263,3 +1263,11 @@ BOOL CompleteScrCmd_RandomChance(ScriptContext *ctx)
     *destVar = LCRNG_Next() % 101 <= (percent > 100 ? 100 : percent);
     return FALSE;
 }
+
+// HeartGold's SetFollowMonInhibitState: while set, the follower stays in its ball, until the next map change
+// (src/complete_follower.c); the scene's put away and return around it then leave it there
+BOOL CompleteScrCmd_FollowerInhibit(ScriptContext *ctx)
+{
+    CompleteFollower_SetInhibited(ScriptContext_ReadHalfWord(ctx) != 0);
+    return FALSE;
+}

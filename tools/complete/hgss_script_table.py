@@ -467,6 +467,8 @@ COMMANDS = {
     'NopVar490': lambda a: [],  # does nothing in HeartGold either
     # The follower back in its ball (HeartGold's 600) and out again beside the player (606)
     'ScrCmd_600': lambda a: ['CompleteFollowerPutAway'],
+    # It stays there until the next map change (Blackthorn Gym after the guide, Viridian's Trainer House)
+    'SetFollowMonInhibitState': one('CompleteFollowerInhibit {0}'),
     # Ball seals, numbered alike in both games
     'GetSealQuantity': one('CountSealOccurence {0}, {1}'),
     'BufferSealName': one('BufferBallSealName {0}, {1}'),

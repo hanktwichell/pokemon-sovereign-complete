@@ -64,7 +64,7 @@ scr_seq_T30GYM0101_003:
     GoToIfSet FLAG_HGSS_UNK_0D1, _0219
     Message msg_0631_T30GYM0101_00000
     CompleteFollowerPutAway
-    @ HGSS: SetFollowMonInhibitState 1
+    CompleteFollowerInhibit 1
     CompleteFollowerReturn
     SetVarFromValue VAR_HGSS_UNK_4120, 1
     WaitButton
@@ -142,7 +142,7 @@ _0219:
     End
 _0224:
     CompleteFollowerPutAway
-    @ HGSS: SetFollowMonInhibitState 1
+    CompleteFollowerInhibit 1
     CompleteFollowerReturn
     SetVarFromValue VAR_HGSS_UNK_4120, 1
     SetVarFromValue VAR_HGSS_UNK_4120, 1
@@ -218,7 +218,7 @@ _031D:
 _0338:
     WaitMovement
     CompleteFollowerPutAway
-    @ HGSS: SetFollowMonInhibitState 1
+    CompleteFollowerInhibit 1
     CompleteFollowerReturn
     SetVarFromValue VAR_HGSS_UNK_4120, 1
     SetVarFromValue VAR_HGSS_UNK_4120, 1
@@ -240,7 +240,7 @@ _0387:
     ApplyMovement obj_T30GYM0101_sunglasses, _0486
     WaitMovement
     CompleteFollowerPutAway
-    @ HGSS: SetFollowMonInhibitState 1
+    CompleteFollowerInhibit 1
     CompleteFollowerReturn
     SetVarFromValue VAR_HGSS_UNK_4120, 1
     SetVarFromValue VAR_HGSS_UNK_4120, 1

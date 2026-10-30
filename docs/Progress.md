@@ -587,6 +587,12 @@ Test results on the new test build:
   theme and dance, Lugia's arrival, the spiky-eared Pichu's), and the scenes play them where Sinnoh's themes stood in
   (Barry's, Dawn's or Lucas's, Platinum's "follow me") or nothing played (Eusine, Clair, the Kimono Girls). Every song
   still loads (`tools/complete/test_sound_heap.py`'s songs part), and Route 29's scene with Lyra plays to its end.
+- **HeartGold's follower inhibit flag** (`SetFollowMonInhibitState`): Blackthorn Gym's guide and Viridian's Trainer
+  House keep the follower in its ball for the rest of the visit, as HeartGold does; the next map change lets it out
+  (HeartGold keeps the flag in the save, so a reset there doesn't). Before, the scene's put away and return around it
+  brought the follower straight back onto the gym's floor puzzle. New test `tools/complete/test_follower_inhibit.py`
+  (2 of 2: no follower after the guide's talk, nor after a few steps; back in Blackthorn City);
+  `tools/complete/test_follower.py` still passes. 963 of Sacred Gold's script lines left.
 - **Sovereign's static checks over the whole game, Johto and Kanto included, all pass:** every event and init script
   number of 1,035 map headers in range, 2,530 warps leading to warps that exist, 943 script files showing their own
   map's texts, 10,332 messages and signs fitting their boxes, 208 menus on screen, every one-byte text ID fitting, and

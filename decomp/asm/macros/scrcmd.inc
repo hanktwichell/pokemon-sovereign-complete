@@ -6254,6 +6254,12 @@
     .short \destVarID
     .endm
 
+    // while inhibited (1), the follower stays in its ball until the next map change (HeartGold's SetFollowMonInhibitState)
+    .macro CompleteFollowerInhibit inhibited
+    .short SCRCMD_COMPLETEFOLLOWERINHIBIT
+    .short \inhibited
+    .endm
+
     .text
     .globl _start
 _start:

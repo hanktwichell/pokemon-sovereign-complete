@@ -28,6 +28,7 @@ BOOL CompleteScrCmd_CheckLastBattleNotBeaten(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetObjectDir(ScriptContext *ctx);
 BOOL CompleteScrCmd_SetObjectDir(ScriptContext *ctx);
 BOOL CompleteScrCmd_RandomChance(ScriptContext *ctx);
+BOOL CompleteScrCmd_FollowerInhibit(ScriptContext *ctx);
 BOOL CompleteScrCmd_StartJohtoStarterScene(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetChosenStarter(ScriptContext *ctx);
 BOOL CompleteScrCmd_PlaceStarterBalls(ScriptContext *ctx);

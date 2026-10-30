@@ -48,7 +48,7 @@ _0091:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _00ED
-    @ HGSS: SetFollowMonInhibitState 1
+    CompleteFollowerInhibit 1
     SetVarFromValue VAR_HGSS_UNK_412E, 5
     Common_SaveGame
     SetVarFromVar VAR_RESULT, VAR_MAP_LOCAL_0x00
@@ -65,7 +65,7 @@ _0091:
     ReleaseAll
     End
 _00ED:
-    @ HGSS: SetFollowMonInhibitState 0
+    CompleteFollowerInhibit 0
     Message msg_0458_T02R0302_00003
     CloseMessage
     CompleteFollowerPause 0
@@ -93,7 +93,7 @@ scr_seq_T02R0302_001:
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _0184
     WaitMovement
-    @ HGSS: SetFollowMonInhibitState 0
+    CompleteFollowerInhibit 0
     CompleteFollowerReturn
     SetVarFromValue VAR_HGSS_UNK_412E, 3
     ReleaseAll

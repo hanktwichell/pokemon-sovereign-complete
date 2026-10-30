@@ -987,6 +987,7 @@ ScriptCommand(SCRCMD_COMPLETECHECKLASTBATTLENOTBEATEN,                 CompleteS
 ScriptCommand(SCRCMD_COMPLETEGETOBJECTDIR,                             CompleteScrCmd_GetObjectDir)
 ScriptCommand(SCRCMD_COMPLETESETOBJECTDIR,                             CompleteScrCmd_SetObjectDir)
 ScriptCommand(SCRCMD_COMPLETERANDOMCHANCE,                             CompleteScrCmd_RandomChance)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERINHIBIT,                          CompleteScrCmd_FollowerInhibit)
 
 // clang-format on
 

@@ -105,13 +105,23 @@ BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem)
     return gfx >= 0 && sFollowerGfx[gfx].tooTall;
 }
 
+// HeartGold's follower inhibit flag (its SetFollowMonInhibitState): while set, the follower stays in its ball, as for
+// Blackthorn Gym's floor puzzle after the guide's talk; the next map change clears it (src/field_map_change.c), as
+// HeartGold's warps do. HeartGold keeps it in the save; here a reset brings the follower back on that map.
+static BOOL sInhibited;
+
+void CompleteFollower_SetInhibited(BOOL inhibited)
+{
+    sInhibited = inhibited;
+}
+
 // The graphics the follower should have here and now, or -1 when nobody should follow
 static int WantedGfx(FieldSystem *fieldSystem)
 {
     int species = LeadSpecies(fieldSystem);
     int gfx = FollowerGfxIndex(species);
 
-    if (gfx < 0 || !CanFollow(fieldSystem)
+    if (gfx < 0 || sInhibited || !CanFollow(fieldSystem)
         || !MayFollowHere(fieldSystem->location->mapHeaderID, species, sFollowerGfx[gfx].tooTall)) {
         return -1;
     }

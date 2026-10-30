@@ -12,6 +12,8 @@
 void CompleteFollower_Refresh(FieldSystem *fieldSystem);
 // Each field frame the player has control: the follower is made again when it isn't the one wanted.
 void CompleteFollower_Update(FieldSystem *fieldSystem);
+// HeartGold's SetFollowMonInhibitState: while set, nobody follows; the next map change clears it
+void CompleteFollower_SetInhibited(BOOL inhibited);
 // Whether the lead is too tall to follow in most buildings (HeartGold's flag).
 BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem);
 

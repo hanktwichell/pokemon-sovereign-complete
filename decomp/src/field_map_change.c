@@ -299,6 +299,7 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
     }
 
     FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_TRANSITION);
+    CompleteFollower_SetInhibited(FALSE); // Sovereign Complete: a script kept it away on the last map only
 
     fieldSystem->wildBattleMetadata.encounterAttempts = 0;
     fieldSystem->wildBattleMetadata.wildMonDefeated = 0;
@@ -1358,6 +1359,7 @@ static BOOL sub_02054494(FieldTask *task)
     case 1:
         FieldMapChange_SetNewLocation(fieldSystem, &mapChangeSub->nextLocation);
         FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_TRANSITION);
+        CompleteFollower_SetInhibited(FALSE); // Sovereign Complete
         mapChangeSub->state++;
         break;
     case 2:
