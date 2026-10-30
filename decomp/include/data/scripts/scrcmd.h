@@ -988,6 +988,10 @@ ScriptCommand(SCRCMD_COMPLETEGETOBJECTDIR,                             CompleteS
 ScriptCommand(SCRCMD_COMPLETESETOBJECTDIR,                             CompleteScrCmd_SetObjectDir)
 ScriptCommand(SCRCMD_COMPLETERANDOMCHANCE,                             CompleteScrCmd_RandomChance)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERINHIBIT,                          CompleteScrCmd_FollowerInhibit)
+ScriptCommand(SCRCMD_COMPLETETUNNELACCESSORIESFULL,                    CompleteScrCmd_TunnelAccessoriesFull)
+ScriptCommand(SCRCMD_COMPLETETUNNELRANDOMACCESSORY,                    CompleteScrCmd_TunnelRandomAccessory)
+ScriptCommand(SCRCMD_COMPLETETUNNELBACKDROPSOWNED,                     CompleteScrCmd_TunnelBackdropsOwned)
+ScriptCommand(SCRCMD_COMPLETETUNNELRANDOMBACKDROP,                     CompleteScrCmd_TunnelRandomBackdrop)
 
 // clang-format on
 

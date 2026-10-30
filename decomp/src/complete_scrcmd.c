@@ -74,6 +74,7 @@
 #include "script_manager.h"
 #include "trainer_info.h"
 #include "unk_02017038.h"
+#include "unk_020298BC.h"
 #include "unk_0203D1B8.h"
 #include "unk_020655F4.h"
 #include "vars_flags.h"
@@ -1269,5 +1270,82 @@ BOOL CompleteScrCmd_RandomChance(ScriptContext *ctx)
 BOOL CompleteScrCmd_FollowerInhibit(ScriptContext *ctx)
 {
     CompleteFollower_SetInhibited(ScriptContext_ReadHalfWord(ctx) != 0);
+    return FALSE;
+}
+
+// Goldenrod Tunnel's accessory lottery (HeartGold's ScrCmd_830 to 833, its ov02_02253134 and the rest): the accessories
+// it gives (HeartGold's ov02_02253D54; both games number them alike), and the first 14 backdrops
+static const u8 sTunnelAccessories[] = {
+    47, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+    84, 85, 86, 87, 88, 89, 90, 91, 95, 96
+};
+
+#define TUNNEL_BACKDROPS 14
+
+static FashionCase *GetFashionCase(ScriptContext *ctx)
+{
+    return ImageClips_GetFashionCase(SaveData_GetImageClips(ctx->fieldSystem->saveData));
+}
+
+// HeartGold's ScrCmd_830: whether the Fashion Case has no room for one more of any of the lottery's accessories
+BOOL CompleteScrCmd_TunnelAccessoriesFull(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    FashionCase *fashionCase = GetFashionCase(ctx);
+
+    *destVar = TRUE;
+
+    for (int i = 0; i < NELEMS(sTunnelAccessories); i++) {
+        if (FashionCase_CanFitAccessoryCount(fashionCase, sTunnelAccessories[i], 1)) {
+            *destVar = FALSE;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_831: one of the lottery's accessories, at random
+BOOL CompleteScrCmd_TunnelRandomAccessory(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = sTunnelAccessories[LCRNG_Next() % NELEMS(sTunnelAccessories)];
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_832: whether the player has every one of the first 14 backdrops
+BOOL CompleteScrCmd_TunnelBackdropsOwned(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    FashionCase *fashionCase = GetFashionCase(ctx);
+
+    *destVar = TRUE;
+
+    for (int i = 0; i < TUNNEL_BACKDROPS; i++) {
+        if (!FashionCase_HasBackdrop(fashionCase, i)) {
+            *destVar = FALSE;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_833: one of the first 14 backdrops the player hasn't got, at random (0 when there is none)
+BOOL CompleteScrCmd_TunnelRandomBackdrop(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    FashionCase *fashionCase = GetFashionCase(ctx);
+    u8 missing[TUNNEL_BACKDROPS];
+    int count = 0;
+
+    for (int i = 0; i < TUNNEL_BACKDROPS; i++) {
+        if (!FashionCase_HasBackdrop(fashionCase, i)) {
+            missing[count++] = i;
+        }
+    }
+
+    *destVar = count > 0 ? missing[LCRNG_Next() % count] : 0;
     return FALSE;
 }

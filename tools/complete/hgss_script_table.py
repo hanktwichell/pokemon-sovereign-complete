@@ -321,6 +321,20 @@ COMMANDS = {
     # The map the player came from (HeartGold's ScrCmd_445), as HeartGold numbers its maps, which the scripts compare
     # it with: HeartGold's map n is MAP_HEADER_HGSS_EVERYWHERE + n
     'ScrCmd_445': lambda a: [f'GetPreviousMapID {a[0]}', f'SubVar {a[0]}, MAP_HEADER_HGSS_EVERYWHERE'],
+    # Goldenrod Tunnel's dress-up (Platinum's Jubilife TV gallery's, unnamed in both decomps): the dressing room, the
+    # photo's title (an Easy Chat word, chosen and shown), and its frames
+    'ScrCmd_154': one('ScrCmd_0A6 {0}, {1}, {2}'),
+    'ScrCmd_492': lambda a: [f'ChooseCustomMessageWord {a[1]}, {a[2]}'],
+    'ScrCmd_494': one('BufferCustomMessageWord {0}, {1}'),
+    'ScrCmd_256': one('SetDressUpPhotoTitle {0}'),
+    'ScrCmd_255': one('DressUpPhotoHasData {0}, {1}'),
+    'ScrCmd_155': one('ShowDressUpPhoto {0}, {1}'),
+    # and its accessory lottery: whether the case is full of its accessories, one at random, whether the first 14
+    # backdrops are all there, one missing at random
+    'ScrCmd_830': one('CompleteTunnelAccessoriesFull {0}'),
+    'ScrCmd_831': one('CompleteTunnelRandomAccessory {0}'),
+    'ScrCmd_832': one('CompleteTunnelBackdropsOwned {0}'),
+    'ScrCmd_833': one('CompleteTunnelRandomBackdrop {0}'),
     # The Fashion Case: HeartGold's accessories and backdrops are numbered as Platinum's
     'ScrCmd_403': one('AddAccessory {0}, {1}'),
     'ScrCmd_404': one('CanFitAccessory {0}, {1}, {2}'),

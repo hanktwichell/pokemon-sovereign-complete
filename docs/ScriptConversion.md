@@ -92,6 +92,11 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   `ScrCmd_523`, the legendary Pokémon's sideways sway before their scenes (Suicune's chase, the three in the Burned
   Tower, Rayquaza), is `CompleteObjectSway`, from HeartGold's `sub_0205BED8`: the object's sprite moves on a sine, by
   its x and z pixels, a number of cycles.
+- Goldenrod Tunnel's dress-up: HeartGold's `ScrCmd_154` (the dressing room), `492` and `494` (the photo's title, an
+  Easy Chat word), `256` (setting it), `255` and `155` (a frame's photo) are Platinum's `ScrCmd_0A6`,
+  `ChooseCustomMessageWord`, `BufferCustomMessageWord`, `SetDressUpPhotoTitle`, `DressUpPhotoHasData` and
+  `ShowDressUpPhoto`, argument for argument; its lottery's `830` to `833` are `CompleteTunnelAccessoriesFull` and the
+  rest.
 - `SetFollowMonInhibitState` is `CompleteFollowerInhibit`: while set, the follower stays in its ball (the scene's
   `ScrCmd_600`/`607` around it, put away and return, leave it there), until the next map change clears it, as
   HeartGold's warps do (`src/field_map_change.c`).

@@ -593,6 +593,11 @@ Test results on the new test build:
   brought the follower straight back onto the gym's floor puzzle. New test `tools/complete/test_follower_inhibit.py`
   (2 of 2: no follower after the guide's talk, nor after a few steps; back in Blackthorn City);
   `tools/complete/test_follower.py` still passes. 963 of Sacred Gold's script lines left.
+- **Goldenrod Tunnel's dress-up and lottery:** HeartGold's dressing room, its photo's title and the frames that show
+  the photos are Platinum's own commands from Jubilife TV's gallery (HeartGold kept them, unnamed in both decomps);
+  its accessory lottery (a random accessory of 39, then one of the first 14 backdrops the player lacks) is four new
+  commands. Everyone there and every frame runs to its end (talk and trigger tests). 932 of Sacred Gold's script lines
+  left.
 - **Sovereign's static checks over the whole game, Johto and Kanto included, all pass:** every event and init script
   number of 1,035 map headers in range, 2,530 warps leading to warps that exist, 943 script files showing their own
   map's texts, 10,332 messages and signs fitting their boxes, 208 menus on screen, every one-byte text ID fitting, and

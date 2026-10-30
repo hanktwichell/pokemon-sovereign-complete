@@ -840,7 +840,7 @@ _0D5B:
     SetFlag FLAG_HGSS_UNK_08C
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_154 VAR_TEMP_x4002, VAR_SPECIAL_x8005, VAR_SPECIAL_x8007
+    ScrCmd_0A6 VAR_MAP_LOCAL_0x02, VAR_0x8005, VAR_0x8007
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -876,14 +876,14 @@ _0DE5:
 _0DEE:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_492 0, VAR_SPECIAL_RESULT, VAR_SPECIAL_x8004
+    ChooseCustomMessageWord VAR_RESULT, VAR_0x8004
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0E35
-    @ HGSS: ScrCmd_256 VAR_SPECIAL_x8004
-    @ HGSS: ScrCmd_494 0, VAR_SPECIAL_x8004
+    SetDressUpPhotoTitle VAR_0x8004
+    BufferCustomMessageWord 0, VAR_0x8004
     Message msg_0117_D37R0102_00046
     Message msg_0117_D37R0102_00052
     WaitButton
@@ -1162,12 +1162,12 @@ _11A4:
 scr_seq_D37R0102_012:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 0, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 0, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 0, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1176,12 +1176,12 @@ scr_seq_D37R0102_012:
 scr_seq_D37R0102_013:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 1, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 1, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 1, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1190,12 +1190,12 @@ scr_seq_D37R0102_013:
 scr_seq_D37R0102_014:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 2, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 2, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 2, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 2, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1204,12 +1204,12 @@ scr_seq_D37R0102_014:
 scr_seq_D37R0102_015:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 3, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 3, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 3, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 3, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1218,12 +1218,12 @@ scr_seq_D37R0102_015:
 scr_seq_D37R0102_016:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 4, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 4, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 4, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 4, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1232,12 +1232,12 @@ scr_seq_D37R0102_016:
 scr_seq_D37R0102_017:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 5, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 5, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 5, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 5, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1246,12 +1246,12 @@ scr_seq_D37R0102_017:
 scr_seq_D37R0102_018:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 6, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 6, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 6, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 6, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1260,12 +1260,12 @@ scr_seq_D37R0102_018:
 scr_seq_D37R0102_019:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 7, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 7, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 7, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 7, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1274,12 +1274,12 @@ scr_seq_D37R0102_019:
 scr_seq_D37R0102_020:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 8, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 8, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 8, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 8, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1288,12 +1288,12 @@ scr_seq_D37R0102_020:
 scr_seq_D37R0102_021:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 9, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 9, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 9, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 9, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1302,12 +1302,12 @@ scr_seq_D37R0102_021:
 scr_seq_D37R0102_022:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_255 10, VAR_SPECIAL_RESULT
+    DressUpPhotoHasData 10, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _144B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_155 10, VAR_SPECIAL_RESULT
+    ShowDressUpPhoto 10, VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1323,10 +1323,10 @@ scr_seq_D37R0102_023:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_830 VAR_SPECIAL_RESULT
+    CompleteTunnelAccessoriesFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _1480
-    @ HGSS: ScrCmd_832 VAR_SPECIAL_RESULT
+    CompleteTunnelBackdropsOwned VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _1521
 _1480:
@@ -1341,7 +1341,7 @@ _1480:
     CompleteRandomChance 5, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _154E
-    @ HGSS: ScrCmd_831 VAR_SPECIAL_x8004
+    CompleteTunnelRandomAccessory VAR_0x8004
     CanFitAccessory VAR_0x8004, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _155B
@@ -1349,13 +1349,13 @@ _1480:
     SetVarFromValue VAR_0x8005, 1
     Common_GiveAccessory
 _14EB:
-    @ HGSS: ScrCmd_832 VAR_SPECIAL_RESULT
+    CompleteTunnelBackdropsOwned VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _1530
     CompleteRandomChance 95, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _1530
-    @ HGSS: ScrCmd_833 VAR_SPECIAL_x8004
+    CompleteTunnelRandomBackdrop VAR_0x8004
     Message msg_0117_D37R0102_00062
     Common_ObtainContestBackdrop
     GoTo _1530

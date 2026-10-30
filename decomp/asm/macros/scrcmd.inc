@@ -6146,7 +6146,8 @@
     .short \z
     .endm
 
-    // HeartGold's loan Pokémon: the trade's Pokémon at the level, met on the map, joins the party (HeartGold's GiveLoanMon)
+    // HeartGold's loan Pokémon: the trade's Pokémon at the level, met on the map, joins the party
+    // (HeartGold's GiveLoanMon)
     .macro CompleteGiveLoanMon npcTradeID, level, mapHeaderID
     .short SCRCMD_COMPLETEGIVELOANMON
     .short \npcTradeID
@@ -6154,8 +6155,8 @@
     .short \mapHeaderID
     .endm
 
-    // destVarID: whether the party Pokémon in the slot can go back (0), isn't the one lent (1), holds an item (2), has a
-    // Ball Capsule (3) or is the last that can battle (4) (HeartGold's CheckReturnLoanMon)
+    // destVarID: whether the party Pokémon in the slot can go back (0), isn't the one lent (1), holds an item
+    // (2), has a Ball Capsule (3) or is the last that can battle (4) (HeartGold's CheckReturnLoanMon)
     .macro CompleteCheckReturnLoanMon npcTradeID, slot, destVarID
     .short SCRCMD_COMPLETECHECKRETURNLOANMON
     .short \npcTradeID
@@ -6211,7 +6212,8 @@
     .short \species
     .endm
 
-    // destVarID: whether HeartGold's Johto Pokédex is complete, Mew and Celebi aside (HeartGold's CheckJohtoDexComplete)
+    // destVarID: whether HeartGold's Johto Pokédex is complete, Mew and Celebi aside
+    // (HeartGold's CheckJohtoDexComplete)
     .macro CompleteCheckJohtoDexComplete destVarID
     .short SCRCMD_COMPLETECHECKJOHTODEXCOMPLETE
     .short \destVarID
@@ -6225,7 +6227,8 @@
     .short \destVarID3
     .endm
 
-    // destVarID: whether the last battle's Pokémon got away, neither beaten nor caught, or with caughtOnly, wasn't caught
+    // destVarID: whether the last battle's Pokémon got away, neither beaten nor caught, or with caughtOnly, wasn't
+    // caught
     // (HeartGold's StaticWildWonOrCaughtCheck form 1, from VAR_BATTLE_RESULT, and LatiCaughtCheck)
     .macro CompleteCheckLastBattleNotBeaten destVarID, caughtOnly
     .short SCRCMD_COMPLETECHECKLASTBATTLENOTBEATEN
@@ -6254,10 +6257,37 @@
     .short \destVarID
     .endm
 
-    // while inhibited (1), the follower stays in its ball until the next map change (HeartGold's SetFollowMonInhibitState)
+    // while inhibited (1), the follower stays in its ball until the next map change
+    // (HeartGold's SetFollowMonInhibitState)
     .macro CompleteFollowerInhibit inhibited
     .short SCRCMD_COMPLETEFOLLOWERINHIBIT
     .short \inhibited
+    .endm
+
+    // destVarID: whether the Fashion Case has no room for any of Goldenrod Tunnel's lottery accessories
+    // (HeartGold's ScrCmd_830)
+    .macro CompleteTunnelAccessoriesFull destVarID
+    .short SCRCMD_COMPLETETUNNELACCESSORIESFULL
+    .short \destVarID
+    .endm
+
+    // destVarID: one of Goldenrod Tunnel's lottery accessories, at random (HeartGold's ScrCmd_831)
+    .macro CompleteTunnelRandomAccessory destVarID
+    .short SCRCMD_COMPLETETUNNELRANDOMACCESSORY
+    .short \destVarID
+    .endm
+
+    // destVarID: whether the player has every one of the first 14 backdrops (HeartGold's ScrCmd_832)
+    .macro CompleteTunnelBackdropsOwned destVarID
+    .short SCRCMD_COMPLETETUNNELBACKDROPSOWNED
+    .short \destVarID
+    .endm
+
+    // destVarID: one of the first 14 backdrops the player hasn't got, at random
+    // (HeartGold's ScrCmd_833)
+    .macro CompleteTunnelRandomBackdrop destVarID
+    .short SCRCMD_COMPLETETUNNELRANDOMBACKDROP
+    .short \destVarID
     .endm
 
     .text
