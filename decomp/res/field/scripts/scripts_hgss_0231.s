@@ -14,7 +14,7 @@ scr_seq_R31R0101_001:
     End
 scr_seq_R31R0101_000:
     LockAll
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_R31R0101_tsure_poke_static_marill, _028C
     WaitMovement
     PlaySE SEQ_SE_DP_KAIDAN2_sseq

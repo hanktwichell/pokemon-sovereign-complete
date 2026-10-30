@@ -52,6 +52,8 @@ scr_seq_D39R0101_004:
 scr_seq_D39R0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
+    StopMusic
+    SetBGM SEQ_GS_E_MAIKO_THEME_sseq
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _01A7

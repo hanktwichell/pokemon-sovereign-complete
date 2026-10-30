@@ -100,6 +100,8 @@ scr_seq_T06_012:
     CompleteObjectSway obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_T06_tsure_poke_static_suicune
     WaitCry
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
@@ -272,6 +274,8 @@ _03EB:
     CompleteObjectSway obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_T06_tsure_poke_static_suicune
     WaitCry
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
@@ -291,6 +295,8 @@ _0450:
     CompleteObjectSway obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_T06_tsure_poke_static_suicune
     WaitCry
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     ApplyMovement obj_T06_tsure_poke_static_suicune, _0AC4
     ApplyMovement obj_T06_minaki, _0AE2
     ApplyMovement LOCALID_PLAYER, _0AF0

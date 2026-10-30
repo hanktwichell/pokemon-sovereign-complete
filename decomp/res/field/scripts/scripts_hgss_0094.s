@@ -1050,6 +1050,8 @@ _1010:
     EndMovement
 scr_seq_D37R0102_011:
     LockAll
+    StopMusic
+    SetBGM SEQ_GS_E_MAIKO_THEME_sseq
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     CompareVar VAR_0x8005, 31
     GoToIf 5, _1055

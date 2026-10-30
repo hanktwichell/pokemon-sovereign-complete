@@ -248,6 +248,8 @@ _03D2:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     ApplyMovement obj_R14_minaki, _057C
     ApplyMovement LOCALID_PLAYER, _056C
     WaitMovement

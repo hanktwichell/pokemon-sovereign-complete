@@ -159,7 +159,7 @@ scr_seq_T20R0101_002:
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     AddObject obj_T20R0101_var_1
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_T20R0101_var_1, _126A
     ApplyMovement obj_T20R0101_policeman, _1278
     WaitMovement

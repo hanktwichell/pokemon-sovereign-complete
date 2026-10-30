@@ -140,7 +140,7 @@ scr_seq_D40R0107_005:
     WaitMovement
     WaitTime 16, VAR_RESULT
     StopMusic
-    @ HGSS: TempBGM SEQ_GS_E_MAIKO_MAI
+    SetBGM SEQ_GS_E_MAIKO_MAI_sseq
     WaitTime 18, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _09B8
     ApplyMovement obj_D40R0107_dancer_3, _09B8
@@ -369,7 +369,7 @@ scr_seq_D40R0107_005:
     WaitMovement
     @ HGSS: LegendCutsceneWaitCameraPan
     WaitTime 32, VAR_RESULT
-    @ HGSS: TempBGM SEQ_GS_E_LUGIA
+    SetBGM SEQ_GS_E_LUGIA_sseq
     WaitTime 48, VAR_RESULT
     CompleteScreenShake 3, 3, 15, 5
     WaitTime 10, VAR_RESULT

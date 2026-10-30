@@ -122,7 +122,8 @@ scr_seq_R22_003:
     WaitMovement
     Message msg_0360_R22_00006
     CloseMessage
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     ApplyMovement 241, _03E8
     ApplyMovement obj_R22_gsrivel, _0404
     WaitMovement

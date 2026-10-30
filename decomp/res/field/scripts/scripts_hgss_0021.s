@@ -121,7 +121,7 @@ scr_seq_D17R0110_006:
     WaitMovement
     WaitTime 16, VAR_RESULT
     StopMusic
-    @ HGSS: TempBGM SEQ_GS_E_MAIKO_MAI
+    SetBGM SEQ_GS_E_MAIKO_MAI_sseq
     WaitTime 18, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _07A0
     ApplyMovement obj_D17R0110_dancer_2, _07A0

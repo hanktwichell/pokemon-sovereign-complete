@@ -203,7 +203,7 @@ scr_seq_T20_003:
     ClearFlag FLAG_HGSS_HIDE_NEW_BARK_FRIEND
     AddObject obj_T20_var_1
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_T20_var_1, _1CDC
     WaitMovement
     ApplyMovement obj_T20_tsure_poke_static_marill, _1C88
@@ -234,7 +234,7 @@ scr_seq_T20_007:
     End
 scr_seq_T20_008:
     LockAll
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_T20_var_1, _1D0C
     ApplyMovement obj_T20_tsure_poke_static_marill, _1D44
     WaitMovement

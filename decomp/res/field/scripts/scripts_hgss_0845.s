@@ -16,7 +16,8 @@ scr_seq_T20R0201_000:
     ApplyMovement LOCALID_PLAYER, _05EC
     ApplyMovement obj_T20R0201_gsmama, _05F6
     WaitMovement
-    Common_SetFollowMeBGM
+    StopMusic
+    SetBGM SEQ_GS_E_TSURETEKE1_sseq
     WaitTime 30, VAR_RESULT
     ApplyMovement obj_T20R0201_gsmama, _05FC
     WaitMovement
@@ -78,7 +79,8 @@ scr_seq_T20R0201_006:
     ApplyMovement LOCALID_PLAYER, _05EC
     ApplyMovement obj_T20R0201_gsmama, _05F6
     WaitMovement
-    Common_SetFollowMeBGM
+    StopMusic
+    SetBGM SEQ_GS_E_TSURETEKE1_sseq
     WaitTime 30, VAR_RESULT
     ApplyMovement obj_T20R0201_gsmama, _05FC
     WaitMovement

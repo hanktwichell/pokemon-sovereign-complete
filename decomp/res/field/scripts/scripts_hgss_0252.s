@@ -42,6 +42,8 @@ scr_seq_R42_001:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     ClearFlag FLAG_HGSS_HIDE_ROUTE_42_EUSINE
     AddObject obj_R42_minaki
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     ApplyMovement obj_R42_minaki, _0350
     WaitMovement
     Message msg_0399_R42_00007

@@ -54,15 +54,18 @@ STD_SCRIPTS = {
     'std_hatch_egg': ['CallCommonScript 0x7EF'],
     'std_repel_wore_off': ['CallCommonScript 0x7F0'],
     'std_receive_background': ['Common_ObtainContestBackdrop'],
-    'std_play_friend_music': ['Common_SetCounterpartBGM'],
+    # HeartGold's themes (tools/complete/import_hgss_sound.py brings in the songs its standard scripts play): the
+    # friend's (Lyra's for a boy, Ethan's for a girl), the rival's, the "follow me" ones, Eusine's, Clair's, the
+    # spiky-eared Pichu's and the Kimono Girls'; each ends with Platinum's fade back to the map's song
+    'std_play_friend_music': ['CallCommonScript 0x816'],  # CommonScript_CompleteSetFriendBGM
     'std_fade_end_friend_music': ['Common_FadeToDefaultMusic'],
-    'std_play_rival_intro_music': ['Common_SetRivalBGM'],
+    'std_play_rival_intro_music': ['StopMusic', 'SetBGM SEQ_GS_E_RIVAL1_sseq'],
     'std_fade_end_rival_intro_music': ['Common_FadeToDefaultMusic2'],
-    'std_play_rival_outro_music': ['Common_SetRivalBGM'],
+    'std_play_rival_outro_music': ['StopMusic', 'SetBGM SEQ_GS_E_RIVAL2_sseq'],
     'std_fade_end_rival_outro_music': ['Common_FadeToDefaultMusic2'],
     'std_give_item_verbose': ['Common_GiveItemQuantity'],
-    'std_play_mom_music': ['Common_SetFollowMeBGM'],
-    'std_play_follow_music': ['Common_SetFollowMeBGM'],
+    'std_play_mom_music': ['StopMusic', 'SetBGM SEQ_GS_E_TSURETEKE1_sseq'],
+    'std_play_follow_music': ['StopMusic', 'SetBGM SEQ_GS_E_TSURETEKE2_sseq'],
     'std_fade_end_mom_music': ['Common_FadeToDefaultMusic3'],
     'std_frontier_gold_prints_check': ['Common_CheckAllFrontierGoldPrintsObtained'],
     'std_bag_is_full_griseous_orb': ['Common_GriseousOrbCouldNotBeRemoved'],
@@ -71,7 +74,9 @@ STD_SCRIPTS = {
     # Oak's own rating (PokedexRatings_CheckOak): yes or no, then the National Pokédex. VAR_RESULT is MENU_NO (1) if
     # the player says no, else the rating's message (above 1), as HeartGold's 0 (no), 1 (Johto's) or 2 (national)
     'std_in_person_evaluate_dex': ['CallCommonScript 0x26E0'],
-    **{f'std_play_{who}_music': [] for who in ('eusine', 'clair', 'kimono_girl', 'pichu')},
+    **{f'std_play_{who}_music': ['StopMusic', f'SetBGM {song}_sseq'] for who, song in (
+        ('eusine', 'SEQ_GS_E_MINAKI'), ('clair', 'SEQ_GS_IBUKI'), ('kimono_girl', 'SEQ_GS_E_MAIKO_THEME'),
+        ('pichu', 'SEQ_GS_E_G_PICHU'))},
     **{f'std_fade_end_{who}_music': ['Common_FadeToDefaultMusic'] for who in ('eusine', 'clair', 'kimono_girl', 'pichu')},
 }
 
@@ -552,6 +557,8 @@ COMMANDS = {
     'GetCoinAmount': one('GetCoinsAmount {0}'),
     'TakeCoins': one('SubtractCoinsFromValue {0}'),
     'PlayBGM': one('PlayMusic {0}'),
+    # a scene's song (the Kimono Girls' dance before Ho-Oh and Lugia), set as Platinum sets its themes
+    'TempBGM': one('SetBGM {0}'),
     'StopBGM': lambda a: ['StopMusic'],
     'BufferSpeciesName': one('BufferSpeciesNameFromVar {0}, {1}, {2}, {3}'),
     # Johto and Kanto's 16 badges aren't in the save yet (step 7): none counts as won.

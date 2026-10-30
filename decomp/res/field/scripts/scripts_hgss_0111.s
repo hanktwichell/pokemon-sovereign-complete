@@ -185,7 +185,8 @@ _02AE:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00014
     CloseMessage
@@ -236,7 +237,8 @@ _03B0:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00014
     CloseMessage

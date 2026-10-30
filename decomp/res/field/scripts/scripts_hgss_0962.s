@@ -98,6 +98,8 @@ scr_seq_W40_011:
     ApplyMovement 8, _057A
     WaitMovement
     BufferPlayerName 0
+    StopMusic
+    SetBGM SEQ_GS_E_MAIKO_THEME_sseq
     GoToIfSet FLAG_HGSS_SG_3FBB, _0360
     SetFlag FLAG_HGSS_SG_3FBB
     Message msg_0744_W40_00021

@@ -29,7 +29,8 @@ scr_seq_T21_001:
     LockObject obj_T21_gsoldman1
     ApplyMovement obj_T21_gsoldman1, _0AE4
     WaitMovement
-    Common_SetFollowMeBGM
+    StopMusic
+    SetBGM SEQ_GS_E_TSURETEKE2_sseq
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 397
     GoToIf 5, _0270
@@ -39,7 +40,8 @@ scr_seq_T21_002:
     LockAll
     ApplyMovement LOCALID_PLAYER, _0AF0
     WaitMovement
-    Common_SetFollowMeBGM
+    StopMusic
+    SetBGM SEQ_GS_E_TSURETEKE2_sseq
     ClearFlag FLAG_HGSS_HIDE_CHERRYGROVE_GUIDE_GENT
     AddObject obj_T21_gsoldman1
     LockObject obj_T21_gsoldman1
@@ -54,7 +56,8 @@ scr_seq_T21_003:
     FadeOutBGM 0, 3
     ApplyMovement LOCALID_PLAYER, _0AE4
     WaitMovement
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     SetPosition obj_T21_gsrivel, 583, 0, VAR_MAP_LOCAL_0x01, DIR_WEST
     ApplyMovement obj_T21_gsrivel, _0B08
@@ -175,7 +178,8 @@ _02FC:
     GoTo _0317
 _0317:
     CheckWonBattle VAR_RESULT
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     Message msg_0550_T21_00014
     CloseMessage
     PlaySE SEQ_SE_DP_WALL_HIT2_sseq
@@ -307,7 +311,8 @@ _04CD:
 _050D:
     StartTrainerBattle TRAINER_HGSS_PASSERBY_BOY, 0
     CheckWonBattle VAR_RESULT
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     Message msg_0550_T21_00014
     CloseMessage
     PlaySE SEQ_SE_DP_WALL_HIT2_sseq

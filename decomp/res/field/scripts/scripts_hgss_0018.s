@@ -26,7 +26,8 @@ scr_seq_D15R0103_001:
     Message msg_0056_D15R0103_00000
     CloseMessage
     WaitTime 15, VAR_RESULT
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     ApplyMovement obj_D15R0103_gsrivel, _0376
     WaitMovement

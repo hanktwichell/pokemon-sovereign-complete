@@ -27,7 +27,7 @@ memory, measured from both decomps and both built archives.
    `BANK_BGM_BASIC`. The tool checks that every note of every sequence plays the same WAV as before. It writes
    `decomp/res/sound/complete/`, which the build packs in place of Sovereign's banks and basic waves
    (`res/sound/meson.build`), so Sovereign's files stay as they are for syncs; the sync script reruns it.
-2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 116 songs and 23 fanfares, kept as HeartGold's
+2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 127 songs and 23 fanfares, kept as HeartGold's
    sequence files byte for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's
    instruments it plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from
    `WAVE_ARC_GS`, one archive of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a
@@ -40,7 +40,10 @@ memory, measured from both decomps and both built archives.
    song's bank, `src/sound.c`, `src/sound_playback.c`); Johto and Kanto have HeartGold's surfing and cycling songs
    (`src/field_bgm.c`).
 4. **Data:** the map headers name HeartGold's songs (`tools/complete/import_hgss_headers.py`, Platinum's standing in
-   only for a song the archive lacks), and the translated scripts play them. HeartGold's trainers have its encounter
+   only for a song the archive lacks), and the translated scripts play them, the scenes' themes too: the friend's
+   (Lyra's for a boy, Ethan's for a girl), the rival's, the "follow me" ones, Eusine's, Clair's, the Kimono Girls' and
+   their dance, Lugia's arrival and the spiky-eared Pichu's, which HeartGold's standard scripts and `TempBGM` play
+   (Sinnoh's themes stood in for some, nothing for the rest). HeartGold's trainers have its encounter
    themes; battles on Johto and Kanto's maps have HeartGold's battle themes (Johto's or Kanto's trainer and wild
    themes by region, the Gym Leaders', Rival's, Team Rocket's, the beasts', Ho-Oh's and Lugia's) and victory themes.
 5. **Test** (`tools/complete/test_sound_heap.py`, with the test build's `gCompleteTestSound`): every song of the

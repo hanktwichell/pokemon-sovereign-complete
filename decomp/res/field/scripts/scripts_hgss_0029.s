@@ -266,7 +266,8 @@ _036C:
 scr_seq_D23R0101_009:
     LockAll
     SetPosition obj_D23R0101_gsrivel, 13, 1, 6, DIR_EAST
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     .short SCRCMD_UNUSED_06A
     .short obj_D23R0101_rocketm
     .short VAR_MAP_LOCAL_0x00
@@ -382,7 +383,8 @@ _05AF:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     RemoveObject obj_D23R0101_rocketm
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompareVar VAR_MAP_LOCAL_0x01, 5
     GoToIf 5, _05DE
     ApplyMovement obj_D23R0101_gsrivel, _0928

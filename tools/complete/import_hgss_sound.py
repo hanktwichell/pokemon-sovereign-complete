@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Bring in HeartGold's songs for Johto and Kanto (docs/Music.md, step 6).
 
-The songs: every one HeartGold's map headers name, its scripts play (Sacred Gold's, which are the game's), its field
-music code picks (surfing, cycling, the trainers' encounter themes), and its battle and victory themes; and the
-fanfares its scripts play (SEQ_ME_*: an item, a badge, a Pokémon caught). Sacred Gold leaves HeartGold's sound
+The songs: every one HeartGold's map headers name, its scripts play (Sacred Gold's, which are the game's; a scene's
+song too, TempBGM), its field music code picks (surfing, cycling, the trainers' encounter themes), and its battle and
+victory themes; and the fanfares its scripts play (SEQ_ME_*: an item, a badge, a Pokémon caught). Sacred Gold leaves HeartGold's sound
 archive as it is.
 
 HeartGold's sound archive (its pret decomp's prebuilt files/data/sound/gs_sound_data.sdat) is unpacked into
@@ -88,7 +88,7 @@ def needed_songs(seqs):
     headers = open(os.path.join(HG, 'src', 'data', 'map_headers.h')).read()
     names = set(re.findall(r'(?:day|night)MusicId = (SEQ_\w+)', headers))
     for path in glob.glob(os.path.join(SACRED_SCRIPTS, '*.s')):
-        names |= set(re.findall(r'Play(?:BGM|Fanfare) (SEQ_\w+)', open(path, errors='replace').read()))
+        names |= set(re.findall(r'(?:PlayBGM|PlayFanfare|TempBGM) (SEQ_\w+)', open(path, errors='replace').read()))
     names |= set(re.findall(r'SEQ_GS_\w+', open(os.path.join(HG, 'src/field_bgm.c')).read()))
     names |= {n for n in seqs if re.fullmatch(OTHER_SONGS, n)}
     return sorted(n for n in names if n.startswith(('SEQ_GS_', 'SEQ_ME_')) and n in seqs

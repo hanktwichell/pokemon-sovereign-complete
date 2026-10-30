@@ -25,7 +25,8 @@ scr_seq_D49R0102_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    Common_SetFollowMeBGM
+    StopMusic
+    SetBGM SEQ_GS_E_TSURETEKE1_sseq
     GoToIfUnset FLAG_HGSS_UNK_0FA, _006A
     Message msg_0139_D49R0102_00001
     GoTo _0071

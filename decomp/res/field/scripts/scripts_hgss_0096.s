@@ -342,7 +342,8 @@ _0614:
     EndMovement
 scr_seq_D37R0104_004:
     LockAll
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     SetPosition obj_D37R0104_gsrivel, 28, 0, 4, DIR_WEST
     CompleteFollowerPause 0
     CompleteFollowerWait
@@ -372,7 +373,8 @@ _06A0:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _06D9
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0119_D37R0104_00001
     CloseMessage

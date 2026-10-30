@@ -32,7 +32,7 @@ _006B:
     End
 scr_seq_T07R0203_010:
     LockAll
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_T07R0203_var_1, _012C
     ApplyMovement obj_T07R0203_tsure_poke_static_marill, _0138
     WaitMovement

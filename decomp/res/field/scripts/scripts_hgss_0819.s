@@ -60,7 +60,8 @@ scr_seq_T10R0101_006:
     FadeOutBGM 0, 3
     ApplyMovement LOCALID_PLAYER, _061A
     WaitMovement
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     GetPlayerMapPos VAR_0x8000, VAR_0x8001
     ClearFlag FLAG_HGSS_HIDE_INDIGO_PLATEAU_RIVAL
     AddObject obj_T10R0101_gsrivel
@@ -171,7 +172,8 @@ _0295:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _040F
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0522_T10R0101_00004
     CloseMessage
@@ -249,7 +251,8 @@ _03CA:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _040F
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0522_T10R0101_00004
     CloseMessage

@@ -96,6 +96,7 @@
     ScriptEntry CommonScript_CompletePhoneCall @ 0x813
     ScriptEntry CommonScript_CompletePhoneIncomingCall @ 0x814
     ScriptEntry CommonScript_CompleteFollowerTalk @ 0x815
+    ScriptEntry CommonScript_CompleteSetFriendBGM @ 0x816
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2140,6 +2141,23 @@ CommonScript_CompletePhoneEnd:
 // Sovereign Complete: talking to the following Pokémon (src/overlay006/complete_follower_talk.c, HeartGold's
 // scr_seq_0163): the interaction for the moment, a step at a time (its motion, then its message), with any yes or no
 // leading to the next interaction
+@ Sovereign Complete: HeartGold's friend's theme (its std_play_friend_music): Lyra's for a boy, Ethan's for a girl
+CommonScript_CompleteSetFriendBGM:
+    StopMusic
+    GetPlayerGender VAR_RESULT
+    CallIfEq VAR_RESULT, GENDER_MALE, CommonScript_CompleteSetLyraBGM
+    CallIfEq VAR_RESULT, GENDER_FEMALE, CommonScript_CompleteSetEthanBGM
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteSetLyraBGM:
+    SetBGM SEQ_GS_E_SUPPORT_F_sseq
+    Return
+
+CommonScript_CompleteSetEthanBGM:
+    SetBGM SEQ_GS_E_SUPPORT_M_sseq
+    Return
+
 CommonScript_CompleteFollowerTalk:
     PlaySE SE_CONFIRM_sseq_3
     LockAll

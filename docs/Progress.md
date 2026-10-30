@@ -582,6 +582,11 @@ Test results on the new test build:
   translate: an object's facing (get and set), a chance in 101, the map the player came from (as HeartGold numbers
   maps, which its scripts compare with), the Fashion Case's accessories and backdrops (Platinum's commands), and
   three empty ones. 977 of Sacred Gold's script lines left.
+- **HeartGold's scene themes:** the songs HeartGold's standard scripts and `TempBGM` play are in (11 more: the
+  friend's, Lyra's for a boy and Ethan's for a girl, the rival's two, the "follow me" two, Eusine's, the Kimono Girls'
+  theme and dance, Lugia's arrival, the spiky-eared Pichu's), and the scenes play them where Sinnoh's themes stood in
+  (Barry's, Dawn's or Lucas's, Platinum's "follow me") or nothing played (Eusine, Clair, the Kimono Girls). Every song
+  still loads (`tools/complete/test_sound_heap.py`'s songs part), and Route 29's scene with Lyra plays to its end.
 - **Sovereign's static checks over the whole game, Johto and Kanto included, all pass:** every event and init script
   number of 1,035 map headers in range, 2,530 warps leading to warps that exist, 943 script files showing their own
   map's texts, 10,332 messages and signs fitting their boxes, 208 menus on screen, every one-byte text ID fitting, and

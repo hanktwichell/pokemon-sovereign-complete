@@ -19,7 +19,8 @@ scr_seq_D43R0103_000:
     WaitMovement
     ClearFlag FLAG_HGSS_HIDE_VICTORY_ROAD_RIVAL
     AddObject obj_D43R0103_gsrivel
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x00, 37
     GoToIf 5, _00FA
@@ -127,7 +128,8 @@ _01F3:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02C2
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     Message msg_0128_D43R0103_00001
     CloseMessage
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
@@ -155,7 +157,8 @@ _027F:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02C2
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     Message msg_0128_D43R0103_00001
     CloseMessage
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01

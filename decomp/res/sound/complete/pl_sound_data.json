@@ -10672,6 +10672,94 @@
 			"playerPriority":	64,
 			"player":	"PLAYER_BGM"
 		}, {
+			"name":	"SEQ_GS_E_G_PICHU",
+			"fileName":	"SEQ_GS_E_G_PICHU.sseq",
+			"bank":	"BANK_GS_E_G_PICHU",
+			"volume":	100,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_LUGIA",
+			"fileName":	"SEQ_GS_E_LUGIA.sseq",
+			"bank":	"BANK_GS_E_LUGIA",
+			"volume":	92,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_MAIKO_MAI",
+			"fileName":	"SEQ_GS_E_MAIKO_MAI.sseq",
+			"bank":	"BANK_GS_E_MAIKO_MAI",
+			"volume":	88,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_MAIKO_THEME",
+			"fileName":	"SEQ_GS_E_MAIKO_THEME.sseq",
+			"bank":	"BANK_GS_E_MAIKO_THEME",
+			"volume":	88,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_MINAKI",
+			"fileName":	"SEQ_GS_E_MINAKI.sseq",
+			"bank":	"BANK_GS_E_MINAKI",
+			"volume":	86,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_RIVAL1",
+			"fileName":	"SEQ_GS_E_RIVAL1.sseq",
+			"bank":	"BANK_GS_E_RIVAL1",
+			"volume":	89,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_RIVAL2",
+			"fileName":	"SEQ_GS_E_RIVAL2.sseq",
+			"bank":	"BANK_GS_E_RIVAL2",
+			"volume":	89,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_SUPPORT_F",
+			"fileName":	"SEQ_GS_E_SUPPORT_F.sseq",
+			"bank":	"BANK_GS_E_SUPPORT_F",
+			"volume":	87,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_SUPPORT_M",
+			"fileName":	"SEQ_GS_E_SUPPORT_M.sseq",
+			"bank":	"BANK_GS_E_SUPPORT_M",
+			"volume":	87,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_TSURETEKE1",
+			"fileName":	"SEQ_GS_E_TSURETEKE1.sseq",
+			"bank":	"BANK_GS_E_TSURETEKE1",
+			"volume":	79,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
+			"name":	"SEQ_GS_E_TSURETEKE2",
+			"fileName":	"SEQ_GS_E_TSURETEKE2.sseq",
+			"bank":	"BANK_GS_E_TSURETEKE2",
+			"volume":	78,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
 			"name":	"SEQ_GS_FS",
 			"fileName":	"SEQ_GS_FS.sseq",
 			"bank":	"BANK_GS_FS",
@@ -15008,6 +15096,50 @@
 		}, {
 			"name":	"BANK_GS_EYE_ROCKET",
 			"fileName":	"BANK_GS_EYE_ROCKET.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_G_PICHU",
+			"fileName":	"BANK_GS_E_G_PICHU.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_LUGIA",
+			"fileName":	"BANK_GS_E_LUGIA.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_MAIKO_MAI",
+			"fileName":	"BANK_GS_E_MAIKO_MAI.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_MAIKO_THEME",
+			"fileName":	"BANK_GS_E_MAIKO_THEME.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_MINAKI",
+			"fileName":	"BANK_GS_E_MINAKI.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_RIVAL1",
+			"fileName":	"BANK_GS_E_RIVAL1.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_RIVAL2",
+			"fileName":	"BANK_GS_E_RIVAL2.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_SUPPORT_F",
+			"fileName":	"BANK_GS_E_SUPPORT_F.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_SUPPORT_M",
+			"fileName":	"BANK_GS_E_SUPPORT_M.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_TSURETEKE1",
+			"fileName":	"BANK_GS_E_TSURETEKE1.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_TSURETEKE2",
+			"fileName":	"BANK_GS_E_TSURETEKE2.sbnk",
 			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
 		}, {
 			"name":	"BANK_GS_FS",

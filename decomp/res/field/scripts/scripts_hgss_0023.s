@@ -12,7 +12,8 @@
     ScriptEntryEnd
 scr_seq_D18R0101_003:
     LockAll
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     ApplyMovement obj_D18R0101_gsrivel, _01F0
     WaitMovement
     CompleteBufferHGSSRivalName 0
@@ -24,6 +25,8 @@ scr_seq_D18R0101_003:
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_8, 0
     GoTo _0130
     LockAll
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     ApplyMovement obj_D18R0101_minaki, _0208
     WaitMovement
     BufferPlayerName 0
@@ -36,6 +39,8 @@ scr_seq_D18R0101_003:
     End
 scr_seq_D18R0101_000:
     LockAll
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     ApplyMovement obj_D18R0101_minaki, _0208
     WaitMovement
     BufferPlayerName 0
@@ -79,7 +84,8 @@ _0130:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01EA
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0060_D18R0101_00001
     CloseMessage
@@ -103,7 +109,8 @@ _0189:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01EA
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0060_D18R0101_00001
     CloseMessage

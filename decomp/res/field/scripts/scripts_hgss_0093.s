@@ -43,7 +43,7 @@ scr_seq_D37R0101_002:
     GoToIf 5, _02B3
     SetPosition obj_D37R0101_var_1, 9, 0, 25, DIR_WEST
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_D37R0101_var_1, _0646
     WaitMovement
     CompleteFollowerCheckActive VAR_RESULT
@@ -76,7 +76,7 @@ _012A:
     ClearFlag FLAG_HGSS_HIDE_GOLDENROD_UNDERGROUND_FRIEND
     AddObject obj_D37R0101_tsure_poke_static_marill
     LockObject obj_D37R0101_tsure_poke_static_marill
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     SetPosition obj_D37R0101_var_1, 25, 0, 9, DIR_NORTH
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
@@ -141,7 +141,7 @@ _0215:
     GoToIf 5, _02B3
     SetPosition obj_D37R0101_var_1, 9, 0, 25, DIR_WEST
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_D37R0101_var_1, _0646
     WaitMovement
     CompleteFollowerCheckActive VAR_RESULT
@@ -154,7 +154,7 @@ _0215:
     GoTo _03AB
 _02B3:
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_D37R0101_var_1, _0646
     WaitMovement
     CompleteFollowerCheckActive VAR_RESULT

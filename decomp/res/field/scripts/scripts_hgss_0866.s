@@ -56,7 +56,8 @@ scr_seq_T23_002:
     ApplyMovement LOCALID_PLAYER, _0580
     WaitMovement
     SetVarFromValue VAR_HGSS_FARFETCHD1_STICKS1, 1
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     CompareVar VAR_0x8005, 462
     GoToIf 5, _0321
@@ -265,7 +266,8 @@ _03F6:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04B5
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0564_T23_00002
     CloseMessage
@@ -287,7 +289,8 @@ _0469:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04B5
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     CompleteBufferHGSSRivalName 0
     Message msg_0564_T23_00002
     CloseMessage

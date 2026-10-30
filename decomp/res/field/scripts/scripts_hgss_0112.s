@@ -85,6 +85,8 @@ scr_seq_D44R0103_003:
     WaitTime 10, VAR_0x8004
     PlaySE SEQ_SE_DP_DOOR_sseq
     WaitTime 5, VAR_0x8004
+    StopMusic
+    SetBGM SEQ_GS_IBUKI_sseq
     ApplyMovement LOCALID_PLAYER, _0F8E
     ApplyMovement obj_D44R0103_gsleader8, _0FA4
     WaitMovement
@@ -369,6 +371,8 @@ _056D:
     WaitTime 10, VAR_0x8004
     PlaySE SEQ_SE_DP_DOOR_sseq
     WaitTime 5, VAR_0x8004
+    StopMusic
+    SetBGM SEQ_GS_IBUKI_sseq
     ApplyMovement LOCALID_PLAYER, _0F8E
     ApplyMovement obj_D44R0103_gsleader8, _0FA4
     WaitMovement
@@ -463,6 +467,8 @@ _07A0:
     WaitTime 10, VAR_0x8004
     PlaySE SEQ_SE_DP_DOOR_sseq
     WaitTime 5, VAR_0x8004
+    StopMusic
+    SetBGM SEQ_GS_IBUKI_sseq
     ApplyMovement LOCALID_PLAYER, _0F8E
     ApplyMovement obj_D44R0103_gsleader8, _0FA4
     WaitMovement
@@ -547,6 +553,8 @@ _0994:
     WaitTime 10, VAR_0x8004
     PlaySE SEQ_SE_DP_DOOR_sseq
     WaitTime 5, VAR_0x8004
+    StopMusic
+    SetBGM SEQ_GS_IBUKI_sseq
     ApplyMovement LOCALID_PLAYER, _0F8E
     ApplyMovement obj_D44R0103_gsleader8, _0FA4
     WaitMovement
@@ -621,6 +629,8 @@ _0B49:
     WaitTime 10, VAR_0x8004
     PlaySE SEQ_SE_DP_DOOR_sseq
     WaitTime 5, VAR_0x8004
+    StopMusic
+    SetBGM SEQ_GS_IBUKI_sseq
     ApplyMovement LOCALID_PLAYER, _0F8E
     ApplyMovement obj_D44R0103_gsleader8, _0FA4
     WaitMovement
@@ -685,6 +695,8 @@ _0CBF:
     WaitTime 10, VAR_0x8004
     PlaySE SEQ_SE_DP_DOOR_sseq
     WaitTime 5, VAR_0x8004
+    StopMusic
+    SetBGM SEQ_GS_IBUKI_sseq
     ApplyMovement LOCALID_PLAYER, _0F8E
     ApplyMovement obj_D44R0103_gsleader8, _0FA4
     WaitMovement

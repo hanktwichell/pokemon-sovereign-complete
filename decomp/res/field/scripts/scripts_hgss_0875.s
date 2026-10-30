@@ -82,6 +82,8 @@ scr_seq_T24_002:
     AddVar VAR_HGSS_UNK_4076, 1
     ClearFlag FLAG_HGSS_HIDE_CIANWOOD_EUSINE
     AddObject obj_T24_minaki
+    StopMusic
+    SetBGM SEQ_GS_E_MINAKI_sseq
     ApplyMovement obj_T24_minaki, _0680
     ApplyMovement LOCALID_PLAYER, _068E
     WaitMovement

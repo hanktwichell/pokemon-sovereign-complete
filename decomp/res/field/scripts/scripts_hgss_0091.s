@@ -139,7 +139,8 @@ scr_seq_D35R0104_002:
     LockAll
     ApplyMovement LOCALID_PLAYER, _00F4
     WaitMovement
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     ClearFlag FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_RIVAL
     AddObject obj_D35R0104_gsrivel
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01

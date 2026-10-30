@@ -6,7 +6,8 @@
     ScriptEntry scr_seq_D02R0101_000
     ScriptEntryEnd
 scr_seq_D02R0101_000:
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
@@ -36,7 +37,8 @@ _007D:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00C9
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL2_sseq
     BufferPlayerName 0
     CompleteBufferHGSSRivalName 1
     Message msg_0049_D02R0101_00001

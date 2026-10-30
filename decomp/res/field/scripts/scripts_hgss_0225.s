@@ -50,7 +50,7 @@ scr_seq_R29_001:
     WaitMovement
     ApplyMovement obj_R29_var_2, _07F0
     WaitMovement
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     MessageGendered msg_0373_R29_00017, msg_0373_R29_00018
     CloseMessage
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01

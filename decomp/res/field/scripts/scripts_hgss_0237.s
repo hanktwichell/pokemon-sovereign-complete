@@ -62,7 +62,7 @@ scr_seq_R34_003:
     CloseMessage
     ApplyMovement obj_R34_gsoldman1, _0BEE
     WaitMovement
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_R34_var_1, _0BF4
     ApplyMovement obj_R34_tsure_poke_static_marill, _0C06
     WaitMovement

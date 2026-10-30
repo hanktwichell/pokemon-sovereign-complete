@@ -33,6 +33,8 @@ scr_seq_T22_000:
     End
 scr_seq_T22_004:
     LockAll
+    StopMusic
+    SetBGM SEQ_GS_E_MAIKO_THEME_sseq
     ApplyMovement obj_T22_dancer, _0C2A
     WaitMovement
     Message msg_0556_T22_00013

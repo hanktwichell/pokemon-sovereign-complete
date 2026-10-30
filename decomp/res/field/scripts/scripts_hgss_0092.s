@@ -228,6 +228,8 @@ scr_seq_D36R0101_014:
     End
 scr_seq_D36R0101_015:
     LockAll
+    StopMusic
+    SetBGM SEQ_GS_E_MAIKO_THEME_sseq
     ApplyMovement obj_D36R0101_dancer, _2296
     WaitMovement
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
@@ -305,7 +307,7 @@ scr_seq_D36R0101_022:
     CloseMessage
     ApplyMovement obj_D36R0101_tsure_poke_static_marill, _22F0
     WaitMovement
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ApplyMovement obj_D36R0101_var_1, _230A
     WaitMovement
     MessageGendered msg_0115_D36R0101_00063, msg_0115_D36R0101_00062
@@ -1099,6 +1101,8 @@ _119B:
     WaitCry
     ApplyMovement LOCALID_PLAYER, _2466
     WaitMovement
+    StopMusic
+    SetBGM SEQ_GS_E_G_PICHU_sseq
     ApplyMovement obj_D36R0101_tsure_poke_static_pichu_spiky, _248E
     CompleteFollowerPause 0
     CompleteFollowerWait
@@ -1497,7 +1501,7 @@ _1834:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _26E8
     WaitMovement
     FadeOutBGM 0, 30
-    Common_SetCounterpartBGM
+    CallCommonScript 0x816
     ClearFlag FLAG_HGSS_HIDE_ILEX_FOREST_FRIEND
     AddObject obj_D36R0101_var_1
     AddObject obj_D36R0101_tsure_poke_static_marill

@@ -198,6 +198,8 @@ scr_seq_T27_017:
     LockAll
     FacePlayer
     BufferPlayerName 0
+    StopMusic
+    SetBGM SEQ_GS_E_MAIKO_THEME_sseq
     GoToIfUnset FLAG_HGSS_SG_3FB2, _04AE
     Message msg_0612_T27_00020
     DrawPokemonPreview SPECIES_JIRACHI, 0

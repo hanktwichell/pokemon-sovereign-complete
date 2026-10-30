@@ -67,7 +67,8 @@ scr_seq_T26_001:
     UnloadAnimation 77
     ApplyMovement LOCALID_PLAYER, _05C2
     WaitMovement
-    Common_SetRivalBGM
+    StopMusic
+    SetBGM SEQ_GS_E_RIVAL1_sseq
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 239
     GoToIf 5, _0281

@@ -59,7 +59,7 @@ def std_file_script(n):
 NEW_GAME_FLAGS = ['FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN']
 # HeartGold's new game sets these in code (its NewGame_InitSaveData): the Lake of Rage's Magikarp record, 3'6"
 NEW_GAME_VARS = [('VAR_HGSS_MAGIKARP_SIZE_RECORD', 56150)]
-SOUND_COMMANDS = {'PlaySE', 'WaitSE', 'StopSE', 'PlayFanfare', 'WaitFanfare', 'PlayCry', 'PlayMusic', 'PlayBGM'}
+SOUND_COMMANDS = {'PlaySE', 'WaitSE', 'StopSE', 'PlayFanfare', 'WaitFanfare', 'PlayCry', 'PlayMusic', 'PlayBGM', 'TempBGM'}
 
 
 def macro_params(path):
