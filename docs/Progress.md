@@ -680,3 +680,5 @@ Test results on the new test build:
   distribution eggs; Elm's starter and the loan Pokémon have tests of their own.
 - Sacred Gold's Pewter City woman gives her two Phione Eggs every time she's talked to (her script sets no flag), as
   in Sacred Gold.
+- **Sovereign's own gift test** (`tools/test/gift_pokemon.py`) on this build: all 45 of Sovereign's gifts pass, as
+  before Johto and Kanto came in.

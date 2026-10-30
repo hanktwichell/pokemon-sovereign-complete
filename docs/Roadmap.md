@@ -119,8 +119,9 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   Elite Four. So through all of Johto most Pokémon the player meets and catches (Sentret, Pidgey, Ledyba...) are
   recorded but never shown. Proposed: HeartGold's Johto
   Pokédex (256, already in the game for the Celadon game designer's check) is the regional one until the National
-  Pokédex, and Sinnoh's comes back as the regional choice beside the National once the player is in Sinnoh. Or: the
-  National Pokédex from the start.
+  Pokédex, and Sinnoh's comes back as the regional choice beside the National once the player is in Sinnoh (about half
+  a day to a day: the Pokédex's list and numbers, its seen and caught counts, its title). Or: the National Pokédex
+  from the start.
 
 Hoenn and the Sevii Islands aren't in scope. There's no DS version of Hoenn, so it would be built from scratch.
 
