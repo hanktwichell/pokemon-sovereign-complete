@@ -667,3 +667,16 @@ Test results on the new test build:
 - **Tested:** `tools/complete/test_sound_heap.py`'s new flags part passes: with the flag set, the National Park, a
   contest gatehouse and the Radio Tower's 2F each load their song, and no load fails. The whole test passes (4 of 4):
   every song loads, the tightest of Sinnoh's (the title screen's) leaving 7 KB, and a battle still 3 KB.
+
+## Oct 30, 2026: Johto's and Kanto's gifts tested
+
+- **New test `tools/complete/test_hgss_gifts.py`**, as `tools/test/gift_pokemon.py` does for Sovereign's own gifts:
+  each giver is talked to with the story flags its script asks for set on the way in (found by a breadth-first
+  search over the script's instructions to its gift command), and the party is checked for the gift's species,
+  level, held item and Egg. All nine pass: Route 30's Eevee, the Karate King's Tyrogue (Fist Plate), the Dragon's Den
+  elder's Dragonair (Draco Plate), Bill's Castform (Mystic Water), the Riolu, Togepi and Manaphy Eggs, the two Phione
+  Eggs in Pewter City, and Silph Co.'s two Johto starters the player didn't pick. Not covered: the Kanto, Hoenn and
+  Sinnoh starters' other choices (their givers go by the lead's species), the Game Corners' prizes, and Primo's
+  distribution eggs; Elm's starter and the loan Pokémon have tests of their own.
+- Sacred Gold's Pewter City woman gives her two Phione Eggs every time she's talked to (her script sets no flag), as
+  in Sacred Gold.
