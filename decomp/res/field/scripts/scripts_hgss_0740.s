@@ -230,7 +230,7 @@ _0373:
     CloseMessage
     GoTo _03CD
 _037E:
-    @ HGSS: CheckKyogreGroudonInParty VAR_SPECIAL_x8005
+    CompleteCheckKyogreGroudonInParty VAR_0x8005
     CompareVar VAR_0x8005, 1
     GoToIf 1, _05F7
     GoToIfSet FLAG_HGSS_UNK_0BC, _062A

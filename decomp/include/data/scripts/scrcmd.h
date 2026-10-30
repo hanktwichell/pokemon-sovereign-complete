@@ -935,6 +935,11 @@ ScriptCommand(SCRCMD_COMPLETEHEADBUTT,                                  Complete
 ScriptCommand(SCRCMD_COMPLETEROCKSMASHFIND,                             CompleteScrCmd_RockSmashFind)
 ScriptCommand(SCRCMD_COMPLETECANLEARNHEADBUTT,                          CompleteScrCmd_CanLearnHeadbutt)
 ScriptCommand(SCRCMD_COMPLETEWHIRLPOOLSTEPS,                            CompleteScrCmd_WhirlpoolSteps)
+ScriptCommand(SCRCMD_COMPLETECOUNTPARTYSPECIES,                         CompleteScrCmd_CountPartySpecies)
+ScriptCommand(SCRCMD_COMPLETECHECKKYOGREGROUDONINPARTY,                 CompleteScrCmd_CheckKyogreGroudonInParty)
+ScriptCommand(SCRCMD_COMPLETEPARTYMONISNOTMINE,                         CompleteScrCmd_PartyMonIsNotMine)
+ScriptCommand(SCRCMD_COMPLETEGETEVTOTAL,                                CompleteScrCmd_GetEVTotal)
+ScriptCommand(SCRCMD_COMPLETECHECKSEENALLUNOWNLETTERS,                  CompleteScrCmd_CheckSeenAllUnownLetters)
 
 // clang-format on
 

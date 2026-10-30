@@ -74,7 +74,7 @@ scr_seq_T30R0301_001:
     GoToIf 1, _0199
     BufferPartyMonSpecies 0, VAR_0x8000
     Message msg_0634_T30R0301_00005
-    @ HGSS: GetEVTotal VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000
+    CompleteGetEVTotal VAR_RESULT, VAR_0x8000
     CompareVar VAR_RESULT, 510
     GoToIf 0, _0136
     Message msg_0634_T30R0301_00006

@@ -31,7 +31,7 @@ _002E:
     GetPartyMonSpecies VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00BE
-    @ HGSS: PartyMonIsMine VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    CompletePartyMonIsNotMine VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _00C9
     BufferPartyMonNickname 0, VAR_0x8005

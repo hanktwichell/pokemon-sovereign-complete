@@ -5935,6 +5935,36 @@
     .short \destVarID
     .endm
 
+    // HeartGold's small party and Pokédex queries (CountPartyMonsOfSpecies, CheckKyogreGroudonInParty, PartyMonIsMine,
+    // which answers TRUE for a Pokémon from another trainer, GetEVTotal and CheckSeenAllLetterUnown)
+    .macro CompleteCountPartySpecies destVarID, species
+    .short SCRCMD_COMPLETECOUNTPARTYSPECIES
+    .short \destVarID
+    .short \species
+    .endm
+
+    .macro CompleteCheckKyogreGroudonInParty destVarID
+    .short SCRCMD_COMPLETECHECKKYOGREGROUDONINPARTY
+    .short \destVarID
+    .endm
+
+    .macro CompletePartyMonIsNotMine partySlot, destVarID
+    .short SCRCMD_COMPLETEPARTYMONISNOTMINE
+    .short \partySlot
+    .short \destVarID
+    .endm
+
+    .macro CompleteGetEVTotal destVarID, partySlot
+    .short SCRCMD_COMPLETEGETEVTOTAL
+    .short \destVarID
+    .short \partySlot
+    .endm
+
+    .macro CompleteCheckSeenAllUnownLetters destVarID
+    .short SCRCMD_COMPLETECHECKSEENALLUNOWNLETTERS
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:

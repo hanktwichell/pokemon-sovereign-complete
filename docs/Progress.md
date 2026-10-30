@@ -448,3 +448,11 @@ Test results on the new test build:
   surfer for good. Facing one while surfing now asks to use Whirlpool (the Glacier Badge, and a Pokémon that knows it
   or HM05 in the bag: Lance's HM05 is Platinum's Defog, `docs/Roadmap.md`), and the player surfs across. New test:
   `tools/complete/test_hgss_whirlpool.py`.
+- **Snorlax, the lottery and smaller queries.** Kanto's Snorlax on Routes 11 and 12 asked the radio whether the Poké
+  Flute played, which the translation always answered no: Kanto's way east was shut. Until the radio comes, the Poké
+  Flute counts as playing once the player has the Expansion Card (`docs/Features.md`, "Stand-ins"). The Radio Tower's
+  lottery is Platinum's Jubilife TV lottery (the same number of the day and search), the Hidden Power checker uses
+  Platinum's calculation, and five of HeartGold's party queries are new commands in `src/complete_scrcmd.c`: how many
+  of a species are in the party (Saffron's Rotom fan), whether Kyogre or Groudon is (Professor Oak), whether a party
+  Pokémon came from another trainer, a Pokémon's effort total (Blackthorn's checker), and whether every Unown letter has
+  been seen (the Ruins of Alph's researchers). 98.4% of Sacred Gold's script lines translate (1,320 left).

@@ -36,6 +36,11 @@ BOOL CompleteScrCmd_Headbutt(ScriptContext *ctx);
 BOOL CompleteScrCmd_RockSmashFind(ScriptContext *ctx);
 BOOL CompleteScrCmd_CanLearnHeadbutt(ScriptContext *ctx);
 BOOL CompleteScrCmd_WhirlpoolSteps(ScriptContext *ctx);
+BOOL CompleteScrCmd_CountPartySpecies(ScriptContext *ctx);
+BOOL CompleteScrCmd_CheckKyogreGroudonInParty(ScriptContext *ctx);
+BOOL CompleteScrCmd_PartyMonIsNotMine(ScriptContext *ctx);
+BOOL CompleteScrCmd_GetEVTotal(ScriptContext *ctx);
+BOOL CompleteScrCmd_CheckSeenAllUnownLetters(ScriptContext *ctx);
 
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.

@@ -208,3 +208,6 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   keep it in.
 - **Mom's savings** (New Bark Town): HeartGold keeps them with the Pokégear's data and takes amounts on its own number
   window. Until they come (with the Pokétch and Pokégear question), she has nothing saved, and a deposit is called off.
+- **The radio's Poké Flute** (Snorlax on Routes 11 and 12): HeartGold's Snorlax wakes when the Pokégear's radio plays
+  the Poké Flute channel, which needs the Expansion Card. Until the radio comes (the same question), the Poké Flute
+  counts as playing once the player has the Expansion Card, and every other radio check finds nothing playing.

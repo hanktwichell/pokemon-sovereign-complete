@@ -219,7 +219,7 @@ _0376:
     CallIf 1, _0514
     CompareVar VAR_0x8004, 5
     CallIf 1, _051C
-    @ HGSS: CountPartyMonsOfSpecies VAR_SPECIAL_RESULT, SPECIES_ROTOM
+    CompleteCountPartySpecies VAR_RESULT, SPECIES_ROTOM
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0524
     GoTo _0530

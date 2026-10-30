@@ -40,6 +40,7 @@
 #include "map_object.h"
 #include "message.h"
 #include "party.h"
+#include "pokedex.h"
 #include "pokemon.h"
 #include "player_avatar.h"
 #include "player_move.h"
@@ -349,6 +350,82 @@ BOOL CompleteScrCmd_WhirlpoolSteps(ScriptContext *ctx)
         z += dz;
     }
 
+    return FALSE;
+}
+
+// HeartGold's small party and Pokédex queries, as its commands answer them: CountPartyMonsOfSpecies (Rotom's
+// room), CheckKyogreGroudonInParty (Professor Oak), PartyMonIsMine (TRUE when the Pokémon's trainer ID isn't the
+// player's: the Name Rater's and the Move Deleter's kin), GetEVTotal (the EV checker) and CheckSeenAllLetterUnown
+// (all 26 letters seen: the Ruins of Alph's researchers).
+BOOL CompleteScrCmd_CountPartySpecies(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u16 species = ScriptContext_GetVar(ctx);
+    Party *party = SaveData_GetParty(ctx->fieldSystem->saveData);
+
+    *destVar = 0;
+
+    for (int i = 0; i < Party_GetCurrentCount(party); i++) {
+        Pokemon *mon = Party_GetPokemonBySlotIndex(party, i);
+
+        if (!Pokemon_GetValue(mon, MON_DATA_IS_EGG, NULL) && Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL) == species) {
+            (*destVar)++;
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_CheckKyogreGroudonInParty(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    Party *party = SaveData_GetParty(ctx->fieldSystem->saveData);
+
+    *destVar = Party_HasSpecies(party, SPECIES_KYOGRE) || Party_HasSpecies(party, SPECIES_GROUDON);
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_PartyMonIsNotMine(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+    u16 otID = Pokemon_GetValue(mon, MON_DATA_OT_ID, NULL);
+
+    *destVar = otID != (u16)TrainerInfo_ID(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData));
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_GetEVTotal(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u16 slot = ScriptContext_GetVar(ctx);
+    Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+
+    *destVar = 0;
+
+    for (int stat = MON_DATA_HP_EV; stat <= MON_DATA_SPDEF_EV; stat++) {
+        *destVar += Pokemon_GetValue(mon, stat, NULL);
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_CheckSeenAllUnownLetters(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    const Pokedex *pokedex = SaveData_GetPokedex(ctx->fieldSystem->saveData);
+    u32 letters = 0;
+
+    for (u32 i = 0; i < Pokedex_NumFormsSeen_Unown(pokedex); i++) {
+        u32 form = Pokedex_GetForm_Unown(pokedex, i);
+
+        if (form < 26) {
+            letters |= 1 << form;
+        }
+    }
+
+    *destVar = letters == (1 << 26) - 1;
     return FALSE;
 }
 

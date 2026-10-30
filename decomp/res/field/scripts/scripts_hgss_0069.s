@@ -633,7 +633,7 @@ _0B46:
     GoToIf 5, _085B
     @ HGSS: ScrCmd_418 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
     BufferNumber 0, VAR_0x8004
-    @ HGSS: BufferIntEx 1, VAR_SPECIAL_x8005, 2, 3
+    BufferVarPaddingDigits 1, VAR_0x8005, 2, 3
     Message msg_0096_D31R0201_00052
     WaitABPress
     GoTo _0860

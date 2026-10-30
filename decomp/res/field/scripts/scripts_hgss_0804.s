@@ -85,7 +85,7 @@ _016D:
     GetPartyMonSpecies VAR_0x8000, VAR_0x8001
     CompareVar VAR_0x8001, 0
     GoToIf 1, _032C
-    @ HGSS: GetHiddenPowerType VAR_SPECIAL_x8000, VAR_SPECIAL_x8004
+    CalcHiddenPowerType VAR_0x8000, VAR_0x8004
     CompareVar VAR_0x8004, 65535
     GoToIf 1, _0335
     CheckPartyMonHasMove VAR_RESULT, MOVE_HIDDEN_POWER, VAR_0x8000

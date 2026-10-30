@@ -44,7 +44,7 @@ scr_seq_D24R0102_001:
     GetUnownFormsSeenCount VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0242
-    @ HGSS: CheckSeenAllLetterUnown VAR_SPECIAL_RESULT
+    CompleteCheckSeenAllUnownLetters VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0258
     CompareVar VAR_HGSS_UNK_40EC, 4
@@ -61,7 +61,7 @@ scr_seq_D24R0102_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckSeenAllLetterUnown VAR_SPECIAL_RESULT
+    CompleteCheckSeenAllUnownLetters VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _031D
     GetUnownFormsSeenCount VAR_RESULT
@@ -75,7 +75,7 @@ scr_seq_D24R0102_003:
     FacePlayer
     CompareVar VAR_HGSS_UNOWN_REPORT_LEVEL, 7
     GoToIf 4, _032F
-    @ HGSS: CheckSeenAllLetterUnown VAR_SPECIAL_RESULT
+    CompleteCheckSeenAllUnownLetters VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0338
     Message msg_0073_D24R0102_00021

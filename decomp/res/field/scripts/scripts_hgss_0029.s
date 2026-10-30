@@ -700,10 +700,10 @@ _09DA:
 _09E5:
     SetFlag FLAG_HGSS_UNK_AA5
     Message msg_0065_D23R0101_00031
-    @ HGSS: LotoIDGet VAR_SPECIAL_x8000
-    @ HGSS: BufferIntEx 0, VAR_SPECIAL_x8000, 2, 5
+    GetJubilifeLotteryTrainerID VAR_0x8000
+    BufferVarPaddingDigits 0, VAR_0x8000, 2, 5
     Message msg_0065_D23R0101_00032
-    @ HGSS: LotoIDSearch VAR_SPECIAL_x8001, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003, VAR_SPECIAL_x8000
+    CheckForJubilifeLotteryWinner VAR_0x8001, VAR_0x8002, VAR_0x8003, VAR_0x8000
     CompareVar VAR_0x8002, 0
     GoToIf 1, _0A24
     CompareVar VAR_0x8003, 0

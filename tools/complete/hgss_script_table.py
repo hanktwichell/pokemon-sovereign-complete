@@ -544,11 +544,26 @@ COMMANDS = {
     'ScrCmd_723': boat_cutscene,
     'ScrCmd_517': one('CheckPartyHasSpecies2 {0}, {1}'),  # Route 3's meteorites: whether a Deoxys is in the party
     'ScrCmd_656': one('CompleteCanLearnHeadbutt {0}, {1}'),  # Ilex Forest's tutor: whether it can learn Headbutt
+    # The Radio Tower's lottery: Platinum's Jubilife TV lottery, with the same number of the day and the same search
+    # (the party and the boxes, the most matching digits); HeartGold's padding modes are Platinum's
+    'LotoIDGet': one('GetJubilifeLotteryTrainerID {0}'),
+    'LotoIDSearch': one('CheckForJubilifeLotteryWinner {0}, {1}, {2}, {3}'),
+    'BufferIntEx': one('BufferVarPaddingDigits {0}, {1}, {2}, {3}'),
+    'GetHiddenPowerType': one('CalcHiddenPowerType {0}, {1}'),
+    'CountPartyMonsOfSpecies': one('CompleteCountPartySpecies {0}, {1}'),  # the Rotom fan in Saffron
+    'CheckKyogreGroudonInParty': one('CompleteCheckKyogreGroudonInParty {0}'),
+    'PartyMonIsMine': one('CompletePartyMonIsNotMine {0}, {1}'),  # HeartGold's name, but 1 means another trainer's
+    'GetEVTotal': one('CompleteGetEVTotal {0}, {1}'),  # Blackthorn's effort checker
+    'CheckSeenAllLetterUnown': one('CompleteCheckSeenAllUnownLetters {0}'),  # the Ruins of Alph researchers
     # Mom's savings in New Bark Town (HeartGold keeps them with the Pokégear's data, and takes the amount on its own
     # number window): until they're ported, she has none saved and a deposit is called off
     'CheckBankBalance': one('SetVarFromValue {0}, 0'),
     'BankOrWalletIsFull': one('SetVarFromValue {1}, 0'),
     'BankTransaction': one('SetVarFromValue {1}, 1'),
+    # Whether the radio plays a channel (5: the Poké Flute, which wakes Snorlax on Routes 11 and 12). Until the radio
+    # comes (with the Pokétch and Pokégear question), the Poké Flute plays once the player has the Expansion Card
+    'RadioMusicIsPlaying': lambda a: ([f'SetVarFromValue {a[1]}, FLAG_HGSS_GOT_EXPN_CARD', f'CheckFlagFromVar {a[1]}, {a[1]}']
+                                      if a[0] == '5' else [f'SetVarFromValue {a[1]}, 0']),
     # The Move Maniac (Blackthorn) and the move tutors (Draco Meteor, Sacred Gold's): Platinum's Move Reminder and tutor
     # menu, which give the same results (0xFF: nothing learned or picked); and the Move Deleter's move pick
     'ScrCmd_466': one('CheckHasLearnableReminderMoves {0}, {1}'),
