@@ -41,6 +41,10 @@ extern CompleteTestScriptPos gCompleteTestScriptPos;
 // that its map's scripts, which set it from the story as the map loads, leave the object on the map. 0: none.
 extern u16 gCompleteTestKeepFlagClear;
 
+// HeartGold's mass outbreaks (src/complete_encounters.c), for tools/complete/test_hgss_outbreaks.py: when set, the
+// day's outbreak map is this entry of its table + 1, in place of the day's pick.
+extern u8 gCompleteTestOutbreakMap;
+
 // The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
 // tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks
 // have held (src/overlay006/complete_field_encounters.c): how many, and the last.

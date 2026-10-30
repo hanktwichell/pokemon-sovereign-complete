@@ -312,6 +312,8 @@ COMMANDS = {
     # HeartGold's certificates: the National Pokédex's is Platinum's diploma for it; the Johto Pokédex's (0) and the
     # Shiny Leaf crown's (2) have no screen yet
     'ShowCertificate': lambda a: ['ShowDiplomaNationalDex'] if a[0] == '1' else [f'@ HGSS: ShowCertificate {a[0]}'],
+    # HeartGold's mass outbreaks, from Oak's National Pokédex on (src/complete_encounters.c)
+    'EnableMassOutbreaks': lambda a: ['SetVar VAR_COMPLETE_OUTBREAKS, 1'],
     # Olivine City's seal gift (the Seal Case's seals are numbered as HeartGold's)
     'GiveRandomSeal': one('CompleteGiveRandomSeal {0}, {1}, {2}'),
     # Objects' facing (HeartGold's ScrCmd_622 and _344; both games number the directions alike), a chance in 101

@@ -40,7 +40,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 98.9% of 83,514 lines (930 left, Oct 30). What's left, by kind:
+- Sacred Gold's scripts (`docs/SacredGold.md`) now: 98.9% of 83,514 lines (928 left, Oct 30). What's left, by kind:
   features waiting on the owner (the Battle Frontier, the photo album, the radio and the Pokégear's cards, the
   Pokéathlon, which is skipped), link play (the Union Room, the Global Terminal, Wi-Fi), events that came by
   distribution (Primo's passwords, the spiky-eared Pichu, Arceus at the Sinjoh Ruins, Pal Park), and visual effects

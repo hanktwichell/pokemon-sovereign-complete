@@ -292,6 +292,27 @@ assembly), in `src/overlay006/complete_follower_talk.c` and `CommonScript_Comple
 Test: `tools/complete/test_follower_talk.py` (a talk the tables choose in New Bark Town; a nudge, its emote, its
 question and the yes; an accessory found; a Shiny Leaf, with the friendship and mood it brings).
 
+## Mass outbreaks
+
+HeartGold's (its `encounter_check.c` and the map list in its `unk_02097F6C.c`, which Sacred Gold keeps), in
+`src/complete_encounters.c`:
+
+- **When:** from Oak's National Pokédex on (`EnableMassOutbreaks`, which sets `VAR_COMPLETE_OUTBREAKS`), each day one
+  of HeartGold's 20 outbreak maps has one. The day's pick is Platinum's daily swarm value, which Sinnoh's outbreaks
+  also pick from; HeartGold keeps a daily random value of its own.
+- **What:** on a grass or cave day, the map's outbreak species takes the first two grass slots (two in five
+  encounters), at any time of day; on a water day it takes the first surfing slot. Sacred Gold's: Linoone (Route 1),
+  Spinda (Route 3), Flaaffy (Route 9), Chansey (Route 13), Lairon (Route 25), Kadabra (Route 34), Illumise (Route 35),
+  Electabuzz (Route 38), Rhydon (Route 45), Altaria (Route 47), Solrock (Mt. Mortar), Larvitar (Dark Cave), Heracross
+  (Viridian Forest), and on the water Mantine (Route 19), Feebas (Route 27) and Lanturn (Vermilion City).
+- **The four fishing days** (Routes 12, 32 and 44, Violet City) have no outbreak: Sacred Gold's encounter files stop
+  before the fishing outbreak's species.
+- **Not ported:** HeartGold says where today's outbreak is only on the Pokégear radio (Professor Oak's Pokémon Talk),
+  which waits on the Pokétch or Pokégear question.
+
+Test: `tools/complete/test_hgss_outbreaks.py` (no Illumise on Route 35 before the National Pokédex; Illumise there on
+its day; none on another map's day; Feebas on Route 27's water on its day).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

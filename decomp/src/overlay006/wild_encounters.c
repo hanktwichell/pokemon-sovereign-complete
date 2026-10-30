@@ -612,6 +612,8 @@ BOOL WildEncounters_TryWildEncounter(FieldSystem *fieldSystem)
             encounterTable[i].minLevel = encounterData->surfEncounters.encounters[i].minLevel;
         }
 
+        CompleteEncounters_SurfOutbreak(fieldSystem, &encounterTable[0].species); // Sovereign Complete: HeartGold's outbreaks
+
         RegionalFormsPark_FillEncounterTable(fieldSystem, encounterTable, MAX_WATER_ENCOUNTERS, TRUE);
 
         if (!withPartner && !safariGameActive) {
@@ -863,6 +865,8 @@ BOOL WildEncounters_TrySweetScentEncounter(FieldSystem *fieldSystem, FieldTask *
             encounterTable[i].maxLevel = encounterData->surfEncounters.encounters[i].maxLevel;
             encounterTable[i].minLevel = encounterData->surfEncounters.encounters[i].minLevel;
         }
+
+        CompleteEncounters_SurfOutbreak(fieldSystem, &encounterTable[0].species); // Sovereign Complete: HeartGold's outbreaks
 
         RegionalFormsPark_FillEncounterTable(fieldSystem, encounterTable, MAX_WATER_ENCOUNTERS, TRUE);
 

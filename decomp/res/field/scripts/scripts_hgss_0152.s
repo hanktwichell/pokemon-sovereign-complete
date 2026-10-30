@@ -39,7 +39,7 @@ scr_seq_P01R0101_002:
     GetSetNationalDexEnabled 1, VAR_RESULT
     BufferPlayerName 0
     Message msg_0255_P01R0101_00011
-    @ HGSS: EnableMassOutbreaks
+    SetVar VAR_COMPLETE_OUTBREAKS, 1
     SetVar VAR_0x8004, ITEM_LOCK_CAPSULE
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
@@ -60,7 +60,7 @@ scr_seq_P01R0101_002:
     ReleaseAll
     CompareVar VAR_HGSS_UNK_40D3, 1
     CallIf 1, _01D1
-    @ HGSS: EnableMassOutbreaks
+    SetVar VAR_COMPLETE_OUTBREAKS, 1
     End
 scr_seq_P01R0101_000:
     PlaySE SE_CONFIRM_sseq_3

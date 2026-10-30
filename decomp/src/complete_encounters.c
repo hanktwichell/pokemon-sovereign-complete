@@ -12,11 +12,13 @@
 #include "field/field_system.h"
 
 #include "complete_map_info.h"
+#include "complete_test.h"
 #include "inlines.h"
 #include "location.h"
 #include "map_header.h"
 #include "narc.h"
 #include "rtc.h"
+#include "special_encounter.h"
 #include "vars_flags.h"
 
 // HeartGold's EncounterData (pokeheartgold's include/wild_encounter.h), 0xC4 bytes
@@ -118,6 +120,78 @@ void CompleteEncounters_Load(WildEncounters *data, enum MapHeaderID mapHeaderID)
     FillWater(&data->superRodEncounters, sTable.superRodRate, sTable.superRod);
 }
 
+// HeartGold's mass outbreaks (its sSwarmMapLUT and encounter_check.c): from Oak's National Pokédex on
+// (VAR_COMPLETE_OUTBREAKS), each day one of these maps has its swarm species in the grass (slots 0 and 1), on the water
+// (the first surfing slot) or on the rod (Sacred Gold's tables have no fishing swarm, so those days have none). The
+// day's pick is Platinum's own daily swarm value (Sinnoh's outbreaks pick from it too), as HeartGold's is a daily
+// random value of its own.
+enum OutbreakTerrain {
+    OUTBREAK_NONE = -1,
+    OUTBREAK_LAND,
+    OUTBREAK_SURF,
+    OUTBREAK_FISHING,
+};
+
+static const struct {
+    u16 mapHeaderID;
+    u8 terrain;
+} sOutbreakMaps[] = {
+    { MAP_HEADER_HGSS_ROUTE_1, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_3, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_9, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_12, OUTBREAK_FISHING },
+    { MAP_HEADER_HGSS_ROUTE_13, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_19, OUTBREAK_SURF },
+    { MAP_HEADER_HGSS_ROUTE_32, OUTBREAK_FISHING },
+    { MAP_HEADER_HGSS_ROUTE_25, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_27, OUTBREAK_SURF },
+    { MAP_HEADER_HGSS_ROUTE_34, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_35, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_38, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_44, OUTBREAK_FISHING },
+    { MAP_HEADER_HGSS_ROUTE_45, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_ROUTE_47, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_MOUNT_MORTAR_1F_ENTRANCE, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_DARK_CAVE_ROUTE_31_SIDE, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_VIRIDIAN_FOREST, OUTBREAK_LAND },
+    { MAP_HEADER_HGSS_VERMILION, OUTBREAK_SURF },
+    { MAP_HEADER_HGSS_VIOLET, OUTBREAK_FISHING },
+};
+
+// Where today's outbreak is on the field's map, or OUTBREAK_NONE
+static enum OutbreakTerrain OutbreakTerrainHere(FieldSystem *fieldSystem)
+{
+    if (*VarsFlags_GetVarAddress(SaveData_GetVarsFlags(fieldSystem->saveData), VAR_COMPLETE_OUTBREAKS) == 0) {
+        return OUTBREAK_NONE;
+    }
+
+    u32 index = SpecialEncounter_GetDailyMon(SaveData_GetSpecialEncounters(fieldSystem->saveData), DAILY_SWARM) % NELEMS(sOutbreakMaps);
+
+#ifdef SOVEREIGN_TEST
+    if (gCompleteTestOutbreakMap != 0) {
+        index = gCompleteTestOutbreakMap - 1;
+    }
+#endif
+
+    return sOutbreakMaps[index].mapHeaderID == fieldSystem->location->mapHeaderID ? sOutbreakMaps[index].terrain : OUTBREAK_NONE;
+}
+
+void CompleteEncounters_SurfOutbreak(FieldSystem *fieldSystem, int *firstSlotSpecies)
+{
+    enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
+
+    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)
+        || OutbreakTerrainHere(fieldSystem) != OUTBREAK_SURF) {
+        return;
+    }
+
+    Read(mapHeaderID);
+
+    if (sTable.surfSwarm != SPECIES_NONE) {
+        *firstSlotSpecies = sTable.surfSwarm;
+    }
+}
+
 int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot)
 {
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
@@ -142,6 +216,10 @@ int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot)
         break;
     default:
         break;
+    }
+
+    if (slot < 2 && sTable.landSwarm != SPECIES_NONE && OutbreakTerrainHere(fieldSystem) == OUTBREAK_LAND) {
+        return sTable.landSwarm;
     }
 
     return sTable.landSpecies[time][slot];

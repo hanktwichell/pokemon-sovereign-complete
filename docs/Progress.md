@@ -619,3 +619,15 @@ Test results on the new test build:
   beating a record of 0, and the same Magikarp again leaving it. `tools/complete/test_follower_talk.py`'s new Sinnoh
   part passes. `tools/complete/test_hgss_map_changes.py` (new), all four pass: the antenna tree blocks the way, then
   doesn't once the hideout is cleared; the lake's water stops a step on a Tuesday and is ground on a Wednesday.
+
+## Oct 30, 2026: mass outbreaks
+
+- **HeartGold's mass outbreaks** (`docs/Features.md`, "Mass outbreaks"): from Oak's National Pokédex on, each day one
+  of HeartGold's 20 outbreak maps, which Sacred Gold keeps, has its outbreak species in the first two grass slots or
+  the first surfing slot, as in HeartGold (16 maps; Sacred Gold's files have no fishing outbreaks, so its 4 fishing
+  days have none). The day's pick is Platinum's daily swarm value. Before, Oak's `EnableMassOutbreaks` was left
+  untranslated and no outbreak ever came. 928 of Sacred Gold's script lines left. Nothing tells the player where
+  today's outbreak is until the Pokégear radio comes (HeartGold's Pokémon Talk).
+- **Tested:** `tools/complete/test_hgss_outbreaks.py` (new), all four parts pass: on Route 35, Illumise is 1 of 48
+  encounters before the National Pokédex and on another map's day (it's one of the route's own), and 22 of 48 on its
+  day; Feebas is 22 of 48 surfing on Route 27 on its day.

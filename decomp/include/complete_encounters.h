@@ -16,6 +16,9 @@ void CompleteEncounters_Load(WildEncounters *data, enum MapHeaderID mapHeaderID)
 // HeartGold keeps all twelve grass slots for each time of day: the species in grass slot `slot` on the field's map at
 // this time of day, or 0 off Johto and Kanto (overlay006/wild_encounters.c then keeps its own).
 int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot);
+// HeartGold's mass outbreaks: on the day's outbreak map, the grass's first two slots (CompleteEncounters_GrassSpecies)
+// or the first surfing slot (this, on a surfing table's first species) have the map's swarm species
+void CompleteEncounters_SurfOutbreak(FieldSystem *fieldSystem, int *firstSlotSpecies);
 
 // Rock Smash on the field's map (a HeartGold encounter Platinum doesn't have): slot `slot`'s Pokémon (0 or 1, which
 // HeartGold picks at 80% and 20%) and the rate (%) a smashed rock has one, or 0 off Johto and Kanto or with none.
