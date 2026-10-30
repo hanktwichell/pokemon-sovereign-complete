@@ -656,3 +656,14 @@ Test results on the new test build:
 - Also checked: HeartGold's other warps on tiles Platinum doesn't warp from (Pal Park's exit, the Battle Frontier's
   doors, Mt. Moon Square's) are taken by scripts, in HeartGold too; the gifts' commands pass HeartGold's held items by
   number, which Sovereign's item list keeps, and no gift has a form.
+
+## Oct 30, 2026: songs a flag puts on a map
+
+- **HeartGold's flag songs** (its `sMusicOverrideMap`; `docs/Music.md`): the Bug-Catching Contest's theme plays in
+  the National Park (its own version, now imported: 128 of HeartGold's songs) and the two contest gatehouses while
+  the contest runs, and the occupation theme on every floor of the Radio Tower while Team Rocket holds it. Before,
+  the maps' usual songs played. HeartGold's entries for Cerulean Gym, Route 24 and Pal Park wait on flags no script
+  sets, in HeartGold too, and are left out.
+- **Tested:** `tools/complete/test_sound_heap.py`'s new flags part passes: with the flag set, the National Park, a
+  contest gatehouse and the Radio Tower's 2F each load their song, and no load fails. The whole test passes (4 of 4):
+  every song loads, the tightest of Sinnoh's (the title screen's) leaving 7 KB, and a battle still 3 KB.

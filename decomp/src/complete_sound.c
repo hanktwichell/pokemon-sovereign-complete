@@ -6,6 +6,7 @@
 #include "generated/species.h"
 #include "generated/trainer_classes.h"
 #include "generated/trainers.h"
+#include "generated/vars_flags.h"
 
 #include "complete_map_info.h"
 #include "complete_trainers.h"
@@ -14,6 +15,7 @@
 #include "pokemon.h"
 #include "sound.h"
 #include "unk_02054884.h"
+#include "vars_flags.h"
 
 #include "data/hgss_sound.h"
 #include "res/sound/pl_sound_data.naix"
@@ -69,6 +71,39 @@ u16 CompleteSound_ForMap(enum MapHeaderID mapHeaderID, u16 seqID)
     default:
         return seqID;
     }
+}
+
+// The songs a flag puts on a map (HeartGold's sMusicOverrideMap, its src/sys_flags.c): the Bug-Catching Contest's
+// theme in the National Park and its gatehouses while the contest runs, and the occupation theme in the Radio Tower
+// while Team Rocket holds it. HeartGold's entries for Cerulean Gym, Route 24 and Pal Park wait on flags no script
+// sets, so they're left out.
+static const struct {
+    u16 mapHeaderID;
+    u16 flag;
+    u16 seqID;
+} sAltMusic[] = {
+    { MAP_HEADER_HGSS_NATIONAL_PARK, FLAG_HGSS_BUG_CONTEST_ACTIVE, SEQ_GS_TAIKAIMAE_D5_sseq },
+    { MAP_HEADER_HGSS_ROUTE_35_NATIONAL_PARK_POKEATHALON_GATEHOUSE, FLAG_HGSS_BUG_CONTEST_ACTIVE, SEQ_GS_TAIKAIMAE_sseq },
+    { MAP_HEADER_HGSS_ROUTE_36_NATIONAL_PARK_GATEHOUSE, FLAG_HGSS_BUG_CONTEST_ACTIVE, SEQ_GS_TAIKAIMAE_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_1F, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_2F, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_3F, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_4F, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_5F, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+    { MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_ELEVATOR, FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE, SEQ_GS_SENKYO_sseq },
+};
+
+// A map's song while a flag is set, or 0 (src/system_flags.c, SystemFlag_GetAltMusicForHeader)
+u16 CompleteSound_AltMusicForHeader(VarsFlags *varsFlags, enum MapHeaderID mapHeaderID)
+{
+    for (int i = 0; i < NELEMS(sAltMusic); i++) {
+        if (sAltMusic[i].mapHeaderID == mapHeaderID && VarsFlags_CheckFlag(varsFlags, sAltMusic[i].flag)) {
+            return sAltMusic[i].seqID;
+        }
+    }
+
+    return 0;
 }
 
 // HeartGold's encounter theme for one of its trainers (its src/field_bgm.c), or SEQ_NONE for Sinnoh's

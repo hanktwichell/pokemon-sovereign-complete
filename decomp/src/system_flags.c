@@ -5,6 +5,7 @@
 #include "generated/map_headers.h"
 #include "generated/pokemon_contest_types.h"
 
+#include "complete_sound.h" // Sovereign Complete
 #include "rtc.h"
 #include "vars_flags.h"
 
@@ -342,6 +343,7 @@ u16 SystemFlag_GetAltMusicForHeader(VarsFlags *varsFlags, enum MapHeaderID mapHe
         break;
 
     default:
+        sdatID = CompleteSound_AltMusicForHeader(varsFlags, mapHeader); // Sovereign Complete: HeartGold's
         break;
     }
 

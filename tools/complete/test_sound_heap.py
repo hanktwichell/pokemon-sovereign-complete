@@ -8,9 +8,12 @@ gCompleteTestSound, which notes each load into the sound heap):
 2. **Battle:** a trainer battle (SELECT+R, the test build's own trainer) and the map's song after it: no load fails.
 3. **Johto:** New Bark Town's own song (HeartGold's) loads as the player arrives, each of HeartGold's fanfares plays
    over it, and a trainer battle there plays HeartGold's trainer theme: no load fails.
+4. **Flags:** the songs a flag puts on a map (src/complete_sound.c, sAltMusic): the player comes onto the National
+   Park, a contest gatehouse and the Radio Tower with the flag set (gSovereignTestVar), and the song loads, with no
+   load failing.
 
 Results: one line per part, 'ok' or what went wrong; with --all, a line per song (its sequence, the bytes free after
-it loads). --only PART runs that part alone (songs, battle, johto).
+it loads). --only PART runs that part alone (songs, battle, johto, flags).
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
@@ -25,7 +28,10 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 from battle_all_trainers import TEST_BUILD, fight  # noqa: E402
 import battle_mechanics as bm  # noqa: E402
-from talk_to_objects import DECOMP, SYMBOLS as TALK_SYMBOLS, header_names, warp  # noqa: E402
+from talk_to_objects import DECOMP, SYMBOLS as TALK_SYMBOLS, header_names, var_ids, warp  # noqa: E402
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from test_map_warp import walkable_tile  # noqa: E402
 
 SOUND = {'free': 0, 'minFree': 4, 'failures': 8, 'lastFailedID': 12, 'loads': 14, 'playSeq': 16, 'playScene': 18,
          'log': 20}  # CompleteTestSound
@@ -35,6 +41,11 @@ FANFARE = 0xFFFF  # playScene: as a fanfare (COMPLETE_TEST_SOUND_FANFARE)
 FANFARE_FRAMES = 600  # a fanfare's length and more, so it ends and gives its memory back before the next
 JOHTO = ('MAP_HEADER_HGSS_NEW_BARK', 695, 397, 'SEQ_GS_T_WAKABA_sseq')  # a tile outside the player's house
 MUSIC_PLAYERS = ('PLAYER_BGM', 'PLAYER_FIELD')
+FLAG_SONGS = [  # (map, the flag, its song), one of each of sAltMusic's songs
+    ('MAP_HEADER_HGSS_NATIONAL_PARK', 'FLAG_HGSS_BUG_CONTEST_ACTIVE', 'SEQ_GS_TAIKAIMAE_D5_sseq'),
+    ('MAP_HEADER_HGSS_ROUTE_36_NATIONAL_PARK_GATEHOUSE', 'FLAG_HGSS_BUG_CONTEST_ACTIVE', 'SEQ_GS_TAIKAIMAE_sseq'),
+    ('MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_2F', 'FLAG_HGSS_ROCKET_TAKEOVER_ACTIVE', 'SEQ_GS_SENKYO_sseq'),
+]
 SETTLE = 90  # frames for a song's loads (the next free field frame, then the load)
 BATTLE_FRAMES = 40000
 LEAST = 8  # the songs leaving the least memory, listed
@@ -152,13 +163,34 @@ def johto_part(h):
     print(f'johto: {len(fanfares)} fanfares; least memory left {h.read("minFree") // 1024} KB', flush=True)
 
 
+def flags_part(h):
+    """4. The songs a flag puts on a map: each one's map, come onto with its flag set, plays it."""
+    variables = var_ids()
+    problem = ''
+    for header, flag, song in FLAG_SONGS:
+        failures = h.start()
+        h.mem.write_short(h.sym['gSovereignTestVar'], variables[flag])  # set as the warp goes
+        h.mem.write_short(h.sym['gSovereignTestVar'] + 2, 1)
+        arrived, _ = warp(h.d, h.sym, header_names().index(header), *walkable_tile(header), 0)
+        loaded = {h.read_log(i) for i in range(LOG_ENTRIES)}
+        if arrived != 'ok':
+            problem = f'{header}: warp {arrived}'
+        elif dict(songs())[song] not in loaded:
+            problem = f'{header}: {song} never loaded'
+        elif h.read('failures') != failures:
+            problem = f'{header}: ' + h.failed_since(failures)
+        if problem:
+            break
+    h.part('flags', problem)
+
+
 def main():
     rom, state, out = sys.argv[1:4]
     only = sys.argv[sys.argv.index('--only') + 1] if '--only' in sys.argv else None
     os.makedirs(out, exist_ok=True)
     h = Harness(rom, state, out)
     parts = {'songs': lambda: songs_part(h, '--all' in sys.argv), 'battle': lambda: battle_part(h),
-             'johto': lambda: johto_part(h)}
+             'johto': lambda: johto_part(h), 'flags': lambda: flags_part(h)}
     for name, run in parts.items():
         if only in (None, name):
             run()

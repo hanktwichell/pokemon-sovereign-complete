@@ -27,7 +27,7 @@ memory, measured from both decomps and both built archives.
    `BANK_BGM_BASIC`. The tool checks that every note of every sequence plays the same WAV as before. It writes
    `decomp/res/sound/complete/`, which the build packs in place of Sovereign's banks and basic waves
    (`res/sound/meson.build`), so Sovereign's files stay as they are for syncs; the sync script reruns it.
-2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 127 songs and 23 fanfares, kept as HeartGold's
+2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 128 songs and 23 fanfares, kept as HeartGold's
    sequence files byte for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's
    instruments it plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from
    `WAVE_ARC_GS`, one archive of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a
@@ -46,13 +46,19 @@ memory, measured from both decomps and both built archives.
    (Sinnoh's themes stood in for some, nothing for the rest). HeartGold's trainers have its encounter
    themes; battles on Johto and Kanto's maps have HeartGold's battle themes (Johto's or Kanto's trainer and wild
    themes by region, the Gym Leaders', Rival's, Team Rocket's, the beasts', Ho-Oh's and Lugia's) and victory themes.
+   The songs a flag puts on a map, HeartGold's `sMusicOverrideMap`, play too (`CompleteSound_AltMusicForHeader`,
+   from Platinum's own table of them, `SystemFlag_GetAltMusicForHeader`): the Bug-Catching Contest's theme in the
+   National Park (its own version of it) and its two gatehouses while the contest runs, and the occupation theme on
+   every floor of the Radio Tower while Team Rocket holds it.
 5. **Test** (`tools/complete/test_sound_heap.py`, with the test build's `gCompleteTestSound`): every song of the
-   archive's music players played on a map as the game plays it, a trainer battle, and New Bark Town's song, the
-   fanfares and a battle there; no load may fail. All three parts pass: every song loads (the credits' in their own
-   scene, where the game plays them), the tightest of Sinnoh's leaving 9 KB and of HeartGold's map songs 67 KB; a battle
-   leaves 5 KB (3 KB on Oct 30, after the scene themes: the archive's info and file tables, 45 and 37 KB, stay in sound
-   memory, and each song adds about 64 bytes to them); and in New Bark Town, its song loads, each of HeartGold's 23 fanfares plays over it (each given back as
-   a script's WaitFanfare gives it), and a battle with HeartGold's trainer theme loads: 11 KB to spare at the least.
+   archive's music players played on a map as the game plays it, a trainer battle, New Bark Town's song, the fanfares
+   and a battle there, and the songs a flag puts on a map; no load may fail. All four parts pass (Oct 30, 128 of
+   HeartGold's songs): every song loads (the credits' in their own scene, where the game plays them), the tightest of
+   Sinnoh's leaving 7 KB (the title screen's; 9 KB before the scene themes and the contest's National Park version); a
+   battle leaves 3 KB (5 KB before them: the archive's info and file tables stay in sound memory, and each song adds to
+   them); in New Bark Town, its song loads, each of HeartGold's 23 fanfares plays over it (each given back as a script's
+   WaitFanfare gives it), and a battle with HeartGold's trainer theme loads: 11 KB to spare at the least; and the
+   National Park, a contest gatehouse and the Radio Tower each load the song their flag puts on them.
 6. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
    padding. Sovereign's own archive happened to line up.
@@ -63,6 +69,9 @@ memory, measured from both decomps and both built archives.
   Pokémon caught in battle) are Platinum's in every region. The radio and Pokégear songs come with the Pokégear; the
   Pokéathlon's are skipped with it.
 - HeartGold's players use more channels than Platinum's, so a busy song could drop notes; untested by ear.
+- The GB Sounds (a key item Sacred Gold's scripts give) do nothing: HeartGold swaps 135 songs for their Game Boy
+  versions with it, and each song in the archive keeps about 64 bytes of sound memory, which a battle doesn't have to
+  spare (3 KB).
 - Sovereign's new Pokémon still have no cries. The freed memory is for songs; cries would need their own budget.
 
 **ROM size:** the sound archive grew from 7.96 MB to 9.44 MB; the cartridge was already 256 MB (164 MB used).

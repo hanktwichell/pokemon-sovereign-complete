@@ -856,6 +856,15 @@
    "player": "PLAYER_FIELD"
   },
   {
+   "name": "SEQ_GS_TAIKAIMAE_D5",
+   "fileName": "SEQ_GS_TAIKAIMAE_D5.sseq",
+   "bank": "BANK_GS_TAIKAIMAE_D5",
+   "volume": 52,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_FIELD"
+  },
+  {
    "name": "SEQ_GS_TO_MADATSUBOMI1",
    "fileName": "SEQ_GS_TO_MADATSUBOMI1.sseq",
    "bank": "BANK_GS_TO_MADATSUBOMI1",
@@ -2295,6 +2304,16 @@
   {
    "name": "BANK_GS_TAIKAIMAE",
    "fileName": "BANK_GS_TAIKAIMAE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_TAIKAIMAE_D5",
+   "fileName": "BANK_GS_TAIKAIMAE_D5.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
