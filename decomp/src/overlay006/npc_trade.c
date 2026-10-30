@@ -101,6 +101,25 @@ void NPCTrade_FillAnimationTemplate(FieldSystem *fieldSystem, NPCTradeData *data
     }
 }
 
+// Sovereign Complete: HeartGold's loan Pokémon (its NPCTrade_MakeAndGiveLoanMon): a trade's Pokémon made as for the
+// trade, at the level, and met on the map, as HeartGold records a loan
+void NPCTrade_CreateLoanMon(Pokemon *mon, u32 npcTradeID, u32 level, u32 mapID, enum HeapID heapID)
+{
+    NPCTradeMon *npcTradeMon = NPCTrade_LoadTradeMon(npcTradeID, heapID);
+    u32 metLocation = MapHeader_GetMapLabelTextID(mapID);
+
+    NPCTrade_CreateMon(mon, npcTradeMon, level, npcTradeID, heapID, mapID);
+    Pokemon_SetValue(mon, MON_DATA_MET_LOCATION, &metLocation);
+    Heap_Free(npcTradeMon);
+}
+
+// Sovereign Complete: a trade's record (free it with Heap_Free)
+NPCTradeMon *NPCTrade_LoadTradeMon(u32 npcTradeID, enum HeapID heapID)
+{
+    GF_ASSERT(npcTradeID < MAX_NPC_TRADES);
+    return LoadMemberFromNARC(NARC_INDEX_FIELDDATA__POKEMON_TRADE__FLD_TRADE, npcTradeID, FALSE, heapID, TRUE);
+}
+
 static inline String *NPCTrade_GetOTName(enum HeapID heapID, u32 npcTradeID)
 {
     return NPCTrade_GetNickname(heapID, MAX_NPC_TRADES + npcTradeID);

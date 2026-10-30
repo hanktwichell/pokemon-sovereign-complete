@@ -119,7 +119,7 @@ scr_seq_T07R0203_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: CheckJohtoDexComplete VAR_SPECIAL_RESULT
+    CompleteCheckJohtoDexComplete VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0245
     GoToIfSet FLAG_HGSS_SAW_JOHTO_DEX_CERTIFICATE, _01ED
@@ -146,7 +146,7 @@ _01ED:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ShowCertificate 1
+    ShowDiplomaNationalDex
     ReturnToField
     SetFlag FLAG_HGSS_SAW_NATIONAL_DEX_CERTIFICATE
     IncrementTrainerScore TRAINER_SCORE_EVENT_NATIONAL_DEX_DIPLOMA_RECEIVED

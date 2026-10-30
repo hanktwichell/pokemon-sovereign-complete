@@ -1,4 +1,5 @@
 #include "macros/scrcmd.inc"
+#include "constants/npc_trades.h"
 #include "res/text/bank/hgss_msg_0576.h"
 
 
@@ -34,7 +35,7 @@ _0063:
     Message msg_0576_T24R0201_00003
     GoTo _003A
 _007D:
-    @ HGSS: GiveLoanMon 6, 20, 75
+    CompleteGiveLoanMon NPC_TRADE_HGSS_SHUCKIE_SHUCKLE, 20, MAP_HEADER_HGSS_CIANWOOD
     Message msg_0576_T24R0201_00001
     BufferPlayerName 0
     Message msg_0576_T24R0201_00002
@@ -63,7 +64,7 @@ _00AD:
     Call _019A
     GoTo _01AA
 _00F2:
-    @ HGSS: CheckReturnLoanMon 6, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    CompleteCheckReturnLoanMon NPC_TRADE_HGSS_SHUCKIE_SHUCKLE, VAR_MAP_LOCAL_0x00, VAR_RESULT
     CompareVar VAR_RESULT, 0
     CallIf 5, _019A
     CompareVar VAR_RESULT, 1
@@ -92,7 +93,7 @@ _0162:
     Call _019A
     GoTo _01B5
 _0181:
-    @ HGSS: ReturnLoanMon VAR_TEMP_x4000
+    CompleteReturnLoanMon VAR_MAP_LOCAL_0x00
     Call _019A
     Message msg_0576_T24R0201_00007
     SetFlag FLAG_HGSS_RETURNED_OR_INHERITED_LOAN_SHUCKLE

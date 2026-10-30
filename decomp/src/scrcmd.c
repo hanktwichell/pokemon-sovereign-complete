@@ -2640,6 +2640,7 @@ static BOOL ScrCmd_SelectMoveTutorPokemon(ScriptContext *ctx)
     void **partyData = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
     *partyData = FieldSystem_OpenPartyMenu_SelectPokemon(32, ctx->fieldSystem);
 
+    SOVEREIGN_TEST_NOTE_MENU(SOVEREIGN_TEST_MENU_PARTY); // Sovereign Complete: HeartGold's scripts pick a Pokémon here
     ScriptContext_Pause(ctx, ScriptContext_WaitForApplicationExit);
     return TRUE;
 }

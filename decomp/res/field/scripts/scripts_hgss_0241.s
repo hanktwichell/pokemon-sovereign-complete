@@ -1,4 +1,5 @@
 #include "macros/scrcmd.inc"
+#include "constants/npc_trades.h"
 #include "res/text/bank/hgss_msg_0388.h"
 
 
@@ -47,14 +48,14 @@ scr_seq_R35R0101_000:
     CompareVar VAR_RESULT, 6
     GoToIf 1, _00F9
     Message msg_0388_R35R0101_00003
-    @ HGSS: GiveLoanMon 7, 20, 101
+    CompleteGiveLoanMon NPC_TRADE_HGSS_DUX_SPEAROW, 20, MAP_HEADER_HGSS_ROUTE_35_GOLDENROD_GATEHOUSE
     SetVarFromValue VAR_HGSS_LOAN_SPEAROW, 1
     BufferPlayerName 0
     Message msg_0388_R35R0101_00004
     PlayFanfare SEQ_ME_PT_SPECIAL_sseq
     WaitFanfare
 _00BC:
-    @ HGSS: KenyaCheckPartyOrMailbox VAR_SPECIAL_RESULT
+    CompleteKenyaCheckPartyOrMailbox VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0178
     GoToIfSet FLAG_HGSS_UNK_0B5, _00E3

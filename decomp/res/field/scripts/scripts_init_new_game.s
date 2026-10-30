@@ -294,5 +294,6 @@ InitNewGame:
     SetFlag FLAG_HGSS_SG_3F8B
     SetFlag FLAG_HGSS_SG_3F62
     SetFlag FLAG_HGSS_SG_3F5D
+    SetVar VAR_HGSS_MAGIKARP_SIZE_RECORD, 56150
     // end of HeartGold's new game
     End

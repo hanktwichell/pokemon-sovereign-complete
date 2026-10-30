@@ -48,22 +48,22 @@ _0095:
     Message msg_0628_T29R0201_00008
     GoTo _0146
 _00B1:
-    @ HGSS: SizeRecordCompare VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002
+    CompleteSizeRecordCompare VAR_RESULT, VAR_0x8002
     CompareVar VAR_RESULT, 0
     GoToIf 5, _00E3
-    @ HGSS: BufferMonSize 0, 1, VAR_SPECIAL_x8002
-    @ HGSS: BufferRecordSize 2, 3, SPECIES_MAGIKARP
+    BufferPartyPokemonSize 0, 1, VAR_0x8002
+    CompleteBufferRecordSize 2, 3, SPECIES_MAGIKARP
     Message msg_0628_T29R0201_00007
     GoTo _0146
     GoTo _0101
 _00E3:
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0101
-    @ HGSS: BufferRecordSize 0, 1, SPECIES_MAGIKARP
+    CompleteBufferRecordSize 0, 1, SPECIES_MAGIKARP
     Message msg_0628_T29R0201_00006
     GoTo _0146
 _0101:
-    @ HGSS: BufferMonSize 0, 1, VAR_SPECIAL_x8002
+    BufferPartyPokemonSize 0, 1, VAR_0x8002
     Message msg_0628_T29R0201_00004
     SetVarFromValue VAR_0x8004, ITEM_ETHER
     SetVarFromValue VAR_0x8005, 1
@@ -74,7 +74,7 @@ _0101:
     GoTo _0148
 _0137:
     Common_GiveItemQuantity
-    @ HGSS: SizeRecordUpdate VAR_SPECIAL_x8002
+    CompleteSizeRecordUpdate VAR_0x8002
     SetFlag FLAG_HGSS_UNK_139
     Message msg_0628_T29R0201_00005
 _0146:

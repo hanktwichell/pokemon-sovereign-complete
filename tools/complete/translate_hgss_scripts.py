@@ -57,6 +57,8 @@ def std_file_script(n):
 # Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman stays hidden until she buys
 # something (Platinum's Mart script then shows him, scripts_mystery_gift_deliveryman.s)
 NEW_GAME_FLAGS = ['FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN']
+# HeartGold's new game sets these in code (its NewGame_InitSaveData): the Lake of Rage's Magikarp record, 3'6"
+NEW_GAME_VARS = [('VAR_HGSS_MAGIKARP_SIZE_RECORD', 56150)]
 SOUND_COMMANDS = {'PlaySE', 'WaitSE', 'StopSE', 'PlayFanfare', 'WaitFanfare', 'PlayCry', 'PlayMusic', 'PlayBGM'}
 
 
@@ -341,7 +343,8 @@ def install_new_game(source_dir, names):
     text = open(full).read()
     if NEW_GAME_MARK[0] in text:
         text = text[:text.index(NEW_GAME_MARK[0])] + text[text.index(NEW_GAME_MARK[1]) + len(NEW_GAME_MARK[1]):]
-    block = NEW_GAME_MARK[0] + ''.join(f'    SetFlag {flag}\n' for flag in flags) + NEW_GAME_MARK[1]
+    block = NEW_GAME_MARK[0] + ''.join(f'    SetFlag {flag}\n' for flag in flags) + \
+        ''.join(f'    SetVar {var}, {value}\n' for var, value in NEW_GAME_VARS) + NEW_GAME_MARK[1]
     end = text.index('\n    End\n', text.index('InitNewGame:')) + 1
     write_if_changed(full, text[:end] + block + text[end:])
     return len(flags)

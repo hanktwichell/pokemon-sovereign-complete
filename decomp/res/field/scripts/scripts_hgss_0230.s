@@ -1,4 +1,5 @@
 #include "macros/scrcmd.inc"
+#include "constants/npc_trades.h"
 #include "res/text/bank/hgss_msg_0378.h"
 
 
@@ -58,18 +59,18 @@ _00A5:
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 1, _01C6
-    @ HGSS: KenyaCheck VAR_SPECIAL_RESULT, VAR_TEMP_x4000, 0
+    CompleteKenyaCheck VAR_RESULT, VAR_MAP_LOCAL_0x00, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01DF
-    @ HGSS: KenyaCheck VAR_SPECIAL_RESULT, VAR_TEMP_x4000, 1
+    CompleteKenyaCheck VAR_RESULT, VAR_MAP_LOCAL_0x00, 1
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01F8
-    @ HGSS: CheckReturnLoanMon 7, VAR_TEMP_x4000, VAR_SPECIAL_RESULT
+    CompleteCheckReturnLoanMon NPC_TRADE_HGSS_DUX_SPEAROW, VAR_MAP_LOCAL_0x00, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0211
     CompareVar VAR_RESULT, 4
     GoToIf 1, _024B
-    @ HGSS: ReturnLoanMon VAR_TEMP_x4000
+    CompleteReturnLoanMon VAR_MAP_LOCAL_0x00
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -141,7 +142,7 @@ _0211:
     Message msg_0378_R31_00006
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    @ HGSS: MonGiveMail 150
+    CompleteTakeMonMail 150
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0378_R31_00010
@@ -186,7 +187,7 @@ _027F:
 _02E3:
     CompareVar VAR_HGSS_LOAN_SPEAROW, 6
     GoToIf 5, _034D
-    @ HGSS: KenyaCheckPartyOrMailbox VAR_SPECIAL_RESULT
+    CompleteKenyaCheckPartyOrMailbox VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0358
     Message msg_0378_R31_00000

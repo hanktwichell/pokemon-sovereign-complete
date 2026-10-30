@@ -6146,6 +6146,85 @@
     .short \z
     .endm
 
+    // HeartGold's loan Pokémon: the trade's Pokémon at the level, met on the map, joins the party (HeartGold's GiveLoanMon)
+    .macro CompleteGiveLoanMon npcTradeID, level, mapHeaderID
+    .short SCRCMD_COMPLETEGIVELOANMON
+    .short \npcTradeID
+    .short \level
+    .short \mapHeaderID
+    .endm
+
+    // destVarID: whether the party Pokémon in the slot can go back (0), isn't the one lent (1), holds an item (2), has a
+    // Ball Capsule (3) or is the last that can battle (4) (HeartGold's CheckReturnLoanMon)
+    .macro CompleteCheckReturnLoanMon npcTradeID, slot, destVarID
+    .short SCRCMD_COMPLETECHECKRETURNLOANMON
+    .short \npcTradeID
+    .short \slot
+    .short \destVarID
+    .endm
+
+    // the party Pokémon in the slot leaves (HeartGold's ReturnLoanMon)
+    .macro CompleteReturnLoanMon slot
+    .short SCRCMD_COMPLETERETURNLOANMON
+    .short \slot
+    .endm
+
+    // destVarID: whether the party Pokémon in the slot holds mail (mode 0) or Kenya's letter (HeartGold's KenyaCheck)
+    .macro CompleteKenyaCheck destVarID, slot, mode
+    .short SCRCMD_COMPLETEKENYACHECK
+    .short \destVarID
+    .short \slot
+    .short \mode
+    .endm
+
+    // destVarID: whether the party or the mailbox has Kenya's letter (HeartGold's KenyaCheckPartyOrMailbox)
+    .macro CompleteKenyaCheckPartyOrMailbox destVarID
+    .short SCRCMD_COMPLETEKENYACHECKPARTYORMAILBOX
+    .short \destVarID
+    .endm
+
+    // the party Pokémon in the slot gives up its mail (HeartGold's MonGiveMail)
+    .macro CompleteTakeMonMail slot
+    .short SCRCMD_COMPLETETAKEMONMAIL
+    .short \slot
+    .endm
+
+    // destVarID: the party Pokémon in the slot against the Lake of Rage's Magikarp record (SIZE_CONTEST_SMALLER,
+    // _SAME_SIZE or _LARGER) (HeartGold's SizeRecordCompare)
+    .macro CompleteSizeRecordCompare destVarID, slot
+    .short SCRCMD_COMPLETESIZERECORDCOMPARE
+    .short \destVarID
+    .short \slot
+    .endm
+
+    // the party Pokémon in the slot is the Lake of Rage's new Magikarp record (HeartGold's SizeRecordUpdate)
+    .macro CompleteSizeRecordUpdate slot
+    .short SCRCMD_COMPLETESIZERECORDUPDATE
+    .short \slot
+    .endm
+
+    // the Lake of Rage's Magikarp record, as the species, into two string template slots (HeartGold's BufferRecordSize)
+    .macro CompleteBufferRecordSize intPartIdx, fracPartIdx, species
+    .short SCRCMD_COMPLETEBUFFERRECORDSIZE
+    .short \intPartIdx
+    .short \fracPartIdx
+    .short \species
+    .endm
+
+    // destVarID: whether HeartGold's Johto Pokédex is complete, Mew and Celebi aside (HeartGold's CheckJohtoDexComplete)
+    .macro CompleteCheckJohtoDexComplete destVarID
+    .short SCRCMD_COMPLETECHECKJOHTODEXCOMPLETE
+    .short \destVarID
+    .endm
+
+    // up to three different seals into the Seal Case, their IDs (0 for none) into the vars (HeartGold's GiveRandomSeal)
+    .macro CompleteGiveRandomSeal destVarID1, destVarID2, destVarID3
+    .short SCRCMD_COMPLETEGIVERANDOMSEAL
+    .short \destVarID1
+    .short \destVarID2
+    .short \destVarID3
+    .endm
+
     .text
     .globl _start
 _start:

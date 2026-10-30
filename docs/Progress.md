@@ -559,3 +559,30 @@ Test results on the new test build:
   Burned Tower, Rayquaza) is `CompleteObjectSway`; the Burned Tower's step-on scene plays to its end in
   `tools/test/signs_and_triggers.py`. 98.8% of Sacred Gold's script lines translate (1,031 left: the Battle Frontier,
   the Pokéathlon, link rooms, the photo album and the radio, which wait on the owner's decisions).
+
+## Oct 30, 2026: loan Pokémon, the Magikarp record, and smaller ports
+
+- **Loan Pokémon** (HeartGold's `GiveLoanMon` and five more; `docs/ScriptConversion.md`): the man in Route 35's
+  gatehouse lends Kenya (Sacred Gold's Dux), the Spearow with a letter for his friend on Route 31, who checks the letter
+  is his friend's, takes Kenya back and gives TM44; Kirk in Cianwood City lends Shuckie, his Shuckle. Each is that NPC
+  trade's Pokémon, met where it's lent; Kenya's letter is HeartGold's (three Easy Chat lines, Kenya's icon), and the
+  gatehouse man finds it in the party or the PC's mailbox.
+- **The Lake of Rage's Magikarp record:** the fishing guru measures a Magikarp with Platinum's size contest's sizes,
+  against a record of its own (`VAR_HGSS_MAGIKARP_SIZE_RECORD`, 3'6" at a new game as in HeartGold), so Sinnoh's
+  contest record stays apart.
+- **Smaller ones:** the Celadon Condominiums' game designer checks HeartGold's Johto Pokédex
+  (`tools/complete/import_hgss_johto_dex.py`; Mew and Celebi aside) and shows Platinum's National Pokédex diploma for
+  the National one (the Johto certificate has no screen yet); Olivine City's seal gift puts three random seals in the
+  Seal Case. 98.8% of Sacred Gold's script lines translate (1,007 left).
+- **The test build** notes the party screen `SelectMoveTutorPokemon` opens as a menu, as the trade's already was, so a
+  test can pick a Pokémon there (HeartGold's scripts pick one with it).
+- **The talk test over every added person** (`tools/test/talk_to_objects.py`, 5,865 on this build) is running. Fixed
+  in the test so far: a full save (the Wi-Fi Plaza attendant's) stalls in the card library's copies, which now count
+  as saving; the Fight Area's arrival scene expects the player off the ferry, so it's marked seen (from the test's way
+  in, Barry is unloaded mid-walk); border copies of the next map's objects are left out. The Battle Factory's rental
+  pick, the Battle Tower's Easy Chat and a whole contest outlast the test's inputs, as before.
+- **Tested:** `tools/complete/test_hgss_loan.py` (new), all four parts pass: Kenya lent (a Spearow holding Grass Mail),
+  the letter found, Kenya delivered (gone from the party, TM44 given, the quest's var 3) and Shuckie lent (a Shuckle
+  holding Berry Juice). `tools/complete/test_hgss_magikarp.py` (new), all three pass: the new game's record, a Magikarp
+  beating a record of 0, and the same Magikarp again leaving it. `tools/complete/test_follower_talk.py`'s new Sinnoh
+  part passes.

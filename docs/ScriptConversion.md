@@ -95,6 +95,18 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
 - `GetShinyLeafCount` and `TryGiveShinyLeafCrown` (Lyra's or Ethan's crown for five Shiny Leaves) are
   `CompleteGetShinyLeafCount` and `CompleteGiveShinyLeafCrown`, on the leaves the follower's talk finds
   (`docs/Features.md`, "Talking to the following Pokémon").
+- The loan Pokémon (`GiveLoanMon`, `CheckReturnLoanMon`, `ReturnLoanMon`, `KenyaCheck`, `KenyaCheckPartyOrMailbox`,
+  `MonGiveMail`) are `CompleteGiveLoanMon` and the rest, ported from HeartGold: Kenya, the Spearow the man in Route 35's
+  gatehouse lends with a letter for his friend on Route 31 (Sacred Gold's Dux), and Kirk's Shuckle in Cianwood City.
+  Each is that NPC trade's Pokémon (`NPC_TRADE_HGSS_DUX_SPEAROW`, `_SHUCKIE_SHUCKLE`), met where it's lent, and Kenya
+  carries HeartGold's letter, the same three Easy Chat lines; the friend checks the letter is that one, in the party
+  or the PC's mailbox. Sacred Gold's Route 31 hands `MonGiveMail` slot 150 for a Pokémon with the letter that isn't
+  Kenya, which in HeartGold reads past the party; here it leaves the party as it is.
+- The Lake of Rage's Magikarp record (`SizeRecordCompare`, `SizeRecordUpdate`, `BufferRecordSize`, `BufferMonSize`)
+  uses Platinum's size contest: the same sizes from a Pokémon's personality and IVs, in feet and inches. HeartGold keeps
+  its record in a var of its own, `VAR_HGSS_MAGIKARP_SIZE_RECORD`, so Sinnoh's contest record stays apart; HeartGold's
+  new game sets it to 3'6" in code, so `InitNewGame` does (the translator writes it with HeartGold's flags).
+  `BufferMonSize` is Platinum's `BufferPartyPokemonSize`; the other three are `CompleteSizeRecordCompare` and the rest.
 - `RocketTrapBattle` (Team Rocket's traps and Azalea's Spiritomb) is HeartGold's wild battle without the legendary
   flag, so `CompleteStartWildBattle` too. `FollowerPokeIsEventTrigger` asks whether a party Pokémon is a distributed
   event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, read from its met data); Sacred Gold gives these

@@ -27,7 +27,7 @@ _0050:
     Message msg_0609_T26R0501_00005
     GoTo _00E3
 _0071:
-    @ HGSS: GiveRandomSeal VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002
+    CompleteGiveRandomSeal VAR_0x8000, VAR_0x8001, VAR_0x8002
     CompareVar VAR_0x8000, 0
     GoToIf 5, _008F
     Message msg_0609_T26R0501_00003

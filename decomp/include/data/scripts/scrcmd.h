@@ -972,6 +972,17 @@ ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKEND,                           Complete
 ScriptCommand(SCRCMD_COMPLETEGETSHINYLEAFCOUNT,                         CompleteScrCmd_GetShinyLeafCount)
 ScriptCommand(SCRCMD_COMPLETEGIVESHINYLEAFCROWN,                        CompleteScrCmd_GiveShinyLeafCrown)
 ScriptCommand(SCRCMD_COMPLETEOBJECTSWAY,                                CompleteScrCmd_ObjectSway)
+ScriptCommand(SCRCMD_COMPLETEGIVELOANMON,                              CompleteScrCmd_GiveLoanMon)
+ScriptCommand(SCRCMD_COMPLETECHECKRETURNLOANMON,                       CompleteScrCmd_CheckReturnLoanMon)
+ScriptCommand(SCRCMD_COMPLETERETURNLOANMON,                            CompleteScrCmd_ReturnLoanMon)
+ScriptCommand(SCRCMD_COMPLETEKENYACHECK,                               CompleteScrCmd_KenyaCheck)
+ScriptCommand(SCRCMD_COMPLETEKENYACHECKPARTYORMAILBOX,                 CompleteScrCmd_KenyaCheckPartyOrMailbox)
+ScriptCommand(SCRCMD_COMPLETETAKEMONMAIL,                              CompleteScrCmd_TakeMonMail)
+ScriptCommand(SCRCMD_COMPLETESIZERECORDCOMPARE,                        CompleteScrCmd_SizeRecordCompare)
+ScriptCommand(SCRCMD_COMPLETESIZERECORDUPDATE,                         CompleteScrCmd_SizeRecordUpdate)
+ScriptCommand(SCRCMD_COMPLETEBUFFERRECORDSIZE,                         CompleteScrCmd_BufferRecordSize)
+ScriptCommand(SCRCMD_COMPLETECHECKJOHTODEXCOMPLETE,                    CompleteScrCmd_CheckJohtoDexComplete)
+ScriptCommand(SCRCMD_COMPLETEGIVERANDOMSEAL,                           CompleteScrCmd_GiveRandomSeal)
 
 // clang-format on
 

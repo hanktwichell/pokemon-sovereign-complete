@@ -165,3 +165,30 @@ void SizeContest_SetPartyMonSizeStrParams(FieldSystem *fieldSystem, u8 intPartId
 
     SetStrTemplateMonSizeParams(fieldSystem, intPartIdx, fracPartIdx, species, sizeFactor);
 }
+
+// Sovereign Complete: HeartGold's Magikarp record at the Lake of Rage (its scrcmd_size_record.c), sized as here but
+// kept in a var of its own (VAR_HGSS_MAGIKARP_SIZE_RECORD): the party Pokémon's size factor, how it compares with a
+// record's (SIZE_CONTEST_*), and a size into the string template, in feet and inches as here
+u16 SizeContest_GetPartyMonSizeFactor(FieldSystem *fieldSystem, u16 partySlot)
+{
+    return CalcSizeFactor(Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), partySlot));
+}
+
+u8 SizeContest_CompareWithRecord(FieldSystem *fieldSystem, u16 partySlot, u16 recordSizeFactor)
+{
+    Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), partySlot);
+    u16 species = Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL);
+    u32 newSizeInches = MM_TO_TENTH_OF_INCH(CalcMillimeterSize(species, CalcSizeFactor(mon)));
+    u32 recordSizeInches = MM_TO_TENTH_OF_INCH(CalcMillimeterSize(species, recordSizeFactor));
+
+    if (newSizeInches == recordSizeInches) {
+        return SIZE_CONTEST_SAME_SIZE;
+    }
+
+    return newSizeInches > recordSizeInches ? SIZE_CONTEST_LARGER : SIZE_CONTEST_SMALLER;
+}
+
+void SizeContest_SetSizeStrParams(FieldSystem *fieldSystem, u8 intPartIdx, u8 fracPartIdx, u16 species, u16 sizeFactor)
+{
+    SetStrTemplateMonSizeParams(fieldSystem, intPartIdx, fracPartIdx, species, sizeFactor);
+}

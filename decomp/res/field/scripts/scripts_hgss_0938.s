@@ -356,7 +356,7 @@ _054B:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: BufferRecordSize 0, 1, SPECIES_MAGIKARP
+    CompleteBufferRecordSize 0, 1, SPECIES_MAGIKARP
     BufferPlayerName 2
     DrawSignpostTextBox SIGNPOST_TYPE_LANDMARK
     SetSignpostCommand SIGNPOST_CMD_SCROLL_IN

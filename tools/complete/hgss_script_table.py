@@ -170,10 +170,15 @@ def points_box_update(a):
     return {'0': ['UpdateCoinDisplay'], '1': ['UpdateBPDisplay']}.get(a[0], [f'@ HGSS: ScrCmd_118 {a[0]}'])
 
 
-def trade(a):
-    """LoadNPCTrade n: HeartGold's nth trade, as tools/complete/import_hgss_trades.py names it."""
+def trade_name(n):
+    """HeartGold's nth trade, as tools/complete/import_hgss_trades.py names it."""
     from import_hgss_trades import trade_names
-    return [f'InitNPCTrade {trade_names()[int(a[0], 0)]}']
+    return trade_names()[int(n, 0)]
+
+
+def trade(a):
+    """LoadNPCTrade n: HeartGold's nth trade."""
+    return [f'InitNPCTrade {trade_name(a[0])}']
 
 
 def set_movement_type(a):
@@ -283,6 +288,27 @@ COMMANDS = {
     'NPCTradeGetReqSpecies': one('GetNPCTradeRequestedSpecies {0}'),
     'NPCTradeExec': one('StartNPCTrade {0}'),
     'NPCTradeEnd': lambda a: ['FinishNPCTrade'],
+    # Loan Pokémon (a trade's Pokémon lent and given back): Kenya the Spearow and its letter (Route 35's gatehouse,
+    # Route 31) and Kirk's Shuckle (Cianwood City)
+    'GiveLoanMon': lambda a: [f'CompleteGiveLoanMon {trade_name(a[0])}, {a[1]}, {hg_map_header(a[2])}'],
+    'CheckReturnLoanMon': lambda a: [f'CompleteCheckReturnLoanMon {trade_name(a[0])}, {a[1]}, {a[2]}'],
+    'ReturnLoanMon': one('CompleteReturnLoanMon {0}'),
+    'KenyaCheck': one('CompleteKenyaCheck {0}, {1}, {2}'),
+    'KenyaCheckPartyOrMailbox': one('CompleteKenyaCheckPartyOrMailbox {0}'),
+    'MonGiveMail': one('CompleteTakeMonMail {0}'),
+    # The Lake of Rage's Magikarp record: Platinum's size contest's sizes, with HeartGold's record var. BufferMonSize is
+    # Platinum's own command
+    'SizeRecordCompare': one('CompleteSizeRecordCompare {0}, {1}'),
+    'SizeRecordUpdate': one('CompleteSizeRecordUpdate {0}'),
+    'BufferRecordSize': one('CompleteBufferRecordSize {0}, {1}, {2}'),
+    'BufferMonSize': one('BufferPartyPokemonSize {0}, {1}, {2}'),
+    # The Celadon Condominiums' game designer: HeartGold's Johto Pokédex (tools/complete/import_hgss_johto_dex.py)
+    'CheckJohtoDexComplete': one('CompleteCheckJohtoDexComplete {0}'),
+    # HeartGold's certificates: the National Pokédex's is Platinum's diploma for it; the Johto Pokédex's (0) and the
+    # Shiny Leaf crown's (2) have no screen yet
+    'ShowCertificate': lambda a: ['ShowDiplomaNationalDex'] if a[0] == '1' else [f'@ HGSS: ShowCertificate {a[0]}'],
+    # Olivine City's seal gift (the Seal Case's seals are numbered as HeartGold's)
+    'GiveRandomSeal': one('CompleteGiveRandomSeal {0}, {1}, {2}'),
     # Items: HeartGold's ItemVars puts the item and count in VAR_0x8004 and VAR_0x8005, as Platinum's item scripts expect
     'ItemVars': item_vars,
     'GiveItemNoCheck': lambda a: item_vars(a) + ['Common_GiveItemQuantity'],

@@ -48,5 +48,8 @@ u32 NPCTrade_GetSpecies(const NPCTradeData *data);
 u32 NPCTrade_GetRequestedSpecies(const NPCTradeData *data);
 void NPCTrade_ReceiveMon(FieldSystem *fieldSystem, NPCTradeData *data, int slot);
 void NPCTrade_FillAnimationTemplate(FieldSystem *fieldSystem, NPCTradeData *data, int slot, TradeAnimationTemplate *animationConfig, Pokemon *givingMon, Pokemon *receivingMon);
+// Sovereign Complete: HeartGold's loan Pokémon
+void NPCTrade_CreateLoanMon(Pokemon *mon, u32 npcTradeID, u32 level, u32 mapID, enum HeapID heapID);
+NPCTradeMon *NPCTrade_LoadTradeMon(u32 npcTradeID, enum HeapID heapID);
 
 #endif // POKEPLATINUM_NPC_TRADE_H

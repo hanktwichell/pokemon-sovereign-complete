@@ -3,11 +3,14 @@
 #include <nitro.h>
 
 #include "constants/battle.h"
+#include "constants/ball_capsule.h"
 #include "constants/field/complete_tile_behaviors.h"
 #include "constants/heap.h"
 #include "constants/moves.h"
 #include "constants/narc.h"
+#include "constants/npc_trades.h"
 #include "generated/genders.h"
+#include "generated/items.h"
 #include "generated/map_headers.h"
 #include "generated/object_events_gfx.h"
 #include "generated/species.h"
@@ -15,22 +18,33 @@
 #include "generated/trainers.h"
 #include "generated/vars_flags.h"
 #include "res/text/bank/special_met_location_names.h"
+#include "res/text/bank/lifestyle_words.h"
+#include "res/text/bank/loss_sentences.h"
+#include "res/text/bank/win_sentences.h"
 
 #include "field/field_system.h"
 #include "overlay005/daycare.h"
 #include "overlay005/field_menu.h"
 #include "overlay005/map_prop.h"
 #include "overlay005/script_message.h"
+#include "overlay005/size_contest.h"
 #include "overlay006/complete_field_encounters.h"
+#include "overlay006/npc_trade.h"
 #include "struct_defs/choose_starter_data.h"
+
+#include "data/hgss_johto_dex.h"
 
 #include "applications/complete_alph_puzzle.h"
 #include "applications/naming_screen.h"
+#include "ball_seal_info.h"
 #include "camera.h"
+#include "charcode_util.h"
 #include "clear_game.h"
 #include "complete_badges.h"
 #include "complete_follower.h"
 #include "complete_rival.h"
+#include "easy_chat_sentence.h"
+#include "easy_chat_words.h"
 #include "encounter.h"
 #include "field_task.h"
 #include "heap.h"
@@ -39,6 +53,8 @@
 #include "field_script_context.h"
 #include "field_system.h"
 #include "inlines.h"
+#include "item.h"
+#include "mail.h"
 #include "map_object.h"
 #include "math_util.h"
 #include "map_object_move.h"
@@ -46,9 +62,11 @@
 #include "party.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "pokemon_icon.h"
 #include "player_avatar.h"
 #include "player_move.h"
 #include "save_player.h"
+#include "save_catchrecords.h"
 #include "scrcmd.h"
 #include "string_gf.h"
 #include "terrain_collision_manager.h"
@@ -849,4 +867,352 @@ BOOL CompleteScrCmd_AlphPuzzle(ScriptContext *ctx)
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, puzzleArgs);
     ScriptContext_Pause(ctx, WaitForAlphPuzzle);
     return TRUE;
+}
+
+// HeartGold's loan Pokémon: Kenya, the Spearow the Route 35 gatehouse's man lends with a letter for his friend on
+// Route 31 (Sacred Gold's Dux), and Kirk's Shuckle in Cianwood City (src/overlay006/npc_trade.c)
+#define KENYA_LEVEL 20
+
+// HeartGold's Kenya letter (its CreateKenyaMail): its Trainer's, on the paper Kenya holds, with Kenya's icon and three
+// lines ("LETTER! Thank you!", "ADVENTURE was fun, wasn't it?", "ZUBAT was the one thing I wanted to avoid...")
+static Mail *NewKenyaMail(Pokemon *kenya, enum HeapID heapID)
+{
+    Mail *mail = Mail_New(heapID);
+    u32 species = Pokemon_GetValue(kenya, MON_DATA_SPECIES, NULL);
+    u32 form = Pokemon_GetValue(kenya, MON_DATA_FORM, NULL);
+    u32 isEgg = Pokemon_GetValue(kenya, MON_DATA_IS_EGG, NULL);
+
+    mail->mailType = Item_GetMailType(Pokemon_GetValue(kenya, MON_DATA_HELD_ITEM, NULL));
+    Pokemon_GetValue(kenya, MON_DATA_OT_NAME, mail->trainerName);
+    mail->trainerGender = Pokemon_GetValue(kenya, MON_DATA_OT_GENDER, NULL);
+    mail->trainerID = Pokemon_GetValue(kenya, MON_DATA_OT_ID, NULL);
+
+    EasyChatSentence_SetTypeAndID(&mail->sentences[0], EASY_CHAT_SENTENCE_TYPE_WIN, WinSentences_Text_BlankThankYou);
+    EasyChatSentence_SetWord(&mail->sentences[0], 0, EasyChatWord_FromBankAndEntry(TEXT_BANK_LIFESTYLE_WORDS, LifestyleWords_Text_Letter));
+    EasyChatSentence_SetTypeAndID(&mail->sentences[1], EASY_CHAT_SENTENCE_TYPE_WIN, WinSentences_Text_BlankWasFunWasntIt);
+    EasyChatSentence_SetWord(&mail->sentences[1], 0, EasyChatWord_FromBankAndEntry(TEXT_BANK_LIFESTYLE_WORDS, LifestyleWords_Text_Adventure));
+    EasyChatSentence_SetTypeAndID(&mail->sentences[2], EASY_CHAT_SENTENCE_TYPE_LOSS, LossSentences_Text_BlankWasThingIWantedToAvoid);
+    EasyChatSentence_SetWord(&mail->sentences[2], 0, EasyChatWord_FromBankAndEntry(TEXT_BANK_SPECIES_NAME, SPECIES_ZUBAT));
+
+    mail->iconData[0].asStruct.spriteIndex = Pokemon_IconSpriteIndex(kenya);
+    mail->iconData[0].asStruct.palIndex = PokeIconPaletteIndex(species, form, isEgg);
+
+    return mail;
+}
+
+// The letter as Kenya carried it when lent (HeartGold's NPCTrade_MakeKenyaMail)
+static Mail *NewLentKenyaMail(enum HeapID heapID)
+{
+    Pokemon *kenya = Pokemon_New(heapID);
+
+    NPCTrade_CreateLoanMon(kenya, NPC_TRADE_HGSS_DUX_SPEAROW, KENYA_LEVEL, MAP_HEADER_HGSS_ROUTE_35_GOLDENROD_GATEHOUSE, heapID);
+    Mail *mail = NewKenyaMail(kenya, heapID);
+    Heap_Free(kenya);
+
+    return mail;
+}
+
+// HeartGold's Mail_Compare
+static BOOL MailsMatch(const Mail *mail1, const Mail *mail2)
+{
+    if (mail1->trainerID != mail2->trainerID
+        || mail1->trainerGender != mail2->trainerGender
+        || mail1->language != mail2->language
+        || mail1->gameVersion != mail2->gameVersion
+        || mail1->mailType != mail2->mailType
+        || mail1->platExclusiveFormIcons != mail2->platExclusiveFormIcons
+        || CharCode_Compare(mail1->trainerName, mail2->trainerName)) {
+        return FALSE;
+    }
+
+    for (int i = 0; i < MAIL_MAX_ICONS; i++) {
+        if (mail1->iconData[i].asValue != mail2->iconData[i].asValue) {
+            return FALSE;
+        }
+    }
+
+    for (int i = 0; i < MAIL_MAX_SENTENCES; i++) {
+        if (!EasyChatSentence_Compare(&mail1->sentences[i], &mail2->sentences[i])) {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+// HeartGold's MonIsInGameTradePoke: the Pokémon is the one lent (Kenya may have evolved)
+static BOOL IsLoanMon(Pokemon *mon, u32 npcTradeID)
+{
+    NPCTradeMon *npcTradeMon = NPCTrade_LoadTradeMon(npcTradeID, HEAP_ID_FIELD2);
+    u32 species = Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL);
+    BOOL isLoanMon;
+
+    if (npcTradeID == NPC_TRADE_HGSS_DUX_SPEAROW) {
+        isLoanMon = species == SPECIES_SPEAROW || species == SPECIES_FEAROW;
+    } else {
+        isLoanMon = species == npcTradeMon->species;
+    }
+
+    isLoanMon = isLoanMon
+        && Pokemon_GetValue(mon, MON_DATA_OT_ID, NULL) == npcTradeMon->otID
+        && Pokemon_GetValue(mon, MON_DATA_PERSONALITY, NULL) == npcTradeMon->personality
+        && Pokemon_GetValue(mon, MON_DATA_OT_GENDER, NULL) == npcTradeMon->otGender
+        && Pokemon_GetValue(mon, MON_DATA_LANGUAGE, NULL) == npcTradeMon->language
+        && Pokemon_GetValue(mon, MON_DATA_MET_GAME, NULL) == gGameVersion;
+
+    Heap_Free(npcTradeMon);
+    return isLoanMon;
+}
+
+// HeartGold's GiveLoanMon: the trade's Pokémon at the level, met on the map, joins the party (Kenya with the letter)
+BOOL CompleteScrCmd_GiveLoanMon(ScriptContext *ctx)
+{
+    u16 npcTradeID = ScriptContext_ReadHalfWord(ctx);
+    u16 level = ScriptContext_ReadHalfWord(ctx);
+    u16 mapID = ScriptContext_ReadHalfWord(ctx);
+    Pokemon *mon = Pokemon_New(HEAP_ID_FIELD2);
+
+    NPCTrade_CreateLoanMon(mon, npcTradeID, level, mapID, HEAP_ID_FIELD2);
+
+    if (npcTradeID == NPC_TRADE_HGSS_DUX_SPEAROW) {
+        Mail *mail = NewKenyaMail(mon, HEAP_ID_FIELD2);
+        Pokemon_SetValue(mon, MON_DATA_MAIL, mail);
+        Heap_Free(mail);
+    }
+
+    SaveData_UpdateCatchRecords(ctx->fieldSystem->saveData, mon);
+    Party_AddPokemon(SaveData_GetParty(ctx->fieldSystem->saveData), mon);
+    Heap_Free(mon);
+
+    return FALSE;
+}
+
+// HeartGold's CheckReturnLoanMon: whether the party Pokémon in the slot can go back to its Trainer: 0 yes, 1 it isn't
+// the one lent, 2 it holds an item, 3 it has a Ball Capsule, 4 it's the party's last that can battle
+BOOL CompleteScrCmd_CheckReturnLoanMon(ScriptContext *ctx)
+{
+    u16 npcTradeID = ScriptContext_ReadHalfWord(ctx);
+    u16 slot = ScriptContext_GetVar(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    Party *party = SaveData_GetParty(ctx->fieldSystem->saveData);
+    Pokemon *mon = Party_GetPokemonBySlotIndex(party, slot);
+    int ableToBattle = 0;
+
+    for (int i = 0; i < Party_GetCurrentCount(party); i++) {
+        Pokemon *partyMon = Party_GetPokemonBySlotIndex(party, i);
+
+        if (Pokemon_GetValue(partyMon, MON_DATA_HP, NULL) != 0 && !Pokemon_GetValue(partyMon, MON_DATA_IS_EGG, NULL)) {
+            ableToBattle++;
+        }
+    }
+
+    if (!IsLoanMon(mon, npcTradeID)) {
+        *destVar = 1;
+    } else if (Pokemon_GetValue(mon, MON_DATA_BALL_CAPSULE_ID, NULL) != 0) {
+        *destVar = 3;
+    } else if (ableToBattle < 2) {
+        *destVar = 4;
+    } else if (Pokemon_GetValue(mon, MON_DATA_HELD_ITEM, NULL) != ITEM_NONE) {
+        *destVar = 2;
+    } else {
+        *destVar = 0;
+    }
+
+    return FALSE;
+}
+
+// HeartGold's ReturnLoanMon: the party Pokémon in the slot leaves
+BOOL CompleteScrCmd_ReturnLoanMon(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+
+    Party_RemovePokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+    return FALSE;
+}
+
+// HeartGold's KenyaCheck: whether the party Pokémon in the slot holds mail (whether mode is 0), or Kenya's letter
+BOOL CompleteScrCmd_KenyaCheck(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u16 slot = ScriptContext_GetVar(ctx);
+    u16 mode = ScriptContext_ReadHalfWord(ctx);
+    Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+
+    if (!Item_IsMail(Pokemon_GetValue(mon, MON_DATA_HELD_ITEM, NULL))) {
+        *destVar = FALSE;
+    } else if (mode == 0) {
+        *destVar = TRUE;
+    } else {
+        Mail *kenyaMail = NewLentKenyaMail(HEAP_ID_FIELD2);
+        Mail *mail = Mail_New(HEAP_ID_FIELD2);
+
+        Pokemon_GetValue(mon, MON_DATA_MAIL, mail);
+        *destVar = MailsMatch(kenyaMail, mail);
+        Heap_Free(mail);
+        Heap_Free(kenyaMail);
+    }
+
+    return FALSE;
+}
+
+// HeartGold's KenyaCheckPartyOrMailbox: whether a party Pokémon holds Kenya's letter or the PC's mailbox keeps it
+BOOL CompleteScrCmd_KenyaCheckPartyOrMailbox(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    Party *party = SaveData_GetParty(ctx->fieldSystem->saveData);
+    Mailbox *mailbox = SaveData_GetMailbox(ctx->fieldSystem->saveData);
+    Mail *kenyaMail = NewLentKenyaMail(HEAP_ID_FIELD2);
+    Mail *mail = Mail_New(HEAP_ID_FIELD2);
+
+    *destVar = FALSE;
+
+    for (int i = 0; i < Party_GetCurrentCount(party) && !*destVar; i++) {
+        Pokemon *mon = Party_GetPokemonBySlotIndex(party, i);
+
+        if (Item_IsMail(Pokemon_GetValue(mon, MON_DATA_HELD_ITEM, NULL))) {
+            Pokemon_GetValue(mon, MON_DATA_MAIL, mail);
+            *destVar = MailsMatch(kenyaMail, mail);
+        }
+    }
+
+    for (int i = 0; i < MAILBOX_SIZE && !*destVar; i++) {
+        Mailbox_GetMailAtSlot(mailbox, MAIL_CONTEXT_MAILBOX, i, mail);
+        *destVar = Mail_IsValid(mail) && MailsMatch(kenyaMail, mail);
+    }
+
+    Heap_Free(mail);
+    Heap_Free(kenyaMail);
+    return FALSE;
+}
+
+// HeartGold's MonGiveMail: the party Pokémon in the slot gives up its mail (Kenya's letter, to the friend on Route 31).
+// Sacred Gold's Route 31 passes a slot past the party (150), which leaves the party as it is.
+BOOL CompleteScrCmd_TakeMonMail(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+    Party *party = SaveData_GetParty(ctx->fieldSystem->saveData);
+
+    if (slot >= Party_GetCurrentCount(party)) {
+        return FALSE;
+    }
+
+    Pokemon *mon = Party_GetPokemonBySlotIndex(party, slot);
+
+    if (Item_IsMail(Pokemon_GetValue(mon, MON_DATA_HELD_ITEM, NULL))) {
+        Mail *mail = Mail_New(HEAP_ID_FIELD2);
+        u16 item = ITEM_NONE;
+
+        Pokemon_SetValue(mon, MON_DATA_MAIL, mail);
+        Pokemon_SetValue(mon, MON_DATA_HELD_ITEM, &item);
+        Heap_Free(mail);
+    }
+
+    return FALSE;
+}
+
+// HeartGold's Magikarp record at the Lake of Rage (its scrcmd_size_record.c): Platinum's size contest's sizes, against
+// the record in VAR_HGSS_MAGIKARP_SIZE_RECORD (src/overlay005/size_contest.c)
+
+// HeartGold's SizeRecordCompare: the party Pokémon in the slot against the record (SIZE_CONTEST_SMALLER, _SAME_SIZE
+// or _LARGER). On the same size HeartGold's leaves the var as it was, a slip; this sets it
+BOOL CompleteScrCmd_SizeRecordCompare(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u16 slot = ScriptContext_GetVar(ctx);
+
+    *destVar = SizeContest_CompareWithRecord(ctx->fieldSystem, slot, *FieldSystem_GetVarPointer(ctx->fieldSystem, VAR_HGSS_MAGIKARP_SIZE_RECORD));
+    return FALSE;
+}
+
+// HeartGold's SizeRecordUpdate: the party Pokémon in the slot is the new record
+BOOL CompleteScrCmd_SizeRecordUpdate(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+
+    *FieldSystem_GetVarPointer(ctx->fieldSystem, VAR_HGSS_MAGIKARP_SIZE_RECORD) = SizeContest_GetPartyMonSizeFactor(ctx->fieldSystem, slot);
+    return FALSE;
+}
+
+// HeartGold's BufferRecordSize: the record's size, for the species, into two string template slots (feet and inches)
+BOOL CompleteScrCmd_BufferRecordSize(ScriptContext *ctx)
+{
+    u16 intPartIdx = ScriptContext_GetVar(ctx);
+    u16 fracPartIdx = ScriptContext_GetVar(ctx);
+    u16 species = ScriptContext_GetVar(ctx);
+
+    SizeContest_SetSizeStrParams(ctx->fieldSystem, intPartIdx, fracPartIdx, species, *FieldSystem_GetVarPointer(ctx->fieldSystem, VAR_HGSS_MAGIKARP_SIZE_RECORD));
+    return FALSE;
+}
+
+// HeartGold's CheckJohtoDexComplete (the Celadon Condominiums' game designer): whether every species of HeartGold's
+// Johto Pokédex is caught, Mew and Celebi aside
+BOOL CompleteScrCmd_CheckJohtoDexComplete(ScriptContext *ctx)
+{
+    Pokedex *pokedex = SaveData_GetPokedex(ctx->fieldSystem->saveData);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = TRUE;
+
+    for (int i = 0; i < NELEMS(sHGSSJohtoDex); i++) {
+        if (sHGSSJohtoDex[i] != SPECIES_MEW && sHGSSJohtoDex[i] != SPECIES_CELEBI
+            && !Pokedex_HasCaughtSpecies(pokedex, sHGSSJohtoDex[i])) {
+            *destVar = FALSE;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+// HeartGold's GiveRandomSeal (Olivine City): up to three different seals into the Seal Case, each picked with a chance
+// as large as the room left for it, from the seals before the unreleased Mystery Seal; their IDs (0 for none) into
+// the three vars
+BOOL CompleteScrCmd_GiveRandomSeal(ScriptContext *ctx)
+{
+    u16 *destVars[3];
+    SealCase *sealCase = SaveData_GetSealCase(ctx->fieldSystem->saveData);
+    u16 thresholds[MYSTERY_SEAL - 1];
+    u16 picked[3];
+    s32 room = 0;
+
+    for (int i = 0; i < 3; i++) {
+        destVars[i] = ScriptContext_GetVarPointer(ctx);
+    }
+
+    for (int i = 0; i < MYSTERY_SEAL - 1; i++) {
+        room += MAX_SEALS_PER_TYPE - SealCase_CountSealOccurrenceAnywhere(sealCase, i + 1);
+        thresholds[i] = room;
+    }
+
+    for (int i = 0; i < 3; i++) {
+        *destVars[i] = 0;
+
+        if (i >= room) {
+            continue;
+        }
+
+        BOOL seen;
+        u16 roll;
+
+        do {
+            roll = LCRNG_Next() % room;
+            seen = FALSE;
+
+            for (int j = 0; j < i; j++) {
+                seen |= picked[j] == roll;
+            }
+        } while (seen);
+
+        picked[i] = roll;
+
+        for (int j = 0; j < MYSTERY_SEAL - 1; j++) {
+            if (roll < thresholds[j]) {
+                *destVars[i] = j + 1;
+                GiveOrTakeSeal(sealCase, j + 1, 1);
+                break;
+            }
+        }
+    }
+
+    return FALSE;
 }
