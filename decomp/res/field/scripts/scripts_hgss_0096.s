@@ -356,7 +356,7 @@ scr_seq_D37R0104_004:
     BufferRivalName 0
     Message msg_0119_D37R0104_00000
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _067D
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_18, 0

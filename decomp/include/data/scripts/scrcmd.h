@@ -921,6 +921,9 @@ ScriptCommand(SCRCMD_COMPLETESAFARISTAMPBAOBA,                          Complete
 ScriptCommand(SCRCMD_COMPLETESAFARIADDAREAENTRIES,                      CompleteScrCmd_SafariAddAreaEntries)
 ScriptCommand(SCRCMD_COMPLETESAFARISETAREA,                             CompleteScrCmd_SafariSetArea)
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERISTOOTALL,                         CompleteScrCmd_FollowerIsTooTall)
+ScriptCommand(SCRCMD_COMPLETESTARTJOHTOSTARTERSCENE,                    CompleteScrCmd_StartJohtoStarterScene)
+ScriptCommand(SCRCMD_COMPLETEGETCHOSENSTARTER,                          CompleteScrCmd_GetChosenStarter)
+ScriptCommand(SCRCMD_COMPLETEPLACESTARTERBALLS,                         CompleteScrCmd_PlaceStarterBalls)
 
 // clang-format on
 

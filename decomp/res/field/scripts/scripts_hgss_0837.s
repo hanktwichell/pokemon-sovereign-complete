@@ -100,10 +100,10 @@ scr_seq_T11R0701_006:
     GoToIf 1, _093C
     CompareVar VAR_RESULT, 6
     GoToIf 1, _093C
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 1, _0837
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 155
     GoToIf 1, _088E
     GoTo _08E5

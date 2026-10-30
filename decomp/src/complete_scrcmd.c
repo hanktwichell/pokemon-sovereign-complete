@@ -10,12 +10,15 @@
 #include "generated/map_headers.h"
 #include "generated/species.h"
 #include "generated/text_banks.h"
+#include "generated/vars_flags.h"
 #include "res/text/bank/special_met_location_names.h"
 
 #include "field/field_system.h"
 #include "overlay005/daycare.h"
 #include "overlay005/field_menu.h"
+#include "overlay005/map_prop.h"
 #include "overlay005/script_message.h"
+#include "struct_defs/choose_starter_data.h"
 
 #include "camera.h"
 #include "complete_follower.h"
@@ -32,11 +35,13 @@
 #include "party.h"
 #include "pokemon.h"
 #include "save_player.h"
+#include "scrcmd.h"
 #include "string_gf.h"
 #include "string_template.h"
 #include "script_manager.h"
 #include "trainer_info.h"
 #include "unk_02017038.h"
+#include "unk_0203D1B8.h"
 #include "unk_020655F4.h"
 #include "vars_flags.h"
 
@@ -143,6 +148,64 @@ BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx)
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
 
     *destVar = Follower(ctx) != NULL;
+    return FALSE;
+}
+
+// HeartGold's ChooseStarter, as Platinum's starter choice (Rowan's briefcase) with Professor Elm's three: the scene,
+// then the species picked into a variable (the script then returns to the field and gives it, as Platinum's own does).
+BOOL CompleteScrCmd_StartJohtoStarterScene(ScriptContext *ctx)
+{
+    void **dataPtr = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_DATA_PTR);
+    ChooseStarterData *data = Heap_Alloc(HEAP_ID_FIELD2, sizeof(ChooseStarterData));
+
+    *dataPtr = data;
+    data->options = SaveData_GetOptions(ctx->fieldSystem->saveData);
+    data->johto = TRUE;
+    FieldSystem_LaunchChooseStarterApp(ctx->fieldSystem, data);
+    ScriptContext_Pause(ctx, ScriptContext_WaitForApplicationExit);
+    return TRUE;
+}
+
+#define ELMS_LAB_BALL_MODEL (930 + 0x8D) // HeartGold's indoor building model 0x8D (labo_mb): tools/complete/import_hgss_maps.py
+
+// HeartGold's PlaceStarterBallsInElmsLab, as the lab loads: the Poké Balls left on Elm's table, three before the player
+// chooses, two after, one once Rival has taken his, none once Falkner is beaten
+BOOL CompleteScrCmd_PlaceStarterBalls(ScriptContext *ctx)
+{
+    static const VecFx32 ballPositions[] = {
+        { FX32_CONST(131), 0, FX32_CONST(65) },
+        { FX32_CONST(141), 0, FX32_CONST(65) },
+        { FX32_CONST(136), 0, FX32_CONST(72) },
+    };
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    int count;
+
+    if (FieldSystem_CheckFlag(fieldSystem, FLAG_HGSS_GOT_TM51_FROM_FALKNER)) {
+        count = 0;
+    } else if (FieldSystem_CheckFlag(fieldSystem, FLAG_HGSS_MET_PASSERBY_BOY)) {
+        count = 1;
+    } else if (Party_GetCurrentCount(SaveData_GetParty(fieldSystem->saveData)) > 0) {
+        count = 2;
+    } else {
+        count = 3;
+    }
+
+    for (int i = 0; i < count; i++) {
+        MapPropManager_LoadOne(fieldSystem->mapPropManager, fieldSystem->areaDataManager, ELMS_LAB_BALL_MODEL, &ballPositions[i], NULL, fieldSystem->mapPropAnimMan);
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_GetChosenStarter(ScriptContext *ctx)
+{
+    void **dataPtr = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_DATA_PTR);
+    ChooseStarterData *data = *dataPtr;
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = data->species;
+    Heap_Free(data);
+    *dataPtr = NULL;
     return FALSE;
 }
 

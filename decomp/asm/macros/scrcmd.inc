@@ -5843,6 +5843,21 @@
     .short \destVarID
     .endm
 
+    // Platinum's starter choice with Professor Elm's three (HeartGold's ChooseStarter), then the species picked
+    .macro CompleteStartJohtoStarterScene
+    .short SCRCMD_COMPLETESTARTJOHTOSTARTERSCENE
+    .endm
+
+    .macro CompleteGetChosenStarter destVarID
+    .short SCRCMD_COMPLETEGETCHOSENSTARTER
+    .short \destVarID
+    .endm
+
+    // The Poké Balls left on Elm's table (HeartGold's PlaceStarterBallsInElmsLab)
+    .macro CompletePlaceStarterBalls
+    .short SCRCMD_COMPLETEPLACESTARTERBALLS
+    .endm
+
     .text
     .globl _start
 _start:

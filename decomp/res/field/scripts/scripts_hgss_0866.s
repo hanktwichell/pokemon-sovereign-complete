@@ -216,7 +216,7 @@ _0350:
     BufferRivalName 0
     Message msg_0564_T23_00001
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _03DB
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_7, 0
@@ -320,7 +320,7 @@ _04E4:
     BufferRivalName 0
     Message msg_0564_T23_00001
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _03DB
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_7, 0

@@ -86,7 +86,7 @@ _0115:
     BufferPlayerName 0
     Message msg_0128_D43R0103_00000
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _01D8
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_9, 0
@@ -113,7 +113,7 @@ _018B:
     BufferPlayerName 0
     Message msg_0128_D43R0103_00000
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _01D8
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_9, 0

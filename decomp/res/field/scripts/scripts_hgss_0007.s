@@ -20,7 +20,7 @@ scr_seq_D02R0101_000:
     BufferRivalName 1
     Message msg_0049_D02R0101_00000
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _005A
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_15, 0

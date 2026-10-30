@@ -3449,6 +3449,7 @@ static BOOL ScrCmd_StartChooseStarterScene(ScriptContext *ctx)
     ChooseStarterData *chooseStarterData = *fieldSysDataPtr;
 
     chooseStarterData->options = SaveData_GetOptions(ctx->fieldSystem->saveData);
+    chooseStarterData->johto = FALSE; // Sovereign Complete
 
     FieldSystem_LaunchChooseStarterApp(ctx->fieldSystem, *fieldSysDataPtr);
     ScriptContext_Pause(ctx, ScriptContext_WaitForApplicationExit);

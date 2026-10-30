@@ -340,8 +340,16 @@ COMMANDS = {
     'AddSpecialGameStat': score,
     'AddSpecialGameStat2': score,
     'CallIfNotDefeated': lambda a: [f'CheckTrainerFlag {a[0]}', f'CallIf 0, {a[1]}'],
-    # The starter (Platinum's starter var until the opening is decided), the National Dex, moves, fossils
-    'GetStarterChoice': one('GetPlayerStarterSpecies {0}'),
+    # The starter: Johto's in HeartGold's own var (Rival's teams follow it); Platinum's is Sinnoh's. Elm's lab's choice is
+    # Platinum's starter scene with Elm's three, then the Pokémon given as Platinum's Route 201 gives it (HeartGold's
+    # ChooseStarter fades, gives the Pokémon and reloads the field itself). Then the National Dex, moves, fossils
+    'GetStarterChoice': one('SetVarFromVar {0}, VAR_HGSS_PLAYER_STARTER'),
+    'SetStarterChoice': one('SetVar VAR_HGSS_PLAYER_STARTER, {0}'),
+    'PlaceStarterBallsInElmsLab': lambda a: ['CompletePlaceStarterBalls'],
+    'ChooseStarter': lambda a: ['FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen', 'CompleteStartJohtoStarterScene',
+                                'CompleteGetChosenStarter VAR_HGSS_PLAYER_STARTER', 'ReturnToField',
+                                'FadeScreen 6, 1, 1, COLOR_BLACK', 'WaitFadeScreen',
+                                'GivePokemon VAR_HGSS_PLAYER_STARTER, 5, ITEM_NONE, VAR_RESULT'],
     'NatDexFlagAction': one('GetSetNationalDexEnabled {0}, {1}'),
     'CheckNationalDexComplete': one('CheckNationalDexCompleted {0}'),
     'MonGetMove': one('GetPartyMonMove {0}, {1}, {2}'),

@@ -11,6 +11,8 @@
 
 #include "struct_defs/choose_starter_data.h"
 
+#include "generated/text_banks.h" // Sovereign Complete
+
 #include "bg_window.h"
 #include "camera.h"
 #include "char_transfer.h"
@@ -50,6 +52,10 @@
 #define STARTER_OPTION_0    SPECIES_TURTWIG
 #define STARTER_OPTION_1    SPECIES_CHIMCHAR
 #define STARTER_OPTION_2    SPECIES_PIPLUP
+
+// Sovereign Complete: Professor Elm's three, in the same places (Grass, Fire, Water), with his lines (HeartGold's
+// msg_0190: 1 to 3) in place of the briefcase's (360: 1 to 3)
+static const u16 sJohtoStarters[NUM_STARTER_OPTIONS] = { SPECIES_CHIKORITA, SPECIES_CYNDAQUIL, SPECIES_TOTODILE };
 
 #define OAM_MAIN_START 0
 #define OAM_MAIN_END   128
@@ -230,6 +236,7 @@ typedef struct ChooseStarterApp {
     u32 textFrameDelay;
     u8 messagePrinterID;
     u8 unk_709[3];
+    BOOL johto; // Sovereign Complete
 } ChooseStarterApp;
 
 static void ChooseStarterAppMainCallback(void *data);
@@ -237,6 +244,7 @@ static void StartFadeIn(ChooseStarterApp *app);
 static void StartFadeOut(ChooseStarterApp *app);
 static BOOL IsFadeDone(ChooseStarterApp *app);
 static u16 GetSelectedSpecies(u16 cursorPosition);
+static u16 StarterSpecies(ChooseStarterApp *app, u16 cursorPosition); // Sovereign Complete
 static BOOL IsSelectionMade(ChooseStarterApp *app, enum HeapID heapID);
 static void UpdateGraphics(ChooseStarterApp *app, enum HeapID heapID);
 static void DrawScene(ChooseStarterApp *app);
@@ -332,6 +340,7 @@ BOOL ChooseStarter_Init(ApplicationManager *appMan, int *param1)
     HeapExp_FndInitAllocator(&app->allocator, HEAP_ID_CHOOSE_STARTER_APP, 32);
 
     ChooseStarterData *data = ApplicationManager_Args(appMan);
+    app->johto = data->johto; // Sovereign Complete
     app->messageFrame = Options_Frame(data->options);
     app->textFrameDelay = Options_TextFrameDelay(data->options);
 
@@ -446,7 +455,7 @@ BOOL ChooseStarter_Exit(ApplicationManager *appMan, int *param1)
 
     SetVBlankCallback(NULL, NULL);
 
-    data->species = GetSelectedSpecies(app->cursorPosition);
+    data->species = StarterSpecies(app, app->cursorPosition); // Sovereign Complete: was GetSelectedSpecies
 
     BOOL touchPadResult = DisableTouchPad();
     GF_ASSERT(touchPadResult == AUTO_SAMPLING_OPERATION_RESULT_SUCCESS);
@@ -688,9 +697,10 @@ static void MakePokemonSprites(ChooseStarterApp *app, enum HeapID heapID)
     PokemonSpriteManager_SetCharBaseAddrAndSize(app->spriteManager, NNS_GfdGetTexKeyAddr(texture), NNS_GfdGetTexKeySize(texture));
     PokemonSpriteManager_SetPlttBaseAddrAndSize(app->spriteManager, NNS_GfdGetPlttKeyAddr(palette), NNS_GfdGetPlttKeySize(palette));
 
-    MakePokemonSprite(&app->sprites[0], app, STARTER_OPTION_0);
-    MakePokemonSprite(&app->sprites[1], app, STARTER_OPTION_1);
-    MakePokemonSprite(&app->sprites[2], app, STARTER_OPTION_2);
+    // Sovereign Complete: was STARTER_OPTION_0 to 2
+    MakePokemonSprite(&app->sprites[0], app, StarterSpecies(app, CURSOR_POSITION_LEFT));
+    MakePokemonSprite(&app->sprites[1], app, StarterSpecies(app, CURSOR_POSITION_CENTER));
+    MakePokemonSprite(&app->sprites[2], app, StarterSpecies(app, CURSOR_POSITION_RIGHT));
 
     for (int i = 0; i < NUM_STARTER_OPTIONS; i++) {
         PokemonSprite_SetAttribute(app->sprites[i], MON_SPRITE_HIDE, TRUE);
@@ -1230,13 +1240,14 @@ static void AdvancePokeballConfirmGraphics(ChooseStarterApp *app, enum HeapID he
         PokemonSprite_SetAttribute(app->sprites[app->cursorPosition], MON_SPRITE_HIDE, FALSE);
 
         if (HasAppPreviewWindowMovementFinished(app)) {
-            Sound_PlayPokemonCry(GetSelectedSpecies(app->cursorPosition), 0);
+            Sound_PlayPokemonCry(StarterSpecies(app, app->cursorPosition), 0); // Sovereign Complete: was GetSelectedSpecies
 
             app->chooseStarterStep++;
         }
         break;
     case CHOOSE_STARTER_STEP_UPDATE_CURSOR_POSITION:
-        SetMessageWindowText(app->messageWindow, heapID, 360, 1 + app->cursorPosition, TEXT_COLOR(1, 2, 15), TEXT_SPEED_NO_TRANSFER);
+        // Sovereign Complete: Elm's line for Johto's
+        SetMessageWindowText(app->messageWindow, heapID, app->johto ? TEXT_BANK_HGSS_MSG_0190 : 360, 1 + app->cursorPosition, TEXT_COLOR(1, 2, 15), TEXT_SPEED_NO_TRANSFER);
         app->confirmationMenu = Menu_MakeYesNoChoice(app->bgConfig, &app->confirmationMenuWindowTemplate, 512 + (18 + 12) + 128, 1, heapID);
         app->disableCursorMovement = FALSE;
         app->chooseStarterStep++;
@@ -1765,4 +1776,10 @@ static u16 GetSelectedSpecies(u16 cursorPosition)
     }
 
     return SPECIES_NONE;
+}
+
+// Sovereign Complete: the briefcase's three, or Elm's
+static u16 StarterSpecies(ChooseStarterApp *app, u16 cursorPosition)
+{
+    return app->johto ? sJohtoStarters[cursorPosition] : GetSelectedSpecies(cursorPosition);
 }

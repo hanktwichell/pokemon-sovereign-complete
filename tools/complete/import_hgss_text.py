@@ -7,7 +7,8 @@ TEXT_BANK_HGSS_MSG_NNNN, appended to generated/text_banks.txt (a bank's number i
 stay HeartGold's (msg_0604_T26_00000), so translated scripts name them unchanged.
 
 The banks: each map header's, each one a script includes or names a message from, the four shared banks scripts
-open by number (GetStdMsgNaix), the shared menu entries (msg_0191) and the Safari Zone's names (msg_0428, msg_0430).
+open by number (GetStdMsgNaix), the shared menu entries (msg_0191), the Safari Zone's names (msg_0428, msg_0430) and
+Elm's lines in the starter choice (msg_0190).
 generated/text_banks.txt takes no comments, so a rerun recognises its earlier entries by their TEXT_BANK_HGSS_ prefix.
 
 With --rom ROM (Sacred Gold's: .cache/sacredgold.nds), the text comes from that ROM's message archive (a/0/2/7),
@@ -34,10 +35,11 @@ from import_hgss_maps import DECOMP, HG  # noqa: E402
 MSGENC = os.path.join(DECOMP, 'build/tools/msgenc')
 
 PREFIX = 'TEXT_BANK_HGSS_MSG_'
-# GetStdMsgNaix's four banks, the menu entries, and the Safari Zone's area and object names (src/complete_safari.c)
-SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430']
+# GetStdMsgNaix's four banks, the menu entries, the Safari Zone's area and object names (src/complete_safari.c), and Elm's
+# lines in the starter choice (src/choose_starter/choose_starter_app.c)
+SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190']
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
-# the line breaks moved
+# the line breaks moved (or, where a box is narrower, the words)
 TEXT_FIXES = {
     'msg_0584_T25R0201_00048': ['Woah! Isn’t that item you have there\n', 'what they call the Enigma Stone?\r',
                                 'I heard about Steven’s excavation\n', 'of that!\r', 'Can I please take\n',
@@ -54,6 +56,11 @@ TEXT_FIXES = {
     'msg_0574_T24GYM0101_00015': ['Chuck: I bet you’d make a great\n', 'training partner!\r',
                                   'Here, take my number!\r', '... ... ...\r'],
     'msg_0590_T25R0801_00014': ['That was enjoyable...\n', 'I like battling with you...\r', 'Just a tiny bit.'],
+    # Elm's questions in Platinum's starter scene, whose yes/no box covers the end of a long first line: without his
+    # name, as Platinum's own questions there are
+    'msg_0190_00001': ['So, you like {COLOR 3}Chikorita{COLOR 0},\n', 'the Grass-type Pokémon?'],
+    'msg_0190_00002': ['You’ll take {COLOR 1}Cyndaquil{COLOR 0},\n', 'the Fire-type Pokémon?'],
+    'msg_0190_00003': ['Do you want {COLOR 2}Totodile{COLOR 0},\n', 'the Water-type Pokémon?'],
 }
 
 

@@ -44,7 +44,14 @@ scr_seq_T20R0101_012:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_GOT_STARTER, _0668
-    @ HGSS: ChooseStarter
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    CompleteStartJohtoStarterScene
+    CompleteGetChosenStarter VAR_HGSS_PLAYER_STARTER
+    ReturnToField
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    GivePokemon VAR_HGSS_PLAYER_STARTER, 5, ITEM_NONE, VAR_RESULT
     SetFlag FLAG_HGSS_GOT_STARTER
     @ HGSS: ScrCmd_605 3, 2
     CompleteFollowerPause 0
@@ -52,7 +59,7 @@ scr_seq_T20R0101_012:
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     GetPartyMonSpecies 0, VAR_MAP_LOCAL_0x01
-    @ HGSS: SetStarterChoice VAR_TEMP_x4001
+    SetVar VAR_HGSS_PLAYER_STARTER, VAR_MAP_LOCAL_0x01
     BufferPlayerName 0
     BufferPartyMonSpecies 1, 0
     Message msg_0543_T20R0101_00007
@@ -358,7 +365,7 @@ _05A1:
     SetPosition obj_T20R0101_doctor, 4, 0, 5, DIR_SOUTH
     GoTo _05C0
 _05C0:
-    @ HGSS: PlaceStarterBallsInElmsLab
+    CompletePlaceStarterBalls
     End
     SetPosition obj_T20R0101_doctor, 4, 0, 5, DIR_EAST
     GoTo _05C0
@@ -754,7 +761,7 @@ _0C57:
     GoToIf 5, _05C0
     SetPosition obj_T20R0101_doctor, 4, 0, 5, DIR_SOUTH
     SetPosition obj_T20R0101_var_1, 7, 0, 12, DIR_EAST
-    @ HGSS: PlaceStarterBallsInElmsLab
+    CompletePlaceStarterBalls
     End
     SetPosition obj_T20R0101_doctor, 4, 0, 5, DIR_EAST
     GoTo _05C0

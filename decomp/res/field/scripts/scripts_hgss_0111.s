@@ -289,7 +289,7 @@ _04AA:
     ClearFlag FLAG_HGSS_HIDE_CHAMPIONS_ROOM_RETREAT
     GoTo _069C
 _04C5:
-    GetPlayerStarterSpecies VAR_MAP_LOCAL_0x00
+    SetVarFromVar VAR_MAP_LOCAL_0x00, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_MAP_LOCAL_0x00, 152
     GoToIf 5, _06CA
     SetVarFromValue VAR_OBJ_GFX_ID_0, 1048

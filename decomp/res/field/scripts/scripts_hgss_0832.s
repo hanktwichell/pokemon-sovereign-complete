@@ -570,7 +570,7 @@ scr_seq_T11R0101_020:
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 1, _0A6D
     CompareVar VAR_RESULT, 155

@@ -372,7 +372,8 @@ Test results on the new test build:
   someone else on their tile, one is Sacred Gold's Gym Leader rematch gauntlet in Saffron's Fighting Dojo (a dozen
   battles in a row, longer than the test waits), and 200 stayed hidden, because HeartGold's maps hide their people by
   setting those flags from the story as they load. In the test build no script may now set the flag of the person being
-  tested until the player is there (`gCompleteTestKeepFlagClear`); those 200 are running again.
+  tested until the player is there (`gCompleteTestKeepFlagClear`): of those 200, 158 now run to their end and 42 stay
+  hidden some other way (scenes that place them, ten of Route 47's people, the Rock Smash rocks in Cliff Cave). None hung.
 - **Pewter City's Latios crashed the game after its battle.** The cause is Sacred Gold's own script: the map script that
   runs when the field comes back after a battle there ends by jumping into the middle of the Lati's talk script
   (HeartGold has `End` there). It can't be reached in Sacred Gold, as the Pewter Lati only appears through a Mystery Gift
@@ -381,9 +382,15 @@ Test results on the new test build:
 - **Visit every map, the scenes:** the maps whose scene on arrival didn't end now all do but one. The test's battles
   pressed A, which picks the test lead's Ground move, and a Flying foe (Route 2's and 3's trainers, Azalea Gym's) never
   went down; they now tap the trainer test's moves. Mt. Moon's rival battle takes 13,000 frames, over the old limit;
-  the Frontier Access guide's facility menu needed B. Left: the Dragon's Den elders' quiz on arrival.
+  the Frontier Access guide's facility menu needed B. Left: the Dragon's Den elders' quiz on arrival, which the test's
+  answers keep failing.
 - **More of HeartGold's commands translated:** Blackthorn's Move Maniac (Platinum's Move Reminder menu; untranslated, he
   took the Heart Scale and taught nothing), the Draco Meteor tutor and Sacred Gold's added tutor (Platinum's tutor menu),
   the Move Deleter's move pick, the follower's "too tall for this building" check (untranslated, every follower was put
   away at the Power Plant's door), and the Game Corners' machines, where Platinum's slot machine stands in for Voltorb
   Flip (`docs/Features.md`, "Stand-ins"). 98.3% of Sacred Gold's script lines now translate.
+- **The starter in Elm's lab:** HeartGold's starter choice wasn't translated, so the player left with no Pokémon. It is
+  now Platinum's starter scene (Rowan's briefcase) offering Chikorita, Cyndaquil and Totodile, with Elm's questions
+  (HeartGold's own text), the pick given at Lv. 5; Johto's starter is kept in HeartGold's own variable, which Rival's
+  teams follow, apart from Sinnoh's. The Poké Balls are back on Elm's machine (HeartGold's model, three, then two). New
+  test: `tools/complete/test_hgss_starter.py` (passes: Chikorita, Lv. 5).

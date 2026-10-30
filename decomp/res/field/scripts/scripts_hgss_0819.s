@@ -77,7 +77,7 @@ scr_seq_T10R0101_006:
     BufferRivalName 0
     Message msg_0522_T10R0101_00003
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _027A
     StartTrainerBattle TRAINER_HGSS_RIVAL_SILVER_20, 0

@@ -61,7 +61,7 @@ scr_seq_T21_003:
     WaitMovement
     Message msg_0550_T21_00013
     CloseMessage
-    GetPlayerStarterSpecies VAR_RESULT
+    SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
     CompareVar VAR_RESULT, 152
     GoToIf 5, _02FC
     StartTrainerBattle TRAINER_HGSS_PASSERBY_BOY_2, 0
