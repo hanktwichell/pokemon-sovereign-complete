@@ -486,6 +486,20 @@ COMMANDS = {
     'FollowingPokemonMovement': lambda a: [f'CompleteFollowerSetMovementType {FOLLOWER_MOVEMENT_TYPES[int(a[0])]}'],
     'ScrCmd_729': one('CompleteFollowerCheckActive {0}'),
     'ScrCmd_596': one('CompleteFollowerIsTooTall {0}'),
+    # The Move Maniac (Blackthorn) and the move tutors (Draco Meteor, Sacred Gold's): Platinum's Move Reminder and tutor
+    # menu, which give the same results (0xFF: nothing learned or picked); and the Move Deleter's move pick
+    'ScrCmd_466': one('CheckHasLearnableReminderMoves {0}, {1}'),
+    'MoveRelearnerInit': one('OpenMoveReminderMenu {0}'),
+    'MoveTutorInit': one('OpenMoveTutorMenu {0}, {1}'),
+    'MoveRelearnerGetResult': one('CheckLearnedReminderMove {0}'),
+    'ScrCmd_394': one('SelectPartyMonMove {0}'),
+    'ScrCmd_395': one('GetSelectedPartyMonMove {0}'),
+    'BufferPartyMonMoveName': one('BufferPartyMoveName {0}, {1}, {2}'),
+    # A party Pokémon's two types (Draco Meteor goes to Dragon types: 16 in both games; Sovereign's Fairy took 9, ???)
+    'GetMonTypes': one('GetPartyMonType {0}, {1}, {2}'),
+    # The Game Corners' machines (Goldenrod's 22, Celadon's 14): HeartGold's Voltorb Flip isn't ported, so Platinum's slot
+    # machine stands in (ScrCmd_267), on one of its 12 machines (each has its own odds for the day)
+    'CasinoGame': lambda a: [f'ScrCmd_267 {int(a[0]) % 12}'],
     'ScrCmd_609': lambda a: [],  # resets the follower's movement after a scene; the engine's follower needs none yet
     'GenderMsgBox': one('MessageGendered {0}, {1}'),
 }

@@ -48,14 +48,14 @@ _0068:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_394 VAR_SPECIAL_x8002
-    @ HGSS: ScrCmd_395 VAR_SPECIAL_x8001
+    SelectPartyMonMove VAR_0x8002
+    GetSelectedPartyMonMove VAR_0x8001
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_0x8001, 255
     GoToIf 1, _005D
-    @ HGSS: BufferPartyMonMoveName 0, VAR_SPECIAL_x8002, VAR_SPECIAL_x8001
+    BufferPartyMoveName 0, VAR_0x8002, VAR_0x8001
     Message msg_0635_T30R0601_00007
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -109,15 +109,15 @@ scr_seq_T30R0601_001:
     GetPartyMonSpecies VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0247
-    @ HGSS: ScrCmd_466 VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005
+    CheckHasLearnableReminderMoves VAR_RESULT, VAR_0x8005
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0222
     Message msg_0635_T30R0601_00013
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: MoveRelearnerInit VAR_SPECIAL_x8005
-    @ HGSS: MoveRelearnerGetResult VAR_SPECIAL_RESULT
+    OpenMoveReminderMenu VAR_0x8005
+    CheckLearnedReminderMove VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -216,7 +216,7 @@ _02F0:
     GetPartyMonSpecies VAR_MAP_LOCAL_0x00, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0346
-    @ HGSS: GetMonTypes VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_TEMP_x4000
+    GetPartyMonType VAR_0x8004, VAR_0x8005, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8004, 16
     GoToIf 1, _0331
     CompareVar VAR_0x8005, 16
@@ -262,8 +262,8 @@ _0359:
 _03EF:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: MoveTutorInit VAR_SPECIAL_x8000, MOVE_DRACO_METEOR
-    @ HGSS: MoveRelearnerGetResult VAR_SPECIAL_RESULT
+    OpenMoveTutorMenu VAR_0x8000, MOVE_DRACO_METEOR
+    CheckLearnedReminderMove VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -275,7 +275,7 @@ _03EF:
     ReleaseAll
     End
 _042B:
-    @ HGSS: GetMonTypes VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_x8000
+    GetPartyMonType VAR_0x8004, VAR_0x8005, VAR_0x8000
     CompareVar VAR_0x8004, 16
     GoToIf 1, _0455
     CompareVar VAR_0x8005, 16
@@ -358,8 +358,8 @@ _05BB:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: MoveTutorInit VAR_SPECIAL_x8000, VAR_SPECIAL_x8003
-    @ HGSS: MoveRelearnerGetResult VAR_SPECIAL_RESULT
+    OpenMoveTutorMenu VAR_0x8000, VAR_0x8003
+    CheckLearnedReminderMove VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

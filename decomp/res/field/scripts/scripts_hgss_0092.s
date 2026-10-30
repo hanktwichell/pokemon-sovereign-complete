@@ -583,7 +583,7 @@ _08F5:
     WaitFadeScreen
     CompareVar VAR_0x8001, 4
     GoToIf 1, _0F79
-    @ HGSS: BufferPartyMonMoveName 1, VAR_SPECIAL_x8006, VAR_SPECIAL_x8001
+    BufferPartyMoveName 1, VAR_0x8006, VAR_0x8001
     Message msg_0115_D36R0101_00018
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
@@ -1426,7 +1426,7 @@ _16CA:
     WaitFadeScreen
     CompareVar VAR_0x8001, 4
     GoToIf 1, _0F79
-    @ HGSS: BufferPartyMonMoveName 1, VAR_SPECIAL_x8006, VAR_SPECIAL_x8001
+    BufferPartyMoveName 1, VAR_0x8006, VAR_0x8001
     Message msg_0115_D36R0101_00018
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1

@@ -56,7 +56,7 @@ scr_seq_T07R0401_010:
     GoToIf 1, _00F5
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 0, 1
+    ScrCmd_267 0
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -71,7 +71,7 @@ scr_seq_T07R0401_011:
     GoToIf 1, _0130
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 1, 1
+    ScrCmd_267 1
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -86,7 +86,7 @@ scr_seq_T07R0401_012:
     GoToIf 1, _016B
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 2, 1
+    ScrCmd_267 2
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -101,7 +101,7 @@ scr_seq_T07R0401_013:
     GoToIf 1, _01A6
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 3, 1
+    ScrCmd_267 3
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -116,7 +116,7 @@ scr_seq_T07R0401_014:
     GoToIf 1, _01E1
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 4, 1
+    ScrCmd_267 4
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -131,7 +131,7 @@ scr_seq_T07R0401_015:
     GoToIf 1, _021C
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 5, 1
+    ScrCmd_267 5
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -146,7 +146,7 @@ scr_seq_T07R0401_016:
     GoToIf 1, _0257
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 6, 1
+    ScrCmd_267 6
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -161,7 +161,7 @@ scr_seq_T07R0401_017:
     GoToIf 1, _0292
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 7, 1
+    ScrCmd_267 7
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -176,7 +176,7 @@ scr_seq_T07R0401_018:
     GoToIf 1, _02CD
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 8, 1
+    ScrCmd_267 8
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -191,7 +191,7 @@ scr_seq_T07R0401_019:
     GoToIf 1, _0308
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 9, 1
+    ScrCmd_267 9
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -206,7 +206,7 @@ scr_seq_T07R0401_020:
     GoToIf 1, _0343
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 10, 1
+    ScrCmd_267 10
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -221,7 +221,7 @@ scr_seq_T07R0401_021:
     GoToIf 1, _037E
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 11, 1
+    ScrCmd_267 11
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -238,7 +238,7 @@ scr_seq_T07R0401_022:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 12, 1
+    ScrCmd_267 0
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -253,7 +253,7 @@ scr_seq_T07R0401_023:
     GoToIf 1, _03F9
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CasinoGame 13, 1
+    ScrCmd_267 1
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

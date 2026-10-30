@@ -28,15 +28,15 @@ scr_seq_T24R0801_000:
     GetPartyMonSpecies VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0138
-    @ HGSS: ScrCmd_466 VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005
+    CheckHasLearnableReminderMoves VAR_RESULT, VAR_0x8005
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0143
     Message msg_0580_T24R0801_00013
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: MoveRelearnerInit VAR_SPECIAL_x8005
-    @ HGSS: MoveRelearnerGetResult VAR_SPECIAL_RESULT
+    OpenMoveReminderMenu VAR_0x8005
+    CheckLearnedReminderMove VAR_RESULT
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -134,14 +134,14 @@ _0189:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_394 VAR_SPECIAL_x8002
-    @ HGSS: ScrCmd_395 VAR_SPECIAL_x8001
+    SelectPartyMonMove VAR_0x8002
+    GetSelectedPartyMonMove VAR_0x8001
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_0x8001, 255
     GoToIf 1, _0173
-    @ HGSS: BufferPartyMonMoveName 0, VAR_SPECIAL_x8002, VAR_SPECIAL_x8001
+    BufferPartyMoveName 0, VAR_0x8002, VAR_0x8001
     Message msg_0580_T24R0801_00007
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
