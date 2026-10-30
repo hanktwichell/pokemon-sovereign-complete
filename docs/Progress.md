@@ -400,3 +400,12 @@ Test results on the new test build:
   variables (`src/complete_rival.c`), so the save keeps its layout and Sinnoh's rival keeps his. Scripts and his
   battles use it ("You are challenged by Rival ..."); until he is named he is Silver, as his trainer data has it.
   Checked in the emulator through Elm's lab's police scene, with a name typed and with none.
+- **Blacking out in Johto and Kanto sent the player back to Sinnoh.** Platinum's spawn table (where the player comes
+  back, and where Fly lands) had only Sinnoh's places, so a Johto or Kanto Pokémon Center never became the place to come
+  back to. HeartGold's 30 spawn points now follow Platinum's 20 (`tools/complete/import_hgss_spawns.py`), its Pokémon
+  Centers and the player's house in New Bark Town among them, and blacking out after visiting home there plays
+  Platinum's scene with Mom (its Mom is the same person number as Twinleaf's). HeartGold's SetSpawn (Mr. Pokémon's
+  house) sets it too. Fly over Johto and Kanto waits for the three-region Town Map (step 7). New test:
+  `tools/complete/test_hgss_blackout.py` (both parts pass: Cherrygrove City's Pokémon Center, and home). The test
+  build's own battles now black out after a loss too, as the scripts that start battles in the game do; they used to
+  leave the screen black.

@@ -22,6 +22,7 @@
 #include "generated/player_transitions.h"
 #include "generated/poketch_apps.h"
 #include "generated/roaming_slots.h"
+#include "constants/hgss_spawns.h" // Sovereign Complete: HeartGold's spawn points' warp IDs
 #include "generated/save_types.h"
 #include "res/sound/pl_sound_data.naix"
 #include "generated/signpost_commands.h"

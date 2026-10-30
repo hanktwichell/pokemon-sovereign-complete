@@ -75,6 +75,7 @@
 #include "sovereign_form_items.h"
 #include "sovereign_test.h"
 #include "unk_02092494.h"
+#include "complete_test.h" // Sovereign Complete
 #endif
 #include "system.h"
 #include "system_flags.h"
@@ -455,14 +456,17 @@ static BOOL SovereignTest_BattleTask(FieldTask *task)
             SovereignTest_Breed(FieldTask_GetFieldSystem(task));
         }
 
+        // Sovereign Complete: under a guard that blacks out after a loss (src/complete_test.c)
+        FieldTask *battleTask = FieldTask_InitCall(task, CompleteTest_BlackOutIfLost, &sSovereignTestBattleResult);
+
         if (FieldTask_GetEnv(task) == (void *)2) {
-            Encounter_SovereignNewTotemTrial(task, sSovereignTestTotemTrial++ % SOVEREIGN_TOTEM_TRIAL_COUNT, &sSovereignTestBattleResult);
+            Encounter_SovereignNewTotemTrial(battleTask, sSovereignTestTotemTrial++ % SOVEREIGN_TOTEM_TRIAL_COUNT, &sSovereignTestBattleResult);
         } else if (FieldTask_GetEnv(task) != NULL) {
             // TRAINER_SOVEREIGN_TEST: a double battle against the developer team in the Sovereign trainer format (E9).
             int trainer = gSovereignTestBattleTrainer != TRAINER_NONE ? gSovereignTestBattleTrainer : TRAINER_SOVEREIGN_TEST;
 
             gSovereignTestBattleTrainer = TRAINER_NONE;
-            Encounter_NewVsTrainer(task, trainer, TRAINER_NONE, TRAINER_NONE, HEAP_ID_FIELD2, &sSovereignTestBattleResult);
+            Encounter_NewVsTrainer(battleTask, trainer, TRAINER_NONE, TRAINER_NONE, HEAP_ID_FIELD2, &sSovereignTestBattleResult);
         } else if (gSovereignTestWild.species != SPECIES_NONE) {
             if (gSovereignTestWild.balls) {
                 // Sovereign Complete: or another Ball (gSovereignTestWild.ball)
@@ -471,12 +475,12 @@ static BOOL SovereignTest_BattleTask(FieldTask *task)
                 gSovereignTestWild.ball = ITEM_NONE;
             }
 
-            Encounter_SovereignTestNewVsWildForm(task, gSovereignTestWild.species, gSovereignTestWild.form, gSovereignTestWild.level, gSovereignTestWild.move, gSovereignTestWild.shiny, &sSovereignTestBattleResult);
+            Encounter_SovereignTestNewVsWildForm(battleTask, gSovereignTestWild.species, gSovereignTestWild.form, gSovereignTestWild.level, gSovereignTestWild.move, gSovereignTestWild.shiny, &sSovereignTestBattleResult);
             gSovereignTestWild.species = SPECIES_NONE;
             gSovereignTestWild.shiny = FALSE;
             gSovereignTestWild.item = ITEM_NONE;
         } else {
-            Encounter_NewVsSpeciesAtLevel(task, SPECIES_CHANSEY, 30, &sSovereignTestBattleResult, FALSE);
+            Encounter_NewVsSpeciesAtLevel(battleTask, SPECIES_CHANSEY, 30, &sSovereignTestBattleResult, FALSE);
         }
 
         (*state)++;

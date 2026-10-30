@@ -9,11 +9,14 @@
 
 #include "complete_follower.h"
 #include "complete_safari.h"
+#include "field_battle_data_transfer.h"
+#include "field_task.h"
 #include "sound.h"
 #include "sound_playback.h"
 #include "sound_system.h"
 #include "field_overworld_state.h"
 #include "system_flags.h"
+#include "unk_020528D0.h"
 #include "vars_flags.h"
 
 // Sovereign Complete: test-build hooks, called on each free field frame (src/field_system.c).
@@ -29,6 +32,25 @@ static const u16 sProbeVarValues[] = { 0xC0DE, 0xBEEF };
 CompleteTestSaveProbe gCompleteTestSaveProbe;
 CompleteTestScriptPos gCompleteTestScriptPos;
 u16 gCompleteTestKeepFlagClear;
+
+// An encounter leaves a loss to its caller (a script's BlackOutFromBattle) and doesn't bring the field back, so the field
+// overlay, where SovereignTest_BattleTask is, isn't loaded when it returns: this runs from the main module.
+BOOL CompleteTest_BlackOutIfLost(FieldTask *task)
+{
+    int *state = FieldTask_GetState(task);
+    int *battleResult = FieldTask_GetEnv(task);
+
+    if (*state == 0) {
+        (*state)++;
+
+        if (CheckPlayerWonBattle(*battleResult) == FALSE) {
+            FieldTask_StartBlackOutFromBattle(task);
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
 CompleteTestSafari gCompleteTestSafari;
 CompleteTestSound gCompleteTestSound;
 

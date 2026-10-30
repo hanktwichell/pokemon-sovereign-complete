@@ -3,6 +3,7 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "constants/hgss_spawns.h" // Sovereign Complete
 #include "generated/text_banks.h"
 
 #include "field/field_system.h"
@@ -121,7 +122,8 @@ static void sub_02052914(FieldSystem *fieldSystem, FieldTask *task)
     Window_AddFromTemplate(v0->unk_08, &v0->unk_0C, &Unk_020EC2F0);
     StringTemplate_SetPlayerName(v0->unk_20, 0, SaveData_GetTrainerInfo(FieldSystem_GetSaveData(fieldSystem)));
 
-    if (fieldSystem->location->mapHeaderID == MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F) {
+    if (fieldSystem->location->mapHeaderID == MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F
+        || fieldSystem->location->mapHeaderID == MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F) { // Sovereign Complete
         sub_02052AA4(v0, 4, 0, 0);
     } else {
         sub_02052AA4(v0, 3, 0, 0);
@@ -240,7 +242,9 @@ BOOL FieldTask_BlackOutFromBattle(FieldTask *task)
     case 5:
         BrightnessController_SetScreenBrightness(0, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BD, BRIGHTNESS_BOTH_SCREENS);
 
-        if (FieldOverworldState_GetDefaultWarpID() == FieldOverworldState_GetBlackOutWarpId(SaveData_GetFieldOverworldState(fieldSystem->saveData))) {
+        // Sovereign Complete: New Bark Town's home too (its Mom is local ID 0, as Twinleaf Town's is)
+        if (FieldOverworldState_GetDefaultWarpID() == FieldOverworldState_GetBlackOutWarpId(SaveData_GetFieldOverworldState(fieldSystem->saveData))
+            || FieldOverworldState_GetBlackOutWarpId(SaveData_GetFieldOverworldState(fieldSystem->saveData)) == SPAWN_HGSS_NEW_BARK) {
             ScriptManager_Start(task, SCRIPT_ID(COMMON_SCRIPTS, 20), NULL, NULL);
         } else {
             ScriptManager_Start(task, SCRIPT_ID(COMMON_SCRIPTS, 21), NULL, NULL);

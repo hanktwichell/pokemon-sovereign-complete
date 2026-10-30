@@ -3,6 +3,7 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "constants/hgss_spawns.h" // Sovereign Complete
 #include "generated/first_arrival_to_zones.h"
 #include "generated/map_headers.h"
 
@@ -45,8 +46,12 @@ static const SpawnLocation sSpawnLocations[] = {
     { MAP_HEADER_SURVIVAL_AREA_POKECENTER_1F, 0x8, 0x6, MAP_HEADER_SURVIVAL_AREA, 0x293, 0x153, 0x1, 0x1, FIRST_ARRIVAL_SURVIVAL_AREA },
     { MAP_HEADER_RESORT_AREA_POKECENTER_1F, 0x8, 0x6, MAP_HEADER_RESORT_AREA, 0x322, 0x1D9, 0x1, 0x1, FIRST_ARRIVAL_RESORT_AREA },
     { MAP_HEADER_PAL_PARK_LOBBY, 0x8, 0x6, MAP_HEADER_ROUTE_221, 0x132, 0x38E, 0x0, 0x0, FIRST_ARRIVAL_ROUTE_221 },
-    { MAP_HEADER_POKEMON_LEAGUE_NORTH_POKECENTER_1F, 0x4, 0x3, MAP_HEADER_POKEMON_LEAGUE, 0x34F, 0x230, 0x1, 0x0, FIRST_ARRIVAL_POKEMON_LEAGUE }
+    { MAP_HEADER_POKEMON_LEAGUE_NORTH_POKECENTER_1F, 0x4, 0x3, MAP_HEADER_POKEMON_LEAGUE, 0x34F, 0x230, 0x1, 0x0, FIRST_ARRIVAL_POKEMON_LEAGUE },
+#include "data/hgss_spawn_locations.h" // Sovereign Complete: HeartGold's, from SPAWN_HGSS_FIRST
 };
+
+// Sovereign Complete: tools/complete/import_hgss_spawns.py numbers HeartGold's after Platinum's (a size of -1 if not)
+typedef char HGSSSpawnLocationsFollowPlatinums[NELEMS(sSpawnLocations) == SPAWN_HGSS_FIRST - 1 + SPAWN_HGSS_COUNT ? 1 : -1];
 
 static int MapSpawnIdToIndex(int spawnDestination)
 {

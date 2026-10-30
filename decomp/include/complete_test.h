@@ -41,6 +41,11 @@ extern CompleteTestScriptPos gCompleteTestScriptPos;
 // that its map's scripts, which set it from the story as the map loads, leave the object on the map. 0: none.
 extern u16 gCompleteTestKeepFlagClear;
 
+// A field task for the test build's battles (src/overlay005/field_control.c's SovereignTest_BattleTask), which starts
+// them under it: after a lost battle it blacks out, as the script that starts a battle in the game has it do. Its env is
+// the battle's result.
+BOOL CompleteTest_BlackOutIfLost(FieldTask *task);
+
 // The Johto Safari Zone as the field sees it each free frame, for tools/complete/test_hgss_safari.py: the six arranged
 // areas (src/complete_safari.c), whether a Safari game runs, its Balls left, the objects placed in each area, and the
 // save's Safari Zone (where the harness gives the objects Baoba unlocks).

@@ -348,6 +348,9 @@ COMMANDS = {
     'GetStarterChoice': one('SetVarFromVar {0}, VAR_HGSS_PLAYER_STARTER'),
     'SetStarterChoice': one('SetVar VAR_HGSS_PLAYER_STARTER, {0}'),
     'PlaceStarterBallsInElmsLab': lambda a: ['CompletePlaceStarterBalls'],
+    # Where the player comes back after blacking out: HeartGold's spawn points follow Platinum's
+    # (tools/complete/import_hgss_spawns.py)
+    'SetSpawn': lambda a: [f'SetBlackOutWarpId SPAWN_HGSS_{a[0][len("SPAWN_"):]}'],
     'ChooseStarter': lambda a: ['FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen', 'CompleteStartJohtoStarterScene',
                                 'CompleteGetChosenStarter VAR_HGSS_PLAYER_STARTER', 'ReturnToField',
                                 'FadeScreen 6, 1, 1, COLOR_BLACK', 'WaitFadeScreen',
