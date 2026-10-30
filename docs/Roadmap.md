@@ -114,6 +114,13 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   while trading still works.
 - **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
   a stand-in sprite.
+- **The regional Pokédex (found Oct 30, 2026):** Platinum's Pokédex lists only Sinnoh's regional Pokédex until the
+  National Pokédex, which Sacred Gold's Oak gives at Olivine's port as the player first sails for Kanto, after the
+  Elite Four. So through all of Johto most Pokémon the player meets and catches (Sentret, Pidgey, Ledyba...) are
+  recorded but never shown. Proposed: HeartGold's Johto
+  Pokédex (256, already in the game for the Celadon game designer's check) is the regional one until the National
+  Pokédex, and Sinnoh's comes back as the regional choice beside the National once the player is in Sinnoh. Or: the
+  National Pokédex from the start.
 
 Hoenn and the Sevii Islands aren't in scope. There's no DS version of Hoenn, so it would be built from scratch.
 
