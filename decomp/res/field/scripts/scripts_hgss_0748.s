@@ -24,7 +24,6 @@ scr_seq_T02R0302_002:
     GoToIfSet FLAG_HGSS_UNK_176, _0063
     Message msg_0458_T02R0302_00009
     SetFlag FLAG_HGSS_UNK_25B
-    @ HGSS: Dummy486
     SetVarFromValue VAR_HGSS_UNK_40E5, 2
     Message msg_0458_T02R0302_00011
     SetFlag FLAG_HGSS_UNK_176

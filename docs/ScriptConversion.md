@@ -111,6 +111,10 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   in `VAR_BATTLE_RESULT` (its map scripts on returning from a battle run before the battle's script goes on, when the
   script's own result isn't reachable): `src/encounter.c` keeps it in `gCompleteLastBattleResult`, and
   `CompleteCheckLastBattleNotBeaten` reads it.
+- `ScrCmd_530 0, 1` (Team Rocket's hideout cleared) sets `VAR_HGSS_UNK_4036` as HeartGold does, and the map loads
+  (`src/complete_map_info.c`) leave Mahogany Town's antenna tree out, as HeartGold's `RemoveMahoganyTownAntennaTree`.
+  `ScrCmd_445` (the map the player came from) is Platinum's `GetPreviousMapID` less `MAP_HEADER_HGSS_EVERYWHERE`, as
+  HeartGold's map n is that header + n and its scripts compare the var with HeartGold's numbers.
 - `RocketTrapBattle` (Team Rocket's traps and Azalea's Spiritomb) is HeartGold's wild battle without the legendary
   flag, so `CompleteStartWildBattle` too. `FollowerPokeIsEventTrigger` asks whether a party Pokémon is a distributed
   event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, read from its met data); Sacred Gold gives these

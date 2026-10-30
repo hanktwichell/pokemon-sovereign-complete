@@ -272,7 +272,7 @@ _048C:
     Call _059F
     Call _059F
     Call _059F
-    @ HGSS: ScrCmd_406 0
+    AddContestBackdrop 0
     SetVarFromValue VAR_MAP_LOCAL_0x01, 9999
     Call _05B9
     Call _05B9
@@ -321,13 +321,13 @@ _0585:
     GetRandom VAR_RESULT, 6
     SetVarFromValue VAR_0x8004, 0
     AddVar VAR_0x8004, VAR_RESULT
-    @ HGSS: ScrCmd_403 VAR_SPECIAL_x8004, 1
+    AddAccessory VAR_0x8004, 1
     Return
 _059F:
     GetRandom VAR_RESULT, 6
     SetVarFromValue VAR_0x8004, 18
     AddVar VAR_0x8004, VAR_RESULT
-    @ HGSS: ScrCmd_403 VAR_SPECIAL_x8004, 1
+    AddAccessory VAR_0x8004, 1
     Return
 _05B9:
     GetRandom VAR_RESULT, 8
@@ -336,7 +336,7 @@ _05B9:
     SetVarFromVar VAR_MAP_LOCAL_0x01, VAR_RESULT
     SetVarFromValue VAR_0x8004, 1
     AddVar VAR_0x8004, VAR_RESULT
-    @ HGSS: ScrCmd_406 VAR_SPECIAL_x8004
+    AddContestBackdrop VAR_0x8004
     Return
 _05E4:
     Message msg_0116_D37R0101_00000

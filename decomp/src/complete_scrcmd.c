@@ -1230,3 +1230,36 @@ BOOL CompleteScrCmd_GiveRandomSeal(ScriptContext *ctx)
 
     return FALSE;
 }
+
+// HeartGold's ScrCmd_622: the facing of the object with the local ID (north when it isn't there)
+BOOL CompleteScrCmd_GetObjectDir(ScriptContext *ctx)
+{
+    u16 localID = ScriptContext_ReadHalfWord(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    MapObject *mapObj = MapObjMan_LocalMapObjByIndex(ctx->fieldSystem->mapObjMan, localID);
+
+    *destVar = mapObj != NULL ? MapObject_GetFacingDir(mapObj) : DIR_NORTH;
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_344: the object with the local ID turns to face the direction
+BOOL CompleteScrCmd_SetObjectDir(ScriptContext *ctx)
+{
+    u16 localID = ScriptContext_GetVar(ctx);
+    u16 dir = ScriptContext_GetVar(ctx);
+    MapObject *mapObj = MapObjMan_LocalMapObjByIndex(ctx->fieldSystem->mapObjMan, localID);
+
+    GF_ASSERT(mapObj != NULL);
+    MapObject_Face(mapObj, dir);
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_553: TRUE with a chance of percent in 101 (a roll of 0 to 100 at most percent)
+BOOL CompleteScrCmd_RandomChance(ScriptContext *ctx)
+{
+    u16 percent = ScriptContext_ReadHalfWord(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = LCRNG_Next() % 101 <= (percent > 100 ? 100 : percent);
+    return FALSE;
+}

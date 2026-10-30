@@ -6233,6 +6233,27 @@
     .short \caughtOnly
     .endm
 
+    // destVarID: the facing of the object with the local ID, north when it isn't there (HeartGold's ScrCmd_622)
+    .macro CompleteGetObjectDir localID, destVarID
+    .short SCRCMD_COMPLETEGETOBJECTDIR
+    .short \localID
+    .short \destVarID
+    .endm
+
+    // the object with the local ID turns to face the direction (HeartGold's ScrCmd_344)
+    .macro CompleteSetObjectDir localID, dir
+    .short SCRCMD_COMPLETESETOBJECTDIR
+    .short \localID
+    .short \dir
+    .endm
+
+    // destVarID: TRUE with a chance of percent in 101 (HeartGold's ScrCmd_553)
+    .macro CompleteRandomChance percent, destVarID
+    .short SCRCMD_COMPLETERANDOMCHANCE
+    .short \percent
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:

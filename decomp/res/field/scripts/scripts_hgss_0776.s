@@ -69,7 +69,6 @@ scr_seq_T06_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_491 247
     GoToIfSet FLAG_HGSS_GOT_PP_MAX_FROM_VERMILLION_CITY_MAN, _0393
     CompareVar VAR_HGSS_UNK_4135, 8
     GoToIf 4, _039E

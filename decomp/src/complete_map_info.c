@@ -3,8 +3,13 @@
 #include <nitro.h>
 
 #include "generated/map_headers.h"
+#include "generated/vars_flags.h"
 
 #include "map_header.h"
+#include "map_matrix.h"
+#include "rtc.h"
+#include "savedata.h"
+#include "vars_flags.h"
 
 #include "res/field/matrices/map_matrix.naix"
 
@@ -88,4 +93,41 @@ BOOL MapHeader_HasRadioSignal(enum MapHeaderID mapHeaderID)
 {
     const HGSSMapInfo *info = GetInfo(mapHeaderID);
     return info ? info->radioSignal : FALSE;
+}
+
+#define HGSS_OVERWORLD_MATRIX    map_matrix_hgss_0000 // HeartGold's map_matrix_0000_EVERYWHERE
+#define HGSS_LAND_DATA_BASE      666 // HeartGold's land data k is map_data_{666 + k} (tools/complete/import_hgss_maps.py)
+#define MAHOGANY_ANTENNA_REMOVED 0x6208 // what HeartGold's ScrCmd_530 0, 1 sets VAR_HGSS_UNK_4036 to (its _020FE4A8[0])
+#define LAKE_OF_RAGE_LOWERED     0xF229 // and VAR_HGSS_UNK_4037, while the lake is low (_020FE4A8[1])
+
+// HeartGold's map loads change the overworld's blocks (its RemoveMahoganyTownAntennaTree, ShouldUseAlternateLakeOfRage
+// and SetLakeOfRageWaterLevel): Mahogany Town's antenna tree goes once Team Rocket's hideout is cleared, and the Lake
+// of Rage is low on Wednesdays after that, seen from the lake or Route 43
+void CompleteMapInfo_LoadMatrix(MapMatrix *mapMatrix, SaveData *saveData, enum MapHeaderID mapHeaderID)
+{
+    if (mapMatrix->matrixID != HGSS_OVERWORLD_MATRIX) {
+        return;
+    }
+
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
+    u16 *landDataIDs = mapMatrix->data.landDataIDs;
+    int width = mapMatrix->width;
+    RTCDate date;
+
+    if (*VarsFlags_GetVarAddress(varsFlags, VAR_HGSS_UNK_4036) == MAHOGANY_ANTENNA_REMOVED) {
+        landDataIDs[width * 5 + 16] = HGSS_LAND_DATA_BASE + 86;
+    }
+
+    GetCurrentDate(&date);
+    BOOL lowered = VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_ROCKET_HIDEOUT_CLEARED)
+        && (mapHeaderID == MAP_HEADER_HGSS_LAKE_OF_RAGE || mapHeaderID == MAP_HEADER_HGSS_ROUTE_43)
+        && date.week == RTC_WEEK_WEDNESDAY;
+
+    *VarsFlags_GetVarAddress(varsFlags, VAR_HGSS_UNK_4037) = lowered ? LAKE_OF_RAGE_LOWERED : 0;
+
+    for (int row = 0; row < 2; row++) {
+        for (int col = 0; col < 3; col++) {
+            landDataIDs[width * (row + 1) + 15 + col] = HGSS_LAND_DATA_BASE + (lowered ? 95 : 89) + row * 3 + col;
+        }
+    }
 }

@@ -339,7 +339,7 @@ _051C:
     GoToIf 1, _0506
     SetVarFromValue VAR_0x8004, ITEM_STABLE_MULCH
     SetVarFromValue VAR_0x8005, 1
-    @ HGSS: ScrCmd_404 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    CanFitAccessory VAR_0x8004, VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
     Message msg_0516_T08R0201_00035
@@ -351,7 +351,7 @@ _055D:
     GoToIf 1, _0506
     SetVarFromValue VAR_0x8004, ITEM_GOOEY_MULCH
     SetVarFromValue VAR_0x8005, 1
-    @ HGSS: ScrCmd_404 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    CanFitAccessory VAR_0x8004, VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
     Message msg_0516_T08R0201_00036
@@ -362,7 +362,7 @@ _059E:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
     SetVarFromValue VAR_0x8004, 14
-    @ HGSS: ScrCmd_407 VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+    CheckBackdrop VAR_0x8004, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0506
     Message msg_0516_T08R0201_00037
@@ -373,7 +373,7 @@ _05D7:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
     SetVarFromValue VAR_0x8004, 15
-    @ HGSS: ScrCmd_407 VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+    CheckBackdrop VAR_0x8004, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0506
     Message msg_0516_T08R0201_00038
@@ -384,7 +384,7 @@ _0610:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0506
     SetVarFromValue VAR_0x8004, 16
-    @ HGSS: ScrCmd_407 VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+    CheckBackdrop VAR_0x8004, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0506
     Message msg_0516_T08R0201_00039

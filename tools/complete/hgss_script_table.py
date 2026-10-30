@@ -309,6 +309,26 @@ COMMANDS = {
     'ShowCertificate': lambda a: ['ShowDiplomaNationalDex'] if a[0] == '1' else [f'@ HGSS: ShowCertificate {a[0]}'],
     # Olivine City's seal gift (the Seal Case's seals are numbered as HeartGold's)
     'GiveRandomSeal': one('CompleteGiveRandomSeal {0}, {1}, {2}'),
+    # Objects' facing (HeartGold's ScrCmd_622 and _344; both games number the directions alike), a chance in 101
+    'ScrCmd_622': one('CompleteGetObjectDir {0}, {1}'),
+    'ScrCmd_344': one('CompleteSetObjectDir {0}, {1}'),
+    'ScrCmd_553': one('CompleteRandomChance {0}, {1}'),
+    # The map the player came from (HeartGold's ScrCmd_445), as HeartGold numbers its maps, which the scripts compare
+    # it with: HeartGold's map n is MAP_HEADER_HGSS_EVERYWHERE + n
+    'ScrCmd_445': lambda a: [f'GetPreviousMapID {a[0]}', f'SubVar {a[0]}, MAP_HEADER_HGSS_EVERYWHERE'],
+    # The Fashion Case: HeartGold's accessories and backdrops are numbered as Platinum's
+    'ScrCmd_403': one('AddAccessory {0}, {1}'),
+    'ScrCmd_404': one('CanFitAccessory {0}, {1}, {2}'),
+    'ScrCmd_406': one('AddContestBackdrop {0}'),
+    'ScrCmd_407': one('CheckBackdrop {0}, {1}'),
+    # Team Rocket's hideout cleared: HeartGold's ScrCmd_530 0, 1 marks Mahogany Town's antenna tree gone, which the map
+    # loads then leave out (src/complete_map_info.c, CompleteMapInfo_LoadMatrix)
+    'ScrCmd_530': lambda a: ([f'SetVar VAR_HGSS_UNK_4036, {0x6208 if a[1] == "1" else 0}'] if a[0] == '0'
+                             else [f'@ HGSS: ScrCmd_530 {a[0]}, {a[1]}']),
+    # HeartGold's empty commands
+    'Dummy486': lambda a: [],
+    'ScrCmd_247': lambda a: [],
+    'ScrCmd_491': lambda a: [],
     # Items: HeartGold's ItemVars puts the item and count in VAR_0x8004 and VAR_0x8005, as Platinum's item scripts expect
     'ItemVars': item_vars,
     'GiveItemNoCheck': lambda a: item_vars(a) + ['Common_GiveItemQuantity'],

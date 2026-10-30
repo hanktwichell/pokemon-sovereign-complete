@@ -576,6 +576,12 @@ Test results on the new test build:
   Seal Case; the last battle's result is kept as HeartGold keeps it (`VAR_BATTLE_RESULT`), for the scripts that read
   it on returning from a battle (Team Rocket's hideout's Electrodes, whose talk-test runs end) and for Pewter City's
   Latias or Latios. 98.8% of Sacred Gold's script lines translate (1,005 left).
+- **HeartGold's changes to the overworld's blocks** as a map loads (`CompleteMapInfo_LoadMatrix`): Mahogany Town's
+  antenna tree is gone once Team Rocket's hideout is cleared (its script now records it as HeartGold's does), and the
+  Lake of Rage is low on Wednesdays after that, seen from the lake or Route 43. More of HeartGold's small commands
+  translate: an object's facing (get and set), a chance in 101, the map the player came from (as HeartGold numbers
+  maps, which its scripts compare with), the Fashion Case's accessories and backdrops (Platinum's commands), and
+  three empty ones. 977 of Sacred Gold's script lines left.
 - **The test build** notes the party screen `SelectMoveTutorPokemon` opens as a menu, as the trade's already was, so a
   test can pick a Pokémon there (HeartGold's scripts pick one with it).
 - **The talk test over every added person** (`tools/test/talk_to_objects.py`, 5,865 on this build) is running. Fixed
@@ -587,4 +593,5 @@ Test results on the new test build:
   the letter found, Kenya delivered (gone from the party, TM44 given, the quest's var 3) and Shuckie lent (a Shuckle
   holding Berry Juice). `tools/complete/test_hgss_magikarp.py` (new), all three pass: the new game's record, a Magikarp
   beating a record of 0, and the same Magikarp again leaving it. `tools/complete/test_follower_talk.py`'s new Sinnoh
-  part passes.
+  part passes. `tools/complete/test_hgss_map_changes.py` (new), all four pass: the antenna tree blocks the way, then
+  doesn't once the hideout is cleared; the lake's water stops a step on a Tuesday and is ground on a Wednesday.

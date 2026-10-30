@@ -11,7 +11,8 @@
     ScriptEntry scr_seq_P01R0101_004
     ScriptEntryEnd
 scr_seq_P01R0101_001:
-    @ HGSS: ScrCmd_445 VAR_TEMP_x4000
+    GetPreviousMapID VAR_MAP_LOCAL_0x00
+    SubVar VAR_MAP_LOCAL_0x00, MAP_HEADER_HGSS_EVERYWHERE
     CompareVar VAR_MAP_LOCAL_0x00, 330
     GoToIf 1, _01C9
     End

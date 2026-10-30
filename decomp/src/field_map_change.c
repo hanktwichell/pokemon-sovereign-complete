@@ -28,6 +28,7 @@
 #include "field_bgm.h"
 #include "field_map_change_flags.h"
 #include "complete_follower.h" // Sovereign Complete: following Pokémon
+#include "complete_map_info.h" // Sovereign Complete: HeartGold's map changes
 #include "field_message.h"
 #include "field_overworld_state.h"
 #include "field_overworld_weather.h"
@@ -382,6 +383,7 @@ static void FieldMapChange_InitTerrainCollisionManager(FieldSystem *fieldSystem)
     GF_ASSERT(fieldSystem->terrainCollisionMan == NULL);
     MapMatrix_Load(fieldSystem->location->mapHeaderID, fieldSystem->mapMatrix);
     CompleteSafari_LoadMap(fieldSystem->mapMatrix, fieldSystem->saveData); // Sovereign Complete: the Johto Safari Zone
+    CompleteMapInfo_LoadMatrix(fieldSystem->mapMatrix, fieldSystem->saveData, fieldSystem->location->mapHeaderID); // Sovereign Complete
 
     if (SystemVars_CheckHiddenLocation(SaveData_GetVarsFlags(fieldSystem->saveData), HIDDEN_LOCATION_SEABREAK_PATH)) {
         MapMatrix_RevealSeabreakPath(fieldSystem->mapMatrix); // reveal Seabreak Path if Oak's Letter has been used

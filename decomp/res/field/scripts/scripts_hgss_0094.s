@@ -1336,11 +1336,11 @@ _1480:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _153F
     RemoveMoney 100
-    @ HGSS: ScrCmd_553 5, VAR_SPECIAL_RESULT
+    CompleteRandomChance 5, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _154E
     @ HGSS: ScrCmd_831 VAR_SPECIAL_x8004
-    @ HGSS: ScrCmd_404 VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT
+    CanFitAccessory VAR_0x8004, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _155B
     Message msg_0117_D37R0102_00061
@@ -1350,7 +1350,7 @@ _14EB:
     @ HGSS: ScrCmd_832 VAR_SPECIAL_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _1530
-    @ HGSS: ScrCmd_553 95, VAR_SPECIAL_RESULT
+    CompleteRandomChance 95, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _1530
     @ HGSS: ScrCmd_833 VAR_SPECIAL_x8004

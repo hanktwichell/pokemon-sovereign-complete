@@ -65,7 +65,7 @@ scr_seq_D24R0211_001:
     Warp MAP_HEADER_HGSS_RUINS_OF_ALPH_RESEARCH_CENTER, 7, 4, DIR_EAST
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_344 2, 2
+    CompleteSetObjectDir 2, 2
     Message msg_0079_D24R0211_00003
     @ HGSS: ScrCmd_527 4
     Message msg_0079_D24R0211_00005

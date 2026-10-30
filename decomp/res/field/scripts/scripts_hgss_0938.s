@@ -363,8 +363,6 @@ _054B:
     WaitForSignpostDone
     DrawSignpostScrollingMessage msg_0626_T29_00032, VAR_RESULT
     Common_HandleSignpostInput
-    @ HGSS: Dummy486
-    @ HGSS: Dummy486
     ReleaseAll
     End
 _0581:

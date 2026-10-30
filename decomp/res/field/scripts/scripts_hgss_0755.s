@@ -375,7 +375,7 @@ _05DF:
 _0640:
     End
 _0642:
-    @ HGSS: ScrCmd_344 0, 0
+    CompleteSetObjectDir 0, 0
     SetPosition obj_T03R0101_daigo, 26, 0, 7, DIR_SOUTH
     GoTo _0640
 _065E:

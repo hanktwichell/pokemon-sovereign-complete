@@ -60,7 +60,7 @@ scr_seq_D31R0201_022:
 _00EF:
     End
 _00F1:
-    @ HGSS: ScrCmd_344 3, 2
+    CompleteSetObjectDir 3, 2
     End
 _00F9:
     SetVarFromValue VAR_HGSS_UNK_414B, 255

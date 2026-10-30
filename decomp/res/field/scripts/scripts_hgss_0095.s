@@ -129,7 +129,7 @@ _022E:
     GoTo _03F0
 _0241:
     GoToIfSet FLAG_HGSS_UNK_097, _021B
-    @ HGSS: ScrCmd_622 4, VAR_TEMP_x4000
+    CompleteGetObjectDir 4, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _0414
     GoTo _041A
@@ -176,7 +176,7 @@ _03EA:
     GoTo _021B
 _03F0:
     GoToIfSet FLAG_HGSS_UNK_098, _021B
-    @ HGSS: ScrCmd_622 4, VAR_TEMP_x4000
+    CompleteGetObjectDir 4, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 5, _0513
     GoTo _0519

@@ -984,6 +984,9 @@ ScriptCommand(SCRCMD_COMPLETEBUFFERRECORDSIZE,                         CompleteS
 ScriptCommand(SCRCMD_COMPLETECHECKJOHTODEXCOMPLETE,                    CompleteScrCmd_CheckJohtoDexComplete)
 ScriptCommand(SCRCMD_COMPLETEGIVERANDOMSEAL,                           CompleteScrCmd_GiveRandomSeal)
 ScriptCommand(SCRCMD_COMPLETECHECKLASTBATTLENOTBEATEN,                 CompleteScrCmd_CheckLastBattleNotBeaten)
+ScriptCommand(SCRCMD_COMPLETEGETOBJECTDIR,                             CompleteScrCmd_GetObjectDir)
+ScriptCommand(SCRCMD_COMPLETESETOBJECTDIR,                             CompleteScrCmd_SetObjectDir)
+ScriptCommand(SCRCMD_COMPLETERANDOMCHANCE,                             CompleteScrCmd_RandomChance)
 
 // clang-format on
 

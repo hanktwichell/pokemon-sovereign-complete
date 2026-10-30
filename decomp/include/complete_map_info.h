@@ -3,6 +3,9 @@
 
 #include "generated/map_headers.h"
 
+#include "map_matrix.h"
+#include "savedata.h"
+
 // Sovereign Complete: what HeartGold's map headers say that Platinum's don't, for Johto and Kanto's maps
 // (MAP_HEADER_HGSS_*): where following Pokémon may follow, the region, the Pokégear's world map position, phone calls
 // and radio. Sinnoh's maps get defaults: Sinnoh, no Pokégear data, and following as in HeartGold's buildings and
@@ -32,5 +35,7 @@ u32 MapHeader_GetMomCallIntroParam(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasOutgoingCalls(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasIncomingCalls(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasRadioSignal(enum MapHeaderID mapHeaderID);
+// HeartGold's changes to the overworld's blocks as a map loads: Mahogany Town's antenna tree, the Lake of Rage's level
+void CompleteMapInfo_LoadMatrix(MapMatrix *mapMatrix, SaveData *saveData, enum MapHeaderID mapHeaderID);
 
 #endif // POKEPLATINUM_COMPLETE_MAP_INFO_H

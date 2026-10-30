@@ -680,7 +680,6 @@ scr_seq_D47R0101_003:
     CompareVar VAR_HGSS_UNK_4057, 7
     GoToIf 1, _0C21
 _09FC:
-    @ HGSS: ScrCmd_247
     GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0DF2
@@ -829,7 +828,6 @@ scr_seq_D47R0101_004:
     CompareVar VAR_HGSS_UNK_4057, 7
     GoToIf 1, _0DFD
 _0C4C:
-    @ HGSS: ScrCmd_247
     GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0DF2
@@ -951,7 +949,6 @@ scr_seq_D47R0101_011:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_247
     GetSetNationalDexEnabled 2, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0E73
