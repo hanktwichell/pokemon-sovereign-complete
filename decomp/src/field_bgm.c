@@ -8,6 +8,7 @@
 
 #include "field/field_system.h"
 
+#include "complete_sound.h" // Sovereign Complete
 #include "complete_trainers.h"
 #include "field_overworld_state.h"
 #include "location.h"
@@ -155,7 +156,7 @@ u16 FieldBGM_GetEffective(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID
         case MAP_HEADER_DISTORTION_WORLD_TURNBACK_CAVE_ROOM:
             break;
         default:
-            return SEQ_NAMINORI_sseq;
+            return CompleteSound_ForMap(mapHeaderID, SEQ_NAMINORI_sseq); // Sovereign Complete: Johto and Kanto's own
         }
     }
 
@@ -169,7 +170,7 @@ u16 FieldBGM_GetEffective(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID
         bgmID = FieldBGM_GetOverride(fieldSystem);
     }
 
-    return bgmID;
+    return CompleteSound_ForMap(mapHeaderID, bgmID); // Sovereign Complete: Johto and Kanto's own cycling song
 }
 
 u16 FieldBGM_GetForMapHeader(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID)
@@ -231,6 +232,8 @@ BOOL FieldBGM_TryFadeOut(FieldSystem *fieldSystem, u16 bgmID, int mode)
     PlayerAvatar *playerAvatar;
     int fadeOutFrames, waitFrames, playerState;
 
+    bgmID = CompleteSound_ForMap(fieldSystem->location->mapHeaderID, bgmID); // Sovereign Complete: surfing, cycling
+
     playerAvatar = fieldSystem->playerAvatar;
     playerState = PlayerAvatar_GetPlayerState(playerAvatar);
 
@@ -279,6 +282,13 @@ static void FieldBGM_GetFadeOutAndWaitFrames(FieldSystem *fieldSystem, int mode,
 
 u16 FieldBGM_GetEyesMeetForTrainer(enum TrainerID trainerID)
 {
+    // Sovereign Complete: HeartGold's trainers have its own themes; other classes of its play a Sinnoh stand-in's
+    u16 hgssBGM = CompleteSound_EncounterBGM(trainerID, Trainer_LoadParam(trainerID, TRDATA_CLASS));
+
+    if (hgssBGM != SEQ_NONE) {
+        return hgssBGM;
+    }
+
     u8 class = (u8)CompleteTrainerClass_StandIn(Trainer_LoadParam(trainerID, TRDATA_CLASS)); // Sovereign Complete
     u16 i, bgmID = SEQ_EYE_KID_sseq;
 

@@ -88,7 +88,7 @@ scr_seq_T27R0501_003:
     LockAll
     FacePlayer
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     Message msg_0618_T27R0501_00005
     CloseMessage
     SetVarFromValue VAR_MAP_LOCAL_0x09, 222
@@ -426,7 +426,7 @@ _066A:
     GoTo _0D28
 _068F:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_6, _1218
     WaitMovement
     Message msg_0618_T27R0501_00045
@@ -439,7 +439,7 @@ _068F:
     ApplyMovement obj_T27R0501_dancer_6, _1256
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer, _1260
     WaitMovement
     Message msg_0618_T27R0501_00015
@@ -451,7 +451,7 @@ _068F:
     ApplyMovement obj_T27R0501_dancer, _128E
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement 13, _140C
     WaitMovement
     Message msg_0618_T27R0501_00046
@@ -463,7 +463,7 @@ _068F:
     ApplyMovement 13, _143A
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement 14, _1448
     WaitMovement
     Message msg_0618_T27R0501_00047
@@ -475,7 +475,7 @@ _068F:
     ApplyMovement 14, _1476
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_5, _1298
     WaitMovement
     Message msg_0618_T27R0501_00016
@@ -487,7 +487,7 @@ _068F:
     ApplyMovement obj_T27R0501_dancer_5, _12C6
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_2, _12D0
     WaitMovement
     Message msg_0618_T27R0501_00017
@@ -499,7 +499,7 @@ _068F:
     ApplyMovement obj_T27R0501_dancer_2, _12FA
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_4, _1308
     WaitMovement
     Message msg_0618_T27R0501_00018
@@ -540,7 +540,7 @@ _0879:
     GoToIf 1, _065B
     CloseMessage
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_6, _1218
     WaitMovement
     Message msg_0618_T27R0501_00045
@@ -553,7 +553,7 @@ _0879:
     ApplyMovement obj_T27R0501_dancer_6, _1256
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer, _1260
     WaitMovement
     Message msg_0618_T27R0501_00015
@@ -565,7 +565,7 @@ _0879:
     ApplyMovement obj_T27R0501_dancer, _128E
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement 13, _140C
     WaitMovement
     Message msg_0618_T27R0501_00046
@@ -577,7 +577,7 @@ _0879:
     ApplyMovement 13, _143A
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement 14, _1448
     WaitMovement
     Message msg_0618_T27R0501_00047
@@ -589,7 +589,7 @@ _0879:
     ApplyMovement 14, _1476
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_5, _1298
     WaitMovement
     Message msg_0618_T27R0501_00016
@@ -601,7 +601,7 @@ _0879:
     ApplyMovement obj_T27R0501_dancer_5, _12C6
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_2, _12D0
     WaitMovement
     Message msg_0618_T27R0501_00017
@@ -613,7 +613,7 @@ _0879:
     ApplyMovement obj_T27R0501_dancer_2, _12FA
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_4, _1308
     WaitMovement
     Message msg_0618_T27R0501_00018
@@ -641,7 +641,7 @@ _0A67:
     GoToIf 1, _065B
     CloseMessage
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_6, _1218
     WaitMovement
     Message msg_0618_T27R0501_00045
@@ -654,7 +654,7 @@ _0A67:
     ApplyMovement obj_T27R0501_dancer_6, _1256
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer, _1260
     WaitMovement
     Message msg_0618_T27R0501_00015
@@ -666,7 +666,7 @@ _0A67:
     ApplyMovement obj_T27R0501_dancer, _128E
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement 13, _140C
     WaitMovement
     Message msg_0618_T27R0501_00046
@@ -678,7 +678,7 @@ _0A67:
     ApplyMovement 13, _143A
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement 14, _1448
     WaitMovement
     Message msg_0618_T27R0501_00047
@@ -690,7 +690,7 @@ _0A67:
     ApplyMovement 14, _1476
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_5, _1298
     WaitMovement
     Message msg_0618_T27R0501_00016
@@ -702,7 +702,7 @@ _0A67:
     ApplyMovement obj_T27R0501_dancer_5, _12C6
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_2, _12D0
     WaitMovement
     Message msg_0618_T27R0501_00017
@@ -714,7 +714,7 @@ _0A67:
     ApplyMovement obj_T27R0501_dancer_2, _12FA
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_MAIKO_sseq
     ApplyMovement obj_T27R0501_dancer_4, _1308
     WaitMovement
     Message msg_0618_T27R0501_00018

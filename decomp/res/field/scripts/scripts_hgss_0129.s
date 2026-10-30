@@ -29,7 +29,7 @@ scr_seq_D50R0101_000:
     End
 scr_seq_D50R0101_002:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer

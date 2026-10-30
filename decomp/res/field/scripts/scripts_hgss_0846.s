@@ -87,7 +87,7 @@ _00FE:
     StopMusic
     PlayCry SPECIES_DARKRAI, 0
     WaitCry
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_T_WAKABA_sseq
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0546_T20R0202_00004
@@ -105,7 +105,7 @@ _0154:
     StopMusic
     PlayCry SPECIES_DARKRAI, 0
     WaitCry
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_T_WAKABA_sseq
     AddObject 3
     SetPosition 3, 2, 0, 7, DIR_NORTH
     ApplyMovement 3, _025C

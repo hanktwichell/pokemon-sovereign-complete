@@ -10,6 +10,7 @@
 # Build output and local caches (HeartGold source, Sacred Gold, Sovereign checkout)
 /build/
 build_test/
+build_test2/
 .cache/
 
 # OS / editor noise

@@ -172,7 +172,7 @@ scr_seq_T08_015:
     BufferPlayerName 0
     GoToIfSet FLAG_HGSS_SG_3F61, _06DB
     FadeOutBGM 0, 10
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_VS_GYMREADER_KANTO_sseq
     Message msg_0512_T08_00023
     CloseMessage
     ReleaseObject 27
@@ -192,7 +192,7 @@ scr_seq_T08_015:
     CloseMessage
     ApplyMovement 29, _0EE8
     WaitMovement
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_IBUKI_sseq
     FacePlayer
     Message msg_0512_T08_00024
     Message msg_0512_T08_00025
@@ -211,7 +211,7 @@ scr_seq_T08_016:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FadeOutBGM 0, 10
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_VS_TRAINER_KANTO_sseq
     Message msg_0512_T08_00027
     CloseMessage
     ReleaseObject 28
@@ -411,7 +411,7 @@ _0626:
     PlayCry SPECIES_SHELLDER, 0
     WaitCry
     FadeOutBGM 5, 0
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_K_SHOUJO_sseq
     Message msg_0512_T08_00033
     CloseMessage
     PlayCry SPECIES_SHELLDER, 0
@@ -431,7 +431,7 @@ _0668:
     @ HGSS: ScrCmd_523 14, 4, 90, 4, 0
     LockObject 14
     FadeOutBGM 5, 0
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_K_SHOUNEN_sseq
     Message msg_0512_T08_00031
     CloseMessage
     PlayCry SPECIES_CLOYSTER, 0
@@ -458,7 +458,7 @@ _06DB:
     GoToIfUnset FLAG_HGSS_SG_3F5E, _0DC2
     FadeOutBGM 0, 10
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_VS_GYMREADER_KANTO_sseq
     Message msg_0512_T08_00037
     CloseMessage
     PlayCry SPECIES_VENOMOTH, 0
@@ -513,7 +513,7 @@ _07CA:
     @ HGSS: ScrCmd_523 20, 4, 90, 4, 0
     LockObject 20
     FadeOutBGM 5, 0
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_K_SHOUNEN_sseq
     Message msg_0512_T08_00031
     CloseMessage
     PlayCry SPECIES_CLOYSTER, 0

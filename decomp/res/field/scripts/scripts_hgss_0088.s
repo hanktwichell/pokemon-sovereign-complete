@@ -65,7 +65,7 @@ _010F:
     End
 scr_seq_D35R0101_006:
     StopMusic
-    PlayMusic SEQ_D_AGITO_sseq
+    PlayMusic SEQ_GS_D_AJITO_sseq
     LockAll
     ApplyMovement LOCALID_PLAYER, _0214
     WaitMovement

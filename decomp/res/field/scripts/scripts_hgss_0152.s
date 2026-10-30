@@ -20,7 +20,7 @@ scr_seq_P01R0101_002:
     ApplyMovement obj_P01R0101_ookido, _0324
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_OHKIDO_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE

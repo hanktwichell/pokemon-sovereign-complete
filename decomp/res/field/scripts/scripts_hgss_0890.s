@@ -453,7 +453,7 @@ _07B0:
 _07BB:
     BufferPlayerName 0
     StopMusic
-    PlayMusic SEQ_D_02_sseq
+    PlayMusic SEQ_GS_D_SHINTO_sseq
     Message msg_0584_T25R0201_00008
     WaitButton
     CloseMessage

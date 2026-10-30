@@ -64,7 +64,7 @@ scr_seq_D26R0102_002:
     ApplyMovement LOCALID_PLAYER, _0334
     GoTo _0282
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
@@ -82,7 +82,7 @@ scr_seq_D26R0102_002:
     End
 scr_seq_D26R0102_003:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer

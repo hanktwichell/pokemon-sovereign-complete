@@ -183,7 +183,7 @@ _02E9:
 _0314:
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_K_SHOUJO_sseq
     CompareVar VAR_MAP_LOCAL_0x01, 40
     GoToIf 5, _0616
     ApplyMovement obj_R25_gsleader11, _084A
@@ -367,7 +367,7 @@ _05D1:
     ApplyMovement LOCALID_PLAYER, _08D0
     WaitMovement
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_K_SHOUJO_sseq
     CompareVar VAR_MAP_LOCAL_0x01, 40
     GoToIf 5, _0616
     ApplyMovement obj_R25_gsleader11, _084A
@@ -469,7 +469,7 @@ _0784:
     RemoveObject obj_R25_gsman1
     RemoveObject obj_R25_gsleader11
     StopMusic
-    PlayMusic SEQ_ROAD_A_D_sseq
+    PlayMusic SEQ_GS_R_12_24_sseq
     SetFlag FLAG_HGSS_HIDE_ROUTE_25_MISTYS_BOYFRIEND
     SetFlag FLAG_HGSS_HIDE_ROUTE_25_MISTY
     ClearFlag FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION
@@ -486,7 +486,7 @@ _07B2:
     RemoveObject obj_R25_gsman1
     RemoveObject obj_R25_gsleader11
     StopMusic
-    PlayMusic SEQ_ROAD_A_D_sseq
+    PlayMusic SEQ_GS_R_12_24_sseq
     SetFlag FLAG_HGSS_HIDE_ROUTE_25_MISTYS_BOYFRIEND
     SetFlag FLAG_HGSS_HIDE_ROUTE_25_MISTY
     ClearFlag FLAG_HGSS_HIDE_CERULEAN_GYM_POPULATION

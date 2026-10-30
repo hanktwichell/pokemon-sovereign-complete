@@ -55,7 +55,7 @@ scr_seq_R34R0201_004:
     BufferPlayerName 0
     FadeOutBGM 0, 20
     StopMusic
-    PlayMusic SEQ_D_02_sseq
+    PlayMusic SEQ_GS_D_SHINTO_sseq
     Message msg_0386_R34R0201_00005
     Message msg_0386_R34R0201_00006
     SetVar VAR_0x8004, ITEM_ODD_KEYSTONE

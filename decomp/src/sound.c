@@ -8,6 +8,7 @@
 #include "global/utility.h"
 
 #include "communication_system.h"
+#include "complete_sound.h" // Sovereign Complete
 #include "heap.h"
 #include "sound_playback.h"
 #include "sound_system.h"
@@ -391,7 +392,9 @@ static void Sound_Impl_ResumeAndSwitchFieldBGM(u16 bgmID, u16 unused)
     u16 *currentBGM = SoundSystem_GetParam(SOUND_SYSTEM_PARAM_FIELD_BGM);
     u16 currentBankID = Sound_GetBankIDFromSequenceID(*currentBGM);
 
-    if (currentBankID != BANK_BGM_FIELD_sbnk && currentBankID != BANK_BGM_DUNGEON_sbnk) {
+    if (CompleteSound_HasOwnBank(unused)) { // Sovereign Complete: a HeartGold song resumes with its own bank's waves
+        SoundSystem_LoadSequenceEx(unused, NNS_SND_ARC_LOAD_WAVE | NNS_SND_ARC_LOAD_BANK);
+    } else if (currentBankID != BANK_BGM_FIELD_sbnk && currentBankID != BANK_BGM_DUNGEON_sbnk) {
         SoundSystem_LoadSequenceEx(bgmID, NNS_SND_ARC_LOAD_WAVE);
         GF_ASSERT(FALSE);
     } else {
@@ -408,21 +411,24 @@ void Sound_LoadSoundDataForFieldBGM(u16 seqID, u16 currentBankID)
 {
     u8 *bankState = SoundSystem_GetParam(SOUND_SYSTEM_PARAM_FIELD_BGM_BANK_STATE);
     u16 *newFieldBGM = SoundSystem_GetParam(SOUND_SYSTEM_PARAM_FIELD_BGM);
+    u16 bankSeqID = CompleteSound_FieldBankSequence(seqID, *newFieldBGM); // Sovereign Complete: a HeartGold song's own
 
-    if (*bankState == FIELD_BGM_BANK_STATE_SWITCH || currentBankID == 0) {
+    // Sovereign Complete: and when a HeartGold song needs its own bank (src/complete_sound.c), loaded in place of the
+    // map's song's
+    if (*bankState == FIELD_BGM_BANK_STATE_SWITCH || currentBankID == 0 || CompleteSound_FieldBankChanges(seqID, currentBankID)) {
         SoundSystem_LoadHeapState(Sound_GetHeapState(SOUND_HEAP_STATE_PERSISTENT));
         Sound_SetSubScene(0);
-        SoundSystem_LoadSequenceEx(*newFieldBGM, NNS_SND_ARC_LOAD_BANK);
+        SoundSystem_LoadSequenceEx(bankSeqID, NNS_SND_ARC_LOAD_BANK);
         SoundSystem_SaveHeapState(SoundSystem_GetParam(SOUND_SYSTEM_PARAM_HEAP_STATE_BGM_BANK));
         Sound_LoadSoundEffectsForScene(SOUND_SCENE_FIELD);
         SoundSystem_SaveHeapState(SoundSystem_GetParam(SOUND_SYSTEM_PARAM_HEAP_STATE_SFX));
 
-        u16 newBankID = Sound_GetBankIDFromSequenceID(*newFieldBGM);
-        if (newBankID != BANK_BGM_FIELD_sbnk && newBankID != BANK_BGM_DUNGEON_sbnk) {
+        u16 newBankID = Sound_GetBankIDFromSequenceID(bankSeqID);
+        if (newBankID != BANK_BGM_FIELD_sbnk && newBankID != BANK_BGM_DUNGEON_sbnk && !CompleteSound_HasOwnBank(bankSeqID)) { // Sovereign Complete
             SoundSystem_LoadSequenceEx(seqID, NNS_SND_ARC_LOAD_WAVE);
             GF_ASSERT(FALSE);
         } else {
-            SoundSystem_LoadSequenceEx(*newFieldBGM, NNS_SND_ARC_LOAD_WAVE);
+            SoundSystem_LoadSequenceEx(bankSeqID, NNS_SND_ARC_LOAD_WAVE);
         }
 
         SoundSystem_SaveHeapState(SoundSystem_GetParam(SOUND_SYSTEM_PARAM_HEAP_STATE_BGM));

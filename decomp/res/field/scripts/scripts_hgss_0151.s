@@ -132,14 +132,14 @@ _01D4:
     End
 _0200:
     FadeOutBGM 0, 10
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_TAIKAIMAE_sseq
     BufferPlayerName 0
     Message msg_0246_00013
     SetFlag FLAG_HGSS_BUG_CONTEST_OTHER_POKES_HELD
     GoTo _0224
 _021A:
     FadeOutBGM 0, 10
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_TAIKAIMAE_sseq
 _0224:
     BufferPlayerName 0
     Message msg_0246_00014
@@ -306,7 +306,7 @@ _04B5:
     ApplyMovement 241, _0544
     WaitMovement
     FadeOutBGM 0, 10
-    PlayMusic SEQ_D_KOUEN_sseq
+    PlayMusic SEQ_GS_D_KOUEN_sseq
     RestoreCamera
     Call _04FD
     SetFlag FLAG_HGSS_DAILY_DID_BUG_CONTEST

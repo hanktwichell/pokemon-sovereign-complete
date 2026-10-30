@@ -436,7 +436,7 @@ _06B4:
     AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _0862
     FadeOutBGM 0, 50
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_OTSUKIMI_EVENT_sseq
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0868
     WaitMovement
     PlayCry SPECIES_BELLOSSOM, 0
@@ -446,7 +446,7 @@ _06B4:
     ApplyMovement 13, _092C
     ApplyMovement LOCALID_PLAYER, _0936
     WaitMovement
-    PlayMusic SEQ_ROAD_A_D_sseq
+    PlayMusic SEQ_GS_R_6_38_sseq
     ApplyMovement 241, _093C
     WaitMovement
     RestoreCamera

@@ -31,7 +31,7 @@ scr_seq_R12R0101_001:
     LockAll
     FacePlayer
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_OHKIDO_sseq
     BufferPlayerName 0
     BufferPartyMonSpecies 1, 0
     Message msg_0349_R12R0101_00004

@@ -66,7 +66,7 @@ scr_seq_D48R0101_003:
     End
 scr_seq_D48R0101_007:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
@@ -80,7 +80,7 @@ scr_seq_D48R0101_007:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0349
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     Message msg_0136_D48R0101_00013
     WaitButton
     CloseMessage
@@ -92,7 +92,7 @@ scr_seq_D48R0101_008:
     End
 scr_seq_D48R0101_009:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
@@ -106,7 +106,7 @@ scr_seq_D48R0101_009:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0349
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     Message msg_0136_D48R0101_00016
     WaitButton
     CloseMessage
@@ -118,7 +118,7 @@ scr_seq_D48R0101_010:
     End
 scr_seq_D48R0101_011:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
@@ -132,7 +132,7 @@ scr_seq_D48R0101_011:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0349
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     Message msg_0136_D48R0101_00018
     WaitButton
     CloseMessage

@@ -13,21 +13,21 @@ scr_seq_D32R0103_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CallCommonScript 11040
+    @ HGSS: CallStd std_frontier_move_tutor_1
     ReleaseAll
     End
 scr_seq_D32R0103_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CallCommonScript 11041
+    @ HGSS: CallStd std_frontier_move_tutor_2
     ReleaseAll
     End
 scr_seq_D32R0103_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CallCommonScript 11042
+    @ HGSS: CallStd std_frontier_move_tutor_3
     ReleaseAll
     End
     .balign 4, 0

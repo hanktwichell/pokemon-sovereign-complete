@@ -56,9 +56,11 @@ git apply --3way --whitespace=nowarn "$patch" 2>&1 |
 result="${PIPESTATUS[0]}"
 set -e
 if [ "$result" -eq 0 ]; then
+    # Sovereign Complete's sound archive is made from Sovereign's (docs/Music.md): make it again from the new one.
+    python3 tools/complete/split_sound_basic.py
     echo "Applied Sovereign ${old:0:8}..${new:0:8}: $changed files. Build, test, then commit."
 else
     echo "Applied Sovereign ${old:0:8}..${new:0:8} ($changed files) with clashes. Fix the files git status lists as" >&2
-    echo "unmerged (look for <<<<<<<), then build, test and commit." >&2
+    echo "unmerged (look for <<<<<<<), run tools/complete/split_sound_basic.py, then build, test and commit." >&2
     exit 2
 fi

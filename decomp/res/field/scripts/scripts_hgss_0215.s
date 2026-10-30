@@ -63,7 +63,7 @@ scr_seq_R24_002:
     LockAll
     FacePlayer
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     Message msg_0362_R24_00000
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_TEAM_ROCKET_GRUNT_24, 0
@@ -89,7 +89,7 @@ scr_seq_R24_002:
     RemoveObject obj_R24_rocketm
     SetFlag FLAG_HGSS_HIDE_ROUTE_24_ROCKET
     ClearFlag FLAG_HGSS_HIDE_CERULEAN_GYM_MACHINE_PART
-    PlayMusic SEQ_ROAD_A_D_sseq
+    PlayMusic SEQ_GS_R_12_24_sseq
     SetVarFromValue VAR_HGSS_SCENE_ROUTE_24_ROCKET, 3
     ReleaseAll
     End

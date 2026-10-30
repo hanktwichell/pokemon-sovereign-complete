@@ -93,7 +93,7 @@ scr_seq_T11R0701_006:
     FacePlayer
     BufferPlayerName 0
     FadeOutBGM 0, 5
-    PlayMusic SEQ_KENKYUJO_sseq
+    PlayMusic SEQ_GS_UTSUGI_RABO_sseq
     Message msg_0537_T11R0701_00031
     GetPartyCount VAR_RESULT
     CompareVar VAR_RESULT, 5

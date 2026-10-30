@@ -9,6 +9,7 @@
 
 #include "global/utility.h"
 
+#include "complete_sound.h" // Sovereign Complete
 #include "heap.h"
 #include "sound.h"
 #include "sound_chatot.h"
@@ -109,7 +110,7 @@ static BOOL Sound_Impl_PlayFieldBGM(u16 seqID, u8 playerID, enum SoundHandleType
     return NNS_SndArcPlayerStartSeqEx(
         SoundSystem_GetSoundHandle(handleType),
         -1,
-        Sound_GetBankIDFromSequenceID(*newFieldBGM),
+        Sound_GetBankIDFromSequenceID(CompleteSound_FieldBankSequence(seqID, *newFieldBGM)), // Sovereign Complete
         -1,
         seqID);
 }

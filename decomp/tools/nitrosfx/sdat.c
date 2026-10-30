@@ -535,6 +535,12 @@ void ConvertPathToSdat(int argc, char **argv)
                         struct SwarInfo *swarInfo = malloc(sizeof(struct SwarInfo));
                         if (swarInfo == NULL) FATAL_ERROR("Failed to allocate memory for swarInfo\n");
                         swarInfo->fileID = PackFile(filePackage, inputFile, inputFileSize, inFPath);
+                        // Sovereign Complete: "singleLoad" sets NitroSystem's NNS_SND_ARC_WAVEARC_SINGLE_LOAD (the
+                        // waves load one by one, only those a bank uses), in the info's top byte
+                        if (cJSON_IsTrue(cJSON_GetObjectItemCaseSensitive(jFile, "singleLoad")))
+                        {
+                            swarInfo->fileID |= 1u << 24;
+                        }
                         PackInfo(infoPackages[i], swarInfo, sizeof(struct SwarInfo), name->valuestring, fName);
                         break;
                     case PLAYER:
@@ -786,7 +792,9 @@ void ConvertPathToSdat(int argc, char **argv)
     fwrite(fatHeader, 1, 0x0C, outFile);
 
     fileOffset += 0x0C;
-    offset = fileOffset;
+    // Sovereign Complete: the FILE block pads its first file to 32 bytes (below), so its entries start after that
+    // padding too (they pointed before it whenever the block's header didn't end on 32 bytes)
+    offset = fileOffset + PADDINGSIZE(fileOffset, 0x20);
     uint8_t *fileEntry = calloc(1, 0x10);
     if (fileEntry == NULL) FATAL_ERROR("Failed to allocate memory for fileEntry\n");
     for (struct FileStream *fileStream = filePackage->head; fileStream != NULL; fileStream = fileStream->next)

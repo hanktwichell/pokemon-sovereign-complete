@@ -101,7 +101,7 @@ scr_seq_R47_005:
     Message msg_0407_R47_00010
     WaitButton
     StopMusic
-    PlayMusic SEQ_D_02_sseq
+    PlayMusic SEQ_GS_D_SHINTO_sseq
     Message msg_0407_R47_00011
     WaitButton
     CloseMessage
@@ -111,7 +111,7 @@ scr_seq_R47_005:
     End
 scr_seq_R47_006:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     BufferPlayerName 0
@@ -159,7 +159,7 @@ scr_seq_R47_007:
     End
 scr_seq_R47_008:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     BufferPlayerName 0
@@ -241,7 +241,7 @@ scr_seq_R47_012:
     End
 scr_seq_R47_013:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     BufferPlayerName 0
@@ -302,7 +302,7 @@ scr_seq_R47_015:
     End
 scr_seq_R47_016:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     BufferPlayerName 0
@@ -363,7 +363,7 @@ scr_seq_R47_018:
     End
 scr_seq_R47_019:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer

@@ -15,8 +15,9 @@ Run after tools/complete/import_hgss_maps.py (the land data and areas these name
 Values that differ between the games go through the tables below (weather, map type, cameras, battle backgrounds);
 the name popup style and battle backgrounds have the same numbers in both. Until later steps bring them in, the maps
 use Platinum's empty scripts (HeartGold's own once tools/complete/translate_hgss_scripts.py --install has translated
-them) and its own text once tools/complete/import_hgss_text.py has brought it in, no wild encounters, and music
-standing in for HeartGold's by kind (STAND_IN_MUSIC).
+them) and its own text once tools/complete/import_hgss_text.py has brought it in, no wild encounters, and HeartGold's
+music once tools/complete/import_hgss_sound.py has brought it in (Platinum's standing in by kind otherwise:
+STAND_IN_MUSIC).
 
 Each insertion into an engine file sits between "Sovereign Complete: HeartGold map headers" markers, or for the
 order files and location names is found by its own names, so a rerun replaces it.
@@ -63,7 +64,8 @@ BATTLE_BG = ['PLAIN', 'WATER', 'CITY', 'FOREST', 'MOUNTAIN', 'SNOW', 'INDOORS_1'
              'BATTLE_FACTORY', 'BATTLE_ARCADE', 'BATTLE_CASTLE', 'BATTLE_HALL']
 LABEL_WINDOW = ['NONE', 'CITY', 'TOWN', 'ROUTE', 'CAVE', 'FOREST', 'WATER', 'PARK', 'LAKE', 'INDOORS']
 
-# Platinum music standing in for HeartGold's until its sound archive comes in (step 6): (day, night).
+# Platinum music standing in for a song of HeartGold's that isn't in the sound archive (tools/complete/
+# import_hgss_sound.py brings in those its maps, scripts and battles play): (day, night).
 STAND_IN_MUSIC = {
     'SEQ_GS_POKESEN': ('SEQ_PC_01',) * 2,
     'SEQ_GS_FS': ('SEQ_FS',) * 2,
@@ -103,7 +105,18 @@ DEFAULT_MUSIC = ('SEQ_TOWN01_D', 'SEQ_TOWN01_N')
 PLACEHOLDER_TEXT_BANK = 'TEXT_BANK_JUBILIFE_CITY'  # Platinum's MAP_HEADER_EVERYWHERE's; the maps' own text is step 3
 
 
+def archive_songs():
+    """The songs in the engine's sound archive (tools/complete/split_sound_basic.py's, with HeartGold's)."""
+    if not hasattr(archive_songs, 'names'):
+        path = os.path.join(DECOMP, 'res', 'sound', 'complete', 'pl_sound_data.json')
+        archive_songs.names = {s.get('name') for s in json.load(open(path, encoding='utf-8'))['seqInfo']}
+    return archive_songs.names
+
+
 def stand_in_music(seq, map_type, night):
+    """HeartGold's song, if the sound archive has it, or Platinum's standing in for it."""
+    if seq.startswith('SEQ_GS_') and seq in archive_songs():
+        return seq + '_sseq'
     pair = STAND_IN_MUSIC.get(seq)
     if pair is None:
         pair = next((p for prefix, p in STAND_IN_BY_PREFIX if seq.startswith(prefix)), None)

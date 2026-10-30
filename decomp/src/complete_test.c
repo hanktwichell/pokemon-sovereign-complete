@@ -9,6 +9,9 @@
 
 #include "complete_follower.h"
 #include "complete_safari.h"
+#include "sound.h"
+#include "sound_playback.h"
+#include "sound_system.h"
 #include "field_overworld_state.h"
 #include "system_flags.h"
 #include "vars_flags.h"
@@ -26,6 +29,7 @@ static const u16 sProbeVarValues[] = { 0xC0DE, 0xBEEF };
 CompleteTestSaveProbe gCompleteTestSaveProbe;
 CompleteTestScriptPos gCompleteTestScriptPos;
 CompleteTestSafari gCompleteTestSafari;
+CompleteTestSound gCompleteTestSound;
 
 static void SaveProbe(FieldSystem *fieldSystem)
 {
@@ -77,8 +81,55 @@ static void NoteSafari(FieldSystem *fieldSystem)
     gCompleteTestSafari.balls = *FieldOverworldState_GetSafariBallCount(SaveData_GetFieldOverworldState(fieldSystem->saveData));
 }
 
+BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id)
+{
+    CompleteTestSoundLoad *entry = &gCompleteTestSound.log[gCompleteTestSound.loads % COMPLETE_TEST_SOUND_LOG];
+
+    gCompleteTestSound.free = NNS_SndHeapGetFreeSize(SoundSystem_Get()->heap);
+    gCompleteTestSound.loads++;
+    entry->id = id;
+    entry->loaded = loaded;
+    entry->free = gCompleteTestSound.free;
+
+    if (gCompleteTestSound.free < gCompleteTestSound.minFree) {
+        gCompleteTestSound.minFree = gCompleteTestSound.free;
+    }
+
+    if (!loaded) {
+        gCompleteTestSound.failures++;
+        gCompleteTestSound.lastFailedID = id;
+    }
+
+    return loaded;
+}
+
+// A song the harness asked for: in a cutscene's sound scene, a field song as a map's (src/field_bgm.c), any other as a
+// script's PlayMusic
+static void PlaySong(void)
+{
+    u16 seqID = gCompleteTestSound.playSeq;
+
+    if (seqID == 0) {
+        return;
+    }
+
+    gCompleteTestSound.playSeq = 0;
+
+    if (gCompleteTestSound.playScene != SOUND_SCENE_NONE) {
+        Sound_SetSceneAndPlayBGM(gCompleteTestSound.playScene, seqID, 1);
+        gCompleteTestSound.playScene = SOUND_SCENE_NONE;
+    } else if (Sound_GetPlayerForSequence(seqID) == PLAYER_FIELD) {
+        Sound_SetScene(SOUND_SCENE_NONE);
+        Sound_SetFieldBGM(seqID);
+        Sound_SetSceneAndPlayBGM(SOUND_SCENE_FIELD, seqID, 1);
+    } else {
+        Sound_PlayBGM(seqID);
+    }
+}
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
+    PlaySong();
     CompleteFollower_TestRecordTile(fieldSystem);
     SaveProbe(fieldSystem);
     NoteSafari(fieldSystem);

@@ -80,6 +80,8 @@ SCENES_SEEN = {
     'events_stark_mountain_room_1': ('VAR_STARK_MOUNTAIN_ROOM_1_STATE', 1),  # Mars and Jupiter, with Buck along
     # Sovereign Complete: Ecruteak Gym before Morty is back, where a sage walks the player out to the city
     'events_hgss_077': ('VAR_HGSS_UNK_4079', 1),
+    # Dragon's Den's shrine: the elder's quiz on entering, which asks again until each answer is right
+    'events_hgss_259': ('VAR_HGSS_UNK_40C3', 1),
 }
 # Scripts that run longer: the Battleground's Battle Marathon is 24 battles in a row.
 LONG_SCRIPTS = {('events_battleground', 'LOCALID_SOVEREIGN_MARATHON_GUIDE'): 300000}

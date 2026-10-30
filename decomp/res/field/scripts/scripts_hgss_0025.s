@@ -380,7 +380,7 @@ _0649:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0922
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_PHC_sseq
     BufferPlayerName 0
     Message msg_0062_D22R0101_00092
     CloseMessage

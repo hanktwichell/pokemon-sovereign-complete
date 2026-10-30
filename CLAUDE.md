@@ -15,6 +15,9 @@ work.
   files by hand. Keep Sovereign Complete's own changes to these files small and mark them with a
   `Sovereign Complete:` comment, so syncs stay clean.
 - `tools/complete/`: Sovereign Complete's own tools. A sync never touches them.
+- `decomp/res/sound/complete/`: the sound archive the build uses, made from Sovereign's (`res/sound/`) by
+  `tools/complete/split_sound_basic.py`, with HeartGold's songs from `tools/complete/import_hgss_sound.py` (run it
+  first) in `hgss/` (docs/Music.md). Both need a build's `nitrosfx`. Don't edit it by hand; the sync script remakes it.
 - `HEARTGOLD_COMMIT` and `tools/complete/build_heartgold.sh`: HeartGold from pret/pokeheartgold, and Sacred Gold from
   Drayano's patch, both built into `.cache/`.
 - `Sacred Gold & Storm Silver V1.05 5/`: Drayano's patches and documents, unchanged.

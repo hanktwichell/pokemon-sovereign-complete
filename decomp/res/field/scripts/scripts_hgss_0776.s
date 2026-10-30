@@ -561,7 +561,7 @@ _08D7:
     ReleaseAll
     End
 _0911:
-    PlayMusic SEQ_CITY01_D_sseq
+    PlayMusic SEQ_GS_C_KUCHIBA_sseq
     ReleaseAll
     End
 _0919:

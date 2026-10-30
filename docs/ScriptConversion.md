@@ -77,8 +77,9 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   follower (`obj_partner_poke`) to `LOCALID_COMPLETE_FOLLOWER`.
 - Sounds: Diamond and Pearl's keep their names (Platinum adds `_sseq`); a few have other names in Platinum
   (`SOUNDS`: HeartGold's select sound is Platinum's `SE_CONFIRM_sseq_3`, its item fanfare `SEQ_FANFA4`); HeartGold's
-  own sound effects are left out until its sound archive comes in (step 6), with the wait that goes with them; its
-  music plays the same stand-ins as the map headers.
+  own sound effects are left out, with the wait that goes with them, and its fanfares play Platinum's; its music is
+  its own (`tools/complete/import_hgss_sound.py`, `docs/Music.md`), with the map headers' stand-ins for a song the
+  sound archive lacks.
 - Commands Platinum lacks are added to the engine (`src/complete_scrcmd.c`, after Sovereign's own in
   `include/data/scripts/scrcmd.h`): `MessageGendered` (HeartGold's `GenderMsgBox`, a different line for a boy or a
   girl) and the following Pokémon's commands for scenes (`CompleteFollowerPause`, `CompleteFollowerWait`,

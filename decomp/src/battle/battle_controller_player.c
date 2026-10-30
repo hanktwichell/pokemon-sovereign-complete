@@ -34,6 +34,7 @@
 
 #include "bag.h"
 #include "communication_system.h"
+#include "complete_sound.h" // Sovereign Complete
 #include "complete_trainers.h"
 #include "flags.h"
 #include "heap.h"
@@ -5885,8 +5886,13 @@ static BOOL BattleControllerPlayer_CheckBattleOver(BattleSystem *battleSys, Batt
     if ((battleResult == BATTLE_RESULT_WIN && (battleType & BATTLE_TYPE_TRAINER) && (battleType & BATTLE_TYPE_LINK) == FALSE)
         || (battleResult == BATTLE_RESULT_WIN && (battleType & BATTLE_TYPE_FRONTIER) && (battleType & BATTLE_TYPE_LINK) == FALSE)) {
         Trainer *trainer = BattleSystem_GetTrainer(battleSys, BATTLER_ENEMY_1);
+        // Sovereign Complete: HeartGold's victory themes on Johto and Kanto's maps (src/complete_sound.c)
+        u16 hgssVictoryBGM = CompleteSound_TrainerVictoryBGM(BattleSystem_GetMapHeader(battleSys), trainer->header.trainerType);
 
-        switch (CompleteTrainerClass_StandIn(trainer->header.trainerType)) { // Sovereign Complete
+        if (hgssVictoryBGM != SEQ_NONE) {
+            Sound_PlayBGM(hgssVictoryBGM);
+        } else switch (CompleteTrainerClass_StandIn(trainer->header.trainerType)) { // Sovereign Complete
+
         case TRAINER_CLASS_LEADER_ROARK:
         case TRAINER_CLASS_LEADER_GARDENIA:
         case TRAINER_CLASS_LEADER_WAKE:

@@ -62,6 +62,8 @@
 #include "screen_fade.h"
 #include "sound_chatot.h"
 #include "sound_playback.h"
+
+#include "complete_sound.h" // Sovereign Complete
 #include "sovereign_test.h"
 #include "sprite.h"
 #include "sprite_system.h"
@@ -10642,7 +10644,7 @@ static void BattleScript_GetExpTask(SysTask *task, void *inData)
             && data->battleCtx->battleMons[BATTLER_ENEMY_1].curHP + data->battleCtx->battleMons[BATTLER_ENEMY_2].curHP == 0
             && Pokemon_GetValue(mon, MON_DATA_HP, NULL)
             && data->battleCtx->expJinglePlayed == FALSE) {
-            Sound_PlayBGM(VICTORY_WILD_POKEMON_sseq);
+            Sound_PlayBGM(CompleteSound_WildVictoryBGM(BattleSystem_GetMapHeader(data->battleSys))); // Sovereign Complete
             data->battleCtx->expJinglePlayed = TRUE;
             BattleSystem_SetRedHPSoundFlag(data->battleSys, 2); // turn off
         }
@@ -11422,7 +11424,7 @@ static void BattleScript_CatchMonTask(SysTask *task, void *inData)
             data->tmpData[CATCH_MON_DELAY] = 30;
             data->seqNum = SEQ_CATCH_MON_WAIT_PRINT_POKEMON_WAS_CAUGHT;
 
-            Sound_PlayBGM(VICTORY_WILD_POKEMON_sseq);
+            Sound_PlayBGM(CompleteSound_WildVictoryBGM(BattleSystem_GetMapHeader(data->battleSys))); // Sovereign Complete
             BattleSystem_SetRedHPSoundFlag(data->battleSys, 2);
         }
         break;

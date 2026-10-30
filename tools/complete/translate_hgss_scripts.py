@@ -43,15 +43,15 @@ BATTLE_OUTCOMES = {
 STD_SCRIPTS = {'std_hide_show_deliverymen': '10200', 'std_hide_show_deliverymen_2': '10200'}
 # HeartGold's standard script files the engine has as they are, translated, at their own script IDs
 # (include/script_manager.h): the Bug-Catching Contest's (its 10400 on, here 11000 on: Platinum has 10400) and the
-# Johto Safari Zone's (its 8800 on, here 11100 on: Platinum's Safari game has 8800)
-STD_FILES = {'scr_seq_0151': (10400, 11000), 'scr_seq_0262': (8800, 11100)}
-STD_FILE_SCRIPTS = 100  # the most scripts one has
+# Johto Safari Zone's (its 8800 on, here 11100 on: Platinum's Safari game has 8800), with their numbers of scripts (the
+# next of HeartGold's standard script groups starts after them: its Battle Frontier move tutors at 10440)
+STD_FILES = {'scr_seq_0151': (10400, 11000, 29), 'scr_seq_0262': (8800, 11100, 7)}
 
 
 def std_file_script(n):
     """The engine's script ID for HeartGold's standard script n in one of STD_FILES, or None."""
-    for hg_start, start in STD_FILES.values():
-        if hg_start <= n < hg_start + STD_FILE_SCRIPTS:
+    for hg_start, start, count in STD_FILES.values():
+        if hg_start <= n < hg_start + count:
             return start + n - hg_start
     return None
 # Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman, whom HeartGold's
@@ -160,9 +160,10 @@ class Names:
         return 'VAR_HGSS_' + name[len('VAR_'):]
 
     def sound(self, name):
-        """Platinum's sound for one of HeartGold's, or SILENT: the same name for the sounds both games took from
-        Diamond and Pearl, SOUNDS for the ones Platinum calls something else, and the music stand-ins for HeartGold's
-        music. HeartGold's own sound effects wait for its sound archive (step 6)."""
+        """The engine's sound for one of HeartGold's, or SILENT: SOUNDS for the ones Platinum calls something else,
+        the sound archive's own (HeartGold's songs, tools/complete/import_hgss_sound.py, and the sounds both games
+        took from Diamond and Pearl), and Platinum's stand-ins for a song the archive lacks. HeartGold's own sound
+        effects aren't in."""
         from hgss_script_table import SOUNDS
         from import_hgss_headers import stand_in_music
         if name in SOUNDS:

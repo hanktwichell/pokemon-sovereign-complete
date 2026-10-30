@@ -5,6 +5,8 @@
 
 #include "struct_defs/chatot_cry.h"
 
+#include "complete_test.h" // Sovereign Complete: sound memory in the test build
+
 #include "game_options.h"
 #include "sound.h"
 #include "sound_chatot.h"
@@ -293,27 +295,27 @@ void SoundSystem_LoadHeapState(int state)
 
 BOOL SoundSystem_LoadSoundGroup(u16 group)
 {
-    return NNS_SndArcLoadGroup(group, SoundSystem_Get()->heap);
+    return CompleteTest_NoteSoundLoad(NNS_SndArcLoadGroup(group, SoundSystem_Get()->heap), group); // Sovereign Complete
 }
 
 BOOL SoundSystem_LoadSequence(u16 id)
 {
-    return NNS_SndArcLoadSeq(id, SoundSystem_Get()->heap);
+    return CompleteTest_NoteSoundLoad(NNS_SndArcLoadSeq(id, SoundSystem_Get()->heap), id); // Sovereign Complete
 }
 
 BOOL SoundSystem_LoadSequenceEx(u16 id, u32 flags)
 {
-    return NNS_SndArcLoadSeqEx(id, flags, SoundSystem_Get()->heap);
+    return CompleteTest_NoteSoundLoad(NNS_SndArcLoadSeqEx(id, flags, SoundSystem_Get()->heap), id); // Sovereign Complete
 }
 
 BOOL SoundSystem_LoadWaveArc(u16 id)
 {
-    return NNS_SndArcLoadWaveArc(id, SoundSystem_Get()->heap);
+    return CompleteTest_NoteSoundLoad(NNS_SndArcLoadWaveArc(id, SoundSystem_Get()->heap), id); // Sovereign Complete
 }
 
 BOOL SoundSystem_LoadBank(u16 id)
 {
-    return NNS_SndArcLoadBank(id, SoundSystem_Get()->heap);
+    return CompleteTest_NoteSoundLoad(NNS_SndArcLoadBank(id, SoundSystem_Get()->heap), id); // Sovereign Complete
 }
 
 NNSSndHandle *SoundSystem_GetSoundHandle(enum SoundHandleType type)

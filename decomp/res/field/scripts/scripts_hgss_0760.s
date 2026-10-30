@@ -37,7 +37,7 @@ scr_seq_T04GYM0101_007:
 scr_seq_T04GYM0101_004:
     LockAll
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     ApplyMovement obj_T04GYM0101_rocketm, _0444
     WaitMovement
     PlaySE SEQ_SE_DP_WALL_HIT2_sseq
@@ -176,7 +176,7 @@ _02A9:
     RemoveObject obj_T04GYM0101_rocketm
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     StopMusic
-    PlayMusic SEQ_GYM_sseq
+    PlayMusic SEQ_GS_GYM_sseq
     SetFlag FLAG_HGSS_HIDE_CERULEAN_GYM_ROCKET
     ClearFlag FLAG_HGSS_HIDE_ROUTE_24_ROCKET
     ClearFlag FLAG_HGSS_HIDE_ROUTE_25_MISTY
@@ -274,7 +274,7 @@ _03F2:
     RemoveObject obj_T04GYM0101_rocketm
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
     StopMusic
-    PlayMusic SEQ_GYM_sseq
+    PlayMusic SEQ_GS_GYM_sseq
     SetFlag FLAG_HGSS_HIDE_CERULEAN_GYM_ROCKET
     ClearFlag FLAG_HGSS_HIDE_ROUTE_24_ROCKET
     ClearFlag FLAG_HGSS_HIDE_ROUTE_25_MISTY

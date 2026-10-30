@@ -42,7 +42,7 @@ scr_seq_D47PC0101_003:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01B5
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     Message msg_0134_D47PC0101_00004
     WaitButton
     CloseMessage

@@ -124,7 +124,7 @@ _01AD:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _02B3
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_PHC_sseq
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0121_D38R0104_00010

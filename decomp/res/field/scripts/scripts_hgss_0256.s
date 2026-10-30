@@ -11,7 +11,7 @@
     ScriptEntryEnd
 scr_seq_R43R0201_001:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0037
@@ -61,7 +61,7 @@ _00D5:
     WaitMovement
 _00ED:
     StopMusic
-    PlayMusic SEQ_ROAD_A_D_sseq
+    PlayMusic SEQ_GS_R_7_42_sseq
     SetVarFromValue VAR_HGSS_UNK_410F, 1
     End
 scr_seq_R43R0201_002:

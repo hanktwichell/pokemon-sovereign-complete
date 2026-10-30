@@ -238,6 +238,7 @@ Static main
 	Object src/complete_apricorns.c
 	Object src/complete_bug_contest.c
 	Object src/complete_safari.c
+	Object src/complete_sound.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c

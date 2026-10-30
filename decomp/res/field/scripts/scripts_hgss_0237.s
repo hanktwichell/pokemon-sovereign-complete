@@ -118,7 +118,7 @@ scr_seq_R34_005:
     SetVarFromValue VAR_MAP_LOCAL_0x04, 777
     ApplyMovement obj_R34_gswoman3_3, _0C56
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     WaitMovement
     Message msg_0384_R34_00028
     CloseMessage
@@ -287,7 +287,7 @@ _0475:
 _047B:
     ApplyMovement obj_R34_gswoman3, _0C82
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _0C8C
     WaitMovement
@@ -303,7 +303,7 @@ _047B:
     CloseMessage
     ApplyMovement obj_R34_gswoman3_2, _0C98
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _0CA2
     WaitMovement
@@ -430,14 +430,14 @@ _0672:
 _06AC:
     ApplyMovement obj_R34_gswoman3, _0C82
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _0C8C
     WaitMovement
     Message msg_0384_R34_00019
     CloseMessage
     ApplyMovement obj_R34_gswoman3_2, _0C98
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _0CA2
     WaitMovement

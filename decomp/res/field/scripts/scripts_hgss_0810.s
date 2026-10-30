@@ -101,7 +101,7 @@ _013B:
     End
 _014E:
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_K_SHOUNEN_sseq
     Message msg_0515_T08PC0101_00010
     CloseMessage
     ReleaseObject 7

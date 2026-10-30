@@ -327,7 +327,7 @@ Test results on the new test build:
     Gold moved three of Oak's lab's signs off the map. The rest are the known kinds (things on the tile, tiles the
     test can't reach).
 
-## Oct 30, 2026: the Johto Safari Zone
+## Oct 30, 2026: the Johto Safari Zone, and Johto and Kanto's music
 
 - **The Johto Safari Zone** works as in HeartGold (`docs/Features.md`): the gate's ₽500 game with 30 Safari Balls and no
   step limit, six of the twelve areas on the outside map in the arrangement saved for the player, each area's Pokémon by
@@ -341,3 +341,16 @@ Test results on the new test build:
   a new game (a later pass shows them first), 8 the test can't reach (Bugsy behind Azalea Gym's carts, the Battle
   Tower's partner room, an item ball on Victory Road, a bollard in Mt. Moon Square and a man in the Frontier Access),
   the Union Room's three waiting for link play, and Route 34's policeman waiting on a stand-in.
+- **Johto and Kanto play HeartGold's music** (step 6, `docs/Music.md`): 116 of its songs, on their maps, in their
+  scripts, for its trainers' encounters, battles and victories, and for surfing and cycling. To make room, Platinum's
+  always-loaded basic waves are split: the 57 only music plays (143 KB) now load with the music banks, leaving 106
+  loaded (301 KB) for sound effects, fanfares and cries, checked note by note against every sequence. HeartGold's songs
+  keep its sequence files byte for byte, each with a bank of its own, and their waves load one by one, only those a song
+  plays. New test: `tools/complete/test_sound_heap.py`: on a map, every song but the credits' (which plays in its own
+  scene) loads, HeartGold's all among them, and a battle loads.
+- **A bug in Sovereign's `nitrosfx`** wrote the sound archive's file table 28 bytes off whenever the file block's header
+  didn't end on 32 bytes, which crashed the game at boot as soon as the archive grew; Sovereign's own archive happened
+  to line up. Fixed here (`tools/nitrosfx/sdat.c`); Sovereign Platinum will meet it too if it adds to its sound archive.
+- **HeartGold's Battle Frontier move tutors** (Frontier Access) called a standard script past the end of the
+  Bug-Catching Contest's file, which the talk test caught as stuck: the translator now sizes each standard file by its
+  scripts, so the tutors say nothing until their Battle Point teaching (HeartGold's own commands) comes in.

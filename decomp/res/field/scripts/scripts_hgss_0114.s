@@ -60,6 +60,7 @@ scr_seq_D45R0102_001:
     CloseMessage
     StopMusic
     PlaySE SEQ_SE_PL_FR03_sseq
+    PlayMusic SEQ_GS_SENKYO_sseq
     Message msg_0131_D45R0102_00002
     StopSE SEQ_SE_PL_FR03_sseq
     CloseMessage

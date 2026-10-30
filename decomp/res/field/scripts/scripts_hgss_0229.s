@@ -101,7 +101,7 @@ _018E:
     SetPosition obj_R30R0201_gsgentleman, 5, 0, 6, DIR_EAST
     End
 _019C:
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_OHKIDO_sseq
     ApplyMovement obj_R30R0201_ookido, _040C
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _041E

@@ -160,7 +160,7 @@ scr_seq_D35R0103_003:
     SetPosition obj_D35R0103_rkanbuw, 32, 1, 30, DIR_EAST
     SetPosition obj_D35R0103_rocketm_4, 30, 1, 30, DIR_NORTH
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_ROCKET_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE

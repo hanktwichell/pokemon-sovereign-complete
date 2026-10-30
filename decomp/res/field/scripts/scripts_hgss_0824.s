@@ -91,7 +91,7 @@ _0118:
     SetPosition obj_T10R0601_ookido, 6, 0, 17, DIR_NORTH
     WaitTime 30, VAR_0x8004
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     ApplyMovement obj_T10R0601_wataru, _05E4
     ApplyMovement LOCALID_PLAYER, _05FA
     WaitMovement
@@ -116,7 +116,7 @@ _01AC:
     SetPosition obj_T10R0601_ookido, 6, 0, 17, DIR_NORTH
     WaitTime 30, VAR_0x8004
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_EYE_J_SHOUJO_sseq
     ApplyMovement obj_T10R0601_wataru, _05E4
     ApplyMovement LOCALID_PLAYER, _05FA
     WaitMovement

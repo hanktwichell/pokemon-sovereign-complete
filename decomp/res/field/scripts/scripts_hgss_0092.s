@@ -1056,7 +1056,7 @@ _10DB:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0C70
     StopMusic
-    PlayMusic SEQ_TOWN01_D_sseq
+    PlayMusic SEQ_GS_PHC_sseq
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0115_D36R0101_00069

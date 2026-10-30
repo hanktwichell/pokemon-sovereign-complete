@@ -10,6 +10,7 @@
 
 #include "overlay005/encounter_effect.h"
 
+#include "complete_sound.h" // Sovereign Complete
 #include "complete_trainers.h"
 #include "field_battle_data_transfer.h"
 #include "party.h"
@@ -205,6 +206,13 @@ u32 EncEffects_CutInEffect(const FieldBattleDTO *dto)
 
 u32 EncEffects_BGM(const FieldBattleDTO *dto)
 {
+    // Sovereign Complete: HeartGold's battle themes on Johto and Kanto's maps (src/complete_sound.c)
+    u16 hgssBGM = CompleteSound_BattleBGM(dto);
+
+    if (hgssBGM != SEQ_NONE) {
+        return hgssBGM;
+    }
+
     // Sovereign Complete: a HeartGold class's trainer battle plays its Sinnoh stand-in's battle theme (a Gym Leader's
     // for Johto's and Kanto's), with the plain cut-in (complete_trainers.h)
     if ((dto->battleType & BATTLE_TYPE_TRAINER) && !(dto->battleType & BATTLE_TYPE_FRONTIER)

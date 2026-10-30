@@ -1,18 +1,18 @@
 subdir('BANK')
 subdir('SEQ')
 subdir('WAVARC')
+subdir('complete') # Sovereign Complete: the basic waves split in two (tools/complete/split_sound_basic.py)
 
 # wave archives are duplicated in order to place them in the sdat private folder
 
 pl_sound_data_sdat = custom_target('pl_sound_data.sdat',
     build_by_default: true,
     input: [
-        files(['pl_sound_data.json']),
-        sbnk_gen.process(sound_bank_files),
+        files(['complete/pl_sound_data.json']), # Sovereign Complete: its archive, banks, basic waves and songs
+        complete_sound_inputs,
         sbnk_gen.process(cry_banks, preserve_path_from: pokemon_data_root),
         sseq_gen.process(sound_sequence_files),
         swar_gen.process(cry_waves, extra_args: ['-pcm8'], preserve_path_from: pokemon_data_root),
-        copy_gen.process(WAVE_ARC_BASIC),
         copy_gen.process(WAVE_ARC_BGM_BATTLE),
         copy_gen.process(WAVE_ARC_BGM_DEMO01),
         copy_gen.process(WAVE_ARC_BGM_DUNGEON),
