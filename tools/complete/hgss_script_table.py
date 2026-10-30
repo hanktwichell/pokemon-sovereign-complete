@@ -604,4 +604,8 @@ COMMANDS = {
     'CasinoGame': lambda a: [f'ScrCmd_267 {int(a[0]) % 12}'],
     'ScrCmd_609': lambda a: [],  # resets the follower's movement after a scene; the engine's follower needs none yet
     'GenderMsgBox': one('MessageGendered {0}, {1}'),
+    # The Ruins of Alph: a chamber's puzzle (src/applications/complete_alph_puzzle.c); HeartGold's effect of the hidden
+    # room's wall as the player comes back in isn't ported (its flags and warps are the scripts')
+    'AlphPuzzle': one('CompleteAlphPuzzle {0}'),
+    'OpenAlphHiddenRoom': lambda a: [],
 }

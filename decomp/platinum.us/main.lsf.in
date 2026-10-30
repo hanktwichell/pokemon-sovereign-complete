@@ -1546,6 +1546,12 @@ Overlay diploma
 	Object src/applications/diploma.c
 }
 
+Overlay complete_alph_puzzle
+{
+	After main
+	Object src/applications/complete_alph_puzzle.c
+}
+
 Overlay dummy7
 {
 	After overlay63

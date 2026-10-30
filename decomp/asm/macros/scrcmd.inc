@@ -6099,6 +6099,11 @@
     .short \destVarID
     .endm
 
+    .macro CompleteAlphPuzzle puzzle
+    .short SCRCMD_COMPLETEALPHPUZZLE
+    .byte \puzzle
+    .endm
+
     .text
     .globl _start
 _start:

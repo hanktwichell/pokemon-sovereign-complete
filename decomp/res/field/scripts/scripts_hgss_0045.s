@@ -14,7 +14,7 @@ scr_seq_D24R0208_000:
     FacePlayer
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: AlphPuzzle 3
+    CompleteAlphPuzzle 3
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -127,7 +127,6 @@ _0234:
     EndMovement
 scr_seq_D24R0208_001:
     LockAll
-    @ HGSS: OpenAlphHiddenRoom 3
     CheckPartyHasSpecies VAR_RESULT, SPECIES_HO_OH
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0264

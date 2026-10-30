@@ -199,6 +199,7 @@ enum NarcID {
     NARC_INDEX_GRAPHIC__LIBRARY_TV,
     NARC_INDEX_APPLICATION__ZUKANLIST__ZKN_DATA__ZUKAN_DATA_GIRA,
     NARC_INDEX_FIELDDATA__ENCOUNTDATA__HGSS_ENC_DATA, // Sovereign Complete: Johto's and Kanto's wild Pokémon
+    NARC_INDEX_APPLICATION__ANNON__PUZZLE_GRA, // Sovereign Complete: the Ruins of Alph's puzzles (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H

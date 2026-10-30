@@ -3,8 +3,10 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "constants/forms.h"
 #include "constants/narc.h"
 #include "generated/species.h"
+#include "generated/vars_flags.h"
 #include "generated/time_of_day.h"
 
 #include "field/field_system.h"
@@ -15,6 +17,7 @@
 #include "map_header.h"
 #include "narc.h"
 #include "rtc.h"
+#include "vars_flags.h"
 
 // HeartGold's EncounterData (pokeheartgold's include/wild_encounter.h), 0xC4 bytes
 #define HGSS_LAND_SLOTS  12
@@ -173,4 +176,47 @@ u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing,
     }
 
     return sTable.landSpecies[time][LCRNG_RandMod(HGSS_LAND_SLOTS)];
+}
+
+BOOL CompleteEncounters_IsRuinsOfAlphHall(enum MapHeaderID mapHeaderID)
+{
+    return mapHeaderID == MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL
+        || mapHeaderID == MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT
+        || mapHeaderID == MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT
+        || mapHeaderID == MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2;
+}
+
+// HeartGold's encounter_check.c: each solved puzzle lets out its letters (Kabuto's A to J, Aerodactyl's R to V,
+// Omanyte's K to Q, Ho-Oh's W to Z), and the hall's entrance in the Sinjoh Ruins event has only ! and ?
+u32 CompleteEncounters_UnownForms(FieldSystem *fieldSystem)
+{
+    static const struct {
+        u16 flag;
+        u8 first;
+        u8 last;
+    } sPuzzleForms[] = {
+        { FLAG_HGSS_SYS_ALPH_PUZZLE_KABUTO, UNOWN_FORM_A, UNOWN_FORM_J },
+        { FLAG_HGSS_SYS_ALPH_PUZZLE_AERODACTYL, UNOWN_FORM_R, UNOWN_FORM_V },
+        { FLAG_HGSS_SYS_ALPH_PUZZLE_OMANYTE, UNOWN_FORM_K, UNOWN_FORM_Q },
+        { FLAG_HGSS_SYS_ALPH_PUZZLE_HO_OH, UNOWN_FORM_W, UNOWN_FORM_Z },
+    };
+    enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(fieldSystem->saveData);
+    u32 forms = 0;
+
+    if (!CompleteEncounters_IsRuinsOfAlphHall(mapHeaderID)) {
+        return 0;
+    }
+
+    for (int i = 0; i < (int)NELEMS(sPuzzleForms); i++) {
+        if (VarsFlags_CheckFlag(varsFlags, sPuzzleForms[i].flag)) {
+            forms |= ((1 << (sPuzzleForms[i].last + 1)) - 1) & ~((1 << sPuzzleForms[i].first) - 1);
+        }
+    }
+
+    if (forms != 0 && mapHeaderID == MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT) {
+        forms = (1 << UNOWN_FORM_EXC) | (1 << UNOWN_FORM_QUE);
+    }
+
+    return forms;
 }

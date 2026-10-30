@@ -24,6 +24,7 @@
 #include "overlay006/complete_field_encounters.h"
 #include "struct_defs/choose_starter_data.h"
 
+#include "applications/complete_alph_puzzle.h"
 #include "applications/naming_screen.h"
 #include "camera.h"
 #include "clear_game.h"
@@ -728,4 +729,41 @@ BOOL CompleteScrCmd_GetFriendSprite(ScriptContext *ctx)
 
     *destVar = TrainerInfo_Gender(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData)) == GENDER_MALE ? OBJ_EVENT_GFX_PLAYER_F : OBJ_EVENT_GFX_PLAYER_M;
     return FALSE;
+}
+
+static BOOL WaitForAlphPuzzle(ScriptContext *ctx)
+{
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+
+    if (FieldSystem_IsRunningApplication(ctx->fieldSystem)) {
+        return FALSE;
+    }
+
+    Heap_Free(*args);
+    *args = NULL;
+    return TRUE;
+}
+
+// HeartGold's AlphPuzzle: the Ruins of Alph's puzzle (src/applications/complete_alph_puzzle.c), whose flag is set when
+// it's solved; the field is left for it as Platinum's diploma leaves it (ReturnToField brings it back)
+BOOL CompleteScrCmd_AlphPuzzle(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_alph_puzzle);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        CompleteAlphPuzzle_Init,
+        CompleteAlphPuzzle_Main,
+        CompleteAlphPuzzle_Exit,
+        FS_OVERLAY_ID(complete_alph_puzzle),
+    };
+    u8 puzzle = ScriptContext_ReadByte(ctx);
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    CompleteAlphPuzzleArgs *puzzleArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompleteAlphPuzzleArgs));
+
+    puzzleArgs->saveData = ctx->fieldSystem->saveData;
+    puzzleArgs->puzzle = puzzle;
+    *args = puzzleArgs;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, puzzleArgs);
+    ScriptContext_Pause(ctx, WaitForAlphPuzzle);
+    return TRUE;
 }

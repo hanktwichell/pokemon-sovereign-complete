@@ -964,6 +964,7 @@ ScriptCommand(SCRCMD_COMPLETEBANKORWALLETISFULL,                       CompleteS
 ScriptCommand(SCRCMD_COMPLETEBANKSHOWBALANCE,                          CompleteScrCmd_BankShowBalance)
 ScriptCommand(SCRCMD_COMPLETEBANKHIDEBALANCE,                          CompleteScrCmd_BankHideBalance)
 ScriptCommand(SCRCMD_COMPLETEBANKTRANSACTION,                          CompleteScrCmd_BankTransaction)
+ScriptCommand(SCRCMD_COMPLETEALPHPUZZLE,                               CompleteScrCmd_AlphPuzzle)
 
 // clang-format on
 

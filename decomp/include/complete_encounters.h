@@ -26,4 +26,10 @@ u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species
 // none
 u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing, int time);
 
+// HeartGold's Unown in the Ruins of Alph's underground hall: whether the map is one of the hall's, and the Unown
+// forms it lets out (a bit each, UNOWN_FORM_*), from the puzzles solved; 0 before any is, when the hall has no
+// Pokémon at all
+BOOL CompleteEncounters_IsRuinsOfAlphHall(enum MapHeaderID mapHeaderID);
+u32 CompleteEncounters_UnownForms(FieldSystem *fieldSystem);
+
 #endif // POKEPLATINUM_COMPLETE_ENCOUNTERS_H

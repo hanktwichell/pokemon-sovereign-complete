@@ -92,6 +92,7 @@ typedef struct WildEncounters_FieldParams {
     u16 firstMonAbility; // Sovereign: u16
     u8 encounterRatesForms[2]; // from encounterData. Only used for Shellos/Gastrodon
     u8 unownTableID;
+    u32 completeUnownForms; // Sovereign Complete: the Ruins of Alph hall's Unown (src/complete_encounters.c), or 0
 } WildEncounters_FieldParams;
 
 typedef struct UnownFormsGroup {
@@ -472,6 +473,11 @@ BOOL WildEncounters_TryWildEncounter(FieldSystem *fieldSystem)
     }
 
     if (!gettingEncounter) {
+        return FALSE;
+    }
+
+    // Sovereign Complete: the Ruins of Alph's underground hall has Pokémon once a puzzle is solved (HeartGold's)
+    if (CompleteEncounters_IsRuinsOfAlphHall(fieldSystem->location->mapHeaderID) && encounterFieldParams.completeUnownForms == 0) {
         return FALSE;
     }
 
@@ -1879,6 +1885,22 @@ static BOOL AddWildMonToParty(const int partySlot, const WildEncounters_FieldPar
 
         u8 availableUnownForms = WildEncounters_UnownTables[encounterFieldParams->unownTableID].numberForms;
         form = WildEncounters_UnownTables[encounterFieldParams->unownTableID].forms[LCRNG_Next() % availableUnownForms];
+
+        // Sovereign Complete: the Ruins of Alph hall's letters, from the puzzles solved (src/complete_encounters.c)
+        if (encounterFieldParams->completeUnownForms != 0) {
+            int count = 0;
+
+            for (int i = 0; i < UNOWN_FORM_COUNT; i++) {
+                count += (encounterFieldParams->completeUnownForms >> i) & 1;
+            }
+
+            for (int i = 0, n = LCRNG_Next() % count; i < UNOWN_FORM_COUNT; i++) {
+                if (((encounterFieldParams->completeUnownForms >> i) & 1) && n-- == 0) {
+                    form = i;
+                    break;
+                }
+            }
+        }
     }
 
     // Sovereign (FM): a form the encounter slot names (WILD_SLOT, ApplySlotForm) stays; the map's is for the rest.
@@ -1938,6 +1960,7 @@ static void InitEncounterFieldParams(FieldSystem *fieldSystem, Pokemon *firstPar
     }
 
     encounterFieldParams->trainerID = TrainerInfo_ID(SaveData_GetTrainerInfo(fieldSystem->saveData));
+    encounterFieldParams->completeUnownForms = CompleteEncounters_UnownForms(fieldSystem); // Sovereign Complete
 }
 
 // Sovereign Complete: a Bug-Catching Contest battle with one of the day's Pokémon (HeartGold's

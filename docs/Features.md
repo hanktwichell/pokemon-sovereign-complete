@@ -242,6 +242,26 @@ Test: `tools/complete/test_hgss_phone.py` (Youngster Joey on Route 30: his numbe
 his call; Mom's call on Route 30; her share of his rematch's prize and the Super Potion she buys; the Cherrygrove Mart's
 deliveryman; a withdrawal at home).
 
+## The Ruins of Alph puzzles
+
+HeartGold's sliding puzzles (its `alph_puzzle.c`), in `src/applications/complete_alph_puzzle.c` with HeartGold's
+graphics (`res/graphics/alph_puzzle`, its `puzzle_gra` built the same way) and text:
+
+- **The puzzles:** reading a chamber's slab opens its puzzle on the touch screen, the hint on the top one. A tap turns a
+  loose panel a quarter, dragging moves it to a free square (not a corner); once every panel sits in the middle the
+  right way up, the picture flashes and the puzzle's flag is set. Quit asks first, with Platinum's touch yes and no.
+  Back in the field, HeartGold's script goes on: the floor gives way and the player drops into the underground hall.
+  HeartGold's own sound effects aren't in the sound archive, so Platinum's stand in.
+- **The Unown:** the underground hall has no Pokémon until a puzzle is solved, and then only the letters each solved
+  puzzle lets out (Kabuto's A to J, Aerodactyl's R to V, Omanyte's K to Q, Ho-Oh's W to Z); its entrance in the Sinjoh
+  Ruins event has ! and ? (`src/complete_encounters.c`). HeartGold's pull toward uncaught letters while the radio plays
+  the Unown broadcast waits for the radio.
+- **Not ported:** HeartGold's effect of a hidden room's wall as the player comes back into a chamber (its flags and
+  warps are the scripts', which run).
+
+Test: `tools/complete/test_hgss_alph_puzzle.py` (the hall empty before any puzzle; Quit, yes; the Kabuto puzzle solved
+by touch and the drop into the hall; the hall's Unown then).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

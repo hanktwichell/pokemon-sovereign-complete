@@ -514,3 +514,16 @@ Test results on the new test build:
   and getting off brings it back. It passes, walking checks included (the follower stays a tile behind, so it isn't
   made again every frame). `tools/complete/test_hgss_starter.py` passes (the follower comes out beside the player after
   Elm's gift).
+
+## Oct 30, 2026: the Ruins of Alph puzzles
+
+- **HeartGold's sliding puzzles** (`docs/Features.md`, "The Ruins of Alph puzzles"): its app ported to Platinum's
+  libraries, in an overlay of its own (`complete_alph_puzzle`), with HeartGold's graphics archive built from its sources
+  and its text. Before, reading a chamber's slab did nothing, so the underground hall, its Unown and the researchers'
+  rewards for seeing letters were out of reach. Three things needed Platinum's own way: its sprite loader puts
+  characters at the top of VRAM unless asked otherwise (out of reach of HeartGold's 1D 32K mapping), and gives each
+  sprite an explicit palette (the panels pick theirs in their cells); and its touch yes and no buttons are bigger than
+  HeartGold's, so their tiles go after the question's window.
+- **The hall's Unown** follow HeartGold: none before a puzzle is solved, then the solved puzzles' letters.
+- 98.7% of Sacred Gold's script lines translate (1,064 left). New test: `tools/complete/test_hgss_alph_puzzle.py`, all
+  four parts pass (48 Unown from the hall after the Kabuto puzzle, every one A to J).

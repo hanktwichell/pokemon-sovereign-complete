@@ -17,7 +17,7 @@ scr_seq_D24R0204_000:
     FacePlayer
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: AlphPuzzle 1
+    CompleteAlphPuzzle 1
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -130,7 +130,6 @@ _0238:
     EndMovement
 scr_seq_D24R0204_001:
     LockAll
-    @ HGSS: OpenAlphHiddenRoom 1
     ReleaseAll
     End
 scr_seq_D24R0204_002:
