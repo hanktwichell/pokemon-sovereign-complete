@@ -85,6 +85,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.
 - **Pokétch, Pokégear or both:** both use the bottom screen.
+- **Johto's Battle Frontier:** keep it (its five facilities, Battle Points and the move tutors who take them), or leave
+  it closed, with Sinnoh's as the game's Battle Frontier. Its scripts are in; the facilities' own HeartGold code isn't.
+- **The Pokéathlon Dome:** open (the building and its people, without the Pokéathlon) or closed, now that the Pokéathlon
+  is skipped.
 - **The Hall of Fame and the credits.** HeartGold plays its Hall of Fame and credits after Lance (and the credits again
   after Red), Platinum after Cynthia. For now Johto's League records the team in the Hall of Fame, saves and starts the
   game over at home in New Bark Town, as HeartGold does, without credits; Sinnoh's League keeps Platinum's. Proposed:
