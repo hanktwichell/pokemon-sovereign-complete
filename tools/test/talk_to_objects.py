@@ -36,7 +36,7 @@ an NPC whose gift waits on badges says so, and that is what runs.
 Needs what battle_all_trainers.py needs. From the repo root:
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/test/talk_to_objects.py \\
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--part I/N] [--postgame | --chronicles] [--unhide] \\
-        [EVENTS ...]
+        [--objects FILE] [EVENTS ...]
 EVENTS (an events file's name, e.g. events_route_201) limits the list to those maps, and --part I/N to every Nth
 object from the Ith (from 0; to run N at once, each with its own OUT_DIR). Each result is a line in
 OUT_DIR/results.txt.
@@ -56,6 +56,9 @@ caught and on its own not being caught. Most are hidden by a map-local flag inst
 script sets from the story as the map loads: STORY gives what each of those needs (flags and vars, an item in the bag,
 Pokémon in the party, the hour). The rest of the story is as before, so this checks that the script runs to its end,
 not the story around it. Use it with --chronicles.
+
+--objects FILE (Sovereign Complete) talks only to the objects FILE lists, an events file's name and an object's id a
+line (as results.txt names them), such as the ones an earlier run found hidden, for a rerun with --unhide.
 """
 import json
 import os
@@ -101,6 +104,8 @@ WANDER_TRIES = 4
 CHRONICLES = False
 # --unhide (parse_args): each object's own hidden_flag cleared on the way in (main).
 UNHIDE = False
+# Sovereign Complete: --objects FILE (parse_args): only these (events, object) pairs, one "EVENTS OBJECT" a line.
+OBJECTS = None
 # With --unhide, what puts an object on its map when its map's own scripts set its map-local hide flag from the story
 # as the map loads (its OnTransition script): (events, object id) -> [(name, value)]. A name is a flag or var to set
 # (at most twelve: gSovereignTestVar[4] to [15]), an item to put in the bag (ITEM_*, at most one), a Pokémon to add to
@@ -490,8 +495,12 @@ def talk(d, sym, events, oid, header, x, z, face):
 
 def parse_args(args):
     """(rom, state, out dir, the events files to limit to, part, parts) from the command line."""
-    global POSTGAME, CHRONICLES, UNHIDE
+    global POSTGAME, CHRONICLES, UNHIDE, OBJECTS
     part, parts = 0, 1
+    if '--objects' in args:  # Sovereign Complete: a file of "EVENTS OBJECT" lines, the only objects to talk to
+        at = args.index('--objects')
+        OBJECTS = {tuple(line.split()[:2]) for line in open(args[at + 1]) if line.strip()}
+        args = args[:at] + args[at + 2:]
     POSTGAME, CHRONICLES, UNHIDE = '--postgame' in args, '--chronicles' in args, '--unhide' in args
     args = [a for a in args if a not in ('--postgame', '--chronicles', '--unhide')]
     if '--part' in args:
@@ -516,7 +525,8 @@ def main():
     variables = var_ids()
     species = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'species.txt')) if line.strip()]
     items = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'items.txt')) if line.strip()]
-    chosen = [(i, c) for i, c in enumerate(cases()) if (not only or c[0] in only) and i % parts == part]
+    chosen = [(i, c) for i, c in enumerate(cases()) if (not only or c[0] in only) and i % parts == part
+              and (OBJECTS is None or c[:2] in OBJECTS)]  # Sovereign Complete: --objects
     d = Driver(rom, state)
     d.added, d.armed = [], False
 
