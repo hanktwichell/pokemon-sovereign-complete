@@ -87,6 +87,9 @@ SCENES_SEEN = {
     'events_hgss_077': ('VAR_HGSS_UNK_4079', 1),
     # Dragon's Den's shrine: the elder's quiz on entering, which asks again until each answer is right
     'events_hgss_259': ('VAR_HGSS_UNK_40C3', 1),
+    # Sovereign Complete: Barry by the harbour, who walks the player to Volkner and Flint. From the Route 225 gate,
+    # the test's way in, the player's walk crosses into the next map, which unloads Barry before his own walk ends
+    'events_fight_area': ('VAR_FIGHT_AREA_STATE', 1),
 }
 # Sovereign Complete: maps no player reaches, whose people the test leaves out: HeartGold's Union Room, whose
 # fifty people are link play's stand-ins (its Pokémon Centers' link attendants wait for link play).
