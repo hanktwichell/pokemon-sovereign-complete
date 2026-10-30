@@ -42,9 +42,9 @@ how they fit into Platinum's sound archive and sound memory, measured from both 
    themes by region, the Gym Leaders', Rival's, Team Rocket's, the beasts', Ho-Oh's and Lugia's) and victory themes.
 5. **Test** (`tools/complete/test_sound_heap.py`, with the test build's `gCompleteTestSound`): every song of the
    archive's music players played on a map as the game plays it, a trainer battle, and New Bark Town's song and a
-   battle there; no load may fail. On a map, 294 of the 295 songs load, HeartGold's all among them; the one that
-   doesn't is the credits' song, which the game plays in its own scene (the test now plays it there). The battle
-   loads with 5 KB to spare.
+   battle there; no load may fail. All three parts pass: every song loads (the credits' in their own scene, where
+   the game plays them), the tightest of Sinnoh's leaving 9 KB and of HeartGold's map songs 67 KB; a battle leaves 5 KB;
+   and in New Bark Town, its song loads and a battle with HeartGold's trainer theme leaves 13 KB.
 6. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
    padding. Sovereign's own archive happened to line up.

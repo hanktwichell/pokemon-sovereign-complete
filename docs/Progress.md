@@ -346,8 +346,9 @@ Test results on the new test build:
   always-loaded basic waves are split: the 57 only music plays (143 KB) now load with the music banks, leaving 106
   loaded (301 KB) for sound effects, fanfares and cries, checked note by note against every sequence. HeartGold's songs
   keep its sequence files byte for byte, each with a bank of its own, and their waves load one by one, only those a song
-  plays. New test: `tools/complete/test_sound_heap.py`: on a map, every song but the credits' (which plays in its own
-  scene) loads, HeartGold's all among them, and a battle loads.
+  plays. New test: `tools/complete/test_sound_heap.py`, all three parts pass: every song loads (the credits' in their
+  own scene), a battle leaves 5 KB, and New Bark Town's song and a battle there with HeartGold's trainer theme load (13
+  KB to spare).
 - **A bug in Sovereign's `nitrosfx`** wrote the sound archive's file table 28 bytes off whenever the file block's header
   didn't end on 32 bytes, which crashed the game at boot as soon as the archive grew; Sovereign's own archive happened
   to line up. Fixed here (`tools/nitrosfx/sdat.c`); Sovereign Platinum will meet it too if it adds to its sound archive.
