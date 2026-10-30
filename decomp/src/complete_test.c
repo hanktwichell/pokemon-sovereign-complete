@@ -103,11 +103,18 @@ BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id)
     return loaded;
 }
 
-// A song the harness asked for: in a cutscene's sound scene, a field song as a map's (src/field_bgm.c), any other as a
+static BOOL sFanfarePlaying;
+
+// A song the harness asked for: in a cutscene's sound scene, a fanfare as a script plays one (with its WaitFanfare,
+// which gives the fanfare's memory back once it ends), a field song as a map's (src/field_bgm.c), any other as a
 // script's PlayMusic
 static void PlaySong(void)
 {
     u16 seqID = gCompleteTestSound.playSeq;
+
+    if (sFanfarePlaying) {
+        sFanfarePlaying = Sound_IsBGMPausedByFanfare();
+    }
 
     if (seqID == 0) {
         return;
@@ -117,6 +124,7 @@ static void PlaySong(void)
 
     if (gCompleteTestSound.playScene == COMPLETE_TEST_SOUND_FANFARE) {
         Sound_PlayFanfare(seqID);
+        sFanfarePlaying = TRUE;
         gCompleteTestSound.playScene = SOUND_SCENE_NONE;
     } else if (gCompleteTestSound.playScene != SOUND_SCENE_NONE) {
         Sound_SetSceneAndPlayBGM(gCompleteTestSound.playScene, seqID, 1);
