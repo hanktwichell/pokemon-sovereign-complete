@@ -28,6 +28,7 @@ static const u16 sProbeVarValues[] = { 0xC0DE, 0xBEEF };
 
 CompleteTestSaveProbe gCompleteTestSaveProbe;
 CompleteTestScriptPos gCompleteTestScriptPos;
+u16 gCompleteTestKeepFlagClear;
 CompleteTestSafari gCompleteTestSafari;
 CompleteTestSound gCompleteTestSound;
 

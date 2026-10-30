@@ -7,9 +7,9 @@ the field is idle on that map (gSovereignTestIdleFrames counts up and gSovereign
 god mode, so a trainer who spots the player on arrival is beaten at once. Then:
 - ok: idle, with the heaps' block lists whole (tools/test/heap_check.py);
 - HEAP: idle, but a heap's block lists are broken (a bad free during the load);
-- FAIL: not idle within the time limit (a crash, a hang, or a scene on entry: rerun it with --scene, which pages
-  through with A and waits longer, and also counts a scene that ends by sending the player to another map, printed
-  as `on N`, the map header the player ended on);
+- FAIL: not idle within the time limit (a crash, a hang, or a scene on entry: rerun it with --scene, which plays it
+  out (pages through, answers, fights its battles) and waits longer, and also counts a scene that ends by sending the
+  player to another map, printed as `on N`, the map header the player ended on);
 - SKIP: no free floor tile to warp to (maps HeartGold never shows, such as MAP_HEADER_HGSS_NOTHING).
 Each map's last screen is saved to OUT_DIR as NNN_<map>_<result>.png.
 
@@ -22,6 +22,7 @@ From the repo root:
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--shard K/N] [--scene] [NAME ...]
 """
 import os
+import random
 import re
 import struct
 import sys
@@ -29,11 +30,16 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, '..', 'test'))
+from battle_all_trainers import SWITCH_FRAMES, TAPS  # noqa: E402
 from heap_check import heap_info_address, heap_problems  # noqa: E402
 from test_map_warp import ROOT, header_id, walkable_tile  # noqa: E402
 
 LIMIT = 2400  # frames to wait for the field to be idle
-SCENE_LIMIT = 12000  # with --scene: a scene on entering the map is played out with A
+SCENE_LIMIT = 20000  # with --scene: a scene on entering the map is played out (Mt. Moon's rival battle: 13,000)
+# with --scene, the inputs, in a shuffled order so that none keeps time with a menu's loop: A pages through and picks;
+# a battle's taps (battle_all_trainers.fight's: A alone picks the test lead's first move, Precipice Blades, which can't
+# touch a Flying type); B leaves a menu that A keeps choosing from (the Frontier Access guide's facilities)
+SCENE_INPUTS = ('A', 'TAP', 'TAP', 'B')
 
 
 def hgss_headers():
@@ -95,7 +101,11 @@ def main():
                 # with --scene, a scene may end by sending the player elsewhere (out of Ecruteak's Gym)
                 idle = idle + 1 if u32(idle_addr) > before and (scene or u32(map_addr) == header) else 0
                 if idle == 0 and frames % (60 if scene else 120) == 0:
-                    d.press('A' if scene else 'B', frames=4, after=4)
+                    key = random.Random(frames).choice(SCENE_INPUTS) if scene else 'B'
+                    if key == 'TAP':
+                        d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=4)
+                    else:
+                        d.press(key, frames=4, after=4)
             problems = heap_problems(d.emu.memory, heaps) if idle >= 2 else []
             result = 'FAIL' if idle < 2 else 'HEAP' if problems else 'ok'
             d.screenshot().save(os.path.join(out, f'{i:03d}_{name}_{result}.png'))

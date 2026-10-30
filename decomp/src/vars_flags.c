@@ -7,6 +7,10 @@
 
 #include "savedata.h"
 
+#ifdef SOVEREIGN_TEST
+#include "complete_test.h" // Sovereign Complete
+#endif
+
 #define GET_FLAG_BIT(flagID) (1 << (flagID % 8))
 
 // TODO: where are these flags used, if ever?
@@ -36,6 +40,11 @@ BOOL VarsFlags_CheckFlag(VarsFlags *varsFlags, u16 flagID)
 void VarsFlags_SetFlag(VarsFlags *varsFlags, u16 flagID)
 {
     u8 *flagChunk = VarsFlags_GetFlagChunk(varsFlags, flagID);
+#ifdef SOVEREIGN_TEST
+    if (flagID != 0 && flagID == gCompleteTestKeepFlagClear) { // Sovereign Complete: talk_to_objects.py --unhide
+        return;
+    }
+#endif
     if (flagChunk) {
         *flagChunk |= GET_FLAG_BIT(flagID);
     }

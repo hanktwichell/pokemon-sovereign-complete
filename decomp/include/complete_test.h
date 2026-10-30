@@ -37,6 +37,10 @@ typedef struct CompleteTestScriptPos {
 
 extern CompleteTestScriptPos gCompleteTestScriptPos;
 
+// A flag no script may set (src/vars_flags.c), for tools/test/talk_to_objects.py --unhide: an object's hidden_flag, so
+// that its map's scripts, which set it from the story as the map loads, leave the object on the map. 0: none.
+extern u16 gCompleteTestKeepFlagClear;
+
 // The Johto Safari Zone as the field sees it each free frame, for tools/complete/test_hgss_safari.py: the six arranged
 // areas (src/complete_safari.c), whether a Safari game runs, its Balls left, the objects placed in each area, and the
 // save's Safari Zone (where the harness gives the objects Baoba unlocks).

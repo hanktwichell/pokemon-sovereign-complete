@@ -55,7 +55,9 @@ scripts also count every other species as caught (gSovereignTestCaughtAllBut), a
 caught and on its own not being caught. Most are hidden by a map-local flag instead, which the map's OnTransition
 script sets from the story as the map loads: STORY gives what each of those needs (flags and vars, an item in the bag,
 Pokémon in the party, the hour). The rest of the story is as before, so this checks that the script runs to its end,
-not the story around it. Use it with --chronicles.
+not the story around it. Use it with --chronicles. (Sovereign Complete: until the player is on the map, no script may
+set the object's hidden_flag either (gCompleteTestKeepFlagClear), as HeartGold's maps hide their people by setting
+those as they load.)
 
 --objects FILE (Sovereign Complete) talks only to the objects FILE lists, an events file's name and an object's id a
 line (as results.txt names them), such as the ones an earlier run found hidden, for a rerun with --unhide.
@@ -519,7 +521,7 @@ def parse_args(args):
 SYMBOLS = ('gSovereignTestWarpTarget', 'gSovereignTestVar', 'gSovereignTestIdleFrames', 'gSovereignTestIdleMapHeaderID',
            'gSovereignTestGodMode', 'gSovereignTestScripts', 'gSovereignTestClock', 'gSovereignTestBadges',
            'gSovereignTestCaughtAllBut', 'gSovereignTestPartyKeep', 'gSovereignTestPartyAdd', 'gSovereignTestBagItem',
-           'gSystem')
+           'gSystem', 'gCompleteTestKeepFlagClear')  # Sovereign Complete: the last
 
 
 def main():
@@ -547,6 +549,9 @@ def main():
                     if flag in variables:  # [3]: [0] is SCENES_SEEN's, [1] --postgame's and [2] --chronicles'
                         d.emu.memory.write_short(sym['gSovereignTestVar'] + 12, variables[flag])
                         d.emu.memory.write_short(sym['gSovereignTestVar'] + 14, 0)
+                        # Sovereign Complete: and no script sets it as the map loads (a HeartGold map's scripts hide
+                        # their people from the story that way), until the player is there
+                        d.emu.memory.write_short(sym['gCompleteTestKeepFlagClear'], variables[flag])
                     if UNHIDE and own in species:
                         d.emu.memory.write_short(sym['gSovereignTestCaughtAllBut'], species.index(own))
                     story = STORY.get((events, oid), []) if UNHIDE else []
@@ -568,6 +573,7 @@ def main():
                             d.emu.memory.write_short(sym['gSovereignTestCaughtAllBut'], 0xffff)  # no species
 
                 result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face, unhide)
+                d.emu.memory.write_short(sym['gCompleteTestKeepFlagClear'], 0)  # Sovereign Complete
                 if result == 'ok':
                     result, frames = talk(d, sym, events, oid, header, x, z, face)
                 tries = WANDER_TRIES if 'WANDER' in object_event(events, oid)['movement_type'] else 0
