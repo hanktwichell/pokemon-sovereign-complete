@@ -535,7 +535,7 @@ scr_seq_T20_015:
     End
 _0A05:
     SetVarFromValue VAR_MAP_LOCAL_0x07, 0
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 1, _0A35
     GetDayOfWeek VAR_MAP_LOCAL_0x00

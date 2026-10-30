@@ -29,7 +29,7 @@ _0054:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_SABRINA, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0097
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MARSH, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0080
     GoTo _00C1
@@ -139,7 +139,7 @@ _01F3:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_723 0, 0, 307, 24, 19
+    PlayBoatCutscene BOAT_TRAVEL_DIR_WEST_TO_EAST, 0, MAP_HEADER_HGSS_SS_AQUA_1F, 24, 19
     ReleaseAll
     End
 _0211:

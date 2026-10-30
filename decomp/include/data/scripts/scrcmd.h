@@ -927,6 +927,10 @@ ScriptCommand(SCRCMD_COMPLETEPLACESTARTERBALLS,                         Complete
 ScriptCommand(SCRCMD_COMPLETENAMEHGSSRIVAL,                             CompleteScrCmd_NameHGSSRival)
 ScriptCommand(SCRCMD_COMPLETEBUFFERHGSSRIVALNAME,                       CompleteScrCmd_BufferHGSSRivalName)
 ScriptCommand(SCRCMD_COMPLETEJOHTOCLEARGAME,                            CompleteScrCmd_JohtoClearGame)
+ScriptCommand(SCRCMD_COMPLETEMONADDCONTESTVALUE,                        CompleteScrCmd_MonAddContestValue)
+ScriptCommand(SCRCMD_COMPLETEGIVEBADGE,                                 CompleteScrCmd_GiveBadge)
+ScriptCommand(SCRCMD_COMPLETECHECKBADGE,                                CompleteScrCmd_CheckBadge)
+ScriptCommand(SCRCMD_COMPLETECHECKFIELDMOVEBADGE,                       CompleteScrCmd_CheckFieldMoveBadge)
 
 // clang-format on
 

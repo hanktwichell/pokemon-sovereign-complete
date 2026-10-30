@@ -311,6 +311,9 @@ extern struct SovereignTestPartyAdd gSovereignTestPartyAdd[SOVEREIGN_TEST_PARTY_
 extern u16 gSovereignTestBagItem;
 // When set, the next SELECT+L+R first gives the player these badges (bit 0 the Coal Badge... bit 7 the Beacon Badge).
 extern u8 gSovereignTestBadges;
+// Sovereign Complete: the same for Johto's and Kanto's (bit 0 the Zephyr Badge... bit 15 the Earth Badge:
+// include/constants/hgss_badges.h).
+extern u16 gCompleteTestHGSSBadges;
 // The menus scripts have shown, and the last one's kind (see struct SovereignTestMenu).
 extern struct SovereignTestMenu gSovereignTestMenu;
 // The scripts the field has started (ScriptManager_Set: an object's, a sign's, a trigger's...) since a harness cleared

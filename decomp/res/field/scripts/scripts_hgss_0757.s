@@ -258,7 +258,7 @@ _03C3:
 _0458:
     Message msg_0466_T03R0601_00023
     WaitButton
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0629
     CloseMessage

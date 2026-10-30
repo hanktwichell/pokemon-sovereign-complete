@@ -8,7 +8,7 @@ scr_seq_W19R0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_VOLCANO, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _002C
     Message msg_0741_W19R0101_00000

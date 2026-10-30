@@ -17,6 +17,7 @@
 #include "overlay005/map_prop_animation.h"
 
 #include "camera.h"
+#include "complete_badges.h"
 #include "field_system.h"
 #include "field_task.h"
 #include "heap.h"
@@ -26,6 +27,7 @@
 #include "math_util.h"
 #include "persisted_map_features.h"
 #include "player_avatar.h"
+#include "save_player.h"
 #include "savedata_misc.h"
 #include "script_manager.h"
 #include "sound_playback.h"
@@ -229,13 +231,12 @@ static BOOL VermilionGym_GateTask(FieldTask *task)
     return FALSE;
 }
 
-// HeartGold's VermilionGymInit: with the Thunder Badge both gates stay open; otherwise new switches. Johto's and
-// Kanto's badges aren't in the save yet (step 7), so beating Lt. Surge stands in for it: his win hides the stops.
+// HeartGold's VermilionGymInit: with the Thunder Badge both gates stay open; otherwise new switches.
 BOOL CompleteScrCmd_VermilionGymInit(ScriptContext *ctx)
 {
     VermilionGymPersistedData *data = InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_VERMILION_GYM);
 
-    if (FieldSystem_CheckFlag(ctx->fieldSystem, FLAG_HGSS_HIDE_VERMILION_GYM_STOPS)) {
+    if (CompleteBadges_Has(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), BADGE_ID_HGSS_THUNDER)) {
         data->switches[0] = 0;
         data->switches[1] = 0;
         data->gates[0] = TRUE;

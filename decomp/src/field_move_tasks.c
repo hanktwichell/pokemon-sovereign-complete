@@ -19,6 +19,7 @@
 #include "overlay006/field_warp.h"
 #include "overlay006/hm_cut_in.h"
 
+#include "complete_badges.h" // Sovereign Complete
 #include "field_map_change.h"
 #include "field_overworld_state.h"
 #include "field_task.h"
@@ -140,7 +141,8 @@ static inline BOOL FieldMoves_IsMoveUsable(const FieldMoveContext *fieldMoveCont
 
 static inline BOOL PlayerHasRequiredBadge(const FieldMoveContext *fieldMoveContext, enum Badge badge)
 {
-    return TrainerInfo_HasBadge(SaveData_GetTrainerInfo(fieldMoveContext->fieldSystem->saveData), badge);
+    // Sovereign Complete: or the badge that allows the move in HeartGold
+    return CompleteBadges_AllowsFieldMove(SaveData_GetTrainerInfo(fieldMoveContext->fieldSystem->saveData), badge);
 }
 
 static inline BOOL PlayerTravellingWithPartner(const FieldMoveContext *fieldMoveContext)

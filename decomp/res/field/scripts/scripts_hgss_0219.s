@@ -16,7 +16,7 @@ scr_seq_R26R0101_000:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

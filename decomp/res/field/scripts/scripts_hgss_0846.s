@@ -41,7 +41,7 @@ scr_seq_T20R0202_002:
     Message msg_0546_T20R0202_00003
     WaitButton
     CloseMessage
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _00FE
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -49,7 +49,7 @@ scr_seq_T20R0202_002:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -71,7 +71,7 @@ _00CD:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen

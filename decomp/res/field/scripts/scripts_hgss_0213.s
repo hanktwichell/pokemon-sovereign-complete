@@ -33,7 +33,7 @@ _006B:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JANINE, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00DF
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 5, _009D
     GoTo _012C

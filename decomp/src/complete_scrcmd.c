@@ -24,6 +24,7 @@
 #include "applications/naming_screen.h"
 #include "camera.h"
 #include "clear_game.h"
+#include "complete_badges.h"
 #include "complete_follower.h"
 #include "complete_rival.h"
 #include "encounter.h"
@@ -259,6 +260,61 @@ BOOL CompleteScrCmd_FollowerIsTooTall(ScriptContext *ctx)
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
 
     *destVar = Follower(ctx) != NULL && CompleteFollower_IsTooTall(ctx->fieldSystem);
+    return FALSE;
+}
+
+// HeartGold's GiveBadge and CheckBadge: Johto's and Kanto's badges (BADGE_ID_HGSS_*), beside Sinnoh's
+BOOL CompleteScrCmd_GiveBadge(ScriptContext *ctx)
+{
+    u16 badge = ScriptContext_GetVar(ctx);
+
+    GF_ASSERT(badge < MAX_HGSS_BADGES);
+    CompleteBadges_Set(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), badge);
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_CheckBadge(ScriptContext *ctx)
+{
+    u16 badge = ScriptContext_GetVar(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    GF_ASSERT(badge < MAX_HGSS_BADGES);
+    *destVar = CompleteBadges_Has(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), badge);
+    return FALSE;
+}
+
+// Whether the player may use the field move Sinnoh's badge allows (res/field/scripts/scripts_field_moves.s): with
+// that badge, or with the one that allows it in HeartGold
+BOOL CompleteScrCmd_CheckFieldMoveBadge(ScriptContext *ctx)
+{
+    u16 badge = ScriptContext_GetVar(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    GF_ASSERT(badge < MAX_BADGES);
+    *destVar = CompleteBadges_AllowsFieldMove(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), badge);
+    return FALSE;
+}
+
+// HeartGold's MonAddContestValue (the Goldenrod Underground's haircuts): adds amount to a party Pokémon's contest
+// condition attribute (0 Cool, 1 Beauty, 2 Cute, 3 Smart, 4 Tough, 5 Sheen), up to 255; a Pokémon whose Sheen is full
+// takes no more, as in HeartGold.
+BOOL CompleteScrCmd_MonAddContestValue(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+    u8 attribute = ScriptContext_ReadByte(ctx);
+    u16 amount = ScriptContext_GetVar(ctx);
+    Pokemon *mon;
+
+    if (attribute > MON_DATA_SHEEN - MON_DATA_COOL) {
+        return FALSE;
+    }
+
+    mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+
+    if (Pokemon_GetValue(mon, MON_DATA_SHEEN, NULL) != MAX_CONTEST_STAT) {
+        Pokemon_IncreaseValue(mon, MON_DATA_COOL + attribute, amount);
+    }
+
     return FALSE;
 }
 

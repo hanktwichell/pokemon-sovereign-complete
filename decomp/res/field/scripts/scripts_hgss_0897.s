@@ -23,7 +23,7 @@ scr_seq_T25R0801_001:
     LockAll
     FacePlayer
     BufferPlayerName 0
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0154
     Message msg_0590_T25R0801_00005
@@ -36,7 +36,7 @@ scr_seq_T25R0801_002:
     LockAll
     FacePlayer
     BufferPlayerName 0
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0197
     Message msg_0590_T25R0801_00006
@@ -45,7 +45,7 @@ scr_seq_T25R0801_002:
     ReleaseAll
     End
 _0094:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01DA
     Message msg_0590_T25R0801_00004

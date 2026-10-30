@@ -4,7 +4,10 @@ COMMANDS maps a HeartGold macro name to a function from its (already renamed) ar
 Commands that Platinum has under the same name with the same arguments need no entry here; the translator keeps them.
 """
 
+import functools
 import itertools
+import os
+import re
 
 # HeartGold's GoToIfLt..GoToIfNe and CallIf* test the last comparison: the condition numbers are Platinum's too.
 CONDITIONS = {'Lt': 0, 'Eq': 1, 'Gt': 2, 'Le': 3, 'Ge': 4, 'Ne': 5}
@@ -79,6 +82,31 @@ SIGN_TYPES = ['SIGNPOST_TYPE_MAP', 'SIGNPOST_TYPE_ARROW', 'SIGNPOST_TYPE_LANDMAR
 def item_vars(a):
     """HeartGold's ItemVars item, count (count 1 if left out): Platinum's SetVar takes a value or a var, as it does."""
     return [f'SetVar VAR_0x8004, {a[0]}', f'SetVar VAR_0x8005, {a[1] if len(a) > 1 else 1}']
+
+
+@functools.lru_cache(maxsize=None)
+def hg_map_names():
+    """HeartGold's map numbers -> names (include/constants/maps.h)."""
+    from import_hgss_maps import HG
+    return {int(n): name for name, n in re.findall(r'#define (MAP_\w+)\s+(\d+)',
+                                                   open(os.path.join(HG, 'include', 'constants', 'maps.h')).read())}
+
+
+def hg_map_header(n):
+    return 'MAP_HEADER_HGSS_' + hg_map_names()[int(n, 0)][len('MAP_'):]
+
+
+# HeartGold's ScrCmd_723: the S.S. Aqua sails (its own scene, 0 from Olivine City, 1 from Vermilion City) and the
+# player is put aboard (exit direction, map, x, z). Platinum's boat scene stands in, sailing east from Olivine and west
+# from Vermilion.
+def boat_cutscene(a):
+    travel = 'BOAT_TRAVEL_DIR_WEST_TO_EAST' if int(a[0], 0) == 0 else 'BOAT_TRAVEL_DIR_EAST_TO_WEST'
+    return [f'PlayBoatCutscene {travel}, {a[1]}, {hg_map_header(a[2])}, {a[3]}, {a[4]}']
+
+
+def hgss_badge(arg):
+    """HeartGold's BADGE_X: the engine's BADGE_ID_HGSS_X (include/constants/hgss_badges.h), Johto's and Kanto's."""
+    return 'BADGE_ID_HGSS_' + arg[len('BADGE_'):] if arg.startswith('BADGE_') else arg
 
 
 def call_std(a):
@@ -243,6 +271,7 @@ COMMANDS = {
     'CheckBattleWon': one('CheckWonBattle {0}'),
     'WhiteOut': lambda a: ['BlackOutFromBattle'],
     'RestoreOverworld': lambda a: ['ReturnToField'],
+    'ScrCmd_436': lambda a: ['WaitForTransition'],  # leaves the field (a rest scene), until RestoreOverworld
     # Party menus: HeartGold's for a trade and for choosing a Pokémon are Platinum's of the same kinds, and its
     # GetPartySelection reads and frees either one as Platinum's GetSelectedPartySlot does
     'ScrCmd_566': lambda a: ['OpenPartyMenuForTrade'],
@@ -474,7 +503,7 @@ COMMANDS = {
     'StopBGM': lambda a: ['StopMusic'],
     'BufferSpeciesName': one('BufferSpeciesNameFromVar {0}, {1}, {2}, {3}'),
     # Johto and Kanto's 16 badges aren't in the save yet (step 7): none counts as won.
-    'CheckBadge': one('SetVarFromValue {1}, 0'),
+    'CheckBadge': lambda a: [f'CompleteCheckBadge {hgss_badge(a[0])}, {a[1]}'],
     # Sacred Gold is HeartGold (7; SoulSilver is 8): its scripts branch on it for version-exclusive scenes and Pokémon.
     # Platinum's GetGameVersion gives Platinum's 12, which took SoulSilver's branches where they test for HeartGold.
     'GetGameVersion': one('SetVarFromValue {0}, 7'),
@@ -486,7 +515,8 @@ COMMANDS = {
     'ScrCmd_546': one('SetVarFromValue {1}, 0'),
     # Whether the party has a Pokémon that can't be traded or linked: Platinum checks for a Bad Egg
     'PartyLegalCheck': one('CheckPartyHasBadEgg {0}'),
-    'GiveBadge': lambda a: [],  # (Platinum's GiveBadge would give a Sinnoh badge)
+    'MonAddContestValue': one('CompleteMonAddContestValue {0}, {1}, {2}'),  # the Goldenrod Underground's haircuts
+    'GiveBadge': lambda a: [f'CompleteGiveBadge {hgss_badge(a[0])}'],  # (Platinum's gives Sinnoh's)
     # Menus. HeartGold's take x, y, cursor, can-cancel, result var; Platinum's macros list the var before can-cancel
     # (the bytes are in the same order). An entry's middle argument is its help text (255: none), which Platinum's
     # menus don't have. HeartGold's yes/no is the touchscreen's buttons (GetMenuChoice between TouchscreenMenuHide
@@ -511,6 +541,13 @@ COMMANDS = {
     'FollowingPokemonMovement': lambda a: [f'CompleteFollowerSetMovementType {FOLLOWER_MOVEMENT_TYPES[int(a[0])]}'],
     'ScrCmd_729': one('CompleteFollowerCheckActive {0}'),
     'ScrCmd_596': one('CompleteFollowerIsTooTall {0}'),
+    'ScrCmd_723': boat_cutscene,
+    'ScrCmd_517': one('CheckPartyHasSpecies2 {0}, {1}'),  # Route 3's meteorites: whether a Deoxys is in the party
+    # Mom's savings in New Bark Town (HeartGold keeps them with the Pokégear's data, and takes the amount on its own
+    # number window): until they're ported, she has none saved and a deposit is called off
+    'CheckBankBalance': one('SetVarFromValue {0}, 0'),
+    'BankOrWalletIsFull': one('SetVarFromValue {1}, 0'),
+    'BankTransaction': one('SetVarFromValue {1}, 1'),
     # The Move Maniac (Blackthorn) and the move tutors (Draco Meteor, Sacred Gold's): Platinum's Move Reminder and tutor
     # menu, which give the same results (0xFF: nothing learned or picked); and the Move Deleter's move pick
     'ScrCmd_466': one('CheckHasLearnableReminderMoves {0}, {1}'),

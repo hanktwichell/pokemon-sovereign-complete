@@ -83,7 +83,7 @@ _0126:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_723 1, 0, 307, 24, 19
+    PlayBoatCutscene BOAT_TRAVEL_DIR_EAST_TO_WEST, 0, MAP_HEADER_HGSS_SS_AQUA_1F, 24, 19
     ReleaseAll
     End
 _0144:

@@ -45,7 +45,7 @@ _00A1:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BROCK, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _014C
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 1
     GoToIf 1, _017A
     GoTo _0195

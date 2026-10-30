@@ -6,10 +6,14 @@
 #include "constants/charcode.h"
 
 #include "charcode_util.h"
+#include "complete_badges.h"
 #include "heap.h"
 #include "string_gf.h"
 
 #define MONEY_MAX 999999
+
+// Sovereign Complete: Johto's and Kanto's badges sit in what was the struct's padding, so the save keeps its layout.
+typedef char TrainerInfoKeepsItsSize[sizeof(TrainerInfo) == 32 ? 1 : -1];
 
 int TrainerInfo_Size(void)
 {
@@ -127,7 +131,7 @@ int TrainerInfo_BadgeCount(const TrainerInfo *info)
         }
     }
 
-    return count;
+    return count + CompleteBadges_Count(info); // Sovereign Complete: Johto's and Kanto's too
 }
 
 u32 TrainerInfo_Money(const TrainerInfo *info)

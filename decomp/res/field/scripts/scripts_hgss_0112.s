@@ -109,6 +109,7 @@ scr_seq_D44R0103_003:
     Message msg_0130_D44R0103_00016
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_RISING
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
     ApplyMovement LOCALID_PLAYER, _1004
@@ -392,6 +393,7 @@ _056D:
     Message msg_0130_D44R0103_00016
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_RISING
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
     ApplyMovement LOCALID_PLAYER, _1004
@@ -485,6 +487,7 @@ _07A0:
     Message msg_0130_D44R0103_00016
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_RISING
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
     ApplyMovement LOCALID_PLAYER, _1004
@@ -568,6 +571,7 @@ _0994:
     Message msg_0130_D44R0103_00016
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_RISING
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
     ApplyMovement LOCALID_PLAYER, _1004
@@ -641,6 +645,7 @@ _0B49:
     Message msg_0130_D44R0103_00016
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_RISING
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
     ApplyMovement LOCALID_PLAYER, _1004
@@ -704,6 +709,7 @@ _0CBF:
     Message msg_0130_D44R0103_00016
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_RISING
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
     ApplyMovement LOCALID_PLAYER, _1004

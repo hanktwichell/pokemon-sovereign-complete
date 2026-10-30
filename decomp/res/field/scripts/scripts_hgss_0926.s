@@ -24,7 +24,7 @@ scr_seq_T27R0201_000:
     GetPlayerDir VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00D4
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_FOG, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0096
     SetVarFromValue VAR_RESULT, 7

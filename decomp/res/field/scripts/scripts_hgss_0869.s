@@ -32,7 +32,7 @@ scr_seq_T23GYM0102_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_HIVE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _018E
     Message msg_0567_T23GYM0102_00000
@@ -46,6 +46,7 @@ scr_seq_T23GYM0102_001:
     Message msg_0567_T23GYM0102_00002
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_HIVE
     SetTrainerFlag TRAINER_HGSS_BUG_CATCHER_AL
     SetTrainerFlag TRAINER_HGSS_BUG_CATCHER_BENNY
     SetTrainerFlag TRAINER_HGSS_BUG_CATCHER_JOSH

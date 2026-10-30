@@ -337,7 +337,7 @@ scr_seq_T20R0101_013:
     WaitFadeScreen
     PlayFanfare SEQ_ME_ASA_sseq
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     WaitFanfare
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -516,13 +516,13 @@ _07BF:
     ApplyMovement obj_T20R0101_doctor, _13EC
     GoTo _0D68
 _0864:
-    SetVarFromValue VAR_MAP_LOCAL_0x03, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x03
     CompareVar VAR_MAP_LOCAL_0x03, 1
     GoToIf 1, _0D8C
     GoToIfSet FLAG_HGSS_GOT_SS_TICKET_FROM_ELM, _0D9B
     GoToIfSet FLAG_HGSS_UNK_108, _0DAA
     GoToIfSet FLAG_HGSS_UNK_109, _0DAA
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_RISING, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 1
     GoToIf 1, _0DB5
     CompareVar VAR_MAP_LOCAL_0x0F, 1
@@ -742,7 +742,7 @@ _0BAF:
     SetVarFromValue VAR_HGSS_UNK_407B, 2
     End
 _0C31:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0E91
     ReleaseAll

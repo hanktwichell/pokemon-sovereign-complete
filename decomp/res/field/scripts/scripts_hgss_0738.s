@@ -63,8 +63,8 @@ _00F0:
     WaitSE SEQ_SE_DP_FW367_sseq
     WaitTime 15, VAR_RESULT
     IncreasePartyMonFriendship 10, VAR_0x8004
-    @ HGSS: MonAddContestValue VAR_SPECIAL_x8004, 1, 32
-    @ HGSS: MonAddContestValue VAR_SPECIAL_x8004, 5, 22
+    CompleteMonAddContestValue VAR_0x8004, 1, 32
+    CompleteMonAddContestValue VAR_0x8004, 5, 22
     CompareVar VAR_HGSS_UNK_4122, 7
     GoToIf 1, _012D
     AddVar VAR_HGSS_UNK_4122, 1

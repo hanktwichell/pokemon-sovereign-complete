@@ -18,6 +18,7 @@ typedef struct TrainerInfo {
     u8 isMainStoryCleared : 1;
     u8 hasNationalDex : 1;
     u8 : 6;
+    u16 hgssBadgeMask; // Sovereign Complete: Johto's and Kanto's badges, in what was padding (src/complete_badges.c)
 } TrainerInfo;
 
 /**

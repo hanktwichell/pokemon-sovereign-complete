@@ -64,7 +64,7 @@ _00DB:
     WaitFadeScreen
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
     Warp VAR_HGSS_UNK_4056, 5, 2, DIR_SOUTH
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     @ HGSS: ScrCmd_166 VAR_SPECIAL_RESULT
     SetVarFromVar VAR_0x8004, VAR_RESULT
     @ HGSS: ScrCmd_663 VAR_SPECIAL_x8004

@@ -26,6 +26,7 @@
 #include "trainer_data.h"
 #include "vars_flags.h"
 
+#include "complete_badges.h" // Sovereign Complete
 #include "complete_trainers.h" // Sovereign Complete
 
 #ifdef SOVEREIGN_TEST
@@ -890,6 +891,7 @@ u8 gSovereignTestPartyKeep;
 struct SovereignTestPartyAdd gSovereignTestPartyAdd[SOVEREIGN_TEST_PARTY_ADDS];
 u16 gSovereignTestBagItem;
 u8 gSovereignTestBadges;
+u16 gCompleteTestHGSSBadges; // Sovereign Complete
 struct SovereignTestMenu gSovereignTestMenu;
 u16 gSovereignTestBattleTrainer;
 struct SovereignTestWild gSovereignTestWild;
@@ -954,6 +956,14 @@ void SovereignTest_WarpNext(FieldSystem *fieldSystem)
     }
 
     gSovereignTestBadges = 0;
+
+    for (int i = 0; i < MAX_HGSS_BADGES; i++) { // Sovereign Complete: Johto's and Kanto's
+        if (gCompleteTestHGSSBadges & (1 << i)) {
+            CompleteBadges_Set(SaveData_GetTrainerInfo(fieldSystem->saveData), i);
+        }
+    }
+
+    gCompleteTestHGSSBadges = 0;
 
     for (u8 slot = 0; slot < ROAMING_SLOT_MAX; slot++) {
         if (gSovereignTestRoamerRelease & (1 << slot)) {

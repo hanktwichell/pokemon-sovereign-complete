@@ -103,7 +103,7 @@ scr_seq_T20R0201_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     GoToIfSet FLAG_HGSS_SG_3FC1, _0299
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _02A4
     Message msg_0545_T20R0201_00035
@@ -145,7 +145,7 @@ _021D:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_TALKED_TO_MOM_AFTER_NAMING_RIVAL, _02DD
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _0345
     Message msg_0545_T20R0201_00015
@@ -267,13 +267,13 @@ _03C7:
     ReleaseAll
     End
 _0443:
-    @ HGSS: BankOrWalletIsFull 1, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _055D
-    @ HGSS: CheckBankBalance VAR_SPECIAL_RESULT, 1
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _056C
-    @ HGSS: BankTransaction 1, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 1
     @ HGSS: ScrCmd_796
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0
@@ -283,13 +283,13 @@ _0443:
     ReleaseAll
     End
 _0499:
-    @ HGSS: BankOrWalletIsFull 0, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 0
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05A0
     CheckMoney2 VAR_RESULT, 1
     CompareVar VAR_RESULT, 0
     GoToIf 1, _05AF
-    @ HGSS: BankTransaction 0, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_RESULT, 1
     @ HGSS: ScrCmd_796
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 0

@@ -26,7 +26,7 @@ scr_seq_T25GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01C4
     GoToIfSet FLAG_HGSS_UNK_0B7, _01DA
@@ -76,7 +76,7 @@ scr_seq_T25GYM0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _026E
     Message msg_0582_T25GYM0101_00010
@@ -88,7 +88,7 @@ scr_seq_T25GYM0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0279
@@ -126,6 +126,7 @@ _01DA:
     Message msg_0582_T25GYM0101_00004
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_PLAIN
     SetVarFromValue VAR_HGSS_UNK_410A, 2
     ClearFlag FLAG_HGSS_UNK_084
     SetFlag FLAG_HGSS_UNK_998

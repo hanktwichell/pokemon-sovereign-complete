@@ -56,7 +56,7 @@ scr_seq_T25R0601_003:
     End
 scr_seq_T25R0601_000:
     GoToIfSet FLAG_HGSS_UNK_0B5, _018A
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _021B
     NPCMessage msg_0589_T25R0601_00000
@@ -65,7 +65,7 @@ scr_seq_T25R0601_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _04F6
     GoToIfSet FLAG_HGSS_UNK_15D, _0266

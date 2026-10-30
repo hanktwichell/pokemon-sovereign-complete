@@ -84,7 +84,7 @@ scr_seq_T30GYM0101_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_RISING, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _028A

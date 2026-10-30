@@ -19,7 +19,7 @@ scr_seq_T04GYM0101_007:
     @ HGSS: GetPhoneBookRematch PHONE_CONTACT_MISTY, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0267
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _026D
     CompareVar VAR_HGSS_SCENE_ROUTE_25, 1
@@ -86,7 +86,7 @@ scr_seq_T04GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_CASCADE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0321
     Message msg_0469_T04GYM0101_00008
@@ -95,6 +95,7 @@ scr_seq_T04GYM0101_000:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0337
+    CompleteGiveBadge BADGE_ID_HGSS_CASCADE
     AddVar VAR_HGSS_UNK_4135, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetTrainerFlag TRAINER_HGSS_SWIMMER_F_DIANA
@@ -117,7 +118,7 @@ scr_seq_T04GYM0101_002:
     FacePlayer
     CompareVar VAR_HGSS_UNK_4088, 2
     GoToIf 5, _0396
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_CASCADE, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _039F
@@ -129,7 +130,7 @@ scr_seq_T04GYM0101_003:
     FacePlayer
     CompareVar VAR_HGSS_UNK_4088, 2
     GoToIf 5, _03AE
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_CASCADE, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _03B9
@@ -139,7 +140,7 @@ scr_seq_T04GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_CASCADE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03C8
     Message msg_0469_T04GYM0101_00014

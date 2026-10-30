@@ -28,6 +28,10 @@ BOOL CompleteScrCmd_FollowerReturn(ScriptContext *ctx);
 BOOL CompleteScrCmd_ScreenShake(ScriptContext *ctx);
 BOOL CompleteScrCmd_SetHGSSFlagFromVar(ScriptContext *ctx);
 BOOL CompleteScrCmd_ClearHGSSFlagFromVar(ScriptContext *ctx);
+BOOL CompleteScrCmd_MonAddContestValue(ScriptContext *ctx);
+BOOL CompleteScrCmd_GiveBadge(ScriptContext *ctx);
+BOOL CompleteScrCmd_CheckBadge(ScriptContext *ctx);
+BOOL CompleteScrCmd_CheckFieldMoveBadge(ScriptContext *ctx);
 
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.

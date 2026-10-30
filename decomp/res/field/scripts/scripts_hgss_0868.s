@@ -9,7 +9,7 @@ scr_seq_T23GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_HIVE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0030
     Message msg_0566_T23GYM0101_00000
@@ -27,7 +27,7 @@ scr_seq_T23GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_HIVE, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0062

@@ -13,7 +13,7 @@ scr_seq_T28GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_GLACIER, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _012E
     Message msg_0622_T28GYM0101_00000
@@ -28,6 +28,7 @@ scr_seq_T28GYM0101_000:
     SetTrainerFlag TRAINER_HGSS_SKIER_DIANA
     SetTrainerFlag TRAINER_HGSS_BOARDER_PATTON
     Message msg_0622_T28GYM0101_00001
+    CompleteGiveBadge BADGE_ID_HGSS_GLACIER
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     CompareVar VAR_HGSS_MIDGAME_BADGES, 3

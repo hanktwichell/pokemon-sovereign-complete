@@ -105,7 +105,8 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   Sacred Gold's Mom hides its own added people in her first scene. Neither ran here, so those people stood on their
   maps from the start (on Ecruteak's and Sinjoh's step-on triggers, among others). The translator now writes both sets
   of flags (165) into the engine's `InitNewGame` (`res/field/scripts/scripts_init_new_game.s`, between markers).
-- Stand-ins until their feature comes: Johto and Kanto's badges aren't in the save yet, so `CheckBadge` answers no.
+- **Badges:** HeartGold's `GiveBadge` and `CheckBadge` are `CompleteGiveBadge` and `CompleteCheckBadge`, on Johto's and
+  Kanto's badges, which the trainer info keeps beside Sinnoh's (`src/complete_badges.c`; `docs/Features.md`, "Badges").
 
 ## Gym puzzles
 
@@ -115,9 +116,8 @@ Canalave's platforms): the same 32 bytes (`PersistedMapFeatures`), with an init,
 feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as six new
 features, each with the script commands its gym uses:
 - **Vermilion** (`CompleteVermilionGymInit`, `...CanCheck`, `...LockAction`, `...ResampleCans`): the two switches in
-  the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. HeartGold
-  opens both gates once the player has the Thunder Badge; until step 7 puts Johto's and Kanto's badges in the save,
-  Lt. Surge's win (which hides the stops) stands in for it.
+  the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. With the
+  Thunder Badge both gates stay open, as in HeartGold.
 - **Violet** (`CompleteVioletGymInit`, `CompleteVioletGymLift`): the lift to Falkner's floor, which is Platinum's
   platform lift with HeartGold's model, place and speed. The following Pokémon rides along, as in HeartGold.
 - **Azalea** (`CompleteAzaleaGymInit`, `...Ride`, `...Switch`): four Spinarak carts between twelve stops; the two

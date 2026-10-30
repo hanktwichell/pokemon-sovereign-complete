@@ -26,7 +26,7 @@ FieldMoves_CutTree:
     FacePlayer
     FindPartySlotForFieldMove VAR_RESULT, MOVE_CUT
     GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, FieldMoves_CantUseCut
-    CheckBadgeAcquired BADGE_ID_FOREST, VAR_RESULT
+    CompleteCheckFieldMoveBadge BADGE_ID_FOREST, VAR_RESULT @ Sovereign Complete: or HeartGold's badge for the move
     GoToIfEq VAR_RESULT, FALSE, FieldMoves_CantUseCut
     Message FieldMoves_Text_WouldYouLikeToUseCut
     ShowYesNoMenu VAR_RESULT
@@ -131,7 +131,7 @@ FieldMoves_Rock:
     FindPartySlotForFieldMove VAR_RESULT, MOVE_ROCK_SMASH
     SetVar VAR_0x8004, VAR_RESULT
     GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, FieldMoves_CantUseRockSmash
-    CheckBadgeAcquired BADGE_ID_COAL, VAR_RESULT
+    CompleteCheckFieldMoveBadge BADGE_ID_COAL, VAR_RESULT @ Sovereign Complete: or HeartGold's badge for the move
     GoToIfEq VAR_RESULT, FALSE, FieldMoves_CantUseRockSmash
     Message FieldMoves_Text_WouldYouLikeToUseRockSmash
     ShowYesNoMenu VAR_RESULT
@@ -188,7 +188,7 @@ FieldMoves_Boulder:
     GoToIfEq VAR_RESULT, TRUE, FieldMoves_StrenghtAlreadyActive
     FindPartySlotForFieldMove VAR_RESULT, MOVE_STRENGTH
     GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, FieldMoves_CantUseStrength
-    CheckBadgeAcquired BADGE_ID_MINE, VAR_RESULT
+    CompleteCheckFieldMoveBadge BADGE_ID_MINE, VAR_RESULT @ Sovereign Complete: or HeartGold's badge for the move
     GoToIfEq VAR_RESULT, FALSE, FieldMoves_CantUseStrength
     Message FieldMoves_Text_WouldYouLikeToUseStrength
     ShowYesNoMenu VAR_RESULT
@@ -248,7 +248,7 @@ FieldMoves_RockyWall:
     LockAll
     FindPartySlotForFieldMove VAR_RESULT, MOVE_ROCK_CLIMB
     GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, FieldMoves_CantUseRockClimb
-    CheckBadgeAcquired BADGE_ID_ICICLE, VAR_RESULT
+    CompleteCheckFieldMoveBadge BADGE_ID_ICICLE, VAR_RESULT @ Sovereign Complete: or HeartGold's badge for the move
     GoToIfEq VAR_RESULT, FALSE, FieldMoves_CantUseRockClimb
     CheckHasPartner VAR_RESULT
     GoToIfEq VAR_RESULT, TRUE, FieldMoves_NoRockClimbingWithPartner
@@ -419,7 +419,7 @@ FieldMoves_Waterfall:
     LockAll
     FindPartySlotForFieldMove VAR_RESULT, MOVE_WATERFALL
     GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, FieldMoves_CantUseWaterfall
-    CheckBadgeAcquired BADGE_ID_BEACON, VAR_RESULT
+    CompleteCheckFieldMoveBadge BADGE_ID_BEACON, VAR_RESULT @ Sovereign Complete: or HeartGold's badge for the move
     GoToIfEq VAR_RESULT, FALSE, FieldMoves_CantUseWaterfall
     Message FieldMoves_Text_WouldYouLikeToUseWaterfall
     ShowYesNoMenu VAR_RESULT

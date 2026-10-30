@@ -262,7 +262,7 @@ _03D2:
     ClearFlag FLAG_HGSS_HIDE_ROUTE_14_EUSINE_2
     SetVarFromValue VAR_HGSS_UNK_4086, 0
     SetFlag FLAG_HGSS_UNK_14D
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_CASCADE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0449
     ClearFlag FLAG_HGSS_HIDE_ROUTE_25_SUICUNE

@@ -168,7 +168,7 @@ scr_seq_T07R0203_009:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0276
     Message msg_0503_T07R0203_00007

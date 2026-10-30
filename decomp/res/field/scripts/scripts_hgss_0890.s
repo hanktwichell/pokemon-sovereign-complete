@@ -112,7 +112,7 @@ scr_seq_T25R0201_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_BOULDER, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _031E
     MessageGendered msg_0584_T25R0201_00083, msg_0584_T25R0201_00084
@@ -661,7 +661,7 @@ _0C13:
     ReleaseAll
     End
 _0C1E:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0F0C
     Message msg_0584_T25R0201_00046

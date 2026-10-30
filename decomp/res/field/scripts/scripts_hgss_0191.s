@@ -17,7 +17,7 @@ scr_seq_R10_004:
     GoToIfSet FLAG_HGSS_ENGAGING_STATIC_POKEMON, _01B5
     End
 scr_seq_R10_001:
-    SetVarFromValue VAR_MAP_LOCAL_0x04, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x04
     CompareVar VAR_MAP_LOCAL_0x04, 1
     GoToIf 1, _01C3
     GoTo _01FC

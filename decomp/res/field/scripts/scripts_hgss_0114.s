@@ -122,7 +122,7 @@ scr_seq_D45R0102_003:
     FacePlayer
     BufferPlayerName 0
     GoToIfSet FLAG_HGSS_SG_3F64, _0475
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0374
     CompareVar VAR_HGSS_UNK_40FE, 4
@@ -180,7 +180,7 @@ _02D5:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

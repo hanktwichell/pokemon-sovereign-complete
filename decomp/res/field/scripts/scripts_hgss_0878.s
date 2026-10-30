@@ -29,7 +29,7 @@ scr_seq_T24PC0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_STORM, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0159
     Message msg_0575_T24PC0101_00002

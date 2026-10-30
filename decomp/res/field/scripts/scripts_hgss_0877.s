@@ -17,7 +17,7 @@ scr_seq_T24GYM0101_000:
     FacePlayer
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _00F6
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_STORM, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0101
     Message msg_0574_T24GYM0101_00000
@@ -33,6 +33,7 @@ scr_seq_T24GYM0101_000:
     SetTrainerFlag TRAINER_HGSS_BLACK_BELT_LUNG
     BufferPlayerName 0
     Message msg_0574_T24GYM0101_00004
+    CompleteGiveBadge BADGE_ID_HGSS_STORM
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
@@ -58,7 +59,7 @@ scr_seq_T24GYM0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_STORM, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _018B

@@ -15,7 +15,7 @@
 scr_seq_R03_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_517 SPECIES_DEOXYS, VAR_SPECIAL_RESULT
+    CheckPartyHasSpecies2 SPECIES_DEOXYS, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _021A
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
@@ -27,7 +27,7 @@ scr_seq_R03_001:
 scr_seq_R03_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_517 SPECIES_DEOXYS, VAR_SPECIAL_RESULT
+    CheckPartyHasSpecies2 SPECIES_DEOXYS, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _021A
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
@@ -39,7 +39,7 @@ scr_seq_R03_002:
 scr_seq_R03_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_517 SPECIES_DEOXYS, VAR_SPECIAL_RESULT
+    CheckPartyHasSpecies2 SPECIES_DEOXYS, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _021A
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
@@ -51,7 +51,7 @@ scr_seq_R03_003:
 scr_seq_R03_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_517 SPECIES_DEOXYS, VAR_SPECIAL_RESULT
+    CheckPartyHasSpecies2 SPECIES_DEOXYS, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _021A
     GetFirstNonEggInParty VAR_MAP_LOCAL_0x00
@@ -86,7 +86,7 @@ scr_seq_R03_006:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _06C6
     WaitMovement
     Message msg_0326_R03_00007
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _045E
     GetTimeOfDay VAR_MAP_LOCAL_0x00
@@ -109,7 +109,7 @@ scr_seq_R03_007:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _06C6
     WaitMovement
     Message msg_0326_R03_00007
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _045E
     GetTimeOfDay VAR_MAP_LOCAL_0x00
@@ -218,7 +218,7 @@ _03D1:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _06F0
     WaitMovement
     Message msg_0326_R03_00007
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _045E
     Message msg_0326_R03_00008
@@ -230,7 +230,7 @@ _03FC:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _071A
     WaitMovement
     Message msg_0326_R03_00007
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _045E
     GetTimeOfDay VAR_MAP_LOCAL_0x00
@@ -241,7 +241,7 @@ _0433:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0744
     WaitMovement
     Message msg_0326_R03_00007
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _045E
     Message msg_0326_R03_00008

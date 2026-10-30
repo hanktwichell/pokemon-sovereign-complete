@@ -61,7 +61,7 @@ _00D3:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _01FF
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0237
     GoTo _0256

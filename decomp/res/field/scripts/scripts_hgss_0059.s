@@ -14,7 +14,7 @@ scr_seq_D26R0101_002:
     ClearFlag FLAG_HGSS_UNK_189
     End
 _001F:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _005D
     GetDayOfWeek VAR_MAP_LOCAL_0x00

@@ -121,7 +121,7 @@ scr_seq_T06GYM0101_023:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_THUNDER, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _033A
     Message msg_0485_T06GYM0101_00000
@@ -130,6 +130,7 @@ scr_seq_T06GYM0101_023:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0350
+    CompleteGiveBadge BADGE_ID_HGSS_THUNDER
     AddVar VAR_HGSS_UNK_4135, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetFlag FLAG_HGSS_HIDE_VERMILION_GYM_STOPS
@@ -153,7 +154,7 @@ scr_seq_T06GYM0101_024:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_THUNDER, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03A0
     Message msg_0485_T06GYM0101_00006
@@ -165,7 +166,7 @@ scr_seq_T06GYM0101_025:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_THUNDER, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _03AB

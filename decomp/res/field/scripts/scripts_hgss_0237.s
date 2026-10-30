@@ -370,7 +370,7 @@ _0553:
     ReleaseAll
     GoTo _052B
 _059D:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0760
     GetDayOfWeek VAR_MAP_LOCAL_0x00

@@ -28,10 +28,11 @@ BOOL ScrCmd_PokeMartCommon(ScriptContext *ctx)
     badgeNum = 0;
     requiredBadges = 0;
 
-    for (j = 0; j < MAX_BADGES; j++) {
-        if (TrainerInfo_HasBadge(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), j) == TRUE) {
-            badgeNum++;
-        }
+    // Sovereign Complete: Johto's and Kanto's badges count too, up to the eight the stock goes by
+    badgeNum = TrainerInfo_BadgeCount(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData));
+
+    if (badgeNum > MAX_BADGES) {
+        badgeNum = MAX_BADGES;
     }
 
     switch (badgeNum) {

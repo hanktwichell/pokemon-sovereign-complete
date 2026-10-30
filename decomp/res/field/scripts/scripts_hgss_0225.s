@@ -19,7 +19,7 @@
     ScriptEntryEnd
 scr_seq_R29_000:
     @ HGSS: GetFriendSprite VAR_OBJ_1
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _01DA
     SetFlag FLAG_HGSS_UNK_207

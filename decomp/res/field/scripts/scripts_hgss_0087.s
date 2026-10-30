@@ -288,7 +288,7 @@ _050A:
     CompareVar VAR_HGSS_UNK_4149, 2
     CallIf 1, _05F3
     IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     @ HGSS: ScrCmd_627 15
     CompareVar VAR_HGSS_UNK_4149, 2
     CallIf 1, _056B

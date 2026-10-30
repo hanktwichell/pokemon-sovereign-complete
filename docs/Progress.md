@@ -420,3 +420,20 @@ Test results on the new test build:
   completion scene follows it as in HeartGold), and the Global Terminal's message for a party that can't be taken
   (Platinum's Bad Egg check and message). Only the Battle Frontier's tutors are left among them, waiting on the
   Frontier question.
+- **Johto's and Kanto's badges.** HeartGold's `GiveBadge` did nothing, and Johto's Cut trees, rocks and boulders ran
+  Platinum's field-move scripts, which ask Sinnoh's badges: a player in Johto could never use Cut (Ilex Forest's tree
+  stands in the story's way). The 16 badges are now in the trainer info beside Sinnoh's (in its padding, so the save
+  keeps its layout), and a field move works with either region's badge for it, in the scripts, the party menu and the
+  Surf prompt. They count wherever Platinum counts badges (obedience, the common Mart's stock, the blackout penalty,
+  capped at eight there as its table is). Vermilion Gym's gates now follow the Thunder Badge itself. New test:
+  `tools/complete/test_hgss_field_moves.py`. Sovereign's level caps (off by default) still follow Sinnoh's fights only;
+  that waits on the level curve (`docs/Roadmap.md`).
+- **The S.S. Aqua sails.** HeartGold's sailing scene wasn't translated, so the player walked up to the ship and stayed
+  on the dock. It is Platinum's boat scene now (Platinum's scene, which sails its own ship out first when one is beside
+  the player, starts at the fade-out at HeartGold's ports). HeartGold's rest scenes (the ship's cabin, Mom's house) now
+  leave the field before coming back to it (`ScrCmd_436`, Platinum's `WaitForTransition`). New test:
+  `tools/complete/test_hgss_ferry.py` (boarding and arriving at both ports: passes).
+- **Smaller translations:** the Goldenrod Underground's haircuts raise Beauty and Sheen as well as friendship
+  (`CompleteMonAddContestValue`), Route 3's meteorites check for a Deoxys in the party (they change its Forme), and Mom's
+  money menu answers consistently until her savings are ported (`docs/Features.md`, "Stand-ins"). 98.4% of Sacred
+  Gold's script lines translate.

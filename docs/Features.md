@@ -140,12 +140,47 @@ parts, and where each went:
 Left: the object and area screens as HeartGold has them (moving an object about before it is placed), Baoba's calls
 on the Pokégear, link play's friend's Safari Zone, and the Safari Zone's music (step 6).
 
+## Badges
+
+Johto's and Kanto's 16 badges are kept beside Sinnoh's eight, in the trainer info (`hgssBadgeMask`, in what was the
+struct's padding, so the save keeps its layout; `src/complete_badges.c`). HeartGold's `GiveBadge` and `CheckBadge`
+are `CompleteGiveBadge` and `CompleteCheckBadge` (`BADGE_ID_HGSS_*`, HeartGold's order).
+
+- **Field moves:** a field move works with Sinnoh's badge for it or with HeartGold's (Cut: Forest or Hive; Fly: Cobble
+  or Storm; Surf: Fen or Fog; Strength: Mine or Plain; Rock Smash: Coal or Zephyr; Waterfall: Beacon or Rising; Rock
+  Climb: Icicle or Earth; Defog: Relic only, as HeartGold has no Defog). That covers the field-move scripts
+  (`CompleteCheckFieldMoveBadge`, `res/field/scripts/scripts_field_moves.s`), the party menu and the Surf prompt.
+  Until now Johto's Cut trees, rocks and boulders asked Sinnoh's badges, so a player in Johto couldn't use them.
+  Whirlpool (the Glacier Badge) comes with its HeartGold behaviour.
+- **Counts:** every badge counts where Platinum counts badges: how high a traded Pokémon obeys, the money lost on
+  blacking out (capped at eight, as its table is), the common Poké Mart's stock, the save and continue screens. Scripts
+  that count Sinnoh's badges (`CountBadgesAcquired`) still count Sinnoh's.
+- **Not yet:** the Trainer Card shows Sinnoh's badges only (Johto's and Kanto's need their art); Sovereign's level caps
+  (an option, off by default) follow Sinnoh's fights only, so with the option on a player in Johto is held at Lv. 16
+  until the level curve is decided (`docs/Roadmap.md`).
+
+Test: `tools/complete/test_hgss_field_moves.py` (Ilex Forest's Cut tree with no badge and with the Hive Badge, Rock
+Smash with the Zephyr Badge, Strength with the Plain Badge).
+
+## The S.S. Aqua
+
+The ship between Olivine City and Vermilion City runs as in Sacred Gold, with no weekly schedule. HeartGold's sailing
+scene (`ScrCmd_723`) is Platinum's boat scene (`PlayBoatCutscene`), sailing east from Olivine and west from Vermilion;
+Platinum's scene, which first sails its own ship out of the dock when there is one beside the player, now starts at the
+fade-out when there isn't (`src/cutscenes/boat_cutscene/boat_cutscene.c`), as at HeartGold's ports. The first trip's
+scenes and the cabin's rest play as in Sacred Gold. Test: `tools/complete/test_hgss_ferry.py` (boarding at each port,
+and arriving at each).
+
 ## Stand-ins
 
-HeartGold features no one has decided to keep yet, where Johto and Kanto's scripts reach them:
+HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
 
 - **Voltorb Flip** (the Goldenrod and Celadon Game Corners' machines): Platinum's slot machine stands in, on one of its
   12 machines (each with its own odds for the day). Porting Voltorb Flip is about 3,700 lines of HeartGold's code
   (`src/voltorb_flip/`) and its own graphics.
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
+- **Mom's savings** (New Bark Town): HeartGold keeps them with the Pokégear's data and takes amounts on its own number
+  window. Until they come (with the Pokétch and Pokégear question), she has nothing saved, and a deposit is called off.
+- **Ilex Forest's Headbutt tutor:** his check of which Pokémon can learn Headbutt (HeartGold's own tutor list) comes
+  with Headbutt trees; until then he says the Pokémon can't.

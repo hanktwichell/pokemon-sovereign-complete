@@ -29,7 +29,7 @@ scr_seq_T08GYM0101_000:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_JANINE, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _024B
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 5, _0266
     GoTo _026C
@@ -93,7 +93,7 @@ scr_seq_T08GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0408
     Message msg_0514_T08GYM0101_00000
@@ -104,6 +104,7 @@ scr_seq_T08GYM0101_001:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _041E
     SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
+    CompleteGiveBadge BADGE_ID_HGSS_SOUL
     AddVar VAR_HGSS_UNK_4135, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetTrainerFlag TRAINER_HGSS_PICNICKER_CINDY
@@ -121,7 +122,7 @@ scr_seq_T08GYM0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0479
     Message msg_0514_T08GYM0101_00005
@@ -133,7 +134,7 @@ scr_seq_T08GYM0101_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0484

@@ -62,7 +62,7 @@ scr_seq_R32_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _03DA
     GoToIfUnset FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT, _03E3
@@ -168,7 +168,7 @@ scr_seq_R32_010:
     ReleaseAll
     End
 _02C7:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0555
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -270,7 +270,7 @@ _0438:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _067E
     Message msg_0380_R32_00004
@@ -280,7 +280,7 @@ _0470:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _067E
     Message msg_0380_R32_00004

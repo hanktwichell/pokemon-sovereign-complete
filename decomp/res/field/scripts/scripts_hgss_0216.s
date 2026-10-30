@@ -150,7 +150,7 @@ _0258:
     GoToIf 5, _0523
     ClearFlag FLAG_HGSS_HIDE_ROUTE_25_EUSINE_2
     SetFlag FLAG_HGSS_HIDE_ROUTE_25_EUSINE
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0591
     CompareVar VAR_HGSS_SCENE_ROUTE_25, 1
@@ -324,7 +324,7 @@ _04FF:
     ReleaseAll
     End
 _0523:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0591
     CompareVar VAR_HGSS_SCENE_ROUTE_25, 1

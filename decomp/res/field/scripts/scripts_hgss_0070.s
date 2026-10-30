@@ -47,7 +47,7 @@ _00A6:
     GoToIf 1, _0200
     CompareVar VAR_RESULT, 5
     GoToIf 1, _0200
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     @ HGSS: ScrCmd_627 5
     ReturnToField
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 15, 6, DIR_NORTH
@@ -55,7 +55,7 @@ _00A6:
 _00E9:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     @ HGSS: ScrCmd_627 6
     ReturnToField
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 11, 6, DIR_NORTH
@@ -128,7 +128,7 @@ _01EC:
     SetInvisible
     EndMovement
 _0200:
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     @ HGSS: ScrCmd_627 5
     ReturnToField
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 19, 6, DIR_NORTH

@@ -17,7 +17,7 @@ scr_seq_T20R0402_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _00BE
     BufferPlayerName 0
@@ -77,7 +77,7 @@ _00BE:
     BufferPlayerName 0
     MessageGendered msg_0549_T20R0402_00005, msg_0549_T20R0402_00006
     WaitButton
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0159
     CloseMessage

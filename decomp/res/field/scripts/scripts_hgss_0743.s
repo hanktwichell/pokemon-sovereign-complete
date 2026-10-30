@@ -26,7 +26,7 @@ scr_seq_T02GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0192
     Message msg_0454_T02GYM0101_00000
@@ -35,6 +35,7 @@ scr_seq_T02GYM0101_000:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01A8
+    CompleteGiveBadge BADGE_ID_HGSS_EARTH
     AddVar VAR_HGSS_UNK_4135, 1
     SetFlag FLAG_HGSS_UNK_998
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
@@ -59,7 +60,7 @@ scr_seq_T02GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01FB
     Message msg_0454_T02GYM0101_00006
@@ -84,7 +85,7 @@ scr_seq_T02GYM0101_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0266

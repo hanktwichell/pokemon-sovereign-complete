@@ -120,7 +120,7 @@ _01E7:
     ClearFlag FLAG_HGSS_HIDE_SEAFOAM_ISLAND_ARTICUNO
     Return
 _01ED:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0204
     ClearFlag FLAG_HGSS_HIDE_ROUTE_10_ZAPDOS

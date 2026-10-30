@@ -35,6 +35,7 @@
 #include "comm_player_manager.h"
 #include "communication_information.h"
 #include "communication_system.h"
+#include "complete_badges.h" // Sovereign Complete
 #include "complete_gyms.h" // Sovereign Complete
 #include "complete_map_info.h"
 #include "daycare_save.h"
@@ -1068,7 +1069,7 @@ u16 Field_TileBehaviorToScript(FieldSystem *fieldSystem, u8 behavior)
         TrainerInfo *info = SaveData_GetTrainerInfo(fieldSystem->saveData);
         u32 distortionBehavior = PlayerAvatar_GetDistortionCurrTileBehaviour(fieldSystem->playerAvatar);
 
-        if (PlayerAvatar_CanUseSurf(fieldSystem->playerAvatar, distortionBehavior, behavior) && TrainerInfo_HasBadge(info, 3)) {
+        if (PlayerAvatar_CanUseSurf(fieldSystem->playerAvatar, distortionBehavior, behavior) && CompleteBadges_AllowsFieldMove(info, BADGE_ID_FEN)) { // Sovereign Complete: or the Fog Badge
             if (Sovereign_FieldMovePartySlot(fieldSystem->saveData, MOVE_SURF) != PARTY_SLOT_NONE) { // Sovereign: HM in the bag is enough
                 return SCRIPT_ID(FIELD_MOVES, 4);
             }

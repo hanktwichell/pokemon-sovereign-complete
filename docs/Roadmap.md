@@ -80,7 +80,11 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   example, Rowan offers a Sinnoh starter when the player arrives.
 - **Red at Mt. Silver:** before the player leaves for Sinnoh, or saved for the post-game.
 - **Level curve:** how far Johto and Kanto compress so that Sinnoh, third, still ends at Spear Pillar by Lv. 100
-  (Sovereign's developer battle is Lv. 100).
+  (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: for now they
+  list Sinnoh's fights only, so with the option on a player in Johto is held at Lv. 16.
+- **Badges for field moves (done this way for now):** a field move works with Sinnoh's badge for it or with
+  HeartGold's (Cut: Forest or Hive, Surf: Fen or Fog...), so Johto's badges open the field moves in Johto and they
+  keep working in Sinnoh (`docs/Features.md`, "Badges").
 - **The land between:** northern Honshu, between Kanto and Sinnoh, is empty on the real map. The Sinjoh Ruins path
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.

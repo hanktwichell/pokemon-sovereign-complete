@@ -29,7 +29,7 @@ scr_seq_D11R0106_009:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BLAINE, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _03A3
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 1
     GoToIf 1, _03BE
     ClearFlag FLAG_HGSS_HIDE_SEAFOAM_GYM_BLAINE
@@ -44,7 +44,7 @@ scr_seq_D11R0106_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_VOLCANO, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0403
     Message msg_0053_D11R0106_00000
@@ -53,6 +53,7 @@ scr_seq_D11R0106_000:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0419
+    CompleteGiveBadge BADGE_ID_HGSS_VOLCANO
     AddVar VAR_HGSS_UNK_4135, 1
     SetFlag FLAG_HGSS_UNK_265
     SetFlag FLAG_HGSS_HIDE_ROUTE_19_WORKMEN_CLOSED
@@ -180,7 +181,7 @@ scr_seq_D11R0106_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_VOLCANO, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0502
     Message msg_0053_D11R0106_00024

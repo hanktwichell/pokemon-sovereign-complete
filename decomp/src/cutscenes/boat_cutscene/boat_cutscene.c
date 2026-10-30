@@ -130,9 +130,9 @@ void FieldSystem_PlayBoatCutscene(FieldSystem *fieldSystem, const u8 travelDir, 
                 boatCutscene->state = BOAT_CUTSCENE_STATE_START_WITHOUT_BRIDGE;
             }
         } else {
-            GF_ASSERT(FALSE);
-            Heap_Free(boatCutscene);
-            return;
+            // Sovereign Complete: no Platinum ship beside the player (HeartGold's ports, whose S.S. Aqua is its own
+            // model): the scene starts at the fade-out, as it does for the other directions
+            boatCutscene->state = BOAT_CUTSCENE_STATE_FADE_OUT_START;
         }
     } else {
         boatCutscene->state = BOAT_CUTSCENE_STATE_FADE_OUT_START;

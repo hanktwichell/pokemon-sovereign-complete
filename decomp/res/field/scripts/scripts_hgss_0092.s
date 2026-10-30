@@ -416,7 +416,7 @@ scr_seq_D36R0101_026:
     ReleaseAll
     End
 _06A7:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _0C7A
     GetDayOfWeek VAR_MAP_LOCAL_0x00

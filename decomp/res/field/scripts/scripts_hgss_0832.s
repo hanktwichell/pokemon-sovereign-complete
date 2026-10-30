@@ -504,7 +504,7 @@ scr_seq_T11R0101_020:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -537,7 +537,7 @@ scr_seq_T11R0101_020:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -566,7 +566,7 @@ scr_seq_T11R0101_020:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -659,7 +659,7 @@ _09EA:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -740,7 +740,7 @@ _0AFC:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -761,7 +761,7 @@ _0AFC:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -778,7 +778,7 @@ _0AFC:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
-    @ HGSS: ScrCmd_436
+    WaitForTransition
     ReturnToField
     FadeScreen 8, 1, 1, COLOR_BLACK
     WaitFadeScreen

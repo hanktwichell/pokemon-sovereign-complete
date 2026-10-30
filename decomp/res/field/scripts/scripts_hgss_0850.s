@@ -128,7 +128,7 @@ scr_seq_T21_008:
     NPCMessage msg_0550_T21_00017
     End
 _022C:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _040D
     GetDayOfWeek VAR_MAP_LOCAL_0x00

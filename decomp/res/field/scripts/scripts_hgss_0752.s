@@ -14,7 +14,7 @@ scr_seq_T03GYM0101_003:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_BROCK, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _010F
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 1
     GoToIf 1, _012A
     GoTo _0145
@@ -22,7 +22,7 @@ scr_seq_T03GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_BOULDER, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _014B
     Message msg_0462_T03GYM0101_00000
@@ -31,6 +31,7 @@ scr_seq_T03GYM0101_000:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0164
+    CompleteGiveBadge BADGE_ID_HGSS_BOULDER
     AddVar VAR_HGSS_UNK_4135, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetTrainerFlag TRAINER_HGSS_CAMPER_JERRY
@@ -47,7 +48,7 @@ scr_seq_T03GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_BOULDER, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01BF
     Message msg_0462_T03GYM0101_00006
@@ -59,7 +60,7 @@ scr_seq_T03GYM0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_BOULDER, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _01CA

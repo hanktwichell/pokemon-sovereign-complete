@@ -33,7 +33,7 @@ scr_seq_T26GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MINERAL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _025D
     Message msg_0606_T26GYM0101_00000
@@ -48,6 +48,7 @@ scr_seq_T26GYM0101_000:
     Message msg_0606_T26GYM0101_00002
     PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
+    CompleteGiveBadge BADGE_ID_HGSS_MINERAL
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     CompareVar VAR_HGSS_MIDGAME_BADGES, 3
@@ -93,7 +94,7 @@ scr_seq_T26GYM0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MINERAL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0353
     Message msg_0606_T26GYM0101_00020
@@ -102,7 +103,7 @@ scr_seq_T26GYM0101_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MINERAL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 5, _038C
     Message msg_0606_T26GYM0101_00022
@@ -111,7 +112,7 @@ scr_seq_T26GYM0101_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MINERAL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03C5
     CompareVar VAR_HGSS_UNK_410E, 0
@@ -122,7 +123,7 @@ scr_seq_T26GYM0101_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MINERAL, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _03E3
@@ -280,7 +281,7 @@ _03FE:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0238
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 1
     GoToIf 1, _04EF
     GoTo _0238

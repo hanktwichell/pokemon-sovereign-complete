@@ -46,7 +46,7 @@ scr_seq_T27GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_FOG, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01EE
     Message msg_0614_T27GYM0101_00000
@@ -56,6 +56,7 @@ scr_seq_T27GYM0101_001:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0204
     Message msg_0614_T27GYM0101_00001
+    CompleteGiveBadge BADGE_ID_HGSS_FOG
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetFlag FLAG_HGSS_UNK_998
@@ -81,7 +82,7 @@ scr_seq_T27GYM0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_FOG, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0257
     Message msg_0614_T27GYM0101_00007
@@ -93,7 +94,7 @@ scr_seq_T27GYM0101_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_FOG, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0265

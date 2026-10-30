@@ -335,12 +335,12 @@ _04BD:
     ReleaseAll
     End
 _04C8:
-    @ HGSS: MonAddContestValue VAR_SPECIAL_x8005, 1, 16
-    @ HGSS: MonAddContestValue VAR_SPECIAL_x8005, 5, 11
+    CompleteMonAddContestValue VAR_0x8005, 1, 16
+    CompleteMonAddContestValue VAR_0x8005, 5, 11
     Return
 _04D8:
-    @ HGSS: MonAddContestValue VAR_SPECIAL_x8005, 1, 24
-    @ HGSS: MonAddContestValue VAR_SPECIAL_x8005, 5, 18
+    CompleteMonAddContestValue VAR_0x8005, 1, 24
+    CompleteMonAddContestValue VAR_0x8005, 5, 18
     Return
 scr_seq_D37R0102_003:
     PlaySE SE_CONFIRM_sseq_3

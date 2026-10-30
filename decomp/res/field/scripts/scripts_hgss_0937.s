@@ -30,7 +30,7 @@ scr_seq_T28R0201_001:
     LockAll
     FacePlayer
     BufferPlayerName 0
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _00F6
     Message msg_0625_T28R0201_00005
@@ -39,7 +39,7 @@ scr_seq_T28R0201_001:
     ReleaseAll
     End
 _007B:
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _00A4
     Message msg_0625_T28R0201_00004

@@ -17,7 +17,7 @@ scr_seq_T22GYM0101_000:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_FALKNER, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _007E
-    SetVarFromValue VAR_MAP_LOCAL_0x01, 0
+    CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _005B
     GoTo _00A1
@@ -51,7 +51,7 @@ scr_seq_T22GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0168
     Message msg_0558_T22GYM0101_00000
@@ -60,6 +60,7 @@ scr_seq_T22GYM0101_001:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _017E
+    CompleteGiveBadge BADGE_ID_HGSS_ZEPHYR
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
     SetTrainerFlag TRAINER_HGSS_BIRD_KEEPER_GS_ROD
     SetTrainerFlag TRAINER_HGSS_BIRD_KEEPER_GS_ABE
@@ -108,7 +109,7 @@ scr_seq_T22GYM0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01AA
     Message msg_0558_T22GYM0101_00007
@@ -129,7 +130,7 @@ scr_seq_T22GYM0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_ZEPHYR, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _01EF

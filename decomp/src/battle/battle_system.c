@@ -11,6 +11,7 @@
 #include "constants/items.h"
 #include "constants/rtc.h"
 #include "generated/abilities.h"
+#include "generated/badges.h" // Sovereign Complete
 #include "generated/battle_backgrounds.h"
 #include "generated/species.h"
 #include "generated/trainer_message_types.h"
@@ -1562,6 +1563,11 @@ u32 BattleSystem_CalcMoneyPenalty(Party *party, TrainerInfo *trainerInfo)
     };
 
     u8 badges = TrainerInfo_BadgeCount(trainerInfo);
+
+    if (badges > MAX_BADGES) { // Sovereign Complete: up to 24 badges; the table goes to eight
+        badges = MAX_BADGES;
+    }
+
     u32 penalty = Party_GetMaxLevel(party) * 4 * badgeMul[badges];
     u32 curMoney = TrainerInfo_Money(trainerInfo);
 

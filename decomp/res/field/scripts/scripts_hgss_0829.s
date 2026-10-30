@@ -16,7 +16,7 @@ scr_seq_T11GYM0101_004:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_SABRINA, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _016C
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MARSH, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0183
     GoTo _019A
@@ -24,7 +24,7 @@ scr_seq_T11GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MARSH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01A0
     Message msg_0531_T11GYM0101_00000
@@ -33,6 +33,7 @@ scr_seq_T11GYM0101_000:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01B6
+    CompleteGiveBadge BADGE_ID_HGSS_MARSH
     SetFlag FLAG_HGSS_UNK_265
     SetFlag FLAG_HGSS_HIDE_ROUTE_19_WORKMEN_CLOSED
     ClearFlag FLAG_HGSS_HIDE_ROUTE_19_WORKMEN_OPEN
@@ -54,7 +55,7 @@ scr_seq_T11GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MARSH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0206
     Message msg_0531_T11GYM0101_00006
@@ -66,7 +67,7 @@ scr_seq_T11GYM0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_MARSH, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0211

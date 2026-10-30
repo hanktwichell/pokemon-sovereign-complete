@@ -314,7 +314,7 @@ scr_seq_D51R0201_014:
     GoToIfUnset FLAG_HGSS_SG_3FC5, _0778
     GoToIfUnset FLAG_HGSS_SG_3FC4, _0778
     GoToIfSet FLAG_HGSS_SG_3FC3, _078F
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0B3A
     CompleteFollowerReturn

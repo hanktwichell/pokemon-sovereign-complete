@@ -15,7 +15,7 @@ scr_seq_R02R0401_001:
     FacePlayer
     ApplyMovement obj_R02R0401_counterm, _007C
     WaitMovement
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _006B
     Message msg_0324_R02R0401_00001

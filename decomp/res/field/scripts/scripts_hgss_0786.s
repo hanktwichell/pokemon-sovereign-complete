@@ -13,7 +13,7 @@ scr_seq_T07GYM0101_002:
     @ HGSS: CheckRegisteredPhoneNumber PHONE_CONTACT_ERIKA, VAR_TEMP_x4001
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _00EF
-    SetVarFromValue VAR_MAP_LOCAL_0x02, 0
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 1
     GoToIf 1, _010A
     GoTo _0121
@@ -21,7 +21,7 @@ scr_seq_T07GYM0101_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_RAINBOW, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0127
     Message msg_0492_T07GYM0101_00000
@@ -30,6 +30,7 @@ scr_seq_T07GYM0101_000:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _013D
+    CompleteGiveBadge BADGE_ID_HGSS_RAINBOW
     SetVarFromValue VAR_HGSS_SG_6135, 2
     AddVar VAR_HGSS_UNK_4135, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
@@ -48,7 +49,7 @@ scr_seq_T07GYM0101_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    SetVarFromValue VAR_RESULT, 0
+    CompleteCheckBadge BADGE_ID_HGSS_RAINBOW, VAR_RESULT
     BufferPlayerName 0
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0198

@@ -23,6 +23,7 @@
 #include "generated/poketch_apps.h"
 #include "generated/roaming_slots.h"
 #include "constants/hgss_spawns.h" // Sovereign Complete: HeartGold's spawn points' warp IDs
+#include "constants/hgss_badges.h" // Sovereign Complete: Johto's and Kanto's badges
 #include "generated/save_types.h"
 #include "res/sound/pl_sound_data.naix"
 #include "generated/signpost_commands.h"
@@ -5875,6 +5876,35 @@
     .macro CompleteJohtoClearGame vsTrainerRed
     .short SCRCMD_COMPLETEJOHTOCLEARGAME
     .short \vsTrainerRed
+    .endm
+
+    // HeartGold's MonAddContestValue: adds amount to party Pokémon partySlot's contest condition attribute (0 Cool to
+    // 5 Sheen)
+    .macro CompleteMonAddContestValue partySlot, attribute, amount
+    .short SCRCMD_COMPLETEMONADDCONTESTVALUE
+    .short \partySlot
+    .byte \attribute
+    .short \amount
+    .endm
+
+    // Johto's and Kanto's badges (HeartGold's GiveBadge and CheckBadge): BADGE_ID_HGSS_*
+    .macro CompleteGiveBadge badge
+    .short SCRCMD_COMPLETEGIVEBADGE
+    .short \badge
+    .endm
+
+    .macro CompleteCheckBadge badge, destVarID
+    .short SCRCMD_COMPLETECHECKBADGE
+    .short \badge
+    .short \destVarID
+    .endm
+
+    // Whether the player may use the field move Sinnoh's badge (BADGE_ID_*) allows: with it, or with the badge that
+    // allows the move in HeartGold
+    .macro CompleteCheckFieldMoveBadge badge, destVarID
+    .short SCRCMD_COMPLETECHECKFIELDMOVEBADGE
+    .short \badge
+    .short \destVarID
     .endm
 
     .text

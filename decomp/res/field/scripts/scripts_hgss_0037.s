@@ -108,7 +108,7 @@ _01AB:
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 9
     GoToIf 4, _0382
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 1
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _03CA
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -205,7 +205,7 @@ _0320:
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _07FA
     GoTo _04E2
 _0382:
-    SetVarFromValue VAR_MAP_LOCAL_0x00, 0
+    CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 1, _03CA
     GetDayOfWeek VAR_MAP_LOCAL_0x00
