@@ -25,6 +25,7 @@ BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckStaticNotBeaten(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerPutAway(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerReturn(ScriptContext *ctx);
+BOOL CompleteScrCmd_FollowerPlace(ScriptContext *ctx);
 BOOL CompleteScrCmd_ScreenShake(ScriptContext *ctx);
 BOOL CompleteScrCmd_SetHGSSFlagFromVar(ScriptContext *ctx);
 BOOL CompleteScrCmd_ClearHGSSFlagFromVar(ScriptContext *ctx);

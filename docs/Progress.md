@@ -456,3 +456,8 @@ Test results on the new test build:
   of a species are in the party (Saffron's Rotom fan), whether Kyogre or Groudon is (Professor Oak), whether a party
   Pokémon came from another trainer, a Pokémon's effort total (Blackthorn's checker), and whether every Unown letter has
   been seen (the Ruins of Alph's researchers). 98.4% of Sacred Gold's script lines translate (1,320 left).
+- **Follower and scene leftovers.** The follower now comes out beside the player when Elm hands over the starter, and in
+  Route 3's scenes (HeartGold's `ScrCmd_605`, `CompleteFollowerPlace`; the Poké Ball effect as it comes out isn't
+  ported). Scenes that move the player now also set where Escape Rope and Dig lead (HeartGold's `ScrCmd_582`,
+  Platinum's exit location), and Celebi's time travel fades to white until its own scene is ported. Test:
+  `tools/complete/test_hgss_starter.py` (passes; the follower stands east of the player after the gift).

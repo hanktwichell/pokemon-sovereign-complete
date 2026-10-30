@@ -5965,6 +5965,12 @@
     .short \destVarID
     .endm
 
+    .macro CompleteFollowerPlace dir, facing
+    .short SCRCMD_COMPLETEFOLLOWERPLACE
+    .byte \dir
+    .byte \facing
+    .endm
+
     .text
     .globl _start
 _start:

@@ -38,6 +38,7 @@
 #include "field_system.h"
 #include "inlines.h"
 #include "map_object.h"
+#include "map_object_move.h"
 #include "message.h"
 #include "party.h"
 #include "pokedex.h"
@@ -150,6 +151,29 @@ BOOL CompleteScrCmd_FollowerPutAway(ScriptContext *ctx)
 BOOL CompleteScrCmd_FollowerReturn(ScriptContext *ctx)
 {
     CompleteFollower_Refresh(ctx->fieldSystem);
+    return FALSE;
+}
+
+// HeartGold's ScrCmd_605: the follower stands a tile from the player in direction dir, facing facing (after Elm gives
+// the starter, it comes out there; HeartGold's ScrCmd_608 then plays its ball's effect, which isn't ported).
+BOOL CompleteScrCmd_FollowerPlace(ScriptContext *ctx)
+{
+    u8 dir = ScriptContext_ReadByte(ctx);
+    u8 facing = ScriptContext_ReadByte(ctx);
+    PlayerAvatar *playerAvatar = ctx->fieldSystem->playerAvatar;
+
+    if (Follower(ctx) == NULL) {
+        CompleteFollower_Refresh(ctx->fieldSystem);
+    }
+
+    MapObject *follower = Follower(ctx);
+
+    if (follower != NULL) {
+        MapObject_SetPosDirFromCoords(follower, PlayerAvatar_GetXPos(playerAvatar) + MapObject_GetDxFromDir(dir), 0,
+            PlayerAvatar_GetZPos(playerAvatar) + MapObject_GetDzFromDir(dir), facing);
+        MapObject_RecalculateObjectHeight(follower);
+    }
+
     return FALSE;
 }
 

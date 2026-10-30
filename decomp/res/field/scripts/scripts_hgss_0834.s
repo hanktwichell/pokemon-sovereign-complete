@@ -16,7 +16,7 @@
     ScriptEntry scr_seq_T11R0601_008
     ScriptEntryEnd
 scr_seq_T11R0601_006:
-    @ HGSS: ScrCmd_582 MAP_GOLDENROD, 1290, 209
+    ScrCmd_2B5 MAP_HEADER_HGSS_GOLDENROD, 1290, 209
     GoToIfSet FLAG_HGSS_RESTORED_POWER, _0200
     GoTo _0241
 scr_seq_T11R0601_005:

@@ -53,9 +53,8 @@ scr_seq_T20R0101_012:
     WaitFadeScreen
     GivePokemon VAR_HGSS_PLAYER_STARTER, 5, ITEM_NONE, VAR_RESULT
     SetFlag FLAG_HGSS_GOT_STARTER
-    @ HGSS: ScrCmd_605 3, 2
+    CompleteFollowerPlace 3, 2
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     GetPartyMonSpecies 0, VAR_MAP_LOCAL_0x01

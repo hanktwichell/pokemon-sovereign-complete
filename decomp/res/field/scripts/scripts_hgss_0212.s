@@ -163,7 +163,8 @@ scr_seq_R22_003:
     WaitMovement
     MessageGendered msg_0360_R22_00024, msg_0360_R22_00023
     CloseMessage
-    @ HGSS: ScrCmd_810
+    FadeScreen 6, 6, 0, COLOR_WHITE
+    WaitFadeScreen
     SetVarFromValue VAR_HGSS_UNK_40FE, 2
     ClearFlag FLAG_HGSS_HIDE_TOHJO_FALLS_GIOVANNI
     ClearFlag FLAG_HGSS_HIDE_TOHJO_FALLS_FRIEND

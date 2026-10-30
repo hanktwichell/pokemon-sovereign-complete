@@ -21,7 +21,7 @@ _002D:
     SetPosition obj_P01R0102_seaman_2, 28, 0, 22, DIR_WEST
     End
 scr_seq_P01R0102_005:
-    @ HGSS: ScrCmd_582 MAP_OLIVINE, 279, 276
+    ScrCmd_2B5 MAP_HEADER_HGSS_OLIVINE, 279, 276
     GoToIfUnset FLAG_HGSS_UNK_189, _0054
     ClearFlag FLAG_HGSS_UNK_189
     End

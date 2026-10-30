@@ -280,7 +280,7 @@ scr_seq_T20_010:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_582 MAP_NEW_BARK, 688, 393
+    ScrCmd_2B5 MAP_HEADER_HGSS_NEW_BARK, 688, 393
     SetVarFromValue VAR_HGSS_UNK_407C, 1
     End
 scr_seq_T20_016:
@@ -1020,7 +1020,7 @@ _1306:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
-    @ HGSS: ScrCmd_582 MAP_NEW_BARK, 688, 393
+    ScrCmd_2B5 MAP_HEADER_HGSS_NEW_BARK, 688, 393
     SetVarFromValue VAR_HGSS_UNK_407C, 1
     End
 _1342:

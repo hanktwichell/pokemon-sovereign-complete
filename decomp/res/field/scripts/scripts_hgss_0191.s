@@ -60,7 +60,7 @@ scr_seq_R10_000:
     Warp MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_BROKEN, 7, 20, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_582 MAP_ROUTE_10, 1423, 185
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_10, 1423, 185
     ReleaseAll
     End
 scr_seq_R10_003:
@@ -179,7 +179,7 @@ _0299:
     Warp MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_REPAIRED, 7, 20, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_582 MAP_ROUTE_10, 1423, 185
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_10, 1423, 185
     ReleaseAll
     End
 _02F1:
@@ -189,7 +189,7 @@ _02F1:
     Warp MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_BROKEN, 7, 20, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_582 MAP_ROUTE_10, 1423, 185
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_10, 1423, 185
     ReleaseAll
     End
 _0325:
@@ -223,7 +223,7 @@ _0372:
     Warp MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_REPAIRED, 7, 20, DIR_NORTH
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_582 MAP_ROUTE_10, 1423, 185
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_10, 1423, 185
     ReleaseAll
     End
 _03A6:

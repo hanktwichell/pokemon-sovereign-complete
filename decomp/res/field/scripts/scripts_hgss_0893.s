@@ -14,7 +14,7 @@
     ScriptEntry scr_seq_T25R0501_008
     ScriptEntryEnd
 scr_seq_T25R0501_006:
-    @ HGSS: ScrCmd_582 MAP_GOLDENROD, 348, 350
+    ScrCmd_2B5 MAP_HEADER_HGSS_GOLDENROD, 348, 350
     GoToIfSet FLAG_HGSS_RESTORED_POWER, _0162
     End
 scr_seq_T25R0501_005:

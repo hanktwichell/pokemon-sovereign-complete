@@ -638,7 +638,7 @@ _09E7:
     UnloadAnimation 77
     SetVarFromValue VAR_HGSS_UNK_408E, 1
     Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
-    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_34, 368, 411
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     ReleaseAll
@@ -681,7 +681,7 @@ _0AA3:
     UnloadAnimation 77
     SetVarFromValue VAR_HGSS_UNK_408E, 1
     Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
-    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_34, 368, 411
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     ReleaseAll
@@ -693,7 +693,7 @@ _0B5C:
     UnloadAnimation 77
     SetVarFromValue VAR_HGSS_UNK_408E, 1
     Warp MAP_HEADER_HGSS_ROUTE_34_DAYCARE, 3, 12, DIR_NORTH
-    @ HGSS: ScrCmd_582 MAP_ROUTE_34, 368, 411
+    ScrCmd_2B5 MAP_HEADER_HGSS_ROUTE_34, 368, 411
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     ReleaseAll

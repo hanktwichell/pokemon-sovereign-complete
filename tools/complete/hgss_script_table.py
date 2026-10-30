@@ -331,6 +331,11 @@ COMMANDS = {
     # Elevators: the dynamic warp is Platinum's special location, the floor window and animation are the same;
     # HeartGold's floor numbers and names (its 6F) come from src/complete_scrcmd.c
     'SetDynamicWarp': one('SetSpecialLocation {0}, {1}, {2}, {3}, {4}'),
+    # Where Escape Rope and Dig lead (the last place outside), after a scene moves the player: Platinum's exit location
+    'ScrCmd_582': one('ScrCmd_2B5 {0}, {1}, {2}'),
+    # Celebi's time travel (Sacred Gold's GS Ball story): HeartGold's scene ends on a white screen, which the scripts
+    # then fade in from; until the scene is ported, a fade to white
+    'ScrCmd_810': lambda a: ['FadeScreen 6, 6, 0, COLOR_WHITE', 'WaitFadeScreen'],
     'GetDynamicWarpFloorNo': one('CompleteGetElevatorFloor {0}'),
     'BufferDeptStoreFloorNo': one('CompleteBufferFloorName {0}, {1}'),
     'ElevatorCurFloorBox': one('ShowCurrentFloor {0}, {1}, {2}'),
@@ -540,6 +545,8 @@ COMMANDS = {
     'WaitFollowingPokemonMovement': lambda a: ['CompleteFollowerWait'],
     'FollowingPokemonMovement': lambda a: [f'CompleteFollowerSetMovementType {FOLLOWER_MOVEMENT_TYPES[int(a[0])]}'],
     'ScrCmd_729': one('CompleteFollowerCheckActive {0}'),
+    'ScrCmd_605': one('CompleteFollowerPlace {0}, {1}'),
+    'ScrCmd_608': lambda a: [],  # the follower's ball effect as it comes out, not ported
     'ScrCmd_596': one('CompleteFollowerIsTooTall {0}'),
     'ScrCmd_723': boat_cutscene,
     'ScrCmd_517': one('CheckPartyHasSpecies2 {0}, {1}'),  # Route 3's meteorites: whether a Deoxys is in the party

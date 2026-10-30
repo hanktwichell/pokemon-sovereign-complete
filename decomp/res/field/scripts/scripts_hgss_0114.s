@@ -158,7 +158,8 @@ _0265:
     SetFlag FLAG_HGSS_HIDE_TOHJO_FALLS_GIOVANNI
     Message msg_0131_D45R0102_00019
     CloseMessage
-    @ HGSS: ScrCmd_810
+    FadeScreen 6, 6, 0, COLOR_WHITE
+    WaitFadeScreen
     SetFlag FLAG_HGSS_UNK_178
     SetVarFromValue VAR_HGSS_UNK_40FE, 0
     SetFlag FLAG_HGSS_HIDE_ILEX_FOREST_FRIEND
@@ -188,7 +189,8 @@ _02D5:
 _0317:
     MessageGendered msg_0131_D45R0102_00018, msg_0131_D45R0102_00017
     CloseMessage
-    @ HGSS: ScrCmd_810
+    FadeScreen 6, 6, 0, COLOR_WHITE
+    WaitFadeScreen
     ClearFlag FLAG_HGSS_HIDE_ILEX_FOREST_FRIEND
     Warp MAP_HEADER_HGSS_ILEX_FOREST, 16, 57, DIR_SOUTH
     FadeScreen 6, 15, 1, COLOR_WHITE
@@ -196,7 +198,8 @@ _0317:
     ReleaseAll
     End
 _0343:
-    @ HGSS: ScrCmd_810
+    FadeScreen 6, 6, 0, COLOR_WHITE
+    WaitFadeScreen
     ClearFlag FLAG_HGSS_HIDE_ILEX_FOREST_FRIEND
     Warp MAP_HEADER_HGSS_ILEX_FOREST, 16, 57, DIR_SOUTH
     FadeScreen 6, 15, 1, COLOR_WHITE

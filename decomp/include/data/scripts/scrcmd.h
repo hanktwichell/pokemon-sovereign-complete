@@ -940,6 +940,7 @@ ScriptCommand(SCRCMD_COMPLETECHECKKYOGREGROUDONINPARTY,                 Complete
 ScriptCommand(SCRCMD_COMPLETEPARTYMONISNOTMINE,                         CompleteScrCmd_PartyMonIsNotMine)
 ScriptCommand(SCRCMD_COMPLETEGETEVTOTAL,                                CompleteScrCmd_GetEVTotal)
 ScriptCommand(SCRCMD_COMPLETECHECKSEENALLUNOWNLETTERS,                  CompleteScrCmd_CheckSeenAllUnownLetters)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERPLACE,                             CompleteScrCmd_FollowerPlace)
 
 // clang-format on
 

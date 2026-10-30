@@ -134,7 +134,7 @@ _0225:
     GoToIf 1, _04F9
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0514
-    @ HGSS: ScrCmd_605 0, 1
+    CompleteFollowerPlace 0, 1
     GoTo _0543
 _0273:
     PlayCry SPECIES_DEOXYS, 0
@@ -152,7 +152,7 @@ _0282:
     GoToIf 1, _0578
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0593
-    @ HGSS: ScrCmd_605 0, 1
+    CompleteFollowerPlace 0, 1
     GoTo _05AA
 _02D0:
     PlayCry SPECIES_DEOXYS, 0
@@ -168,9 +168,8 @@ _02DF:
     CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05D5
-    @ HGSS: ScrCmd_605 2, 3
+    CompleteFollowerPlace 2, 3
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -192,9 +191,8 @@ _0354:
     CheckPlayerOnBike VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05F0
-    @ HGSS: ScrCmd_605 3, 2
+    CompleteFollowerPlace 3, 2
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -296,9 +294,8 @@ _04F9:
     Message msg_0326_R03_00002
     GoTo _056E
 _0514:
-    @ HGSS: ScrCmd_605 3, 2
+    CompleteFollowerPlace 3, 2
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -308,7 +305,6 @@ _0514:
     GoTo _056E
 _0543:
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -331,11 +327,10 @@ _0578:
 _0593:
     CompareVar VAR_RESULT, 3
     GoToIf 5, _0674
-    @ HGSS: ScrCmd_605 0, 1
+    CompleteFollowerPlace 0, 1
     GoTo _05AA
 _05AA:
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -380,9 +375,8 @@ _060F:
     ReleaseAll
     End
 _0674:
-    @ HGSS: ScrCmd_605 3, 2
+    CompleteFollowerPlace 3, 2
     CompleteFollowerPause 0
-    @ HGSS: ScrCmd_608
     WaitTime 10, VAR_RESULT
     CompleteFollowerPause 1
     FadeScreen 6, 1, 1, COLOR_BLACK

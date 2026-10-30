@@ -1066,7 +1066,8 @@ _10DB:
     WaitCry
     ApplyMovement LOCALID_PLAYER, _2466
     WaitMovement
-    @ HGSS: ScrCmd_810
+    FadeScreen 6, 6, 0, COLOR_WHITE
+    WaitFadeScreen
     SetPosition 19, 17, 0, 56, DIR_SOUTH
     FadeScreen 6, 15, 1, COLOR_WHITE
     WaitFadeScreen
@@ -1519,7 +1520,8 @@ _1834:
     WaitMovement
     MessageGendered msg_0115_D36R0101_00059, msg_0115_D36R0101_00058
     CloseMessage
-    @ HGSS: ScrCmd_810
+    FadeScreen 6, 6, 0, COLOR_WHITE
+    WaitFadeScreen
     SetVarFromValue VAR_HGSS_UNK_40FE, 1
     ClearFlag FLAG_HGSS_HIDE_ROUTE_22_GIOVANNI_RIVAL
     ClearFlag FLAG_HGSS_HIDE_ROUTE_22_FRIEND
