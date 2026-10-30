@@ -983,6 +983,7 @@ ScriptCommand(SCRCMD_COMPLETESIZERECORDUPDATE,                         CompleteS
 ScriptCommand(SCRCMD_COMPLETEBUFFERRECORDSIZE,                         CompleteScrCmd_BufferRecordSize)
 ScriptCommand(SCRCMD_COMPLETECHECKJOHTODEXCOMPLETE,                    CompleteScrCmd_CheckJohtoDexComplete)
 ScriptCommand(SCRCMD_COMPLETEGIVERANDOMSEAL,                           CompleteScrCmd_GiveRandomSeal)
+ScriptCommand(SCRCMD_COMPLETECHECKLASTBATTLENOTBEATEN,                 CompleteScrCmd_CheckLastBattleNotBeaten)
 
 // clang-format on
 

@@ -24,6 +24,7 @@ BOOL CompleteScrCmd_SizeRecordUpdate(ScriptContext *ctx);
 BOOL CompleteScrCmd_BufferRecordSize(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckJohtoDexComplete(ScriptContext *ctx);
 BOOL CompleteScrCmd_GiveRandomSeal(ScriptContext *ctx);
+BOOL CompleteScrCmd_CheckLastBattleNotBeaten(ScriptContext *ctx);
 BOOL CompleteScrCmd_StartJohtoStarterScene(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetChosenStarter(ScriptContext *ctx);
 BOOL CompleteScrCmd_PlaceStarterBalls(ScriptContext *ctx);

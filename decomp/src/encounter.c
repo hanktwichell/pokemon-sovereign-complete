@@ -191,8 +191,14 @@ static BOOL CheckPlayerWonEncounter(Encounter *encounter)
     return CheckPlayerWonBattle(encounter->dto->resultMask);
 }
 
+// Sovereign Complete: the last battle's result (BATTLE_RESULT_*), as HeartGold keeps it in VAR_BATTLE_RESULT for its maps'
+// scripts on returning from a battle, which run before the battle's script goes on
+int gCompleteLastBattleResult;
+
 static void UpdateFieldSystemFromDTO(const FieldBattleDTO *dto, FieldSystem *fieldSystem)
 {
+    gCompleteLastBattleResult = dto->resultMask; // Sovereign Complete
+
     if (dto->battleType & BATTLE_TYPE_DEBUG) {
         return;
     }

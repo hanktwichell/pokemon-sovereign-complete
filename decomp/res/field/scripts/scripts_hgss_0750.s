@@ -312,7 +312,7 @@ _0490:
     GoToIf 1, _06A0
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _06A0
-    @ HGSS: LatiCaughtCheck VAR_SPECIAL_RESULT
+    CompleteCheckLastBattleNotBeaten VAR_RESULT, 1
     CompareVar VAR_RESULT, 1
     GoToIf 1, _06A8
     CompareVar VAR_RESULT, 0
@@ -333,7 +333,7 @@ _0508:
     GoToIf 1, _06A0
     CompareVar VAR_MAP_LOCAL_0x00, 3
     GoToIf 1, _06A0
-    @ HGSS: LatiCaughtCheck VAR_SPECIAL_RESULT
+    CompleteCheckLastBattleNotBeaten VAR_RESULT, 1
     CompareVar VAR_RESULT, 1
     GoToIf 1, _06A8
     CompareVar VAR_RESULT, 0

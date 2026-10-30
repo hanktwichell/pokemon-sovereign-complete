@@ -741,6 +741,20 @@ BOOL CompleteScrCmd_CheckStaticNotBeaten(ScriptContext *ctx)
     return TRUE;
 }
 
+// HeartGold's StaticWildWonOrCaughtCheck's form 1 and LatiCaughtCheck, on the result HeartGold keeps in VAR_BATTLE_RESULT
+// (src/encounter.c), which a map's script on returning from the battle (its OnResume, as in Team Rocket's hideout)
+// reads before the battle's own script goes on: whether the Pokémon got away, neither beaten nor caught (caughtOnly 0),
+// or wasn't caught (caughtOnly 1: Pewter City's Latias or Latios, who flees)
+BOOL CompleteScrCmd_CheckLastBattleNotBeaten(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u16 caughtOnly = ScriptContext_ReadHalfWord(ctx);
+
+    *destVar = gCompleteLastBattleResult != BATTLE_RESULT_CAPTURED_MON
+        && (caughtOnly || gCompleteLastBattleResult != BATTLE_RESULT_WIN);
+    return FALSE;
+}
+
 typedef struct ScreenShake {
     VecFx32 offset;
     fx32 amplitudeX;

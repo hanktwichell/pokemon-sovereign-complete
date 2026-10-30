@@ -6225,6 +6225,14 @@
     .short \destVarID3
     .endm
 
+    // destVarID: whether the last battle's Pokémon got away, neither beaten nor caught, or with caughtOnly, wasn't caught
+    // (HeartGold's StaticWildWonOrCaughtCheck form 1, from VAR_BATTLE_RESULT, and LatiCaughtCheck)
+    .macro CompleteCheckLastBattleNotBeaten destVarID, caughtOnly
+    .short SCRCMD_COMPLETECHECKLASTBATTLENOTBEATEN
+    .short \destVarID
+    .short \caughtOnly
+    .endm
+
     .text
     .globl _start
 _start:

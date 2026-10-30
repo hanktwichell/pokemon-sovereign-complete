@@ -107,6 +107,10 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   its record in a var of its own, `VAR_HGSS_MAGIKARP_SIZE_RECORD`, so Sinnoh's contest record stays apart; HeartGold's
   new game sets it to 3'6" in code, so `InitNewGame` does (the translator writes it with HeartGold's flags).
   `BufferMonSize` is Platinum's `BufferPartyPokemonSize`; the other three are `CompleteSizeRecordCompare` and the rest.
+- `StaticWildWonOrCaughtCheck`'s second form and `LatiCaughtCheck` read the last battle's result as HeartGold keeps it
+  in `VAR_BATTLE_RESULT` (its map scripts on returning from a battle run before the battle's script goes on, when the
+  script's own result isn't reachable): `src/encounter.c` keeps it in `gCompleteLastBattleResult`, and
+  `CompleteCheckLastBattleNotBeaten` reads it.
 - `RocketTrapBattle` (Team Rocket's traps and Azalea's Spiritomb) is HeartGold's wild battle without the legendary
   flag, so `CompleteStartWildBattle` too. `FollowerPokeIsEventTrigger` asks whether a party Pokémon is a distributed
   event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, read from its met data); Sacred Gold gives these

@@ -274,7 +274,7 @@ _040C:
     GoToIf 4, _0949
     End
 _0440:
-    @ HGSS: StaticWildWonOrCaughtCheck VAR_MAP_LOCAL_0x00, 1
+    CompleteCheckLastBattleNotBeaten VAR_MAP_LOCAL_0x00, 0
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 1, _0976
     CompareVar VAR_MAP_LOCAL_0x0A, 1

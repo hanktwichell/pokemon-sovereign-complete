@@ -573,7 +573,9 @@ Test results on the new test build:
 - **Smaller ones:** the Celadon Condominiums' game designer checks HeartGold's Johto Pokédex
   (`tools/complete/import_hgss_johto_dex.py`; Mew and Celebi aside) and shows Platinum's National Pokédex diploma for
   the National one (the Johto certificate has no screen yet); Olivine City's seal gift puts three random seals in the
-  Seal Case. 98.8% of Sacred Gold's script lines translate (1,007 left).
+  Seal Case; the last battle's result is kept as HeartGold keeps it (`VAR_BATTLE_RESULT`), for the scripts that read
+  it on returning from a battle (Team Rocket's hideout's Electrodes, whose talk-test runs end) and for Pewter City's
+  Latias or Latios. 98.8% of Sacred Gold's script lines translate (1,005 left).
 - **The test build** notes the party screen `SelectMoveTutorPokemon` opens as a menu, as the trade's already was, so a
   test can pick a Pokémon there (HeartGold's scripts pick one with it).
 - **The talk test over every added person** (`tools/test/talk_to_objects.py`, 5,865 on this build) is running. Fixed

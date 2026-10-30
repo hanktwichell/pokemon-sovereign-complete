@@ -27,4 +27,7 @@ void Encounter_NewVsGiratinaOrigin(FieldTask *task, u16 species, u8 level, int *
 void Encounter_SovereignTestNewVsWildForm(FieldTask *task, u16 species, u8 form, u8 level, u16 move, BOOL shiny, int *resultMaskPtr);
 #endif
 
+// Sovereign Complete: the last battle's result (BATTLE_RESULT_*), for HeartGold's scripts on returning from it
+extern int gCompleteLastBattleResult;
+
 #endif // POKEPLATINUM_ENCOUNTER_H
