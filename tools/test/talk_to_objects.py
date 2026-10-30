@@ -308,6 +308,11 @@ def cases():
             x, z = o['x'], o['z']
             if (o['graphics_id'], x, z) in old or maps.tile(matrix, x, z) is None or not o.get('script'):
                 continue
+            # Sovereign Complete: an object with no script (0xFFFF) is a copy of the next map's object, shown across the
+            # border, and that object is tested on its own map; standing on the next map's tiles under this map, the
+            # field would start script 0xFFFF
+            if o['script'] == 0xFFFF:
+                continue
             header = header_at(headers_of, grid, x, z)
             stand = stand_next_to(maps, matrix, grid, warps, taken, x, z)
             out.append((events, object_key(o), ids.index(header), way_in_to(maps, matrix, grid, cur, header, taken,
