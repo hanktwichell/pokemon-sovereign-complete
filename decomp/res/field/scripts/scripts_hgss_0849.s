@@ -70,7 +70,7 @@ _00BC:
     End
 _00BE:
     GetFirstNonEggInParty VAR_0x8006
-    @ HGSS: GetShinyLeafCount VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT
+    CompleteGetShinyLeafCount VAR_0x8006, VAR_RESULT
     GoToIfSet FLAG_HGSS_SHOWED_FRIEND_A_SHINY_LEAF, _0113
     CompareVar VAR_RESULT, 1
     GoToIf 4, _0146
@@ -135,7 +135,7 @@ _01AE:
     CloseMessage
     GoTo _0260
 _01C6:
-    @ HGSS: TryGiveShinyLeafCrown VAR_SPECIAL_x8006
+    CompleteGiveShinyLeafCrown VAR_0x8006
     SetFlag FLAG_HGSS_UNK_184
     BufferPlayerName 0
     MessageGendered msg_0549_T20R0402_00011, msg_0549_T20R0402_00012

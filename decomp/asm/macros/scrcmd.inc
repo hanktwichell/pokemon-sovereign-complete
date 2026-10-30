@@ -26,6 +26,7 @@
 #include "constants/hgss_badges.h" // Sovereign Complete: Johto's and Kanto's badges
 #include "constants/hgss_phone.h" // Sovereign Complete: the Pokégear phone
 #include "constants/complete_field_encounters.h" // Sovereign Complete: Headbutt trees and Rock Smash
+#include "constants/complete_follower_talk.h" // Sovereign Complete: talking to the following Pokémon
 #include "generated/save_types.h"
 #include "res/sound/pl_sound_data.naix"
 #include "generated/signpost_commands.h"
@@ -6102,6 +6103,37 @@
     .macro CompleteAlphPuzzle puzzle
     .short SCRCMD_COMPLETEALPHPUZZLE
     .byte \puzzle
+    .endm
+
+    .macro CompleteFollowerTalkStart
+    .short SCRCMD_COMPLETEFOLLOWERTALKSTART
+    .endm
+
+    .macro CompleteFollowerTalkStep destVarID
+    .short SCRCMD_COMPLETEFOLLOWERTALKSTEP
+    .short \destVarID
+    .endm
+
+    .macro CompleteFollowerTalkAnswer answer
+    .short SCRCMD_COMPLETEFOLLOWERTALKANSWER
+    .short \answer
+    .endm
+
+    .macro CompleteFollowerTalkEnd
+    .short SCRCMD_COMPLETEFOLLOWERTALKEND
+    .endm
+
+    // destVarID: the Shiny Leaves the party Pokémon in the slot has found (HeartGold's GetShinyLeafCount)
+    .macro CompleteGetShinyLeafCount slot, destVarID
+    .short SCRCMD_COMPLETEGETSHINYLEAFCOUNT
+    .short \slot
+    .short \destVarID
+    .endm
+
+    // the five leaves of the party Pokémon in the slot become a crown (HeartGold's TryGiveShinyLeafCrown)
+    .macro CompleteGiveShinyLeafCrown slot
+    .short SCRCMD_COMPLETEGIVESHINYLEAFCROWN
+    .short \slot
     .endm
 
     .text

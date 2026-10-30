@@ -341,3 +341,4 @@ res/prebuilt/resource/eng/scratch/scratch.narc,/resource/eng/scratch/scratch.nar
 res/words/word_bank.narc,/resource/eng/pms_aikotoba/pms_aikotoba.narc
 res/prebuilt/dwc/utility.bin,/dwc/utility.bin
 res/graphics/alph_puzzle/alph_puzzle.narc,/application/annon/puzzle_gra.narc
+res/prebuilt/fielddata/complete_follower_talk/follower_talk.narc,/fielddata/complete/follower_talk.narc

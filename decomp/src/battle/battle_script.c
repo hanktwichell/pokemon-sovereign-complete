@@ -63,6 +63,7 @@
 #include "sound_chatot.h"
 #include "sound_playback.h"
 
+#include "complete_follower.h" // Sovereign Complete
 #include "complete_sound.h" // Sovereign Complete
 #include "sovereign_test.h"
 #include "sprite.h"
@@ -10787,6 +10788,7 @@ static void BattleScript_GetExpTask(SysTask *task, void *inData)
             }
 
             Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_LEVEL_UP, BattleSystem_GetMapHeader(data->battleSys));
+            CompleteFollower_AddMood(mon, 40); // Sovereign Complete: HeartGold's mood
             Pokemon_CalcStats(mon);
 
             if (data->battleCtx->selectedPartySlot[expBattler] == slot) {
@@ -13144,11 +13146,14 @@ static void BattleScript_UpdateFriendship(BattleSystem *battleSys, BattleContext
     if (battleCtx->battleMons[battler].level > battleCtx->battleMons[faintingBattler].level) {
         if (battleCtx->battleMons[battler].level - battleCtx->battleMons[faintingBattler].level >= 30) {
             Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_BATTLE_FAINT_HIGH_LVL_DIFF, BattleSystem_GetMapHeader(battleSys));
+            CompleteFollower_AddMood(mon, -100); // Sovereign Complete: HeartGold's mood
         } else {
             Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_BATTLE_FAINT, BattleSystem_GetMapHeader(battleSys));
+            CompleteFollower_AddMood(mon, -80);
         }
     } else {
         Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_BATTLE_FAINT, BattleSystem_GetMapHeader(battleSys));
+        CompleteFollower_AddMood(mon, -80);
     }
 }
 

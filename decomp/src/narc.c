@@ -204,6 +204,7 @@ static const char *sNarcPaths[] = {
     [NARC_INDEX_APPLICATION__ZUKANLIST__ZKN_DATA__ZUKAN_DATA_GIRA] = "application/zukanlist/zkn_data/zukan_data_gira.narc",
     [NARC_INDEX_FIELDDATA__ENCOUNTDATA__HGSS_ENC_DATA] = "fielddata/encountdata/hgss_enc_data.narc", // Sovereign Complete
     [NARC_INDEX_APPLICATION__ANNON__PUZZLE_GRA] = "application/annon/puzzle_gra.narc", // Sovereign Complete
+    [NARC_INDEX_FIELDDATA__COMPLETE__FOLLOWER_TALK] = "fielddata/complete/follower_talk.narc", // Sovereign Complete
 };
 
 static void ReadFromNarcMemberByPathAndIndex(void *dest, const char *path, int memberIndex, int offset, int bytesToRead);

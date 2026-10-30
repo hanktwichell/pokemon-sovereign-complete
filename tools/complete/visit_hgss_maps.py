@@ -4,7 +4,8 @@
 For each map, from a save state in the bedroom, this warps (gSovereignTestWarpTarget, SELECT+L+R) to the free floor
 tile that tools/complete/test_map_warp.py picks (beside the map's first person, else its first warp), then waits until
 the field is idle on that map (gSovereignTestIdleFrames counts up and gSovereignTestIdleMapHeaderID is the map), in
-god mode, so a trainer who spots the player on arrival is beaten at once. Then:
+god mode, so a trainer who spots the player on arrival is beaten at once (the test taps through the battle while one
+runs, gSovereignTestBattleMons). Then:
 - ok: idle, with the heaps' block lists whole (tools/test/heap_check.py);
 - HEAP: idle, but a heap's block lists are broken (a bad free during the load);
 - FAIL: not idle within the time limit (a crash, a hang, or a scene on entry: rerun it with --scene, which plays it
@@ -35,6 +36,7 @@ from heap_check import heap_info_address, heap_problems  # noqa: E402
 from test_map_warp import ROOT, header_id, walkable_tile  # noqa: E402
 
 LIMIT = 2400  # frames to wait for the field to be idle
+BATTLE_LIMIT = 12000  # the frames to wait after a battle starts (six Pokémon, tapped through)
 SCENE_LIMIT = 20000  # with --scene: a scene on entering the map is played out (Mt. Moon's rival battle: 13,000)
 # with --scene, the inputs, in a shuffled order so that none keeps time with a menu's loop: A pages through and picks;
 # a battle's taps (battle_all_trainers.fight's: A alone picks the test lead's first move, Precipice Blades, which can't
@@ -69,8 +71,9 @@ def main():
     only = {a.upper() for a in args[3:]}
     os.makedirs(out, exist_ok=True)
     os.chdir(ROOT)
-    target, idle_addr, map_addr, god_mode = (symbol(s) for s in (
-        'gSovereignTestWarpTarget', 'gSovereignTestIdleFrames', 'gSovereignTestIdleMapHeaderID', 'gSovereignTestGodMode'))
+    target, idle_addr, map_addr, god_mode, battle_mons = (symbol(s) for s in (
+        'gSovereignTestWarpTarget', 'gSovereignTestIdleFrames', 'gSovereignTestIdleMapHeaderID', 'gSovereignTestGodMode',
+        'gSovereignTestBattleMons'))
     heaps = heap_info_address()
     d = Driver(rom, state)
 
@@ -93,14 +96,23 @@ def main():
             for offset, value in ((0, header), (2, x), (4, z), (6, 2)):  # facing down
                 d.emu.memory.write_short(target + offset, value)
             d.press('SELECT+L+R', frames=8, after=0)
-            frames, idle = 0, 0
-            while frames < (SCENE_LIMIT if scene else LIMIT) and idle < 2:
+            frames, idle, limit = 0, 0, SCENE_LIMIT if scene else LIMIT
+            while frames < limit and idle < 2:
                 before = u32(idle_addr)
                 d.run(30)
                 frames += 30
                 # with --scene, a scene may end by sending the player elsewhere (out of Ecruteak's Gym)
                 idle = idle + 1 if u32(idle_addr) > before and (scene or u32(map_addr) == header) else 0
-                if idle == 0 and frames % (60 if scene else 120) == 0:
+                if idle == 0 and not scene and u32(battle_mons):
+                    if limit == LIMIT:
+                        limit = frames + BATTLE_LIMIT
+                    # a trainer spotted the player: fight as battle_all_trainers.fight does, with taps and an A
+                    # every third step (B, the input otherwise, does nothing in a battle)
+                    if frames % 90:
+                        d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=4)
+                    else:
+                        d.press('A', frames=4, after=4)
+                elif idle == 0 and frames % (60 if scene else 120) == 0:
                     key = random.Random(frames).choice(SCENE_INPUTS) if scene else 'B'
                     if key == 'TAP':
                         d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=4)

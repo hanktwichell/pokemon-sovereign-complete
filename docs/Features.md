@@ -262,6 +262,33 @@ graphics (`res/graphics/alph_puzzle`, its `puzzle_gra` built the same way) and t
 Test: `tools/complete/test_hgss_alph_puzzle.py` (the hall empty before any puzzle; Quit, yes; the Kabuto puzzle solved
 by touch and the drop into the hall; the hall's Unown then).
 
+## Talking to the following Pokémon
+
+HeartGold's (its `scr_seq_0163` and the `Task_FollowMonInteract` of its overlay 2, which pret's decomp has only as
+assembly), in `src/overlay006/complete_follower_talk.c` and `CommonScript_CompleteFollowerTalk`, with HeartGold's data
+(four of its archives, packed by `tools/complete/import_hgss_follower_talk.py` into
+`res/prebuilt/fielddata/complete_follower_talk/follower_talk.narc`) and text (msg_0265, msg_0040):
+
+- **What it says:** talking to the follower picks one of HeartGold's interactions from its choices: 70 that can happen
+  anywhere and up to 30 for each place, each asking about the moment (the Pokémon's HP, status, mood, friendship,
+  nature, type, held item and kind; the tile it stands on, the time, the weather, the people and hidden items nearby,
+  the map, a story flag) and with a chance. HeartGold tries 12 general ones, then the place's, then the rest; the first
+  that fits is it. Sinnoh's places have the general ones, and the League's, a place both games share.
+- **What it does:** up to five steps of hops, shakes and turns (HeartGold's keyframes, on the follower's sprite), its
+  cry and its lines; a question's yes or no leads on to another interaction; some raise or lower its friendship and
+  mood, and some have it find an accessory for the Fashion Case or a Shiny Leaf to wear.
+- **The mood** is HeartGold's, kept where HeartGold keeps it (a spare byte of the Pokémon's data): up 40 with a level
+  gained in battle, down 80 when it faints (100 against a foe 30 levels higher), and a step back toward 0 with each step
+  the follower is out. HeartGold's smaller changes (some medicines, TMs, surviving poison) aren't ported.
+- **Shiny Leaves** are kept per Pokémon (another spare byte), and the crown Lyra or Ethan makes from all five in
+  their room in New Bark Town works (HeartGold's `GetShinyLeafCount` and `TryGiveShinyLeafCrown`).
+- **Not ported yet:** the emotes (HeartGold's bubbles over the follower: a heart, faces, "...", "!"; they need their own
+  billboard), so the steps run without them. The few choices that ask about Pokéathlon performance never come up, as
+  in a game without the Pokéathlon.
+
+Test: `tools/complete/test_follower_talk.py` (a talk the tables choose in New Bark Town; a nudge, its question and the
+yes; an accessory found; a Shiny Leaf, with the friendship and mood it brings).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

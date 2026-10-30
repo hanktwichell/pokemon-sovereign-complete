@@ -101,6 +101,25 @@ typedef struct CompleteTestSound {
 
 extern CompleteTestSound gCompleteTestSound;
 
+// Talking to the following Pokémon (src/overlay006/complete_follower_talk.c), for tools/complete/test_follower_talk.py:
+// an interaction the harness asks for, and what the last talk did
+typedef struct CompleteTestFollowerTalk {
+    u16 force; // the harness's: the next talk runs this interaction instead of the one the tables choose (then 0)
+    u16 talks; // talks started
+    u16 interaction; // the last talk's first interaction (0: none fitted)
+    u16 messages; // the messages it showed
+    u16 lastMessage; // the last: its number in msg_0265 + 1, or 0x8000 + its number in msg_0040
+    u8 motions; // the motions it played
+    u8 questions; // the questions it asked
+    u8 offsetBack; // TRUE when its end found the follower's sprite where its start did
+    s8 mood; // after it, the lead's mood, friendship and Shiny Leaves
+    u8 friendship;
+    u8 shinyLeaves;
+    u16 accessories; // the Fashion Case's count of the last accessory found
+} CompleteTestFollowerTalk;
+
+extern CompleteTestFollowerTalk gCompleteTestFollowerTalk;
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem);
 BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id);
 

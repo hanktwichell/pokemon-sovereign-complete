@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Read Nitro archives (NARC): the packed file lists both games keep much of their data in.
 
-    from narc import read_narc
+    from narc import read_narc, write_narc
     members = read_narc(path)   # list of bytes, in archive order
+    write_narc(path, members)   # a NARC with no file names, each member padded to 4 bytes
 
 Usage: python3 tools/complete/narc.py FILE.narc   (prints the member count and each member's size)
 """
@@ -27,6 +28,20 @@ def read_narc(path):
         off += size
     assert fat is not None and img is not None, f'{path}: missing BTAF or GMIF'
     return [data[img + start:img + end] for start, end in fat]
+
+
+def write_narc(path, members):
+    fat, image = [], bytearray()
+    for member in members:
+        fat.append((len(image), len(image) + len(member)))
+        image += member
+        image += b'\xFF' * (-len(image) % 4)
+    btaf = b'BTAF' + struct.pack('<IHH', 12 + 8 * len(fat), len(fat), 0) + b''.join(struct.pack('<II', *f) for f in fat)
+    btnf = b'BTNF' + struct.pack('<IIHH', 16, 4, 0, 1)
+    gmif = b'GMIF' + struct.pack('<I', 8 + len(image)) + bytes(image)
+    size = 16 + len(btaf) + len(btnf) + len(gmif)
+    with open(path, 'wb') as f:
+        f.write(b'NARC' + struct.pack('<HHIHH', 0xFFFE, 0x0100, size, 16, 3) + btaf + btnf + gmif)
 
 
 def main():

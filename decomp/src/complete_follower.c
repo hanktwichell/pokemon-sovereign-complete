@@ -18,10 +18,12 @@
 #include "player_avatar.h"
 #include "pokemon.h"
 #include "save_player.h"
+#include "script_manager.h"
 #include "system_flags.h"
 #include "vars_flags.h"
 
 #include "complete_follower_gfx.h"
+#include "complete_follower_talk.h"
 #include "complete_map_info.h"
 
 // Sovereign Complete: following Pokémon (prototype).
@@ -159,7 +161,58 @@ void CompleteFollower_Refresh(FieldSystem *fieldSystem)
     }
 
     MapObject_SetLocalID(follower, LOCALID_COMPLETE_FOLLOWER);
+    MapObject_SetScript(follower, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_FOLLOWER_TALK));
     MapObject_SetStatusFlagOn(follower, MAP_OBJ_STATUS_PERSISTENT);
+}
+
+// The mood is in the byte HeartGold keeps it in: the high byte of block D's spare halfword (MON_DATA_UNUSED_159), whose
+// low byte holds HeartGold's own Balls (src/pokemon.c)
+s8 CompleteFollower_GetMood(Pokemon *mon)
+{
+    return (s8)(Pokemon_GetValue(mon, MON_DATA_UNUSED_159, NULL) >> 8);
+}
+
+void CompleteFollower_SetMood(Pokemon *mon, int mood)
+{
+    u16 value = Pokemon_GetValue(mon, MON_DATA_UNUSED_159, NULL);
+
+    mood = mood > 127 ? 127 : mood < -127 ? -127 : mood;
+    value = (value & 0xFF) | ((u8)mood << 8);
+    Pokemon_SetValue(mon, MON_DATA_UNUSED_159, &value);
+}
+
+void CompleteFollower_AddMood(Pokemon *mon, int by)
+{
+    int species = Pokemon_GetValue(mon, MON_DATA_SPECIES_OR_EGG, NULL);
+
+    if (species != SPECIES_NONE && species != SPECIES_EGG) {
+        CompleteFollower_SetMood(mon, CompleteFollower_GetMood(mon) + by);
+    }
+}
+
+void CompleteFollower_MoodTowardsNeutral(FieldSystem *fieldSystem)
+{
+    if (MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER) == NULL) {
+        return;
+    }
+
+    Pokemon *lead = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), 0);
+    int mood = CompleteFollower_GetMood(lead);
+
+    if (mood != 0) {
+        CompleteFollower_SetMood(lead, mood < 0 ? mood + 1 : mood - 1);
+    }
+}
+
+// The leaves are in block C's spare byte (MON_DATA_UNUSED_121)
+u8 CompleteFollower_GetShinyLeaves(Pokemon *mon)
+{
+    return Pokemon_GetValue(mon, MON_DATA_UNUSED_121, NULL);
+}
+
+void CompleteFollower_SetShinyLeaves(Pokemon *mon, u8 leaves)
+{
+    Pokemon_SetValue(mon, MON_DATA_UNUSED_121, &leaves);
 }
 
 #ifdef SOVEREIGN_TEST

@@ -119,6 +119,7 @@
 #include "complete_safari.h" // Sovereign Complete: the Johto Safari Zone
 #include "complete_phone.h" // Sovereign Complete: the Pokégear phone
 #include "complete_gyms.h" // Sovereign Complete: HeartGold's gym puzzles
+#include "complete_follower_talk.h" // Sovereign Complete: talking to the following Pokémon
 #include "field_system.h"
 #include "field_task.h"
 #include "field_transition.h"

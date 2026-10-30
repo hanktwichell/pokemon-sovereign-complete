@@ -1160,6 +1160,8 @@ static BOOL Field_ProcessStep(FieldSystem *fieldSystem)
         Field_CalculateFriendship(fieldSystem);
     }
 
+    CompleteFollower_MoodTowardsNeutral(fieldSystem); // Sovereign Complete: HeartGold's mood settles as the player walks
+
     SystemVars_IncrementAmitySquareStepCount(SaveData_GetVarsFlags(fieldSystem->saveData));
     return FALSE;
 }

@@ -54,6 +54,7 @@ BOOL CompleteTest_BlackOutIfLost(FieldTask *task)
 }
 CompleteTestSafari gCompleteTestSafari;
 CompleteTestSound gCompleteTestSound;
+CompleteTestFollowerTalk gCompleteTestFollowerTalk;
 
 static void SaveProbe(FieldSystem *fieldSystem)
 {

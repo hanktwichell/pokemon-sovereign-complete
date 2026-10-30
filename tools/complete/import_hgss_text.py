@@ -38,10 +38,11 @@ PREFIX = 'TEXT_BANK_HGSS_MSG_'
 # GetStdMsgNaix's four banks, the menu entries, the Safari Zone's area and object names (src/complete_safari.c), Elm's
 # lines in the starter choice (src/choose_starter/choose_starter_app.c), and the naming screen's prompts and default
 # names, for Johto's rival (src/applications/naming_screen.c); the phone's (src/complete_phone.c): its own lines
-# (msg_0271), the callers' greetings (msg_0640) and each contact's bank (msg_0641 to msg_0716, all but msg_0668); and
-# the Ruins of Alph puzzles' (msg_0002, src/applications/complete_alph_puzzle.c)
+# (msg_0271), the callers' greetings (msg_0640) and each contact's bank (msg_0641 to msg_0716, all but msg_0668); the
+# Ruins of Alph puzzles' (msg_0002, src/applications/complete_alph_puzzle.c); and the following Pokémon's talk
+# (msg_0265, src/overlay006/complete_follower_talk.c)
 SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
-    [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002']
+    [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0265']
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
 # the line breaks moved (or, where a box is narrower, the words)
 TEXT_FIXES = {

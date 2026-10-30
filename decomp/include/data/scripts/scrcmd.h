@@ -965,6 +965,12 @@ ScriptCommand(SCRCMD_COMPLETEBANKSHOWBALANCE,                          CompleteS
 ScriptCommand(SCRCMD_COMPLETEBANKHIDEBALANCE,                          CompleteScrCmd_BankHideBalance)
 ScriptCommand(SCRCMD_COMPLETEBANKTRANSACTION,                          CompleteScrCmd_BankTransaction)
 ScriptCommand(SCRCMD_COMPLETEALPHPUZZLE,                               CompleteScrCmd_AlphPuzzle)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKSTART,                         CompleteScrCmd_FollowerTalkStart)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKSTEP,                          CompleteScrCmd_FollowerTalkStep)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKANSWER,                        CompleteScrCmd_FollowerTalkAnswer)
+ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKEND,                           CompleteScrCmd_FollowerTalkEnd)
+ScriptCommand(SCRCMD_COMPLETEGETSHINYLEAFCOUNT,                         CompleteScrCmd_GetShinyLeafCount)
+ScriptCommand(SCRCMD_COMPLETEGIVESHINYLEAFCROWN,                        CompleteScrCmd_GiveShinyLeafCrown)
 
 // clang-format on
 

@@ -527,3 +527,26 @@ Test results on the new test build:
 - **The hall's Unown** follow HeartGold: none before a puzzle is solved, then the solved puzzles' letters.
 - 98.7% of Sacred Gold's script lines translate (1,064 left). New test: `tools/complete/test_hgss_alph_puzzle.py`, all
   four parts pass (48 Unown from the hall after the Kabuto puzzle, every one A to J).
+
+## Oct 30, 2026: talking to the following Pokémon
+
+- **HeartGold's follower talk** (`docs/Features.md`, "Talking to the following Pokémon"): talking to the follower used
+  to run Platinum's empty script. Now it does what HeartGold's does, ported from the assembly of its overlay 2 (pret's
+  decomp hasn't turned that part into C): its choices pick one of its interactions for the moment (the Pokémon's HP,
+  status, mood, friendship, nature, type, held item and kind; the tile, the time, the weather, the people and hidden
+  items nearby, the map, a story flag; a chance), and the interaction plays: hops and turns, its cry, its lines, a yes
+  or no leading on, changes to friendship and mood, an accessory or a Shiny Leaf found. HeartGold's four archives are
+  packed into one (`tools/complete/import_hgss_follower_talk.py`, with HeartGold's maps, flags and tile behaviours
+  translated), and its text is in (msg_0265).
+- **HeartGold's mood** is kept in the byte HeartGold keeps it in; battles and walking change it as in HeartGold.
+  **Shiny Leaves** are kept too, and Lyra's or Ethan's crown for five works (two script commands HeartGold's scripts
+  needed). 98.7% of Sacred Gold's script lines translate (1,062 left).
+- **The map visit test** stopped on routes where a trainer spots the player on arrival: since step 4's trainers, a
+  battle starts, and the test only pressed B. It now fights it (as the trainer test does). Over all 540 Johto and Kanto
+  maps: 517 ok, 22 placeholders with no floor, and Dragon's Den's shrine, whose elders' quiz on arrival the test's
+  answers keep failing (as before).
+- **Tested:** `tools/complete/test_follower_talk.py`, all four parts pass: the talk the tables chose in New Bark Town (a
+  hop and a line), the nudge's question and its yes (three motions, the follow-up's line), an accessory found (a White
+  Fluff in the Fashion Case) and a Shiny Leaf (worn, mood 120). `tools/complete/test_follower.py` still passes. A file
+  of an overlay has to be in `main.lsf.in`'s list for it, or it's linked outside the overlay and calls into it crash.
+- Not yet: HeartGold's emote bubbles over the follower (next).

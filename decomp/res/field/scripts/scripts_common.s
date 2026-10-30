@@ -95,6 +95,7 @@
     ScriptEntry CommonScript_CompleteWhirlpool @ 0x812
     ScriptEntry CommonScript_CompletePhoneCall @ 0x813
     ScriptEntry CommonScript_CompletePhoneIncomingCall @ 0x814
+    ScriptEntry CommonScript_CompleteFollowerTalk @ 0x815
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2135,3 +2136,31 @@ CommonScript_CompletePhoneHangUp:
 CommonScript_CompletePhoneEnd:
     CompletePhoneCallEnd
     Return
+
+// Sovereign Complete: talking to the following Pokémon (src/overlay006/complete_follower_talk.c, HeartGold's
+// scr_seq_0163): the interaction for the moment, a step at a time (its motion, then its message), with any yes or no
+// leading to the next interaction
+CommonScript_CompleteFollowerTalk:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    CompleteFollowerTalkStart
+CommonScript_CompleteFollowerTalkNext:
+    CompleteFollowerTalkStep VAR_RESULT
+    GoToIfEq VAR_RESULT, FOLLOWER_TALK_CONTINUE, CommonScript_CompleteFollowerTalkNext
+    GoToIfEq VAR_RESULT, FOLLOWER_TALK_QUESTION, CommonScript_CompleteFollowerTalkQuestion
+    GoToIfEq VAR_RESULT, FOLLOWER_TALK_END, CommonScript_CompleteFollowerTalkEnd
+    WaitFanfare
+    WaitABPress
+    CloseMessage
+    GoTo CommonScript_CompleteFollowerTalkNext
+
+CommonScript_CompleteFollowerTalkQuestion:
+    ShowYesNoMenu VAR_RESULT
+    CompleteFollowerTalkAnswer VAR_RESULT
+    CloseMessage
+    GoTo CommonScript_CompleteFollowerTalkNext
+
+CommonScript_CompleteFollowerTalkEnd:
+    CompleteFollowerTalkEnd
+    ReleaseAll
+    End

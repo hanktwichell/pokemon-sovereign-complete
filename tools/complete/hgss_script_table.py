@@ -515,6 +515,8 @@ COMMANDS = {
     # Whether a party Pokémon is a distributed event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, checked
     # by its met data): Sacred Gold gives these through its own events (the Azure Flute, the Plates), so none is.
     'FollowerPokeIsEventTrigger': one('SetVarFromValue {2}, 0'),
+    'GetShinyLeafCount': one('CompleteGetShinyLeafCount {0}, {1}'),  # the leaves the follower found
+    'TryGiveShinyLeafCrown': one('CompleteGiveShinyLeafCrown {0}'),
     # Whether a Mystery Gift event has unlocked an encounter (0: the Enigma Stone's, for Pewter City's Latios or Latias):
     # none ever arrives, and Sacred Gold gives the second Lati at Vermilion City's plaque instead, so it hasn't.
     'ScrCmd_546': one('SetVarFromValue {1}, 0'),

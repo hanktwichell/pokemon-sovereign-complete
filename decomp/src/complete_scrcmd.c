@@ -295,6 +295,36 @@ BOOL CompleteScrCmd_FollowerIsTooTall(ScriptContext *ctx)
     return FALSE;
 }
 
+// HeartGold's GetShinyLeafCount: the Shiny Leaves the party Pokémon in the slot has found (src/complete_follower.c)
+BOOL CompleteScrCmd_GetShinyLeafCount(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u8 leaves = CompleteFollower_GetShinyLeaves(Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot));
+
+    *destVar = 0;
+
+    for (int i = 0; i < 5; i++) {
+        *destVar += (leaves >> i) & 1;
+    }
+
+    return FALSE;
+}
+
+// HeartGold's TryGiveShinyLeafCrown: the five leaves of the party Pokémon in the slot become a crown
+BOOL CompleteScrCmd_GiveShinyLeafCrown(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+    Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+    u8 leaves = CompleteFollower_GetShinyLeaves(mon);
+
+    if ((leaves & 0x1F) == 0x1F) {
+        CompleteFollower_SetShinyLeaves(mon, leaves | SHINY_LEAF_CROWN);
+    }
+
+    return FALSE;
+}
+
 // HeartGold's GiveBadge and CheckBadge: Johto's and Kanto's badges (BADGE_ID_HGSS_*), beside Sinnoh's
 BOOL CompleteScrCmd_GiveBadge(ScriptContext *ctx)
 {
