@@ -13,7 +13,7 @@
       "id": "msg_0433_00001",
       "en_US": [
         "Will you buy some\n",
-        "Scratch-Off Cards? {YESNO 0}"
+        "Scratch-Off Cards?"
       ]
     },
     {
@@ -49,7 +49,7 @@
       "id": "msg_0433_00007",
       "en_US": [
         "It is {STRVAR_1 50, 2, 0} BP for three Scratch-Off\n",
-        "Cards. Is that OK? {YESNO 0}"
+        "Cards. Is that OK?"
       ]
     },
     {

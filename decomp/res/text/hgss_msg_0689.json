@@ -13,7 +13,7 @@
         "on the ground.\r",
         "Next time I find something, I’ll give it\n",
         "to you.\r",
-        "May I have your phone number? {YESNO 0}"
+        "May I have your phone number?"
       ]
     },
     {
@@ -34,7 +34,7 @@
       "id": "msg_0689_00004",
       "en_US": [
         "If I find something, it’s yours.\n",
-        "So may I have your phone number? {YESNO 0}"
+        "So may I have your phone number?"
       ]
     },
     {

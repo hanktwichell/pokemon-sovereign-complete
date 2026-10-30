@@ -13,7 +13,7 @@
         "he comes back?\r",
         "You look strong.\n",
         "Could you look after my Pokémon\f",
-        "for a while? {YESNO 0}"
+        "for a while?"
       ]
     },
     {
@@ -43,7 +43,7 @@
       "en_US": [
         "Hi! How’s my Pokémon?\r",
         "I think I’m safe now, so may I have\n",
-        "it back? {YESNO 0}"
+        "it back?"
       ]
     },
     {

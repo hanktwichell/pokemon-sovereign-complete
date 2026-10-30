@@ -6,7 +6,7 @@
       "en_US": [
         "Hey, kid! Don’t you love the sun?\n",
         "It’s so bright, hot and elegant!\r",
-        "Don’t you agree? {YESNO 0}"
+        "Don’t you agree?"
       ]
     },
     {
@@ -14,7 +14,7 @@
       "en_US": [
         "Hey, kid! Don’t you love the moon?\n",
         "It’s so magical, cold and beautiful!\r",
-        "Don’t you agree? {YESNO 0}"
+        "Don’t you agree?"
       ]
     },
     {

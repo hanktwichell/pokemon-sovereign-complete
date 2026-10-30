@@ -20,7 +20,7 @@
         "Your Pokémon was holding an Egg!\r",
         "We don’t know how it got there,\n",
         "but your Pokémon had it.\r",
-        "You do want it, don’t you? {YESNO 0}"
+        "You do want it, don’t you?"
       ]
     },
     {
@@ -76,7 +76,7 @@
       "id": "msg_0439_00010",
       "en_US": [
         "I really will keep it.\n",
-        "You do want this Egg, yes? {YESNO 0}"
+        "You do want this Egg, yes?"
       ]
     },
     {
@@ -107,7 +107,7 @@
         "If we are looking after your Pokémon\f",
         "and notice one is holding an Egg, would\f",
         "you like me to contact you by\f",
-        "phone? Would that be all right? {YESNO 0}"
+        "phone? Would that be all right?"
       ]
     },
     {
@@ -117,7 +117,7 @@
         "If we are looking after your Pokémon\f",
         "and notice one is holding an Egg, would\f",
         "you like me to contact you by\f",
-        "phone? Would that be all right? {YESNO 0}"
+        "phone? Would that be all right?"
       ]
     },
     {
@@ -164,7 +164,7 @@
         "I’m the Day-Care Lady.\n",
         "We can raise Pokémon for you.\r",
         "Would you like us to raise your\n",
-        "Pokémon? {YESNO 0}"
+        "Pokémon?"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "id": "msg_0439_00024",
       "en_US": [
         "We can raise two of your Pokémon.\n",
-        "Would you like us to raise another? {YESNO 0}"
+        "Would you like us to raise another?"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "id": "msg_0439_00028",
       "en_US": [
         "Do you want to take back the other\n",
-        "one, too? {YESNO 0}"
+        "one, too?"
       ]
     },
     {
@@ -246,7 +246,7 @@
       "id": "msg_0439_00033",
       "en_US": [
         "If you want your {STRVAR_1 0, 0, 0} back,\n",
-        "it will cost ${STRVAR_1 53, 1, 0}. {YESNO 0}"
+        "it will cost ${STRVAR_1 53, 1, 0}."
       ]
     },
     {
@@ -274,7 +274,7 @@
     },
     {
       "id": "msg_0439_00037",
-      "en_US": "Do you want your Pokémon back? {YESNO 0}"
+      "en_US": "Do you want your Pokémon back?"
     },
     {
       "id": "msg_0439_00038",

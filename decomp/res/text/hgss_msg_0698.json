@@ -13,7 +13,7 @@
         "even by an unlikely fluke...\r",
         "I like you!\n",
         "Give me your number!\r",
-        "You can be my practice partner! {YESNO 0}"
+        "You can be my practice partner!"
       ]
     },
     {
@@ -35,7 +35,7 @@
       "en_US": [
         "Give me your phone number!\r",
         "You are going to be my practice\n",
-        "partner!{YESNO 0}"
+        "partner!"
       ]
     },
     {

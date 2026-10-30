@@ -25,7 +25,7 @@
         "Misty: I love the sunset here!\n",
         "It gives me courage to go on, you know?\r",
         "Right!\r",
-        "Why don’t we exchange numbers? {YESNO 0}"
+        "Why don’t we exchange numbers?"
       ]
     },
     {
@@ -51,7 +51,7 @@
       "id": "msg_0363_R25_00005",
       "en_US": [
         "Misty: So you do want to know\n",
-        "my number? {YESNO 0}"
+        "my number?"
       ]
     },
     {
@@ -59,7 +59,7 @@
       "en_US": [
         "Misty: Ah! You have a cool\n",
         "Water-type Pokémon!\f",
-        "Can I take a picture with it? {YESNO 0}"
+        "Can I take a picture with it?"
       ]
     },
     {

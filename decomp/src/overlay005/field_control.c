@@ -94,6 +94,7 @@
 #include "complete_bug_contest.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 #include "wireless_manager.h"
+#include "complete_follower.h" // Sovereign Complete
 #include "complete_phone.h" // Sovereign Complete
 
 static BOOL Field_CheckMapTransition(FieldSystem *fieldSystem, const FieldInput *input);
@@ -507,6 +508,8 @@ BOOL FieldInput_Process(const FieldInput *input, FieldSystem *fieldSystem)
     if (input->dummy5 == FALSE && FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_FRAME_TABLE) == TRUE) {
         return TRUE;
     }
+
+    CompleteFollower_Update(fieldSystem); // Sovereign Complete: the follower goes with the lead, the bike and the water
 
     // dummy5 will always be false, so this branch will always be taken, but it doesn't match without the condition
     if (input->dummy5 == FALSE) {

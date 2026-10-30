@@ -16,7 +16,7 @@
       "en_US": [
         "Bonjour!\n",
         "You are Trainer?\r",
-        "Battle Gym Leader, win you did? {YESNO 0}"
+        "Battle Gym Leader, win you did?"
       ]
     },
     {
@@ -158,14 +158,14 @@
         "If ya bring me some Shards,\n",
         "I will give ya three Berries, yah.\r",
         "Which Shard will ya trade for\n",
-        "de Berry? {YESNO 0}"
+        "de Berry?"
       ]
     },
     {
       "id": "msg_0556_T22_00019",
       "en_US": [
         "More Shards to trade for\n",
-        "de Berries? {YESNO 0}"
+        "de Berries?"
       ]
     },
     {

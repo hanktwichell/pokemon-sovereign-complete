@@ -207,12 +207,12 @@
         "The Athlete Points you have earned\f",
         "can be used here for prizes.\r",
         "Let me say this again.\n",
-        "Welcome to the Athlete Shop! {YESNO 0}"
+        "Welcome to the Athlete Shop!"
       ]
     },
     {
       "id": "msg_0138_D49R0101_00049",
-      "en_US": "Welcome to the Athlete Shop! {YESNO 0}"
+      "en_US": "Welcome to the Athlete Shop!"
     },
     {
       "id": "msg_0138_D49R0101_00050",
@@ -238,7 +238,7 @@
         "Score as much as possible and come back\n",
         "here for prizes!\r",
         "Is there anything else I can do\n",
-        "for you? {YESNO 0}"
+        "for you?"
       ]
     },
     {
@@ -255,7 +255,7 @@
         "Please make good use of it.\r",
         "Would you like to buy a Data Card\n",
         "that contains Pokéathlon\f",
-        "records? {YESNO 0}"
+        "records?"
       ]
     },
     {
@@ -264,7 +264,7 @@
         "Welcome!\r",
         "The Data Card, which contains\n",
         "Pokéathlon records, is sold here.\r",
-        "Would you like to buy a Data Card? {YESNO 0}"
+        "Would you like to buy a Data Card?"
       ]
     },
     {
@@ -304,7 +304,7 @@
         "records using the monitor next to me.\r",
         "Please make good use of it.\n",
         "Is there anything else I can\f",
-        "do for you? {YESNO 0}"
+        "do for you?"
       ]
     },
     {
@@ -553,12 +553,12 @@
       "en_US": [
         "The vending machine is for participants!\n",
         "You can even use your\f",
-        "Athlete Points. {YESNO 0}"
+        "Athlete Points."
       ]
     },
     {
       "id": "msg_0138_D49R0101_00086",
-      "en_US": "Which drink would you like? {YESNO 0}"
+      "en_US": "Which drink would you like?"
     },
     {
       "id": "msg_0138_D49R0101_00087",
@@ -593,7 +593,7 @@
     },
     {
       "id": "msg_0138_D49R0101_00093",
-      "en_US": "Which data would you like to see? {YESNO 0}"
+      "en_US": "Which data would you like to see?"
     },
     {
       "id": "msg_0138_D49R0101_00094",
@@ -635,7 +635,7 @@
       "id": "msg_0138_D49R0101_00103",
       "en_US": [
         "Wow, you have such good eyes! Can\n",
-        "I tell you about my last dream? {YESNO 0}"
+        "I tell you about my last dream?"
       ]
     },
     {

@@ -498,3 +498,19 @@ Test results on the new test build:
 - 98.7% of Sacred Gold's script lines translate (1,072 left). `tools/complete/test_hgss_phone.py` has three more parts:
   her share of Joey's rematch prize and the Super Potion she buys, the Cherrygrove Mart's deliveryman, and a withdrawal
   at home; all eight pass.
+
+## Oct 30, 2026: the follower keeps up mid-map
+
+- **The follower changes as HeartGold's does** without a map change: on each field frame the player has control, it's
+  made again when it isn't the one the lead, the player and the map call for (`CompleteFollower_Update`). So it goes
+  back in its ball when the player gets on the bike or starts surfing and comes out again after, becomes the new lead
+  after a switch in the party menu (or when the lead faints or evolves), leaves on walking onto a map where nobody
+  follows, and comes back out after a scene put it away. Before, all of this waited for the next warp.
+- **HeartGold's touch-screen mark:** 695 of Johto's and Kanto's questions ended with `{YESNO 0}`, which drew
+  HeartGold's "answer on the touch screen" icon at the end of the line; the text importer drops it now, as the yes or
+  no is on the top screen.
+- **Tested:** `tools/complete/test_follower.py` has two more checks, through test-build hooks: the party's first two
+  Pokémon swap places and the follower becomes the new lead (Garchomp to Turtwig), and getting on the bike puts it away
+  and getting off brings it back. It passes, walking checks included (the follower stays a tile behind, so it isn't
+  made again every frame). `tools/complete/test_hgss_starter.py` passes (the follower comes out beside the player after
+  Elm's gift).

@@ -5,10 +5,13 @@ Starts a new game on the test build, whose lead is Garchomp (it has a walking sp
 - a follower exists once the player can move;
 - after each step the follower stands on the tile the player just left;
 - after the test warp (SELECT+L+R, the next stop in sSovereignTestWarps) the follower is there again and keeps
-  trailing.
+  trailing;
+- when the party's first two Pokémon swap places (as the party menu's SWITCH does), the follower becomes the new lead;
+- on the bike nobody follows, and off it the follower is back (gCompleteTestFollowerAction asks the field for these).
 
 The positions come from the test build's gSovereignTestPlayerTile and gCompleteTestFollowerTile (src/field_system.c,
-src/complete_follower.c), found in the symbol map next to the ROM.
+src/complete_follower.c), and the follower's graphics from gCompleteTestFollowerGfx, found in the symbol map next to the
+ROM.
 
 Usage: python3 tools/complete/test_follower.py [ROM]   (defaults to decomp/build_test/pokeplatinum.us.nds)
 """
@@ -24,6 +27,7 @@ os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 from drive import Driver  # noqa: E402
 
 NO_FOLLOWER = (0xFFFF, 0xFFFF)
+SWAP_LEAD, BICYCLE = 1, 2  # enum CompleteTestFollowerAction
 BEDROOM_STEPS = ['DOWN', 'DOWN', 'LEFT', 'LEFT', 'UP', 'RIGHT', 'RIGHT']
 # The test warp leaves the player facing the Veilstone Store 2F clerk, with the counter and walls left, up and down.
 STORE_STEPS = ['RIGHT', 'RIGHT', 'DOWN', 'DOWN', 'LEFT', 'UP', 'UP']
@@ -50,6 +54,10 @@ class Check:
 
 def follower(d, addr):
     return struct.unpack('<HH', bytes(d.emu.memory.unsigned[addr:addr + 4]))
+
+
+def gfx(d, addr):
+    return struct.unpack('<H', bytes(d.emu.memory.unsigned[addr:addr + 2]))[0]
 
 
 def settle(d, idle_addr):
@@ -106,6 +114,22 @@ def main():
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'after the test warp: a follower exists, on {f} (player on {d.pos()})')
     walk(d, addr, idle_addr, check, 'after the warp', STORE_STEPS)
+
+    # The lead changes mid-map: the follower becomes the new lead
+    gfx_addr, action = symbol(rom, 'gCompleteTestFollowerGfx'), symbol(rom, 'gCompleteTestFollowerAction')
+    before = gfx(d, gfx_addr)
+    d.emu.memory.write_byte(action, SWAP_LEAD)
+    check(settle(d, idle_addr), 'the field is free after the lead changed')
+    after = gfx(d, gfx_addr)
+    check(after not in (before, 0xFFFF), f'after the lead changed: the follower went from graphics {before} to {after}')
+
+    # On the bike nobody follows; off it, the follower is back
+    d.emu.memory.write_byte(action, BICYCLE)
+    check(settle(d, idle_addr), 'the field is free on the bike')
+    check(follower(d, addr) == NO_FOLLOWER, f'on the bike: nobody follows ({follower(d, addr)})')
+    d.emu.memory.write_byte(action, BICYCLE)
+    check(settle(d, idle_addr), 'the field is free off the bike')
+    check(follower(d, addr) != NO_FOLLOWER, f'off the bike: a follower again, on {follower(d, addr)}')
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)

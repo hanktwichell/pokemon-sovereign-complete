@@ -5,7 +5,7 @@
       "id": "msg_0603_T25SP0101_00000",
       "en_US": [
         "We exchange your Coins for\n",
-        "fabulous prizes! {YESNO 0}"
+        "fabulous prizes!"
       ]
     },
     {
@@ -17,13 +17,13 @@
     },
     {
       "id": "msg_0603_T25SP0101_00002",
-      "en_US": "Sorry! You need more Coins. {YESNO 0}"
+      "en_US": "Sorry! You need more Coins."
     },
     {
       "id": "msg_0603_T25SP0101_00003",
       "en_US": [
         "{STRVAR_1 8, 0, 0}.\n",
-        "Is that right? {YESNO 0}"
+        "Is that right?"
       ]
     },
     {
@@ -44,13 +44,13 @@
     },
     {
       "id": "msg_0603_T25SP0101_00007",
-      "en_US": "Would you like {STRVAR_1 0, 1, 0}? {YESNO 0}"
+      "en_US": "Would you like {STRVAR_1 0, 1, 0}?"
     },
     {
       "id": "msg_0603_T25SP0101_00008",
       "en_US": [
         "{STRVAR_1 3, 0, 0} received\n",
-        "the {STRVAR_1 0, 1, 0}! {YESNO 0}"
+        "the {STRVAR_1 0, 1, 0}!"
       ]
     },
     {
@@ -58,14 +58,14 @@
       "en_US": [
         "Welcome!\r",
         "We exchange your Coins for\n",
-        "fabulous prizes! {YESNO 0}"
+        "fabulous prizes!"
       ]
     },
     {
       "id": "msg_0603_T25SP0101_00010",
       "en_US": [
         "You put away the {STRVAR_1 8, 0, 0}\n",
-        "in the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}"
+        "in the {STRVAR_1 18, 1, 0} Pocket."
       ]
     },
     {
@@ -177,7 +177,7 @@
         "Why don’t you play my Coin game?\r",
         "You can get fabulous prizes if\n",
         "you manage to collect a lot\f",
-        "of Coins. {YESNO 0}"
+        "of Coins."
       ]
     },
     {
@@ -321,7 +321,7 @@
     },
     {
       "id": "msg_0603_T25SP0101_00049",
-      "en_US": "How may I help?  {YESNO 0}"
+      "en_US": "How may I help? "
     },
     {
       "id": "msg_0603_T25SP0101_00050",

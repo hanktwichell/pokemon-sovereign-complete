@@ -28,7 +28,7 @@
         "I’ve been waiting for you.\f",
         "This is from Professor Elm.\r",
         "The thing is...we would like you to\n",
-        "take care of an Egg! {YESNO 0}"
+        "take care of an Egg!"
       ]
     },
     {
@@ -38,7 +38,7 @@
         "I’ve been waiting for you.\f",
         "This is from Professor Elm.\r",
         "The thing is...we would like you to\n",
-        "take care of an Egg! {YESNO 0}"
+        "take care of an Egg!"
       ]
     },
     {
@@ -113,14 +113,14 @@
       "id": "msg_0557_T22FS0101_00009",
       "en_US": [
         "{STRVAR_1 3, 0, 0},\n",
-        "will you take this Egg? {YESNO 0}"
+        "will you take this Egg?"
       ]
     },
     {
       "id": "msg_0557_T22FS0101_00010",
       "en_US": [
         "{STRVAR_1 3, 0, 0},\n",
-        "will you take this Egg? {YESNO 0}"
+        "will you take this Egg?"
       ]
     }
   ]

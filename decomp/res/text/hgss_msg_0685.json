@@ -16,7 +16,7 @@
         "researcher like Professor Oak.\r",
         "May I please have your phone number?\r",
         "We should chat about Professor Oak.\r",
-        "I’m sure it will be loads of fun! {YESNO 0}"
+        "I’m sure it will be loads of fun!"
       ]
     },
     {
@@ -38,7 +38,7 @@
       "en_US": [
         "May I please have your phone number?\r",
         "We should chat about Professor\n",
-        "Oak. It will be loads of fun! {YESNO 0}"
+        "Oak. It will be loads of fun!"
       ]
     },
     {

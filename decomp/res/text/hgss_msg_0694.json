@@ -12,7 +12,7 @@
         "Trainer, too? That makes us comrades!\r",
         "If I find any more items by the water,\n",
         "I’ll give you some.\r",
-        "Just give me your phone number. {YESNO 0}"
+        "Just give me your phone number."
       ]
     },
     {
@@ -34,7 +34,7 @@
       "en_US": [
         "If I find any more items by the water,\n",
         "I’ll give you some.\r",
-        "Just give me your phone number.{YESNO 0}"
+        "Just give me your phone number."
       ]
     },
     {

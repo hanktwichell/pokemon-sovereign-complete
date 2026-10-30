@@ -8,7 +8,7 @@
         "but I can’t sell my Bicycles.\f",
         "Why is that?\r",
         "Could you ride a Bicycle and\n",
-        "advertise for me? {YESNO 0}"
+        "advertise for me?"
       ]
     },
     {
@@ -16,7 +16,7 @@
       "en_US": [
         "Really? Great!\r",
         "Give me your name and phone number,\n",
-        "and I’ll loan you a Bicycle. {YESNO 0}"
+        "and I’ll loan you a Bicycle."
       ]
     },
     {
@@ -130,7 +130,7 @@
       "en_US": [
         "Welcome to the Archaeology\n",
         "Center’s Fossil Service!\r",
-        "Would you like me to help you? {YESNO 0}"
+        "Would you like me to help you?"
       ]
     },
     {
@@ -141,7 +141,7 @@
       "id": "msg_0584_T25R0201_00017",
       "en_US": [
         "Okay!\n",
-        "What would you like to get? {YESNO 0}"
+        "What would you like to get?"
       ]
     },
     {
@@ -283,7 +283,7 @@
       "id": "msg_0584_T25R0201_00039",
       "en_US": [
         "Do you want to extract a Pokémon\n",
-        "from the {STRVAR_1 8, 0, 0}? {YESNO 0}"
+        "from the {STRVAR_1 8, 0, 0}?"
       ]
     },
     {
@@ -297,7 +297,7 @@
       "id": "msg_0584_T25R0201_00041",
       "en_US": [
         "Would you like to give a nickname\n",
-        "to the {STRVAR_1 0, 1, 0} you received? {YESNO 0}"
+        "to the {STRVAR_1 0, 1, 0} you received?"
       ]
     },
     {
@@ -359,7 +359,7 @@
       "id": "msg_0584_T25R0201_00047",
       "en_US": [
         "Cynthia: Do you want to go\n",
-        "to the {COLOR 1}Sinjoh Ruins{COLOR 0}? {YESNO 0}"
+        "to the {COLOR 1}Sinjoh Ruins{COLOR 0}?"
       ]
     },
     {
@@ -370,7 +370,7 @@
         "I heard about Steven’s excavation\n",
         "of that!\r",
         "Can I please take\n",
-        "a look at it!? {YESNO 0}"
+        "a look at it!?"
       ]
     },
     {
@@ -527,7 +527,7 @@
         "Perhaps you would like to battle?\r",
         "I do want our Pokémon to have\n",
         "a match. Are you prepared to be\f",
-        "my opponent? {YESNO 0}"
+        "my opponent?"
       ]
     },
     {
@@ -693,7 +693,7 @@
         "I’ve got some stuff you’re bound\n",
         "to like!\r",
         "Top is what you want!\n",
-        "Bottom is what I want! {YESNO 0}"
+        "Bottom is what I want!"
       ]
     },
     {
@@ -704,7 +704,7 @@
         "I’ve got some stuff you’re bound\n",
         "to like!\r",
         "Top is what you want!\n",
-        "Bottom is what I want! {YESNO 0}"
+        "Bottom is what I want!"
       ]
     },
     {

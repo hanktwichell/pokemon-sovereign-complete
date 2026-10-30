@@ -8,7 +8,7 @@
         "You may battle our best Trainers and\n",
         "their favorite Pokémon once\f",
         "per day.\r",
-        "Would you like to participate? {YESNO 0}"
+        "Would you like to participate?"
       ]
     },
     {
@@ -31,7 +31,7 @@
     },
     {
       "id": "msg_0458_T02R0302_00004",
-      "en_US": "Do you want to exit? {YESNO 0}"
+      "en_US": "Do you want to exit?"
     },
     {
       "id": "msg_0458_T02R0302_00005",
@@ -95,12 +95,12 @@
       "id": "msg_0458_T02R0302_00012",
       "en_US": [
         "Now that you are ready,\n",
-        "would you like to train yourself? {YESNO 0}"
+        "would you like to train yourself?"
       ]
     },
     {
       "id": "msg_0458_T02R0302_00013",
-      "en_US": "Would you like to battle? {YESNO 0}"
+      "en_US": "Would you like to battle?"
     },
     {
       "id": "msg_0458_T02R0302_00014",

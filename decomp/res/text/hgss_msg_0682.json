@@ -11,7 +11,7 @@
         "It was fun battling you!\n",
         "I’d love to trade phone numbers with\f",
         "you, please?\f",
-        "Come on, let’s trade numbers! {YESNO 0}"
+        "Come on, let’s trade numbers!"
       ]
     },
     {
@@ -35,7 +35,7 @@
       "en_US": [
         "I’d do anything to get your phone\n",
         "number!\r",
-        "Please, let’s trade numbers! {YESNO 0}"
+        "Please, let’s trade numbers!"
       ]
     },
     {

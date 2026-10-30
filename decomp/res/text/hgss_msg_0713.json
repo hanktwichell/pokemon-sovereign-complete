@@ -11,7 +11,7 @@
         "We should both train our Pokémon some\n",
         "more and have another battle!\r",
         "So we should really exchange phone\n",
-        "numbers. Don’t you agree? {YESNO 0}"
+        "numbers. Don’t you agree?"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "id": "msg_0713_00004",
       "en_US": [
         "Hmm? Did you decide that you want\n",
-        "my phone number after all? {YESNO 0}"
+        "my phone number after all?"
       ]
     },
     {

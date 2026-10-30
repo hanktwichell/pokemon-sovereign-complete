@@ -56,7 +56,7 @@
     },
     {
       "id": "msg_0396_R39_00005",
-      "en_US": "Do you want to register? {YESNO 0}"
+      "en_US": "Do you want to register?"
     },
     {
       "id": "msg_0396_R39_00006",
@@ -91,7 +91,7 @@
         "Lt. Surge: Hey, you!\r",
         "Don’t you want a good memory of us\n",
         "together? How about taking a\f",
-        "picture with me? {YESNO 0}"
+        "picture with me?"
       ]
     },
     {
@@ -158,7 +158,7 @@
         "Oh, wow! That’s a Bellossom behind\n",
         "you, isn’t it?\r",
         "Can you please ask it to\n",
-        "dance for me? I’d appreciate it! {YESNO 0}"
+        "dance for me? I’d appreciate it!"
       ]
     },
     {

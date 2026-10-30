@@ -10,14 +10,14 @@
         "But {STRVAR_1 0, 0, 0} can’t learn\n",
         "more than four moves.\r",
         "Delete a move to make\n",
-        "room for {STRVAR_1 6, 1, 0}? {YESNO 0}"
+        "room for {STRVAR_1 6, 1, 0}?"
       ]
     },
     {
       "id": "msg_0538_T11R0702_00001",
       "en_US": [
         "Give up on learning the move\n",
-        "{STRVAR_1 6, 1, 0}? {YESNO 0}"
+        "{STRVAR_1 6, 1, 0}?"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "id": "msg_0538_T11R0702_00003",
       "en_US": [
         "The move {STRVAR_1 6, 1, 0} will be\n",
-        "forgotten. Is that OK? {YESNO 0}"
+        "forgotten. Is that OK?"
       ]
     },
     {
@@ -78,7 +78,7 @@
       "id": "msg_0538_T11R0702_00012",
       "en_US": [
         "Return which Rotom to its\n",
-        "original form? {YESNO 0}"
+        "original form?"
       ]
     },
     {
@@ -87,7 +87,7 @@
         "Oh? Rotom appears as if it wants to\n",
         "revert to its original form.\r",
         "Would you like to recall it from\n",
-        "the motor? {YESNO 0}"
+        "the motor?"
       ]
     },
     {
@@ -131,7 +131,7 @@
         "It has an odd-shaped motor on it.\r",
         "Oh? Rotom appears as if it wants\n",
         "to go into the motor.\r",
-        "Allow it to enter the motor? {YESNO 0}"
+        "Allow it to enter the motor?"
       ]
     },
     {
@@ -155,7 +155,7 @@
         "It has an odd-shaped motor on it.\r",
         "Oh? Rotom appears as if it wants\n",
         "to go into the motor.\r",
-        "Allow it to enter the motor? {YESNO 0}"
+        "Allow it to enter the motor?"
       ]
     },
     {
@@ -179,7 +179,7 @@
         "It has an odd-shaped motor on it.\r",
         "Oh? Rotom appears as if it wants\n",
         "to go into the motor.\r",
-        "Allow it to enter the motor? {YESNO 0}"
+        "Allow it to enter the motor?"
       ]
     },
     {
@@ -203,7 +203,7 @@
         "It has an odd-shaped motor on it.\r",
         "Oh? Rotom appears as if it wants\n",
         "to go into the motor.\r",
-        "Allow it to enter the motor? {YESNO 0}"
+        "Allow it to enter the motor?"
       ]
     },
     {
@@ -227,7 +227,7 @@
         "It has an odd-shaped motor on it.\r",
         "Oh? Rotom appears as if it wants\n",
         "to go into the motor.\r",
-        "Allow it to enter the motor? {YESNO 0}"
+        "Allow it to enter the motor?"
       ]
     },
     {

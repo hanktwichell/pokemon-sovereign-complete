@@ -11,7 +11,7 @@
         "I am stuck here and was wondering\n",
         "if you could deliver it...\r",
         "He’s on Route 31.\f",
-        "Can you help a guy out? {YESNO 0}"
+        "Can you help a guy out?"
       ]
     },
     {
@@ -127,7 +127,7 @@
         "I may not look it, but I’m pretty good\n",
         "at mechanics.\r",
         "Do you want to know how to\n",
-        "listen to the radio? {YESNO 0}"
+        "listen to the radio?"
       ]
     },
     {

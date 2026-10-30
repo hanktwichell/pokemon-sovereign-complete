@@ -12,7 +12,7 @@
         "That’s awesome!\f",
         "Just what I look for in a friend!\r",
         "Whadda ya say we trade phone\n",
-        "numbers and be best friends? {YESNO 0}"
+        "numbers and be best friends?"
       ]
     },
     {
@@ -41,7 +41,7 @@
         "Oh, I see you’ve finally figured out\n",
         "just how amazing I am?\r",
         "Well, that’s to be expected. Let’s\n",
-        "trade phone numbers! {YESNO 0}"
+        "trade phone numbers!"
       ]
     },
     {

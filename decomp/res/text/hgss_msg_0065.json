@@ -30,7 +30,7 @@
         "When you load it into the Pokégear, you\n",
         "will be able to listen to the radio...\f",
         "anytime, anywhere!\r",
-        "Would you like to try our Quiz? {YESNO 0}"
+        "Would you like to try our Quiz?"
       ]
     },
     {
@@ -38,7 +38,7 @@
       "en_US": [
         "The first question!\r",
         "Can you check the Town Map with\n",
-        "your Pokégear? {YESNO 0}"
+        "your Pokégear?"
       ]
     },
     {
@@ -47,7 +47,7 @@
         "You are correct.\n",
         "The second question!\r",
         "Nidorina can only be female.\n",
-        "True? {YESNO 0}"
+        "True?"
       ]
     },
     {
@@ -56,7 +56,7 @@
         "You are correct.\n",
         "The third question!\r",
         "Kurt, the Poké Ball creator, uses\n",
-        "apricots as ingredients? {YESNO 0}"
+        "apricots as ingredients?"
       ]
     },
     {
@@ -65,7 +65,7 @@
         "You are correct again.\n",
         "The fourth question!\r",
         "It’s impossible to use a TM on\n",
-        "Magikarp. True? {YESNO 0}"
+        "Magikarp. True?"
       ]
     },
     {
@@ -74,7 +74,7 @@
         "Wow!\n",
         "I have only one more question to go.\r",
         "In Professor Oak’s popular show,\n",
-        "Pokémon Talk, is he on with Marie? {YESNO 0}"
+        "Pokémon Talk, is he on with Marie?"
       ]
     },
     {
@@ -255,7 +255,7 @@
         "of any of your Pokémon, you could win\f",
         "fabulous gifts.\r",
         "Would you like to check today’s\n",
-        "lucky number? {YESNO 0}"
+        "lucky number?"
       ]
     },
     {
@@ -390,7 +390,7 @@
       "en_US": [
         "This is the Pokémon Lottery Corner.\r",
         "Would you like to check today’s\n",
-        "lucky number again? {YESNO 0}"
+        "lucky number again?"
       ]
     }
   ]

@@ -197,7 +197,7 @@
         "Welcome to the Aprijuice stand!\r",
         "Are you giving your Pokémon Aprijuice?\n",
         "I can explain anything you\f",
-        "need to know about it! {YESNO 0}"
+        "need to know about it!"
       ]
     },
     {
@@ -241,7 +241,7 @@
         "Pokémon, or drink it yourself.\r",
         "You can buy Aprijuice here.\n",
         "Why don’t you try and see how it works?\r",
-        "Do you have any more questions? {YESNO 0}"
+        "Do you have any more questions?"
       ]
     },
     {
@@ -254,7 +254,7 @@
         "Aprijuice, and you can max out its\f",
         "Performance!\r",
         "You will need it!\r",
-        "Do you have any more questions? {YESNO 0}"
+        "Do you have any more questions?"
       ]
     },
     {
@@ -273,7 +273,7 @@
         "You should check your Pokémon’s\n",
         "Performance before you\f",
         "give it Aprijuice.\r",
-        "Do you have any more questions? {YESNO 0}"
+        "Do you have any more questions?"
       ]
     },
     {
@@ -289,7 +289,7 @@
       "en_US": [
         "So discerning of you!\n",
         "{STRVAR_1 3, 0, 0}’s {STRVAR_1 8, 1, 0}!\f",
-        "Only ${STRVAR_1 53, 2, 0}! Quite a bargain! {YESNO 0}"
+        "Only ${STRVAR_1 53, 2, 0}! Quite a bargain!"
       ]
     },
     {
@@ -321,7 +321,7 @@
       "id": "msg_0137_D49_00038",
       "en_US": [
         "{STRVAR_1 3, 0, 0}’s {STRVAR_1 8, 1, 0}!\n",
-        "Only ${STRVAR_1 53, 2, 0}! Quite a bargain! {YESNO 0}"
+        "Only ${STRVAR_1 53, 2, 0}! Quite a bargain!"
       ]
     },
     {

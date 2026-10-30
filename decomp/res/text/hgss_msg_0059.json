@@ -11,7 +11,7 @@
         "I will continue my training until I\n",
         "discover a new future for me.\r",
         "Say, do you want to be part of my\n",
-        "training? {YESNO 0}"
+        "training?"
       ]
     },
     {
@@ -39,7 +39,7 @@
       "id": "msg_0059_D17R1101_00004",
       "en_US": [
         "Morty: So, will you be part of my\n",
-        "training? {YESNO 0}"
+        "training?"
       ]
     },
     {
@@ -47,7 +47,7 @@
       "en_US": [
         "Morty: Hi, it’s you!\r",
         "How about taking a picture\n",
-        "here with me as a memento? {YESNO 0}"
+        "here with me as a memento?"
       ]
     },
     {

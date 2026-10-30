@@ -34,7 +34,7 @@
         "Yo, {STRVAR_1 3, 0, 0}!\n",
         "It’s been a while!\r",
         "Since we’re both here and there’s\n",
-        "no rush, fancy a battle? {YESNO 0}"
+        "no rush, fancy a battle?"
       ]
     },
     {
@@ -69,7 +69,7 @@
         "Speaking about amazing...\r",
         "How about a battle to\n",
         " show you how amazing\f",
-        "I can be, too? {YESNO 0}"
+        "I can be, too?"
       ]
     },
     {
@@ -83,7 +83,7 @@
         "Although I don’t need to prove\n",
         "anything to Suicune anymore...\r",
         "Would you be up\n",
-        "for a friendly battle? {YESNO 0}"
+        "for a friendly battle?"
       ]
     }
   ]

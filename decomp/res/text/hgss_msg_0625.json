@@ -57,7 +57,7 @@
         "probably evolved into Lucario by now!\r",
         "Anyway, judging by the look that’s\n",
         "currently on your face...\r",
-        "Are you looking to battle? {YESNO 0}"
+        "Are you looking to battle?"
       ]
     },
     {
@@ -86,7 +86,7 @@
         "Buck: Yeah! {STRVAR_1 3, 0, 0}!\n",
         "I’ve been hoping you’d show up!\r",
         "How about we have that\n",
-        "smoking hot battle I mentioned! {YESNO 0}"
+        "smoking hot battle I mentioned!"
       ]
     },
     {

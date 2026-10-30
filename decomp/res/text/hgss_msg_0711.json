@@ -15,7 +15,7 @@
         "your journey, don’t you?\r",
         "You know, if we were to trade phone\n",
         "numbers, then we could exchange\f",
-        "all kinds of information, yes? {YESNO 0}"
+        "all kinds of information, yes?"
       ]
     },
     {
@@ -37,7 +37,7 @@
       "en_US": [
         "What do you say?\n",
         "Would you like to exchange numbers\f",
-        "with another adventurer? {YESNO 0}"
+        "with another adventurer?"
       ]
     },
     {

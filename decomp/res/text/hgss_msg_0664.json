@@ -261,7 +261,7 @@
       "id": "msg_0664_00028",
       "en_US": [
         "Oh, {STRVAR_1 3, 0, 0}, you’re not saving\n",
-        "any money. Would you like to save? {YESNO 0}"
+        "any money. Would you like to save?"
       ]
     },
     {

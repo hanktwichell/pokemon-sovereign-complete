@@ -34,7 +34,7 @@
         "But you still have a long way\n",
         "to become the Top Pokéathlete.\r",
         "Shall I show you some special\n",
-        "techniques? {YESNO 0}"
+        "techniques?"
       ]
     },
     {
@@ -42,7 +42,7 @@
       "en_US": [
         "Hi, {STRVAR_1 3, 0, 0}!\n",
         "Do you have anything else\f",
-        "you want to know about? {YESNO 0}"
+        "you want to know about?"
       ]
     },
     {
@@ -50,18 +50,18 @@
       "en_US": [
         "Hi, {STRVAR_1 3, 0, 0}!\n",
         "Do you have anything else\f",
-        "you want to know about? {YESNO 0}"
+        "you want to know about?"
       ]
     },
     {
       "id": "msg_0142_D49R0106_00006",
-      "en_US": "About which course? {YESNO 0}"
+      "en_US": "About which course?"
     },
     {
       "id": "msg_0142_D49R0106_00007",
       "en_US": [
         "Which event would you\n",
-        "like to know about? {YESNO 0}"
+        "like to know about?"
       ]
     },
     {

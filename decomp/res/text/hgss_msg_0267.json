@@ -27,7 +27,7 @@
         "those friends over Nintendo Wi-Fi\f",
         "Connection to trade Pokémon, battle,\f",
         "and so on.\r",
-        "Would you like to know more? {YESNO 0}"
+        "Would you like to know more?"
       ]
     },
     {
@@ -41,7 +41,7 @@
         "You may also manually register friends\n",
         "by entering their Friend Codes into\f",
         "your Pal Pad.\r",
-        "Would you like me to repeat that? {YESNO 0}"
+        "Would you like me to repeat that?"
       ]
     },
     {
@@ -56,7 +56,7 @@
       "en_US": [
         "Welcome to the Pokémon Center Wi-Fi\n",
         "Club!\r",
-        "May I help you with anything? {YESNO 0}"
+        "May I help you with anything?"
       ]
     },
     {
@@ -69,7 +69,7 @@
         "Over Nintendo WFC, you may conduct\n",
         "trades and battles with friends\f",
         "that you’ve registered in\f",
-        "your Pal Pad. {YESNO 0}"
+        "your Pal Pad."
       ]
     },
     {
@@ -77,7 +77,7 @@
       "en_US": [
         "Welcome to the Pokémon Wi-Fi Club!\r",
         "Would you like to use Nintendo Wi-Fi\n",
-        "Connection? {YESNO 0}"
+        "Connection?"
       ]
     },
     {
@@ -88,7 +88,7 @@
       "id": "msg_0267_00009",
       "en_US": [
         "Would you like to launch\n",
-        "Nintendo WFC? {YESNO 0}"
+        "Nintendo WFC?"
       ]
     },
     {
@@ -104,7 +104,7 @@
         "The Wi-Fi Club cannot be used if\n",
         "no friends are in your Pal Pad.\r",
         "Would you like to get your own\n",
-        "Friend Code at least? {YESNO 0}"
+        "Friend Code at least?"
       ]
     },
     {
@@ -135,7 +135,7 @@
         "For Level 50 and Level 100, the levels\n",
         "of all participating Pokémon will be\f",
         "temporarily changed to the set level.\r",
-        "Connect to Nintendo WFC? {YESNO 0}"
+        "Connect to Nintendo WFC?"
       ]
     },
     {
@@ -164,12 +164,12 @@
         "Hello, you may enter our Pokémon\n",
         "Center Wi-Fi Plaza from here.\r",
         "Would you like to use Nintendo\n",
-        "Wi-Fi Connection? {YESNO 0}"
+        "Wi-Fi Connection?"
       ]
     },
     {
       "id": "msg_0267_00019",
-      "en_US": "Connect to Nintendo WFC? {YESNO 0}"
+      "en_US": "Connect to Nintendo WFC?"
     },
     {
       "id": "msg_0267_00020",
@@ -195,7 +195,7 @@
         "amount of time.\r",
         "We hope you will get the most out of\n",
         "each visit to the Wi-Fi Plaza!\r",
-        "Connect to Nintendo WFC? {YESNO 0}"
+        "Connect to Nintendo WFC?"
       ]
     },
     {

@@ -50,7 +50,7 @@
       "id": "msg_0597_T25R1006_00005",
       "en_US": [
         "It’s a vending machine.\n",
-        "Which drink would you like? {YESNO 0}"
+        "Which drink would you like?"
       ]
     },
     {
@@ -84,7 +84,7 @@
         "Welcome to the Daily Drawing Corner!\r",
         "You can try it for $300, and we have\n",
         "wonderful prizes!\r",
-        "Would you like to try it? {YESNO 0}"
+        "Would you like to try it?"
       ]
     },
     {
@@ -200,7 +200,7 @@
         "Whitney: What a coincidence!\n",
         "This must be meant to be.\r",
         "Do you want to exchange\n",
-        "phone numbers? Please? {YESNO 0}"
+        "phone numbers? Please?"
       ]
     },
     {
@@ -226,14 +226,14 @@
       "id": "msg_0597_T25R1006_00029",
       "en_US": [
         "Whitney: Do you want to know\n",
-        "my phone number now? {YESNO 0}"
+        "my phone number now?"
       ]
     },
     {
       "id": "msg_0597_T25R1006_00030",
       "en_US": [
         "Whitney: Why don’t we take a\n",
-        "picture together? {YESNO 0}"
+        "picture together?"
       ]
     },
     {

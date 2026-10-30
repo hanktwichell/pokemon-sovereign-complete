@@ -11,7 +11,7 @@
         "You...\n",
         "You think I’m cool right?\r",
         "So how about we exchange phone\n",
-        "numbers? {YESNO 0}"
+        "numbers?"
       ]
     },
     {
@@ -31,7 +31,7 @@
         "I knew it! I knew you’d think I\n",
         "was cool!\r",
         "So, shall we trade phone\n",
-        "numbers now? {YESNO 0}"
+        "numbers now?"
       ]
     },
     {

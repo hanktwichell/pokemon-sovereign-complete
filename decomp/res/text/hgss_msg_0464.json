@@ -69,7 +69,7 @@
       "id": "msg_0464_T03R0101_00007",
       "en_US": [
         "Do you want to extract a Pokémon\n",
-        "from the {STRVAR_1 8, 0, 0}? {YESNO 0}"
+        "from the {STRVAR_1 8, 0, 0}?"
       ]
     },
     {
@@ -83,7 +83,7 @@
       "id": "msg_0464_T03R0101_00009",
       "en_US": [
         "Would you like to give a nickname\n",
-        "to the {STRVAR_1 0, 1, 0} you received? {YESNO 0}"
+        "to the {STRVAR_1 0, 1, 0} you received?"
       ]
     },
     {

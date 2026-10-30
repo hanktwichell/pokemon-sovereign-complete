@@ -151,7 +151,7 @@
         "washed up on the shore,\f",
         "but it’s a little special compared\f",
         "to other Eggs you may have seen.\r",
-        "Would you be willing to take it? {YESNO 0}"
+        "Would you be willing to take it?"
       ]
     },
     {
@@ -189,7 +189,7 @@
       "id": "msg_0744_W40_00027",
       "en_US": [
         "Izumi: Hello, again.\n",
-        "Do you wish to accept the Egg? {YESNO 0}"
+        "Do you wish to accept the Egg?"
       ]
     },
     {

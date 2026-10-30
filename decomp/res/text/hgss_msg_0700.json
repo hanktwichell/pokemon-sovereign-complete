@@ -13,7 +13,7 @@
         "sometimes they give me too much.\r",
         "Next time, I can share some if you\n",
         "want. Let me get your\f",
-        "phone number. {YESNO 0}"
+        "phone number."
       ]
     },
     {
@@ -35,7 +35,7 @@
       "id": "msg_0700_00004",
       "en_US": [
         "I’ll share my gifts with you.\r",
-        "Let me get your phone number.{YESNO 0}"
+        "Let me get your phone number."
       ]
     },
     {

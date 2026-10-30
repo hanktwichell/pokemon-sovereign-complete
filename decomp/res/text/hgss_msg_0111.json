@@ -8,7 +8,7 @@
         "You hear wind blowing into this room?\n",
         "That is...just me whistling.\r",
         "Enough about that.\n",
-        "Why don’t you buy something? {YESNO 0}"
+        "Why don’t you buy something?"
       ]
     },
     {

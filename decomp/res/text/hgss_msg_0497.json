@@ -39,7 +39,7 @@
       "en_US": [
         "Falkner: You were listening, right?\n",
         "You agree my dad is\f",
-        "greater, right? {YESNO 0}"
+        "greater, right?"
       ]
     },
     {
@@ -82,14 +82,14 @@
       "en_US": [
         "Falkner: So, you did change your mind.\n",
         "You now think my dad\f",
-        "is greater? {YESNO 0}"
+        "is greater?"
       ]
     },
     {
       "id": "msg_0497_T07R0104_00010",
       "en_US": [
         "Falkner: Hey, why don’t we take\n",
-        "a picture together? {YESNO 0}"
+        "a picture together?"
       ]
     },
     {

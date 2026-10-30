@@ -11,7 +11,7 @@
         "You are sure strong. But I don’t\n",
         "want to just slink away...\r",
         "I know! Could I get your number?\n",
-        "Let’s meet up for more battles!{YESNO 0}"
+        "Let’s meet up for more battles!"
       ]
     },
     {
@@ -35,7 +35,7 @@
         "I want to battle tough Trainers as\n",
         "often as I can!\r",
         "Could I get your number?\n",
-        "Let’s meet up for more battles!{YESNO 0}"
+        "Let’s meet up for more battles!"
       ]
     },
     {

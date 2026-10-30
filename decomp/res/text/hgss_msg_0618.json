@@ -109,7 +109,7 @@
         "sufficient to face the power of\f",
         "this Pokémon.\f",
         "I must test you.\r",
-        "Are you ready? {YESNO 0}"
+        "Are you ready?"
       ]
     },
     {
@@ -131,7 +131,7 @@
         "sufficient to face the power of\f",
         "this Pokémon.\f",
         "I must test you.\r",
-        "Are you ready? {YESNO 0}"
+        "Are you ready?"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "en_US": [
         "I will test you to see if you are a good\n",
         "Pokémon Trainer.\r",
-        "Are you ready? {YESNO 0}"
+        "Are you ready?"
       ]
     },
     {

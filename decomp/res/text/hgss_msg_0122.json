@@ -67,7 +67,7 @@
         "quick-frozen with the ground.\r",
         "Tee hee.\r",
         "Well, it’s no laughing matter.\n",
-        "Would you push my back? {YESNO 0}"
+        "Would you push my back?"
       ]
     },
     {
@@ -79,7 +79,7 @@
       "en_US": [
         "Don’t be so cruel.\n",
         "You will push my back,\f",
-        "won’t you? {YESNO 0}"
+        "won’t you?"
       ]
     },
     {

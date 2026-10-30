@@ -78,7 +78,7 @@
       "en_US": [
         "Jasmine: Um... Er...\r",
         "Will you trade your Pokémon\n",
-        "for mine? {YESNO 0}"
+        "for mine?"
       ]
     },
     {
@@ -112,7 +112,7 @@
     },
     {
       "id": "msg_0606_T26GYM0101_00013",
-      "en_US": "Will you trade {STRVAR_1 1, 1, 0}? {YESNO 0}"
+      "en_US": "Will you trade {STRVAR_1 1, 1, 0}?"
     },
     {
       "id": "msg_0606_T26GYM0101_00014",

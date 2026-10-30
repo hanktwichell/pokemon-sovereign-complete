@@ -12,7 +12,7 @@
         "but the battle results are different\f",
         "every time!\r",
         "I’d like to battle with you again.\n",
-        "Let’s trade phone numbers!{YESNO 0}"
+        "Let’s trade phone numbers!"
       ]
     },
     {
@@ -33,7 +33,7 @@
       "id": "msg_0699_00004",
       "en_US": [
         "I’d like to battle with you again.\n",
-        "Let’s exchange numbers! {YESNO 0}"
+        "Let’s exchange numbers!"
       ]
     },
     {

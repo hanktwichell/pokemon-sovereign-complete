@@ -7,7 +7,7 @@
         "Celadon Condominiums\n",
         "This elevator goes straight to\f",
         "the roof.\r",
-        "Will you go to the roof? {YESNO 0}"
+        "Will you go to the roof?"
       ]
     },
     {
@@ -16,7 +16,7 @@
         "Celadon Condominiums\n",
         "This elevator goes straight to the\f",
         "second floor.\r",
-        "Will you go to the second floor? {YESNO 0}"
+        "Will you go to the second floor?"
       ]
     },
     {

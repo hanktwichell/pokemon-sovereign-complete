@@ -58,7 +58,7 @@
         "His only hobby is to battle\n",
         "tough Trainers.\r",
         "Do you want to have my\n",
-        "husband’s phone number? {YESNO 0}"
+        "husband’s phone number?"
       ]
     },
     {
@@ -88,7 +88,7 @@
       "id": "msg_0572_T24_00011",
       "en_US": [
         "Do you want to exchange your\n",
-        "number for my husband’s? {YESNO 0}"
+        "number for my husband’s?"
       ]
     },
     {

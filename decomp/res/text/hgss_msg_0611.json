@@ -53,7 +53,7 @@
         "Actually, the person who sat here\n",
         "ahead of me ate a lot...\r",
         "Anyway, do you want to exchange\n",
-        "phone numbers? {YESNO 0}"
+        "phone numbers?"
       ]
     },
     {
@@ -81,7 +81,7 @@
       "id": "msg_0611_T26R0701_00008",
       "en_US": [
         "Jasmine: Did you change your mind?\n",
-        "Will you exchange numbers? {YESNO 0}"
+        "Will you exchange numbers?"
       ]
     },
     {
@@ -90,7 +90,7 @@
         "Jasmine: We seem to...bump into each\n",
         "other often.\r",
         "Why don’t we take a picture\n",
-        "to make this a memory? {YESNO 0}"
+        "to make this a memory?"
       ]
     },
     {
@@ -124,7 +124,7 @@
         "to be something to catch!\r",
         "I’ve fished here for 30 years.\r",
         "Would you like to face the sea\n",
-        "and fish? {YESNO 0}"
+        "and fish?"
       ]
     },
     {

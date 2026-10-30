@@ -14,16 +14,16 @@
       "id": "msg_0046_00001",
       "en_US": [
         "Which Battle Mode would you like\n",
-        "to play? {YESNO 0}"
+        "to play?"
       ]
     },
     {
       "id": "msg_0046_00002",
-      "en_US": "Battle with how many players? {YESNO 0}"
+      "en_US": "Battle with how many players?"
     },
     {
       "id": "msg_0046_00003",
-      "en_US": "Do a four-player Multi Battle? {YESNO 0}"
+      "en_US": "Do a four-player Multi Battle?"
     },
     {
       "id": "msg_0046_00004",
@@ -199,7 +199,7 @@
         "Please decide which of you two\n",
         "will become the leader.\r",
         "The other player must then choose\n",
-        "“JOIN GROUP.”{YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
@@ -288,7 +288,7 @@
         "Please decide which of you four\n",
         "will become the group leader.\r",
         "The other players must then choose\n",
-        "“JOIN GROUP.”{YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
@@ -372,7 +372,7 @@
         "players in the room.\r",
         "...Or find friends by touching\n",
         "the spoken words.\r",
-        "Would you like to enter the room? {YESNO 0}"
+        "Would you like to enter the room?"
       ]
     },
     {
@@ -570,12 +570,12 @@
       "id": "msg_0046_WhichSetOfRules",
       "en_US": [
         "Which set of rules would you like\n",
-        "to use? {YESNO 0}"
+        "to use?"
       ]
     },
     {
       "id": "msg_0046_00121",
-      "en_US": "Battle in {STRVAR_1 26, 0, 0} Cup?{YESNO 0}"
+      "en_US": "Battle in {STRVAR_1 26, 0, 0} Cup?"
     },
     {
       "id": "msg_0046_NeedXPokemonForCup",
@@ -661,7 +661,7 @@
       "id": "msg_0046_00139",
       "en_US": [
         "DS Wireless Communications will be\n",
-        "launched. {YESNO 0}"
+        "launched."
       ]
     },
     {

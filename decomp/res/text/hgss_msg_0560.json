@@ -8,7 +8,7 @@
         "Wonderful are Pokémon, yes!\r",
         "Teach you I will to be a better Trainer!\r",
         "What you want to know?\n",
-        "Want to be a winner is you? {YESNO 0}"
+        "Want to be a winner is you?"
       ]
     },
     {
@@ -19,14 +19,14 @@
         "the walking one, jump out first!\r",
         "Change order in list, make battle\n",
         "easy, maybe!\r",
-        "More from me you want to hear? {YESNO 0}"
+        "More from me you want to hear?"
       ]
     },
     {
       "id": "msg_0560_T22R0301_00002",
       "en_US": [
         "So, want to know how to raise\n",
-        "Pokémon well? {YESNO 0}"
+        "Pokémon well?"
       ]
     },
     {
@@ -39,14 +39,14 @@
         "switch in battle quick!\r",
         "This way, weak Pokémon very\n",
         "strong become!\f",
-        "More from me you want to hear? {YESNO 0}"
+        "More from me you want to hear?"
       ]
     },
     {
       "id": "msg_0560_T22R0301_00004",
       "en_US": [
         "So, want to know how to\n",
-        "battle well? {YESNO 0}"
+        "battle well?"
       ]
     },
     {
@@ -123,7 +123,7 @@
     },
     {
       "id": "msg_0560_T22R0301_00013",
-      "en_US": "Read which topic? {YESNO 0}"
+      "en_US": "Read which topic?"
     },
     {
       "id": "msg_0560_T22R0301_00014",
@@ -179,7 +179,7 @@
         "It’s this kid’s notebook...\r",
         "“Catch Pokémon using Poké Balls.\n",
         "Up to six can be in your party.”\r",
-        "Keep reading? {YESNO 0}"
+        "Keep reading?"
       ]
     },
     {
@@ -189,7 +189,7 @@
         "the target first.”\r",
         "“A poisoned or burned Pokémon is\n",
         "easier to catch.”\r",
-        "Keep reading? {YESNO 0}"
+        "Keep reading?"
       ]
     },
     {
@@ -200,7 +200,7 @@
         "itself.”\r",
         "“Leaving battle clears up any\n",
         "confusion.”\r",
-        "Keep reading? {YESNO 0}"
+        "Keep reading?"
       ]
     },
     {

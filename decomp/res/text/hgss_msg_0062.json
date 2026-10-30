@@ -453,7 +453,7 @@
         "But you should try it.\n",
         "I’m sure you can win!\r",
         "By the way, will you take a\n",
-        "picture with me? {YESNO 0}"
+        "picture with me?"
       ]
     },
     {
@@ -496,7 +496,7 @@
       "id": "msg_0062_D22R0101_00091",
       "en_US": [
         "Do you want to try playing the\n",
-        "Azure Flute? {YESNO 0}"
+        "Azure Flute?"
       ]
     },
     {

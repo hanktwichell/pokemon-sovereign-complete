@@ -8,7 +8,7 @@
         "I sell inexpensive herbal medicine.\n",
         "They’re good, but a trifle bitter.\r",
         "Your Pokémon may not like them.\n",
-        "Hehehehe... {YESNO 0}"
+        "Hehehehe..."
       ]
     },
     {
@@ -17,7 +17,7 @@
         "Hiya! Care to see some bargains?\r",
         "I sell rare items that nobody else\n",
         "carries--but only one of\f",
-        "each item. {YESNO 0}"
+        "each item."
       ]
     },
     {
@@ -35,23 +35,23 @@
       "id": "msg_0117_D37R0102_00004",
       "en_US": [
         "You put the {STRVAR_1 8, 0, 0} in\n",
-        "the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}"
+        "the {STRVAR_1 18, 1, 0} Pocket."
       ]
     },
     {
       "id": "msg_0117_D37R0102_00005",
       "en_US": [
         "You bought that already. I’m all\n",
-        "sold out of it. {YESNO 0}"
+        "sold out of it."
       ]
     },
     {
       "id": "msg_0117_D37R0102_00006",
-      "en_US": "Uh-oh, you’re short on funds. {YESNO 0}"
+      "en_US": "Uh-oh, you’re short on funds."
     },
     {
       "id": "msg_0117_D37R0102_00007",
-      "en_US": "Uh-oh, your Bag is chock-full. {YESNO 0}"
+      "en_US": "Uh-oh, your Bag is chock-full."
     },
     {
       "id": "msg_0117_D37R0102_00008",
@@ -73,7 +73,7 @@
         "Grooming gives a better look.\n",
         "Your Pokémon will become friendlier and\f",
         "more beautiful.\r",
-        "Would you like me to do that? {YESNO 0}"
+        "Would you like me to do that?"
       ]
     },
     {
@@ -174,7 +174,7 @@
         "We are no ordinary studio!\r",
         "You can wear a Team Rocket uniform\n",
         "to take a picture!\r",
-        "Would you like to try it? {YESNO 0}"
+        "Would you like to try it?"
       ]
     },
     {
@@ -204,7 +204,7 @@
       "en_US": [
         "You can wear a Team Rocket uniform\n",
         "to take a picture!\r",
-        "Would you like to try it? {YESNO 0}"
+        "Would you like to try it?"
       ]
     },
     {
@@ -258,7 +258,7 @@
         "make it a sight to behold!\r",
         "Then I will even hang a picture of one\n",
         "in the other room!\r",
-        "You will do this, won’t you? {YESNO 0}"
+        "You will do this, won’t you?"
       ]
     },
     {
@@ -274,7 +274,7 @@
         "Ooh, ooh, yes! How nice!\n",
         "Let’s not delay!\r",
         "Should I explain to you how\n",
-        "to dress up your Pokémon? {YESNO 0}"
+        "to dress up your Pokémon?"
       ]
     },
     {
@@ -303,7 +303,7 @@
         "If you mix your records with others,\n",
         "you can get their photos, too!\r",
         "I think it will be much easier if \n",
-        "you will just try! {YESNO 0}"
+        "you will just try!"
       ]
     },
     {
@@ -342,7 +342,7 @@
         "If you dress up any Pokémon again,\n",
         "the photo here will be changed.\r",
         "Would you like to dress up\n",
-        "a Pokémon, dearie? {YESNO 0}"
+        "a Pokémon, dearie?"
       ]
     },
     {
@@ -404,7 +404,7 @@
         "Take a look!\r",
         "This is a drawing for Accessories.\n",
         "You never know what you’re gonna get.\r",
-        "Would you like to try for $100? {YESNO 0}"
+        "Would you like to try for $100?"
       ]
     },
     {

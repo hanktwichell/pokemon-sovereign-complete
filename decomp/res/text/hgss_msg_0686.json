@@ -12,7 +12,7 @@
         "preparation and review with you...\r",
         "That’s it!\n",
         "How about exchanging phone numbers\f",
-        "with me? {YESNO 0}"
+        "with me?"
       ]
     },
     {
@@ -34,7 +34,7 @@
       "id": "msg_0686_00004",
       "en_US": [
         "Did you change your mind about\n",
-        "exchanging phone numbers? {YESNO 0}"
+        "exchanging phone numbers?"
       ]
     },
     {

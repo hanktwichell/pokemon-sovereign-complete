@@ -37,12 +37,12 @@
         "explain how the individual facilities\f",
         "of the Battle Frontier operate.\r",
         "I can go over general topics.\n",
-        "Do you have any questions? {YESNO 0}"
+        "Do you have any questions?"
       ]
     },
     {
       "id": "msg_0103_D32R0101_00004",
-      "en_US": "Which topic should I explain? {YESNO 0}"
+      "en_US": "Which topic should I explain?"
     },
     {
       "id": "msg_0103_D32R0101_00005",
@@ -146,7 +146,7 @@
       "en_US": [
         "Welcome to the Battle Frontier!\r",
         "Should I explain how the\n",
-        "Battle Tower works? {YESNO 0}"
+        "Battle Tower works?"
       ]
     },
     {
@@ -168,7 +168,7 @@
       "en_US": [
         "Welcome to the Battle Frontier!\r",
         "Should I explain how the\n",
-        "Battle Factory works? {YESNO 0}"
+        "Battle Factory works?"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "en_US": [
         "Welcome to the Battle Frontier!\r",
         "Should I explain how the\n",
-        "Battle Hall works? {YESNO 0}"
+        "Battle Hall works?"
       ]
     },
     {
@@ -217,7 +217,7 @@
       "en_US": [
         "Welcome to the Battle Frontier!\r",
         "Should I explain how the\n",
-        "Battle Castle works? {YESNO 0}"
+        "Battle Castle works?"
       ]
     },
     {
@@ -242,7 +242,7 @@
       "en_US": [
         "Welcome to the Battle Frontier!\r",
         "Should I explain how the\n",
-        "Battle Arcade works? {YESNO 0}"
+        "Battle Arcade works?"
       ]
     },
     {

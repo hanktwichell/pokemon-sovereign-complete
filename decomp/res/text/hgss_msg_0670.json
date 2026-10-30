@@ -10,7 +10,7 @@
       "en_US": [
         "Well, now that we’ve made each other’s\n",
         "acquaintance, shall we trade phone\f",
-        "numbers? {YESNO 0}"
+        "numbers?"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "id": "msg_0670_00004",
       "en_US": [
         "You don’t really want to trade\n",
-        "phone numbers with me, do you? {YESNO 0}"
+        "phone numbers with me, do you?"
       ]
     },
     {

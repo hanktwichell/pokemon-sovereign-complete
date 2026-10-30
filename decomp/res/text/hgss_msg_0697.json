@@ -10,7 +10,7 @@
       "en_US": [
         "So I don’t forget just how great\n",
         "it is to battle with you, how about\f",
-        "we exchange phone numbers? {YESNO 0}"
+        "we exchange phone numbers?"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "en_US": [
         "Oh! I see you’ve changed your mind\n",
         "about exchanging phone numbers\f",
-        "with me!{YESNO 0}"
+        "with me!"
       ]
     },
     {

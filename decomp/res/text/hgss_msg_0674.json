@@ -12,7 +12,7 @@
         "a while!\r",
         "Hey, give me your phone number.\r",
         "You’d be fun to battle, so I’ll call\n",
-        "you when I get stronger! {YESNO 0}"
+        "you when I get stronger!"
       ]
     },
     {
@@ -28,7 +28,7 @@
       "en_US": [
         "Hey, give me your phone number.\r",
         "You’d be fun to battle, so I’ll call\n",
-        "you when I get stronger! {YESNO 0}"
+        "you when I get stronger!"
       ]
     },
     {

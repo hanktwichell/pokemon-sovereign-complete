@@ -58,7 +58,7 @@
         "You have an offer to see\n",
         "{STRVAR_1 3, 0, 0}’s Trainer Card.\r",
         "Would you like to show your\n",
-        "Trainer Card? {YESNO 0}"
+        "Trainer Card?"
       ]
     },
     {
@@ -107,7 +107,7 @@
         "{STRVAR_1 3, 0, 0} has invited you to draw\n",
         "something.\r",
         "Would you like to join the other\n",
-        "player and draw? {YESNO 0}"
+        "player and draw?"
       ]
     },
     {
@@ -124,7 +124,7 @@
         "{STRVAR_1 3, 0, 0} challenges you to\n",
         "a battle.\r",
         "Will you accept the battle\n",
-        "challenge? {YESNO 0}"
+        "challenge?"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "en_US": [
         "{STRVAR_1 3, 0, 0} has offered to\n",
         "make a trade.\r",
-        "Will you accept this trade offer? {YESNO 0}"
+        "Will you accept this trade offer?"
       ]
     },
     {
@@ -175,7 +175,7 @@
         "{STRVAR_1 3, 0, 0} invites you to mix\n",
         "records.\r",
         "Would you like to mix records with\n",
-        "the other player? {YESNO 0}"
+        "the other player?"
       ]
     },
     {
@@ -192,7 +192,7 @@
         "{STRVAR_1 3, 0, 0} has invited you to join\n",
         "a Spin Trade session.\r",
         "Would you like to take part in the\n",
-        "Spin Trade? {YESNO 0}"
+        "Spin Trade?"
       ]
     },
     {
@@ -297,7 +297,7 @@
         "{STRVAR_1 3, 0, 0}: We’re drawing right\n",
         "now.\r",
         "Oh, I know! {STRVAR_1 3, 1, 0}, would\n",
-        "you like to draw with us? {YESNO 0}"
+        "you like to draw with us?"
       ]
     },
     {
@@ -481,7 +481,7 @@
         "{STRVAR_1 3, 0, 0}: We’re going to mix our\n",
         "records now.\r",
         "I know! {STRVAR_1 3, 1, 0}, do you want\n",
-        "to mix your records with us, too? {YESNO 0}"
+        "to mix your records with us, too?"
       ]
     },
     {
@@ -1003,18 +1003,18 @@
       "en_US": [
         "Welcome to the Union Room.\r",
         "If there is anything you need help\n",
-        "with, please let me know! {YESNO 0}"
+        "with, please let me know!"
       ]
     },
     {
       "id": "msg_0738_UNION_00158",
-      "en_US": "How may I help you? {YESNO 0}"
+      "en_US": "How may I help you?"
     },
     {
       "id": "msg_0738_UNION_00159",
       "en_US": [
         "Which topic would you\n",
-        "like me to explain? {YESNO 0}"
+        "like me to explain?"
       ]
     },
     {

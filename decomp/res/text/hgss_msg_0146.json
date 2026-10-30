@@ -136,21 +136,21 @@
       "id": "msg_0146_D51R0201_00013",
       "en_US": [
         "Cynthia: So you choose Dialga,\n",
-        "the guardian of time? {YESNO 0}"
+        "the guardian of time?"
       ]
     },
     {
       "id": "msg_0146_D51R0201_00014",
       "en_US": [
         "Cynthia: So you choose Palkia, the\n",
-        "master of space and dimensions? {YESNO 0}"
+        "master of space and dimensions?"
       ]
     },
     {
       "id": "msg_0146_D51R0201_00015",
       "en_US": [
         "Cynthia: So you choose Giratina,\n",
-        "the ruler of the Distortion World? {YESNO 0}"
+        "the ruler of the Distortion World?"
       ]
     },
     {
@@ -250,15 +250,15 @@
     },
     {
       "id": "msg_0146_D51R0201_00027",
-      "en_US": "Will you choose Dialga? {YESNO 0}"
+      "en_US": "Will you choose Dialga?"
     },
     {
       "id": "msg_0146_D51R0201_00028",
-      "en_US": "Will you choose Palkia? {YESNO 0}"
+      "en_US": "Will you choose Palkia?"
     },
     {
       "id": "msg_0146_D51R0201_00029",
-      "en_US": "Will you choose Giratina? {YESNO 0}"
+      "en_US": "Will you choose Giratina?"
     },
     {
       "id": "msg_0146_D51R0201_00030",
@@ -275,7 +275,7 @@
       "id": "msg_0146_D51R0201_00032",
       "en_US": [
         "Would you like to give a nickname\n",
-        "to the {STRVAR_1 0, 1, 0}? {YESNO 0}"
+        "to the {STRVAR_1 0, 1, 0}?"
       ]
     },
     {
@@ -420,7 +420,7 @@
         "If you happen to have any Master Balls,\n",
         "you may use them, though it would\f",
         "destroy the challenge of the fight...\r",
-        "Do you want to continue? {YESNO 0}"
+        "Do you want to continue?"
       ]
     },
     {

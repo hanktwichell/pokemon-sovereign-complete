@@ -135,7 +135,7 @@
         "You seem so out of place, not even\n",
         "knowing why you are here.\r",
         "Do you want my Abra to use a\n",
-        "special power to take you home? {YESNO 0}"
+        "special power to take you home?"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "id": "msg_0147_D51R0301_00014",
       "en_US": [
         "Cynthia: Regardless, do you wish\n",
-        "to return to {COLOR 2}Goldenrod City{COLOR 0}? {YESNO 0}"
+        "to return to {COLOR 2}Goldenrod City{COLOR 0}?"
       ]
     },
     {

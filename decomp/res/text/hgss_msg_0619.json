@@ -8,7 +8,7 @@
         "your Pokémon?\r",
         "Well, what’s an adventure without\n",
         "treasure hunting?\r",
-        "Am I right, or am I right? {YESNO 0}"
+        "Am I right, or am I right?"
       ]
     },
     {
@@ -46,7 +46,7 @@
       "id": "msg_0619_T27R0801_00005",
       "en_US": [
         "History of Ecruteak\r",
-        "Want to read it? {YESNO 0}"
+        "Want to read it?"
       ]
     },
     {
@@ -59,7 +59,7 @@
         "the ground.\r",
         "The two Pokémon haven’t been\n",
         "seen since...\r",
-        "Keep reading? {YESNO 0}"
+        "Keep reading?"
       ]
     },
     {

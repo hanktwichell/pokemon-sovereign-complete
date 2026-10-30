@@ -15,7 +15,7 @@
         "He’s an incredible Poké Maniac.\f",
         "I revere him.\r",
         "I’ll teach you all I know about Bill,\n",
-        "so leave me your phone number. {YESNO 0}"
+        "so leave me your phone number."
       ]
     },
     {
@@ -34,7 +34,7 @@
       "id": "msg_0688_00004",
       "en_US": [
         "I’ll teach you all I know about Bill,\n",
-        "so leave me your phone number. {YESNO 0}"
+        "so leave me your phone number."
       ]
     },
     {

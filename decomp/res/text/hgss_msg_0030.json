@@ -7,7 +7,7 @@
         "Hello, just when you least expect it!\n",
         "I am Cameron the Photographer.\r",
         "You look so photogenic!\n",
-        "Why not have a picture taken? {YESNO 0}"
+        "Why not have a picture taken?"
       ]
     },
     {
@@ -58,7 +58,7 @@
       "id": "msg_0030_00006",
       "en_US": [
         "There is an automatic camera.\r",
-        "Do you want to take a picture? {YESNO 0}"
+        "Do you want to take a picture?"
       ]
     },
     {

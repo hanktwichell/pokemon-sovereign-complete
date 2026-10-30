@@ -7,7 +7,7 @@
     },
     {
       "id": "msg_0681_00001",
-      "en_US": "Shall we trade phone numbers? {YESNO 0}"
+      "en_US": "Shall we trade phone numbers?"
     },
     {
       "id": "msg_0681_00002",
@@ -24,7 +24,7 @@
       "id": "msg_0681_00004",
       "en_US": [
         "You wanna trade phone numbers\n",
-        "after all? {YESNO 0}"
+        "after all?"
       ]
     },
     {

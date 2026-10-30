@@ -27,7 +27,7 @@
         "about battles, I’m the guy who can\f",
         "teach your Pokémon all kinds of moves.\r",
         "May I teach your Pokémon\n",
-        "moves in exchange for BP? {YESNO 0}"
+        "moves in exchange for BP?"
       ]
     },
     {
@@ -49,7 +49,7 @@
       "en_US": [
         "Giving up on teaching {STRVAR_1 0, 0, 0}\n",
         "a move!\f",
-        "That’s what you want, right? {YESNO 0}"
+        "That’s what you want, right?"
       ]
     },
     {
@@ -60,21 +60,21 @@
         "But {STRVAR_1 0, 0, 0} already knows four\n",
         "moves, so it can’t!\r",
         "Forget a move so that {STRVAR_1 6, 1, 0}\n",
-        "can be learned?{YESNO 0}"
+        "can be learned?"
       ]
     },
     {
       "id": "msg_0748_00009",
       "en_US": [
         "{STRVAR_1 6, 2, 0} will be forgotten.\n",
-        "That’s OK, right? {YESNO 0}"
+        "That’s OK, right?"
       ]
     },
     {
       "id": "msg_0748_00010",
       "en_US": [
         "So you want to give up on\n",
-        "{STRVAR_1 6, 1, 0}, am I right? {YESNO 0}"
+        "{STRVAR_1 6, 1, 0}, am I right?"
       ]
     },
     {
@@ -117,7 +117,7 @@
         "Pokémon battles, I’m the guy who can\f",
         "teach your Pokémon all kinds of moves.\r",
         "May I teach your Pokémon\n",
-        "moves in exchange for BP? {YESNO 0}"
+        "moves in exchange for BP?"
       ]
     },
     {
@@ -139,7 +139,7 @@
       "id": "msg_0748_00019",
       "en_US": [
         "Quit trying to teach {STRVAR_1 0, 0, 0} new\n",
-        "moves? {YESNO 0}"
+        "moves?"
       ]
     },
     {
@@ -150,21 +150,21 @@
         "But {STRVAR_1 0, 0, 0} already knows four\n",
         "moves!\r",
         "Forget a move so that {STRVAR_1 6, 1, 0}\n",
-        "can be learned?{YESNO 0}"
+        "can be learned?"
       ]
     },
     {
       "id": "msg_0748_00021",
       "en_US": [
         "Forget {STRVAR_1 6, 2, 0}, am I\n",
-        "right? {YESNO 0}"
+        "right?"
       ]
     },
     {
       "id": "msg_0748_00022",
       "en_US": [
         "So you want to give up on\n",
-        "{STRVAR_1 6, 1, 0}, am I right? {YESNO 0}"
+        "{STRVAR_1 6, 1, 0}, am I right?"
       ]
     },
     {
@@ -205,7 +205,7 @@
         "can teach your Pokémon all kinds\f",
         "of moves.\r",
         "May I teach your Pokémon\n",
-        "moves in exchange for BP? {YESNO 0}"
+        "moves in exchange for BP?"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "id": "msg_0748_00031",
       "en_US": [
         "Giving up on teaching {STRVAR_1 0, 0, 0}\n",
-        "a move, right? {YESNO 0}"
+        "a move, right?"
       ]
     },
     {
@@ -237,21 +237,21 @@
         "But {STRVAR_1 0, 0, 0} already knows four\n",
         "moves!\r",
         "Forget a move so that {STRVAR_1 6, 1, 0}\n",
-        "can be learned? {YESNO 0}"
+        "can be learned?"
       ]
     },
     {
       "id": "msg_0748_00033",
       "en_US": [
         "{STRVAR_1 6, 2, 0} will be forgotten.\n",
-        "Do I have that right? {YESNO 0}"
+        "Do I have that right?"
       ]
     },
     {
       "id": "msg_0748_00034",
       "en_US": [
         "So you want to give up on\n",
-        "{STRVAR_1 6, 1, 0}, right? {YESNO 0}"
+        "{STRVAR_1 6, 1, 0}, right?"
       ]
     },
     {

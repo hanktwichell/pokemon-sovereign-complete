@@ -16,7 +16,7 @@
       "id": "msg_0635_T30R0601_00001",
       "en_US": [
         "You’ve come to make me force your\n",
-        "Pokémon to forget some moves? {YESNO 0}"
+        "Pokémon to forget some moves?"
       ]
     },
     {
@@ -55,7 +55,7 @@
       "id": "msg_0635_T30R0601_00007",
       "en_US": [
         "Hm! The move {STRVAR_1 6, 0, 0}?\n",
-        "Should that move be forgotten? {YESNO 0}"
+        "Should that move be forgotten?"
       ]
     },
     {
@@ -173,7 +173,7 @@
         "I sense a slight talent as a\n",
         "Dragon Tamer in you.\r",
         "Would you like me to teach a move\n",
-        "to one of your Pokémon? {YESNO 0}"
+        "to one of your Pokémon?"
       ]
     },
     {
@@ -182,7 +182,7 @@
         "Ah, it is you again...\r",
         "Would you like me to teach the best\n",
         "Dragon-type move I know to one of\f",
-        "your Pokémon? {YESNO 0}"
+        "your Pokémon?"
       ]
     },
     {
@@ -288,7 +288,7 @@
         "Absolutely astounding moves.\r",
         "They’re the ultimate moves!\r",
         "Shall I teach them to\n",
-        "your Pokémon? {YESNO 0}"
+        "your Pokémon?"
       ]
     },
     {
@@ -296,7 +296,7 @@
       "en_US": [
         "The ultimate moves!\r",
         "Shall I teach them to\n",
-        "your Pokémon? {YESNO 0}"
+        "your Pokémon?"
       ]
     },
     {
@@ -349,21 +349,21 @@
       "id": "msg_0635_T30R0601_00052",
       "en_US": [
         "I should teach Blast Burn to\n",
-        "your {STRVAR_1 0, 0, 0}? {YESNO 0}"
+        "your {STRVAR_1 0, 0, 0}?"
       ]
     },
     {
       "id": "msg_0635_T30R0601_00053",
       "en_US": [
         "I should teach Hydro Cannon to\n",
-        "your {STRVAR_1 0, 0, 0}? {YESNO 0}"
+        "your {STRVAR_1 0, 0, 0}?"
       ]
     },
     {
       "id": "msg_0635_T30R0601_00054",
       "en_US": [
         "I should teach Frenzy Plant to\n",
-        "your {STRVAR_1 0, 0, 0}? {YESNO 0}"
+        "your {STRVAR_1 0, 0, 0}?"
       ]
     },
     {

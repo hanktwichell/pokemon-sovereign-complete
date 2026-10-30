@@ -15,7 +15,7 @@
         "My dad told me about you!\n",
         "Word is, you’re a hotshot Trainer!\r",
         "We’d be honored if you would\n",
-        "participate in our Catching Shows. {YESNO 0}"
+        "participate in our Catching Shows."
       ]
     },
     {
@@ -32,7 +32,7 @@
         "My dad told me about you!\n",
         "Word is, you’re a hotshot Trainer!\r",
         "We’d be honored if you would\n",
-        "participate in our Catching Shows. {YESNO 0}"
+        "participate in our Catching Shows."
       ]
     },
     {
@@ -41,7 +41,7 @@
         "Yes! You agreed to participate!\n",
         "Let’s not waste any time!\r",
         "Let me explain how Pal Park works.\n",
-        "What should I explain? {YESNO 0}"
+        "What should I explain?"
       ]
     },
     {
@@ -58,7 +58,7 @@
         "Pokémon, you may not participate in\f",
         "the Catching Show.\r",
         "...Would you like to know\n",
-        "anything else? {YESNO 0}"
+        "anything else?"
       ]
     },
     {
@@ -69,7 +69,7 @@
         "Use the Park Balls to catch the\n",
         "six Pokémon you provide.\r",
         "...Would you like to know\n",
-        "anything else? {YESNO 0}"
+        "anything else?"
       ]
     },
     {
@@ -86,14 +86,14 @@
         "GBA Game Pak into a Nintendo DSi\f",
         "to migrate.\r",
         "...Would you like to know\n",
-        "anything else? {YESNO 0}"
+        "anything else?"
       ]
     },
     {
       "id": "msg_0516_T08R0201_00006",
       "en_US": [
         "Would you like to take part in\n",
-        "a Catching Show now? {YESNO 0}"
+        "a Catching Show now?"
       ]
     },
     {
@@ -109,7 +109,7 @@
       "en_US": [
         "Hi there, {STRVAR_1 3, 0, 0}!\r",
         "Did you come to participate in\n",
-        "a Catching Show? {YESNO 0}"
+        "a Catching Show?"
       ]
     },
     {
@@ -117,7 +117,7 @@
       "en_US": [
         "Hi there, {STRVAR_1 3, 0, 0}!\r",
         "Did you come to participate in\n",
-        "a Catching Show? {YESNO 0}"
+        "a Catching Show?"
       ]
     },
     {
@@ -163,7 +163,7 @@
         "Yes! You agreed to participate!\n",
         "Let’s not waste any time!\r",
         "Let me explain how Pal Park works.\n",
-        "What should I explain? {YESNO 0}"
+        "What should I explain?"
       ]
     },
     {
@@ -225,7 +225,7 @@
       "id": "msg_0516_T08R0201_00019",
       "en_US": [
         "Would you like to put all caught\n",
-        "Pokémon in PC Boxes? {YESNO 0}"
+        "Pokémon in PC Boxes?"
       ]
     },
     {
@@ -264,7 +264,7 @@
       "id": "msg_0516_T08R0201_00024",
       "en_US": [
         "Do another Catching Show\n",
-        "with the same Pokémon? {YESNO 0}"
+        "with the same Pokémon?"
       ]
     },
     {

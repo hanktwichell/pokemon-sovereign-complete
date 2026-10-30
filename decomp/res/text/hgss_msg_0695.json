@@ -14,7 +14,7 @@
         "I sometimes pick up items.\r",
         "If I find anything, you can have it!\r",
         "Want to give me your number?\n",
-        "I’ll call whenever I get anything.{YESNO 0}"
+        "I’ll call whenever I get anything."
       ]
     },
     {
@@ -32,7 +32,7 @@
       "id": "msg_0695_00004",
       "en_US": [
         "If I find an item, you can have it!\n",
-        "Want to give me your number?{YESNO 0}"
+        "Want to give me your number?"
       ]
     },
     {

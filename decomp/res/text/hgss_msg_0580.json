@@ -16,7 +16,7 @@
       "id": "msg_0580_T24R0801_00001",
       "en_US": [
         "You’ve come to make me force your\n",
-        "Pokémon to forget some moves? {YESNO 0}"
+        "Pokémon to forget some moves?"
       ]
     },
     {
@@ -55,7 +55,7 @@
       "id": "msg_0580_T24R0801_00007",
       "en_US": [
         "Hm! The move {STRVAR_1 6, 0, 0}?\n",
-        "Should that move be forgotten? {YESNO 0}"
+        "Should that move be forgotten?"
       ]
     },
     {

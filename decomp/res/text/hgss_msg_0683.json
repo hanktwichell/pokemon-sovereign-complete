@@ -14,7 +14,7 @@
         "numbers, so you can talk to them\f",
         "outside of the Gym!\r",
         "Hey, we should trade phone\n",
-        "numbers! {YESNO 0}"
+        "numbers!"
       ]
     },
     {
@@ -35,7 +35,7 @@
       "id": "msg_0683_00004",
       "en_US": [
         "I knew it. I knew you’d want to\n",
-        "know about the Gym Leaders! {YESNO 0}"
+        "know about the Gym Leaders!"
       ]
     },
     {

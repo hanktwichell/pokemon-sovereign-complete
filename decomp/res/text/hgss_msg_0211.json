@@ -5,7 +5,7 @@
       "id": "msg_0211_00000",
       "en_US": [
         "This tree looks like it can be\n",
-        "cut down! Would you like to cut it? {YESNO 0}"
+        "cut down! Would you like to cut it?"
       ]
     },
     {
@@ -23,7 +23,7 @@
       "id": "msg_0211_00003",
       "en_US": [
         "This rock appears to be breakable.\n",
-        "Would you like to use Rock Smash? {YESNO 0}"
+        "Would you like to use Rock Smash?"
       ]
     },
     {
@@ -46,7 +46,7 @@
       "en_US": [
         "It’s a big boulder, but a Pokémon\n",
         "may be able to push it aside.\r",
-        "Would you like to use Strength? {YESNO 0}"
+        "Would you like to use Strength?"
       ]
     },
     {
@@ -90,7 +90,7 @@
       "id": "msg_0211_00014",
       "en_US": [
         "The water is a deep blue...\n",
-        "Would you like to surf on it? {YESNO 0}"
+        "Would you like to surf on it?"
       ]
     },
     {
@@ -108,7 +108,7 @@
       "id": "msg_0211_00017",
       "en_US": [
         "A deep fog drapes the area...\n",
-        "Would you like to use Defog? {YESNO 0}"
+        "Would you like to use Defog?"
       ]
     },
     {
@@ -126,7 +126,7 @@
       "id": "msg_0211_00020",
       "en_US": [
         "The wall is very rocky...\n",
-        "Would you like to use Rock Climb? {YESNO 0}"
+        "Would you like to use Rock Climb?"
       ]
     },
     {
@@ -151,7 +151,7 @@
       "id": "msg_0211_00024",
       "en_US": [
         "It’s a large waterfall.\n",
-        "Would you like to use Waterfall? {YESNO 0}"
+        "Would you like to use Waterfall?"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "id": "msg_0211_00029",
       "en_US": [
         "It’s a huge swirl of water.\n",
-        "Would you like to use Whirlpool? {YESNO 0}"
+        "Would you like to use Whirlpool?"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "id": "msg_0211_00032",
       "en_US": [
         "It’s a moderately sized tree.\n",
-        "Would you like to use Headbutt? {YESNO 0}"
+        "Would you like to use Headbutt?"
       ]
     },
     {

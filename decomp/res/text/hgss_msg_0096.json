@@ -13,7 +13,7 @@
       "id": "msg_0096_D31R0201_00001",
       "en_US": [
         "Would you like to take the\n",
-        "Battle Room challenge? {YESNO 0}"
+        "Battle Room challenge?"
       ]
     },
     {
@@ -48,7 +48,7 @@
       "id": "msg_0096_D31R0201_00004",
       "en_US": [
         "Which Battle Room would you like?\n",
-        "Single or Double? {YESNO 0}"
+        "Single or Double?"
       ]
     },
     {
@@ -149,7 +149,7 @@
       "id": "msg_0096_D31R0201_00021",
       "en_US": [
         "Would you like to take the Multi\n",
-        "Battle Room challenge? {YESNO 0}"
+        "Battle Room challenge?"
       ]
     },
     {
@@ -197,7 +197,7 @@
       "id": "msg_0096_D31R0201_00026",
       "en_US": [
         "Would you like to communicate with\n",
-        "a friend and form a tag team? {YESNO 0}"
+        "a friend and form a tag team?"
       ]
     },
     {
@@ -206,7 +206,7 @@
         "One Trainer should select\n",
         "“BECOME LEADER.”\r",
         "The other Trainer must select\n",
-        "“JOIN GROUP.” {YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "id": "msg_0096_D31R0201_00037",
       "en_US": [
         "Would you like to take the Wi-Fi\n",
-        "Battle Room challenge? {YESNO 0}"
+        "Battle Room challenge?"
       ]
     },
     {
@@ -336,14 +336,14 @@
       "en_US": [
         "OK. I’ll direct you to your Battle Room\n",
         "now.\r",
-        "Are you ready? {YESNO 0}"
+        "Are you ready?"
       ]
     },
     {
       "id": "msg_0096_D31R0201_00048",
       "en_US": [
         "Would you like to save and interrupt\n",
-        "your challenge? {YESNO 0}"
+        "your challenge?"
       ]
     },
     {
@@ -396,7 +396,7 @@
       "id": "msg_0096_D31R0201_00057",
       "en_US": [
         "Would you like to send these\n",
-        "results using Nintendo WFC? {YESNO 0}"
+        "results using Nintendo WFC?"
       ]
     },
     {
@@ -425,7 +425,7 @@
         "It’s good to see you back.\r",
         "Your previous results were not sent\n",
         "out using Nintendo WFC.\r",
-        "Would you like to send them now? {YESNO 0}"
+        "Would you like to send them now?"
       ]
     },
     {
@@ -986,7 +986,7 @@
       "id": "msg_0096_D31R0201_00112",
       "en_US": [
         "DS Wireless Communications will\n",
-        "be launched. {YESNO 0}"
+        "be launched."
       ]
     },
     {

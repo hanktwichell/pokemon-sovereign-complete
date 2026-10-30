@@ -14,7 +14,7 @@
         "I think I can get better, too.\r",
         "So how about it?\n",
         "Would you give me your\f",
-        "phone number? {YESNO 0}"
+        "phone number?"
       ]
     },
     {
@@ -34,7 +34,7 @@
         "By challenging a tough Trainer like you,\n",
         "I think I can get better, too.\r",
         "So how about it? Would you give me\n",
-        "your phone number? {YESNO 0}"
+        "your phone number?"
       ]
     },
     {

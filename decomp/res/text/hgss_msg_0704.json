@@ -12,7 +12,7 @@
         "I like that!\r",
         "Want to trade battle tips?\n",
         "I’ll phone if I get good info.\r",
-        "Would you tell me your number?{YESNO 0}"
+        "Would you tell me your number?"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "en_US": [
         "Want to trade battle tips?\n",
         "I’ll phone if I get good info.\r",
-        "Would you tell me your number?{YESNO 0}"
+        "Would you tell me your number?"
       ]
     },
     {

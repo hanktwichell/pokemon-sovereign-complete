@@ -95,7 +95,7 @@
       "id": "msg_0601_T25R1202_00011",
       "en_US": [
         "Connect to Nintendo Wi-Fi\n",
-        "Connection for Dress-Up Data? {YESNO 0}"
+        "Connection for Dress-Up Data?"
       ]
     },
     {
@@ -115,7 +115,7 @@
       "id": "msg_0601_T25R1202_00013",
       "en_US": [
         "Connect to Nintendo Wi-Fi\n",
-        "Connection for Box Data? {YESNO 0}"
+        "Connection for Box Data?"
       ]
     },
     {

@@ -376,7 +376,7 @@
       "en_US": [
         "Professor Oak: Say!\n",
         "Don’t you want to take a picture\f",
-        "with me for a change? {YESNO 0}"
+        "with me for a change?"
       ]
     },
     {
@@ -517,21 +517,21 @@
       "id": "msg_0451_T01R0301_00043",
       "en_US": [
         "So, you’re claiming the\n",
-        "Fire Pokémon Charmander? {YESNO 0}"
+        "Fire Pokémon Charmander?"
       ]
     },
     {
       "id": "msg_0451_T01R0301_00044",
       "en_US": [
         "So, you’ve decided on the\n",
-        "Water Pokémon Squirtle? {YESNO 0}"
+        "Water Pokémon Squirtle?"
       ]
     },
     {
       "id": "msg_0451_T01R0301_00045",
       "en_US": [
         "So, you want to go with\n",
-        "the Grass Pokémon Bulbasaur? {YESNO 0}"
+        "the Grass Pokémon Bulbasaur?"
       ]
     },
     {
@@ -556,14 +556,14 @@
       "id": "msg_0451_T01R0301_00049",
       "en_US": [
         "Would you like to give a nickname to\n",
-        "the {STRVAR_1 0, 1, 0} you received? {YESNO 0}"
+        "the {STRVAR_1 0, 1, 0} you received?"
       ]
     },
     {
       "id": "msg_0451_T01R0301_00050",
       "en_US": [
         "Is {STRVAR_1 1, 1, 0} the nickname\n",
-        "you want to give? {YESNO 0}"
+        "you want to give?"
       ]
     },
     {

@@ -9,7 +9,7 @@
       "id": "msg_0675_00001",
       "en_US": [
         "Hey, can I get your number?\n",
-        "I’ll ring you up to battle. {YESNO 0}"
+        "I’ll ring you up to battle."
       ]
     },
     {
@@ -31,7 +31,7 @@
       "en_US": [
         "Can I get your phone number?\r",
         "I don’t want to lose against you!\n",
-        "We have to battle again, OK? {YESNO 0}"
+        "We have to battle again, OK?"
       ]
     },
     {

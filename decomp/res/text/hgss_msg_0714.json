@@ -9,7 +9,7 @@
       "id": "msg_0714_00001",
       "en_US": [
         "You’ll trade phone numbers\n",
-        "with me... Won’t you? {YESNO 0}"
+        "with me... Won’t you?"
       ]
     },
     {
@@ -31,7 +31,7 @@
       "id": "msg_0714_00004",
       "en_US": [
         "Did you decide that you want to\n",
-        "trade phone numbers after all? {YESNO 0}"
+        "trade phone numbers after all?"
       ]
     },
     {

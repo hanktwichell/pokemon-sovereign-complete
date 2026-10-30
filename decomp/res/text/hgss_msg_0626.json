@@ -31,7 +31,7 @@
         "I can tell that you’re a Trainer\n",
         "with considerable skill.\r",
         "If you don’t mind, could you help me\n",
-        "investigate? {YESNO 0}"
+        "investigate?"
       ]
     },
     {
@@ -48,7 +48,7 @@
         "I can tell that you’re a Trainer\n",
         "with considerable skill.\r",
         "If you don’t mind, could you help me\n",
-        "investigate? {YESNO 0}"
+        "investigate?"
       ]
     },
     {
@@ -87,7 +87,7 @@
       "id": "msg_0626_T29_00008",
       "en_US": [
         "Lance: What do you think?\n",
-        "Are you going to help me? {YESNO 0}"
+        "Are you going to help me?"
       ]
     },
     {
@@ -128,7 +128,7 @@
         "This must have some purpose that we\n",
         "meet again.\r",
         "Why don’t we exchange our phone\n",
-        "numbers? {YESNO 0}\n"
+        "numbers?\n"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "id": "msg_0626_T29_00017",
       "en_US": [
         "Pryce: So? Will you exchange\n",
-        "numbers with me? {YESNO 0}"
+        "numbers with me?"
       ]
     },
     {

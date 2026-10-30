@@ -15,7 +15,7 @@
         "rocks make you feel peaceful,\f",
         "don’t you agree?\r",
         "By the way, do you want to\n",
-        "exchange numbers? {YESNO 0}\n"
+        "exchange numbers?\n"
       ]
     },
     {
@@ -43,13 +43,13 @@
     },
     {
       "id": "msg_0047_D01R0101_00005",
-      "en_US": "Brock: Can we exchange numbers? {YESNO 0}"
+      "en_US": "Brock: Can we exchange numbers?"
     },
     {
       "id": "msg_0047_D01R0101_00006",
       "en_US": [
         "Brock: Hey, you! Why don’t you\n",
-        "take a picture with me? {YESNO 0}"
+        "take a picture with me?"
       ]
     },
     {
@@ -90,7 +90,7 @@
         "an Egg...\r",
         "I am having a hard time finding one.\n",
         "If you happen to have a Bonsly,\f",
-        "could you trade it for my Rhyperior? {YESNO 0}"
+        "could you trade it for my Rhyperior?"
       ]
     },
     {
@@ -102,7 +102,7 @@
         "Egg...\r",
         "I am having a hard time finding one.\n",
         "If you happen to have a Bonsly,\f",
-        "could you trade it for my Rhyperior? {YESNO 0}"
+        "could you trade it for my Rhyperior?"
       ]
     },
     {
@@ -126,7 +126,7 @@
       "en_US": [
         "Brock: I am looking for Bonsly.\n",
         "Are you saying you’ll trade\f",
-        "it for my Rhyperior? {YESNO 0}"
+        "it for my Rhyperior?"
       ]
     },
     {

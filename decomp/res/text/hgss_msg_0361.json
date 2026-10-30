@@ -78,7 +78,7 @@
         "day or night. It’s such hard work,\f",
         "you know?\r",
         "Say!\n",
-        "Do you want to exchange numbers? {YESNO 0}"
+        "Do you want to exchange numbers?"
       ]
     },
     {
@@ -106,7 +106,7 @@
       "id": "msg_0361_R22R0101_00011",
       "en_US": [
         "Janine: Now you want to know\n",
-        "my number, don’t you? {YESNO 0}"
+        "my number, don’t you?"
       ]
     },
     {
@@ -115,7 +115,7 @@
         "Janine: I’m done taking lunch to\n",
         "my dad, and now I’m on my way home.\r",
         "Do you want to take a picture\n",
-        "with me? {YESNO 0}"
+        "with me?"
       ]
     },
     {

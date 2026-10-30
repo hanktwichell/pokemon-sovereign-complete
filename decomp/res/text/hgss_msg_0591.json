@@ -7,7 +7,7 @@
         "Hello, hello!\n",
         "I am the official Name Rater!\r",
         "Want me to rate the nicknames of\n",
-        "your Pokémon? {YESNO 0}"
+        "your Pokémon?"
       ]
     },
     {
@@ -23,7 +23,7 @@
         "{STRVAR_1 1, 0, 0}, is it? Hmm...\n",
         "That is a decent nickname!\r",
         "But, I can give it a nicer name?\n",
-        "How about it? {YESNO 0}"
+        "How about it?"
       ]
     },
     {

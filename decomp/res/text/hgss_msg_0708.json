@@ -10,7 +10,7 @@
       "en_US": [
         "Sheesh, the way you attacked! That was\n",
         "something else! We should meet again!\r",
-        "How about giving me your number?{YESNO 0}"
+        "How about giving me your number?"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "id": "msg_0708_00004",
       "en_US": [
         "So you want to register my phone\n",
-        "number for a rematch, huh?{YESNO 0}"
+        "number for a rematch, huh?"
       ]
     },
     {

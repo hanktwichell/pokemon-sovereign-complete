@@ -70,14 +70,14 @@
       "id": "msg_0543_T20R0101_00008",
       "en_US": [
         "Give a nickname to the {STRVAR_1 0, 1, 0}\n",
-        "you received? {YESNO 0}"
+        "you received?"
       ]
     },
     {
       "id": "msg_0543_T20R0101_00009",
       "en_US": [
         "Is {STRVAR_1 1, 1, 0} the nickname\n",
-        "you want to give? {YESNO 0}"
+        "you want to give?"
       ]
     },
     {
@@ -233,7 +233,7 @@
       "id": "msg_0543_T20R0101_00027",
       "en_US": [
         "I see! So {STRVAR_1 3, 1, 0} was\n",
-        "his name. {YESNO 0}"
+        "his name."
       ]
     },
     {
@@ -917,7 +917,7 @@
       "id": "msg_0543_T20R0101_00092",
       "en_US": [
         "Would you like to heal\n",
-        "your Pokémon? {YESNO 0}"
+        "your Pokémon?"
       ]
     },
     {

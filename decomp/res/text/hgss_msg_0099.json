@@ -14,7 +14,7 @@
         "{STRVAR_1 3, 0, 0}, you have not found\n",
         "a partner for your tag team.\r",
         "Would you like to quit looking and\n",
-        "return to the reception counter? {YESNO 0}"
+        "return to the reception counter?"
       ]
     },
     {
@@ -33,7 +33,7 @@
         "{STRVAR_1 6, 1, 0}.\r",
         "And there’s my {STRVAR_1 0, 2, 0}, which\n",
         "is a sure hand with {STRVAR_1 6, 3, 0}.\r",
-        "Would you like to team up with me? {YESNO 0}"
+        "Would you like to team up with me?"
       ]
     },
     {
@@ -57,7 +57,7 @@
         "is very good with {STRVAR_1 6, 1, 0}\r",
         "and {STRVAR_1 0, 2, 0} that likes to\n",
         "show off its {STRVAR_1 6, 3, 0}.\r",
-        "Will you team up with me? {YESNO 0}"
+        "Will you team up with me?"
       ]
     },
     {
@@ -80,7 +80,7 @@
         "with {STRVAR_1 6, 1, 0}.\r",
         "And my {STRVAR_1 0, 2, 0} is the best when\n",
         "it comes to using {STRVAR_1 6, 3, 0}.\r",
-        "You want to go with me, don’t you? {YESNO 0}"
+        "You want to go with me, don’t you?"
       ]
     },
     {
@@ -105,7 +105,7 @@
         "And my {STRVAR_1 0, 2, 0} likes to use\n",
         "{STRVAR_1 6, 3, 0}.\r",
         "...What do you want?\n",
-        "Am I supposed to go with you? {YESNO 0}"
+        "Am I supposed to go with you?"
       ]
     },
     {
@@ -124,7 +124,7 @@
         "It’s really good with {STRVAR_1 6, 1, 0}!\r",
         "The other one is my {STRVAR_1 0, 2, 0}.\n",
         "Its {STRVAR_1 6, 3, 0} is awesome!\r",
-        "Do you want to join with me? {YESNO 0}"
+        "Do you want to join with me?"
       ]
     },
     {

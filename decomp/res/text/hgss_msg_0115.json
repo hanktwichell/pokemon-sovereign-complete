@@ -96,14 +96,14 @@
         "What am I doing?\r",
         "I’m shaking trees using Headbutt.\r",
         "It’s fun. Here, you try it with your\n",
-        "Pokémon, too! {YESNO 0}"
+        "Pokémon, too!"
       ]
     },
     {
       "id": "msg_0115_D36R0101_00012",
       "en_US": [
         "Do you want to try it with your\n",
-        "Pokémon? {YESNO 0}"
+        "Pokémon?"
       ]
     },
     {
@@ -139,19 +139,19 @@
         "But {STRVAR_1 1, 0, 0} can’t learn more\n",
         "than four moves.\r",
         "Delete an older move to make\n",
-        "room for Headbutt? {YESNO 0}"
+        "room for Headbutt?"
       ]
     },
     {
       "id": "msg_0115_D36R0101_00018",
       "en_US": [
         "Is it OK to forget the\n",
-        "move {STRVAR_1 6, 1, 0}? {YESNO 0}"
+        "move {STRVAR_1 6, 1, 0}?"
       ]
     },
     {
       "id": "msg_0115_D36R0101_00019",
-      "en_US": "Stop trying to teach Headbutt? {YESNO 0}"
+      "en_US": "Stop trying to teach Headbutt?"
     },
     {
       "id": "msg_0115_D36R0101_00020",
@@ -224,7 +224,7 @@
         "You remember me from Violet City?\f",
         "You must be imagining.\r",
         "Anyway, will you show me\n",
-        "how to get out of this forest? {YESNO 0}"
+        "how to get out of this forest?"
       ]
     },
     {
@@ -317,7 +317,7 @@
       "id": "msg_0115_D36R0101_00045",
       "en_US": [
         "Would you like to give a nickname\n",
-        "to the Spiky-eared Pichu? {YESNO 0}"
+        "to the Spiky-eared Pichu?"
       ]
     },
     {
@@ -531,7 +531,7 @@
         "{COLOR 1}There’s the feel of a shy Pokémon\n",
         "who will only come out once{COLOR 0}.\r",
         "Do you want to try playing the\n",
-        "Azure Flute? {YESNO 0}"
+        "Azure Flute?"
       ]
     },
     {

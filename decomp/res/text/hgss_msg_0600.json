@@ -9,7 +9,7 @@
         "We enable the trading of Pokémon with\n",
         "people worldwide over Nintendo WFC.\r",
         "Would you like to do a global\n",
-        "Pokémon trade? {YESNO 0}"
+        "Pokémon trade?"
       ]
     },
     {
@@ -19,7 +19,7 @@
         "Welcome to the GTS!\r",
         "Would you like to do a global Pokémon\n",
         "trade over Nintendo Wi-Fi\f",
-        "Connection? {YESNO 0}"
+        "Connection?"
       ]
     },
     {
@@ -30,7 +30,7 @@
         "You may offer a Pokémon for trade,\n",
         "or search among offered Pokémon.\r",
         "Should I describe things in greater\n",
-        "detail? {YESNO 0}"
+        "detail?"
       ]
     },
     {
@@ -43,7 +43,7 @@
         "If another player offers your desired\n",
         "Pokémon in return for your offered\f",
         "Pokémon, the trade will go through.\r",
-        "Should I explain anything else? {YESNO 0}"
+        "Should I explain anything else?"
       ]
     },
     {
@@ -56,14 +56,14 @@
         "If you find one that you want, you\n",
         "must provide us with the kind of\f",
         "Pokémon wanted in return.\r",
-        "Should I explain anything else? {YESNO 0}"
+        "Should I explain anything else?"
       ]
     },
     {
       "id": "msg_0600_T25R1201_00005",
       "en_US": [
         "Would you like to make a global\n",
-        "Pokémon trade? {YESNO 0}"
+        "Pokémon trade?"
       ]
     },
     {
@@ -176,14 +176,14 @@
       "id": "msg_0600_T25R1201_00018",
       "en_US": [
         "Your favorite is {STRVAR_1 0, 0, 0},\n",
-        "isn’t it? {YESNO 0}"
+        "isn’t it?"
       ]
     },
     {
       "id": "msg_0600_T25R1201_00019",
       "en_US": [
         "Your favorite is that Egg,\n",
-        "isn’t it? {YESNO 0}"
+        "isn’t it?"
       ]
     },
     {
@@ -219,7 +219,7 @@
       "en_US": [
         "Yo, yo, yo!\r",
         "Wanna let the world know about you?\n",
-        "Then you gotta tell me, yo! {YESNO 0}"
+        "Then you gotta tell me, yo!"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "id": "msg_0600_T25R1201_00029",
       "en_US": [
         "Connect to Nintendo Wi-Fi\n",
-        "Connection for Trainer Rankings? {YESNO 0}"
+        "Connection for Trainer Rankings?"
       ]
     },
     {
@@ -293,7 +293,7 @@
       "en_US": [
         "Connect to Nintendo Wi-Fi Connection\n",
         "and examine the Battle Video\f",
-        "Rankings? {YESNO 0}"
+        "Rankings?"
       ]
     },
     {

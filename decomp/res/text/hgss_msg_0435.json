@@ -39,30 +39,30 @@
       "id": "msg_0435_00006",
       "en_US": [
         "Is there anything else I may do\n",
-        "for you? {YESNO 0}"
+        "for you?"
       ]
     },
     {
       "id": "msg_0435_00007",
-      "en_US": "Do you need anything else? {YESNO 0}"
+      "en_US": "Do you need anything else?"
     },
     {
       "id": "msg_0435_00008",
       "en_US": [
         "Do you need anything else?\n",
-        "Anything at all? {YESNO 0}"
+        "Anything at all?"
       ]
     },
     {
       "id": "msg_0435_00009",
       "en_US": [
         "Do you need anything else?\n",
-        "Hee hee! {YESNO 0}"
+        "Hee hee!"
       ]
     },
     {
       "id": "msg_0435_00010",
-      "en_US": "Do you want anything else? {YESNO 0}"
+      "en_US": "Do you want anything else?"
     },
     {
       "id": "msg_0435_00011",

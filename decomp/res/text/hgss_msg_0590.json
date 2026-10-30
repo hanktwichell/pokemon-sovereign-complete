@@ -11,7 +11,7 @@
         "bit of trading?\r",
         "I’ve got a Chansey I’d be willing\n",
         "to trade with you.\r",
-        "Have you got a Munchlax? {YESNO 0}"
+        "Have you got a Munchlax?"
       ]
     },
     {
@@ -69,7 +69,7 @@
         "Mira: Ohh! Mira has been waiting\n",
         "for you to show up!\r",
         "Mira wants to know if\n",
-        "you’d like to battle! {YESNO 0}"
+        "you’d like to battle!"
       ]
     },
     {
@@ -99,7 +99,7 @@
         "Marley: Hello...\n",
         "We’ve both grown quite strong...\r",
         "Might you...\n",
-        "Wish to battle me? {YESNO 0}"
+        "Wish to battle me?"
       ]
     },
     {
@@ -124,7 +124,7 @@
         "Cheryl: I hope my Chansey is\n",
         "doing well with you, {STRVAR_1 3, 0, 0}!\r",
         "In the meanwhile, would you\n",
-        "like to have a battle? {YESNO 0}"
+        "like to have a battle?"
       ]
     },
     {

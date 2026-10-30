@@ -14,7 +14,7 @@
         "catch items that people have dropped.\f",
         "If I find anything, I’ll give it to you.\r",
         "Will you give me your\n",
-        "phone number? {YESNO 0}"
+        "phone number?"
       ]
     },
     {
@@ -35,7 +35,7 @@
       "id": "msg_0676_00004",
       "en_US": [
         "If I snag an item while I’m fishing,\n",
-        "it’s yours. Trade me numbers? {YESNO 0}"
+        "it’s yours. Trade me numbers?"
       ]
     },
     {

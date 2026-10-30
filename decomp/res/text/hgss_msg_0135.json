@@ -9,7 +9,7 @@
         "Safari Game.\r",
         "You can roam the wide-open Safari Zone\n",
         "and catch whatever you like.\f",
-        "Would you like to play? {YESNO 0}"
+        "Would you like to play?"
       ]
     },
     {
@@ -21,7 +21,7 @@
         "Safari Game.\r",
         "You can roam the wide-open Safari Zone\n",
         "and catch what you like.\f",
-        "Would you like to play? {YESNO 0}\n"
+        "Would you like to play?\n"
       ]
     },
     {
@@ -59,7 +59,7 @@
       "id": "msg_0135_D47R0101_00007",
       "en_US": [
         "You still have Safari Balls left.\n",
-        "Leave the Safari Zone? {YESNO 0}"
+        "Leave the Safari Zone?"
       ]
     },
     {
@@ -115,14 +115,14 @@
       "id": "msg_0135_D47R0101_00014",
       "en_US": [
         "Hi! Is it your first time here at\n",
-        "the Safari Zone? {YESNO 0}"
+        "the Safari Zone?"
       ]
     },
     {
       "id": "msg_0135_D47R0101_00015",
       "en_US": [
         "Welcome, Owner!\n",
-        "Should I explain the Safari Zone? {YESNO 0}"
+        "Should I explain the Safari Zone?"
       ]
     },
     {
@@ -157,7 +157,7 @@
       "id": "msg_0135_D47R0101_00019",
       "en_US": [
         "This is the Area Customizer.\n",
-        "What would you like to know about? {YESNO 0}"
+        "What would you like to know about?"
       ]
     },
     {
@@ -169,7 +169,7 @@
         "and so on.\r",
         "The Area Customizer allows you to\n",
         "change the combination of these Areas.\r",
-        "What would you like to know? {YESNO 0}"
+        "What would you like to know?"
       ]
     },
     {
@@ -181,7 +181,7 @@
         "Safari Zone setting.\r",
         "Select an Area with the A Button to\n",
         "swap it with another.\r",
-        "What would you like to know? {YESNO 0}"
+        "What would you like to know?"
       ]
     },
     {
@@ -191,7 +191,7 @@
         "Swap, you will see 12 new Areas.\r",
         "Select one of them by highlighting it and\n",
         "pressing the A Button.\r",
-        "What would you like to know? {YESNO 0}"
+        "What would you like to know?"
       ]
     },
     {
@@ -200,7 +200,7 @@
         "When you select an Area, then select\n",
         "Order, the Area type will not change,\f",
         "but the location can now be changed.\r",
-        "What would you like to know? {YESNO 0}"
+        "What would you like to know?"
       ]
     },
     {
@@ -210,7 +210,7 @@
         "living in them, so when you change\f",
         "Areas, you will see different Pokémon.\r",
         "Please do try the different Areas!\n",
-        "What would you like to know? {YESNO 0}"
+        "What would you like to know?"
       ]
     },
     {
@@ -251,7 +251,7 @@
         "By the way...\r",
         "I just had an idea.\n",
         "Would you like to take the Owner\f",
-        "Aptitude Test? {YESNO 0}"
+        "Aptitude Test?"
       ]
     },
     {
@@ -277,7 +277,7 @@
         "don’t you see?\r",
         "Owner...\n",
         "It’s got a nice ring to it, doesn’t it?\r",
-        "You should try the test! {YESNO 0}"
+        "You should try the test!"
       ]
     },
     {
@@ -435,7 +435,7 @@
       "id": "msg_0135_D47R0101_00045",
       "en_US": [
         "I will explain Object Arrangement.\n",
-        "Would you like to know anything? {YESNO 0}"
+        "Would you like to know anything?"
       ]
     },
     {
@@ -455,7 +455,7 @@
         "You also want to remember that you can\n",
         "place up to 30 objects in an Area.\r",
         "Would you like to know anything\n",
-        "else? {YESNO 0}"
+        "else?"
       ]
     },
     {
@@ -469,7 +469,7 @@
         "Some objects are large and may need a\n",
         "large space.\r",
         "Would you like to know anything\n",
-        "else? {YESNO 0}"
+        "else?"
       ]
     },
     {
@@ -480,7 +480,7 @@
         "you have placed will glow in the dark.\f",
         "It should help you at night.\r",
         "Would you like to know anything\n",
-        "else? {YESNO 0}"
+        "else?"
       ]
     },
     {
@@ -497,7 +497,7 @@
         "There will be more objects to come,\n",
         "as I’ll keep adding more.\r",
         "Would you like to know anything\n",
-        "else? {YESNO 0}"
+        "else?"
       ]
     },
     {
@@ -510,7 +510,7 @@
         "at that point. Try placing different\f",
         "types of objects.\r",
         "Would you like to know anything\n",
-        "else? {YESNO 0}"
+        "else?"
       ]
     },
     {
@@ -520,7 +520,7 @@
         "Once you’ve swapped Areas, the\n",
         "objects you placed will all be removed.\r",
         "Would you like to know\n",
-        "anything else? {YESNO 0}"
+        "anything else?"
       ]
     },
     {
@@ -538,7 +538,7 @@
         "Safari Game.\r",
         "You can roam the wide-open Safari Zone\n",
         "and catch what you like.\f",
-        "Would you like to play? {YESNO 0}"
+        "Would you like to play?"
       ]
     },
     {
@@ -616,7 +616,7 @@
         "reception counter.\r",
         "You can exchange Safari Zones here.\r",
         "Would you like to link with your\n",
-        "friends to exchange Safari Zones? {YESNO 0}"
+        "friends to exchange Safari Zones?"
       ]
     },
     {
@@ -626,7 +626,7 @@
         "reception counter.\r",
         "You can exchange Safari Zones here.\r",
         "Would you like to link with your\n",
-        "friends to exchange Safari Zones? {YESNO 0}"
+        "friends to exchange Safari Zones?"
       ]
     },
     {
@@ -657,14 +657,14 @@
         "Please decide which of you two\n",
         "will become the group leader.\r",
         "The other player must then choose\n",
-        "“JOIN GROUP.” {YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
       "id": "msg_0135_D47R0101_00072",
       "en_US": [
         "Choose the player to exchange\n",
-        "Safari Zones with. {YESNO 0}"
+        "Safari Zones with."
       ]
     },
     {
@@ -696,7 +696,7 @@
       "en_US": [
         "{STRVAR_1 3, 0, 0} has responded!\r",
         "Would you like to exchange Safari\n",
-        "Zones with {STRVAR_1 3, 0, 0}? {YESNO 0}"
+        "Zones with {STRVAR_1 3, 0, 0}?"
       ]
     },
     {
@@ -740,7 +740,7 @@
       "id": "msg_0135_D47R0101_00086",
       "en_US": [
         "DS Wireless Communications will be\n",
-        "launched. {YESNO 0}"
+        "launched."
       ]
     },
     {
@@ -789,7 +789,7 @@
         "Owner!\n",
         "This is the Safari Zone Link reception.\r",
         "Would you like to know about the\n",
-        "Safari Zone Link? {YESNO 0}"
+        "Safari Zone Link?"
       ]
     },
     {
@@ -797,7 +797,7 @@
       "en_US": [
         "This is the Safari Zone Link reception.\r",
         "Would you like to know about\n",
-        "the Safari Zone Link? {YESNO 0}"
+        "the Safari Zone Link?"
       ]
     },
     {

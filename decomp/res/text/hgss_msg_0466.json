@@ -221,7 +221,7 @@
     },
     {
       "id": "msg_0466_T03R0601_00022",
-      "en_US": "Read on? {YESNO 0}"
+      "en_US": "Read on?"
     },
     {
       "id": "msg_0466_T03R0601_00023",
@@ -237,7 +237,7 @@
       "id": "msg_0466_T03R0601_00024",
       "en_US": [
         "While we’re here, would you\n",
-        "consider a friendly battle? {YESNO 0}"
+        "consider a friendly battle?"
       ]
     },
     {

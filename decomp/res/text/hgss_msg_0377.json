@@ -175,7 +175,7 @@
         "{STRVAR_1 3, 0, 0}, would you\n",
         "care to trade it?\r",
         "I can offer this Lucky Egg I got\n",
-        "from a Nurse Joy. {YESNO 0}"
+        "from a Nurse Joy."
       ]
     },
     {
@@ -187,7 +187,7 @@
         "{STRVAR_1 3, 0, 0}, would you\n",
         "care to trade it?\r",
         "I can offer this Lucky Egg I got\n",
-        "from a Nurse Joy. {YESNO 0}"
+        "from a Nurse Joy."
       ]
     },
     {

@@ -9,7 +9,7 @@
       "id": "msg_0707_00001",
       "en_US": [
         "Hey, how about we exchange phone\n",
-        "numbers before we eat?{YESNO 0}"
+        "numbers before we eat?"
       ]
     },
     {
@@ -31,7 +31,7 @@
       "id": "msg_0707_00004",
       "en_US": [
         "Did you decide you’d like to trade\n",
-        "numbers with me after all?{YESNO 0}"
+        "numbers with me after all?"
       ]
     },
     {

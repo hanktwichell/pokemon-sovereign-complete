@@ -80,7 +80,7 @@
         "“The Show Me Show!”\r",
         "I am Primo, the big brother!\r",
         "Today, would you, one of my fans,\n",
-        "tell me what you think of me? {YESNO 0}"
+        "tell me what you think of me?"
       ]
     },
     {
@@ -196,14 +196,14 @@
       "id": "msg_0559_T22PC0101_00022",
       "en_US": [
         "Which kind of Trainer would you like\n",
-        "to be? {YESNO 0}"
+        "to be?"
       ]
     },
     {
       "id": "msg_0559_T22PC0101_00023",
       "en_US": [
         "{STRVAR_1 14, 0, 0} is the kind of Trainer\n",
-        "you want to be? {YESNO 0}"
+        "you want to be?"
       ]
     },
     {
@@ -238,7 +238,7 @@
       "id": "msg_0559_T22PC0101_00027",
       "en_US": [
         "Well, hello there, trainer!\r",
-        "Would you like to take a quiz? {YESNO 0}"
+        "Would you like to take a quiz?"
       ]
     },
     {
@@ -247,7 +247,7 @@
         "Excellent! Let’s get started!\r",
         "Question one!\r",
         "Were any Hoenn Pokémon obtainable\n",
-        "within Fire Red and Leaf Green? {YESNO 0}"
+        "within Fire Red and Leaf Green?"
       ]
     },
     {
@@ -266,7 +266,7 @@
       "en_US": [
         "Correct! Time for question two!\r",
         "Is a Dragonair more than\n",
-        "thirteen feet long? {YESNO 0}"
+        "thirteen feet long?"
       ]
     },
     {
@@ -274,7 +274,7 @@
       "en_US": [
         "Correct! The semifinal question!\r",
         "Is it true that Bulbasaur was\n",
-        "the first Pokémon created? {YESNO 0}"
+        "the first Pokémon created?"
       ]
     },
     {
@@ -282,7 +282,7 @@
       "en_US": [
         "Correct! The final question!\r",
         "Can Tropius be found within\n",
-        "Diamond and Pearl? {YESNO 0}"
+        "Diamond and Pearl?"
       ]
     },
     {

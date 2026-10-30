@@ -134,7 +134,7 @@
       "id": "msg_0571_T23R0501_00015",
       "en_US": [
         "That’s right!\n",
-        "I’ll give you my grandpa’s number. {YESNO 0}"
+        "I’ll give you my grandpa’s number."
       ]
     },
     {
@@ -162,7 +162,7 @@
       "id": "msg_0571_T23R0501_00019",
       "en_US": [
         "You want to talk to my grandpa,\n",
-        "don’t you? {YESNO 0}"
+        "don’t you?"
       ]
     },
     {

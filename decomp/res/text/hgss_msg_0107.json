@@ -15,7 +15,7 @@
       "id": "msg_0107_D32R0301_00001",
       "en_US": [
         "Which challenge would\n",
-        "you like to take? {YESNO 0}"
+        "you like to take?"
       ]
     },
     {
@@ -56,7 +56,7 @@
       "id": "msg_0107_D32R0301_00004",
       "en_US": [
         "Would you like to take the Battle\n",
-        "Factory Multi Battle challenge? {YESNO 0}"
+        "Factory Multi Battle challenge?"
       ]
     },
     {
@@ -90,14 +90,14 @@
       "id": "msg_0107_D32R0301_00007",
       "en_US": [
         "Which challenge level would you like\n",
-        "to play? Level 50 or Open Level? {YESNO 0}"
+        "to play? Level 50 or Open Level?"
       ]
     },
     {
       "id": "msg_0107_D32R0301_00008",
       "en_US": [
         "You must save the game before I\n",
-        "show you in. Is that OK? {YESNO 0}"
+        "show you in. Is that OK?"
       ]
     },
     {
@@ -186,14 +186,14 @@
         "One Trainer should select\n",
         "“BECOME LEADER.”\r",
         "The other Trainer must select\n",
-        "“JOIN GROUP.” {YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
       "id": "msg_0107_D32R0301_00025",
       "en_US": [
         "We need to launch DS Wireless\n",
-        "Communications. {YESNO 0}\n"
+        "Communications.\n"
       ]
     },
     {

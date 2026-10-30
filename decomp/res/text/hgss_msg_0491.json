@@ -161,7 +161,7 @@
       "en_US": [
         "Erika: Hi, {STRVAR_1 3, 0, 0}.\r",
         "Would you like to\n",
-        "exchange numbers? {YESNO 0}"
+        "exchange numbers?"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "id": "msg_0491_T07_00023",
       "en_US": [
         "Erika: Would you like to\n",
-        "exchange numbers? {YESNO 0}"
+        "exchange numbers?"
       ]
     },
     {
@@ -196,7 +196,7 @@
         "Erika: Hi!\n",
         "Good to see you here.\r",
         "How would you like to take a picture\n",
-        "with me? {YESNO 0}"
+        "with me?"
       ]
     },
     {

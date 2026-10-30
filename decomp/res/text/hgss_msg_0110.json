@@ -15,7 +15,7 @@
       "id": "msg_0110_D32R0601_00001",
       "en_US": [
         "Which challenge would you like\n",
-        "to take?{YESNO 0}"
+        "to take?"
       ]
     },
     {
@@ -56,7 +56,7 @@
       "id": "msg_0110_D32R0601_00004",
       "en_US": [
         "Would you like to take the Battle\n",
-        "Arcade Multi Battle challenge?{YESNO 0}"
+        "Arcade Multi Battle challenge?"
       ]
     },
     {
@@ -321,7 +321,7 @@
       "id": "msg_0110_D32R0601_00031",
       "en_US": [
         "You must save the game before\n",
-        "I show you in. Is that OK?{YESNO 0}"
+        "I show you in. Is that OK?"
       ]
     },
     {
@@ -394,14 +394,14 @@
         "One Trainer should select\n",
         "“BECOME LEADER.”\r",
         "The other Trainer must select\n",
-        "“JOIN GROUP.”{YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
       "id": "msg_0110_D32R0601_00044",
       "en_US": [
         "We need to launch DS Wireless\n",
-        "Communications.{YESNO 0}"
+        "Communications."
       ]
     },
     {

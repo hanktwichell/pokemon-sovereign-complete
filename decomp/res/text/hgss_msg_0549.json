@@ -249,7 +249,7 @@
       "id": "msg_0549_T20R0402_00022",
       "en_US": [
         "While you’re here, {STRVAR_1 3, 0, 0},\n",
-        "do you want to have a battle? {YESNO 0}"
+        "do you want to have a battle?"
       ]
     },
     {

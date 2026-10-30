@@ -8,7 +8,7 @@
         "You have the Pokémon I love best:\f",
         "Pikachu!\r",
         "Excellent!\n",
-        "I’ll give you my telephone number! {YESNO 0}"
+        "I’ll give you my telephone number!"
       ]
     },
     {
@@ -38,7 +38,7 @@
       "en_US": [
         "Lt. Surge: Aha!\n",
         "Now you want to know my telephone\f",
-        "number, don’t you? {YESNO 0}"
+        "number, don’t you?"
       ]
     },
     {

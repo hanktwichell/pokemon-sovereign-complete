@@ -15,7 +15,7 @@
       "id": "msg_0108_D32R0401_00001",
       "en_US": [
         "Which challenge would you\n",
-        "like to take?{YESNO 0}"
+        "like to take?"
       ]
     },
     {
@@ -58,7 +58,7 @@
       "id": "msg_0108_D32R0401_00004",
       "en_US": [
         "Would you like to take the Battle\n",
-        "Hall Multi Battle challenge? {YESNO 0}"
+        "Hall Multi Battle challenge?"
       ]
     },
     {
@@ -92,7 +92,7 @@
       "id": "msg_0108_D32R0401_00008",
       "en_US": [
         "You must save the game before\n",
-        "I show you in. Is that OK?{YESNO 0}"
+        "I show you in. Is that OK?"
       ]
     },
     {
@@ -237,14 +237,14 @@
         "One Trainer should select\n",
         "“BECOME LEADER.”\r",
         "The other Trainer must select\n",
-        "“JOIN GROUP.”{YESNO 0}"
+        "“JOIN GROUP.”"
       ]
     },
     {
       "id": "msg_0108_D32R0401_00031",
       "en_US": [
         "We need to launch DS Wireless\n",
-        "Communications.{YESNO 0}"
+        "Communications."
       ]
     },
     {
@@ -267,7 +267,7 @@
         "There is an ongoing winning streak\n",
         "saved for {STRVAR_1 0, 0, 0}.\r",
         "Delete this record and start a new\n",
-        "challenge with {STRVAR_1 0, 1, 0}?{YESNO 0}"
+        "challenge with {STRVAR_1 0, 1, 0}?"
       ]
     },
     {

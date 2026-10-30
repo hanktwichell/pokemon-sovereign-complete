@@ -45,7 +45,7 @@
       "id": "msg_0121_D38R0104_00005",
       "en_US": [
         "Give a nickname to the Tyrogue you\n",
-        "received? {YESNO 0}"
+        "received?"
       ]
     },
     {
@@ -80,7 +80,7 @@
       "id": "msg_0121_D38R0104_00011",
       "en_US": [
         "Do you want to try playing the\n",
-        "Azure Flute? {YESNO 0}"
+        "Azure Flute?"
       ]
     },
     {
@@ -94,7 +94,7 @@
         "choose one wish...\r",
         "But with a warning that the wish\n",
         "could {COLOR 1}only be performed once{COLOR 0}...\r",
-        "What does {STRVAR_1 3, 0, 0}’s heart desire? {YESNO 0}"
+        "What does {STRVAR_1 3, 0, 0}’s heart desire?"
       ]
     },
     {

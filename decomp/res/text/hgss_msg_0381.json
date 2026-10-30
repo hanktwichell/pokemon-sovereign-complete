@@ -6,7 +6,7 @@
       "en_US": [
         "This area is great for fishing. You\n",
         "can see loads of Water-type Pokémon.\r",
-        "Do you like Water-type Pokémon? {YESNO 0}"
+        "Do you like Water-type Pokémon?"
       ]
     },
     {
@@ -56,7 +56,7 @@
       "en_US": [
         "Bonjour.\n",
         "How are you?\f",
-        "Are you picking Apricorns? {YESNO 0}"
+        "Are you picking Apricorns?"
       ]
     },
     {
@@ -109,7 +109,7 @@
         "Looking at all those people fishing,\f",
         "did you feel like you wanted to try\f",
         "fishing, too?\r",
-        "Do you like fishing, lass?{YESNO 0}"
+        "Do you like fishing, lass?"
       ]
     },
     {

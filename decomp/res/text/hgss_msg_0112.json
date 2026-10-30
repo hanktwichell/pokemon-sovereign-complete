@@ -45,7 +45,7 @@
         "A secret switch!\r",
         "The red switch is flashing in a\n",
         "suspicious manner.\f",
-        "Will you press it? {YESNO 0}"
+        "Will you press it?"
       ]
     },
     {
@@ -53,7 +53,7 @@
       "en_US": [
         "A secret switch!\r",
         "The blue switch is lit.\f",
-        "Will you press it? {YESNO 0}"
+        "Will you press it?"
       ]
     },
     {

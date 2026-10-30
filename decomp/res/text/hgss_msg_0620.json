@@ -9,7 +9,7 @@
         "Since you’re new, you should try a\f",
         "yummy RageCandyBar!\r",
         "Right now, it can be yours for just\n",
-        "$300! Want one? {YESNO 0}"
+        "$300! Want one?"
       ]
     },
     {
@@ -49,7 +49,7 @@
         "You want to buy one?\r",
         "Right on!\r",
         "Same as before, it can be yours for\n",
-        "just $300! Want one? {YESNO 0}"
+        "just $300! Want one?"
       ]
     },
     {

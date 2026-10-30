@@ -29,12 +29,12 @@
       "id": "msg_0427_00003",
       "en_US": [
         "Would you like to exit the\n",
-        "Safari Zone right now? {YESNO 0}"
+        "Safari Zone right now?"
       ]
     },
     {
       "id": "msg_0427_00004",
-      "en_US": "Place an object? {YESNO 0}"
+      "en_US": "Place an object?"
     },
     {
       "id": "msg_0427_00005",
@@ -42,7 +42,7 @@
     },
     {
       "id": "msg_0427_00006",
-      "en_US": "Remove the {STRVAR_1 8, 0, 0}? {YESNO 0}"
+      "en_US": "Remove the {STRVAR_1 8, 0, 0}?"
     },
     {
       "id": "msg_0427_00007",

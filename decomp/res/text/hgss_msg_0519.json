@@ -55,7 +55,7 @@
         "Blue: You are quite something!\n",
         "You defeated Red!?\f",
         "That’s great!\r",
-        "Let’s take a picture together! {YESNO 0}"
+        "Let’s take a picture together!"
       ]
     },
     {
@@ -83,7 +83,7 @@
       "en_US": [
         "Blaine: I’ll never give up until the \n",
         "day I’ve rebuilt the Cinnabar Gym!\r",
-        "Why not exchange numbers! {YESNO 0}"
+        "Why not exchange numbers!"
       ]
     },
     {
@@ -109,7 +109,7 @@
       "id": "msg_0519_T09_00014",
       "en_US": [
         "Blaine: Do we want to exchange\n",
-        "numbers? {YESNO 0}"
+        "numbers?"
       ]
     },
     {
@@ -117,7 +117,7 @@
       "en_US": [
         "Blaine: Oh, it is you!\n",
         "Say, do you want to take a picture\f",
-        "with me right here? {YESNO 0}"
+        "with me right here?"
       ]
     },
     {

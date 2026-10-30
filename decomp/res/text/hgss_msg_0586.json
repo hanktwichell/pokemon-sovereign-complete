@@ -11,7 +11,7 @@
         "Someone has to take care of it,\n",
         "but I don’t really have the time.\r",
         "Can I count on you to play with it,\n",
-        "{STRVAR_1 3, 0, 0}? {YESNO 0}"
+        "{STRVAR_1 3, 0, 0}?"
       ]
     },
     {
@@ -65,7 +65,7 @@
       "id": "msg_0586_T25R0401_00007",
       "en_US": [
         "Give a nickname to\n",
-        "the Castform you received? {YESNO 0}"
+        "the Castform you received?"
       ]
     },
     {
@@ -100,7 +100,7 @@
       "en_US": [
         "Are you a Trainer?\r",
         "I’ve got a useful phone number\n",
-        "for you. {YESNO 0}"
+        "for you."
       ]
     },
     {

@@ -9,7 +9,7 @@
       "id": "msg_0702_00001",
       "en_US": [
         "So, how about we exchange phone\n",
-        "numbers?{YESNO 0}"
+        "numbers?"
       ]
     },
     {
@@ -24,7 +24,7 @@
       "id": "msg_0702_00004",
       "en_US": [
         "Did you decide you wanted to\n",
-        "exchange phone numbers? {YESNO 0}"
+        "exchange phone numbers?"
       ]
     },
     {

@@ -174,7 +174,8 @@ HeartGold's message banks (`files/msgdata/msg/*.json`) have Platinum's layout (`
 `en_US` lines) and the same control codes (`{STRVAR_1 ...}`, `{COLOR ...}`, `{YESNO ...}`). Every code HeartGold
 uses is in Platinum's text encoder (`decomp/tools/msgenc/charmap.txt`) except `TRNAME` (10 uses). Each map's bank
 becomes a Platinum text bank, appended to `generated/text_banks.txt` (the bank number is its place in that list) as
-`res/text/hgss_*.json`.
+`res/text/hgss_*.json`. HeartGold ends 695 questions with `{YESNO 0}`, its mark for "answer on the touch screen"
+(Platinum's screen indicator, which draws it); here the yes or no is on the top screen, so the importer drops the mark.
 
 ## Numbers in scripts
 

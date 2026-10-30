@@ -5,7 +5,7 @@
       "id": "msg_0268_00000",
       "en_US": [
         "It will forget the saying it knows\n",
-        "now. Is that OK?{YESNO 0}"
+        "now. Is that OK?"
       ]
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "id": "msg_0268_00004",
-      "en_US": "Would you like to try again?{YESNO 0}"
+      "en_US": "Would you like to try again?"
     },
     {
       "id": "msg_0268_00005",

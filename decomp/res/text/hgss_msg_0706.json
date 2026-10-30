@@ -13,7 +13,7 @@
         "you by!\r",
         "Perhaps your phone number will do?\r",
         "My training makes it impossible to\n",
-        "chat much, but... {YESNO 0}"
+        "chat much, but..."
       ]
     },
     {
@@ -34,7 +34,7 @@
       "id": "msg_0706_00004",
       "en_US": [
         "My training makes chatting tough.\n",
-        "So, take down my number? {YESNO 0}"
+        "So, take down my number?"
       ]
     },
     {

@@ -225,7 +225,7 @@
         "Welcome to the Exchange Service\n",
         "Corner!\r",
         "Would you like to trade in your BP\n",
-        "for some prizes? {YESNO 0}"
+        "for some prizes?"
       ]
     },
     {
@@ -236,7 +236,7 @@
       "id": "msg_0100_D32_00023",
       "en_US": [
         "{STRVAR_1 8, 0, 0} will cost {STRVAR_1 50, 1, 0} BP.\n",
-        "Is that OK? {YESNO 0}"
+        "Is that OK?"
       ]
     },
     {
@@ -244,7 +244,7 @@
       "en_US": [
         "{STRVAR_1 8, 0, 0} {STRVAR_1 6, 1, 0} will\n",
         "cost {STRVAR_1 51, 2, 0} BP.\f",
-        "Is that OK? {YESNO 0}"
+        "Is that OK?"
       ]
     },
     {
@@ -277,14 +277,14 @@
       "id": "msg_0100_D32_00030",
       "en_US": [
         "Please choose the TM you\n",
-        "would like. {YESNO 0}"
+        "would like."
       ]
     },
     {
       "id": "msg_0100_D32_00031",
       "en_US": [
         "Please choose the item you\n",
-        "would like. {YESNO 0}"
+        "would like."
       ]
     },
     {

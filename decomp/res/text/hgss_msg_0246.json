@@ -23,7 +23,7 @@
       "id": "msg_0246_00003",
       "en_US": [
         "You still have {STRVAR_1 51, 0, 0} minute(s) left.\n",
-        "Do you want to finish now?{YESNO 0}"
+        "Do you want to finish now?"
       ]
     },
     {
@@ -35,7 +35,7 @@
         "The rules are simple.\r",
         "Using one of your Pokémon, catch a\n",
         "Bug-type Pokémon to be judged.\r",
-        "Would you like to give it a try?{YESNO 0}"
+        "Would you like to give it a try?"
       ]
     },
     {
@@ -47,7 +47,7 @@
         "The rules are simple.\r",
         "Using one of your Pokémon, catch a\n",
         "Bug-type Pokémon to be judged.\r",
-        "Would you like to give it a try?{YESNO 0}"
+        "Would you like to give it a try?"
       ]
     },
     {
@@ -59,7 +59,7 @@
         "The rules are simple.\r",
         "Using one of your Pokémon, catch a\n",
         "Bug-type Pokémon to be judged.\r",
-        "Would you like to give it a try?{YESNO 0}"
+        "Would you like to give it a try?"
       ]
     },
     {
@@ -87,7 +87,7 @@
         "You have more than one Pokémon.\r",
         "You’ll have to use {STRVAR_1 1, 0, 0}, the\n",
         "first Pokémon in your party.\r",
-        "Is that OK with you? {YESNO 0}"
+        "Is that OK with you?"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "id": "msg_0246_00023",
       "en_US": [
         "You still have {STRVAR_1 51, 0, 0} minute(s) left.\n",
-        "Do you want to finish now? {YESNO 0}"
+        "Do you want to finish now?"
       ]
     },
     {
@@ -328,7 +328,7 @@
       "id": "msg_0246_00043",
       "en_US": [
         "Give a nickname to the\n",
-        "{STRVAR_1 0, 1, 0} you caught? {YESNO 0}"
+        "{STRVAR_1 0, 1, 0} you caught?"
       ]
     },
     {

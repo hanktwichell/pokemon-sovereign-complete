@@ -5,7 +5,7 @@
       "id": "msg_0367_R26R0201_00000",
       "en_US": [
         "There’s something written here.\n",
-        "Read it? {YESNO 0}"
+        "Read it?"
       ]
     },
     {
@@ -18,7 +18,7 @@
         "something useful.\r",
         "Love,\n",
         "Monica\r",
-        "Keep reading? {YESNO 0}"
+        "Keep reading?"
       ]
     },
     {

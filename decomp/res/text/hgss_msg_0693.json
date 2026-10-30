@@ -15,7 +15,7 @@
         "and Tentacruel and all kinds of\f",
         "other Pokémon. It’ll be fun!\f",
         "What do you think?\r",
-        "Can I get your phone number?{YESNO 0}"
+        "Can I get your phone number?"
       ]
     },
     {
@@ -36,7 +36,7 @@
       "id": "msg_0693_00004",
       "en_US": [
         "Let’s chat about Pokémon!\n",
-        "Can I get your phone number?{YESNO 0}"
+        "Can I get your phone number?"
       ]
     },
     {

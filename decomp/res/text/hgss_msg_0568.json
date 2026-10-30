@@ -35,7 +35,7 @@
       "id": "msg_0568_T23PC0101_00003",
       "en_US": [
         "Well, hello there, trainer!\r",
-        "Would you like to take a quiz? {YESNO 0}"
+        "Would you like to take a quiz?"
       ]
     },
     {
@@ -44,7 +44,7 @@
         "Excellent! Let’s get started!\r",
         "Question one!\r",
         "Is Sableye the only Pokémon\n",
-        "able to have the Stall ability? {YESNO 0}"
+        "able to have the Stall ability?"
       ]
     },
     {
@@ -63,7 +63,7 @@
       "en_US": [
         "Correct! Time for question two!\r",
         "Is the Lax Incense required in\n",
-        "order to breed a Munchlax? {YESNO 0}"
+        "order to breed a Munchlax?"
       ]
     },
     {
@@ -71,7 +71,7 @@
       "en_US": [
         "Correct! The semifinal question!\r",
         "Is it true that Reversal has\n",
-        "a maximum power of 150? {YESNO 0}"
+        "a maximum power of 150?"
       ]
     },
     {
@@ -79,7 +79,7 @@
       "en_US": [
         "Correct! The final question!\r",
         "Does Gardevoir have a higher\n",
-        "base stat total than Alakazam? {YESNO 0}"
+        "base stat total than Alakazam?"
       ]
     },
     {
@@ -152,7 +152,7 @@
       "en_US": [
         "I collect Pokémon.\n",
         "Do you have a Gible?\r",
-        "Want to trade it for my Beldum? {YESNO 0}"
+        "Want to trade it for my Beldum?"
       ]
     },
     {
@@ -182,7 +182,7 @@
     },
     {
       "id": "msg_0568_T23PC0101_00027",
-      "en_US": "Hey, kid! Wanna rock out!? {YESNO 0}"
+      "en_US": "Hey, kid! Wanna rock out!?"
     },
     {
       "id": "msg_0568_T23PC0101_00028",

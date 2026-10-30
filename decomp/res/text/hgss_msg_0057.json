@@ -77,7 +77,7 @@
         "You may be born with some talent...\f",
         "Can we exchange numbers?\r",
         "I would love to examine the trust\n",
-        "you have with your Pokémon. {YESNO 0}"
+        "you have with your Pokémon."
       ]
     },
     {
@@ -105,7 +105,7 @@
       "id": "msg_0057_D17R0101_00011",
       "en_US": [
         "Morty: Do you want to exchange\n",
-        "numbers? {YESNO 0}"
+        "numbers?"
       ]
     }
   ]

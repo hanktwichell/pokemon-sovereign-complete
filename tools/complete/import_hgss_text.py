@@ -183,6 +183,14 @@ def with_names(data, messages, bank):
     return dict(data, messages=out)
 
 
+def without_touch_prompt(text):
+    """HeartGold ends a question with {YESNO 0}, its "answer on the touch screen" mark (Platinum's screen indicator);
+    the engine asks yes or no on the top screen, so the mark goes."""
+    if isinstance(text, list):
+        return [without_touch_prompt(line) for line in text]
+    return re.sub(r' ?\{YESNO 0\}', '', text)
+
+
 def highest_messages(scripts):
     """{bank: the highest message number a script names}."""
     out = {}
@@ -214,6 +222,8 @@ def main():
         for m in data['messages']:
             if m['id'] in TEXT_FIXES:
                 m['en_US'] = TEXT_FIXES[m['id']]
+            if 'en_US' in m:
+                m['en_US'] = without_touch_prompt(m['en_US'])
         with open(os.path.join(DECOMP, f'res/text/hgss_msg_{bank}.json'), 'w', encoding='utf-8') as f:
             f.write(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
         names.append(f'{PREFIX}{bank}')

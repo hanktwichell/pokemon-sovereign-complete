@@ -14,7 +14,7 @@
         "Do you like pretty things?\n",
         "I could share if it gets some more.\r",
         "How about we trade phone numbers?\n",
-        "I’ll call if it finds anything. {YESNO 0}"
+        "I’ll call if it finds anything."
       ]
     },
     {
@@ -39,7 +39,7 @@
         "I could share if Farfetch’d goes\n",
         "and gets more.\r",
         "Will you give me your\n",
-        "phone number? {YESNO 0}"
+        "phone number?"
       ]
     },
     {

@@ -12,7 +12,7 @@
         "bunch so we can battle again the next\f",
         "time we meet.\r",
         "That’s right! Give me your phone\n",
-        "number so I can call you! {YESNO 0}"
+        "number so I can call you!"
       ]
     },
     {
@@ -30,7 +30,7 @@
       "id": "msg_0673_00004",
       "en_US": [
         "Hey! You really want to trade phone\n",
-        "numbers with me, don’t you? {YESNO 0}"
+        "numbers with me, don’t you?"
       ]
     },
     {

@@ -90,7 +90,7 @@
         "nothing to do already?\r",
         "I may have time to listen to you.\n",
         "If you insist, I can exchange\f",
-        "numbers, too! {YESNO 0}"
+        "numbers, too!"
       ]
     },
     {
@@ -115,7 +115,7 @@
       "id": "msg_0129_D44R0102_00013",
       "en_US": [
         "Clair: So you do want to\n",
-        "exchange numbers? {YESNO 0}"
+        "exchange numbers?"
       ]
     },
     {
@@ -268,7 +268,7 @@
       "en_US": [
         "Clair: You...\n",
         "seem desperate to take pictures\f",
-        "with me. {YESNO 0}"
+        "with me."
       ]
     },
     {

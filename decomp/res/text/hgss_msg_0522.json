@@ -85,7 +85,7 @@
     },
     {
       "id": "msg_0522_T10R0101_00007",
-      "en_US": "Which Ranking do you want to see? {YESNO 0}"
+      "en_US": "Which Ranking do you want to see?"
     },
     {
       "id": "msg_0522_T10R0101_00008",
@@ -103,7 +103,7 @@
       "id": "msg_0522_T10R0101_00011",
       "en_US": [
         "What kind of Ranking\n",
-        "do you want to see? {YESNO 0}"
+        "do you want to see?"
       ]
     },
     {
@@ -122,7 +122,7 @@
       "id": "msg_0522_T10R0101_00015",
       "en_US": [
         "Which record would you like\n",
-        "to see? {YESNO 0}"
+        "to see?"
       ]
     },
     {

@@ -9,7 +9,7 @@
         "We restore your tired Pokémon\n",
         "to full health.\r",
         "Would you like to rest your\n",
-        "Pokémon?{YESNO 0}"
+        "Pokémon?"
       ]
     },
     {
@@ -52,14 +52,14 @@
         "But you’re the first to top them\n",
         "with that impressive Trainer Card.\r",
         "Please, {STRVAR_1 3, 0, 0}, may I please\n",
-        "heal your Pokémon? {YESNO 0}"
+        "heal your Pokémon?"
       ]
     },
     {
       "id": "msg_0040_00006",
       "en_US": [
         "Great to see you, {STRVAR_1 3, 0, 0}!\n",
-        "You want the usual, right? {YESNO 0}"
+        "You want the usual, right?"
       ]
     },
     {
@@ -103,13 +103,13 @@
     },
     {
       "id": "msg_0040_00013",
-      "en_US": "Would you like to save the game? {YESNO 0}"
+      "en_US": "Would you like to save the game?"
     },
     {
       "id": "msg_0040_00014",
       "en_US": [
         "There is already a saved file.\n",
-        "Is it OK to overwrite it? {YESNO 0}"
+        "Is it OK to overwrite it?"
       ]
     },
     {
@@ -222,7 +222,7 @@
     },
     {
       "id": "msg_0040_00034",
-      "en_US": "Which PC should be accessed? {YESNO 0}"
+      "en_US": "Which PC should be accessed?"
     },
     {
       "id": "msg_0040_00035",
@@ -388,11 +388,11 @@
     },
     {
       "id": "msg_0040_00059",
-      "en_US": "Ride your Bike? {YESNO 0}"
+      "en_US": "Ride your Bike?"
     },
     {
       "id": "msg_0040_00060",
-      "en_US": "Get off your Bike? {YESNO 0}"
+      "en_US": "Get off your Bike?"
     },
     {
       "id": "msg_0040_00061",
@@ -544,7 +544,7 @@
         "We restore your tired Pokémon\n",
         "to full health.\r",
         "Would you like to rest your\n",
-        "Pokémon? {YESNO 0}"
+        "Pokémon?"
       ]
     },
     {
@@ -555,7 +555,7 @@
         "We restore your tired Pokémon\n",
         "to full health.\r",
         "Would you like to rest your\n",
-        "Pokémon? {YESNO 0}"
+        "Pokémon?"
       ]
     },
     {
@@ -564,7 +564,7 @@
         "{STRVAR_1 3, 0, 0}’s Azure Flute is making\n",
         "a sound!\r",
         "Would you like to blow into the\n",
-        "Azure Flute? {YESNO 0}"
+        "Azure Flute?"
       ]
     },
     {
@@ -684,7 +684,7 @@
         "Can you tell me how you feel right\n",
         "before a match? How you feel when you\f",
         "win or lose? What it would be\f",
-        "like to be number one? {YESNO 0}"
+        "like to be number one?"
       ]
     },
     {
@@ -726,7 +726,7 @@
       "id": "msg_0040_00109",
       "en_US": [
         "Thank you! Will you tell me about\n",
-        "anything else? {YESNO 0}"
+        "anything else?"
       ]
     },
     {

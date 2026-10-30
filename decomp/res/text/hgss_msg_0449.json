@@ -20,7 +20,7 @@
         "a bit on the dirty side.\r",
         "Grooming helps them become more\n",
         "beautiful and friendly.\r",
-        "Would you like me to groom one? {YESNO 0}"
+        "Would you like me to groom one?"
       ]
     },
     {
@@ -69,7 +69,7 @@
         "Would you like my kid brother’s number?\r",
         "He is the Gym Leader at Viridian City.\n",
         "Have you challenged him?\r",
-        "Do you want to register him? {YESNO 0}"
+        "Do you want to register him?"
       ]
     },
     {
@@ -103,7 +103,7 @@
       "id": "msg_0449_T01R0201_00012",
       "en_US": [
         "Daisy: Do you want to register\n",
-        "my kid brother’s number? {YESNO 0}"
+        "my kid brother’s number?"
       ]
     }
   ]

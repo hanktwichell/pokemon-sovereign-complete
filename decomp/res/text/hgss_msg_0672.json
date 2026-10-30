@@ -11,7 +11,7 @@
         "It really made me angry to lose.\n",
         "I’ll have to train much harder...\r",
         "Here’s my number. I’m Erin--don’t\n",
-        "forget! Want to battle me again? {YESNO 0}"
+        "forget! Want to battle me again?"
       ]
     },
     {
@@ -32,7 +32,7 @@
       "id": "msg_0672_00004",
       "en_US": [
         "I want to battle with you again.\n",
-        "Do you want to exchange numbers? {YESNO 0}"
+        "Do you want to exchange numbers?"
       ]
     },
     {
