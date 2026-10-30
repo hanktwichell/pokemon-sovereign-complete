@@ -45,6 +45,10 @@ work.
   after changing the list (its insertions sit between tagged markers).
 - Test: build the test ROM (`tools/test/build_test_rom.sh`), then `python3 tools/complete/test_follower.py`. The emulator
   is slow here (about 10 minutes); run it in the background.
+- Talking to it: `src/overlay006/complete_follower_talk.c` (HeartGold's interactions, motions and emote bubbles, from
+  the archive `tools/complete/import_hgss_follower_talk.py` packs); test `tools/complete/test_follower_talk.py`.
+- A new C file in an overlay's folder must also be listed in that overlay in `platinum.us/main.lsf.in`
+  (`src/meson.build` is generated from it); otherwise it links outside the overlay and calls into it crash.
 
 ## Game files
 
