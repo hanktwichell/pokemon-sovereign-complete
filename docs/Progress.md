@@ -357,4 +357,4 @@ Test results on the new test build:
   scripts, so the tutors say nothing until their Battle Point teaching (HeartGold's own commands) comes in.
 - **HeartGold's fanfares** (an item, a badge, a Pokémon caught: 23 its scripts play) are in too, each with its own bank;
   Platinum's fanfares play from its loaded instruments, so one of HeartGold's loads its own as it starts. The sound
-  test's Johto part now plays each of them over New Bark Town's song.
+  test's Johto part plays each of them over New Bark Town's song, then a battle: all load, 11 KB to spare at the least.
