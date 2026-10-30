@@ -18,6 +18,7 @@
 #include "savedata.h"
 #include "trainer_info.h"
 #include "unk_02017038.h"
+#include "complete_follower.h" // Sovereign Complete
 
 BOOL Pokemon_CanBattle(Pokemon *mon)
 {
@@ -197,6 +198,7 @@ int Pokemon_DoPoisonDamage(Party *party, u16 mapLabelTextID)
             if (hp == 1) {
                 numFainted++;
                 Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_POISON_SURVIVE, mapLabelTextID);
+                CompleteFollower_AddMood(mon, -50); // Sovereign Complete: HeartGold's mood
             }
 
             numPoisoned++;

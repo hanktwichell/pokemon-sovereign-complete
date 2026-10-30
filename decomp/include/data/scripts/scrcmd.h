@@ -971,6 +971,7 @@ ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKANSWER,                        Complete
 ScriptCommand(SCRCMD_COMPLETEFOLLOWERTALKEND,                           CompleteScrCmd_FollowerTalkEnd)
 ScriptCommand(SCRCMD_COMPLETEGETSHINYLEAFCOUNT,                         CompleteScrCmd_GetShinyLeafCount)
 ScriptCommand(SCRCMD_COMPLETEGIVESHINYLEAFCROWN,                        CompleteScrCmd_GiveShinyLeafCrown)
+ScriptCommand(SCRCMD_COMPLETEOBJECTSWAY,                                CompleteScrCmd_ObjectSway)
 
 // clang-format on
 

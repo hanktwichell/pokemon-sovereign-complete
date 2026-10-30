@@ -116,7 +116,7 @@ _0154:
     CloseMessage
     PlayCry SPECIES_DARKRAI, 6
     ReleaseObject 3
-    @ HGSS: ScrCmd_523 3, 8, 90, 2, 0
+    CompleteObjectSway 3, 8, 90, 2, 0
     LockObject 3
     WaitCry
     GoTo _01D2

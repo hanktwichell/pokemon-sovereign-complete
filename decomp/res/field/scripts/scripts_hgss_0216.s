@@ -83,7 +83,7 @@ scr_seq_R25_004:
     WaitMovement
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_R25_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_R25_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_R25_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_R25_tsure_poke_static_suicune
     WaitCry
     CompleteFollowerPause 0
@@ -116,7 +116,7 @@ scr_seq_R25_007:
     FacePlayer
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_R25_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_R25_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_R25_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_R25_tsure_poke_static_suicune
     WaitCry
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON

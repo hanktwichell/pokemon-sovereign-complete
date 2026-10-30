@@ -28,7 +28,7 @@ scr_seq_R42_001:
     LockAll
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_R42_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_R42_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_R42_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_R42_tsure_poke_static_suicune
     WaitCry
     CompleteFollowerPause 0

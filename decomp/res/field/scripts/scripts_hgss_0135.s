@@ -37,7 +37,7 @@ scr_seq_D52R0103_001:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     ReleaseObject obj_D52R0103_tsure_poke_static_rayquaza
-    @ HGSS: ScrCmd_523 obj_D52R0103_tsure_poke_static_rayquaza, 8, 90, 3, 0
+    CompleteObjectSway obj_D52R0103_tsure_poke_static_rayquaza, 8, 90, 3, 0
     PlayCry SPECIES_RAYQUAZA, 0
     Message msg_0150_D52R0103_00000
     WaitCry
@@ -51,7 +51,7 @@ scr_seq_D52R0103_000:
     LockAll
     FacePlayer
     ReleaseObject obj_D52R0103_tsure_poke_static_rayquaza
-    @ HGSS: ScrCmd_523 obj_D52R0103_tsure_poke_static_rayquaza, 8, 90, 3, 0
+    CompleteObjectSway obj_D52R0103_tsure_poke_static_rayquaza, 8, 90, 3, 0
     PlayCry SPECIES_RAYQUAZA, 0
     Message msg_0150_D52R0103_00000
     WaitCry

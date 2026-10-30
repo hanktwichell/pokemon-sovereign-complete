@@ -40,6 +40,7 @@
 #include "field_system.h"
 #include "inlines.h"
 #include "map_object.h"
+#include "math_util.h"
 #include "map_object_move.h"
 #include "message.h"
 #include "party.h"
@@ -323,6 +324,58 @@ BOOL CompleteScrCmd_GiveShinyLeafCrown(ScriptContext *ctx)
     }
 
     return FALSE;
+}
+
+// HeartGold's ScrCmd_523 (its sub_0205BED8): an object sways sideways and back, as the legendary Pokémon do before
+// Johto's and Kanto's scenes with them: cycles of a sine, the angle going up by step degrees a frame, x and z pixels
+// wide
+static struct {
+    MapObject *object;
+    fx32 x;
+    fx32 z;
+    u16 cycles;
+    u16 step;
+    u16 angle;
+} sObjectSway;
+
+static BOOL ObjectSwayFrame(ScriptContext *ctx)
+{
+    VecFx32 offset = { 0, 0, 0 };
+
+    if (sObjectSway.cycles != 0) {
+        fx32 sine = CalcSineDegrees(sObjectSway.angle);
+
+        offset.x = FX_Mul(sine, sObjectSway.x);
+        offset.z = FX_Mul(sine, sObjectSway.z);
+        sObjectSway.angle += sObjectSway.step;
+
+        if (sObjectSway.angle >= 360) {
+            sObjectSway.angle = 0;
+            sObjectSway.cycles--;
+        }
+    }
+
+    MapObject_SetSpritePosOffset(sObjectSway.object, &offset);
+    return sObjectSway.cycles == 0;
+}
+
+BOOL CompleteScrCmd_ObjectSway(ScriptContext *ctx)
+{
+    u16 localID = ScriptContext_GetVar(ctx);
+
+    sObjectSway.cycles = ScriptContext_GetVar(ctx);
+    sObjectSway.step = ScriptContext_GetVar(ctx);
+    sObjectSway.x = ScriptContext_GetVar(ctx) * FX32_ONE;
+    sObjectSway.z = ScriptContext_GetVar(ctx) * FX32_ONE;
+    sObjectSway.angle = 0;
+    sObjectSway.object = MapObjMan_LocalMapObjByIndex(ctx->fieldSystem->mapObjMan, localID);
+
+    if (sObjectSway.object == NULL || sObjectSway.step == 0) {
+        return FALSE;
+    }
+
+    ScriptContext_Pause(ctx, ObjectSwayFrame);
+    return TRUE;
 }
 
 // HeartGold's GiveBadge and CheckBadge: Johto's and Kanto's badges (BADGE_ID_HGSS_*), beside Sinnoh's

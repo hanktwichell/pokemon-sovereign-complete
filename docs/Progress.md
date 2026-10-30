@@ -552,3 +552,9 @@ Test results on the new test build:
 - **The emotes:** HeartGold's 14 bubbles over the follower (a heart, faces, "...", "!"...) pop up and play their two
   frames, as in HeartGold, in a billboard of Platinum's field effects whose model, frames and frame sequence come from
   the talk's archive. The test checks the nudge's heart, and the screenshots show the bubbles over the follower.
+- **The rest of HeartGold's mood:** TMs, surviving poison, and its items (Rare Candy, vitamins, X items, the bitter
+  herbal medicine) change it too, where Platinum changes friendship for them.
+- **The legendary Pokémon's sway** before their scenes (HeartGold's `ScrCmd_523`: Suicune's chase, the three in the
+  Burned Tower, Rayquaza) is `CompleteObjectSway`; the Burned Tower's step-on scene plays to its end in
+  `tools/test/signs_and_triggers.py`. 98.8% of Sacred Gold's script lines translate (1,031 left: the Battle Frontier,
+  the Pokéathlon, link rooms, the photo album and the radio, which wait on the owner's decisions).

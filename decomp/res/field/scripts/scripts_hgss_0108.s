@@ -28,7 +28,7 @@ scr_seq_D42R0101_001:
     FacePlayer
     PlayCry SPECIES_REGISTEEL, 6
     ReleaseObject 3
-    @ HGSS: ScrCmd_523 3, 2, 90, 2, 0
+    CompleteObjectSway 3, 2, 90, 2, 0
     LockObject 3
     Message msg_0127_D42R0101_00004
     CloseMessage

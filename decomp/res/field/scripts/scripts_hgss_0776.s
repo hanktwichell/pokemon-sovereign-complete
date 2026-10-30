@@ -98,7 +98,7 @@ scr_seq_T06_012:
     WaitMovement
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_T06_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_T06_tsure_poke_static_suicune
     WaitCry
     CompleteFollowerPause 0
@@ -270,7 +270,7 @@ _03EB:
     WaitMovement
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_T06_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_T06_tsure_poke_static_suicune
     WaitCry
     CompleteFollowerPause 0
@@ -289,7 +289,7 @@ _0450:
     WaitMovement
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_T06_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_T06_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_T06_tsure_poke_static_suicune
     WaitCry
     ApplyMovement obj_T06_tsure_poke_static_suicune, _0AC4

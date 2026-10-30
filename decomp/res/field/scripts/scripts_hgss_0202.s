@@ -173,7 +173,7 @@ _0272:
 _027C:
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_R14_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_R14_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_R14_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_R14_tsure_poke_static_suicune
     WaitCry
     CompareVar VAR_MAP_LOCAL_0x00, 1358

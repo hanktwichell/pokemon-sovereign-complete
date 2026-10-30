@@ -517,6 +517,7 @@ COMMANDS = {
     'FollowerPokeIsEventTrigger': one('SetVarFromValue {2}, 0'),
     'GetShinyLeafCount': one('CompleteGetShinyLeafCount {0}, {1}'),  # the leaves the follower found
     'TryGiveShinyLeafCrown': one('CompleteGiveShinyLeafCrown {0}'),
+    'ScrCmd_523': one('CompleteObjectSway {0}, {1}, {2}, {3}, {4}'),  # a legendary's sway before its scene
     # Whether a Mystery Gift event has unlocked an encounter (0: the Enigma Stone's, for Pewter City's Latios or Latias):
     # none ever arrives, and Sacred Gold gives the second Lati at Vermilion City's plaque instead, so it hasn't.
     'ScrCmd_546': one('SetVarFromValue {1}, 0'),

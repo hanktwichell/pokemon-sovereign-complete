@@ -29,7 +29,7 @@ scr_seq_D39R0103_003:
     FacePlayer
     PlayCry SPECIES_REGICE, 6
     ReleaseObject 7
-    @ HGSS: ScrCmd_523 7, 2, 90, 2, 0
+    CompleteObjectSway 7, 2, 90, 2, 0
     LockObject 7
     Message msg_0123_D39R0103_00001
     CloseMessage

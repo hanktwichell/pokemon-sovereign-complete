@@ -428,7 +428,7 @@ _0626:
 _0668:
     PlayCry SPECIES_CLOYSTER, 0
     ReleaseObject 14
-    @ HGSS: ScrCmd_523 14, 4, 90, 4, 0
+    CompleteObjectSway 14, 4, 90, 4, 0
     LockObject 14
     FadeOutBGM 5, 0
     PlayMusic SEQ_GS_EYE_K_SHOUNEN_sseq
@@ -510,7 +510,7 @@ _06DB:
 _07CA:
     PlayCry SPECIES_CLOYSTER, 0
     ReleaseObject 20
-    @ HGSS: ScrCmd_523 20, 4, 90, 4, 0
+    CompleteObjectSway 20, 4, 90, 4, 0
     LockObject 20
     FadeOutBGM 5, 0
     PlayMusic SEQ_GS_EYE_K_SHOUNEN_sseq

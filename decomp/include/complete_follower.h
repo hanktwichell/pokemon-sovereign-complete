@@ -22,6 +22,7 @@ s8 CompleteFollower_GetMood(Pokemon *mon);
 void CompleteFollower_SetMood(Pokemon *mon, int mood);
 void CompleteFollower_AddMood(Pokemon *mon, int by);
 void CompleteFollower_MoodTowardsNeutral(FieldSystem *fieldSystem);
+int CompleteFollower_ItemMood(u16 item); // medicine and vitamins on it, X items in battle
 // HeartGold's Shiny Leaves (its MON_DATA_SHINY_LEAF_A to _E and _CROWN): bits 0-4 the leaves the follower found, bit 5
 // the crown they make
 #define SHINY_LEAF_CROWN (1 << 5)

@@ -89,6 +89,12 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
 - `ScreenShake` (30 scenes: the Ruins of Alph's puzzles, Lugia's cave, Route 36's Sudowoodo, the Sinjoh Ruins...) is
   `CompleteScreenShake`, ported from HeartGold's code: the camera sways on a sine wave, by up to its x and y, a number
   of times. HeartGold keeps the sway in 16 bits, so its one shake of 20 sways by 4; the port does the same.
+  `ScrCmd_523`, the legendary Pokémon's sideways sway before their scenes (Suicune's chase, the three in the Burned
+  Tower, Rayquaza), is `CompleteObjectSway`, from HeartGold's `sub_0205BED8`: the object's sprite moves on a sine, by
+  its x and z pixels, a number of cycles.
+- `GetShinyLeafCount` and `TryGiveShinyLeafCrown` (Lyra's or Ethan's crown for five Shiny Leaves) are
+  `CompleteGetShinyLeafCount` and `CompleteGiveShinyLeafCrown`, on the leaves the follower's talk finds
+  (`docs/Features.md`, "Talking to the following Pokémon").
 - `RocketTrapBattle` (Team Rocket's traps and Azalea's Spiritomb) is HeartGold's wild battle without the legendary
   flag, so `CompleteStartWildBattle` too. `FollowerPokeIsEventTrigger` asks whether a party Pokémon is a distributed
   event one (HeartGold's spiky-eared Pichu, Arceus and Celebi events, read from its met data); Sacred Gold gives these

@@ -5,6 +5,7 @@
 #include "constants/map_object.h"
 #include "constants/player_avatar.h"
 #include "constants/species.h"
+#include "generated/items.h"
 #include "generated/movement_types.h"
 #include "generated/object_events_gfx.h"
 
@@ -187,6 +188,40 @@ void CompleteFollower_AddMood(Pokemon *mon, int by)
 
     if (species != SPECIES_NONE && species != SPECIES_EGG) {
         CompleteFollower_SetMood(mon, CompleteFollower_GetMood(mon) + by);
+    }
+}
+
+// HeartGold's ItemIdGetMoodEffect: what using an item on a Pokémon does to its mood
+int CompleteFollower_ItemMood(u16 item)
+{
+    switch (item) {
+    case ITEM_RARE_CANDY:
+        return 40;
+    case ITEM_ENERGYPOWDER:
+    case ITEM_HEAL_POWDER:
+        return -20;
+    case ITEM_ENERGY_ROOT:
+        return -30;
+    case ITEM_REVIVAL_HERB:
+        return -40;
+    case ITEM_HP_UP:
+    case ITEM_PROTEIN:
+    case ITEM_IRON:
+    case ITEM_CARBOS:
+    case ITEM_CALCIUM:
+    case ITEM_ZINC:
+        return 8;
+    case ITEM_GUARD_SPEC:
+    case ITEM_DIRE_HIT:
+    case ITEM_X_ATTACK:
+    case ITEM_X_DEFENSE:
+    case ITEM_X_SPEED:
+    case ITEM_X_ACCURACY:
+    case ITEM_X_SPECIAL:
+    case ITEM_X_SP_DEF:
+        return 10;
+    default:
+        return 0;
     }
 }
 

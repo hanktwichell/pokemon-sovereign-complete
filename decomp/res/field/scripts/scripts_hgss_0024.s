@@ -23,17 +23,17 @@ scr_seq_D18R0102_000:
     LockAll
     PlayCry SPECIES_RAIKOU, 0
     ReleaseObject obj_D18R0102_tsure_poke_static_raikou
-    @ HGSS: ScrCmd_523 obj_D18R0102_tsure_poke_static_raikou, 2, 90, 2, 0
+    CompleteObjectSway obj_D18R0102_tsure_poke_static_raikou, 2, 90, 2, 0
     LockObject obj_D18R0102_tsure_poke_static_raikou
     WaitCry
     PlayCry SPECIES_ENTEI, 0
     ReleaseObject obj_D18R0102_tsure_poke_static_entei
-    @ HGSS: ScrCmd_523 obj_D18R0102_tsure_poke_static_entei, 2, 90, 2, 0
+    CompleteObjectSway obj_D18R0102_tsure_poke_static_entei, 2, 90, 2, 0
     LockObject obj_D18R0102_tsure_poke_static_entei
     WaitCry
     PlayCry SPECIES_SUICUNE, 0
     ReleaseObject obj_D18R0102_tsure_poke_static_suicune
-    @ HGSS: ScrCmd_523 obj_D18R0102_tsure_poke_static_suicune, 2, 90, 2, 0
+    CompleteObjectSway obj_D18R0102_tsure_poke_static_suicune, 2, 90, 2, 0
     LockObject obj_D18R0102_tsure_poke_static_suicune
     WaitCry
     ApplyMovement obj_D18R0102_tsure_poke_static_raikou, _0224

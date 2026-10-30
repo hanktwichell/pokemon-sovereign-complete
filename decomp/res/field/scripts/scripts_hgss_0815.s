@@ -88,7 +88,7 @@ scr_seq_T09_006:
     FacePlayer
     PlayCry SPECIES_HEATRAN, 6
     ReleaseObject 3
-    @ HGSS: ScrCmd_523 3, 2, 90, 5, 0
+    CompleteObjectSway 3, 2, 90, 5, 0
     LockObject 3
     Message msg_0519_T09_00023
     CloseMessage

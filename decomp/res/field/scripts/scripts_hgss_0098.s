@@ -32,7 +32,7 @@ scr_seq_D38R0104_001:
     FacePlayer
     PlayCry SPECIES_REGIROCK, 6
     ReleaseObject 7
-    @ HGSS: ScrCmd_523 7, 2, 90, 2, 0
+    CompleteObjectSway 7, 2, 90, 2, 0
     LockObject 7
     Message msg_0121_D38R0104_00007
     CloseMessage

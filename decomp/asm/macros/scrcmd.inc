@@ -6136,6 +6136,16 @@
     .short \slot
     .endm
 
+    // the object sways sideways: cycles of a sine, step degrees a frame, x and z pixels wide (HeartGold's ScrCmd_523)
+    .macro CompleteObjectSway localID, cycles, step, x, z
+    .short SCRCMD_COMPLETEOBJECTSWAY
+    .short \localID
+    .short \cycles
+    .short \step
+    .short \x
+    .short \z
+    .endm
+
     .text
     .globl _start
 _start:

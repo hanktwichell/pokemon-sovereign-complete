@@ -18,6 +18,7 @@
 #include "party.h"
 #include "pokemon.h"
 #include "savedata.h"
+#include "complete_follower.h" // Sovereign Complete
 
 #define PP_UP_REQUIREMENT 5 // Moves with fewer max PP can't benefit from PP Ups (e.g. Sketch)
 
@@ -367,6 +368,7 @@ u8 Pokemon_ApplyItemEffects(Pokemon *mon, u16 itemId, u16 moveSlot, u16 location
 
     if (vApplyFriendship < LOW_FRIENDSHIP_LIMIT) {
         if (Item_Get(item, ITEM_PARAM_GIVE_FRIENDSHIP_LOW)) {
+            CompleteFollower_AddMood(mon, CompleteFollower_ItemMood(itemId)); // Sovereign Complete: HeartGold's mood
             if (UpdatePokemonFriendship(mon, vApplyFriendship, Item_Get(item, ITEM_PARAM_FRIENDSHIP_LOW), location, heapID) == 0) {
                 Heap_Free(item);
                 return effectApplied;
@@ -374,6 +376,7 @@ u8 Pokemon_ApplyItemEffects(Pokemon *mon, u16 itemId, u16 moveSlot, u16 location
         }
     } else if (vApplyFriendship >= LOW_FRIENDSHIP_LIMIT && vApplyFriendship < MED_FRIENDSHIP_LIMIT) {
         if (Item_Get(item, ITEM_PARAM_GIVE_FRIENDSHIP_MED)) {
+            CompleteFollower_AddMood(mon, CompleteFollower_ItemMood(itemId)); // Sovereign Complete: HeartGold's mood
             if (UpdatePokemonFriendship(mon, vApplyFriendship, Item_Get(item, ITEM_PARAM_FRIENDSHIP_MED), location, heapID) == 0) {
                 Heap_Free(item);
                 return effectApplied;
@@ -381,6 +384,7 @@ u8 Pokemon_ApplyItemEffects(Pokemon *mon, u16 itemId, u16 moveSlot, u16 location
         }
     } else if (vApplyFriendship >= MED_FRIENDSHIP_LIMIT && vApplyFriendship <= HIGH_FRIENDSHIP_LIMIT) {
         if (Item_Get(item, ITEM_PARAM_GIVE_FRIENDSHIP_HIGH)) {
+            CompleteFollower_AddMood(mon, CompleteFollower_ItemMood(itemId)); // Sovereign Complete: HeartGold's mood
             if (UpdatePokemonFriendship(mon, vApplyFriendship, Item_Get(item, ITEM_PARAM_FRIENDSHIP_HIGH), location, heapID) == 0) {
                 Heap_Free(item);
                 return effectApplied;

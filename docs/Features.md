@@ -278,8 +278,9 @@ assembly), in `src/overlay006/complete_follower_talk.c` and `CommonScript_Comple
   cry and its lines; a question's yes or no leads on to another interaction; some raise or lower its friendship and
   mood, and some have it find an accessory for the Fashion Case or a Shiny Leaf to wear.
 - **The mood** is HeartGold's, kept where HeartGold keeps it (a spare byte of the Pokémon's data): up 40 with a level
-  gained in battle, down 80 when it faints (100 against a foe 30 levels higher), and a step back toward 0 with each step
-  the follower is out. HeartGold's smaller changes (some medicines, TMs, surviving poison) aren't ported.
+  gained in battle or a TM learned, down 80 when it faints (100 against a foe 30 levels higher) and 50 when it survives
+  poison in the field, HeartGold's changes for items (a Rare Candy +40, vitamins +8, X items +10, bitter herbal
+  medicine down 20 to 40), and a step back toward 0 with each step the follower is out.
 - **Shiny Leaves** are kept per Pokémon (another spare byte), and the crown Lyra or Ethan makes from all five in
   their room in New Bark Town works (HeartGold's `GetShinyLeafCount` and `TryGiveShinyLeafCrown`).
 - **The emotes:** HeartGold's 14 bubbles over the follower (a heart, faces, "...", "!"...), its model and two-frame

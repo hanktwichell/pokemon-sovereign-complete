@@ -72,6 +72,7 @@
 #include "trainer_info.h"
 #include "tv_segment.h"
 #include "unk_0202F1D4.h"
+#include "complete_follower.h" // Sovereign Complete
 
 static void BattleMessage_CheckSide(BattleSystem *battleSys, BattleMessage *battleMsg);
 static void BattleMessage_FillFormatBuffers(BattleSystem *battleSys, BattleMessage *battleMsg);
@@ -755,6 +756,10 @@ BOOL BattleSystem_UseBagItem(BattleSystem *battleSys, int battler, int partySlot
         if (selectedSlot == partySlot || targetSlot == partySlot) {
             Battler_AddVal(battleCtx, battler, BATTLEMON_FRIENDSHIP, friendship);
         }
+    }
+
+    if (result == TRUE) {
+        CompleteFollower_AddMood(mon, CompleteFollower_ItemMood(item)); // Sovereign Complete: HeartGold's mood
     }
 
     return result;

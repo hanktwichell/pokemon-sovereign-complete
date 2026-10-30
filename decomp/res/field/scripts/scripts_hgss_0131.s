@@ -130,7 +130,7 @@ scr_seq_D51R0201_008:
     FacePlayer
     PlayCry SPECIES_UXIE, 6
     ReleaseObject 1
-    @ HGSS: ScrCmd_523 1, 2, 90, 2, 0
+    CompleteObjectSway 1, 2, 90, 2, 0
     LockObject 1
     Message msg_0146_D51R0201_00034
     CloseMessage
@@ -158,7 +158,7 @@ scr_seq_D51R0201_009:
     FacePlayer
     PlayCry SPECIES_MESPRIT, 6
     ReleaseObject 2
-    @ HGSS: ScrCmd_523 2, 2, 90, 2, 0
+    CompleteObjectSway 2, 2, 90, 2, 0
     LockObject 2
     Message msg_0146_D51R0201_00035
     CloseMessage
@@ -186,7 +186,7 @@ scr_seq_D51R0201_010:
     FacePlayer
     PlayCry SPECIES_AZELF, 6
     ReleaseObject 3
-    @ HGSS: ScrCmd_523 3, 2, 90, 2, 0
+    CompleteObjectSway 3, 2, 90, 2, 0
     LockObject 3
     Message msg_0146_D51R0201_00036
     CloseMessage
@@ -214,7 +214,7 @@ scr_seq_D51R0201_011:
     FacePlayer
     PlayCry SPECIES_DIALGA, 6
     ReleaseObject 5
-    @ HGSS: ScrCmd_523 5, 2, 90, 2, 0
+    CompleteObjectSway 5, 2, 90, 2, 0
     LockObject 5
     Message msg_0146_D51R0201_00037
     CloseMessage
@@ -244,7 +244,7 @@ scr_seq_D51R0201_012:
     FacePlayer
     PlayCry SPECIES_PALKIA, 6
     ReleaseObject 6
-    @ HGSS: ScrCmd_523 6, 2, 90, 2, 0
+    CompleteObjectSway 6, 2, 90, 2, 0
     LockObject 6
     Message msg_0146_D51R0201_00038
     CloseMessage
@@ -274,7 +274,7 @@ scr_seq_D51R0201_013:
     FacePlayer
     PlayCry SPECIES_GIRATINA, 6
     ReleaseObject 7
-    @ HGSS: ScrCmd_523 7, 2, 90, 2, 0
+    CompleteObjectSway 7, 2, 90, 2, 0
     LockObject 7
     Message msg_0146_D51R0201_00039
     CloseMessage
@@ -572,20 +572,20 @@ _078F:
     ApplyMovement 241, _1330
     WaitMovement
     ReleaseObject 8
-    @ HGSS: ScrCmd_523 8, 8, 90, 3, 0
+    CompleteObjectSway 8, 8, 90, 3, 0
     PlayCry SPECIES_ARCEUS, 6
     WaitCry
     ApplyMovement 8, _1336
     ApplyMovement 241, _133C
     WaitMovement
     PlayCry SPECIES_ARCEUS, 6
-    @ HGSS: ScrCmd_523 8, 8, 90, 3, 0
+    CompleteObjectSway 8, 8, 90, 3, 0
     WaitCry
     ApplyMovement 8, _1342
     ApplyMovement 241, _1348
     WaitMovement
     PlayCry SPECIES_ARCEUS, 6
-    @ HGSS: ScrCmd_523 8, 8, 90, 3, 0
+    CompleteObjectSway 8, 8, 90, 3, 0
     WaitCry
     ApplyMovement 8, _1342
     ApplyMovement 241, _133C

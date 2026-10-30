@@ -42,6 +42,7 @@
 #include "text.h"
 
 #include "res/text/bank/party_menu.h"
+#include "complete_follower.h" // Sovereign Complete
 
 static enum PartyMenuState PartyMenuCB_LevelUp(PartyMenuApplication *application);
 static enum PartyMenuState PartyMenuCB_UpdateHPBar(PartyMenuApplication *application);
@@ -1119,6 +1120,7 @@ static void TeachMove(PartyMenuApplication *application, Pokemon *mon, u32 moveS
         }
 
         Pokemon_UpdateFriendship(mon, FRIENDSHIP_EVENT_LEARN_TMHM, (u16)GetCurrentMapLabel(application));
+        CompleteFollower_AddMood(mon, 40); // Sovereign Complete: HeartGold's mood
     }
 }
 

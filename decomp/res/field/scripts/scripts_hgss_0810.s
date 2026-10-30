@@ -45,7 +45,7 @@ scr_seq_T08PC0101_004:
     CloseMessage
     PlayCry SPECIES_CLOYSTER, 0
     ReleaseObject 7
-    @ HGSS: ScrCmd_523 7, 4, 90, 4, 0
+    CompleteObjectSway 7, 4, 90, 4, 0
     LockObject 7
     WaitCry
     GoToIfSet FLAG_HGSS_SG_3F61, _014E
@@ -105,7 +105,7 @@ _014E:
     Message msg_0515_T08PC0101_00010
     CloseMessage
     ReleaseObject 7
-    @ HGSS: ScrCmd_523 7, 2, 90, 2, 0
+    CompleteObjectSway 7, 2, 90, 2, 0
     LockObject 7
     PlayCry SPECIES_CLOYSTER, 0
     Message msg_0515_T08PC0101_00011

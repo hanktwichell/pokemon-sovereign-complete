@@ -12,6 +12,7 @@ BOOL CompleteScrCmd_FollowerCheckActive(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerIsTooTall(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetShinyLeafCount(ScriptContext *ctx);
 BOOL CompleteScrCmd_GiveShinyLeafCrown(ScriptContext *ctx);
+BOOL CompleteScrCmd_ObjectSway(ScriptContext *ctx);
 BOOL CompleteScrCmd_StartJohtoStarterScene(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetChosenStarter(ScriptContext *ctx);
 BOOL CompleteScrCmd_PlaceStarterBalls(ScriptContext *ctx);
