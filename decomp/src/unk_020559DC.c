@@ -112,6 +112,7 @@ static void FieldSystem_HandleDailyEvents(FieldSystem *fieldSystem, s32 daysPass
     sub_0206C008(fieldSystem->saveData);
     WiFiHistory_UpdateGeonetCommunicationMap(SaveData_WiFiHistory(fieldSystem->saveData));
     sub_0206F2F0(fieldSystem->saveData);
+    CompleteSafari_AddDays(fieldSystem->saveData, daysPassed); // Sovereign Complete: the Johto Safari Zone's objects
 }
 
 static void sub_02055B64(FieldSystem *fieldSystem, s32 param1, const RTCTime *rtcTime)

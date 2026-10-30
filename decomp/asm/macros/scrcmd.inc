@@ -5757,6 +5757,75 @@
     .short SCRCMD_COMPLETEBUGCONTESTNICKNAMEEND
     .endm
 
+    // HeartGold's SafariZoneAction (src/complete_safari.c): 0 starts a Johto Safari game, 1 ends it
+    .macro CompleteSafariZoneAction action, areaSet
+    .short SCRCMD_COMPLETESAFARIZONEACTION
+    .byte \action
+    .byte \areaSet
+    .endm
+
+    // The Safari Zone's objects (HeartGold's 717-721): whether one can go in front of the player (0 yes, 1 the area
+    // is full, 2 none to place, 3 no room)
+    .macro CompleteSafariCanPlaceObject destVar
+    .short SCRCMD_COMPLETESAFARICANPLACEOBJECT
+    .short \destVar
+    .endm
+
+    // The objects the player may place, as entries of the list menu just opened
+    .macro CompleteSafariAddObjectEntries
+    .short SCRCMD_COMPLETESAFARIADDOBJECTENTRIES
+    .endm
+
+    // The object var names goes in front of the player, and the map reloads; var becomes 255 if it couldn't
+    .macro CompleteSafariPlaceObject var
+    .short SCRCMD_COMPLETESAFARIPLACEOBJECT
+    .short \var
+    .endm
+
+    .macro CompleteSafariBufferObjectName slot, idVar
+    .short SCRCMD_COMPLETESAFARIBUFFEROBJECTNAME
+    .byte \slot
+    .short \idVar
+    .endm
+
+    // The object in front of the player (255 if none), and its place in its area's list
+    .macro CompleteSafariObjectInFront idVar, indexVar
+    .short SCRCMD_COMPLETESAFARIOBJECTINFRONT
+    .short \idVar
+    .short \indexVar
+    .endm
+
+    // The object at that place in the area in front goes, and the map reloads
+    .macro CompleteSafariRemoveObject indexVar
+    .short SCRCMD_COMPLETESAFARIREMOVEOBJECT
+    .short \indexVar
+    .endm
+
+    // Baoba's tests: whether the player caught his Pokémon (0 Geodude, 1 Sandshrew) in the Safari Zone
+    .macro CompleteSafariChallengeCompleted challenge, destVar
+    .short SCRCMD_COMPLETESAFARICHALLENGECOMPLETED
+    .byte \challenge
+    .short \destVar
+    .endm
+
+    // When Baoba last spoke (his calls come three hours of play later)
+    .macro CompleteSafariStampBaoba
+    .short SCRCMD_COMPLETESAFARISTAMPBAOBA
+    .endm
+
+    // The area arrangement: entries of the list menu just opened, the six cells' areas (0) or all twelve (1)
+    .macro CompleteSafariAddAreaEntries allAreas
+    .short SCRCMD_COMPLETESAFARIADDAREAENTRIES
+    .byte \allAreas
+    .endm
+
+    // The cell cellVar names gets the area areaVar names (swapping with the cell that has it)
+    .macro CompleteSafariSetArea cellVar, areaVar
+    .short SCRCMD_COMPLETESAFARISETAREA
+    .short \cellVar
+    .short \areaVar
+    .endm
+
     // HeartGold's SetFlagVar and ClearFlagVar: the flag a variable holds, by HeartGold's number (src/complete_scrcmd.c)
     .macro CompleteSetHGSSFlagFromVar varID
     .short SCRCMD_COMPLETESETHGSSFLAGFROMVAR

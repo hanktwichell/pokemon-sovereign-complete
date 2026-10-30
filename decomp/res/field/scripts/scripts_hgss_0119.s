@@ -28,7 +28,7 @@ scr_seq_D47R0101_006:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0062
-    @ HGSS: SafariZoneAction 1, 0
+    CompleteSafariZoneAction 1, 0
 _0062:
     CloseMessage
     CompareVar VAR_RESULT, 0
@@ -334,7 +334,7 @@ _0494:
     Message msg_0135_D47R0101_00040
     GoTo _0587
 _049D:
-    @ HGSS: CheckSafariZoneChallengeCompleted 0, VAR_SPECIAL_RESULT
+    CompleteSafariChallengeCompleted 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _04B8
     Message msg_0135_D47R0101_00033
@@ -342,12 +342,12 @@ _049D:
 _04B8:
     Message msg_0135_D47R0101_00032
     SetVarFromValue VAR_HGSS_UNK_4057, 3
-    @ HGSS: UpdateSafariZoneIGT
+    CompleteSafariStampBaoba
 _04C3:
     GoTo _0587
     End
 _04CB:
-    @ HGSS: CheckSafariZoneChallengeCompleted 1, VAR_SPECIAL_RESULT
+    CompleteSafariChallengeCompleted 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _057E
     Message msg_0135_D47R0101_00037
@@ -384,7 +384,7 @@ _054C:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     Message msg_0135_D47R0101_00039
     SetVarFromValue VAR_HGSS_UNK_4057, 6
-    @ HGSS: UpdateSafariZoneIGT
+    CompleteSafariStampBaoba
     GoTo _0587
 _057E:
     Message msg_0135_D47R0101_00041
@@ -538,7 +538,7 @@ _0773:
     WaitMovement
     Call _08B7
     SetVarFromValue VAR_HGSS_SCENE_SAFARI_ZONE_ENTRANCE, 1
-    @ HGSS: SafariZoneAction 0, 0
+    CompleteSafariZoneAction 0, 0
     SetSpecialLocation MAP_HEADER_HGSS_SAFARI_ZONE_ENTRANCE_INTERIOR, 1, 5, 2, 1
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -886,7 +886,7 @@ _0CCC:
     WaitMovement
     Call _08B7
     SetVarFromValue VAR_HGSS_SCENE_SAFARI_ZONE_ENTRANCE, 3
-    @ HGSS: SafariZoneAction 0, 1
+    CompleteSafariZoneAction 0, 1
     SetSpecialLocation MAP_HEADER_HGSS_SAFARI_ZONE_ENTRANCE_INTERIOR, 2, 19, 2, 1
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -1000,7 +1000,23 @@ scr_seq_D47R0101_005:
     ClearFlag FLAG_HGSS_UNK_99D
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_716
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    _SafariArrange0:
+    InitLocalTextListMenu 1, 1, 0, VAR_0x8004
+    CompleteSafariAddAreaEntries 0
+    ShowListMenu
+    CompareVar VAR_0x8004, 6
+    GoToIf 4, _SafariArrangeDone0
+    InitLocalTextListMenu 1, 1, 0, VAR_0x8005
+    CompleteSafariAddAreaEntries 1
+    ShowListMenu
+    CompleteSafariSetArea VAR_0x8004, VAR_0x8005
+    GoTo _SafariArrange0
+    _SafariArrangeDone0:
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

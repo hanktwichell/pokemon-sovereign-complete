@@ -60,6 +60,7 @@
 #include "vars_flags.h"
 
 #include "complete_bug_contest.h" // Sovereign Complete
+#include "complete_safari.h" // Sovereign Complete
 
 #include "data/regional_forms_park.h"
 #include "data/sovereign_rare_wild.h"
@@ -118,6 +119,7 @@ static void CreateWildSingleBattle(FieldSystem *fieldSystem, const BOOL param1, 
 static void WildEncounters_ReplaceGreatMarshDailyEncounters(FieldSystem *fieldSystem, const BOOL safariGameActive, const BOOL param2, EncounterSlot *encTable);
 static BOOL RepelPreventsEncounter(const u8 param0, const WildEncounters_FieldParams *param1);
 static FieldBattleDTO *BugContestBattle(FieldSystem *fieldSystem, Pokemon *firstPartyMon, const WildEncounters_FieldParams *encounterFieldParams);
+static FieldBattleDTO *JohtoSafariBattle(FieldSystem *fieldSystem, Pokemon *firstPartyMon, const WildEncounters_FieldParams *encounterFieldParams, enum SafariZoneEncounterType type);
 static void AddRoamerToEnemyParty(const u32 param0, Roamer *param1, FieldBattleDTO *param2);
 static BOOL TryEncounterRoamer(FieldSystem *fieldSystem, Roamer **param1);
 static BOOL AddWildMonToParty(const int partySlot, const WildEncounters_FieldParams *fieldParams, Pokemon *mon, FieldBattleDTO *battleParams);
@@ -493,6 +495,27 @@ BOOL WildEncounters_TryWildEncounter(FieldSystem *fieldSystem)
         return TRUE;
     }
 
+    // Sovereign Complete: the Johto Safari Zone's areas have their own Pokémon (src/complete_safari.c)
+    if (CompleteSafari_IsSafariMap(fieldSystem)) {
+        battleParams = JohtoSafariBattle(fieldSystem, firstPartyMon, &encounterFieldParams, encounterType == ENCOUNTER_TYPE_SURF ? SAFARI_ZONE_ENCOUNTERS_SURF : SAFARI_ZONE_ENCOUNTERS_LAND);
+
+        if (battleParams == NULL) {
+            return FALSE;
+        }
+
+#ifdef SOVEREIGN_TEST
+        if (surveying) { // a survey writes it down, with no battle
+            SovereignTest_RecordWildParty(battleParams);
+            FieldBattleDTO_Free(battleParams);
+            return FALSE;
+        }
+#endif
+
+        Encounter_NewVsWild(fieldSystem, battleParams);
+        fieldSystem->wildBattleMetadata.encounterAttempts = 0;
+        return TRUE;
+    }
+
     if (SystemFlag_CheckHasPartner(SaveData_GetVarsFlags(fieldSystem->saveData))) {
         withPartner = TRUE;
     } else {
@@ -647,6 +670,11 @@ BOOL WildEncounters_TryFishingEncounter(FieldSystem *fieldSystem, enum Encounter
         return FALSE;
     }
 
+    if (CompleteSafari_IsSafariMap(fieldSystem)) { // Sovereign Complete: the Johto Safari Zone's area's rod table
+        *battleParams = JohtoSafariBattle(fieldSystem, firstPartyMon, &encounterFieldParams, SAFARI_ZONE_ENCOUNTERS_OLD_ROD + fishingRodType);
+        return *battleParams != NULL;
+    }
+
     BOOL safariGameActive = SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData));
 
     CreateWildSingleBattle(fieldSystem, safariGameActive, battleParams);
@@ -732,6 +760,18 @@ BOOL WildEncounters_TrySweetScentEncounter(FieldSystem *fieldSystem, FieldTask *
     encounterFieldParams.ignoreAbilityBlock = TRUE;
 
     memset(&radarData, 0, sizeof(RadarEncounterData));
+
+    // Sovereign Complete: Sweet Scent in the Johto Safari Zone brings out its area's Pokémon
+    if (CompleteSafari_IsSafariMap(fieldSystem)) {
+        battleParams = JohtoSafariBattle(fieldSystem, firstPartyMon, &encounterFieldParams, encounterType == ENCOUNTER_TYPE_SURF ? SAFARI_ZONE_ENCOUNTERS_SURF : SAFARI_ZONE_ENCOUNTERS_LAND);
+
+        if (battleParams == NULL) {
+            return FALSE;
+        }
+
+        Encounter_StartVsWild(fieldSystem, param1, battleParams);
+        return TRUE;
+    }
 
     // Sovereign Complete: Sweet Scent in the Bug-Catching Contest brings out its own Pokémon
     if (CompleteBugContest_IsRunning() && encounterType == ENCOUNTER_TYPE_GRASS) {
@@ -1916,5 +1956,32 @@ static FieldBattleDTO *BugContestBattle(FieldSystem *fieldSystem, Pokemon *first
 
     FieldBattleDTO_Init(battleParams, fieldSystem);
     CreateWildMon(species, level, BATTLER_ENEMY_1, encounterFieldParams, firstPartyMon, battleParams);
+    return battleParams;
+}
+
+// Sovereign Complete: a Johto Safari Zone battle with one of the player's area's ten (HeartGold's
+// FieldSystem_GenerateSafariEncounter: any slot alike), or NULL if Repel keeps it away. It is a Safari game's battle
+// while one runs; on a rod or the water, it is on the water.
+static FieldBattleDTO *JohtoSafariBattle(FieldSystem *fieldSystem, Pokemon *firstPartyMon, const WildEncounters_FieldParams *encounterFieldParams, enum SafariZoneEncounterType type)
+{
+    SafariZoneSlot slots[SAFARI_ZONE_ENCOUNTER_SLOTS];
+    FieldBattleDTO *battleParams;
+
+    CompleteSafari_GetEncounterSlots(fieldSystem->saveData, CompleteSafari_AreaAt(fieldSystem), type, GetTimeOfDay(), slots);
+    const SafariZoneSlot *slot = &slots[LCRNG_RandMod(SAFARI_ZONE_ENCOUNTER_SLOTS)];
+
+    if (RepelPreventsEncounter(slot->level, encounterFieldParams)) {
+        return NULL;
+    }
+
+    CreateWildSingleBattle(fieldSystem, SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)), &battleParams);
+    FieldBattleDTO_Init(battleParams, fieldSystem);
+
+    if (type != SAFARI_ZONE_ENCOUNTERS_LAND) {
+        FieldBattleDTO_SetWaterTerrain(battleParams);
+    }
+
+    battleParams->isFishing = type >= SAFARI_ZONE_ENCOUNTERS_OLD_ROD;
+    CreateWildMon(slot->species, slot->level, BATTLER_ENEMY_1, encounterFieldParams, firstPartyMon, battleParams);
     return battleParams;
 }

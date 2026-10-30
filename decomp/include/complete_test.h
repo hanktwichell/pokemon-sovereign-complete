@@ -3,6 +3,8 @@
 
 #include "field/field_system.h"
 
+#include "complete_safari.h"
+
 // Sovereign Complete: test-build hooks for tools/complete/ harnesses. Nothing here is in the shipping ROM.
 #ifdef SOVEREIGN_TEST
 
@@ -34,6 +36,20 @@ typedef struct CompleteTestScriptPos {
 } CompleteTestScriptPos;
 
 extern CompleteTestScriptPos gCompleteTestScriptPos;
+
+// The Johto Safari Zone as the field sees it each free frame, for tools/complete/test_hgss_safari.py: the six arranged
+// areas (src/complete_safari.c), whether a Safari game runs, its Balls left, the objects placed in each area, and the
+// save's Safari Zone (where the harness gives the objects Baoba unlocks).
+typedef struct CompleteTestSafari {
+    u8 areas[6];
+    u8 active;
+    u8 padding;
+    u16 balls;
+    u8 objectCounts[6];
+    SafariZoneSave *save;
+} CompleteTestSafari;
+
+extern CompleteTestSafari gCompleteTestSafari;
 
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem);
 

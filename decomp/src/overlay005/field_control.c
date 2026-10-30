@@ -89,6 +89,7 @@
 #include "unk_0205B33C.h"
 #include "vars_flags.h"
 #include "complete_bug_contest.h" // Sovereign Complete
+#include "complete_safari.h" // Sovereign Complete
 #include "wireless_manager.h"
 
 static BOOL Field_CheckMapTransition(FieldSystem *fieldSystem, const FieldInput *input);
@@ -640,6 +641,14 @@ BOOL FieldInput_Process(const FieldInput *input, FieldSystem *fieldSystem)
         Field_Step(fieldSystem, &playerX, &playerZ);
 
         if (FieldSystem_TrySetVillaFurnitureScript(fieldSystem, playerX, playerZ, playerDir) == TRUE) {
+            return TRUE;
+        }
+
+        // Sovereign Complete: the Johto Safari Zone's objects, placed and taken away (src/complete_safari.c)
+        u16 safariScript = CompleteSafari_FacingScript(fieldSystem);
+
+        if (safariScript != 0xffff) {
+            ScriptManager_Set(fieldSystem, safariScript, NULL);
             return TRUE;
         }
     }
@@ -1300,6 +1309,16 @@ static BOOL Field_UpdateSafari(FieldSystem *fieldSystem)
     }
 
     u16 *balls = FieldOverworldState_GetSafariBallCount(SaveData_GetFieldOverworldState(fieldSystem->saveData));
+
+    // Sovereign Complete: the Johto Safari Zone has no step limit, and its own end (HeartGold's std_safari_balls_out)
+    if (CompleteSafari_IsSafariMap(fieldSystem)) {
+        if (*balls == 0) {
+            ScriptManager_Set(fieldSystem, SCRIPT_ID(COMPLETE_SAFARI, 3), NULL);
+            return TRUE;
+        }
+
+        return FALSE;
+    }
 
     if (*balls == 0) {
         ScriptManager_Set(fieldSystem, SCRIPT_ID(SAFARI_GAME, 2), NULL);

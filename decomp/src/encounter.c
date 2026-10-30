@@ -53,6 +53,7 @@
 #include "unk_020528D0.h"
 #include "vars_flags.h"
 #include "complete_bug_contest.h" // Sovereign Complete
+#include "complete_safari.h" // Sovereign Complete
 
 #include "data/sovereign_totem_trials.h"
 
@@ -613,7 +614,8 @@ static BOOL FieldTask_SafariEncounter(FieldTask *task)
 
         UpdateGameRecords(fieldSystem, encounter->dto);
 
-        if (*ballCount == 0 && encounter->dto->resultMask != BATTLE_RESULT_CAPTURED_MON) {
+        // Sovereign Complete: the Johto Safari Zone's end is HeartGold's script, which takes the player out itself
+        if (*ballCount == 0 && encounter->dto->resultMask != BATTLE_RESULT_CAPTURED_MON && !CompleteSafari_IsSafariMap(fieldSystem)) {
             Location *location = FieldOverworldState_GetSpecialLocation(SaveData_GetFieldOverworldState(fieldSystem->saveData));
             FieldTask_ChangeMapByLocation(task, location);
         }
@@ -634,7 +636,15 @@ static BOOL FieldTask_SafariEncounter(FieldTask *task)
         break;
 
     case 6:
-        if (*ballCount == 0) {
+        if (CompleteSafari_IsSafariMap(fieldSystem)) { // Sovereign Complete: HeartGold's std_safari_balls_out and _storage_out
+            PCBoxes *pcBoxes = SaveData_GetPCBoxes(fieldSystem->saveData);
+
+            if (*ballCount == 0) {
+                ScriptManager_Start(task, SCRIPT_ID(COMPLETE_SAFARI, 3), NULL, NULL);
+            } else if (PCBoxes_FirstEmptyBox(pcBoxes) == MAX_PC_BOXES && Party_GetCurrentCount(SaveData_GetParty(fieldSystem->saveData)) == MAX_PARTY_SIZE) {
+                ScriptManager_Start(task, SCRIPT_ID(COMPLETE_SAFARI, 4), NULL, NULL);
+            }
+        } else if (*ballCount == 0) {
             if (encounter->dto->resultMask == BATTLE_RESULT_CAPTURED_MON) {
                 ScriptManager_Start(task, SCRIPT_ID(SAFARI_GAME, 2), NULL, NULL);
             } else {

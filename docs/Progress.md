@@ -326,3 +326,18 @@ Test results on the new test build:
   - Left as test limits: two of Route 47's triggers are on a bridge the test reaches from the high side, and Sacred
     Gold moved three of Oak's lab's signs off the map. The rest are the known kinds (things on the tile, tiles the
     test can't reach).
+
+## Oct 30, 2026: the Johto Safari Zone
+
+- **The Johto Safari Zone** works as in HeartGold (`docs/Features.md`): the gate's ₽500 game with 30 Safari Balls and no
+  step limit, six of the twelve areas on the outside map in the arrangement saved for the player, each area's Pokémon by
+  time of day on land, water and the rods, and the objects: A on open ground places one of those Baoba has unlocked (a
+  list menu where HeartGold has a screen of its own), A on one takes it away, and objects bring out their areas' bonus
+  Pokémon as days pass. Baoba's tests are HeartGold's scripts; his calls happen when they would have rung until there is
+  a Pokégear; his console rearranges the areas (two list menus). The objects are drawn as each area's block loads, with
+  their tiles blocked. New test: `tools/complete/test_hgss_safari.py`, all six parts pass (entry, the arranged areas,
+  each area's Pokémon, placing and taking away an object, leaving, and the console).
+- **Talk to everyone, first of six stages on the new build:** 321 of 399 people ran to their end. The rest: 66 hidden at
+  a new game (a later pass shows them first), 8 the test can't reach (Bugsy behind Azalea Gym's carts, the Battle
+  Tower's partner room, an item ball on Victory Road, a bollard in Mt. Moon Square and a man in the Frontier Access),
+  the Union Room's three waiting for link play, and Route 34's policeman waiting on a stand-in.

@@ -94,29 +94,48 @@ judged against five of ten Bug Catchers. HeartGold's own parts, and where each w
 Left: the Sport Ball and the bug net on the battle's bottom screen (HeartGold's BALL label and Ball count, with the
 kept Pokémon), the Sport Ball's own graphics, the contest's music and fanfares (step 6), and the Pokégear calls.
 
-## Johto Safari Zone (planned)
+## Johto Safari Zone
 
-West of Cianwood, through Route 48's gate: ₽500, 30 Safari Balls, no step limit or timer. Six areas sit in a 3×2
-grid the player arranges with Baoba (12 areas in all, unlocked over time), and objects the player places in an area
-bring out more Pokémon as days pass. Sacred Gold leaves it as HeartGold has it (its encounter data, arrangements,
-apps and area blocks are byte for byte HeartGold's), so its Pokémon are at HeartGold's levels (about Lv. 15-17).
+West of Cianwood, through Route 48's gate: ₽500, 30 Safari Balls, no step limit or timer. Six of HeartGold's twelve
+areas sit in a 3×2 grid the player arranges with Baoba, and objects the player places in an area bring out more
+Pokémon as days pass. Sacred Gold leaves it as HeartGold has it (its encounter data, arrangements, apps and area
+blocks are byte for byte HeartGold's), so its Pokémon are at HeartGold's levels (about Lv. 15-17). HeartGold's own
+parts, and where each went:
 
-- **What's already here:** the maps, the area blocks (`map_data_1318`-`1329`, HeartGold's 652-663), the object
-  models (in Safari's prop set), the gate's text, and the Great Marsh's Safari game: its flag, ball count, battles
-  (Ball, Bait, Mud, Run), the start menu's ball count and Retire, and Fly and escape ending it.
-- **Save:** the areas and their objects (HeartGold's `SafariZone`, 1,532 bytes; about 748 without link play's friend
-  Safari), in a new save block, seeded at the new game with one of HeartGold's 10 arrangements.
-- **Areas:** the outside map's matrix has six empty cells that HeartGold fills with the chosen areas' blocks on each
-  map load (`PlaceSafariZoneAreas`): the same after the engine loads that matrix.
-- **Objects:** an area's objects replace its props on each block load, with their tiles blocked; placing and taking
-  them away (HeartGold's 717-721), and arranging the areas, are apps still in assembly (about 10,000 lines), so here
-  they are list menus.
-- **Encounters:** each area's land, surf and rod tables, by time of day, with bonus slots an object type unlocks at a
-  level (its days ÷ 10); a uniform pick of 10 slots. A tool turns HeartGold's `safari_enc.json` into a C table.
-- **Script commands** (`SafariZoneAction`, Baoba's tests and timer, the rearranging) and HeartGold's Safari standard
-  scripts (its 8800, which is Platinum's Safari game's number, so they move to a free range); the Great Marsh's
-  step limit, its own end scripts, TV and journal entries and daily Pokémon branch off for Johto's.
-- **Baoba's unlocks** come by Pokégear call in HeartGold; until there's a phone, the gate gives them after the same
-  time.
-- About 1,300-1,500 lines. The riskiest part: placing the objects on every way a block loads, with their collision
-  surviving reloads.
+- **The core** (HeartGold's `src/safari_zone.c`, `src/unk_02097268.c` and the Safari parts of its map matrix and
+  encounter code) is `src/complete_safari.c`. HeartGold's tables (the ten default arrangements, each area's
+  encounters, the object types and levels) are `include/data/complete_safari.h`, from
+  `tools/complete/import_hgss_safari.py`.
+- **Save:** a save block of its own (`SAVE_TABLE_ENTRY_COMPLETE_SAFARI`, 750 bytes): the six cells' areas and their
+  objects (up to 30 each), each area's days, the objects Baoba has unlocked and when he last spoke. Link play's
+  friend's Safari Zone is left out. The first visit picks one of HeartGold's ten arrangements.
+- **Areas:** the outside map's matrix has six empty cells; on each map load they get the arranged areas' blocks
+  (`map_data_1318`-`1329`, HeartGold's 652-663), as HeartGold's `PlaceSafariZoneAreas` does.
+- **The Safari game:** the gate's receptionist (HeartGold's scripts, translated) starts it with 30 Safari Balls and the
+  Great Marsh's Safari battles (Ball, Bait, Mud, Run); there is no step limit, the start menu shows the Balls and
+  Retire, and running out of Balls or walking out ends it (HeartGold's end scripts, `scr_seq_0262`, at script IDs
+  11100 on: HeartGold's 8800 is Platinum's Safari game's number).
+- **Encounters:** grass, water, the three rods and Sweet Scent pick one of the area's ten slots for the time of day
+  (morning, day, night), all alike, as HeartGold does. Bonus Pokémon take the first slots once the area's objects
+  reach their levels: an object's level comes from its type and the area's days (tens of days), and days count only
+  once Baoba has unlocked the objects (during a Safari game they wait for its end).
+- **Objects:** A facing open ground asks to place one; A facing an object takes it away (HeartGold's
+  `std_safari_place_object` and `std_safari_remove_object`). HeartGold's object screen (an app still in assembly) is
+  a list menu of the objects Baoba has unlocked (four groups of six, one more group at a time, in an order the trainer
+  ID's last digit picks); the object goes on the tile in front, growing away from the player. The map then loads
+  again in place. As each area's block loads (all five of the engine's ways), its objects are added as props, with
+  their tiles blocked (behavior 0x23, which A finds).
+- **Baoba:** his tests (catch a Geodude, then a Sandshrew, in the Safari Zone) are HeartGold's scripts; the check is
+  `CompleteSafariChallengeCompleted`. His calls come by Pokégear in HeartGold; until there is a phone, what each call
+  does happens at the first map load after it would have rung: three hours of play after the first test, the second;
+  three hours after the second, with the National Dex, the objects, one more group every three hours. His console in
+  the gate (HeartGold's area screen, also in assembly) is two list menus, a cell then its area: an area in another
+  cell swaps places with it, objects and all; a new one starts empty.
+
+- **Test:** `tools/complete/test_hgss_safari.py` pays at the gate (a Safari game with 30 Balls, on the outside map),
+  checks the six arranged areas, surveys each grassy area (every Pokémon one of its ten noon slots, at their levels),
+  places an object with Baoba's objects given (saved in its area, its tile blocking the way) and takes it away, walks
+  out (the game ends), and rearranges two cells at Baoba's console (a new area, then a swap). All six parts pass.
+
+Left: the object and area screens as HeartGold has them (moving an object about before it is placed), Baoba's calls
+on the Pokégear, link play's friend's Safari Zone, and the Safari Zone's music (step 6).

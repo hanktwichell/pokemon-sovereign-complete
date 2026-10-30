@@ -86,6 +86,7 @@
 #include "unk_0206B9D8.h"
 #include "vars_flags.h"
 #include "complete_bug_contest.h" // Sovereign Complete
+#include "complete_safari.h" // Sovereign Complete
 
 #include "res/graphics/start_menu/start_menu.naix"
 #include "res/text/bank/easy_chat.h"
@@ -1462,6 +1463,8 @@ static BOOL StartMenu_SelectRetire(FieldTask *fieldTask)
 
     if (CompleteBugContest_IsRunning()) { // Sovereign Complete: HeartGold's std_bug_contest_retire
         ScriptManager_Change(fieldTask, SCRIPT_ID(COMPLETE_BUG_CONTEST, 4), NULL);
+    } else if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE && CompleteSafari_IsSafariMap(fieldSystem)) {
+        ScriptManager_Change(fieldTask, SCRIPT_ID(COMPLETE_SAFARI, 6), NULL); // Sovereign Complete: HeartGold's std_safari_exit
     } else if (SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData)) == TRUE) {
         ScriptManager_Change(fieldTask, SCRIPT_ID(SAFARI_GAME, 21), NULL);
     } else {

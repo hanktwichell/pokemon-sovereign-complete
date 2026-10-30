@@ -27,6 +27,8 @@
 #include "sys_task_manager.h"
 #include "system.h"
 
+#include "complete_safari.h" // Sovereign Complete
+
 #define MAP_LAZY_LOADER_SLOT_COUNT            2
 #define MAP_LAZY_LOADER_MANAGER_COUNT         2
 #define MAP_MODEL_LAZY_LOADER_DATA_CHUNK_SIZE 0xE000
@@ -493,6 +495,7 @@ static void LandDataManager_LazyLoad(const u8 index, AreaDataManager *const area
 
     if (loader->loadSlots[index]->mapPropManager != NULL) {
         MapPropManager_Load(landDataMan->landDataNARC, landDataHeader.mapPropsSize, areaDataMan, loader->loadSlots[index]->mapPropManager, landDataMan->mapPropAnimMan);
+        CompleteSafari_LoadObjects(mapMatrix, mapMatrixIndex, terrainAttributes, loader->loadSlots[index]->mapPropManager, areaDataMan, landDataMan->mapPropAnimMan); // Sovereign Complete: the Johto Safari Zone's objects
     }
 
     loader->mapLoadTasksState.mapModelTaskRunning++;
@@ -518,6 +521,7 @@ static void LandDataManager_LazyLoadWithoutAttributes(const u8 index, AreaDataMa
 
     if (loader->loadSlots[index]->mapPropManager != NULL) {
         MapPropManager_Load(landDataMan->landDataNARC, landDataHeader.mapPropsSize, areaDataMan, loader->loadSlots[index]->mapPropManager, landDataMan->mapPropAnimMan);
+        CompleteSafari_LoadObjects(mapMatrix, mapMatrixIndex, NULL, loader->loadSlots[index]->mapPropManager, areaDataMan, landDataMan->mapPropAnimMan); // Sovereign Complete: the Johto Safari Zone's objects
     }
 
     loader->mapLoadTasksState.mapModelTaskRunning++;
@@ -557,6 +561,7 @@ static void LandDataManager_Load(const int mapMatrixIndex, const u8 loadedMapInd
 
     if (landDataMan->loadedMaps[loadedMapIndex]->mapPropManager != NULL) {
         MapPropManager_Load(landDataMan->landDataNARC, landDataHeader.mapPropsSize, areaDataMan, landDataMan->loadedMaps[loadedMapIndex]->mapPropManager, landDataMan->mapPropAnimMan);
+        CompleteSafari_LoadObjects(mapMatrix, mapMatrixIndex, terrainAttributes, landDataMan->loadedMaps[loadedMapIndex]->mapPropManager, areaDataMan, landDataMan->mapPropAnimMan); // Sovereign Complete: the Johto Safari Zone's objects
     }
 
     NNSG3dResMdl *mapModel = LandDataManager_LoadMapModel(landDataMan->landDataNARC, landDataHeader.mapModelSize, &landDataMan->loadedMaps[loadedMapIndex]->mapRenderObj, &landDataMan->loadedMaps[loadedMapIndex]->mapModelFile, AreaDataManager_GetMapTexture(areaDataMan));
@@ -591,6 +596,7 @@ static void LandDataManager_LoadWithoutAttributes(const int mapMatrixIndex, cons
 
     if (landDataMan->loadedMaps[loadedMapIndex]->mapPropManager != NULL) {
         MapPropManager_Load(landDataMan->landDataNARC, landDataHeader.mapPropsSize, areaDataMan, landDataMan->loadedMaps[loadedMapIndex]->mapPropManager, landDataMan->mapPropAnimMan);
+        CompleteSafari_LoadObjects(mapMatrix, mapMatrixIndex, NULL, landDataMan->loadedMaps[loadedMapIndex]->mapPropManager, areaDataMan, landDataMan->mapPropAnimMan); // Sovereign Complete: the Johto Safari Zone's objects
     }
 
     NNSG3dResMdl *mapModel = LandDataManager_LoadMapModel(landDataMan->landDataNARC, landDataHeader.mapModelSize, &landDataMan->loadedMaps[loadedMapIndex]->mapRenderObj, &landDataMan->loadedMaps[loadedMapIndex]->mapModelFile, AreaDataManager_GetMapTexture(areaDataMan));
@@ -618,6 +624,7 @@ static void LandDataManager_LoadWithoutModel(const int mapMatrixIndex, const u8 
 
     if (landDataMan->loadedMaps[loadedMapIndex]->mapPropManager != NULL) {
         MapPropManager_Load(landDataMan->landDataNARC, landDataHeader.mapPropsSize, areaDataMan, landDataMan->loadedMaps[loadedMapIndex]->mapPropManager, landDataMan->mapPropAnimMan);
+        CompleteSafari_LoadObjects(mapMatrix, mapMatrixIndex, terrainAttributes, landDataMan->loadedMaps[loadedMapIndex]->mapPropManager, areaDataMan, landDataMan->mapPropAnimMan); // Sovereign Complete: the Johto Safari Zone's objects
     }
 
     NARC_Seek(landDataMan->landDataNARC, landDataHeader.mapModelSize);

@@ -183,11 +183,11 @@ def cases():
 
 def talk_and_answer(d, sym, answers, limit=FRAME_LIMIT, press_a=True, done=None):
     """Talk (A) and play the script out on its menus: each time it shows one, the next answer is given (an entry
-    number for a list menu, True or False for a yes/no question, ('party', slot) for the party screen). Otherwise, as
-    in talk_to_objects.play_out, A pages through the text and taps pick moves in a battle (god mode). A menu is
-    counted as the script shows it, before it reads any input, so A is never pressed into one the test hasn't seen.
-    Without press_a, it plays out a script that starts on its own (a scene on entering a map); with done, it stops as
-    soon as done() is true, with all the answers given, even if the script goes on.
+    number for a list menu, or None to back out of it; True or False for a yes/no question; ('party', slot) for the
+    party screen). Otherwise, as in talk_to_objects.play_out, A pages through the text and taps pick moves in a battle
+    (god mode). A menu is counted as the script shows it, before it reads any input, so A is never pressed into one
+    the test hasn't seen. Without press_a, it plays out a script that starts on its own (a scene on entering a map);
+    with done, it stops as soon as done() is true, with all the answers given, even if the script goes on.
     Returns ('ok', 'NOSCRIPT', 'HANG', 'STUCK', 'HEAP' (as in talk_to_objects.play_out) or 'MENU ...' (a menu with no
     answer, or of the wrong kind, or answers left over), frames)."""
     answers = list(answers)
@@ -227,6 +227,8 @@ def talk_and_answer(d, sym, answers, limit=FRAME_LIMIT, press_a=True, done=None)
                 for _ in range(answer):
                     d.press('DOWN', frames=2, after=4)
                 d.press('A', frames=4, after=0)
+            elif kind == MENU_LIST and answer is None:  # Sovereign Complete: backing out of a list menu
+                d.press('B', frames=4, after=0)
             elif kind == MENU_YES_NO and type(answer) is bool:
                 d.press('A' if answer else 'B', frames=4, after=0)
             elif kind == MENU_PARTY and type(answer) is tuple and answer[0] == 'party':

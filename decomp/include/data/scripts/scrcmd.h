@@ -909,6 +909,17 @@ ScriptCommand(SCRCMD_COMPLETESETHGSSFLAGFROMVAR,                        Complete
 ScriptCommand(SCRCMD_COMPLETECLEARHGSSFLAGFROMVAR,                      CompleteScrCmd_ClearHGSSFlagFromVar)
 ScriptCommand(SCRCMD_COMPLETEBUGCONTESTNICKNAMESTART,                   CompleteScrCmd_BugContestNicknameStart)
 ScriptCommand(SCRCMD_COMPLETEBUGCONTESTNICKNAMEEND,                     CompleteScrCmd_BugContestNicknameEnd)
+ScriptCommand(SCRCMD_COMPLETESAFARIZONEACTION,                          CompleteScrCmd_SafariZoneAction)
+ScriptCommand(SCRCMD_COMPLETESAFARICANPLACEOBJECT,                      CompleteScrCmd_SafariCanPlaceObject)
+ScriptCommand(SCRCMD_COMPLETESAFARIADDOBJECTENTRIES,                    CompleteScrCmd_SafariAddObjectEntries)
+ScriptCommand(SCRCMD_COMPLETESAFARIPLACEOBJECT,                         CompleteScrCmd_SafariPlaceObject)
+ScriptCommand(SCRCMD_COMPLETESAFARIBUFFEROBJECTNAME,                    CompleteScrCmd_SafariBufferObjectName)
+ScriptCommand(SCRCMD_COMPLETESAFARIOBJECTINFRONT,                       CompleteScrCmd_SafariObjectInFront)
+ScriptCommand(SCRCMD_COMPLETESAFARIREMOVEOBJECT,                        CompleteScrCmd_SafariRemoveObject)
+ScriptCommand(SCRCMD_COMPLETESAFARICHALLENGECOMPLETED,                  CompleteScrCmd_SafariChallengeCompleted)
+ScriptCommand(SCRCMD_COMPLETESAFARISTAMPBAOBA,                          CompleteScrCmd_SafariStampBaoba)
+ScriptCommand(SCRCMD_COMPLETESAFARIADDAREAENTRIES,                      CompleteScrCmd_SafariAddAreaEntries)
+ScriptCommand(SCRCMD_COMPLETESAFARISETAREA,                             CompleteScrCmd_SafariSetArea)
 
 // clang-format on
 

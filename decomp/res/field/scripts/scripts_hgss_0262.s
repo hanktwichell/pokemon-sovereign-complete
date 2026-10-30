@@ -12,7 +12,7 @@
     ScriptEntryEnd
 scr_seq_0262_000:
     LockAll
-    @ HGSS: ScrCmd_721 VAR_SPECIAL_RESULT
+    CompleteSafariCanPlaceObject VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _006A
     CompareVar VAR_RESULT, 1
@@ -37,12 +37,19 @@ _006A:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: ScrCmd_717 VAR_SPECIAL_RESULT
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    InitLocalTextListMenu 1, 1, 0, VAR_RESULT
+    CompleteSafariAddObjectEntries
+    ShowListMenu
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    CompleteSafariPlaceObject VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_RESULT, 255
     GoToIf 1, _00B7
-    @ HGSS: ScrCmd_718 0, VAR_SPECIAL_RESULT
+    CompleteSafariBufferObjectName 0, VAR_RESULT
     Message msg_0427_00005
     WaitButton
 _00B5:
@@ -52,10 +59,10 @@ _00B7:
     End
 scr_seq_0262_001:
     LockAll
-    @ HGSS: ScrCmd_719 VAR_SPECIAL_x8000, VAR_SPECIAL_x8001
+    CompleteSafariObjectInFront VAR_0x8000, VAR_0x8001
     CompareVar VAR_0x8000, 255
     GoToIf 1, _0114
-    @ HGSS: ScrCmd_718 0, VAR_SPECIAL_x8000
+    CompleteSafariBufferObjectName 0, VAR_0x8000
     Message msg_0427_00006
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
@@ -63,7 +70,7 @@ scr_seq_0262_001:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: ScrCmd_720 VAR_SPECIAL_x8001
+    CompleteSafariRemoveObject VAR_0x8001
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0427_00007
@@ -74,7 +81,7 @@ _0114:
     ReleaseAll
     End
 _011A:
-    @ HGSS: SafariZoneAction 1, 0
+    CompleteSafariZoneAction 1, 0
     CompareVar VAR_HGSS_SCENE_SAFARI_ZONE_ENTRANCE, 3
     GoToIf 5, _0155
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -118,7 +125,7 @@ scr_seq_0262_004:
     End
 scr_seq_0262_005:
     SetVarFromValue VAR_HGSS_SCENE_SAFARI_ZONE_ENTRANCE, 2
-    @ HGSS: SafariZoneAction 1, 0
+    CompleteSafariZoneAction 1, 0
     End
 scr_seq_0262_006:
     LockAll

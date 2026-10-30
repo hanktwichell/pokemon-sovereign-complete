@@ -8,6 +8,9 @@
 #include "overlay005/save_info_window.h"
 
 #include "complete_follower.h"
+#include "complete_safari.h"
+#include "field_overworld_state.h"
+#include "system_flags.h"
 #include "vars_flags.h"
 
 // Sovereign Complete: test-build hooks, called on each free field frame (src/field_system.c).
@@ -22,6 +25,7 @@ static const u16 sProbeVarValues[] = { 0xC0DE, 0xBEEF };
 
 CompleteTestSaveProbe gCompleteTestSaveProbe;
 CompleteTestScriptPos gCompleteTestScriptPos;
+CompleteTestSafari gCompleteTestSafari;
 
 static void SaveProbe(FieldSystem *fieldSystem)
 {
@@ -58,10 +62,26 @@ static void SaveProbe(FieldSystem *fieldSystem)
     probe->request = COMPLETE_TEST_SAVE_NONE;
 }
 
+static void NoteSafari(FieldSystem *fieldSystem)
+{
+    SafariZoneSave *safari = SaveData_GetCompleteSafari(fieldSystem->saveData);
+
+    for (int i = 0; i < SAFARI_ZONE_AREAS_PER_SET; i++) {
+        gCompleteTestSafari.areas[i] = safari->areas[i].areaNo;
+        gCompleteTestSafari.objectCounts[i] = safari->areas[i].objectCount;
+    }
+
+    gCompleteTestSafari.save = safari;
+
+    gCompleteTestSafari.active = SystemFlag_CheckSafariGameActive(SaveData_GetVarsFlags(fieldSystem->saveData));
+    gCompleteTestSafari.balls = *FieldOverworldState_GetSafariBallCount(SaveData_GetFieldOverworldState(fieldSystem->saveData));
+}
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
     CompleteFollower_TestRecordTile(fieldSystem);
     SaveProbe(fieldSystem);
+    NoteSafari(fieldSystem);
 }
 
 #endif

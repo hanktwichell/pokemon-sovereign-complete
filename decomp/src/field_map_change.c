@@ -381,6 +381,7 @@ static void FieldMapChange_InitTerrainCollisionManager(FieldSystem *fieldSystem)
     sub_020530C8(fieldSystem);
     GF_ASSERT(fieldSystem->terrainCollisionMan == NULL);
     MapMatrix_Load(fieldSystem->location->mapHeaderID, fieldSystem->mapMatrix);
+    CompleteSafari_LoadMap(fieldSystem->mapMatrix, fieldSystem->saveData); // Sovereign Complete: the Johto Safari Zone
 
     if (SystemVars_CheckHiddenLocation(SaveData_GetVarsFlags(fieldSystem->saveData), HIDDEN_LOCATION_SEABREAK_PATH)) {
         MapMatrix_RevealSeabreakPath(fieldSystem->mapMatrix); // reveal Seabreak Path if Oak's Letter has been used

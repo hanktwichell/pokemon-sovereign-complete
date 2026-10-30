@@ -65,6 +65,11 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   (where an egg came from) are Platinum's 13 and two more, Mr. Pokémon (the Togepi Egg) and Primo (his Mareep, Wooper
   and Slugma eggs), now added to `res/text/special_met_location_names.json` at HeartGold's numbers, so `GiveEgg`
   keeps them.
+- The Johto Safari Zone (step 5): HeartGold's 716 (Baoba's area screen) and 717 (the object screen) open apps still in
+  assembly, so here they are list menus (`CompleteSafariAddAreaEntries`, `CompleteSafariAddObjectEntries`), faded in
+  over the black screen the script left for the app. 716 ends by closing the field, so the script's
+  `RestoreOverworld` (`ReturnToField`) opens it again. 718 to 721, `CheckSafariZoneChallengeCompleted` and
+  `UpdateSafariZoneIGT` are `CompleteSafari*` commands.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
   clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
 - Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's

@@ -4,6 +4,8 @@ COMMANDS maps a HeartGold macro name to a function from its (already renamed) ar
 Commands that Platinum has under the same name with the same arguments need no entry here; the translator keeps them.
 """
 
+import itertools
+
 # HeartGold's GoToIfLt..GoToIfNe and CallIf* test the last comparison: the condition numbers are Platinum's too.
 CONDITIONS = {'Lt': 0, 'Eq': 1, 'Gt': 2, 'Le': 3, 'Ge': 4, 'Ne': 5}
 # HeartGold's sounds that Platinum has under another name (the rest of Diamond and Pearl's keep theirs).
@@ -151,6 +153,21 @@ def set_movement_type(a):
     return [f'SetMovementType {a[0]}, {a[1]}']
 
 
+def safari_arrange_areas(a):
+    """HeartGold's area screen: a cell, then its area, until the player backs out; then the field closes, as for
+    HeartGold's screen (its script's RestoreOverworld opens it again)."""
+    n = next(_labels)
+    return ['FadeScreen 6, 1, 1, COLOR_BLACK', 'WaitFadeScreen', f'_SafariArrange{n}:',
+            'InitLocalTextListMenu 1, 1, 0, VAR_0x8004', 'CompleteSafariAddAreaEntries 0', 'ShowListMenu',
+            'CompareVar VAR_0x8004, 6', f'GoToIf 4, _SafariArrangeDone{n}',
+            'InitLocalTextListMenu 1, 1, 0, VAR_0x8005', 'CompleteSafariAddAreaEntries 1', 'ShowListMenu',
+            'CompleteSafariSetArea VAR_0x8004, VAR_0x8005', f'GoTo _SafariArrange{n}', f'_SafariArrangeDone{n}:',
+            'FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen', 'WaitForTransition']
+
+
+_labels = itertools.count()
+
+
 def one(template):
     """An entry that becomes one line: template uses {0}, {1}... for the arguments."""
     return lambda a: [template.format(*a)]
@@ -251,6 +268,19 @@ COMMANDS = {
     'IsBugContestantRegistered': one('CompleteIsBugContestantRegistered {0}, {1}'),
     'SetFlagVar': one('CompleteSetHGSSFlagFromVar {0}'),
     'ClearFlagVar': one('CompleteClearHGSSFlagFromVar {0}'),
+    'SafariZoneAction': one('CompleteSafariZoneAction {0}, {1}'),
+    # The Safari Zone's objects and Baoba (src/complete_safari.c): HeartGold's object screen (717) and area screen
+    # (716) are list menus; the script has faded out for the screen, so the menus fade back in first
+    'ScrCmd_721': one('CompleteSafariCanPlaceObject {0}'),
+    'ScrCmd_717': lambda a: ['FadeScreen 6, 1, 1, COLOR_BLACK', 'WaitFadeScreen',
+                             f'InitLocalTextListMenu 1, 1, 0, {a[0]}', 'CompleteSafariAddObjectEntries', 'ShowListMenu',
+                             'FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen', f'CompleteSafariPlaceObject {a[0]}'],
+    'ScrCmd_718': one('CompleteSafariBufferObjectName {0}, {1}'),
+    'ScrCmd_719': one('CompleteSafariObjectInFront {0}, {1}'),
+    'ScrCmd_720': one('CompleteSafariRemoveObject {0}'),
+    'ScrCmd_716': safari_arrange_areas,
+    'CheckSafariZoneChallengeCompleted': one('CompleteSafariChallengeCompleted {0}, {1}'),
+    'UpdateSafariZoneIGT': lambda a: ['CompleteSafariStampBaoba'],
     # Signs: HeartGold's types are Platinum's (map, arrow, landmark, scrolling). A direction sign's third argument picks
     # HeartGold's sign picture, which isn't in yet (Platinum's default).
     'TrainerTipsEx': lambda a: [f'DrawSignpostTextBox {SIGN_TYPES[int(a[0])]}', 'SetSignpostCommand SIGNPOST_CMD_SCROLL_IN',
