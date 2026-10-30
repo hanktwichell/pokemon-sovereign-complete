@@ -650,9 +650,9 @@ Test results on the new test build:
   the low lake before (not tested in the emulator). Not ported: the diamond dust HeartGold shows on Mt. Silver's summit
   on eight days of the year, as Platinum has no such weather (its number is a clear sky there).
 - The test build's watch (`gSovereignTestWatch`) reads flags too.
-- **Tested:** `tools/complete/test_hgss_tile_behaviors.py` (new): the first 62 of the 250 ladders taken all arrive where
-  their warp leads (the rest of the run goes on); the Viridian Gym slide stops on the stop tile; Ice Path's third
-  boulder, pushed along a 25-move plan into its hole, falls through (its flag set, its copy on B2F shown).
+- **Tested:** `tools/complete/test_hgss_tile_behaviors.py` (new), all 252 cases pass: each of the 250 ladders takes the
+  player where its warp leads; the Viridian Gym slide stops on the stop tile; Ice Path's third boulder, pushed along a
+  25-move plan into its hole, falls through (its flag set, its copy on B2F shown).
 - Also checked: HeartGold's other warps on tiles Platinum doesn't warp from (Pal Park's exit, the Battle Frontier's
   doors, Mt. Moon Square's) are taken by scripts, in HeartGold too; the gifts' commands pass HeartGold's held items by
   number, which Sovereign's item list keeps, and no gift has a form.
