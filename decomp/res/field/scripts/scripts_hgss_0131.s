@@ -629,7 +629,7 @@ _078F:
     WaitButton
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: HOFCredits 1
+    CompleteJohtoClearGame 1
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -761,7 +761,7 @@ _0C81:
     WaitFanfare
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: HOFCredits 1
+    CompleteJohtoClearGame 1
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

@@ -5871,6 +5871,12 @@
     .byte \templateArg
     .endm
 
+    // Johto's game clear (HeartGold's HOFCredits): the Hall of Fame, a save, and the game starts over at home
+    .macro CompleteJohtoClearGame vsTrainerRed
+    .short SCRCMD_COMPLETEJOHTOCLEARGAME
+    .short \vsTrainerRed
+    .endm
+
     .text
     .globl _start
 _start:

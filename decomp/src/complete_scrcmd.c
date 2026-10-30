@@ -23,6 +23,7 @@
 
 #include "applications/naming_screen.h"
 #include "camera.h"
+#include "clear_game.h"
 #include "complete_follower.h"
 #include "complete_rival.h"
 #include "encounter.h"
@@ -240,6 +241,15 @@ BOOL CompleteScrCmd_BufferHGSSRivalName(ScriptContext *ctx)
     StringTemplate_SetString(*stringTemplate, templateArg, string, 0, TRUE, GAME_LANGUAGE);
     String_Free(string);
     return FALSE;
+}
+
+// HeartGold's HOFCredits (after Lance, or after Red): Johto's game clear (src/clear_game.c's ClearGame_Johto), which
+// ends by starting the game over, as HeartGold's does after its credits
+BOOL CompleteScrCmd_JohtoClearGame(ScriptContext *ctx)
+{
+    ScriptContext_ReadHalfWord(ctx); // HeartGold's vsTrainerRed: whether to count a League win
+    ClearGame_Johto(ctx->fieldSystem->task);
+    return TRUE;
 }
 
 // HeartGold's ScrCmd_596: whether the following Pokémon is too tall for most buildings, so that a script puts it away

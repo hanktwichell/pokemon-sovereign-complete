@@ -32,7 +32,7 @@ scr_seq_T10R0701_000:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     CountPartyNonEggs VAR_RESULT
-    @ HGSS: HallOfFameAnim VAR_SPECIAL_RESULT
+    PlayHallOfFameHealingAnimation VAR_RESULT
     IncrementTrainerScore TRAINER_SCORE_EVENT_HALL_OF_FAME_ENTRY
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -72,7 +72,7 @@ _0133:
     CallIf 1, _0280
     CompareVar VAR_HGSS_ROAMER_LATIOS_STATUS, 2
     CallIf 1, _028B
-    @ HGSS: HOFCredits 0
+    CompleteJohtoClearGame 0
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

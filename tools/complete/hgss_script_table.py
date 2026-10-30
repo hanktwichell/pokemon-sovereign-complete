@@ -348,6 +348,9 @@ COMMANDS = {
     'GetStarterChoice': one('SetVarFromVar {0}, VAR_HGSS_PLAYER_STARTER'),
     'SetStarterChoice': one('SetVar VAR_HGSS_PLAYER_STARTER, {0}'),
     'PlaceStarterBallsInElmsLab': lambda a: ['CompletePlaceStarterBalls'],
+    # The Hall of Fame: Platinum's machine, then Johto's game clear (src/clear_game.c's ClearGame_Johto)
+    'HallOfFameAnim': one('PlayHallOfFameHealingAnimation {0}'),
+    'HOFCredits': one('CompleteJohtoClearGame {0}'),
     # Where the player comes back after blacking out: HeartGold's spawn points follow Platinum's
     # (tools/complete/import_hgss_spawns.py)
     'SetSpawn': lambda a: [f'SetBlackOutWarpId SPAWN_HGSS_{a[0][len("SPAWN_"):]}'],

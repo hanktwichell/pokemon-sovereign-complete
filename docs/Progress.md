@@ -409,3 +409,8 @@ Test results on the new test build:
   `tools/complete/test_hgss_blackout.py` (both parts pass: Cherrygrove City's Pokémon Center, and home). The test
   build's own battles now black out after a loss too, as the scripts that start battles in the game do; they used to
   leave the screen black.
+- **Johto's Hall of Fame.** HeartGold's game clear after Lance (and after Red) wasn't translated, and the script went on
+  to restart a field that was still running. It now plays Platinum's Hall of Fame machine and screen, records the team,
+  saves and starts the game over; Continue wakes the player in their room in New Bark Town, with HeartGold's game clear
+  flag set and Sinnoh's left alone (`ClearGame_Johto`, `src/clear_game.c`). No credits roll yet: which League rolls
+  them is a question for the owner (`docs/Roadmap.md`). New test: `tools/complete/test_hgss_hall_of_fame.py` (passes).

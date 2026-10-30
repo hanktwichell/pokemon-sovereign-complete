@@ -926,6 +926,7 @@ ScriptCommand(SCRCMD_COMPLETEGETCHOSENSTARTER,                          Complete
 ScriptCommand(SCRCMD_COMPLETEPLACESTARTERBALLS,                         CompleteScrCmd_PlaceStarterBalls)
 ScriptCommand(SCRCMD_COMPLETENAMEHGSSRIVAL,                             CompleteScrCmd_NameHGSSRival)
 ScriptCommand(SCRCMD_COMPLETEBUFFERHGSSRIVALNAME,                       CompleteScrCmd_BufferHGSSRivalName)
+ScriptCommand(SCRCMD_COMPLETEJOHTOCLEARGAME,                            CompleteScrCmd_JohtoClearGame)
 
 // clang-format on
 

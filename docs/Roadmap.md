@@ -85,6 +85,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.
 - **Pokétch, Pokégear or both:** both use the bottom screen.
+- **The Hall of Fame and the credits.** HeartGold plays its Hall of Fame and credits after Lance (and the credits again
+  after Red), Platinum after Cynthia. For now Johto's League records the team in the Hall of Fame, saves and starts the
+  game over at home in New Bark Town, as HeartGold does, without credits; Sinnoh's League keeps Platinum's. Proposed:
+  the credits roll once, at the end of the story (Spear Pillar or Sinnoh's League), and every League records the team.
 - **Voltorb Flip** at the Game Corners, or Platinum's slot machines, which stand in for now (`docs/Features.md`,
   "Stand-ins"). Porting it is about a day.
 - **Art:** who draws the three-region Town Map and the walking sprites for #494–1025 and the newer forms (a community

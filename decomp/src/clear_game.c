@@ -8,6 +8,8 @@
 #include "constants/narc.h"
 #include "generated/game_records.h"
 #include "generated/text_banks.h"
+#include "generated/map_headers.h" // Sovereign Complete
+#include "generated/vars_flags.h" // Sovereign Complete
 
 #include "struct_defs/clear_game_player_info.h"
 #include "struct_defs/hall_of_fame_display_data.h"
@@ -57,6 +59,7 @@ typedef struct ClearGameStruct {
     void *dial;
     int printerID;
     int delay;
+    BOOL johto; // Sovereign Complete: Johto's League (ClearGame_Johto): no end credits yet
 } ClearGameStruct;
 
 static void sub_02052F28(FieldSystem *fieldSystem, ClearGameStruct *clearGameStruct);
@@ -152,7 +155,11 @@ static BOOL FieldTask_DoClearGameSequence(FieldTask *task)
     case 8:
         if (IsScreenFadeDone()) {
             ClearGame_FreeStringRemoveWindowFreeTilemapBuffer(fieldSystem, clearGameStruct);
-            FieldSystem_StartEndCredits(fieldSystem, &(clearGameStruct->playerInfo));
+
+            if (!clearGameStruct->johto) { // Sovereign Complete
+                FieldSystem_StartEndCredits(fieldSystem, &(clearGameStruct->playerInfo));
+            }
+
             (*state)++;
         }
         break;
@@ -208,6 +215,53 @@ void ClearGame(FieldTask *task)
     gameRecords = SaveData_GetGameRecords(fieldSystem->saveData);
 
     GameRecords_IncrementRecordValue(gameRecords, RECORD_TIMES_ENTERED_HALL_OF_FAME);
+    clearGameStruct->johto = FALSE; // Sovereign Complete
+    FieldTask_InitCall(task, FieldTask_DoClearGameSequence, clearGameStruct);
+}
+
+// Sovereign Complete: Johto's League, and Red (HeartGold's HOFCredits, its CallTask_GameClear): the Hall of Fame, the
+// team's entry in it and a save, then the game starts over, and Continue wakes the player in their room in New Bark
+// Town. HeartGold's game clear flag is set, not Sinnoh's (Platinum's ClearGame, which also gives the Champion Ribbons
+// and counts the main story cleared). HeartGold rolls its credits here too; which League rolls them in a game of three
+// regions is the owner's to decide (docs/Roadmap.md), so none roll yet.
+static const Location sJohtoStartLocation = {
+    .mapHeaderID = MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_2F,
+    .warpId = WARP_ID_NONE,
+    .x = 6,
+    .z = 6,
+    .faceDirection = FACE_DOWN,
+};
+
+static const Location sJohtoFirstRespawnLocation = {
+    .mapHeaderID = MAP_HEADER_HGSS_NEW_BARK,
+    .warpId = WARP_ID_NONE,
+    .x = 0x2B7,
+    .z = 0x18D,
+    .faceDirection = FACE_DOWN,
+};
+
+void ClearGame_Johto(FieldTask *task)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
+    FieldOverworldState *fieldState = SaveData_GetFieldOverworldState(fieldSystem->saveData);
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(fieldSystem->saveData);
+    ClearGameStruct *clearGameStruct = Heap_Alloc(HEAP_ID_FIELD3, sizeof(ClearGameStruct));
+
+    clearGameStruct->gameCompleted = VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_GAME_CLEAR);
+    clearGameStruct->displayData.trainerInfo = SaveData_GetTrainerInfo(fieldSystem->saveData);
+    clearGameStruct->displayData.party = SaveData_GetParty(fieldSystem->saveData);
+    clearGameStruct->displayData.playTime = SaveData_GetPlayTime(fieldSystem->saveData);
+    clearGameStruct->playerInfo.gender = TrainerInfo_Gender(SaveData_GetTrainerInfo(fieldSystem->saveData));
+    clearGameStruct->playerInfo.gameCompleted = clearGameStruct->gameCompleted;
+    clearGameStruct->playerInfo.pokedex = SaveData_GetPokedex(fieldSystem->saveData);
+    clearGameStruct->johto = TRUE;
+
+    *FieldOverworldState_GetSpecialLocation(fieldState) = sJohtoStartLocation;
+    *FieldOverworldState_GetExitLocation(fieldState) = sJohtoFirstRespawnLocation;
+    SystemFlag_SetCommunicationClubAccessible(varsFlags); // Continue starts at the special location
+    VarsFlags_SetFlag(varsFlags, FLAG_HGSS_GAME_CLEAR);
+
+    GameRecords_IncrementRecordValue(SaveData_GetGameRecords(fieldSystem->saveData), RECORD_TIMES_ENTERED_HALL_OF_FAME);
     FieldTask_InitCall(task, FieldTask_DoClearGameSequence, clearGameStruct);
 }
 

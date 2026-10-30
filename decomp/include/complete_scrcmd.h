@@ -15,6 +15,7 @@ BOOL CompleteScrCmd_GetChosenStarter(ScriptContext *ctx);
 BOOL CompleteScrCmd_PlaceStarterBalls(ScriptContext *ctx);
 BOOL CompleteScrCmd_NameHGSSRival(ScriptContext *ctx);
 BOOL CompleteScrCmd_BufferHGSSRivalName(ScriptContext *ctx);
+BOOL CompleteScrCmd_JohtoClearGame(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetBattleResult(ScriptContext *ctx);
 BOOL CompleteScrCmd_StartWildBattle(ScriptContext *ctx);
 BOOL CompleteScrCmd_InitHGSSMenu(ScriptContext *ctx);

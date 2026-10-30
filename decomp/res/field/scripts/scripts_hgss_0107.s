@@ -32,7 +32,7 @@ scr_seq_D41R0108_000:
     WaitTime 60, VAR_RESULT
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: HOFCredits 1
+    CompleteJohtoClearGame 1
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
