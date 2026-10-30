@@ -25,7 +25,7 @@ _0047:
     BufferPlayerName 0
     MessageGendered msg_0482_T05R0701_00004, msg_0482_T05R0701_00005
     Message msg_0482_T05R0701_00006
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_KEYITEM_sseq
     WaitFanfare
     SetFlag FLAG_HGSS_GOT_EXPN_CARD
     GoToIfSet FLAG_HGSS_GOT_RADIO_CARD, _0069

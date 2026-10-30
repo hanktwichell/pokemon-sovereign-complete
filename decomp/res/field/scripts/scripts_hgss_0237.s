@@ -43,11 +43,11 @@ scr_seq_R34_001:
     BufferPlayerName 0
     @ HGSS: RegisterGearNumber PHONE_CONTACT_DAY_C_MAN
     Message msg_0384_R34_00047
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_DAY_C_LADY
     Message msg_0384_R34_00048
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0384_R34_00049
     CloseMessage

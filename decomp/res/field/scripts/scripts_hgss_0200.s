@@ -85,7 +85,7 @@ _011E:
     GivePokemon SPECIES_SQUIRTLE, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0349_R12R0101_00007
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0349_R12R0101_00010
     WaitButton
@@ -111,7 +111,7 @@ _019A:
     GivePokemon SPECIES_SQUIRTLE, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0349_R12R0101_00008
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0349_R12R0101_00010
     WaitButton
@@ -137,7 +137,7 @@ _0216:
     GivePokemon SPECIES_CHARMANDER, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0349_R12R0101_00009
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0349_R12R0101_00010
     WaitButton

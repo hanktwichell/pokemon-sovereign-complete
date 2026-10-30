@@ -159,7 +159,7 @@ _01F5:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_WHITE
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HideMoney
     FadeScreen 6, 1, 1, COLOR_WHITE
@@ -266,7 +266,7 @@ _0375:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_WHITE
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HideMoney
     FadeScreen 6, 1, 1, COLOR_WHITE

@@ -124,6 +124,7 @@ scr_seq_T07R0203_000:
     GoToIf 1, _0245
     GoToIfSet FLAG_HGSS_SAW_JOHTO_DEX_CERTIFICATE, _01ED
     Message msg_0503_T07R0203_00001
+    PlayFanfare SEQ_ME_HYOUKA2_sseq
     WaitFanfare
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -140,6 +141,7 @@ _01ED:
     GoToIf 1, _0245
     GoToIfSet FLAG_HGSS_SAW_NATIONAL_DEX_CERTIFICATE, _023A
     Message msg_0503_T07R0203_00002
+    PlayFanfare SEQ_ME_HYOUKA2_sseq
     WaitFanfare
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK

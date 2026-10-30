@@ -77,6 +77,7 @@ _00CC:
     WaitFadeScreen
     ApplyMovement 2, _01D2
     WaitMovement
+    PlayFanfare SEQ_ME_HYOUKA1_sseq
     WaitFanfare
     Message msg_0093_D27R0101_00006
     CloseMessage

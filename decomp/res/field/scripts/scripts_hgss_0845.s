@@ -160,7 +160,7 @@ _024C:
     BufferPlayerName 0
     Message msg_0545_T20R0201_00008
     SetFlag FLAG_HGSS_GOT_POKEGEAR
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0545_T20R0201_00009
     Message msg_0545_T20R0201_00010

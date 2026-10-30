@@ -59,7 +59,7 @@ _00A9:
     SetFlag FLAG_HGSS_GOT_EEVEE_FROM_BILL
     BufferPlayerName 0
     Message msg_0586_T25R0401_00002
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0586_T25R0401_00007
     ShowYesNoMenu VAR_RESULT
@@ -134,7 +134,7 @@ _01C4:
     BufferPlayerName 0
     Message msg_0586_T25R0401_00013
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BILL
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     WaitButton
     CloseMessage

@@ -928,7 +928,7 @@ _114F:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_PROF__ELM
     BufferPlayerName 0
     Message msg_0542_T20_00019
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0542_T20_00020
     CloseMessage
@@ -944,7 +944,7 @@ _11AF:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_PROF__ELM
     BufferPlayerName 0
     Message msg_0542_T20_00019
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0542_T20_00020
     CloseMessage

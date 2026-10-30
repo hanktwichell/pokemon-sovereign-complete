@@ -113,7 +113,7 @@ scr_seq_T08GYM0101_001:
     Message msg_0514_T08GYM0101_00001
     BufferPlayerName 0
     Message msg_0514_T08GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0514_T08GYM0101_00003
     GoTo _0424
@@ -290,7 +290,7 @@ _0424:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0514_T08GYM0101_00020
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_JANINE
     WaitButton

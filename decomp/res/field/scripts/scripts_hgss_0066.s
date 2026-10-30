@@ -58,7 +58,7 @@ _0095:
     RemoveItem ITEM_SECRETPOTION, 1, VAR_RESULT
     BufferPlayerName 0
     Message msg_0094_D27R0107_00003
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0094_D27R0107_00004
     CloseMessage

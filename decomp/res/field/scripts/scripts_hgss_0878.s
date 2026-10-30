@@ -106,7 +106,7 @@ _0178:
     Message msg_0575_T24PC0101_00004
     BufferPlayerName 0
     Message msg_0575_T24PC0101_00005
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     GivePokemon SPECIES_TENTACOOL, 15, 0, VAR_RESULT
     Message msg_0575_T24PC0101_00006

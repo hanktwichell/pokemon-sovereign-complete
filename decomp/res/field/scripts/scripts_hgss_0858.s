@@ -47,6 +47,7 @@ scr_seq_T22FS0101_002:
     SetFlag FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT
     BufferPlayerName 0
     Message msg_0557_T22FS0101_00004
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     MessageGendered msg_0557_T22FS0101_00005, msg_0557_T22FS0101_00006
     CloseMessage
@@ -117,6 +118,7 @@ _0190:
     SetFlag FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT
     BufferPlayerName 0
     Message msg_0557_T22FS0101_00004
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     MessageGendered msg_0557_T22FS0101_00005, msg_0557_T22FS0101_00006
     CloseMessage

@@ -40,7 +40,7 @@ scr_seq_T07GYM0101_000:
     Message msg_0492_T07GYM0101_00001
     BufferPlayerName 0
     Message msg_0492_T07GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0492_T07GYM0101_00003
     GoTo _0143
@@ -95,7 +95,7 @@ _0143:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0492_T07GYM0101_00008
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_ERIKA
     WaitButton

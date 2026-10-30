@@ -258,7 +258,7 @@ _03BE:
 _03E2:
     BufferPlayerName 0
     Message msg_0491_T07_00020
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_ERIKA
     Message msg_0491_T07_00021

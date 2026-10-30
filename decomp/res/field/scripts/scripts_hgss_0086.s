@@ -460,7 +460,7 @@ _078E:
     Message msg_0109_D32R0501_00035
     BufferPlayerName 0
     Message msg_0109_D32R0501_00037
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 2
     Return
@@ -468,7 +468,7 @@ _07A5:
     Message msg_0109_D32R0501_00035
     BufferPlayerName 0
     Message msg_0109_D32R0501_00036
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 4
     Common_CheckAllFrontierGoldPrintsObtained

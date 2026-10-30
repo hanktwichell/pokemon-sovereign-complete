@@ -45,7 +45,7 @@ scr_seq_R30R0201_001:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     StopMusic
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -120,7 +120,7 @@ _019C:
     Message msg_0377_R30R0201_00012
     GivePokedex
     SetFlag FLAG_HGSS_GOT_POKEDEX
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     @ HGSS: ScrCmd_573
     MessageGendered msg_0377_R30R0201_00013, msg_0377_R30R0201_00014
@@ -128,7 +128,7 @@ _019C:
     BufferPlayerName 0
     Message msg_0377_R30R0201_00015
     @ HGSS: RegisterGearNumber PHONE_CONTACT_PROF__OAK
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     CloseMessage
     ApplyMovement obj_R30R0201_ookido, _0438

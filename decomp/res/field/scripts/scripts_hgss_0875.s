@@ -213,7 +213,7 @@ scr_seq_T24_016:
     GoToIf 1, _0504
     BufferPlayerName 0
     Message msg_0572_T24_00029
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     GivePokemon SPECIES_PIKACHU, 26, 0, VAR_RESULT
     ResetPartyMonMoveSlot_Unused VAR_0x8005, 0, MOVE_SURF
@@ -347,7 +347,7 @@ _053A:
 _0543:
     BufferPlayerName 0
     Message msg_0572_T24_00008
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_CHUCK
     Message msg_0572_T24_00009

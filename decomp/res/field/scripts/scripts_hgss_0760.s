@@ -105,7 +105,7 @@ scr_seq_T04GYM0101_000:
     Message msg_0469_T04GYM0101_00009
     BufferPlayerName 0
     Message msg_0469_T04GYM0101_00010
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     CallIfSet FLAG_HGSS_UNK_14D, _033D
     BufferPlayerName 0
@@ -227,7 +227,7 @@ _0349:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0469_T04GYM0101_00018
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_MISTY
     WaitButton

@@ -37,6 +37,7 @@ scr_seq_R38R0101_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     Message msg_0395_R38R0101_00002
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     CloseMessage
     SetVarFromValue VAR_HGSS_SG_61A5, 2

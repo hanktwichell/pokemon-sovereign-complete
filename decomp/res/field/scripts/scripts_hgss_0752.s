@@ -38,7 +38,7 @@ scr_seq_T03GYM0101_000:
     Message msg_0462_T03GYM0101_00001
     BufferPlayerName 0
     Message msg_0462_T03GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     BufferPlayerName 0
     MessageGendered msg_0462_T03GYM0101_00003, msg_0462_T03GYM0101_00004
@@ -108,7 +108,7 @@ _016A:
     Message msg_0462_T03GYM0101_00010
     BufferPlayerName 0
     Message msg_0462_T03GYM0101_00011
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BROCK
     WaitButton

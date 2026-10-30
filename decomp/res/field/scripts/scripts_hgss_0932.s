@@ -35,7 +35,7 @@ scr_seq_T28GYM0101_000:
     SetVarFromValue VAR_HGSS_SCENE_ROCKET_TAKEOVER, 1
     BufferPlayerName 0
     Message msg_0622_T28GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0622_T28GYM0101_00003
     SetVar VAR_0x8004, ITEM_TM07
@@ -48,7 +48,7 @@ scr_seq_T28GYM0101_000:
     Message msg_0622_T28GYM0101_00011
     BufferPlayerName 0
     Message msg_0622_T28GYM0101_00012
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
     WaitButton
@@ -82,7 +82,7 @@ _0144:
 _014A:
     BufferPlayerName 0
     Message msg_0622_T28GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0622_T28GYM0101_00003
     SetVar VAR_0x8004, ITEM_TM07
@@ -95,7 +95,7 @@ _014A:
     Message msg_0622_T28GYM0101_00011
     BufferPlayerName 0
     Message msg_0622_T28GYM0101_00012
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
     WaitButton

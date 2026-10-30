@@ -757,6 +757,7 @@ _0C81:
     PlaySE SEQ_SE_PL_BOWABOWA_sseq
     WaitSE SEQ_SE_PL_BOWABOWA_sseq
     Message msg_0146_D51R0201_00062
+    PlayFanfare SEQ_ME_HYOUKA6_sseq
     WaitFanfare
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen

@@ -354,7 +354,7 @@ scr_seq_T07R0401_005:
     AddCoins 18
     BufferPlayerName 0
     Message msg_0508_T07R0401_00012
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetFlag FLAG_HGSS_UNK_17C
 _059B:

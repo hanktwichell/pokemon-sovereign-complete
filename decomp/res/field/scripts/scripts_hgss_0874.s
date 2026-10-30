@@ -172,7 +172,7 @@ _024A:
 _026E:
     BufferPlayerName 0
     Message msg_0571_T23R0501_00016
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_KURT
     Message msg_0571_T23R0501_00017

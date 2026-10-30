@@ -38,6 +38,7 @@ _007D:
     Message msg_0576_T24R0201_00001
     BufferPlayerName 0
     Message msg_0576_T24R0201_00002
+    PlayFanfare SEQ_ME_PT_SPECIAL_sseq
     WaitFanfare
     SetFlag FLAG_HGSS_GOT_LOAN_SHUCKLE
     SetFlag FLAG_HGSS_DAILY_GOT_LOAN_SHUCKLE_TODAY

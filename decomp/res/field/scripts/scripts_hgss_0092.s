@@ -340,6 +340,7 @@ scr_seq_D36R0101_013:
 scr_seq_D36R0101_023:
     LockAll
     Message msg_0115_D36R0101_00068
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     ClearFlag FLAG_HGSS_SG_3FF9
     ClearFlag FLAG_HGSS_SG_3FF6
@@ -595,7 +596,7 @@ _08F5:
     Message msg_0115_D36R0101_00024
     WaitTime 32, VAR_RESULT
     Message msg_0115_D36R0101_00025
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     WaitTime 16, VAR_RESULT
     PlayCry VAR_0x8005, 0
@@ -955,7 +956,7 @@ _0F27:
     Message msg_0115_D36R0101_00021
     WaitTime 30, VAR_RESULT
     Message msg_0115_D36R0101_00026
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     WaitTime 32, VAR_RESULT
     PlayCry VAR_0x8005, 0
@@ -1438,7 +1439,7 @@ _16CA:
     Message msg_0115_D36R0101_00024
     WaitTime 32, VAR_RESULT
     Message msg_0115_D36R0101_00025
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     WaitTime 16, VAR_RESULT
     PlayCry VAR_0x8005, 0
@@ -1722,7 +1723,7 @@ _1BCA:
 _1BE5:
     ApplyMovement obj_D36R0101_gsoldman1, _267A
     WaitMovement
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     BufferPlayerName 0
     Message msg_0115_D36R0101_00044
     WaitFanfare
@@ -1736,7 +1737,7 @@ _1BE5:
     GoTo _1ED9
 _1C23:
     WaitMovement
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     BufferPlayerName 0
     Message msg_0115_D36R0101_00044
     WaitFanfare
@@ -1880,6 +1881,7 @@ _1E1E:
     @ HGSS: GiveSpikyEarPichu
     RemoveObject obj_D36R0101_tsure_poke_static_pichu_spiky
     SetVarFromValue VAR_HGSS_UNK_412B, 2
+    PlayFanfare SEQ_ME_SHINKAOME_sseq
     Message msg_0115_D36R0101_00040
     WaitFanfare
     Message msg_0115_D36R0101_00045
@@ -1916,6 +1918,7 @@ _1ED9:
     @ HGSS: GiveSpikyEarPichu
     RemoveObject obj_D36R0101_tsure_poke_static_pichu_spiky
     SetVarFromValue VAR_HGSS_UNK_412B, 2
+    PlayFanfare SEQ_ME_SHINKAOME_sseq
     Message msg_0115_D36R0101_00040
     WaitFanfare
     Message msg_0115_D36R0101_00045
@@ -2011,6 +2014,7 @@ _20AF:
     @ HGSS: GiveSpikyEarPichu
     RemoveObject obj_D36R0101_tsure_poke_static_pichu_spiky
     SetVarFromValue VAR_HGSS_UNK_412B, 2
+    PlayFanfare SEQ_ME_SHINKAOME_sseq
     Message msg_0115_D36R0101_00040
     WaitFanfare
     Message msg_0115_D36R0101_00045

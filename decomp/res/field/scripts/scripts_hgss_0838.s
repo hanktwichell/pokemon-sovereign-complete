@@ -498,7 +498,7 @@ _07E0:
     WaitTime 32, VAR_RESULT
     BufferMoveName 1, VAR_0x8001
     Message msg_0538_T11R0702_00006
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     WaitTime 16, VAR_RESULT
     GoTo _089E

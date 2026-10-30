@@ -71,7 +71,7 @@ scr_seq_T22GYM0101_001:
     Message msg_0558_T22GYM0101_00001
     BufferPlayerName 0
     Message msg_0558_T22GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0558_T22GYM0101_00003
     GoTo _0126

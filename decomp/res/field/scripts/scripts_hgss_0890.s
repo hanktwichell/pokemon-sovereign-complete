@@ -344,6 +344,7 @@ _0597:
     Message msg_0584_T25R0201_00050
     RemoveItem ITEM_ENIGMA_STONE, 1, VAR_RESULT
     Message msg_0584_T25R0201_00051
+    PlayFanfare SEQ_ME_HYOUKA2_sseq
     WaitFanfare
     Message msg_0584_T25R0201_00052
     CloseMessage
@@ -398,7 +399,7 @@ _06A8:
     GivePokemon SPECIES_PIPLUP, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0584_T25R0201_00078
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0584_T25R0201_00081
     WaitButton
@@ -417,7 +418,7 @@ _0700:
     GivePokemon SPECIES_PIPLUP, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0584_T25R0201_00079
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0584_T25R0201_00081
     WaitButton
@@ -436,7 +437,7 @@ _0758:
     GivePokemon SPECIES_CHIMCHAR, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0584_T25R0201_00080
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0584_T25R0201_00081
     WaitButton
@@ -671,7 +672,7 @@ _0C1E:
 _0C3C:
     BufferSpeciesNameFromVar 1, VAR_HGSS_UNK_407F, 0, 0
     BufferPlayerName 0
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     Message msg_0584_T25R0201_00040
     WaitFanfare
     GivePokemon VAR_HGSS_UNK_407F, 20, 0, VAR_RESULT

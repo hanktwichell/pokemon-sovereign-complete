@@ -35,7 +35,7 @@ scr_seq_D32R0101_000:
     GoToIfSet FLAG_HGSS_UNK_176, _0077
     Message msg_0103_D32R0101_00001
     BufferPlayerName 0
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     Message msg_0103_D32R0101_00002
     WaitFanfare
     SetFlag FLAG_HGSS_UNK_176

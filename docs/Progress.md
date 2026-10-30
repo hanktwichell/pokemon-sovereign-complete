@@ -355,3 +355,6 @@ Test results on the new test build:
 - **HeartGold's Battle Frontier move tutors** (Frontier Access) called a standard script past the end of the
   Bug-Catching Contest's file, which the talk test caught as stuck: the translator now sizes each standard file by its
   scripts, so the tutors say nothing until their Battle Point teaching (HeartGold's own commands) comes in.
+- **HeartGold's fanfares** (an item, a badge, a Pokémon caught: 23 its scripts play) are in too, each with its own bank;
+  Platinum's fanfares play from its loaded instruments, so one of HeartGold's loads its own as it starts. The sound
+  test's Johto part now plays each of them over New Bark Town's song.

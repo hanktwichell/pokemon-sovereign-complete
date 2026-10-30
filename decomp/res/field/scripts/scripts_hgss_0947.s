@@ -79,7 +79,7 @@ scr_seq_T30R0301_001:
     GoToIf 0, _0136
     Message msg_0634_T30R0301_00006
     SetPartyMonRibbon VAR_0x8000, RIBBON_HOENN_EFFORT
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     BufferPlayerName 1
     Message msg_0634_T30R0301_00007
     WaitFanfare

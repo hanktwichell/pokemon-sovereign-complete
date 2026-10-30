@@ -63,7 +63,7 @@ scr_seq_T22_004:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_FALKNER
     BufferPlayerName 0
     Message msg_0556_T22_00030
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0556_T22_00031
     WaitButton

@@ -33,7 +33,7 @@ scr_seq_T24GYM0101_000:
     SetTrainerFlag TRAINER_HGSS_BLACK_BELT_LUNG
     BufferPlayerName 0
     Message msg_0574_T24GYM0101_00004
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
@@ -95,7 +95,7 @@ _0126:
     Message msg_0574_T24GYM0101_00015
     BufferPlayerName 0
     Message msg_0574_T24GYM0101_00016
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_CHUCK
     WaitButton

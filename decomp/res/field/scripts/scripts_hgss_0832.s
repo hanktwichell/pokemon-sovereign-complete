@@ -501,7 +501,7 @@ scr_seq_T11R0101_020:
     GoToIf 1, _0A62
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -534,7 +534,7 @@ scr_seq_T11R0101_020:
     GoToIf 1, _0A62
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -563,7 +563,7 @@ scr_seq_T11R0101_020:
     GoToIf 1, _0A62
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -656,7 +656,7 @@ _09EA:
     CloseMessage
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -737,7 +737,7 @@ _0AFC:
     GoToIf 1, _0A62
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -758,7 +758,7 @@ _0AFC:
     GoToIf 1, _0A62
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -775,7 +775,7 @@ _0AFC:
     GoToIf 1, _0A62
     FadeScreen 8, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436

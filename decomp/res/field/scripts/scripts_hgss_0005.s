@@ -61,7 +61,7 @@ _00EF:
 _00F8:
     BufferPlayerName 0
     Message msg_0047_D01R0101_00002
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BROCK
     Message msg_0047_D01R0101_00003

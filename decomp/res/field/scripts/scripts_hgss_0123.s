@@ -104,7 +104,7 @@ _018E:
     Message msg_0138_D49R0101_00082
     CloseMessage
     Message msg_0138_D49R0101_00083
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0138_D49R0101_00084
     CloseMessage

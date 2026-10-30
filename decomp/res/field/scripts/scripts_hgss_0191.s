@@ -142,7 +142,7 @@ _023C:
 _0245:
     BufferPlayerName 0
     Message msg_0341_R10_00001
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_LT__SURGE
     Message msg_0341_R10_00002

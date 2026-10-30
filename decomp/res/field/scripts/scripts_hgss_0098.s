@@ -91,7 +91,7 @@ _014D:
 _0153:
     BufferPlayerName 0
     Message msg_0121_D38R0104_00002
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     GivePokemon SPECIES_TYROGUE, 10, ITEM_FIST_PLATE, VAR_RESULT
     Message msg_0121_D38R0104_00005
@@ -185,6 +185,7 @@ _02B7:
     GiveMoney 30000
     GiveMoney 30000
     GiveMoney 30000
+    PlayFanfare SEQ_ME_HYOUKA5_sseq
     WaitFanfare
     WaitButton
     CloseMessage
@@ -199,6 +200,7 @@ _0309:
     AddCoins 10000
     AddCoins 10000
     HideCoins
+    PlayFanfare SEQ_ME_HYOUKA3_sseq
     WaitFanfare
     WaitButton
     CloseMessage
@@ -206,6 +208,7 @@ _0309:
 _0344:
     Message msg_0121_D38R0104_00018
     Message msg_0121_D38R0104_00022
+    PlayFanfare SEQ_ME_HYOUKA2_sseq
     WaitFanfare
     SetVar VAR_0x8004, ITEM_RARE_CANDY
     SetVar VAR_0x8005, 99

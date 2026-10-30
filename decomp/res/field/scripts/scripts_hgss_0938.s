@@ -218,7 +218,7 @@ _0386:
 _038F:
     BufferPlayerName 0
     Message msg_0626_T29_00014
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_PRYCE
     Message msg_0626_T29_00015

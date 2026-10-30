@@ -303,12 +303,14 @@ _051C:
 _0533:
     ApplyMovement obj_T22PC0101_instructor, _0656
     WaitMovement
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     Message msg_0559_T22PC0101_00019
     WaitFanfare
     WaitButton
     GoTo _0399
 _054E:
     WaitMovement
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     Message msg_0559_T22PC0101_00019
     WaitFanfare
     WaitButton
@@ -328,7 +330,7 @@ _056C:
     GivePokemon VAR_0x8004, 10, 0, VAR_RESULT
     SetFlag FLAG_HGSS_SG_3FF8
     Message msg_0559_T22PC0101_00043
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0559_T22PC0101_00044
     ShowYesNoMenu VAR_RESULT

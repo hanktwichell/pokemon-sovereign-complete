@@ -61,7 +61,7 @@ scr_seq_T27GYM0101_001:
     SetFlag FLAG_HGSS_UNK_998
     BufferPlayerName 0
     Message msg_0614_T27GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0614_T27GYM0101_00003
     GoTo _020A
@@ -144,7 +144,7 @@ _020A:
     Message msg_0614_T27GYM0101_00012
     BufferPlayerName 0
     Message msg_0614_T27GYM0101_00013
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_MORTY
     WaitButton

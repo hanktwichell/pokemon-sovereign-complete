@@ -100,7 +100,7 @@ _0179:
 _0182:
     BufferPlayerName 0
     Message msg_0059_D17R1101_00001
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_MORTY
     Message msg_0059_D17R1101_00002

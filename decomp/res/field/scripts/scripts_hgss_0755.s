@@ -497,7 +497,7 @@ _0858:
 _0869:
     BufferSpeciesNameFromVar 1, VAR_HGSS_UNK_407F, 0, 0
     BufferPlayerName 0
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     Message msg_0464_T03R0101_00008
     WaitFanfare
     GivePokemon VAR_HGSS_UNK_407F, 20, 0, VAR_RESULT

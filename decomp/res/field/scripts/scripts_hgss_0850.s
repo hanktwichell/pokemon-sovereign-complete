@@ -289,7 +289,7 @@ _04CD:
     Message msg_0550_T21_00009
     BufferPlayerName 0
     Message msg_0550_T21_00010
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_KEYITEM_sseq
     WaitFanfare
     Message msg_0550_T21_00011
     Message msg_0550_T21_00012
@@ -465,7 +465,7 @@ _07B7:
     Message msg_0550_T21_00009
     BufferPlayerName 0
     Message msg_0550_T21_00010
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_KEYITEM_sseq
     WaitFanfare
     Message msg_0550_T21_00011
     Message msg_0550_T21_00012

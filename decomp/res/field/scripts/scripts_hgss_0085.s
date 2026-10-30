@@ -573,7 +573,7 @@ _0966:
     Message msg_0108_D32R0401_00013
     BufferPlayerName 0
     Message msg_0108_D32R0401_00015
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 2
     Return
@@ -581,7 +581,7 @@ _097D:
     Message msg_0108_D32R0401_00013
     BufferPlayerName 0
     Message msg_0108_D32R0401_00014
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 4
     Common_CheckAllFrontierGoldPrintsObtained
@@ -650,6 +650,7 @@ scr_seq_D32R0401_016:
     BufferPlayerName 0
     Message msg_0108_D32R0401_00069
     Message msg_0108_D32R0401_00070
+    PlayFanfare SEQ_ME_BPGET_sseq
     Message msg_0108_D32R0401_00072
     WaitFanfare
     GoTo _0B0E

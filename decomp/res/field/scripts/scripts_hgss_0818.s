@@ -76,7 +76,7 @@ scr_seq_T10_002:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -135,7 +135,7 @@ _01E6:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436
@@ -154,7 +154,7 @@ _0228:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436

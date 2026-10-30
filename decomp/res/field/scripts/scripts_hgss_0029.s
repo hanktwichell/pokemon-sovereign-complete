@@ -119,7 +119,7 @@ scr_seq_D23R0101_002:
     Message msg_0065_D23R0101_00009
     BufferPlayerName 0
     Message msg_0065_D23R0101_00010
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_KEYITEM_sseq
     WaitFanfare
     CloseMessage
     @ HGSS: RegisterPokegearCard 2

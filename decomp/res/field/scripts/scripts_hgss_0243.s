@@ -469,6 +469,7 @@ _073B:
     ClearFlag FLAG_HGSS_HIDE_GOLDENROD_FLOWERSHOP_GIRL
     LockAll
     Message msg_0390_R36_00019
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     CloseMessage
     ClearFlag FLAG_HGSS_SG_3FF0

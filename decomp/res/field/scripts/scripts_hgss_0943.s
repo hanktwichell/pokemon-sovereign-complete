@@ -117,7 +117,7 @@ _01AD:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0631_T30GYM0101_00013
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
     WaitButton

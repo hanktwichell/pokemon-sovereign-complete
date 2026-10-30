@@ -120,7 +120,7 @@ _01DA:
     BufferPartyMonSpecies 0, VAR_0x8002
     MessageFromBank VAR_RESULT, 50
     SetPartyMonRibbon VAR_0x8002, RIBBON_SNOOZE
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetFlag FLAG_HGSS_DAILY_GOT_SHOCK_RIBBON
     WaitButton

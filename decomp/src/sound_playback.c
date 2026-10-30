@@ -819,7 +819,8 @@ BOOL Sound_PlayFanfare(u16 seqID)
 
     SoundSystem_SaveHeapState(SoundSystem_GetParam(SOUND_SYSTEM_PARAM_HEAP_STATE_FANFARE));
 
-    BOOL success = SoundSystem_LoadSequenceEx(seqID, (NNS_SND_ARC_LOAD_SEQ | NNS_SND_ARC_LOAD_BANK));
+    // Sovereign Complete: a HeartGold fanfare loads its own waves too (Platinum's play from the loaded basic ones)
+    BOOL success = SoundSystem_LoadSequenceEx(seqID, (NNS_SND_ARC_LOAD_SEQ | NNS_SND_ARC_LOAD_BANK) | (CompleteSound_HasOwnBank(seqID) ? NNS_SND_ARC_LOAD_WAVE : 0));
     success = NNS_SndArcPlayerStartSeq(SoundSystem_GetSoundHandle(SOUND_HANDLE_TYPE_FANFARE), seqID);
 
     Sound_AdjustVolumeForVoiceChatEx(seqID, SOUND_HANDLE_TYPE_FANFARE);

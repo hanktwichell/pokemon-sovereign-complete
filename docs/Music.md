@@ -1,8 +1,9 @@
 # Johto and Kanto's music (step 6)
 
 Johto and Kanto play HeartGold's own songs: every song its map headers name, its scripts play (Sacred Gold's), its
-field music code picks (surfing, cycling, the trainers' encounter themes), and its battle and victory themes. This is
-how they fit into Platinum's sound archive and sound memory, measured from both decomps and both built archives.
+field music code picks (surfing, cycling, the trainers' encounter themes), and its battle and victory themes; and its
+scripts' fanfares (an item, a badge, a Pokémon caught). This is how they fit into Platinum's sound archive and sound
+memory, measured from both decomps and both built archives.
 
 ## The limits
 
@@ -26,12 +27,14 @@ how they fit into Platinum's sound archive and sound memory, measured from both 
    `BANK_BGM_BASIC`. The tool checks that every note of every sequence plays the same WAV as before. It writes
    `decomp/res/sound/complete/`, which the build packs in place of Sovereign's banks and basic waves
    (`res/sound/meson.build`), so Sovereign's files stay as they are for syncs; the sync script reruns it.
-2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 116 songs, kept as HeartGold's sequence files byte
-   for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's instruments it
-   plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from `WAVE_ARC_GS`, one archive
-   of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a flag `nitrosfx` now sets),
-   so a song loads only its own waves. Its tables of which song plays when (encounter themes by trainer class, battle
-   themes by class and wild species) are generated into `include/data/hgss_sound.h`.
+2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 116 songs and 23 fanfares, kept as HeartGold's
+   sequence files byte for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's
+   instruments it plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from
+   `WAVE_ARC_GS`, one archive of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a
+   flag `nitrosfx` now sets), so a song loads only its own waves. Its tables of which song plays when (encounter themes
+   by trainer class, battle themes by class and wild species) are generated into `include/data/hgss_sound.h`. A fanfare
+   loads no waves in Platinum (its own play from the loaded basic set), so one of HeartGold's loads its own as it starts
+   (`Sound_PlayFanfare`); on Johto's maps the song leaves room for the largest (49 KB).
 3. **Engine** (`src/complete_sound.c`): a field song of HeartGold's plays with its own bank, loaded as the field's
    bank when it starts and its waves reloaded when it resumes (Platinum plays surfing and cycling music with the map's
    song's bank, `src/sound.c`, `src/sound_playback.c`); Johto and Kanto have HeartGold's surfing and cycling songs
@@ -51,9 +54,9 @@ how they fit into Platinum's sound archive and sound memory, measured from both 
 
 ## Left
 
-- HeartGold's fanfares (`SEQ_ME_*`: items, badges, Pokémon caught) and its own sound effects: Platinum's stand in
-  for them (a fanfare loads no waves, so HeartGold's would need theirs loaded with them). The radio and Pokégear
-  songs come with the Pokégear; the Pokéathlon's are skipped with it.
+- HeartGold's own sound effects: Platinum's stand in. The fanfares the engine's own code plays (a level up, a
+  Pokémon caught in battle) are Platinum's in every region. The radio and Pokégear songs come with the Pokégear; the
+  Pokéathlon's are skipped with it.
 - HeartGold's players use more channels than Platinum's, so a busy song could drop notes; untested by ear.
 - Sovereign's new Pokémon still have no cries. The freed memory is for songs; cries would need their own budget.
 

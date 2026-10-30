@@ -160,13 +160,13 @@ class Names:
         return 'VAR_HGSS_' + name[len('VAR_'):]
 
     def sound(self, name):
-        """The engine's sound for one of HeartGold's, or SILENT: SOUNDS for the ones Platinum calls something else,
-        the sound archive's own (HeartGold's songs, tools/complete/import_hgss_sound.py, and the sounds both games
-        took from Diamond and Pearl), and Platinum's stand-ins for a song the archive lacks. HeartGold's own sound
-        effects aren't in."""
+        """The engine's sound for one of HeartGold's, or SILENT: the sound archive's own (HeartGold's songs and
+        fanfares, tools/complete/import_hgss_sound.py, and the sounds both games took from Diamond and Pearl), SOUNDS
+        for the ones Platinum calls something else, and Platinum's stand-ins for a song the archive lacks. HeartGold's
+        own sound effects aren't in."""
         from hgss_script_table import SOUNDS
         from import_hgss_headers import stand_in_music
-        if name in SOUNDS:
+        if name in SOUNDS and not (name.startswith('SEQ_ME_') and name + '_sseq' in self.pl_sounds):
             return SOUNDS[name]
         if name + '_sseq' in self.pl_sounds:
             return name + '_sseq'

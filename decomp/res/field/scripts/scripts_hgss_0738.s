@@ -104,7 +104,7 @@ _016D:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BLUE
     BufferPlayerName 0
     Message msg_0449_T01R0201_00009
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0449_T01R0201_00010
     WaitButton

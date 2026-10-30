@@ -115,7 +115,10 @@ static void PlaySong(void)
 
     gCompleteTestSound.playSeq = 0;
 
-    if (gCompleteTestSound.playScene != SOUND_SCENE_NONE) {
+    if (gCompleteTestSound.playScene == COMPLETE_TEST_SOUND_FANFARE) {
+        Sound_PlayFanfare(seqID);
+        gCompleteTestSound.playScene = SOUND_SCENE_NONE;
+    } else if (gCompleteTestSound.playScene != SOUND_SCENE_NONE) {
         Sound_SetSceneAndPlayBGM(gCompleteTestSound.playScene, seqID, 1);
         gCompleteTestSound.playScene = SOUND_SCENE_NONE;
     } else if (Sound_GetPlayerForSequence(seqID) == PLAYER_FIELD) {

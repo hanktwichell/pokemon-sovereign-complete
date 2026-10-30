@@ -350,7 +350,7 @@ _0609:
     BufferSpeciesNameFromVar 1, VAR_0x8004, 0, 0
     BufferPlayerName 0
     Message msg_0537_T11R0701_00020
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     Message msg_0537_T11R0701_00021
     WaitFanfare
     GivePokemon VAR_0x8004, 5, 0, VAR_RESULT
@@ -409,7 +409,7 @@ _0722:
     BufferSpeciesNameFromVar 1, VAR_0x8004, 0, 0
     BufferPlayerName 0
     Message msg_0537_T11R0701_00020
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     Message msg_0537_T11R0701_00021
     WaitFanfare
     GivePokemon VAR_0x8004, 5, 0, VAR_RESULT
@@ -470,7 +470,7 @@ _0837:
     GivePokemon SPECIES_TOTODILE, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0537_T11R0701_00034
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0537_T11R0701_00037
     WaitButton
@@ -489,7 +489,7 @@ _088E:
     GivePokemon SPECIES_TOTODILE, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0537_T11R0701_00035
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0537_T11R0701_00037
     WaitButton
@@ -508,7 +508,7 @@ _08E5:
     GivePokemon SPECIES_CYNDAQUIL, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0537_T11R0701_00036
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0537_T11R0701_00037
     WaitButton

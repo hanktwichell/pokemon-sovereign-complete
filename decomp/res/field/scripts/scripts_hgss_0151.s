@@ -236,6 +236,7 @@ scr_seq_0151_007:
 _038E:
     Message msg_0246_00031
 _0391:
+    PlayFanfare SEQ_ME_MUSHITORI3_sseq
     WaitFanfare
     Message msg_0246_00032
     CompleteBufferBugContestWinner 1
@@ -246,6 +247,7 @@ _0391:
 _03B3:
     Message msg_0246_00034
 _03B6:
+    PlayFanfare SEQ_ME_MUSHITORI2_sseq
     WaitFanfare
     Message msg_0246_00032
     CompleteBufferBugContestWinner 0
@@ -258,6 +260,7 @@ _03DC:
     ClearFlag FLAG_HGSS_WON_THIS_BUG_CONTEST
     Message msg_0246_00036
 _03E3:
+    PlayFanfare SEQ_ME_MUSHITORI1_sseq
     WaitFanfare
     Message msg_0246_00032
     BufferPlayerName 0

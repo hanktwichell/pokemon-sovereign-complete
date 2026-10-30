@@ -202,7 +202,7 @@ _02A6:
     GivePokemon VAR_0x8004, 20, 0, VAR_RESULT
     SetFlag FLAG_HGSS_SG_3FF3
     Message msg_0583_T25PC0101_00023
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0583_T25PC0101_00024
     ShowYesNoMenu VAR_RESULT

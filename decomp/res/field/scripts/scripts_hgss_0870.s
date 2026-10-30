@@ -63,6 +63,7 @@ scr_seq_T23PC0101_006:
     CompareVar VAR_0x8005, 6
     GoToIf 1, _02E0
     Message msg_0568_T23PC0101_00024
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     GiveEgg SPECIES_RIOLU, 10
     Message msg_0568_T23PC0101_00025
@@ -240,7 +241,7 @@ _0392:
     GivePokemon VAR_0x8004, 15, 0, VAR_RESULT
     SetFlag FLAG_HGSS_SG_3F92
     Message msg_0568_T23PC0101_00019
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0568_T23PC0101_00020
     ShowYesNoMenu VAR_RESULT

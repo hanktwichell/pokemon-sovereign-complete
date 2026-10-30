@@ -46,7 +46,7 @@ scr_seq_T26GYM0101_000:
     Message msg_0606_T26GYM0101_00001
     BufferPlayerName 0
     Message msg_0606_T26GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     AddVar VAR_HGSS_MIDGAME_BADGES, 1
     IncrementTrainerScore TRAINER_SCORE_EVENT_BADGE_EARNED
@@ -63,7 +63,7 @@ scr_seq_T26GYM0101_000:
     Message msg_0606_T26GYM0101_00026
     BufferPlayerName 0
     Message msg_0606_T26GYM0101_00027
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_JASMINE
     WaitButton

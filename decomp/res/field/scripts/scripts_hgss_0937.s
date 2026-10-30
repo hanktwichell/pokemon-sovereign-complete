@@ -16,6 +16,7 @@ scr_seq_T28R0201_000:
     CompareVar VAR_RESULT, 6
     GoToIf 1, _0099
     Message msg_0625_T28R0201_00002
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     GiveEgg SPECIES_RIOLU, 10
     SetFlag FLAG_HGSS_SG_3F9D

@@ -227,6 +227,7 @@ _0387:
     Message msg_0744_W40_00023
     GiveEgg SPECIES_MANAPHY, 9
     Message msg_0744_W40_00024
+    PlayFanfare SEQ_ME_TAMAGO_GET_sseq
     WaitFanfare
     Message msg_0744_W40_00025
     WaitButton

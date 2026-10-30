@@ -159,6 +159,7 @@ _0249:
     GoTo _0189
 _0254:
     ClearPartyMonMoveSlot VAR_0x8002, VAR_0x8001
+    PlayFanfare SEQ_ME_WASURE_sseq
     WaitFanfare
     Message msg_0580_T24R0801_00008
     WaitButton

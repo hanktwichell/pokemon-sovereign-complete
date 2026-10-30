@@ -56,7 +56,7 @@ scr_seq_T20R0101_012:
     BufferPlayerName 0
     BufferPartyMonSpecies 1, 0
     Message msg_0543_T20R0101_00007
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     BufferPartyMonSpecies 1, 0
     Message msg_0543_T20R0101_00008
@@ -209,7 +209,7 @@ scr_seq_T20R0101_002:
     MessageGendered msg_0543_T20R0101_00032, msg_0543_T20R0101_00033
     CloseMessage
     Message msg_0543_T20R0101_00034
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVar VAR_0x8004, ITEM_MYSTERY_EGG
     SetVar VAR_0x8005, 1
@@ -328,7 +328,7 @@ scr_seq_T20R0101_013:
     GoToIf 1, _0C53
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     HealParty
     @ HGSS: ScrCmd_436
     ReturnToField
@@ -634,7 +634,7 @@ _09C9:
     MessageGendered msg_0543_T20R0101_00032, msg_0543_T20R0101_00033
     CloseMessage
     Message msg_0543_T20R0101_00034
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVar VAR_0x8004, ITEM_MYSTERY_EGG
     SetVar VAR_0x8005, 1

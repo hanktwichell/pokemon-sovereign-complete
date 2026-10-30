@@ -361,7 +361,7 @@ _04D0:
 _04F4:
     BufferPlayerName 0
     Message msg_0361_R22R0101_00008
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_JANINE
     Message msg_0361_R22R0101_00009

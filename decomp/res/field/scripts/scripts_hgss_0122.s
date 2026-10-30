@@ -682,7 +682,7 @@ _093E:
     Message msg_0137_D49_00026
     BufferPlayerName 0
     Message msg_0137_D49_00027
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_KEYITEM_sseq
     WaitFanfare
     Message msg_0137_D49_00028
     SetFlag FLAG_HGSS_UNK_997

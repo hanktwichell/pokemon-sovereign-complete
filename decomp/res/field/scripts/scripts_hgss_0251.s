@@ -113,15 +113,15 @@ _01C2:
     GiveOrTakeSeal VAR_0x8006, VAR_0x8002
     BufferBallSealNamePlural 0, VAR_0x8004
     Message msg_0398_R39R0201_00020
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     BufferBallSealNamePlural 0, VAR_0x8005
     Message msg_0398_R39R0201_00020
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     BufferBallSealNamePlural 0, VAR_0x8006
     Message msg_0398_R39R0201_00020
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     CloseMessage
     SetFlag FLAG_HGSS_UNK_101
@@ -211,7 +211,7 @@ _0337:
     ReleaseAll
     End
 _033F:
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     Message msg_0398_R39R0201_00017
     WaitButton

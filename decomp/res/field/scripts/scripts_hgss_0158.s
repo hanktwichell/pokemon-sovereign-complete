@@ -49,7 +49,7 @@ scr_seq_P01R0303_001:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    PlayFanfare SEQ_ASA_sseq
+    PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
     @ HGSS: ScrCmd_436

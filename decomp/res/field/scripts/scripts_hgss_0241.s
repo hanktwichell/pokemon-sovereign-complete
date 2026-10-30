@@ -51,6 +51,7 @@ scr_seq_R35R0101_000:
     SetVarFromValue VAR_HGSS_LOAN_SPEAROW, 1
     BufferPlayerName 0
     Message msg_0388_R35R0101_00004
+    PlayFanfare SEQ_ME_PT_SPECIAL_sseq
     WaitFanfare
 _00BC:
     @ HGSS: KenyaCheckPartyOrMailbox VAR_SPECIAL_RESULT

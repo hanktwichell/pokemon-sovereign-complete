@@ -539,7 +539,7 @@ _084C:
     BufferSpeciesNameFromVar 1, VAR_0x8004, 0, 0
     Message msg_0451_T01R0301_00046
     Message msg_0451_T01R0301_00048
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     GivePokemon VAR_0x8004, 5, 0, VAR_RESULT
     BufferSpeciesNameFromVar 1, VAR_0x8004, 0, 0
@@ -589,7 +589,7 @@ _092C:
     BufferSpeciesNameFromVar 1, VAR_0x8004, 0, 0
     Message msg_0451_T01R0301_00046
     Message msg_0451_T01R0301_00048
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     GivePokemon VAR_0x8004, 5, 0, VAR_RESULT
     BufferSpeciesNameFromVar 1, VAR_0x8004, 0, 0

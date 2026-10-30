@@ -71,7 +71,7 @@ scr_seq_D24R0211_001:
     Message msg_0079_D24R0211_00005
     BufferPlayerName 0
     Message msg_0079_D24R0211_00006
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     AddVar VAR_HGSS_UNOWN_REPORT_LEVEL, 1
     WaitButton

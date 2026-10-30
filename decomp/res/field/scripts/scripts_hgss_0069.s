@@ -134,7 +134,7 @@ _0200:
     End
 _0213:
     Message msg_0096_D31R0201_00088
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     CompareVar VAR_0x8004, 85
     GoToIf 5, _0233
@@ -895,7 +895,7 @@ _104F:
     End
 _106F:
     Message msg_0096_D31R0201_00073
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     Return
 _107A:
@@ -916,7 +916,7 @@ _107A:
 _10D2:
     Message msg_0096_D31R0201_00012
     Message msg_0096_D31R0201_00073
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     GoTo _1273
     End
@@ -944,7 +944,7 @@ _1127:
 _1144:
     BufferNumber 0, VAR_MAP_LOCAL_0x00
     Message msg_0096_D31R0201_00070
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     GoTo _12F1
     End
@@ -957,7 +957,7 @@ _115A:
 _1177:
     BufferNumber 0, VAR_MAP_LOCAL_0x00
     Message msg_0096_D31R0201_00132
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     GoTo _12F1
     End
@@ -993,7 +993,7 @@ _11F1:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11B8
     Message msg_0096_D31R0201_00084
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     GoTo _11B8
     End
@@ -1001,7 +1001,7 @@ _1231:
     Message msg_0096_D31R0201_00085
     BufferPlayerName 0
     Message msg_0096_D31R0201_00087
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 2
     Return
@@ -1009,7 +1009,7 @@ _1248:
     Message msg_0096_D31R0201_00085
     BufferPlayerName 0
     Message msg_0096_D31R0201_00086
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 4
     Common_CheckAllFrontierGoldPrintsObtained

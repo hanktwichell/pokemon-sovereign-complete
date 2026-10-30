@@ -225,7 +225,7 @@ _03C5:
 _03CE:
     BufferPlayerName 0
     Message msg_0363_R25_00002
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_MISTY
     Message msg_0363_R25_00003

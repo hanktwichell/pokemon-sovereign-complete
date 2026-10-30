@@ -6,21 +6,20 @@ gCompleteTestSound, which notes each load into the sound heap):
    (a field song as a map's song, a cutscene's in its sound scene, any other as a script's PlayMusic): none of its
    loads fails, and it leaves some memory free. The songs that leave the least are listed.
 2. **Battle:** a trainer battle (SELECT+R, the test build's own trainer) and the map's song after it: no load fails.
-3. **Johto:** New Bark Town's own song (HeartGold's) loads as the player arrives, and a trainer battle there plays
-   HeartGold's trainer theme: no load fails.
+3. **Johto:** New Bark Town's own song (HeartGold's) loads as the player arrives, each of HeartGold's fanfares plays
+   over it, and a trainer battle there plays HeartGold's trainer theme: no load fails.
 
 Results: one line per part, 'ok' or what went wrong; with --all, a line per song (its sequence, the bytes free after
-it loads).
+it loads). --only PART runs that part alone (songs, battle, johto).
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_sound_heap.py \\
-        decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--all]
+        decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--all] [--only PART]
 """
 import json
 import os
 import re
-import struct
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
@@ -32,108 +31,140 @@ SOUND = {'free': 0, 'minFree': 4, 'failures': 8, 'lastFailedID': 12, 'loads': 14
          'log': 20}  # CompleteTestSound
 LOG_ENTRIES, LOG_SIZE = 8, 8  # COMPLETE_TEST_SOUND_LOG; CompleteTestSoundLoad
 SCENE_SONGS = {'SEQ_BLD_ENDING_sseq': 14}  # songs only a cutscene plays, in its sound scene (enum SoundScene)
+FANFARE = 0xFFFF  # playScene: as a fanfare (COMPLETE_TEST_SOUND_FANFARE)
+FANFARE_FRAMES = 600  # a fanfare's length and more, so it ends and gives its memory back before the next
 JOHTO = ('MAP_HEADER_HGSS_NEW_BARK', 695, 397, 'SEQ_GS_T_WAKABA_sseq')  # a tile outside the player's house
-PARTS = 3
 MUSIC_PLAYERS = ('PLAYER_BGM', 'PLAYER_FIELD')
 SETTLE = 90  # frames for a song's loads (the next free field frame, then the load)
 BATTLE_FRAMES = 40000
 LEAST = 8  # the songs leaving the least memory, listed
 
 
-def songs():
-    """[(name, sequence ID)] of the archive's music, from the build's archive (the split's, docs/Music.md)."""
+def songs(players=MUSIC_PLAYERS, prefix='SEQ_'):
+    """[(name, sequence ID)] of the archive's music (or other players'), from the build's archive (the split's,
+    docs/Music.md)."""
     data = json.load(open(os.path.join(DECOMP, 'res', 'sound', 'complete', 'pl_sound_data.json'), encoding='utf-8'))
     naix = open(os.path.join(DECOMP, TEST_BUILD, 'res', 'sound', 'pl_sound_data.naix')).read()
     ids = {int(n): name for name, n in re.findall(r'#define (SEQ_\w+) (\d+)', naix)}
     out = [(ids[i], i) for i, s in enumerate(data['seqInfo'])
-           if s.get('name') and s.get('player') in MUSIC_PLAYERS and i in ids]
+           if s.get('name') and s.get('player') in players and i in ids and ids[i].startswith(prefix)]
     return sorted(out, key=lambda song: song[0] in SCENE_SONGS)  # the cutscenes' last: they leave the field
 
 
-def main():
-    from drive import Driver
-    rom, state, out = sys.argv[1:4]
-    show_all = '--all' in sys.argv
-    os.makedirs(out, exist_ok=True)
-    sym = bm.symbols(tuple(set(TALK_SYMBOLS) | {'gCompleteTestSound', 'gSovereignTestGodMode',
-                                                  'gSovereignTestBattleTrainer'}))
-    d = Driver(rom, state)
-    mem = d.emu.memory
-    base = sym['gCompleteTestSound']
-    results = []
+class Harness:
+    """The emulator, the test build's symbols, and gCompleteTestSound's fields."""
 
-    def read(field, size=4):
-        at = base + SOUND[field]
-        return int.from_bytes(bytes(mem.unsigned[at:at + size]), 'little')
+    def __init__(self, rom, state, out):
+        from drive import Driver
+        self.sym = bm.symbols(tuple(set(TALK_SYMBOLS) | {'gCompleteTestSound', 'gSovereignTestGodMode',
+                                                          'gSovereignTestBattleTrainer'}))
+        self.d = Driver(rom, state)
+        self.mem = self.d.emu.memory
+        self.base = self.sym['gCompleteTestSound']
+        self.state, self.out, self.results = state, out, []
 
-    def read_log(i):  # a logged load's file
-        at = base + SOUND['log'] + i * LOG_SIZE
-        return int.from_bytes(bytes(mem.unsigned[at:at + 2]), 'little')
+    def read(self, field, size=4):
+        at = self.base + SOUND[field]
+        return int.from_bytes(bytes(self.mem.unsigned[at:at + size]), 'little')
 
-    def part(name, problem):
-        results.append(f'{name}: {problem or "ok"}')
-        print(results[-1], flush=True)
+    def read_log(self, i):  # a logged load's file
+        at = self.base + SOUND['log'] + i * LOG_SIZE
+        return int.from_bytes(bytes(self.mem.unsigned[at:at + 2]), 'little')
+
+    def start(self):
+        """The bedroom state, with minFree reset; the failures so far."""
+        self.d.load_state(self.state)
+        self.d.run(60)
+        self.mem.write_long(self.base + SOUND['minFree'], 0xFFFFFFFF)
+        return self.read('failures')
+
+    def play(self, seq, scene=0, frames=SETTLE):
+        self.mem.write_short(self.base + SOUND['playScene'], scene)
+        self.mem.write_short(self.base + SOUND['playSeq'], seq)
+        self.d.run(frames)
+
+    def battle(self):
+        """A trainer battle (SELECT+R) played out: fight()'s result."""
+        self.mem.write_byte(self.sym['gSovereignTestGodMode'], 1)
+        self.d.press('SELECT+R')
+        result, _ = fight(self.d, self.sym, BATTLE_FRAMES)
+        self.d.run(SETTLE)
+        return result
+
+    def failed_since(self, failures):
+        if self.read('failures') == failures:
+            return ''
+        return f'{self.read("failures") - failures} loads failed (file {self.read("lastFailedID", 2)})'
+
+    def part(self, name, problem):
+        self.results.append(f'{name}: {problem or "ok"}')
+        print(self.results[-1], flush=True)
         if problem:
-            d.screenshot().save(os.path.join(out, f'{name}.png'))
+            self.d.screenshot().save(os.path.join(self.out, f'{name}.png'))
 
-    # 1. Songs
-    d.load_state(state)
-    d.run(60)
+
+def songs_part(h, show_all):
+    """1. Each song on a map, as the game plays it."""
+    h.start()
     failed, left = [], []
     for name, seq in songs():
-        failures = read('failures')
-        mem.write_long(base + SOUND['minFree'], 0xFFFFFFFF)
-        mem.write_short(base + SOUND['playScene'], SCENE_SONGS.get(name, 0))
-        mem.write_short(base + SOUND['playSeq'], seq)
-        d.run(SETTLE)
-        if read('playSeq', 2):
+        failures = h.read('failures')
+        h.mem.write_long(h.base + SOUND['minFree'], 0xFFFFFFFF)
+        h.play(seq, SCENE_SONGS.get(name, 0))
+        if h.read('playSeq', 2):
             failed.append(f'{name} never played')
             continue
-        if read('failures') != failures:
-            failed.append(f'{name} (file {read("lastFailedID", 2)})')
-        left.append((read('minFree'), name))
+        if h.read('failures') != failures:
+            failed.append(f'{name} (file {h.read("lastFailedID", 2)})')
+        left.append((h.read('minFree'), name))
         if show_all:
-            print(f'{name} {read("minFree")}', flush=True)
+            print(f'{name} {h.read("minFree")}', flush=True)
     left.sort()
-    part('songs', f'{len(failed)} of {len(left)} failed to load: {", ".join(failed[:10])}' if failed else '')
+    h.part('songs', f'{len(failed)} of {len(left)} failed to load: {", ".join(failed[:10])}' if failed else '')
     print('least memory left: ' + ', '.join(f'{n} {free // 1024} KB' for free, n in left[:LEAST]), flush=True)
 
-    # 2. Battle, and the map's song after it
-    d.load_state(state)
-    d.run(60)
-    failures = read('failures')
-    mem.write_long(base + SOUND['minFree'], 0xFFFFFFFF)
-    mem.write_byte(sym['gSovereignTestGodMode'], 1)
-    d.press('SELECT+R')
-    result, _ = fight(d, sym, BATTLE_FRAMES)
-    d.run(SETTLE)
-    part('battle', f'{result}' if result != 'ok' else f'{read("failures") - failures} loads failed (file '
-         f'{read("lastFailedID", 2)})' if read('failures') != failures else '')
-    print(f'battle: least memory left {read("minFree") // 1024} KB', flush=True)
 
-    # 3. Johto: New Bark Town's song as the player arrives, and a battle there
-    d.load_state(state)
-    d.run(60)
-    failures = read('failures')
-    mem.write_long(base + SOUND['minFree'], 0xFFFFFFFF)
+def battle_part(h):
+    """2. A trainer battle, and the map's song after it."""
+    failures = h.start()
+    result = h.battle()
+    h.part('battle', result if result != 'ok' else h.failed_since(failures))
+    print(f'battle: least memory left {h.read("minFree") // 1024} KB', flush=True)
+
+
+def johto_part(h):
+    """3. New Bark Town's song as the player arrives, HeartGold's fanfares over it, and a battle there."""
+    failures = h.start()
     header, x, z, song = JOHTO
-    arrived, _ = warp(d, sym, header_names().index(header), x, z, 0)
-    loaded = {read_log(i) for i in range(LOG_ENTRIES)}
-    song_id = dict(songs())[song]
-    problem = f'warp {arrived}' if arrived != 'ok' else '' if song_id in loaded else f'{song} never loaded'
+    arrived, _ = warp(h.d, h.sym, header_names().index(header), x, z, 0)
+    loaded = {h.read_log(i) for i in range(LOG_ENTRIES)}
+    problem = f'warp {arrived}' if arrived != 'ok' else '' if dict(songs())[song] in loaded else f'{song} never loaded'
+    fanfares = songs(('PLAYER_ME',), 'SEQ_ME_')  # HeartGold's (Platinum's are SEQ_FANFA*, SEQ_BADGE...)
+    for name, seq in fanfares if not problem else []:
+        h.play(seq, FANFARE, FANFARE_FRAMES)
+        if h.read('failures') != failures:
+            problem = f'the fanfare {name}: ' + h.failed_since(failures)
+            break
     if not problem:
-        mem.write_byte(sym['gSovereignTestGodMode'], 1)
-        d.press('SELECT+R')
-        result, _ = fight(d, sym, BATTLE_FRAMES)
-        d.run(SETTLE)
-        problem = f'battle {result}' if result != 'ok' else ''
-    if not problem and read('failures') != failures:
-        problem = f'{read("failures") - failures} loads failed (file {read("lastFailedID", 2)})'
-    part('johto', problem)
-    print(f'johto: least memory left {read("minFree") // 1024} KB', flush=True)
+        result = h.battle()
+        problem = f'battle {result}' if result != 'ok' else h.failed_since(failures)
+    h.part('johto', problem)
+    print(f'johto: {len(fanfares)} fanfares; least memory left {h.read("minFree") // 1024} KB', flush=True)
 
-    print(f'{sum(r.endswith(": ok") for r in results)} of {PARTS} parts ok')
-    sys.exit(0 if all(r.endswith(': ok') for r in results) else 1)
+
+def main():
+    rom, state, out = sys.argv[1:4]
+    only = sys.argv[sys.argv.index('--only') + 1] if '--only' in sys.argv else None
+    os.makedirs(out, exist_ok=True)
+    h = Harness(rom, state, out)
+    parts = {'songs': lambda: songs_part(h, '--all' in sys.argv), 'battle': lambda: battle_part(h),
+             'johto': lambda: johto_part(h)}
+    for name, run in parts.items():
+        if only in (None, name):
+            run()
+    count = len(parts) if only is None else 1
+    print(f'{sum(r.endswith(": ok") for r in h.results)} of {count} parts ok')
+    sys.exit(0 if len(h.results) == count and all(r.endswith(': ok') for r in h.results) else 1)
 
 
 if __name__ == '__main__':

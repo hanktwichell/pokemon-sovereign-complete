@@ -145,7 +145,7 @@ scr_seq_T06GYM0101_023:
     Message msg_0485_T06GYM0101_00001
     BufferPlayerName 0
     Message msg_0485_T06GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0485_T06GYM0101_00003
     GoTo _0356
@@ -239,7 +239,7 @@ _0356:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0485_T06GYM0101_00016
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_LT__SURGE
     WaitButton

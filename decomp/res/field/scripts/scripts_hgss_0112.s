@@ -107,7 +107,7 @@ scr_seq_D44R0103_003:
     Message msg_0130_D44R0103_00015
     BufferPlayerName 0
     Message msg_0130_D44R0103_00016
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
@@ -390,7 +390,7 @@ _056D:
     Message msg_0130_D44R0103_00015
     BufferPlayerName 0
     Message msg_0130_D44R0103_00016
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
@@ -483,7 +483,7 @@ _07A0:
     Message msg_0130_D44R0103_00015
     BufferPlayerName 0
     Message msg_0130_D44R0103_00016
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
@@ -566,7 +566,7 @@ _0994:
     Message msg_0130_D44R0103_00015
     BufferPlayerName 0
     Message msg_0130_D44R0103_00016
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
@@ -639,7 +639,7 @@ _0B49:
     Message msg_0130_D44R0103_00015
     BufferPlayerName 0
     Message msg_0130_D44R0103_00016
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
@@ -702,7 +702,7 @@ _0CBF:
     Message msg_0130_D44R0103_00015
     BufferPlayerName 0
     Message msg_0130_D44R0103_00016
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0130_D44R0103_00017
     ApplyMovement obj_D44R0103_chourou, _0FF6
@@ -729,6 +729,7 @@ _0CBF:
 _0DF6:
     BufferPlayerName 0
     Message msg_0130_D44R0103_00027
+    PlayFanfare SEQ_ME_SHINKAOME_sseq
     WaitFanfare
     GivePokemon SPECIES_DRAGONAIR, 45, ITEM_DRACO_PLATE, VAR_RESULT
     GoToIfSet FLAG_HGSS_FAILED_DRAGONS_DEN_QUIZ, _0EC4

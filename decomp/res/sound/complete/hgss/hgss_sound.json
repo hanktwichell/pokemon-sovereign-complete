@@ -1043,6 +1043,213 @@
    "channelPriority": 30,
    "playerPriority": 64,
    "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_ME_ACCE",
+   "fileName": "SEQ_ME_ACCE.sseq",
+   "bank": "BANK_ME_ACCE",
+   "volume": 72,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_ASA",
+   "fileName": "SEQ_ME_ASA.sseq",
+   "bank": "BANK_ME_ASA",
+   "volume": 80,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_BADGE",
+   "fileName": "SEQ_ME_BADGE.sseq",
+   "bank": "BANK_ME_BADGE",
+   "volume": 104,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_BPGET",
+   "fileName": "SEQ_ME_BPGET.sseq",
+   "bank": "BANK_ME_BPGET",
+   "volume": 107,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_HYOUKA1",
+   "fileName": "SEQ_ME_HYOUKA1.sseq",
+   "bank": "BANK_ME_HYOUKA1",
+   "volume": 92,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_HYOUKA2",
+   "fileName": "SEQ_ME_HYOUKA2.sseq",
+   "bank": "BANK_ME_HYOUKA2",
+   "volume": 95,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_HYOUKA3",
+   "fileName": "SEQ_ME_HYOUKA3.sseq",
+   "bank": "BANK_ME_HYOUKA3",
+   "volume": 81,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_HYOUKA5",
+   "fileName": "SEQ_ME_HYOUKA5.sseq",
+   "bank": "BANK_ME_HYOUKA5",
+   "volume": 92,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_HYOUKA6",
+   "fileName": "SEQ_ME_HYOUKA6.sseq",
+   "bank": "BANK_ME_HYOUKA6",
+   "volume": 92,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_ITEM",
+   "fileName": "SEQ_ME_ITEM.sseq",
+   "bank": "BANK_ME_ITEM",
+   "volume": 81,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_KEYITEM",
+   "fileName": "SEQ_ME_KEYITEM.sseq",
+   "bank": "BANK_ME_KEYITEM",
+   "volume": 81,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_LVUP",
+   "fileName": "SEQ_ME_LVUP.sseq",
+   "bank": "BANK_ME_LVUP",
+   "volume": 102,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_MUSHITORI1",
+   "fileName": "SEQ_ME_MUSHITORI1.sseq",
+   "bank": "BANK_ME_MUSHITORI1",
+   "volume": 97,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_MUSHITORI2",
+   "fileName": "SEQ_ME_MUSHITORI2.sseq",
+   "bank": "BANK_ME_MUSHITORI2",
+   "volume": 102,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_MUSHITORI3",
+   "fileName": "SEQ_ME_MUSHITORI3.sseq",
+   "bank": "BANK_ME_MUSHITORI3",
+   "volume": 97,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_POKEGEAR_REGIST",
+   "fileName": "SEQ_ME_POKEGEAR_REGIST.sseq",
+   "bank": "BANK_ME_POKEGEAR_REGIST",
+   "volume": 97,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_POKEGET",
+   "fileName": "SEQ_ME_POKEGET.sseq",
+   "bank": "BANK_ME_POKEGET",
+   "volume": 76,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_PT_NEW",
+   "fileName": "SEQ_ME_PT_NEW.sseq",
+   "bank": "BANK_ME_PT_NEW",
+   "volume": 102,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_PT_SPECIAL",
+   "fileName": "SEQ_ME_PT_SPECIAL.sseq",
+   "bank": "BANK_ME_PT_SPECIAL",
+   "volume": 98,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_SHINKAOME",
+   "fileName": "SEQ_ME_SHINKAOME.sseq",
+   "bank": "BANK_ME_SHINKAOME",
+   "volume": 76,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_TAMAGO_GET",
+   "fileName": "SEQ_ME_TAMAGO_GET.sseq",
+   "bank": "BANK_ME_TAMAGO_GET",
+   "volume": 88,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_WASURE",
+   "fileName": "SEQ_ME_WASURE.sseq",
+   "bank": "BANK_ME_WASURE",
+   "volume": 105,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_WAZA",
+   "fileName": "SEQ_ME_WAZA.sseq",
+   "bank": "BANK_ME_WAZA",
+   "volume": 87,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
   }
  ],
  "bankInfo": [
@@ -2199,6 +2406,236 @@
   {
    "name": "BANK_GS_WINBRAIN",
    "fileName": "BANK_GS_WINBRAIN.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_ACCE",
+   "fileName": "BANK_ME_ACCE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_ASA",
+   "fileName": "BANK_ME_ASA.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_BADGE",
+   "fileName": "BANK_ME_BADGE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_BPGET",
+   "fileName": "BANK_ME_BPGET.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_HYOUKA1",
+   "fileName": "BANK_ME_HYOUKA1.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_HYOUKA2",
+   "fileName": "BANK_ME_HYOUKA2.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_HYOUKA3",
+   "fileName": "BANK_ME_HYOUKA3.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_HYOUKA5",
+   "fileName": "BANK_ME_HYOUKA5.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_HYOUKA6",
+   "fileName": "BANK_ME_HYOUKA6.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_ITEM",
+   "fileName": "BANK_ME_ITEM.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_KEYITEM",
+   "fileName": "BANK_ME_KEYITEM.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_LVUP",
+   "fileName": "BANK_ME_LVUP.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_MUSHITORI1",
+   "fileName": "BANK_ME_MUSHITORI1.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_MUSHITORI2",
+   "fileName": "BANK_ME_MUSHITORI2.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_MUSHITORI3",
+   "fileName": "BANK_ME_MUSHITORI3.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_POKEGEAR_REGIST",
+   "fileName": "BANK_ME_POKEGEAR_REGIST.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_POKEGET",
+   "fileName": "BANK_ME_POKEGET.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_PT_NEW",
+   "fileName": "BANK_ME_PT_NEW.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_PT_SPECIAL",
+   "fileName": "BANK_ME_PT_SPECIAL.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_SHINKAOME",
+   "fileName": "BANK_ME_SHINKAOME.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_TAMAGO_GET",
+   "fileName": "BANK_ME_TAMAGO_GET.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_WASURE",
+   "fileName": "BANK_ME_WASURE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_WAZA",
+   "fileName": "BANK_ME_WAZA.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",

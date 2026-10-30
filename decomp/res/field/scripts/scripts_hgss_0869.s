@@ -44,7 +44,7 @@ scr_seq_T23GYM0102_001:
     Message msg_0567_T23GYM0102_00001
     BufferPlayerName 0
     Message msg_0567_T23GYM0102_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     SetTrainerFlag TRAINER_HGSS_BUG_CATCHER_AL
     SetTrainerFlag TRAINER_HGSS_BUG_CATCHER_BENNY
@@ -62,7 +62,7 @@ scr_seq_T23GYM0102_001:
     Message msg_0567_T23GYM0102_00008
     BufferPlayerName 0
     Message msg_0567_T23GYM0102_00009
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BUGSY
     WaitButton

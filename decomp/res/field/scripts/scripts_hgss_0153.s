@@ -202,7 +202,7 @@ _029F:
 _02C3:
     BufferPlayerName 0
     Message msg_0256_P01R0102_00005
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_SABRINA
     Message msg_0256_P01R0102_00006

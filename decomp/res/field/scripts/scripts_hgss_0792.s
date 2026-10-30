@@ -166,7 +166,7 @@ _0276:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_FALKNER
     BufferPlayerName 0
     Message msg_0497_T07R0104_00006
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0497_T07R0104_00007
     WaitButton

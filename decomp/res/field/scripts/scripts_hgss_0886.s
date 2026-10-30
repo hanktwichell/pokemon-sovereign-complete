@@ -124,7 +124,7 @@ _01DA:
     Message msg_0582_T25GYM0101_00003
     BufferPlayerName 0
     Message msg_0582_T25GYM0101_00004
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     SetVarFromValue VAR_HGSS_UNK_410A, 2
     ClearFlag FLAG_HGSS_UNK_084
@@ -139,7 +139,7 @@ _01DA:
     Message msg_0582_T25GYM0101_00014
     BufferPlayerName 0
     Message msg_0582_T25GYM0101_00015
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
     WaitButton

@@ -123,7 +123,7 @@ scr_seq_R30_011:
     Message msg_0375_R30_00019
     GetPartyCount VAR_0x8005
     GivePokemon SPECIES_EEVEE, 5, 0, VAR_RESULT
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0375_R30_00020
     ShowYesNoMenu VAR_RESULT

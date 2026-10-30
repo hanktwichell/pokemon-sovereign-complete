@@ -218,7 +218,7 @@ _033F:
     CloseMessage
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BUENA
     Message msg_0066_D23R0102_00026
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     CloseMessage
     ApplyMovement obj_D23R0102_gswoman1, _0628
@@ -269,7 +269,7 @@ _0450:
     GoToIf 0, _0486
     Message msg_0066_D23R0102_00036
     CloseMessage
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_KEYITEM_sseq
     Message msg_0066_D23R0102_00037
     WaitFanfare
     CloseMessage

@@ -64,7 +64,7 @@ scr_seq_D11R0106_000:
     Message msg_0053_D11R0106_00001
     BufferPlayerName 0
     Message msg_0053_D11R0106_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0053_D11R0106_00003
     GoTo _041F
@@ -267,7 +267,7 @@ _041F:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0053_D11R0106_00028
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BLAINE
     WaitButton

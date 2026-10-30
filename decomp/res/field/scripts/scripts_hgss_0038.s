@@ -334,7 +334,7 @@ _05C9:
 _05EB:
     BufferPlayerName 0
     Message msg_0073_D24R0102_00016
-    PlayFanfare SEQ_FANFA1_sseq
+    PlayFanfare SEQ_ME_LVUP_sseq
     WaitFanfare
     AddVar VAR_HGSS_UNOWN_REPORT_LEVEL, 1
     GoTo _0315

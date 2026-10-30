@@ -56,7 +56,7 @@ _00C6:
 _00CA:
     BufferPlayerName 0
     MessageGendered msg_0385_R34R0101_00007, msg_0385_R34R0101_00017
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     ApplyMovement obj_R34R0101_var_1, _01BC
     WaitMovement

@@ -374,7 +374,7 @@ _05F7:
 _061B:
     BufferPlayerName 0
     Message msg_0597_T25R1006_00026
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_WHITNEY
     Message msg_0597_T25R1006_00027

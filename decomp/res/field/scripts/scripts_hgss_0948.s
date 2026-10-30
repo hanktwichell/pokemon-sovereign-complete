@@ -65,6 +65,7 @@ _0068:
     End
 _011D:
     ClearPartyMonMoveSlot VAR_0x8002, VAR_0x8001
+    PlayFanfare SEQ_ME_WASURE_sseq
     WaitFanfare
     Message msg_0635_T30R0601_00008
     WaitButton

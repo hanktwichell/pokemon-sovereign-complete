@@ -558,7 +558,7 @@ _093B:
     GivePokemon SPECIES_MUDKIP, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0062_D22R0101_00101
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0062_D22R0101_00102
     WaitButton
@@ -580,7 +580,7 @@ _09A9:
     GivePokemon SPECIES_MUDKIP, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0062_D22R0101_00103
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0062_D22R0101_00102
     WaitButton
@@ -602,7 +602,7 @@ _0A17:
     GivePokemon SPECIES_TORCHIC, 10, 155, VAR_RESULT
     BufferPlayerName 0
     Message msg_0062_D22R0101_00104
-    PlayFanfare SEQ_FANFA5_sseq
+    PlayFanfare SEQ_ME_POKEGET_sseq
     WaitFanfare
     Message msg_0062_D22R0101_00102
     WaitButton

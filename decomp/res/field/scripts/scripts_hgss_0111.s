@@ -108,7 +108,7 @@ _015E:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0129_D44R0102_00036
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
     WaitButton
@@ -156,7 +156,7 @@ _0251:
 _025A:
     BufferPlayerName 0
     Message msg_0129_D44R0102_00010
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_CLAIR
     Message msg_0129_D44R0102_00011

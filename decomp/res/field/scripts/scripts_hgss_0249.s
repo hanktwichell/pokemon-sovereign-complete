@@ -152,7 +152,7 @@ _021B:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BAOBA
     BufferPlayerName 0
     Message msg_0396_R39_00008
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0396_R39_00009
     CloseMessage
@@ -256,7 +256,7 @@ _03A3:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BAOBA
     BufferPlayerName 0
     Message msg_0396_R39_00008
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0396_R39_00009
     CloseMessage
@@ -341,7 +341,7 @@ _0547:
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BAOBA
     BufferPlayerName 0
     Message msg_0396_R39_00008
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     Message msg_0396_R39_00009
     CloseMessage

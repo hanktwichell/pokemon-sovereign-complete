@@ -128,7 +128,7 @@ _01DC:
 _01E5:
     BufferPlayerName 0
     Message msg_0132_D46R0101_00001
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_BUGSY
     Message msg_0132_D46R0101_00002

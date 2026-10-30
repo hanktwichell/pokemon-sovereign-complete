@@ -139,7 +139,7 @@ _0211:
     CloseMessage
     BufferPlayerName 0
     Message msg_0378_R31_00006
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     @ HGSS: MonGiveMail 150
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -167,7 +167,7 @@ _027F:
     WaitMovement
     BufferPlayerName 0
     Message msg_0378_R31_00005
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0378_R31_00007
     SetVarFromValue VAR_HGSS_LOAN_SPEAROW, 2
@@ -231,7 +231,7 @@ _0364:
     WaitMovement
     BufferPlayerName 0
     Message msg_0378_R31_00005
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0378_R31_00007
     SetVarFromValue VAR_HGSS_LOAN_SPEAROW, 2

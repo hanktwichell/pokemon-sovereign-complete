@@ -524,7 +524,7 @@ _0773:
     SetVarFromValue VAR_RESULT, 30
     BufferNumber 1, VAR_RESULT
     Message msg_0135_D47R0101_00005
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0135_D47R0101_00006
     CloseMessage
@@ -872,7 +872,7 @@ _0CCC:
     SetVarFromValue VAR_RESULT, 30
     BufferNumber 1, VAR_RESULT
     Message msg_0135_D47R0101_00058
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     Message msg_0135_D47R0101_00059
     CloseMessage

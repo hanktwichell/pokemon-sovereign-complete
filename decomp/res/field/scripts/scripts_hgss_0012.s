@@ -47,7 +47,7 @@ scr_seq_D10R0101_002:
     PlaySE SEQ_SE_DP_PINPON_sseq
     BufferPlayerName 0
     Message msg_0052_D10R0101_00004
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
     CloseMessage
     ReleaseAll

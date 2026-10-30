@@ -46,7 +46,7 @@ scr_seq_T11GYM0101_000:
     Message msg_0531_T11GYM0101_00001
     BufferPlayerName 0
     Message msg_0531_T11GYM0101_00002
-    PlayFanfare SEQ_BADGE_sseq
+    PlayFanfare SEQ_ME_BADGE_sseq
     WaitFanfare
     Message msg_0531_T11GYM0101_00003
     GoTo _01BC
@@ -129,7 +129,7 @@ _01BC:
     BufferPlayerName 0
     BufferPlayerName 0
     Message msg_0531_T11GYM0101_00011
-    PlayFanfare SEQ_FANFA4_sseq
+    PlayFanfare SEQ_ME_POKEGEAR_REGIST_sseq
     WaitFanfare
     @ HGSS: RegisterGearNumber PHONE_CONTACT_SABRINA
     WaitButton
