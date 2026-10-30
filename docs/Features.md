@@ -301,6 +301,8 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   (`src/voltorb_flip/`) and its own graphics.
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
+- **The Magnet Train's ride** (between Goldenrod City and Saffron City): HeartGold plays a scene of the train
+  (its `sub_020977CC`); here the screen fades out and in, and the player arrives at the other station, as in HeartGold.
 - **The radio's Poké Flute** (Snorlax on Routes 11 and 12): HeartGold's Snorlax wakes when the Pokégear's radio plays
   the Poké Flute channel, which needs the Expansion Card. Until the radio comes (the same question), the Poké Flute
   counts as playing once the player has the Expansion Card, and every other radio check finds nothing playing.

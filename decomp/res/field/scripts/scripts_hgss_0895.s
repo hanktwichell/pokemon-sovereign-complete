@@ -8,7 +8,11 @@ scr_seq_T25R0503_000:
     ApplyMovement LOCALID_PLAYER, _0038
     WaitMovement
     WaitTime 40, VAR_0x8004
-    @ HGSS: ScrCmd_722 0, 1, 401, 14, 11
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    Warp MAP_HEADER_HGSS_SAFFRON_MAGNET_TRAIN_STATION_2F, 14, 11, 1
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
     SetVarFromValue VAR_HGSS_UNK_411F, 0
     ReleaseAll
     End

@@ -593,6 +593,10 @@ Test results on the new test build:
   brought the follower straight back onto the gym's floor puzzle. New test `tools/complete/test_follower_inhibit.py`
   (2 of 2: no follower after the guide's talk, nor after a few steps; back in Blackthorn City);
   `tools/complete/test_follower.py` still passes. 963 of Sacred Gold's script lines left.
+- **The Magnet Train runs:** HeartGold's ride (`ScrCmd_722`) was left untranslated, so the player boarded and nothing
+  happened. It is now a fade and a warp to the other city's station (HeartGold's ride scene isn't ported), whose scene
+  walks the player off and down. New test `tools/complete/test_hgss_magnet_train.py`, both ways pass (Goldenrod to
+  Saffron and back, ending on the other station's ground floor).
 - **Goldenrod Tunnel's dress-up and lottery:** HeartGold's dressing room, its photo's title and the frames that show
   the photos are Platinum's own commands from Jubilife TV's gallery (HeartGold kept them, unnamed in both decomps);
   its accessory lottery (a random accessory of 39, then one of the first 14 backdrops the player lacks) is four new
