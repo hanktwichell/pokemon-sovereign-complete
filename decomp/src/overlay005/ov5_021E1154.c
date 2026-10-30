@@ -3,6 +3,7 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "constants/field/complete_tile_behaviors.h" // Sovereign Complete
 #include "constants/player_avatar.h"
 
 #include "struct_decls/map_object.h"
@@ -127,6 +128,15 @@ static BOOL ov5_021E120C(FieldTask *param0)
                 v0->unk_00 = 0;
             } else if (TileBehavior_IsSlideSouthward(v2) == 1) {
                 v0->unk_00 = 1;
+            } else if (v2 == TILE_BEHAVIOR_COMPLETE_STOP_SLIDING) {
+                // Sovereign Complete: HeartGold's stop tile ends the slide on it (Viridian Gym; its ov01_021F3114)
+                v0->unk_00 = ov5_021E11E0(v0->unk_00);
+                MapObject_SetStatusFlagOff(v1, MAP_OBJ_STATUS_LOCK_DIR);
+                MapObject_SetStatusFlagOff(v1, MAP_OBJ_STATUS_PAUSE_ANIMATION);
+                PlayerAvatar_TryFace(v0->playerAvatar, v0->unk_00);
+                ov5_021E1350(v0);
+                Sound_StopEffect(1624, 0);
+                return 1;
             } else {
                 v0->unk_00 = ov5_021E11E0(v0->unk_00);
             }

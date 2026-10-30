@@ -466,6 +466,11 @@ static enum FieldMoveError FieldMoves_CheckStrength(const FieldMoveContext *fiel
         return FIELD_MOVE_ERROR_BADGE;
     }
 
+    // Sovereign Complete: HeartGold's Ice Path B2F, where the boulders fallen from above stay put on the ice
+    if (fieldMoveContext->mapHeaderID == MAP_HEADER_HGSS_ICE_PATH_B2F) {
+        return FIELD_MOVE_ERROR_LOCATION;
+    }
+
     if (FieldMoves_IsMoveUsable(fieldMoveContext, FIELD_MOVE_STRENGTH)) {
         return FIELD_MOVE_ERROR_NONE;
     }

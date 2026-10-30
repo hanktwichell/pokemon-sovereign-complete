@@ -279,6 +279,11 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
         weather = OVERWORLD_WEATHER_CLEAR;
     }
 
+    // Sovereign Complete: HeartGold's clear sky over the Lake of Rage on the days its water is low
+    if (mapHeaderID == MAP_HEADER_HGSS_LAKE_OF_RAGE && CompleteMapInfo_IsLakeOfRageLow(fieldSystem->saveData, mapHeaderID)) {
+        weather = OVERWORLD_WEATHER_CLEAR;
+    }
+
     FieldOverworldState_SetWeather(fieldState, weather);
 
     if (noWarp) {

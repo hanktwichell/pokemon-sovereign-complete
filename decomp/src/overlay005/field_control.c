@@ -956,6 +956,25 @@ static BOOL Field_CheckMapTransition(FieldSystem *fieldSystem, const FieldInput 
     }
 
     int playerX, playerZ;
+
+    // Sovereign Complete: HeartGold's ladders up and down, climbed by pressing that way while standing on them (its
+    // FieldSystem_CheckMapTransition); nothing else happens on one. The player arrives facing north: Platinum's
+    // arrival steps a player facing south off the warp, as out of a door, and HeartGold's ladders don't.
+    Field_GetPlayerPos(fieldSystem, &playerX, &playerZ);
+    u8 ladder = TerrainCollisionManager_GetTileBehavior(fieldSystem, playerX, playerZ);
+
+    if (ladder == TILE_BEHAVIOR_COMPLETE_LADDER_NORTH || ladder == TILE_BEHAVIOR_COMPLETE_LADDER_SOUTH) {
+        Location ladderMap;
+
+        if (input->transitionDir == (ladder == TILE_BEHAVIOR_COMPLETE_LADDER_NORTH ? DIR_NORTH : DIR_SOUTH)
+            && Field_MapConnection(fieldSystem, playerX, playerZ, &ladderMap)) {
+            sub_02056BDC(fieldSystem, ladderMap.mapHeaderID, ladderMap.warpId, 0, 0, DIR_NORTH, 6);
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     Field_Step(fieldSystem, &playerX, &playerZ);
 
     if (TerrainCollisionManager_CheckCollision(fieldSystem, playerX, playerZ) == FALSE) {
@@ -1219,6 +1238,12 @@ static BOOL Field_CheckTransition(FieldSystem *fieldSystem, const int playerX, c
 
     if (TileBehavior_IsWarpPanel(curTileBehavior)) {
         FieldSystem_StartMapChangeWarpTask(fieldSystem, nextMap.mapHeaderID, nextMap.warpId);
+        return TRUE;
+    }
+
+    // Sovereign Complete: HeartGold's ladder down, taken by stepping onto it (its FieldSystem_CheckTransition)
+    if (curTileBehavior == TILE_BEHAVIOR_COMPLETE_LADDER_DOWN) {
+        sub_02056BDC(fieldSystem, nextMap.mapHeaderID, nextMap.warpId, 0, 0, DIR_NORTH, 6);
         return TRUE;
     }
 

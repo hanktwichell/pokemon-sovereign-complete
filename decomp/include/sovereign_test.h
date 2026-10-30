@@ -330,7 +330,7 @@ extern u16 gSovereignTestCaughtAllBut;
 // When set, the rare wild encounters' roll (SovereignRareWild_TryFillEncounterTable, data/sovereign_rare_wild.yaml) is
 // this minus 1 instead of a random number from 0 to 99, so a test can pick each of a map's entries.
 extern u8 gSovereignTestRareWildRoll;
-// The vars harnesses watch (see struct SovereignTestWatch).
+// The vars harnesses watch (see struct SovereignTestWatch); a flag reads as 0 or 1 (Sovereign Complete).
 extern struct SovereignTestWatch gSovereignTestWatch[SOVEREIGN_TEST_WATCHES];
 // Each roaming slot: where it is and what it is (see struct SovereignTestRoamer).
 extern struct SovereignTestRoamer gSovereignTestRoamers[ROAMING_SLOT_MAX];

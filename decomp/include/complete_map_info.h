@@ -3,6 +3,9 @@
 
 #include "generated/map_headers.h"
 
+#include "field/field_system_decl.h"
+#include "struct_decls/map_object.h"
+
 #include "map_matrix.h"
 #include "savedata.h"
 
@@ -37,5 +40,10 @@ BOOL MapHeader_HasIncomingCalls(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasRadioSignal(enum MapHeaderID mapHeaderID);
 // HeartGold's changes to the overworld's blocks as a map loads: Mahogany Town's antenna tree, the Lake of Rage's level
 void CompleteMapInfo_LoadMatrix(MapMatrix *mapMatrix, SaveData *saveData, enum MapHeaderID mapHeaderID);
+// Whether the Lake of Rage is low today, seen from this map (its water level, and a clear sky over the lake)
+BOOL CompleteMapInfo_IsLakeOfRageLow(SaveData *saveData, enum MapHeaderID mapHeaderID);
+// HeartGold's boulder holes, after a Strength push: a boulder pushed onto its hole on Ice Path B1F falls through (its
+// flag set, the object gone) and shows on B2F (its fallen flag cleared). TRUE if it fell.
+BOOL CompleteMapInfo_BoulderFell(FieldSystem *fieldSystem, MapObject *boulder);
 
 #endif // POKEPLATINUM_COMPLETE_MAP_INFO_H

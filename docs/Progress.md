@@ -631,3 +631,28 @@ Test results on the new test build:
 - **Tested:** `tools/complete/test_hgss_outbreaks.py` (new), all four parts pass: on Route 35, Illumise is 1 of 48
   encounters before the National Pokédex and on another map's day (it's one of the route's own), and 22 of 48 on its
   day; Feebas is 22 of 48 surfing on Route 27 on its day.
+
+## Oct 30, 2026: ladders, Viridian Gym's stop tiles, Ice Path's boulder holes and the Lake of Rage's sky
+
+- **HeartGold's ladders didn't work.** Its three ladder tiles came over with numbers of their own but no behaviour, and
+  Platinum only warps from its own warp tiles, so none of Johto's and Kanto's 250 ladders (on 74 maps: Sprout Tower,
+  Slowpoke Well, the Burned Tower, the Lighthouse, Ice Path, Mt. Mortar, Victory Road...) took the player anywhere.
+  Now a ladder up or down takes its warp when the player presses that way on it, and a ladder down when they step onto
+  it, as in HeartGold, with Platinum's stairs sound and fade (`src/overlay005/field_control.c`). The player arrives
+  facing north: Platinum's arrivals step a player facing south one tile on, as out of a door, which the test caught.
+- **Viridian Gym's stop tiles** were plain floor, and Platinum's slides go on until a wall: stepping onto an arrow in
+  the gym's first row would have slid the player back and forth for good. HeartGold's stop tile now ends a slide on
+  it (`src/overlay005/ov5_021E1154.c`).
+- **Ice Path B1F's boulder holes**, HeartGold's code rather than a tile: a boulder pushed onto its hole falls through
+  and shows on B2F (`CompleteMapInfo_BoulderFell`). Before, the boulders just sat on the holes. Strength can't be used
+  on B2F, as in HeartGold, so the fallen boulders can't be pushed off the ice puzzle (`src/field_move_tasks.c`).
+- **The Lake of Rage's sky** clears on the days its water is low (HeartGold's map load does this too); it rained over
+  the low lake before (not tested in the emulator). Not ported: the diamond dust HeartGold shows on Mt. Silver's summit
+  on eight days of the year, as Platinum has no such weather (its number is a clear sky there).
+- The test build's watch (`gSovereignTestWatch`) reads flags too.
+- **Tested:** `tools/complete/test_hgss_tile_behaviors.py` (new): the first 62 of the 250 ladders taken all arrive where
+  their warp leads (the rest of the run goes on); the Viridian Gym slide stops on the stop tile; Ice Path's third
+  boulder, pushed along a 25-move plan into its hole, falls through (its flag set, its copy on B2F shown).
+- Also checked: HeartGold's other warps on tiles Platinum doesn't warp from (Pal Park's exit, the Battle Frontier's
+  doors, Mt. Moon Square's) are taken by scripts, in HeartGold too; the gifts' commands pass HeartGold's held items by
+  number, which Sovereign's item list keeps, and no gift has a form.

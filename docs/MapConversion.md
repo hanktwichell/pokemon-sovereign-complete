@@ -164,7 +164,18 @@ HeartGold's `include/constants/metatile_behavior.h` by name:
 - 15 named behaviours are HeartGold's own: headbutt trees, whirlpools, magma, ladders (3), sliding (4, the Ice Path)
   and its stop, Rock Climb walls (2), snow and the empty trash can (Vermilion Gym's puzzle). Some exist in Platinum
   under other names (Platinum has Rock Climb), so they still need matching by meaning; the rest need engine support
-  before their maps work fully.
+  before their maps work fully. Now all have it (`include/constants/field/complete_tile_behaviors.h`): Headbutt trees,
+  whirlpools, Blackthorn Gym's magma, the ladders (pressing up or down on one, or stepping onto a ladder down, takes
+  its warp, with Platinum's stairs sound and fade, arriving facing north, as Platinum's arrival would step a player
+  facing south off the warp; HeartGold's short climb before the fade isn't ported) and the stop
+  tile, which ends a slide on it (Viridian Gym: Platinum's slides go on to a wall). The slides themselves, Rock Climb,
+  snow and the trash can are Platinum's at the same numbers.
+- Ice Path B1F's boulder holes are HeartGold's code, not a tile behaviour (its `ov01_021F1F8C` and a table of four
+  holes): a boulder pushed onto its hole falls through, its flag set and its copy on B2F shown
+  (`CompleteMapInfo_BoulderFell`, called after Platinum's Strength push). HeartGold's fade around it isn't ported.
+  Strength can't be used on B2F, as in HeartGold, so the fallen boulders stay where they stop the player on the ice.
+- Test: `tools/complete/test_hgss_tile_behaviors.py` climbs all 250 ladders, slides along Viridian Gym's first row to
+  its stop tile, and pushes Ice Path's third boulder through its hole.
 
 ## Events
 

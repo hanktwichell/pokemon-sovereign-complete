@@ -7,6 +7,7 @@
 #include "constants/heap.h"
 #include "generated/map_headers.h"
 #include "generated/signpost_commands.h"
+#include "generated/vars_flags.h" // Sovereign Complete: the test build's watch tells vars from flags
 
 #include "applications/poketch/poketch_system.h"
 #include "applications/title_screen.h"
@@ -286,8 +287,10 @@ static BOOL HandleInputsEventsAndProcesses(FieldSystem *fieldSystem)
         SovereignTest_NoteRoamers(fieldSystem);
 
         for (int i = 0; i < SOVEREIGN_TEST_WATCHES; i++) {
-            if (gSovereignTestWatch[i].var != 0) {
+            if (gSovereignTestWatch[i].var >= VARS_START) {
                 gSovereignTestWatch[i].value = *FieldSystem_GetVarPointer(fieldSystem, gSovereignTestWatch[i].var);
+            } else if (gSovereignTestWatch[i].var != 0) { // Sovereign Complete: a flag reads as 0 or 1
+                gSovereignTestWatch[i].value = FieldSystem_CheckFlag(fieldSystem, gSovereignTestWatch[i].var);
             }
         }
     }

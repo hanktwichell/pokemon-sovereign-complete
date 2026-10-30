@@ -30,6 +30,7 @@
 #include "encounter.h"
 #include "field_battle_data_transfer.h"
 #include "field_bgm.h"
+#include "complete_map_info.h" // Sovereign Complete
 #include "field_task.h"
 #include "game_records.h"
 #include "heap.h"
@@ -599,6 +600,7 @@ static BOOL ov5_021DFFBC(FieldTask *param0)
 
         sub_020656AC(v2);
         sub_020656AC(v1);
+        CompleteMapInfo_BoulderFell(v0->fieldSystem, v2); // Sovereign Complete: HeartGold's boulder holes (Ice Path)
         v0->unk_00++;
     case 2:
         MonRideTaskEnv_Free(v0);
