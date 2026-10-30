@@ -185,8 +185,8 @@ keep one set of grass slots and swap two of them by day and by night. So Johto a
   morning, surfing, rods; Platinum's own swaps get the slots they replace, so they change nothing), and at each
   encounter the twelve grass slots are those of the time of day (HeartGold's morning 4-10, day 10-20, night 20-4;
   Platinum's twilight counts as day).
-- For step 5: Rock Smash encounters (Platinum's Rock Smash only breaks the rock), the radio's Hoenn and Sinnoh
-  sounds, swarms (Platinum's swarms are Sinnoh's), headbutt trees.
+- Rock Smash encounters and Headbutt trees are in (`docs/Features.md`, "Headbutt trees and Rock Smash"). For step 5:
+  the radio's Hoenn and Sinnoh sounds, swarms (Platinum's swarms are Sinnoh's).
 
 ## Roamers
 

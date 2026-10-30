@@ -24,6 +24,7 @@ static const struct {
     { MOVE_ROCK_SMASH, ITEM_HM06 },
     { MOVE_WATERFALL, ITEM_HM07 },
     { MOVE_ROCK_CLIMB, ITEM_HM08 },
+    { MOVE_WHIRLPOOL, ITEM_HM05 }, // Sovereign Complete: HeartGold's HM05, which Lance gives in Johto (as Platinum's)
 };
 
 BOOL Sovereign_BagHasHMForMove(SaveData *saveData, u16 move)

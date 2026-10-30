@@ -151,7 +151,12 @@ are `CompleteGiveBadge` and `CompleteCheckBadge` (`BADGE_ID_HGSS_*`, HeartGold's
   Climb: Icicle or Earth; Defog: Relic only, as HeartGold has no Defog). That covers the field-move scripts
   (`CompleteCheckFieldMoveBadge`, `res/field/scripts/scripts_field_moves.s`), the party menu and the Surf prompt.
   Until now Johto's Cut trees, rocks and boulders asked Sinnoh's badges, so a player in Johto couldn't use them.
-  Whirlpool (the Glacier Badge) comes with its HeartGold behaviour.
+- **Whirlpool** (HeartGold's own field move, on Route 27, Route 41 and in Dragon's Den, where its whirlpools are
+  3×3 blocks of water that stop a surfer): facing one while surfing, with the Glacier Badge and Whirlpool, asks to use
+  it, and the player surfs across (`CommonScript_CompleteWhirlpool`; HeartGold's own crossing scene is assembly, so
+  this is a plain crossing). HeartGold's HM05 is Whirlpool, Platinum's is Defog, and Lance gives HM05 in Johto: for now
+  HM05 in the bag also allows Whirlpool, as Sovereign lets an HM in the bag stand in for the move (`docs/Roadmap.md`,
+  "Still open"). Test: `tools/complete/test_hgss_whirlpool.py` (Dragon's Den: surfing out, and across its whirlpool).
 - **Counts:** every badge counts where Platinum counts badges: how high a traded Pokémon obeys, the money lost on
   blacking out (capped at eight, as its table is), the common Poké Mart's stock, the save and continue screens. Scripts
   that count Sinnoh's badges (`CountBadgesAcquired`) still count Sinnoh's.
@@ -161,6 +166,27 @@ are `CompleteGiveBadge` and `CompleteCheckBadge` (`BADGE_ID_HGSS_*`, HeartGold's
 
 Test: `tools/complete/test_hgss_field_moves.py` (Ilex Forest's Cut tree with no badge and with the Hive Badge, Rock
 Smash with the Zephyr Badge, Strength with the Plain Badge).
+
+## Headbutt trees and Rock Smash
+
+HeartGold's two field encounters Platinum doesn't have (`src/overlay006/complete_field_encounters.c`, with the tables
+`tools/complete/import_hgss_field_encounters.py` writes; Sacred Gold's are HeartGold's):
+
+- **Headbutt trees:** pressing A at a Headbutt tree (its HeartGold tile behaviour) with a Pokémon that knows Headbutt
+  asks to use it (`CommonScript_CompleteHeadbutt`, HeartGold's lines); the tree shakes, and on a tree of a kind with
+  Pokémon one falls out: as in HeartGold, a map's trees are common, rare or empty by the last digit of the trainer ID,
+  and its secret trees always have their own. The battle is set up as Platinum's wild battles are (the lead's
+  abilities, a Repel). 60 maps, 2,114 tree tiles. Headbutt is a move, not an HM, so no badge is needed; it isn't in
+  the party menu's field moves yet.
+- **Rock Smash:** after a rock breaks on a Johto or Kanto map, a Pokémon from the map's Rock Smash slots may come out
+  at its rate (80% the first slot, 20% the second), or else, on the 17 maps with finds, an item from HeartGold's lists
+  at the map's odds (Suction Cups, Magnet Pull and Keen Eye add 5%; Serene Grace and Super Luck favour the rarer
+  items), as HeartGold's `RockSmashItemCheck` does.
+- **Ilex Forest's Headbutt tutor** checks HeartGold's list of who can learn Headbutt; the species HeartGold doesn't
+  have can when they learn it by level in Sovereign's data.
+
+Test: `tools/complete/test_hgss_headbutt.py` (a battle from Route 29's trees; a battle and an item from Dark Cave's
+rocks).
 
 ## The S.S. Aqua
 
@@ -182,5 +208,3 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   keep it in.
 - **Mom's savings** (New Bark Town): HeartGold keeps them with the Pokégear's data and takes amounts on its own number
   window. Until they come (with the Pokétch and Pokégear question), she has nothing saved, and a deposit is called off.
-- **Ilex Forest's Headbutt tutor:** his check of which Pokémon can learn Headbutt (HeartGold's own tutor list) comes
-  with Headbutt trees; until then he says the Pokémon can't.

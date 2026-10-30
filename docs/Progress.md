@@ -437,3 +437,14 @@ Test results on the new test build:
   (`CompleteMonAddContestValue`), Route 3's meteorites check for a Deoxys in the party (they change its Forme), and Mom's
   money menu answers consistently until her savings are ported (`docs/Features.md`, "Stand-ins"). 98.4% of Sacred
   Gold's script lines translate.
+- **Headbutt trees and Rock Smash finds.** HeartGold's Headbutt trees did nothing here (their tiles acted as plain
+  ground), smashed rocks only broke, and Ilex Forest's Headbutt tutor said every Pokémon couldn't learn it. Now a
+  Headbutt tree asks to use Headbutt and can drop one of the map's tree Pokémon (HeartGold's tables, with its common,
+  rare and empty trees by trainer ID, and its secret trees), a smashed rock on a Johto or Kanto map can hold a wild
+  Pokémon at the map's Rock Smash rate or an item from HeartGold's lists, and the tutor checks HeartGold's list
+  (`src/overlay006/complete_field_encounters.c`, `tools/complete/import_hgss_field_encounters.py`). The battles are set
+  up as Platinum's wild battles are. New test: `tools/complete/test_hgss_headbutt.py`.
+- **Whirlpool.** HeartGold's whirlpools (3×3 blocks of water on Route 27, Route 41 and in Dragon's Den) stopped a
+  surfer for good. Facing one while surfing now asks to use Whirlpool (the Glacier Badge, and a Pokémon that knows it
+  or HM05 in the bag: Lance's HM05 is Platinum's Defog, `docs/Roadmap.md`), and the player surfs across. New test:
+  `tools/complete/test_hgss_whirlpool.py`.

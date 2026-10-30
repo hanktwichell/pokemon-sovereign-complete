@@ -5,6 +5,7 @@
 
 #include "constants/sovereign_totem_trials.h"
 #include "constants/field/dynamic_map_features.h"
+#include "constants/field/complete_tile_behaviors.h" // Sovereign Complete
 #include "constants/field_poison.h"
 #include "constants/player_avatar.h"
 #include "generated/game_records.h"
@@ -1059,6 +1060,10 @@ u16 Field_TileBehaviorToScript(FieldSystem *fieldSystem, u8 behavior)
         return SCRIPT_ID(COMMON_SCRIPTS, 30);
     } else if (TileBehavior_IsTV(behavior) && playerDir == DIR_NORTH) {
         return SCRIPT_ID(TV_BROADCAST, 0);
+    } else if (behavior == TILE_BEHAVIOR_COMPLETE_HEADBUTT) { // Sovereign Complete: HeartGold's Headbutt trees
+        return SCRIPT_ID(COMMON_SCRIPTS, 0x810 - 0x7D0); // CommonScript_CompleteHeadbutt
+    } else if (behavior == TILE_BEHAVIOR_COMPLETE_WHIRLPOOL && PlayerAvatar_GetPlayerState(fieldSystem->playerAvatar) == PLAYER_AVATAR_SURFING) {
+        return SCRIPT_ID(COMMON_SCRIPTS, 0x812 - 0x7D0); // Sovereign Complete: CommonScript_CompleteWhirlpool
     }
 
     if (PlayerAvatar_CanUseRockClimb(behavior, playerDir)) {

@@ -89,6 +89,9 @@
     ScriptEntry CommonScript_SovereignE4AskFormat @ 0x80D
     ScriptEntry CommonScript_SovereignE4CheckLoneMon @ 0x80E
     ScriptEntry CommonScript_CompleteApricornTree @ 0x80F
+    ScriptEntry CommonScript_CompleteHeadbutt @ 0x810
+    ScriptEntry CommonScript_CompleteRockSmashFind @ 0x811
+    ScriptEntry CommonScript_CompleteWhirlpool @ 0x812
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -1958,5 +1961,135 @@ CommonScript_CompleteApricornTreeEnd:
     CloseMessage
     ReleaseAll
     End
+
+@ Sovereign Complete: a Headbutt tree on Johto's and Kanto's maps (HeartGold's std_field_headbutt): with a Pokémon
+@ that knows Headbutt, it shakes the tree, and a Pokémon may fall out (src/overlay006/complete_field_encounters.c)
+CommonScript_CompleteHeadbutt:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FindPartySlotForFieldMove VAR_RESULT, MOVE_HEADBUTT
+    SetVar VAR_0x8004, VAR_RESULT
+    GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, CommonScript_CompleteHeadbuttCantUse
+    Message CommonStrings_Text_CompleteHeadbuttAsk
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, CommonScript_CompleteHeadbuttEnd
+    BufferPartyMonNickname 0, VAR_0x8004
+    Message CommonStrings_Text_CompleteHeadbuttUsed
+    CloseMessage
+    PlaySE SEQ_SE_DP_WALL_HIT_sseq
+    CompleteScreenShake 0, 2, 2, 4
+    WaitTime 15, VAR_RESULT
+    ReleaseAll
+    CompleteHeadbutt VAR_RESULT
+    End
+
+CommonScript_CompleteHeadbuttCantUse:
+    Message CommonStrings_Text_CompleteHeadbuttCantUse
+    WaitButton
+CommonScript_CompleteHeadbuttEnd:
+    CloseMessage
+    ReleaseAll
+    End
+
+@ Sovereign Complete: after a rock is smashed on Johto's and Kanto's maps (HeartGold's RockSmashItemCheck), a wild
+@ Pokémon at the map's Rock Smash rate, or an item at the map's odds (src/overlay006/complete_field_encounters.c)
+CommonScript_CompleteRockSmashFind:
+    CompleteRockSmashFind VAR_RESULT, VAR_0x8004
+    GoToIfNe VAR_RESULT, COMPLETE_ROCK_SMASH_ITEM, CommonScript_CompleteRockSmashFindEnd
+    LockAll
+    BufferItemName 1, VAR_0x8004
+    Message CommonStrings_Text_CompleteRockSmashFound
+    SetVar VAR_0x8005, 1
+    CanFitItem VAR_0x8004, 1, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompleteRockSmashFindBagFull
+    Call CommonScript_InternalAddItemQuantityNoLineFeed @ (a common script can't call another with CallCommonScript)
+    CloseMessage
+    ReleaseAll
+    GoTo CommonScript_CompleteRockSmashFindEnd
+
+CommonScript_CompleteRockSmashFindBagFull:
+    Call CommonScript_InternalBagIsFull
+    CloseMessage
+    ReleaseAll
+CommonScript_CompleteRockSmashFindEnd:
+    ReturnCommonScript
+    End
+
+@ Sovereign Complete: a whirlpool on Johto's and Kanto's water (HeartGold's std_field_whirlpool): with the Glacier
+@ Badge and Whirlpool (a Pokémon that knows it, or HM05 in the bag), the player surfs across it
+CommonScript_CompleteWhirlpool:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FindPartySlotForFieldMove VAR_RESULT, MOVE_WHIRLPOOL
+    SetVar VAR_0x8004, VAR_RESULT
+    GoToIfEq VAR_RESULT, MAX_PARTY_SIZE, CommonScript_CompleteWhirlpoolCantUse
+    CompleteCheckBadge BADGE_ID_HGSS_GLACIER, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompleteWhirlpoolCantUse
+    Message CommonStrings_Text_CompleteWhirlpoolAsk
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, CommonScript_CompleteWhirlpoolEnd
+    BufferPartyMonNickname 0, VAR_0x8004
+    Message CommonStrings_Text_CompleteWhirlpoolUsed
+    CloseMessage
+    PlayHMCutIn VAR_0x8004
+    CompleteWhirlpoolSteps VAR_0x8005
+    GetPlayerDir VAR_0x8006
+CommonScript_CompleteWhirlpoolStep:
+    CallIfEq VAR_0x8006, DIR_NORTH, CommonScript_CompleteWhirlpoolStepNorth
+    CallIfEq VAR_0x8006, DIR_SOUTH, CommonScript_CompleteWhirlpoolStepSouth
+    CallIfEq VAR_0x8006, DIR_WEST, CommonScript_CompleteWhirlpoolStepWest
+    CallIfEq VAR_0x8006, DIR_EAST, CommonScript_CompleteWhirlpoolStepEast
+    SubVar VAR_0x8005, 1
+    GoToIfNe VAR_0x8005, 0, CommonScript_CompleteWhirlpoolStep
+    ReleaseAll
+    End
+
+CommonScript_CompleteWhirlpoolStepNorth:
+    ApplyMovement LOCALID_PLAYER, CommonScript_CompleteWhirlpoolMovementNorth
+    WaitMovement
+    Return
+
+CommonScript_CompleteWhirlpoolStepSouth:
+    ApplyMovement LOCALID_PLAYER, CommonScript_CompleteWhirlpoolMovementSouth
+    WaitMovement
+    Return
+
+CommonScript_CompleteWhirlpoolStepWest:
+    ApplyMovement LOCALID_PLAYER, CommonScript_CompleteWhirlpoolMovementWest
+    WaitMovement
+    Return
+
+CommonScript_CompleteWhirlpoolStepEast:
+    ApplyMovement LOCALID_PLAYER, CommonScript_CompleteWhirlpoolMovementEast
+    WaitMovement
+    Return
+
+CommonScript_CompleteWhirlpoolCantUse:
+    Message CommonStrings_Text_CompleteWhirlpoolCantUse
+    WaitButton
+CommonScript_CompleteWhirlpoolEnd:
+    CloseMessage
+    ReleaseAll
+    End
+
+    .balign 4, 0
+CommonScript_CompleteWhirlpoolMovementNorth:
+    WalkNormalNorth
+    EndMovement
+
+    .balign 4, 0
+CommonScript_CompleteWhirlpoolMovementSouth:
+    WalkNormalSouth
+    EndMovement
+
+    .balign 4, 0
+CommonScript_CompleteWhirlpoolMovementWest:
+    WalkNormalWest
+    EndMovement
+
+    .balign 4, 0
+CommonScript_CompleteWhirlpoolMovementEast:
+    WalkNormalEast
+    EndMovement
 
     .balign 4, 0

@@ -24,6 +24,7 @@
 #include "generated/roaming_slots.h"
 #include "constants/hgss_spawns.h" // Sovereign Complete: HeartGold's spawn points' warp IDs
 #include "constants/hgss_badges.h" // Sovereign Complete: Johto's and Kanto's badges
+#include "constants/complete_field_encounters.h" // Sovereign Complete: Headbutt trees and Rock Smash
 #include "generated/save_types.h"
 #include "res/sound/pl_sound_data.naix"
 #include "generated/signpost_commands.h"
@@ -5904,6 +5905,33 @@
     .macro CompleteCheckFieldMoveBadge badge, destVarID
     .short SCRCMD_COMPLETECHECKFIELDMOVEBADGE
     .short \badge
+    .short \destVarID
+    .endm
+
+    // HeartGold's Headbutt trees and Rock Smash (src/overlay006/complete_field_encounters.c). CompleteHeadbutt: a wild
+    // battle from the tree the player faces, if it has one (destVarID: whether it did). CompleteRockSmashFind: a wild
+    // battle or an item after a rock is smashed (destVarID: COMPLETE_ROCK_SMASH_*; itemVarID: the item).
+    .macro CompleteHeadbutt destVarID
+    .short SCRCMD_COMPLETEHEADBUTT
+    .short \destVarID
+    .endm
+
+    .macro CompleteRockSmashFind destVarID, itemVarID
+    .short SCRCMD_COMPLETEROCKSMASHFIND
+    .short \destVarID
+    .short \itemVarID
+    .endm
+
+    // HeartGold's ScrCmd_656: whether party Pokémon partySlot can learn Headbutt from Ilex Forest's tutor
+    .macro CompleteCanLearnHeadbutt partySlot, destVarID
+    .short SCRCMD_COMPLETECANLEARNHEADBUTT
+    .short \partySlot
+    .short \destVarID
+    .endm
+
+    // HeartGold's Whirlpool: the steps across the whirlpool the player faces, and the water beyond
+    .macro CompleteWhirlpoolSteps destVarID
+    .short SCRCMD_COMPLETEWHIRLPOOLSTEPS
     .short \destVarID
     .endm
 

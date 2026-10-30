@@ -3,6 +3,7 @@
 #include <nitro.h>
 
 #include "constants/battle.h"
+#include "constants/field/complete_tile_behaviors.h"
 #include "constants/heap.h"
 #include "constants/moves.h"
 #include "constants/narc.h"
@@ -19,6 +20,7 @@
 #include "overlay005/field_menu.h"
 #include "overlay005/map_prop.h"
 #include "overlay005/script_message.h"
+#include "overlay006/complete_field_encounters.h"
 #include "struct_defs/choose_starter_data.h"
 
 #include "applications/naming_screen.h"
@@ -39,9 +41,12 @@
 #include "message.h"
 #include "party.h"
 #include "pokemon.h"
+#include "player_avatar.h"
+#include "player_move.h"
 #include "save_player.h"
 #include "scrcmd.h"
 #include "string_gf.h"
+#include "terrain_collision_manager.h"
 #include "string_template.h"
 #include "script_manager.h"
 #include "trainer_info.h"
@@ -292,6 +297,58 @@ BOOL CompleteScrCmd_CheckFieldMoveBadge(ScriptContext *ctx)
 
     GF_ASSERT(badge < MAX_BADGES);
     *destVar = CompleteBadges_AllowsFieldMove(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), badge);
+    return FALSE;
+}
+
+// HeartGold's TryHeadbuttEncounter and RockSmashItemCheck, and Ilex Forest's tutor's check (ScrCmd_656): Headbutt
+// trees and Rock Smash on Johto's and Kanto's maps (src/overlay006/complete_field_encounters.c). A battle runs in a
+// task under the script's, which waits for it.
+BOOL CompleteScrCmd_Headbutt(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = CompleteFieldEncounters_TryHeadbutt(ctx->fieldSystem, ctx->task);
+    return TRUE;
+}
+
+BOOL CompleteScrCmd_RockSmashFind(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    u16 *itemVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = CompleteFieldEncounters_TryRockSmash(ctx->fieldSystem, ctx->task, itemVar);
+    return TRUE;
+}
+
+BOOL CompleteScrCmd_CanLearnHeadbutt(ScriptContext *ctx)
+{
+    u16 slot = ScriptContext_GetVar(ctx);
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(ctx->fieldSystem->saveData), slot);
+
+    *destVar = CompleteFieldEncounters_CanLearnHeadbutt(Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL));
+    return FALSE;
+}
+
+// HeartGold's Whirlpool (CommonScript_CompleteWhirlpool): how many steps take the player across the whirlpool ahead,
+// its tiles and the water beyond
+BOOL CompleteScrCmd_WhirlpoolSteps(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+    int x, z;
+    int dir = PlayerAvatar_GetFacingDir(ctx->fieldSystem->playerAvatar);
+    int dx = dir == DIR_WEST ? -1 : dir == DIR_EAST ? 1 : 0;
+    int dz = dir == DIR_NORTH ? -1 : dir == DIR_SOUTH ? 1 : 0;
+
+    PlayerAvatar_GetFacingTileCoords(ctx->fieldSystem->playerAvatar, &x, &z);
+    *destVar = 1;
+
+    while (*destVar < 8 && TerrainCollisionManager_GetTileBehavior(ctx->fieldSystem, x, z) == TILE_BEHAVIOR_COMPLETE_WHIRLPOOL) {
+        (*destVar)++;
+        x += dx;
+        z += dz;
+    }
+
     return FALSE;
 }
 

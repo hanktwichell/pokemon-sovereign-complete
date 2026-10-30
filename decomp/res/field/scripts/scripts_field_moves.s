@@ -160,6 +160,7 @@ FieldMoves_UseRockSmashFromField:
 FieldMoves_WaitForRockSmashAnimFromField:
     WaitTime 1, VAR_RESULT
     GoToIfEq VAR_0x8005, 0, FieldMoves_WaitForRockSmashAnimFromField
+    CallCommonScript 0x811 @ Sovereign Complete: CommonScript_CompleteRockSmashFind, on Johto's and Kanto's maps
     GoTo FieldMoves_End
     End
 
@@ -177,6 +178,7 @@ FieldMoves_UseRockSmashFromMenu:
 FieldMoves_WaitForRockSmashAnimFromMenu:
     WaitTime 1, VAR_RESULT
     GoToIfEq VAR_0x8005, 0, FieldMoves_WaitForRockSmashAnimFromMenu
+    CallCommonScript 0x811 @ Sovereign Complete: CommonScript_CompleteRockSmashFind, on Johto's and Kanto's maps
     ReleaseAll
     End
 

@@ -1,0 +1,9 @@
+#ifndef POKEPLATINUM_CONSTANTS_COMPLETE_FIELD_ENCOUNTERS_H
+#define POKEPLATINUM_CONSTANTS_COMPLETE_FIELD_ENCOUNTERS_H
+
+// What a smashed rock held on Johto's and Kanto's maps (CompleteRockSmashFind, src/overlay006/complete_field_encounters.c)
+#define COMPLETE_ROCK_SMASH_NOTHING 0
+#define COMPLETE_ROCK_SMASH_BATTLE  1
+#define COMPLETE_ROCK_SMASH_ITEM    2
+
+#endif // POKEPLATINUM_CONSTANTS_COMPLETE_FIELD_ENCOUNTERS_H

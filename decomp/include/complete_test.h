@@ -41,6 +41,20 @@ extern CompleteTestScriptPos gCompleteTestScriptPos;
 // that its map's scripts, which set it from the story as the map loads, leave the object on the map. 0: none.
 extern u16 gCompleteTestKeepFlagClear;
 
+// The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
+// tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks
+// have held (src/overlay006/complete_field_encounters.c): how many, and the last.
+typedef struct CompleteTestFieldEncounter {
+    u16 count;
+    u16 species;
+    u16 level;
+    u16 items;
+    u16 item;
+    u16 padding;
+} CompleteTestFieldEncounter;
+
+extern CompleteTestFieldEncounter gCompleteTestFieldEncounter;
+
 // A field task for the test build's battles (src/overlay005/field_control.c's SovereignTest_BattleTask), which starts
 // them under it: after a lost battle it blacks out, as the script that starts a battle in the game has it do. Its env is
 // the battle's result.

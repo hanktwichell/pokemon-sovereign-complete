@@ -892,6 +892,7 @@ struct SovereignTestPartyAdd gSovereignTestPartyAdd[SOVEREIGN_TEST_PARTY_ADDS];
 u16 gSovereignTestBagItem;
 u8 gSovereignTestBadges;
 u16 gCompleteTestHGSSBadges; // Sovereign Complete
+u8 gCompleteTestNoRepel; // Sovereign Complete
 struct SovereignTestMenu gSovereignTestMenu;
 u16 gSovereignTestBattleTrainer;
 struct SovereignTestWild gSovereignTestWild;
@@ -964,6 +965,11 @@ void SovereignTest_WarpNext(FieldSystem *fieldSystem)
     }
 
     gCompleteTestHGSSBadges = 0;
+
+    if (gCompleteTestNoRepel) { // Sovereign Complete: the test save's Super Repel ends
+        *SpecialEncounter_GetRepelSteps(SaveData_GetSpecialEncounters(fieldSystem->saveData)) = 0;
+        gCompleteTestNoRepel = FALSE;
+    }
 
     for (u8 slot = 0; slot < ROAMING_SLOT_MAX; slot++) {
         if (gSovereignTestRoamerRelease & (1 << slot)) {

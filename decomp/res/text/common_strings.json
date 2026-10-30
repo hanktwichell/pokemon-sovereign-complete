@@ -1027,6 +1027,46 @@
         "Since there’s nothing to put it in,\n",
         "there’s no reason to take it..."
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteHeadbuttAsk",
+      "en_US": [
+        "It’s a moderately sized tree.\n",
+        "Would you like to use Headbutt?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteHeadbuttUsed",
+      "en_US": "{STRVAR_1 0, 0, 0} used Headbutt!\r"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteHeadbuttCantUse",
+      "en_US": [
+        "There’s a large, formidable tree\n",
+        "that looks like it can be headbutted!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteRockSmashFound",
+      "en_US": "{STRVAR_1 8, 1, 0} was in the rubble!\r"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteWhirlpoolAsk",
+      "en_US": [
+        "It’s a huge swirl of water.\n",
+        "Would you like to use Whirlpool?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteWhirlpoolUsed",
+      "en_US": "{STRVAR_1 0, 0, 0} used Whirlpool!\r"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteWhirlpoolCantUse",
+      "en_US": [
+        "The water is swirling and spinning\n",
+        "around with a mighty roar."
+      ]
     }
   ]
 }

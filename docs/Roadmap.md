@@ -82,6 +82,9 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **Level curve:** how far Johto and Kanto compress so that Sinnoh, third, still ends at Spear Pillar by Lv. 100
   (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: for now they
   list Sinnoh's fights only, so with the option on a player in Johto is held at Lv. 16.
+- **Whirlpool's HM:** HeartGold's HM05 is Whirlpool and Platinum's is Defog; Lance gives HM05 in Johto, which is
+  Defog here. For now HM05 in the bag also lets the player use Whirlpool (Sovereign's HM-in-the-bag rule). A separate
+  Whirlpool HM is a new item, with every species' compatibility. Proposed: keep it this way.
 - **Badges for field moves (done this way for now):** a field move works with Sinnoh's badge for it or with
   HeartGold's (Cut: Forest or Hive, Surf: Fen or Fog...), so Johto's badges open the field moves in Johto and they
   keep working in Sinnoh (`docs/Features.md`, "Badges").

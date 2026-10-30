@@ -17,4 +17,8 @@ void CompleteEncounters_Load(WildEncounters *data, enum MapHeaderID mapHeaderID)
 // this time of day, or 0 off Johto and Kanto (overlay006/wild_encounters.c then keeps its own).
 int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot);
 
+// Rock Smash on the field's map (a HeartGold encounter Platinum doesn't have): slot `slot`'s Pokémon (0 or 1, which
+// HeartGold picks at 80% and 20%) and the rate (%) a smashed rock has one, or 0 off Johto and Kanto or with none.
+u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species, u8 *minLevel, u8 *maxLevel);
+
 #endif // POKEPLATINUM_COMPLETE_ENCOUNTERS_H

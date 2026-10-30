@@ -141,3 +141,18 @@ int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot)
 
     return sTable.landSpecies[time][slot];
 }
+
+u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species, u8 *minLevel, u8 *maxLevel)
+{
+    enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
+
+    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+        return 0;
+    }
+
+    Read(mapHeaderID);
+    *species = sTable.rockSmash[slot].species;
+    *minLevel = sTable.rockSmash[slot].levelMin;
+    *maxLevel = sTable.rockSmash[slot].levelMax;
+    return *species != 0 ? sTable.rockSmashRate : 0;
+}

@@ -931,6 +931,10 @@ ScriptCommand(SCRCMD_COMPLETEMONADDCONTESTVALUE,                        Complete
 ScriptCommand(SCRCMD_COMPLETEGIVEBADGE,                                 CompleteScrCmd_GiveBadge)
 ScriptCommand(SCRCMD_COMPLETECHECKBADGE,                                CompleteScrCmd_CheckBadge)
 ScriptCommand(SCRCMD_COMPLETECHECKFIELDMOVEBADGE,                       CompleteScrCmd_CheckFieldMoveBadge)
+ScriptCommand(SCRCMD_COMPLETEHEADBUTT,                                  CompleteScrCmd_Headbutt)
+ScriptCommand(SCRCMD_COMPLETEROCKSMASHFIND,                             CompleteScrCmd_RockSmashFind)
+ScriptCommand(SCRCMD_COMPLETECANLEARNHEADBUTT,                          CompleteScrCmd_CanLearnHeadbutt)
+ScriptCommand(SCRCMD_COMPLETEWHIRLPOOLSTEPS,                            CompleteScrCmd_WhirlpoolSteps)
 
 // clang-format on
 

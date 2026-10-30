@@ -543,6 +543,7 @@ COMMANDS = {
     'ScrCmd_596': one('CompleteFollowerIsTooTall {0}'),
     'ScrCmd_723': boat_cutscene,
     'ScrCmd_517': one('CheckPartyHasSpecies2 {0}, {1}'),  # Route 3's meteorites: whether a Deoxys is in the party
+    'ScrCmd_656': one('CompleteCanLearnHeadbutt {0}, {1}'),  # Ilex Forest's tutor: whether it can learn Headbutt
     # Mom's savings in New Bark Town (HeartGold keeps them with the Pokégear's data, and takes the amount on its own
     # number window): until they're ported, she has none saved and a deposit is called off
     'CheckBankBalance': one('SetVarFromValue {0}, 0'),

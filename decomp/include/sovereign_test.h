@@ -314,6 +314,9 @@ extern u8 gSovereignTestBadges;
 // Sovereign Complete: the same for Johto's and Kanto's (bit 0 the Zephyr Badge... bit 15 the Earth Badge:
 // include/constants/hgss_badges.h).
 extern u16 gCompleteTestHGSSBadges;
+// Sovereign Complete: when set, the next SELECT+L+R first ends a Repel (the test save's Super Repel), so low-level wild
+// Pokémon can come.
+extern u8 gCompleteTestNoRepel;
 // The menus scripts have shown, and the last one's kind (see struct SovereignTestMenu).
 extern struct SovereignTestMenu gSovereignTestMenu;
 // The scripts the field has started (ScriptManager_Set: an object's, a sign's, a trigger's...) since a harness cleared

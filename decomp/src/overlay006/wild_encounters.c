@@ -61,6 +61,7 @@
 
 #include "complete_bug_contest.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
+#include "complete_test.h" // Sovereign Complete
 
 #include "data/regional_forms_park.h"
 #include "data/sovereign_rare_wild.h"
@@ -1984,4 +1985,48 @@ static FieldBattleDTO *JohtoSafariBattle(FieldSystem *fieldSystem, Pokemon *firs
     battleParams->isFishing = type >= SAFARI_ZONE_ENCOUNTERS_OLD_ROD;
     CreateWildMon(slot->species, slot->level, BATTLER_ENEMY_1, encounterFieldParams, firstPartyMon, battleParams);
     return battleParams;
+}
+
+// Sovereign Complete: a wild battle with a Pokémon from one of HeartGold's own tables (a Headbutt tree, a smashed
+// rock: src/overlay006/complete_field_encounters.c), set up as the other wild battles are: the lead's abilities choose
+// the level, the nature and the gender, and a Repel or the lead's ability can keep it away. task is replaced by the
+// battle's (Encounter_StartVsWild), which blacks out after a loss. FALSE, and no battle, if it is kept away.
+BOOL WildEncounters_TryCompleteEncounter(FieldSystem *fieldSystem, FieldTask *task, u16 species, u8 minLevel, u8 maxLevel)
+{
+    Party *party = SaveData_GetParty(fieldSystem->saveData);
+    Pokemon *firstPartyMon = Party_GetPokemonBySlotIndex(party, 0);
+    WildEncounters_FieldParams encounterFieldParams;
+    EncounterSlot slot;
+    FieldBattleDTO *battleParams;
+
+    InitEncounterFieldParams(fieldSystem, firstPartyMon, MapHeaderData_GetWildEncounters(fieldSystem), &encounterFieldParams);
+
+    if (!SpecialEncounter_RepelStepsEmpty(SaveData_GetSpecialEncounters(fieldSystem->saveData))
+        || VarsFlags_CheckFlag(SaveData_GetVarsFlags(fieldSystem->saveData), FLAG_SOVEREIGN_INFINITE_REPEL)) {
+        encounterFieldParams.repelActive = TRUE;
+        encounterFieldParams.firstBattlerLevel = Pokemon_GetValue(Party_FindFirstEligibleBattler(party), MON_DATA_LEVEL, NULL);
+    }
+
+    slot.species = species;
+    slot.minLevel = minLevel;
+    slot.maxLevel = maxLevel;
+
+    u8 level = GetWildMonLevel(&slot, &encounterFieldParams);
+
+    if (FirstMonAbilityPreventsEncounter(&encounterFieldParams, firstPartyMon, level) || RepelPreventsEncounter(level, &encounterFieldParams)) {
+        return FALSE;
+    }
+
+    CreateWildSingleBattle(fieldSystem, FALSE, &battleParams);
+    FieldBattleDTO_Init(battleParams, fieldSystem);
+    CreateWildMon(species, level, BATTLER_ENEMY_1, &encounterFieldParams, firstPartyMon, battleParams);
+
+#ifdef SOVEREIGN_TEST
+    gCompleteTestFieldEncounter.count++;
+    gCompleteTestFieldEncounter.species = species;
+    gCompleteTestFieldEncounter.level = level;
+#endif
+
+    Encounter_StartVsWild(fieldSystem, task, battleParams);
+    return TRUE;
 }

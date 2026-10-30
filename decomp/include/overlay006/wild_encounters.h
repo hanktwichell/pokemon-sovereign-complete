@@ -56,6 +56,8 @@ BOOL WildEncounters_TryWildEncounter(FieldSystem *fieldSystem);
 BOOL WildEncounters_TryFishingEncounter(FieldSystem *fieldSystem, enum EncounterFishingRodType fishingRodType, FieldBattleDTO **param2);
 BOOL WildEncounters_TrySweetScentEncounter(FieldSystem *fieldSystem, FieldTask *param1);
 BOOL WildEncounters_TryMudEncounter(FieldSystem *fieldSystem, FieldBattleDTO **param1);
+// Sovereign Complete: a wild battle with this Pokémon (HeartGold's Headbutt trees and Rock Smash), replacing task
+BOOL WildEncounters_TryCompleteEncounter(FieldSystem *fieldSystem, FieldTask *task, u16 species, u8 minLevel, u8 maxLevel);
 void CreateWildMon_HoneyTree(FieldSystem *fieldSystem, FieldBattleDTO *param1);
 void CreateWildMon_Scripted(FieldSystem *fieldSystem, u16 param1, u8 param2, FieldBattleDTO *param3);
 void CreateWildMon_SovereignScriptedForm(FieldSystem *fieldSystem, u16 species, u8 form, u8 level, FieldBattleDTO *battleParams);

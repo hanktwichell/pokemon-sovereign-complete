@@ -183,7 +183,7 @@ scr_seq_D36R0101_002:
     CheckPartyMonHasMove VAR_RESULT, MOVE_HEADBUTT, VAR_0x8006
     CompareVar VAR_RESULT, 1
     GoToIf 1, _08E5
-    @ HGSS: ScrCmd_656 VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT
+    CompleteCanLearnHeadbutt VAR_0x8006, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _08F5
     Message msg_0115_D36R0101_00016
@@ -618,7 +618,7 @@ _09B2:
     CheckPartyMonHasMove VAR_RESULT, MOVE_HEADBUTT, VAR_0x8006
     CompareVar VAR_RESULT, 1
     GoToIf 1, _08E5
-    @ HGSS: ScrCmd_656 VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT
+    CompleteCanLearnHeadbutt VAR_0x8006, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _08F5
     Message msg_0115_D36R0101_00016
