@@ -31,6 +31,7 @@ STD_MESSAGE_BANKS = ['TEXT_BANK_HGSS_MSG_0752', 'TEXT_BANK_HGSS_MSG_0211', 'TEXT
 # people Platinum lacks (Eusine, Clair, the Kimono Girls, Pichu) waits for HeartGold's music (step 6): nothing plays.
 STD_SCRIPTS = {
     'std_signpost': ['CallCommonScript 0x7D0'],
+    'std_hidden_item_fanfare': ['CallCommonScript 0x7D1'],  # the fanfare for VAR_0x8004's pocket, as HeartGold's
     'std_nurse_joy': ['SetVarFromVar VAR_0x8007, VAR_LAST_TALKED', 'CallCommonScript 0x7D2'],
     'std_survive_poisoning': ['CallCommonScript 0x7D3'],
     'std_prompt_save': ['Common_SaveGame'],
@@ -63,6 +64,10 @@ STD_SCRIPTS = {
     'std_frontier_gold_prints_check': ['Common_CheckAllFrontierGoldPrintsObtained'],
     'std_bag_is_full_griseous_orb': ['Common_GriseousOrbCouldNotBeRemoved'],
     'std_enter_global_terminal': ['CallCommonScript 0x802'],
+    'std_party_illegal': ['CallCommonScript 0x2338'],  # PokemonCenter2FCommon_HasBadEggReturnCommon
+    # Oak's own rating (PokedexRatings_CheckOak): yes or no, then the National Pokédex. VAR_RESULT is MENU_NO (1) if
+    # the player says no, else the rating's message (above 1), as HeartGold's 0 (no), 1 (Johto's) or 2 (national)
+    'std_in_person_evaluate_dex': ['CallCommonScript 0x26E0'],
     **{f'std_play_{who}_music': [] for who in ('eusine', 'clair', 'kimono_girl', 'pichu')},
     **{f'std_fade_end_{who}_music': ['Common_FadeToDefaultMusic'] for who in ('eusine', 'clair', 'kimono_girl', 'pichu')},
 }
@@ -479,6 +484,8 @@ COMMANDS = {
     # Whether a Mystery Gift event has unlocked an encounter (0: the Enigma Stone's, for Pewter City's Latios or Latias):
     # none ever arrives, and Sacred Gold gives the second Lati at Vermilion City's plaque instead, so it hasn't.
     'ScrCmd_546': one('SetVarFromValue {1}, 0'),
+    # Whether the party has a Pokémon that can't be traded or linked: Platinum checks for a Bad Egg
+    'PartyLegalCheck': one('CheckPartyHasBadEgg {0}'),
     'GiveBadge': lambda a: [],  # (Platinum's GiveBadge would give a Sinnoh badge)
     # Menus. HeartGold's take x, y, cursor, can-cancel, result var; Platinum's macros list the var before can-cancel
     # (the bytes are in the same order). An entry's middle argument is its help text (255: none), which Platinum's

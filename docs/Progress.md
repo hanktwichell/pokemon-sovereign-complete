@@ -414,3 +414,9 @@ Test results on the new test build:
   saves and starts the game over; Continue wakes the player in their room in New Bark Town, with HeartGold's game clear
   flag set and Sinnoh's left alone (`ClearGame_Johto`, `src/clear_game.c`). No credits roll yet: which League rolls
   them is a question for the owner (`docs/Roadmap.md`). New test: `tools/complete/test_hgss_hall_of_fame.py` (passes).
+- **Hidden items, Oak's Pokédex rating and the Global Terminal's check.** Three of HeartGold's standard scripts weren't
+  translated: the fanfare for a hidden item (silent before; Platinum's common script plays the same fanfare by pocket),
+  Professor Oak's rating in his lab in Pallet Town (Platinum's own Oak rating, of the National Pokédex; his
+  completion scene follows it as in HeartGold), and the Global Terminal's message for a party that can't be taken
+  (Platinum's Bad Egg check and message). Only the Battle Frontier's tutors are left among them, waiting on the
+  Frontier question.

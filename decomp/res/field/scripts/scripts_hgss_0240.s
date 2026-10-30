@@ -211,7 +211,7 @@ _0327:
     ReleaseAll
     End
 _0361:
-    @ HGSS: CallStd std_hidden_item_fanfare
+    CallCommonScript 0x7D1
     RemoveObject VAR_LAST_TALKED
     AddItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     BufferPlayerName 0

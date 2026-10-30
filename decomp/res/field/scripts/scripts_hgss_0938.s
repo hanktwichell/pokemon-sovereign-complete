@@ -407,7 +407,7 @@ _062E:
     ReleaseAll
     End
 _0638:
-    @ HGSS: CallStd std_hidden_item_fanfare
+    CallCommonScript 0x7D1
     RemoveObject VAR_LAST_TALKED
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 5, _0692

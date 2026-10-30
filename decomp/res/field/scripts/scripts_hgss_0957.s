@@ -302,7 +302,7 @@ _0528:
     CountPartyEggs VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0698
-    @ HGSS: PartyLegalCheck VAR_SPECIAL_RESULT
+    CheckPartyHasBadEgg VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0682
     @ HGSS: ScrCmd_274 VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT

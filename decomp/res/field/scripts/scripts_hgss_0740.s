@@ -248,7 +248,7 @@ _037E:
     GoTo _0657
 _03CD:
     GoToIfSet FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION, _0676
-    @ HGSS: CallStd std_in_person_evaluate_dex
+    CallCommonScript 0x26E0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _06DA
     CompareVar VAR_RESULT, 1
@@ -267,7 +267,7 @@ _0421:
     BufferPlayerName 0
     MessageGendered msg_0451_T01R0301_00009, msg_0451_T01R0301_00010
     GoToIfSet FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION, _0676
-    @ HGSS: CallStd std_in_person_evaluate_dex
+    CallCommonScript 0x26E0
     CompareVar VAR_RESULT, 0
     GoToIf 1, _06DA
     CompareVar VAR_RESULT, 1

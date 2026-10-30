@@ -84,7 +84,7 @@ scr_seq_T25R1201_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: PartyLegalCheck VAR_SPECIAL_RESULT
+    CheckPartyHasBadEgg VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03C4
     GoToIfSet FLAG_HGSS_UNK_112, _0354
@@ -248,7 +248,7 @@ _03BC:
     FaceSouth
     EndMovement
 _03C4:
-    @ HGSS: CallStd std_party_illegal
+    CallCommonScript 0x2338
     WaitButton
     CloseMessage
     ReleaseAll
@@ -363,7 +363,7 @@ scr_seq_T25R1201_015:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: PartyLegalCheck VAR_SPECIAL_RESULT
+    CheckPartyHasBadEgg VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0622
     SetVarFromValue VAR_0x8000, 0
