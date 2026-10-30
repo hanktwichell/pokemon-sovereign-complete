@@ -582,6 +582,10 @@ Test results on the new test build:
   translate: an object's facing (get and set), a chance in 101, the map the player came from (as HeartGold numbers
   maps, which its scripts compare with), the Fashion Case's accessories and backdrops (Platinum's commands), and
   three empty ones. 977 of Sacred Gold's script lines left.
+- **Sovereign's static checks over the whole game, Johto and Kanto included, all pass:** every event and init script
+  number of 1,035 map headers in range, 2,530 warps leading to warps that exist, 943 script files showing their own
+  map's texts, 10,332 messages and signs fitting their boxes, 208 menus on screen, every one-byte text ID fitting, and
+  no message closed twice (the check now knows the follower talk's step prints a line).
 - **The test build** notes the party screen `SelectMoveTutorPokemon` opens as a menu, as the trade's already was, so a
   test can pick a Pokémon there (HeartGold's scripts pick one with it).
 - **The talk test over every added person** (`tools/test/talk_to_objects.py`, 5,865 on this build) is running. Fixed

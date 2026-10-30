@@ -11,7 +11,8 @@ shown as known). Any other case fails the check (CI runs it).
 Usage: python3 tools/test/check_double_close.py decomp
 """
 import re, sys, glob
-OPEN = re.compile(r'^(Message|MessageVar|MessageNoSkip|MessageInstant|MessageSeenBanlistSpecies|EventMessage|NonNpcMsg|NPCMessage|PrintTrainerDialogue|BufferAndMessage|Common_\w+|CallCommonScript|ShowYesNoMenu|DrawSignpost\w*|MessageUnown\w*|OpenMessage|\w*Message\w*)\b')
+# Sovereign Complete: CompleteFollowerTalkStep prints the follower talk's lines (src/overlay006/complete_follower_talk.c)
+OPEN = re.compile(r'^(Message|MessageVar|MessageNoSkip|MessageInstant|MessageSeenBanlistSpecies|EventMessage|NonNpcMsg|NPCMessage|PrintTrainerDialogue|BufferAndMessage|Common_\w+|CallCommonScript|ShowYesNoMenu|DrawSignpost\w*|MessageUnown\w*|OpenMessage|\w*Message\w*|CompleteFollowerTalkStep)\b')
 def parse(path):
     labels, cur = {}, None
     order = []
