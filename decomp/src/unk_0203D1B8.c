@@ -75,6 +75,7 @@
 #include "bag_context.h"
 #include "coins.h"
 #include "comm_manager.h"
+#include "complete_rival.h" // Sovereign Complete
 #include "dexmode_checker.h"
 #include "easy_chat_args.h"
 #include "egg_hatch.h"
@@ -1194,6 +1195,9 @@ static void sub_0203DF68(FieldTask *taskMan)
     case NAMING_SCREEN_TYPE_SHAYMIN_TABLET:
         MiscSaveBlock *miscSaveBlock = SaveData_MiscSaveBlock(fieldSystem->saveData);
         MiscSaveBlock_SetTabletName(miscSaveBlock, taskEnv->unk_0C->textInputStr);
+        break;
+    case NAMING_SCREEN_TYPE_RIVAL: // Sovereign Complete: Johto's rival (Platinum's is named in its intro)
+        CompleteRival_SetName(fieldSystem->saveData, taskEnv->unk_0C->textInputStr);
         break;
     }
 }

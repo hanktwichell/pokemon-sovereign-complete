@@ -394,3 +394,9 @@ Test results on the new test build:
   (HeartGold's own text), the pick given at Lv. 5; Johto's starter is kept in HeartGold's own variable, which Rival's
   teams follow, apart from Sinnoh's. The Poké Balls are back on Elm's machine (HeartGold's model, three, then two). New
   test: `tools/complete/test_hgss_starter.py` (passes: Chikorita, Lv. 5).
+- **Johto's rival has a name of his own.** HeartGold's naming of the red-haired boy in Elm's lab wasn't translated, and
+  its scripts buffered Platinum's rival's name (Barry's). He now gets Platinum's naming screen with HeartGold's prompt
+  ("This boy's name?") and its default for a blank name (Soul), and the name is kept in eight of Sacred Gold's unused
+  variables (`src/complete_rival.c`), so the save keeps its layout and Sinnoh's rival keeps his. Scripts and his
+  battles use it ("You are challenged by Rival ..."); until he is named he is Silver, as his trainer data has it.
+  Checked in the emulator through Elm's lab's police scene, with a name typed and with none.

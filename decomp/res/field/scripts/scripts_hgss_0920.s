@@ -61,13 +61,13 @@ scr_seq_T27_005:
     PlaySE SEQ_SE_DP_WALL_HIT2_sseq
     Message msg_0612_T27_00016
     WaitTime 30, VAR_RESULT
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0612_T27_00017
     CloseMessage
     ApplyMovement obj_T27_gsrivel, _05B4
     WaitMovement
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0612_T27_00018
     CloseMessage
     PlaySE SEQ_SE_DP_WALL_HIT2_sseq

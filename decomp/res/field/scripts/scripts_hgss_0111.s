@@ -37,7 +37,7 @@ scr_seq_D44R0102_001:
     FacePlayer
     GoToIfSet FLAG_HGSS_UNK_0E2, _01E2
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00007
     WaitButton
     CloseMessage
@@ -120,7 +120,7 @@ _015E:
     ApplyMovement LOCALID_PLAYER, _0902
     GoTo _0584
 _01E2:
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00008
     WaitButton
     CloseMessage
@@ -186,7 +186,7 @@ _02AE:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     Common_SetRivalBGM
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00014
     CloseMessage
     SetPosition obj_D44R0102_wataru, 28, 0, 34, DIR_SOUTH
@@ -202,19 +202,19 @@ _02AE:
     MessageGendered msg_0129_D44R0102_00015, msg_0129_D44R0102_00016
     ApplyMovement obj_D44R0102_gsrivel_2, _096A
     WaitMovement
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00017
     Message msg_0129_D44R0102_00018
     ApplyMovement obj_D44R0102_gsrivel_2, _0970
     WaitMovement
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00019
     MessageGendered msg_0129_D44R0102_00020, msg_0129_D44R0102_00021
     ApplyMovement obj_D44R0102_gsleader8_2, _0976
     WaitMovement
     Message msg_0129_D44R0102_00022
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00023
     ApplyMovement obj_D44R0102_gsrivel_2, _097C
     ApplyMovement obj_D44R0102_gsleader8_2, _098E
@@ -237,7 +237,7 @@ _03B0:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     Common_SetRivalBGM
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00014
     CloseMessage
     SetPosition obj_D44R0102_wataru, 28, 0, 34, DIR_SOUTH
@@ -253,19 +253,19 @@ _03B0:
     MessageGendered msg_0129_D44R0102_00015, msg_0129_D44R0102_00016
     ApplyMovement obj_D44R0102_gsrivel_2, _096A
     WaitMovement
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00017
     Message msg_0129_D44R0102_00018
     ApplyMovement obj_D44R0102_gsrivel_2, _0970
     WaitMovement
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00019
     MessageGendered msg_0129_D44R0102_00020, msg_0129_D44R0102_00021
     ApplyMovement obj_D44R0102_gsleader8_2, _0976
     WaitMovement
     Message msg_0129_D44R0102_00022
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00023
     ApplyMovement obj_D44R0102_gsrivel_2, _097C
     ApplyMovement obj_D44R0102_gsleader8_2, _098E
@@ -377,7 +377,7 @@ _05EA:
     ApplyMovement LOCALID_PLAYER, _09EA
     WaitMovement
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00028
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
@@ -452,7 +452,7 @@ _0733:
     ApplyMovement LOCALID_PLAYER, _09F0
     WaitMovement
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0129_D44R0102_00028
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK

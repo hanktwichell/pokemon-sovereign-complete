@@ -213,7 +213,7 @@ _0321:
     GoTo _0350
 _0350:
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0564_T23_00001
     CloseMessage
     SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
@@ -266,7 +266,7 @@ _03F6:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04B5
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0564_T23_00002
     CloseMessage
     SetVarFromValue VAR_HGSS_UNK_4075, 2
@@ -288,7 +288,7 @@ _0469:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04B5
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0564_T23_00002
     CloseMessage
     SetVarFromValue VAR_HGSS_UNK_4075, 2
@@ -317,7 +317,7 @@ _04E4:
     ApplyMovement obj_D36R0101_monstarball_4, _05D6
     ApplyMovement LOCALID_PLAYER, _05E0
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0564_T23_00001
     CloseMessage
     SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER

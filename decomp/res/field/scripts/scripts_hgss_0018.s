@@ -27,13 +27,13 @@ scr_seq_D15R0103_001:
     CloseMessage
     WaitTime 15, VAR_RESULT
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     ApplyMovement obj_D15R0103_gsrivel, _0376
     WaitMovement
     Message msg_0056_D15R0103_00001
     CloseMessage
     WaitTime 15, VAR_RESULT
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0056_D15R0103_00002
     WaitABPress
     CloseMessage

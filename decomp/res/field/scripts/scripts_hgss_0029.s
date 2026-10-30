@@ -288,7 +288,7 @@ _03D0:
     ApplyMovement obj_D23R0101_rocketm, _06A8
 _03FA:
     WaitMovement
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0065_D23R0101_00021
     CloseMessage
     ApplyMovement obj_D23R0101_gsrivel, _0664
@@ -316,7 +316,7 @@ _046B:
 _0480:
     WaitMovement
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0065_D23R0101_00022
     CloseMessage
     CompareVar VAR_MAP_LOCAL_0x01, 5
@@ -403,7 +403,7 @@ _0610:
     ApplyMovement LOCALID_PLAYER, _06F4
 _0625:
     WaitMovement
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0065_D23R0101_00025
     CloseMessage
     ApplyMovement obj_D23R0101_gsrivel, _0938

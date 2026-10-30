@@ -353,7 +353,7 @@ scr_seq_D37R0104_004:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0119_D37R0104_00000
     CloseMessage
     SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
@@ -373,7 +373,7 @@ _06A0:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _06D9
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0119_D37R0104_00001
     CloseMessage
     SetVarFromValue VAR_HGSS_UNK_40A0, 1

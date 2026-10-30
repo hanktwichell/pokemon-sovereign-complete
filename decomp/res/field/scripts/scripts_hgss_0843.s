@@ -173,14 +173,14 @@ scr_seq_T20R0101_002:
     Common_FadeToDefaultMusic
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NameRival VAR_SPECIAL_RESULT
+    CompleteNameHGSSRival VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_RESULT, 1
     GoToIf 1, _09C9
     ApplyMovement obj_T20R0101_policeman, _1264
     WaitMovement
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0543_T20R0101_00027
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
@@ -598,14 +598,14 @@ _09C1:
 _09C9:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: NameRival VAR_SPECIAL_RESULT
+    CompleteNameHGSSRival VAR_RESULT
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     CompareVar VAR_RESULT, 1
     GoToIf 1, _09C9
     ApplyMovement obj_T20R0101_policeman, _1264
     WaitMovement
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0543_T20R0101_00027
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1

@@ -12,6 +12,7 @@
 #include "data/trainer_class_genders.h"
 
 #include "charcode_util.h"
+#include "complete_rival.h" // Sovereign Complete
 #include "field_battle_data_transfer.h"
 #include "heap.h"
 #include "math_util.h"
@@ -43,6 +44,9 @@ void Trainer_Encounter(FieldBattleDTO *dto, const SaveData *saveData, enum HeapI
 
         if (trdata.header.trainerType == TRAINER_CLASS_RIVAL) {
             CharCode_Copy(dto->trainer[i].name, rivalName);
+        } else if (trdata.header.trainerType == TRAINER_CLASS_HGSS_RIVAL
+            && CompleteRival_GetName((SaveData *)saveData, dto->trainer[i].name)) {
+            // Sovereign Complete: Johto's rival, once the player has named him
         } else {
             String *trainerName = MessageLoader_GetNewString(msgLoader, dto->trainerIDs[i]);
             String_ToChars(trainerName, dto->trainer[i].name, TRAINER_NAME_LEN + 1);

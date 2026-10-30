@@ -159,7 +159,7 @@ _0281:
     GoTo _029C
 _029C:
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0604_T26_00000
     CloseMessage
     CompareVar VAR_MAP_LOCAL_0x01, 239
@@ -305,7 +305,7 @@ _0506:
     GoToIf 5, _029C
     ApplyMovement obj_T26_gsrivel, _06D2
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0604_T26_00000
     CloseMessage
     CompareVar VAR_MAP_LOCAL_0x01, 239

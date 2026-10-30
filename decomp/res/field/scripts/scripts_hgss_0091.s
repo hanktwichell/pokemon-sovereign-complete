@@ -163,7 +163,7 @@ _0221:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0114_D35R0104_00003
     CloseMessage
     CompleteFollowerPause 0

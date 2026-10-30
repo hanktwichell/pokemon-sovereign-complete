@@ -84,9 +84,11 @@ SPRITE_STAND_INS = {
 SPRITE_BY_KEYWORD = [('LEADER', 'GYM_GUIDE'), ('SIGN', 'SIGNBOARD'), ('TOROPHY', 'POKEBALL'), ('GATE', 'BOLLARD'),
                      ('BABYBOY', 'NINJA_BOY'), ('HERO', 'PLAYER_M')]
 SPRITE_FALLBACK = 'MIDDLE_AGED_MAN'
-# Sovereign Complete's own vars, on Sacred Gold's last two (61BE and 61BF), which its scripts never use: the Ball Kurt
-# is making and how many (src/complete_apricorns.c)
-COMPLETE_VARS = [('VAR_COMPLETE_KURT_BALL', 0x1FE), ('VAR_COMPLETE_KURT_QUANTITY', 0x1FF)]
+# Sovereign Complete's own vars, on Sacred Gold's last ten (61B6 to 61BF), which its scripts never use: Johto's rival's
+# name, a character in each of eight (src/complete_rival.c), and the Ball Kurt is making and how many
+# (src/complete_apricorns.c)
+COMPLETE_VARS = [('VAR_COMPLETE_RIVAL_NAME', 0x1F6), ('VAR_COMPLETE_KURT_BALL', 0x1FE),
+                 ('VAR_COMPLETE_KURT_QUANTITY', 0x1FF)]
 # HeartGold's Apricorn tree script (its std_apricorn_tree) and the engine's (CommonScript_CompleteApricornTree,
 # res/field/scripts/scripts_common.s)
 STD_APRICORN_TREE = 2800

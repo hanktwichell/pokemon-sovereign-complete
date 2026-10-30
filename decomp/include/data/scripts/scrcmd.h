@@ -924,6 +924,8 @@ ScriptCommand(SCRCMD_COMPLETEFOLLOWERISTOOTALL,                         Complete
 ScriptCommand(SCRCMD_COMPLETESTARTJOHTOSTARTERSCENE,                    CompleteScrCmd_StartJohtoStarterScene)
 ScriptCommand(SCRCMD_COMPLETEGETCHOSENSTARTER,                          CompleteScrCmd_GetChosenStarter)
 ScriptCommand(SCRCMD_COMPLETEPLACESTARTERBALLS,                         CompleteScrCmd_PlaceStarterBalls)
+ScriptCommand(SCRCMD_COMPLETENAMEHGSSRIVAL,                             CompleteScrCmd_NameHGSSRival)
+ScriptCommand(SCRCMD_COMPLETEBUFFERHGSSRIVALNAME,                       CompleteScrCmd_BufferHGSSRivalName)
 
 // clang-format on
 

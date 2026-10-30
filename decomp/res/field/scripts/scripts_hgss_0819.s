@@ -74,7 +74,7 @@ scr_seq_T10R0101_006:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0522_T10R0101_00003
     CloseMessage
     SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
@@ -172,7 +172,7 @@ _0295:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _040F
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0522_T10R0101_00004
     CloseMessage
     ApplyMovement obj_T10R0101_gsrivel, _0642
@@ -250,7 +250,7 @@ _03CA:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _040F
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0522_T10R0101_00004
     CloseMessage
     ApplyMovement obj_T10R0101_gsrivel, _0642

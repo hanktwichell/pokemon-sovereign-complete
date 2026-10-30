@@ -17,6 +17,10 @@ enum NamingScreenType {
     NAMING_SCREEN_TYPE_PAL_PAD,
 };
 
+// Sovereign Complete: NAMING_SCREEN_TYPE_RIVAL's playerGenderOrMonSpecies for Johto's rival (HeartGold's NameRival):
+// HeartGold's prompt ("This boy's name?") and its default for a blank name (Soul), in place of Platinum's
+#define NAMING_SCREEN_RIVAL_JOHTO 1
+
 enum NamingScreenReturnCode {
     NAMING_SCREEN_CODE_OK,
     NAMING_SCREEN_CODE_NO_INPUT,

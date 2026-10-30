@@ -8,6 +8,8 @@
 #include "constants/heap.h"
 
 #include "pch/global_pch.h"
+#include "res/text/bank/hgss_msg_0249.h" // Sovereign Complete
+#include "res/text/bank/hgss_msg_0254.h" // Sovereign Complete
 
 #include "bg_window.h"
 #include "char_transfer.h"
@@ -1354,6 +1356,15 @@ static void NamingScreen_UseDefaultName(NamingScreen *namingScreen, NamingScreen
         String_Copy(args->textInputStr, string);
         String_Free(string);
         String_ToChars(args->textInputStr, args->nameInputRaw, 10);
+    } else if (namingScreen->type == NAMING_SCREEN_TYPE_RIVAL && namingScreen->playerGenderOrMonSpecies == NAMING_SCREEN_RIVAL_JOHTO) {
+        // Sovereign Complete: HeartGold's default for its rival
+        MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0254, HEAP_ID_NAMING_SCREEN_APP);
+        String *string = MessageLoader_GetNewString(loader, msg_0254_00084);
+
+        String_Copy(args->textInputStr, string);
+        String_Free(string);
+        MessageLoader_Free(loader);
+        String_ToChars(args->textInputStr, args->nameInputRaw, 10);
     } else if (namingScreen->type == NAMING_SCREEN_TYPE_RIVAL) {
         String *string;
 
@@ -1698,6 +1709,15 @@ static void NamingScreen_InitCursorsAndChars(NamingScreen *namingScreen, Applica
         namingScreen->namingScreenMsgLoader,
         sPromptTextIndices[namingScreen->type],
         HEAP_ID_NAMING_SCREEN_APP);
+
+    if (namingScreen->type == NAMING_SCREEN_TYPE_RIVAL && namingScreen->playerGenderOrMonSpecies == NAMING_SCREEN_RIVAL_JOHTO) {
+        // Sovereign Complete: HeartGold's prompt for its rival
+        MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0249, HEAP_ID_NAMING_SCREEN_APP);
+
+        String_Free(namingScreen->promptString);
+        namingScreen->promptString = MessageUtil_ExpandedString(namingScreen->strTemplate, loader, msg_0249_00003, HEAP_ID_NAMING_SCREEN_APP);
+        MessageLoader_Free(loader);
+    }
     namingScreen->unkJapaneseString = MessageUtil_ExpandedString(
         namingScreen->strTemplate,
         namingScreen->namingScreenMsgLoader,

@@ -5858,6 +5858,18 @@
     .short SCRCMD_COMPLETEPLACESTARTERBALLS
     .endm
 
+    // Johto's rival (HeartGold's NameRival and BufferRivalsName; src/complete_rival.c). destVarID: the naming screen's
+    // result (0)
+    .macro CompleteNameHGSSRival destVarID
+    .short SCRCMD_COMPLETENAMEHGSSRIVAL
+    .short \destVarID
+    .endm
+
+    .macro CompleteBufferHGSSRivalName templateArg
+    .short SCRCMD_COMPLETEBUFFERHGSSRIVALNAME
+    .byte \templateArg
+    .endm
+
     .text
     .globl _start
 _start:

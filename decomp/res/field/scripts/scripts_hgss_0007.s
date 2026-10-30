@@ -17,7 +17,7 @@ scr_seq_D02R0101_000:
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0049_D02R0101_00000
     CloseMessage
     SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
@@ -38,7 +38,7 @@ _007D:
     GoToIf 1, _00C9
     Common_SetRivalBGM
     BufferPlayerName 0
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0049_D02R0101_00001
     CloseMessage
     ApplyMovement obj_D02R0101_gsrivel, _00E8

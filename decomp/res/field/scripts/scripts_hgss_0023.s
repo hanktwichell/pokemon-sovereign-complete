@@ -15,7 +15,7 @@ scr_seq_D18R0101_003:
     Common_SetRivalBGM
     ApplyMovement obj_D18R0101_gsrivel, _01F0
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0060_D18R0101_00000
     CloseMessage
     SetVarFromVar VAR_RESULT, VAR_HGSS_PLAYER_STARTER
@@ -80,7 +80,7 @@ _0130:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01EA
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0060_D18R0101_00001
     CloseMessage
     CompleteFollowerPause 0
@@ -104,7 +104,7 @@ _0189:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01EA
     Common_SetRivalBGM
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0060_D18R0101_00001
     CloseMessage
     CompleteFollowerPause 0

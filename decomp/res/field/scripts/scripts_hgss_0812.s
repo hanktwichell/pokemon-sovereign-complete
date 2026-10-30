@@ -35,7 +35,7 @@ _0062:
     BufferNumber 2, VAR_HGSS_PAL_PARK_HIGH_SCORE
     Return
 _0079:
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     BufferNumber 2, VAR_HGSS_PAL_PARK_HIGH_SCORE
     Return
 scr_seq_T08R0201_003:

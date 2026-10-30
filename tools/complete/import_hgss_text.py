@@ -7,8 +7,8 @@ TEXT_BANK_HGSS_MSG_NNNN, appended to generated/text_banks.txt (a bank's number i
 stay HeartGold's (msg_0604_T26_00000), so translated scripts name them unchanged.
 
 The banks: each map header's, each one a script includes or names a message from, the four shared banks scripts
-open by number (GetStdMsgNaix), the shared menu entries (msg_0191), the Safari Zone's names (msg_0428, msg_0430) and
-Elm's lines in the starter choice (msg_0190).
+open by number (GetStdMsgNaix), the shared menu entries (msg_0191), the Safari Zone's names (msg_0428, msg_0430),
+Elm's lines in the starter choice (msg_0190), and the naming screen's prompts and default names (msg_0249, msg_0254).
 generated/text_banks.txt takes no comments, so a rerun recognises its earlier entries by their TEXT_BANK_HGSS_ prefix.
 
 With --rom ROM (Sacred Gold's: .cache/sacredgold.nds), the text comes from that ROM's message archive (a/0/2/7),
@@ -35,9 +35,10 @@ from import_hgss_maps import DECOMP, HG  # noqa: E402
 MSGENC = os.path.join(DECOMP, 'build/tools/msgenc')
 
 PREFIX = 'TEXT_BANK_HGSS_MSG_'
-# GetStdMsgNaix's four banks, the menu entries, the Safari Zone's area and object names (src/complete_safari.c), and Elm's
-# lines in the starter choice (src/choose_starter/choose_starter_app.c)
-SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190']
+# GetStdMsgNaix's four banks, the menu entries, the Safari Zone's area and object names (src/complete_safari.c), Elm's
+# lines in the starter choice (src/choose_starter/choose_starter_app.c), and the naming screen's prompts and default
+# names, for Johto's rival (src/applications/naming_screen.c)
+SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254']
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
 # the line breaks moved (or, where a box is narrower, the words)
 TEXT_FIXES = {

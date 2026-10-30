@@ -86,7 +86,7 @@ scr_seq_R22_003:
     FadeOutBGM 0, 30
     ApplyMovement obj_R22_gsrivel, _03F4
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0360_R22_00002
     CloseMessage
     ApplyMovement obj_R22_sakaki, _0438
@@ -95,7 +95,7 @@ scr_seq_R22_003:
     CloseMessage
     ApplyMovement obj_R22_gsrivel, _03FC
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0360_R22_00003
     CloseMessage
     ApplyMovement obj_R22_sakaki, _0444
@@ -104,7 +104,7 @@ scr_seq_R22_003:
     CloseMessage
     ApplyMovement obj_R22_gsrivel, _03F4
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0360_R22_00004
     CloseMessage
     ApplyMovement obj_R22_sakaki, _044C
@@ -115,7 +115,7 @@ scr_seq_R22_003:
     WaitMovement
     ApplyMovement obj_R22_gsrivel, _03F4
     WaitMovement
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0360_R22_00005
     CloseMessage
     ApplyMovement obj_R22_gsrivel, _03F4
@@ -127,7 +127,7 @@ scr_seq_R22_003:
     ApplyMovement obj_R22_gsrivel, _0404
     WaitMovement
     RestoreCamera
-    BufferRivalName 0
+    CompleteBufferHGSSRivalName 0
     Message msg_0360_R22_00007
     CloseMessage
     CompleteFollowerPause 0

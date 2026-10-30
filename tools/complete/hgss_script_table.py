@@ -208,7 +208,9 @@ COMMANDS = {
     'HoldMsg': lambda a: ['CloseMessageWithoutErasing'],
     'SimpleNPCMsg': one('NPCMessage {0}'),
     'BufferPlayersName': one('BufferPlayerName {0}'),
-    'BufferRivalsName': one('BufferRivalName {0}'),
+    # Johto's rival has a name of his own (src/complete_rival.c); Platinum's rival name is Sinnoh's
+    'BufferRivalsName': one('CompleteBufferHGSSRivalName {0}'),
+    'NameRival': one('CompleteNameHGSSRival {0}'),
     # People
     'HidePerson': one('RemoveObject {0}'),
     'ShowPerson': one('AddObject {0}'),

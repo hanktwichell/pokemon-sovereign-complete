@@ -282,7 +282,7 @@ _0466:
 _0468:
     End
 _046A:
-    BufferRivalName 1
+    CompleteBufferHGSSRivalName 1
     Message msg_0451_T01R0301_00054
     WaitButton
     CloseMessage

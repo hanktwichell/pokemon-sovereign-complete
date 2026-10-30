@@ -10,6 +10,7 @@
 #include "generated/map_headers.h"
 #include "generated/species.h"
 #include "generated/text_banks.h"
+#include "generated/trainers.h"
 #include "generated/vars_flags.h"
 #include "res/text/bank/special_met_location_names.h"
 
@@ -20,8 +21,10 @@
 #include "overlay005/script_message.h"
 #include "struct_defs/choose_starter_data.h"
 
+#include "applications/naming_screen.h"
 #include "camera.h"
 #include "complete_follower.h"
+#include "complete_rival.h"
 #include "encounter.h"
 #include "field_task.h"
 #include "heap.h"
@@ -206,6 +209,36 @@ BOOL CompleteScrCmd_GetChosenStarter(ScriptContext *ctx)
     *destVar = data->species;
     Heap_Free(data);
     *dataPtr = NULL;
+    return FALSE;
+}
+
+// HeartGold's NameRival: Platinum's naming screen for a rival, with HeartGold's prompt and default name, the name kept as
+// Johto's rival's (src/complete_rival.c)
+BOOL CompleteScrCmd_NameHGSSRival(ScriptContext *ctx)
+{
+    sub_0203DFE8(ctx->task, NAMING_SCREEN_TYPE_RIVAL, NAMING_SCREEN_RIVAL_JOHTO, TRAINER_NAME_LEN, 0, NULL, ScriptContext_GetVarPointer(ctx));
+    return TRUE;
+}
+
+// HeartGold's BufferRivalsName: Johto's rival's name, or before the player has named him, his trainer data's (Silver)
+BOOL CompleteScrCmd_BufferHGSSRivalName(ScriptContext *ctx)
+{
+    StringTemplate **stringTemplate = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    u8 templateArg = ScriptContext_ReadByte(ctx);
+    charcode_t name[TRAINER_NAME_LEN + 1];
+    String *string = String_Init(TRAINER_NAME_LEN + 1, HEAP_ID_FIELD3);
+
+    if (CompleteRival_GetName(ctx->fieldSystem->saveData, name)) {
+        String_CopyChars(string, name);
+    } else {
+        MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_NPC_TRAINER_NAMES, HEAP_ID_FIELD3);
+
+        MessageLoader_GetString(loader, TRAINER_HGSS_RIVAL_SILVER, string);
+        MessageLoader_Free(loader);
+    }
+
+    StringTemplate_SetString(*stringTemplate, templateArg, string, 0, TRUE, GAME_LANGUAGE);
+    String_Free(string);
     return FALSE;
 }
 
