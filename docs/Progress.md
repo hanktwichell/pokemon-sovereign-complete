@@ -358,3 +358,32 @@ Test results on the new test build:
 - **HeartGold's fanfares** (an item, a badge, a Pokémon caught: 23 its scripts play) are in too, each with its own bank;
   Platinum's fanfares play from its loaded instruments, so one of HeartGold's loads its own as it starts. The sound
   test's Johto part plays each of them over New Bark Town's song, then a battle: all load, 11 KB to spare at the least.
+
+## Oct 30, 2026: the step 3 tests on the new build, and fixes from them
+
+- **Talk to everyone, all six stages:** 2,387 people and things; 1,937 ran to their end, 390 were hidden at a new game
+  (the next item), 29 had no tile the test could stand on, 12 were answered by someone else on their tile. The 19 that
+  hung or got stuck: the Union Room's ten (they wait for link play; the test now leaves them out), the Dragon's Den
+  elders' quiz (four; the test now sees the scene before it first, and they run), the Frontier Access move tutors
+  (fixed: the translator now sizes each standard script file by its scripts, so a call can't land in the next file), the
+  Battle Factory's receptionist (runs on this build, saving and all), and the Pokéathlon Dome's guide (a menu the test
+  keeps reopening).
+- **The hidden ones, shown** (`--unhide`, which clears each one's hidden flag): of 402, 188 ran, 11 were answered by
+  someone else on their tile, one is Sacred Gold's Gym Leader rematch gauntlet in Saffron's Fighting Dojo (a dozen
+  battles in a row, longer than the test waits), and 200 stayed hidden, because HeartGold's maps hide their people by
+  setting those flags from the story as they load. In the test build no script may now set the flag of the person being
+  tested until the player is there (`gCompleteTestKeepFlagClear`); those 200 are running again.
+- **Pewter City's Latios crashed the game after its battle.** The cause is Sacred Gold's own script: the map script that
+  runs when the field comes back after a battle there ends by jumping into the middle of the Lati's talk script
+  (HeartGold has `End` there). It can't be reached in Sacred Gold, as the Pewter Lati only appears through a Mystery Gift
+  (the Enigma Stone); HeartGold's check for that event wasn't translated, so here it could. It now reads as never
+  received, so Pewter's Lati stays away; Sacred Gold gives the second Lati at Vermilion's plaque.
+- **Visit every map, the scenes:** the maps whose scene on arrival didn't end now all do but one. The test's battles
+  pressed A, which picks the test lead's Ground move, and a Flying foe (Route 2's and 3's trainers, Azalea Gym's) never
+  went down; they now tap the trainer test's moves. Mt. Moon's rival battle takes 13,000 frames, over the old limit;
+  the Frontier Access guide's facility menu needed B. Left: the Dragon's Den elders' quiz on arrival.
+- **More of HeartGold's commands translated:** Blackthorn's Move Maniac (Platinum's Move Reminder menu; untranslated, he
+  took the Heart Scale and taught nothing), the Draco Meteor tutor and Sacred Gold's added tutor (Platinum's tutor menu),
+  the Move Deleter's move pick, the follower's "too tall for this building" check (untranslated, every follower was put
+  away at the Power Plant's door), and the Game Corners' machines, where Platinum's slot machine stands in for Voltorb
+  Flip (`docs/Features.md`, "Stand-ins"). 98.3% of Sacred Gold's script lines now translate.

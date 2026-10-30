@@ -139,3 +139,13 @@ parts, and where each went:
 
 Left: the object and area screens as HeartGold has them (moving an object about before it is placed), Baoba's calls
 on the Pokégear, link play's friend's Safari Zone, and the Safari Zone's music (step 6).
+
+## Stand-ins
+
+HeartGold features no one has decided to keep yet, where Johto and Kanto's scripts reach them:
+
+- **Voltorb Flip** (the Goldenrod and Celadon Game Corners' machines): Platinum's slot machine stands in, on one of its
+  12 machines (each with its own odds for the day). Porting Voltorb Flip is about 3,700 lines of HeartGold's code
+  (`src/voltorb_flip/`) and its own graphics.
+- **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
+  keep it in.

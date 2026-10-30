@@ -85,6 +85,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.
 - **Pokétch, Pokégear or both:** both use the bottom screen.
+- **Voltorb Flip** at the Game Corners, or Platinum's slot machines, which stand in for now (`docs/Features.md`,
+  "Stand-ins"). Porting it is about a day.
 - **Art:** who draws the three-region Town Map and the walking sprites for #494–1025 and the newer forms (a community
   pack, credited, could cover most of them).
 - **Trade items from the bag:** Sacred Gold lets the trade-evolution items (Metal Coat, King's Rock, Dragon Scale,
