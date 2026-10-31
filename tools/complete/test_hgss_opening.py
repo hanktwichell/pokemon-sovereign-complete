@@ -139,12 +139,13 @@ heights and lifts don't allow, so over a bridge or under it, sliding over ice, a
 onto a warp, or an armed cart trigger in Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go
 to), and take it a step at a time, finding it again whenever a scene or a person moves the player. A prompt on the way
 (the test save's Super Repel wearing off), each scene's text and a battle are paged through with A, which also answers
-yes; the battles, trainers' and wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP
-prompts), as the test is about the story's way through, not the battles. A part passes when the field is free on the map
-it expects, its flag is set or its var has moved on from 0 (or to a given value), the game's heaps are whole
-(tools/test/heap_check.py; HEAP_STEPS=1 checks them after each action), and the following Pokémon (the test party's
-lead) is beside the player: at most two steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after
-the starter's scene it was left by Elm's table before src/complete_follower.c brought it back).
+yes, and taps on a move and on a double battle's targets; the battles, trainers' and wild Pokémon's, are in the test
+build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about the story's way through, not the
+battles. A part passes when the field is free on the map it expects, its flag is set or its var has moved on from 0 (or
+to a given value), the game's heaps are whole (tools/test/heap_check.py; HEAP_STEPS=1 checks them after each action),
+and the following Pokémon (the test party's lead) is beside the player: at most two steps away, as a scene can leave it
+diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by Elm's table before
+src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
@@ -350,6 +351,7 @@ ICE_ROCK = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read
     'OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
+DOUBLES_TARGETS = ((64, 30), (190, 30))  # the foes' boxes on a double battle's target screen (bottom screen)
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
 SHORT_RUN = 20  # a first, short look, so A isn't pressed into a field that is already free
@@ -633,6 +635,10 @@ def main():
                 d.press('START', frames=2, after=8)
             elif presses % 3 == 0:  # A pages through text and answers yes
                 d.press('A', frames=2, after=8)
+            elif presses % 6 in (1, 4) and presses % 4 == 1:  # a double battle's target screen: a foe's box, the left
+                # one or the right one (the cursor may sit on a foe that has fainted, where A does nothing; a tag
+                # battle on Route 47 waited there for good)
+                d.touch(*DOUBLES_TARGETS[presses // 4 % 2], frames=4, after=6)
             else:  # in a battle A would pick the first move, which may not hurt (Precipice Blades on a flier), so taps
                 # on FIGHT and then on a damaging move (battle_all_trainers.py's), as talk_and_answer does
                 d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=6)
