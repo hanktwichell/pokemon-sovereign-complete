@@ -6,8 +6,10 @@
 #include "constants/ball_capsule.h"
 #include "constants/field/complete_tile_behaviors.h"
 #include "constants/heap.h"
+#include "constants/hgss_spawns.h"
 #include "constants/moves.h"
 #include "constants/narc.h"
+#include "constants/scrcmd.h"
 #include "constants/npc_trades.h"
 #include "generated/genders.h"
 #include "generated/items.h"
@@ -46,6 +48,7 @@
 #include "easy_chat_sentence.h"
 #include "easy_chat_words.h"
 #include "encounter.h"
+#include "field_map_change.h"
 #include "field_task.h"
 #include "heap.h"
 #include "field_message.h"
@@ -55,6 +58,7 @@
 #include "inlines.h"
 #include "item.h"
 #include "mail.h"
+#include "map_header.h"
 #include "map_object.h"
 #include "math_util.h"
 #include "map_object_move.h"
@@ -68,6 +72,7 @@
 #include "save_player.h"
 #include "save_catchrecords.h"
 #include "scrcmd.h"
+#include "spawn_locations.h"
 #include "string_gf.h"
 #include "terrain_collision_manager.h"
 #include "string_template.h"
@@ -696,6 +701,57 @@ BOOL CompleteScrCmd_BufferFloorName(ScriptContext *ctx)
     String_Free(string);
     MessageLoader_Free(loader);
     return FALSE;
+}
+
+// Fly over Johto and Kanto until the three-region Town Map (docs/Features.md, "Stand-ins"): a list of the Fly points
+// in HeartGold's spawn points (src/spawn_locations.c) the player has reached, but the one they're on, by place name,
+// started as InitGlobalTextListMenu starts one for ShowListMenu. selectedOptionVar gets the chosen spawn point (or
+// MENU_CANCEL), countVar how many there are.
+BOOL CompleteScrCmd_InitFlyMenu(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    FieldMenuManager **fieldMenuMan = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_FIELD_MENU_MANAGER);
+    StringTemplate **stringTemplate = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    u16 selectedOptionVar = ScriptContext_ReadHalfWord(ctx);
+    u16 *count = ScriptContext_GetVarPointer(ctx);
+    u8 spawns[FIELD_MENU_ENTRIES_MAX];
+
+    *count = 0;
+
+    for (int spawn = SPAWN_HGSS_FIRST; spawn < SPAWN_HGSS_FIRST + SPAWN_HGSS_COUNT && *count < FIELD_MENU_ENTRIES_MAX; spawn++) {
+        enum MapHeaderID mapHeaderID = GetFlyLocationMap(spawn);
+
+        if (mapHeaderID != MAP_HEADER_EVERYWHERE && mapHeaderID != fieldSystem->location->mapHeaderID
+            && CheckFlyLocationUnlocked(fieldSystem, spawn)) {
+            spawns[(*count)++] = spawn;
+        }
+    }
+
+    if (*count == 0) {
+        return FALSE; // no list: nowhere to fly yet
+    }
+
+    *fieldMenuMan = FieldMenuManager_New2(fieldSystem, 1, 1, 0, TRUE, FieldSystem_GetVarPointer(fieldSystem, selectedOptionVar), *stringTemplate, FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_WINDOW), NULL);
+    MessageLoader_Free((*fieldMenuMan)->messageLoader);
+    (*fieldMenuMan)->messageLoader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_LOCATION_NAMES, HEAP_ID_FIELD1);
+
+    for (int i = 0; i < *count; i++) {
+        FieldMenuManager_AddListMenuEntry(*fieldMenuMan, MapHeader_GetMapLabelTextID(GetFlyLocationMap(spawns[i])), LIST_MENU_ENTRY_NO_ALT_TEXT, spawns[i]);
+    }
+
+    ctx->data[0] = selectedOptionVar;
+    return TRUE;
+}
+
+// The Fly list's choice: Fly there, as the Town Map's choice does (StartMenu_FlyDestinationSelected), landing facing
+// south
+BOOL CompleteScrCmd_FlyTo(ScriptContext *ctx)
+{
+    Location location;
+
+    Location_InitFly(ScriptContext_GetVar(ctx), &location);
+    FieldTask_StartMapChangeFly(ctx->fieldSystem, location.mapHeaderID, WARP_ID_NONE, location.x, location.z, DIR_SOUTH);
+    return TRUE;
 }
 
 // HeartGold's Togepi Egg (GiveTogepiEgg): Platinum's egg gift with Extrasensory in its first free move slot, from

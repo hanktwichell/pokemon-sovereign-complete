@@ -6,6 +6,7 @@
 #include "constants/hgss_spawns.h" // Sovereign Complete
 #include "generated/first_arrival_to_zones.h"
 #include "generated/map_headers.h"
+#include "generated/vars_flags.h" // Sovereign Complete
 
 #include "field/field_system.h"
 
@@ -133,11 +134,33 @@ int GetSpawnIdByMapAndCoords(enum MapHeaderID mapHeaderID, int param1, int param
     return destinationId;
 }
 
+// Sovereign Complete: HeartGold's spawn points (from SPAWN_HGSS_FIRST) keep their Fly point in HeartGold's flags,
+// FLAG_HGSS_SYS_FLYPOINT_PALLET + its number (their firstArrival), as HeartGold's FlypointFlagAction does
+static BOOL HandleFlyLocationFlag(VarsFlags *varsFlags, enum HandleFlagOp op, int index)
+{
+    if (index < SPAWN_HGSS_FIRST - 1) {
+        return SystemFlag_HandleFirstArrivalToZone(varsFlags, op, sSpawnLocations[index].firstArrival);
+    }
+
+    u16 flag = FLAG_HGSS_SYS_FLYPOINT_PALLET + sSpawnLocations[index].firstArrival;
+
+    switch (op) {
+    case HANDLE_FLAG_SET:
+        VarsFlags_SetFlag(varsFlags, flag);
+        return FALSE;
+    case HANDLE_FLAG_CLEAR:
+        VarsFlags_ClearFlag(varsFlags, flag);
+        return FALSE;
+    default:
+        return VarsFlags_CheckFlag(varsFlags, flag);
+    }
+}
+
 void TryUnlockFlyLocationByMap(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID)
 {
     for (int v0 = 0; v0 < NELEMS(sSpawnLocations); v0++) {
         if ((sSpawnLocations[v0].flyMapHeaderID == mapHeaderID) && sSpawnLocations[v0].unlockOnMapEntry) {
-            SystemFlag_HandleFirstArrivalToZone(SaveData_GetVarsFlags(fieldSystem->saveData), HANDLE_FLAG_SET, sSpawnLocations[v0].firstArrival);
+            HandleFlyLocationFlag(SaveData_GetVarsFlags(fieldSystem->saveData), HANDLE_FLAG_SET, v0); // Sovereign Complete
             return;
         }
     }
@@ -146,5 +169,14 @@ void TryUnlockFlyLocationByMap(FieldSystem *fieldSystem, enum MapHeaderID mapHea
 BOOL CheckFlyLocationUnlocked(FieldSystem *fieldSystem, int flyLocation)
 {
     int flyDestination = MapSpawnIdToIndex(flyLocation);
-    return SystemFlag_HandleFirstArrivalToZone(SaveData_GetVarsFlags(fieldSystem->saveData), HANDLE_FLAG_CHECK, sSpawnLocations[flyDestination].firstArrival);
+    return HandleFlyLocationFlag(SaveData_GetVarsFlags(fieldSystem->saveData), HANDLE_FLAG_CHECK, flyDestination); // Sovereign Complete
+}
+
+// Sovereign Complete: the map a spawn point's Fly lands on, or MAP_HEADER_EVERYWHERE for one that isn't a Fly point
+// (the Fly list over Johto and Kanto, src/complete_map_info.c)
+enum MapHeaderID GetFlyLocationMap(int flyLocation)
+{
+    int index = MapSpawnIdToIndex(flyLocation);
+
+    return sSpawnLocations[index].unlockOnMapEntry ? sSpawnLocations[index].flyMapHeaderID : MAP_HEADER_EVERYWHERE;
 }

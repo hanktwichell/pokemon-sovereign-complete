@@ -992,6 +992,8 @@ ScriptCommand(SCRCMD_COMPLETETUNNELACCESSORIESFULL,                    CompleteS
 ScriptCommand(SCRCMD_COMPLETETUNNELRANDOMACCESSORY,                    CompleteScrCmd_TunnelRandomAccessory)
 ScriptCommand(SCRCMD_COMPLETETUNNELBACKDROPSOWNED,                     CompleteScrCmd_TunnelBackdropsOwned)
 ScriptCommand(SCRCMD_COMPLETETUNNELRANDOMBACKDROP,                     CompleteScrCmd_TunnelRandomBackdrop)
+ScriptCommand(SCRCMD_COMPLETEINITFLYMENU,                             CompleteScrCmd_InitFlyMenu)
+ScriptCommand(SCRCMD_COMPLETEFLYTO,                                   CompleteScrCmd_FlyTo)
 
 // clang-format on
 

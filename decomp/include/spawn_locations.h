@@ -15,5 +15,6 @@ int GetMapFlyWarpId(enum MapHeaderID mapHeaderID);
 int GetSpawnIdByMapAndCoords(enum MapHeaderID mapHeaderID, int param1, int param2);
 void TryUnlockFlyLocationByMap(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID);
 BOOL CheckFlyLocationUnlocked(FieldSystem *fieldSystem, int flyLocation);
+enum MapHeaderID GetFlyLocationMap(int flyLocation); // Sovereign Complete
 
 #endif // POKEPLATINUM_SPAWN_LOCATIONS_H

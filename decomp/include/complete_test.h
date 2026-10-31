@@ -55,6 +55,10 @@ extern u16 gCompleteTestLeadSpecies;
 // starts when one is due (then FALSE).
 extern u8 gCompleteTestHatchEggs;
 
+// tools/complete/test_hgss_fly.py: when set, the next free field frame starts Fly's list over Johto and Kanto
+// (CommonScript_CompleteFly), as Fly from the party menu does there (then FALSE).
+extern u8 gCompleteTestFly;
+
 // The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
 // tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks
 // have held (src/overlay006/complete_field_encounters.c): how many, and the last.

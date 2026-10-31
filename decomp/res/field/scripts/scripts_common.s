@@ -97,6 +97,7 @@
     ScriptEntry CommonScript_CompletePhoneIncomingCall @ 0x814
     ScriptEntry CommonScript_CompleteFollowerTalk @ 0x815
     ScriptEntry CommonScript_CompleteSetFriendBGM @ 0x816
+    ScriptEntry CommonScript_CompleteFly @ 0x817
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2182,5 +2183,21 @@ CommonScript_CompleteFollowerTalkQuestion:
 
 CommonScript_CompleteFollowerTalkEnd:
     CompleteFollowerTalkEnd
+    ReleaseAll
+    End
+
+// Sovereign Complete: Fly over Johto and Kanto until the three-region Town Map (src/field_move_tasks.c): a list of
+// the places reached, then Fly to the one chosen
+CommonScript_CompleteFly:
+    LockAll
+    CompleteInitFlyMenu VAR_RESULT, VAR_0x8004
+    GoToIfEq VAR_0x8004, 0, CommonScript_CompleteFlyEnd
+    ShowListMenu
+    GoToIfEq VAR_RESULT, MENU_CANCEL, CommonScript_CompleteFlyEnd
+    CompleteFlyTo VAR_RESULT
+    ReleaseAll
+    End
+
+CommonScript_CompleteFlyEnd:
     ReleaseAll
     End

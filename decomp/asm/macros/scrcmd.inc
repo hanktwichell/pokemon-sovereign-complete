@@ -6290,6 +6290,20 @@
     .short \destVarID
     .endm
 
+    // Fly over Johto and Kanto (the Town Map's stand-in): a list of the Fly points reached, for ShowListMenu, which
+    // puts the chosen spawn point in selectedVarID; countVarID gets how many there are.
+    .macro CompleteInitFlyMenu selectedVarID, countVarID
+    .short SCRCMD_COMPLETEINITFLYMENU
+    .short \selectedVarID
+    .short \countVarID
+    .endm
+
+    // Fly to the spawn point in spawnVarID.
+    .macro CompleteFlyTo spawnVarID
+    .short SCRCMD_COMPLETEFLYTO
+    .short \spawnVarID
+    .endm
+
     .text
     .globl _start
 _start:

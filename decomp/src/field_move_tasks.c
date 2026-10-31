@@ -20,6 +20,7 @@
 #include "overlay006/hm_cut_in.h"
 
 #include "complete_badges.h" // Sovereign Complete
+#include "complete_map_info.h" // Sovereign Complete
 #include "field_map_change.h"
 #include "field_overworld_state.h"
 #include "field_task.h"
@@ -391,10 +392,29 @@ static enum FieldMoveError FieldMoves_CheckFly(const FieldMoveContext *fieldMove
     return FIELD_MOVE_ERROR_NONE;
 }
 
+// Sovereign Complete: over Johto and Kanto, a list of the places reached stands in for the Town Map, which shows only
+// Sinnoh (CommonScript_CompleteFly)
+static BOOL CompleteFly_Task(FieldTask *taskMan)
+{
+    FieldMoveTaskData *taskData = FieldTask_GetEnv(taskMan);
+
+    ScriptManager_Change(taskMan, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_FLY_SCRIPT), NULL);
+    FieldMoves_FreeTaskData(taskData);
+    return FALSE;
+}
+
 static void FieldMoves_SetSelectFlyDestinationTask(FieldMovePokemon *fieldMoveMon, const FieldMoveContext *fieldMoveContext)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(fieldMoveMon->fieldTask);
     StartMenu *menu = FieldTask_GetEnv(fieldMoveMon->fieldTask);
+
+    if (MapHeader_IsHGSS(fieldSystem->location->mapHeaderID)) { // Sovereign Complete
+        menu->taskData = FieldMoves_AllocateTaskData(fieldMoveMon, fieldMoveContext);
+        FieldSystem_StartFieldMap(fieldSystem);
+        menu->callback = CompleteFly_Task;
+        menu->state = START_MENU_STATE_NEW_TASK;
+        return;
+    }
 
     u32 *fieldMonID = Heap_Alloc(HEAP_ID_FIELD2, sizeof(u32));
     *fieldMonID = fieldMoveMon->fieldMonId;

@@ -84,7 +84,8 @@ What HeartGold's 540 headers use:
 Engine places that take "on matrix 0" (`MapHeader_IsOnMainMatrix`) to mean "on the overworld": the exit kept for
 Escape Rope and Dig (`Field_TrySetMapConnection`) and the Vs. Seeker now use `MapHeader_IsOnOverworldMatrix`, which
 also counts Johto and Kanto's (`map_matrix_hgss_0000`). The Town Map, the Pokétch map, the Explorer Kit (the
-Underground) and the roamers' map history stay Sinnoh's until Johto and Kanto get their own (the Pokégear, step 5).
+Underground) and the roamers' map history stay Sinnoh's until Johto and Kanto get their own (the Pokégear, step 5);
+Fly over Johto and Kanto is a list of the places reached until then (`docs/Features.md`, "Stand-ins").
 
 ## Area data, textures and buildings
 

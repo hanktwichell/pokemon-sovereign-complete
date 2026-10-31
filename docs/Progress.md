@@ -755,3 +755,18 @@ Test results on the new test build:
   lists.
 - The bigger bag in battle: Sovereign's bag-using battle cases (Ball Fetch, items, Pickup, Knock Off, Thief, Air
   Balloon) all match their recorded results.
+
+## Oct 31, 2026: Fly over Johto and Kanto
+
+- **Visited towns are recorded.** HeartGold records a town's Fly point as the player first arrives (its
+  FlypointFlagAction, from its spawn points); nothing did here, so Johto and Kanto had no places to Fly to even once
+  there is a map for them. HeartGold's 25 Fly points now unlock on arrival as Platinum's do
+  (`TryUnlockFlyLocationByMap`), in HeartGold's flags (`FLAG_HGSS_SYS_FLYPOINT_*`; each spawn point's firstArrival is
+  its Fly point number, from `tools/complete/import_hgss_spawns.py`).
+- **Fly over Johto and Kanto** works until the three-region Town Map (art not decided yet): on a Johto or Kanto map,
+  Fly from the party menu shows a list of the places reached, by name, and flies to the one chosen
+  (`CommonScript_CompleteFly`, `CompleteInitFlyMenu`, `CompleteFlyTo`). Sinnoh keeps Platinum's Town Map.
+- **Tested:** new `tools/complete/test_hgss_fly.py` passes: arriving in New Bark Town, Cherrygrove City and Violet
+  City records each (Azalea Town, not visited, isn't); in Violet City the list offers New Bark Town and Cherrygrove
+  City, B closes it, and A flies to New Bark Town. By hand: Fly from Starly's menu in the party screen (with the
+  badges) brings up the list and lands in New Bark Town.

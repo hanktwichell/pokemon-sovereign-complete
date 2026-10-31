@@ -331,6 +331,10 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   keep it in.
 - **The Magnet Train's ride** (between Goldenrod City and Saffron City): HeartGold plays a scene of the train
   (its `sub_020977CC`); here the screen fades out and in, and the player arrives at the other station, as in HeartGold.
+- **Fly over Johto and Kanto:** Platinum's Town Map shows only Sinnoh, so on a Johto or Kanto map Fly (from the party
+  menu) shows a list of the places reached instead, by name, and flies to the one chosen. The places are HeartGold's
+  25 Fly points, each recorded as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its
+  spawn points: `src/spawn_locations.c`). It stays until the three-region Town Map (`docs/Roadmap.md`, "Art").
 - **The Berry Pots, the Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
   (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items.
 - **The radio's Poké Flute** (Snorlax on Routes 11 and 12): HeartGold's Snorlax wakes when the Pokégear's radio plays

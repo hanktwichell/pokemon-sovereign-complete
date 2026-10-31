@@ -44,6 +44,8 @@ BOOL CompleteScrCmd_StartWildBattle(ScriptContext *ctx);
 BOOL CompleteScrCmd_InitHGSSMenu(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetElevatorFloor(ScriptContext *ctx);
 BOOL CompleteScrCmd_BufferFloorName(ScriptContext *ctx);
+BOOL CompleteScrCmd_InitFlyMenu(ScriptContext *ctx);
+BOOL CompleteScrCmd_FlyTo(ScriptContext *ctx);
 BOOL CompleteScrCmd_GiveTogepiEgg(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckStaticNotBeaten(ScriptContext *ctx);
 BOOL CompleteScrCmd_FollowerPutAway(ScriptContext *ctx);
