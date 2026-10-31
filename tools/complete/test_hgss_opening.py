@@ -188,9 +188,10 @@ ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
 # press, ('to', (x, z)): a walk to that tile on the map the player is on, ('surf', (x, z)): one that may cross water,
 # ('ladder', (x, z), key): a walk onto a ladder, then the key toward it if the step didn't take it, ('talk', answers): A
 # to talk to what the player faces, answering its menus (talk_and_answer's), ('meet', (x, z), answers): the same with
-# whoever the map put on that tile, wherever they have wandered (by land or water), or ('keep', n): the party cut to
-# its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs and doors warp
-# as the player presses toward them from their tile.
+# whoever the map put on that tile, wherever they have wandered (by land or water), ('switches', [(x, z), ...], (x,
+# z)): the switches below those tiles pressed until their shutters leave a way to the last tile, then the walk there, or
+# ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own
+# tile). The stairs and doors warp as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -378,6 +379,7 @@ ICE_ROCK = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read
     'OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
+SWITCH_FRAMES = 120  # a switch's shutters moving (two tiles each)
 DOUBLES_TARGETS = ((64, 30), (190, 30))  # the foes' boxes on a double battle's target screen (bottom screen)
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
@@ -779,10 +781,11 @@ def main():
         return f'never beside whoever started on {start}, on {here()} at {d.pos()}'
 
     def switches(tiles, goal):
-        """Switches that move shutters (Goldenrod's underground, B2F): from the tile below each, facing it, A. Each
-        press toggles its shutters, so the sets of switches flipped are tried a press at a time (a Gray code), until
-        the shutters, where the game has them now, leave a way to goal; then the walk there. Returns a problem, or
-        ''."""
+        """Switches that move shutters (Goldenrod's underground, B2F): from the tile below each, facing it, A, once
+        (talk_and_answer's A for text would press a switch again as its script ends), again only if nothing moved.
+        Each press toggles its shutters, so the sets of switches flipped are tried a press at a time (a Gray code),
+        until the shutters, where the game has them now, leave a way to goal; then the walk there. Returns a problem,
+        or ''."""
         matrix = matrix_of[here()]
         for n in range(1 << len(tiles)):
             people, blocks = others()
@@ -796,10 +799,17 @@ def main():
             problem = walk_to(tiles[flip])
             if problem:
                 return problem
-            d.press('UP', frames=8, after=16)
-            result, frames = talk_and_answer(d, sym, [], SETTLE_FRAMES)
-            if result != 'ok':
-                return f'the switch at {tiles[flip]}: {result} after {frames} frames'
+            for _ in range(MEET_TRIES):
+                d.press('UP', frames=8, after=16)
+                before = others()[0]
+                d.press('A', frames=4, after=0)  # once: a switch shows no text, and A again would press it again
+                d.run(SWITCH_FRAMES)
+                if not free(IDLE_RUN):
+                    return f'the field never came free after the switch at {tiles[flip]}'
+                if others()[0] != before:
+                    break
+            else:
+                return f'the switch at {tiles[flip]} moves nothing'
         return f'no set of the switches at {tiles} opens a way to {goal}, on {here()}'
 
     results = []
