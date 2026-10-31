@@ -210,7 +210,9 @@ HeartGold's `CreateRoamer 3`). Sacred Gold keeps HeartGold's roamers as they are
   Route 16 has no wild Pokémon, so a roamer there is never met, as in HeartGold. Catching and walking are Sovereign's
   `tools/test/roamers.py`, the same code for every slot, which keeps to Sovereign's roamers.
 
-## Still to come in this step
+## Tests
 
-- The tests: every trainer battled, the wild Pokémon surveyed by time of day (`tools/complete/test_hgss_encounters.py`),
-  the item balls and hidden items picked up.
+Every trainer battles and the battle ends cleanly (737); every Johto and Kanto wild table matches at 6:00, 12:00 and
+22:00, surfing and the three rods included (`tools/complete/test_hgss_encounters.py`); and 234 of 243 hidden items are
+found once and only once (`tools/complete/test_hgss_hidden_items.py`; the rest lie under something or can't be
+reached). `docs/Progress.md` has the details.

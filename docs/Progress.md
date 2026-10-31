@@ -721,7 +721,9 @@ Test results on the new test build:
   mechanics suite (`tools/test/battle_mechanics.py`) matches all 526 of Sovereign's recorded cases; the rare wild
   Pokémon (`rare_wild.py`) pass 52 of 52; the roamers (`roamers.py`) pass, with the eight roamers Sovereign's scripts
   release, flights and walks, a battle with each, a catch and the Pokétch's marking map; the gifts pass 45 of 45
-  (above). Two of Sovereign's tools read Complete's data wrongly, and now leave HeartGold's to the tests made for it:
+  (above); and the wild Pokémon's forms (`wild_forms.py`, every Sinnoh map with wild Pokémon, each terrain): 19,104
+  Pokémon made, 634 species and forms, no problems. Two of Sovereign's tools read Complete's data wrongly, and now
+  leave HeartGold's to the tests made for it:
   `roamers.py` counted names past the end of `enum RoamerRouteIndex` as routes, and `wild_forms.py` read HeartGold's
   encounter tables in Sovereign's format.
 - **Sovereign's signs and triggers on Sinnoh's maps** (`signs_and_triggers.py`: the 893 signs, hidden items and
