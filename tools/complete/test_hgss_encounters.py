@@ -7,7 +7,8 @@ map as tools/test/wild_forms.py does and runs its surveys (gSovereignTestWildSur
 SAMPLES times, with no encounter roll and no battle): the grass at 6:00, 12:00 and 22:00 (HeartGold's morning, day and
 night; gSovereignTestClock), and surfing and the three rods where the table has them. Each Pokémon made must be one of
 that terrain's slots: for the grass, a species of that time of day at its slot's level; on the water, a species of the
-terrain within its slot's levels.
+terrain within its slot's levels. The Ruins of Alph's underground hall lets Unown out only once a puzzle is solved
+(src/complete_encounters.c), so it gets there with all four solved.
 
 From the repo root, with the test build and a bedroom state (tools/test/new_game.sh):
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_encounters.py \\
@@ -29,6 +30,9 @@ from wild_forms import MON_SIZE, SURVEY, TERRAINS, events_of, run_survey, specie
 TIMES = (('morning', 6), ('day', 12), ('night', 22))
 CLOCK_HOUR = 0  # offsetof(struct SovereignTestClock, hour): the hour + 1
 WATER = (('surf', 'surf'), ('old rod', 'old_rod'), ('good rod', 'good_rod'), ('super rod', 'super_rod'))
+ALPH_HALL = 'MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL'
+ALPH_PUZZLES = ('KABUTO', 'AERODACTYL', 'OMANYTE', 'HO_OH')  # FLAG_HGSS_SYS_ALPH_PUZZLE_*
+TEST_VARS = 2  # gSovereignTestVar's entries from here on (arrive() may use [0] and [1])
 
 
 def cases():
@@ -75,8 +79,14 @@ def main():
             print(line, file=f, flush=True)
             print(line, flush=True)
 
+        def solve_puzzles():
+            for i, puzzle in enumerate(ALPH_PUZZLES, TEST_VARS):
+                mem.write_short(sym['gSovereignTestVar'] + 4 * i, variables[f'FLAG_HGSS_SYS_ALPH_PUZZLE_{puzzle}'])
+                mem.write_short(sym['gSovereignTestVar'] + 4 * i + 2, 1)
+
         for index, (header, header_id, table, (x, z)) in chosen:
-            result, frames = arrive(d, sym, state, variables, events_of(header), header_id, (x, z), x, z, 1)
+            result, frames = arrive(d, sym, state, variables, events_of(header), header_id, (x, z), x, z, 1,
+                                    setup=solve_puzzles if header.startswith(ALPH_HALL) else None)
             if result != 'ok':
                 bad += 1
                 say(f'{index} {header}: {result} {frames}')

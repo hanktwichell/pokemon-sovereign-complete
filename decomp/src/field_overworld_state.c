@@ -3,6 +3,8 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "constants/hgss_spawns.h" // Sovereign Complete
+
 #include "struct_defs/player_data.h"
 
 #include "field/field_system.h"
@@ -36,7 +38,7 @@ void FieldOverworldState_Init(FieldOverworldState *fieldState)
     OverworldMapHistory_Clear(&fieldState->mapHistory);
     PlayerData_Init(&fieldState->playerData);
 
-    fieldState->blackOutWarpId = FieldOverworldState_GetDefaultWarpID();
+    fieldState->blackOutWarpId = SPAWN_HGSS_NEW_BARK; // Sovereign Complete: home in New Bark Town, where a new game starts
 }
 
 Location *FieldOverworldState_GetPlayerLocation(FieldOverworldState *fieldState)

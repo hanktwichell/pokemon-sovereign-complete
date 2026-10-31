@@ -770,3 +770,22 @@ Test results on the new test build:
   City records each (Azalea Town, not visited, isn't); in Violet City the list offers New Bark Town and Cherrygrove
   City, B closes it, and A flies to New Bark Town. By hand: Fly from Starly's menu in the party screen (with the
   badges) brings up the list and lands in New Bark Town.
+
+## Oct 31, 2026: a new game starts in New Bark Town
+
+- **The story starts in Johto (decided Oct 29).** A new game still plays Platinum's introduction (Rowan names the
+  player and the rival), then starts in the player's room in New Bark Town, HeartGold's start, instead of Twinleaf
+  Town (`InitPlayerStartLocation`, `src/location.c`). Blacking out before a Pokémon Center sends the player home to Mom
+  in New Bark Town (`FieldOverworldState_Init`'s first black-out point). Twinleaf Town's opening scenes and Sinnoh's
+  League, which sends the player home to Twinleaf Town, stay as they were: what becomes of Platinum's opening is open
+  (`docs/Roadmap.md`, "Still open").
+- **Tested** on a new test build's bedroom state (`tools/test/new_game.sh` now ends in New Bark Town's room): the
+  follower test, the save test (with the full bag), the Fly test and the gifts that need a start (Eevee, Elm's Togepi
+  Egg, the Kanto starters) all pass.
+- **The Ruins of Alph's underground hall** made no wild Pokémon in `tools/complete/test_hgss_encounters.py`: its Unown
+  come out only once a puzzle is solved, as in HeartGold. The test now solves the four puzzles before it goes there:
+  144 Unown, no problems.
+- **Sovereign's tests again, on the latest build:** every evolution into or from a form
+  (`tools/test/battle_evolutions.py`): 255 of 255. Elite Four runs (`tools/test/elite_four_runs.py`, Sovereign's ten):
+  nine end with the Champion beaten; run 0 stopped in Flint's battle when the test chose a fainted Pokémon as the
+  target (the test's doing, as before).

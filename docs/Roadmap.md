@@ -77,7 +77,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **Unlock points (proposed):** the ferry to Kanto after the Indigo League, as in HeartGold; the way to Sinnoh, by
   ferry or through the Sinjoh Ruins, after Kanto's eighth badge.
 - **Platinum's opening:** the game now starts in Johto. What happens to Twinleaf Town, Rowan's starters and Barry? For
-  example, Rowan offers a Sinnoh starter when the player arrives.
+  example, Rowan offers a Sinnoh starter when the player arrives. For now (Oct 31, 2026) a new game plays Platinum's
+  introduction (Rowan names the player and the rival), then starts in the player's room in New Bark Town, home for
+  blacking out too; Twinleaf Town's opening scenes stay as they are, and Sinnoh's League still sends the player home to
+  Twinleaf Town.
 - **Red at Mt. Silver:** before the player leaves for Sinnoh, or saved for the post-game.
 - **Level curve:** how far Johto and Kanto compress so that Sinnoh, third, still ends at Spear Pillar by Lv. 100
   (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: for now they
