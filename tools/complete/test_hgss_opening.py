@@ -177,8 +177,8 @@ as a player would, without the test warp:
     after another (with Sacred Gold's Rockets between), and give the Clear Bell (FLAG_HGSS_UNK_103).
 60. **Ho-Oh:** through the barrier station, whose sage steps aside for the Fog Badge, and the Bell Tower's grounds into
     the tower, up its ladders and over 7F to 9F's warp panels to 10F and the roof, where the Kimono Girls dance and
-    Ho-Oh comes down to battle; after it the friend no longer stops the player at New Bark Town's east exit
-    (VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT 3).
+    Ho-Oh comes down; talked to, it battles, and after it the friend no longer stops the player at New Bark Town's east
+    exit (VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT 3).
 61. **Down the Bell Tower:** down from the roof by the ladders and warp panels, and out to Ecruteak City.
 62. **New Bark Town, east:** back along Routes 37 and 36, through Violet City and along Routes 31, 30 and 29 to New
     Bark Town, and out of it east on Surf over Route 27's water into Tohjo Falls.
@@ -486,7 +486,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                     ('ladder', (9, 8), 'UP'), ('ladder', (15, 25), 'UP'), ('ladder', (24, 8), 'UP'),  # 1F to 4F
                     ('ladder', (6, 8), 'UP'), ('ladder', (13, 25), 'UP'), ('ladder', (6, 19), 'UP'),  # to 7F
                     ('to', (15, 26)), ('to', (7, 20)), ('to', (6, 12)), ('to', (16, 9)),  # 7F to 9F's warp panels
-                    ('ladder', (12, 17), 'UP'), ('ladder', (15, 25), 'UP'), ('to', (15, 20))],  # 10F, the roof
+                    ('ladder', (12, 17), 'UP'), ('ladder', (15, 25), 'UP'), ('to', (15, 20)),  # 10F, the roof
+                    ('meet', (15, 16), [])],  # the Kimono Girls' dance, and Ho-Oh
           'MAP_HEADER_HGSS_BELL_TOWER_ROOF', ('VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT', 3)),
          ('down the Bell Tower', [('to', (15, 24)), ('to', (11, 17)),  # the roof's ladder, 10F's
                                   ('to', (18, 15)), ('to', (23, 17)), ('to', (20, 7)), ('to', (7, 12)),  # the panels
