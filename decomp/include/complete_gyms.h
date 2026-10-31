@@ -49,4 +49,13 @@ void CompleteEcruteakGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem);
 BOOL CompleteScrCmd_EcruteakGymInit(ScriptContext *ctx);
 BOOL CompleteEcruteakGym_IsDark(void);
 
+void CompleteViridianGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem);
+void CompleteViridianGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem);
+
+BOOL CompleteScrCmd_ViridianGymInit(ScriptContext *ctx);
+
+#ifdef SOVEREIGN_TEST
+extern u16 gCompleteTestViridianLit; // test build: arrows lit in Viridian Gym so far
+#endif
+
 #endif // POKEPLATINUM_COMPLETE_GYMS_H

@@ -5,6 +5,7 @@
 
 #include "constants/field/complete_tile_behaviors.h"
 #include "constants/field/dynamic_map_features.h"
+#include "constants/field/map_tile_behaviors.h"
 #include "generated/movement_actions.h"
 #include "generated/vars_flags.h"
 
@@ -15,9 +16,13 @@
 #include "overlay005/land_data.h"
 #include "overlay005/map_prop.h"
 #include "overlay005/map_prop_animation.h"
+#include "overlay005/ov5_021D1A94.h"
+#include "overlay005/struct_ov5_021D1BEC_decl.h"
+#include "overlay006/struct_ov6_0223E6EC.h"
 
 #include "camera.h"
 #include "complete_badges.h"
+#include "easy3d_object.h"
 #include "field_system.h"
 #include "field_task.h"
 #include "heap.h"
@@ -25,6 +30,7 @@
 #include "map_object.h"
 #include "map_object_move.h"
 #include "math_util.h"
+#include "narc.h"
 #include "persisted_map_features.h"
 #include "player_avatar.h"
 #include "save_player.h"
@@ -1759,5 +1765,163 @@ BOOL CompleteScrCmd_EcruteakGymInit(ScriptContext *ctx)
     EcruteakGymPersistedData *data = InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_ECRUTEAK_GYM);
 
     data->fresh = TRUE;
+    return FALSE;
+}
+
+// Viridian Gym (HeartGold's viridian.c and InitViridianGym): its arrow tiles, Platinum's slide tiles here
+// (tools/complete/import_hgss_maps.py), light up under the player as they step onto one: HeartGold's model for that
+// arrow's direction plays its texture animation on the tile, then goes (res/prebuilt/fielddata/complete_gym_effects,
+// tools/complete/import_hgss_gym_effects.py). Up to three at once, as the player slides on over the next ones.
+#define VIRIDIAN_ARROWS        4
+#define VIRIDIAN_LIT_AT_ONCE   3
+#define VIRIDIAN_EFFECT_MODELS 4 // the archive's models are members 4-7, their animations 0-3
+
+typedef struct ViridianGymLit {
+    BOOL active;
+    int arrow;
+    Easy3DObject objects[VIRIDIAN_ARROWS];
+    Easy3DAnim anims[VIRIDIAN_ARROWS];
+} ViridianGymLit;
+
+typedef struct ViridianGymEffect {
+    NNSFndAllocator allocator;
+    Easy3DModel models[VIRIDIAN_ARROWS];
+    ViridianGymLit lit[VIRIDIAN_LIT_AT_ONCE];
+    int next;
+    int lastX;
+    int lastZ;
+} ViridianGymEffect;
+
+#ifdef SOVEREIGN_TEST
+u16 gCompleteTestViridianLit;
+#endif
+
+// HeartGold's arrow for each slide tile (its tiles 64-67): east, west, north, south
+static int ViridianGym_Arrow(u8 behavior)
+{
+    switch (behavior) {
+    case TILE_BEHAVIOR_SLIDE_EASTWARD:
+        return 2;
+    case TILE_BEHAVIOR_SLIDE_WESTWARD:
+        return 0;
+    case TILE_BEHAVIOR_SLIDE_NORTHWARD:
+        return 3;
+    case TILE_BEHAVIOR_SLIDE_SOUTHWARD:
+        return 1;
+    default:
+        return -1;
+    }
+}
+
+static void ViridianGym_EffectInit(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    ViridianGymEffect *effect = param;
+    NARC *narc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__VIRIDIAN_GYM, HEAP_ID_FIELD1);
+
+    memset(effect, 0, sizeof(ViridianGymEffect));
+    HeapExp_FndInitAllocator(&effect->allocator, HEAP_ID_FIELD1, 32);
+
+    for (int i = 0; i < VIRIDIAN_ARROWS; i++) {
+        Easy3DModel_LoadFrom(&effect->models[i], narc, VIRIDIAN_EFFECT_MODELS + i, HEAP_ID_FIELD1);
+    }
+
+    for (int j = 0; j < VIRIDIAN_LIT_AT_ONCE; j++) {
+        for (int i = 0; i < VIRIDIAN_ARROWS; i++) {
+            Easy3DAnim_LoadFrom(&effect->lit[j].anims[i], &effect->models[i], narc, i, HEAP_ID_FIELD1, &effect->allocator);
+            Easy3DObject_Init(&effect->lit[j].objects[i], &effect->models[i]);
+            Easy3DObject_AddAnim(&effect->lit[j].objects[i], &effect->lit[j].anims[i]);
+            Easy3DObject_SetVisible(&effect->lit[j].objects[i], FALSE);
+        }
+    }
+
+    NARC_dtor(narc);
+    effect->lastX = PlayerAvatar_GetXPos(fieldSystem->playerAvatar);
+    effect->lastZ = PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+}
+
+static void ViridianGym_EffectFree(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    ViridianGymEffect *effect = param;
+
+    for (int j = 0; j < VIRIDIAN_LIT_AT_ONCE; j++) {
+        for (int i = 0; i < VIRIDIAN_ARROWS; i++) {
+            Easy3DAnim_Release(&effect->lit[j].anims[i], &effect->allocator);
+        }
+    }
+
+    for (int i = 0; i < VIRIDIAN_ARROWS; i++) {
+        Easy3DModel_Release(&effect->models[i]);
+    }
+}
+
+// Each frame: an arrow tile the player has just stepped onto lights up, and the lit ones play on to their end
+static void ViridianGym_EffectUpdate(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    ViridianGymEffect *effect = param;
+    int x = PlayerAvatar_GetXPos(fieldSystem->playerAvatar);
+    int z = PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+
+    if (x != effect->lastX || z != effect->lastZ) {
+        int arrow = ViridianGym_Arrow(TerrainCollisionManager_GetTileBehavior(fieldSystem, x, z));
+        ViridianGymLit *lit = &effect->lit[effect->next];
+
+        effect->lastX = x;
+        effect->lastZ = z;
+
+        if (arrow >= 0 && !lit->active) {
+            const VecFx32 *pos = MapObject_GetPos(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar));
+
+            lit->active = TRUE;
+            lit->arrow = arrow;
+            Easy3DAnim_SetFrame(&lit->anims[arrow], 0);
+            Easy3DObject_SetPosition(&lit->objects[arrow], x * FX32_CONST(16) + FX32_CONST(8), pos->y, z * FX32_CONST(16) + FX32_CONST(8));
+            Easy3DObject_SetVisible(&lit->objects[arrow], TRUE);
+            effect->next = (effect->next + 1) % VIRIDIAN_LIT_AT_ONCE;
+#ifdef SOVEREIGN_TEST
+            gCompleteTestViridianLit++;
+#endif
+        }
+    }
+
+    for (int j = 0; j < VIRIDIAN_LIT_AT_ONCE; j++) {
+        ViridianGymLit *lit = &effect->lit[j];
+
+        if (lit->active && Easy3DAnim_Update(&lit->anims[lit->arrow], FX32_ONE)) {
+            Easy3DObject_SetVisible(&lit->objects[lit->arrow], FALSE);
+            lit->active = FALSE;
+        }
+    }
+}
+
+static void ViridianGym_EffectDraw(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    ViridianGymEffect *effect = param;
+
+    for (int j = 0; j < VIRIDIAN_LIT_AT_ONCE; j++) {
+        if (effect->lit[j].active) {
+            Easy3DObject_Draw(&effect->lit[j].objects[effect->lit[j].arrow]);
+        }
+    }
+}
+
+void CompleteViridianGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
+{
+    static const UnkStruct_ov6_0223E6EC sTemplate = {
+        1024, sizeof(ViridianGymEffect), ViridianGym_EffectInit, ViridianGym_EffectFree, ViridianGym_EffectUpdate, ViridianGym_EffectDraw
+    };
+
+    fieldSystem->unk_04->dynamicMapFeaturesData = ov5_021D1B6C(fieldSystem->unk_04->unk_04, &sTemplate);
+}
+
+void CompleteViridianGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
+{
+    ov5_021D1BEC(fieldSystem->unk_04->dynamicMapFeaturesData);
+    fieldSystem->unk_04->dynamicMapFeaturesData = NULL;
+}
+
+// HeartGold's ViridianGymInit, as the gym loads: the arrows' effect comes with the map from then on
+BOOL CompleteScrCmd_ViridianGymInit(ScriptContext *ctx)
+{
+    InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_VIRIDIAN_GYM);
     return FALSE;
 }

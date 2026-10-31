@@ -6304,6 +6304,11 @@
     .short \spawnVarID
     .endm
 
+    // Viridian Gym (HeartGold's ViridianGymInit): its arrow tiles light up as the player steps onto them.
+    .macro CompleteViridianGymInit
+    .short SCRCMD_COMPLETEVIRIDIANGYMINIT
+    .endm
+
     .text
     .globl _start
 _start:

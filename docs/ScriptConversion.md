@@ -163,7 +163,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
 HeartGold keeps each gym's puzzle in a "gymmick": 32 bytes of saved state that the gym's script sets up on the way
 in, and code the map's loading runs. Platinum has the same thing as its dynamic map features (Pastoria's water,
 Canalave's platforms): the same 32 bytes (`PersistedMapFeatures`), with an init, free and collision function for each
-feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as six new
+feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as seven new
 features, each with the script commands its gym uses:
 - **Vermilion** (`CompleteVermilionGymInit`, `...CanCheck`, `...LockAction`, `...ResampleCans`): the two switches in
   the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. With the
@@ -183,14 +183,17 @@ features, each with the script commands its gym uses:
   a candle to its sage from its common trainer script, which Platinum's trainers don't use, so a task keeps each
   candle on its sage and puts it out once the sage's trainer flag is set. A sage beaten before keeps their candle out
   (HeartGold lit them all again).
+- **Viridian** (`CompleteViridianGymInit`): the arrow tiles, Platinum's slide tiles here, light up under the player as
+  they step onto one: HeartGold's model for that arrow's direction plays its texture animation on the tile (its
+  `a/2/5/5`, brought in by `tools/complete/import_hgss_gym_effects.py`; up to three at once), drawn by a field effect
+  task while the gym's features are loaded.
 
 HeartGold's gyms find the parts that move among the map's own buildings, which Platinum keeps per loaded map chunk;
 `FindMapProp` looks there. HeartGold's own sound effects for these (the cart, the floors) wait for step 6; the floors
 use Platinum's lift sound meanwhile.
 
-Still to port: two touches on top of gyms that already play through: Fuchsia's invisible walls flashing when bumped
-(the walls are in the map's collision) and Viridian's arrow tiles lighting up (they are slide tiles, which Platinum's
-engine already has). Their init commands are left out until then.
+Still to port: Fuchsia's invisible walls flashing when bumped (the walls are in the map's collision, so the gym plays
+through without it). Its init command is left out until then.
 
 ## Standard scripts
 

@@ -839,3 +839,14 @@ Test results on the new test build:
   Ball throw (`subscript_complete_throw_sport_ball`) in the subscripts' order but not in
   `generated/battle_subscripts.txt`, which keeps the two in step; it's there now, and every battle script fits (the
   largest, 1,944 of 2,048 bytes). Every battle sprite (`check_battle_sprites.py`): 5,344, no problems.
+
+## Oct 31, 2026: Viridian Gym's arrows light up
+
+- **Viridian Gym** (HeartGold's `viridian.c`): its arrow tiles, Platinum's slide tiles here, light up under the
+  player as they step onto one, HeartGold's model for that arrow's direction playing its texture animation on the
+  tile, up to three at once as the player slides on (`src/complete_gyms.c`, `CompleteViridianGymInit`, HeartGold's
+  `ViridianGymInit`, which the gym's script runs as it loads). The models and animations are HeartGold's `a/2/5/5`,
+  brought in by new `tools/complete/import_hgss_gym_effects.py`. Of the gyms' touches, only Fuchsia's invisible walls
+  flashing when bumped are left (`docs/ScriptConversion.md`, "Gym puzzles").
+- **Tested:** new `tools/complete/test_hgss_viridian_gym.py` passes: in at the door, a step up onto the first arrow
+  lights it, and the player slides back off it with the field free.

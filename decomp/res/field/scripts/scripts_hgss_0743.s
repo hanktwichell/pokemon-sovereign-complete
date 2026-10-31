@@ -10,7 +10,7 @@
     ScriptEntry scr_seq_T02GYM0101_004
     ScriptEntryEnd
 scr_seq_T02GYM0101_002:
-    @ HGSS: ViridianGymInit
+    CompleteViridianGymInit
     SetVarFromValue VAR_HGSS_UNK_4127, 0
     CompletePhoneGetRematch PHONE_CONTACT_BLUE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0

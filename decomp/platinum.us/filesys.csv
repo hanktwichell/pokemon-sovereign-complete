@@ -342,3 +342,4 @@ res/words/word_bank.narc,/resource/eng/pms_aikotoba/pms_aikotoba.narc
 res/prebuilt/dwc/utility.bin,/dwc/utility.bin
 res/graphics/alph_puzzle/alph_puzzle.narc,/application/annon/puzzle_gra.narc
 res/prebuilt/fielddata/complete_follower_talk/follower_talk.narc,/fielddata/complete/follower_talk.narc
+res/prebuilt/fielddata/complete_gym_effects/viridian_gym.narc,/fielddata/complete/viridian_gym.narc
