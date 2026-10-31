@@ -133,6 +133,15 @@ as a player would, without the test warp:
 43. **Pryce:** out of the hideout and the shop, into Mahogany Gym and across its three rooms of ice, pushing its ice
     blocks where they make a way (tools/complete/solve_story_puzzles.py; src/complete_gyms.c), to Pryce: his battle,
     the Glacier Badge and his TM (FLAG_HGSS_GOT_TM07_FROM_PRYCE).
+44. **Goldenrod, taken over:** back over the gym's ice and out into Mahogany Town, where the news of the Radio Tower
+    comes (VAR_HGSS_SCENE_ROCKET_TAKEOVER 2) and Elm calls; west along Route 42, through Ecruteak City, down Routes 37
+    and 36, through the National Park and down Route 35 into Goldenrod City and its Pokémon Center.
+45. **The disguise:** into the underground from Goldenrod's north entrance and down to B1F, where Team Rocket's
+    grunts put the player in a Rocket uniform (VAR_HGSS_SCENE_ROCKET_TAKEOVER 3).
+46. **The Radio Tower:** back up and into the Radio Tower, where the grunt on 1F's stairs, talked to, steps aside, and
+    on the stairs the rival's scene and battle play (VAR_HGSS_SCENE_ROCKET_TAKEOVER 4).
+47. **The Basement Key:** up the tower's stairs to 5F, where the director, Petrel in disguise, gives the Basement Key
+    (VAR_HGSS_UNK_40E7 2).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -335,7 +344,22 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                     ('to', (4, 16)), 'UP', ('to', (3, 2)), ('to', (2, 10)), 'RIGHT', ('to', (6, 2)),
                     ('to', (6, 17)), 'UP', ('to', (4, 9)), 'DOWN', ('to', (4, 12)), 'RIGHT', ('to', (7, 5)), 'UP',
                     ('talk', [])],
-          'MAP_HEADER_HGSS_MAHOGANY_GYM_LEADER_ROOM', 'FLAG_HGSS_GOT_TM07_FROM_PRYCE')]
+          'MAP_HEADER_HGSS_MAHOGANY_GYM_LEADER_ROOM', 'FLAG_HGSS_GOT_TM07_FROM_PRYCE'),
+         ('Goldenrod, taken over', [('to', (5, 19)), 'DOWN', ('to', (6, 15)), 'DOWN', ('to', (4, 19)), 'DOWN',
+                                    ('surf', (422, 175)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Route 42, back
+                                    ('to', (374, 238)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Routes 37 and 36
+                                    ('to', (40, 86)), 'DOWN', ('to', (25, 11)), 'DOWN',  # the National Park
+                                    ('to', (358, 316)), 'DOWN', ('to', (5, 12)), 'DOWN', ('to', (352, 368)), 'UP'],
+          'MAP_HEADER_HGSS_GOLDENROD_POKECENTER_1F', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 2)),
+         ('the disguise', [('to', (8, 19)), 'DOWN', ('to', (347, 334)), 'UP', ('ladder', (8, 4), 'RIGHT'),
+                           ('to', (17, 10))],
+          'MAP_HEADER_HGSS_GOLDENROD_TUNNEL_B1F', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 3)),
+         ('the Radio Tower', [('ladder', (4, 4), 'LEFT'), ('to', (5, 9)), 'DOWN', ('to', (342, 349)), 'UP',
+                              ('to', (23, 6)), 'UP', ('talk', []), ('to', (23, 5))],  # the grunt steps aside
+          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_1F', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 4)),
+         ('the Basement Key', ['RIGHT', ('ladder', (3, 5), 'LEFT'), ('ladder', (12, 5), 'RIGHT'),
+                               ('ladder', (3, 5), 'LEFT'), ('meet', (5, 13), [])],
+          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_5F', ('VAR_HGSS_UNK_40E7', 2))]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, and Ecruteak Gym's pits
