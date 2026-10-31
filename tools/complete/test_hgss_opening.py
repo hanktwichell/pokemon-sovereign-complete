@@ -25,11 +25,30 @@ as a player would, without the test warp:
    battles (VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW 4 after it).
 10. **Back to Elm:** the player walks east along Route 29 to Elm's lab, where Elm and the police officer talk about
     the stolen Pokémon (VAR_HGSS_SCENE_ELMS_LAB 4 after it).
+11. **Lyra's lesson:** the player sets out west again, and on Route 29 the friend shows how to catch a Pokémon
+    (VAR_HGSS_UNK_408B from 1 back to 0).
+12. **Violet City:** the player walks on through Cherrygrove City and up Routes 30 and 31, through the gatehouse into
+    Violet City (its Fly point recorded: FLAG_HGSS_SYS_FLYPOINT_VIOLET), and into its Pokémon Center.
+13. **Sprout Tower:** the player goes into Sprout Tower and up by its ladders (1F, 2F, back down to 1F, 2F again, 3F),
+    battling the sages who see them, past the rival leaving, to Elder Li: his battle, then Sacred Gold's choice of an
+    evolution item (the first, the Water Stone) and his TM (FLAG_HGSS_HIDE_VIOLET_GYM_GYM_GUY_AFTER_SPROUT).
+14. **Falkner:** back down the ladders and out, to Violet Gym, onto its lift (its step-on trigger raises it to the
+    upper floor), and Falkner's battle: the Zephyr Badge (VAR_HGSS_SCENE_VIOLET_CITY_OW 1).
+15. **The Mystery Egg:** back down the lift and out, where Elm calls to ask for his aide's Egg to be fetched; in
+    Violet City's Poké Mart the aide gives it (FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT). The aide wants room in the
+    party, so the test party is cut to its lead first (gSovereignTestPartyKeep, by the test warp onto the player's
+    own tile), as a player would leave some in the PC. Without the Egg, the man on Route 32 sends the player back.
+16. **Azalea Town:** south down Route 32, through Union Cave and along Route 33 into Azalea Town (its Fly point
+    recorded: FLAG_HGSS_SYS_FLYPOINT_AZALEA) and its Pokémon Center.
+17. **The Slowpoke Well:** the player talks to Kurt at home, who hurries off to the well, follows him in and down,
+    battles the Team Rocket grunts who see them, and Proton (FLAG_HGSS_BEAT_AZALEA_ROCKETS); the scene after takes
+    the player back to Kurt's house, where his question is answered yes.
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, around the people), and
 take it a step at a time, finding it again whenever a scene or a person moves the player. A prompt on the way (the
 test save's Super Repel wearing off), each scene's text and a battle are paged through with A, which also answers
-yes. A part passes when the field is free on the map it expects, its flag is set or its var has moved on from 0 (or to
+yes; the battles, trainers' and wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP
+prompts), as the test is about the story's way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or its var has moved on from 0 (or to
 a given value), and
 the following Pokémon (the test party's lead) is beside the player: at most two steps away, as a scene can leave it
 diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by Elm's table before
@@ -48,17 +67,20 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
+from battle_all_trainers import SWITCH_FRAMES, TAPS  # noqa: E402
 from check_object_tiles import DIRS, JUMPS, Maps, walkable  # noqa: E402
 from gift_pokemon import talk_and_answer  # noqa: E402
-from talk_to_objects import DECOMP, SYMBOLS, WATER, event_maps, header_names, symbols, var_ids  # noqa: E402
+from talk_to_objects import DECOMP, SYMBOLS, WATER, event_maps, header_names, symbols, var_ids, warp  # noqa: E402
 from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: E402
 
 LAB = 'MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_1F'
 NEW_BARK = 'MAP_HEADER_HGSS_NEW_BARK'
 # (part, its actions, the map it ends on, the var that must have moved on from 0 or the flag that must be set, (var,
-# value) for a var that must have that value, or None). An action is a key to press, ('to', (x, z)): a walk to that tile on the map the player is on, or ('talk',
-# answers): A to talk to what the player faces, answering its menus (talk_and_answer's). The stairs and doors warp as
-# the player presses toward them from their tile.
+# value) for a var that must have that value, or None). An action is a key to press, ('to', (x, z)): a walk to that
+# tile on the map the player is on, ('ladder', (x, z), key): a walk onto a ladder, then the key toward it if the step
+# didn't take it, ('talk', answers): A to talk to what the player faces, answering its menus (talk_and_answer's), or
+# ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own
+# tile). The stairs and doors warp as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -73,7 +95,28 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'FLAG_HGSS_GOT_POKEDEX'),
          ('the rival', [('to', (4, 9)), 'DOWN', ('to', (576, 399)), 'LEFT'], 'MAP_HEADER_HGSS_CHERRYGROVE',
           ('VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW', 4)),
-         ('back to Elm', [('to', (684, 394)), 'UP'], LAB, ('VAR_HGSS_SCENE_ELMS_LAB', 4))]
+         ('back to Elm', [('to', (684, 394)), 'UP'], LAB, ('VAR_HGSS_SCENE_ELMS_LAB', 4)),
+         ('Lyra\'s lesson', [('to', (4, 14)), 'DOWN', ('to', (667, 399)), 'LEFT'], 'MAP_HEADER_HGSS_ROUTE_29',
+          ('VAR_HGSS_UNK_408B', 0)),
+         ('Violet City', [('to', (518, 269)), 'LEFT', ('to', (1, 7)), 'LEFT', ('to', (497, 272)), 'UP'],
+          'MAP_HEADER_HGSS_VIOLET_POKECENTER_1F', 'FLAG_HGSS_SYS_FLYPOINT_VIOLET'),
+         ('Sprout Tower', [('to', (8, 19)), 'DOWN', ('to', (487, 229)), 'UP', ('ladder', (10, 15), 'UP'),
+                           ('ladder', (24, 9), 'UP'), ('ladder', (6, 16), 'UP'), ('ladder', (15, 27), 'UP'),
+                           ('to', (12, 10)), 'UP', ('talk', [0])],
+          'MAP_HEADER_HGSS_SPROUT_TOWER_3F', 'FLAG_HGSS_HIDE_VIOLET_GYM_GYM_GUY_AFTER_SPROUT'),
+         ('Falkner', [('ladder', (15, 27), 'DOWN'), ('ladder', (6, 16), 'UP'), ('ladder', (24, 9), 'UP'),
+                      ('ladder', (11, 14), 'UP'), ('to', (15, 28)), 'DOWN', ('to', (479, 258)), 'UP', ('to', (15, 21)),
+                      'UP', ('to', (15, 5)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_VIOLET_GYM', ('VAR_HGSS_SCENE_VIOLET_CITY_OW', 1)),
+         ('the Mystery Egg', [('to', (15, 19)), 'DOWN', ('to', (15, 28)), 'DOWN', ('keep', 1), ('to', (469, 258)), 'UP',
+                              ('to', (6, 9)), 'UP', ('talk', [True]), ('to', (4, 11)), 'DOWN'],
+          'MAP_HEADER_HGSS_VIOLET', 'FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT'),
+         ('Azalea Town', [('to', (462, 431)), 'UP', ('to', (27, 93)), 'DOWN', ('to', (410, 461)), 'UP'],
+          'MAP_HEADER_HGSS_AZALEA_POKECENTER_1F', 'FLAG_HGSS_SYS_FLYPOINT_AZALEA'),
+         ('the Slowpoke Well', [('to', (8, 19)), 'DOWN', ('to', (399, 455)), 'UP', ('to', (4, 5)), 'UP', ('talk', []),
+                                ('to', (4, 9)), 'DOWN', ('ladder', (433, 454), 'UP'), ('to', (11, 7)), 'UP',
+                                ('to', (27, 4)), 'UP', ('talk', [True])],
+          'MAP_HEADER_HGSS_AZALEA_KURT_HOUSE', 'FLAG_HGSS_BEAT_AZALEA_ROCKETS')]
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 LIMIT = 9000
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
@@ -135,6 +178,7 @@ def main():
         state = os.path.join(out, PARTS[first - 1][0].replace(' ', '_') + '.state')
     d = Driver(rom, state)
     mem = d.emu.memory
+    mem.write_byte(sym['gSovereignTestGodMode'], 1)  # battles: one hit wins, no PP used, no EXP prompts
 
     def u16(addr):
         return struct.unpack('<H', bytes(mem.unsigned[addr:addr + 2]))[0]
@@ -172,7 +216,7 @@ def main():
         """A through whatever runs (a prompt, a scene's text, a battle) until the field is free. A is pressed only
         while the field isn't free, so it never talks to whoever the player faces once a scene is over. False if the
         field never comes free."""
-        frames = 0
+        frames, presses = 0, 0
         while frames < SETTLE_FRAMES:
             frames += SHORT_RUN
             if free(SHORT_RUN):
@@ -180,27 +224,50 @@ def main():
                 if free(IDLE_RUN):
                     return True
                 continue  # something started meanwhile: look again before pressing anything
-            d.press('A', frames=2, after=8)
+            presses += 1
+            if presses % 6 == 5:  # on a naming screen (the officer asks the rival's name) START goes to OK, and the
+                # A after it takes the name; in a scene or a battle it does nothing
+                d.press('START', frames=2, after=8)
+            elif presses % 3 == 0:  # A pages through text and answers yes
+                d.press('A', frames=2, after=8)
+            else:  # in a battle A would pick the first move, which may not hurt (Precipice Blades on a flier), so taps
+                # on FIGHT and then on a damaging move (battle_all_trainers.py's), as talk_and_answer does
+                d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=6)
             frames += 10
         return False
 
+    def step(key):
+        """Press key: a step, or the press that takes a door or a stairway. A press that only turned the player (they
+        faced another way) is made again, while the player hasn't moved, the map is the same and nothing started."""
+        for _ in range(3):
+            pos, header = d.pos(), here()
+            d.press(key, frames=8, after=16)
+            if d.pos() != pos or here() != header or not free(SHORT_RUN):
+                return
+
     def walk_to(goal):
-        """Walk to goal on the map the player is on, a step at a time, finding the way again after each; a tile the
-        player can't step onto twice (a person in the way) is walked around. Returns a problem, or ''."""
+        """Walk to goal on the map the player is on, a step at a time, finding the way again after each, around the
+        map's people if it can; a tile the player can't step onto twice (a person in the way) is walked around. A
+        goal that warps the player as they step onto it (a ladder) counts as reached. Returns a problem, or ''."""
         matrix = matrix_of[here()]
-        blocked = set(people_of[matrix])
-        stuck = 0
-        for _ in range(WALK_STEPS):
+        blocked = set()  # tiles the player couldn't step onto
+        stuck, last = 0, False
+        for n in range(WALK_STEPS):
+            if n % 50 == 49:
+                print(f'    ... {here()} {d.pos()}', flush=True)  # progress on a long walk
             if not free(SHORT_RUN) and not settle():  # a short look while nothing happens, so a step costs little
                 return f'the field never came free on the way to {goal}, on {here()} at {d.pos()}'
             if matrix_of.get(here()) != matrix:
-                return f'left for {here()} on the way to {goal}'
+                return '' if last else f'left for {here()} on the way to {goal}'
             pos = d.pos()
             if pos == goal:
                 return ''
-            keys = route(maps, matrix, pos, goal, blocked - {pos})
+            # around the people first (some are hidden, so then through them)
+            keys = route(maps, matrix, pos, goal, (people_of[matrix] | blocked) - {pos}) \
+                or route(maps, matrix, pos, goal, blocked - {pos})
             if not keys:
                 return f'no way from {pos} to {goal} on {here()}'
+            last = len(keys) == 1
             d.press(keys[0], frames=8, after=16)
             if d.pos() != pos:
                 stuck = 0
@@ -220,9 +287,17 @@ def main():
             if not settle():
                 problem = f'the field never came free before {action}, on {here()} at {d.pos()}'
             elif isinstance(action, str):
-                d.press(action, frames=8, after=16)
-            elif action[0] == 'to':
+                step(action)
+            elif action[0] == 'keep':  # the hook applies on the test warp, here onto the player's own tile
+                mem.write_byte(sym['gSovereignTestPartyKeep'], action[1])
+                result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
+                if result != 'ok':
+                    problem = f'the party cut: the warp {result} after {frames} frames, on {here()} at {d.pos()}'
+            elif action[0] in ('to', 'ladder'):
+                before = matrix_of.get(here())
                 problem = walk_to(action[1])
+                if not problem and action[0] == 'ladder' and matrix_of.get(here()) == before:
+                    step(action[2])
             else:
                 result, frames = talk_and_answer(d, sym, action[1], LIMIT)
                 if result != 'ok':

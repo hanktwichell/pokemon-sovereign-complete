@@ -862,3 +862,21 @@ Test results on the new test build:
   lights it, and the player slides back off it with the field free. New `tools/complete/test_hgss_fuchsia_gym.py`
   passes: a bump into the first row of walls starts a flash, a second bump while it flashes starts none, and the
   player stays put with the field free.
+
+## Oct 31, 2026: the opening on to Violet City, Falkner and Azalea Town
+
+- **`tools/complete/test_hgss_opening.py` goes on** past Elm: Lyra's catching lesson on Route 29, Routes 30 and 31
+  through the gatehouse into Violet City, Sprout Tower by its ladders (up, back down, up again) to Elder Li (his
+  battle, Sacred Gold's choice of an evolution item, his TM), Violet Gym's lift and Falkner's battle (the Zephyr
+  Badge), Elm's call and his aide's Egg in Violet City's Poké Mart (without it, the man on Route 32 sends the player
+  back), Route 32, Union Cave and Route 33 to Azalea Town, and Kurt and the Slowpoke Well (the Team Rocket grunts and
+  Proton, then Kurt at home). From the bedroom in one run, all fourteen parts through Falkner pass; the three after
+  pass from the state the one before left.
+- **What the walk taught the test** (no game bugs this stretch): the battles on the way, trainers' and wild Pokémon's,
+  are in the test build's god mode, and the test taps the damaging moves (Garchomp's first move, Precipice Blades,
+  doesn't touch a flying Hoppip); a naming screen (the police officer asks the rival's name) is answered with START
+  and A; a key press that only turned the player is made again; people standing in narrow ways are walked through
+  when they are hidden; ladders up take a press toward them and ladders down the step itself; the overworld routes
+  avoid water; Violet Gym's lift is ridden by stepping onto its trigger tile; a cave's exit, like a door mat, takes a
+  press toward it; and the aide wants room in the party, so the test party is cut to its lead first (the test build's
+  party hook, which applies on its warp, here onto the player's own tile), as a player would leave some in the PC.
