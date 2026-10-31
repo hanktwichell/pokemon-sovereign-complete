@@ -104,10 +104,10 @@ as a player would, without the test warp:
     Route 47, where Team Rocket has blocked Cliff Cave with a boulder that won't budge (Sacred Gold's) until a tag
     battle with the two grunts on the bridge beyond it (their step-on trigger), after which it shatters when inspected;
     through Cliff Cave (its ladder up, and a grunt in its far doorway who battles when talked to, then goes: Sacred
-    Gold's), out on the route's other side, and Route 48 to the Safari Zone Gate's Pokémon Center, whose nurse, across
-    her counter, offers to heal the player's Pokémon: yes, and she's a Team Rocket grunt; their scene sends them to the
-    gate, where a tag battle beside Riley at the gate's entrance beats them (Sacred Gold's VAR_HGSS_SG_6130 2), and the
-    man at Olivine Gym leaves.
+    Gold's), out on the route's other side, where a Rocket between two boulders does the same, and Route 48 to the
+    Safari Zone Gate's Pokémon Center, whose nurse, across her counter, offers to heal the player's Pokémon: yes, and
+    she's a Team Rocket grunt; their scene sends them to the gate, where a tag battle beside Riley at the gate's
+    entrance beats them (Sacred Gold's VAR_HGSS_SG_6130 2), and the man at Olivine Gym leaves.
 34. **Jasmine:** the same way back to Olivine City and into its gym: Jasmine's battle, the Mineral Badge and her TM
     (FLAG_HGSS_GOT_TM23_FROM_JASMINE).
 35. **Mahogany Town:** north up Routes 39 and 38 and through the gatehouse to Ecruteak City, east through the Route 42
@@ -299,6 +299,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                    ('to', (130, 387)), 'UP', ('talk', []),  # their boulder shatters
                                    ('to', (130, 385)), 'UP', ('ladder', (4, 5), 'UP'),
                                    ('to', (6, 28)), 'DOWN', ('talk', []), ('to', (6, 29)), 'DOWN',  # the grunt
+                                   ('to', (104, 369)), 'UP', ('talk', []),  # the Rocket between the boulders
                                    ('to', (82, 303)), 'UP', ('to', (8, 13)), 'UP', ('talk', [True]),  # the nurse
                                    ('to', (8, 19)), 'DOWN', ('to', (88, 296)), 'UP'],  # the gate: the tag battle
           'MAP_HEADER_HGSS_SAFARI_ZONE_GATE', ('VAR_HGSS_SG_6130', 2)),
@@ -667,6 +668,7 @@ def main():
         failed = set()  # (tile, direction) steps the player couldn't take
         forgets = 0
         stuck, last = 0, False
+        before = None  # where the player was before the last step
         for n in range(WALK_STEPS):
             if n % 50 == 49:
                 print(f'    ... {here()} {d.pos()}', flush=True)  # progress on a long walk
@@ -675,8 +677,9 @@ def main():
             if matrix_of.get(here()) != matrix:
                 return '' if last else f'left for {here()} on the way to {goal}'
             pos = d.pos()
-            if pos == goal:
-                return ''
+            if pos == goal or last and before is not None and abs(pos[0] - before[0]) + abs(pos[1] - before[1]) > 2:
+                return ''  # there, or the last step took a warp to elsewhere on the same map (Cliff Cave's ladders)
+            before = pos
             armed = [tiles for tiles, name, value in triggers_of.get(header, [])
                      if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
             avoid = (warps_of[matrix] | set().union(*armed)) - {goal}
