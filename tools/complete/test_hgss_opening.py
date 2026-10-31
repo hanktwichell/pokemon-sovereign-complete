@@ -182,7 +182,8 @@ as a player would, without the test warp:
 61. **Down the Bell Tower:** down from the roof by the ladders and warp panels, and out to Ecruteak City.
 62. **New Bark Town, east:** back along Routes 37 and 36, through Violet City and along Routes 31, 30 and 29 to New
     Bark Town, and out of it east on Surf over Route 27's water into Tohjo Falls.
-63. **Tohjo Falls:** up its first waterfall and down the other (Waterfall, yes), and out onto Route 27 beyond.
+63. **Tohjo Falls:** up its first waterfall (Waterfall, yes), down the other (on Surf, as HeartGold lets a surfer go
+    down one), and out onto Route 27 beyond.
 64. **The League's gate:** along Route 27 (its trainers, on foot and on Surf) and up Route 26 to the Pokémon League's
     reception gate, where the guard checks the badges (VAR_HGSS_UNK_4110), and on into Victory Road.
 65. **Victory Road:** 1F's boulder pushed out of the way; up to 3F, down one of its holes to 2F, 2F's boulder pushed
@@ -194,7 +195,8 @@ as a player would, without the test warp:
 68. **Bruno:** by the teleport to Bruno's room, and his battle (FLAG_HGSS_DEFEATED_BRUNO).
 69. **Karen:** by the teleport to Karen's room, and her battle (FLAG_HGSS_DEFEATED_KAREN).
 70. **Lance:** by the teleport, offered once all four have lost, to Lance's room, where his scene and battle play,
-    and on into the Hall of Fame (VAR_HGSS_UNK_411A 1).
+    and on into the Hall of Fame: its scene, the game cleared and saved (FLAG_HGSS_GAME_CLEAR), the game started over
+    (src/clear_game.c's ClearGame_Johto) and continued, in the player's room in New Bark Town.
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -500,7 +502,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                   ('surf', (740, 397)), 'UP'],  # out of New Bark Town east, Route 27's water
           'MAP_HEADER_HGSS_TOHJO_FALLS', None),
          ('Tohjo Falls', [('surf', (27, 14)), 'UP', ('talk', [True]),  # up its waterfall: Waterfall, yes
-                          ('surf', (38, 12)), 'DOWN', ('talk', [True]), ('surf', (45, 20)), 'DOWN'],  # and down
+                          ('surf', (38, 12)), 'DOWN', ('surf', (45, 20)), 'DOWN'],  # down the other, surfing
           'MAP_HEADER_HGSS_ROUTE_27', None),
          ('the League\'s gate', [('surf', (909, 297)), 'UP', ('to', (11, 3)), 'UP'],  # Routes 27, 26; the badge check
           'MAP_HEADER_HGSS_VICTORY_ROAD_1F', 'VAR_HGSS_UNK_4110'),
@@ -521,7 +523,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Karen', [('to', (6, 5)), 'UP', ('talk', [2]), ('to', (6, 11)), 'UP', ('talk', [])],  # to Room 4
           'MAP_HEADER_HGSS_POKEMON_LEAGUE_KAREN_ROOM', 'FLAG_HGSS_DEFEATED_KAREN'),
          ('Lance', [('to', (6, 5)), 'UP', ('talk', [3]), ('to', (6, 10))],  # to Lance's room; his scene
-          'MAP_HEADER_HGSS_POKEMON_LEAGUE_HALL_OF_FAME', ('VAR_HGSS_UNK_411A', 1))]
+          'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_2F', 'FLAG_HGSS_GAME_CLEAR')]  # the Hall of Fame; the game over again
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which

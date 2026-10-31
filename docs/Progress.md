@@ -1068,3 +1068,20 @@ Test results on the new test build:
   actions: `push` (Strength), `scene` (a scene that starts as the player arrives, with its menus answered). Walks keep
   off Ice Path B1F's holes, Blackthorn Gym's lava where no floor is, its buttons and its pads. Nothing in the game
   needed changing in this stretch.
+
+## Oct 31, 2026: the story test past Ho-Oh, toward the League
+
+- **Parts 57 to 62 pass,** each from the end of the one before: back out of the Dragon's Den (Clair's TM on the way)
+  and down Routes 45, 46 and 29 to Elm's lab; west to Ecruteak City's Dance Theater; the Kimono Girls' battles for
+  the Clear Bell; up the Bell Tower (its ladders, and 7F to 9F's warp panels) to the roof, where the Kimono Girls'
+  dance brings Ho-Oh down and it battles when talked to; down the tower again; and back east past New Bark Town,
+  where the friend no longer stops the player, onto Route 27 and into Tohjo Falls, up its first waterfall.
+- **As in HeartGold, the League waits on Ho-Oh:** after the Rising Badge the friend stops the player at New Bark
+  Town's east exit until the Bell Tower's battle (VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT 3), so the test now takes that
+  way. The barrier station's sage steps aside when talked to (with the Fog Badge).
+- **Victory Road's way,** worked out from its data for the parts still running: 1F's boulder pushed up, then up to
+  3F and down one of its holes (3F's step-on scripts drop the player to 2F), 2F's boulder pushed two tiles west, up to
+  3F again and down another hole to the top of 2F's ledge, and up to the exit. The other 2F boulder can only be pushed
+  into a dead end from the south; checked in the emulator, it is the way back, not the way in. Sacred Gold keeps the
+  Elite Four's doors shut and has a Kadabra in each room teleport the player on.
+- Nothing in the game needed changing in this stretch.
