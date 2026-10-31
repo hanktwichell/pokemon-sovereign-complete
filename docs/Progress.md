@@ -881,7 +881,7 @@ Test results on the new test build:
   press toward it; and the aide wants room in the party, so the test party is cut to its lead first (the test build's
   party hook, which applies on its warp, here onto the player's own tile), as a player would leave some in the PC.
 
-## Oct 31, 2026: the story test on to Bugsy, Ilex Forest, Goldenrod City and Whitney
+## Oct 31, 2026: the story test on through four more gyms to Olivine and Cianwood
 
 - **The whole opening in one run:** `tools/complete/test_hgss_opening.py` played all seventeen parts from the
   bedroom state in a single run, New Bark Town to Kurt's house after the Slowpoke Well (before, the last three had
@@ -905,10 +905,21 @@ Test results on the new test build:
   town's Fly point by its row in the spawn table, not by a flag's name.
 - **Whitney:** the Radio Card quiz in the Radio Tower first (Goldenrod Gym stays shut until then, as in HeartGold),
   then the gym, Whitney's battle, the lass who takes the player back to her crying, and the Plain Badge with her TM.
-- **Passing so far:** parts 18 to 21 (Bugsy, Ilex Forest, Goldenrod City, Whitney), each from the state the one
-  before left; a full run from the bedroom with this stretch's walker passed the first nineteen. The parts after
-  Whitney are written (the SquirtBottle and Sudowoodo, Ecruteak City, the Burned Tower, Morty, Surf from the Dance
-  Theater, Olivine City and the Glitter Lighthouse up to Jasmine) and being run; the walker can now surf too.
+- **On to Olivine and Cianwood:** the SquirtBottle from Goldenrod's Flower Shop and Sudowoodo on Route 36 (reached
+  from the south), Route 37 to Ecruteak City, the Burned Tower (Eusine, the rival's battle, the drop to the basement
+  and the legendary beasts), Morty along his gym's dark path between the pits, Surf from the Dance Theater's gentleman
+  after the grunt on its stage, Routes 38 and 39 to Olivine City (the Route 38 gatehouse turns tourists back until
+  Morty is beaten: Sacred Gold's), the Glitter Lighthouse up to Jasmine (4F's opening drops the player onto the
+  balcony, HeartGold's step-on trigger, the way on to 3F's other side), the elevator down and Surf across Routes 40
+  and 41 to Cianwood City, Chuck (the winch at the top of his gym stops the waterfall he trains under, as in
+  HeartGold, before he notices the player), the SecretPotion from the pharmacist, and Surf back to the lighthouse,
+  whose elevator from 1F takes the player up to give it to Jasmine. Each of these parts passes from the state the
+  one before left: the test has 32 parts now. A full run from the bedroom with this stretch's walker passed the first
+  nineteen; one with the final walker is under way.
+- **Next, before Jasmine:** Sacred Gold puts a man on Olivine Gym's door mat once the medicine is given (his hide flag
+  is FLAG_HGSS_SG_3FE8) until Team Rocket is beaten at the Safari Zone Gate, west of Cianwood: a scene in the gate's
+  Pokémon Center brings them out, and a tag battle at the gate (VAR_HGSS_SG_6130 2) sends him away. Not a dead end,
+  but a long leg the test doesn't play yet.
 - **What the walk taught the test** (no game bugs this stretch): a gym leader's battle and lines take longer than a
   talk's old 9,000-frame limit (Bugsy's ended mid-sentence), so a talk gets a scene's budget; Azalea Gym's door leads
   into an entrance hall; a trigger that a scene moves the player off and leaves armed (Goldenrod Gym's lass) is
@@ -919,4 +930,7 @@ Test results on the new test build:
   Radio Tower, where Whitney is, as in HeartGold; and the walks now know the maps' heights. Goldenrod Gym has
   walkways over its floor (HeartGold's bridge tiles), and from a walkway the corridor to Whitney is a drop the game
   doesn't allow; the walker now reads each map's BDHC as the game does (the plate nearest the player's height, no
-  step of 20 or more) and the player's height from the game, and learns a step that fails rather than a tile.
+  step of 20 or more) and the player's height from the game, and learns a step that fails rather than a tile, waits a
+  little longer for a step that starts late (the follower getting out of the way) and forgets the failed steps when
+  they leave no way (a trainer who walked over to battle may have stood in it). It surfs too: at the shore it faces
+  the water and uses Surf, and its routes stay off whirlpools and waterfalls.

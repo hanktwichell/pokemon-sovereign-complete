@@ -88,6 +88,19 @@ as a player would, without the test warp:
     the player falls to the balcony outside (its step-on trigger, HeartGold's), in again at 3F's door, and the ladders
     on its other side up to 4F, 5F and the light room, where Jasmine tends the sick Ampharos and asks for medicine
     (VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE).
+29. **Cianwood City:** through the light room's door into the elevator, which takes the player down by itself, out of
+    the lighthouse, and on Surf west across Routes 40 and 41 to Cianwood City (its Fly point recorded) and its Pokémon
+    Center.
+30. **Chuck:** into Cianwood Gym, where Chuck trains under a waterfall and doesn't notice the player; up to the winch at
+    the top, turned (yes) so the waterfall stops, and Chuck's battle: the Storm Badge and his TM
+    (FLAG_HGSS_GOT_TM01_FROM_CHUCK).
+31. **The SecretPotion:** the pharmacist, across his counter, gives the medicine for Jasmine's Ampharos now that Chuck
+    is beaten and Jasmine has asked for it (FLAG_HGSS_GOT_SECRETPOTION).
+32. **The medicine:** back over the sea to the lighthouse, up by its elevator from 1F, and the SecretPotion given to
+    Jasmine for the Ampharos, yes; the light shines again and Jasmine goes back to her gym
+    (VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE 2). Next, before Jasmine: Sacred Gold puts a man on Olivine Gym's door mat
+    now (his hide flag, FLAG_HGSS_SG_3FE8) until Team Rocket is beaten at the Safari Zone Gate, west of Cianwood: a
+    scene in its Pokémon Center brings them to the gate, and a tag battle there (VAR_HGSS_SG_6130 2) sends him away.
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights don't allow, so over a bridge or under it, around the people, and never onto a warp, or an armed cart trigger in
@@ -229,7 +242,20 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                              ('to', (8, 12)), 'UP',  # in at 3F's door
                              ('ladder', (6, 7), 'UP'), ('ladder', (3, 5), 'UP'), ('ladder', (10, 10), 'UP'),
                              ('to', (7, 9)), 'UP', ('talk', [])],
-          'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM', 'VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE')]
+          'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM', 'VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE'),
+         ('Cianwood City', [('to', (8, 5)), 'UP', ('to', (3, 6)), 'DOWN', ('to', (8, 17)), 'DOWN',
+                            ('surf', (187, 370)), 'UP'],
+          'MAP_HEADER_HGSS_CIANWOOD_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_CIANWOOD')),
+         ('Chuck', [('to', (8, 19)), 'DOWN', ('to', (172, 358)), 'UP',
+                    ('to', (10, 3)), 'UP', ('talk', [True]),  # the winch: the waterfall stops
+                    ('to', (13, 11)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_CIANWOOD_GYM', 'FLAG_HGSS_GOT_TM01_FROM_CHUCK'),
+         ('the SecretPotion', [('to', (13, 19)), 'DOWN', ('to', (179, 371)), 'UP', ('to', (5, 7)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_CIANWOOD_PHARMACY', 'FLAG_HGSS_GOT_SECRETPOTION'),
+         ('the medicine', [('to', (5, 9)), 'DOWN', ('surf', (301, 264)), 'UP',
+                           ('to', (8, 5)), 'UP', ('to', (3, 6)), 'DOWN',  # the elevator up, by itself
+                           ('to', (7, 9)), 'UP', ('talk', [True])],
+          'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM', ('VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE', 2))]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, and Ecruteak Gym's pits
@@ -238,6 +264,8 @@ AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD'
 # doors among them) and HeartGold's ladders (Complete's 0x0D-0x0F): a warp event on another tile is part of a wider
 # doorway, and a walk may cross it
 WARP_TILES = set(range(0x5e, 0x70)) | {0x0d, 0x0e, 0x0f}
+# water Surf doesn't cross: whirlpools (include/constants/field/complete_tile_behaviors.h) and waterfalls
+OTHER_WATER = {0x11, 0x13}
 RAM, RAM_SIZE = 0x02000000, 0x400000  # the DS's main memory, where the map objects are
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
@@ -245,6 +273,8 @@ SHORT_RUN = 20  # a first, short look, so A isn't pressed into a field that is a
 SETTLE_FRAMES = 30000  # the longest a scene or a talk may take (Mr. Pokémon's and Oak's scene, at the test save's
 # text speed; Bugsy's battle and lines)
 WALK_STEPS = 600  # the most steps one walk takes
+STEP_WAIT = 16  # frames more to wait for a step that hasn't started
+FORGETS = 3  # how many times a walk forgets the steps that failed when they leave no way
 MARGIN = 40  # tiles around the start and the goal a route may go through
 
 
@@ -342,7 +372,8 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
                 t = maps.tile(matrix, *n)
             if t is None or not (x0 <= n[0] <= x1 and z0 <= n[1] <= z1):
                 continue
-            if n != goal and (n in blocked or not walkable(t) or (t & 0xff) in WATER and not surf):
+            if n != goal and (n in blocked or not walkable(t)
+                              or (t & 0xff) in WATER and (not surf or (t & 0xff) in OTHER_WATER)):
                 continue
             nh = h
             if heights is not None and heights.at(matrix, *n):
@@ -485,11 +516,13 @@ def main():
     def walk_to(goal, surf=False):
         """Walk to goal on the map the player is on, a step at a time, finding the way again after each, around the
         map's people if it can; a step the player can't take twice (a person in the way, or a drop between a bridge
-        and the floor under it, as the map's heights decide) isn't tried again. A goal that warps the player as they
+        and the floor under it, as the map's heights decide) isn't tried again, unless that leaves no way (a trainer
+        who stood in it after a battle may have gone). A goal that warps the player as they
         step onto it (a ladder) counts as reached. With surf the way may cross water: at the shore the player faces
         it and uses Surf (A, yes). Returns a problem, or ''."""
         header, matrix = here(), matrix_of[here()]
         failed = set()  # (tile, direction) steps the player couldn't take
+        forgets = 0
         stuck, last = 0, False
         for n in range(WALK_STEPS):
             if n % 50 == 49:
@@ -508,6 +541,10 @@ def main():
             h = height()
             keys = route(maps, matrix, pos, goal, (people_of[matrix] | avoid) - {pos}, failed, heights, h, surf) \
                 or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf)
+            if not keys and failed and forgets < FORGETS:  # whoever was in the way may have moved since
+                failed.clear()
+                forgets += 1
+                continue
             if not keys:
                 return f'no way from {pos} to {goal} on {here()}'
             step = next(dd for dd, k in KEYS.items() if k == keys[0])
@@ -520,6 +557,8 @@ def main():
                 continue
             last = len(keys) == 1
             d.press(keys[0], frames=8, after=16)
+            if d.pos() == pos:
+                d.run(STEP_WAIT)  # a step can start late, as the follower gets out of the way
             if d.pos() != pos:
                 stuck = 0
                 continue
