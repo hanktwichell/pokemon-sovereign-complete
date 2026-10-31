@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Find the ways through three of Johto's puzzles that tools/complete/test_hgss_opening.py plays, from the game's own
+"""Find the ways through four of Johto's puzzles that tools/complete/test_hgss_opening.py plays, from the game's own
 data, so the test's steps can be found again if a map or a script changes:
 
 - **Azalea Gym** (src/complete_gyms.c): four Spinarak carts ride between twelve stops along routes the two switches
@@ -15,6 +15,10 @@ data, so the test's steps can be found again if a map or a script changes:
   the blocks, which slide until stopped and join whoever they hit. A breadth-first search over (where the player
   stands, where each block is and whether it can still be pushed) finds the fewest steps across each of the three
   rooms; the test walks to where each push starts (its walks never push a block) and takes the push's step.
+- **Ice Path B1F's boulders** (src/complete_map_info.c, HeartGold's boulder holes): a boulder pushed onto its own hole
+  falls through to B2F, where it stops a slide over the ice; the first one is enough to cross. A breadth-first search
+  over (where the player stands, where the boulder is) finds the fewest steps and Strength's pushes to put it in its
+  hole and go on to the ladder down; the player never steps onto a hole, which would drop them to B2F.
 
 Prints each way as the steps the test takes. From the repo root:
     python3 tools/complete/solve_story_puzzles.py
@@ -323,6 +327,147 @@ def ice_room(maps, header, start, goal):
     return steps
 
 
+def boulder_hole(maps, header, start, boulder, hole, goal):
+    """A way through Ice Path B1F (src/complete_map_info.c, HeartGold's boulder holes): Strength's pushes of the boulder
+    on boulder into its hole, through which it falls to B2F, and the walk on to goal, the fewest steps and pushes. A
+    push moves the boulder a tile the way the player faces, onto floor no one stands on, and leaves the player where
+    they were; the player never steps onto a hole (they would fall through) or a warp but the goal. The other boulders
+    and the people stand where the map puts them. The test's steps: the talk that starts Strength, facing the boulder
+    for the first push, then a walk to where each push starts and the push."""
+    from talk_to_objects import event_maps
+    matrix, objects, warps, holes = None, set(), set(), set()
+    for _, headers_of, cur, _ in event_maps():
+        for name, m in headers_of:
+            if name == header:
+                matrix = m
+                objects = {(o['x'], o['z']) for o in cur['object_events']} - {boulder}
+                warps = {(w['x'], w['z']) for w in cur['warp_events']} - {goal}
+                holes = {(c['x'], c['z']) for c in cur['coord_events']}
+
+    def floor(p):
+        t = maps.tile(matrix, *p)
+        return p == goal or t is not None and walkable(t) and p not in warps and p not in objects
+
+    first = (start, boulder)
+    came, queue = {first: None}, collections.deque([first])
+    while queue:
+        state = queue.popleft()
+        pos, rock = state
+        if pos == goal and rock is None:
+            break
+        for key, d in zip(KEYS, ((0, -1), (0, 1), (-1, 0), (1, 0))):
+            n = (pos[0] + d[0], pos[1] + d[1])
+            if n == rock:
+                beyond = (n[0] + d[0], n[1] + d[1])
+                if not floor(beyond) or beyond == goal:
+                    continue
+                nxt, push = (pos, None if beyond == hole else beyond), key
+            elif floor(n) and n not in holes:
+                nxt, push = (n, rock), None
+            else:
+                continue
+            if nxt not in came:
+                came[nxt] = (state, push)
+                queue.append(nxt)
+    else:
+        return None
+    steps, at, last = [('to', goal)], state, None
+    while came[at]:
+        at, key = came[at]
+        if key:
+            steps[:0] = [('to', at[0]), ('push', key)]
+            last = key
+    return [steps[0], last, ('talk', [True])] + steps[1:]
+
+
+def blackthorn_gym(maps, start, goal, floors=None):
+    """A way across Blackthorn Gym (src/complete_gyms.c, HeartGold's blackthorn.c): its three floors over the lava
+    move and turn as the player steps onto their buttons, and the player rides them; the lava is walkable only where a
+    floor is. A move goes the floor's width that way if every tile its leading edge passes over is lava (no wall, no
+    ground); otherwise it goes nowhere. A turn goes a quarter turn if the tiles around the floor and those its corners
+    sweep are lava (the game's own tables say which tiles stop a turn part way, BlackthornGym_TurnExtent); otherwise
+    it goes back. A breadth-first search over (where the player stands, where each floor is and how it is turned)
+    finds the fewest steps from start to goal, with the floors where the gym starts them or where floors has them. The
+    test walks to the tile before each button (its walks never step
+    onto one, nor onto the lava, nor the pads that send the player back to the door) and takes the step onto it."""
+    from talk_to_objects import event_maps
+    from test_hgss_opening import BLACKTHORN_GYM, COLLISION, MAGMA, blackthorn_floor
+    source = open(os.path.join(DECOMP, 'src', 'complete_gyms.c'), encoding='utf-8').read()
+    extents = {name: [int(n) for n in re.findall(r'\d+', values)]
+               for name, values in re.findall(r'sBlackthorn(\w+Extents_\w+)\[\] = \{([^}]*)\}', source)}
+    floors = floors or tuple((int(x), int(z), int(r)) for _, x, _, z, _, r in re.findall(
+        r'data->x\[(\d)\] = (\d+);\s+data->z\[(\d)\] = (\d+);\s+data->rotation\[(\d)\] = (\d+);', source))
+    for _, headers_of, cur, _ in event_maps():
+        for name, m in headers_of:
+            if name == BLACKTHORN_GYM:
+                matrix = m
+                people = {(o['x'], o['z']) for o in cur['object_events']}
+                pads = {(c['x'], c['z']) for c in cur['coord_events'] if c['var'] == 'VAR_HGSS_UNK_4111'}
+
+    def clear(p):  # lava a floor can go over
+        t = maps.tile(matrix, *p)
+        return t is not None and not t & COLLISION and t & 0xff == MAGMA
+
+    def act(state, i, button):
+        """The floors after floor i's button is stepped on, and how far the player rides it."""
+        x, z, r = state[i]
+        tiles, width, height = blackthorn_floor(i, r, x, z)
+        wide = 'Wide' if i != 1 else 'Long'
+        if button == 'turn':
+            sides = tiles['bottom wall'] + tiles['top wall'] + tiles['left wall'] + tiles['right wall'][:width - 1]
+            stops = [(p, e) for p, e in zip(tiles['turn check'], extents['TurnExtents_' + wide])] \
+                + [(p, e) for p, e in zip(tiles['edge'], extents['EdgeExtents_' + wide])]
+            if all(clear(p) for p in sides) and all(clear(p) or e >= 64 for p, e in stops):
+                return state[:i] + ((x, z, (r + 1) % 4),) + state[i + 1:], (0, 0)
+            return state, (0, 0)
+        d = [(1, 0), (0, 1), (-1, 0), (0, -1)][((0 if button == 'move right' else 2) + r) % 4]
+        lead = tiles['right wall' if button == 'move right' else 'left wall']
+        if all(clear((p[0] + k * d[0], p[1] + k * d[1])) for k in range(width) for p in lead):
+            return state[:i] + ((x + width * d[0], z + width * d[1], r),) + state[i + 1:], (width * d[0], width * d[1])
+        return state, (0, 0)
+
+    def layout(state):
+        """The floors' walkable tiles, and their buttons: {tile: (floor, button)}."""
+        walk, buttons = set(), {}
+        for i, (x, z, r) in enumerate(state):
+            tiles, _, _ = blackthorn_floor(i, r, x, z)
+            walk |= set(tiles['floor'])
+            for button in ('turn', 'move right', 'move left'):
+                buttons[tiles[button][0]] = (i, button)
+        return walk, buttons
+
+    first = (start, floors)
+    came, queue = {first: None}, collections.deque([first])
+    while queue:
+        state = queue.popleft()
+        pos, now = state
+        if pos == goal:
+            break
+        walk, buttons = layout(now)
+        for key, d in zip(KEYS, ((0, -1), (0, 1), (-1, 0), (1, 0))):
+            n = (pos[0] + d[0], pos[1] + d[1])
+            t = maps.tile(matrix, *n)
+            if n in buttons:
+                after, (dx, dz) = act(now, *buttons[n])
+                nxt, pressed = ((n[0] + dx, n[1] + dz), after), key
+            elif t is not None and walkable(t) and (t & 0xff != MAGMA or n in walk) and n not in people | pads:
+                nxt, pressed = (n, now), None
+            else:
+                continue
+            if nxt not in came:
+                came[nxt] = (state, pressed)
+                queue.append(nxt)
+    else:
+        return None
+    steps, at = [('to', goal)], state
+    while came[at]:
+        at, key = came[at]
+        if key:
+            steps[:0] = [('to', at[0]), key]
+    blackthorn_gym.floors = state[1]  # where the floors end up
+    return steps
+
+
 def main():
     maps = Maps(DECOMP)
     for name, steps in [('Azalea Gym, to Bugsy', azalea_gym(maps, AZALEA_DOOR, AZALEA_CARTS, 0, AZALEA_BUGSY)),
@@ -333,7 +478,10 @@ def main():
                         ('Mahogany Gym, the second room', ice_room(maps, 'MAP_HEADER_HGSS_MAHOGANY_GYM_ROOM_2', (6, 14),
                                                                    (6, 2))),
                         ('Mahogany Gym, to Pryce', ice_room(maps, 'MAP_HEADER_HGSS_MAHOGANY_GYM_LEADER_ROOM', (5, 18),
-                                                            (7, 5)))]:
+                                                            (7, 5))),
+                        ('Blackthorn Gym, to Clair', blackthorn_gym(maps, (13, 86), (12, 4))),
+                        ('Ice Path B1F, the first boulder', boulder_hole(maps, 'MAP_HEADER_HGSS_ICE_PATH_B1F', (6, 21),
+                                                                         (10, 13), (11, 10), (25, 8)))]:
         print(f'{name}:')
         for step in steps or ['no way found']:
             print(f'    {step}')

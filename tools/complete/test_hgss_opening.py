@@ -151,6 +151,23 @@ as a player would, without the test warp:
     back into the Radio Tower and up to 3F, where the Card Key opens the shutter in the way (FLAG_HGSS_UNK_090).
 51. **Archer:** up to 5F and by the elevator to the observation deck, where Archer battles, and then (in Sacred Gold)
     Giovanni; the director thanks the player, and the Radio Tower is free (VAR_HGSS_SCENE_ROCKET_TAKEOVER 5).
+52. **Back to Mahogany:** down the tower and back the way the player came, by Routes 35 and 36, the National Park, Route
+    37, Ecruteak City and Route 42, to Mahogany Town's Pokémon Center.
+53. **The Ice Path's boulder:** east along Route 44 (its trainers) into the Ice Path, over 1F's ice to HM07, down to
+    B1F, and Strength's pushes of the first boulder into its hole (tools/complete/solve_story_puzzles.py;
+    src/complete_map_info.c): it falls to B2F (FLAG_HGSS_HIDE_ICE_PATH_BOULDER_1_INIT), where it stops a slide over
+    the ice; then down to B2F.
+54. **Blackthorn City:** across B2F's ice, past the fallen boulder, down to B3F and back up by the far ladders to B1F
+    and 1F, where a Kimono Girl the player slides into asks to be let by (yes) and goes, and out into Blackthorn City
+    (its Fly point recorded) and its Pokémon Center.
+55. **Clair:** into Blackthorn Gym, where the guide puts the follower in its Ball, and over the lava on the gym's
+    three floors, each moved and turned by the buttons on it as the player steps on them (the fewest steps, from the
+    gym's own data: tools/complete/solve_story_puzzles.py; src/complete_gyms.c), past its trainers to Clair: her
+    battle (FLAG_HGSS_UNK_0D1), after which she sends the player to the Dragon's Den.
+56. **The Rising Badge:** back to the gym's door on the pad beside Clair, into the Dragon's Den, on Surf across its
+    lake and its whirlpool (Whirlpool, yes) to the shrine, where the elder's quiz plays as the player enters (A picks
+    the first answer each time; a wrong one only changes the Dratini given later), and Clair, there too, gives the
+    Rising Badge (FLAG_HGSS_UNK_0EA).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -198,9 +215,10 @@ ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
 # ('ladder', (x, z), key): a walk onto a ladder, then the key toward it if the step didn't take it, ('talk', answers): A
 # to talk to what the player faces, answering its menus (talk_and_answer's), ('meet', (x, z), answers): the same with
 # whoever the map put on that tile, wherever they have wandered (by land or water), ('switches', [(x, z), ...], (x,
-# z)): the switches below those tiles pressed until their shutters leave a way to the last tile, then the walk there, or
-# ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own
-# tile). The stairs and doors warp as the player presses toward them from their tile.
+# z)): the switches below those tiles pressed until their shutters leave a way to the last tile, then the walk there,
+# ('push', key): Strength's push of the boulder the player faces that way, or ('keep', n): the party cut to its first n
+# Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs and doors warp as the
+# player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -384,11 +402,50 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_3F', 'FLAG_HGSS_UNK_090'),
          ('Archer', [('ladder', (19, 5), 'LEFT'), ('ladder', (23, 5), 'RIGHT'), ('to', (13, 3)), 'UP',
                      ('to', (3, 6)), 'DOWN', ('to', (8, 4)), 'UP', ('talk', [])],
-          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 5))]
+          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 5)),
+         ('back to Mahogany', [('to', (8, 13)), 'UP', ('to', (3, 6)), 'DOWN',  # the elevator
+                               ('ladder', (19, 5), 'RIGHT'), ('ladder', (19, 5), 'LEFT'),  # 4F's east side
+                               ('ladder', (3, 5), 'LEFT'), ('ladder', (23, 5), 'RIGHT'), ('to', (2, 14)), 'DOWN',
+                               ('to', (358, 325)), 'UP', ('to', (5, 2)), 'UP',  # Route 35
+                               ('to', (362, 266)), 'UP', ('to', (25, 2)), 'UP',  # the National Park
+                               ('to', (75, 39)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 36
+                               ('to', (415, 175)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 37, Ecruteak City
+                               ('surf', (534, 183)), 'UP'],  # Route 42
+          'MAP_HEADER_HGSS_MAHOGANY_POKECENTER_1F', None),
+         ('the Ice Path\'s boulder', [('to', (8, 19)), 'DOWN', ('to', (633, 169)), 'UP',  # Route 44
+                                      ('to', (46, 10)), 'RIGHT', ('talk', []),  # HM07, over the ice
+                                      ('to', (55, 7)),  # the ladder down to B1F
+                                      ('to', (10, 14)), 'UP', ('talk', [True]), ('push', 'UP'), ('to', (10, 13)),
+                                      ('push', 'UP'), ('to', (10, 12)), ('push', 'UP'), ('to', (10, 11)), ('push', 'UP'),
+                                      ('to', (9, 9)), ('push', 'RIGHT'), ('to', (11, 8)), ('push', 'DOWN'),  # its hole
+                                      ('to', (25, 8))],
+          'MAP_HEADER_HGSS_ICE_PATH_B2F', 'FLAG_HGSS_HIDE_ICE_PATH_BOULDER_1_INIT'),
+         ('Blackthorn City', [('to', (16, 17)), ('ladder', (24, 12), 'UP'), ('ladder', (43, 22), 'UP'),
+                              ('ladder', (6, 42), 'UP'), ('to', (55, 28)), 'DOWN', ('talk', [True]),  # the Kimono Girl
+                              ('to', (55, 40)), 'DOWN', ('to', (674, 176)), 'UP'],
+          'MAP_HEADER_HGSS_BLACKTHORN_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_BLACKTHORN')),
+         ('Clair', [('to', (8, 19)), 'DOWN', ('to', (668, 152)), 'UP',  # the gym; its floors:
+                    ('to', (13, 76)), 'UP', ('to', (13, 75)), 'LEFT', ('to', (7, 75)), 'RIGHT', ('to', (8, 75)),
+                    'DOWN', ('to', (8, 76)), 'UP', ('to', (8, 75)), 'RIGHT', ('to', (8, 57)), 'RIGHT',
+                    ('to', (9, 53)), 'DOWN', ('to', (9, 54)), 'RIGHT', ('to', (14, 54)), 'LEFT', ('to', (12, 54)),
+                    'RIGHT', ('to', (13, 54)), 'RIGHT', ('to', (14, 33)), 'UP', ('to', (14, 32)), 'LEFT',
+                    ('to', (8, 32)), 'RIGHT', ('to', (9, 32)), 'UP', ('to', (9, 31)), 'DOWN', ('to', (9, 32)),
+                    'RIGHT', ('to', (15, 32)), 'LEFT', ('to', (14, 32)), 'UP', ('to', (14, 26)), 'DOWN',
+                    ('to', (14, 27)), 'UP', ('to', (14, 21)), 'DOWN', ('to', (14, 22)), 'UP', ('to', (14, 16)),
+                    'DOWN', ('to', (14, 17)), 'RIGHT', ('to', (20, 17)), 'LEFT', ('to', (19, 17)), 'UP',
+                    ('to', (19, 11)), 'DOWN', ('to', (19, 12)), 'UP', ('to', (12, 4)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_BLACKTHORN_GYM', 'FLAG_HGSS_UNK_0D1'),
+         ('the Rising Badge', [('to', (5, 9)),  # the pad by Clair, back to the gym's door
+                               ('to', (13, 87)), 'DOWN', ('to', (672, 133)), 'UP',  # the Dragon's Den
+                               ('to', (6, 5)), ('surf', (14, 35)), 'DOWN',  # its whirlpool: Whirlpool, yes
+                               ('surf', (28, 51)), 'UP'],  # the shrine
+          'MAP_HEADER_HGSS_DRAGONS_DEN_SHRINE', 'FLAG_HGSS_UNK_0EA')]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
-# Farfetch'd, and Ecruteak Gym's pits
-AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD', ECRUTEAK_GYM: 'VAR_HGSS_UNK_4109'}
+# Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, and Blackthorn Gym's pads,
+# which send the player back to its door
+AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD', ECRUTEAK_GYM: 'VAR_HGSS_UNK_4109',
+                    'MAP_HEADER_HGSS_ICE_PATH_B1F': 'VAR_HGSS_UNK_40AA', 'MAP_HEADER_HGSS_BLACKTHORN_GYM': 'VAR_HGSS_UNK_4111'}
 # the tile behaviors that warp (include/constants/field/map_tile_behaviors.h: the stairs to the directional warps,
 # doors among them) and HeartGold's ladders (Complete's 0x0D-0x0F): a warp event on another tile is part of a wider
 # doorway, and a walk may cross it
@@ -403,7 +460,7 @@ ICE_ROCK = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read
     'OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
-SWITCH_FRAMES = 120  # a switch's shutters moving (two tiles each)
+MOVE_FRAMES = 120  # a switch's shutters or a pushed boulder moving (two tiles at most)
 DOUBLES_TARGETS = ((64, 30), (190, 30))  # the foes' boxes on a double battle's target screen (bottom screen)
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
@@ -414,6 +471,36 @@ WALK_STEPS = 600  # the most steps one walk takes
 STEP_WAIT = 16  # frames more to wait for a step that hasn't started
 FORGETS = 3  # how many times a walk forgets the steps that failed when they leave no way
 MARGIN = 40  # tiles around the start and the goal a route may go through
+BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
+MAGMA = 0x2b  # TILE_BEHAVIOR_COMPLETE_MAGMA: Blackthorn Gym's lava, walkable only where a floor is over it
+COLLISION = 0x8000  # a tile's collision bit (src/terrain_collision_manager.c)
+# Blackthorn Gym's floors in the save (MiscSaveBlock: 128 BerryPatches of 14 bytes, then PersistedMapFeatures: its ID,
+# DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM, and BlackthornGymPersistedData: u16 x[3], u16 z[3], u8 rotation[3])
+MISC_FEATURES, BLACKTHORN_FEATURE = 128 * 14, 15
+
+
+def blackthorn_floor(index, rotation, x, z):
+    """One of Blackthorn Gym's floors (src/complete_gyms.c, BlackthornGym_InitFloor and BlackthornGym_TurnFloor),
+    centred on its turn button (x, z) and turned rotation quarter turns: its buttons, the tiles around it its moves and
+    turns check, and its walkable tiles, by name; and its width and height. 'move right' is the button beside the turn
+    button that moves the floor right (as it points when not turned), 'move left' the other."""
+    wide = index != 1
+    width, height, right = (5, 7, 3) if wide else (4, 8, 2)
+    tiles = {'turn': [(x, z)], 'move right': [(x + 1, z)], 'move left': [(x - 1, z)],
+             'right wall': [(x + right, z - 2 + i) for i in range(height)],
+             'left wall': [(x - 3, z - 2 + i) for i in range(height)],
+             'bottom wall': [(x - 2 + i, z + (5 if wide else 6)) for i in range(width)],
+             'top wall': [(x - 2 + i, z - 3) for i in range(width)],
+             'edge': [(x + 3, z - 2 + i) for i in range(width)],
+             'turn check': [(x - 4 - i, z + (4 if wide else 5) - j) for i in range(2 if wide else 3)
+                            for j in range(height)],
+             'floor': [(x - 1 + j, z - 1 + i) for i in range(6) for j in range(3)]}
+
+    def turned(p):
+        dx, dz = p[0] - x, p[1] - z
+        return [p, (x - dz, z + dx), (x - dx, z - dz), (x + dz, z - dx)][rotation]
+
+    return {name: [turned(p) for p in points] for name, points in tiles.items()}, width, height
 
 
 def fly_points(variables):
@@ -582,10 +669,33 @@ def main():
     def u32(addr):
         return struct.unpack('<I', bytes(mem.unsigned[addr:addr + 4]))[0]
 
-    def vars_flags():
+    def save_block(entry):
         base = u32(sym['sSaveDataPtr'])
-        at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index('SAVE_TABLE_ENTRY_VARS_FLAGS') * 16 + 8
+        at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index(entry) * 16 + 8
         return base + 20 + u32(at)
+
+    def vars_flags():
+        return save_block('SAVE_TABLE_ENTRY_VARS_FLAGS')
+
+    gym = matrix_of.get(BLACKTHORN_GYM)
+    gym_lava = {(x, z) for x in range(32) for z in range(96)
+                if gym and (maps.tile(gym, x, z) or 0) & (COLLISION | 0xff) == MAGMA}  # lava a floor can be over
+
+    def floors_blocked():
+        """In Blackthorn Gym, the lava no floor is over and the floors' buttons, which a walk keeps off (the floors
+        where the save has them now: blackthorn_floor). Elsewhere nothing."""
+        if here() != BLACKTHORN_GYM:
+            return set()
+        at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
+        if u32(at) != BLACKTHORN_FEATURE:
+            return set()
+        x, z = [u16(at + 4 + 2 * i) for i in range(3)], [u16(at + 10 + 2 * i) for i in range(3)]
+        walk, buttons = set(), set()
+        for i in range(3):
+            tiles, _, _ = blackthorn_floor(i, mem.unsigned[at + 16 + i], x[i], z[i])
+            walk |= set(tiles['floor'])
+            buttons |= set(tiles['turn'] + tiles['move right'] + tiles['move left'])
+        return (gym_lava - walk) | buttons
 
     def var(name):
         return u16(vars_flags() + (variables[name] - variables['VARS_START']) * 2)
@@ -732,7 +842,7 @@ def main():
             before = pos
             armed = [tiles for tiles, name, value in triggers_of.get(header, [])
                      if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
-            avoid = (warps_of[matrix] | set().union(*armed)) - {goal}
+            avoid = (warps_of[matrix] | set().union(*armed) | floors_blocked()) - {goal}
             # around everyone where they are now (or where the map puts them), and if that fails, through them
             h, lift, (people, blocks) = height(), lifts(), others()
             people, blocks = (people_of[matrix], ()) if people is None else (people, blocks)
@@ -827,7 +937,7 @@ def main():
                 d.press('UP', frames=8, after=16)
                 before = others()[0]
                 d.press('A', frames=4, after=0)  # once: a switch shows no text, and A again would press it again
-                d.run(SWITCH_FRAMES)
+                d.run(MOVE_FRAMES)
                 if not free(IDLE_RUN):
                     return f'the field never came free after the switch at {tiles[flip]}'
                 if others()[0] != before:
@@ -835,6 +945,20 @@ def main():
             else:
                 return f'the switch at {tiles[flip]} moves nothing'
         return f'no set of the switches at {tiles} opens a way to {goal}, on {here()}'
+
+    def push(key):
+        """Strength's push of the boulder the player faces that way: key, again only if nothing moved (the press
+        turned the player); the push runs as a field task and leaves the player where they were. Returns a problem,
+        or ''."""
+        for _ in range(3):
+            before = others()[0]
+            d.press(key, frames=8, after=0)
+            d.run(MOVE_FRAMES)
+            if not free(IDLE_RUN):
+                return f'the field never came free after the push {key}, on {here()} at {d.pos()}'
+            if others()[0] != before:
+                return ''
+        return f'the push {key} moved nothing, on {here()} at {d.pos()}'
 
     results = []
     d.run(30)
@@ -854,6 +978,8 @@ def main():
                 problem = meet(action[1], action[2])
             elif action[0] == 'switches':
                 problem = switches(action[1], action[2])
+            elif action[0] == 'push':
+                problem = push(action[1])
             elif action[0] in ('to', 'ladder', 'surf'):
                 before = matrix_of.get(here())
                 problem = walk_to(action[1], action[0] == 'surf')
