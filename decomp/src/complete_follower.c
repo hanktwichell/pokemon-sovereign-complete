@@ -129,16 +129,32 @@ static int WantedGfx(FieldSystem *fieldSystem)
     return sFollowerGfx[gfx].graphicsID;
 }
 
+// A scene can leave the follower further off than its steps make up (Elm's lab: it comes out beside the player at the
+// table, then the scene walks the player back to Elm), and it walks to the player's last tile at each step, so it
+// would trail that far behind. With both standing still and the follower more than two tiles away (a ledge leaves
+// two), it's left behind.
+static BOOL IsLeftBehind(FieldSystem *fieldSystem, MapObject *follower)
+{
+    if (MapObject_IsMoving(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar)) || MapObject_IsMoving(follower)) {
+        return FALSE;
+    }
+
+    int dx = MapObject_GetX(follower) - PlayerAvatar_GetXPos(fieldSystem->playerAvatar);
+    int dz = MapObject_GetZ(follower) - PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+
+    return (dx < 0 ? -dx : dx) + (dz < 0 ? -dz : dz) > 2;
+}
+
 // As HeartGold's follower goes back in its ball on the bike and while surfing, and changes with the lead: on each
 // field frame the player has control (src/overlay005/field_control.c), the follower is made again when it isn't the
 // one the lead, the player and the map call for (the lead changed in the party menu or fainted, the player got on or
-// off the bike or the water, or walked onto a map where nobody follows), or a scene put it away
+// off the bike or the water, or walked onto a map where nobody follows), or a scene put it away or left it behind
 void CompleteFollower_Update(FieldSystem *fieldSystem)
 {
     MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);
     int gfx = WantedGfx(fieldSystem);
 
-    if (follower == NULL ? gfx < 0 : (int)MapObject_GetGraphicsID(follower) == gfx && !MapObject_IsHidden(follower)) {
+    if (follower == NULL ? gfx < 0 : (int)MapObject_GetGraphicsID(follower) == gfx && !MapObject_IsHidden(follower) && !IsLeftBehind(fieldSystem, follower)) {
         return;
     }
 

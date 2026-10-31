@@ -5,7 +5,8 @@ For each hidden item on a Johto or Kanto map (a bg event with a hidden item's sc
 tools/complete/import_hgss_field_items.py), this comes into the map as tools/test/talk_to_objects.py does, stands on
 a tile next to the item facing it and presses A. Then it checks what the game did:
 - ok: the item's own script ran to its end, and a second A press from the same tile starts nothing (its flag, the one
-  the engine checks for that event, is set: Script_GetHiddenItemFlag);
+  the engine checks for that event, is set: Script_GetHiddenItemFlag), or asks to Headbutt the tree the item was in
+  (CommonScript_CompleteHeadbutt, as HeartGold's tree asks once its item is gone);
 - NOSCRIPT: nothing ran; OTHER and a script: another one ran instead; AGAIN: the item's script ran a second time;
 - UNDER: an object stands on it (an item ball or a person, as in HeartGold), and A talks to that first;
 - NOTILE: no tile next to it the player can reach; HANG, STUCK, HEAP and NOWARP as in talk_to_objects.py.
@@ -26,6 +27,7 @@ from talk_to_objects import (DECOMP, FRAME_LIMIT, SYMBOLS, arrive, event_maps, h
 HIDDEN_ITEM = 2  # BG_EVENT_TYPE_HIDDEN_ITEM
 SCRIPTS = range(8300, 8800)  # Johto's and Kanto's (import_hgss_field_items.hidden_item_script)
 UNDER = {}  # (events, script): the script of the object standing on the item, if one does
+HEADBUTT = 0x810  # CommonScript_CompleteHeadbutt: a Headbutt tree's tile, under some items
 
 
 def cases():
@@ -67,7 +69,7 @@ def pick_up(d, sym, header, script, x, z, face):
     d.emu.memory.write_short(sym['gSovereignTestScripts'], 0)
     result, more = play_out(d, sym, FRAME_LIMIT)
     started = u32(d, sym['gSovereignTestScripts'])
-    if result == 'NOSCRIPT' or not started & 0xffff:
+    if result == 'NOSCRIPT' or not started & 0xffff or started >> 16 == HEADBUTT:
         return 'ok', frames + more
     return ('AGAIN' if started >> 16 == script else f'OTHER {started >> 16} the second time'), frames + more
 

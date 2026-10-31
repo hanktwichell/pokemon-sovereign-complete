@@ -803,3 +803,39 @@ Test results on the new test build:
 - **Tested:** `tools/complete/test_hgss_ferry.py` passes its 11 parts: the S.S. Aqua's four as before, and with the
   Earth Badge, Olivine and Vermilion to Canalave City, Canalave City to each (the arrival scene plays), the S.S. Aqua
   and staying in port from the gangway's menu; without it, Olivine's gangway asks nothing and boards the S.S. Aqua.
+
+## Oct 31, 2026: the opening as a player plays it, and fixes the tests found
+
+- **New test `tools/complete/test_hgss_opening.py`:** the opening played as a player plays it, from a new game's own
+  start and without the test warp, walking from place to place by a path it finds over the maps (ledges one way,
+  around people) and paging through every scene with A: down the stairs (Mom's scene), out of the front door, into
+  Elm's lab (his greeting and the errand to Mr. Pokémon), the table of Poké Balls (the starter, a nickname turned
+  down, Elm's lines), out past the aide's Potions, home to Mom for the Pokégear (Sacred Gold's Mom gives it once the
+  player has a Pokémon; without it, the woman at the west exit sends the player back), west out of town (Elm runs out
+  to give his number), along Route 29 to Cherrygrove City (the guide gent's tour), and up Route 30 to Mr. Pokémon's
+  door, where Sacred Gold's Eevee gift stands, and inside (Mr. Pokémon's Egg, Oak's Pokédex), back south to
+  Cherrygrove City's east entrance (the rival's battle) and east to Elm's lab (Elm and the police officer). Each part
+  checks the flag or var its scene sets, and that the follower is beside the player (at most two steps off, as a
+  scene can leave it diagonally). All ten parts pass, each from the save state the one before left.
+- **The follower left behind:** after the starter, the following Pokémon came out beside the player at the table,
+  then the scene walked the player back to Elm, and it trailed five tiles behind from then on, as it steps to the
+  player's last tile each step. Now, with both standing still and the follower more than two tiles away (a ledge
+  leaves two), it comes back on the player's tile to step out behind them, as after a warp
+  (`src/complete_follower.c`). The opening test checks that the follower is within a tile of the player at the end
+  of each part.
+- **Hidden items** (`tools/complete/test_hgss_hidden_items.py`, on the latest build): 234 of 243 found once and only
+  once, 7 lying under a person or an item ball as in HeartGold, and 2 the test can't reach, as before. Two lie on
+  Headbutt trees, so once the item is taken a second A asks to Headbutt the tree, as in HeartGold; the test counts
+  that as found once now.
+- **The wild tables, all of them** (`tools/complete/test_hgss_encounters.py`, every Johto and Kanto map with wild
+  Pokémon, each time of day, surfing and the rods): 29,088 Pokémon made, all from Sacred Gold's tables. What the run
+  called problems were the test's own: the Ruins of Alph's hall and its three Sinjoh Ruins event versions let Unown
+  out only once a puzzle is solved (the test now solves them first: 576 Unown, no problems), and the Safari Zone's map
+  table is HeartGold's stand-in, as its Pokémon come from the arranged areas' tables, which
+  `tools/complete/test_hgss_safari.py` checks (the test leaves it out now).
+- **Johto's and Kanto's 737 trainers** (`tools/test/battle_all_trainers.py`, on the latest build): every battle
+  starts, runs to its end and comes back to the field.
+- **Sovereign's battle script check** (`tools/test/check_battle_scripts.py`) found the Bug-Catching Contest's Sport
+  Ball throw (`subscript_complete_throw_sport_ball`) in the subscripts' order but not in
+  `generated/battle_subscripts.txt`, which keeps the two in step; it's there now, and every battle script fits (the
+  largest, 1,944 of 2,048 bytes). Every battle sprite (`check_battle_sprites.py`): 5,344, no problems.

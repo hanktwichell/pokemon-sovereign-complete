@@ -7,8 +7,10 @@ map as tools/test/wild_forms.py does and runs its surveys (gSovereignTestWildSur
 SAMPLES times, with no encounter roll and no battle): the grass at 6:00, 12:00 and 22:00 (HeartGold's morning, day and
 night; gSovereignTestClock), and surfing and the three rods where the table has them. Each Pokémon made must be one of
 that terrain's slots: for the grass, a species of that time of day at its slot's level; on the water, a species of the
-terrain within its slot's levels. The Ruins of Alph's underground hall lets Unown out only once a puzzle is solved
-(src/complete_encounters.c), so it gets there with all four solved.
+terrain within its slot's levels. The Ruins of Alph's underground hall (and its Sinjoh Ruins event versions) lets
+Unown out only once a puzzle is solved (src/complete_encounters.c), so it gets there with all four solved. The Safari
+Zone's map table is HeartGold's stand-in: its Pokémon come from the arranged areas' tables, which
+tools/complete/test_hgss_safari.py checks, so it's left out here.
 
 From the repo root, with the test build and a bedroom state (tools/test/new_game.sh):
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_encounters.py \\
@@ -30,7 +32,11 @@ from wild_forms import MON_SIZE, SURVEY, TERRAINS, events_of, run_survey, specie
 TIMES = (('morning', 6), ('day', 12), ('night', 22))
 CLOCK_HOUR = 0  # offsetof(struct SovereignTestClock, hour): the hour + 1
 WATER = (('surf', 'surf'), ('old rod', 'old_rod'), ('good rod', 'good_rod'), ('super rod', 'super_rod'))
-ALPH_HALL = 'MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL'
+ALPH_HALLS = ('MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL',  # CompleteEncounters_IsRuinsOfAlphHall's
+              'MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT',
+              'MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT',
+              'MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL_SINJOH_EVENT_2')
+SAFARI_ZONE = 'MAP_HEADER_HGSS_SAFARI_ZONE_ENTRANCE_EXTERIOR'
 ALPH_PUZZLES = ('KABUTO', 'AERODACTYL', 'OMANYTE', 'HO_OH')  # FLAG_HGSS_SYS_ALPH_PUZZLE_*
 TEST_VARS = 2  # gSovereignTestVar's entries from here on (arrive() may use [0] and [1])
 
@@ -50,9 +56,10 @@ def cases():
         matrix = headers_of[0][1]
         taken = {(o['x'], o['z']) for o in cur.get('object_events', [])}
         for header, _ in headers_of:
-            if header not in tables:
+            if header not in tables or header == SAFARI_ZONE:
                 continue
-            table = json.load(open(os.path.join(DECOMP, 'res', 'field', 'encounters', 'hgss', tables[header] + '.json')))
+            table = json.load(open(os.path.join(DECOMP, 'res', 'field', 'encounters', 'hgss',
+                                                tables[header] + '.json')))
             tile = way_in_to(maps, matrix, grid, cur, header, taken, None) or tile_on(maps, matrix, grid, header)
             if tile is not None:
                 out.append((header, ids.index(header), table, tile))
@@ -86,7 +93,7 @@ def main():
 
         for index, (header, header_id, table, (x, z)) in chosen:
             result, frames = arrive(d, sym, state, variables, events_of(header), header_id, (x, z), x, z, 1,
-                                    setup=solve_puzzles if header.startswith(ALPH_HALL) else None)
+                                    setup=solve_puzzles if header in ALPH_HALLS else None)
             if result != 'ok':
                 bad += 1
                 say(f'{index} {header}: {result} {frames}')
