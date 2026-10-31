@@ -724,3 +724,32 @@ Test results on the new test build:
   (above). Two of Sovereign's tools read Complete's data wrongly, and now leave HeartGold's to the tests made for it:
   `roamers.py` counted names past the end of `enum RoamerRouteIndex` as routes, and `wild_forms.py` read HeartGold's
   encounter tables in Sovereign's format.
+- **Sovereign's signs and triggers on Sinnoh's maps** (`signs_and_triggers.py`: the 893 signs, hidden items and
+  triggers Sovereign added or changed): 847 run to their end, and none of the rest is Complete's doing. Something
+  stands on the tile (Rotom's room's appliances; Barry on a Pastoria City trigger, as the story hides him first); the
+  test can't reach the tile (Amity Square's walkway triggers, Pastoria Gym's walkway, where the test puts the player in
+  the water beside it, and other NOTILEs); the Galactic HQ's people stand on sign tiles; Platinum's elevators can't be
+  ridden by the test; a trainer or a scene starts first. The Old Chateau's hidden item passed when run again, and
+  Spear Pillar's scene (Mars and Jupiter, Barry, Cyrus) ends on its own after 36,060 frames, past the test's 20,000.
+
+## Oct 30, 2026: a bigger bag, and screens the scripts skipped
+
+- **The bag's Key Items and Poké Balls pockets grow** (`include/bag.h`): Key Items from Platinum's 50 slots to 100,
+  as the three regions have 92 key items, and Poké Balls from 15 to 30, for 25 kinds of Ball. A full pocket would
+  have dropped the next key item a script gave, story items too. The bag grows by 260 bytes, inside the normal save
+  block's last sector (1,440 bytes were free), so the save keeps its sectors; saves from before this change don't load
+  right. `tools/complete/test_save.py` now also puts one of every key item and every Ball in the bag: all must fit and
+  still be there after a save and CONTINUE.
+- **HeartGold's screens before `ReturnToField`:** a script that opened one of HeartGold's screens and then brought the
+  field back did nothing in between, as the screen's command wasn't translated. Now: Primo in Violet City's Pokémon
+  Center takes his password on Platinum's Easy Chat screen (`ChooseTwoCustomMessageWords`, HeartGold's
+  `PromptEasyChat`; checking the password waits with the other distribution events); the PC in the player's room
+  counts the mail in the PC's mailbox and opens Platinum's mailbox menu; and the Johto Pokédex's and the Shiny Leaf
+  crown's certificates, which have no screen here yet, close the field as a screen would. Checked in the emulator:
+  with a mail in the mailbox the room's PC plays out and the room comes back (twice); Primo's Easy Chat screen opens,
+  and quitting it (B, then Yes: its cursor starts on No, which the talk test keeps pressing A on, so it reports him
+  STUCK) brings him back to answer and the field back. A subset of scripts can be installed again
+  (`tools/complete/translate_hgss_scripts.py --install ... STEM`) without the others dropping out of the build's
+  lists.
+- The bigger bag in battle: Sovereign's bag-using battle cases (Ball Fetch, items, Pickup, Knock Off, Thief, Air
+  Balloon) all match their recorded results.

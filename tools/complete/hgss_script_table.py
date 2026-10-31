@@ -309,9 +309,18 @@ COMMANDS = {
     'BufferMonSize': one('BufferPartyPokemonSize {0}, {1}, {2}'),
     # The Celadon Condominiums' game designer: HeartGold's Johto Pokédex (tools/complete/import_hgss_johto_dex.py)
     'CheckJohtoDexComplete': one('CompleteCheckJohtoDexComplete {0}'),
-    # HeartGold's certificates: the National Pokédex's is Platinum's diploma for it; the Johto Pokédex's (0) and the
-    # Shiny Leaf crown's (2) have no screen yet
-    'ShowCertificate': lambda a: ['ShowDiplomaNationalDex'] if a[0] == '1' else [f'@ HGSS: ShowCertificate {a[0]}'],
+    # HeartGold's certificates: the National Pokédex's is Platinum's diploma for it. The Johto Pokédex's (0) and the
+    # Shiny Leaf crown's (2) have no screen yet: the field closes as for a screen, so the ReturnToField after it opens
+    # it again
+    'ShowCertificate': lambda a: ['ShowDiplomaNationalDex'] if a[0] == '1' else ['WaitForTransition'],
+    # Two words picked on the Easy Chat screen (the Violet City Pokémon Center's word lover)
+    'PromptEasyChat': one('ChooseTwoCustomMessageWords {0}, {1}, {2}'),
+    # The player's PC at home: its mail (HeartGold's ScrCmd_377) and its mailbox screen (ScrCmd_376), which is
+    # Platinum's mailbox menu over the field; the field closes after it, as HeartGold's screen closed it, for the
+    # ReturnToField that follows
+    'ScrCmd_377': one('CountMailInMailbox {0}'),
+    'ScrCmd_376': lambda a: ['FadeScreen 6, 1, 1, COLOR_BLACK', 'WaitFadeScreen', 'ScrCmd_1B3',
+                             'FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen', 'WaitForTransition'],
     # HeartGold's mass outbreaks, from Oak's National Pokédex on (src/complete_encounters.c)
     'EnableMassOutbreaks': lambda a: ['SetVar VAR_COMPLETE_OUTBREAKS, 1'],
     # Olivine City's seal gift (the Seal Case's seals are numbered as HeartGold's)

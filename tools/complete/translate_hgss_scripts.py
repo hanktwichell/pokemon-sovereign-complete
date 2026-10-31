@@ -298,8 +298,9 @@ def engine_name(stem):
     return f'scripts_init_hgss_{number}' if stem.endswith('_hdr') else f'scripts_hgss_{number}'
 
 
-def install(files, names, table, platinum_params, hg_params, report):
-    """Write the translated scripts into the engine and register them (scripts.order, meson.build)."""
+def install(files, names, table, platinum_params, hg_params, report, register=True):
+    """Write the translated scripts into the engine and, with register (all of them written), register them
+    (scripts.order, meson.build: the lists are rewritten whole, so a few files alone would drop the rest)."""
     from import_hgss_headers import set_meson, set_order, write_if_changed
     out_names = []
     for path in files:
@@ -310,8 +311,9 @@ def install(files, names, table, platinum_params, hg_params, report):
         write_if_changed(os.path.join(DECOMP, f'res/field/scripts/{name}.s'),
                          '\n'.join(file_header(path, text)) + '\n\n' + text + '\n')
         out_names.append(name)
-    set_order('res/field/scripts/scripts.order', ('scripts_hgss_', 'scripts_init_hgss_'), out_names)
-    set_meson('res/field/scripts/meson.build', "'scripts_init_route_220.s'", [n + '.s' for n in out_names])
+    if register:
+        set_order('res/field/scripts/scripts.order', ('scripts_hgss_', 'scripts_init_hgss_'), out_names)
+        set_meson('res/field/scripts/meson.build', "'scripts_init_route_220.s'", [n + '.s' for n in out_names])
     return out_names
 
 
@@ -384,7 +386,7 @@ def main():
                 used.add(re.sub(r'_bin$', '', f[key]))
         used.update(STD_FILES)
         files = [f for f in files if os.path.splitext(os.path.basename(f))[0] in used]
-        install(files, names, COMMANDS, platinum_params, hg_params, report)
+        install(files, names, COMMANDS, platinum_params, hg_params, report, register=not stems)
         print(f'{install_new_game(source_dir, names)} of HeartGold\'s new game flags in InitNewGame')
     else:
         for path in files:

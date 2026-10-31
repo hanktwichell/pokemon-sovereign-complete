@@ -112,6 +112,12 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   the bag like a stone, so no trade is needed. Its own six evolution items are in (Covenant Orb for trades with no
   item, and the rest: `docs/SacredGold.md`). Proposed: the trade items work from the bag too, in all three regions,
   while trading still works.
+- **HeartGold's key-item screens (found Oct 30, 2026):** Sacred Gold's scripts give the Berry Pots (Violet City:
+  HeartGold grows Berries in them, as Johto has no soil patches), the Unown Report (the Ruins of Alph: the Unown
+  caught) and the Dowsing Machine (it finds hidden items on HeartGold's Pokégear). For now they're key items that do
+  nothing; Platinum's Pokétch Dowsing app finds Johto's and Kanto's hidden items too. Proposed: port the Berry Pots
+  (about a day: their screen, the pots in the save, Berries growing with time) and the Unown Report (about half a
+  day), and leave the Dowsing Machine to the Pokétch and Pokégear question.
 - **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
   a stand-in sprite.
 - **The regional Pokédex (found Oct 30, 2026):** Platinum's Pokédex lists only Sinnoh's regional Pokédex until the

@@ -129,7 +129,7 @@ scr_seq_T07R0203_000:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ShowCertificate 0
+    WaitForTransition
     ReturnToField
     SetFlag FLAG_HGSS_SAW_JOHTO_DEX_CERTIFICATE
     IncrementTrainerScore TRAINER_SCORE_EVENT_LOCAL_DEX_DIPLOMA_RECEIVED

@@ -12,12 +12,17 @@ scr_seq_T20R0202_000:
     BufferPlayerName 0
     Message msg_0546_T20R0202_00000
     CloseMessage
-    @ HGSS: ScrCmd_377 VAR_SPECIAL_RESULT
+    CountMailInMailbox VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _00C2
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_376
+    FadeScreen 6, 1, 1, COLOR_BLACK
+    WaitFadeScreen
+    ScrCmd_1B3
+    FadeScreen 6, 1, 0, COLOR_BLACK
+    WaitFadeScreen
+    WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

@@ -6,12 +6,16 @@ Starts a new game on the test build, then through gCompleteTestSaveProbe (src/co
 2. saves as the start menu does (FieldSystem_Save);
 3. boots again from that battery, CONTINUEs, and reads them back: the four flags are set, a fifth new flag (5000) is
    not, the two vars hold their values, and Sinnoh's last var is still 0.
+Step 1 also puts one of every key item and every Ball in the bag, and step 3 looks for each: all must fit (the
+Key Items and Poké Balls pockets, include/bag.h) and be there after the reload.
 
 A save that loaded as "no save data" (a layout mismatch) would leave only NEW GAME on the main menu, and CONTINUE would
 start a new game instead: the read-back then finds the flags clear.
 
 Usage: python3 tools/complete/test_save.py [ROM]   (defaults to decomp/build_test/pokeplatinum.us.nds)
 """
+import glob
+import json
 import os
 import struct
 import sys
@@ -26,10 +30,17 @@ from drive import Driver  # noqa: E402
 from test_follower import Check, settle, symbol  # noqa: E402
 
 NONE, WRITE, SAVE, READ = 0, 1, 2, 3
-# CompleteTestSaveProbe: u32 request, done, saveOK; u16 flags[5], vars[3]
-PROBE_FORMAT = '<III5H3H'
+# CompleteTestSaveProbe: u32 request, done, saveOK; u16 flags[5], vars[3], keyItems, balls
+PROBE_FORMAT = '<III5H3H2H'
 WANT_FLAGS = (1, 1, 1, 1, 0)
 WANT_VARS = (0xC0DE, 0xBEEF, 0)
+
+
+def pocket_counts():
+    """How many items the Key Items and Poké Balls pockets hold, one of each (res/items/data)."""
+    pockets = [json.load(open(p, encoding='utf-8')).get('fieldPocket')
+               for p in glob.glob(os.path.join(HERE, '..', '..', 'decomp', 'res', 'items', 'data', '*.json'))]
+    return pockets.count('POCKET_KEY_ITEMS'), pockets.count('POCKET_BALLS')
 
 
 def probe(d, addr):
@@ -58,7 +69,11 @@ def main():
     d = Driver(rom)
     for action in ['wait:600', 'A', 'wait:200', 'A', 'wait:200', 'A', 'wait:400'] + ['A', 'wait:60'] * 12 + ['wait:120']:
         d.do(action)
-    check(ask(d, addr, idle_addr, WRITE) is not None, 'the probe flags and vars are set')
+    want_bag = pocket_counts()
+    written = ask(d, addr, idle_addr, WRITE)
+    check(written is not None, 'the probe flags and vars are set')
+    if written:
+        check(tuple(written[11:13]) == want_bag, f'key items and Balls put in the bag: {written[11:13]} (want {want_bag})')
     saved = ask(d, addr, idle_addr, SAVE, frames=3600)
     check(saved is not None and saved[2] == 1, f'the game saved (FieldSystem_Save: {saved and saved[2]})')
     d.run(600)
@@ -78,6 +93,8 @@ def main():
         check(tuple(flags) == WANT_FLAGS, f'flags after the reload: {flags} (want {WANT_FLAGS})')
         check(tuple(vars_) == WANT_VARS, 'vars after the reload: ' + ', '.join(f'0x{v:04X}' for v in vars_)
               + ' (want ' + ', '.join(f'0x{v:04X}' for v in WANT_VARS) + ')')
+        check(tuple(values[11:13]) == want_bag, f'key items and Balls in the bag after the reload: {values[11:13]} '
+              f'(want {want_bag})')
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)

@@ -22,6 +22,8 @@ typedef struct CompleteTestSaveProbe {
     u32 saveOK;
     u16 flags[5];
     u16 vars[3];
+    u16 keyItems; // one of every key item and every Ball is put in the bag; how many are there
+    u16 balls;
 } CompleteTestSaveProbe;
 
 extern CompleteTestSaveProbe gCompleteTestSaveProbe;

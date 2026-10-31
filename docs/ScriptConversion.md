@@ -230,11 +230,11 @@ becomes a Platinum text bank, appended to `generated/text_banks.txt` (the bank n
   Park), the Red Scale, SquirtBottle, Card Key, Pass, Machine Part, Mystery Egg, Jade Orb, Lock Capsule, Enigma Stone
   and the other key items. Left out: the Pokéathlon's 27 data cards (the Pokéathlon is skipped) and the four Sovereign
   has (the Silver and Rainbow Wings, the Red and Blue Orbs).
-- For now Kurt's balls sit in the Poké Balls pocket but can't be thrown (their catch rules, their graphics and the
-  Pokémon's record of its ball come in step 5), and the Apricorn Box, Berry Pots, Dowsing Machine, Unown Report and
-  GB Sounds are key items without a use until their features come. The bag's Poké Balls pocket has 15 slots (25
-  kinds of ball now) and the key items pocket 50 (Sinnoh's and Johto's together are more): the bag's sizes are part
-  of the save, so they grow with step 5's save work.
+- Kurt's balls are thrown with their catch rules (`docs/Features.md`, "Kurt's Apricorn Balls"; their graphics are
+  still to come), and the Apricorn Box lets the player pick Apricorns. The Berry Pots, Dowsing Machine, Unown Report
+  and GB Sounds are key items without a use (`docs/Roadmap.md`, "Still open"; `docs/Music.md`). The bag's Poké Balls
+  pocket holds 30 (25 kinds of ball now; Platinum's 15) and its Key Items pocket 100 (92 key items in three regions;
+  Platinum's 50).
 
 ## Sacred Gold's versions
 

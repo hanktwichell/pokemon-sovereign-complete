@@ -7,12 +7,12 @@
 #include "savedata.h"
 
 #define ITEM_POCKET_SIZE        165
-#define KEY_ITEM_POCKET_SIZE    50
+#define KEY_ITEM_POCKET_SIZE    100 // Sovereign Complete: 50 (92 key items in three regions)
 #define TMHM_POCKET_SIZE        100
 #define MAIL_POCKET_SIZE        12
 #define MEDICINE_POCKET_SIZE    40
 #define BERRY_POCKET_SIZE       64
-#define POKEBALL_POCKET_SIZE    15
+#define POKEBALL_POCKET_SIZE    30 // Sovereign Complete: 15 (25 kinds of Ball with HeartGold's)
 #define BATTLE_ITEM_POCKET_SIZE 30
 
 // clang-format off

@@ -8,10 +8,12 @@
 #include "field/field_system.h"
 #include "overlay005/save_info_window.h"
 
+#include "bag.h"
 #include "complete_follower.h"
 #include "complete_safari.h"
 #include "field_battle_data_transfer.h"
 #include "field_task.h"
+#include "item.h"
 #include "party.h"
 #include "pokemon.h"
 #include "script_manager.h"
@@ -63,6 +65,26 @@ CompleteTestSafari gCompleteTestSafari;
 CompleteTestSound gCompleteTestSound;
 CompleteTestFollowerTalk gCompleteTestFollowerTalk;
 
+// The key items and Balls in the bag, one of each (written: the ones that fit)
+static void BagProbe(SaveData *saveData, BOOL write, u16 *keyItems, u16 *balls)
+{
+    Bag *bag = SaveData_GetBag(saveData);
+
+    *keyItems = *balls = 0;
+
+    for (u16 item = 1; item < MAX_ITEMS; item++) {
+        s32 pocket = Item_LoadParam(item, ITEM_PARAM_FIELD_POCKET, HEAP_ID_FIELD2);
+
+        if (pocket != POCKET_KEY_ITEMS && pocket != POCKET_BALLS) {
+            continue;
+        }
+
+        if (write ? Bag_TryAddItem(bag, item, 1, HEAP_ID_FIELD2) : Bag_CanRemoveItem(bag, item, 1, HEAP_ID_FIELD2)) {
+            (*(pocket == POCKET_KEY_ITEMS ? keyItems : balls))++;
+        }
+    }
+}
+
 static void SaveProbe(FieldSystem *fieldSystem)
 {
     CompleteTestSaveProbe *probe = &gCompleteTestSaveProbe;
@@ -77,6 +99,8 @@ static void SaveProbe(FieldSystem *fieldSystem)
         for (int i = 0; i < (int)NELEMS(sProbeVarValues); i++) {
             *VarsFlags_GetVarAddress(varsFlags, sProbeVars[i]) = sProbeVarValues[i];
         }
+
+        BagProbe(fieldSystem->saveData, TRUE, &probe->keyItems, &probe->balls);
         break;
     case COMPLETE_TEST_SAVE_SAVE:
         probe->saveOK = FieldSystem_Save(fieldSystem);
@@ -89,6 +113,8 @@ static void SaveProbe(FieldSystem *fieldSystem)
         for (int i = 0; i < (int)NELEMS(sProbeVars); i++) {
             probe->vars[i] = *VarsFlags_GetVarAddress(varsFlags, sProbeVars[i]);
         }
+
+        BagProbe(fieldSystem->saveData, FALSE, &probe->keyItems, &probe->balls);
         break;
     default:
         return;

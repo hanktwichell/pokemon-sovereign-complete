@@ -29,7 +29,7 @@ scr_seq_T22PC0101_004:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: PromptEasyChat VAR_SPECIAL_RESULT, VAR_SPECIAL_x8000, VAR_SPECIAL_x8001
+    ChooseTwoCustomMessageWords VAR_RESULT, VAR_0x8000, VAR_0x8001
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -39,7 +39,7 @@ scr_seq_T22PC0101_004:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: PromptEasyChat VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003
+    ChooseTwoCustomMessageWords VAR_RESULT, VAR_0x8002, VAR_0x8003
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
