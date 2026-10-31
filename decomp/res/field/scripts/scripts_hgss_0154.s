@@ -25,6 +25,7 @@ scr_seq_P01R0103_000:
     GetPlayerDir VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 1, _0158
+    GoTo _00EF  @ Sovereign Complete: the ferries run any day
     GetDayOfWeek VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _006C

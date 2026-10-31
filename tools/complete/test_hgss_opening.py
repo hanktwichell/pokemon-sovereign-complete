@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Play Johto's story in the test build, from a new game's own start, the player's room in New Bark Town
-(src/location.c), to the Hall of Fame, as a player would, without the test warp:
+"""Play Johto's story and Kanto's in the test build, from a new game's own start, the player's room in New Bark Town
+(src/location.c), past the Hall of Fame, through Kanto's eight gyms and onto the ferry to Sinnoh, as a player would,
+without the test warp:
 
 1. **Downstairs:** from the bedroom state, the player walks to the stairs and goes down; Mom's scene plays (HeartGold's
    first scene, VAR_HGSS_SCENE_PLAYERS_HOUSE_1F from 0) and ends with the field free on the house's 1F.
@@ -210,20 +211,73 @@
     grandfather, and the ship arrives (FLAG_HGSS_BOAT_ARRIVED).
 74. **Vermilion City:** to the ship's door, whose sailor steps aside, and out through Vermilion's port, whose sailor
     lets the player through, into Vermilion City (its Fly point recorded).
+75. **Diglett's Cave:** east to Diglett's Cave, whose door is on Vermilion's side of the Snorlax asleep on Route 11
+    (Vermilion Gym's leader is away, and the gatehouses into Saffron and the Underground Path are shut until the Power
+    Plant runs again), down its ladder, through it and up, out onto Route 2 and north into Pewter City.
+76. **Brock:** into Pewter Gym, to Brock: his battle, the Boulder Badge and his TM (FLAG_HGSS_GOT_TM80_FROM_BROCK),
+    which sends the scientist at Mt. Moon's door on his way.
+77. **Mt. Moon:** east along Route 3 into Mt. Moon, where the rival waits and battles, through it and out onto Route 4,
+    east into Cerulean City.
+78. **The Power Plant:** east along Route 9 and down Route 10's river by Surf to the Power Plant, whose manager tells of
+    the part stolen from its generator; on the way out, an officer brings word of a thief seen in Cerulean
+    (VAR_HGSS_UNK_411C).
+79. **Cerulean Gym's Rocket:** back up the river and west to Cerulean Gym, where a Rocket runs into the player and off,
+    and Misty is out on a date (VAR_HGSS_SCENE_ROUTE_24_ROCKET).
+80. **Route 24's Rocket:** north onto the Nugget Bridge, where he runs from the player, and his battle: the part is in
+    Cerulean Gym's pool (VAR_HGSS_SCENE_ROUTE_24_ROCKET 3).
+81. **The Machine Part:** back to Cerulean Gym, where it's found by the pool (VAR_HGSS_SCENE_ROUTE_24_ROCKET 4).
+82. **Misty:** along Routes 24 and 25 to the cape, where the player cuts Misty's date short and she goes back to her
+    gym; back to Cerulean Gym: her battle, the Cascade Badge and her TM (FLAG_HGSS_GOT_TM03_FROM_MISTY), which brings
+    Vermilion Gym's leader back.
+83. **The power restored:** down the river again with the part to the Power Plant's manager, who gets the generator
+    running (FLAG_HGSS_RESTORED_POWER), which opens the gatehouses around Saffron and the Underground Path.
+84. **Lt. Surge:** back up the river to Cerulean, south along Route 5, through the Underground Path to Route 6 and on
+    into Vermilion Gym, where the two trash cans that hide its switches (placed as the player arrives, read from the
+    save) are checked in turn, opening its two gates, to Lt. Surge: his battle, the Thunder Badge and his TM
+    (FLAG_HGSS_GOT_TM34_FROM_LT_SURGE), which sends the man at Rock Tunnel's door on his way.
+85. **Rock Tunnel:** back through the Underground Path and Cerulean, east along Route 9 into Rock Tunnel, down and up
+    its ladders and out onto Route 10's south, on into Lavender Town (Saffron's gatehouses stay shut until Erika's
+    badge, in Sacred Gold).
+86. **Fuchsia City:** south down Route 12 (by Surf where its bridges break), along Routes 13 to 15 and through the
+    gatehouse into Fuchsia City.
+87. **Fuchsia's Shellder:** Sacred Gold's swarm of Shellder and Cloyster, which blocks the gym, the way west and the
+    Pokémon Center: Janine asks for help, the player beats the leading Cloyster in the north of the town, the one in
+    the east and the one in the Pokémon Center, and back with Janine, the swarm leaves (FLAG_HGSS_SG_3F63).
+88. **Janine:** into Fuchsia Gym, past its disguised trainers, to Janine: her battle, the Soul Badge and her TM
+    (FLAG_HGSS_GOT_TM84_FROM_JANINE), which opens Saffron Gym's door.
+89. **The Cycling Road:** west onto Route 18, on the Bicycle (Mom's, from the start) into its gatehouse, whose guard
+    lets only riders through, up the Cycling Road's slope (the key held, as the slope rolls a still bicycle back down),
+    through Route 16's gatehouse and off the Bicycle, into Celadon City.
+90. **Erika:** into Celadon Gym, to Erika: her battle, the Rainbow Badge and her TM (FLAG_HGSS_GOT_TM19_FROM_ERIKA),
+    which opens Saffron's gatehouses.
+91. **Sabrina:** east along Route 7, through its gatehouse into Saffron City and Saffron Gym, over four of its warp
+    panels to Sabrina: her battle, the Marsh Badge and her TM (FLAG_HGSS_GOT_TM48_FROM_SABRINA), which sends Route 19's
+    workmen home.
+92. **Blaine:** back over the gym's panels, east through Route 8's gatehouse to Lavender, south again to Fuchsia, down
+    Route 19 and by sea along Route 20 to Seafoam Islands, where Blaine keeps his gym since Cinnabar's volcano erupted:
+    his battle, the Volcano Badge and his TM (FLAG_HGSS_GOT_TM50_FROM_BLAINE).
+93. **Cinnabar Island:** out of Seafoam Islands and west by sea to Cinnabar Island, where Blue talks with the player
+    and flies home to open his gym (FLAG_HGSS_UNK_129).
+94. **Blue:** north by sea along Route 21 to Pallet Town, up Route 1 and through its gatehouse into Viridian City, into
+    Viridian Gym and along its arrows to Blue: his battle, the Earth Badge and his TM (FLAG_HGSS_GOT_TM92_FROM_BLUE).
+95. **The ferry to Sinnoh:** north through Viridian Forest, whose gatehouses' guards let Earth Badge holders by, down
+    Route 2 into Diglett's Cave and back to Vermilion City, through its port, whose sailor lets the player through any
+    day, to the gangway, whose sailor, with Kanto's eighth badge, asks where to: Canalave City, and the ship sails there
+    (docs/Roadmap.md, "Unlock points"; Sinnoh's story waits on Platinum's opening).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
-heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
-(read from the game, as trainers walk over and Mahogany Gym's ice blocks are pushed; a walk never pushes one), and never
-onto a warp, or an armed cart trigger in Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go
-to), and take it a step at a time, finding it again whenever a scene or a person moves the player. A prompt on the way
-(the test save's Super Repel wearing off), each scene's text and a battle are paged through with A, which also answers
-yes, and taps on a move and on a double battle's targets; the battles, trainers' and wild Pokémon's, are in the test
-build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about the story's way through, not the
-battles. A part passes when the field is free on the map it expects, its flag is set or its var has moved on from 0 (or
-to a given value), the game's heaps are whole (tools/test/heap_check.py; HEAP_STEPS=1 checks them after each action),
-and the following Pokémon (the test party's lead) is beside the player: at most two steps away, as a scene can leave it
-diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by Elm's table before
-src/complete_follower.c brought it back).
+heights and lifts don't allow, so over a bridge or under it, sliding over ice and along Viridian Gym's arrows, around
+the people where they stand now (read from the game, as trainers walk over and Mahogany Gym's ice blocks are pushed; a
+walk never pushes one), and never onto a warp, or an armed cart trigger in Azalea Gym, twig in Ilex Forest or pit in
+Ecruteak Gym, but the one they go to), and take it a step at a time, finding it again whenever a scene or a person moves
+the player. A prompt on the way (the test save's Super Repel wearing off), each scene's text and a battle are paged
+through with A, which also answers yes, and taps on a move and on a double battle's targets; the battles, trainers' and
+wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about the
+story's way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or its
+var has moved on from 0 (or to a given value), the game's heaps are whole (tools/test/heap_check.py; HEAP_STEPS=1 checks
+them after each action), and the following Pokémon (the test party's lead) is beside the player: at most two steps away,
+as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by Elm's table
+before src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
@@ -241,6 +295,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 from battle_all_trainers import SWITCH_FRAMES, TAPS, heap_info  # noqa: E402
 from check_object_tiles import DIRS, JUMPS, Maps, walkable  # noqa: E402
+from drive import KEYS as DRIVE_KEYS, keymask  # noqa: E402
 from gift_pokemon import talk_and_answer  # noqa: E402
 from heap_check import heap_problems  # noqa: E402
 from talk_to_objects import DECOMP, SYMBOLS, WATER, event_maps, header_names, symbols, var_ids, warp  # noqa: E402
@@ -259,10 +314,12 @@ BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
 # to talk to what the player faces, answering its menus (talk_and_answer's), ('meet', (x, z), answers): the same with
 # whoever the map put on that tile, wherever they have wandered (by land or water), ('switches', [(x, z), ...], (x,
 # z)): the switches below those tiles pressed until their shutters leave a way to the last tile, then the walk there,
-# ('push', key): Strength's push of the boulder the player faces that way, ('scene', key, answers): a step that starts a
-# scene (into a map whose scene starts as the player arrives), its menus answered as talk's are, or ('keep', n): the
-# party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs
-# and doors warp as the player presses toward them from their tile.
+# ('push', key): Strength's push of the boulder the player faces that way, ('cans', [(x, z), ...]): Vermilion Gym's
+# trash cans that hide its switches, checked (the tiles of its cans by number), ('bike',): onto the Bicycle or off it,
+# ('ride', key, n): up the Cycling Road's slope that way, till the player's row (or column) is n, ('scene', key,
+# answers): a step that starts a scene (into a map whose scene starts as the player arrives), its menus answered as
+# talk's are, or ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the
+# player's own tile). The stairs and doors warp as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -558,7 +615,93 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Vermilion City', [('to', (9, 11)), 'DOWN', ('to', (24, 16)), 'DOWN', ('talk', []),  # the door's sailor
                              ('to', (24, 19)), 'DOWN', ('to', (12, 12)), 'UP', 'UP',  # into the port's building
                              ('talk', []), ('to', (7, 2)), 'UP'],  # its sailor lets the player through
-          'MAP_HEADER_HGSS_VERMILION', ('fly', 'MAP_HEADER_HGSS_VERMILION'))]
+          'MAP_HEADER_HGSS_VERMILION', ('fly', 'MAP_HEADER_HGSS_VERMILION')),
+         ("Diglett's Cave", [('to', (1354, 303)), 'UP',  # its door, west of Route 11's Snorlax
+                             ('to', (4, 4)), ('to', (10, 38)), 'UP',  # down its ladder, through, and up
+                             ('to', (37, 10)), 'DOWN', ('to', (1048, 107))],  # out onto Route 2, north to Pewter
+          'MAP_HEADER_HGSS_PEWTER', ('fly', 'MAP_HEADER_HGSS_PEWTER')),
+         ('Brock', [('to', (1047, 93)), 'UP', ('to', (7, 5)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_PEWTER_GYM', 'FLAG_HGSS_GOT_TM80_FROM_BROCK'),
+         ('Mt. Moon', [('to', (7, 27)), 'DOWN', ('to', (1172, 103)), 'UP',  # the rival, as the player comes in
+                       ('to', (22, 23)), 'DOWN', ('to', (1309, 132))],  # out onto Route 4, east to Cerulean
+          'MAP_HEADER_HGSS_CERULEAN', ('fly', 'MAP_HEADER_HGSS_CERULEAN')),
+         ('the Power Plant', [('surf', (1423, 185)), 'UP',  # down Route 10's river to its door
+                              ('to', (13, 7)), 'DOWN', ('talk', []),  # the manager's story
+                              ('to', (14, 16))],  # and the officer's news, on the way out
+          'MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_BROKEN', ('VAR_HGSS_UNK_411C', 1)),
+         ("Cerulean Gym's Rocket", [('to', (7, 20)), 'DOWN', ('surf', (1318, 135)), 'UP'],  # his scene, coming in
+          'MAP_HEADER_HGSS_CERULEAN_GYM', ('VAR_HGSS_SCENE_ROUTE_24_ROCKET', 1)),
+         ("Route 24's Rocket", [('to', (10, 25)), 'DOWN', ('to', (1326, 86)), 'UP',  # onto the bridge; he runs
+                                ('meet', (1328, 81), [])],  # and his battle
+          'MAP_HEADER_HGSS_ROUTE_24', ('VAR_HGSS_SCENE_ROUTE_24_ROCKET', 3)),
+         ('the Machine Part', [('to', (1318, 135)), 'UP', ('to', (3, 9)), 'DOWN', ('talk', [])],
+          'MAP_HEADER_HGSS_CERULEAN_GYM', ('VAR_HGSS_SCENE_ROUTE_24_ROCKET', 4)),
+         ('Misty', [('to', (10, 25)), 'DOWN', ('to', (1418, 41)),  # her date on Route 25, cut short
+                    ('to', (1318, 135)), 'UP', ('to', (10, 2)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_CERULEAN_GYM', 'FLAG_HGSS_GOT_TM03_FROM_MISTY'),
+         ('the power restored', [('to', (10, 25)), 'DOWN', ('surf', (1423, 185)), 'UP',
+                                 ('to', (13, 7)), 'DOWN', ('talk', [])],  # the Machine Part, back to the manager
+          'MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_BROKEN', 'FLAG_HGSS_RESTORED_POWER'),
+         ('Lt. Surge', [('to', (7, 20)), 'DOWN', ('surf', (1309, 132)),  # back to Cerulean,
+                        ('to', (1306, 186)), 'UP',  # south on Route 5
+                        ('ladder', (8, 4), 'RIGHT'), ('ladder', (4, 57), 'LEFT'),  # under Saffron
+                        ('to', (5, 9)), 'DOWN', ('to', (1295, 320)), 'UP',  # Vermilion Gym; its switches, in two
+                        ('cans', [(x, z) for z in (13, 15, 17) for x in (2, 4, 6, 8, 10)]),  # of its trash cans
+                        ('to', (6, 5)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_VERMILION_GYM', 'FLAG_HGSS_GOT_TM34_FROM_LT_SURGE'),
+         ('Rock Tunnel', [('to', (6, 22)), 'DOWN', ('to', (1309, 266)), 'UP',  # back under Saffron,
+                          ('ladder', (8, 4), 'RIGHT'), ('ladder', (4, 4), 'LEFT'), ('to', (5, 9)), 'DOWN',
+                          ('to', (1309, 132)), ('to', (1419, 164)), 'UP',  # through Cerulean, to Rock Tunnel
+                          ('to', (37, 17)), ('to', (8, 7)), 'UP', ('to', (10, 18)), ('to', (8, 34)), 'UP',
+                          ('to', (23, 36)), 'DOWN', ('to', (1424, 244))],  # down its ladders and up, to Lavender
+          'MAP_HEADER_HGSS_LAVENDER', ('fly', 'MAP_HEADER_HGSS_LAVENDER')),
+         ('Fuchsia City', [('surf', (1428, 350)), ('surf', (1380, 370)),  # down Route 12, over its water
+                           ('to', (1350, 420)), ('to', (1249, 422)), 'LEFT',  # Routes 13 to 15
+                           ('to', (1, 7)), 'LEFT', ('to', (1230, 422))],  # through the gatehouse
+          'MAP_HEADER_HGSS_FUCHSIA', ('fly', 'MAP_HEADER_HGSS_FUCHSIA')),
+         ("Fuchsia's Shellder", [('to', (1214, 407)), 'UP', ('talk', []),  # Janine asks for help
+                                 ('to', (1207, 412)), 'UP', ('talk', []),  # a leading Cloyster in the north,
+                                 ('to', (1232, 411)), 'DOWN', ('talk', []),  # one in the east,
+                                 ('to', (1209, 440)), 'UP', ('to', (8, 13)), 'UP', ('talk', [True]),  # one in the
+                                 ('to', (8, 19)), 'DOWN', ('to', (1214, 407)), 'UP', ('talk', [])],  # Center
+          'MAP_HEADER_HGSS_FUCHSIA', 'FLAG_HGSS_SG_3F63'),
+         ('Janine', [('to', (1195, 440)), 'UP', ('to', (7, 17)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_FUCHSIA_GYM', 'FLAG_HGSS_GOT_TM84_FROM_JANINE'),
+         ('the Cycling Road', [('to', (7, 25)), 'DOWN', ('to', (1163, 426)), 'LEFT',  # Route 18's gatehouse,
+                               ('bike',), ('to', (1, 7)), 'LEFT',  # whose guard wants the Bicycle
+                               ('to', (1132, 416)), ('ride', 'UP', 299),  # up the Cycling Road
+                               ('to', (1150, 276)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 16's gatehouse
+                               ('bike',), ('to', (1190, 258))],  # off the Bicycle, into Celadon
+          'MAP_HEADER_HGSS_CELADON', ('fly', 'MAP_HEADER_HGSS_CELADON')),
+         ('Erika', [('to', (1201, 267)), 'UP', ('to', (7, 4)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_CELADON_GYM', 'FLAG_HGSS_GOT_TM19_FROM_ERIKA'),
+         ('Sabrina', [('to', (7, 46)), 'DOWN', ('to', (1272, 240)), 'RIGHT',  # east along Route 7,
+                      ('to', (10, 7)), 'RIGHT', ('to', (1328, 205)), 'UP',  # through its gatehouse into Saffron
+                      ('to', (18, 22)), ('to', (22, 22)), ('to', (22, 7)), ('to', (2, 7)),  # Saffron Gym's panels
+                      ('to', (15, 14)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_SAFFRON_GYM', 'FLAG_HGSS_GOT_TM48_FROM_SABRINA'),
+         ('Blaine', [('to', (18, 17)), ('to', (2, 4)), ('to', (28, 4)), ('to', (28, 25)),  # the panels back
+                     ('to', (15, 28)), 'DOWN', ('to', (1336, 240)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 8
+                     ('to', (1424, 244)), ('surf', (1428, 350)), ('surf', (1380, 370)),  # Lavender, Route 12,
+                     ('to', (1350, 420)), ('to', (1249, 422)), 'LEFT', ('to', (1, 7)), 'LEFT',  # back to Fuchsia
+                     ('to', (1204, 444)), 'DOWN', ('to', (5, 12)), 'DOWN',  # Route 19, open since Sabrina's badge
+                     ('surf', (1140, 503)), ('to', (1127, 502)), 'UP',  # by sea to Seafoam Islands
+                     ('to', (55, 24)), 'UP', ('to', (13, 13)), 'UP', ('talk', [])],  # down to its gym
+          'MAP_HEADER_HGSS_SEAFOAM_ISLANDS_CINNABAR_GYM', 'FLAG_HGSS_GOT_TM50_FROM_BLAINE'),
+         ('Cinnabar Island', [('to', (14, 25)), ('to', (55, 28)), 'DOWN',  # up and out of Seafoam Islands
+                              ('surf', (1036, 495)), 'UP', ('talk', [])],  # west to Cinnabar, where Blue waits
+          'MAP_HEADER_HGSS_CINNABAR_ISLAND', 'FLAG_HGSS_UNK_129'),
+         ('Blue', [('surf', (1040, 370)), ('to', (1036, 289)), 'UP',  # north by sea to Pallet Town, up Route 1
+                   ('to', (5, 2)), 'UP', ('to', (1045, 240)), 'UP',  # into Viridian City and its gym
+                   ('to', (5, 5)), 'UP', ('talk', [])],  # along its arrows to Blue
+          'MAP_HEADER_HGSS_VIRIDIAN_GYM', 'FLAG_HGSS_GOT_TM92_FROM_BLUE'),
+         ('the ferry to Sinnoh', [('to', (5, 47)), 'DOWN', ('to', (1034, 193)), 'UP',  # Route 2's gatehouse, whose
+                                  ('to', (5, 2)), 'UP', ('to', (12, 15)), 'UP',  # guard lets Earth Badge holders by,
+                                  ('to', (5, 2)), 'UP', ('to', (1048, 138)), 'UP',  # through Viridian Forest
+                                  ('to', (43, 6)), ('to', (34, 86)), 'UP', ('to', (4, 6)), 'DOWN',  # Diglett's Cave
+                                  ('to', (1309, 341)), 'UP', ('to', (7, 8)), 'DOWN', ('talk', []),  # Vermilion's port
+                                  ('to', (7, 11)), 'DOWN', ('to', (22, 19)), 'RIGHT', ('talk', [1])],  # to Canalave
+          'MAP_HEADER_CANALAVE_CITY', None)]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which
@@ -592,10 +735,20 @@ STEP_WAIT = 16  # frames more to wait for a step that hasn't started
 FORGETS = 3  # how many times a walk forgets the steps that failed when they leave no way
 MARGIN = 40  # tiles around the start and the goal a route may go through
 MAGMA = 0x2b  # TILE_BEHAVIOR_COMPLETE_MAGMA: Blackthorn Gym's lava, walkable only where a floor is over it
+SLIDES = {0x40: (1, 0), 0x41: (-1, 0), 0x42: (0, -1), 0x43: (0, 1)}  # TILE_BEHAVIOR_SLIDE_*: Viridian Gym's arrows
+STOP_SLIDING = 0x4d  # TILE_BEHAVIOR_COMPLETE_STOP_SLIDING: a slide ends on it
 COLLISION = 0x8000  # a tile's collision bit (src/terrain_collision_manager.c)
 # Blackthorn Gym's floors in the save (MiscSaveBlock: 128 BerryPatches of 14 bytes, then PersistedMapFeatures: its ID,
 # DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM, and BlackthornGymPersistedData: u16 x[3], u16 z[3], u8 rotation[3])
 MISC_FEATURES, BLACKTHORN_FEATURE = 128 * 14, 15
+VERMILION_FEATURE = 11  # DYNAMIC_MAP_FEATURES_HGSS_VERMILION_GYM: VermilionGymPersistedData, u8 switches[2], gates[2]
+BICYCLE = open(os.path.join(DECOMP, 'generated', 'items.txt')).read().split().index('ITEM_BICYCLE')
+# the Bag in the save: its pockets of BagItems (u16 item, u16 quantity), then the item registered to Y (include/bag.h)
+BAG_REGISTERED = 4 * sum(int(n) for n in re.findall(r'#define \w+_POCKET_SIZE\s+(\d+)',
+                                                     open(os.path.join(DECOMP, 'include', 'bag.h')).read()))
+RIDE_FRAMES = 4000  # the longest one hold up the Cycling Road may take, battles aside
+RIDE_STALL = 64  # frames a held key may leave the player where they are before the ride gives up
+RIDE_TRIES = 20  # holds up the Cycling Road, one after each battle on the way (it has 11 bikers)
 
 
 def blackthorn_floor(index, rotation, x, z):
@@ -689,6 +842,25 @@ class Heights:
         return self.tiles[(matrix, x, z)]
 
 
+def slide(maps, matrix, at, t, blocked):
+    """Where a slide that starts on an arrow tile ends (src/overlay005/ov5_021E1154.c): on in the arrow's way, which
+    each arrow passed over turns, over the plain floor too, till a stop tile or a tile it can't enter. Returns that
+    tile and its attributes, or None, None for arrows that turn the player round for good."""
+    way, seen = SLIDES[t & 0xff], set()
+    while (at, way) not in seen:
+        seen.add((at, way))
+        ahead = (at[0] + way[0], at[1] + way[1])
+        t_ahead = maps.tile(matrix, *ahead)
+        if t_ahead is None or ahead in blocked or not walkable(t_ahead):
+            return at, t
+        at, t = ahead, t_ahead
+        if (t & 0xff) in SLIDES:
+            way = SLIDES[t & 0xff]
+        elif (t & 0xff) == STOP_SLIDING:
+            return at, t
+    return None, None
+
+
 def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False, lifts=None,
           pushable=frozenset()):
     """The keys from start to goal over walkable land (a ledge one way), and water with surf, around the blocked tiles
@@ -696,7 +868,8 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
     a step takes the height nearest it at the next tile, and can't climb or drop 20 or more
     (src/terrain_collision_manager.c), so a bridge and the path under it are told apart. Lifts are the field's dynamic
     plates (a tile's height, as Violet Gym's lift), a height more to choose from at their tiles. Over ice the player
-    slides; a slide that would stop at a pushable ice block (Mahogany Gym's) is never taken, as it would push it."""
+    slides; a slide that would stop at a pushable ice block (Mahogany Gym's) is never taken, as it would push it. An
+    arrow tile slides the player on (slide), as in Viridian Gym."""
     x0, x1 = min(start[0], goal[0]) - MARGIN, max(start[0], goal[0]) + MARGIN
     z0, z1 = min(start[1], goal[1]) - MARGIN, max(start[1], goal[1]) + MARGIN
     first = (start, round(height))
@@ -730,6 +903,10 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
                 n, t = ahead, t_ahead
             if (t & 0xff) == ICE and (n[0] + d[0], n[1] + d[1]) in pushable:
                 continue
+            if (t & 0xff) in SLIDES:
+                n, t = slide(maps, matrix, n, t, blocked)
+                if n is None:
+                    continue
             nh = h
             choices = (heights.at(matrix, *n) if heights is not None else []) \
                 + ([lifts[n]] if n in (lifts or {}) else [])
@@ -1065,6 +1242,30 @@ def main():
                 return f'the switch at {tiles[flip]} moves nothing'
         return f'no set of the switches at {tiles} opens a way to {goal}, on {here()}'
 
+    def switch_cans(tiles):
+        """Vermilion Gym's trash cans (src/complete_gyms.c): the two that hide its switches, as the save has them
+        (VermilionGymPersistedData; the gym places them as the player arrives), checked in turn from beside each, the
+        first can's switch first; each opens one of the gates. tiles: each can's tile, by number. Returns a problem, or
+        ''."""
+        at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
+        if u32(at) != VERMILION_FEATURE:
+            return f'no trash can switches in the save, on {here()}'
+        matrix = matrix_of[here()]
+        for can in (mem.unsigned[at + 4], mem.unsigned[at + 5]):
+            x, z = tiles[can]
+            sides = [(x - dx, z - dz) for dx, dz in DIRS if maps.tile(matrix, x - dx, z - dz) is not None
+                     and walkable(maps.tile(matrix, x - dx, z - dz)) and (x - dx, z - dz) not in (others()[0] or ())]
+            pos = d.pos()
+            side = min(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1]))
+            problem = walk_to(side)
+            if problem:
+                return problem
+            d.press(KEYS[(x - side[0], z - side[1])], frames=8, after=16)  # facing the can
+            result, frames = talk_and_answer(d, sym, [], SETTLE_FRAMES)
+            if result != 'ok':
+                return f'the trash can at {(x, z)}: {result} after {frames} frames'
+        return ''
+
     def push(key):
         """Strength's push of the boulder the player faces that way: key, again only if nothing moved (the press
         turned the player); the push runs as a field task and leaves the player where they were. Returns a problem,
@@ -1078,6 +1279,42 @@ def main():
             if others()[0] != before:
                 return ''
         return f'the push {key} moved nothing, on {here()} at {d.pos()}'
+
+    def bike():
+        """On the Bicycle or off it: Y, with the Bicycle registered to it (the bag's Register, which a player does
+        once; the test writes it into the save's Bag). Returns a problem, or ''."""
+        at = save_block('SAVE_TABLE_ENTRY_BAG') + BAG_REGISTERED
+        if u32(at) != BICYCLE:
+            mem.write_long(at, BICYCLE)
+        d.press('Y', frames=4, after=30)
+        return '' if settle() else f'the field never came free after Y, on {here()} at {d.pos()}'
+
+    def ride(key, goal):
+        """Up the Cycling Road's slope on the Bicycle: key held till the player's row (or column) is goal's, as between
+        steps a bicycle on its bridge rolls back down (src/player_move.c's TILE_MOVE_CYCLING_ROAD_DOWN, whenever no key
+        is held). Whatever starts on the way (a biker who sees the player, and his battle) is seen through with the key
+        let go, and the ride goes on from wherever the slope left the player. Returns a problem, or ''."""
+        axis = 0 if key in ('LEFT', 'RIGHT') else 1
+        mask = keymask(DRIVE_KEYS[key])
+        for _ in range(RIDE_TRIES):
+            d.emu.input.keypad_add_key(mask)
+            last, still, frames = d.pos(), 0, 0
+            while frames < RIDE_FRAMES and still < RIDE_STALL and d.pos()[axis] != goal:
+                before = u32(sym['gSovereignTestIdleFrames'])
+                d.run(4)
+                frames += 4
+                if u32(sym['gSovereignTestIdleFrames']) == before:  # something started: a biker's battle
+                    break
+                still = still + 4 if d.pos() == last else 0
+                last = d.pos()
+            d.emu.input.keypad_rm_key(mask)
+            if d.pos()[axis] == goal:
+                return ''
+            if still >= RIDE_STALL:
+                return f'the ride {key} stopped at {d.pos()}, on {here()}'
+            if not settle():
+                return f'the field never came free on the ride {key}, on {here()} at {d.pos()}'
+        return f'the ride {key} never reached {goal}, on {here()} at {d.pos()}'
 
     results = []
     d.run(30)
@@ -1099,6 +1336,12 @@ def main():
                 problem = switches(action[1], action[2])
             elif action[0] == 'push':
                 problem = push(action[1])
+            elif action[0] == 'cans':
+                problem = switch_cans(action[1])
+            elif action[0] == 'bike':
+                problem = bike()
+            elif action[0] == 'ride':
+                problem = ride(action[1], action[2])
             elif action[0] == 'scene':  # the step, then the scene it starts, its menus answered (not settle's A)
                 step(action[1])
                 result, frames = talk_and_answer(d, sym, action[2], SETTLE_FRAMES, press_a=False)

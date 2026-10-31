@@ -190,8 +190,10 @@ rocks).
 
 ## The ferries
 
-**The S.S. Aqua** between Olivine City and Vermilion City runs as in Sacred Gold, with no weekly schedule. HeartGold's sailing
-scene (`ScrCmd_723`) is Platinum's boat scene (`PlayBoatCutscene`), sailing east from Olivine and west from Vermilion;
+**The S.S. Aqua** between Olivine City and Vermilion City runs as in Sacred Gold, but with no weekly schedule: Sacred
+Gold's sailors in the port buildings let the player through on the ship's days only (Olivine's on Mondays and Fridays,
+Vermilion's on Sundays and Wednesdays), and here any day (the translator's `INSERTS`). HeartGold's sailing scene
+(`ScrCmd_723`) is Platinum's boat scene (`PlayBoatCutscene`), sailing east from Olivine and west from Vermilion;
 Platinum's scene, which first sails its own ship out of the dock when there is one beside the player, now starts at the
 fade-out when there isn't (`src/cutscenes/boat_cutscene/boat_cutscene.c`), as at HeartGold's ports. The first trip's
 scenes and the cabin's rest play as in Sacred Gold.

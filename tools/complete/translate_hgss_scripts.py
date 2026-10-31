@@ -312,8 +312,17 @@ def ferry_insert(boat_arrived, aqua_port):
             ['CompleteFerry_End:', '    ReleaseAll', '    End'])
 
 
+# Sacred Gold's port buildings' sailors let the player through to the gangway on the S.S. Aqua's days only (Olivine's
+# on Mondays and Fridays, Vermilion's on Sundays and Wednesdays); the ferries have no timetable (docs/Roadmap.md,
+# "Ferry network"), so they let the player through any day: on to the way through (boarding), before the day's asked
+def any_day_insert(before, boarding):
+    return before, [f'    GoTo {boarding}  @ Sovereign Complete: the ferries run any day'], []
+
+
 INSERTS = {
+    'scr_seq_0152_P01R0101': any_day_insert('_0223:', '_0292'),
     'scr_seq_0153_P01R0102': ferry_insert('_0211', 'VermilionCity'),
+    'scr_seq_0154_P01R0103': any_day_insert('    GoToIf 1, _0158', '_00EF'),
     'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
 }
 

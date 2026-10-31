@@ -1108,3 +1108,27 @@ Test results on the new test build:
   again and battles once more after the SquirtBottle, as in HeartGold.
 - **Ports:** the gangway's sailor takes the player aboard; on arrival, the port building's sailor lets the player
   through when talked to from below. Nothing in the game needed changing.
+
+## Oct 31, 2026: the story test goes through Kanto, 95 parts
+
+- **Kanto's order in Sacred Gold,** worked out from its scripts: Vermilion Gym's leader is away until Misty's TM, so
+  the way goes east through Diglett's Cave (its door is on Vermilion's side of Route 11's Snorlax) to Pewter (Brock,
+  whose TM sends the scientist at Mt. Moon's door away), Mt. Moon and Cerulean; the Power Plant's stolen part (the
+  manager, Cerulean Gym's Rocket, his battle on the Nugget Bridge, the part in the gym), Misty's date on Route 25 and
+  her battle; the part back to the Power Plant, which opens the Underground Path; Lt. Surge, whose TM clears Rock
+  Tunnel's door; Lavender and Route 12 to Fuchsia, where Sacred Gold's Shellder swarm blocks the gym and the way west
+  until three leading Cloyster are beaten for Janine; Janine (her TM opens Saffron Gym), the Cycling Road to Celadon and
+  Erika (her badge opens Saffron's gatehouses), Sabrina (her badge sends Route 19's workmen home), Blaine in Seafoam
+  Islands, Blue on Cinnabar and in Viridian Gym, and with the Earth Badge, Viridian Forest's gatehouses and the ferry
+  from Vermilion to Canalave City.
+- **Parts 75 to 95** play it. Parts 75 to 81 (Diglett's Cave to the Machine Part) pass, each from the end of the one
+  before; the rest are being run.
+- **New test actions:** `bike` (Y, with the Bicycle registered: Sacred Gold's Mom gives it at the start, and the
+  Cycling Road's gatehouses let only riders through) and `ride` (a key held up the Cycling Road's slope, which rolls a
+  still bicycle back down, through its bikers' battles). The walks now slide along Viridian Gym's arrows as the game
+  does (`src/overlay005/ov5_021E1154.c`: on in the arrow's way, turned by each arrow, to a stop tile or a wall), so its
+  way to Blue is found like any other.
+- **The ferries run any day:** Sacred Gold's sailors in Olivine's and Vermilion's port buildings let the player through
+  on the S.S. Aqua's days only (Mondays and Fridays, Sundays and Wednesdays), which also kept the ferry to Canalave City
+  to those days. The ferry network has no timetable (`docs/Roadmap.md`, "Ferry network"), so they let the player
+  through any day now (the translator's `INSERTS`; `docs/Features.md`, "The ferries").

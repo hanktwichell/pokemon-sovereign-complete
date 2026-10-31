@@ -146,6 +146,7 @@ _01ED:
     ReleaseAll
     End
 _0223:
+    GoTo _0292  @ Sovereign Complete: the ferries run any day
     GetDayOfWeek VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _0261
