@@ -1085,3 +1085,15 @@ Test results on the new test build:
   into a dead end from the south; checked in the emulator, it is the way back, not the way in. Sacred Gold keeps the
   Elite Four's doors shut and has a Kadabra in each room teleport the player on.
 - Nothing in the game needed changing in this stretch.
+
+## Oct 31, 2026: the story test reaches the Hall of Fame, 70 parts
+
+- **Parts 63 to 70 pass,** each from the end of the one before, so every part from the bedroom to the Hall of Fame
+  has now passed: Tohjo Falls (up one waterfall with Waterfall, down the other on Surf), Route 27 and Route 26 to the
+  League's gate and its badge check, Victory Road (both boulders and both holes as worked out, and the rival at its
+  exit), Indigo Plateau, the Elite Four by Sacred Gold's teleports between their rooms, Lance, and the Hall of Fame:
+  the game is cleared and saved (FLAG_HGSS_GAME_CLEAR), starts over, and Continue puts the player back in their room in
+  New Bark Town, as `ClearGame_Johto` intends.
+- **What the test learned on the way:** the man at the League's inner door steps aside when talked to; going down a
+  waterfall on Surf needs no prompt. Again nothing in the game needed changing.
+- **Next:** one run of all 70 parts back to back from the bedroom (under way), to see the whole story in one go.

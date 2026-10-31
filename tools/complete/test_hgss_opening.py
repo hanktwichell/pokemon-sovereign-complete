@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Play the opening in the test build from a new game's own start, the player's room in New Bark Town (src/location.c),
-as a player would, without the test warp:
+"""Play Johto's story in the test build, from a new game's own start, the player's room in New Bark Town
+(src/location.c), to the Hall of Fame, as a player would, without the test warp:
 
 1. **Downstairs:** from the bedroom state, the player walks to the stairs and goes down; Mom's scene plays (HeartGold's
    first scene, VAR_HGSS_SCENE_PLAYERS_HOUSE_1F from 0) and ends with the field free on the house's 1F.
