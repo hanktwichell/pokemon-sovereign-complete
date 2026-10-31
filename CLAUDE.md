@@ -40,7 +40,7 @@ work.
 - Story check: `tools/complete/test_hgss_opening.py` plays a new game from New Bark Town as a player would, part by
   part through the story (hours; run it in the background, with `TEST_BUILD` set for a test build other than
   `build_test`). Its save states let a part be rerun on its own (`FROM`, a part's name). The ways through Azalea Gym's
-  carts and Ilex Forest's Farfetch'd come from `tools/complete/solve_story_puzzles.py`.
+  carts, Ilex Forest's Farfetch'd and Mahogany Gym's ice blocks come from `tools/complete/solve_story_puzzles.py`.
 
 ## Following Pokémon
 

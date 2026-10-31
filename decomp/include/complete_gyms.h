@@ -1,6 +1,8 @@
 #ifndef POKEPLATINUM_COMPLETE_GYMS_H
 #define POKEPLATINUM_COMPLETE_GYMS_H
 
+#include "struct_decls/map_object.h"
+
 #include "field/field_system_decl.h"
 #include "field_script_context.h"
 
@@ -60,9 +62,12 @@ BOOL CompleteFuchsiaGym_WallHit(FieldSystem *fieldSystem, int x, int z);
 
 BOOL CompleteScrCmd_FuchsiaGymInit(ScriptContext *ctx);
 
+BOOL CompleteIceBlock_TryPush(FieldSystem *fieldSystem, MapObject *player, int dir);
+
 #ifdef SOVEREIGN_TEST
 extern u16 gCompleteTestViridianLit; // test build: arrows lit in Viridian Gym so far
 extern u16 gCompleteTestFuchsiaFlashes; // test build: wall flashes started in Fuchsia Gym so far
+extern u16 gCompleteTestIceBlockPushes; // test build: ice blocks pushed so far
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_GYMS_H

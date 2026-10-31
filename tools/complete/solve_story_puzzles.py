@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Find the ways through two of Johto's puzzles that tools/complete/test_hgss_opening.py plays, from the game's own
+"""Find the ways through three of Johto's puzzles that tools/complete/test_hgss_opening.py plays, from the game's own
 data, so the test's steps can be found again if a map or a script changes:
 
 - **Azalea Gym** (src/complete_gyms.c): four Spinarak carts ride between twelve stops along routes the two switches
@@ -11,6 +11,10 @@ data, so the test's steps can be found again if a map or a script changes:
   a twig, is a small state machine in the forest's script (scripts_hgss_0092.s): where it stands, the side the player
   talks from, and vars the twigs set. A small interpreter for the commands that script uses plays each talk and twig
   over the states, and a breadth-first search finds the way to catching both. Walks never cross an armed twig.
+- **Mahogany Gym's rooms** (src/complete_gyms.c, HeartGold's ice blocks): the player slides over the ice and pushes
+  the blocks, which slide until stopped and join whoever they hit. A breadth-first search over (where the player
+  stands, where each block is and whether it can still be pushed) finds the fewest steps across each of the three
+  rooms; the test walks to where each push starts (its walks never push a block) and takes the push's step.
 
 Prints each way as the steps the test takes. From the repo root:
     python3 tools/complete/solve_story_puzzles.py
@@ -25,7 +29,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from check_object_tiles import Maps, walkable  # noqa: E402
 from talk_to_objects import DECOMP  # noqa: E402
-from test_hgss_opening import route  # noqa: E402
+from test_hgss_opening import ICE, route  # noqa: E402
 
 KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')  # the facing for each of Platinum's directions, north, south, west and east
 SIDES = ((0, 1), (0, -1), (1, 0), (-1, 0))  # where the player stands to face a tile that way
@@ -238,11 +242,98 @@ def ilex_forest(maps):
     return None
 
 
+def ice_room(maps, header, start, goal):
+    """A way across one of Mahogany Gym's rooms (src/complete_gyms.c, HeartGold's ice blocks): the keys from start to
+    goal, the fewest, with the player sliding over ice as the game does and pushing the blocks. A step onto ice slides
+    on until something stops the player; one that stops at a block that faces down (one never joined) pushes it, and it
+    slides on that way until a wall or the end of the ice stops it, or someone, who it joins (another block too: both
+    face up from then on, and can't be pushed). The people stand where the map puts them; the warps but the goal are
+    walls."""
+    from talk_to_objects import event_maps
+    matrix, people, blocks, warps = None, set(), [], set()
+    for _, headers_of, cur, _ in event_maps():
+        for name, m in headers_of:
+            if name == header:
+                matrix = m
+                for o in cur['object_events']:
+                    if o['graphics_id'] == 'OBJ_EVENT_GFX_ICE_ROCK':
+                        blocks.append((o['x'], o['z']))
+                    else:
+                        people.add((o['x'], o['z']))
+                warps = {(w['x'], w['z']) for w in cur['warp_events']} - {goal}
+
+    def ice(p):
+        t = maps.tile(matrix, *p)
+        return t is not None and t & 0xff == ICE
+
+    def floor(p):
+        t = maps.tile(matrix, *p)
+        return p == goal or t is not None and walkable(t) and p not in warps
+
+    def push(blocks, at, d):
+        """The blocks after the one at at is pushed d."""
+        rest, p = {b: free for b, free in blocks if b != at}, at
+        while True:
+            n = (p[0] + d[0], p[1] + d[1])
+            if n in rest or n in people:  # it joins whoever it slides into, a block too
+                if n in rest:
+                    rest[n] = False
+                rest[p] = False
+                return frozenset(rest.items())
+            if not floor(n) or not ice(n):
+                rest[p] = True
+                return frozenset(rest.items())
+            p = n
+
+    first = (start, frozenset((b, True) for b in blocks))
+    came, queue = {first: None}, collections.deque([first])
+    while queue:
+        state = queue.popleft()
+        pos, blocks_now = state
+        if pos == goal:
+            break
+        pushable = {b for b, free in blocks_now if free}
+        objects = people | {b for b, _ in blocks_now}
+        for key, d in zip(KEYS, ((0, -1), (0, 1), (-1, 0), (1, 0))):
+            p, after = pos, blocks_now
+            n = (p[0] + d[0], p[1] + d[1])
+            if floor(n) and n not in objects:
+                p = n
+                while ice(p) and p != goal:  # on over the ice until something stops the player
+                    n = (p[0] + d[0], p[1] + d[1])
+                    if not floor(n) or n in objects:
+                        break
+                    p = n
+            pushed = ice(p) and n in pushable  # stopped by a block that faces down: it slides on
+            if pushed:
+                after = push(blocks_now, n, d)
+            nxt = (p, after)
+            if nxt not in came:
+                came[nxt] = (state, key if pushed else None)
+                queue.append(nxt)
+    else:
+        return None
+    # the test's steps: a walk to where each push starts, its key, and a walk to the goal (the test's walks never
+    # push a block)
+    steps, at = [('to', goal)], state
+    while came[at]:
+        at, key = came[at]
+        if key:
+            steps[:0] = [('to', at[0]), key]
+    return steps
+
+
 def main():
     maps = Maps(DECOMP)
     for name, steps in [('Azalea Gym, to Bugsy', azalea_gym(maps, AZALEA_DOOR, AZALEA_CARTS, 0, AZALEA_BUGSY)),
                         ('Azalea Gym, back out', azalea_gym(maps, (9, 8), (4, 1, 2, 10), 3, AZALEA_DOOR)),
-                        ('Ilex Forest\'s Farfetch\'d', ilex_forest(maps))]:
+                        ('Ilex Forest\'s Farfetch\'d', ilex_forest(maps)),
+                        ('Mahogany Gym, the first room', ice_room(maps, 'MAP_HEADER_HGSS_MAHOGANY_GYM_ROOM_1', (4, 18),
+                                                                  (3, 2))),
+                        ('Mahogany Gym, the second room', ice_room(maps, 'MAP_HEADER_HGSS_MAHOGANY_GYM_ROOM_2', (6, 14),
+                                                                   (6, 2))),
+                        ('Mahogany Gym, to Pryce', ice_room(maps, 'MAP_HEADER_HGSS_MAHOGANY_GYM_LEADER_ROOM', (5, 18),
+                                                            (7, 5)))]:
         print(f'{name}:')
         for step in steps or ['no way found']:
             print(f'    {step}')

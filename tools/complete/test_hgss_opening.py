@@ -111,16 +111,17 @@ as a player would, without the test warp:
     (FLAG_HGSS_GOT_TM23_FROM_JASMINE).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
-heights and lifts don't allow, so over a bridge or under it, around the people, and never onto a warp, or an armed cart
-trigger in Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go to), and take it a step at a
-time, finding it again whenever a scene or a person moves the player. A prompt on the way (the test save's Super Repel
-wearing off), each scene's text and a battle are paged through with A, which also answers yes; the battles, trainers'
-and wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about
-the story's way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or
-its var has moved on from 0 (or to a given value), the game's heaps are whole (tools/test/heap_check.py; HEAP_STEPS=1
-checks them after each action), and the following Pokémon (the test party's lead) is beside the player: at most two
-steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by
-Elm's table before src/complete_follower.c brought it back).
+heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
+(read from the game, as trainers walk over and Mahogany Gym's ice blocks are pushed; a walk never pushes one), and never
+onto a warp, or an armed cart trigger in Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go
+to), and take it a step at a time, finding it again whenever a scene or a person moves the player. A prompt on the way
+(the test save's Super Repel wearing off), each scene's text and a battle are paged through with A, which also answers
+yes; the battles, trainers' and wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP
+prompts), as the test is about the story's way through, not the battles. A part passes when the field is free on the map
+it expects, its flag is set or its var has moved on from 0 (or to a given value), the game's heaps are whole
+(tools/test/heap_check.py; HEAP_STEPS=1 checks them after each action), and the following Pokémon (the test party's
+lead) is beside the player: at most two steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after
+the starter's scene it was left by Elm's table before src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
@@ -290,6 +291,11 @@ WARP_TILES = set(range(0x5e, 0x70)) | {0x0d, 0x0e, 0x0f}
 OTHER_WATER = {0x11, 0x13}
 ICE = 0x20  # TILE_BEHAVIOR_ICE: a step onto it slides on (Mahogany Gym, the Ice Path)
 RAM, RAM_SIZE = 0x02000000, 0x400000  # the DS's main memory, where the map objects are
+MAP_OBJECT_SIZE = 0x128  # sizeof(MapObject), src/map_object.c
+PLAYER, FOLLOWER = 0xff, 0xf0  # their local IDs (include/complete_follower.h)
+ICE_ROCK = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read().split().index(
+    'OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
+SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
 SHORT_RUN = 20  # a first, short look, so A isn't pressed into a field that is already free
@@ -368,12 +374,14 @@ class Heights:
         return self.tiles[(matrix, x, z)]
 
 
-def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False, lifts=None):
+def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False, lifts=None,
+          pushable=frozenset()):
     """The keys from start to goal over walkable land (a ledge one way), and water with surf, around the blocked tiles
     and without the steps ((tile, direction)) the player couldn't take, or None. With heights, from the player's height:
     a step takes the height nearest it at the next tile, and can't climb or drop 20 or more
     (src/terrain_collision_manager.c), so a bridge and the path under it are told apart. Lifts are the field's dynamic
-    plates (a tile's height, as Violet Gym's lift), a height more to choose from at their tiles."""
+    plates (a tile's height, as Violet Gym's lift), a height more to choose from at their tiles. Over ice the player
+    slides; a slide that would stop at a pushable ice block (Mahogany Gym's) is never taken, as it would push it."""
     x0, x1 = min(start[0], goal[0]) - MARGIN, max(start[0], goal[0]) + MARGIN
     z0, z1 = min(start[1], goal[1]) - MARGIN, max(start[1], goal[1]) + MARGIN
     first = (start, round(height))
@@ -405,6 +413,8 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
                 if t_ahead is None or ahead in blocked or not walkable(t_ahead) or (t_ahead & 0xff) in WATER:
                     break
                 n, t = ahead, t_ahead
+            if (t & 0xff) == ICE and (n[0] + d[0], n[1] + d[1]) in pushable:
+                continue
             nh = h
             choices = (heights.at(matrix, *n) if heights is not None else []) \
                 + ([lifts[n]] if n in (lifts or {}) else [])
@@ -521,6 +531,26 @@ def main():
                 tiles.update({(x + a, z + b): y / 4096 for a in range(w) for b in range(length)})
         return tiles
 
+    def others():
+        """The tiles of everyone and everything on the map now but the player and the follower (src/map_object.c: the
+        player's map object's manager, MapObjectManager, and its objects, the active ones), as people move: a trainer
+        walks over to battle, a scene moves people, and the player pushes Mahogany Gym's ice blocks; and the tiles of
+        the ice blocks that can still be pushed (facing down). None, None if the player's map object isn't found."""
+        height()
+        if player_object[0] is None:
+            return None, None
+        manager = u32(player_object[0] + 0xb4)
+        objects, tiles, pushable = u32(manager + 0x124), set(), set()
+        for i in range(u32(manager + 4)):
+            at = objects + MAP_OBJECT_SIZE * i
+            status, _, local, _, gfx = struct.unpack('<5I', bytes(mem.unsigned[at:at + 20]))
+            if status & 1 and local not in (PLAYER, FOLLOWER):
+                tile = struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2]
+                tiles.add(tile)
+                if gfx == ICE_ROCK and u32(at + 40) == SOUTH:  # its facingDir
+                    pushable.add(tile)
+        return tiles, pushable
+
     def here():
         n = u16(sym['gSovereignTestIdleMapHeaderID'])
         return names[n] if n < len(names) else n
@@ -588,10 +618,11 @@ def main():
             armed = [tiles for tiles, name, value in triggers_of.get(header, [])
                      if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
             avoid = (warps_of[matrix] | set().union(*armed)) - {goal}
-            # around the people first (some are hidden, so then through them)
-            h, lift = height(), lifts()
-            keys = route(maps, matrix, pos, goal, (people_of[matrix] | avoid) - {pos}, failed, heights, h, surf, lift) \
-                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf, lift)
+            # around everyone where they are now (or where the map puts them), and if that fails, through them
+            h, lift, (people, blocks) = height(), lifts(), others()
+            people, blocks = (people_of[matrix], ()) if people is None else (people, blocks)
+            keys = route(maps, matrix, pos, goal, (people | avoid) - {pos}, failed, heights, h, surf, lift, blocks) \
+                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf, lift, blocks)
             if not keys and failed and forgets < FORGETS:  # whoever was in the way may have moved since
                 failed.clear()
                 forgets += 1

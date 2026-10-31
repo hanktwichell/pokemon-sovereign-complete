@@ -558,6 +558,7 @@ static BOOL PlayerAvatar_TileMove_Ice(PlayerAvatar *playerAvatar, int dir)
         if (heightChange != PLAYER_HEIGHT_CHANGE_INCREASE) {
             PlayerAvatar_SetIgnoreTileBehavior(playerAvatar, 1);
             PlayerAvatar_SetMoveState(playerAvatar, AVATAR_MOVE_STATE_NONE);
+            CompleteIceBlock_TryPush(MapObject_FieldSystem(mapObj), mapObj, moveDir); // Sovereign Complete: a block slides on
             return FALSE;
         }
 
@@ -1033,9 +1034,11 @@ static void PlayerAvatar_SetMovement_NormalOverworld(PlayerAvatar *playerAvatar,
             movementAction = MOVEMENT_ACTION_WALK_ON_SPOT_SLOW_NORTH;
             speed = PLAYER_ACTION_SPEED_NOT_MOVING;
 
-            // Sovereign Complete: in Fuchsia Gym the invisible wall flashes where the player bumps into it
+            // Sovereign Complete: in Fuchsia Gym the invisible wall flashes where the player bumps into it, and on the
+            // ice an ice block slides on (Mahogany Gym)
             if ((collision & PLAYER_COLLISION_WARP) == 0
-                && !CompleteFuchsiaGym_WallHit(MapObject_FieldSystem(mapObj), MapObject_GetX(mapObj) + MapObject_GetDxFromDir(dir), MapObject_GetZ(mapObj) + MapObject_GetDzFromDir(dir))) {
+                && !CompleteFuchsiaGym_WallHit(MapObject_FieldSystem(mapObj), MapObject_GetX(mapObj) + MapObject_GetDxFromDir(dir), MapObject_GetZ(mapObj) + MapObject_GetDzFromDir(dir))
+                && !CompleteIceBlock_TryPush(MapObject_FieldSystem(mapObj), mapObj, dir)) {
                 Sound_PlayEffect(SEQ_SE_DP_WALL_HIT_sseq);
             }
 

@@ -7,6 +7,7 @@
 #include "constants/field/dynamic_map_features.h"
 #include "constants/field/map_tile_behaviors.h"
 #include "generated/movement_actions.h"
+#include "generated/object_events_gfx.h"
 #include "generated/vars_flags.h"
 
 #include "field/field_system.h"
@@ -29,6 +30,7 @@
 #include "inlines.h"
 #include "map_object.h"
 #include "map_object_move.h"
+#include "map_tile_behavior.h"
 #include "math_util.h"
 #include "narc.h"
 #include "persisted_map_features.h"
@@ -2155,4 +2157,189 @@ BOOL CompleteScrCmd_FuchsiaGymInit(ScriptContext *ctx)
 {
     InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_FUCHSIA_GYM);
     return FALSE;
+}
+
+// Mahogany Gym's ice blocks (HeartGold's unk_0206D494.c, which its ice movement calls; Seafoam Islands has them too):
+// a block the player runs into on the ice slides on that way until a wall or the end of the ice stops it. One that
+// slides into someone, another block above all, joins it, and both turn to face up: a block can be pushed only while it
+// faces down.
+enum IceBlockNextTile {
+    ICE_BLOCK_WALL = 1 << 0,
+    ICE_BLOCK_OBJECT = 1 << 1,
+    ICE_BLOCK_NOT_ICE = 1 << 2,
+};
+
+enum IceBlockState {
+    ICE_BLOCK_WAIT_FOR_PLAYER = 0,
+    ICE_BLOCK_SLIDE,
+    ICE_BLOCK_WAIT_FOR_BLOCKS,
+    ICE_BLOCK_END,
+};
+
+enum IceBlockSlideState {
+    ICE_BLOCK_CHECK_NEXT = 0,
+    ICE_BLOCK_STEP,
+    ICE_BLOCK_JOIN,
+};
+
+typedef struct IceBlockPush {
+    MapObject *block;
+    MapObject *joined;
+    u8 dir;
+    u8 state;
+    u8 slideState;
+} IceBlockPush;
+
+#ifdef SOVEREIGN_TEST
+u16 gCompleteTestIceBlockPushes;
+#endif
+
+// HeartGold's sub_0206D614: who is on the tile, at about the height
+static MapObject *ObjectOnTile(FieldSystem *fieldSystem, int x, int y, int z)
+{
+    MapObject *mapObj = NULL;
+    int index = 0;
+
+    while (MapObjectMan_FindObjectWithStatus(fieldSystem->mapObjMan, &mapObj, &index, MAP_OBJ_STATUS_0)) {
+        if (!MapObject_CheckStatus(mapObj, MAP_OBJ_STATUS_18) && MapObject_GetX(mapObj) == x && MapObject_GetZ(mapObj) == z) {
+            int dy = MapObject_GetY(mapObj) - y;
+
+            if (dy < 2 && dy > -2) {
+                return mapObj;
+            }
+        }
+    }
+
+    return NULL;
+}
+
+// HeartGold's sub_0206D7B8: what stops a block going onto the tile
+static u32 IceBlock_NextTile(FieldSystem *fieldSystem, MapObject *block, int x, int y, int z)
+{
+    VecFx32 position;
+    s8 verticalDirection;
+    u32 next = 0;
+
+    MapObject_GetPosPtr(block, &position);
+
+    if (TerrainCollisionManager_WillPlayerCollide(fieldSystem, &position, x, z, &verticalDirection)) {
+        next |= ICE_BLOCK_WALL;
+    }
+
+    if (!TileBehavior_IsIce(TerrainCollisionManager_GetTileBehavior(fieldSystem, x, z))) {
+        next |= ICE_BLOCK_NOT_ICE;
+    }
+
+    if (sub_02063F00(block, x, y, z)) {
+        next |= ICE_BLOCK_OBJECT;
+    }
+
+    return next;
+}
+
+// HeartGold's sub_0206D688: a step at a time, its facing locked, until something stops it (TRUE)
+static BOOL IceBlock_Slide(FieldSystem *fieldSystem, IceBlockPush *push)
+{
+    switch (push->slideState) {
+    case ICE_BLOCK_CHECK_NEXT:
+        if (LocalMapObj_CheckAnimationFinished(push->block)) {
+            int x = MapObject_GetX(push->block) + MapObject_GetDxFromDir(push->dir);
+            int y = MapObject_GetY(push->block);
+            int z = MapObject_GetZ(push->block) + MapObject_GetDzFromDir(push->dir);
+            u32 next = IceBlock_NextTile(fieldSystem, push->block, x, y, z);
+
+            if (next & ICE_BLOCK_OBJECT) {
+                MapObject *other = ObjectOnTile(fieldSystem, x, y, z);
+
+                push->joined = other != NULL && MapObject_GetGraphicsID(other) == OBJ_EVENT_GFX_ICE_ROCK ? other : NULL;
+                LocalMapObj_SetAnimationCode(push->block, MOVEMENT_ACTION_UNLOCK_DIR);
+                push->slideState = ICE_BLOCK_JOIN;
+            } else if (next & (ICE_BLOCK_WALL | ICE_BLOCK_NOT_ICE)) {
+                return TRUE;
+            } else {
+                LocalMapObj_SetAnimationCode(push->block, MOVEMENT_ACTION_LOCK_DIR);
+                push->slideState = ICE_BLOCK_STEP;
+            }
+        }
+        break;
+    case ICE_BLOCK_STEP:
+        if (LocalMapObj_CheckAnimationFinished(push->block)) {
+            LocalMapObj_SetAnimationCode(push->block, MovementAction_TurnActionTowardsDir(push->dir, MOVEMENT_ACTION_WALK_NORMAL_NORTH));
+            push->slideState = ICE_BLOCK_CHECK_NEXT;
+        }
+        break;
+    case ICE_BLOCK_JOIN:
+        if (LocalMapObj_CheckAnimationFinished(push->block)) {
+            Sound_PlayEffect(SEQ_SE_DP_KI_GASYAN_sseq); // a stand-in for HeartGold's joining sound (step 6)
+
+            if (push->joined != NULL) {
+                LocalMapObj_SetAnimationCode(push->joined, MOVEMENT_ACTION_FACE_NORTH);
+            }
+
+            LocalMapObj_SetAnimationCode(push->block, MOVEMENT_ACTION_FACE_NORTH);
+            return TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+// HeartGold's sub_0206D4E4: the block slides once the player has stopped, and the field waits for it
+static BOOL IceBlock_Task(FieldTask *task)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
+    IceBlockPush *push = FieldTask_GetEnv(task);
+
+    switch (push->state) {
+    case ICE_BLOCK_WAIT_FOR_PLAYER:
+        if (LocalMapObj_CheckAnimationFinished(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar))) {
+            Sound_PlayEffect(SEQ_SE_DP_SUBERU_sseq);
+            push->state = ICE_BLOCK_SLIDE;
+        }
+        break;
+    case ICE_BLOCK_SLIDE:
+        if (IceBlock_Slide(fieldSystem, push)) {
+            Sound_StopEffect(SEQ_SE_DP_SUBERU_sseq, 0);
+            push->state = ICE_BLOCK_WAIT_FOR_BLOCKS;
+        }
+        break;
+    case ICE_BLOCK_WAIT_FOR_BLOCKS:
+        if (sub_020656AC(push->block) && (push->joined == NULL || sub_020656AC(push->joined))) {
+            push->state = ICE_BLOCK_END;
+        }
+        break;
+    case ICE_BLOCK_END:
+        Heap_Free(push);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+// HeartGold's sub_0206D494, from the player's move on the ice into what's ahead: a block there that can be pushed
+// (facing down) starts sliding (TRUE)
+BOOL CompleteIceBlock_TryPush(FieldSystem *fieldSystem, MapObject *player, int dir)
+{
+    if (!TileBehavior_IsIce(MapObject_GetCurrTileBehavior(player)) || FieldSystem_IsRunningTask(fieldSystem)) {
+        return FALSE;
+    }
+
+    MapObject *block = ObjectOnTile(fieldSystem, MapObject_GetX(player) + MapObject_GetDxFromDir(dir), MapObject_GetY(player), MapObject_GetZ(player) + MapObject_GetDzFromDir(dir));
+
+    if (block == NULL || MapObject_GetGraphicsID(block) != OBJ_EVENT_GFX_ICE_ROCK || MapObject_GetFacingDir(block) != DIR_SOUTH) {
+        return FALSE;
+    }
+
+    IceBlockPush *push = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(IceBlockPush));
+
+    memset(push, 0, sizeof(IceBlockPush));
+    push->block = block;
+    push->dir = dir;
+    Sound_PlayEffect(SEQ_SE_DP_WALL_HIT2_sseq); // a stand-in for HeartGold's sound as the block is hit (step 6)
+    FieldSystem_CreateTask(fieldSystem, IceBlock_Task, push);
+#ifdef SOVEREIGN_TEST
+    gCompleteTestIceBlockPushes++;
+#endif
+    return TRUE;
 }

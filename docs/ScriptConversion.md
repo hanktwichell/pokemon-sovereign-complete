@@ -172,7 +172,7 @@ HeartGold keeps each gym's puzzle in a "gymmick": 32 bytes of saved state that t
 in, and code the map's loading runs. Platinum has the same thing as its dynamic map features (Pastoria's water,
 Canalave's platforms): the same 32 bytes (`PersistedMapFeatures`), with an init, free and collision function for each
 feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as eight new
-features, each with the script commands its gym uses:
+features, each with the script commands its gym uses (and Mahogany's ice blocks, which aren't a feature):
 - **Vermilion** (`CompleteVermilionGymInit`, `...CanCheck`, `...LockAction`, `...ResampleCans`): the two switches in
   the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. With the
   Thunder Badge both gates stay open, as in HeartGold.
@@ -200,6 +200,13 @@ features, each with the script commands its gym uses:
   animations there (its `a/2/4/6` and its table of the 60 wall tiles, brought in by
   `tools/complete/import_hgss_gym_effects.py`); a bump stops the flashes next to it, as in HeartGold. HeartGold's own
   bump sound isn't in the sound archive, so Platinum's plays.
+- **Mahogany's ice blocks** (no gymmick or script command in HeartGold: its ice movement pushes them, `unk_0206D494.c`;
+  here `CompleteIceBlock_TryPush`, hooked where Platinum's ice stops the player and where the player bumps into
+  something, `src/player_move.c`): a block the player runs into on the ice slides on that way until a wall or the end
+  of the ice stops it. One that slides into someone, another block above all, joins it: both turn to face up, and a
+  block that faces up can't be pushed again. The gym's second room has no way through without them. Seafoam Islands'
+  B3F has them too; Sinnoh's one ice rock (Route 217) faces up, so nothing there changes. Platinum's ice slide sound
+  plays as a block slides, and its sounds stand in for HeartGold's hit and join.
 
 HeartGold's gyms find the parts that move among the map's own buildings, which Platinum keeps per loaded map chunk;
 `FindMapProp` looks there. HeartGold's own sound effects for these (the cart, the floors) wait for step 6; the floors

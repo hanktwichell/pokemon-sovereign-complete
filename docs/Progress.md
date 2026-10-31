@@ -965,3 +965,26 @@ Test results on the new test build:
   gate's Pokémon Center, whose nurse is a grunt; the tag battle beside Riley at the gate) and Jasmine. A full run on a
   build with the fix is under way. Ahead of Mahogany Gym and the Ice Path, the walker also slides on ice as the game
   does (`src/player_move.c`): a step onto ice goes on until the player is off it or something is in the way.
+
+## Oct 31, 2026: Mahogany Gym's ice blocks
+
+- **A gym that couldn't be crossed:** trying the walker on Mahogany Gym ahead of the story test, it found no way
+  across the second room. Its ice is stopped only by two ice blocks, which in HeartGold the player pushes: run into
+  one on the ice and it slides on until a wall or the end of the ice stops it, or someone, who it joins (another
+  block above all), both turning to face up so they can't be pushed again. HeartGold does this from its ice movement
+  (`unk_0206D494.c`), not as a gymmick, and Complete hadn't ported it, so Pryce couldn't be reached.
+- **Ported** (`CompleteIceBlock_TryPush` in `src/complete_gyms.c`, hooked where Platinum's ice stops the player and
+  where the player bumps into something, `src/player_move.c`): HeartGold's rule as it is, a block that faces down,
+  the same steps (facing locked while it slides, a join turns both to face up) and a field task the field waits for.
+  Seafoam Islands B3F has them too; Sinnoh's one ice rock (Route 217) faces up and stays put. Platinum's ice slide
+  sound plays as a block slides; its sounds stand in for HeartGold's hit and join (step 6).
+- **Tests:** `tools/complete/test_hgss_mahogany_gym.py` pushes the second room's first block into the second (one
+  push, both joined and facing up, the player stopped where the game stops them), slides against the joined blocks
+  without pushing them, and reaches the way on to Pryce: all pass. `tools/complete/solve_story_puzzles.py` now finds
+  the way across each of the gym's three rooms (a search over the player's tile and the blocks), and the story
+  test's walker, warped into the gym, followed it through all three rooms, four pushes and Pryce's battle to his TM,
+  the heaps whole after every step.
+- **The walker sees people where they are now**, read from the game's map objects (as trainers walk over to battle
+  and blocks move), where it used the map's starting places; it slides over ice, and never takes a slide that would
+  push a block (one the game says still faces down), so only the steps meant to push do. A full run from the bedroom
+  with these is under way.
