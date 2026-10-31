@@ -109,6 +109,29 @@ as a player would, without the test warp:
     VAR_HGSS_SG_6130 2), and the man at Olivine Gym leaves.
 34. **Jasmine:** the same way back to Olivine City and into its gym: Jasmine's battle, the Mineral Badge and her TM
     (FLAG_HGSS_GOT_TM23_FROM_JASMINE).
+35. **Mahogany Town:** north up Routes 39 and 38 and through the gatehouse to Ecruteak City, east through the Route 42
+    gatehouse, and along Route 42 (on Surf where it has to) into Mahogany Town (its Fly point recorded) and its
+    Pokémon Center.
+36. **The red Gyarados:** north through the gatehouse and up Route 43 to the Lake of Rage, and on Surf to beside the
+    red Gyarados, wherever it has wandered: its battle, and the Red Scale (FLAG_HGSS_GOT_RED_SCALE).
+37. **Lance:** back to the shore, where Lance asks for help: yes, and he flies off to Mahogany
+    (FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE).
+38. **The souvenir shop:** back down Route 43 into Mahogany's souvenir shop, where Lance unmasks the shop and its
+    stairs open (VAR_HGSS_UNK_40A8 2).
+39. **The passwords:** down the stairs into Team Rocket's hideout, across B1F (its Persian statues' alarms and the trap
+    floor play out on the way), B2F's east stairs to B3F, where the two grunts who know the passwords are beaten, and
+    back up by B3F's northeast stairs and along B2F's top corridor to B3F's west side, the floor change that sets the
+    hideout's progress on (VAR_HGSS_UNK_40AC 2: HeartGold's "on transition" script, which runs only on a warp).
+40. **Petrel:** the rival's scene on B3F, the door that opens to the passwords, and Petrel, as Giovanni, in the room
+    beyond: his battle (VAR_HGSS_UNK_40AC 4).
+41. **Ariana:** Petrel's Murkrow leads the player between the floors, a trigger at each step: B2F's top corridor, B3F's
+    northeast stairs, B2F's southeast stairs, and the doors it opens, where Ariana and a grunt wait
+    (VAR_HGSS_UNK_40AC 9).
+42. **The Electrode:** the three Electrode that power the generator, each a battle; Lance shuts it down and the
+    hideout is cleared (FLAG_HGSS_ROCKET_HIDEOUT_CLEARED), and the man in Mahogany Gym's doorway goes.
+43. **Pryce:** out of the hideout and the shop, into Mahogany Gym and across its three rooms of ice, pushing its ice
+    blocks where they make a way (tools/complete/solve_story_puzzles.py; src/complete_gyms.c), to Pryce: his battle,
+    the Glacier Badge and his TM (FLAG_HGSS_GOT_TM07_FROM_PRYCE).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -279,7 +302,36 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Jasmine', [('to', (130, 381)), 'UP', ('to', (4, 22)), ('to', (6, 7)), 'DOWN',  # Cliff Cave, back
                       ('to', (149, 384)), 'UP', ('to', (40, 22)), 'RIGHT',  # the Cliff Edge Gate, back
                       ('surf', (269, 239)), 'UP', ('to', (6, 6)), 'UP', ('talk', [])],
-          'MAP_HEADER_HGSS_OLIVINE_GYM', 'FLAG_HGSS_GOT_TM23_FROM_JASMINE')]
+          'MAP_HEADER_HGSS_OLIVINE_GYM', 'FLAG_HGSS_GOT_TM23_FROM_JASMINE'),
+         ('Mahogany Town', [('to', (6, 27)), 'DOWN', ('to', (351, 166)), 'RIGHT',  # Routes 39 and 38
+                            ('to', (10, 7)), 'RIGHT', ('to', (415, 175)), 'RIGHT',  # Ecruteak City
+                            ('to', (10, 7)), 'RIGHT', ('surf', (534, 183)), 'UP'],  # Route 42
+          'MAP_HEADER_HGSS_MAHOGANY_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_MAHOGANY')),
+         ('the red Gyarados', [('to', (8, 19)), 'DOWN', ('to', (524, 165)), 'UP', ('to', (5, 2)), 'UP',
+                               ('to', (528, 86)),  # up Route 43 to the Lake of Rage, where its people are loaded
+                               ('meet', (525, 71), [])],  # and on Surf to it
+          'MAP_HEADER_HGSS_LAKE_OF_RAGE', 'FLAG_HGSS_GOT_RED_SCALE'),
+         ('Lance', [('surf', (528, 84)), 'UP', ('talk', [True])], 'MAP_HEADER_HGSS_LAKE_OF_RAGE',
+          'FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE'),
+         ('the souvenir shop', [('to', (524, 156)), 'DOWN', ('to', (5, 12)), 'DOWN', ('to', (528, 174))],
+          'MAP_HEADER_HGSS_MAHOGANY_SOUVENIR_SHOP', ('VAR_HGSS_UNK_40A8', 2)),
+         ('the passwords', [('ladder', (6, 3), 'RIGHT'), ('to', (10, 29)), 'LEFT',  # B1F
+                            ('to', (51, 29)), 'RIGHT', ('meet', (38, 15), []), ('meet', (15, 25), []),  # B3F
+                            ('to', (51, 4)), 'RIGHT', ('to', (10, 4)), 'LEFT'],  # by B2F to B3F's west side
+          'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B3F', ('VAR_HGSS_UNK_40AC', 2)),
+         ('Petrel', [('to', (20, 18)), ('to', (23, 16)), 'UP', ('talk', []), ('to', (23, 12))],
+          'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B3F', ('VAR_HGSS_UNK_40AC', 4)),
+         ('Ariana', [('to', (10, 4)), 'LEFT', ('to', (11, 4)), ('to', (51, 4)), 'RIGHT', ('to', (50, 4)),
+                     ('to', (51, 29)), 'RIGHT', ('to', (50, 29)), ('to', (30, 27)), ('to', (30, 19))],
+          'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B2F', ('VAR_HGSS_UNK_40AC', 9)),
+         ('the Electrode', [('meet', (21, 12), []), ('meet', (21, 14), []), ('meet', (21, 16), [])],
+          'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B2F', 'FLAG_HGSS_ROCKET_HIDEOUT_CLEARED'),
+         ('Pryce', [('to', (10, 29)), 'LEFT', ('ladder', (51, 4), 'RIGHT'), ('to', (5, 9)), 'DOWN',  # out
+                    ('to', (523, 183)), 'UP',  # the ice (tools/complete/solve_story_puzzles.py)
+                    ('to', (4, 16)), 'UP', ('to', (3, 2)), ('to', (2, 10)), 'RIGHT', ('to', (6, 2)),
+                    ('to', (6, 17)), 'UP', ('to', (4, 9)), 'DOWN', ('to', (4, 12)), 'RIGHT', ('to', (7, 5)), 'UP',
+                    ('talk', [])],
+          'MAP_HEADER_HGSS_MAHOGANY_GYM_LEADER_ROOM', 'FLAG_HGSS_GOT_TM07_FROM_PRYCE')]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, and Ecruteak Gym's pits
@@ -677,7 +729,10 @@ def main():
                 d.press(KEYS[toward], frames=8, after=16)  # facing them
                 if where(start) == at:
                     result, frames = talk_and_answer(d, sym, answers, SETTLE_FRAMES)
-                    return '' if result == 'ok' else f'the talk: {result} after {frames} frames, on {here()} at {pos}'
+                    if result == 'ok':
+                        return ''
+                    if result != 'NOSCRIPT':  # (nobody: they stepped away as A went down, so again)
+                        return f'the talk: {result} after {frames} frames, on {here()} at {pos}'
                 continue
             matrix = matrix_of[here()]
             sides = [(at[0] + dx, at[1] + dz) for dx, dz in DIRS
