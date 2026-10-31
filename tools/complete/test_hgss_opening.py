@@ -198,6 +198,12 @@
 70. **Lance:** by the teleport, offered once all four have lost, to Lance's room, where his scene and battle play,
     and on into the Hall of Fame: its scene, the game cleared and saved (FLAG_HGSS_GAME_CLEAR), the game started over
     (src/clear_game.c's ClearGame_Johto) and continued, in the player's room in New Bark Town.
+71. **The S.S. Ticket:** downstairs (Mom has a word) and over to Elm's lab, where Elm gives the S.S. Ticket
+    (FLAG_HGSS_GOT_SS_TICKET_FROM_ELM).
+72. **Olivine's port:** west along Routes 29 to 31, through Violet City, along Route 36, where the Sudowoodo is back
+    (the Hall of Fame brings back the Pokémon not caught) and battles again after the SquirtBottle, along Route 37,
+    through Ecruteak City and along Routes 38 and 39 to Olivine City's port, where the sailor checks the ticket and
+    lets the player by.
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -525,7 +531,16 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Karen', [('to', (6, 5)), 'UP', ('talk', [2]), ('to', (6, 11)), 'UP', ('talk', [])],  # to Room 4
           'MAP_HEADER_HGSS_POKEMON_LEAGUE_KAREN_ROOM', 'FLAG_HGSS_DEFEATED_KAREN'),
          ('Lance', [('to', (6, 5)), 'UP', ('talk', [3]), ('to', (6, 10))],  # to Lance's room; his scene
-          'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_2F', 'FLAG_HGSS_GAME_CLEAR')]  # the Hall of Fame; the game over again
+          'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_2F', 'FLAG_HGSS_GAME_CLEAR'),  # the Hall of Fame; the game over again
+         ('the S.S. Ticket', [('ladder', (3, 4), 'LEFT'), ('to', (3, 10)), 'DOWN',  # downstairs (Mom), out
+                              ('to', (684, 394)), 'UP', ('meet', (6, 5), [])],  # Elm's lab: Elm
+          'MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_1F', 'FLAG_HGSS_GOT_SS_TICKET_FROM_ELM'),
+         ('Olivine\'s port', [('to', (4, 14)), 'DOWN', ('to', (518, 269)), 'LEFT',  # Routes 29, 30 and 31
+                              ('to', (1, 7)), 'LEFT', ('to', (454, 246)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Violet
+                              ('meet', (415, 246), [True]),  # Route 36's Sudowoodo, back: the SquirtBottle, yes
+                              ('to', (358, 166)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Routes 36, 37, Ecruteak City
+                              ('to', (279, 276)), 'DOWN', ('to', (7, 10)), 'DOWN', ('talk', [])],  # 38, 39, the sailor
+          'MAP_HEADER_HGSS_SS_AQUA_OLIVINE_PORT_INTERIOR', None)]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which
