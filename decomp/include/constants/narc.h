@@ -202,6 +202,7 @@ enum NarcID {
     NARC_INDEX_APPLICATION__ANNON__PUZZLE_GRA, // Sovereign Complete: the Ruins of Alph's puzzles (HeartGold's)
     NARC_INDEX_FIELDDATA__COMPLETE__FOLLOWER_TALK, // Sovereign Complete: talking to the following Pokémon (HeartGold's)
     NARC_INDEX_FIELDDATA__COMPLETE__VIRIDIAN_GYM, // Sovereign Complete: Viridian Gym's arrow tiles lighting up (HeartGold's)
+    NARC_INDEX_FIELDDATA__COMPLETE__FUCHSIA_GYM, // Sovereign Complete: Fuchsia Gym's invisible walls flashing (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H

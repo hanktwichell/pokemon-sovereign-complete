@@ -20,6 +20,7 @@ enum DynamicMapFeatureID {
     DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM, // Sovereign Complete
     DYNAMIC_MAP_FEATURES_HGSS_ECRUTEAK_GYM, // Sovereign Complete
     DYNAMIC_MAP_FEATURES_HGSS_VIRIDIAN_GYM, // Sovereign Complete
+    DYNAMIC_MAP_FEATURES_HGSS_FUCHSIA_GYM, // Sovereign Complete
     DYNAMIC_MAP_FEATURES_COUNT
 };
 

@@ -163,7 +163,7 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
 HeartGold keeps each gym's puzzle in a "gymmick": 32 bytes of saved state that the gym's script sets up on the way
 in, and code the map's loading runs. Platinum has the same thing as its dynamic map features (Pastoria's water,
 Canalave's platforms): the same 32 bytes (`PersistedMapFeatures`), with an init, free and collision function for each
-feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as seven new
+feature (`src/dynamic_map_features.c`). `src/complete_gyms.c` ports HeartGold's (`src/field/gymmick/*.c`) as eight new
 features, each with the script commands its gym uses:
 - **Vermilion** (`CompleteVermilionGymInit`, `...CanCheck`, `...LockAction`, `...ResampleCans`): the two switches in
   the fifteen trash cans, the second next to the first; the stops step aside and the gate's sparks stop. With the
@@ -187,13 +187,15 @@ features, each with the script commands its gym uses:
   they step onto one: HeartGold's model for that arrow's direction plays its texture animation on the tile (its
   `a/2/5/5`, brought in by `tools/complete/import_hgss_gym_effects.py`; up to three at once), drawn by a field effect
   task while the gym's features are loaded.
+- **Fuchsia** (`CompleteFuchsiaGymInit`, and a hook where the player bumps into a wall, `src/player_move.c`): the
+  walls are invisible, and flash where the player bumps into one, HeartGold's model for that piece of wall playing its
+  animations there (its `a/2/4/6` and its table of the 60 wall tiles, brought in by
+  `tools/complete/import_hgss_gym_effects.py`); a bump stops the flashes next to it, as in HeartGold. HeartGold's own
+  bump sound isn't in the sound archive, so Platinum's plays.
 
 HeartGold's gyms find the parts that move among the map's own buildings, which Platinum keeps per loaded map chunk;
 `FindMapProp` looks there. HeartGold's own sound effects for these (the cart, the floors) wait for step 6; the floors
 use Platinum's lift sound meanwhile.
-
-Still to port: Fuchsia's invisible walls flashing when bumped (the walls are in the map's collision, so the gym plays
-through without it). Its init command is left out until then.
 
 ## Standard scripts
 

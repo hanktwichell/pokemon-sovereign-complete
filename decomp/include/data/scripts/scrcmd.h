@@ -995,6 +995,7 @@ ScriptCommand(SCRCMD_COMPLETETUNNELRANDOMBACKDROP,                     CompleteS
 ScriptCommand(SCRCMD_COMPLETEINITFLYMENU,                             CompleteScrCmd_InitFlyMenu)
 ScriptCommand(SCRCMD_COMPLETEFLYTO,                                   CompleteScrCmd_FlyTo)
 ScriptCommand(SCRCMD_COMPLETEVIRIDIANGYMINIT,                          CompleteScrCmd_ViridianGymInit)
+ScriptCommand(SCRCMD_COMPLETEFUCHSIAGYMINIT,                           CompleteScrCmd_FuchsiaGymInit)
 
 // clang-format on
 

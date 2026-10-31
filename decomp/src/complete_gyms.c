@@ -1925,3 +1925,234 @@ BOOL CompleteScrCmd_ViridianGymInit(ScriptContext *ctx)
     InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_VIRIDIAN_GYM);
     return FALSE;
 }
+
+// Fuchsia Gym (HeartGold's fuchsia.c and InitFuchsiaGym): its walls are invisible, and flash where the player bumps
+// into one: the wall piece's model there plays its four animations (res/prebuilt/fielddata/complete_gym_effects,
+// tools/complete/import_hgss_gym_effects.py). A bump stops the flash of the wall tiles next to it, and a tile already
+// flashing doesn't start again; up to three flash at once. Elsewhere in the gym a bump just sounds, as anywhere.
+#define FUCHSIA_WALL_MODELS     12
+#define FUCHSIA_WALL_ANIMS      4
+#define FUCHSIA_FLASHES_AT_ONCE 3
+#define FUCHSIA_WALL_NEIGHBOURS 6
+
+typedef struct CompleteFuchsiaWall {
+    u8 x;
+    u8 z;
+    u8 model;
+    s8 xOffset;
+    s8 zOffset;
+    s8 neighbours[FUCHSIA_WALL_NEIGHBOURS];
+} CompleteFuchsiaWall;
+
+#include "data/hgss_fuchsia_gym_walls.h"
+
+typedef struct FuchsiaGymPiece {
+    BOOL active;
+    Easy3DObject object;
+    Easy3DAnim anims[FUCHSIA_WALL_ANIMS];
+} FuchsiaGymPiece;
+
+typedef struct FuchsiaGymFlash {
+    int wall; // -1 when not flashing
+    FuchsiaGymPiece *piece;
+} FuchsiaGymFlash;
+
+typedef struct FuchsiaGymEffect {
+    NNSFndAllocator allocator;
+    Easy3DModel models[FUCHSIA_WALL_MODELS];
+    FuchsiaGymPiece pieces[FUCHSIA_WALL_MODELS][FUCHSIA_FLASHES_AT_ONCE];
+    u8 nextPiece[FUCHSIA_WALL_MODELS];
+    FuchsiaGymFlash flashes[FUCHSIA_FLASHES_AT_ONCE];
+    int nextFlash;
+} FuchsiaGymEffect;
+
+#ifdef SOVEREIGN_TEST
+u16 gCompleteTestFuchsiaFlashes;
+#endif
+
+static void FuchsiaGym_EffectInit(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    FuchsiaGymEffect *effect = param;
+    NARC *narc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__FUCHSIA_GYM, HEAP_ID_FIELD1);
+
+    memset(effect, 0, sizeof(FuchsiaGymEffect));
+    HeapExp_FndInitAllocator(&effect->allocator, HEAP_ID_FIELD1, 32);
+
+    for (int i = 0; i < FUCHSIA_WALL_MODELS; i++) {
+        Easy3DModel_LoadFrom(&effect->models[i], narc, i, HEAP_ID_FIELD1);
+
+        for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+            FuchsiaGymPiece *piece = &effect->pieces[i][j];
+
+            Easy3DObject_Init(&piece->object, &effect->models[i]);
+
+            for (int k = 0; k < FUCHSIA_WALL_ANIMS; k++) {
+                Easy3DAnim_LoadFrom(&piece->anims[k], &effect->models[i], narc, FUCHSIA_WALL_MODELS + k * FUCHSIA_WALL_MODELS + i, HEAP_ID_FIELD1, &effect->allocator);
+                Easy3DObject_AddAnim(&piece->object, &piece->anims[k]);
+            }
+
+            Easy3DObject_SetVisible(&piece->object, FALSE);
+        }
+    }
+
+    for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+        effect->flashes[j].wall = -1;
+    }
+
+    NARC_dtor(narc);
+}
+
+static void FuchsiaGym_EffectFree(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    FuchsiaGymEffect *effect = param;
+
+    for (int i = 0; i < FUCHSIA_WALL_MODELS; i++) {
+        for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+            for (int k = 0; k < FUCHSIA_WALL_ANIMS; k++) {
+                Easy3DAnim_Release(&effect->pieces[i][j].anims[k], &effect->allocator);
+            }
+        }
+
+        Easy3DModel_Release(&effect->models[i]);
+    }
+}
+
+static void FuchsiaGym_StopFlash(FuchsiaGymFlash *flash)
+{
+    Easy3DObject_SetVisible(&flash->piece->object, FALSE);
+    flash->piece->active = FALSE;
+    flash->piece = NULL;
+    flash->wall = -1;
+}
+
+static void FuchsiaGym_EffectUpdate(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    FuchsiaGymEffect *effect = param;
+
+    for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+        FuchsiaGymFlash *flash = &effect->flashes[j];
+        int done = 0;
+
+        if (flash->wall < 0) {
+            continue;
+        }
+
+        for (int k = 0; k < FUCHSIA_WALL_ANIMS; k++) {
+            done += Easy3DAnim_Update(&flash->piece->anims[k], FX32_ONE);
+        }
+
+        if (done == FUCHSIA_WALL_ANIMS) {
+            FuchsiaGym_StopFlash(flash);
+        }
+    }
+}
+
+static void FuchsiaGym_EffectDraw(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *param)
+{
+    FuchsiaGymEffect *effect = param;
+
+    for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+        if (effect->flashes[j].wall >= 0) {
+            Easy3DObject_Draw(&effect->flashes[j].piece->object);
+        }
+    }
+}
+
+void CompleteFuchsiaGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
+{
+    static const UnkStruct_ov6_0223E6EC sTemplate = {
+        1024, sizeof(FuchsiaGymEffect), FuchsiaGym_EffectInit, FuchsiaGym_EffectFree, FuchsiaGym_EffectUpdate, FuchsiaGym_EffectDraw
+    };
+
+    fieldSystem->unk_04->dynamicMapFeaturesData = ov5_021D1B6C(fieldSystem->unk_04->unk_04, &sTemplate);
+}
+
+void CompleteFuchsiaGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
+{
+    ov5_021D1BEC(fieldSystem->unk_04->dynamicMapFeaturesData);
+    fieldSystem->unk_04->dynamicMapFeaturesData = NULL;
+}
+
+// HeartGold's FuchsiaGymmick_CheckCollision, as the player bumps into the tile (x, z) (src/player_move.c): a wall tile
+// flashes, and the bump sounds as anywhere. FALSE when the player isn't in Fuchsia Gym.
+BOOL CompleteFuchsiaGym_WallHit(FieldSystem *fieldSystem, int x, int z)
+{
+    PersistedMapFeatures *features = MiscSaveBlock_GetPersistedMapFeatures(FieldSystem_GetSaveData(fieldSystem));
+    int wall = -1;
+
+    if (PersistedMapFeatures_GetID(features) != DYNAMIC_MAP_FEATURES_HGSS_FUCHSIA_GYM || fieldSystem->unk_04->dynamicMapFeaturesData == NULL) {
+        return FALSE;
+    }
+
+    for (int i = 0; i < (int)NELEMS(sFuchsiaWalls); i++) {
+        if (sFuchsiaWalls[i].x == x && sFuchsiaWalls[i].z == z) {
+            wall = i;
+            break;
+        }
+    }
+
+    Sound_PlayEffect(SEQ_SE_DP_WALL_HIT_sseq); // HeartGold's own sound for the walls isn't in the sound archive
+
+    if (wall < 0) {
+        return TRUE;
+    }
+
+    FuchsiaGymEffect *effect = ov5_021D1C2C(fieldSystem->unk_04->dynamicMapFeaturesData);
+
+    for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+        if (effect->flashes[j].wall == wall) {
+            return TRUE;
+        }
+    }
+
+    for (int n = 0; n < FUCHSIA_WALL_NEIGHBOURS && sFuchsiaWalls[wall].neighbours[n] >= 0; n++) {
+        for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+            if (effect->flashes[j].wall == sFuchsiaWalls[wall].neighbours[n]) {
+                FuchsiaGym_StopFlash(&effect->flashes[j]);
+            }
+        }
+    }
+
+    FuchsiaGymFlash *flash = &effect->flashes[effect->nextFlash];
+    int model = sFuchsiaWalls[wall].model;
+
+    if (flash->wall >= 0) {
+        FuchsiaGym_StopFlash(flash);
+    }
+
+    flash->piece = &effect->pieces[model][effect->nextPiece[model]];
+
+    if (flash->piece->active) {
+        for (int j = 0; j < FUCHSIA_FLASHES_AT_ONCE; j++) {
+            if (effect->flashes[j].piece == flash->piece && &effect->flashes[j] != flash) {
+                FuchsiaGym_StopFlash(&effect->flashes[j]);
+            }
+        }
+    }
+
+    effect->nextPiece[model] = (effect->nextPiece[model] + 1) % FUCHSIA_FLASHES_AT_ONCE;
+    effect->nextFlash = (effect->nextFlash + 1) % FUCHSIA_FLASHES_AT_ONCE;
+    flash->wall = wall;
+    flash->piece->active = TRUE;
+
+    const VecFx32 *pos = MapObject_GetPos(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar));
+
+    Easy3DObject_SetPosition(&flash->piece->object, FX32_CONST(8 + 16 * (sFuchsiaWalls[wall].x + sFuchsiaWalls[wall].xOffset)), pos->y, FX32_CONST(8 + 16 * (sFuchsiaWalls[wall].z + sFuchsiaWalls[wall].zOffset)));
+
+    for (int k = 0; k < FUCHSIA_WALL_ANIMS; k++) {
+        Easy3DAnim_SetFrame(&flash->piece->anims[k], 0);
+    }
+
+    Easy3DObject_SetVisible(&flash->piece->object, TRUE);
+#ifdef SOVEREIGN_TEST
+    gCompleteTestFuchsiaFlashes++;
+#endif
+    return TRUE;
+}
+
+// HeartGold's FuchsiaGymInit, as the gym loads: the walls' flashes come with the map from then on
+BOOL CompleteScrCmd_FuchsiaGymInit(ScriptContext *ctx)
+{
+    InitPersistedData(ctx->fieldSystem, DYNAMIC_MAP_FEATURES_HGSS_FUCHSIA_GYM);
+    return FALSE;
+}

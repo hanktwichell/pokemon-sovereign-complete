@@ -36,7 +36,8 @@ const static DynamicMapFeaturesInitFunc sInitFuncs[DYNAMIC_MAP_FEATURES_COUNT] =
     CompleteAzaleaGym_DynamicMapFeaturesInit, // Sovereign Complete
     CompleteBlackthornGym_DynamicMapFeaturesInit, // Sovereign Complete
     CompleteEcruteakGym_DynamicMapFeaturesInit, // Sovereign Complete
-    CompleteViridianGym_DynamicMapFeaturesInit // Sovereign Complete
+    CompleteViridianGym_DynamicMapFeaturesInit, // Sovereign Complete
+    CompleteFuchsiaGym_DynamicMapFeaturesInit // Sovereign Complete
 };
 
 const static DynamicMapFeaturesFreeFunc sFreeFuncs[DYNAMIC_MAP_FEATURES_COUNT] = {
@@ -57,7 +58,8 @@ const static DynamicMapFeaturesFreeFunc sFreeFuncs[DYNAMIC_MAP_FEATURES_COUNT] =
     CompleteAzaleaGym_DynamicMapFeaturesFree, // Sovereign Complete
     CompleteBlackthornGym_DynamicMapFeaturesFree, // Sovereign Complete
     CompleteEcruteakGym_DynamicMapFeaturesFree, // Sovereign Complete
-    CompleteViridianGym_DynamicMapFeaturesFree // Sovereign Complete
+    CompleteViridianGym_DynamicMapFeaturesFree, // Sovereign Complete
+    CompleteFuchsiaGym_DynamicMapFeaturesFree // Sovereign Complete
 };
 
 const static DynamicMapFeaturesCheckCollisionFunc sCheckCollisionFuncs[DYNAMIC_MAP_FEATURES_COUNT] = {
@@ -77,6 +79,7 @@ const static DynamicMapFeaturesCheckCollisionFunc sCheckCollisionFuncs[DYNAMIC_M
     NULL, // Sovereign Complete
     NULL, // Sovereign Complete
     CompleteBlackthornGym_DynamicMapFeaturesCheckCollision, // Sovereign Complete
+    NULL, // Sovereign Complete
     NULL, // Sovereign Complete
     NULL // Sovereign Complete
 };

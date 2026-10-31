@@ -54,8 +54,15 @@ void CompleteViridianGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem);
 
 BOOL CompleteScrCmd_ViridianGymInit(ScriptContext *ctx);
 
+void CompleteFuchsiaGym_DynamicMapFeaturesInit(FieldSystem *fieldSystem);
+void CompleteFuchsiaGym_DynamicMapFeaturesFree(FieldSystem *fieldSystem);
+BOOL CompleteFuchsiaGym_WallHit(FieldSystem *fieldSystem, int x, int z);
+
+BOOL CompleteScrCmd_FuchsiaGymInit(ScriptContext *ctx);
+
 #ifdef SOVEREIGN_TEST
 extern u16 gCompleteTestViridianLit; // test build: arrows lit in Viridian Gym so far
+extern u16 gCompleteTestFuchsiaFlashes; // test build: wall flashes started in Fuchsia Gym so far
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_GYMS_H

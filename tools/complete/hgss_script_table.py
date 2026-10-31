@@ -560,6 +560,7 @@ COMMANDS = {
     'BlackthornGymInit': lambda a: ['CompleteBlackthornGymInit'],
     'EcruteakGymInit': lambda a: ['CompleteEcruteakGymInit'],
     'ViridianGymInit': lambda a: ['CompleteViridianGymInit'],
+    'FuchsiaGymInit': lambda a: ['CompleteFuchsiaGymInit'],
     'ScreenShake': one('CompleteScreenShake {0}, {1}, {2}, {3}'),
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning

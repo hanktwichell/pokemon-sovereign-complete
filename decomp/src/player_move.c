@@ -30,6 +30,8 @@
 #include "terrain_collision_manager.h"
 #include "unk_020655F4.h"
 
+#include "complete_gyms.h" // Sovereign Complete
+
 typedef BOOL (*TileBehaviorFunc)(u8);
 
 typedef struct {
@@ -1031,7 +1033,9 @@ static void PlayerAvatar_SetMovement_NormalOverworld(PlayerAvatar *playerAvatar,
             movementAction = MOVEMENT_ACTION_WALK_ON_SPOT_SLOW_NORTH;
             speed = PLAYER_ACTION_SPEED_NOT_MOVING;
 
-            if ((collision & PLAYER_COLLISION_WARP) == 0) {
+            // Sovereign Complete: in Fuchsia Gym the invisible wall flashes where the player bumps into it
+            if ((collision & PLAYER_COLLISION_WARP) == 0
+                && !CompleteFuchsiaGym_WallHit(MapObject_FieldSystem(mapObj), MapObject_GetX(mapObj) + MapObject_GetDxFromDir(dir), MapObject_GetZ(mapObj) + MapObject_GetDzFromDir(dir))) {
                 Sound_PlayEffect(SEQ_SE_DP_WALL_HIT_sseq);
             }
 

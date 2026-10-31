@@ -835,18 +835,30 @@ Test results on the new test build:
   `tools/complete/test_hgss_safari.py` checks (the test leaves it out now).
 - **Johto's and Kanto's 737 trainers** (`tools/test/battle_all_trainers.py`, on the latest build): every battle
   starts, runs to its end and comes back to the field.
+- **The talk test over every person and thing in all three regions** (`tools/test/talk_to_objects.py`, 4,859 on the
+  test build of Oct 30): 4,086 ran to their end and none hung where the test could go. 632 started nothing (people who
+  walk off or are hidden at this point of a new game), 44 had no tile to stand on, 19 are stand-ins (`docs/Features.md`,
+  "Stand-ins"). The rest are Platinum's own: the Underground's and the Union Room's people (link-play maps the test's
+  warp can't enter), the Ribbon Syndicate's and the Champion's rooms (they need the story's way in), Route 214's TV
+  reporter (Easy Chat, which the test can't answer), and two answered by someone else on their tile.
 - **Sovereign's battle script check** (`tools/test/check_battle_scripts.py`) found the Bug-Catching Contest's Sport
   Ball throw (`subscript_complete_throw_sport_ball`) in the subscripts' order but not in
   `generated/battle_subscripts.txt`, which keeps the two in step; it's there now, and every battle script fits (the
   largest, 1,944 of 2,048 bytes). Every battle sprite (`check_battle_sprites.py`): 5,344, no problems.
 
-## Oct 31, 2026: Viridian Gym's arrows light up
+## Oct 31, 2026: Viridian Gym's arrows light up, Fuchsia Gym's walls flash
 
 - **Viridian Gym** (HeartGold's `viridian.c`): its arrow tiles, Platinum's slide tiles here, light up under the
   player as they step onto one, HeartGold's model for that arrow's direction playing its texture animation on the
   tile, up to three at once as the player slides on (`src/complete_gyms.c`, `CompleteViridianGymInit`, HeartGold's
   `ViridianGymInit`, which the gym's script runs as it loads). The models and animations are HeartGold's `a/2/5/5`,
-  brought in by new `tools/complete/import_hgss_gym_effects.py`. Of the gyms' touches, only Fuchsia's invisible walls
-  flashing when bumped are left (`docs/ScriptConversion.md`, "Gym puzzles").
+  brought in by new `tools/complete/import_hgss_gym_effects.py`.
+- **Fuchsia Gym** (HeartGold's `fuchsia.c`): its walls are invisible, and now flash where the player bumps into one,
+  HeartGold's model for that piece of wall playing its animations there, as HeartGold shows the way through
+  (`CompleteFuchsiaGymInit`; the bump comes from Platinum's walking code, `src/player_move.c`). HeartGold's `a/2/4/6`
+  and its table of the gym's 60 wall tiles come in through the same tool. With it, every gym's touches are in
+  (`docs/ScriptConversion.md`, "Gym puzzles").
 - **Tested:** new `tools/complete/test_hgss_viridian_gym.py` passes: in at the door, a step up onto the first arrow
-  lights it, and the player slides back off it with the field free.
+  lights it, and the player slides back off it with the field free. New `tools/complete/test_hgss_fuchsia_gym.py`
+  passes: a bump into the first row of walls starts a flash, a second bump while it flashes starts none, and the
+  player stays put with the field free.

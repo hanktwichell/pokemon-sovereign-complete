@@ -22,7 +22,7 @@
     ScriptEntry scr_seq_T08GYM0101_009
     ScriptEntryEnd
 scr_seq_T08GYM0101_000:
-    @ HGSS: FuchsiaGymInit
+    CompleteFuchsiaGymInit
     CompletePhoneGetRematch PHONE_CONTACT_JANINE, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _0245

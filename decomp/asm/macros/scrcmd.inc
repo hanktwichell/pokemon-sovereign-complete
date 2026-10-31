@@ -6309,6 +6309,11 @@
     .short SCRCMD_COMPLETEVIRIDIANGYMINIT
     .endm
 
+    // Fuchsia Gym (HeartGold's FuchsiaGymInit): its invisible walls flash where the player bumps into them.
+    .macro CompleteFuchsiaGymInit
+    .short SCRCMD_COMPLETEFUCHSIAGYMINIT
+    .endm
+
     .text
     .globl _start
 _start:
