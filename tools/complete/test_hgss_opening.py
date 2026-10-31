@@ -204,6 +204,12 @@
     (the Hall of Fame brings back the Pokémon not caught) and battles again after the SquirtBottle, along Route 37,
     through Ecruteak City and along Routes 38 and 39 to Olivine City's port, where the sailor checks the ticket and
     lets the player by.
+73. **The S.S. Aqua:** out to the gangway, whose sailor takes the player aboard; the ship sails. On board, the gentleman
+    whose granddaughter is missing; a sailor's word on B1F; Sailor Stanly's battle in the southeast rooms; up B1F's
+    far ladder to the captain's room, where the girl runs off; and on B1F, found, she takes the player to her
+    grandfather, and the ship arrives (FLAG_HGSS_BOAT_ARRIVED).
+74. **Vermilion City:** to the ship's door, whose sailor steps aside, and out through Vermilion's port, whose sailor
+    lets the player through, into Vermilion City (its Fly point recorded).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -539,8 +545,20 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                               ('to', (1, 7)), 'LEFT', ('to', (454, 246)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Violet
                               ('meet', (415, 246), [True]),  # Route 36's Sudowoodo, back: the SquirtBottle, yes
                               ('to', (358, 166)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Routes 36, 37, Ecruteak City
-                              ('to', (279, 276)), 'DOWN', ('to', (7, 10)), 'DOWN', ('talk', [])],  # 38, 39, the sailor
-          'MAP_HEADER_HGSS_SS_AQUA_OLIVINE_PORT_INTERIOR', None)]
+                              ('to', (279, 276)), 'DOWN', ('to', (7, 8)), 'DOWN', ('talk', [])],  # 38, 39, the sailor
+          'MAP_HEADER_HGSS_SS_AQUA_OLIVINE_PORT_INTERIOR', ('VAR_HGSS_BOAT_DIRECTION', 1)),
+         ('the S.S. Aqua', [('to', (7, 11)), 'DOWN', ('to', (26, 22)), 'RIGHT', ('talk', []),  # aboard; it sails
+                            ('to', (24, 14)),  # the gentleman's granddaughter is missing
+                            ('ladder', (24, 3), 'LEFT'), ('to', (37, 17)), 'RIGHT',  # B1F: a sailor's word
+                            ('ladder', (24, 3), 'RIGHT'), ('to', (30, 14)), 'DOWN', ('meet', (7, 10), []),  # Stanly
+                            ('to', (9, 2)), 'UP', ('ladder', (24, 3), 'LEFT'), ('ladder', (42, 9), 'UP'),
+                            ('to', (49, 16)), 'UP', ('meet', (10, 4), []),  # the captain's room: she runs off
+                            ('to', (9, 11)), 'DOWN', ('to', (42, 9)), ('meet', (1, 13), [])],  # B1F: found
+          'MAP_HEADER_HGSS_SS_AQUA_1F_NORTHWEST_ROOMS', 'FLAG_HGSS_BOAT_ARRIVED'),
+         ('Vermilion City', [('to', (9, 11)), 'DOWN', ('to', (24, 16)), 'DOWN', ('talk', []),  # the door's sailor
+                             ('to', (24, 19)), 'DOWN', ('to', (12, 12)), 'UP', 'UP',  # into the port's building
+                             ('talk', []), ('to', (7, 2)), 'UP'],  # its sailor lets the player through
+          'MAP_HEADER_HGSS_VERMILION', ('fly', 'MAP_HEADER_HGSS_VERMILION'))]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which

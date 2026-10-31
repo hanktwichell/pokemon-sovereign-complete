@@ -1097,3 +1097,14 @@ Test results on the new test build:
 - **What the test learned on the way:** the man at the League's inner door steps aside when talked to; going down a
   waterfall on Surf needs no prompt. Again nothing in the game needed changing.
 - **Next:** one run of all 70 parts back to back from the bedroom (under way), to see the whole story in one go.
+
+## Oct 31, 2026: the story test sails to Kanto, 74 parts
+
+- **Parts 71 to 74 pass,** each from the end of the one before: Elm's S.S. Ticket after the Hall of Fame; back west to
+  Olivine City's port; the S.S. Aqua's first trip as HeartGold plays it (the gentleman's missing granddaughter: a
+  sailor's word on B1F, Sailor Stanly's battle, the captain's room by B1F's far ladder, the girl found on B1F, and the
+  ship arrives); and off at Vermilion's port into Vermilion City.
+- **After the Hall of Fame,** the game brings back the Pokémon not caught, so Route 36's Sudowoodo stands in the road
+  again and battles once more after the SquirtBottle, as in HeartGold.
+- **Ports:** the gangway's sailor takes the player aboard; on arrival, the port building's sailor lets the player
+  through when talked to from below. Nothing in the game needed changing.
