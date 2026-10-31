@@ -188,6 +188,13 @@ as a player would, without the test warp:
 65. **Victory Road:** 1F's boulder pushed out of the way; up to 3F, down one of its holes to 2F, 2F's boulder pushed
     aside, up to 3F again, down another hole to 2F, over its ledge and up to 3F's exit, where the rival battles
     (VAR_HGSS_UNK_40C5), and out to Indigo Plateau.
+66. **Will:** into the Pokémon League and Will's room: his battle (FLAG_HGSS_DEFEATED_WILL).
+67. **Koga:** Sacred Gold's Kadabra in each room teleports the player to another member's room (its doors stay shut):
+    to Koga's, and his battle (FLAG_HGSS_DEFEATED_KOGA).
+68. **Bruno:** by the teleport to Bruno's room, and his battle (FLAG_HGSS_DEFEATED_BRUNO).
+69. **Karen:** by the teleport to Karen's room, and her battle (FLAG_HGSS_DEFEATED_KAREN).
+70. **Lance:** by the teleport, offered once all four have lost, to Lance's room, where his scene and battle play,
+    and on into the Hall of Fame (VAR_HGSS_UNK_411A 1).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -502,7 +509,18 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                            ('push', 'LEFT'), ('ladder', (56, 22), 'UP'),  # 2F's boulder out of the way, 3F again
                            ('to', (26, 38)), ('ladder', (27, 45), 'UP'),  # another hole, 2F's ledge, 3F
                            ('to', (38, 14)), 'UP'],  # the rival, and out to Indigo Plateau
-          'MAP_HEADER_HGSS_INDIGO_PLATEAU', 'VAR_HGSS_UNK_40C5')]
+          'MAP_HEADER_HGSS_INDIGO_PLATEAU', 'VAR_HGSS_UNK_40C5'),
+         ('Will', [('to', (912, 201)), 'UP', ('to', (11, 8)), 'UP', ('to', (6, 11)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_POKEMON_LEAGUE_WILL_ROOM', 'FLAG_HGSS_DEFEATED_WILL'),
+         ('Koga', [('to', (6, 5)), 'UP', ('talk', [0]),  # the Kadabra's teleport, to League Room 2
+                   ('to', (6, 12)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_POKEMON_LEAGUE_KOGA_ROOM', 'FLAG_HGSS_DEFEATED_KOGA'),
+         ('Bruno', [('to', (6, 5)), 'UP', ('talk', [1]), ('to', (6, 11)), 'UP', ('talk', [])],  # to Room 3
+          'MAP_HEADER_HGSS_POKEMON_LEAGUE_BRUNO_ROOM', 'FLAG_HGSS_DEFEATED_BRUNO'),
+         ('Karen', [('to', (6, 5)), 'UP', ('talk', [2]), ('to', (6, 11)), 'UP', ('talk', [])],  # to Room 4
+          'MAP_HEADER_HGSS_POKEMON_LEAGUE_KAREN_ROOM', 'FLAG_HGSS_DEFEATED_KAREN'),
+         ('Lance', [('to', (6, 5)), 'UP', ('talk', [3]), ('to', (6, 10))],  # to Lance's room; his scene
+          'MAP_HEADER_HGSS_POKEMON_LEAGUE_HALL_OF_FAME', ('VAR_HGSS_UNK_411A', 1))]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which
