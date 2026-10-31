@@ -934,3 +934,26 @@ Test results on the new test build:
   little longer for a step that starts late (the follower getting out of the way) and forgets the failed steps when
   they leave no way (a trainer who walked over to battle may have stood in it). It surfs too: at the shore it faces
   the water and uses Surf, and its routes stay off whirlpools and waterfalls.
+
+## Oct 31, 2026: a double free after Route 47's tag battles, and the walker rides Violet Gym's lift
+
+- **The story test now checks the game's heaps** at the end of each part (`tools/test/heap_check.py`, as the battle
+  tests do; `HEAP_STEPS=1` checks after each action), and the next leg, the Safari Zone Gate, found a real bug at
+  once. After the tag battle on Route 47's bridge (Sacred Gold's; three such battles on the route heal the player
+  after), the script shows a line, fades to black, heals, leaves the field and comes back (HeartGold's `ScrCmd_436`
+  and `RestoreOverworld`, Platinum's `WaitForTransition` and `ReturnToField`), and only then closes the message box.
+  Leaving the field frees the field's heap, the box's window with it, and the close frees the window a second time
+  into the field's new heap: the free lists dumped frame by frame show the field heap rebuilt, then `CloseMessage`
+  freeing a block already freed. HeartGold has the same slip (its `CloseMsg` and `RemoveWindow` do the same, and its
+  field heap goes the same way); it may never show there, but a broken heap here crashes sooner or later. The
+  translator now closes a box still open where a script leaves the field, while the screen is black, in place of the
+  close after (`close_before_leaving` in `tools/complete/translate_hgss_scripts.py`); a scan of every translated
+  script finds only these three heals leaving with a box open. The main build boots (boot smoke PASS).
+- **Violet Gym's lift:** the full run from the bedroom with last stretch's height-aware walker stopped at Falkner, as
+  the lift (`src/complete_gyms.c`) carries the player to height 496 over a floor whose BDHC says 32, and every step
+  off it looked like a drop. The walker now reads the field's dynamic plates from the game (the lift's), through the
+  player's map object to the field system, as one more height at their tiles, and walks off the lift to Falkner.
+- **The next two parts**, 33 and 34 (written, not yet passed): the Safari Zone Gate (Cliff Edge Gate and Route 47's
+  boulder, which won't budge until the grunts on the bridge are beaten in a tag battle; Cliff Cave and Route 48; the
+  gate's Pokémon Center, whose nurse is a grunt; the tag battle beside Riley at the gate) and Jasmine. A full run on a
+  build with the fix is under way.

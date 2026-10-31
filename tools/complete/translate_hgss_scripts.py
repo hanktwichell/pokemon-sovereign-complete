@@ -326,6 +326,29 @@ def apply_inserts(stem, body):
     return body[:i] + lines + body[i:] + end
 
 
+def close_before_leaving(body):
+    """Close a message box still open where a script leaves the field (HeartGold's ScrCmd_436, WaitForTransition), in
+    place of its CloseMsg after RestoreOverworld: leaving the field frees the field's heap, the box's window with it,
+    and closing it then frees the window again (Sacred Gold's heals after Route 47's tag battles; HeartGold has the same
+    slip). The screen is black by then, so nothing shows the change."""
+    body = list(body)
+    leaving = [i for i, line in enumerate(body) if line == '    WaitForTransition']
+    for i in reversed(leaving):  # from the end, as an insert moves what follows it
+        for line in reversed(body[:i]):  # back along the script to the box's last message or close
+            if line.endswith(':') or line.strip() in ('End', 'Return') or line.startswith('    GoTo '):
+                break
+            if line.startswith('    CloseMessage'):
+                break
+            if re.match(r'    Message\w*\b', line):
+                after = next((j for j in range(i + 1, len(body))
+                              if body[j] == '    CloseMessage' or body[j].endswith(':') or body[j] == '    End'), None)
+                if after is not None and body[after] == '    CloseMessage':
+                    body[after] = '    @ Sovereign Complete: closed before leaving the field'
+                    body[i:i] = ['    CloseMessage  @ Sovereign Complete: before leaving the field']
+                break
+    return body
+
+
 def install(files, names, table, platinum_params, hg_params, report, register=True):
     """Write the translated scripts into the engine and, with register (all of them written), register them
     (scripts.order, meson.build: the lists are rewritten whole, so a few files alone would drop the rest)."""
@@ -333,7 +356,8 @@ def install(files, names, table, platinum_params, hg_params, report, register=Tr
     out_names = []
     for path in files:
         stem = os.path.splitext(os.path.basename(path))[0]
-        body = apply_inserts(stem, translate_file(path, names, table, platinum_params, hg_params, report))
+        body = apply_inserts(stem, close_before_leaving(translate_file(path, names, table, platinum_params, hg_params,
+                                                                       report)))
         text = '\n'.join(body)
         name = engine_name(stem)
         write_if_changed(os.path.join(DECOMP, f'res/field/scripts/{name}.s'),

@@ -194,11 +194,12 @@ scr_seq_R47_008:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
+    CloseMessage  @ Sovereign Complete: before leaving the field
     WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    CloseMessage
+    @ Sovereign Complete: closed before leaving the field
     SetVarFromValue VAR_HGSS_SG_619F, 2
     ReleaseAll
     End
@@ -277,11 +278,12 @@ scr_seq_R47_013:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
+    CloseMessage  @ Sovereign Complete: before leaving the field
     WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    CloseMessage
+    @ Sovereign Complete: closed before leaving the field
     SetVarFromValue VAR_HGSS_SG_619E, 2
     ReleaseAll
     End
@@ -338,11 +340,12 @@ scr_seq_R47_016:
     PlayFanfare SEQ_ME_ASA_sseq
     WaitFanfare
     HealParty
+    CloseMessage  @ Sovereign Complete: before leaving the field
     WaitForTransition
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    CloseMessage
+    @ Sovereign Complete: closed before leaving the field
     SetVarFromValue VAR_HGSS_SG_6139, 2
     ReleaseAll
     End

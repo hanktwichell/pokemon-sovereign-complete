@@ -98,19 +98,28 @@ as a player would, without the test warp:
     is beaten and Jasmine has asked for it (FLAG_HGSS_GOT_SECRETPOTION).
 32. **The medicine:** back over the sea to the lighthouse, up by its elevator from 1F, and the SecretPotion given to
     Jasmine for the Ampharos, yes; the light shines again and Jasmine goes back to her gym
-    (VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE 2). Next, before Jasmine: Sacred Gold puts a man on Olivine Gym's door mat
-    now (his hide flag, FLAG_HGSS_SG_3FE8) until Team Rocket is beaten at the Safari Zone Gate, west of Cianwood: a
-    scene in its Pokémon Center brings them to the gate, and a tag battle there (VAR_HGSS_SG_6130 2) sends him away.
+    (VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE 2). Sacred Gold now puts a man on Olivine Gym's door mat (his hide flag,
+    FLAG_HGSS_SG_3FE8) until Team Rocket is beaten at the Safari Zone Gate.
+33. **The Safari Zone Gate:** down by the elevator, on Surf to Cianwood City and west through the Cliff Edge Gate to
+    Route 47, where Team Rocket has blocked Cliff Cave with a boulder that won't budge (Sacred Gold's) until a tag
+    battle with the two grunts on the bridge beyond it (their step-on trigger), after which it shatters when inspected;
+    through Cliff Cave (its ladder up, out on the route's other side) and Route 48 to the Safari Zone Gate's Pokémon
+    Center, whose nurse, across her counter, offers to heal the player's Pokémon: yes, and she's a Team Rocket grunt;
+    their scene sends them to the gate, where a tag battle beside Riley at the gate's entrance beats them (Sacred Gold's
+    VAR_HGSS_SG_6130 2), and the man at Olivine Gym leaves.
+34. **Jasmine:** the same way back to Olivine City and into its gym: Jasmine's battle, the Mineral Badge and her TM
+    (FLAG_HGSS_GOT_TM23_FROM_JASMINE).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
-heights don't allow, so over a bridge or under it, around the people, and never onto a warp, or an armed cart trigger in
-Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go to), and take it a step at a time, finding
-it again whenever a scene or a person moves the player. A prompt on the way (the test save's Super Repel wearing off),
-each scene's text and a battle are paged through with A, which also answers yes; the battles, trainers' and wild
-Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about the story's
-way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or its var has
-moved on from 0 (or to a given value), and the following Pokémon (the test party's lead) is beside the player: at most
-two steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by
+heights and lifts don't allow, so over a bridge or under it, around the people, and never onto a warp, or an armed cart
+trigger in Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go to), and take it a step at a
+time, finding it again whenever a scene or a person moves the player. A prompt on the way (the test save's Super Repel
+wearing off), each scene's text and a battle are paged through with A, which also answers yes; the battles, trainers'
+and wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about
+the story's way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or
+its var has moved on from 0 (or to a given value), the game's heaps are whole (tools/test/heap_check.py; HEAP_STEPS=1
+checks them after each action), and the following Pokémon (the test party's lead) is beside the player: at most two
+steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by
 Elm's table before src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
 
@@ -127,9 +136,10 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
-from battle_all_trainers import SWITCH_FRAMES, TAPS  # noqa: E402
+from battle_all_trainers import SWITCH_FRAMES, TAPS, heap_info  # noqa: E402
 from check_object_tiles import DIRS, JUMPS, Maps, walkable  # noqa: E402
 from gift_pokemon import talk_and_answer  # noqa: E402
+from heap_check import heap_problems  # noqa: E402
 from talk_to_objects import DECOMP, SYMBOLS, WATER, event_maps, header_names, symbols, var_ids, warp  # noqa: E402
 from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: E402
 
@@ -255,7 +265,19 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('the medicine', [('to', (5, 9)), 'DOWN', ('surf', (301, 264)), 'UP',
                            ('to', (8, 5)), 'UP', ('to', (3, 6)), 'DOWN',  # the elevator up, by itself
                            ('to', (7, 9)), 'UP', ('talk', [True])],
-          'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM', ('VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE', 2))]
+          'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM', ('VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE', 2)),
+         ('the Safari Zone Gate', [('to', (8, 5)), 'UP', ('to', (3, 6)), 'DOWN', ('to', (8, 17)), 'DOWN',
+                                   ('surf', (171, 347)), 'LEFT', ('to', (18, 46)), 'DOWN',  # the Cliff Edge Gate
+                                   ('to', (126, 389)), 'LEFT',  # a tag battle with the grunts on the bridge
+                                   ('to', (130, 387)), 'UP', ('talk', []),  # their boulder shatters
+                                   ('to', (130, 385)), 'UP', ('ladder', (4, 5), 'UP'), ('to', (6, 29)), 'DOWN',
+                                   ('to', (82, 303)), 'UP', ('to', (8, 13)), 'UP', ('talk', [True]),  # the nurse
+                                   ('to', (8, 19)), 'DOWN', ('to', (88, 296)), 'UP'],  # the gate: the tag battle
+          'MAP_HEADER_HGSS_SAFARI_ZONE_GATE', ('VAR_HGSS_SG_6130', 2)),
+         ('Jasmine', [('to', (130, 381)), 'UP', ('to', (4, 22)), ('to', (6, 7)), 'DOWN',  # Cliff Cave, back
+                      ('to', (149, 384)), 'UP', ('to', (40, 22)), 'RIGHT',  # the Cliff Edge Gate, back
+                      ('surf', (269, 239)), 'UP', ('to', (6, 6)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_OLIVINE_GYM', 'FLAG_HGSS_GOT_TM23_FROM_JASMINE')]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, and Ecruteak Gym's pits
@@ -345,11 +367,12 @@ class Heights:
         return self.tiles[(matrix, x, z)]
 
 
-def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False):
+def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False, lifts=None):
     """The keys from start to goal over walkable land (a ledge one way), and water with surf, around the blocked tiles
     and without the steps ((tile, direction)) the player couldn't take, or None. With heights, from the player's height:
     a step takes the height nearest it at the next tile, and can't climb or drop 20 or more
-    (src/terrain_collision_manager.c), so a bridge and the path under it are told apart."""
+    (src/terrain_collision_manager.c), so a bridge and the path under it are told apart. Lifts are the field's dynamic
+    plates (a tile's height, as Violet Gym's lift), a height more to choose from at their tiles."""
     x0, x1 = min(start[0], goal[0]) - MARGIN, max(start[0], goal[0]) + MARGIN
     z0, z1 = min(start[1], goal[1]) - MARGIN, max(start[1], goal[1]) + MARGIN
     first = (start, round(height))
@@ -376,8 +399,10 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
                               or (t & 0xff) in WATER and (not surf or (t & 0xff) in OTHER_WATER)):
                 continue
             nh = h
-            if heights is not None and heights.at(matrix, *n):
-                nh = min(heights.at(matrix, *n), key=lambda v: abs(v - h))
+            choices = (heights.at(matrix, *n) if heights is not None else []) \
+                + ([lifts[n]] if n in (lifts or {}) else [])
+            if heights is not None and choices:
+                nh = min(choices, key=lambda v: abs(v - h))
                 if not jump and abs(nh - h) >= 20:
                     continue
             if (n, round(nh)) in came:
@@ -408,6 +433,7 @@ def main():
     towns = fly_points(variables)
     maps = Maps(DECOMP)
     heights = Heights(maps)
+    heaps = heap_info()
     matrix_of, people_of, warps_of, triggers_of = {}, collections.defaultdict(set), collections.defaultdict(set), {}
     for _, headers_of, cur, _ in event_maps():
         for header, matrix in headers_of:
@@ -469,6 +495,24 @@ def main():
                     break
             player_object[0] = at
         return struct.unpack('<i', bytes(mem.unsigned[at + 116:at + 120]))[0] / 4096 if at else 0.0
+
+    def lifts():
+        """The field's dynamic plates (src/overlay005/dynamic_terrain_height.c), their tiles' heights: from the player's
+        map object to its manager (MapObject's mapObjMan), the field system (MapObjectManager's fieldSystem) and its
+        dynamicTerrainHeightMan."""
+        height()
+        if player_object[0] is None:
+            return {}
+        manager = u32(u32(u32(player_object[0] + 0xb4) + 0x128) + 0xa0)
+        if not RAM <= manager < RAM + RAM_SIZE:
+            return {}
+        tiles = {}
+        for i in range(u32(manager)):
+            at = u32(manager + 4) + 24 * i
+            x, z, w, length, y, valid = struct.unpack('<6i', bytes(mem.unsigned[at:at + 24]))
+            if valid:
+                tiles.update({(x + a, z + b): y / 4096 for a in range(w) for b in range(length)})
+        return tiles
 
     def here():
         n = u16(sym['gSovereignTestIdleMapHeaderID'])
@@ -538,9 +582,9 @@ def main():
                      if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
             avoid = (warps_of[matrix] | set().union(*armed)) - {goal}
             # around the people first (some are hidden, so then through them)
-            h = height()
-            keys = route(maps, matrix, pos, goal, (people_of[matrix] | avoid) - {pos}, failed, heights, h, surf) \
-                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf)
+            h, lift = height(), lifts()
+            keys = route(maps, matrix, pos, goal, (people_of[matrix] | avoid) - {pos}, failed, heights, h, surf, lift) \
+                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf, lift)
             if not keys and failed and forgets < FORGETS:  # whoever was in the way may have moved since
                 failed.clear()
                 forgets += 1
@@ -592,10 +636,14 @@ def main():
                 if result != 'ok':
                     problem = f'the talk: {result} after {frames} frames, on {here()} at {d.pos()}'
             print(f'  {action}: {here()} {d.pos()}', flush=True)
+            if os.environ.get('HEAP_STEPS'):  # the heaps after each action, to find what breaks them
+                print(f'    heaps: {heap_problems(mem, heaps) or "ok"}', flush=True)
             if problem:
                 break
         if not problem and not settle():
             problem = f'the field never came free at the end, on {here()} at {d.pos()}'
+        if not problem and heap_problems(mem, heaps):
+            problem = f'the heaps are broken: {heap_problems(mem, heaps)}'
         if not problem and here() != end_map:
             problem = f'ended on {here()} at {d.pos()}, not {end_map}'
         if not problem and marker and not moved_on(marker):
