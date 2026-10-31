@@ -1017,3 +1017,19 @@ Test results on the new test build:
   probe save, Pryce skipped his battle: the probe had given all of Johto's badges (for Surf), and his script checks
   for the Glacier Badge first, as HeartGold's does, so that's the probe's doing. The whole run from the bedroom,
   with these parts, comes next, once the two full runs under way reach Jasmine.
+
+## Oct 31, 2026: the story test from the bedroom to Pryce, 43 parts
+
+- **Two full runs from a new game's bedroom pass every part, 1 to 43:** New Bark Town to Pryce's Glacier Badge and
+  TM, the heaps whole and the follower beside the player at the end of each part. One ran on the build with all of
+  this stretch's fixes (each run was resumed once from a part's save state, after the test was fixed: the save states
+  keep a run going where it was).
+- **What the runs taught the test,** none of it the game's doing: a tag battle on Route 47 waited on its target
+  screen, as the cursor sat on a fainted foe and the test's taps missed the one left, so the test now also taps each
+  foe's box; Sacred Gold puts two more people in the way between Route 47 and the Safari Zone Gate, a grunt in Cliff
+  Cave's far doorway and a Rocket between two boulders past it, who each battle when talked to and then go (the test
+  talks to them); Cliff Cave's ladders warp to another part of the same map, which the walker now counts as getting
+  there; and a red Gyarados that steps away as A goes down is met again.
+- **The follower fix and these runs:** the older build, without the fix, also got through the hideout's Murkrow scene
+  this time, so the stuck follower depends on timing; the probe that sets the scene up (the hideout's progress set,
+  then up the stairs and onto the trigger) shows it every time on that build, and never on the fixed one.
