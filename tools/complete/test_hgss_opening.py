@@ -28,7 +28,7 @@ as a player would, without the test warp:
 11. **Lyra's lesson:** the player sets out west again, and on Route 29 the friend shows how to catch a Pokémon
     (VAR_HGSS_UNK_408B from 1 back to 0).
 12. **Violet City:** the player walks on through Cherrygrove City and up Routes 30 and 31, through the gatehouse into
-    Violet City (its Fly point recorded: FLAG_HGSS_SYS_FLYPOINT_VIOLET), and into its Pokémon Center.
+    Violet City (its Fly point recorded), and into its Pokémon Center.
 13. **Sprout Tower:** the player goes into Sprout Tower and up by its ladders (1F, 2F, back down to 1F, 2F again, 3F),
     battling the sages who see them, past the rival leaving, to Elder Li: his battle, then Sacred Gold's choice of an
     evolution item (the first, the Water Stone) and his TM (FLAG_HGSS_HIDE_VIOLET_GYM_GYM_GUY_AFTER_SPROUT).
@@ -39,20 +39,66 @@ as a player would, without the test warp:
     party, so the test party is cut to its lead first (gSovereignTestPartyKeep, by the test warp onto the player's
     own tile), as a player would leave some in the PC. Without the Egg, the man on Route 32 sends the player back.
 16. **Azalea Town:** south down Route 32, through Union Cave and along Route 33 into Azalea Town (its Fly point
-    recorded: FLAG_HGSS_SYS_FLYPOINT_AZALEA) and its Pokémon Center.
+    recorded) and its Pokémon Center.
 17. **The Slowpoke Well:** the player talks to Kurt at home, who hurries off to the well, follows him in and down,
     battles the Team Rocket grunts who see them, and Proton (FLAG_HGSS_BEAT_AZALEA_ROCKETS); the scene after takes
     the player back to Kurt's house, where his question is answered yes.
+18. **Bugsy:** the player goes into Azalea Gym and through its puzzle (src/complete_gyms.c): four Spinarak carts ride
+    between twelve stops, each ride starting as the player steps onto the tile beside a cart, and two switches set the
+    points that decide where a cart goes. The way through (tools/complete/solve_story_puzzles.py, from the gym's data):
+    ride from the first row to the second, from the third row's middle to the fourth row's west, flip the first switch,
+    ride back down to the third row's west, flip the second switch, and ride from there to the fourth row's middle, in
+    front of Bugsy. His battle, then his badge and TM (FLAG_HGSS_GOT_TM89_FROM_BUGSY).
+19. **Ilex Forest:** back out of the gym by the carts (the first switch flipped back, the fourth row's middle to the
+    third's, the second row's middle to the first's west) and its entrance hall, west through Azalea Town, where the
+    rival steps out and battles, and the gatehouse into Ilex Forest, where the apprentice has lost the charcoal maker's
+    two Farfetch'd (Sacred Gold has two). A Farfetch'd is caught by talking to it from behind; stepping on a twig makes
+    it turn or run. The way (tools/complete/solve_story_puzzles.py, which plays the forest's script over its states):
+    step on the twig south of the first and talk to it from the north; talk to the second from the south, so it runs
+    east; step on the twig beyond it and talk to it from the west. With both back, the charcoal maker gives HM01
+    (FLAG_HGSS_GOT_HM01).
+20. **Goldenrod City:** the player cuts the tree in the forest's way north (Cut from the HM in the bag, with the Hive
+    Badge: Sovereign's rule and src/complete_badges.c), and walks on to the gatehouse, where Sacred Gold has someone
+    standing in the north doorway who gives the Odd Keystone when talked to and leaves, then up Route 34, where in front
+    of the Day-Care the friend's grandparents' scene plays and takes the player inside (HeartGold's VAR_HGSS_UNK_408E),
+    and out again into Goldenrod City (its Fly point recorded) and its Pokémon Center.
+21. **Whitney:** first the Radio Tower, where the player takes the Radio Card quiz (yes, yes, no, yes, no) and Whitney,
+    who was there, heads back to her gym, so the woman in its doorway steps aside (FLAG_HGSS_UNK_318); then into
+    Goldenrod Gym and through its maze to Whitney: her battle, after which she cries; on the way back the player steps
+    onto the trigger where the gym's lass comes over and takes them back to her, and Whitney, talked to again, gives the
+    Plain Badge and her TM (FLAG_HGSS_GOT_TM45_FROM_WHITNEY).
+22. **Sudowoodo:** out of the gym to the Flower Shop, whose owner gives the SquirtBottle now the player has the Plain
+    Badge, then north through the gatehouse up Route 35, the National Park's south gatehouse, the park and its east
+    gatehouse onto Route 36, to the odd tree in the way: the SquirtBottle, yes, and its battle; it's gone after
+    (FLAG_HGSS_HIDE_ROUTE_36_SUDOWOODO), and the flower shop owner's sister by it goes home.
+23. **Ecruteak City:** north up Route 37 into Ecruteak City (its Fly point recorded) and its Pokémon Center.
+24. **The Burned Tower:** into the Burned Tower, where Eusine's scene plays on the way in, then the rival's trigger and
+    his battle, down through the hole in the floor to the basement, and the legendary beasts' scene there, as they run
+    off and Eusine talks (VAR_HGSS_UNK_40A1 1); the old man who kept the gym's door steps aside.
+25. **Morty:** up the ladder and out, into Ecruteak Gym and along its dark path, never onto a pit (its step-on
+    triggers, which drop the player back to the door), to Morty: his battle, the Fog Badge and his TM
+    (FLAG_HGSS_GOT_TM30_FROM_MORTY).
+26. **Surf:** out of the gym and into the Dance Theater, where a Team Rocket grunt bothers a Kimono Girl on the stage
+    (its scene, on the way in); the grunt's battle, and as the player steps down from the stage the gentleman gives
+    HM03 (FLAG_HGSS_GOT_HM03).
+27. **Olivine City:** out of the theater and west through the gatehouse to Route 38 (its man sends tourists back to
+    see Ecruteak until Morty is beaten: Sacred Gold's VAR_HGSS_SG_61A7; Steven gives the Iron Plate on the way out),
+    along Routes 38 and 39 into Olivine City (its Fly point recorded) and its Pokémon Center.
+28. **The Lighthouse:** up the Glitter Lighthouse: the stairs to 2F, ladders to 3F and 4F, out of 4F's opening, where
+    the player falls to the balcony outside (its step-on trigger, HeartGold's), in again at 3F's door, and the ladders
+    on its other side up to 4F, 5F and the light room, where Jasmine tends the sick Ampharos and asks for medicine
+    (VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE).
 
-The walks between places find their own way over the maps' walkable tiles (ledges one way, around the people), and
-take it a step at a time, finding it again whenever a scene or a person moves the player. A prompt on the way (the
-test save's Super Repel wearing off), each scene's text and a battle are paged through with A, which also answers
-yes; the battles, trainers' and wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP
-prompts), as the test is about the story's way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or its var has moved on from 0 (or to
-a given value), and
-the following Pokémon (the test party's lead) is beside the player: at most two steps away, as a scene can leave it
-diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by Elm's table before
-src/complete_follower.c brought it back).
+The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
+heights don't allow, so over a bridge or under it, around the people, and never onto a warp, or an armed cart trigger in
+Azalea Gym, twig in Ilex Forest or pit in Ecruteak Gym, but the one they go to), and take it a step at a time, finding
+it again whenever a scene or a person moves the player. A prompt on the way (the test save's Super Repel wearing off),
+each scene's text and a battle are paged through with A, which also answers yes; the battles, trainers' and wild
+Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about the story's
+way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or its var has
+moved on from 0 (or to a given value), and the following Pokémon (the test party's lead) is beside the player: at most
+two steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by
+Elm's table before src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
@@ -63,6 +109,7 @@ run left in OUT_DIR:
 """
 import collections
 import os
+import re
 import struct
 import sys
 
@@ -75,12 +122,16 @@ from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: 
 
 LAB = 'MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_1F'
 NEW_BARK = 'MAP_HEADER_HGSS_NEW_BARK'
+AZALEA_GYM = 'MAP_HEADER_HGSS_AZALEA_GYM'
+ILEX = 'MAP_HEADER_HGSS_ILEX_FOREST'
+ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
 # (part, its actions, the map it ends on, the var that must have moved on from 0 or the flag that must be set, (var,
-# value) for a var that must have that value, or None). An action is a key to press, ('to', (x, z)): a walk to that
-# tile on the map the player is on, ('ladder', (x, z), key): a walk onto a ladder, then the key toward it if the step
-# didn't take it, ('talk', answers): A to talk to what the player faces, answering its menus (talk_and_answer's), or
-# ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own
-# tile). The stairs and doors warp as the player presses toward them from their tile.
+# value) for a var that must have that value, ('fly', town) for the town's Fly point, or None). An action is a key to
+# press, ('to', (x, z)): a walk to that tile on the map the player is on, ('surf', (x, z)): one that may cross water,
+# ('ladder', (x, z), key): a walk onto a ladder, then the key toward it if the step didn't take it, ('talk', answers): A
+# to talk to what the player faces, answering its menus (talk_and_answer's), or ('keep', n): the party cut to its first
+# n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs and doors warp as the
+# player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -99,7 +150,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Lyra\'s lesson', [('to', (4, 14)), 'DOWN', ('to', (667, 399)), 'LEFT'], 'MAP_HEADER_HGSS_ROUTE_29',
           ('VAR_HGSS_UNK_408B', 0)),
          ('Violet City', [('to', (518, 269)), 'LEFT', ('to', (1, 7)), 'LEFT', ('to', (497, 272)), 'UP'],
-          'MAP_HEADER_HGSS_VIOLET_POKECENTER_1F', 'FLAG_HGSS_SYS_FLYPOINT_VIOLET'),
+          'MAP_HEADER_HGSS_VIOLET_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_VIOLET')),
          ('Sprout Tower', [('to', (8, 19)), 'DOWN', ('to', (487, 229)), 'UP', ('ladder', (10, 15), 'UP'),
                            ('ladder', (24, 9), 'UP'), ('ladder', (6, 16), 'UP'), ('ladder', (15, 27), 'UP'),
                            ('to', (12, 10)), 'UP', ('talk', [0])],
@@ -112,48 +163,204 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                               ('to', (6, 9)), 'UP', ('talk', [True]), ('to', (4, 11)), 'DOWN'],
           'MAP_HEADER_HGSS_VIOLET', 'FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT'),
          ('Azalea Town', [('to', (462, 431)), 'UP', ('to', (27, 93)), 'DOWN', ('to', (410, 461)), 'UP'],
-          'MAP_HEADER_HGSS_AZALEA_POKECENTER_1F', 'FLAG_HGSS_SYS_FLYPOINT_AZALEA'),
+          'MAP_HEADER_HGSS_AZALEA_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_AZALEA')),
          ('the Slowpoke Well', [('to', (8, 19)), 'DOWN', ('to', (399, 455)), 'UP', ('to', (4, 5)), 'UP', ('talk', []),
                                 ('to', (4, 9)), 'DOWN', ('ladder', (433, 454), 'UP'), ('to', (11, 7)), 'UP',
                                 ('to', (27, 4)), 'UP', ('talk', [True])],
-          'MAP_HEADER_HGSS_AZALEA_KURT_HOUSE', 'FLAG_HGSS_BEAT_AZALEA_ROCKETS')]
+          'MAP_HEADER_HGSS_AZALEA_KURT_HOUSE', 'FLAG_HGSS_BEAT_AZALEA_ROCKETS'),
+         ('Bugsy', [('to', (4, 9)), 'DOWN', ('to', (405, 472)), 'UP', ('to', (7, 3)), 'UP',
+                    ('to', (3, 33)), 'UP',  # the first row's west cart, to the second row's middle
+                    ('to', (9, 18)), 'UP',  # the third row's middle cart, to the fourth row's west
+                    ('to', (4, 8)), 'UP', ('talk', []),  # the first switch
+                    ('to', (3, 8)), 'DOWN',  # back down to the third row's west
+                    ('to', (2, 19)), 'UP', ('talk', []),  # the second switch
+                    ('to', (3, 18)), 'UP',  # to the fourth row's middle
+                    ('to', (9, 6)), 'UP', ('talk', [])],
+          AZALEA_GYM, 'FLAG_HGSS_GOT_TM89_FROM_BUGSY'),
+         ('Ilex Forest', [('to', (11, 7)), 'DOWN', ('talk', []),  # the first switch back
+                          ('to', (9, 8)), 'DOWN',  # the fourth row's middle cart, to the third row's middle
+                          ('to', (9, 23)), 'DOWN',  # the second row's middle cart, to the first row's west
+                          ('to', (9, 37)), 'DOWN', ('to', (7, 11)), 'DOWN', ('to', (392, 462)), 'LEFT',
+                          ('to', (1, 7)), 'LEFT',
+                          ('to', (25, 67)),  # a twig: the first Farfetch'd hears it and turns
+                          ('to', (25, 61)), 'DOWN', ('talk', []),  # caught from behind, and back to the apprentice
+                          ('to', (41, 55)), 'UP', ('talk', []),  # the second runs east
+                          ('to', (52, 53)),  # a twig beyond it
+                          ('to', (48, 54)), 'RIGHT', ('talk', [])],  # caught; the charcoal maker's HM01
+          ILEX, 'FLAG_HGSS_GOT_HM01'),
+         ('Goldenrod City', [('to', (16, 63)), 'UP', ('talk', [True]), ('to', (12, 17)), 'UP',
+                             ('to', (5, 4)), 'UP', ('talk', []),  # Sacred Gold's Odd Keystone, from the one in the way
+                             ('to', (5, 2)), 'UP',
+                             ('to', (366, 414)), 'UP',  # the scene in front of the Day-Care, which ends inside it
+                             ('to', (3, 12)), 'DOWN', ('to', (352, 369)), 'UP'],
+          'MAP_HEADER_HGSS_GOLDENROD_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_GOLDENROD')),
+         ('Whitney', [('to', (8, 19)), 'DOWN', ('to', (342, 350)), 'UP', ('to', (13, 10)), 'DOWN',
+                      ('talk', [True, True, True, False, True, False]),  # the Radio Card quiz, across the counter
+                      ('to', (2, 14)), 'DOWN', ('to', (366, 335)), 'UP', ('to', (13, 5)), 'UP', ('talk', []),
+                      ('to', (13, 10)), 'DOWN',  # the lass's trigger: a key onto it, as a walk would go back to it
+                      ('to', (13, 5)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_GOLDENROD_GYM', 'FLAG_HGSS_GOT_TM45_FROM_WHITNEY'),
+         ('Sudowoodo', [('to', (6, 25)), 'DOWN', ('to', (371, 333)), 'UP', ('to', (3, 6)), 'UP', ('talk', []),
+                        ('to', (5, 9)), 'DOWN', ('to', (358, 325)), 'UP', ('to', (5, 2)), 'UP',
+                        ('to', (362, 266)), 'UP', ('to', (25, 2)), 'UP', ('to', (75, 39)), 'RIGHT',
+                        ('to', (10, 7)), 'RIGHT',
+                        ('to', (415, 247)), 'UP', ('talk', [True])],
+          'MAP_HEADER_HGSS_ROUTE_36', 'FLAG_HGSS_HIDE_ROUTE_36_SUDOWOODO'),
+         ('Ecruteak City', [('to', (397, 184)), 'UP'],
+          'MAP_HEADER_HGSS_ECRUTEAK_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_ECRUTEAK')),
+         ('the Burned Tower', [('to', (8, 19)), 'DOWN', ('to', (376, 149)), 'UP',
+                               ('to', (22, 20)), 'UP',  # the rival's trigger, past Eusine's on the way
+                               ('to', (22, 16)),  # the hole in the floor, down to the basement
+                               ('to', (21, 16)), 'LEFT'],  # the legendary beasts
+          'MAP_HEADER_HGSS_BURNED_TOWER_B1F', ('VAR_HGSS_UNK_40A1', 1)),
+         ('Morty', [('ladder', (23, 16), 'UP'), ('to', (15, 26)), 'DOWN', ('to', (376, 184)), 'UP',
+                    ('to', (10, 9)), 'UP', ('talk', [])],
+          ECRUTEAK_GYM, 'FLAG_HGSS_GOT_TM30_FROM_MORTY'),
+         ('Surf', [('to', (16, 53)), 'DOWN', ('to', (397, 173)), 'UP',
+                   ('to', (7, 7)), 'UP', ('talk', []),  # the grunt on the stage
+                   ('to', (3, 7)), 'DOWN'],  # the step down from the stage: the gentleman and HM03
+          'MAP_HEADER_HGSS_ECRUTEAK_DANCE_THEATER', 'FLAG_HGSS_GOT_HM03'),
+         ('Olivine City', [('to', (7, 17)), 'DOWN', ('to', (358, 166)), 'LEFT', ('to', (1, 7)), 'LEFT',
+                           ('to', (272, 258)), 'UP'],
+          'MAP_HEADER_HGSS_OLIVINE_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_OLIVINE')),
+         ('the Lighthouse', [('to', (8, 19)), 'DOWN', ('to', (301, 263)), 'UP', ('to', (2, 3)), 'RIGHT',
+                             ('ladder', (13, 6), 'UP'), ('ladder', (10, 7), 'UP'),
+                             ('to', (16, 9)),  # 4F's opening: the fall to the balcony
+                             ('to', (8, 12)), 'UP',  # in at 3F's door
+                             ('ladder', (6, 7), 'UP'), ('ladder', (3, 5), 'UP'), ('ladder', (10, 10), 'UP'),
+                             ('to', (7, 9)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM', 'VAR_HGSS_SCENE_LIGHTHOUSE_JASMINE')]
+# armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
+# map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
+# Farfetch'd, and Ecruteak Gym's pits
+AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD', ECRUTEAK_GYM: 'VAR_HGSS_UNK_4109'}
+# the tile behaviors that warp (include/constants/field/map_tile_behaviors.h: the stairs to the directional warps,
+# doors among them) and HeartGold's ladders (Complete's 0x0D-0x0F): a warp event on another tile is part of a wider
+# doorway, and a walk may cross it
+WARP_TILES = set(range(0x5e, 0x70)) | {0x0d, 0x0e, 0x0f}
+RAM, RAM_SIZE = 0x02000000, 0x400000  # the DS's main memory, where the map objects are
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
-LIMIT = 9000
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
 SHORT_RUN = 20  # a first, short look, so A isn't pressed into a field that is already free
-SETTLE_FRAMES = 30000  # the longest a scene may take (Mr. Pokémon's and Oak's, at the test save's text speed)
+SETTLE_FRAMES = 30000  # the longest a scene or a talk may take (Mr. Pokémon's and Oak's scene, at the test save's
+# text speed; Bugsy's battle and lines)
 WALK_STEPS = 600  # the most steps one walk takes
 MARGIN = 40  # tiles around the start and the goal a route may go through
 
 
-def route(maps, matrix, start, goal, blocked):
-    """The keys from start to goal over walkable land (a ledge one way), around the blocked tiles, or None."""
+def fly_points(variables):
+    """{town: its Fly point's flag}, from HeartGold's spawn points: src/spawn_locations.c sets
+    FLAG_HGSS_SYS_FLYPOINT_PALLET + the firstArrival of the row whose Fly lands in the town, and pokeheartgold names a
+    few of those flags after the wrong town (tools/complete/import_hgss_spawns.py), so the test goes by the row."""
+    rows = open(os.path.join(DECOMP, 'include', 'data', 'hgss_spawn_locations.h'), encoding='utf-8').read()
+    return {town: variables['FLAG_HGSS_SYS_FLYPOINT_PALLET'] + int(first, 0)
+            for town, unlock, first in re.findall(r'\{ \w+, \w+, \w+, (\w+), \w+, \w+, \w+, (\w+), (\w+) \}', rows)
+            if int(unlock, 0)}
+
+
+class Heights:
+    """The maps' heights, from each map's BDHC as src/overlay005/bdhc.c reads it: the heights of the plates over a
+    tile's centre, more than one where a bridge crosses a path (Goldenrod Gym's walkways over its floor)."""
+
+    def __init__(self, maps):
+        self.maps, self.plates, self.tiles = maps, {}, {}
+
+    def load(self, name):
+        """The map's BDHC: its points, normals, constants, plates, strips and access list."""
+        path = os.path.join(self.maps.decomp, 'res', 'field', 'maps', 'data',
+                            f'map_data_{self.maps.names.index(name):03d}.bin')
+        data = open(path, 'rb').read()
+        sizes = struct.unpack_from('<4I', data)
+        at = 16 + sizes[0] + sizes[1] + sizes[2]
+        counts = struct.unpack_from('<6H', data, at + 4)  # after the magic
+        at += 16
+        parts = []
+        for count, size, fmt in zip(counts, (8, 12, 4, 8, 8, 2), ('<2i', '<3i', '<i', '<4H', '<iHH', '<H')):
+            parts.append([struct.unpack_from(fmt, data, at + size * i) for i in range(count)])
+            at += size * count
+        return parts
+
+    def at(self, matrix, x, z):
+        """The heights over the tile's centre (empty without any)."""
+        if (matrix, x, z) not in self.tiles:
+            name = self.maps.matrix(matrix)[z // 32][x // 32]
+            if name not in self.plates:
+                self.plates[name] = self.load(name)
+            points, normals, constants, plates, strips, access = self.plates[name]
+            # the tile's centre, from the middle of its map, in fx32
+            px, pz = (((x % 32) - 16) * 16 + 8) * 4096, (((z % 32) - 16) * 16 + 8) * 4096
+            heights = []
+            if strips:
+                low, high, s = 0, len(strips) - 1, 0
+                mid = high // 2
+                while len(strips) > 1:  # bdhc.c's search for the strip
+                    if strips[mid][0] > pz:
+                        if high - 1 <= low:
+                            s = mid
+                            break
+                        high, mid = mid, (low + mid) // 2
+                    else:
+                        if low + 1 >= high:
+                            s = mid + 1
+                            break
+                        low, mid = mid, (mid + high) // 2
+                _, count, first = strips[s]
+                for i in range(count):
+                    a, b, n, c = plates[access[first + i][0]]
+                    (ax, az), (bx, bz) = points[a], points[b]
+                    if min(ax, bx) <= px <= max(ax, bx) and min(az, bz) <= pz <= max(az, bz):
+                        nx, ny, nz = normals[n]
+                        heights.append(-(nx * px / 4096 + nz * pz / 4096 + constants[c][0]) / ny)
+            self.tiles[(matrix, x, z)] = heights
+        return self.tiles[(matrix, x, z)]
+
+
+def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False):
+    """The keys from start to goal over walkable land (a ledge one way), and water with surf, around the blocked tiles
+    and without the steps ((tile, direction)) the player couldn't take, or None. With heights, from the player's height:
+    a step takes the height nearest it at the next tile, and can't climb or drop 20 or more
+    (src/terrain_collision_manager.c), so a bridge and the path under it are told apart."""
     x0, x1 = min(start[0], goal[0]) - MARGIN, max(start[0], goal[0]) + MARGIN
     z0, z1 = min(start[1], goal[1]) - MARGIN, max(start[1], goal[1]) + MARGIN
-    came = {start: None}
-    queue = collections.deque([start])
-    while queue and goal not in came:
-        p = queue.popleft()
+    first = (start, round(height))
+    came = {first: None}
+    queue = collections.deque([(start, height)])
+    end = None
+    while queue and end is None:
+        p, h = queue.popleft()
         for d in DIRS:
+            if (p, d) in steps:
+                continue
             n = (p[0] + d[0], p[1] + d[1])
             t = maps.tile(matrix, *n)
-            if t is not None and (t & 0xff) in JUMPS:
+            jump = t is not None and (t & 0xff) in JUMPS
+            if jump:
                 jd, k = JUMPS[t & 0xff]
                 if jd != d:
                     continue
                 n = (n[0] + jd[0] * k, n[1] + jd[1] * k)
                 t = maps.tile(matrix, *n)
-            if t is None or n in came or not (x0 <= n[0] <= x1 and z0 <= n[1] <= z1):
+            if t is None or not (x0 <= n[0] <= x1 and z0 <= n[1] <= z1):
                 continue
-            if n != goal and (n in blocked or not walkable(t) or (t & 0xff) in WATER):
+            if n != goal and (n in blocked or not walkable(t) or (t & 0xff) in WATER and not surf):
                 continue
-            came[n] = (p, d)
-            queue.append(n)
-    if goal not in came:
+            nh = h
+            if heights is not None and heights.at(matrix, *n):
+                nh = min(heights.at(matrix, *n), key=lambda v: abs(v - h))
+                if not jump and abs(nh - h) >= 20:
+                    continue
+            if (n, round(nh)) in came:
+                continue
+            came[(n, round(nh))] = ((p, round(h)), d)
+            queue.append((n, nh))
+            if n == goal:
+                end = (n, round(nh))
+                break
+    if end is None:
         return None
-    keys, p = [], goal
-    while came[p]:
-        p, d = came[p]
+    keys, at = [], end
+    while came[at]:
+        at, d = came[at]
         keys.append(KEYS[d])
     return keys[::-1]
 
@@ -167,12 +374,18 @@ def main():
     sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestFollowerTile'))
     names = header_names()
     variables = var_ids()
+    towns = fly_points(variables)
     maps = Maps(DECOMP)
-    matrix_of, people_of = {}, collections.defaultdict(set)
+    heights = Heights(maps)
+    matrix_of, people_of, warps_of, triggers_of = {}, collections.defaultdict(set), collections.defaultdict(set), {}
     for _, headers_of, cur, _ in event_maps():
         for header, matrix in headers_of:
             matrix_of[header] = matrix
             people_of[matrix] |= {(o['x'], o['z']) for o in cur.get('object_events', [])}
+            warps_of[matrix] |= {(w['x'], w['z']) for w in cur.get('warp_events', [])
+                                 if (maps.tile(matrix, w['x'], w['z']) or 0) & 0xff in WARP_TILES}
+            triggers_of[header] = [({(c['x'] + i, c['z'] + j) for i in range(c['width']) for j in range(c['length'])},
+                                    c['var'], c['value']) for c in cur.get('coord_events', [])]
     first = [p[0] for p in PARTS].index(start) if start else 0
     if first:
         state = os.path.join(out, PARTS[first - 1][0].replace(' ', '_') + '.state')
@@ -191,16 +404,40 @@ def main():
         at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index('SAVE_TABLE_ENTRY_VARS_FLAGS') * 16 + 8
         return base + 20 + u32(at)
 
-    def moved_on(name):
-        """A flag is set, or a var isn't 0, or (var, value) has that value (VarsFlags: the vars, then the flags'
-        bits)."""
-        if isinstance(name, tuple):
-            return u16(vars_flags() + (variables[name[0]] - variables['VARS_START']) * 2) == name[1]
-        if name.startswith('VAR_'):
-            return u16(vars_flags() + (variables[name] - variables['VARS_START']) * 2) != 0
-        n = variables[name]
+    def var(name):
+        return u16(vars_flags() + (variables[name] - variables['VARS_START']) * 2)
+
+    def flag(n):
         flags = vars_flags() + (variables['VARS_END'] - variables['VARS_START']) * 2
         return bool(mem.unsigned[flags + n // 8] & (1 << (n % 8)))
+
+    def moved_on(name):
+        """A flag is set, or a var isn't 0, or (var, value) has that value, or ('fly', town) the town's Fly point is
+        recorded (VarsFlags: the vars, then the flags' bits)."""
+        if isinstance(name, tuple) and name[0] == 'fly':
+            return flag(towns[name[1]])
+        if isinstance(name, tuple):
+            return var(name[0]) == name[1]
+        if name.startswith('VAR_'):
+            return var(name) != 0
+        return flag(variables[name])
+
+    player_object = [None]  # the player's map object's address
+
+    def height():
+        """The player's height, from their map object (src/map_object.c's MapObject: the player's localID 0xFF, its
+        tile and its position's y), found again when the map changes."""
+        pos, at = d.pos(), player_object[0]
+        if at is None or struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2] != pos:
+            ram, at = bytes(mem.unsigned[RAM:RAM + RAM_SIZE]), None
+            for found in re.finditer(rb'\xff\x00\x00\x00', ram):
+                o = found.start() - 8  # the localID's offset
+                if o >= 0 and o % 4 == 0 and struct.unpack_from('<I', ram, o)[0] \
+                        and struct.unpack_from('<3i', ram, o + 100)[::2] == pos:
+                    at = RAM + o
+                    break
+            player_object[0] = at
+        return struct.unpack('<i', bytes(mem.unsigned[at + 116:at + 120]))[0] / 4096 if at else 0.0
 
     def here():
         n = u16(sym['gSovereignTestIdleMapHeaderID'])
@@ -245,12 +482,14 @@ def main():
             if d.pos() != pos or here() != header or not free(SHORT_RUN):
                 return
 
-    def walk_to(goal):
+    def walk_to(goal, surf=False):
         """Walk to goal on the map the player is on, a step at a time, finding the way again after each, around the
-        map's people if it can; a tile the player can't step onto twice (a person in the way) is walked around. A
-        goal that warps the player as they step onto it (a ladder) counts as reached. Returns a problem, or ''."""
-        matrix = matrix_of[here()]
-        blocked = set()  # tiles the player couldn't step onto
+        map's people if it can; a step the player can't take twice (a person in the way, or a drop between a bridge
+        and the floor under it, as the map's heights decide) isn't tried again. A goal that warps the player as they
+        step onto it (a ladder) counts as reached. With surf the way may cross water: at the shore the player faces
+        it and uses Surf (A, yes). Returns a problem, or ''."""
+        header, matrix = here(), matrix_of[here()]
+        failed = set()  # (tile, direction) steps the player couldn't take
         stuck, last = 0, False
         for n in range(WALK_STEPS):
             if n % 50 == 49:
@@ -262,11 +501,23 @@ def main():
             pos = d.pos()
             if pos == goal:
                 return ''
+            armed = [tiles for tiles, name, value in triggers_of.get(header, [])
+                     if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
+            avoid = (warps_of[matrix] | set().union(*armed)) - {goal}
             # around the people first (some are hidden, so then through them)
-            keys = route(maps, matrix, pos, goal, (people_of[matrix] | blocked) - {pos}) \
-                or route(maps, matrix, pos, goal, blocked - {pos})
+            h = height()
+            keys = route(maps, matrix, pos, goal, (people_of[matrix] | avoid) - {pos}, failed, heights, h, surf) \
+                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf)
             if not keys:
                 return f'no way from {pos} to {goal} on {here()}'
+            step = next(dd for dd, k in KEYS.items() if k == keys[0])
+            ahead = maps.tile(matrix, pos[0] + step[0], pos[1] + step[1])
+            if surf and ahead is not None and (ahead & 0xff) in WATER and (maps.tile(matrix, *pos) & 0xff) not in WATER:
+                d.press(keys[0], frames=8, after=16)  # facing the water
+                result, frames = talk_and_answer(d, sym, [True], SETTLE_FRAMES)  # Surf, yes
+                if result != 'ok' or d.pos() == pos:
+                    return f'Surf from {pos}: {result} after {frames} frames'
+                continue
             last = len(keys) == 1
             d.press(keys[0], frames=8, after=16)
             if d.pos() != pos:
@@ -274,8 +525,7 @@ def main():
                 continue
             stuck += 1
             if stuck >= 2:
-                step = next(dd for dd, k in KEYS.items() if k == keys[0])
-                blocked.add((pos[0] + step[0], pos[1] + step[1]))
+                failed.add((pos, step))
                 stuck = 0
         return f'still not at {goal} after {WALK_STEPS} steps, on {here()} at {d.pos()}'
 
@@ -293,13 +543,13 @@ def main():
                 result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
                 if result != 'ok':
                     problem = f'the party cut: the warp {result} after {frames} frames, on {here()} at {d.pos()}'
-            elif action[0] in ('to', 'ladder'):
+            elif action[0] in ('to', 'ladder', 'surf'):
                 before = matrix_of.get(here())
-                problem = walk_to(action[1])
+                problem = walk_to(action[1], action[0] == 'surf')
                 if not problem and action[0] == 'ladder' and matrix_of.get(here()) == before:
                     step(action[2])
             else:
-                result, frames = talk_and_answer(d, sym, action[1], LIMIT)
+                result, frames = talk_and_answer(d, sym, action[1], SETTLE_FRAMES)
                 if result != 'ok':
                     problem = f'the talk: {result} after {frames} frames, on {here()} at {d.pos()}'
             print(f'  {action}: {here()} {d.pos()}', flush=True)

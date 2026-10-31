@@ -880,3 +880,43 @@ Test results on the new test build:
   avoid water; Violet Gym's lift is ridden by stepping onto its trigger tile; a cave's exit, like a door mat, takes a
   press toward it; and the aide wants room in the party, so the test party is cut to its lead first (the test build's
   party hook, which applies on its warp, here onto the player's own tile), as a player would leave some in the PC.
+
+## Oct 31, 2026: the story test on to Bugsy, Ilex Forest, Goldenrod City and Whitney
+
+- **The whole opening in one run:** `tools/complete/test_hgss_opening.py` played all seventeen parts from the
+  bedroom state in a single run, New Bark Town to Kurt's house after the Slowpoke Well (before, the last three had
+  passed from the state the one before left).
+- **Bugsy:** a new part goes into Azalea Gym and through its Spinarak carts (`src/complete_gyms.c`) to Bugsy: his
+  battle, the Hive Badge and TM89. Five rides and both switches; the walks in the gym never step onto a cart's
+  trigger but the one they mean to, as the triggers are always armed and a walk over one would ride off.
+- **Ilex Forest:** the next part rides the carts back out, crosses Azalea Town (the rival's battle) and plays the
+  forest's Farfetch'd chase. Sacred Gold has two lost Farfetch'd, and what each does when talked to or when the
+  player steps on a twig is a small state machine in the forest's script: where it stands, the side the player talks
+  from, and vars the twigs set. With both caught the charcoal maker gives HM01, so the chase can be finished as
+  converted.
+- **New `tools/complete/solve_story_puzzles.py`** finds both ways from the game's own data, as the test plays them: a
+  search over the gym's stops, routes and switches, and a small interpreter for the commands the forest's script
+  uses, run over its states. If a map or a script changes, it finds the test's steps again.
+- **Goldenrod City:** Cut (the HM in the bag, with the Hive Badge) clears the tree north; in the gatehouse Sacred
+  Gold's Odd Keystone giver stands in the north doorway and leaves once talked to (their script removes them, so it
+  isn't a dead end); on Route 34 the friend's grandparents' scene in front of the Day-Care takes the player inside;
+  and Goldenrod City's Fly point is recorded. pokeheartgold names a few Fly point flags after the wrong town
+  (`tools/complete/import_hgss_spawns.py`; Goldenrod's is the one named for Ecruteak), so the test now checks a
+  town's Fly point by its row in the spawn table, not by a flag's name.
+- **Whitney:** the Radio Card quiz in the Radio Tower first (Goldenrod Gym stays shut until then, as in HeartGold),
+  then the gym, Whitney's battle, the lass who takes the player back to her crying, and the Plain Badge with her TM.
+- **Passing so far:** parts 18 to 21 (Bugsy, Ilex Forest, Goldenrod City, Whitney), each from the state the one
+  before left; a full run from the bedroom with this stretch's walker passed the first nineteen. The parts after
+  Whitney are written (the SquirtBottle and Sudowoodo, Ecruteak City, the Burned Tower, Morty, Surf from the Dance
+  Theater, Olivine City and the Glitter Lighthouse up to Jasmine) and being run; the walker can now surf too.
+- **What the walk taught the test** (no game bugs this stretch): a gym leader's battle and lines take longer than a
+  talk's old 9,000-frame limit (Bugsy's ended mid-sentence), so a talk gets a scene's budget; Azalea Gym's door leads
+  into an entrance hall; a trigger that a scene moves the player off and leaves armed (Goldenrod Gym's lass) is
+  stepped onto with one key, not walked to, and so is one whose scene ends somewhere else (the Day-Care's); only
+  Azalea Gym's carts, Ilex Forest's twigs and Ecruteak Gym's pits are walked around, by their trigger's var, as the
+  forest's apprentice stands where the player must step on his trigger; a walk never crosses a warp tile it isn't
+  going to (doors, stairs, ladders); Goldenrod Gym stays shut until the player has taken the Radio Card quiz in the
+  Radio Tower, where Whitney is, as in HeartGold; and the walks now know the maps' heights. Goldenrod Gym has
+  walkways over its floor (HeartGold's bridge tiles), and from a walkway the corridor to Whitney is a drop the game
+  doesn't allow; the walker now reads each map's BDHC as the game does (the plate nearest the player's height, no
+  step of 20 or more) and the player's height from the game, and learns a step that fails rather than a tile.
