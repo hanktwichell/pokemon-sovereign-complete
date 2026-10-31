@@ -189,7 +189,8 @@ as a player would, without the test warp:
 65. **Victory Road:** 1F's boulder pushed out of the way; up to 3F, down one of its holes to 2F, 2F's boulder pushed
     aside, up to 3F again, down another hole to 2F, over its ledge and up to 3F's exit, where the rival battles
     (VAR_HGSS_UNK_40C5), and out to Indigo Plateau.
-66. **Will:** into the Pokémon League and Will's room: his battle (FLAG_HGSS_DEFEATED_WILL).
+66. **Will:** into the Pokémon League, where the man at the inner door steps aside when talked to, and Will's room:
+    his battle (FLAG_HGSS_DEFEATED_WILL).
 67. **Koga:** Sacred Gold's Kadabra in each room teleports the player to another member's room (its doors stay shut):
     to Koga's, and his battle (FLAG_HGSS_DEFEATED_KOGA).
 68. **Bruno:** by the teleport to Bruno's room, and his battle (FLAG_HGSS_DEFEATED_BRUNO).
@@ -513,7 +514,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                            ('to', (26, 38)), ('ladder', (27, 45), 'UP'),  # another hole, 2F's ledge, 3F
                            ('to', (38, 14)), 'UP'],  # the rival, and out to Indigo Plateau
           'MAP_HEADER_HGSS_INDIGO_PLATEAU', 'VAR_HGSS_UNK_40C5'),
-         ('Will', [('to', (912, 201)), 'UP', ('to', (11, 8)), 'UP', ('to', (6, 11)), 'UP', ('talk', [])],
+         ('Will', [('to', (912, 201)), 'UP', ('to', (11, 9)), 'UP', ('talk', []),  # the man at the door steps aside
+                   ('to', (11, 8)), 'UP', ('to', (6, 11)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_POKEMON_LEAGUE_WILL_ROOM', 'FLAG_HGSS_DEFEATED_WILL'),
          ('Koga', [('to', (6, 5)), 'UP', ('talk', [0]),  # the Kadabra's teleport, to League Room 2
                    ('to', (6, 12)), 'UP', ('talk', [])],
