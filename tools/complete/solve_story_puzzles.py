@@ -329,7 +329,8 @@ def ice_room(maps, header, start, goal):
 
 def boulder_hole(maps, header, start, boulder, hole, goal):
     """A way through Ice Path B1F (src/complete_map_info.c, HeartGold's boulder holes): Strength's pushes of the boulder
-    on boulder into its hole, through which it falls to B2F, and the walk on to goal, the fewest steps and pushes. A
+    on boulder into its hole, through which it falls to B2F, and the walk on to goal, the fewest steps and pushes (with
+    no hole, pushes that clear the way to goal: Victory Road's boulders). A
     push moves the boulder a tile the way the player faces, onto floor no one stands on, and leaves the player where
     they were; the player never steps onto a hole (they would fall through) or a warp but the goal. The other boulders
     and the people stand where the map puts them. The test's steps: the talk that starts Strength, facing the boulder
@@ -353,7 +354,7 @@ def boulder_hole(maps, header, start, boulder, hole, goal):
     while queue:
         state = queue.popleft()
         pos, rock = state
-        if pos == goal and rock is None:
+        if pos == goal and (rock is None or hole is None):
             break
         for key, d in zip(KEYS, ((0, -1), (0, 1), (-1, 0), (1, 0))):
             n = (pos[0] + d[0], pos[1] + d[1])

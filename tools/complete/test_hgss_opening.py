@@ -175,9 +175,19 @@ as a player would, without the test warp:
     City's Dance Theater, where a scene plays at its door (VAR_HGSS_UNK_4079 4).
 59. **The Clear Bell:** into the theater, where the Kimono Girls ask to see the player's strength (yes) and battle one
     after another (with Sacred Gold's Rockets between), and give the Clear Bell (FLAG_HGSS_UNK_103).
-60. **Ho-Oh:** through the barrier station and the Bell Tower's grounds into the tower, up its ladders and over 7F to
-    9F's warp panels to 10F and the roof, where the Kimono Girls dance and Ho-Oh comes down to battle; after it the
-    friend no longer stops the player at New Bark Town's east exit (VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT 3).
+60. **Ho-Oh:** through the barrier station, whose sage steps aside for the Fog Badge, and the Bell Tower's grounds into
+    the tower, up its ladders and over 7F to 9F's warp panels to 10F and the roof, where the Kimono Girls dance and
+    Ho-Oh comes down to battle; after it the friend no longer stops the player at New Bark Town's east exit
+    (VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT 3).
+61. **Down the Bell Tower:** down from the roof by the ladders and warp panels, and out to Ecruteak City.
+62. **New Bark Town, east:** back along Routes 37 and 36, through Violet City and along Routes 31, 30 and 29 to New
+    Bark Town, and out of it east on Surf over Route 27's water into Tohjo Falls.
+63. **Tohjo Falls:** up its first waterfall and down the other (Waterfall, yes), and out onto Route 27 beyond.
+64. **The League's gate:** along Route 27 (its trainers, on foot and on Surf) and up Route 26 to the Pokémon League's
+    reception gate, where the guard checks the badges (VAR_HGSS_UNK_4110), and on into Victory Road.
+65. **Victory Road:** 1F's boulder pushed out of the way; up to 3F, down one of its holes to 2F, 2F's boulder pushed
+    aside, up to 3F again, down another hole to 2F, over its ledge and up to 3F's exit, where the rival battles
+    (VAR_HGSS_UNK_40C5), and out to Indigo Plateau.
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -219,6 +229,7 @@ NEW_BARK = 'MAP_HEADER_HGSS_NEW_BARK'
 AZALEA_GYM = 'MAP_HEADER_HGSS_AZALEA_GYM'
 ILEX = 'MAP_HEADER_HGSS_ILEX_FOREST'
 ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
+BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
 # (part, its actions, the map it ends on, the var that must have moved on from 0 or the flag that must be set, (var,
 # value) for a var that must have that value, ('fly', town) for the town's Fly point, or None). An action is a key to
 # press, ('to', (x, z)): a walk to that tile on the map the player is on, ('surf', (x, z)): one that may cross water,
@@ -448,7 +459,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_BLACKTHORN_GYM', 'FLAG_HGSS_UNK_0D1'),
          ('the Rising Badge', [('to', (5, 9)),  # the pad by Clair, back to the gym's door
                                ('to', (13, 87)), 'DOWN', ('surf', (672, 133)), 'UP',  # over the pond to the Dragon's Den
-                               ('to', (6, 5)), ('surf', (14, 35)), 'DOWN', ('talk', [True]),  # its whirlpool: Whirlpool, yes
+                               ('to', (6, 5)), ('surf', (14, 35)), 'DOWN', ('talk', [True]),  # its whirlpool, yes
                                ('surf', (28, 51)), ('scene', 'UP', [0, 0, 1, 0, 1])],  # the shrine: the quiz
           'MAP_HEADER_HGSS_DRAGONS_DEN_SHRINE', 'FLAG_HGSS_UNK_0EA'),
          ('Elm\'s lab, again', [('to', (6, 19)), 'DOWN', ('surf', (14, 39)), 'UP', ('talk', [True]),  # the whirlpool
@@ -463,18 +474,42 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('the Clear Bell', [('scene', 'UP', [True])],  # into the theater: the Kimono Girls' battles, yes
           'MAP_HEADER_HGSS_ECRUTEAK_DANCE_THEATER', 'FLAG_HGSS_UNK_103'),
          ('Ho-Oh', [('to', (7, 17)), 'DOWN', ('to', (392, 154)), 'UP',  # the Bell Tower's barrier station
-                    ('ladder', (15, 3), 'RIGHT'), ('to', (6, 3)), 'RIGHT', ('to', (37, 16)), 'UP',  # the tower's grounds
+                    ('to', (15, 8)), 'UP', ('talk', []), ('ladder', (15, 3), 'RIGHT'),  # its sage steps aside
+                    ('to', (6, 3)), 'RIGHT', ('to', (37, 16)), 'UP',  # the tower's grounds
                     ('ladder', (9, 8), 'UP'), ('ladder', (15, 25), 'UP'), ('ladder', (24, 8), 'UP'),  # 1F to 4F
                     ('ladder', (6, 8), 'UP'), ('ladder', (13, 25), 'UP'), ('ladder', (6, 19), 'UP'),  # to 7F
                     ('to', (15, 26)), ('to', (7, 20)), ('to', (6, 12)), ('to', (16, 9)),  # 7F to 9F's warp panels
                     ('ladder', (12, 17), 'UP'), ('ladder', (15, 25), 'UP'), ('to', (15, 20))],  # 10F, the roof
-          'MAP_HEADER_HGSS_BELL_TOWER_ROOF', ('VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT', 3))]
+          'MAP_HEADER_HGSS_BELL_TOWER_ROOF', ('VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT', 3)),
+         ('down the Bell Tower', [('to', (15, 24)), ('to', (11, 17)),  # the roof's ladder, 10F's
+                                  ('to', (18, 15)), ('to', (23, 17)), ('to', (20, 7)), ('to', (7, 12)),  # the panels
+                                  ('to', (6, 19)), ('to', (13, 25)), ('to', (6, 25)), ('to', (24, 8)),  # 7F to 4F
+                                  ('to', (15, 25)), ('to', (9, 8)), ('to', (15, 26)), 'DOWN',  # 3F to 1F, out
+                                  ('to', (9, 9)), 'LEFT', ('to', (3, 19)), 'LEFT', ('to', (9, 11)), 'DOWN'],
+          'MAP_HEADER_HGSS_ECRUTEAK', None),
+         ('New Bark Town, east', [('to', (447, 246)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Routes 37, 36, Violet
+                                  ('to', (511, 269)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Routes 31, 30 and 29
+                                  ('surf', (740, 397)), 'UP'],  # out of New Bark Town east, Route 27's water
+          'MAP_HEADER_HGSS_TOHJO_FALLS', None),
+         ('Tohjo Falls', [('surf', (27, 14)), 'UP', ('talk', [True]),  # up its waterfall: Waterfall, yes
+                          ('surf', (38, 12)), 'DOWN', ('talk', [True]), ('surf', (45, 20)), 'DOWN'],  # and down
+          'MAP_HEADER_HGSS_ROUTE_27', None),
+         ('the League\'s gate', [('surf', (909, 297)), 'UP', ('to', (11, 3)), 'UP'],  # Routes 27, 26; the badge check
+          'MAP_HEADER_HGSS_VICTORY_ROAD_1F', 'VAR_HGSS_UNK_4110'),
+         ('Victory Road', [('to', (43, 53)), 'UP', ('talk', [True]), ('push', 'UP'), ('ladder', (19, 7), 'UP'),  # 1F
+                           ('ladder', (51, 39), 'UP'), ('to', (55, 42)),  # 2F, 3F, and its hole down to 2F
+                           ('to', (51, 28)), 'LEFT', ('talk', [True]), ('push', 'LEFT'), ('to', (50, 28)),
+                           ('push', 'LEFT'), ('ladder', (56, 22), 'UP'),  # 2F's boulder out of the way, 3F again
+                           ('to', (26, 38)), ('ladder', (27, 45), 'UP'),  # another hole, 2F's ledge, 3F
+                           ('to', (38, 14)), 'UP'],  # the rival, and out to Indigo Plateau
+          'MAP_HEADER_HGSS_INDIGO_PLATEAU', 'VAR_HGSS_UNK_40C5')]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
-# Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, and Blackthorn Gym's pads,
-# which send the player back to its door
+# Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which
+# send the player back to its door, and Victory Road 3F's holes, which drop the player to 2F
 AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD', ECRUTEAK_GYM: 'VAR_HGSS_UNK_4109',
-                    'MAP_HEADER_HGSS_ICE_PATH_B1F': 'VAR_HGSS_UNK_40AA', 'MAP_HEADER_HGSS_BLACKTHORN_GYM': 'VAR_HGSS_UNK_4111'}
+                    'MAP_HEADER_HGSS_ICE_PATH_B1F': 'VAR_HGSS_UNK_40AA', BLACKTHORN_GYM: 'VAR_HGSS_UNK_4111',
+                    'MAP_HEADER_HGSS_VICTORY_ROAD_3F': 'VAR_HGSS_UNK_40C9'}
 # the tile behaviors that warp (include/constants/field/map_tile_behaviors.h: the stairs to the directional warps,
 # doors among them) and HeartGold's ladders (Complete's 0x0D-0x0F): a warp event on another tile is part of a wider
 # doorway, and a walk may cross it
@@ -500,7 +535,6 @@ WALK_STEPS = 600  # the most steps one walk takes
 STEP_WAIT = 16  # frames more to wait for a step that hasn't started
 FORGETS = 3  # how many times a walk forgets the steps that failed when they leave no way
 MARGIN = 40  # tiles around the start and the goal a route may go through
-BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
 MAGMA = 0x2b  # TILE_BEHAVIOR_COMPLETE_MAGMA: Blackthorn Gym's lava, walkable only where a floor is over it
 COLLISION = 0x8000  # a tile's collision bit (src/terrain_collision_manager.c)
 # Blackthorn Gym's floors in the save (MiscSaveBlock: 128 BerryPatches of 14 bytes, then PersistedMapFeatures: its ID,
