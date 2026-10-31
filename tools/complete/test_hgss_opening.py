@@ -164,10 +164,10 @@ as a player would, without the test warp:
     three floors, each moved and turned by the buttons on it as the player steps on them (the fewest steps, from the
     gym's own data: tools/complete/solve_story_puzzles.py; src/complete_gyms.c), past its trainers to Clair: her
     battle (FLAG_HGSS_UNK_0D1), after which she sends the player to the Dragon's Den.
-56. **The Rising Badge:** back to the gym's door on the pad beside Clair, into the Dragon's Den, on Surf across its
-    lake and its whirlpool (Whirlpool, yes) to the shrine, where the elder's quiz plays as the player enters (A picks
-    the first answer each time; a wrong one only changes the Dratini given later), and Clair, there too, gives the
-    Rising Badge (FLAG_HGSS_UNK_0EA).
+56. **The Rising Badge:** back to the gym's door on the pad beside Clair, on Surf over the pond behind the gym into the
+    Dragon's Den, and across its lake and its whirlpool (Whirlpool, yes) to the shrine, where the elder's quiz plays as
+    the player enters (answers he takes: one he doesn't, he asks again), and Clair, there too, gives the Rising Badge
+    (FLAG_HGSS_UNK_0EA).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -216,9 +216,10 @@ ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
 # to talk to what the player faces, answering its menus (talk_and_answer's), ('meet', (x, z), answers): the same with
 # whoever the map put on that tile, wherever they have wandered (by land or water), ('switches', [(x, z), ...], (x,
 # z)): the switches below those tiles pressed until their shutters leave a way to the last tile, then the walk there,
-# ('push', key): Strength's push of the boulder the player faces that way, or ('keep', n): the party cut to its first n
-# Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs and doors warp as the
-# player presses toward them from their tile.
+# ('push', key): Strength's push of the boulder the player faces that way, ('scene', key, answers): a step that starts a
+# scene (into a map whose scene starts as the player arrives), its menus answered as talk's are, or ('keep', n): the
+# party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs
+# and doors warp as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -436,9 +437,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                     ('to', (19, 11)), 'DOWN', ('to', (19, 12)), 'UP', ('to', (12, 4)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_BLACKTHORN_GYM', 'FLAG_HGSS_UNK_0D1'),
          ('the Rising Badge', [('to', (5, 9)),  # the pad by Clair, back to the gym's door
-                               ('to', (13, 87)), 'DOWN', ('to', (672, 133)), 'UP',  # the Dragon's Den
-                               ('to', (6, 5)), ('surf', (14, 35)), 'DOWN',  # its whirlpool: Whirlpool, yes
-                               ('surf', (28, 51)), 'UP'],  # the shrine
+                               ('to', (13, 87)), 'DOWN', ('surf', (672, 133)), 'UP',  # over the pond to the Dragon's Den
+                               ('to', (6, 5)), ('surf', (14, 35)), 'DOWN', ('talk', [True]),  # its whirlpool: Whirlpool, yes
+                               ('surf', (28, 51)), ('scene', 'UP', [0, 0, 1, 0, 1])],  # the shrine: the quiz
           'MAP_HEADER_HGSS_DRAGONS_DEN_SHRINE', 'FLAG_HGSS_UNK_0EA')]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
@@ -980,6 +981,11 @@ def main():
                 problem = switches(action[1], action[2])
             elif action[0] == 'push':
                 problem = push(action[1])
+            elif action[0] == 'scene':  # the step, then the scene it starts, its menus answered (not settle's A)
+                step(action[1])
+                result, frames = talk_and_answer(d, sym, action[2], SETTLE_FRAMES, press_a=False)
+                if result != 'ok':
+                    problem = f'the scene: {result} after {frames} frames, on {here()} at {d.pos()}'
             elif action[0] in ('to', 'ladder', 'surf'):
                 before = matrix_of.get(here())
                 problem = walk_to(action[1], action[0] == 'surf')

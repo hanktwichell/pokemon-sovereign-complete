@@ -1048,3 +1048,23 @@ Test results on the new test build:
   the test pressed A for text while a script ran, and a switch shows none, so a tap landing as its script ended
   pressed it again and undid it. The action now presses once and checks that something moved. Nothing in the game
   needed changing.
+
+## Oct 31, 2026: the story test to the Rising Badge, 56 parts
+
+- **Parts 52 to 56 pass,** each from the end of the one before: back down the Radio Tower and by road to Mahogany
+  Town; Route 44 and the Ice Path, with HM07 from 1F's ice and Strength's pushes of B1F's first boulder into its hole
+  (it falls to B2F, where it stops a slide); on through B2F, B3F and the Kimono Girl on 1F's ice into Blackthorn
+  City; Clair, across her gym's floors over the lava; and the Dragon's Den, its pond, its whirlpool and the shrine,
+  where the elder's quiz ends with the Rising Badge.
+- **Blackthorn Gym's floors, end to end in the emulator for the first time:** `solve_story_puzzles.py` now models
+  them from `src/complete_gyms.c` (the floors' tiles, the moves that go the floor's width or nowhere, the turns the
+  game's own tables stop) and finds the way to Clair, 30 button steps. The game moved and turned the floors exactly as
+  the model said at every step, and the player rode them to Clair. The gym's pads, which send the player back to its
+  door, are its way out, as in HeartGold. It also finds Ice Path B1F's pushes (six).
+- **The test learned:** the Radio Tower's 4F is in two halves (the way down from the elevator's side is by 4F's east
+  stairs to 3F); the Kimono Girl on the Ice Path asks to be let by (yes); Blackthorn's den is across a pond (Surf);
+  Whirlpool is A facing the whirlpool; the elder's quiz asks again after an answer he doesn't take, so A alone (the
+  first answer, "Weak" to the third question) looped for good, and the test now answers the scene's menus. New
+  actions: `push` (Strength), `scene` (a scene that starts as the player arrives, with its menus answered). Walks keep
+  off Ice Path B1F's holes, Blackthorn Gym's lava where no floor is, its buttons and its pads. Nothing in the game
+  needed changing in this stretch.
