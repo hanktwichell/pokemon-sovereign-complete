@@ -6314,6 +6314,11 @@
     .short SCRCMD_COMPLETEFUCHSIAGYMINIT
     .endm
 
+    // The script's message box closed, if it's still open (after one closed before leaving the field).
+    .macro CompleteCloseMessageIfOpen
+    .short SCRCMD_COMPLETECLOSEMESSAGEIFOPEN
+    .endm
+
     .text
     .globl _start
 _start:

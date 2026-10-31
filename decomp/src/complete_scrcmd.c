@@ -67,6 +67,7 @@
 #include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
+#include "render_window.h"
 #include "player_avatar.h"
 #include "player_move.h"
 #include "save_player.h"
@@ -308,6 +309,25 @@ BOOL CompleteScrCmd_JohtoClearGame(ScriptContext *ctx)
     ScriptContext_ReadHalfWord(ctx); // HeartGold's vsTrainerRed: whether to count a League win
     ClearGame_Johto(ctx->fieldSystem->task);
     return TRUE;
+}
+
+// The script's message box closed, if it's still open. A HeartGold script that leaves the field (a battle, a rest
+// scene) with its box open closes it after, but leaving frees the field's heap and the box's window with it; the
+// translation closes it before leaving instead and uses this for the closes after
+// (tools/complete/translate_hgss_scripts.py's close_before_leaving), as they may be reached the other way as well.
+BOOL CompleteScrCmd_CloseMessageIfOpen(ScriptContext *ctx)
+{
+    u8 *isMsgBoxOpen = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_IS_MSG_BOX_OPEN);
+
+    if (*isMsgBoxOpen) {
+        Window *window = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_WINDOW);
+
+        Window_EraseMessageBox(window, FALSE);
+        Window_Remove(window);
+        *isMsgBoxOpen = FALSE;
+    }
+
+    return FALSE;
 }
 
 // HeartGold's ScrCmd_596: whether the following Pokémon is too tall for most buildings, so that a script puts it away

@@ -418,6 +418,7 @@ _0620:
     PlayCry SPECIES_LATIOS, 0
     Message msg_0483_T06_00033
     WaitCry
+    CloseMessage  @ Sovereign Complete: before leaving the field
     CompleteStartWildBattle SPECIES_LATIOS, 40, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -579,6 +580,7 @@ _0919:
     PlayCry SPECIES_LATIAS, 0
     Message msg_0483_T06_00028
     WaitCry
+    CloseMessage  @ Sovereign Complete: before leaving the field
     CompleteStartWildBattle SPECIES_LATIAS, 40, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -604,7 +606,7 @@ _09A3:
 _09A9:
     LockAll
     SetFlag FLAG_HGSS_SG_3FCA
-    CloseMessage
+    CompleteCloseMessageIfOpen  @ Sovereign Complete: the box may be closed before leaving
     ReleaseAll
     End
 _09B5:

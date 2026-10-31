@@ -76,11 +76,14 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   over the black screen the script left for the app. 716 ends by closing the field, so the script's
   `RestoreOverworld` (`ReturnToField`) opens it again. 718 to 721, `CheckSafariZoneChallengeCompleted` and
   `UpdateSafariZoneIGT` are `CompleteSafari*` commands.
-- Rest scenes: HeartGold's `ScrCmd_436` leaves the field (Platinum's `WaitForTransition`) and `RestoreOverworld`
-  (`ReturnToField`) opens it again. Sacred Gold's heals after Route 47's three tag battles leave with the message box
-  still open and close it once back, but leaving frees the field's heap and the box's window with it, so the close
+- Leaving the field with the message box open: HeartGold's `ScrCmd_436` leaves the field for a rest scene
+  (Platinum's `WaitForTransition`) and `RestoreOverworld` (`ReturnToField`) opens it again; a battle leaves it too.
+  Sacred Gold's heals after Route 47's three tag battles, and Arceus's, Latios's and Latias's battles, leave with the
+  box still open and close it once back, but leaving frees the field's heap and the box's window with it, so the close
   frees the window a second time and breaks the heap (HeartGold has the same slip; the story test's heap check found
-  it). The translation (`close_before_leaving`) closes the box just before leaving, while the screen is black.
+  it). The translation (`close_before_leaving`) closes the box just before leaving (the screen is black, or the cry
+  has played), and the closes that follow, on every way through the script's jumps, become
+  `CompleteCloseMessageIfOpen`, which closes the box only if it's open, as another way may reach them with it open.
 - Each translated file defines HeartGold's names for its people and script numbers (from its `event_*.h`), so
   clones (two objects sharing a local ID) keep HeartGold's exact numbers, and includes its text banks' headers.
 - Names: flags and vars as in the events; `MAP_*` to `MAP_HEADER_HGSS_*`; items, species and moves to Sovereign's

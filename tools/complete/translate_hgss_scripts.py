@@ -326,26 +326,58 @@ def apply_inserts(stem, body):
     return body[:i] + lines + body[i:] + end
 
 
+# Commands that leave the field: a rest scene (HeartGold's ScrCmd_436) and the battles
+LEAVING = re.compile(r'    (WaitForTransition|StartTrainerBattle|StartTagBattle|CompleteStartWildBattle)\b')
+
+
+def box_open(body, at):
+    """Whether the script's message box is open at the line: a message since the last close, back along the script."""
+    for line in reversed(body[:at]):
+        line = line.strip()
+        if line.endswith(':') or line in ('End', 'Return') or line.startswith(('GoTo ', 'CloseMessage')):
+            return False
+        if re.match(r'Message\w*\b', line):
+            return True
+    return False
+
+
+def closes_after(body, labels, at):
+    """The first close on each way on from the line, through jumps and calls, until a new message or the end."""
+    closes, seen, todo = set(), set(), [at + 1]
+    while todo:
+        i = todo.pop()
+        while i < len(body) and i not in seen:
+            seen.add(i)
+            line = body[i].strip()
+            if line == 'CloseMessage':
+                closes.add(i)
+                break
+            if re.match(r'Message\w*\b', line) or line in ('End', 'Return'):
+                break
+            m = re.match(r'(GoTo|Call)\w*\s+(.*)$', line)
+            if m and m.group(2).split(',')[-1].strip() in labels:
+                todo.append(labels[m.group(2).split(',')[-1].strip()])
+                if line.split()[0] == 'GoTo':
+                    break
+            i += 1
+    return closes
+
+
 def close_before_leaving(body):
-    """Close a message box still open where a script leaves the field (HeartGold's ScrCmd_436, WaitForTransition), in
-    place of its CloseMsg after RestoreOverworld: leaving the field frees the field's heap, the box's window with it,
-    and closing it then frees the window again (Sacred Gold's heals after Route 47's tag battles; HeartGold has the same
-    slip). The screen is black by then, so nothing shows the change."""
+    """Close a message box still open where a script leaves the field (a battle, or HeartGold's ScrCmd_436,
+    WaitForTransition), and make the closes after it CompleteCloseMessageIfOpen: leaving the field frees the field's
+    heap and the box's window with it, so a close once back would free the window again (Sacred Gold's heals after
+    Route 47's tag battles, Arceus's and Sacred Gold's Latios and Latias battles; HeartGold has the same slip). The
+    screen is black, or the cry has played, by then; a close after may also be reached another way, with the box
+    open, so it stays, but only closes an open box."""
     body = list(body)
-    leaving = [i for i, line in enumerate(body) if line == '    WaitForTransition']
+    labels = {line[:-1]: i for i, line in enumerate(body) if line.endswith(':') and not line.startswith(' ')}
+    leaving = [i for i, line in enumerate(body) if LEAVING.match(line) and box_open(body, i)]
+    for i in leaving:
+        for j in closes_after(body, labels, i):
+            body[j] = '    CompleteCloseMessageIfOpen  @ Sovereign Complete: the box may be closed before leaving'
     for i in reversed(leaving):  # from the end, as an insert moves what follows it
-        for line in reversed(body[:i]):  # back along the script to the box's last message or close
-            if line.endswith(':') or line.strip() in ('End', 'Return') or line.startswith('    GoTo '):
-                break
-            if line.startswith('    CloseMessage'):
-                break
-            if re.match(r'    Message\w*\b', line):
-                after = next((j for j in range(i + 1, len(body))
-                              if body[j] == '    CloseMessage' or body[j].endswith(':') or body[j] == '    End'), None)
-                if after is not None and body[after] == '    CloseMessage':
-                    body[after] = '    @ Sovereign Complete: closed before leaving the field'
-                    body[i:i] = ['    CloseMessage  @ Sovereign Complete: before leaving the field']
-                break
+        body[i:i] = ['    CloseMessage  @ Sovereign Complete: before leaving the field']
     return body
 
 

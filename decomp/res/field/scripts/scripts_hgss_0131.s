@@ -595,11 +595,12 @@ _078F:
     PlayCry SPECIES_ARCEUS, 0
     Message msg_0146_D51R0201_00057
     WaitCry
+    CloseMessage  @ Sovereign Complete: before leaving the field
     CompleteStartWildBattle SPECIES_ARCEUS, 100, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C7B
-    CloseMessage
+    CompleteCloseMessageIfOpen  @ Sovereign Complete: the box may be closed before leaving
     StopMusic
     CompleteGetBattleResult VAR_MAP_LOCAL_0x02
     CompareVar VAR_MAP_LOCAL_0x02, 4

@@ -996,6 +996,7 @@ ScriptCommand(SCRCMD_COMPLETEINITFLYMENU,                             CompleteSc
 ScriptCommand(SCRCMD_COMPLETEFLYTO,                                   CompleteScrCmd_FlyTo)
 ScriptCommand(SCRCMD_COMPLETEVIRIDIANGYMINIT,                          CompleteScrCmd_ViridianGymInit)
 ScriptCommand(SCRCMD_COMPLETEFUCHSIAGYMINIT,                           CompleteScrCmd_FuchsiaGymInit)
+ScriptCommand(SCRCMD_COMPLETECLOSEMESSAGEIFOPEN,                       CompleteScrCmd_CloseMessageIfOpen)
 
 // clang-format on
 

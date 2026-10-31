@@ -288,6 +288,7 @@ AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD'
 WARP_TILES = set(range(0x5e, 0x70)) | {0x0d, 0x0e, 0x0f}
 # water Surf doesn't cross: whirlpools (include/constants/field/complete_tile_behaviors.h) and waterfalls
 OTHER_WATER = {0x11, 0x13}
+ICE = 0x20  # TILE_BEHAVIOR_ICE: a step onto it slides on (Mahogany Gym, the Ice Path)
 RAM, RAM_SIZE = 0x02000000, 0x400000  # the DS's main memory, where the map objects are
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
@@ -398,6 +399,12 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
             if n != goal and (n in blocked or not walkable(t)
                               or (t & 0xff) in WATER and (not surf or (t & 0xff) in OTHER_WATER)):
                 continue
+            while (t & 0xff) == ICE:  # on over the ice until off it or stopped (src/player_move.c)
+                ahead = (n[0] + d[0], n[1] + d[1])
+                t_ahead = maps.tile(matrix, *ahead)
+                if t_ahead is None or ahead in blocked or not walkable(t_ahead) or (t_ahead & 0xff) in WATER:
+                    break
+                n, t = ahead, t_ahead
             nh = h
             choices = (heights.at(matrix, *n) if heights is not None else []) \
                 + ([lifts[n]] if n in (lifts or {}) else [])

@@ -946,9 +946,16 @@ Test results on the new test build:
   into the field's new heap: the free lists dumped frame by frame show the field heap rebuilt, then `CloseMessage`
   freeing a block already freed. HeartGold has the same slip (its `CloseMsg` and `RemoveWindow` do the same, and its
   field heap goes the same way); it may never show there, but a broken heap here crashes sooner or later. The
-  translator now closes a box still open where a script leaves the field, while the screen is black, in place of the
-  close after (`close_before_leaving` in `tools/complete/translate_hgss_scripts.py`); a scan of every translated
-  script finds only these three heals leaving with a box open. The main build boots (boot smoke PASS).
+  translator now closes a box still open where a script leaves the field, while the screen is black
+  (`close_before_leaving` in `tools/complete/translate_hgss_scripts.py`). A battle leaves the field as well, and a
+  scan of every translated script finds three more with the box open: Arceus's on the Sinjoh Ruins' Mystri Stage, and
+  Sacred Gold's Latios and Latias, whose scripts close the box after the battle, Latios's and Latias's through a jump
+  to a shared ending. So the closes after, on every way through the jumps, are now `CompleteCloseMessageIfOpen`, a
+  new command that closes the box only if it's still open (`src/complete_scrcmd.c`); the box is opened only by the
+  message commands, which keep its flag. Sacred Gold's closing lines on the Mystri Stage (after Arceus, its two
+  endings) stay open into Johto's game clear too, but that ends by resetting the system, so the window is never freed
+  again. On a build with the fix, the test's walker, from the Cliff Edge Gate, crosses the bridge into the tag battle
+  and the heal, and the heaps are whole after every step, where before they broke at that step.
 - **Violet Gym's lift:** the full run from the bedroom with last stretch's height-aware walker stopped at Falkner, as
   the lift (`src/complete_gyms.c`) carries the player to height 496 over a floor whose BDHC says 32, and every step
   off it looked like a drop. The walker now reads the field's dynamic plates from the game (the lift's), through the
@@ -956,4 +963,5 @@ Test results on the new test build:
 - **The next two parts**, 33 and 34 (written, not yet passed): the Safari Zone Gate (Cliff Edge Gate and Route 47's
   boulder, which won't budge until the grunts on the bridge are beaten in a tag battle; Cliff Cave and Route 48; the
   gate's Pokémon Center, whose nurse is a grunt; the tag battle beside Riley at the gate) and Jasmine. A full run on a
-  build with the fix is under way.
+  build with the fix is under way. Ahead of Mahogany Gym and the Ice Path, the walker also slides on ice as the game
+  does (`src/player_move.c`): a step onto ice goes on until the player is off it or something is in the way.

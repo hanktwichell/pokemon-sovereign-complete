@@ -199,7 +199,7 @@ scr_seq_R47_008:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ Sovereign Complete: closed before leaving the field
+    CompleteCloseMessageIfOpen  @ Sovereign Complete: the box may be closed before leaving
     SetVarFromValue VAR_HGSS_SG_619F, 2
     ReleaseAll
     End
@@ -283,7 +283,7 @@ scr_seq_R47_013:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ Sovereign Complete: closed before leaving the field
+    CompleteCloseMessageIfOpen  @ Sovereign Complete: the box may be closed before leaving
     SetVarFromValue VAR_HGSS_SG_619E, 2
     ReleaseAll
     End
@@ -345,7 +345,7 @@ scr_seq_R47_016:
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
-    @ Sovereign Complete: closed before leaving the field
+    CompleteCloseMessageIfOpen  @ Sovereign Complete: the box may be closed before leaving
     SetVarFromValue VAR_HGSS_SG_6139, 2
     ReleaseAll
     End
