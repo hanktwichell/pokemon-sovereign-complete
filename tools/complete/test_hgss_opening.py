@@ -408,8 +408,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                    ('to', (7, 7)), 'UP', ('talk', []),  # the grunt on the stage
                    ('to', (3, 7)), 'DOWN'],  # the step down from the stage: the gentleman and HM03
           'MAP_HEADER_HGSS_ECRUTEAK_DANCE_THEATER', 'FLAG_HGSS_GOT_HM03'),
-         ('Olivine City', [('to', (7, 17)), 'DOWN', ('to', (358, 166)), 'LEFT', ('to', (1, 7)), 'LEFT',
-                           ('to', (272, 258)), 'UP'],
+         ('Olivine City', [('to', (7, 17)), 'DOWN', ('to', (358, 166)), 'LEFT',
+                           ('to', (1, 7)), ('to', (1, 7)), 'LEFT',  # again if Sacred Gold's gentleman, giving his
+                           ('to', (272, 258)), 'UP'],  # Iron Plate at the gatehouse's door, walked the player back
           'MAP_HEADER_HGSS_OLIVINE_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_OLIVINE')),
          ('the Lighthouse', [('to', (8, 19)), 'DOWN', ('to', (301, 263)), 'UP', ('to', (2, 3)), 'RIGHT',
                              ('ladder', (13, 6), 'UP'), ('ladder', (10, 7), 'UP'),
@@ -641,7 +642,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_CERULEAN_GYM', 'FLAG_HGSS_GOT_TM03_FROM_MISTY'),
          ('the power restored', [('to', (10, 25)), 'DOWN', ('surf', (1423, 185)), 'UP',
                                  ('to', (13, 7)), 'DOWN', ('talk', [])],  # the Machine Part, back to the manager
-          'MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_BROKEN', 'FLAG_HGSS_RESTORED_POWER'),
+          'MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_REPAIRED', 'FLAG_HGSS_RESTORED_POWER'),  # the plant, powered
          ('Lt. Surge', [('to', (7, 20)), 'DOWN', ('surf', (1309, 132)),  # back to Cerulean,
                         ('to', (1306, 186)), 'UP',  # south on Route 5
                         ('ladder', (8, 4), 'RIGHT'), ('ladder', (4, 57), 'LEFT'),  # under Saffron
@@ -656,7 +657,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                           ('to', (23, 36)), 'DOWN', ('to', (1424, 244))],  # down its ladders and up, to Lavender
           'MAP_HEADER_HGSS_LAVENDER', ('fly', 'MAP_HEADER_HGSS_LAVENDER')),
          ('Fuchsia City', [('surf', (1428, 350)), ('surf', (1380, 370)),  # down Route 12, over its water
-                           ('to', (1350, 420)), ('to', (1249, 422)), 'LEFT',  # Routes 13 to 15
+                           ('to', (1350, 420)), ('to', (1248, 422)), 'LEFT',  # Routes 13 to 15
                            ('to', (1, 7)), 'LEFT', ('to', (1230, 422))],  # through the gatehouse
           'MAP_HEADER_HGSS_FUCHSIA', ('fly', 'MAP_HEADER_HGSS_FUCHSIA')),
          ("Fuchsia's Shellder", [('to', (1214, 407)), 'UP', ('talk', []),  # Janine asks for help
@@ -667,24 +668,24 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_FUCHSIA', 'FLAG_HGSS_SG_3F63'),
          ('Janine', [('to', (1195, 440)), 'UP', ('to', (7, 17)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_FUCHSIA_GYM', 'FLAG_HGSS_GOT_TM84_FROM_JANINE'),
-         ('the Cycling Road', [('to', (7, 25)), 'DOWN', ('to', (1163, 426)), 'LEFT',  # Route 18's gatehouse,
+         ('the Cycling Road', [('to', (7, 25)), 'DOWN', ('to', (1162, 426)), 'LEFT',  # Route 18's gatehouse,
                                ('bike',), ('to', (1, 7)), 'LEFT',  # whose guard wants the Bicycle
                                ('to', (1132, 416)), ('ride', 'UP', 299),  # up the Cycling Road
-                               ('to', (1150, 276)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 16's gatehouse
+                               ('to', (1151, 276)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 16's gatehouse
                                ('bike',), ('to', (1190, 258))],  # off the Bicycle, into Celadon
           'MAP_HEADER_HGSS_CELADON', ('fly', 'MAP_HEADER_HGSS_CELADON')),
          ('Erika', [('to', (1201, 267)), 'UP', ('to', (7, 4)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_CELADON_GYM', 'FLAG_HGSS_GOT_TM19_FROM_ERIKA'),
-         ('Sabrina', [('to', (7, 46)), 'DOWN', ('to', (1272, 240)), 'RIGHT',  # east along Route 7,
+         ('Sabrina', [('to', (7, 46)), 'DOWN', ('to', (1273, 240)), 'RIGHT',  # east along Route 7,
                       ('to', (10, 7)), 'RIGHT', ('to', (1328, 205)), 'UP',  # through its gatehouse into Saffron
                       ('to', (18, 22)), ('to', (22, 22)), ('to', (22, 7)), ('to', (2, 7)),  # Saffron Gym's panels
                       ('to', (15, 14)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_SAFFRON_GYM', 'FLAG_HGSS_GOT_TM48_FROM_SABRINA'),
          ('Blaine', [('to', (18, 17)), ('to', (2, 4)), ('to', (28, 4)), ('to', (28, 25)),  # the panels back
-                     ('to', (15, 28)), 'DOWN', ('to', (1336, 240)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 8
+                     ('to', (15, 28)), 'DOWN', ('to', (1337, 240)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 8
                      ('to', (1424, 244)), ('surf', (1428, 350)), ('surf', (1380, 370)),  # Lavender, Route 12,
-                     ('to', (1350, 420)), ('to', (1249, 422)), 'LEFT', ('to', (1, 7)), 'LEFT',  # back to Fuchsia
-                     ('to', (1204, 444)), 'DOWN', ('to', (5, 12)), 'DOWN',  # Route 19, open since Sabrina's badge
+                     ('to', (1350, 420)), ('to', (1248, 422)), 'LEFT', ('to', (1, 7)), 'LEFT',  # back to Fuchsia
+                     ('to', (1204, 445)), 'DOWN', ('to', (5, 12)), 'DOWN',  # Route 19, open since Sabrina's badge
                      ('surf', (1140, 503)), ('to', (1127, 502)), 'UP',  # by sea to Seafoam Islands
                      ('to', (55, 24)), 'UP', ('to', (13, 13)), 'UP', ('talk', [])],  # down to its gym
           'MAP_HEADER_HGSS_SEAFOAM_ISLANDS_CINNABAR_GYM', 'FLAG_HGSS_GOT_TM50_FROM_BLAINE'),
@@ -699,7 +700,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                   ('to', (5, 2)), 'UP', ('to', (12, 15)), 'UP',  # guard lets Earth Badge holders by,
                                   ('to', (5, 2)), 'UP', ('to', (1048, 138)), 'UP',  # through Viridian Forest
                                   ('to', (43, 6)), ('to', (34, 86)), 'UP', ('to', (4, 6)), 'DOWN',  # Diglett's Cave
-                                  ('to', (1309, 341)), 'UP', ('to', (7, 8)), 'DOWN', ('talk', []),  # Vermilion's port
+                                  ('to', (1309, 340)), 'DOWN', ('to', (7, 8)), 'DOWN', ('talk', []),  # Vermilion's port
                                   ('to', (7, 11)), 'DOWN', ('to', (22, 19)), 'RIGHT', ('talk', [1])],  # to Canalave
           'MAP_HEADER_CANALAVE_CITY', None)]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
@@ -1298,12 +1299,15 @@ def main():
         mask = keymask(DRIVE_KEYS[key])
         for _ in range(RIDE_TRIES):
             d.emu.input.keypad_add_key(mask)
-            last, still, frames = d.pos(), 0, 0
+            last, still, quiet, frames = d.pos(), 0, 0, 0
             while frames < RIDE_FRAMES and still < RIDE_STALL and d.pos()[axis] != goal:
                 before = u32(sym['gSovereignTestIdleFrames'])
                 d.run(4)
                 frames += 4
-                if u32(sym['gSovereignTestIdleFrames']) == before:  # something started: a biker's battle
+                # the field runs at 30 Hz, and a busy map can skip an update, so only 16 frames without one mean
+                # something started: a biker's battle
+                quiet = quiet + 4 if u32(sym['gSovereignTestIdleFrames']) == before else 0
+                if quiet >= 16:
                     break
                 still = still + 4 if d.pos() == last else 0
                 last = d.pos()
