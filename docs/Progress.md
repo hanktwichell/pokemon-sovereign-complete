@@ -1011,3 +1011,9 @@ Test results on the new test build:
 - **What's not ported, seen on the way, all looks:** HeartGold's trap floor and Persian statue effects in the hideout
   (`ScrCmd_708`, `709`), Lance's flight off the lake (`ScrCmd_775`), and the Rocket disguise's sprite (the disguise
   only restricts field moves and items in HeartGold; the scripts never check it). None changes the way through.
+- **Parts 35 to 43 in the story test** (Mahogany Town to Pryce): 35 passes from Olivine Gym (a probe save with Jasmine's
+  TM flag, as Sacred Gold blocks the Route 42 gatehouse until she gives it); 36 to 42, the red Gyarados to the
+  Electrode, pass back to back from its end; 43, Pryce, passes from the hideout's end. Run back to back from that same
+  probe save, Pryce skipped his battle: the probe had given all of Johto's badges (for Surf), and his script checks
+  for the Glacier Badge first, as HeartGold's does, so that's the probe's doing. The whole run from the bedroom,
+  with these parts, comes next, once the two full runs under way reach Jasmine.
