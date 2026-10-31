@@ -168,6 +168,16 @@ as a player would, without the test warp:
     Dragon's Den, and across its lake and its whirlpool (Whirlpool, yes) to the shrine, where the elder's quiz plays as
     the player enters (answers he takes: one he doesn't, he asks again), and Clair, there too, gives the Rising Badge
     (FLAG_HGSS_UNK_0EA).
+57. **Elm's lab, again:** back over the whirlpool and up out of the den, where Clair gives her TM, over Blackthorn's
+    pond and down Routes 45 and 46 and Route 29 to New Bark Town and Elm's lab, where Elm's scene plays
+    (VAR_HGSS_SCENE_ELMS_LAB 9); after it, the friend stops the player at the town's east exit until the Bell Tower.
+58. **The Dance Theater:** west along Routes 29, 30 and 31, through Violet City and along Routes 36 and 37 to Ecruteak
+    City's Dance Theater, where a scene plays at its door (VAR_HGSS_UNK_4079 4).
+59. **The Clear Bell:** into the theater, where the Kimono Girls ask to see the player's strength (yes) and battle one
+    after another (with Sacred Gold's Rockets between), and give the Clear Bell (FLAG_HGSS_UNK_103).
+60. **Ho-Oh:** through the barrier station and the Bell Tower's grounds into the tower, up its ladders and over 7F to
+    9F's warp panels to 10F and the roof, where the Kimono Girls dance and Ho-Oh comes down to battle; after it the
+    friend no longer stops the player at New Bark Town's east exit (VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT 3).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -440,7 +450,25 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                ('to', (13, 87)), 'DOWN', ('surf', (672, 133)), 'UP',  # over the pond to the Dragon's Den
                                ('to', (6, 5)), ('surf', (14, 35)), 'DOWN', ('talk', [True]),  # its whirlpool: Whirlpool, yes
                                ('surf', (28, 51)), ('scene', 'UP', [0, 0, 1, 0, 1])],  # the shrine: the quiz
-          'MAP_HEADER_HGSS_DRAGONS_DEN_SHRINE', 'FLAG_HGSS_UNK_0EA')]
+          'MAP_HEADER_HGSS_DRAGONS_DEN_SHRINE', 'FLAG_HGSS_UNK_0EA'),
+         ('Elm\'s lab, again', [('to', (6, 19)), 'DOWN', ('surf', (14, 39)), 'UP', ('talk', [True]),  # the whirlpool
+                               ('surf', (28, 7)), ('ladder', (28, 6), 'UP'),  # Clair's scene on the way
+                               ('to', (6, 9)), 'DOWN', ('surf', (626, 380)), 'DOWN',  # Routes 45 and 46
+                               ('to', (5, 12)), 'DOWN', ('to', (684, 394)), 'UP'],  # Route 29, New Bark Town
+          'MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_1F', ('VAR_HGSS_SCENE_ELMS_LAB', 9)),
+         ('the Dance Theater', [('to', (4, 14)), 'DOWN', ('to', (518, 269)), 'LEFT',  # Routes 29, 30 and 31
+                                ('to', (1, 7)), 'LEFT', ('to', (454, 246)), 'LEFT', ('to', (1, 7)), 'LEFT',  # Violet
+                                ('to', (397, 174))],  # Routes 36 and 37 to Ecruteak City's theater
+          'MAP_HEADER_HGSS_ECRUTEAK', ('VAR_HGSS_UNK_4079', 4)),
+         ('the Clear Bell', [('scene', 'UP', [True])],  # into the theater: the Kimono Girls' battles, yes
+          'MAP_HEADER_HGSS_ECRUTEAK_DANCE_THEATER', 'FLAG_HGSS_UNK_103'),
+         ('Ho-Oh', [('to', (7, 17)), 'DOWN', ('to', (392, 154)), 'UP',  # the Bell Tower's barrier station
+                    ('ladder', (15, 3), 'RIGHT'), ('to', (6, 3)), 'RIGHT', ('to', (37, 16)), 'UP',  # the tower's grounds
+                    ('ladder', (9, 8), 'UP'), ('ladder', (15, 25), 'UP'), ('ladder', (24, 8), 'UP'),  # 1F to 4F
+                    ('ladder', (6, 8), 'UP'), ('ladder', (13, 25), 'UP'), ('ladder', (6, 19), 'UP'),  # to 7F
+                    ('to', (15, 26)), ('to', (7, 20)), ('to', (6, 12)), ('to', (16, 9)),  # 7F to 9F's warp panels
+                    ('ladder', (12, 17), 'UP'), ('ladder', (15, 25), 'UP'), ('to', (15, 20))],  # 10F, the roof
+          'MAP_HEADER_HGSS_BELL_TOWER_ROOF', ('VAR_HGSS_SCENE_NEW_BARK_EAST_EXIT', 3))]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, and Blackthorn Gym's pads,
