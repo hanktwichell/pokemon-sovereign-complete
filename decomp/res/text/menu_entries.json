@@ -1192,6 +1192,18 @@
     {
       "id": "MenuEntries_Text_SovereignGameCorner_500CoinsHalf",
       "en_US": "500 Coins{CURSOR_X 60}$5,000"
+    },
+    {
+      "id": "MenuEntries_Text_CompleteFerry_OlivineCity",
+      "en_US": "OLIVINE CITY"
+    },
+    {
+      "id": "MenuEntries_Text_CompleteFerry_VermilionCity",
+      "en_US": "VERMILION CITY"
+    },
+    {
+      "id": "MenuEntries_Text_CompleteFerry_CanalaveCity",
+      "en_US": "CANALAVE CITY"
     }
   ]
 }

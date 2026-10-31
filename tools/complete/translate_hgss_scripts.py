@@ -279,6 +279,8 @@ def file_header(path, text):
         lines.append('#include "constants/npc_trades.h"')
     if 'RIBBON_' in text:
         lines.append('#include "generated/ribbons.h"')
+    if 'MenuEntries_Text_' in text:
+        lines.append('#include "res/text/bank/menu_entries.h"')
     for bank in sorted(set(re.findall(r'\bmsg_(\d{4})\w*?_\d{5}\b', text))):
         lines.append(f'#include "res/text/bank/hgss_msg_{bank}.h"')
     lines.append('')
@@ -298,6 +300,32 @@ def engine_name(stem):
     return f'scripts_init_hgss_{number}' if stem.endswith('_hdr') else f'scripts_hgss_{number}'
 
 
+# Sovereign Complete's own additions to Sacred Gold's scripts, kept here so a new translation keeps them: {file stem:
+# (a translated line, the lines put after its first appearance, the lines added at the file's end)}. The ferry network
+# (docs/Roadmap.md, "Ferry network"): once the way to Sinnoh is open, Olivine's and Vermilion's gangway sailors ask
+# where to, the S.S. Aqua's port or Canalave City (CommonScript_CompleteFerry), before boarding the S.S. Aqua.
+def ferry_insert(boat_arrived, aqua_port):
+    return ('    GoToIfSet FLAG_HGSS_BOAT_ARRIVED, ' + boat_arrived,
+            [f'    SetVar VAR_0x8004, MenuEntries_Text_CompleteFerry_{aqua_port}  @ Sovereign Complete: the ferry network',
+             '    CallCommonScript 0x818  @ CommonScript_CompleteFerry',
+             '    GoToIfEq VAR_RESULT, FALSE, CompleteFerry_End'],
+            ['CompleteFerry_End:', '    ReleaseAll', '    End'])
+
+
+INSERTS = {
+    'scr_seq_0153_P01R0102': ferry_insert('_0211', 'VermilionCity'),
+    'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
+}
+
+
+def apply_inserts(stem, body):
+    if stem not in INSERTS:
+        return body
+    after, lines, end = INSERTS[stem]
+    i = body.index(after) + 1  # a ValueError: Sacred Gold's script changed, and the insert needs a new place
+    return body[:i] + lines + body[i:] + end
+
+
 def install(files, names, table, platinum_params, hg_params, report, register=True):
     """Write the translated scripts into the engine and, with register (all of them written), register them
     (scripts.order, meson.build: the lists are rewritten whole, so a few files alone would drop the rest)."""
@@ -305,7 +333,7 @@ def install(files, names, table, platinum_params, hg_params, report, register=Tr
     out_names = []
     for path in files:
         stem = os.path.splitext(os.path.basename(path))[0]
-        body = translate_file(path, names, table, platinum_params, hg_params, report)
+        body = apply_inserts(stem, translate_file(path, names, table, platinum_params, hg_params, report))
         text = '\n'.join(body)
         name = engine_name(stem)
         write_if_changed(os.path.join(DECOMP, f'res/field/scripts/{name}.s'),

@@ -188,14 +188,26 @@ HeartGold's two field encounters Platinum doesn't have (`src/overlay006/complete
 Test: `tools/complete/test_hgss_headbutt.py` (a battle from Route 29's trees; a battle and an item from Dark Cave's
 rocks).
 
-## The S.S. Aqua
+## The ferries
 
-The ship between Olivine City and Vermilion City runs as in Sacred Gold, with no weekly schedule. HeartGold's sailing
+**The S.S. Aqua** between Olivine City and Vermilion City runs as in Sacred Gold, with no weekly schedule. HeartGold's sailing
 scene (`ScrCmd_723`) is Platinum's boat scene (`PlayBoatCutscene`), sailing east from Olivine and west from Vermilion;
 Platinum's scene, which first sails its own ship out of the dock when there is one beside the player, now starts at the
 fade-out when there isn't (`src/cutscenes/boat_cutscene/boat_cutscene.c`), as at HeartGold's ports. The first trip's
-scenes and the cabin's rest play as in Sacred Gold. Test: `tools/complete/test_hgss_ferry.py` (boarding at each port,
-and arriving at each).
+scenes and the cabin's rest play as in Sacred Gold.
+
+**The ferry network** (`docs/Roadmap.md`, "Ferry network") joins the three main ports: once the way to Sinnoh is open,
+the sailor at Olivine's or Vermilion's gangway asks where to, the S.S. Aqua's port or Canalave City
+(`CommonScript_CompleteFerry`; the question is added to Sacred Gold's scripts by the translator's `INSERTS`), and
+Canalave's sailor offers Olivine City and Vermilion City after his islands. A ship to Canalave City is Platinum's boat
+scene from the islands; a ship from it lands the player at the S.S. Aqua's door in the other port, where the S.S.
+Aqua's arrival scene plays. For now the way to Sinnoh opens with Kanto's eighth badge, the Earth Badge, as proposed
+(`CommonScript_CompleteFerryCheckSinnoh`, the one place to change it; `docs/Roadmap.md`, "Unlock points"); before it,
+the gangways board the S.S. Aqua as in Sacred Gold, and Canalave's sailor has only his islands.
+
+Test: `tools/complete/test_hgss_ferry.py` (the S.S. Aqua: boarding at each port, and arriving at each; the network:
+Olivine and Vermilion to Canalave, Canalave to each, the S.S. Aqua and staying in port from the menu, and no question
+before the badge).
 
 ## The Pokégear phone
 

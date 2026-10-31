@@ -145,6 +145,10 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   Sacred Gold's Mom hides its own added people in her first scene. Neither ran here, so those people stood on their
   maps from the start (on Ecruteak's and Sinjoh's step-on triggers, among others). The translator now writes both sets
   of flags (165) into the engine's `InitNewGame` (`res/field/scripts/scripts_init_new_game.s`, between markers).
+- **Complete's own lines in Sacred Gold's scripts** live in the translator (`INSERTS` in
+  `tools/complete/translate_hgss_scripts.py`), not in the written files, so a new translation keeps them: each is a
+  translated line to follow and the lines to put after it, plus lines for the file's end. So far, the ferry network's
+  question at Olivine's and Vermilion's gangways (`docs/Features.md`, "The ferries").
 - **Badges:** HeartGold's `GiveBadge` and `CheckBadge` are `CompleteGiveBadge` and `CompleteCheckBadge`, on Johto's and
   Kanto's badges, which the trainer info keeps beside Sinnoh's (`src/complete_badges.c`; `docs/Features.md`, "Badges").
 - **The phone:** HeartGold's `RegisterGearNumber`, `CheckRegisteredPhoneNumber`, `GetPhoneBookRematch` and

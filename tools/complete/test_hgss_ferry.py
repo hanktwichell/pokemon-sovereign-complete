@@ -11,6 +11,15 @@ is Platinum's boat scene: HeartGold's ScrCmd_723, translated as PlayBoatCutscene
    comes out in Vermilion's port, where the sailor's scene plays.
 4. **Arrive at Olivine:** the same on a trip from Vermilion (direction 2), out in Olivine's port.
 
+The ferry network (docs/Roadmap.md, "Ferry network"; CommonScript_CompleteFerry), with Kanto's eighth badge
+(gCompleteTestHGSSBadges), which opens the way to Sinnoh for now:
+
+5. **Olivine or Vermilion to Canalave:** the gangway's sailor asks where to; the second choice, Canalave City, sails
+   there. The first, the S.S. Aqua's port, boards the S.S. Aqua as before; the last stays in port.
+6. **Canalave to Olivine or Vermilion:** Canalave's sailor (Eldritch) offers both after Iron Island; the ship lands
+   the player at the S.S. Aqua's door in that port, where its arrival scene plays.
+7. **Before the badge,** the gangway's sailor asks nothing and boards the S.S. Aqua (a menu fails the part).
+
 A part passes when the field is idle again on the map it expects. Results: one line per part, 'ok' or what
 went wrong, and a screenshot of each part's end in OUT_DIR.
 
@@ -26,6 +35,8 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 import battle_mechanics as bm  # noqa: E402
+from gift_pokemon import talk_and_answer  # noqa: E402
+from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: E402
 from talk_to_objects import SYMBOLS as TALK_SYMBOLS, header_names, play_out, var_ids, warp  # noqa: E402
 
 OLIVINE = 'MAP_HEADER_HGSS_SS_AQUA_OLIVINE_PORT_EXTERIOR'
@@ -40,9 +51,20 @@ PARTS = [('board at Olivine', OLIVINE, (26, 22), EAST, [], False, SHIP),
          ('board at Vermilion', VERMILION, (22, 19), EAST, [], False, SHIP),
          ('arrive at Vermilion', SHIP, (24, 16), SOUTH, ARRIVED + [('VAR_HGSS_BOAT_DIRECTION', 1)], True, VERMILION),
          ('arrive at Olivine', SHIP, (24, 16), SOUTH, ARRIVED + [('VAR_HGSS_BOAT_DIRECTION', 2)], True, OLIVINE)]
+CANALAVE = 'MAP_HEADER_CANALAVE_CITY'
+EARTH_BADGE = 1 << 15  # BADGE_ID_HGSS_EARTH, Kanto's eighth
+# (part, the map, the tile beside the sailor and the facing, Johto's and Kanto's badges, the answers to the menus
+# (talk_and_answer's: a menu entry's number), the map the part ends on)
+NETWORK = [('Olivine to Canalave', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], CANALAVE),
+           ('Vermilion to Canalave', VERMILION, (22, 19), EAST, EARTH_BADGE, [1], CANALAVE),
+           ('Olivine to the S.S. Aqua with the menu', OLIVINE, (26, 22), EAST, EARTH_BADGE, [0], SHIP),
+           ('Olivine, staying in port', OLIVINE, (26, 22), EAST, EARTH_BADGE, [2], OLIVINE),
+           ('Canalave to Olivine', CANALAVE, (44, 750), EAST, EARTH_BADGE, [1], OLIVINE),
+           ('Canalave to Vermilion', CANALAVE, (44, 750), EAST, EARTH_BADGE, [2], VERMILION),
+           ('Olivine before the badge', OLIVINE, (26, 22), EAST, 0, [], SHIP)]
 WALK_OUT = 5  # tiles from the sailor's to the door mat, the press that takes it, and one for a prompt on the way
 LIMIT = 6000
-SYMBOLS = tuple(TALK_SYMBOLS)
+SYMBOLS = tuple(TALK_SYMBOLS) + ('gSovereignTestMenu', 'gCompleteTestHGSSBadges', 'sSaveDataPtr')
 
 
 def main():
@@ -59,6 +81,14 @@ def main():
 
     def u16(addr):
         return struct.unpack('<H', bytes(mem.unsigned[addr:addr + 2]))[0]
+
+    def read_var(name):
+        """A var's value in the save data in memory (VarsFlags begins with the vars)."""
+        base = struct.unpack('<I', bytes(mem.unsigned[sym['sSaveDataPtr']:sym['sSaveDataPtr'] + 4]))[0]
+        page_info = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4
+        at = page_info + save_entry_index('SAVE_TABLE_ENTRY_VARS_FLAGS') * 16 + 8
+        vars_flags = base + 20 + struct.unpack('<I', bytes(mem.unsigned[at:at + 4]))[0]
+        return u16(vars_flags + (variables[name] - variables['VARS_START']) * 2)
 
     results = []
     for name, start_map, (x, z), face, setup, walk_out, end_map in PARTS:
@@ -89,6 +119,30 @@ def main():
                 problem = f'{result} after {frames} frames, on {names[here] if here < len(names) else here}'
             elif here != names.index(end_map):
                 problem = f'ended on {names[here] if here < len(names) else here}, not {end_map}'
+        d.screenshot().save(os.path.join(out, f'{name.replace(" ", "_")}.png'))
+        results.append(f'{name}: {problem or "ok"}')
+        print(results[-1], flush=True)
+    for name, start_map, (x, z), face, badges, answers, end_map in NETWORK:
+        if only not in name:
+            continue
+        d.load_state(state)
+        d.run(30)
+        mem.write_short(sym['gCompleteTestHGSSBadges'], badges)
+        problem = ''
+        arrived, _ = warp(d, sym, names.index(start_map), x, z, 0)
+        if arrived == 'ok':
+            arrived, _ = warp(d, sym, names.index(start_map), x, z, face)
+        if arrived != 'ok':
+            problem = f'warp {arrived}'
+        if not problem:
+            result, frames = talk_and_answer(d, sym, answers, LIMIT)
+            here = u16(sym['gSovereignTestIdleMapHeaderID'])
+            if result != 'ok':
+                problem = f'{result} after {frames} frames, on {names[here] if here < len(names) else here}'
+            elif here != names.index(end_map):
+                problem = f'ended on {names[here] if here < len(names) else here}, not {end_map}'
+            elif start_map == CANALAVE and read_var('VAR_HGSS_BOAT_DIRECTION') != 0:
+                problem = "the S.S. Aqua's arrival scene didn't play (VAR_HGSS_BOAT_DIRECTION isn't 0)"
         d.screenshot().save(os.path.join(out, f'{name.replace(" ", "_")}.png'))
         results.append(f'{name}: {problem or "ok"}')
         print(results[-1], flush=True)

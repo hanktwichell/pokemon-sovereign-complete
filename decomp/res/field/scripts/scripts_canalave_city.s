@@ -497,16 +497,21 @@ CanalaveCity_SailorEldritch:
     GetPlayerDir VAR_0x8004
     FacePlayer
     GoToIfEq VAR_LUNAR_WING_EVENT_STATE, 2, CanalaveCity_AskGoingToFullmoonIsland
+    CallCommonScript 0x819 @ Sovereign Complete: whether the ferry to Johto and Kanto runs (CommonScript_CompleteFerryToSinnohOpen)
+    SetVar VAR_0x8005, VAR_RESULT
     Message CanalaveCity_Text_DoYouWannaSetSail
     InitGlobalTextMenu 1, 1, 0, VAR_RESULT
     AddMenuEntryImm MenuEntries_Text_CanalaveDock_IronIsland, 0
     CallIfSet FLAG_TALKED_TO_CANALAVE_CITY_SAILOR_ELDRITCH_HOUSE_LITTLE_BOY, CanalaveCity_AddMenuEntryFullmoonIsland
     CallIfSet FLAG_TRAVELED_TO_NEWMOON_ISLAND, CanalaveCity_AddMenuEntryNewmoonIsland
+    CallIfEq VAR_0x8005, TRUE, CanalaveCity_CompleteAddMenuEntriesFerry @ Sovereign Complete
     AddMenuEntryImm MenuEntries_Text_CanalaveDock_Exit, 4
     ShowMenu
     GoToIfEq VAR_RESULT, 0, CanalaveCity_TakeShipToIronIsland
     GoToIfEq VAR_RESULT, 1, CanalaveCity_TakeShipToFullmoonIsland
     GoToIfEq VAR_RESULT, 2, CanalaveCity_TakeShipToNewmoonIsland
+    GoToIfEq VAR_RESULT, 5, CanalaveCity_CompleteTakeShipToOlivineCity @ Sovereign Complete
+    GoToIfEq VAR_RESULT, 6, CanalaveCity_CompleteTakeShipToVermilionCity @ Sovereign Complete
     GoToIfEq VAR_RESULT, 3, CanalaveCity_DontTakeShip
     GoTo CanalaveCity_DontTakeShip
     End
@@ -518,6 +523,34 @@ CanalaveCity_AddMenuEntryNewmoonIsland:
 CanalaveCity_AddMenuEntryFullmoonIsland:
     AddMenuEntryImm MenuEntries_Text_CanalaveDock_FullmoonIsland, 1
     Return
+
+// Sovereign Complete: the ferry network (docs/Roadmap.md, "Ferry network"): Olivine City's and Vermilion City's ports,
+// where the S.S. Aqua's arrival scene plays as the player comes off the ship (VAR_HGSS_BOAT_DIRECTION: 2 arriving in
+// Olivine City, 1 in Vermilion City)
+CanalaveCity_CompleteAddMenuEntriesFerry:
+    AddMenuEntry MenuEntries_Text_CompleteFerry_OlivineCity, 5
+    AddMenuEntry MenuEntries_Text_CompleteFerry_VermilionCity, 6
+    Return
+
+CanalaveCity_CompleteTakeShipToOlivineCity:
+    Call CanalaveCity_SailorEldritchEnterShip
+    CallIfEq VAR_0x8004, DIR_SOUTH, CanalaveCity_PlayerEnterShipSouth
+    CallIfEq VAR_0x8004, DIR_EAST, CanalaveCity_PlayerEnterShipEast
+    CallIfEq VAR_0x8004, DIR_NORTH, CanalaveCity_PlayerEnterShipNorth
+    SetVar VAR_HGSS_BOAT_DIRECTION, 2
+    TakeShipFromCanalave DIR_SOUTH, MAP_HEADER_HGSS_SS_AQUA_OLIVINE_PORT_EXTERIOR, 27, 20
+    ReleaseAll
+    End
+
+CanalaveCity_CompleteTakeShipToVermilionCity:
+    Call CanalaveCity_SailorEldritchEnterShip
+    CallIfEq VAR_0x8004, DIR_SOUTH, CanalaveCity_PlayerEnterShipSouth
+    CallIfEq VAR_0x8004, DIR_EAST, CanalaveCity_PlayerEnterShipEast
+    CallIfEq VAR_0x8004, DIR_NORTH, CanalaveCity_PlayerEnterShipNorth
+    SetVar VAR_HGSS_BOAT_DIRECTION, 1
+    TakeShipFromCanalave DIR_SOUTH, MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR, 23, 17
+    ReleaseAll
+    End
 
 CanalaveCity_TakeShipToIronIsland:
     Call CanalaveCity_SailorEldritchEnterShip

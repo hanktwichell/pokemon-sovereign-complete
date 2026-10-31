@@ -1,4 +1,5 @@
 #include "macros/scrcmd.inc"
+#include "res/text/bank/menu_entries.h"
 #include "res/text/bank/hgss_msg_0256.h"
 
 #define obj_P01R0102_seaman_2 0
@@ -103,6 +104,9 @@ scr_seq_P01R0102_000:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_BOAT_ARRIVED, _0211
+    SetVar VAR_0x8004, MenuEntries_Text_CompleteFerry_VermilionCity  @ Sovereign Complete: the ferry network
+    CallCommonScript 0x818  @ CommonScript_CompleteFerry
+    GoToIfEq VAR_RESULT, FALSE, CompleteFerry_End
     Message msg_0256_P01R0102_00000
     CloseMessage
     CompleteFollowerPause 0
@@ -266,3 +270,6 @@ _038E:
     ReleaseAll
     End
     .balign 4, 0
+CompleteFerry_End:
+    ReleaseAll
+    End

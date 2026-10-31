@@ -98,6 +98,8 @@
     ScriptEntry CommonScript_CompleteFollowerTalk @ 0x815
     ScriptEntry CommonScript_CompleteSetFriendBGM @ 0x816
     ScriptEntry CommonScript_CompleteFly @ 0x817
+    ScriptEntry CommonScript_CompleteFerry @ 0x818
+    ScriptEntry CommonScript_CompleteFerryToSinnohOpen @ 0x819
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2201,3 +2203,51 @@ CommonScript_CompleteFly:
 CommonScript_CompleteFlyEnd:
     ReleaseAll
     End
+
+// Sovereign Complete: the ferry network (docs/Roadmap.md, "Ferry network"). At Olivine's and Vermilion's gangways,
+// once the way to Sinnoh is open, the sailor asks where to: the S.S. Aqua's port (its menu entry in VAR_0x8004) or
+// Canalave City. VAR_RESULT: TRUE, the S.S. Aqua (the port's own script boards it); FALSE, the ship left for Canalave
+// City or the player stays.
+CommonScript_CompleteFerry:
+    Call CommonScript_CompleteFerryCheckSinnoh
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompleteFerryAqua
+    Message CommonStrings_Text_CompleteFerryWhereTo
+    InitGlobalTextMenu 1, 1, 0, VAR_RESULT
+    AddMenuEntry VAR_0x8004, 0
+    AddMenuEntry MenuEntries_Text_CompleteFerry_CanalaveCity, 1
+    AddMenuEntryImm MenuEntries_Text_CanalaveDock_Exit, 2
+    ShowMenu
+    GoToIfEq VAR_RESULT, 0, CommonScript_CompleteFerryAqua
+    GoToIfEq VAR_RESULT, 1, CommonScript_CompleteFerryToCanalave
+    Message CommonStrings_Text_CompleteFerryAnotherTime
+    WaitButton
+    CloseMessage
+    SetVar VAR_RESULT, FALSE
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteFerryAqua:
+    SetVar VAR_RESULT, TRUE
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteFerryToCanalave:
+    Message CommonStrings_Text_CompleteFerryToCanalave
+    CloseMessage
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    TakeShipToCanalave
+    SetVar VAR_RESULT, FALSE
+    ReturnCommonScript
+    End
+
+// Canalave City's sailor asks this before offering Olivine City and Vermilion City (VAR_RESULT)
+CommonScript_CompleteFerryToSinnohOpen:
+    Call CommonScript_CompleteFerryCheckSinnoh
+    ReturnCommonScript
+    End
+
+// Whether the ferry between Sinnoh and the other two regions runs (VAR_RESULT). For now, from Kanto's eighth badge
+// on, as proposed (docs/Roadmap.md, "Unlock points")
+CommonScript_CompleteFerryCheckSinnoh:
+    CompleteCheckBadge BADGE_ID_HGSS_EARTH, VAR_RESULT
+    Return

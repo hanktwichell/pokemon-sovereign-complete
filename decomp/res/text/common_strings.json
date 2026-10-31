@@ -1067,6 +1067,24 @@
         "The water is swirling and spinning\n",
         "around with a mighty roar."
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteFerryWhereTo",
+      "en_US": "Where are you sailing to?"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteFerryAnotherTime",
+      "en_US": [
+        "Come back whenever you want\n",
+        "to set sail!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteFerryToCanalave",
+      "en_US": [
+        "OK! All aboard for\n",
+        "Canalave City!\r"
+      ]
     }
   ]
 }

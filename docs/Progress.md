@@ -789,3 +789,17 @@ Test results on the new test build:
   (`tools/test/battle_evolutions.py`): 255 of 255. Elite Four runs (`tools/test/elite_four_runs.py`, Sovereign's ten):
   nine end with the Champion beaten; run 0 stopped in Flint's battle when the test chose a fainted Pokémon as the
   target (the test's doing, as before).
+
+## Oct 31, 2026: the ferry network
+
+- **Ships between the three main ports** (decided Oct 28–29; `docs/Features.md`, "The ferries"). Once the way to
+  Sinnoh is open, the sailor at Olivine's or Vermilion's gangway asks where to: the S.S. Aqua's port, as before, or
+  Canalave City, by Platinum's boat scene. Canalave's sailor offers Olivine City and Vermilion City after his islands;
+  the ship lands the player at the S.S. Aqua's door in that port, where its arrival scene plays. The way opens with
+  the Earth Badge, Kanto's eighth, as the Roadmap proposes, in one place (`CommonScript_CompleteFerryCheckSinnoh`) so
+  it's easy to move; before it, nothing changes. Until now a game that starts in New Bark Town had no way to Sinnoh.
+- **Complete's lines in Sacred Gold's scripts:** the gangways' question is put into the translated scripts by the
+  translator (`INSERTS` in `tools/complete/translate_hgss_scripts.py`), so translating them again keeps it.
+- **Tested:** `tools/complete/test_hgss_ferry.py` passes its 11 parts: the S.S. Aqua's four as before, and with the
+  Earth Badge, Olivine and Vermilion to Canalave City, Canalave City to each (the arrival scene plays), the S.S. Aqua
+  and staying in port from the gangway's menu; without it, Olivine's gangway asks nothing and boards the S.S. Aqua.

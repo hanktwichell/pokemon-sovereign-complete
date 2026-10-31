@@ -75,7 +75,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 ### Still open
 
 - **Unlock points (proposed):** the ferry to Kanto after the Indigo League, as in HeartGold; the way to Sinnoh, by
-  ferry or through the Sinjoh Ruins, after Kanto's eighth badge.
+  ferry or through the Sinjoh Ruins, after Kanto's eighth badge. The ferry network works this way for now (Oct 31,
+  2026): the S.S. Aqua as in Sacred Gold, and the ships between Canalave City and the other two ports from the Earth
+  Badge on (`docs/Features.md`, "The ferries"). A player who arrives in Canalave City this way meets Sinnoh's story
+  wherever its scripts stand, which waits on Platinum's opening (next).
 - **Platinum's opening:** the game now starts in Johto. What happens to Twinleaf Town, Rowan's starters and Barry? For
   example, Rowan offers a Sinnoh starter when the player arrives. For now (Oct 31, 2026) a new game plays Platinum's
   introduction (Rowan names the player and the rival), then starts in the player's room in New Bark Town, home for
