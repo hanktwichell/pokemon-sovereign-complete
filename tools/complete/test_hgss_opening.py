@@ -142,6 +142,15 @@ as a player would, without the test warp:
     on the stairs the rival's scene and battle play (VAR_HGSS_SCENE_ROCKET_TAKEOVER 4).
 47. **The Basement Key:** up the tower's stairs to 5F, where the director, Petrel in disguise, gives the Basement Key
     (VAR_HGSS_UNK_40E7 2).
+48. **The basement:** down the tower and back into the underground, through B1F's locked door with the Basement Key and
+    down to B2F, where the rival's scene and battle play on the way west (VAR_HGSS_UNK_40A0).
+49. **The warehouse:** B2F's three switches, each of which opens some of its shutters and shuts others, pressed until
+    the way to the warehouse is open (the 'switches' action), and in the warehouse, the real director, who gives the
+    Card Key (FLAG_HGSS_UNK_1C1).
+50. **The Card Key:** up the warehouse's stairs into the Department Store's basement, by its elevator to 1F and out,
+    back into the Radio Tower and up to 3F, where the Card Key opens the shutter in the way (FLAG_HGSS_UNK_090).
+51. **Archer:** up to 5F and by the elevator to the observation deck, where Archer battles, and then (in Sacred Gold)
+    Giovanni; the director thanks the player, and the Radio Tower is free (VAR_HGSS_SCENE_ROCKET_TAKEOVER 5).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice, around the people where they stand now
@@ -360,7 +369,22 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_1F', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 4)),
          ('the Basement Key', ['RIGHT', ('ladder', (3, 5), 'LEFT'), ('ladder', (12, 5), 'RIGHT'),
                                ('ladder', (3, 5), 'LEFT'), ('meet', (5, 13), [])],
-          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_5F', ('VAR_HGSS_UNK_40E7', 2))]
+          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_5F', ('VAR_HGSS_UNK_40E7', 2)),
+         ('the basement', [('ladder', (3, 5), 'LEFT'), ('ladder', (12, 5), 'RIGHT'), ('ladder', (3, 5), 'LEFT'),
+                           ('ladder', (23, 5), 'RIGHT'), ('to', (2, 14)), 'DOWN', ('to', (347, 334)), 'UP',
+                           ('ladder', (8, 4), 'RIGHT'), ('to', (25, 31)), 'UP', ('talk', []),  # the locked door
+                           ('to', (25, 30)), ('ladder', (25, 3), 'LEFT'), ('to', (17, 5))],
+          'MAP_HEADER_HGSS_GOLDENROD_TUNNEL_B2F', 'VAR_HGSS_UNK_40A0'),
+         ('the warehouse', [('switches', [(8, 9), (9, 9), (10, 9)], (26, 14)), ('to', (20, 14)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_GOLDENROD_TUNNEL_WAREHOUSE', 'FLAG_HGSS_UNK_1C1'),
+         ('the Card Key', [('ladder', (28, 4), 'RIGHT'), ('to', (18, 7)), 'UP',  # the Department Store's elevator
+                           ('to', (2, 6)), 'LEFT', ('talk', [5]), ('to', (3, 6)), 'DOWN', ('to', (12, 11)), 'DOWN',
+                           ('to', (342, 349)), 'UP', ('to', (23, 5)), 'RIGHT', ('ladder', (3, 5), 'LEFT'),
+                           ('to', (22, 12)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_3F', 'FLAG_HGSS_UNK_090'),
+         ('Archer', [('ladder', (19, 5), 'LEFT'), ('ladder', (23, 5), 'RIGHT'), ('to', (13, 3)), 'UP',
+                     ('to', (3, 6)), 'DOWN', ('to', (8, 4)), 'UP', ('talk', [])],
+          'MAP_HEADER_HGSS_GOLDENROD_RADIO_TOWER_OBSERVATION_DECK', ('VAR_HGSS_SCENE_ROCKET_TAKEOVER', 5))]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, and Ecruteak Gym's pits

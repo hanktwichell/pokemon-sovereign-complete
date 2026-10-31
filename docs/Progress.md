@@ -1033,3 +1033,18 @@ Test results on the new test build:
 - **The follower fix and these runs:** the older build, without the fix, also got through the hideout's Murkrow scene
   this time, so the stuck follower depends on timing; the probe that sets the scene up (the hideout's progress set,
   then up the stairs and onto the trigger) shows it every time on that build, and never on the fixed one.
+
+## Oct 31, 2026: the story test through the Radio Tower, 51 parts
+
+- **Parts 44 to 51, the Radio Tower takeover,** pass back to back: from Pryce back to Goldenrod, the disguise in the
+  underground, the tower's 1F grunt and the rival, Petrel's Basement Key on 5F, down through the underground's locked
+  door to B2F and the rival again, B2F's switches and shutters to the warehouse and the real director's Card Key, out
+  through the Department Store's basement and elevator, the Card Key's shutter on the tower's 3F, and by the elevator to
+  the observation deck: Archer, then (Sacred Gold's addition) Giovanni, and the director's Rainbow Wing
+  (VAR_HGSS_SCENE_ROCKET_TAKEOVER 5).
+- **B2F's switches, and what looked like a broken one.** Each of the three switches opens some shutters and shuts
+  others, so the test got a `switches` action: it presses them a set at a time (a Gray code) until the shutters, read
+  from the game, leave a way through. At first no set worked, and the third switch seemed to do nothing. It works:
+  the test pressed A for text while a script ran, and a switch shows none, so a tap landing as its script ended
+  pressed it again and undid it. The action now presses once and checks that something moved. Nothing in the game
+  needed changing.
