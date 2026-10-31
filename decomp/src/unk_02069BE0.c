@@ -213,6 +213,9 @@ static u32 sub_02069D50(MapObject *mapObj)
     case 0x5b:
         v0 = 0x13;
         break;
+    case MOVEMENT_ACTION_NONE: // Sovereign Complete: a player who isn't walking (just warped in) would leave the
+        v0 = MOVEMENT_ACTION_WALK_NORMAL_NORTH; // follower a step that never ends, stuck for good; it walks instead
+        break;
     }
 
     return v0;

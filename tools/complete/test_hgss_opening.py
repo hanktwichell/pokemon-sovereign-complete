@@ -153,9 +153,10 @@ ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
 # value) for a var that must have that value, ('fly', town) for the town's Fly point, or None). An action is a key to
 # press, ('to', (x, z)): a walk to that tile on the map the player is on, ('surf', (x, z)): one that may cross water,
 # ('ladder', (x, z), key): a walk onto a ladder, then the key toward it if the step didn't take it, ('talk', answers): A
-# to talk to what the player faces, answering its menus (talk_and_answer's), or ('keep', n): the party cut to its first
-# n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs and doors warp as the
-# player presses toward them from their tile.
+# to talk to what the player faces, answering its menus (talk_and_answer's), ('meet', (x, z), answers): the same with
+# whoever the map put on that tile, wherever they have wandered (by land or water), or ('keep', n): the party cut to
+# its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the player's own tile). The stairs and doors warp
+# as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -296,6 +297,7 @@ PLAYER, FOLLOWER = 0xff, 0xf0  # their local IDs (include/complete_follower.h)
 ICE_ROCK = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read().split().index(
     'OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
+MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
 SHORT_RUN = 20  # a first, short look, so A isn't pressed into a field that is already free
@@ -650,6 +652,42 @@ def main():
                 stuck = 0
         return f'still not at {goal} after {WALK_STEPS} steps, on {here()} at {d.pos()}'
 
+    def where(start):
+        """The tile now of whoever the map put on start (their map object's first tile, MapObject's xInitial and
+        zInitial), or None."""
+        height()
+        if player_object[0] is None:
+            return None
+        manager = u32(player_object[0] + 0xb4)
+        for i in range(u32(manager + 4)):
+            at = u32(manager + 0x124) + MAP_OBJECT_SIZE * i
+            if u32(at) & 1 and struct.unpack('<3i', bytes(mem.unsigned[at + 76:at + 88]))[::2] == start:
+                return struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2]
+        return None
+
+    def meet(start, answers):
+        """Talk to whoever the map put on start, who wanders (the Lake of Rage's red Gyarados): to beside them,
+        wherever they are now, by land or water, then facing them, the talk, answered. Returns a problem, or ''."""
+        for _ in range(MEET_TRIES):
+            at, pos = where(start), d.pos()
+            if at is None:
+                return f'nobody from {start} on {here()}'
+            toward = (at[0] - pos[0], at[1] - pos[1])
+            if toward in KEYS:
+                d.press(KEYS[toward], frames=8, after=16)  # facing them
+                if where(start) == at:
+                    result, frames = talk_and_answer(d, sym, answers, SETTLE_FRAMES)
+                    return '' if result == 'ok' else f'the talk: {result} after {frames} frames, on {here()} at {pos}'
+                continue
+            matrix = matrix_of[here()]
+            sides = [(at[0] + dx, at[1] + dz) for dx, dz in DIRS
+                     if maps.tile(matrix, at[0] + dx, at[1] + dz) is not None
+                     and walkable(maps.tile(matrix, at[0] + dx, at[1] + dz))]
+            if not sides:
+                return f'no tile beside {at}, where whoever started on {start} is'
+            walk_to(min(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1])), True)  # they may move on
+        return f'never beside whoever started on {start}, on {here()} at {d.pos()}'
+
     results = []
     d.run(30)
     for name, actions, end_map, marker in PARTS[first:]:
@@ -664,6 +702,8 @@ def main():
                 result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
                 if result != 'ok':
                     problem = f'the party cut: the warp {result} after {frames} frames, on {here()} at {d.pos()}'
+            elif action[0] == 'meet':
+                problem = meet(action[1], action[2])
             elif action[0] in ('to', 'ladder', 'surf'):
                 before = matrix_of.get(here())
                 problem = walk_to(action[1], action[0] == 'surf')
@@ -674,8 +714,10 @@ def main():
                 if result != 'ok':
                     problem = f'the talk: {result} after {frames} frames, on {here()} at {d.pos()}'
             print(f'  {action}: {here()} {d.pos()}', flush=True)
-            if os.environ.get('HEAP_STEPS'):  # the heaps after each action, to find what breaks them
-                print(f'    heaps: {heap_problems(mem, heaps) or "ok"}', flush=True)
+            if os.environ.get('HEAP_STEPS'):  # the heaps and the follower after each action, to find what breaks them
+                follower = struct.unpack('<HH', bytes(mem.unsigned[sym['gCompleteTestFollowerTile']:
+                                                                   sym['gCompleteTestFollowerTile'] + 4]))
+                print(f'    heaps: {heap_problems(mem, heaps) or "ok"}; the follower on {follower}', flush=True)
             if problem:
                 break
         if not problem and not settle():

@@ -988,3 +988,26 @@ Test results on the new test build:
   and blocks move), where it used the map's starting places; it slides over ice, and never takes a slide that would
   push a block (one the game says still faces down), so only the steps meant to push do. A full run from the bedroom
   with these is under way.
+
+## Oct 31, 2026: the Mahogany leg ahead of the story test, and a follower that stopped following
+
+- **Played ahead with probes** (the story test's walker, warped in from a bedroom save with the badges and HM03 the
+  test build can give): the Lake of Rage's red Gyarados, which wanders, so the test has a new action, `meet`, that
+  goes to beside whoever started on a tile wherever they are now, by land or water (Surf to it, its battle, the Red
+  Scale); Lance there (yes, and he flies off to Mahogany); back over Route 43 to the souvenir shop, whose scene
+  unmasks it and opens the stairs (east-facing stairs, so the press is right); the Rocket Hideout's B1F (the statues'
+  alarms and the trap floor play out on the way), B2F, and B3F: the two password grunts, then the door and Petrel.
+  HeartGold's hideout needs a floor change between beating the grunts and the rival's trigger, as its "on transition"
+  scripts run only on a warp (here as in HeartGold), and its left side is reached through B2F's top corridor. Then
+  Petrel's Murkrow leads the player between the floors, one trigger a step.
+- **A real bug there: the follower stopped following.** After the Murkrow's scene on B2F, beside the stairs the
+  player had just come up, the follower stayed on the stairs for good, however far the player walked. Platinum's
+  follow step copies the player's current movement for the follower's step; a player who isn't walking (just warped
+  in) has none, so the follower got a step that never ends and stayed "moving", which also kept Complete's
+  left-behind check (it waits for both to stand still) from bringing it back. The follow code now walks when the
+  player has no movement (`src/unk_02069BE0.c`, a two-line `Sovereign Complete:` change). A probe from the stairs with
+  the hideout's progress set (the test build's var hook): before, the follower stays on (51, 29) while the player
+  walks to (45, 29); after, it's on (46, 29), beside them. The main build boots (boot smoke PASS).
+- **What's not ported, seen on the way, all looks:** HeartGold's trap floor and Persian statue effects in the hideout
+  (`ScrCmd_708`, `709`), Lance's flight off the lake (`ScrCmd_775`), and the Rocket disguise's sprite (the disguise
+  only restricts field moves and items in HeartGold; the scripts never check it). None changes the way through.
