@@ -778,6 +778,30 @@ def main():
             walk_to(min(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1])), True)  # they may move on
         return f'never beside whoever started on {start}, on {here()} at {d.pos()}'
 
+    def switches(tiles, goal):
+        """Switches that move shutters (Goldenrod's underground, B2F): from the tile below each, facing it, A. Each
+        press toggles its shutters, so the sets of switches flipped are tried a press at a time (a Gray code), until
+        the shutters, where the game has them now, leave a way to goal; then the walk there. Returns a problem, or
+        ''."""
+        matrix = matrix_of[here()]
+        for n in range(1 << len(tiles)):
+            people, blocks = others()
+            avoid = warps_of[matrix] - {goal}
+            if route(maps, matrix, d.pos(), goal, ((people or set()) | avoid) - {d.pos()}, frozenset(), heights,
+                     height(), False, lifts(), blocks or ()):
+                return walk_to(goal)
+            if n == (1 << len(tiles)) - 1:
+                break
+            flip = (n ^ (n >> 1) ^ (n + 1) ^ ((n + 1) >> 1)).bit_length() - 1  # the switch the next Gray code flips
+            problem = walk_to(tiles[flip])
+            if problem:
+                return problem
+            d.press('UP', frames=8, after=16)
+            result, frames = talk_and_answer(d, sym, [], SETTLE_FRAMES)
+            if result != 'ok':
+                return f'the switch at {tiles[flip]}: {result} after {frames} frames'
+        return f'no set of the switches at {tiles} opens a way to {goal}, on {here()}'
+
     results = []
     d.run(30)
     for name, actions, end_map, marker in PARTS[first:]:
@@ -794,6 +818,8 @@ def main():
                     problem = f'the party cut: the warp {result} after {frames} frames, on {here()} at {d.pos()}'
             elif action[0] == 'meet':
                 problem = meet(action[1], action[2])
+            elif action[0] == 'switches':
+                problem = switches(action[1], action[2])
             elif action[0] in ('to', 'ladder', 'surf'):
                 before = matrix_of.get(here())
                 problem = walk_to(action[1], action[0] == 'surf')
