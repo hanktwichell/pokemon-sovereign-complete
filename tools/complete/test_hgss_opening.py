@@ -288,7 +288,7 @@ the recording, for tools/complete/highlights.py.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default); FROM, a part's name, starts there from the save state an earlier
-run left in OUT_DIR:
+run left in OUT_DIR, or, with JUMP=1, from STATE, warped to the part's start (JUMPS) with all sixteen badges:
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_opening.py \\
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [FROM]
 """
@@ -734,8 +734,14 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                   ('to', (5, 2)), 'UP', ('to', (1048, 138)), 'UP',  # through Viridian Forest
                                   ('to', (43, 6)), ('to', (34, 86)), 'UP', ('to', (4, 6)), 'DOWN',  # Diglett's Cave
                                   ('to', (1309, 340)), 'DOWN', ('to', (7, 8)), 'DOWN', ('talk', []),  # Vermilion's port
-                                  ('to', (7, 11)), 'DOWN', ('to', (22, 19)), 'RIGHT', ('talk', [1])],  # to Canalave
-          'MAP_HEADER_CANALAVE_CITY', None)]
+                                  ('to', (7, 11)), 'DOWN', ('to', (22, 19))],  # to the gangway's sailor
+          'MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', None),
+         # Sinnoh (docs/Features.md, "Sinnoh, the third region")
+         ('Twinleaf Town', ['RIGHT', ('talk', [1])],  # the first ship to Sinnoh calls at Twinleaf Town, where the TV's program
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', ('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1))]  # ends
+# Where JUMP starts a part from the bedroom state, without the parts before it: the test warp's map, tile and facing
+# (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges)
+JUMPS = {'Twinleaf Town': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which
@@ -1003,7 +1009,8 @@ def main():
     rom, state, out = sys.argv[1:4]
     start = sys.argv[4] if len(sys.argv) > 4 else None
     os.makedirs(out, exist_ok=True)
-    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestFollowerTile'))
+    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestFollowerTile',
+                             'gCompleteTestHGSSBadges'))
     names = header_names()
     variables = var_ids()
     towns = fly_points(variables)
@@ -1020,11 +1027,18 @@ def main():
             triggers_of[header] = [({(c['x'] + i, c['z'] + j) for i in range(c['width']) for j in range(c['length'])},
                                     c['var'], c['value']) for c in cur.get('coord_events', [])]
     first = [p[0] for p in PARTS].index(start) if start else 0
-    if first:
+    jump = os.environ.get('JUMP') and JUMPS[start]
+    if first and not jump:
         state = os.path.join(out, PARTS[first - 1][0].replace(' ', '_') + '.state')
     d = Driver(rom, state)
     mem = d.emu.memory
     mem.write_byte(sym['gSovereignTestGodMode'], 1)  # battles: one hit wins, no PP used, no EXP prompts
+    if jump:  # from the bedroom state straight to the part's start, with Johto's and Kanto's badges
+        d.run(30)
+        mem.write_short(sym['gCompleteTestHGSSBadges'], 0xFFFF)
+        result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])
+        if result != 'ok':
+            sys.exit(f'JUMP: the warp {result} after {frames} frames')
     video = os.environ.get('VIDEO') and Recorder(d, os.environ['VIDEO'], int(os.environ.get('VIDEO_EVERY', 3)))
 
     def u16(addr):

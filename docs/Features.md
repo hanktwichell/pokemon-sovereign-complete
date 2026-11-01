@@ -284,8 +284,12 @@ tested, each choice in one place so it can change later. The player starts in Ne
   leaders and Lance at Sacred Gold's aces' levels, then Sovereign's Sinnoh list (`data/level_caps.yaml`) with its
   levels moved up. `tools/complete/gen_sinnoh.py` writes them, with the levels, into
   `include/data/complete_sinnoh.h`; `src/level_cap.c` reads them in place of Sovereign's.
-- **The way there** (in progress): the first ferry to Sinnoh brings the player to Twinleaf Town, where Platinum's
-  opening plays; later ferries go to Canalave.
+- **The way there:** the first ship to Sinnoh, while Sinnoh's story hasn't begun (`VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE`
+  0), sails to Twinleaf Town (the sailor's menu says so) and leaves the player in their room there, where Platinum's
+  opening plays as a new game's would (`CommonScript_CompleteFerryToTwinleaf`); later ships go to Canalave City.
+- **Gifts:** a Pokémon given on a Sinnoh map comes at Sinnoh's levels too (Rowan's starter at Lv. 67), and with the
+  party full it goes to the PC, as a caught one does (`Pokemon_GiveMonFromScript`): the player reaches Sinnoh with a
+  full team, and Rowan's briefcase doesn't check for room.
 
 ## Headbutt trees and Rock Smash
 

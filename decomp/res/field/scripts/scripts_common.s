@@ -2261,7 +2261,13 @@ CommonScript_CompleteFerry:
     Message CommonStrings_Text_CompleteFerryWhereTo
     InitGlobalTextMenu 1, 1, 0, VAR_RESULT
     AddMenuEntry VAR_0x8004, 0
+    GoToIfEq VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE, 0, CommonScript_CompleteFerryMenuTwinleaf
     AddMenuEntry MenuEntries_Text_CompleteFerry_CanalaveCity, 1
+    GoTo CommonScript_CompleteFerryMenuExit
+
+CommonScript_CompleteFerryMenuTwinleaf:
+    AddMenuEntry MenuEntries_Text_CompleteFerry_TwinleafTown, 1
+CommonScript_CompleteFerryMenuExit:
     AddMenuEntryImm MenuEntries_Text_CanalaveDock_Exit, 2
     ShowMenu
     GoToIfEq VAR_RESULT, 0, CommonScript_CompleteFerryAqua
@@ -2279,10 +2285,22 @@ CommonScript_CompleteFerryAqua:
     End
 
 CommonScript_CompleteFerryToCanalave:
+    GoToIfEq VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE, 0, CommonScript_CompleteFerryToTwinleaf
     Message CommonStrings_Text_CompleteFerryToCanalave
     CloseMessage
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     TakeShipToCanalave
+    SetVar VAR_RESULT, FALSE
+    ReturnCommonScript
+    End
+
+// Sovereign Complete: Sinnoh, the third region (docs/Features.md): the first ship to Sinnoh, before its story has
+// begun, calls at Twinleaf Town, and Platinum's opening plays in the player's room there, as a new game's would
+CommonScript_CompleteFerryToTwinleaf:
+    Message CommonStrings_Text_CompleteFerryToTwinleaf
+    CloseMessage
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    PlayBoatCutscene BOAT_TRAVEL_DIR_SOUTH_TO_NORTH, DIR_NORTH, MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F, 4, 6
     SetVar VAR_RESULT, FALSE
     ReturnCommonScript
     End

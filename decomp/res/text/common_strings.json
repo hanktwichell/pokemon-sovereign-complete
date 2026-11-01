@@ -1110,6 +1110,14 @@
         "OK! All aboard for\n",
         "Canalave City!\r"
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteFerryToTwinleaf",
+      "en_US": [
+        "First time to Sinnoh? Then this ship\n",
+        "calls at Twinleaf Town for you.\r",
+        "All aboard!"
+      ]
     }
   ]
 }

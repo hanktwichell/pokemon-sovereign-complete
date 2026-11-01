@@ -1206,3 +1206,7 @@ Test results on the new test build:
   Kanto (Roark's ace Lv. 72, Cynthia's 96), trainers' Pokémon evolved to match; the post-game legendaries in Johto and
   Kanto and Sovereign's roamers too. The level caps run through all three regions in story order
   (`tools/complete/gen_sinnoh.py`). Built and boot-checked; the arrival in Twinleaf is next.
+- **The arrival:** the first ship to Sinnoh sails to Twinleaf Town and leaves the player in their room, where
+  Platinum's opening plays; gifts on Sinnoh's maps come at its levels and go to the PC when the party is full. The
+  story test can start a part straight from the bedroom state (`JUMP`, the test warp with all sixteen badges), and
+  its new 'Twinleaf Town' part passes: the sailor, the ship and the TV program's end.

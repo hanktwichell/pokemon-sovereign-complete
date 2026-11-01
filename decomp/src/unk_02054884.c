@@ -19,6 +19,9 @@
 #include "trainer_info.h"
 #include "unk_02017038.h"
 #include "complete_follower.h" // Sovereign Complete
+#include "complete_sinnoh.h" // Sovereign Complete
+#include "pc_boxes.h" // Sovereign Complete
+#include "savedata/save_table.h" // Sovereign Complete
 
 BOOL Pokemon_CanBattle(Pokemon *mon)
 {
@@ -42,12 +45,20 @@ BOOL Pokemon_GiveMonFromScript(enum HeapID heapID, SaveData *saveData, u16 speci
     mon = Pokemon_New(heapID);
 
     Pokemon_Init(mon);
-    Pokemon_InitWith(mon, species, level, INIT_IVS_RANDOM, FALSE, 0, OTID_NOT_SET, 0);
+    // Sovereign Complete: on a Sinnoh map, a gift comes at Sinnoh's levels after Kanto (src/complete_sinnoh.c), as
+    // its trainers and wild Pokémon do
+    Pokemon_InitWith(mon, species, CompleteSinnoh_WildLevel(level), INIT_IVS_RANDOM, FALSE, 0, OTID_NOT_SET, 0);
     Pokemon_SetCatchData(mon, trainerInfo, ITEM_POKE_BALL, metLocation, metTerrain, heapID);
 
     item = heldItem;
     Pokemon_SetValue(mon, MON_DATA_HELD_ITEM, &item);
     result = Party_AddPokemon(party, mon);
+
+    // Sovereign Complete: with the party full, to the PC, as a caught Pokémon goes: the player reaches Sinnoh with
+    // Johto's and Kanto's team, and Rowan's starter (Route 201) and others don't check for room
+    if (!result) {
+        result = PCBoxes_TryStoreBoxMon(SaveData_GetPCBoxes(saveData), Pokemon_GetBoxPokemon(mon));
+    }
 
     if (result) {
         SaveData_UpdateCatchRecords(saveData, mon);

@@ -1204,6 +1204,10 @@
     {
       "id": "MenuEntries_Text_CompleteFerry_CanalaveCity",
       "en_US": "CANALAVE CITY"
+    },
+    {
+      "id": "MenuEntries_Text_CompleteFerry_TwinleafTown",
+      "en_US": "TWINLEAF TOWN"
     }
   ]
 }
