@@ -996,6 +996,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Byron', [('to', (39, 732)), 'UP'] + BYRON_WAY_IN + [('talk', [])],  # up the lifts' floors
           'MAP_HEADER_CANALAVE_CITY_GYM', ('VAR_CANALAVE_CITY_STATE', 2)),  # also FLAG_RECEIVED_BYRON_TM91
          ('the Canalave Library', BYRON_WAY_OUT + ['DOWN',  # back down and out: Barry's OnFrame
+                                   ('to', (37, 720)), 'UP', ('talk', []),  # Barry, with HM04 in the bag
+                                   # (Johto's Strength), goes in first
                                    ('to', (37, 719)), 'UP',
                                    ('to', (12, 4)), 'LEFT',  # 1F's stairs (west stairs, 0x5f)
                                    ('to', (12, 4)), 'LEFT'],  # 2F's stairs: 3F's OnFrame scene, the explosion
@@ -1466,7 +1468,8 @@ def main():
     start = sys.argv[4] if len(sys.argv) > 4 else None
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestFollowerTile',
-                             'gCompleteTestHGSSBadges'))
+                             'gCompleteTestHGSSBadges', 'gSovereignTestBagItem'))
+    items = open(os.path.join(DECOMP, 'generated', 'items.txt')).read().split()
     names = header_names()
     variables = var_ids()
     towns = fly_points(variables)
@@ -1501,11 +1504,14 @@ def main():
         d.run(30)
         mem.write_short(sym['gCompleteTestHGSSBadges'], 0xFFFF)
         set_flags(JUMP_FLAGS)
-        result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])
+        mem.write_short(sym['gSovereignTestBagItem'], items.index('ITEM_HM04'))  # Johto's Strength, which Barry
+        result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])  # asks for in Canalave
         if result != 'ok':
             sys.exit(f'JUMP: the warp {result} after {frames} frames')
-    elif os.environ.get('SET_FLAGS'):  # flags a run that started with JUMP before they were in JUMP_FLAGS lacks, set
-        set_flags(os.environ['SET_FLAGS'].split(','))  # by a test warp onto the player's own tile before the parts
+    elif os.environ.get('SET_FLAGS') or os.environ.get('SET_ITEM'):  # flags or an item a run that started with JUMP
+        set_flags(os.environ.get('SET_FLAGS', '').split(',') if os.environ.get('SET_FLAGS') else [])  # before they
+        if os.environ.get('SET_ITEM'):  # were in it lacks, given by a test warp onto the player's own tile
+            mem.write_short(sym['gSovereignTestBagItem'], items.index(os.environ['SET_ITEM']))
     video = os.environ.get('VIDEO') and Recorder(d, os.environ['VIDEO'], int(os.environ.get('VIDEO_EVERY', 3)))
 
     def u16(addr):
@@ -1915,7 +1921,7 @@ def main():
     # of its PlayerSave: include/game_options.h)
     options = save_block('SAVE_TABLE_ENTRY_PLAYER')
     mem.write_short(options, u16(options) | BATTLE_STYLE_SET)
-    if os.environ.get('SET_FLAGS') and not jump:
+    if (os.environ.get('SET_FLAGS') or os.environ.get('SET_ITEM')) and not jump:
         result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
         if result != 'ok':
             sys.exit(f'SET_FLAGS: the warp {result} after {frames} frames')
