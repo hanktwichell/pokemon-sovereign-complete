@@ -1131,8 +1131,9 @@ Test results on the new test build:
   unless talked to from his west). A walk to someone (`meet`) now picks the nearest side the player can reach.
 - **Seafoam Islands from its west door,** the way a player who sails down Route 19 from Fuchsia takes to Blaine and
   Cinnabar (Route 19's sea reaches neither otherwise), runs through 1F and B1F only, and worked out offline, three
-  Strength pushes on B1F open it (the boulder at (11, 13) twice east, the one at (40, 16) once east); not yet played in
-  the emulator. The test goes round by Route 2, which Sabrina's badge opens as it opens Route 19.
+  Strength pushes on B1F open it (the boulder at (11, 13) twice east, the one at (40, 16) once east), and a probe from
+  the west door played it in the emulator into the gym. The test goes round by Route 2, which Sabrina's badge opens as
+  it opens Route 19.
 - **New test actions:** `bike` (Y, with the Bicycle registered: Sacred Gold's Mom gives it at the start, and the
   Cycling Road's gatehouses let only riders through) and `ride` (a key held up the Cycling Road's slope, which rolls a
   still bicycle back down, through its bikers' battles). The walks now slide along Viridian Gym's arrows as the game
