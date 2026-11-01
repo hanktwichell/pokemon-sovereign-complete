@@ -1170,7 +1170,8 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                                ('to', (6, 5)), 'UP', ('talk', []),  # Volkner (6,4): he goes back to his gym
                                ('to', (10, 8)), 'UP', ('talk', [])],  # the Totem (10,7), the last trial
           'MAP_HEADER_VISTA_LIGHTHOUSE', 'FLAG_SOVEREIGN_TOTEM_TRIAL_TOGEDEMARU'),
-         ('Volkner', [('to', (6, 10)), 'DOWN',  # down the lift (6,9)
+         ('Volkner', [('to', (6, 10)), 'UP',  # the lift's door (6,9), north of the top floor's way in; its
+                      # OnFrame takes the player down and out to Sunyshore (886,791)
                       ('meet', (845, 748), []),  # Flint on the gym's door: TM50, he leaves
                       ('to', (845, 748)), 'UP',  # across the gears' three rooms
                       ('warp', (11, 4), 'UP', 'MAP_HEADER_SUNYSHORE_CITY_GYM_ROOM_3'), ('talk', [])],
