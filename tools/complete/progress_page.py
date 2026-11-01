@@ -244,13 +244,13 @@ def older_name(part, seen):
     return "Lance's request" if part == 'Lance' and 'LAKE_OF_RAGE' in seen else part
 
 
-FINAL_LOGS = sorted(glob.glob(os.path.join(ROOT, '.cache', 'final', 'run*.log')),
+FINAL_LOGS = sorted(glob.glob(os.path.join(ROOT, '.cache', 'final2', 'run*.log')),
                     key=lambda path: int(re.search(r'run(\d+)', path).group(1)))
 
 
 def story_maps():
     """The maps each passing part of the story test walked through, from the logs in .cache, and the latest single
-    run's passed parts (the final recorded run from the bedroom: .cache/final/run*.log, one log for each resume)."""
+    run's passed parts (the final recorded run from the bedroom: .cache/final2/run*.log, one log for each resume)."""
     parts = [p[0] for p in test_hgss_opening.PARTS]
     walked = collections.defaultdict(set)
     passed = set()
