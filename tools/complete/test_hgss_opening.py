@@ -1141,8 +1141,10 @@ def main():
             if matrix_of.get(here()) != matrix:
                 return '' if last else f'left for {here()} on the way to {goal}'
             pos = d.pos()
-            if pos == goal or last and before is not None and abs(pos[0] - before[0]) + abs(pos[1] - before[1]) > 2:
-                return ''  # there, or the last step took a warp to elsewhere on the same map (Cliff Cave's ladders)
+            if pos == goal or last and goal in warps_of[matrix] and before is not None \
+                    and abs(pos[0] - before[0]) + abs(pos[1] - before[1]) > 2:
+                return ''  # there, or the last step took a warp to elsewhere on the same map (Cliff Cave's ladders);
+                # a scene that moved the player instead (Route 38's gatehouse) leaves the walk to go on
             before = pos
             armed = [tiles for tiles, name, value in triggers_of.get(header, [])
                      if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
