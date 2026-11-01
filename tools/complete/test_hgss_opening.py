@@ -641,7 +641,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('the Machine Part', [('to', (1318, 135)), 'UP', ('to', (3, 9)), 'DOWN', ('talk', [])],
           'MAP_HEADER_HGSS_CERULEAN_GYM', ('VAR_HGSS_SCENE_ROUTE_24_ROCKET', 4)),
          ('Misty', [('to', (10, 25)), 'DOWN', ('to', (1418, 41)),  # her date on Route 25, cut short
-                    ('to', (1318, 135)), 'UP', ('to', (10, 2)), 'UP', ('talk', [])],
+                    ('to', (1318, 135)), 'UP',  # back in the gym, its trainers out; one who comes down its narrow
+                    ('surf', (10, 2)), 'UP', ('talk', [])],  # way to battle may stay in it, so round by the pool
           'MAP_HEADER_HGSS_CERULEAN_GYM', 'FLAG_HGSS_GOT_TM03_FROM_MISTY'),
          ('the power restored', [('to', (10, 25)), 'DOWN', ('surf', (1423, 185)), 'UP',
                                  ('to', (13, 7)), 'DOWN', ('talk', [])],  # the Machine Part, back to the manager
