@@ -1204,8 +1204,11 @@ ICE = 0x20  # TILE_BEHAVIOR_ICE: a step onto it slides on (Mahogany Gym, the Ice
 RAM, RAM_SIZE = 0x02000000, 0x400000  # the DS's main memory, where the map objects are
 MAP_OBJECT_SIZE = 0x128  # sizeof(MapObject), src/map_object.c
 PLAYER, FOLLOWER = 0xff, 0xf0  # their local IDs (include/complete_follower.h)
-ICE_ROCK = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read().split().index(
-    'OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
+GFX = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read().split()
+ICE_ROCK = GFX.index('OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
+CLEARABLE = {GFX.index('OBJ_EVENT_GFX_CUT_TREE'), GFX.index('OBJ_EVENT_GFX_ROCK_SMASH')}  # a walk's way cleared by Cut
+# or Rock Smash (A at it, yes)
+CLEARS = 6  # trees and rocks one walk may clear
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
 MOVE_FRAMES = 120  # a switch's shutters or a pushed boulder moving (two tiles at most)
@@ -1657,6 +1660,19 @@ def main():
                     pushable.add(tile)
         return tiles, pushable
 
+    def clearable():
+        """The tiles of the trees Cut clears and the rocks Rock Smash breaks on the map now (as others() reads them)."""
+        if player_object[0] is None:
+            return set()
+        manager = u32(player_object[0] + 0xb4)
+        objects, tiles = u32(manager + 0x124), set()
+        for i in range(u32(manager + 4)):
+            at = objects + MAP_OBJECT_SIZE * i
+            status, _, local, _, gfx = struct.unpack('<5I', bytes(mem.unsigned[at:at + 20]))
+            if status & 1 and local not in (PLAYER, FOLLOWER) and gfx in CLEARABLE:
+                tiles.add(tuple(struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2]))
+        return tiles
+
     def here():
         n = u16(sym['gSovereignTestIdleMapHeaderID'])
         return names[n] if n < len(names) else n
@@ -1715,7 +1731,7 @@ def main():
         teleports = warps_of[matrix] | {tile for tiles, name, _ in triggers_of.get(header, [])
                                         if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) for tile in tiles}
         failed = set()  # (tile, direction) steps the player couldn't take
-        forgets = 0
+        forgets, clears = 0, 0
         stuck, last = 0, False
         before = None  # where the player was before the last step
         for n in range(WALK_STEPS):
@@ -1759,6 +1775,14 @@ def main():
             if d.pos() == pos:
                 d.run(STEP_WAIT)  # a step can start late, as the follower gets out of the way
             if d.pos() != pos:
+                stuck = 0
+                continue
+            ahead = (pos[0] + step[0], pos[1] + step[1])
+            if clears < CLEARS and ahead in clearable():  # a tree or a rock in the way: Cut it or smash it, as a
+                clears += 1  # player would (A at it, yes), and find the way again
+                result, frames = talk_and_answer(d, sym, [True], SETTLE_FRAMES)
+                if result != 'ok':
+                    return f'clearing {ahead}: {result} after {frames} frames, on {here()} at {d.pos()}'
                 stuck = 0
                 continue
             stuck += 1
