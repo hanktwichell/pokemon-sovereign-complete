@@ -1038,6 +1038,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                ('to', (142, 853)), ('to', (180, 829)), ('to', (177, 808)), ('to', (195, 760)),
                                ('to', (246, 750)), 'UP', ('to', (26, 22)), 'RIGHT',  # Route 201 to Oreburgh Gate
                                ('to', (302, 730)), ('to', (306, 725)), ('slope', 'UP', 716),  # Route 207's slope
+                               ('to', (311, 691)), 'UP', ('talk', [True]),  # Route 206's path under the Cycling
+                               # Road: Cut the tree (311,690) of the two across it
                                ('to', (309, 673)), ('to', (305, 607)), ('to', (305, 577)), 'UP',
                                # Route 207, Route 206 (the planner took the Cycling Road: bike, or the path under it)
                                ('to', (7, 3)), 'UP',  # its north gate, Eterna
