@@ -327,8 +327,9 @@ BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
 # answers): a step that starts a scene (into a map whose scene starts as the player arrives), its menus answered as
 # talk's are, ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the
 # player's own tile), ('door', [(x, z), ...]): Hearthome Gym's trainer room left by its right door (read from the save),
-# or ('warp', (x, z), key[, map]): the test warp to that tile on the map the player is on (or that map), facing that way,
-# across a Sinnoh gym or dungeon puzzle of Platinum's the walks don't solve yet (Sovereign's own, unchanged here). The stairs and doors warp
+# or ('warp', (x, z), key[, map[, [(var or flag, value), ...]]]): the test warp to that tile on the map the player is on
+# (or that map), facing that way, setting those vars and flags, across a Sinnoh gym or dungeon puzzle of Platinum's the
+# walks don't solve yet (Sovereign's own, unchanged here). The stairs and doors warp
 # as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
@@ -1059,7 +1060,80 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                            ('to', (31, 49)), ('to', (31, 47)),  # the grunts' trigger (31,48): their double battle
                            ('to', (31, 33)), ('scene', 'UP', [True])],  # Mars and Jupiter's (30-32,32): the multi
           # battle with Barry, Cyrus, the warp to the distorted pillar, Cynthia: "Are you ready?" yes
-          'MAP_HEADER_DISTORTION_WORLD_1F', ('VAR_SPEAR_PILLAR_STATE', 3))]
+          'MAP_HEADER_DISTORTION_WORLD_1F', ('VAR_SPEAR_PILLAR_STATE', 3)),
+         # the Distortion World: its floors, people and triggers are built in code (gravity that turns, lift platforms),
+         # which the walks don't drive yet, so its part is a stand-in: the test warp to Sendoff Spring with what its
+         # end sets (Cyrus's and Giratina's battles there aren't played)
+         ('the Distortion World', [('warp', (32, 17), 'DOWN', 'MAP_HEADER_SENDOFF_SPRING',
+                                    [('VAR_DISTORTION_WORLD_PROGRESS', 14), ('VAR_EXITED_DISTORTION_WORLD_STATE', 1)])],
+          'MAP_HEADER_SENDOFF_SPRING', ('VAR_EXITED_DISTORTION_WORLD_STATE', 2)),  # Cynthia's OnFrame there
+         ('back to Rowan', [('surf', (12, 55)), 'DOWN',  # Spring Path down to Route 214
+                            ('to', (726, 690)), ('to', (719, 646)), 'UP', ('to', (5, 3)), 'UP',  # Veilstone's gate
+                            ('to', (684, 601)), ('to', (678, 600)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
+                            ('to', (630, 584)), ('to', (572, 597)), ('to', (562, 657)), ('to', (550, 715)),
+                            ('to', (512, 725)), 'DOWN', ('to', (2, 7)), 'LEFT',  # Route 210, 209, Hearthome
+                            ('to', (455, 726)), 'LEFT', ('to', (2, 7)), 'LEFT', ('to', (396, 724)),
+                            ('to', (393, 724)), 'LEFT', ('surf', (4, 9)), 'UP',  # Route 208, Mt. Coronet, 207
+                            ('to', (297, 739)), ('to', (258, 750)), 'UP', ('to', (5, 22)), 'LEFT',  # Oreburgh Gate
+                            ('to', (183, 758)), ('to', (184, 812)), ('to', (168, 843)), 'UP'],  # Sandgem's lab:
+          # Rowan's OnFrame opens Valor Lakefront's way to Sunyshore
+          'MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB', ('VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE', 1)),
+         ('Sunyshore City', [('to', (7, 14)), 'DOWN',  # out of the lab
+                             ('to', (175, 818)), ('to', (176, 775)), ('to', (229, 758)), ('to', (246, 750)), 'UP',
+                             ('to', (26, 22)), 'RIGHT',  # Route 202, Jubilife, Route 203, Oreburgh Gate, Oreburgh
+                             ('to', (302, 730)), ('to', (341, 713)), 'UP', ('surf', (27, 19)), 'DOWN',  # Mt. Coronet
+                             ('to', (444, 725)), ('to', (447, 725)), 'DOWN', ('to', (9, 7)), 'RIGHT',  # R208, Hearthome
+                             ('to', (458, 728)), 'DOWN', ('to', (5, 11)), 'DOWN',  # Route 212
+                             ('surf', (460, 799)), ('surf', (460, 855)), ('surf', (505, 850)), ('surf', (569, 856)),
+                             ('surf', (598, 827)), ('surf', (638, 813)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # Pastoria
+                             ('to', (688, 833)), ('to', (706, 819)), 'UP', ('to', (8, 3)), 'UP',  # the hotel lobby
+                             ('to', (755, 791)),  # Valor Lakefront's east side, its block lifted
+                             ('to', (819, 787)), ('to', (825, 789)), 'DOWN',  # Route 222 (planner's key), its gate
+                             ('to', (9, 7)), 'RIGHT'],  # into Sunyshore at z 790/791: Flint's OnFrame
+          'MAP_HEADER_SUNYSHORE_CITY', ('VAR_SUNYSHORE_CITY_STATE', 1)),
+         ('Totem Togedemaru', [('to', (886, 791)), 'UP',  # Vista Lighthouse's door (886,790): its lift's OnFrame
+                               ('to', (6, 5)), 'UP', ('talk', []),  # Volkner (6,4): he goes back to his gym
+                               ('to', (10, 8)), 'UP', ('talk', [])],  # the Totem (10,7), the last trial
+          'MAP_HEADER_VISTA_LIGHTHOUSE', 'FLAG_SOVEREIGN_TOTEM_TRIAL_TOGEDEMARU'),
+         ('Volkner', [('to', (6, 10)), 'DOWN',  # down the lift (6,9)
+                      ('meet', (845, 748), []),  # Flint on the gym's door: TM50, he leaves
+                      ('to', (845, 748)), 'UP',  # across the gears' three rooms
+                      ('warp', (11, 4), 'UP', 'MAP_HEADER_SUNYSHORE_CITY_GYM_ROOM_3'), ('talk', [])],
+          'MAP_HEADER_SUNYSHORE_CITY_GYM_ROOM_3', ('VAR_SUNYSHORE_CITY_STATE', 2)),  # FLAG_RECEIVED_VOLKNER_TM57
+         ('Jasmine in Sunyshore', [('warp', (8, 14), 'DOWN', 'MAP_HEADER_SUNYSHORE_CITY_GYM_ROOM_1'), 'DOWN',  # out
+                      ('to', (855, 744)), ('to', (855, 743))],  # Barry and Jasmine's trigger
+          'MAP_HEADER_SUNYSHORE_CITY', ('VAR_SUNYSHORE_CITY_STATE', 3)),  # (853-857,743): HM07
+         ('Sinnoh\'s Victory Road', [('surf', (849, 694)), ('surf', (841, 642)), ('surf', (851, 599)),  # Route 223
+                           'UP',  # past the guard's check (8 badges, Togedemaru), into Victory Road (851,597)
+                           ('to', (9, 42)), ('to', (45, 32)), 'DOWN',  # 1F, to the back rooms (45,33)
+                           ('to', (21, 11)), 'UP', ('surf', (37, 39)), ('surf', (56, 14)), 'UP',
+                           ('to', (28, 16)), 'RIGHT',  # out onto Route 224
+                           ('to', (913, 526)), ('to', (908, 493)), 'UP', ('talk', []),  # Dawn/Lucas (908,492)
+                           ('talk', [True])],  # again: yes, the battle
+          'MAP_HEADER_ROUTE_224', 'FLAG_SOVEREIGN_ROUTE_224_COUNTERPART_MET'),  # see note: the real proof is a
+         # FLAG_DEFEATED_TRAINER_SOVEREIGN_{DAWN,LUCAS}_ROUTE_224_{TURTWIG,CHIMCHAR,PIPLUP}
+         ('the Pokémon League', [('to', (897, 533)), ('to', (878, 559)), 'DOWN',  # back into Victory Road
+                                 ('to', (13, 16)), 'LEFT', ('surf', (37, 45)), ('surf', (3, 59)), 'UP',
+                                 ('to', (5, 19)), 'DOWN', ('to', (34, 7)), 'UP',  # 1F's exit (34,5): the collector
+                                 ('surf', (847, 560)), 'UP',  # is gone; the League's Pokémon Center
+                                 ('to', (11, 4)),  # Barry's trigger (10-12,4): his battle
+                                 'UP', ('talk', [])],  # the door guard (11,3) checks the badges, steps aside
+          'MAP_HEADER_POKEMON_LEAGUE_NORTH_POKECENTER_1F', 'FLAG_POKEMON_LEAGUE_DOOR_GUARD_MOVED_AWAY'),
+         ('Aaron', [('to', (11, 3)), 'UP',  # the door (11,2), the lift down to his room
+                    ('to', (8, 6)), 'UP', ('talk', [0])],  # Aaron (8,5): the format, all singles (0)
+          'MAP_HEADER_POKEMON_LEAGUE_AARON_ROOM', 'FLAG_DEFEATED_AARON'),
+         ('Bertha', [('to', (8, 3)), 'UP',  # the far door (8,2); the lift (trigger 4,11) to her room
+                     ('to', (8, 6)), 'UP', ('talk', [])],
+          'MAP_HEADER_POKEMON_LEAGUE_BERTHA_ROOM', 'FLAG_DEFEATED_BERTHA'),
+         ('Flint', [('to', (8, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
+          'MAP_HEADER_POKEMON_LEAGUE_FLINT_ROOM', 'FLAG_DEFEATED_FLINT'),
+         ('Lucian', [('to', (8, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
+          'MAP_HEADER_POKEMON_LEAGUE_LUCIAN_ROOM', 'FLAG_DEFEATED_LUCIAN'),
+         ('Cynthia', [('to', (8, 3)), 'UP'],  # the lift to her room, whose OnFrame starts her battle (format fixed)
+          'MAP_HEADER_POKEMON_LEAGUE_CHAMPION_ROOM', 'FLAG_DEFEATED_CYNTHIA'),
+         ('the Hall of Fame', [('to', (8, 3)), 'UP'],  # the hallway's OnFrame, the Hall's: ClearGame, the credits,
+          # OS_ResetSystem; the test must take the title screen's Continue (see notes)
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'FLAG_GAME_COMPLETED')]
 # Where JUMP starts a part from the bedroom state, without the parts before it: the test warp's map, tile and facing
 # (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges)
 JUMPS = {'Twinleaf Town': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
@@ -1812,6 +1886,9 @@ def main():
                 problem = door(action[1])
             elif action[0] == 'warp':  # the test warp, across a Sinnoh gym or dungeon puzzle the walks don't solve yet
                 face = ('UP', 'DOWN', 'LEFT', 'RIGHT').index(action[2]) + 1
+                for slot, (name, value) in enumerate(action[4] if len(action) > 4 else [], 3):  # set on the warp
+                    mem.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[name])  # (the first three slots
+                    mem.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, value)  # are the warp's own)
                 result, frames = warp(d, sym, names.index(action[3] if len(action) > 3 else here()), *action[1], face)
                 if result != 'ok':
                     problem = f'the warp across: {result} after {frames} frames, on {here()} at {d.pos()}'
