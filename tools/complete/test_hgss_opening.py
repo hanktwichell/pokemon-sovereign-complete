@@ -1913,7 +1913,10 @@ def main():
             if not settle():
                 problem = f'the field never came free before {action}, on {here()} at {d.pos()}'
             elif isinstance(action, str):
+                before = here()
                 step(action)
+                if here() == before and d.pos() in warps_of[matrix_of.get(here())]:  # a step onto a gate's or a
+                    step(action)  # door's mat, which the next press toward it takes
             elif action[0] == 'keep':  # the hook applies on the test warp, here onto the player's own tile
                 mem.write_byte(sym['gSovereignTestPartyKeep'], action[1])
                 result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
