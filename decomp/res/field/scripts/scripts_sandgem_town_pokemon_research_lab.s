@@ -132,6 +132,10 @@ SandgemTownLab_OnFrame_GetPokedex:
     ApplyMovement LOCALID_COUNTERPART, SandgemTownLab_Movement_CounterpartWalkToProfRowan
     ApplyMovement LOCALID_PLAYER, SandgemTownLab_Movement_PlayerWalkToProfRowan
     WaitMovement
+    @ Sovereign Complete: the player reaches Sinnoh with a team, so the starter isn't party slot 0: Rowan looks at its
+    @ slot (VAR_0x8004), or, with it in the PC, only says so
+    CompleteFindStarterSlot VAR_0x8004
+    GoToIfEq VAR_0x8004, MAX_PARTY_SIZE, SandgemTownLab_CompleteStarterInPC
     BufferPlayerName 0
     Message SandgemTownLab_Text_LookAtYourPokemon
     CloseMessage
@@ -139,8 +143,7 @@ SandgemTownLab_OnFrame_GetPokedex:
     ChangePlayerState
     ApplyMovement LOCALID_PLAYER, SandgemTownLab_Movement_PlayerGive
     WaitMovement
-    SetVar VAR_0x8004, 0
-    GetPartyMonSpecies VAR_0x8004, VAR_RESULT
+    GetPartyMonSpecies VAR_0x8004, VAR_RESULT @ Sovereign Complete: the starter's slot, not 0
     SetVar VAR_0x8008, VAR_RESULT
     GoToIfEq VAR_0x8008, SPECIES_TURTWIG, SandgemTownLab_PokemonSeemsRatherHappy
     GoToIfEq VAR_0x8008, SPECIES_CHIMCHAR, SandgemTownLab_PokemonSeemsRatherHappy
@@ -161,7 +164,7 @@ SandgemTownLab_GiveItANickname:
     WaitMovement
     SetPlayerState PLAYER_TRANSITION_WALKING
     ChangePlayerState
-    BufferPartyMonSpecies 0, 0
+    BufferPartyMonSpecies 0, VAR_0x8004 @ Sovereign Complete: the starter's slot
     Message SandgemTownLab_Text_EntrustingWasNoMistake
     Message SandgemTownLab_Text_GiveItANickname
     ShowYesNoMenu VAR_RESULT
@@ -174,7 +177,7 @@ SandgemTownLab_NicknameStarter:
     CloseMessage
     FadeScreenOut
     WaitFadeScreen
-    OpenPokemonNamingScreen 0, VAR_RESULT
+    OpenPokemonNamingScreen VAR_0x8004, VAR_RESULT @ Sovereign Complete: the starter's slot
     SetVar VAR_0x8002, VAR_RESULT
     FadeScreenIn
     WaitFadeScreen
@@ -185,14 +188,24 @@ SandgemTownLab_NicknameStarter:
     GoTo SandgemTownLab_CherishThatStarter
     End
 
+@ Sovereign Complete: the starter went to the PC (the player's party was full)
+SandgemTownLab_CompleteStarterInPC:
+    BufferPlayerName 0
+    GetPlayerStarterSpecies VAR_RESULT
+    BufferSpeciesNameFromVar 1, VAR_RESULT, 0, 0
+    Message SandgemTownLab_Text_CompleteStarterInPC
+    GoTo SandgemTownLab_CompleteAfterStarter
+    End
+
 SandgemTownLab_IncrementRecordPokemonNicknamed:
     IncrementGameRecord RECORD_POKEMON_NICKNAMED
     Return
 
 SandgemTownLab_CherishThatStarter:
-    BufferPartyMonSpecies 0, 0
+    BufferPartyMonSpecies 0, VAR_0x8004 @ Sovereign Complete: the starter's slot
     BufferRivalName 1
     Message SandgemTownLab_Text_CherishThatStarter
+SandgemTownLab_CompleteAfterStarter:
     CloseMessage
     ApplyMovement LOCALID_COUNTERPART, SandgemTownLab_Movement_CounterpartWalkOnSpotWest
     WaitMovement

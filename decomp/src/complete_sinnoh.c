@@ -16,6 +16,11 @@
 
 #include "complete_map_info.h"
 #include "narc.h"
+#include "party.h"
+#include "pokemon.h"
+#include "savedata.h"
+#include "system_vars.h"
+#include "vars_flags.h"
 
 // Sovereign Complete: Sinnoh comes third, after Johto and Kanto, so its levels move up to follow Kanto's (the owner's
 // call, Nov 1, 2026: a provisional integration of Claude's own; data/complete/sinnoh.yaml says by how much). Sinnoh's
@@ -135,4 +140,38 @@ void CompleteSinnoh_ScaleParty(int trainerID, void *party, int monDataType, int 
 u8 CompleteSinnoh_WildLevel(u8 level)
 {
     return sOnSinnohMap ? CompleteSinnoh_Level(level) : level;
+}
+
+// The species it first evolves into, or SPECIES_NONE
+static int FirstEvolution(int species)
+{
+    SpeciesEvolution evolutions[MAX_EVOLUTIONS];
+
+    NARC_ReadWholeMemberByIndexPair(evolutions, NARC_INDEX_POKETOOL__PERSONAL__EVO, species);
+    return evolutions[0].method == EVO_NONE ? SPECIES_NONE : evolutions[0].targetSpecies;
+}
+
+// The party slot of the player's starter from Rowan's briefcase, or of what it evolved into (the last such in the
+// party), or MAX_PARTY_SIZE when it's in the PC. Platinum's lab scene looks at slot 0, which here is the team the
+// player brought from Johto and Kanto (res/field/scripts/scripts_sandgem_town_pokemon_research_lab.s).
+int CompleteSinnoh_StarterSlot(SaveData *saveData)
+{
+    Party *party = SaveData_GetParty(saveData);
+    int line[3];
+
+    line[0] = SystemVars_GetPlayerStarter(SaveData_GetVarsFlags(saveData));
+    line[1] = FirstEvolution(line[0]);
+    line[2] = line[1] == SPECIES_NONE ? SPECIES_NONE : FirstEvolution(line[1]);
+
+    for (int slot = Party_GetCurrentCount(party) - 1; slot >= 0; slot--) {
+        Pokemon *mon = Party_GetPokemonBySlotIndex(party, slot);
+        int species = Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL);
+
+        if (Pokemon_GetValue(mon, MON_DATA_IS_EGG, NULL) == FALSE
+            && (species == line[0] || (species != SPECIES_NONE && (species == line[1] || species == line[2])))) {
+            return slot;
+        }
+    }
+
+    return MAX_PARTY_SIZE;
 }

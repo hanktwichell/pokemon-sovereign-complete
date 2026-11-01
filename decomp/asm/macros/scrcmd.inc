@@ -6329,6 +6329,13 @@
     .short SCRCMD_COMPLETECLOSEMESSAGEIFOPEN
     .endm
 
+    // The party slot of the player's Sinnoh starter or what it evolved into (the last such), or MAX_PARTY_SIZE when
+    // it's in the PC: the player reaches Sinnoh with a team, so it isn't slot 0
+    .macro CompleteFindStarterSlot destVarID
+    .short SCRCMD_COMPLETEFINDSTARTERSLOT
+    .short \destVarID
+    .endm
+
     .text
     .globl _start
 _start:

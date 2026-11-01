@@ -709,6 +709,20 @@
         "This youngster has just become\n",
         "Sinnoh’s new Champion.\r"
       ]
+    },
+    {
+      "id": "SandgemTownLab_Text_CompleteStarterInPC",
+      "en_US": [
+        "Professor: {STRVAR_1 3, 0, 0}, I see you came to\n",
+        "Sinnoh with a team of your own.\r",
+        "The {STRVAR_1 0, 1, 0} from my briefcase went\n",
+        "to your PC, then. Very well.\r",
+        "Already, there is a bond between you\n",
+        "and your Pokémon. I feel privileged\f",
+        "to have met you.\r",
+        "That’s why I’ll ask you to cherish that\n",
+        "{STRVAR_1 0, 1, 0} too, once you take it out.\r"
+      ]
     }
   ]
 }

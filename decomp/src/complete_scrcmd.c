@@ -43,6 +43,7 @@
 #include "charcode_util.h"
 #include "clear_game.h"
 #include "complete_badges.h"
+#include "complete_sinnoh.h"
 #include "complete_follower.h"
 #include "complete_placed.h"
 #include "complete_rival.h"
@@ -1438,5 +1439,15 @@ BOOL CompleteScrCmd_TunnelRandomBackdrop(ScriptContext *ctx)
     }
 
     *destVar = count > 0 ? missing[LCRNG_Next() % count] : 0;
+    return FALSE;
+}
+
+// The party slot of the player's Sinnoh starter or what it evolved into, or MAX_PARTY_SIZE when it's in the PC, for
+// Rowan's lab (src/complete_sinnoh.c)
+BOOL CompleteScrCmd_FindStarterSlot(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = CompleteSinnoh_StarterSlot(ctx->fieldSystem->saveData);
     return FALSE;
 }

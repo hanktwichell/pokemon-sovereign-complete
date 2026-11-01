@@ -1217,3 +1217,5 @@ Test results on the new test build:
   Totems and legendaries pass.
 - **Bosses' Megas, checked in battle:** `tools/complete/test_boss_megas.py` battles each Mega-holding boss
   (docs/BossMegas.md) and checks the test build's record of the foe that Mega Evolved (`gSovereignTestFoeMega`).
+- **Rowan's lab** looked at the party's lead as the new starter (Platinum's player has only it), so with Johto's team
+  he offered to nickname the lead. He now looks at the starter's own slot, or says it went to the PC.

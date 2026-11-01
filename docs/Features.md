@@ -289,7 +289,9 @@ tested, each choice in one place so it can change later. The player starts in Ne
   opening plays as a new game's would (`CommonScript_CompleteFerryToTwinleaf`); later ships go to Canalave City.
 - **Gifts:** a Pokémon given on a Sinnoh map comes at Sinnoh's levels too (Rowan's starter at Lv. 67), and with the
   party full it goes to the PC, as a caught one does (`Pokemon_GiveMonFromScript`): the player reaches Sinnoh with a
-  full team, and Rowan's briefcase doesn't check for room.
+  full team, and Rowan's briefcase doesn't check for room. In his lab, Rowan looks at the starter wherever it is (the
+  party slot of it or what it evolved into, `CompleteFindStarterSlot`), not at the party's lead, and with it in the PC
+  he only says so (`SandgemTownLab_CompleteStarterInPC`).
 
 ## Headbutt trees and Rock Smash
 
