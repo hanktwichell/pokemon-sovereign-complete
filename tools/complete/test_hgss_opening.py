@@ -1079,7 +1079,8 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
           'MAP_HEADER_LAKE_ACUITY', ('VAR_LAKE_ACUITY_STATE', 2)),
          ('the Storage Key', [('to', (15, 49)), 'DOWN',  # out of Lake Acuity (14-15,50)
                               ('to', (291, 280)), ('to', (304, 337)), ('to', (301, 398)), ('to', (368, 401)),
-                              ('to', (375, 402)), 'DOWN',  # Routes 217, 216, into Mt. Coronet 1F North Room 2
+                              ('to', (375, 403)), 'RIGHT',  # Routes 217, 216, into Mt. Coronet 1F North Room 2
+                              # (its door (375,403) faces east, past the signpost on 375,402)
                               ('to', (10, 26)), 'DOWN', ('to', (8, 59)), 'DOWN',  # B1F (Rock Smash rocks), 1F N 1
                               ('to', (29, 29)), 'DOWN', ('talk', [True]), ('push', 'DOWN'),  # Strength: the boulder
                               # (29,30) down a tile, out of the narrow way south
