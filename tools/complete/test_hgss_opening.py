@@ -1270,13 +1270,19 @@ def main():
         matrix = matrix_of[here()]
         for can in (mem.unsigned[at + 4], mem.unsigned[at + 5]):
             x, z = tiles[can]
-            sides = [(x - dx, z - dz) for dx, dz in DIRS if maps.tile(matrix, x - dx, z - dz) is not None
-                     and walkable(maps.tile(matrix, x - dx, z - dz)) and (x - dx, z - dz) not in (others()[0] or ())]
-            pos = d.pos()
-            side = min(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1]))
-            problem = walk_to(side)
-            if problem:
-                return problem
+            for _ in range(MEET_TRIES):  # a trainer who comes over to battle may stay on the side the walk was for
+                sides = [(x - dx, z - dz) for dx, dz in DIRS if maps.tile(matrix, x - dx, z - dz) is not None
+                         and walkable(maps.tile(matrix, x - dx, z - dz))
+                         and (x - dx, z - dz) not in (others()[0] or ())]
+                pos = d.pos()
+                if pos in sides:
+                    break
+                for side in sorted(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1])):
+                    if not walk_to(side).startswith('no way'):
+                        break
+            side = d.pos()
+            if side not in [(x - dx, z - dz) for dx, dz in DIRS]:
+                return f'never beside the trash can at {(x, z)}, on {here()} at {side}'
             d.press(KEYS[(x - side[0], z - side[1])], frames=8, after=16)  # facing the can
             result, frames = talk_and_answer(d, sym, [], SETTLE_FRAMES)
             if result != 'ok':
