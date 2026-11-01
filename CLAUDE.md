@@ -44,6 +44,14 @@ work.
   boulder and Blackthorn Gym's floors come from `tools/complete/solve_story_puzzles.py`; its walks slide over ice and
   along Viridian Gym's arrows themselves.
 
+## Progress page
+
+- The owner follows progress on a claude.ai page: https://claude.ai/artifact/7tr6iuoekaQj92qKSfR5JX (tabs: the whole
+  game, since yesterday, maps and routes, the story test). `python3 tools/complete/progress_page.py` builds it from the
+  repo into `.cache/progress/index.html` (maps, places, the story test's logs in `.cache`); the steps' status, next
+  steps, open decisions and recent work are kept by hand at the top of that script. Republish that file with the
+  Artifact tool, passing the URL, after each piece of work.
+
 ## Following Pokémon
 
 - `decomp/src/complete_follower.c` (hooks in `src/field_map_change.c`; a test-only tile record in `src/field_system.c`).

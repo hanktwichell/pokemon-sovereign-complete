@@ -116,7 +116,7 @@ without the test warp:
     Pokémon Center.
 36. **The red Gyarados:** north through the gatehouse and up Route 43 to the Lake of Rage, and on Surf to beside the
     red Gyarados, wherever it has wandered: its battle, and the Red Scale (FLAG_HGSS_GOT_RED_SCALE).
-37. **Lance:** back to the shore, where Lance asks for help: yes, and he flies off to Mahogany
+37. **Lance's request:** back to the shore, where Lance asks for help: yes, and he flies off to Mahogany
     (FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE).
 38. **The souvenir shop:** back down Route 43 into Mahogany's souvenir shop, where Lance unmasks the shop and its
     stairs open (VAR_HGSS_UNK_40A8 2).
@@ -457,7 +457,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                ('to', (528, 86)),  # up Route 43 to the Lake of Rage, where its people are loaded
                                ('meet', (525, 71), [])],  # and on Surf to it
           'MAP_HEADER_HGSS_LAKE_OF_RAGE', 'FLAG_HGSS_GOT_RED_SCALE'),
-         ('Lance', [('surf', (528, 84)), 'UP', ('talk', [True])], 'MAP_HEADER_HGSS_LAKE_OF_RAGE',
+         ("Lance's request", [('surf', (528, 84)), 'UP', ('talk', [True])], 'MAP_HEADER_HGSS_LAKE_OF_RAGE',
           'FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE'),
          ('the souvenir shop', [('to', (524, 156)), 'DOWN', ('to', (5, 12)), 'DOWN', ('to', (528, 174))],
           'MAP_HEADER_HGSS_MAHOGANY_SOUVENIR_SHOP', ('VAR_HGSS_UNK_40A8', 2)),
