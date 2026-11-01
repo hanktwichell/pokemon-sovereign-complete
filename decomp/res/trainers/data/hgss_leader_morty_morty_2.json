@@ -88,7 +88,7 @@
             "species": "SPECIES_GENGAR",
             "form": 0,
             "level": 74,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_GENGARITE",
             "moves": [
                 "MOVE_HYPNOSIS",
                 "MOVE_SHADOW_BALL",

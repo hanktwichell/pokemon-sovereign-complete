@@ -21,6 +21,7 @@
 #include "party.h"
 #include "pokedex.h"
 #include "rtc.h"
+#include "sovereign_test.h"
 #include "save_player.h"
 #include "trainer_info.h"
 #include "vars_flags.h"
@@ -52,6 +53,16 @@ static BOOL HasMoved(int mapHeaderID, int localID)
     return FALSE;
 }
 
+static BOOL Caught(FieldSystem *fieldSystem, int species)
+{
+#ifdef SOVEREIGN_TEST
+    if (gSovereignTestCaughtAllBut != SPECIES_NONE) { // as ScrCmd_SovereignCheckSpeciesCaught
+        return species != gSovereignTestCaughtAllBut;
+    }
+#endif
+    return Pokedex_HasCaughtSpecies(SaveData_GetPokedex(fieldSystem->saveData), species);
+}
+
 static BOOL GateHolds(FieldSystem *fieldSystem, const CompletePlacedGate *gate)
 {
     SaveData *saveData = fieldSystem->saveData;
@@ -69,7 +80,7 @@ static BOOL GateHolds(FieldSystem *fieldSystem, const CompletePlacedGate *gate)
     case PLACED_GATE_HGSS_BADGE:
         return CompleteBadges_Has(SaveData_GetTrainerInfo(saveData), gate->id);
     case PLACED_GATE_CAUGHT:
-        return Pokedex_HasCaughtSpecies(SaveData_GetPokedex(saveData), gate->id);
+        return Caught(fieldSystem, gate->id);
     case PLACED_GATE_ITEM:
         return Bag_CanRemoveItem(SaveData_GetBag(saveData), gate->id, 1, HEAP_ID_FIELD1);
     case PLACED_GATE_PARTY:
@@ -90,7 +101,7 @@ static BOOL IsOut(FieldSystem *fieldSystem, const CompletePlaced *placed)
         if (VarsFlags_CheckFlag(varsFlags, FLAG_SOVEREIGN_TOTEM_TRIAL_GUMSHOOS + placed->value)) {
             return FALSE;
         }
-    } else if (Pokedex_HasCaughtSpecies(SaveData_GetPokedex(fieldSystem->saveData), placed->value)) {
+    } else if (Caught(fieldSystem, placed->value)) {
         return FALSE;
     }
 

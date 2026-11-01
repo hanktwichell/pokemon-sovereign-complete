@@ -89,7 +89,7 @@
             "species": "SPECIES_ALAKAZAM",
             "form": 0,
             "level": 76,
-            "item": "ITEM_TANGA_BERRY",
+            "item": "ITEM_ALAKAZITE",
             "moves": [
                 "MOVE_PSYCHIC",
                 "MOVE_CALM_MIND",

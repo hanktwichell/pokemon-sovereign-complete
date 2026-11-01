@@ -39,6 +39,24 @@ BODY_MARK = ("// Sovereign Complete: the scripts of Johto's and Kanto's item bal
              "// end of the scripts of Johto's and Kanto's item balls\n")
 
 
+# Megas in all three regions (the owner's call, Nov 1, 2026; docs/Features.md, "Megas in Johto and Kanto"): these
+# low-value balls hold a Mega Stone instead, near where its Pokémon lives in Johto or Kanto, as Sovereign put Sinnoh's
+# stones in place of low-value balls (data/mega_stones.yaml). By ball (its label's place and Sacred Gold's item).
+MEGA_STONE_BALLS = {
+    'Route29_Potion': 'ITEM_PIDGEOTITE', 'Route30_Potion': 'ITEM_BEEDRILLITE', 'Route31_PokeBall': 'ITEM_ALAKAZITE',
+    'Route32_Repel': 'ITEM_AMPHAROSITE', 'SlowpokeWellB1f_SuperPotion': 'ITEM_SLOWBRONITE',
+    'UnionCaveB2f_HyperPotion': 'ITEM_STEELIXITE', 'IlexForest_Ether': 'ITEM_HERACRONITE',
+    'Route36_HyperPotion': 'ITEM_SCIZORITE', 'Route38_MaxPotion': 'ITEM_PINSIRITE',
+    'BurnedTower1f_Antidote': 'ITEM_GENGARITE', 'Route42_EscapeRope': 'ITEM_GYARADOSITE',
+    'WhirlIslandsB1f_EscapeRope': 'ITEM_FERALIGITE', 'Route45_FullHeal': 'ITEM_MEGANIUMITE',
+    'IcePathB2f_FullHeal': 'ITEM_GLALITITE', 'Route44_MaxRepel': 'ITEM_HOUNDOOMINITE',
+    'Route46_XSpeed': 'ITEM_AERODACTYLITE', 'MountSilverCaveLowerMountainside_EscapeRope': 'ITEM_TYRANITARITE',
+    'Route9_MaxPotion': 'ITEM_VENUSAURITE', 'Route11_DireHit': 'ITEM_BLASTOISINITE',
+    'VictoryRoad3f_UltraBall': 'ITEM_CHARIZARDITE_X', 'SeafoamIslandsB1f_IceHeal': 'ITEM_ABOMASITE',
+    'CeruleanCave2f_UltraBall': 'ITEM_CHARIZARDITE_Y', 'CeruleanCaveB1f_UltraBall': 'ITEM_MEWTWONITE_Y',
+}
+
+
 def item_ball_script(n):
     """The engine's script for HeartGold's item ball n (its script 7000 + n)."""
     return 7000 + ITEM_BALLS_START + n
@@ -131,6 +149,9 @@ def main():
         if label in seen:
             label += f'_{n}'
         seen.add(label)
+        stone = MEGA_STONE_BALLS.get(label[len('VisibleItems_HGSS_'):])
+        if stone:
+            name, count = stone, 1
         labels.append(f'    ScriptEntry {label}\n')
         bodies.append(f'{label}:\n    SetVar VAR_0x8008, {name}\n    SetVar VAR_0x8009, {count}\n'
                       f'    GoTo VisibleItems_TryGiveItem\n    End\n\n')

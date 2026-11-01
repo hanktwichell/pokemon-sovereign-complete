@@ -73,7 +73,7 @@
             "species": "SPECIES_CLEFABLE",
             "form": 0,
             "level": 72,
-            "item": "ITEM_LIFE_ORB",
+            "item": "ITEM_CLEFABLITE",
             "moves": [
                 "MOVE_GRAVITY",
                 "MOVE_BLIZZARD",

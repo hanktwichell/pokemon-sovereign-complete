@@ -88,7 +88,8 @@
                 "MOVE_SYNTHESIS"
             ],
             "iv_scale": 255,
-            "ball_seal": 24
+            "ball_seal": 24,
+            "item": "ITEM_MEGANIUMITE"
         }
     ],
     "messages": [

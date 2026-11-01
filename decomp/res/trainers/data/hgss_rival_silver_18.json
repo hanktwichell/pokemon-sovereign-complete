@@ -72,7 +72,8 @@
                 "MOVE_THUNDER_WAVE"
             ],
             "iv_scale": 255,
-            "ball_seal": 0
+            "ball_seal": 0,
+            "item": "ITEM_ALAKAZITE"
         },
         {
             "species": "SPECIES_TYPHLOSION",

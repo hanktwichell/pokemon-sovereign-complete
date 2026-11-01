@@ -90,7 +90,7 @@
             "species": "SPECIES_STARMIE",
             "form": 0,
             "level": 72,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_STARMINITE",
             "moves": [
                 "MOVE_HYDRO_PUMP",
                 "MOVE_BLIZZARD",

@@ -88,7 +88,8 @@
                 "MOVE_SWORDS_DANCE"
             ],
             "iv_scale": 255,
-            "ball_seal": 24
+            "ball_seal": 24,
+            "item": "ITEM_FERALIGITE"
         }
     ],
     "messages": [

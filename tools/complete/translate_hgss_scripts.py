@@ -329,9 +329,28 @@ def totem_first_insert(after, trial, name):
             ['CompleteTotemFirst_End:', '    ReleaseAll', '    End'])
 
 
+# Megas in all three regions (the owner's call, Nov 1, 2026): the Mega Ring from a Johto Gym Leader, after her TM, as
+# Fantina gives it in Sinnoh with the Relic Badge (docs/Features.md, "Megas in Johto and Kanto")
+def mega_ring_insert(after):
+    return (after, ['    GoToIfSet FLAG_SOVEREIGN_MEGA_UNLOCKED, CompleteMegaRing_Done  @ Sovereign Complete: the Mega Ring',
+                    '    CallCommonScript 0x81C  @ CommonScript_CompleteMegaRingMessage',
+                    '    SetVar VAR_0x8004, ITEM_MEGA_RING',
+                    '    SetVar VAR_0x8005, 1',
+                    '    Common_GiveItemQuantity',
+                    '    SetFlag FLAG_SOVEREIGN_MEGA_UNLOCKED',
+                    '    CallCommonScript 0x81D  @ CommonScript_CompleteMegaRingExplain',
+                    'CompleteMegaRing_Done:'], [])
+
+
+def both(first, second):
+    """Two inserts in one script (the second's anchor after the first's)."""
+    return ('', [], [], first, second)
+
+
 INSERTS = {
     'scr_seq_0869_T23GYM0102': totem_first_insert('    GoToIf 1, _018E', 0, 'GUMSHOOS'),  # Bugsy
-    'scr_seq_0886_T25GYM0101': totem_first_insert('    GoToIf 1, _01C4', 2, 'VIKAVOLT'),  # Whitney
+    'scr_seq_0886_T25GYM0101': both(totem_first_insert('    GoToIf 1, _01C4', 2, 'VIKAVOLT'),  # Whitney
+                                    mega_ring_insert('    Message msg_0582_T25GYM0101_00007')),
     'scr_seq_0922_T27GYM0101': totem_first_insert('    GoToIf 1, _01EE', 1, 'RIBOMBEE'),  # Morty
     'scr_seq_0877_T24GYM0101': totem_first_insert('    GoToIf 1, _0101', 3, 'MIMIKYU'),  # Chuck
     'scr_seq_0760_T04GYM0101': totem_first_insert('    GoToIf 1, _0321', 7, 'ARAQUANID'),  # Misty
@@ -348,9 +367,11 @@ INSERTS = {
 def apply_inserts(stem, body):
     if stem not in INSERTS:
         return body
-    after, lines, end = INSERTS[stem]
-    i = body.index(after) + 1  # a ValueError: Sacred Gold's script changed, and the insert needs a new place
-    return body[:i] + lines + body[i:] + end
+    inserts = INSERTS[stem][3:] if len(INSERTS[stem]) == 5 else [INSERTS[stem]]
+    for after, lines, end in inserts:
+        i = body.index(after) + 1  # a ValueError: Sacred Gold's script changed, and the insert needs a new place
+        body = body[:i] + lines + body[i:] + end
+    return body
 
 
 # Commands that leave the field: a rest scene (HeartGold's ScrCmd_436) and the battles

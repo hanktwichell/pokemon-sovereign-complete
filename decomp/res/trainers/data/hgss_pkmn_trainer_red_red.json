@@ -60,7 +60,7 @@
             "species": "SPECIES_BLASTOISE",
             "form": 0,
             "level": 90,
-            "item": "ITEM_RINDO_BERRY",
+            "item": "ITEM_BLASTOISINITE",
             "moves": [
                 "MOVE_SIGNAL_BEAM",
                 "MOVE_HYDRO_PUMP",

@@ -58,7 +58,7 @@
             "species": "SPECIES_LUCARIO",
             "form": 0,
             "level": 54,
-            "item": "ITEM_NONE",
+            "item": "ITEM_LUCARIONITE",
             "moves": [
                 "MOVE_AURA_SPHERE",
                 "MOVE_DARK_PULSE",

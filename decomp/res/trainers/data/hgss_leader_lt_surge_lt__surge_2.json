@@ -89,7 +89,7 @@
             "species": "SPECIES_RAICHU",
             "form": 0,
             "level": 74,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_RAICHUNITE_X",
             "moves": [
                 "MOVE_THUNDERBOLT",
                 "MOVE_SURF",

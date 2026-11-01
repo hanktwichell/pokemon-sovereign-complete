@@ -44,7 +44,7 @@
             "species": "SPECIES_DRAGONITE",
             "form": 0,
             "level": 88,
-            "item": "ITEM_NONE",
+            "item": "ITEM_DRAGONINITE",
             "moves": [
                 "MOVE_AGILITY",
                 "MOVE_OUTRAGE",

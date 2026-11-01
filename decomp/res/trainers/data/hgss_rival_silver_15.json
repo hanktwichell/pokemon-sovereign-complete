@@ -46,7 +46,8 @@
                 "MOVE_FOCUS_BLAST"
             ],
             "iv_scale": 255,
-            "ball_seal": 0
+            "ball_seal": 0,
+            "item": "ITEM_GENGARITE"
         },
         {
             "species": "SPECIES_KINGDRA",

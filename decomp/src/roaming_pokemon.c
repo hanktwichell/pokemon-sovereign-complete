@@ -556,16 +556,23 @@ void RoamingPokemon_ActivateSlot(SaveData *saveData, const u8 slot)
 }
 
 // Sovereign Complete: the routes of the roamer's region (RI_SINNOH_START, RI_JOHTO_START, RI_KANTO_START).
+// Sovereign's roamers of the Unova Chronicle roam Johto, and the Alola's and Galar's Kanto (the owner's call, Nov 1,
+// 2026: the legendaries spread over three regions; docs/Features.md, "Totem trials and legendaries in three regions").
 static void RoamerRegionRoutes(const u8 roamerSlot, u8 *first, u8 *count)
 {
     switch (roamerSlot) {
     case ROAMING_SLOT_RAIKOU:
     case ROAMING_SLOT_ENTEI:
+    case ROAMING_SLOT_TORNADUS:
+    case ROAMING_SLOT_THUNDURUS:
         *first = RI_JOHTO_START;
         *count = RI_KANTO_START - RI_JOHTO_START;
         break;
     case ROAMING_SLOT_LATIAS:
     case ROAMING_SLOT_LATIOS:
+    case ROAMING_SLOT_ZERAORA:
+    case ROAMING_SLOT_GLASTRIER:
+    case ROAMING_SLOT_SPECTRIER:
         *first = RI_KANTO_START;
         *count = RI_MAX - RI_KANTO_START;
         break;
@@ -574,6 +581,15 @@ static void RoamerRegionRoutes(const u8 roamerSlot, u8 *first, u8 *count)
         *count = RI_JOHTO_START - RI_SINNOH_START;
         break;
     }
+}
+
+// Sovereign Complete: whether the roamer in this slot roams Sinnoh (Sinnoh Now's news)
+BOOL RoamingPokemon_RoamsSinnoh(const u8 roamerSlot)
+{
+    u8 first, count;
+
+    RoamerRegionRoutes(roamerSlot, &first, &count);
+    return first == RI_SINNOH_START;
 }
 
 static void MoveRoamerRandom(SpecialEncounter *specialEncounter, const u8 roamerSlot, const int playerPreviousMap)

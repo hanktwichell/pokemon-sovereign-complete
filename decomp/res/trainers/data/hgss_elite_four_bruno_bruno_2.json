@@ -60,7 +60,7 @@
             "species": "SPECIES_LUCARIO",
             "form": 0,
             "level": 80,
-            "item": "ITEM_NONE",
+            "item": "ITEM_LUCARIONITE",
             "moves": [
                 "MOVE_CLOSE_COMBAT",
                 "MOVE_CRUNCH",

@@ -102,6 +102,8 @@
     ScriptEntry CommonScript_CompleteFerryToSinnohOpen @ 0x819
     ScriptEntry CommonScript_CompletePlaced @ 0x81A
     ScriptEntry CommonScript_CompleteTotemFirst @ 0x81B
+    ScriptEntry CommonScript_CompleteMegaRingMessage @ 0x81C
+    ScriptEntry CommonScript_CompleteMegaRingExplain @ 0x81D
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -1786,6 +1788,19 @@ CommonScript_CompleteTotemFirst:
     CloseMessage
     SetVar VAR_RESULT, FALSE
 CommonScript_CompleteTotemFirstDone:
+    ReturnCommonScript
+    End
+
+@ Sovereign Complete: the Mega Ring's lines, for a Johto Gym Leader who gives it (the translator's mega_ring_insert),
+@ as Fantina gives it in Sinnoh with the Relic Badge (she skips it once FLAG_SOVEREIGN_MEGA_UNLOCKED is set)
+CommonScript_CompleteMegaRingMessage:
+    Message CommonStrings_Text_CompleteMegaRing
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteMegaRingExplain:
+    Message CommonStrings_Text_CompleteExplainMegaRing
+    WaitButton
     ReturnCommonScript
     End
 

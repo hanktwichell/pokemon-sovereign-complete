@@ -63,7 +63,7 @@
             "species": "SPECIES_CAMERUPT",
             "form": 0,
             "level": 65,
-            "item": "ITEM_WHITE_HERB",
+            "item": "ITEM_CAMERUPTITE",
             "moves": [
                 "MOVE_OVERHEAT",
                 "MOVE_EARTHQUAKE",

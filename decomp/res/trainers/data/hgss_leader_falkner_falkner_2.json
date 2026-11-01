@@ -87,7 +87,7 @@
             "species": "SPECIES_PIDGEOT",
             "form": 0,
             "level": 72,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_PIDGEOTITE",
             "moves": [
                 "MOVE_BRAVE_BIRD",
                 "MOVE_FRUSTRATION",

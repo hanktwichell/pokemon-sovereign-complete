@@ -2536,8 +2536,8 @@ static int TVSegment_LoadMessage_RoamerNewsFlash(FieldSystem *fieldSystem, Strin
     StringTemplate_SetString(template, 0, string, 0, 1, GAME_LANGUAGE);
     String_Free(string);
 
-    for (i = 0; i < ROAMING_SLOT_RAIKOU; i++) { // Sovereign Complete: Sinnoh's roamers (was ROAMING_SLOT_MAX)
-        if (SpecialEncounter_IsRoamerActive(speEnc, i)) {
+    for (i = 0; i < ROAMING_SLOT_MAX; i++) {
+        if (SpecialEncounter_IsRoamerActive(speEnc, i) && RoamingPokemon_RoamsSinnoh(i)) { // Sovereign Complete: Sinnoh's
             roamer = SpecialEncounter_GetRoamer(speEnc, i);
 
             species = Roamer_GetData(roamer, ROAMER_DATA_SPECIES);
@@ -2556,8 +2556,8 @@ static BOOL TVSegment_IsEligible_RoamerNewsFlash(FieldSystem *fieldSystem, TVEpi
     int i;
     SpecialEncounter *speEnc = SaveData_GetSpecialEncounters(fieldSystem->saveData);
 
-    for (i = 0; i < ROAMING_SLOT_RAIKOU; i++) { // Sovereign Complete: Sinnoh's roamers (was ROAMING_SLOT_MAX)
-        if (SpecialEncounter_IsRoamerActive(speEnc, i)) {
+    for (i = 0; i < ROAMING_SLOT_MAX; i++) {
+        if (SpecialEncounter_IsRoamerActive(speEnc, i) && RoamingPokemon_RoamsSinnoh(i)) { // Sovereign Complete: Sinnoh's
             return TRUE;
         }
     }

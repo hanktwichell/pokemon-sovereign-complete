@@ -47,7 +47,7 @@
             "species": "SPECIES_VICTREEBEL",
             "form": 0,
             "level": 63,
-            "item": "ITEM_NONE",
+            "item": "ITEM_VICTREEBELITE",
             "moves": [
                 "MOVE_LEAF_BLADE",
                 "MOVE_SYNTHESIS",

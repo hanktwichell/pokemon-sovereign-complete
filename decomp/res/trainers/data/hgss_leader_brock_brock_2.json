@@ -89,7 +89,7 @@
             "species": "SPECIES_STEELIX",
             "form": 0,
             "level": 73,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_STEELIXITE",
             "moves": [
                 "MOVE_STONE_EDGE",
                 "MOVE_EARTHQUAKE",

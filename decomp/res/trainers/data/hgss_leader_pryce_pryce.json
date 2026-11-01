@@ -73,7 +73,7 @@
             "species": "SPECIES_GLALIE",
             "form": 0,
             "level": 42,
-            "item": "ITEM_NONE",
+            "item": "ITEM_GLALITITE",
             "moves": [
                 "MOVE_SPIKES",
                 "MOVE_EXPLOSION",

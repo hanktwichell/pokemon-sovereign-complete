@@ -58,7 +58,7 @@
             "species": "SPECIES_SALAMENCE",
             "form": 0,
             "level": 50,
-            "item": "ITEM_WHITE_HERB",
+            "item": "ITEM_SALAMENCITE",
             "moves": [
                 "MOVE_FIRE_BLAST",
                 "MOVE_HYDRO_PUMP",

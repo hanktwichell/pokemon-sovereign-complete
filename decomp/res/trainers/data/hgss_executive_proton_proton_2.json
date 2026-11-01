@@ -72,7 +72,7 @@
             "species": "SPECIES_CAMERUPT",
             "form": 0,
             "level": 45,
-            "item": "ITEM_NONE",
+            "item": "ITEM_CAMERUPTITE",
             "moves": [
                 "MOVE_EARTH_POWER",
                 "MOVE_FIRE_BLAST",

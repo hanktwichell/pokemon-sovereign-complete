@@ -183,13 +183,13 @@
         "I’m the Legend Archivist. I look after\n",
         "this library’s oldest records.\r",
         "Since your Hall of Fame entry, people\n",
-        "have seen Pokémon new to Sinnoh.\r",
+        "have seen Pokémon new to our lands.\r",
         "I found them in this tome, the Unova\n",
         "Chronicle. Unova is a faraway land.\r",
         "Its legends tell of three Pokémon\n",
         "who stood together like swords.\r",
         "And now one of them, VIRIZION, has\n",
-        "been seen in northern Eterna Forest.\r",
+        "been seen in Johto, in Ilex Forest.\r",
         "How could a Pokémon of Unova come\n",
         "here? I can’t make sense of it.\r",
         "Would you look into it for me?\n",
@@ -202,29 +202,29 @@
         "The Chronicle names all three swords:\n",
         "COBALION, TERRAKION and VIRIZION.\r",
         "They never stray far from each other,\n",
-        "and now all three are here in Sinnoh.\r",
+        "and now all three are in Johto.\r",
         "Here’s where they’ve been seen:\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistCobalion",
       "en_US": [
-        "COBALION: deep inside Iron Island,\n",
-        "in a side cave two floors down.\r"
+        "COBALION: deep in Mt. Mortar,\n",
+        "on its lowest floor.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistTerrakion",
       "en_US": [
-        "TERRAKION: in a hollow among the\n",
-        "rocks at the north end of Route 227.\r"
+        "TERRAKION: in Dark Cave, in the\n",
+        "part that opens onto Route 45.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistVirizion",
       "en_US": [
-        "VIRIZION: in the north of Eterna\n",
-        "Forest, by the Old Chateau.\r"
+        "VIRIZION: deep in Ilex Forest,\n",
+        "south of Goldenrod City.\r"
       ]
     },
     {
@@ -243,7 +243,7 @@
         "from them, and became a sword itself.\r",
         "They say it comes to the water when\n",
         "the three swords are near.\r",
-        "Lake Valor, perhaps? Go there with\n",
+        "The Lake of Rage, perhaps? Go with\n",
         "COBALION, TERRAKION and VIRIZION.\r"
       ]
     },
@@ -251,7 +251,7 @@
       "id": "CanalaveLibrary2F_Text_SovereignArchivistKeldeoCaught",
       "en_US": [
         "KELDEO too! All four swords of Unova,\n",
-        "here in Sinnoh...\r"
+        "found at last...\r"
       ]
     },
     {
@@ -287,14 +287,14 @@
       "id": "CanalaveLibrary2F_Text_SovereignArchivistReshiram",
       "en_US": [
         "RESHIRAM: the LIGHT STONE is warm,\n",
-        "like a fire. Try Fuego Ironworks.\r"
+        "like a fire. Try the Burned Tower.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistZekrom",
       "en_US": [
         "ZEKROM: the DARK STONE crackles.\n",
-        "Try rainy Route 215, at night.\r"
+        "Try Dragon’s Den in Johto, at night.\r"
       ]
     },
     {
@@ -304,7 +304,7 @@
         "The Chronicle tells of a third dragon,\n",
         "KYUREM, left empty when they split.\r",
         "It sleeps in the ice. Try the icy\n",
-        "chamber in Mt. Coronet by Route 216.\r"
+        "depths of the Ice Path in Johto.\r"
       ]
     },
     {
@@ -324,16 +324,14 @@
         "Have you felt the wild winds and the\n",
         "storms lately? They must be here!\r",
         "They never stay in one place. Look\n",
-        "for them all over Sinnoh.\r"
+        "for them all over Johto.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistRoamers",
       "en_US": [
         "TORNADUS and THUNDURUS roam all\n",
-        "over Sinnoh.\r",
-        "A Pokétch’s Marking Map can show\n",
-        "you where they are.\r"
+        "over Johto.\r"
       ]
     },
     {
@@ -356,16 +354,16 @@
       "en_US": [
         "LANDORUS, lord of the land, once\n",
         "stopped the two of them.\r",
-        "Take TORNADUS and THUNDURUS to the\n",
-        "sands of Route 228, and see!\r"
+        "Take TORNADUS and THUNDURUS to\n",
+        "Route 46 in Johto, and see!\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistEnamorus",
       "en_US": [
         "And ENAMORUS, who brings the spring...\r",
-        "They say it waits on the beach\n",
-        "of Route 224.\r"
+        "They say it waits among the trees\n",
+        "of Route 43.\r"
       ]
     },
     {
@@ -437,8 +435,8 @@
       "en_US": [
         "And of VICTINI, who brings victory\n",
         "to those it likes.\r",
-        "It loves a view of the sea. Try the\n",
-        "top of Sunyshore’s Vista Lighthouse.\r"
+        "It loves a view of the sea. Try\n",
+        "high up in Olivine’s Lighthouse.\r"
       ]
     },
     {
@@ -508,15 +506,15 @@
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistXerneas",
       "en_US": [
-        "XERNEAS: in Eterna Forest, in the\n",
-        "green nook beside the Old Chateau.\r"
+        "XERNEAS: on Route 37 in Johto,\n",
+        "among the trees.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistYveltal",
       "en_US": [
-        "YVELTAL: in a hidden nook on\n",
-        "Route 229, past a tree to Cut.\r"
+        "YVELTAL: on the mountain paths\n",
+        "of Route 45.\r"
       ]
     },
     {
@@ -526,7 +524,7 @@
         "The Chronicle tells of a third one,\n",
         "ZYGARDE, who keeps them in order.\r",
         "It watches from deep below. Try the\n",
-        "lowest floor of Wayward Cave.\r"
+        "lowest floor of Union Cave.\r"
       ]
     },
     {
@@ -551,7 +549,7 @@
         "The Chronicle also tells of DIANCIE,\n",
         "a jewel born among CARBINK.\r",
         "A CARBINK might lead you to\n",
-        "it, deep in Oreburgh Mine.\r",
+        "it, deep in Cliff Cave.\r",
         "CARBINK live outside Stark Mountain.\r"
       ]
     },
@@ -567,8 +565,8 @@
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistHoopa",
       "en_US": [
-        "HOOPA: they say it plays in a dead\n",
-        "end deep in the Solaceon Ruins.\r",
+        "HOOPA: they say it plays among\n",
+        "the Ruins of Alph.\r",
         "Take the PRISON BOTTLE there!\r"
       ]
     },
@@ -577,8 +575,8 @@
       "en_US": [
         "And of VOLCANION, who lives in heat\n",
         "and steam.\r",
-        "Try the dead-end tunnel deep in\n",
-        "Stark Mountain’s second cave.\r"
+        "Try the cliffs of Route 47,\n",
+        "west of Cianwood City.\r"
       ]
     },
     {
@@ -643,29 +641,29 @@
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistTapuKoko",
       "en_US": [
-        "TAPU KOKO: on the beach at the\n",
-        "east end of Route 222.\r"
+        "TAPU KOKO: on Route 10 in Kanto,\n",
+        "by the Power Plant.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistTapuLele",
       "en_US": [
-        "TAPU LELE: in the grove on\n",
-        "Fullmoon Island.\r"
+        "TAPU LELE: in Lavender Town,\n",
+        "in Kanto.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistTapuBulu",
       "en_US": [
-        "TAPU BULU: among the flowers of\n",
-        "Floaroma Meadow.\r"
+        "TAPU BULU: deep in Viridian\n",
+        "Forest.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistTapuFini",
       "en_US": [
-        "TAPU FINI: on a little beach out\n",
-        "at sea, on Route 226.\r"
+        "TAPU FINI: on the shore of\n",
+        "Route 19, south of Fuchsia City.\r"
       ]
     },
     {
@@ -840,34 +838,34 @@
       "id": "CanalaveLibrary2F_Text_SovereignArchivistMagearna",
       "en_US": [
         "MAGEARNA: an old automaton in\n",
-        "Volkner’s room at the Sunyshore Gym.\r"
+        "Silph Co. in Saffron City.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistMarshadow",
       "en_US": [
-        "MARSHADOW: in the shadows of the\n",
-        "Old Chateau’s dining room.\r"
+        "MARSHADOW: in the shadows of\n",
+        "Rock Tunnel.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistZeraora",
       "en_US": [
         "ZERAORA: it runs all over\n",
-        "Sinnoh like lightning.\r"
+        "Kanto like lightning.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistMeltan",
       "en_US": [
         "MELTAN: somewhere in\n",
-        "Oreburgh Mine.\r"
+        "Mt. Moon.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistMelmetal",
       "en_US": [
-        "MELMETAL: it comes to Oreburgh Mine\n",
+        "MELMETAL: it comes to Mt. Moon\n",
         "once you catch MELTAN.\r"
       ]
     },
@@ -925,15 +923,15 @@
       "en_US": [
         "The Chronicle tells of two heroes,\n",
         "a sword and a shield.\r",
-        "ZACIAN, the sword, waits in the fog\n",
-        "of Route 210, north of Solaceon.\r"
+        "ZACIAN, the sword, waits on\n",
+        "Route 2, north of Viridian City.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistZamazenta",
       "en_US": [
         "ZAMAZENTA, the shield, has come to\n",
-        "the fog of Route 210 now.\r"
+        "Route 2 now.\r"
       ]
     },
     {
@@ -941,8 +939,8 @@
       "en_US": [
         "Both heroes! The Chronicle warns of\n",
         "ETERNATUS, who brought the darkness.\r",
-        "It waits on an island in the\n",
-        "depths of Victory Road.\r"
+        "It waits in the depths of\n",
+        "Kanto’s Victory Road.\r"
       ]
     },
     {
@@ -956,7 +954,7 @@
       "id": "CanalaveLibrary2F_Text_SovereignArchivistCalyrex",
       "en_US": [
         "CALYREX, the King of Bountiful\n",
-        "Harvests, waits in Celestic Town.\r"
+        "Harvests, waits on Route 22.\r"
       ]
     },
     {
@@ -972,14 +970,14 @@
       "id": "CanalaveLibrary2F_Text_SovereignArchivistGlastrier",
       "en_US": [
         "GLASTRIER: it runs\n",
-        "free all over Sinnoh.\r"
+        "free all over Kanto.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistSpectrier",
       "en_US": [
         "SPECTRIER: it runs\n",
-        "free all over Sinnoh.\r"
+        "free all over Kanto.\r"
       ]
     },
     {
@@ -992,8 +990,8 @@
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistKubfu",
       "en_US": [
-        "KUBFU: training in the\n",
-        "Veilstone Gym.\r"
+        "KUBFU: training in Saffron’s\n",
+        "Fighting Dojo.\r"
       ]
     },
     {
@@ -1008,8 +1006,8 @@
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistZarude",
       "en_US": [
-        "ZARUDE: in the marshy grass south\n",
-        "of Route 212.\r"
+        "ZARUDE: in the tall grass of\n",
+        "Route 14.\r"
       ]
     },
     {
@@ -1023,15 +1021,15 @@
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistRegieleki",
       "en_US": [
-        "REGIELEKI: inside the Valley\n",
-        "Windworks.\r"
+        "REGIELEKI: inside the Power Plant\n",
+        "on Route 10.\r"
       ]
     },
     {
       "id": "CanalaveLibrary2F_Text_SovereignArchivistRegidrago",
       "en_US": [
-        "REGIDRAGO: in the ruins on\n",
-        "Route 228.\r"
+        "REGIDRAGO: on Route 28, by\n",
+        "Mt. Silver.\r"
       ]
     },
     {
@@ -1256,7 +1254,7 @@
         "The Chronicle also tells of\n",
         "ZERAORA, who moves like lightning.\r",
         "It never stays in one place.\n",
-        "Look for it all over Sinnoh!\r"
+        "Look for it all over Kanto!\r"
       ]
     },
     {
@@ -1271,7 +1269,7 @@
       "en_US": [
         "With their king caught, GLASTRIER\n",
         "and SPECTRIER have bolted!\r",
-        "They run all over Sinnoh now.\n",
+        "They run all over Kanto now.\n",
         "Catch one and join it to the king!\r"
       ]
     },

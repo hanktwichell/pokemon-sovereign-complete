@@ -13,6 +13,9 @@ The plan's two lists:
 
 Each placed spot is checked: on the map, walkable, and with nobody else on it.
 
+The plan's texts: the Legend Archivist's lines that say where the moved legendaries are (by message ID after
+CanalaveLibrary2F_Text_SovereignArchivist), written into decomp/res/text/canalave_library_2f.json.
+
 Usage: python3 tools/complete/gen_placed.py
 """
 import json
@@ -139,7 +142,22 @@ def main():
     if text != old:
         with open(OUT, 'w', encoding='utf-8') as f:
             f.write(text)
-    print(f'{os.path.relpath(OUT, ROOT)}: {len(rows)} placed, {len(moved)} moved')
+    texts = plan.get('texts') or {}
+    path = os.path.join(DECOMP, 'res', 'text', 'canalave_library_2f.json')
+    bank = json.load(open(path, encoding='utf-8'))
+    ids = {m['id']: m for m in bank['messages']}
+    for name, lines in texts.items():
+        message = ids.get('CanalaveLibrary2F_Text_SovereignArchivist' + name)
+        if message is None:
+            sys.exit(f'texts: no CanalaveLibrary2F_Text_SovereignArchivist{name}')
+        if any(len(line.rstrip('\n\r')) > 38 for line in lines):  # as the longest of Sovereign's; widths: check_message_box_lines.py
+            sys.exit(f'texts: {name} has a line too long for the message box')
+        message['en_US'] = lines
+    text = json.dumps(bank, indent=2, ensure_ascii=False) + '\n'
+    if text != open(path, encoding='utf-8').read():
+        open(path, 'w', encoding='utf-8').write(text)
+    print(f'{os.path.relpath(OUT, ROOT)}: {len(rows)} placed, {len(moved)} moved; {len(texts)} of the Archivist\'s '
+          'lines')
 
 
 if __name__ == '__main__':

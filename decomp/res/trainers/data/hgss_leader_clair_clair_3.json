@@ -30,7 +30,7 @@
             "species": "SPECIES_SALAMENCE",
             "form": 0,
             "level": 76,
-            "item": "ITEM_NONE",
+            "item": "ITEM_SALAMENCITE",
             "moves": [
                 "MOVE_OUTRAGE",
                 "MOVE_HYDRO_PUMP",

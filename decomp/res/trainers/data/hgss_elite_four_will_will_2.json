@@ -59,7 +59,7 @@
             "species": "SPECIES_SLOWBRO",
             "form": 0,
             "level": 80,
-            "item": "ITEM_NONE",
+            "item": "ITEM_SLOWBRONITE",
             "moves": [
                 "MOVE_TRICK_ROOM",
                 "MOVE_SURF",

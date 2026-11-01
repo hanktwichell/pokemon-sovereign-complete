@@ -2687,7 +2687,7 @@ VisibleItems_MessageObtainedPlate:
 // Sovereign Complete: the scripts of Johto's and Kanto's item balls (their entries are above)
 
 VisibleItems_HGSS_Route29_Potion:
-    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8008, ITEM_PIDGEOTITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -2699,7 +2699,7 @@ VisibleItems_HGSS_Route30_Antidote:
     End
 
 VisibleItems_HGSS_Route30_Potion:
-    SetVar VAR_0x8008, ITEM_POTION
+    SetVar VAR_0x8008, ITEM_BEEDRILLITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -2711,7 +2711,7 @@ VisibleItems_HGSS_Route31_Potion:
     End
 
 VisibleItems_HGSS_Route31_PokeBall:
-    SetVar VAR_0x8008, ITEM_POKE_BALL
+    SetVar VAR_0x8008, ITEM_ALAKAZITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -2861,7 +2861,7 @@ VisibleItems_HGSS_RuinsOfAlphNorthwestEntranceSecondRoom_LeppaBerry:
     End
 
 VisibleItems_HGSS_Route32_Repel:
-    SetVar VAR_0x8008, ITEM_REPEL
+    SetVar VAR_0x8008, ITEM_AMPHAROSITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -2927,13 +2927,13 @@ VisibleItems_HGSS_UnionCaveB2f_Elixir:
     End
 
 VisibleItems_HGSS_UnionCaveB2f_HyperPotion:
-    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8008, ITEM_STEELIXITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
 
 VisibleItems_HGSS_SlowpokeWellB1f_SuperPotion:
-    SetVar VAR_0x8008, ITEM_SUPER_POTION
+    SetVar VAR_0x8008, ITEM_SLOWBRONITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -2963,7 +2963,7 @@ VisibleItems_HGSS_IcePath1f_ChilledOre:
     End
 
 VisibleItems_HGSS_IlexForest_Ether:
-    SetVar VAR_0x8008, ITEM_ETHER
+    SetVar VAR_0x8008, ITEM_HERACRONITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3083,13 +3083,13 @@ VisibleItems_HGSS_NationalPark_ShinyStone:
     End
 
 VisibleItems_HGSS_Route36_HyperPotion:
-    SetVar VAR_0x8008, ITEM_HYPER_POTION
+    SetVar VAR_0x8008, ITEM_SCIZORITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
 
 VisibleItems_HGSS_BurnedTower1f_Antidote:
-    SetVar VAR_0x8008, ITEM_ANTIDOTE
+    SetVar VAR_0x8008, ITEM_GENGARITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3179,7 +3179,7 @@ VisibleItems_HGSS_BellTower9f_HpUp:
     End
 
 VisibleItems_HGSS_Route38_MaxPotion:
-    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8008, ITEM_PINSIRITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3251,7 +3251,7 @@ VisibleItems_HGSS_WhirlIslands1f_UltraBall_93:
     End
 
 VisibleItems_HGSS_WhirlIslandsB1f_EscapeRope:
-    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8008, ITEM_FERALIGITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3365,7 +3365,7 @@ VisibleItems_HGSS_MountMortar1fEntrance_Revive:
     End
 
 VisibleItems_HGSS_Route42_EscapeRope:
-    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8008, ITEM_GYARADOSITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3563,7 +3563,7 @@ VisibleItems_HGSS_LakeOfRage_RedFlute:
     End
 
 VisibleItems_HGSS_Route44_MaxRepel:
-    SetVar VAR_0x8008, ITEM_MAX_REPEL
+    SetVar VAR_0x8008, ITEM_HOUNDOOMINITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3599,7 +3599,7 @@ VisibleItems_HGSS_IcePath1f_PpUp:
     End
 
 VisibleItems_HGSS_IcePathB2f_FullHeal:
-    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8008, ITEM_GLALITITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3659,7 +3659,7 @@ VisibleItems_HGSS_Route45_MaxPotion:
     End
 
 VisibleItems_HGSS_Route45_FullHeal:
-    SetVar VAR_0x8008, ITEM_FULL_HEAL
+    SetVar VAR_0x8008, ITEM_MEGANIUMITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3677,7 +3677,7 @@ VisibleItems_HGSS_Route45_Revive:
     End
 
 VisibleItems_HGSS_Route46_XSpeed:
-    SetVar VAR_0x8008, ITEM_X_SPEED
+    SetVar VAR_0x8008, ITEM_AERODACTYLITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3791,7 +3791,7 @@ VisibleItems_HGSS_VictoryRoad2f_FullRestore:
     End
 
 VisibleItems_HGSS_VictoryRoad3f_UltraBall:
-    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8008, ITEM_CHARIZARDITE_X
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3905,7 +3905,7 @@ VisibleItems_HGSS_Route9_LightClay:
     End
 
 VisibleItems_HGSS_Route9_MaxPotion:
-    SetVar VAR_0x8008, ITEM_MAX_POTION
+    SetVar VAR_0x8008, ITEM_VENUSAURITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -3971,7 +3971,7 @@ VisibleItems_HGSS_Route2_Elixir:
     End
 
 VisibleItems_HGSS_Route11_DireHit:
-    SetVar VAR_0x8008, ITEM_DIRE_HIT
+    SetVar VAR_0x8008, ITEM_BLASTOISINITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -4019,7 +4019,7 @@ VisibleItems_HGSS_IcePath1f_Magmarizer:
     End
 
 VisibleItems_HGSS_SeafoamIslandsB1f_IceHeal:
-    SetVar VAR_0x8008, ITEM_ICE_HEAL
+    SetVar VAR_0x8008, ITEM_ABOMASITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -4097,7 +4097,7 @@ VisibleItems_HGSS_Route35_DawnStone:
     End
 
 VisibleItems_HGSS_MountSilverCaveLowerMountainside_EscapeRope:
-    SetVar VAR_0x8008, ITEM_ESCAPE_ROPE
+    SetVar VAR_0x8008, ITEM_TYRANITARITE
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -4169,7 +4169,7 @@ VisibleItems_HGSS_CeruleanCave2f_PpUp:
     End
 
 VisibleItems_HGSS_CeruleanCave2f_UltraBall:
-    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8008, ITEM_CHARIZARDITE_Y
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End
@@ -4193,7 +4193,7 @@ VisibleItems_HGSS_CeruleanCaveB1f_MaxRevive:
     End
 
 VisibleItems_HGSS_CeruleanCaveB1f_UltraBall:
-    SetVar VAR_0x8008, ITEM_ULTRA_BALL
+    SetVar VAR_0x8008, ITEM_MEWTWONITE_Y
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End

@@ -85,7 +85,8 @@
                 "MOVE_CRUNCH"
             ],
             "iv_scale": 255,
-            "ball_seal": 0
+            "ball_seal": 0,
+            "item": "ITEM_FERALIGITE"
         }
     ],
     "messages": [

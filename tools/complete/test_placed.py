@@ -2,12 +2,13 @@
 """Test the Totem trials and legendaries placed on other maps than Sovereign put them (data/complete/placed.yaml,
 src/complete_placed.c), each in the test build from a bedroom state:
 
-1. **Not yet:** without the badges its gates ask for, nobody stands on its spot (A there runs no script). Legendaries'
-   other gates (the Chronicles, items) are left to their own checks.
-2. **Its encounter:** with them (gCompleteTestHGSSBadges, set on the test warp), the player arrives beside it, facing
-   it, and A runs CommonScript_CompletePlaced, which plays Sovereign's trial or legendary battle out (the test build's
-   god mode: one hit wins). A Totem's trial is done (its FLAG_SOVEREIGN_TOTEM_TRIAL_* flag), and it's gone: A on its
-   spot runs nothing.
+1. **Not yet:** without what its gates ask for, nobody stands on its spot (A there runs no script).
+2. **Its encounter:** with it, set on the test warp (badges: gCompleteTestHGSSBadges; vars and flags:
+   gSovereignTestVar; an item: gSovereignTestBagItem; Pokémon in the party: gSovereignTestPartyAdd, the party cut to
+   its lead first; others caught: gSovereignTestCaughtAllBut, everyone but it; the night: gSovereignTestClock), the
+   player arrives beside it, facing it, and A runs CommonScript_CompletePlaced, which plays Sovereign's trial or
+   legendary battle out (the test build's god mode: one hit wins; a legendary is knocked out, not caught). A Totem's
+   trial is done (its FLAG_SOVEREIGN_TOTEM_TRIAL_* flag), and it's gone: A on its spot runs nothing.
 
 The moved objects' old spots in Sinnoh are left to tools/test/talk_to_objects.py (they aren't there to talk to).
 
@@ -53,7 +54,8 @@ def main():
     rom, state, out = sys.argv[1:4]
     only = sys.argv[4:]
     os.makedirs(out, exist_ok=True)
-    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestHGSSBadges'))
+    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestHGSSBadges',
+                             'gSovereignTestPartyAdd', 'gSovereignTestCaughtAllBut', 'gSovereignTestPartyKeep'))
     names = header_names()
     variables = var_ids()
     maps = Maps(DECOMP)
@@ -71,7 +73,35 @@ def main():
         n = variables[name]
         return bool(mem.unsigned[flags + n // 8] & (1 << (n % 8)))
 
-    def arrive(header, x, z, badges):
+    species_ids = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'species.txt')) if line.strip()]
+    items = open(os.path.join(DECOMP, 'generated', 'items.txt')).read().split()
+
+    def set_gates(p):
+        """What a legendary's gates ask for, set for the next test warp."""
+        slot, adds = 3, 0  # gSovereignTestVar's first three slots are the warp's own
+        for gate in p.get('gates') or []:
+            (key, arg), = gate.items()
+            if key == 'var':
+                mem.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[arg[0]])
+                mem.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, arg[1])
+                slot += 1
+            elif key == 'flag':
+                mem.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[arg])
+                mem.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, 1)
+                slot += 1
+            elif key == 'item':
+                mem.write_short(sym['gSovereignTestBagItem'], items.index(arg))
+            elif key == 'party':
+                mem.write_byte(sym['gSovereignTestPartyKeep'], 1)
+                mem.write_short(sym['gSovereignTestPartyAdd'] + 4 * adds, species_ids.index(arg))
+                mem.write_byte(sym['gSovereignTestPartyAdd'] + 4 * adds + 3, 50)
+                adds += 1
+            elif key == 'caught':
+                mem.write_short(sym['gSovereignTestCaughtAllBut'], species_ids.index(p['legendary']))
+            elif key == 'night':
+                mem.write_byte(sym['gSovereignTestClock'], 22 + 1)
+
+    def arrive(header, x, z, badges, gates=None):
         """Beside (x, z), facing it: the side's tile and the result."""
         _, matrix = header_info(header)
         for (dx, dz), face in SIDES:
@@ -80,6 +110,8 @@ def main():
                 d.run(30)
                 mem.write_byte(sym['gSovereignTestGodMode'], 1)
                 mem.write_short(sym['gCompleteTestHGSSBadges'], badges)
+                if gates:
+                    set_gates(gates)
                 result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face)
                 if result == 'ok':  # a press toward it turns the player to face it (it's in the way)
                     d.press(KEYS[face], frames=4, after=20)
@@ -100,8 +132,8 @@ def main():
         header, (x, z) = p['map'], p['at']
         badges = badge_mask(p.get('gates'))
         problem = ''
-        # 1. not out before its badges (when it waits on one)
-        if badges:
+        # 1. not out before its badges or gates (when it waits on some)
+        if badges or p.get('gates'):
             arrived = arrive(header, x, z, 0)
             if arrived != 'ok':
                 problem = f'warp {arrived}'
@@ -111,7 +143,7 @@ def main():
                     problem = f'out before its badges (script {script} ran)'
         # 2. its encounter, then gone
         if not problem:
-            arrived = arrive(header, x, z, badges)
+            arrived = arrive(header, x, z, badges, p)
             if arrived != 'ok':
                 problem = f'warp {arrived}'
             else:

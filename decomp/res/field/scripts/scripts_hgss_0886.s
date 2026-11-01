@@ -140,6 +140,14 @@ _01DA:
     GoToIfEq VAR_RESULT, 0, _02F0
     Common_GiveItemQuantity
     Message msg_0582_T25GYM0101_00007
+    GoToIfSet FLAG_SOVEREIGN_MEGA_UNLOCKED, CompleteMegaRing_Done  @ Sovereign Complete: the Mega Ring
+    CallCommonScript 0x81C  @ CommonScript_CompleteMegaRingMessage
+    SetVar VAR_0x8004, ITEM_MEGA_RING
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_SOVEREIGN_MEGA_UNLOCKED
+    CallCommonScript 0x81D  @ CommonScript_CompleteMegaRingExplain
+CompleteMegaRing_Done:
     Message msg_0582_T25GYM0101_00014
     BufferPlayerName 0
     Message msg_0582_T25GYM0101_00015

@@ -44,7 +44,7 @@
             "species": "SPECIES_GARDEVOIR",
             "form": 0,
             "level": 55,
-            "item": "ITEM_NONE",
+            "item": "ITEM_GARDEVOIRITE",
             "moves": [
                 "MOVE_REFLECT",
                 "MOVE_HYPNOSIS",

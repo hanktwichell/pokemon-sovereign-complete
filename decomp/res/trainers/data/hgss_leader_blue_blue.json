@@ -93,7 +93,7 @@
             "species": "SPECIES_TYRANITAR",
             "form": 0,
             "level": 70,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_TYRANITARITE",
             "moves": [
                 "MOVE_STONE_EDGE",
                 "MOVE_CRUNCH",

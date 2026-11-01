@@ -1170,8 +1170,31 @@ Test results on the new test build:
   `tools/complete/gen_wild.py` writes Johto's and Kanto's tables from HeartGold's and SoulSilver's (both versions' species
   in one table) and Sinnoh's from Platinum's, and mixes in 404 of the 409 species no original table has a family of:
   134 in Johto, 134 in Kanto, 136 in Sinnoh, each in a slot the original table had twice, by habitat and level. The
-  sync script now leaves Sovereign's changes to Sinnoh's tables out. The ROM builds and boots; the wild tests run next.
+  sync script now leaves Sovereign's changes to Sinnoh's tables out. Tested: every Johto and Kanto table at each time
+  of day (`tools/complete/test_hgss_encounters.py`: 29,328 Pokémon made, no problems) and every Sinnoh map's
+  (`tools/test/wild_forms.py`: 17,664 made, 323 species and forms, no problems). `docs/WildPokemon.xlsx`
+  (`tools/complete/wild_spreadsheet.py`) lists every place's Pokémon, methods and odds, by place and by Pokémon.
 - **The progress page** has a Sinnoh tab (what joins it already, the integration's parts) and a timeline tab (every
   day's log entries, decisions and commits, the steps by day, and the plan ahead).
 - **The story test can record itself** (`VIDEO`: both screens to an MPEG-TS file by ffmpeg, with each part's and
   action's frame in a list beside it), for the highlight video.
+
+## Nov 1, 2026: Totem trials, legendaries and Megas in all three regions
+
+- **Placed encounters** (`docs/Features.md`, "Totem trials and legendaries in three regions"): one plan,
+  `data/complete/placed.yaml`, and `src/complete_placed.c`, which takes Sovereign's moved objects off their maps and
+  puts the placed ones on as each map's events load, gated as Sovereign gates them, talking through Sovereign's own
+  trial and legendary scripts. Nothing of Sovereign's maps or scripts is edited for it.
+- **Totem trials:** eight move to Johto and Kanto, each asked for by the next Gym Leader (Gumshoos before Bugsy...
+  Salazzle before Blaine), at a level just under that leader's ace; Lurantis, Kommo-o and Togedemaru stay in Sinnoh.
+  `tools/complete/test_placed.py` passes all eight (hidden before the badge, the trial with it, gone after); the story
+  test has a part for each (103 parts now).
+- **Legendaries:** the Unova and Kalos Chronicles' sixteen to Johto, Alola's and Galar's sixteen to Kanto, Paldea's
+  in Sinnoh; `tools/complete/plan_legendaries.py` reads each one's level and gates from Sovereign's scripts and finds
+  it a spot. The Legend Archivist's lines say where they are now; the five Chronicle roamers roam the region of their
+  chapter.
+- **Megas** (`docs/Features.md`, "Megas in Johto and Kanto"): Whitney gives the Mega Ring with the Plain Badge; 50 of
+  the 63 bosses after her have a Mega (`docs/BossMegas.md`); 23 item balls in Johto and Kanto hold Mega Stones.
+- **The test build** heals the party at each battle's start in god mode: the single story run stopped on the S.S. Aqua
+  with its lead fainted (poison or weather, which god mode doesn't stop), in a battle that then asked which Pokémon to
+  send out.

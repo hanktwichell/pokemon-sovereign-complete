@@ -75,7 +75,7 @@
             "species": "SPECIES_BLAZIKEN",
             "form": 0,
             "level": 72,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_BLAZIKENITE",
             "moves": [
                 "MOVE_FLARE_BLITZ",
                 "MOVE_LOW_KICK",

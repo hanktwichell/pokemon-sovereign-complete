@@ -86,7 +86,7 @@
             "species": "SPECIES_HOUNDOOM",
             "form": 0,
             "level": 48,
-            "item": "ITEM_FOCUS_SASH",
+            "item": "ITEM_HOUNDOOMINITE",
             "moves": [
                 "MOVE_FIRE_BLAST",
                 "MOVE_DARK_PULSE",

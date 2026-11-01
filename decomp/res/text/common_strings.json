@@ -1080,6 +1080,22 @@
       ]
     },
     {
+      "id": "CommonStrings_Text_CompleteMegaRing",
+      "en_US": [
+        "Oh, and one more thing!\n",
+        "Please, take this Mega Ring!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteExplainMegaRing",
+      "en_US": [
+        "When a Pokémon holds its own\n",
+        "Mega Stone, the Mega Ring lets it\r",
+        "Mega Evolve in battle. Only one\n",
+        "Pokémon, once in each battle!"
+      ]
+    },
+    {
       "id": "CommonStrings_Text_CompleteTotemFirst",
       "en_US": [
         "Before our battle, there’s a Totem\n",

@@ -86,7 +86,7 @@
             "species": "SPECIES_HOUNDOOM",
             "form": 0,
             "level": 55,
-            "item": "ITEM_SITRUS_BERRY",
+            "item": "ITEM_HOUNDOOMINITE",
             "moves": [
                 "MOVE_HEAT_WAVE",
                 "MOVE_DARK_PULSE",

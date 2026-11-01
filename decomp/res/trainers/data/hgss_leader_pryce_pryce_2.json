@@ -18,7 +18,7 @@
             "species": "SPECIES_ABOMASNOW",
             "form": 0,
             "level": 72,
-            "item": "ITEM_NONE",
+            "item": "ITEM_ABOMASITE",
             "moves": [
                 "MOVE_BLIZZARD",
                 "MOVE_WOOD_HAMMER",

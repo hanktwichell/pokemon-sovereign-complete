@@ -233,9 +233,36 @@ Sovereign's maps or scripts is edited for it:
   Sinnoh's scenes that wait on the moved trials (Mars at Valley Windworks, Jupiter's door in Eterna...) are past by
   the time the player reaches Sinnoh, as the trials are done before Johto's and Kanto's gyms. The crown pieces and the
   Crown are Sovereign's as they were.
-- **The legendaries:** next (Sovereign's Chronicles' legendaries, spread by chapter).
+- **The legendaries:** Sovereign's Chronicles (its post-game legendaries, opened one after another by the Legend
+  Archivist in Canalave Library after Sinnoh's Hall of Fame) spread by chapter: the Unova and Kalos Chronicles'
+  sixteen to Johto, the Alola and Galar Chronicles' sixteen to Kanto, the Paldea Chronicle's left in Sinnoh with the
+  few whose quests run through Sinnoh's places (Meloetta, Genesect, Type: Null, Cosmog, Necrozma) and the Gen I-IV
+  legendaries Sovereign ported from Renegade Platinum. `tools/complete/plan_legendaries.py` reads each one's level and
+  what shows it (the Chronicle, items, Pokémon in the party, others caught, the night) from its Sovereign map's
+  scripts, and finds it a spot on its new map; its `MOVES` says where each goes. The Archivist's lines say where they
+  are now (the plan's `texts`). The roamers follow: Tornadus and Thundurus roam Johto, Zeraora, Glastrier and
+  Spectrier Kanto (`RoamerRegionRoutes`); Sinnoh Now's news tells only of those in Sinnoh, and the Pokétch's Marking
+  Map shows only those on its map.
 - **Tests:** `tools/complete/test_placed.py` (each placed encounter: not out before its badges, its battle with them,
   done and gone after) and the story test's Totem parts.
+
+## Megas in Johto and Kanto
+
+The owner's call (Nov 1, 2026): Megas in all three regions. Sovereign's Mega Evolution is as it was (a held Mega Stone,
+the Mega Ring for the player, one Mega a battle for each trainer); what Johto and Kanto add:
+
+- **The Mega Ring** from Whitney, after her TM, with Johto's third badge, as Fantina gives it with Sinnoh's third
+  (`mega_ring_insert` in the translator; `CommonScript_CompleteMegaRingMessage` and `...Explain`). Fantina skips it
+  once the player has it.
+- **The bosses' Megas:** every boss fought after the Mega Ring (Gym Leaders from Morty on, the Elite Four, Lance, Team
+  Rocket's executives, the rival, Kanto's leaders, Blue, Red, and their rematches) has its ace, or else its strongest
+  Pokémon with a Mega, hold its Mega Stone (`tools/complete/gen_boss_megas.py`; 50 of 63, listed in
+  `docs/BossMegas.md`; the other 13 have no Pokémon with a Mega).
+- **Mega Stones to find:** 23 low-value item balls in Johto and Kanto hold a stone instead, near where its Pokémon
+  lives (`MEGA_STONE_BALLS` in `tools/complete/import_hgss_field_items.py`): Pidgeotite on Route 29, Ampharosite on
+  Route 32, Slowbronite in the Slowpoke Well, Steelixite in Union Cave, Gengarite in the Burned Tower, Gyaradosite on
+  Route 42, Tyranitarite on Mt. Silver, the Kanto starters' stones in Kanto, Mewtwonite Y in Cerulean Cave, and more.
+  Sinnoh's stones, item balls and stone sellers are Sovereign's.
 
 ## Headbutt trees and Rock Smash
 
