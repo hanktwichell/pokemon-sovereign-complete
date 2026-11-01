@@ -859,8 +859,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_TEAM_GALACTIC_ETERNA_BUILDING_4F', 'FLAG_TEAM_GALACTIC_LEFT_ETERNA_BUILDING'),
          ('the cycle shop', [('ladder', (3, 3), 'RIGHT'), ('ladder', (2, 3), 'RIGHT'),  # 4F, 3F down
                              ('ladder', (8, 3), 'RIGHT'), ('to', (11, 15)), 'DOWN',  # 2F down, out of 1F
+                             ('keep', 5),  # room for Cynthia's Egg (refused, her triggers keep the shop shut); the
+                             # test warp it takes reloads the map, so before the Cut
                              ('talk', [True]),  # the trees grew back (map-local flags): Cut the one in front again
-                             ('keep', 5),  # room for Cynthia's Egg: refused, her triggers keep the shop shut
                              ('to', (307, 542)), ('scene', 'RIGHT', [True]),  # Cynthia's Togepi Egg, yes
                              ('to', (310, 540)), 'UP', ('to', (3, 6)), 'UP', ('talk', [])],  # Sovereign's Dawn Stone
           'MAP_HEADER_CYCLE_SHOP', 'FLAG_SOVEREIGN_RECEIVED_CYCLE_SHOP_DAWN_STONE'),
