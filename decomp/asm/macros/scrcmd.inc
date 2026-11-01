@@ -5896,6 +5896,16 @@
     .short \badge
     .endm
 
+    // The Totem trial or legendary a placed object stands for (src/complete_placed.c): its kind (PLACED_TOTEM or
+    // PLACED_LEGENDARY), then the trial, or the species and its level
+    .macro CompletePlacedGet localID, kindVarID, valueVarID, levelVarID
+    .short SCRCMD_COMPLETEPLACEDGET
+    .short \localID
+    .short \kindVarID
+    .short \valueVarID
+    .short \levelVarID
+    .endm
+
     .macro CompleteCheckBadge badge, destVarID
     .short SCRCMD_COMPLETECHECKBADGE
     .short \badge

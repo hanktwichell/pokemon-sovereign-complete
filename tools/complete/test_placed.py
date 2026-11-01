@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+"""Test the Totem trials and legendaries placed on other maps than Sovereign put them (data/complete/placed.yaml,
+src/complete_placed.c), each in the test build from a bedroom state:
+
+1. **Not yet:** without the badges its gates ask for, nobody stands on its spot (A there runs no script). Legendaries'
+   other gates (the Chronicles, items) are left to their own checks.
+2. **Its encounter:** with them (gCompleteTestHGSSBadges, set on the test warp), the player arrives beside it, facing
+   it, and A runs CommonScript_CompletePlaced, which plays Sovereign's trial or legendary battle out (the test build's
+   god mode: one hit wins). A Totem's trial is done (its FLAG_SOVEREIGN_TOTEM_TRIAL_* flag), and it's gone: A on its
+   spot runs nothing.
+
+The moved objects' old spots in Sinnoh are left to tools/test/talk_to_objects.py (they aren't there to talk to).
+
+From the repo root, with the test build and a bedroom state from it (tools/test/new_game.sh):
+    SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_placed.py \\
+        decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [NAME ...]
+"""
+import os
+import struct
+import sys
+
+import yaml
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.insert(0, os.path.join(ROOT, 'tools', 'test'))
+sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
+from check_object_tiles import Maps, walkable  # noqa: E402
+from find_spot import header_info  # noqa: E402
+from gift_pokemon import talk_and_answer  # noqa: E402
+from talk_to_objects import DECOMP, SYMBOLS, header_names, play_out, symbols, var_ids, warp  # noqa: E402
+from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: E402
+
+LIMIT = 40000
+SCRIPT_PLACED = 2074  # CommonScript_CompletePlaced (SCRIPT_ID(COMMON_SCRIPTS, 74))
+# the tile beside the spot to stand on, and the way to face it (enum FaceDirection: up, down, left, right)
+SIDES = (((0, 1), 0), ((0, -1), 1), ((1, 0), 2), ((-1, 0), 3))
+KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')
+
+
+def badge_mask(gates):
+    names = open(os.path.join(DECOMP, 'include', 'constants', 'hgss_badges.h'), encoding='utf-8').read()
+    mask = 0
+    for gate in gates or []:
+        if 'hgss_badge' in gate:
+            n = int(names.split(gate['hgss_badge'])[1].split()[0])
+            mask |= (1 << (n + 1)) - 1  # it, and the ones before it
+    return mask
+
+
+def main():
+    from drive import Driver
+
+    rom, state, out = sys.argv[1:4]
+    only = sys.argv[4:]
+    os.makedirs(out, exist_ok=True)
+    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gCompleteTestHGSSBadges'))
+    names = header_names()
+    variables = var_ids()
+    maps = Maps(DECOMP)
+    plan = yaml.safe_load(open(os.path.join(ROOT, 'data', 'complete', 'placed.yaml'), encoding='utf-8'))
+    d = Driver(rom, state)
+    mem = d.emu.memory
+
+    def u32(addr):
+        return struct.unpack('<I', bytes(mem.unsigned[addr:addr + 4]))[0]
+
+    def flag(name):
+        base = u32(sym['sSaveDataPtr'])
+        at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index('SAVE_TABLE_ENTRY_VARS_FLAGS') * 16 + 8
+        flags = base + 20 + u32(at) + (variables['VARS_END'] - variables['VARS_START']) * 2
+        n = variables[name]
+        return bool(mem.unsigned[flags + n // 8] & (1 << (n % 8)))
+
+    def arrive(header, x, z, badges):
+        """Beside (x, z), facing it: the side's tile and the result."""
+        _, matrix = header_info(header)
+        for (dx, dz), face in SIDES:
+            if walkable(maps.tile(matrix, x + dx, z + dz)):
+                d.load_state(state)
+                d.run(30)
+                mem.write_byte(sym['gSovereignTestGodMode'], 1)
+                mem.write_short(sym['gCompleteTestHGSSBadges'], badges)
+                result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face)
+                if result == 'ok':  # a press toward it turns the player to face it (it's in the way)
+                    d.press(KEYS[face], frames=4, after=20)
+                return result
+        return 'no free side'
+
+    def talk():
+        mem.write_short(sym['gSovereignTestScripts'], 0)
+        result, frames = talk_and_answer(d, sym, [], LIMIT)
+        started = u32(sym['gSovereignTestScripts'])
+        return result, frames, started >> 16 if started & 0xffff else None
+
+    results = []
+    for p in plan.get('placed') or []:
+        name = p.get('totem') or p.get('legendary')
+        if only and not any(o in name for o in only):
+            continue
+        header, (x, z) = p['map'], p['at']
+        badges = badge_mask(p.get('gates'))
+        problem = ''
+        # 1. not out before its badges (when it waits on one)
+        if badges:
+            arrived = arrive(header, x, z, 0)
+            if arrived != 'ok':
+                problem = f'warp {arrived}'
+            else:
+                result, frames, script = talk()
+                if script is not None:
+                    problem = f'out before its badges (script {script} ran)'
+        # 2. its encounter, then gone
+        if not problem:
+            arrived = arrive(header, x, z, badges)
+            if arrived != 'ok':
+                problem = f'warp {arrived}'
+            else:
+                result, frames, script = talk()
+                if script != SCRIPT_PLACED:
+                    problem = f'A ran {script}, not CommonScript_CompletePlaced'
+                elif result != 'ok':
+                    problem = f'the encounter: {result} after {frames} frames'
+                elif 'totem' in p and not flag('FLAG_SOVEREIGN_TOTEM_TRIAL_' + name[len('TOTEM_TRIAL_'):]):
+                    problem = 'the trial isn\'t done after the battle'
+                else:
+                    d.screenshot().save(os.path.join(out, f'{name}_after.png'))
+                    result, frames, script = talk()
+                    if script is not None and 'totem' in p:
+                        problem = f'still there after its trial (script {script} ran)'
+        d.screenshot().save(os.path.join(out, f'{name}.png'))
+        results.append(f'{name} on {header} ({x}, {z}): {problem or "ok"}')
+        print(results[-1], flush=True)
+    print(f'{sum(r.endswith(": ok") for r in results)} of {len(results)} ok')
+    sys.exit(0 if all(r.endswith(': ok') for r in results) else 1)
+
+
+if __name__ == '__main__':
+    main()

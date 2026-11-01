@@ -54,6 +54,7 @@
 #include "vars_flags.h"
 #include "complete_bug_contest.h" // Sovereign Complete
 #include "complete_phone.h" // Sovereign Complete
+#include "complete_placed.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 
 #include "data/sovereign_totem_trials.h"
@@ -739,10 +740,10 @@ void Encounter_SovereignNewTotemTrial(FieldTask *task, int trial, int *resultMas
     FieldBattleDTO *dto = FieldBattleDTO_New(HEAP_ID_FIELD2, BATTLE_TYPE_DOUBLES);
     FieldBattleDTO_Init(dto, fieldSystem);
 
-    CreateWildMon_SovereignScriptedForm(fieldSystem, data->totem.species, data->totem.form, data->totem.level, dto);
+    CreateWildMon_SovereignScriptedForm(fieldSystem, data->totem.species, data->totem.form, data->totem.level + CompletePlaced_TotemLevelShift(trial), dto); // Sovereign Complete: a moved Totem's level
 
     for (int i = 0; i < SOVEREIGN_TOTEM_HELPER_COUNT; i++) {
-        CreateWildMon_SovereignScriptedForm(fieldSystem, data->helpers[i].species, data->helpers[i].form, data->helpers[i].level, dto);
+        CreateWildMon_SovereignScriptedForm(fieldSystem, data->helpers[i].species, data->helpers[i].form, data->helpers[i].level + CompletePlaced_TotemLevelShift(trial), dto);
     }
 
     dto->battleStatusMask |= BATTLE_STATUS_SOVEREIGN_TOTEM;

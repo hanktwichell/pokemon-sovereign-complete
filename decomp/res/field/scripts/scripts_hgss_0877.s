@@ -20,6 +20,9 @@ scr_seq_T24GYM0101_000:
     CompleteCheckBadge BADGE_ID_HGSS_STORM, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0101
+    SetVar VAR_0x8004, 3  @ Sovereign Complete: TOTEM_TRIAL_MIMIKYU first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0574_T24GYM0101_00000
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_LEADER_CHUCK_CHUCK, 0
@@ -138,3 +141,6 @@ _01A9:
     ReleaseAll
     End
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

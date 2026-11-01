@@ -1080,6 +1080,15 @@
       ]
     },
     {
+      "id": "CommonStrings_Text_CompleteTotemFirst",
+      "en_US": [
+        "Before our battle, there’s a Totem\n",
+        "{STRVAR_1 1, 0, 0} ruling near here.\r",
+        "Take on its trial first, then come\n",
+        "back and challenge me!"
+      ]
+    },
+    {
       "id": "CommonStrings_Text_CompleteFerryToCanalave",
       "en_US": [
         "OK! All aboard for\n",

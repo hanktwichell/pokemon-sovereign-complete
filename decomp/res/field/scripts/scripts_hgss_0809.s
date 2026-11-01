@@ -96,6 +96,9 @@ scr_seq_T08GYM0101_001:
     CompleteCheckBadge BADGE_ID_HGSS_SOUL, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0408
+    SetVar VAR_0x8004, 4  @ Sovereign Complete: TOTEM_TRIAL_MAROWAK first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0514_T08GYM0101_00000
     CloseMessage
     SetVarFromValue VAR_MAP_LOCAL_0x0B, 111
@@ -665,3 +668,6 @@ _09A4:
     FaceWest
     EndMovement
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

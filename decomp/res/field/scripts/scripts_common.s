@@ -100,6 +100,8 @@
     ScriptEntry CommonScript_CompleteFly @ 0x817
     ScriptEntry CommonScript_CompleteFerry @ 0x818
     ScriptEntry CommonScript_CompleteFerryToSinnohOpen @ 0x819
+    ScriptEntry CommonScript_CompletePlaced @ 0x81A
+    ScriptEntry CommonScript_CompleteTotemFirst @ 0x81B
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -1754,6 +1756,36 @@ CommonScript_SovereignLegendaryEncounter:
     GoToIfEq VAR_RESULT, TRUE, CommonScript_SovereignLegendaryVanished
     SetVar VAR_RESULT, TRUE
     ReleaseAll
+    ReturnCommonScript
+    End
+
+@ Sovereign Complete: a Totem trial or legendary placed on another map than Sovereign's (src/complete_placed.c), as
+@ the object talked to: Sovereign's own trial or encounter, from its common script
+CommonScript_CompletePlaced:
+    CompletePlacedGet VAR_LAST_TALKED, VAR_0x8006, VAR_0x8004, VAR_0x8005
+    GoToIfEq VAR_0x8006, 0, CommonScript_CompletePlacedTotem @ PLACED_TOTEM (include/complete_placed.h)
+    Common_SovereignLegendaryEncounter
+    End
+
+CommonScript_CompletePlacedTotem:
+    Common_SovereignTotemTrial
+    End
+
+@ Sovereign Complete: a Johto or Kanto Gym Leader, before the battle, sends the player to the trial (VAR_0x8004: its
+@ TOTEM_TRIAL_* number) that Sovereign's design puts before that fight (docs/Features.md, "Totem trials and legendaries
+@ in three regions"). VAR_RESULT comes back TRUE when it's done, so the battle goes on.
+CommonScript_CompleteTotemFirst:
+    SetVar VAR_0x8005, FLAG_SOVEREIGN_TOTEM_TRIAL_GUMSHOOS
+    AddVar VAR_0x8005, VAR_0x8004
+    CheckFlagFromVar VAR_0x8005, VAR_RESULT
+    GoToIfEq VAR_RESULT, TRUE, CommonScript_CompleteTotemFirstDone
+    SovereignGetTotemTrialSpecies VAR_0x8004, VAR_0x8006
+    BufferSpeciesNameFromVar 0, VAR_0x8006, 0, 0
+    Message CommonStrings_Text_CompleteTotemFirst
+    WaitButton
+    CloseMessage
+    SetVar VAR_RESULT, FALSE
+CommonScript_CompleteTotemFirstDone:
     ReturnCommonScript
     End
 

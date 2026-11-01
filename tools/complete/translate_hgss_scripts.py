@@ -319,7 +319,25 @@ def any_day_insert(before, boarding):
     return before, [f'    GoTo {boarding}  @ Sovereign Complete: the ferries run any day'], []
 
 
+# Sovereign's Totem trials spread over Johto and Kanto (docs/Features.md, "Totem trials and legendaries in three
+# regions"): a Gym Leader sends the player to the trial Sovereign's design puts before that fight, after the check
+# for the leader's badge (CommonScript_CompleteTotemFirst; TOTEM_TRIAL_* by number)
+def totem_first_insert(after, trial, name):
+    return (after, [f'    SetVar VAR_0x8004, {trial}  @ Sovereign Complete: TOTEM_TRIAL_{name} first',
+                    '    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst',
+                    '    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End'],
+            ['CompleteTotemFirst_End:', '    ReleaseAll', '    End'])
+
+
 INSERTS = {
+    'scr_seq_0869_T23GYM0102': totem_first_insert('    GoToIf 1, _018E', 0, 'GUMSHOOS'),  # Bugsy
+    'scr_seq_0886_T25GYM0101': totem_first_insert('    GoToIf 1, _01C4', 2, 'VIKAVOLT'),  # Whitney
+    'scr_seq_0922_T27GYM0101': totem_first_insert('    GoToIf 1, _01EE', 1, 'RIBOMBEE'),  # Morty
+    'scr_seq_0877_T24GYM0101': totem_first_insert('    GoToIf 1, _0101', 3, 'MIMIKYU'),  # Chuck
+    'scr_seq_0760_T04GYM0101': totem_first_insert('    GoToIf 1, _0321', 7, 'ARAQUANID'),  # Misty
+    'scr_seq_0809_T08GYM0101': totem_first_insert('    GoToIf 1, _0408', 4, 'MAROWAK'),  # Janine
+    'scr_seq_0786_T07GYM0101': totem_first_insert('    GoToIf 1, _0127', 5, 'RATICATE'),  # Erika
+    'scr_seq_0015_D11R0106': totem_first_insert('    GoToIf 1, _0403', 8, 'SALAZZLE'),  # Blaine
     'scr_seq_0152_P01R0101': any_day_insert('_0223:', '_0292'),
     'scr_seq_0153_P01R0102': ferry_insert('_0211', 'VermilionCity'),
     'scr_seq_0154_P01R0103': any_day_insert('    GoToIf 1, _0158', '_00EF'),

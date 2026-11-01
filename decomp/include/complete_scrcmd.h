@@ -60,6 +60,7 @@ BOOL CompleteScrCmd_ClearHGSSFlagFromVar(ScriptContext *ctx);
 BOOL CompleteScrCmd_MonAddContestValue(ScriptContext *ctx);
 BOOL CompleteScrCmd_GiveBadge(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckBadge(ScriptContext *ctx);
+BOOL CompleteScrCmd_PlacedGet(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckFieldMoveBadge(ScriptContext *ctx);
 BOOL CompleteScrCmd_Headbutt(ScriptContext *ctx);
 BOOL CompleteScrCmd_RockSmashFind(ScriptContext *ctx);

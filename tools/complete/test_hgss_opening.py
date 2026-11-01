@@ -357,6 +357,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('the Mystery Egg', [('to', (15, 19)), 'DOWN', ('to', (15, 28)), 'DOWN', ('keep', 1), ('to', (469, 258)), 'UP',
                               ('to', (6, 9)), 'UP', ('talk', [True]), ('to', (4, 11)), 'DOWN'],
           'MAP_HEADER_HGSS_VIOLET', 'FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT'),
+         ('Totem Gumshoos', [('to', (450, 361)), 'UP', ('talk', [])],  # Route 32's Totem trial, before Bugsy
+          'MAP_HEADER_HGSS_ROUTE_32', 'FLAG_SOVEREIGN_TOTEM_TRIAL_GUMSHOOS'),
          ('Azalea Town', [('to', (462, 431)), 'UP', ('to', (27, 93)), 'DOWN', ('to', (410, 461)), 'UP'],
           'MAP_HEADER_HGSS_AZALEA_POKECENTER_1F', ('fly', 'MAP_HEADER_HGSS_AZALEA')),
          ('the Slowpoke Well', [('to', (8, 19)), 'DOWN', ('to', (399, 455)), 'UP', ('to', (4, 5)), 'UP', ('talk', []),
@@ -383,7 +385,10 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                           ('to', (52, 53)),  # a twig beyond it
                           ('to', (48, 54)), 'RIGHT', ('talk', [])],  # caught; the charcoal maker's HM01
           ILEX, 'FLAG_HGSS_GOT_HM01'),
-         ('Goldenrod City', [('to', (16, 63)), 'UP', ('talk', [True]), ('to', (12, 17)), 'UP',
+         ('Totem Vikavolt', [('to', (16, 63)), 'UP', ('talk', [True]),  # the tree cut,
+                             ('to', (40, 30)), 'RIGHT', ('talk', [])],  # Ilex Forest's Totem trial, before Whitney
+          ILEX, 'FLAG_SOVEREIGN_TOTEM_TRIAL_VIKAVOLT'),
+         ('Goldenrod City', [('to', (12, 17)), 'UP',
                              ('to', (5, 4)), 'UP', ('talk', []),  # Sacred Gold's Odd Keystone, from the one in the way
                              ('to', (5, 2)), 'UP',
                              ('to', (366, 414)), 'UP',  # the scene in front of the Day-Care, which ends inside it
@@ -395,9 +400,12 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                       ('to', (13, 10)), 'DOWN',  # the lass's trigger: a key onto it, as a walk would go back to it
                       ('to', (13, 5)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_GOLDENROD_GYM', 'FLAG_HGSS_GOT_TM45_FROM_WHITNEY'),
-         ('Sudowoodo', [('to', (6, 25)), 'DOWN', ('to', (371, 333)), 'UP', ('to', (3, 6)), 'UP', ('talk', []),
-                        ('to', (5, 9)), 'DOWN', ('to', (358, 325)), 'UP', ('to', (5, 2)), 'UP',
-                        ('to', (362, 266)), 'UP', ('to', (25, 2)), 'UP', ('to', (75, 39)), 'RIGHT',
+         ('Totem Ribombee', [('to', (6, 25)), 'DOWN', ('to', (371, 333)), 'UP', ('to', (3, 6)), 'UP', ('talk', []),
+                             ('to', (5, 9)), 'DOWN', ('to', (358, 325)), 'UP', ('to', (5, 2)), 'UP',
+                             ('to', (362, 266)), 'UP', ('to', (25, 2)), 'UP',
+                             ('to', (66, 77)), 'UP', ('talk', [])],  # National Park's Totem trial, before Morty
+          'MAP_HEADER_HGSS_NATIONAL_PARK', 'FLAG_SOVEREIGN_TOTEM_TRIAL_RIBOMBEE'),
+         ('Sudowoodo', [('to', (75, 39)), 'RIGHT',
                         ('to', (10, 7)), 'RIGHT',
                         ('to', (415, 247)), 'UP', ('talk', [True])],
           'MAP_HEADER_HGSS_ROUTE_36', 'FLAG_HGSS_HIDE_ROUTE_36_SUDOWOODO'),
@@ -411,7 +419,10 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Morty', [('ladder', (23, 16), 'UP'), ('to', (15, 26)), 'DOWN', ('to', (376, 184)), 'UP',
                     ('to', (10, 9)), 'UP', ('talk', [])],
           ECRUTEAK_GYM, 'FLAG_HGSS_GOT_TM30_FROM_MORTY'),
-         ('Surf', [('to', (16, 53)), 'DOWN', ('to', (397, 173)), 'UP',
+         ('Totem Mimikyu', [('to', (16, 53)), 'DOWN', ('to', (376, 149)), 'UP',
+                            ('to', (19, 25)), 'DOWN', ('talk', [])],  # the Burned Tower's Totem trial, before Chuck
+          'MAP_HEADER_HGSS_BURNED_TOWER_1F', 'FLAG_SOVEREIGN_TOTEM_TRIAL_MIMIKYU'),
+         ('Surf', [('to', (15, 26)), 'DOWN', ('to', (397, 173)), 'UP',
                    ('to', (7, 7)), 'UP', ('talk', []),  # the grunt on the stage
                    ('to', (3, 7)), 'DOWN'],  # the step down from the stage: the gentleman and HM03
           'MAP_HEADER_HGSS_ECRUTEAK_DANCE_THEATER', 'FLAG_HGSS_GOT_HM03'),
@@ -644,7 +655,10 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_ROUTE_24', ('VAR_HGSS_SCENE_ROUTE_24_ROCKET', 3)),
          ('the Machine Part', [('to', (1318, 135)), 'UP', ('to', (3, 9)), 'DOWN', ('talk', [])],
           'MAP_HEADER_HGSS_CERULEAN_GYM', ('VAR_HGSS_SCENE_ROUTE_24_ROCKET', 4)),
-         ('Misty', [('to', (10, 25)), 'DOWN', ('to', (1418, 41)),  # her date on Route 25, cut short
+         ('Totem Araquanid', [('to', (10, 25)), 'DOWN',
+                              ('to', (1411, 53)), 'RIGHT', ('talk', [])],  # Route 25's Totem trial, before Misty
+          'MAP_HEADER_HGSS_ROUTE_25', 'FLAG_SOVEREIGN_TOTEM_TRIAL_ARAQUANID'),
+         ('Misty', [('to', (1418, 41)),  # her date on Route 25, cut short
                     ('to', (1318, 135)), 'UP',  # back in the gym, its trainers out; one who comes down its narrow
                     ('surf', (10, 2)), 'UP', ('talk', [])],  # way to battle may stay in it, so round by the pool
           'MAP_HEADER_HGSS_CERULEAN_GYM', 'FLAG_HGSS_GOT_TM03_FROM_MISTY'),
@@ -658,11 +672,14 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                         ('cans', [(x, z) for z in (13, 15, 17) for x in (2, 4, 6, 8, 10)]),  # of its trash cans
                         ('to', (6, 5)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_VERMILION_GYM', 'FLAG_HGSS_GOT_TM34_FROM_LT_SURGE'),
-         ('Rock Tunnel', [('to', (6, 22)), 'DOWN', ('to', (1309, 266)), 'UP',  # back under Saffron,
+         ('Totem Marowak', [('to', (6, 22)), 'DOWN', ('to', (1309, 266)), 'UP',  # back under Saffron,
                           ('ladder', (8, 4), 'RIGHT'), ('ladder', (4, 4), 'LEFT'), ('to', (5, 9)), 'DOWN',
                           ('to', (1309, 132)), ('to', (1419, 164)), 'UP',  # through Cerulean, to Rock Tunnel
-                          ('to', (37, 17)), ('to', (8, 7)), 'UP', ('to', (10, 18)), ('to', (8, 34)), 'UP',
-                          ('to', (23, 36)), 'DOWN', ('to', (1424, 244))],  # down its ladders and up, to Lavender
+                          ('to', (37, 17)), ('to', (8, 7)), 'UP', ('to', (10, 18)),
+                          ('to', (27, 33)), 'LEFT', ('talk', [])],  # Rock Tunnel's Totem trial, before Janine
+          'MAP_HEADER_HGSS_ROCK_TUNNEL_B1F', 'FLAG_SOVEREIGN_TOTEM_TRIAL_MAROWAK'),
+         ('Lavender Town', [('to', (8, 34)), 'UP',
+                            ('to', (23, 36)), 'DOWN', ('to', (1424, 244))],  # up its ladders, to Lavender
           'MAP_HEADER_HGSS_LAVENDER', ('fly', 'MAP_HEADER_HGSS_LAVENDER')),
          ('Fuchsia City', [('surf', (1428, 350)), ('surf', (1380, 370)),  # down Route 12, over its water
                            ('to', (1350, 420)), ('to', (1248, 422)), 'LEFT',  # Routes 13 to 15
@@ -682,6 +699,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                ('to', (1151, 276)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 16's gatehouse
                                ('bike',), ('to', (1190, 258))],  # off the Bicycle, into Celadon
           'MAP_HEADER_HGSS_CELADON', ('fly', 'MAP_HEADER_HGSS_CELADON')),
+         ('Totem Raticate', [('to', (1216, 228)), 'DOWN', ('talk', [])],  # Celadon's Totem trial, before Erika
+          'MAP_HEADER_HGSS_CELADON', 'FLAG_SOVEREIGN_TOTEM_TRIAL_RATICATE'),
          ('Erika', [('to', (1201, 267)), 'UP', ('to', (7, 4)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_CELADON_GYM', 'FLAG_HGSS_GOT_TM19_FROM_ERIKA'),
          ('Sabrina', [('to', (7, 46)), 'DOWN', ('to', (1273, 240)), 'RIGHT',  # east along Route 7,
@@ -689,13 +708,15 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                       ('to', (18, 22)), ('to', (22, 22)), ('to', (22, 7)), ('to', (2, 7)),  # Saffron Gym's panels
                       ('to', (15, 14)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_SAFFRON_GYM', 'FLAG_HGSS_GOT_TM48_FROM_SABRINA'),
-         ('Blaine', [('to', (18, 17)), ('to', (2, 4)), ('to', (28, 4)), ('to', (28, 25)),  # the panels back
+         ('Totem Salazzle', [('to', (18, 17)), ('to', (2, 4)), ('to', (28, 4)), ('to', (28, 25)),  # the panels back
                      ('to', (15, 28)), 'DOWN', ('to', (1300, 253)), 'DOWN', ('to', (5, 12)), 'DOWN',  # Route 6
                      ('to', (1354, 303)), 'UP', ('to', (4, 4)), ('to', (10, 38)), 'UP',  # Diglett's Cave,
                      ('to', (37, 10)), 'DOWN', ('to', (1050, 183)), 'DOWN',  # Route 2, south past the man Sabrina's
                      ('to', (5, 12)), 'DOWN', ('to', (1036, 280)), 'DOWN',  # badge sends home, Viridian City,
                      ('to', (5, 12)), 'DOWN', ('to', (1040, 370)), ('surf', (1036, 495)),  # Pallet Town, Cinnabar,
-                     ('surf', (1127, 502)), 'UP',  # and along Route 20 to Seafoam Islands' east door
+                     ('to', (1030, 490)), 'RIGHT', ('talk', [])],  # and Cinnabar's Totem trial, before Blaine
+          'MAP_HEADER_HGSS_CINNABAR_ISLAND', 'FLAG_SOVEREIGN_TOTEM_TRIAL_SALAZZLE'),
+         ('Blaine', [('surf', (1127, 502)), 'UP',  # along Route 20 to Seafoam Islands' east door
                      ('to', (55, 24)), 'UP',  # down to its gym, where Sacred Gold's scientists step aside after
                      ('meet', (15, 17), []), ('meet', (20, 14), []), ('meet', (9, 12), []),  # their battles (the
                      # one at (17, 11) steps west into the way, unless talked to from his west)

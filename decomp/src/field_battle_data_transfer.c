@@ -33,6 +33,7 @@
 #include "game_options.h"
 #include "game_records.h"
 #include "heap.h"
+#include "item_use_pokemon.h"
 #include "journal.h"
 #include "map_header.h"
 #include "map_tile_behavior.h"
@@ -276,6 +277,15 @@ void FieldBattleDTO_InitFromGameState(FieldBattleDTO *dto, const FieldSystem *fi
         GameTime *gameTime = SaveData_GetGameTime(saveData);
         dto->timeOfDay = TimeOfDayForHour(gameTime->time.hour);
     }
+
+#ifdef SOVEREIGN_TEST
+    // Sovereign Complete: test build only. In god mode the party starts each battle healed: god mode keeps hits off
+    // the player's Pokémon, not poison or weather, which over a long run of battles (the story test) could leave the
+    // lead fainted and the battle asking which Pokémon to send out (include/sovereign_test.h).
+    if (gSovereignTestGodMode) {
+        Party_HealAllMembers(party);
+    }
+#endif
 
     FieldBattleDTO_CopyTrainerInfoToBattler(dto, trainerInfo, BATTLER_PLAYER_1);
     FieldBattleDTO_CopyPartyToBattler(dto, party, BATTLER_PLAYER_1);

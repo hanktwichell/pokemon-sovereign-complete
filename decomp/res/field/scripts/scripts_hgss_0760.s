@@ -89,6 +89,9 @@ scr_seq_T04GYM0101_000:
     CompleteCheckBadge BADGE_ID_HGSS_CASCADE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0321
+    SetVar VAR_0x8004, 7  @ Sovereign Complete: TOTEM_TRIAL_ARAQUANID first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0469_T04GYM0101_00008
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_LEADER_MISTY_MISTY, 0
@@ -333,3 +336,6 @@ _0480:
     WalkFastWest
     EndMovement
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

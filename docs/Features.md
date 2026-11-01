@@ -197,6 +197,46 @@ species' place is listed in `docs/WildPokemon.md`.
   `tools/complete/sync_sovereign.sh` leaves Sovereign's changes to them out, and Sovereign's own
   `tools/engine/gen_wild_encounters.py` isn't run here.
 
+## Totem trials and legendaries in three regions
+
+The owner's call (Nov 1, 2026): Sovereign's Totem trials and its legendary encounters are spread over Johto, Kanto and
+Sinnoh instead of all being in Sinnoh. One plan, `data/complete/placed.yaml`, says what moves where; nothing of
+Sovereign's maps or scripts is edited for it:
+
+- **How:** `tools/complete/gen_placed.py` turns the plan into a table (`include/data/complete_placed.h`), and
+  `src/complete_placed.c` reads it as each map's events load (`MapHeaderData_Load`): Sovereign's objects that moved
+  away are taken off their map, and those placed on it are put in once their gates hold (badges, flags, vars, items,
+  the party, a catch, the night) and while they aren't done (a trial won, a legendary caught). Talking to one runs
+  `CommonScript_CompletePlaced`, which plays Sovereign's own trial (`CommonScript_SovereignTotemTrial`) or legendary
+  encounter (`CommonScript_SovereignLegendaryEncounter`); as the field comes back after the battle, the placed object
+  is taken off (`CompletePlaced_OnLoad`, beside the map's OnLoad script), as Sovereign's maps do for theirs. A moved
+  Totem has its own level (its helpers two below).
+- **Spots:** `tools/complete/find_spot.py` lists a map's tiles where something can stand out of everyone's way: the
+  player can reach it, nobody, no warp, no trigger, sign or person beside it, and the map stays connected with it
+  there.
+- **The Totem trials:** four in Johto, four in Kanto, three left in Sinnoh (Lurantis, Kommo-o, Togedemaru). As
+  Sovereign puts each before a fight, here a Gym Leader sends the player to the trial first (the translator's
+  `totem_first_insert`, `CommonScript_CompleteTotemFirst`), and each comes out with the badge before, at a level just
+  under that leader's ace (Sacred Gold's):
+
+  | Totem | Where | Out from | Level | Before |
+  |---|---|---|---|---|
+  | Gumshoos | Route 32 | Zephyr Badge | 19 | Bugsy |
+  | Vikavolt | Ilex Forest | Hive Badge | 22 | Whitney |
+  | Ribombee | National Park | Plain Badge | 27 | Morty |
+  | Mimikyu | Burned Tower 1F | Fog Badge | 33 | Chuck |
+  | Araquanid | Route 25 | Boulder Badge | 60 | Misty |
+  | Alolan Marowak | Rock Tunnel B1F | Thunder Badge | 62 | Janine |
+  | Alolan Raticate | Celadon City | Soul Badge | 63 | Erika |
+  | Salazzle | Cinnabar Island | Marsh Badge | 66 | Blaine |
+
+  Sinnoh's scenes that wait on the moved trials (Mars at Valley Windworks, Jupiter's door in Eterna...) are past by
+  the time the player reaches Sinnoh, as the trials are done before Johto's and Kanto's gyms. The crown pieces and the
+  Crown are Sovereign's as they were.
+- **The legendaries:** next (Sovereign's Chronicles' legendaries, spread by chapter).
+- **Tests:** `tools/complete/test_placed.py` (each placed encounter: not out before its badges, its battle with them,
+  done and gone after) and the story test's Totem parts.
+
 ## Headbutt trees and Rock Smash
 
 HeartGold's two field encounters Platinum doesn't have (`src/overlay006/complete_field_encounters.c`, with the tables

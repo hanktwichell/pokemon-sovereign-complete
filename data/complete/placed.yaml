@@ -1,0 +1,37 @@
+# Sovereign Complete: Sovereign's Totem trials and legendaries placed on other maps than Sovereign put them (the
+# owner's call, Nov 1, 2026: spread over Johto, Kanto and Sinnoh). tools/complete/gen_placed.py writes
+# decomp/include/data/complete_placed.h from it, and src/complete_placed.c puts each on its map as the map loads
+# (docs/Features.md, "Totem trials and legendaries in three regions"). The format is in gen_placed.py's docstring.
+# Spots come from tools/complete/find_spot.py (out of everyone's way, a free tile to talk from).
+
+moved:
+  # the Totem trials that leave Sinnoh (Lurantis, Kommo-o and Togedemaru stay)
+  - [MAP_HEADER_ROUTE_205_SOUTH, LOCALID_TOTEM_GUMSHOOS]
+  - [MAP_HEADER_FLOAROMA_MEADOW, LOCALID_TOTEM_RIBOMBEE]
+  - [MAP_HEADER_ETERNA_FOREST, LOCALID_TOTEM_VIKAVOLT]
+  - [MAP_HEADER_OLD_CHATEAU_DINING_AREA, LOCALID_TOTEM_MIMIKYU]
+  - [MAP_HEADER_ROUTE_209_LOST_TOWER_5F, LOCALID_TOTEM_MAROWAK]
+  - [MAP_HEADER_VEILSTONE_CITY_GALACTIC_WAREHOUSE, LOCALID_TOTEM_RATICATE]
+  - [MAP_HEADER_ROUTE_213, LOCALID_TOTEM_ARAQUANID]
+  - [MAP_HEADER_FUEGO_IRONWORKS_OUTSIDE, LOCALID_TOTEM_SALAZZLE]
+
+placed:
+  # Totem trials: four in Johto, four in Kanto, each out from the badge before and required by the Gym Leader after
+  # (tools/complete/translate_hgss_scripts.py's totem_first_insert), at a level just under that leader's ace
+  # (Sacred Gold's); Sovereign's Sinnoh scenes that wait on them are past by the time the player gets there
+  - {totem: TOTEM_TRIAL_GUMSHOOS, level: 19, map: MAP_HEADER_HGSS_ROUTE_32, at: [450, 360],
+     gates: [{hgss_badge: BADGE_ID_HGSS_ZEPHYR}]}            # before Bugsy (21)
+  - {totem: TOTEM_TRIAL_VIKAVOLT, level: 22, map: MAP_HEADER_HGSS_ILEX_FOREST, at: [41, 30],
+     gates: [{hgss_badge: BADGE_ID_HGSS_HIVE}]}              # before Whitney (24)
+  - {totem: TOTEM_TRIAL_RIBOMBEE, level: 27, map: MAP_HEADER_HGSS_NATIONAL_PARK, at: [66, 76],
+     gates: [{hgss_badge: BADGE_ID_HGSS_PLAIN}]}             # before Morty (29)
+  - {totem: TOTEM_TRIAL_MIMIKYU, level: 33, map: MAP_HEADER_HGSS_BURNED_TOWER_1F, at: [19, 26],
+     gates: [{hgss_badge: BADGE_ID_HGSS_FOG}]}               # before Chuck (35)
+  - {totem: TOTEM_TRIAL_ARAQUANID, level: 60, map: MAP_HEADER_HGSS_ROUTE_25, at: [1412, 53],
+     gates: [{hgss_badge: BADGE_ID_HGSS_BOULDER}]}           # before Misty (62)
+  - {totem: TOTEM_TRIAL_MAROWAK, level: 62, map: MAP_HEADER_HGSS_ROCK_TUNNEL_B1F, at: [26, 33],
+     gates: [{hgss_badge: BADGE_ID_HGSS_THUNDER}]}           # before Janine (64)
+  - {totem: TOTEM_TRIAL_RATICATE, level: 63, map: MAP_HEADER_HGSS_CELADON, at: [1216, 229],
+     gates: [{hgss_badge: BADGE_ID_HGSS_SOUL}]}              # before Erika (65)
+  - {totem: TOTEM_TRIAL_SALAZZLE, level: 66, map: MAP_HEADER_HGSS_CINNABAR_ISLAND, at: [1031, 490],
+     gates: [{hgss_badge: BADGE_ID_HGSS_MARSH}]}             # before Blaine (68)

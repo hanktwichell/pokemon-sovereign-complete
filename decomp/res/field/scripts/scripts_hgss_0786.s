@@ -24,6 +24,9 @@ scr_seq_T07GYM0101_000:
     CompleteCheckBadge BADGE_ID_HGSS_RAINBOW, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0127
+    SetVar VAR_0x8004, 5  @ Sovereign Complete: TOTEM_TRIAL_RATICATE first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0492_T07GYM0101_00000
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_LEADER_ERIKA_ERIKA, 0
@@ -150,3 +153,6 @@ _020A:
 _0221:
     GoTo _0121
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

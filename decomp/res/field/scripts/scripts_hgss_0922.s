@@ -49,6 +49,9 @@ scr_seq_T27GYM0101_001:
     CompleteCheckBadge BADGE_ID_HGSS_FOG, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01EE
+    SetVar VAR_0x8004, 1  @ Sovereign Complete: TOTEM_TRIAL_RIBOMBEE first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0614_T27GYM0101_00000
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_LEADER_MORTY_MORTY, 0
@@ -222,3 +225,6 @@ _02BA:
     SetInvisible 0
     EndMovement
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

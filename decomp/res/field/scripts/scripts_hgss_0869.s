@@ -35,6 +35,9 @@ scr_seq_T23GYM0102_001:
     CompleteCheckBadge BADGE_ID_HGSS_HIVE, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _018E
+    SetVar VAR_0x8004, 0  @ Sovereign Complete: TOTEM_TRIAL_GUMSHOOS first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0567_T23GYM0102_00000
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_LEADER_BUGSY_BUGSY, 0
@@ -164,3 +167,6 @@ _0211:
     SetFlag FLAG_HGSS_HIDE_AZALEA_GYM_BUGSY
     End
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

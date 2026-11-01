@@ -47,6 +47,9 @@ scr_seq_D11R0106_000:
     CompleteCheckBadge BADGE_ID_HGSS_VOLCANO, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0403
+    SetVar VAR_0x8004, 8  @ Sovereign Complete: TOTEM_TRIAL_SALAZZLE first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     Message msg_0053_D11R0106_00000
     CloseMessage
     StartTrainerBattle TRAINER_HGSS_LEADER_BLAINE_BLAINE, 0
@@ -421,3 +424,6 @@ _0590:
     FaceWest
     EndMovement
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End

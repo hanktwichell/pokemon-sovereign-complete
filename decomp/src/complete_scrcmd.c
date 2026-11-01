@@ -44,6 +44,7 @@
 #include "clear_game.h"
 #include "complete_badges.h"
 #include "complete_follower.h"
+#include "complete_placed.h"
 #include "complete_rival.h"
 #include "easy_chat_sentence.h"
 #include "easy_chat_words.h"
@@ -439,6 +440,20 @@ BOOL CompleteScrCmd_CheckBadge(ScriptContext *ctx)
 
     GF_ASSERT(badge < MAX_HGSS_BADGES);
     *destVar = CompleteBadges_Has(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData), badge);
+    return FALSE;
+}
+
+// The Totem trial or legendary a placed object stands for (src/complete_placed.c), for CommonScript_CompletePlaced
+BOOL CompleteScrCmd_PlacedGet(ScriptContext *ctx)
+{
+    u16 localID = ScriptContext_GetVar(ctx);
+    u16 *kind = ScriptContext_GetVarPointer(ctx);
+    u16 *value = ScriptContext_GetVarPointer(ctx);
+    u16 *level = ScriptContext_GetVarPointer(ctx);
+
+    BOOL found = CompletePlaced_Get(localID, kind, value, level);
+
+    GF_ASSERT(found);
     return FALSE;
 }
 

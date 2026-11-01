@@ -47,6 +47,7 @@
 #include "camera.h"
 #include "char_transfer.h"
 #include "comm_player_manager.h"
+#include "complete_placed.h"
 #include "dynamic_map_features.h"
 #include "easy3d.h"
 #include "field_bgm.h"
@@ -203,6 +204,7 @@ static BOOL FieldMap_Init(ApplicationManager *appMan, int *state)
         BgConfig_Init(fieldSystem->bgConfig);
         FieldMessage_LoadTextPalettes(PAL_LOAD_MAIN_BG, TRUE);
         FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_LOAD);
+        CompletePlaced_OnLoad(fieldSystem); // Sovereign Complete: the moved Totems' and legendaries' OnLoad
         break;
     case FIELD_MAP_INIT_STATE_LOAD:
         InitGraphicsAndManagers(fieldSystem);

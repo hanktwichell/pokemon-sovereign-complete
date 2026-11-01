@@ -29,6 +29,9 @@ scr_seq_T25GYM0101_000:
     CompleteCheckBadge BADGE_ID_HGSS_PLAIN, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _01C4
+    SetVar VAR_0x8004, 2  @ Sovereign Complete: TOTEM_TRIAL_VIKAVOLT first
+    CallCommonScript 0x81B  @ CommonScript_CompleteTotemFirst
+    GoToIfEq VAR_RESULT, FALSE, CompleteTotemFirst_End
     GoToIfSet FLAG_HGSS_UNK_0B7, _01DA
     CompareVar VAR_HGSS_UNK_410A, 1
     GoToIf 1, _0245
@@ -239,3 +242,6 @@ _0348:
     WalkNormalNorth
     EndMovement
     .balign 4, 0
+CompleteTotemFirst_End:
+    ReleaseAll
+    End
