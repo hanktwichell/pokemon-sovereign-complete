@@ -1230,4 +1230,9 @@ Test results on the new test build:
   bedroom in Twinleaf Town to Celestic Town, with new actions: Hearthome Gym's doors (read from the save), Eterna
   Gym's turning clock (its blocked tiles by the clock's state), and a test warp across the gym puzzles the walks don't
   solve yet (Veilstone's punching bags, Pastoria's water levels).
+- **The final build's tests so far:** all 40 Totem and legendary placements (the placement test now turns the player
+  back when an arrival scene changed their facing), all 50 bosses' Megas, Cyrus's two Distortion World battles
+  (the story walk crosses the Distortion World by a stand-in) and wild Giratina in both forms. The story test had
+  taken the ledge-jump table's name for its part starts, so walks lost their ledges; renamed, and the final
+  recorded run restarted from New Bark Town.
 
