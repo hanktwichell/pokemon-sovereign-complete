@@ -1103,7 +1103,7 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
          ('Totem Kommo-o', [('to', (8, 12)), 'DOWN',  # the control room's way down (8,13) to the lab
                             ('to', (1, 10)), 'DOWN',  # the lab's (1,11) to 4F; 4F's (21,17) down to 1F
                             ('to', (21, 16)), 'DOWN', ('to', (42, 21)), 'DOWN',  # out of the HQ (42,22)
-                            ('to', (690, 608)), ('to', (678, 600)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
+                            ('to', (690, 608)), ('to', (678, 599)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
                             ('to', (630, 584)), ('to', (572, 597)), ('to', (562, 657)), ('to', (550, 715)),
                             ('to', (512, 725)), 'DOWN', ('to', (2, 7)), 'LEFT',  # Routes 210 and 209, Hearthome
                             ('to', (455, 726)), 'LEFT', ('to', (2, 7)), 'LEFT', ('to', (396, 724)),
@@ -1139,7 +1139,7 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
           'MAP_HEADER_SENDOFF_SPRING', ('VAR_EXITED_DISTORTION_WORLD_STATE', 2)),  # Cynthia's OnFrame there
          ('back to Rowan', [('surf', (12, 55)), 'DOWN',  # Spring Path down to Route 214
                             ('to', (726, 690)), ('to', (719, 646)), 'UP', ('to', (5, 3)), 'UP',  # Veilstone's gate
-                            ('to', (684, 601)), ('to', (678, 600)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
+                            ('to', (684, 601)), ('to', (678, 599)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
                             ('to', (630, 584)), ('to', (572, 597)), ('to', (562, 657)), ('to', (550, 715)),
                             ('to', (512, 725)), 'DOWN', ('to', (2, 7)), 'LEFT',  # Route 210, 209, Hearthome
                             ('to', (455, 726)), 'LEFT', ('to', (2, 7)), 'LEFT', ('to', (396, 724)),
