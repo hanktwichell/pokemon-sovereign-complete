@@ -365,7 +365,9 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
          # (a bedroom state's start can be a tile off, as the TV program ends)
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
-         ('Elm\'s greeting', ['LEFT'] * 11 + ['UP'] * 8, LAB, 'FLAG_HGSS_ELMS_LAB_PREVENT_PLAYER_ESCAPE'),
+         ('Elm\'s greeting', [('to', (684, 394)), 'UP', ('to', (4, 11)), 'UP'],  # the lab's door (684,393), and up
+          # onto the step-on trigger's row (3-6,10)
+          LAB, 'FLAG_HGSS_ELMS_LAB_PREVENT_PLAYER_ESCAPE'),
          ('the starter', ['RIGHT'] * 4 + ['UP'] * 2 + [('talk', [False])], LAB, 'VAR_HGSS_SCENE_ELMS_LAB'),
          ('leaving the lab', [('to', (4, 14)), 'DOWN'], NEW_BARK, None),
          ('the Pokégear', [('to', (695, 397)), 'UP', ('to', (6, 8)), 'UP', ('talk', [True]), ('to', (3, 10)), 'DOWN'],
@@ -1042,8 +1044,10 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                                # Route 206: the path under the Cycling Road ends at Wayward Cave's door, so up the
                                ('to', (302, 689)), ('bike',), 'UP',  # Cycling Road: on the Bicycle (no getting on
                                # indoors; the gate's step trigger (row 6) turns back anyone on foot) into its south gate,
-                               ('to', (7, 2)), 'UP',  # out at its top door onto the bridge (302,681)
-                               ('ride', 'UP', 582),  # up the bridge to the flat top, its bikers' battles on the way
+                               ('to', (7, 2)),  # out at its top door, at the bridge's foot (302,681)
+                               ('to', (305, 681)), ('ride', 'UP', 582),  # up its right lane (the bridge forks round
+                               # a gap at rows 645-661; a biker stands in the left lane) to the flat top, the bikers
+                               # who see the player battling on the way
                                ('to', (304, 576)), 'UP',  # the north gate (7,12)
                                ('to', (7, 2)), 'UP', ('bike',),  # out into Eterna (304,569), off the Bicycle
                                ('to', (325, 525)), ('to', (379, 532)), 'RIGHT',  # Route 211 West, Mt. Coronet 1F N 1
