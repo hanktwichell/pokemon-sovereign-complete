@@ -1199,6 +1199,7 @@ COLLISION = 0x8000  # a tile's collision bit (src/terrain_collision_manager.c)
 # DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM, and BlackthornGymPersistedData: u16 x[3], u16 z[3], u8 rotation[3])
 MISC_FEATURES, BLACKTHORN_FEATURE = 128 * 14, 15
 ETERNA_GYM, ETERNA_FEATURE = 'MAP_HEADER_ETERNA_CITY_GYM', 8  # enum DynamicMapFeatureID
+GREAT_MARSH, DEEP_MUD = 'map_matrix_240', {0xa5, 0xa7}  # TILE_BEHAVIOR_MUD_DEEP, ..._MUD_DEEP_WITH_GRASS
 HEARTHOME_FEATURE = 2
 
 
@@ -1452,6 +1453,7 @@ def main():
     maps = Maps(DECOMP)
     heights = Heights(maps)
     clock_blocked = eterna_clock()
+    deep_mud = {}
     heaps = heap_info()
     matrix_of, people_of, warps_of, triggers_of = {}, collections.defaultdict(set), collections.defaultdict(set), {}
     for _, headers_of, cur, _ in event_maps():
@@ -1507,10 +1509,16 @@ def main():
     def floors_blocked():
         """In Blackthorn Gym, the lava no floor is over and the floors' buttons, which a walk keeps off (the floors
         where the save has them now: blackthorn_floor); in Eterna Gym, the clock's and fountains' tiles blocked in the
-        clock's state now (eterna_clock). Elsewhere nothing."""
+        clock's state now (eterna_clock); in the Great Marsh, its deep mud. Elsewhere nothing."""
         if here() == ETERNA_GYM:
             at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
             return clock_blocked[u32(at + 4)] if u32(at) == ETERNA_FEATURE else set()
+        if matrix_of.get(here()) == GREAT_MARSH:  # its deep mud holds the player fast
+            if GREAT_MARSH not in deep_mud:
+                grid = maps.matrix(GREAT_MARSH)
+                deep_mud[GREAT_MARSH] = {(x, z) for z in range(len(grid) * 32) for x in range(len(grid[0]) * 32)
+                                         if (maps.tile(GREAT_MARSH, x, z) or 0) & 0xff in DEEP_MUD}
+            return deep_mud[GREAT_MARSH]
         if here() != BLACKTHORN_GYM:
             return set()
         at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
