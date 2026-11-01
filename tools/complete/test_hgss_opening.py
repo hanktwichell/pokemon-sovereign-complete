@@ -1174,6 +1174,9 @@ AVOIDED_TRIGGERS = {AZALEA_GYM: 'VAR_MAP_LOCAL_0x00', ILEX: 'VAR_HGSS_FARFETCHD'
 # doors among them) and HeartGold's ladders (Complete's 0x0D-0x0F): a warp event on another tile is part of a wider
 # doorway, and a walk may cross it
 WARP_TILES = set(range(0x5e, 0x70)) | {0x0d, 0x0e, 0x0f}
+# the way each stair, entrance and warp mat is taken (include/constants/field/map_tile_behaviors.h)
+MAT_KEYS = {0x5e: 'RIGHT', 0x5f: 'LEFT', 0x62: 'RIGHT', 0x63: 'LEFT', 0x64: 'UP', 0x65: 'DOWN',
+            0x6c: 'RIGHT', 0x6d: 'LEFT', 0x6e: 'UP', 0x6f: 'DOWN'}
 # water Surf doesn't cross: whirlpools (include/constants/field/complete_tile_behaviors.h) and waterfalls
 OTHER_WATER = {0x11, 0x13}
 ICE = 0x20  # TILE_BEHAVIOR_ICE: a step onto it slides on (Mahogany Gym, the Ice Path)
@@ -1915,10 +1918,11 @@ def main():
             elif isinstance(action, str):
                 before = here()
                 step(action)
-                for _ in range(3):  # a step onto a gate's or a door's mat (two deep at some gates), which the next
-                    if here() != before or d.pos() not in warps_of[matrix_of.get(here())]:  # press toward it takes
+                for _ in range(3):  # a step onto a gate's or a door's mat (two deep at some gates), which a press
+                    # its way takes (a key toward the gate may have stepped onto it from the side)
+                    if here() != before or d.pos() not in warps_of[matrix_of.get(here())]:
                         break
-                    step(action)
+                    step(MAT_KEYS.get((maps.tile(matrix_of[here()], *d.pos()) or 0) & 0xff, action))
             elif action[0] == 'keep':  # the hook applies on the test warp, here onto the player's own tile
                 mem.write_byte(sym['gSovereignTestPartyKeep'], action[1])
                 result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
