@@ -1248,6 +1248,8 @@ DOUBLES_TARGETS = ((64, 30), (190, 30))  # the foes' boxes on a double battle's 
 KEYS = {(1, 0): 'RIGHT', (-1, 0): 'LEFT', (0, 1): 'DOWN', (0, -1): 'UP'}
 IDLE_RUN = 60  # frames to watch for a free field: it updates at 30 Hz, so a free second adds about 30
 SHORT_RUN = 20  # a first, short look, so A isn't pressed into a field that is already free
+SCENE_FRAMES = 90000  # the longest a scene with battles in it may take (Spear Pillar's: Mars and Jupiter's multi
+# battle, Cyrus, Dialga or Palkia, Giratina's shadow and Cynthia, about 35,000 frames)
 SETTLE_FRAMES = 30000  # the longest a scene or a talk may take (Mr. Pokémon's and Oak's scene, at the test save's
 # text speed; Bugsy's battle and lines)
 WALK_STEPS = 600  # the most steps one walk takes
@@ -2071,7 +2073,7 @@ def main():
                 problem = problem or ride(action[1], action[2]) or bike()
             elif action[0] == 'scene':  # the step, then the scene it starts, its menus answered (not settle's A)
                 step(action[1])
-                result, frames = talk_and_answer(d, sym, action[2], SETTLE_FRAMES, press_a=False)
+                result, frames = talk_and_answer(d, sym, action[2], SCENE_FRAMES, press_a=False)
                 if result != 'ok':
                     problem = f'the scene: {result} after {frames} frames, on {here()} at {d.pos()}'
             elif action[0] in ('to', 'ladder', 'surf'):
