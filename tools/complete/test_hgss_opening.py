@@ -1044,7 +1044,12 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                # Route 207, Route 206 (the planner took the Cycling Road: bike, or the path under it)
                                ('to', (7, 3)), 'UP',  # its north gate, Eterna
                                ('to', (325, 525)), ('to', (379, 532)), 'RIGHT',  # Route 211 West, Mt. Coronet 1F N 1
-                               ('to', (25, 11)), ('to', (11, 11)), 'UP',  # its rocks and boulders (see notes), B1F
+                               # 1F North Room 1 from Route 211 West's door (2,41): a rock (10,36), then Strength:
+                               ('to', (17, 39)), 'RIGHT', ('talk', [True]),  # the boulder (18,39) twice to the right
+                               ('push', 'RIGHT'), ('to', (18, 39)), ('push', 'RIGHT'),
+                               ('to', (29, 31)), ('push', 'UP'), ('to', (29, 30)), ('push', 'UP'),  # (29,30) three
+                               ('to', (29, 29)), ('push', 'UP'),  # times up, out of the narrow way north
+                               ('to', (11, 11)), 'UP',  # the top corridor to B1F's stairs (11,10)
                                ('to', (8, 4)), 'UP', ('to', (2, 19)), 'UP',  # 1F North Room 2, out onto Route 216
                                ('to', (305, 402)), ('to', (302, 347)), ('to', (291, 288)),  # Routes 216, 217 (snow)
                                ('to', (310, 244))],  # Acuity Lakefront: Barry's trigger (310-311,244)
@@ -1069,6 +1074,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                               ('to', (291, 280)), ('to', (304, 337)), ('to', (301, 398)), ('to', (368, 401)),
                               ('to', (375, 402)), 'DOWN',  # Routes 217, 216, into Mt. Coronet 1F North Room 2
                               ('to', (10, 26)), 'DOWN', ('to', (8, 59)), 'DOWN',  # B1F (Rock Smash rocks), 1F N 1
+                              ('to', (29, 29)), 'DOWN', ('talk', [True]), ('push', 'DOWN'),  # Strength: the boulder
+                              # (29,30) down a tile, out of the narrow way south
                               ('to', (29, 34)), 'DOWN',  # out onto Route 211 East
                               ('surf', (476, 539)), ('surf', (532, 531)), ('surf', (561, 568)),  # Celestic, R210 N,
                               ('surf', (596, 593)), ('surf', (642, 585)), ('surf', (671, 597)), 'DOWN',  # Route 215
@@ -1089,12 +1096,25 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                             ('to', (1, 10)), 'DOWN',  # the lab's (1,11) to 4F; 4F's (21,17) down to 1F
                             ('to', (21, 16)), 'DOWN', ('to', (42, 21)), 'DOWN',  # out of the HQ (42,22)
                             ('to', (690, 608)), ('to', (678, 600)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
-                            ('surf', (630, 584)), ('surf', (571, 596)), ('surf', (560, 541)), ('surf', (506, 531)),
-                            ('surf', (451, 532)), ('surf', (419, 528)), 'UP',  # R210 N, Celestic, R211 E, Coronet
-                            ('to', (20, 61)), 'RIGHT',  # 1F North Room 1 (a grunt, a boulder), the tunnel room
-                            ('to', (2, 57)), 'DOWN',  # (its rocks, a grunt) out to the north side
-                            ('to', (13, 18)), 'DOWN', ('to', (17, 8)), 'RIGHT',  # 4F Room 3, 5F (a grunt)
-                            ('to', (13, 23)), 'DOWN',  # 6F (arrival 10,24)
+                            ('to', (630, 584)), ('to', (572, 597)), ('to', (562, 657)), ('to', (550, 715)),
+                            ('to', (512, 725)), 'DOWN', ('to', (2, 7)), 'LEFT',  # Routes 210 and 209, Hearthome
+                            ('to', (455, 726)), 'LEFT', ('to', (2, 7)), 'LEFT', ('to', (396, 724)),
+                            ('to', (393, 724)), 'LEFT',  # Route 208 into Mt. Coronet 1F South (27,20): Platinum's climb
+                            # to Spear Pillar (1F North Room 1's way south from Route 211 East goes one way, the other
+                            # way: its boulder (18,43) only goes up its narrow passage)
+                            ('surf', (25, 3)), 'RIGHT',  # across 1F South's water to its stairs up (25,3)
+                            ('to', (14, 44)), 'DOWN', ('talk', [True]),  # 2F (27,48): Strength, and the boulder
+                            ('push', 'DOWN'), ('to', (14, 45)), ('push', 'DOWN'), ('to', (14, 46)),  # (14,45) down
+                            ('push', 'DOWN'), ('to', (14, 47)), ('push', 'DOWN'), ('to', (14, 48)),  # its column
+                            ('push', 'DOWN'),  # five times, past the way west (13,49)
+                            ('to', (7, 24)), 'UP',  # 2F's way north (7,23) to its upper rooms (7,12)
+                            ('to', (11, 4)), 'RIGHT',  # their stairs up (11,4) to 3F (14,26)
+                            ('to', (3, 29)), 'DOWN',  # out (3,29) onto the snow, Outside South (12,35)
+                            ('to', (11, 17)), 'UP',  # in at (11,17) to 4F (7,25), up its Rock Climb walls
+                            ('to', (40, 10)), 'RIGHT',  # out (40,10) to Outside North (42,40)
+                            ('to', (13, 19)), 'RIGHT',  # in at (13,19) to 4F Room 3 (2,3)
+                            ('to', (18, 8)), 'RIGHT',  # its stairs (18,8) to 5F (21,7)
+                            ('to', (13, 24)), 'LEFT',  # 5F's stairs (13,24) to 6F (10,24)
                             ('to', (5, 14)), 'UP', ('talk', [])],  # Mt. Coronet
           # 6F's Totem trial (5,13), before Spear Pillar
           'MAP_HEADER_MT_CORONET_6F', 'FLAG_SOVEREIGN_TOTEM_TRIAL_KOMMO_O'),
@@ -1208,7 +1228,8 @@ GFX = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read().sp
 ICE_ROCK = GFX.index('OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
 CLEARABLE = {GFX.index('OBJ_EVENT_GFX_CUT_TREE'), GFX.index('OBJ_EVENT_GFX_ROCK_SMASH')}  # a walk's way cleared by Cut
 # or Rock Smash (A at it, yes)
-CLEARS = 6  # trees and rocks one walk may clear
+ROCK_CLIMB = {0x4b, 0x4c}  # TILE_BEHAVIOR_ROCK_CLIMB_N_S, ..._E_W: walls Rock Climb takes the player over (A, yes)
+CLEARS = 8  # trees, rocks and Rock Climb walls one walk may clear or climb
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
 MOVE_FRAMES = 120  # a switch's shutters or a pushed boulder moving (two tiles at most)
@@ -1778,8 +1799,9 @@ def main():
                 stuck = 0
                 continue
             ahead = (pos[0] + step[0], pos[1] + step[1])
-            if clears < CLEARS and ahead in clearable():  # a tree or a rock in the way: Cut it or smash it, as a
-                clears += 1  # player would (A at it, yes), and find the way again
+            if clears < CLEARS and (ahead in clearable() or (maps.tile(matrix, *ahead) or 0) & 0xff in ROCK_CLIMB):
+                clears += 1  # a tree or a rock in the way, or a wall to climb: Cut, Rock Smash or Rock Climb, as a
+                # player would (A at it, yes), and find the way again
                 result, frames = talk_and_answer(d, sym, [True], SETTLE_FRAMES)
                 if result != 'ok':
                     return f'clearing {ahead}: {result} after {frames} frames, on {here()} at {d.pos()}'
