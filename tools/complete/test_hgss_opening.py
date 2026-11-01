@@ -794,7 +794,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Route 203', [('to', (196, 758))],  # Barry's trigger column (x 196): his battle, Sovereign's Exp. Share
           'MAP_HEADER_ROUTE_203', 'VAR_ROUTE_203_RIVAL_STATE'),
          ('Oreburgh City', [('to', (246, 749)), 'RIGHT',  # Oreburgh Gate: the hiker's HM06 (Ravaged Path's rock)
-                            ('meet', (7, 22), []), ('to', (27, 22)), 'RIGHT', ('to', (265, 749)), ('scene', 'RIGHT', [])],  # the guide:
+                            ('meet', (7, 20), []), ('to', (27, 22)), 'RIGHT', ('to', (265, 749)), ('scene', 'RIGHT', [])],  # the guide:
           'MAP_HEADER_OREBURGH_CITY', ('VAR_OREBURGH_CITY_STATE', 1)),  # Oval Stone, walked to the gym; Barry blocks it
          ('Roark at the mine', [('to', (302, 795)), 'DOWN', ('to', (12, 21)), 'DOWN',  # Oreburgh Mine B1F, B2F
                                 ('to', (18, 29)), 'UP', ('talk', [0])],  # Roark smashes a rock; Sovereign's stone
