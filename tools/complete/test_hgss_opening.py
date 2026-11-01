@@ -2004,6 +2004,9 @@ def main():
                 step(action)
                 for _ in range(3):  # a step onto a gate's or a door's mat (two deep at some gates), which a press
                     # its way takes (a key toward the gate may have stepped onto it from the side)
+                    for _ in range(20):  # the map the field is on is noted only once it runs free: until then, after
+                        if free(SHORT_RUN):  # a warp, here() is still the map before, and the new map's stairs under
+                            break  # the player would read as the old map's mat (taken back up New Bark's stairs)
                     if here() != before or d.pos() not in warps_of[matrix_of.get(here())]:
                         break
                     step(MAT_KEYS.get((maps.tile(matrix_of[here()], *d.pos()) or 0) & 0xff, action))
