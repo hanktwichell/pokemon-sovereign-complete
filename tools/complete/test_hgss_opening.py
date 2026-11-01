@@ -1135,7 +1135,10 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
          # which the walks don't drive yet, so its part is a stand-in: the test warp to Sendoff Spring with what its
          # end sets (Cyrus's and Giratina's battles there aren't played)
          ('the Distortion World', [('warp', (32, 17), 'DOWN', 'MAP_HEADER_SENDOFF_SPRING',
-                                    [('VAR_DISTORTION_WORLD_PROGRESS', 14), ('VAR_EXITED_DISTORTION_WORLD_STATE', 1)])],
+                                    [('VAR_DISTORTION_WORLD_PROGRESS', 14), ('VAR_EXITED_DISTORTION_WORLD_STATE', 1),
+                                     ('VAR_HIDDEN_LOCATION_SPRING_PATH', 0x0312)])],  # the Giratina room's portal
+          # opens the Spring Path (EnableHiddenLocation: src/system_vars.c's magic number); without it the way down
+          # from Sendoff Spring is a wall of trees
           'MAP_HEADER_SENDOFF_SPRING', ('VAR_EXITED_DISTORTION_WORLD_STATE', 2)),  # Cynthia's OnFrame there
          ('back to Rowan', [('surf', (12, 55)), 'DOWN',  # Spring Path down to Route 214
                             ('to', (726, 690)), ('to', (719, 646)), 'UP', ('to', (5, 3)), 'UP',  # Veilstone's gate
