@@ -869,7 +869,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                ('meet', (6, 5), [False]),  # the Explorer Kit; his mentoring: no
                                ('to', (4, 8)), 'DOWN'],  # back out: Eterna's exits open again (OnTransition)
           'MAP_HEADER_ETERNA_CITY', 'FLAG_RECEIVED_EXPLORER_KIT'),
-         ('Route 206', [('to', (304, 568)), 'DOWN', ('bike',),  # the north gate: riders only
+         ('Route 206', [('to', (304, 569)), 'DOWN', ('bike',),  # the north gate (its mat): riders only
                                ('to', (7, 12)), 'DOWN', ('to', (302, 681)), 'DOWN',  # down Route 206's bridge
                                ('to', (7, 12)), 'DOWN', ('bike',),  # the south gate, off the Bicycle
                                ('to', (340, 712))],  # Route 207: Sovereign's counterpart battle, Vs. Seeker
