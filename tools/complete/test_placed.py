@@ -33,9 +33,9 @@ from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: 
 
 LIMIT = 40000
 SCRIPT_PLACED = 2074  # CommonScript_CompletePlaced (SCRIPT_ID(COMMON_SCRIPTS, 74))
-# the tile beside the spot to stand on, and the way to face it (enum FaceDirection: up, down, left, right)
+# the tile beside the spot to stand on, and the way to face it (enum FaceDirection: up, down, left, right), which the
+# test warp turns the player to
 SIDES = (((0, 1), 0), ((0, -1), 1), ((1, 0), 2), ((-1, 0), 3))
-KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')
 
 
 def badge_mask(gates):
@@ -117,8 +117,6 @@ def main():
                 result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face + 1)
                 if result == 'ok' and d.pos() != (x + dx, z + dz):  # a scene on the way in moved the player
                     result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face + 1)
-                if result == 'ok':  # a press toward it turns the player to face it (it's in the way)
-                    d.press(KEYS[face], frames=4, after=20)
                 if os.environ.get('DEBUG'):
                     print(f'  arrived on {d.pos()} for ({x + dx}, {z + dz}): {result}', flush=True)
                 return result

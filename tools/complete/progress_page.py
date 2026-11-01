@@ -58,7 +58,7 @@ STEPS = [
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
      'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. Sinnoh\'s levels follow Kanto\'s; Totems, '
-     'legendaries and Megas are spread over all three regions. The story test through Sinnoh is next.'),
+     'legendaries and Megas are spread over all three regions. The story test is working through Sinnoh.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
      'the game through.'),
@@ -68,9 +68,8 @@ STEPS = [
 ]
 
 NEXT = [
-    'The story test through Sinnoh, from Twinleaf Town to the Hall of Fame (its parts are being worked out from '
-    'Platinum\'s scripts).',
-    'A battle check that every Johto and Kanto boss with a Mega Stone Mega Evolves.',
+    'The story test through Sinnoh, from Twinleaf Town to the Hall of Fame: 70 parts drafted from Platinum\'s scripts '
+    'and running in the emulator (the opening through Rowan\'s briefcase passes so far).',
     'Then the full test of the game from New Bark Town, recorded, and the 1 to 2 minute highlight video.',
 ]
 
@@ -138,11 +137,12 @@ SINNOH_PLAN = [
     ('Sovereign\'s newer work', 'Four Sovereign commits since Oct 29 (tall battle sprites fitted to the screen) brought '
      'in by the sync script.', 'planned'),
     ('Megas everywhere', 'Whitney gives the Mega Ring, 23 item balls hold Mega Stones, and 50 of Johto\'s and '
-     'Kanto\'s 63 later bosses Mega Evolve; a battle check of each is next.', 'active'),
+     'Kanto\'s 63 later bosses Mega Evolve, each checked in battle.', 'done'),
     ('Sinnoh\'s scenes with a follower', 'Platinum\'s cutscenes were written without one; each is played with a '
      'follower out.', 'planned'),
     ('The story test through Sinnoh', 'The playthrough test carried on from Twinleaf Town through Sinnoh\'s story to '
-     'the Hall of Fame; its first Sinnoh part (the ship and the opening) passes.', 'active'),
+     'the Hall of Fame. It found a freeze at Rowan\'s briefcase (the field heap ran out with the following Pokémon on '
+     'screen), now fixed.', 'active'),
     ('A full test, and a highlight video', 'Every test on the finished game, the playthrough from New Bark Town to '
      'Sinnoh\'s Hall of Fame, and a 1 to 2 minute video of it.', 'planned'),
 ]
@@ -178,7 +178,6 @@ MILESTONES = [
 AHEAD = [
     ('Nov 1', 'Done: Sinnoh\'s arrival, levels and caps; Totems and legendaries spread; Megas in Johto and Kanto.',
      'Claude', 'active'),
-    ('Nov 1–2', 'The bosses\' Megas checked in battle.', 'Claude', 'planned'),
     ('Nov 2–5', 'The story test through Sinnoh to the Hall of Fame, with a follower out in every scene.', 'Claude',
      'planned'),
     ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
