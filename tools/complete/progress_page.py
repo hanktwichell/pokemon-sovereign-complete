@@ -68,11 +68,11 @@ STEPS = [
 ]
 
 NEXT = [
-    'The story test through Sinnoh, from Twinleaf Town to the Hall of Fame: it passes from the opening to Saturn at '
-    'Lake Valor (58 of its 83 parts), and is on its way to Mars at Lake Verity, then Snowpoint, the Galactic HQ, '
-    'Spear Pillar, Sunyshore and the League.',
-    'The full recorded test from New Bark Town is through Johto (76 parts, its Hall of Fame included) and on the '
-    'S.S. Aqua to Kanto; when it reaches Sinnoh\'s Hall of Fame, the 1 to 2 minute highlight video is cut from it.',
+    'The story test through Sinnoh: it passes from Twinleaf Town to Saturn at the Galactic HQ (67 of its 83 parts), '
+    'and is climbing Mt. Coronet for Totem Kommo-o, then Spear Pillar, Sunyshore, Victory Road and the League.',
+    'The full recorded test from New Bark Town restarted on the fixed build (two Totems moved, below) and is through '
+    'Johto\'s first half (32 parts); when it reaches Sinnoh\'s Hall of Fame, the 1 to 2 minute highlight video is cut '
+    'from it.',
 ]
 
 WAITING = [
@@ -108,7 +108,12 @@ RECENT = [
         'under way, and a highlight-video tool cuts captioned clips from its recording.',
         'Sinnoh\'s story walk passes Canalave, Byron, the library and Saturn at Lake Valor: it rides up Route 207\'s '
         'muddy slope on the Bicycle in 4th gear and keeps out of Route 212\'s deep mud.',
-        'The final recorded run passed all of Johto, its Hall of Fame included. The Hall of Fame\'s reset had switched '
+        'Totems Marowak (Rock Tunnel) and Salazzle (Cinnabar) stood on Rock Climb ledges, which nobody can reach that '
+        'early (HeartGold\'s Rock Climb comes from Oak late in Kanto); both are moved, and the spot finder treats those '
+        'walls as walls now.',
+        'The walks now cut trees, smash rocks and climb Rock Climb walls in their way, push Mt. Coronet\'s boulders, '
+        'ride up Route 206\'s Cycling Road and climb Route 223\'s waterfall.',
+        'The first recorded run passed all of Johto, its Hall of Fame included. The Hall of Fame\'s reset had switched '
         'off the test\'s no-damage setting, so a sailor\'s Kingdra knocked out the lead on the S.S. Aqua; the test '
         'sets it again at every part now, and the run goes on from the ship.',
     ]),
