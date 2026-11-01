@@ -1236,3 +1236,7 @@ Test results on the new test build:
   taken the ledge-jump table's name for its part starts, so walks lost their ledges; renamed, and the final
   recorded run restarted from New Bark Town.
 
+- **The story test across Sinnoh's middle:** Route 207's muddy slope up from Oreburgh only lets a Bicycle in 4th gear
+  climb it, so the walks to Mt. Coronet get on the Bicycle below it, shift with B and ride up from a run-up (a new
+  'slope' action); Route 212 South's marsh has deep mud, which holds the player fast as the Great Marsh's does, and
+  the walks keep off it now. Canalave City, Byron, the library, the explosion and Saturn at Lake Valor pass.

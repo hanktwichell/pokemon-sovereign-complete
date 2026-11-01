@@ -104,6 +104,8 @@ RECENT = [
         'All 40 Totem and legendary placements pass; all 50 Mega-holding bosses Mega Evolve in battle.',
         'The story test now runs 186 parts, from New Bark Town to Sinnoh\'s Hall of Fame; the final recorded run is '
         'under way, and a highlight-video tool cuts captioned clips from its recording.',
+        'Sinnoh\'s story walk passes Canalave, Byron, the library and Saturn at Lake Valor: it rides up Route 207\'s '
+        'muddy slope on the Bicycle in 4th gear and keeps out of Route 212\'s deep mud.',
     ]),
 ]
 
