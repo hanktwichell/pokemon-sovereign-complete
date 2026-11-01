@@ -1039,7 +1039,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                                ('to', (246, 750)), 'UP', ('to', (26, 22)), 'RIGHT',  # Route 201 to Oreburgh Gate
                                ('to', (302, 730)), ('to', (306, 725)), ('slope', 'UP', 716),  # Route 207's slope
                                # Route 206: the path under the Cycling Road ends at Wayward Cave's door, so up the
-                               ('to', (302, 688)), 'UP', ('bike',),  # Cycling Road: its south gate, on the Bicycle,
+                               ('to', (302, 689)), ('bike',), 'UP',  # Cycling Road: on the Bicycle (no getting on
+                               # indoors; the gate's step trigger (row 6) turns back anyone on foot) into its south gate,
                                ('to', (7, 2)), 'UP',  # out at its top door onto the bridge (302,681)
                                ('ride', 'UP', 582),  # up the bridge to the flat top, its bikers' battles on the way
                                ('to', (304, 576)), 'UP',  # the north gate (7,12)
