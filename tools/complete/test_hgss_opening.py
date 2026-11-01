@@ -1151,7 +1151,8 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                             ('to', (183, 758)), ('to', (184, 812)), ('to', (168, 843)), 'UP'],  # Sandgem's lab:
           # Rowan's OnFrame opens Valor Lakefront's way to Sunyshore
           'MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB', ('VAR_VALOR_LAKEFRONT_BLOCK_SUNYSHORE_STATE', 1)),
-         ('Sunyshore City', [('to', (7, 14)), 'DOWN',  # out of the lab
+         ('Sunyshore City', [('to', (7, 15)), 'DOWN',  # out of the lab's door (7,15), past Rowan (on 7,14 after his
+                             # scene)
                              ('to', (175, 818)), ('to', (176, 775)), ('to', (229, 758)), ('to', (246, 750)), 'UP',
                              ('to', (26, 22)), 'RIGHT',  # Route 202, Jubilife, Route 203, Oreburgh Gate, Oreburgh
                              ('to', (302, 730)), ('to', (306, 725)), ('slope', 'UP', 716),  # Route 207's slope
