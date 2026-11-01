@@ -1255,3 +1255,12 @@ Test results on the new test build:
   to Eterna rides the Cycling Road up (on the Bicycle before the gate, which turns back anyone on foot).
 - **The test's no-damage setting** is set again at every part: a Hall of Fame resets the DS and cleared it, and a
   sailor's Kingdra then knocked out the lead on the S.S. Aqua.
+- **Sinnoh's story walk to the Distortion World and back:** it passes Acuity Lakefront (up the Cycling Road on the
+  Bicycle, Mt. Coronet's five Strength pushes), the temple guards, the Snowpoint Temple, Candice, Jupiter, the Storage
+  Key, the Galactic HQ, Totem Kommo-o (Platinum's climb from 1F South: 2F's boulder, the snow outside, Rock Climb up
+  4F, 5F, 6F), Spear Pillar, the Distortion World's stand-in and the way back to Rowan. Fixed on the way: a missed Y
+  left the player on foot at the Cycling Road's gate (the Bicycle step now checks it took); Route 216's door, Mt.
+  Coronet B1F's east stairs and Veilstone's gate are taken from the right tiles; a key's mat presses stop once the
+  player has warped elsewhere on the same map (2F's way north); a scene step may take three times a talk's frames
+  (Spear Pillar's runs about 35,000); and the Distortion World's stand-in opens the Spring Path, as the Giratina
+  room's portal does.
