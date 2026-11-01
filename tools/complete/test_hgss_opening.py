@@ -275,12 +275,12 @@ walk never pushes one), and never onto a warp, or an armed cart trigger in Azale
 Ecruteak Gym, but the one they go to), and take it a step at a time, finding it again whenever a scene or a person moves
 the player. A prompt on the way (the test save's Super Repel wearing off), each scene's text and a battle are paged
 through with A, which also answers yes, and taps on a move and on a double battle's targets; the battles, trainers' and
-wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts), as the test is about the
-story's way through, not the battles. A part passes when the field is free on the map it expects, its flag is set or its
-var has moved on from 0 (or to a given value), the game's heaps are whole (tools/test/heap_check.py; HEAP_STEPS=1 checks
-them after each action), and the following Pokémon (the test party's lead) is beside the player: at most two steps away,
-as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was left by Elm's table
-before src/complete_follower.c brought it back).
+wild Pokémon's, are in the test build's god mode (one hit wins, no PP used, no EXP prompts) and Set style, as the test
+is about the story's way through, not the battles. A part passes when the field is free on the map it expects, its flag
+is set or its var has moved on from 0 (or to a given value), the game's heaps are whole (tools/test/heap_check.py;
+HEAP_STEPS=1 checks them after each action), and the following Pokémon (the test party's lead) is beside the player: at
+most two steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was
+left by Elm's table before src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
@@ -754,6 +754,7 @@ BICYCLE = open(os.path.join(DECOMP, 'generated', 'items.txt')).read().split().in
 # the Bag in the save: its pockets of BagItems (u16 item, u16 quantity), then the item registered to Y (include/bag.h)
 BAG_REGISTERED = 4 * sum(int(n) for n in re.findall(r'#define \w+_POCKET_SIZE\s+(\d+)',
                                                      open(os.path.join(DECOMP, 'include', 'bag.h')).read()))
+BATTLE_STYLE_SET = 1 << 6  # Options' battleStyle bit (after textSpeed's 4 and soundMode's 2): OPTIONS_BATTLE_STYLE_SET
 RIDE_FRAMES = 4000  # the longest one hold up the Cycling Road may take, battles aside
 RIDE_STALL = 64  # frames a held key may leave the player where they are before the ride gives up
 RIDE_TRIES = 20  # holds up the Cycling Road, one after each battle on the way (it has 11 bikers)
@@ -1336,6 +1337,11 @@ def main():
 
     results = []
     d.run(30)
+    # battles in Set style: Shift's 'Will you switch Pokémon?' as a foe falls, which A answers yes, opens the party,
+    # where the battle taps can pick the Pokémon already out and go round for good (the save's Options, the first u16
+    # of its PlayerSave: include/game_options.h)
+    options = save_block('SAVE_TABLE_ENTRY_PLAYER')
+    mem.write_short(options, u16(options) | BATTLE_STYLE_SET)
     for name, actions, end_map, marker in PARTS[first:]:
         problem = ''
         for action in actions:

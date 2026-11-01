@@ -1147,3 +1147,8 @@ Test results on the new test build:
   Sacred Gold's gentleman with the Iron Plate (a step-on scene at Route 38's gatehouse door) walked the player four
   tiles back, which the earlier runs hadn't met. The part now walks to the door again after it; the run, resumed there,
   is under way.
+- **Resumed from part 27,** the run went on to part 72, then stopped in the S.S. Aqua's first battle: Shift style's
+  'Will you switch Pokémon?', which the test's A answers yes, opened the party, and a battle tap picked the Pokémon
+  already out, again and again. The same part passed run again; the test now sets the save's battle style to Set, so
+  the question never comes (the part passes that way too). The rest of the chain, parts 73 to 95, is running from
+  Olivine's port.
