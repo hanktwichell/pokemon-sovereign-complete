@@ -1166,7 +1166,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Jasmine in Sunyshore', [('warp', (8, 14), 'DOWN', 'MAP_HEADER_SUNYSHORE_CITY_GYM_ROOM_1'), 'DOWN',  # out
                       ('to', (855, 744)), ('to', (855, 743))],  # Barry and Jasmine's trigger
           'MAP_HEADER_SUNYSHORE_CITY', ('VAR_SUNYSHORE_CITY_STATE', 3)),  # (853-857,743): HM07
-         ('Sinnoh\'s Victory Road', [('surf', (849, 694)), ('surf', (841, 642)), ('surf', (851, 599)),  # Route 223
+         ('Sinnoh\'s Victory Road', [('surf', (849, 694)), ('surf', (841, 642)),  # Route 223
+                           ('surf', (849, 605)), 'UP', ('talk', [True]),  # up its waterfall (row 604): Waterfall, yes
+                           ('surf', (851, 599)),
                            'UP',  # past the guard's check (8 badges, Togedemaru), into Victory Road (851,597)
                            ('to', (9, 42)), ('to', (45, 32)), 'DOWN',  # 1F, to the back rooms (45,33)
                            ('to', (21, 11)), 'UP', ('surf', (37, 39)), ('surf', (56, 14)), 'UP',
