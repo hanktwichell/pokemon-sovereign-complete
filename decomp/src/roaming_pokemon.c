@@ -8,6 +8,7 @@
 
 #include "struct_defs/special_encounter.h"
 
+#include "complete_sinnoh.h" // Sovereign Complete
 #include "heap.h"
 #include "inlines.h"
 #include "pokemon.h"
@@ -534,6 +535,11 @@ void RoamingPokemon_ActivateSlot(SaveData *saveData, const u8 slot)
     default:
         GF_ASSERT(FALSE);
         return;
+    }
+
+    // Sovereign Complete: Sovereign's roamers come with Sinnoh's story, so at Sinnoh's levels after Kanto
+    if (slot < ROAMING_SLOT_RAIKOU) {
+        level = CompleteSinnoh_Level(level);
     }
 
     Roamer_SetData(newRoamer, ROAMER_DATA_SPECIES, species);

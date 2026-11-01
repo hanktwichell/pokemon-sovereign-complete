@@ -1,0 +1,36 @@
+# Sovereign Complete: Sinnoh as the third region (the owner's call, Nov 1, 2026: a provisional integration of Claude's
+# own, so the whole game can be played and tested, each choice in one place so it can change; docs/Features.md,
+# "Sinnoh, the third region"). tools/complete/gen_sinnoh.py writes decomp/include/data/complete_sinnoh.h from it.
+
+# Sinnoh's levels after Kanto (Blue's ace is Lv. 70, Red's 94): Sovereign's levels for Sinnoh's trainers and for the
+# wild Pokémon on Sinnoh's maps (its legendaries and Totems too) become these, straight between the points:
+# [Sovereign's level, the level here]. Roark (16) at 72, Cynthia (78) at 96, her rematch (89) at 100.
+levels: [[1, 66], [16, 72], [78, 96], [89, 100], [100, 100]]
+
+# Sinnoh's trainers' Pokémon evolve to match their new level: by the level they evolve at, or, for an evolution by a
+# stone, a trade, friendship and the like, from these levels on (the first evolution, the second)
+evolve_at: [36, 50]
+# Wild Pokémon keep their species (only their level moves up), so every species stays catchable where it lives
+evolve_wild: false
+
+# Level caps (Sovereign's option): the first fight in this list the player hasn't won caps the party at its ace's
+# level. Johto's and Kanto's fights first (Sacred Gold's aces), then Sovereign's list for Sinnoh
+# (data/level_caps.yaml), its levels moved up as above.
+caps:
+  - {label: Falkner, trainers: [TRAINER_HGSS_LEADER_FALKNER_FALKNER], level: 15}
+  - {label: Bugsy, trainers: [TRAINER_HGSS_LEADER_BUGSY_BUGSY], level: 21}
+  - {label: Whitney, trainers: [TRAINER_HGSS_LEADER_WHITNEY], level: 24}
+  - {label: Morty, trainers: [TRAINER_HGSS_LEADER_MORTY_MORTY], level: 29}
+  - {label: Chuck, trainers: [TRAINER_HGSS_LEADER_CHUCK_CHUCK], level: 35}
+  - {label: Jasmine, trainers: [TRAINER_HGSS_LEADER_JASMINE_JASMINE], level: 40}
+  - {label: Pryce, trainers: [TRAINER_HGSS_LEADER_PRYCE_PRYCE], level: 44}
+  - {label: Clair, trainers: [TRAINER_HGSS_LEADER_CLAIR_CLAIR], level: 50}
+  - {label: Lance, trainers: [TRAINER_HGSS_CHAMPION_LANCE], level: 60}
+  - {label: Brock, trainers: [TRAINER_HGSS_LEADER_BROCK_BROCK], level: 61}
+  - {label: Misty, trainers: [TRAINER_HGSS_LEADER_MISTY_MISTY], level: 62}
+  - {label: Lt. Surge, trainers: [TRAINER_HGSS_LEADER_LT_SURGE_LT__SURGE], level: 63}
+  - {label: Janine, trainers: [TRAINER_HGSS_LEADER_JANINE_JANINE], level: 64}
+  - {label: Erika, trainers: [TRAINER_HGSS_LEADER_ERIKA_ERIKA], level: 65}
+  - {label: Sabrina, trainers: [TRAINER_HGSS_LEADER_SABRINA_SABRINA], level: 66}
+  - {label: Blaine, trainers: [TRAINER_HGSS_LEADER_BLAINE_BLAINE], level: 68}
+  - {label: Blue, trainers: [TRAINER_HGSS_LEADER_BLUE_BLUE], level: 70}

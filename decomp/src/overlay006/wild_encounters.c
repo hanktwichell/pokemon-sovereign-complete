@@ -27,6 +27,7 @@
 #include "overlay006/swarm.h"
 #include "overlay006/wild_encounters.h"
 
+#include "complete_sinnoh.h"
 #include "encounter.h"
 #include "complete_encounters.h"
 #include "complete_scrcmd.h"
@@ -1402,7 +1403,7 @@ static void CreateWildMonShinyWithGenderOrNature(const int slotSpecies, const u8
         } while (TRUE);
     }
 
-    Pokemon_InitWith(newEncounter, species, level, INIT_IVS_RANDOM, TRUE, newEncounterPersonality, OTID_SET, encounterFieldParams->trainerID);
+    Pokemon_InitWith(newEncounter, species, CompleteSinnoh_WildLevel(level), INIT_IVS_RANDOM, TRUE, newEncounterPersonality, OTID_SET, encounterFieldParams->trainerID); // Sovereign Complete: Sinnoh's levels
     ApplySlotForm(newEncounter, slotSpecies);
 
     GF_ASSERT(AddWildMonToParty(partySlot, encounterFieldParams, newEncounter, battleParams));
@@ -1411,6 +1412,7 @@ static void CreateWildMonShinyWithGenderOrNature(const int slotSpecies, const u8
 
 static void CreateWildMon(int slotSpecies, u8 level, const int partyDest, const WildEncounters_FieldParams *encounterFieldParams, Pokemon *firstPartyMon, FieldBattleDTO *battleParams)
 {
+    level = CompleteSinnoh_WildLevel(level); // Sovereign Complete: on Sinnoh's maps, its levels after Kanto
     u16 species = WILD_SLOT_SPECIES(slotSpecies);
     Pokemon *newEncounter = Pokemon_New(HEAP_ID_FIELD2);
     Pokemon_Init(newEncounter);

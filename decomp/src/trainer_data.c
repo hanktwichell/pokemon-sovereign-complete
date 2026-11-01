@@ -13,6 +13,7 @@
 
 #include "charcode_util.h"
 #include "complete_rival.h" // Sovereign Complete
+#include "complete_sinnoh.h" // Sovereign Complete
 #include "field_battle_data_transfer.h"
 #include "heap.h"
 #include "math_util.h"
@@ -215,6 +216,8 @@ static void TrainerData_BuildParty(FieldBattleDTO *dto, int battler, enum HeapID
     mon = Pokemon_New(heapID);
 
     Trainer_LoadParty(dto->trainerIDs[battler], buf);
+    // Sovereign Complete: a Sinnoh trainer's team at its levels after Kanto, evolved to match (src/complete_sinnoh.c)
+    CompleteSinnoh_ScaleParty(dto->trainerIDs[battler], buf, dto->trainer[battler].header.monDataType, dto->trainer[battler].header.partySize);
 
     // determine which magic gender-specific modifier to use for the RNG function
     genderMod = TrainerClass_Gender(dto->trainer[battler].header.trainerType) == GENDER_FEMALE

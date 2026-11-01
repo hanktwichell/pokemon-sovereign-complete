@@ -4,6 +4,7 @@
 
 #include "constants/pokemon.h"
 
+#include "data/complete_sinnoh.h" // Sovereign Complete: all three regions' caps
 #include "data/level_caps.h"
 #include "generated/vars_flags.h"
 
@@ -42,9 +43,11 @@ u8 LevelCap_ForProgress(SaveData *saveData)
 {
     VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
 
-    for (int i = 0; i < NELEMS(sLevelCapSteps); i++) {
-        if (!IsStepCleared(varsFlags, &sLevelCapSteps[i])) {
-            return sLevelCapSteps[i].level;
+    // Sovereign Complete: Johto's, Kanto's and Sinnoh's fights in story order (data/complete/sinnoh.yaml), in place of
+    // Sovereign's list for Sinnoh alone (sLevelCapSteps)
+    for (int i = 0; i < NELEMS(sCompleteLevelCapSteps); i++) {
+        if (!IsStepCleared(varsFlags, &sCompleteLevelCapSteps[i])) {
+            return sCompleteLevelCapSteps[i].level;
         }
     }
 

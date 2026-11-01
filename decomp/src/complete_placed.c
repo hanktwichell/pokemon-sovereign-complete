@@ -17,6 +17,7 @@
 
 #include "bag.h"
 #include "complete_badges.h"
+#include "complete_sinnoh.h"
 #include "map_object.h"
 #include "party.h"
 #include "pokedex.h"
@@ -171,7 +172,9 @@ BOOL CompletePlaced_Get(int localID, u16 *kind, u16 *value, u16 *level)
     sBattling = localID;
     *kind = sCompletePlaced[i].kind;
     *value = sCompletePlaced[i].value;
-    *level = sCompletePlaced[i].level;
+    // a legendary's Chronicle opens after Sinnoh's League, so it's at Sinnoh's levels after Kanto; a Totem's level is
+    // set for its new place
+    *level = *kind == PLACED_LEGENDARY ? CompleteSinnoh_Level(sCompletePlaced[i].level) : sCompletePlaced[i].level;
     return TRUE;
 }
 

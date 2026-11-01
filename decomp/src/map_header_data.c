@@ -13,6 +13,7 @@
 #include "complete_encounters.h"
 #include "complete_map_info.h"
 #include "complete_placed.h"
+#include "complete_sinnoh.h"
 #include "heap.h"
 #include "map_header.h"
 #include "map_object.h"
@@ -41,6 +42,7 @@ void MapHeaderData_Load(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID)
     MapHeaderData_LoadEvents(fieldSystem->mapHeaderData, mapHeaderID);
     MapHeaderData_ParseEvents(fieldSystem->mapHeaderData);
     CompletePlaced_OnEventsLoaded(fieldSystem, fieldSystem->mapHeaderData, mapHeaderID); // Sovereign Complete
+    CompleteSinnoh_OnMapLoaded(mapHeaderID); // Sovereign Complete: Sinnoh's wild Pokémon move up
     MapHeaderData_LoadWildEncounters(&fieldSystem->mapHeaderData->wildEncounters, mapHeaderID);
     MapHeaderData_LoadInitScripts(fieldSystem->mapHeaderData, mapHeaderID);
 }

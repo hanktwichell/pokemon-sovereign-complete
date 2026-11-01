@@ -1198,3 +1198,11 @@ Test results on the new test build:
 - **The test build** heals the party at each battle's start in god mode: the single story run stopped on the S.S. Aqua
   with its lead fainted (poison or weather, which god mode doesn't stop), in a battle that then asked which Pokémon to
   send out.
+
+## Nov 1, 2026: Sinnoh's levels after Kanto
+
+- **Sinnoh as the third region** (`docs/Features.md`, "Sinnoh, the third region"; Claude's provisional plan, every
+  choice in `data/complete/sinnoh.yaml`): Sinnoh's trainers and wild Pokémon move up from Sovereign's levels to follow
+  Kanto (Roark's ace Lv. 72, Cynthia's 96), trainers' Pokémon evolved to match; the post-game legendaries in Johto and
+  Kanto and Sovereign's roamers too. The level caps run through all three regions in story order
+  (`tools/complete/gen_sinnoh.py`). Built and boot-checked; the arrival in Twinleaf is next.

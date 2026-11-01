@@ -264,6 +264,29 @@ the Mega Ring for the player, one Mega a battle for each trainer); what Johto an
   Route 42, Tyranitarite on Mt. Silver, the Kanto starters' stones in Kanto, Mewtwonite Y in Cerulean Cave, and more.
   Sinnoh's stones, item balls and stone sellers are Sovereign's.
 
+## Sinnoh, the third region
+
+The owner's call (Nov 1, 2026): a provisional Sinnoh integration of Claude's own, so the whole game can be played and
+tested, each choice in one place so it can change later. The player starts in New Bark Town; Sinnoh comes after Kanto.
+
+- **Levels:** Sinnoh's trainers and the wild Pokémon on Sinnoh's maps move up to follow Kanto (Blue's ace is Lv. 70,
+  Red's 94). Sovereign's level becomes the level here straight between a few points in `data/complete/sinnoh.yaml`
+  (`levels`): Lv. 1 → 66, Roark's 16 → 72, Cynthia's 78 → 96, her rematch's 89 → 100. `src/complete_sinnoh.c` does it
+  as a trainer's party is read (`TrainerData_BuildParty`) and as a wild Pokémon is made on a Sinnoh map
+  (`wild_encounters.c`, legendaries and Totems there included). Johto's and Kanto's keep Sacred Gold's levels.
+- **Evolved to match:** a Sinnoh trainer's Pokémon evolves as far as its new level takes it: by its evolution level, or,
+  for a stone, a trade, friendship and the like, from Lv. 36 (the first evolution) and Lv. 50 (the second)
+  (`evolve_at`). Wild Pokémon keep their species (`evolve_wild: false`), so each stays catchable where it lives.
+- **Post-game legendaries and roamers:** Sovereign's Chronicles open after Sinnoh's League, so the legendaries moved to
+  Johto and Kanto (above) and Sovereign's roamers (Mesprit, Cresselia, the birds, the Forces of Nature and the rest)
+  take Sinnoh's levels too (`CompletePlaced_Get`, `RoamingPokemon_ActivateSlot`). HeartGold's roamers keep theirs.
+- **Level caps** (Sovereign's option): one list for all three regions in story order (`caps`): Johto's and Kanto's
+  leaders and Lance at Sacred Gold's aces' levels, then Sovereign's Sinnoh list (`data/level_caps.yaml`) with its
+  levels moved up. `tools/complete/gen_sinnoh.py` writes them, with the levels, into
+  `include/data/complete_sinnoh.h`; `src/level_cap.c` reads them in place of Sovereign's.
+- **The way there** (in progress): the first ferry to Sinnoh brings the player to Twinleaf Town, where Platinum's
+  opening plays; later ferries go to Canalave.
+
 ## Headbutt trees and Rock Smash
 
 HeartGold's two field encounters Platinum doesn't have (`src/overlay006/complete_field_encounters.c`, with the tables
