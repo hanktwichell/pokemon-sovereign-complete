@@ -2015,14 +2015,16 @@ def main():
             if not settle():
                 problem = f'the field never came free before {action}, on {here()} at {d.pos()}'
             elif isinstance(action, str):
-                before = here()
+                before, start = here(), d.pos()
                 step(action)
                 for _ in range(3):  # a step onto a gate's or a door's mat (two deep at some gates), which a press
                     # its way takes (a key toward the gate may have stepped onto it from the side)
                     for _ in range(20):  # the map the field is on is noted only once it runs free: until then, after
                         if free(SHORT_RUN):  # a warp, here() is still the map before, and the new map's stairs under
                             break  # the player would read as the old map's mat (taken back up New Bark's stairs)
-                    if here() != before or d.pos() not in warps_of[matrix_of.get(here())]:
+                    if here() != before or d.pos() not in warps_of[matrix_of.get(here())] \
+                            or abs(d.pos()[0] - start[0]) + abs(d.pos()[1] - start[1]) > 2:  # or a warp to elsewhere
+                        # on the same map (Mt. Coronet 2F's way north, onto a mat back): taken, so no more presses
                         break
                     step(MAT_KEYS.get((maps.tile(matrix_of[here()], *d.pos()) or 0) & 0xff, action))
             elif action[0] == 'keep':  # the hook applies on the test warp, here onto the player's own tile
