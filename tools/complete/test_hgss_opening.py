@@ -644,7 +644,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                     ('to', (1318, 135)), 'UP',  # back in the gym, its trainers out; one who comes down its narrow
                     ('surf', (10, 2)), 'UP', ('talk', [])],  # way to battle may stay in it, so round by the pool
           'MAP_HEADER_HGSS_CERULEAN_GYM', 'FLAG_HGSS_GOT_TM03_FROM_MISTY'),
-         ('the power restored', [('to', (10, 25)), 'DOWN', ('surf', (1423, 185)), 'UP',
+         ('the power restored', [('surf', (10, 25)), 'DOWN', ('surf', (1423, 185)), 'UP',  # out round the pool too
                                  ('to', (13, 7)), 'DOWN', ('talk', [])],  # the Machine Part, back to the manager
           'MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_REPAIRED', 'FLAG_HGSS_RESTORED_POWER'),  # the plant, powered
          ('Lt. Surge', [('to', (7, 20)), 'DOWN', ('surf', (1309, 132)),  # back to Cerulean,
