@@ -1131,6 +1131,8 @@ def main():
         step onto it (a ladder) counts as reached. With surf the way may cross water: at the shore the player faces
         it and uses Surf (A, yes). Returns a problem, or ''."""
         header, matrix = here(), matrix_of[here()]
+        teleports = warps_of[matrix] | {tile for tiles, name, _ in triggers_of.get(header, [])
+                                        if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) for tile in tiles}
         failed = set()  # (tile, direction) steps the player couldn't take
         forgets = 0
         stuck, last = 0, False
@@ -1143,10 +1145,11 @@ def main():
             if matrix_of.get(here()) != matrix:
                 return '' if last else f'left for {here()} on the way to {goal}'
             pos = d.pos()
-            if pos == goal or last and goal in warps_of[matrix] and before is not None \
+            if pos == goal or last and goal in teleports and before is not None \
                     and abs(pos[0] - before[0]) + abs(pos[1] - before[1]) > 2:
-                return ''  # there, or the last step took a warp to elsewhere on the same map (Cliff Cave's ladders);
-                # a scene that moved the player instead (Route 38's gatehouse) leaves the walk to go on
+                return ''  # there, or the last step took a warp to elsewhere on the same map (Cliff Cave's ladders,
+                # Blackthorn Gym's pads); a scene that moved the player instead (Route 38's gatehouse) leaves the walk
+                # to go on
             before = pos
             armed = [tiles for tiles, name, value in triggers_of.get(header, [])
                      if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) and var(name) == value]
