@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Play Johto's story and Kanto's in the test build, from a new game's own start, the player's room in New Bark Town
-(src/location.c), past the Hall of Fame, through Kanto's eight gyms and onto the ferry to Sinnoh, as a player would,
-without the test warp:
+"""Play the whole game's story in the test build, from a new game's own start, the player's room in New Bark Town
+(src/location.c): Johto's story past its Hall of Fame, Kanto's eight gyms, the ferry to Sinnoh and Sinnoh's story to its
+Hall of Fame, as a player would, without the test warp but across the Sinnoh puzzles listed below:
 
 1. **Downstairs:** from the bedroom state, the player walks to the stairs and goes down; Mom's scene plays (HeartGold's
    first scene, VAR_HGSS_SCENE_PLAYERS_HOUSE_1F from 0) and ends with the field free on the house's 1F.
@@ -265,8 +265,21 @@ without the test warp:
     Viridian Gym and along its arrows to Blue: his battle, the Earth Badge and his TM (FLAG_HGSS_GOT_TM92_FROM_BLUE).
 95. **The ferry to Sinnoh:** north through Viridian Forest, whose gatehouses' guards let Earth Badge holders by, down
     Route 2 into Diglett's Cave and back to Vermilion City, through its port, whose sailor lets the player through any
-    day, to the gangway, whose sailor, with Kanto's eighth badge, asks where to: Canalave City, and the ship sails there
-    (docs/Roadmap.md, "Unlock points"; Sinnoh's story waits on Platinum's opening).
+    day, to the gangway.
+96. **Twinleaf Town:** the gangway's sailor, with Kanto's eighth badge and Sinnoh's story not begun, offers Twinleaf
+    Town, and the ship leaves the player in their room there, where the TV's program ends
+    (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE 1; docs/Features.md, "Sinnoh, the third region").
+97-186. **Sinnoh:** Platinum's story as its scripts order it (drafted from them part by part; each part's comment says
+    what it plays): Barry, Mom, Rowan's briefcase on Route 201 (the starter to the PC, the party being full), Lake
+    Verity, the Pokédex, the Parcel, Jubilife and the Pokétch, Roark, the Valley Windworks, Eterna Forest, Gardenia (her
+    gym's clock: floors_blocked), the Galactic building, Route 206, Mt. Coronet, Fantina (Hearthome Gym's doors:
+    door), Maylene and the warehouse, Pastoria and Totem Lurantis, Crasher Wake and the chase over Route 213, the
+    Psyduck, Celestic Town, the Tea, Canalave and Byron, the lakes, the Snowpoint Temple and Candice, the Galactic HQ,
+    Totem Kommo-o, Spear Pillar, Sendoff Spring, Sunyshore, Totem Togedemaru and Volkner, Victory Road, the Elite Four,
+    Cynthia and the Hall of Fame. The test warp ('warp') crosses the puzzles the walks don't solve yet, all of them
+    Platinum's own and unchanged: Veilstone Gym's punching bags, Pastoria Gym's water levels, Canalave Gym's lifts,
+    the Snowpoint Temple's floors, Snowpoint Gym's ice, the Galactic HQ's warp panels, Sunyshore Gym's gears; and the
+    Distortion World, built in code, is a warp to Sendoff Spring with what its end sets (its battles aren't played).
 
 The walks between places find their own way over the maps' walkable tiles (ledges one way, no climb or drop the map's
 heights and lifts don't allow, so over a bridge or under it, sliding over ice and along Viridian Gym's arrows, around
@@ -761,8 +774,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                           ('to', (80, 844))],  # Verity Lakefront: into the lake; Cyrus, Mesprit's cry, Barry runs off
           'MAP_HEADER_LAKE_VERITY_LOW_WATER', 'VAR_VISITED_LAKE_VERITY_WITH_RIVAL'),
          ('the Pokedex', ['DOWN', 'DOWN', ('to', (163, 845)),  # out of the lake (a turn, then the step)
-                          ('scene', 'RIGHT', [True])],  # Sandgem: the counterpart leads the player into the lab;
-          # Rowan: the starter went to the PC (the test's party is full), so no nickname; "record all Pokemon?" yes
+                          ('scene', 'RIGHT', [False, True])],  # Sandgem: the counterpart leads the player into the
+          # lab; Rowan looks at the starter (the test party's own Turtwig, as the new one went to the PC): nickname? no;
+          # "record all Pokemon?" yes
           'MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB', 'VAR_SANDGEM_TOWN_LAB_STATE'),
          ('Sandgem Town', [('to', (7, 15)), 'DOWN'],  # out: Rowan's Poke Radar and Repels, the counterpart's tour
           'MAP_HEADER_SANDGEM_TOWN', ('VAR_SANDGEM_TOWN_STATE', 2)),
