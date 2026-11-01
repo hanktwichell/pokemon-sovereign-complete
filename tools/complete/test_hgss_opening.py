@@ -759,8 +759,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Lake Verity', [('to', (6, 10)), 'DOWN', ('to', (111, 857)),  # Barry's second trigger: he follows
                           ('to', (80, 844))],  # Verity Lakefront: into the lake; Cyrus, Mesprit's cry, Barry runs off
           'MAP_HEADER_LAKE_VERITY_LOW_WATER', 'VAR_VISITED_LAKE_VERITY_WITH_RIVAL'),
-         ('the Pokedex', ['DOWN', ('to', (163, 845)), ('scene', 'RIGHT', [False, True])],  # Sandgem: the counterpart
-          # leads the player into the lab; Rowan: nickname? no (it asks about party slot 0); "record all Pokemon?" yes
+         ('the Pokedex', ['DOWN', 'DOWN', ('to', (163, 845)),  # out of the lake (a turn, then the step)
+                          ('scene', 'RIGHT', [True])],  # Sandgem: the counterpart leads the player into the lab;
+          # Rowan: the starter went to the PC (the test's party is full), so no nickname; "record all Pokemon?" yes
           'MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB', 'VAR_SANDGEM_TOWN_LAB_STATE'),
          ('Sandgem Town', [('to', (7, 15)), 'DOWN'],  # out: Rowan's Poke Radar and Repels, the counterpart's tour
           'MAP_HEADER_SANDGEM_TOWN', ('VAR_SANDGEM_TOWN_STATE', 2)),
