@@ -1209,7 +1209,7 @@ def eterna_clock():
     out = []
     for table, width, x0, z0 in (('sEternaGymClockCollision', 13, 5, 7), ('sEternaGymFountainCollision', 21, 1, 19)):
         body = src.split(table + '[', 1)[1].split('};', 1)[0]
-        for i, state in enumerate(re.findall(r'\] = \{([^}]*)\}', body)):
+        for i, state in enumerate(re.findall(r'\]\s*=\s*\{([^}]*)\}', body)):
             cells = [int(c) for c in re.findall(r'\d', state)]
             if len(out) <= i:
                 out.append(set())
