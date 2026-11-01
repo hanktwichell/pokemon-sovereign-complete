@@ -935,6 +935,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                         ('to', (682, 833)), 'RIGHT', ('talk', [])],  # he runs; Looker's scene
           'MAP_HEADER_ROUTE_213', 'FLAG_ROUTE_213_GRUNT_M_LEFT'),
          ('Valor Lakefront', [('to', (706, 819)), 'UP', ('to', (8, 2)), 'UP',  # through the hotel's lobby
+                              ('to', (716, 792)),  # north into Valor Lakefront
                               ('meet', (719, 790), []),  # the grunt runs north to (723,769)
                               ('to', (723, 770)), 'UP', ('talk', [True])],  # his battle; Cynthia, the rival;
                               # yes; the SecretPotion
