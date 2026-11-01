@@ -85,28 +85,25 @@ WAITING = [
     ('Art', 'Who draws the three-region Town Map and the walking sprites for #494 to #1025.'),
 ]
 
-# Since yesterday: the latest work, from docs/Progress.md (Oct 31 into Nov 1)
+# Since yesterday: the latest work, from docs/Progress.md (Nov 1)
 RECENT = [
-    ('Kanto in the story test', [
-        'Parts 75 to 95 follow Sacred Gold\'s Kanto order, worked out from its scripts: Diglett\'s Cave to Brock, '
-        'Mt. Moon, the Power Plant\'s stolen part and Misty, Lt. Surge, Rock Tunnel, Fuchsia\'s Shellder swarm and '
-        'Janine, the Cycling Road and Erika, Sabrina, Blaine in Seafoam Islands, Blue, and the ship to Canalave City.',
-        'Every part from the bedroom to Canalave City has passed in a chain, each from where the one before ended.',
-        'Seafoam Islands from its west door: three Strength pushes on B1F open the way to Blaine; played in the '
-        'emulator.',
+    ('Sinnoh, the third region', [
+        'Sinnoh\'s trainers, wild Pokémon, gifts, roamers and the post-game legendaries follow Kanto\'s levels (Roark\'s '
+        'ace Lv. 72, Cynthia\'s 96), from one table you can change (data/complete/sinnoh.yaml); level caps run through '
+        'all three regions.',
+        'The first ship to Sinnoh lands in Twinleaf Town and Platinum\'s opening plays; Rowan\'s starter goes to the '
+        'PC with a full party, and his lab looks at it, not at your lead.',
     ]),
-    ('In the game', [
-        'The ferries run any day: Sacred Gold\'s port sailors in Olivine and Vermilion let the player through only on '
-        'the S.S. Aqua\'s days, which also held the ship to Canalave to them.',
+    ('Bugs the tests found and fixed', [
+        'Entering Burned Tower B1F, Dragon\'s Den or the Ruins of Alph froze the game (an item-gated legendary checked '
+        'the bag with a heap that doesn\'t exist while a map loads).',
+        'Rowan\'s briefcase froze the game: Route 201 reloading with Rowan, Dawn, Barry and the following Pokémon ran '
+        'the field heap out. The overworld\'s field heap is 32 KB bigger.',
     ]),
-    ('In the story test', [
-        'New actions: riding the Bicycle, and holding a key up the Cycling Road\'s slope through its bikers\' battles.',
-        'The walks slide along Viridian Gym\'s arrows as the game moves the player.',
-        'East, west and south warps take the player from their own tile with the key pressed; the gatehouse doors '
-        'now do.',
-        'Battles run in Set style, so Shift\'s switch question never comes.',
-        'Walks to people and to Vermilion Gym\'s cans pick a side the player can reach; Cerulean Gym is crossed round '
-        'its pool when a trainer stays in its narrow way.',
+    ('Tests', [
+        'All 40 Totem and legendary placements pass; all 50 Mega-holding bosses Mega Evolve in battle.',
+        'The story test now runs 186 parts, from New Bark Town to Sinnoh\'s Hall of Fame; the final recorded run is '
+        'under way, and a highlight-video tool cuts captioned clips from its recording.',
     ]),
 ]
 
