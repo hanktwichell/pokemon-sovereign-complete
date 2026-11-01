@@ -1210,3 +1210,10 @@ Test results on the new test build:
   Platinum's opening plays; gifts on Sinnoh's maps come at its levels and go to the PC when the party is full. The
   story test can start a part straight from the bedroom state (`JUMP`, the test warp with all sixteen badges), and
   its new 'Twinleaf Town' part passes: the sailor, the ship and the TV program's end.
+- **A freeze fixed:** a placed legendary gated on an item in the bag (Reshiram, Zekrom, Hoopa) checked the bag with
+  the field map's heap, which doesn't exist while a map loads, so entering Burned Tower B1F, Dragon's Den or the Ruins
+  of Alph froze the game. It uses the field system's heap now. With the placement test's own fixes (the facing it
+  warps with, a second warp when a scene on the way in moves the player, the test clock given time to apply), all 40
+  Totems and legendaries pass.
+- **Bosses' Megas, checked in battle:** `tools/complete/test_boss_megas.py` battles each Mega-holding boss
+  (docs/BossMegas.md) and checks the test build's record of the foe that Mega Evolved (`gSovereignTestFoeMega`).

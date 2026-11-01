@@ -83,7 +83,8 @@ static BOOL GateHolds(FieldSystem *fieldSystem, const CompletePlacedGate *gate)
     case PLACED_GATE_CAUGHT:
         return Caught(fieldSystem, gate->id);
     case PLACED_GATE_ITEM:
-        return Bag_CanRemoveItem(SaveData_GetBag(saveData), gate->id, 1, HEAP_ID_FIELD1);
+        // the field system's heap: HEAP_ID_FIELD1 is the field map's, gone while a map loads
+        return Bag_CanRemoveItem(SaveData_GetBag(saveData), gate->id, 1, HEAP_ID_FIELD2);
     case PLACED_GATE_PARTY:
         return Party_HasSpecies(SaveData_GetParty(saveData), gate->id);
     case PLACED_GATE_NIGHT:

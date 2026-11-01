@@ -257,6 +257,9 @@ extern struct SovereignTestClock gSovereignTestClock;
 // Burst...; BattleSystem_SovereignChangeBattleForm), and the lead's form once the test battle is over (field_control.c).
 extern u8 gSovereignTestPlayerBattleForm;
 extern u8 gSovereignTestLeadFormAfter;
+// Sovereign Complete: the species of the last foe that Mega Evolved in a battle (BattleControllerPlayer's Mega step),
+// for tools/complete/test_boss_megas.py
+extern u16 gSovereignTestFoeMega;
 // While set (god mode), test battles are one-sided, so one sends out every Pokémon the opponent has:
 // - a foe that loses any HP loses all of it, and the player's Pokémon lose none (BtlCmd_UpdateHealthBarValue);
 // - the player's moves ignore the foes' abilities (Battler_IgnorableAbility) and cost no PP

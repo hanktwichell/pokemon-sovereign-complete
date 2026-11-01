@@ -1025,6 +1025,11 @@ static BOOL BattleControllerPlayer_SovereignMegaEvolve(BattleSystem *battleSys, 
             battleCtx->msgTemp = megaMon->species == SPECIES_RAYQUAZA;
         }
         BattleSystem_SovereignMegaEvolve(battleSys, battleCtx, battler, form);
+#ifdef SOVEREIGN_TEST
+        if (BattleSystem_GetBattlerSide(battleSys, battler) == BATTLER_THEM) { // Sovereign Complete
+            gSovereignTestFoeMega = megaMon->species;
+        }
+#endif
         battleCtx->sovereignMegaResort = TRUE;
         battleCtx->sovereignMegaSwitchInCheck = TRUE;
 

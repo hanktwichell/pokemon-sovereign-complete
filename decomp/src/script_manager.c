@@ -904,6 +904,7 @@ struct SovereignTestClock gSovereignTestClock;
 struct SovereignTestBreed gSovereignTestBreed;
 u8 gSovereignTestPlayerBattleForm;
 u8 gSovereignTestLeadFormAfter;
+u16 gSovereignTestFoeMega;
 u8 gSovereignTestGodMode;
 u8 gSovereignTestFoeSurvivesTurns;
 u32 gSovereignTestBattleSeed;

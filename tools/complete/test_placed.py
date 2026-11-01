@@ -98,8 +98,9 @@ def main():
                 adds += 1
             elif key == 'caught':
                 mem.write_short(sym['gSovereignTestCaughtAllBut'], species_ids.index(p['legendary']))
-            elif key == 'night':
+            elif key == 'night':  # read with the game's clock, every few frames (rtc.c)
                 mem.write_byte(sym['gSovereignTestClock'], 22 + 1)
+                d.run(60)
 
     def arrive(header, x, z, badges, gates=None):
         """Beside (x, z), facing it: the side's tile and the result."""
@@ -112,9 +113,14 @@ def main():
                 mem.write_short(sym['gCompleteTestHGSSBadges'], badges)
                 if gates:
                     set_gates(gates)
-                result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face)
+                # the warp's facing is enum FaceDirection + 1
+                result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face + 1)
+                if result == 'ok' and d.pos() != (x + dx, z + dz):  # a scene on the way in moved the player
+                    result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face + 1)
                 if result == 'ok':  # a press toward it turns the player to face it (it's in the way)
                     d.press(KEYS[face], frames=4, after=20)
+                if os.environ.get('DEBUG'):
+                    print(f'  arrived on {d.pos()} for ({x + dx}, {z + dz}): {result}', flush=True)
                 return result
         return 'no free side'
 

@@ -56,8 +56,9 @@ STEPS = [
      'gym puzzles and more are in. The radio waits on the Pokétch or Pokégear decision.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
-     'A new game now plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the ship to '
-     'Canalave City. Sinnoh\'s side is next, with a provisional integration of Claude\'s own (your Nov 1 go-ahead).'),
+     'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
+     'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. Sinnoh\'s levels follow Kanto\'s; Totems, '
+     'legendaries and Megas are spread over all three regions. The story test through Sinnoh is next.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
      'the game through.'),
@@ -67,16 +68,16 @@ STEPS = [
 ]
 
 NEXT = [
-    'Finish the single uninterrupted run of the story test from the bedroom (under way).',
-    'Sinnoh\'s provisional integration (your Nov 1 go-ahead): arriving in Canalave City, Sinnoh\'s levels after Kanto, '
-    'level caps for all three regions. Each choice in one place, so it can change.',
-    'Megas in Johto and Kanto: the Mega Ring and stones within reach, and Megas for their bosses.',
-    'The story test on through Sinnoh to Spear Pillar, then a full test of the game and a highlight video.',
+    'The story test through Sinnoh, from Twinleaf Town to the Hall of Fame (its parts are being worked out from '
+    'Platinum\'s scripts).',
+    'A battle check that every Johto and Kanto boss with a Mega Stone Mega Evolves.',
+    'Then the full test of the game from New Bark Town, recorded, and the 1 to 2 minute highlight video.',
 ]
 
 WAITING = [
-    ('Sinnoh\'s integration', 'Claude is putting in a provisional one at your request (the Sinnoh tab): Platinum\'s '
-     'opening, the unlock point and the level curve. Change any of it whenever you like.'),
+    ('Sinnoh\'s integration', 'A provisional one of Claude\'s is in (the Sinnoh tab): the first ship lands in '
+     'Twinleaf Town for Platinum\'s opening, and Sinnoh\'s levels follow Kanto\'s, from one table '
+     '(data/complete/sinnoh.yaml). Change any of it whenever you like.'),
     ('Pokétch, Pokégear or both', 'The radio, the contact list and the Town Map\'s Johto and Kanto wait on it.'),
     ('Red at Mt. Silver', 'Before the player leaves for Sinnoh, or saved for the post-game. As in HeartGold for now.'),
     ('Johto\'s Battle Frontier and the Pokéathlon Dome', 'Keep them open or closed.'),
@@ -127,21 +128,23 @@ SINNOH_IN = [
      '52, evolutions 255 of 255, wild forms on every Sinnoh map, roamers, and Sovereign\'s signs and triggers.'),
 ]
 SINNOH_PLAN = [
-    ('Arriving in Sinnoh', 'What the first landing in Canalave City starts: Platinum\'s opening, Rowan and a Sinnoh '
-     'starter.', 'planned'),
-    ('Sinnoh\'s levels', 'Sinnoh\'s trainers and wild Pokémon moved up to follow Kanto, from one table of levels, with '
-     'teams evolved to match.', 'planned'),
-    ('Level caps', 'Sovereign\'s optional caps for all three regions\' gyms and Leagues, in story order.', 'planned'),
+    ('Arriving in Sinnoh', 'The first ship to Sinnoh sails to Twinleaf Town and leaves the player in their room, where '
+     'Platinum\'s opening plays (tested); Rowan\'s starter goes to the PC when the party is full.', 'done'),
+    ('Sinnoh\'s levels', 'Sinnoh\'s trainers, wild Pokémon and gifts moved up to follow Kanto (Roark\'s ace Lv. 72, '
+     'Cynthia\'s 96), from one table of levels, with trainers\' teams evolved to match.', 'done'),
+    ('Level caps', 'Sovereign\'s optional caps for all three regions\' gyms and Leagues, in story order.', 'done'),
+    ('Totems and legendaries in three regions', 'Eight Totem trials asked for by Johto\'s and Kanto\'s leaders, 32 '
+     'Chronicle legendaries moved to Johto and Kanto; each placement tested in the emulator.', 'done'),
     ('Sovereign\'s newer work', 'Four Sovereign commits since Oct 29 (tall battle sprites fitted to the screen) brought '
      'in by the sync script.', 'planned'),
-    ('Megas everywhere', 'The Mega Ring and Mega Stones within reach in Johto and Kanto, and Megas for their bosses, as '
-     'Sinnoh\'s big fights have.', 'planned'),
+    ('Megas everywhere', 'Whitney gives the Mega Ring, 23 item balls hold Mega Stones, and 50 of Johto\'s and '
+     'Kanto\'s 63 later bosses Mega Evolve; a battle check of each is next.', 'active'),
     ('Sinnoh\'s scenes with a follower', 'Platinum\'s cutscenes were written without one; each is played with a '
      'follower out.', 'planned'),
-    ('The story test to Spear Pillar', 'The playthrough test carried on from Canalave City through Sinnoh\'s story.',
-     'planned'),
+    ('The story test through Sinnoh', 'The playthrough test carried on from Twinleaf Town through Sinnoh\'s story to '
+     'the Hall of Fame; its first Sinnoh part (the ship and the opening) passes.', 'active'),
     ('A full test, and a highlight video', 'Every test on the finished game, the playthrough from New Bark Town to '
-     'Spear Pillar, and a 1 to 2 minute video of it.', 'planned'),
+     'Sinnoh\'s Hall of Fame, and a 1 to 2 minute video of it.', 'planned'),
 ]
 
 # The timeline: the roadmap steps each docs/Progress.md entry was for, by its title (the story test's entries are
@@ -173,13 +176,10 @@ MILESTONES = [
 ]
 # Ahead, from today: (when, what, who, status: active, planned, waiting), Claude's estimates as of UPDATED
 AHEAD = [
-    ('Nov 1', 'The single story run from the bedroom to Canalave City finishes.', 'Claude', 'active'),
-    ('Nov 1–2', 'Sovereign\'s four newer commits synced; Sinnoh\'s integration designed and written down.', 'Claude',
-     'planned'),
-    ('Nov 2–3', 'Arriving in Sinnoh, Sinnoh\'s levels after Kanto, level caps for all three regions.', 'Claude',
-     'planned'),
-    ('Nov 3', 'Megas in Johto and Kanto: the Mega Ring and stones, and their bosses\' Megas.', 'Claude', 'planned'),
-    ('Nov 3–5', 'The story test on through Sinnoh to Spear Pillar, with a follower out in every scene.', 'Claude',
+    ('Nov 1', 'Done: Sinnoh\'s arrival, levels and caps; Totems and legendaries spread; Megas in Johto and Kanto.',
+     'Claude', 'active'),
+    ('Nov 1–2', 'The bosses\' Megas checked in battle.', 'Claude', 'planned'),
+    ('Nov 2–5', 'The story test through Sinnoh to the Hall of Fame, with a follower out in every scene.', 'Claude',
      'planned'),
     ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
