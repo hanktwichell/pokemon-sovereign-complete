@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Find spots on a map for a Totem or a legendary to stand (data/complete/placed.yaml): tiles the player can reach,
-with nobody, no warp and no trigger on them and nobody or no sign beside them (so nobody is talked to from there), that
+"""Find spots on a map for a Totem or a legendary to stand (data/complete/placed.yaml): tiles the player can reach
+without Rock Climb or Waterfall (a Totem's or a legendary's gate can come before the player has either: HeartGold's
+HM08 comes from Oak late in Kanto), with nobody, no warp and no trigger on them and nobody or no sign beside them (so nobody is talked to from there), that
 leave every other tile reachable while something stands there (so it never blocks the way), with a free tile beside
 them to talk from. Nooks and corners far from the way in come first.
 
@@ -18,6 +19,7 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'test'))
 from check_object_tiles import DIRS, Maps, explore, walkable  # noqa: E402
 
 WATER = None
+CLIMBS = {0x4b, 0x4c, 0x13}  # TILE_BEHAVIOR_ROCK_CLIMB_N_S, _E_W and TILE_BEHAVIOR_WATERFALL
 
 
 def header_info(header):
@@ -51,7 +53,10 @@ def spots(header, count=8):
                 for i in range(c['width']) for j in range(c['length'])}
     signs = {(b['x'], b['z']) for b in ev.get('bg_events', [])}
     edge = [(x, z) for x in range(x0, x1 + 1) for z in (z0, z1)] + [(x, z) for z in range(z0, z1 + 1) for x in (x0, x1)]
-    seen = explore(maps, matrix, box, edge, warps, people)
+    # Rock Climb walls and waterfalls count as walls (Sovereign Complete: Totem Marowak was put behind Rock Tunnel's)
+    climbs = {(x, z) for x in range(x0, x1 + 1) for z in range(z0, z1 + 1)
+              if (maps.tile(matrix, x, z) or 0) & 0xff in CLIMBS}
+    seen = explore(maps, matrix, box, edge, warps, people | climbs)
     flat = {(x, z) for x, z, e in seen if not e}
     # distance from the ways in (warps and the map's edges)
     dist, queue = {}, collections.deque()
@@ -76,7 +81,7 @@ def spots(header, count=8):
         talk = [(x + dx, z + dz) for dx, dz in DIRS if (x + dx, z + dz) in flat]
         if not talk:
             continue
-        reached = explore(maps, matrix, box, edge, warps, people | {p})
+        reached = explore(maps, matrix, box, edge, warps, people | climbs | {p})
         if len({(a, b) for a, b, e in reached if not e}) < len(flat) - 1:
             continue  # it would cut the way
         walls = 4 - len(talk)

@@ -64,11 +64,13 @@ placed:
      gates: [{hgss_badge: BADGE_ID_HGSS_FOG}]}               # before Chuck (35)
   - {totem: TOTEM_TRIAL_ARAQUANID, level: 60, map: MAP_HEADER_HGSS_ROUTE_25, at: [1412, 53],
      gates: [{hgss_badge: BADGE_ID_HGSS_BOULDER}]}           # before Misty (62)
-  - {totem: TOTEM_TRIAL_MAROWAK, level: 62, map: MAP_HEADER_HGSS_ROCK_TUNNEL_B1F, at: [26, 33],
+  - {totem: TOTEM_TRIAL_MAROWAK, level: 62, map: MAP_HEADER_HGSS_ROCK_TUNNEL_B1F, at: [35, 26],  # (26,33) was behind
+     # Rock Climb walls, before HM08
      gates: [{hgss_badge: BADGE_ID_HGSS_THUNDER}]}           # before Janine (64)
   - {totem: TOTEM_TRIAL_RATICATE, level: 63, map: MAP_HEADER_HGSS_CELADON, at: [1216, 229],
      gates: [{hgss_badge: BADGE_ID_HGSS_SOUL}]}              # before Erika (65)
-  - {totem: TOTEM_TRIAL_SALAZZLE, level: 66, map: MAP_HEADER_HGSS_CINNABAR_ISLAND, at: [1031, 490],
+  - {totem: TOTEM_TRIAL_SALAZZLE, level: 66, map: MAP_HEADER_HGSS_CINNABAR_ISLAND, at: [1029, 496],  # (1031,490)
+     # was up a Rock Climb wall, before HM08
      gates: [{hgss_badge: BADGE_ID_HGSS_MARSH}]}             # before Blaine (68)
   # legendaries (tools/complete/plan_legendaries.py)
   - {legendary: SPECIES_VIRIZION, level: 65, map: MAP_HEADER_HGSS_ILEX_FOREST, at: [24, 16],

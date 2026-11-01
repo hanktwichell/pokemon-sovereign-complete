@@ -710,7 +710,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                           ('ladder', (8, 4), 'RIGHT'), ('ladder', (4, 4), 'LEFT'), ('to', (5, 9)), 'DOWN',
                           ('to', (1309, 132)), ('to', (1419, 164)), 'UP',  # through Cerulean, to Rock Tunnel
                           ('to', (37, 17)), ('to', (8, 7)), 'UP', ('to', (10, 18)),
-                          ('to', (27, 33)), 'LEFT', ('talk', [])],  # Rock Tunnel's Totem trial, before Janine
+                          ('to', (35, 27)), 'UP', ('talk', [])],  # Rock Tunnel's Totem trial, before Janine
           'MAP_HEADER_HGSS_ROCK_TUNNEL_B1F', 'FLAG_SOVEREIGN_TOTEM_TRIAL_MAROWAK'),
          ('Lavender Town', [('to', (8, 34)), 'UP',
                             ('to', (23, 36)), 'DOWN', ('to', (1424, 244))],  # up its ladders, to Lavender
@@ -748,7 +748,7 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                      ('to', (37, 10)), 'DOWN', ('to', (1050, 183)), 'DOWN',  # Route 2, south past the man Sabrina's
                      ('to', (5, 12)), 'DOWN', ('to', (1036, 280)), 'DOWN',  # badge sends home, Viridian City,
                      ('to', (5, 12)), 'DOWN', ('to', (1040, 370)), ('surf', (1036, 495)),  # Pallet Town, Cinnabar,
-                     ('to', (1030, 490)), 'RIGHT', ('talk', [])],  # and Cinnabar's Totem trial, before Blaine
+                     ('to', (1030, 496)), 'LEFT', ('talk', [])],  # and Cinnabar's Totem trial, before Blaine
           'MAP_HEADER_HGSS_CINNABAR_ISLAND', 'FLAG_SOVEREIGN_TOTEM_TRIAL_SALAZZLE'),
          ('Blaine', [('surf', (1127, 502)), 'UP',  # along Route 20 to Seafoam Islands' east door
                      ('to', (55, 24)), 'UP',  # down to its gym, where Sacred Gold's scientists step aside after
