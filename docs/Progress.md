@@ -1219,3 +1219,15 @@ Test results on the new test build:
   (docs/BossMegas.md) and checks the test build's record of the foe that Mega Evolved (`gSovereignTestFoeMega`).
 - **Rowan's lab** looked at the party's lead as the new starter (Platinum's player has only it), so with Johto's team
   he offered to nickname the lead. He now looks at the starter's own slot, or says it went to the PC.
+- **A freeze at Rowan's briefcase fixed:** the Sinnoh story test froze the game after the starter was chosen. The
+  field map's heap (0xC4000 in the overworld) ran out as Route 201 reloaded with Rowan, the counterpart, the rival
+  and the following Pokémon's sprite, and a sprite's texture was read into the null buffer, over the interrupt
+  handler's code (found with the emulator's write and exec hooks). The overworld's field heap is 32 KB bigger
+  (0xCC000); the application heap keeps about 37 KB free while the field runs.
+- **Every boss's Mega checked:** `tools/complete/test_boss_megas.py` passes all 50 (Erika's Victreebel Mega Evolves
+  when the AI picks a move on its first turn; once in two runs it didn't).
+- **The story test into Sinnoh:** 51 Sinnoh parts drafted from Platinum's scripts (three research passes), from the
+  bedroom in Twinleaf Town to Celestic Town, with new actions: Hearthome Gym's doors (read from the save), Eterna
+  Gym's turning clock (its blocked tiles by the clock's state), and a test warp across the gym puzzles the walks don't
+  solve yet (Veilstone's punching bags, Pastoria's water levels).
+

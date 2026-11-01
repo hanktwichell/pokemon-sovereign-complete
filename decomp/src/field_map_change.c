@@ -169,7 +169,10 @@ static void FieldTask_FadeInFieldWarp(FieldTask *task);
 static BOOL FieldTask_StartUndergroundMapTransition(FieldTask *task, enum UGMapTransition param1);
 
 static const MapLoadMode sMapLoadMode[] = {
-    { 0x1, FALSE, FALSE, 0x0, FALSE, TRUE, 0x0, 0xC4000 },
+    // Sovereign Complete: the overworld's field heap 32 KB bigger (was 0xC4000): the following Pokémon's sprite on top
+    // of a crowded Sinnoh scene's (Route 201's briefcase: Rowan, the counterpart, the rival) ran it out as the map
+    // loaded, and a texture was read into a null buffer
+    { 0x1, FALSE, FALSE, 0x0, FALSE, TRUE, 0x0, 0xCC000 },
     { 0x2, TRUE, TRUE, 0x1, TRUE, FALSE, 0x10, 0xC4000 },
     { 0x3, FALSE, FALSE, 0x0, FALSE, TRUE, 0x0, 0xC4000 },
     { 0x4, TRUE, TRUE, 0x0, TRUE, TRUE, 0x1, 0xC4000 },

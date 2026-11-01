@@ -325,8 +325,11 @@ BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
 # trash cans that hide its switches, checked (the tiles of its cans by number), ('bike',): onto the Bicycle or off it,
 # ('ride', key, n): up the Cycling Road's slope that way, till the player's row (or column) is n, ('scene', key,
 # answers): a step that starts a scene (into a map whose scene starts as the player arrives), its menus answered as
-# talk's are, or ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the
-# player's own tile). The stairs and doors warp as the player presses toward them from their tile.
+# talk's are, ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the
+# player's own tile), ('door', [(x, z), ...]): Hearthome Gym's trainer room left by its right door (read from the save),
+# or ('warp', (x, z), key[, map]): the test warp to that tile on the map the player is on (or that map), facing that way,
+# across a Sinnoh gym or dungeon puzzle of Platinum's the walks don't solve yet (Sovereign's own, unchanged here). The stairs and doors warp
+# as the player presses toward them from their tile.
 PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
@@ -738,7 +741,324 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', None),
          # Sinnoh (docs/Features.md, "Sinnoh, the third region")
          ('Twinleaf Town', ['RIGHT', ('talk', [1])],  # the first ship to Sinnoh calls at Twinleaf Town, where the TV's program
-          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', ('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1))]  # ends
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', ('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)),  # ends
+         # Sinnoh, stretch A: Platinum's opening, from the end of the TV program to Eterna City
+         ('Barry', ['UP'],  # one step off (4, 6) onto his north trigger (4, 5); he rushes in, then leaves
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'VAR_PLAYER_HOUSE_RIVAL_STATE'),
+         ('Mom', [('to', (8, 4)), 'RIGHT',  # the stairs (WARP_STAIRS_EAST): downstairs, Mom's "he already left" (OnFrame)
+                  ('to', (6, 10)), 'DOWN'],  # the door mat is also her "don't go into tall grass" trigger
+          'MAP_HEADER_TWINLEAF_TOWN', ('VAR_PLAYER_HOUSE_STATE', 2)),
+         ('Barry\'s house', [('to', (105, 877)), ('scene', 'UP', []),  # the thud at his door pushes the player back
+                             ('to', (105, 876)), 'UP', ('to', (2, 3)), 'RIGHT',  # in and up his stairs: he leaves for Route 201
+                             ('to', (3, 4)), 'LEFT', ('to', (6, 10)), 'DOWN'],  # (opens the guitarist's way north)
+          'MAP_HEADER_TWINLEAF_TOWN', 'FLAG_RIVAL_LEFT_HOME'),
+         ('the briefcase', [('to', (111, 858)), ('scene', 'UP', [True, True]),  # Route 201: Barry, the grass, Rowan:
+                            ('to', (113, 854)), 'LEFT', ('talk', [True])],  # "love Pokemon?" yes x2; the briefcase,
+          # the starter (to the PC if the party is full), Barry's battle (yes), home: Running Shoes and Mom's Bicycle
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F', ('VAR_PLAYER_HOUSE_STATE', 4)),
+         ('Lake Verity', [('to', (6, 10)), 'DOWN', ('to', (111, 857)),  # Barry's second trigger: he follows
+                          ('to', (80, 844))],  # Verity Lakefront: into the lake; Cyrus, Mesprit's cry, Barry runs off
+          'MAP_HEADER_LAKE_VERITY_LOW_WATER', 'VAR_VISITED_LAKE_VERITY_WITH_RIVAL'),
+         ('the Pokedex', ['DOWN', ('to', (163, 845)), ('scene', 'RIGHT', [False, True])],  # Sandgem: the counterpart
+          # leads the player into the lab; Rowan: nickname? no (it asks about party slot 0); "record all Pokemon?" yes
+          'MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB', 'VAR_SANDGEM_TOWN_LAB_STATE'),
+         ('Sandgem Town', [('to', (7, 15)), 'DOWN'],  # out: Rowan's Poke Radar and Repels, the counterpart's tour
+          'MAP_HEADER_SANDGEM_TOWN', ('VAR_SANDGEM_TOWN_STATE', 2)),
+         ('the Parcel', [('to', (116, 886)), 'UP', ('to', (7, 9)), 'UP', ('talk', [])],  # home: Mom's rest, the
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F', 'FLAG_RECEIVED_PARCEL'),  # Journal, Barry's mom's Parcel
+         ('Route 202', [('to', (6, 10)), 'DOWN', ('to', (180, 827))],  # the counterpart's trigger column (x 180):
+          'MAP_HEADER_ROUTE_202', 'VAR_ROUTE_202_STATE'),  # Sovereign's battle in place of the tutorial, 30 Poke Balls
+         ('Jubilife City', [('to', (174, 797)), ('scene', 'UP', [True])],  # the counterpart, Looker (any answer), the
+          'MAP_HEADER_JUBILIFE_CITY', ('VAR_JUBILIFE_CITY_STATE', 1)),  # VS Recorder, the Trainers' School pointed out
+         ('the Trainers\' School', [('to', (168, 776)), 'UP',  # its doorway is a WARP_NORTH tile, not a door
+                                    ('to', (6, 4)), 'UP', ('talk', [])],  # Barry: the Parcel for the Town Map
+          'MAP_HEADER_TRAINERS_SCHOOL', 'FLAG_TALKED_TO_TRAINERS_SCHOOL_RIVAL'),
+         ('the Poketch', [('to', (7, 11)), 'DOWN', ('to', (174, 776))],  # the president's trigger: Sovereign gives
+          'MAP_HEADER_JUBILIFE_CITY', 'FLAG_RECEIVED_POKETCH'),  # it at once, no clowns (opens Looker's way east)
+         ('Route 203', [('to', (196, 758))],  # Barry's trigger column (x 196): his battle, Sovereign's Exp. Share
+          'MAP_HEADER_ROUTE_203', 'VAR_ROUTE_203_RIVAL_STATE'),
+         ('Oreburgh City', [('to', (246, 749)), 'RIGHT',  # Oreburgh Gate: the hiker's HM06 (Ravaged Path's rock)
+                            ('meet', (7, 22), []), ('to', (27, 22)), 'RIGHT', ('to', (265, 749)), ('scene', 'RIGHT', [])],  # the guide:
+          'MAP_HEADER_OREBURGH_CITY', ('VAR_OREBURGH_CITY_STATE', 1)),  # Oval Stone, walked to the gym; Barry blocks it
+         ('Roark at the mine', [('to', (302, 795)), 'DOWN', ('to', (12, 21)), 'DOWN',  # Oreburgh Mine B1F, B2F
+                                ('to', (18, 29)), 'UP', ('talk', [0])],  # Roark smashes a rock; Sovereign's stone
+          'MAP_HEADER_OREBURGH_MINE_B2F', 'FLAG_ROARK_RETURNED_TO_OREBURGH_GYM'),  # list menu (Water Stone)
+         ('Roark', [('to', (15, 1)), 'UP', ('to', (12, 1)), 'UP',  # up and out of the mine
+                    ('to', (282, 757)), 'UP', ('to', (5, 4)), 'UP', ('talk', [])],  # the gym (Barry has gone)
+          'MAP_HEADER_OREBURGH_CITY_GYM', 'FLAG_RECEIVED_ROARK_TM76'),  # Coal Badge, TM76
+         ('Barry in Oreburgh', [('to', (5, 24)), 'DOWN', ('to', (263, 749)), ('scene', 'LEFT', [])],  # he runs into
+          'MAP_HEADER_OREBURGH_CITY', ('VAR_OREBURGH_CITY_STATE', 3)),  # the player (x 262): Eterna next
+         ('Team Galactic in Jubilife', [('to', (258, 749)), 'LEFT', ('to', (4, 22)), 'LEFT',  # back through the gate
+                                        ('to', (188, 758)),  # Looker's Pal Pad trigger (x 188) as Jubilife starts
+                                        ('to', (174, 744)), ('scene', 'UP', [])],  # the grunts and Rowan: a tag battle
+          'MAP_HEADER_JUBILIFE_CITY', ('VAR_JUBILIFE_CITY_STATE', 4)),  # with the counterpart; the Fashion Case
+         ('Floaroma Town', [('to', (171, 705)), 'UP',  # Route 204 South into Ravaged Path (WARP_NORTH)
+                            ('to', (21, 43)), 'RIGHT', ('talk', [True]),  # Rock Smash on the rock at (22, 43)
+                            ('to', (28, 44)), 'DOWN',  # out onto Route 204 North
+                            ('to', (176, 667)), 'UP'],  # through Floaroma into its Pokemon Center
+          'MAP_HEADER_FLOAROMA_TOWN_POKECENTER_1F', 'FLAG_FIRST_ARRIVAL_FLOAROMA_TOWN'),
+         ('the little girl', [('to', (8, 12)), 'DOWN', ('to', (211, 660))],  # Route 205 South: her trigger (x 211);
+          'MAP_HEADER_ROUTE_205_SOUTH', ('VAR_VALLEY_WINDWORKS_STATE', 1)),  # Floaroma's grunts go to the meadow
+         ('the Works Key', [('to', (162, 641)), 'UP',  # Floaroma Meadow (where Floaroma's two grunts stood)
+                            ('to', (12, 48)),  # the grunts' trigger: two battles, the Works Key, Honey
+                            ('to', (12, 54)), 'DOWN'],
+          'MAP_HEADER_FLOAROMA_TOWN', 'FLAG_OBTAINED_FLOAROMA_MEADOW_WORKS_KEY'),
+         ('the Valley Windworks', [('to', (243, 656)), 'UP', ('talk', []),  # the grunt at its door (needs
+                   # FLAG_SOVEREIGN_TOTEM_TRIAL_GUMSHOOS, from Johto): his battle, he locks himself in
+                   ('to', (243, 655)), 'UP', ('talk', [True]), 'UP',  # the door: use the Works Key? yes; in
+                   ('to', (19, 7))],  # past the grunts to Mars's trigger: her battle, the father and daughter
+          'MAP_HEADER_VALLEY_WINDWORKS_BUILDING', ('VAR_VALLEY_WINDWORKS_STATE', 2)),
+         ('Eterna Forest', [('to', (12, 16)), 'DOWN',  # Looker's scene outside (OnFrame)
+                            ('to', (206, 581)), 'UP',  # north over Route 205 South's bridge (its grunts gone)
+                            ('to', (28, 85)),  # Cheryl's trigger: Sovereign's battle with her, then she follows
+                            ('to', (82, 36))],  # her trigger by the east exit: she leaves, TM27
+          'MAP_HEADER_ETERNA_FOREST', 'FLAG_TRAVELED_WITH_CHERYL'),
+         ('Eterna City', [('to', (86, 36)), 'RIGHT', ('to', (305, 531)), 'UP'],  # Route 205 North, Eterna's Center
+          'MAP_HEADER_ETERNA_CITY_POKECENTER_1F', 'FLAG_FIRST_ARRIVAL_ETERNA_CITY'),
+         # Sinnoh, stretch B (Eterna City to Celestic Town)
+         ('Cyrus at the statue', [('to', (303, 524)),  # the rival runs into the player; Cyrus at the statue
+                          ('to', (305, 522))],  # Cynthia's HM01 (her trigger: (304-306,522), (304,523-525))
+          'MAP_HEADER_ETERNA_CITY', ('VAR_ETERNA_CITY_STATE', 2)),
+         ('Gardenia', [('to', (312, 564)), 'UP', ('talk', []),  # she stands in the doorway, then goes in
+                       ('to', (312, 563)), 'UP',
+                       ('to', (13, 22)), 'RIGHT', ('talk', []),  # Lass Caroline: the clock turns (state 1)
+                       ('to', (11, 19)), 'UP',  # over the hour hand (jump tile (11,18)) to (11,17)
+                       ('to', (11, 13)), ('to', (17, 13)), ('to', (20, 16)), 'DOWN', ('talk', []),  # Jenna (state 2)
+                       ('to', (20, 13)), ('to', (7, 13)), 'LEFT',  # over the hour hand (6,13) to (5,13)
+                       ('to', (2, 8)), 'UP', ('talk', []),  # Angela (state 3)
+                       ('to', (11, 13)), ('to', (11, 9)), 'UP',  # over the hour hand (11,8) to (11,7)
+                       ('to', (11, 4)), 'UP', ('talk', [])],  # Gardenia: the Forest Badge, TM86
+          'MAP_HEADER_ETERNA_CITY_GYM', 'FLAG_RECEIVED_GARDENIA_TM86'),
+         ('the Galactic building', [('to', (11, 7)), 'DOWN', ('to', (11, 27)), 'DOWN',  # over (11,8) to (11,9), out
+                                    ('to', (305, 522)), 'UP', ('talk', [True]),  # Cut the middle tree
+                                    'UP', ('talk', []),  # Sovereign's door grunt: battle (Forest Badge), he leaves
+                                    'UP', 'UP',  # into 1F: Looker's OnFrame scene
+                                    ('ladder', (20, 6), 'LEFT'),  # 1F's east stairs (the west ones lead to a dead end)
+                                    ('ladder', (14, 3), 'LEFT'),  # 2F to 3F's west side
+                                    ('ladder', (14, 3), 'LEFT'),  # 3F to 4F's west side
+                                    ('to', (14, 7)), 'UP', ('talk', [])],  # Jupiter; the hostages freed
+          'MAP_HEADER_TEAM_GALACTIC_ETERNA_BUILDING_4F', 'FLAG_TEAM_GALACTIC_LEFT_ETERNA_BUILDING'),
+         ('the cycle shop', [('ladder', (3, 3), 'RIGHT'), ('ladder', (2, 3), 'RIGHT'),  # 4F, 3F down
+                             ('ladder', (8, 3), 'RIGHT'), ('to', (11, 15)), 'DOWN',  # 2F down, out of 1F
+                             ('talk', [True]),  # the trees grew back (map-local flags): Cut the one in front again
+                             ('keep', 5),  # room for Cynthia's Egg: refused, her triggers keep the shop shut
+                             ('to', (307, 542)), ('scene', 'RIGHT', [True]),  # Cynthia's Togepi Egg, yes
+                             ('to', (310, 540)), 'UP', ('to', (3, 6)), 'UP', ('talk', [])],  # Sovereign's Dawn Stone
+          'MAP_HEADER_CYCLE_SHOP', 'FLAG_SOVEREIGN_RECEIVED_CYCLE_SHOP_DAWN_STONE'),
+         ('the Explorer Kit', [('to', (7, 11)), 'DOWN', ('to', (310, 531)), 'UP',  # the Underground Man's house
+                               ('meet', (6, 5), [False]),  # the Explorer Kit; his mentoring: no
+                               ('to', (4, 8)), 'DOWN'],  # back out: Eterna's exits open again (OnTransition)
+          'MAP_HEADER_ETERNA_CITY', 'FLAG_RECEIVED_EXPLORER_KIT'),
+         ('Route 206', [('to', (304, 568)), 'DOWN', ('bike',),  # the north gate: riders only
+                               ('to', (7, 12)), 'DOWN', ('to', (302, 681)), 'DOWN',  # down Route 206's bridge
+                               ('to', (7, 12)), 'DOWN', ('bike',),  # the south gate, off the Bicycle
+                               ('to', (340, 712))],  # Route 207: Sovereign's counterpart battle, Vs. Seeker
+          'MAP_HEADER_ROUTE_207', 'VAR_ROUTE_207_COUNTERPART_TRIGGER_STATE'),
+         ('Mt. Coronet', [('to', (341, 712)), 'RIGHT', ('to', (14, 23)),  # Cyrus's scene on the only way
+                          ('to', (27, 20)), 'RIGHT'],  # out onto Route 208
+          'MAP_HEADER_ROUTE_208', 'VAR_MT_CORONET_1F_SOUTH_STATE'),
+         ('Hearthome City', [('to', (447, 726)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # the gate: Aaron (yes), TM81
+                             ('to', (465, 698)), 'UP'],  # Keira's Buneary on the way (x 461), the Pokémon Center
+          'MAP_HEADER_HEARTHOME_CITY_POKECENTER_1F', 'VAR_HEARTHOME_CITY_STATE'),
+         ('Fantina in the Contest Hall', [('to', (8, 12)), 'DOWN', ('to', (479, 692)), 'UP',  # Keira, Mom (OnFrame)
+                                          ('to', (22, 10)), 'UP', ('talk', [])],  # she heads to the gym
+          'MAP_HEADER_CONTEST_HALL_LOBBY', 'FLAG_HIDE_HEARTHOME_CITY_GYM_GUIDE'),
+         ('Fantina', [('to', (16, 13)), 'DOWN', ('to', (499, 698)), 'UP',  # the guide's first-visit scene
+                      ('to', (4, 3)), 'UP',  # into trainer room 1
+                      ('door', [(4, 2), (8, 2), (12, 2)]),  # NEW: the right door, read from the save
+                      ('door', [(4, 2), (9, 2), (14, 2), (19, 2), (24, 2)]),  # room 2's
+                      ('to', (4, 11)), 'UP', ('talk', [])],  # the Relic Badge, TM30 (no Mega Ring: had)
+          'MAP_HEADER_HEARTHOME_CITY_GYM_LEADER_ROOM', 'FLAG_RECEIVED_FANTINA_TM65'),
+         ('the Route 209 gate', [('to', (14, 3)),  # the panel back to the entrance room
+                                 ('to', (4, 8)), 'DOWN', ('to', (505, 726)), 'RIGHT',
+                                 ('to', (10, 7)), 'RIGHT'],  # the rival's battle (x 5), the maid: the siege starts
+          'MAP_HEADER_ROUTE_209', ('VAR_ROUTE_209_GATE_TO_HEARTHOME_CITY_STATE', 2)),
+         ('Solaceon Town', [('to', (560, 669)),  # the rival's news of the ruins
+                            ('to', (566, 657)), 'UP'],
+          'MAP_HEADER_SOLACEON_TOWN_POKECENTER_1F', 'VAR_SOLACEON_TOWN_STATE'),
+         ('Veilstone City', [('to', (8, 12)), 'DOWN', ('to', (671, 598)), 'RIGHT',  # Routes 210 and 215
+                             ('to', (10, 7)), 'RIGHT',  # the gate
+                             ('to', (684, 616))],  # the counterpart and Crasher Wake at the gym
+          'MAP_HEADER_VEILSTONE_CITY', 'VAR_VEILSTONE_CITY_CRASHER_WAKE_STATE'),
+         ('Maylene', [('to', (684, 612)), 'UP',
+                      ('warp', (12, 5), 'UP'), ('talk', [])],  # across the punching bags; the Cobble Badge, TM60
+          'MAP_HEADER_VEILSTONE_CITY_GYM', 'FLAG_RECEIVED_MAYLENE_TM60'),
+         ('the Galactic warehouse', [('warp', (12, 30), 'DOWN'), 'DOWN',  # back across the bags, out: the
+                                     # counterpart asks for help (OnFrame)
+                                     ('to', (695, 596)), 'RIGHT', ('talk', [True])],  # team up: the tag battle,
+                                     # Looker, into the warehouse with him (OnFrame): HM02's spot, Pastoria next
+          'MAP_HEADER_VEILSTONE_CITY_GALACTIC_WAREHOUSE', ('VAR_VEILSTONE_CITY_GALACTIC_WAREHOUSE_STATE', 2)),
+         ('Pastoria City', [('to', (8, 11)), 'DOWN', ('to', (718, 638)), 'DOWN',  # the Route 214 gate
+                            ('to', (5, 12)), 'DOWN', ('to', (706, 813)), 'DOWN',  # Route 214, Valor Lakefront, the
+                            ('to', (8, 11)), 'DOWN',  # Hotel Grand Lake's lobby through to Route 213's beach
+                            ('to', (646, 812)), 'LEFT', ('to', (1, 7)), 'LEFT',  # the Pastoria gate
+                            ('to', (589, 828))],  # the gym's doormat: the rival's battle
+          'MAP_HEADER_PASTORIA_CITY', ('VAR_PASTORIA_CITY_STATE', 2)),
+         ('Totem Lurantis', [('to', (610, 809)), 'UP',  # the Great Marsh's gate
+                             ('to', (5, 7)), ('scene', 'UP', [True]),  # a Safari Game, yes (x 4 or 5 only)
+                             ('to', (54, 85)), 'UP', ('talk', [])],  # Great Marsh 3's Totem trial, after Maylene
+          'MAP_HEADER_GREAT_MARSH_3', 'FLAG_SOVEREIGN_TOTEM_TRIAL_LURANTIS'),
+         ('Crasher Wake', [('to', (68, 118)), 'DOWN',  # out of the marsh (a prompt? see doubts)
+                           ('to', (5, 11)), 'DOWN', ('to', (589, 828)), 'UP',
+                           ('warp', (13, 5), 'UP'), ('talk', [])],  # across the water levels; the Fen Badge, HM07
+          'MAP_HEADER_PASTORIA_CITY_GYM', 'FLAG_RECEIVED_WAKE_TM55'),
+         ('the bomb', [('warp', (13, 42), 'DOWN'), 'DOWN',  # back across the water, out: the rival and Wake
+                       # outside (OnFrame, STATE 3 -> 4)
+                       ('to', (610, 810))],  # the explosion in the marsh: the grunt runs east (STATE 5)
+          'MAP_HEADER_PASTORIA_CITY', ('VAR_PASTORIA_CITY_STATE', 5)),
+         ('Route 213', [('to', (636, 812)), 'RIGHT', ('talk', []),  # the grunt (637,812) runs to Route 213
+                        ('to', (639, 812)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # the gate
+                        ('to', (653, 812)), 'RIGHT', ('talk', []),  # he runs on to (683,833)
+                        ('to', (682, 833)), 'RIGHT', ('talk', [])],  # he runs; Looker's scene
+          'MAP_HEADER_ROUTE_213', 'FLAG_ROUTE_213_GRUNT_M_LEFT'),
+         ('Valor Lakefront', [('to', (706, 819)), 'UP', ('to', (8, 2)), 'UP',  # through the hotel's lobby
+                              ('meet', (719, 790), []),  # the grunt runs north to (723,769)
+                              ('to', (723, 770)), 'UP', ('talk', [True])],  # his battle; Cynthia, the rival;
+                              # yes; the SecretPotion
+          'MAP_HEADER_VALOR_LAKEFRONT', ('VAR_PASTORIA_CITY_STATE', 6)),
+         ('the Psyduck', [('to', (718, 645)), 'UP', ('to', (5, 2)), 'UP',  # Route 214's gate to Veilstone
+                          ('to', (678, 598)), 'LEFT', ('to', (1, 7)), 'LEFT',  # the Route 215 gate
+                          ('to', (560, 588)), 'UP', ('talk', [True, True])],  # SecretPotion yes; Cynthia's Old
+                          # Charm yes (her scene places her by x 560/561 only)
+          'MAP_HEADER_ROUTE_210_SOUTH', 'FLAG_HIDE_ROUTE_210_SOUTH_PSYDUCK'),
+         ('Route 210', [('to', (480, 530))],  # north through the fog: Sovereign's counterpart battle
+          'MAP_HEADER_ROUTE_210_NORTH', 'VAR_SOVEREIGN_ROUTE_210_COUNTERPART_STATE'),
+         ('Celestic Town', [('to', (463, 523)), 'UP', ('talk', [True])],  # the grunt (needs the five trials),
+                            # yes: his battle; the elder takes the Old Charm
+          'MAP_HEADER_CELESTIC_TOWN', 'FLAG_DELIVERED_OLD_CHARM'),
+         ('Cyrus', [('to', (463, 521)), 'UP',  # the cave
+                    ('to', (10, 3)), 'UP', ('talk', [True])],  # the painting; Cyrus, yes: his battle; HM03 Surf
+          'MAP_HEADER_CELESTIC_TOWN_CAVE', ('VAR_CELESTIC_TOWN_STATE', 1)),
+         ('Cynthia in Celestic', [('to', (10, 20)), 'DOWN'],  # her OnFrame scene: Canalave's library next
+          'MAP_HEADER_CELESTIC_TOWN', ('VAR_CELESTIC_TOWN_STATE', 2)),
+         # --- stretch C: Canalave City to the Hall of Fame ---
+         # (from Celestic Town's middle, where stretch B is assumed to end: east by Routes 210 and 209, Hearthome,
+         # Route 208, Mt. Coronet 1F South, Route 207, Oreburgh, Oreburgh Gate, Route 203, Jubilife, Route 202,
+         # Sandgem, by sea down Routes 219-220 to Route 221; planner waypoints)
+         ('the Tea', [('surf', (513, 534)), ('surf', (562, 547)), ('surf', (562, 615)), ('surf', (562, 685)),
+                      ('surf', (529, 722)), ('surf', (512, 725)), 'DOWN',  # Route 209's gate to Hearthome
+                      ('to', (2, 7)), 'LEFT', ('to', (455, 726)), 'LEFT',  # Hearthome, Route 208's gate
+                      ('to', (2, 7)), 'LEFT', ('to', (396, 724)), ('to', (393, 724)), 'LEFT',  # Mt. Coronet 1F South
+                      ('surf', (4, 9)), 'UP',  # out onto Route 207
+                      ('to', (297, 739)), ('to', (258, 750)), 'UP', ('to', (5, 22)), 'LEFT',  # Oreburgh Gate
+                      ('surf', (183, 758)), ('surf', (184, 812)), ('surf', (177, 876)),  # Jubilife, Sandgem
+                      ('surf', (219, 904)), ('surf', (280, 913)), ('surf', (306, 910)), 'UP',  # Route 221's lobby
+                      ('to', (5, 5)), 'UP', ('talk', [True])],  # Darach (5,4): his battle, yes; the Tea
+          'MAP_HEADER_PAL_PARK_LOBBY', 'FLAG_DEFEATED_TRAINER_SOVEREIGN_DARACH_PAL_PARK'),
+         ('Canalave City', [('to', (7, 18)), 'DOWN',  # out of the lobby onto Route 221
+                            ('surf', (240, 912)), ('surf', (178, 904)), ('surf', (184, 842)), ('surf', (187, 815)),
+                            ('surf', (161, 771)), ('to', (128, 760)), 'UP',  # Jubilife's warp 12 (128,759) into
+                            # Route 218's east gate (the planner's arrival side; check the mat's direction)
+                            ('to', (2, 7)), 'LEFT',  # through it onto Route 218
+                            ('surf', (71, 754)), 'LEFT',  # Route 218's west gate (warps 70,754/755)
+                            ('to', (2, 7)), 'LEFT',  # the scientist's upgrade (x=7), the policeman takes the Tea (x=2)
+                            ('to', (60, 754))],
+          'MAP_HEADER_CANALAVE_CITY', ('VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE', 2)),
+         ('Barry on the bridge', [('to', (47, 724))],  # the bridge's trigger (x=47, z 723-726): his battle
+          'MAP_HEADER_CANALAVE_CITY', ('VAR_CANALAVE_CITY_STATE', 1)),
+         ('Byron', [('to', (39, 732)), 'UP', ('warp', (16, 4), 'UP'), ('talk', [])],  # across the platforms
+          'MAP_HEADER_CANALAVE_CITY_GYM', ('VAR_CANALAVE_CITY_STATE', 2)),  # also FLAG_RECEIVED_BYRON_TM91
+         ('the Canalave Library', [('warp', (16, 27), 'DOWN'), 'DOWN',  # back across, out: Barry's OnFrame
+                                   ('to', (37, 719)), 'UP',
+                                   ('to', (12, 4)), 'LEFT',  # 1F's stairs (west stairs, 0x5f)
+                                   ('to', (12, 4)), 'LEFT'],  # 2F's stairs: 3F's OnFrame scene, the explosion
+          'MAP_HEADER_CANALAVE_LIBRARY_3F', 'FLAG_LAKE_VALOR_EXPLODED'),
+         ('the explosion', [('to', (3, 3)), 'RIGHT',  # 3F's stairs down (4,3, east stairs)
+                            ('to', (3, 4)), 'RIGHT',  # 2F's (4,4)
+                            ('to', (11, 10)), 'DOWN'],  # out of 1F: Rowan, the sailor, "I need you at Lake Valor"
+          'MAP_HEADER_CANALAVE_CITY', ('VAR_CANALAVE_CITY_STATE', 5)),
+         ('Saturn', [('to', (62, 754)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # Route 218's west gate
+                     ('surf', (120, 758)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # its east gate, into Jubilife
+                     ('to', (199, 758)), ('to', (246, 750)), 'UP', ('to', (26, 22)), 'RIGHT',  # Oreburgh Gate
+                     ('to', (302, 730)), ('to', (341, 713)), 'UP',  # Route 207 into Mt. Coronet 1F South
+                     ('surf', (27, 19)), 'DOWN',  # out onto Route 208
+                     ('to', (444, 725)), ('to', (447, 725)), 'DOWN', ('to', (9, 7)), 'RIGHT',  # its gate, Hearthome
+                     ('to', (458, 728)), 'DOWN', ('to', (5, 11)), 'DOWN',  # Route 212's gate, south
+                     ('surf', (460, 799)), ('surf', (460, 855)), ('surf', (505, 850)), ('surf', (569, 856)),
+                     ('surf', (598, 827)), ('surf', (638, 813)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # Pastoria, R213 gate
+                     ('to', (688, 833)), ('to', (706, 819)), 'UP', ('to', (8, 3)), 'UP',  # through the hotel lobby
+                     ('to', (719, 761)), ('to', (718, 761)), 'LEFT',  # Valor Lakefront, the drained lake
+                     ('to', (32, 33)), 'UP',  # Valor Cavern (past three grunts' battles on the lake bed)
+                     ('to', (14, 20)), 'UP', ('talk', [])],  # Saturn (14,19)
+          'MAP_HEADER_VALOR_CAVERN', 'FLAG_DEFEATED_COMMANDER_SATURN_VALOR_CAVERN'),
+         ('Mars at Lake Verity', [('to', (14, 28)), 'DOWN', ('to', (51, 11)), 'RIGHT',  # out of the cavern
+                   ('to', (706, 811)), ('to', (706, 812)), 'DOWN', ('to', (8, 10)), 'DOWN',  # the hotel lobby
+                   ('to', (670, 821)), ('to', (646, 814)), 'UP', ('to', (2, 7)), 'LEFT',  # R213's gate, Pastoria
+                   ('surf', (604, 836)), ('surf', (554, 856)), ('surf', (490, 850)), ('surf', (460, 843)),
+                   ('surf', (458, 777)), ('surf', (458, 737)), 'UP', ('to', (5, 3)), 'UP',  # R212, its gate
+                   ('to', (454, 728)), 'UP', ('to', (2, 7)), 'LEFT',  # Hearthome, R208's gate
+                   ('to', (396, 724)), ('to', (393, 724)), 'LEFT', ('surf', (4, 9)), 'UP',  # Mt. Coronet, R207
+                   ('to', (297, 739)), ('to', (258, 750)), 'UP', ('to', (5, 22)), 'LEFT',  # Oreburgh Gate, R203
+                   ('to', (183, 758)), ('to', (184, 812)), ('to', (145, 844)), ('to', (82, 846)),  # Route 201
+                   ('to', (81, 844)), 'UP',  # Verity Lakefront into the lake: Rowan's OnFrame
+                   ('to', (55, 39)), 'UP', ('talk', [])],  # Mars (55,38), past four grunts' battles
+          'MAP_HEADER_LAKE_VERITY', 'FLAG_TEAM_GALACTIC_LEFT_LAKE_VERITY'),
+         ('Acuity Lakefront', [('to', (47, 53)), 'DOWN',  # out of Lake Verity (46-47,54)
+                               ('to', (142, 853)), ('to', (180, 829)), ('to', (177, 808)), ('to', (195, 760)),
+                               ('to', (246, 750)), 'UP', ('to', (26, 22)), 'RIGHT',  # Route 201 to Oreburgh Gate
+                               ('to', (302, 730)), ('to', (309, 673)), ('to', (305, 607)), ('to', (305, 577)), 'UP',
+                               # Route 207, Route 206 (the planner took the Cycling Road: bike, or the path under it)
+                               ('to', (7, 3)), 'UP',  # its north gate, Eterna
+                               ('to', (325, 525)), ('to', (379, 532)), 'RIGHT',  # Route 211 West, Mt. Coronet 1F N 1
+                               ('to', (25, 11)), ('to', (11, 11)), 'UP',  # its rocks and boulders (see notes), B1F
+                               ('to', (8, 4)), 'UP', ('to', (2, 19)), 'UP',  # 1F North Room 2, out onto Route 216
+                               ('to', (305, 402)), ('to', (302, 347)), ('to', (291, 288)),  # Routes 216, 217 (snow)
+                               ('to', (310, 244))],  # Acuity Lakefront: Barry's trigger (310-311,244)
+          'MAP_HEADER_ACUITY_LAKEFRONT', ('VAR_ACUITY_LAKEFRONT_STATE', 1)),
+         ('the temple guards', [('to', (366, 235)), ('to', (366, 199)), 'UP', ('talk', [True])],  # Snowpoint's
+          # tremor triggers on the way only shake the screen; Aran (366,198) and Nephenee: yes, their double battle
+          'MAP_HEADER_SNOWPOINT_CITY', 'FLAG_DEFEATED_TRAINER_SOVEREIGN_ARAN_SNOWPOINT_TEMPLE'),
+         ('the Snowpoint Temple', [('to', (366, 198)), 'UP',  # into the temple (warp 366,197); across its floors'
+                                   # rocks, ice and boulder (Platinum's, unchanged) to B5F
+                                   ('warp', (10, 15), 'RIGHT', 'MAP_HEADER_SNOWPOINT_TEMPLE_B5F'),
+                                   ('to', (11, 15))],  # B5F's trigger: Maylene and Candice, Regigigas, HM08
+          'MAP_HEADER_SNOWPOINT_TEMPLE_B5F', ('VAR_MAP_LOCAL_0x01', 1)),
+         ('Candice', [('warp', (8, 13), 'DOWN', 'MAP_HEADER_SNOWPOINT_TEMPLE_1F'), 'DOWN',  # back up and out
+                      ('to', (367, 223)), 'UP',  # the gym (the guide is gone from the door with HM08)
+                      ('warp', (11, 4), 'UP'), ('talk', [])],  # across the ice and snowballs to Candice (11,3)
+          'MAP_HEADER_SNOWPOINT_CITY_GYM', 'FLAG_RECEIVED_CANDICE_TM72'),
+         ('Jupiter at Lake Acuity', [('warp', (11, 28), 'DOWN'), 'DOWN',  # back across the ice, out
+                                     ('to', (321, 232)), ('to', (308, 230)), 'UP'],  # Acuity Lakefront, Rock Climb;
+          # the lake's OnFrame: Jupiter leaves with Uxie, Barry
+          'MAP_HEADER_LAKE_ACUITY', ('VAR_LAKE_ACUITY_STATE', 2)),
+         ('the Storage Key', [('to', (15, 49)), 'DOWN',  # out of Lake Acuity (14-15,50)
+                              ('to', (291, 280)), ('to', (304, 337)), ('to', (301, 398)), ('to', (368, 401)),
+                              ('to', (375, 402)), 'DOWN',  # Routes 217, 216, into Mt. Coronet 1F North Room 2
+                              ('to', (10, 26)), 'DOWN', ('to', (8, 59)), 'DOWN',  # B1F (Rock Smash rocks), 1F N 1
+                              ('to', (29, 34)), 'DOWN',  # out onto Route 211 East
+                              ('surf', (476, 539)), ('surf', (532, 531)), ('surf', (561, 568)),  # Celestic, R210 N,
+                              ('surf', (596, 593)), ('surf', (642, 585)), ('surf', (671, 597)), 'DOWN',  # Route 215
+                              ('to', (9, 7)), 'RIGHT',  # its gate into Veilstone
+                              ('to', (721, 594)), 'UP', ('talk', [True])],  # the
+          # grunt (721,593): he runs, Looker: "Will you enter the hideout?" yes
+          'MAP_HEADER_VEILSTONE_CITY', ('VAR_VEILSTONE_CITY_GALACTIC_WAREHOUSE_STATE', 3)),
+         ('Cyrus at the Galactic HQ', [('to', (701, 592)), 'UP',  # the warehouse
+                                       ('to', (8, 8)),  # Looker's trigger (8-9,8): he opens the HQ door, goes in
+                                       ('to', (13, 4)), 'UP',  # into HQ B2F (3,16), then across its floors:
+                                       ('warp', (8, 12), 'UP', 'MAP_HEADER_GALACTIC_HQ_4F'), ('to', (8, 11))],
+          'MAP_HEADER_GALACTIC_HQ_4F', ('VAR_GALACTIC_HQ_4F_STATE', 1)),  # Cyrus's trigger (8-9,11), the Master Ball
+         ('Saturn at the Galactic HQ', [('warp', (36, 3), 'UP', 'MAP_HEADER_GALACTIC_HQ_LABORATORY'), 'UP',
+                                       ('to', (8, 7)), 'UP', ('talk', []),  # Saturn (8,6): his battle, he steps aside
+                                       'UP', ('talk', [True])],  # the button (bg 8,5): yes, the lake guardians freed
+          'MAP_HEADER_GALACTIC_HQ_CONTROL_ROOM', 'FLAG_FREED_GALACTIC_HQ_POKEMON'),
+         ('Totem Kommo-o', [('to', (8, 12)), 'DOWN',  # the control room's way down (8,13) to the lab
+                            ('to', (1, 10)), 'DOWN',  # the lab's (1,11) to 4F; 4F's (21,17) down to 1F
+                            ('to', (21, 16)), 'DOWN', ('to', (42, 21)), 'DOWN',  # out of the HQ (42,22)
+                            ('to', (690, 608)), ('to', (678, 600)), 'LEFT', ('to', (2, 7)), 'LEFT',  # Route 215
+                            ('surf', (630, 584)), ('surf', (571, 596)), ('surf', (560, 541)), ('surf', (506, 531)),
+                            ('surf', (451, 532)), ('surf', (419, 528)), 'UP',  # R210 N, Celestic, R211 E, Coronet
+                            ('to', (20, 61)), 'RIGHT',  # 1F North Room 1 (a grunt, a boulder), the tunnel room
+                            ('to', (2, 57)), 'DOWN',  # (its rocks, a grunt) out to the north side
+                            ('to', (13, 18)), 'DOWN', ('to', (17, 8)), 'RIGHT',  # 4F Room 3, 5F (a grunt)
+                            ('to', (13, 23)), 'DOWN',  # 6F (arrival 10,24)
+                            ('to', (5, 14)), 'UP', ('talk', [])],  # Mt. Coronet
+          # 6F's Totem trial (5,13), before Spear Pillar
+          'MAP_HEADER_MT_CORONET_6F', 'FLAG_SOVEREIGN_TOTEM_TRIAL_KOMMO_O'),
+         ('Spear Pillar', [('to', (7, 6)), 'UP',  # 6F's way out (7,5)
+                           ('to', (31, 49)), ('to', (31, 47)),  # the grunts' trigger (31,48): their double battle
+                           ('to', (31, 33)), ('scene', 'UP', [True])],  # Mars and Jupiter's (30-32,32): the multi
+          # battle with Barry, Cyrus, the warp to the distorted pillar, Cynthia: "Are you ready?" yes
+          'MAP_HEADER_DISTORTION_WORLD_1F', ('VAR_SPEAR_PILLAR_STATE', 3))]
 # Where JUMP starts a part from the bedroom state, without the parts before it: the test warp's map, tile and facing
 # (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges)
 JUMPS = {'Twinleaf Town': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
@@ -781,6 +1101,24 @@ COLLISION = 0x8000  # a tile's collision bit (src/terrain_collision_manager.c)
 # Blackthorn Gym's floors in the save (MiscSaveBlock: 128 BerryPatches of 14 bytes, then PersistedMapFeatures: its ID,
 # DYNAMIC_MAP_FEATURES_HGSS_BLACKTHORN_GYM, and BlackthornGymPersistedData: u16 x[3], u16 z[3], u8 rotation[3])
 MISC_FEATURES, BLACKTHORN_FEATURE = 128 * 14, 15
+ETERNA_GYM, ETERNA_FEATURE = 'MAP_HEADER_ETERNA_CITY_GYM', 8  # enum DynamicMapFeatureID
+HEARTHOME_FEATURE = 2
+
+
+def eterna_clock():
+    """Eterna Gym's turning clock (src/overlay008/gym_features.c): the tiles blocked in each of its states (by the
+    trainers beaten), the clock's 13 by 13 from (5, 7) and the fountains' row 19 from x 1, which the map's own
+    collision shows as floor."""
+    src = open(os.path.join(DECOMP, 'src', 'overlay008', 'gym_features.c'), encoding='utf-8').read()
+    out = []
+    for table, width, x0, z0 in (('sEternaGymClockCollision', 13, 5, 7), ('sEternaGymFountainCollision', 21, 1, 19)):
+        body = src.split(table + '[', 1)[1].split('};', 1)[0]
+        for i, state in enumerate(re.findall(r'\] = \{([^}]*)\}', body)):
+            cells = [int(c) for c in re.findall(r'\d', state)]
+            if len(out) <= i:
+                out.append(set())
+            out[i] |= {(x0 + n % width, z0 + n // width) for n, c in enumerate(cells) if c}
+    return out
 VERMILION_FEATURE = 11  # DYNAMIC_MAP_FEATURES_HGSS_VERMILION_GYM: VermilionGymPersistedData, u8 switches[2], gates[2]
 BICYCLE = open(os.path.join(DECOMP, 'generated', 'items.txt')).read().split().index('ITEM_BICYCLE')
 # the Bag in the save: its pockets of BagItems (u16 item, u16 quantity), then the item registered to Y (include/bag.h)
@@ -1016,6 +1354,7 @@ def main():
     towns = fly_points(variables)
     maps = Maps(DECOMP)
     heights = Heights(maps)
+    clock_blocked = eterna_clock()
     heaps = heap_info()
     matrix_of, people_of, warps_of, triggers_of = {}, collections.defaultdict(set), collections.defaultdict(set), {}
     for _, headers_of, cur, _ in event_maps():
@@ -1061,7 +1400,11 @@ def main():
 
     def floors_blocked():
         """In Blackthorn Gym, the lava no floor is over and the floors' buttons, which a walk keeps off (the floors
-        where the save has them now: blackthorn_floor). Elsewhere nothing."""
+        where the save has them now: blackthorn_floor); in Eterna Gym, the clock's and fountains' tiles blocked in the
+        clock's state now (eterna_clock). Elsewhere nothing."""
+        if here() == ETERNA_GYM:
+            at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
+            return clock_blocked[u32(at + 4)] if u32(at) == ETERNA_FEATURE else set()
         if here() != BLACKTHORN_GYM:
             return set()
         at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
@@ -1074,6 +1417,20 @@ def main():
             walk |= set(tiles['floor'])
             buttons |= set(tiles['turn'] + tiles['move right'] + tiles['move left'])
         return (gym_lava - walk) | buttons
+
+    def door(doors):
+        """Hearthome Gym: through the trainer room's right door, which the room picks as the player comes in (its
+        number, counted over both rooms' doors, in the save: HearthomeGymPersistedFeatures), from the tile before it.
+        Returns a problem, or ''."""
+        at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
+        if u32(at) != HEARTHOME_FEATURE:
+            return f'no Hearthome Gym doors in the save, on {here()}'
+        right = struct.unpack('<h', bytes(mem.unsigned[at + 6:at + 8]))[0]
+        x, z = doors[right - 3 if right >= 3 and len(doors) == 5 else right]
+        problem = walk_to((x, z + 1))
+        if not problem:
+            step('UP')
+        return problem
 
     def var(name):
         return u16(vars_flags() + (variables[name] - variables['VARS_START']) * 2)
@@ -1450,6 +1807,13 @@ def main():
                 problem = switch_cans(action[1])
             elif action[0] == 'bike':
                 problem = bike()
+            elif action[0] == 'door':
+                problem = door(action[1])
+            elif action[0] == 'warp':  # the test warp, across a Sinnoh gym or dungeon puzzle the walks don't solve yet
+                face = ('UP', 'DOWN', 'LEFT', 'RIGHT').index(action[2]) + 1
+                result, frames = warp(d, sym, names.index(action[3] if len(action) > 3 else here()), *action[1], face)
+                if result != 'ok':
+                    problem = f'the warp across: {result} after {frames} frames, on {here()} at {d.pos()}'
             elif action[0] == 'ride':
                 problem = ride(action[1], action[2])
             elif action[0] == 'scene':  # the step, then the scene it starts, its menus answered (not settle's A)
