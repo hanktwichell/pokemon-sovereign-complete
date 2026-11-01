@@ -301,7 +301,7 @@ the recording, for tools/complete/highlights.py.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default); FROM, a part's name, starts there from the save state an earlier
-run left in OUT_DIR, or, with JUMP=1, from STATE, warped to the part's start (JUMPS) with all sixteen badges:
+run left in OUT_DIR, or, with JUMP=1, from STATE, warped to the part's start (PART_STARTS) with all sixteen badges:
     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_opening.py \\
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [FROM]
 """
@@ -311,6 +311,8 @@ import re
 import struct
 import subprocess
 import sys
+
+import yaml
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 from battle_all_trainers import SWITCH_FRAMES, TAPS, heap_info  # noqa: E402
@@ -1149,8 +1151,12 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           # OS_ResetSystem; the test must take the title screen's Continue (see notes)
           'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'FLAG_GAME_COMPLETED')]
 # Where JUMP starts a part from the bedroom state, without the parts before it: the test warp's map, tile and facing
-# (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges)
-JUMPS = {'Twinleaf Town': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
+# (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges) and their
+# Totem trials done (JUMP_FLAGS: Sinnoh's people ask for some of them)
+PART_STARTS = {'Twinleaf Town': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
+JUMP_FLAGS = ['FLAG_SOVEREIGN_TOTEM_TRIAL_' + p['totem'][len('TOTEM_TRIAL_'):]
+              for p in yaml.safe_load(open(os.path.join(DECOMP, '..', 'data', 'complete', 'placed.yaml'),
+                                           encoding='utf-8'))['placed'] if 'totem' in p]
 # armed step-on triggers (coord events whose var has their value) a walk never steps onto, but the one it goes to, by
 # map and the start of their var's name: Azalea Gym's carts (src/complete_gyms.c), Ilex Forest's twigs, which scare a
 # Farfetch'd, Ecruteak Gym's pits, Ice Path B1F's holes, which drop the player to B2F, Blackthorn Gym's pads, which
@@ -1455,18 +1461,27 @@ def main():
             triggers_of[header] = [({(c['x'] + i, c['z'] + j) for i in range(c['width']) for j in range(c['length'])},
                                     c['var'], c['value']) for c in cur.get('coord_events', [])]
     first = [p[0] for p in PARTS].index(start) if start else 0
-    jump = os.environ.get('JUMP') and JUMPS[start]
+    jump = os.environ.get('JUMP') and PART_STARTS[start]
     if first and not jump:
         state = os.path.join(out, PARTS[first - 1][0].replace(' ', '_') + '.state')
     d = Driver(rom, state)
     mem = d.emu.memory
     mem.write_byte(sym['gSovereignTestGodMode'], 1)  # battles: one hit wins, no PP used, no EXP prompts
-    if jump:  # from the bedroom state straight to the part's start, with Johto's and Kanto's badges
+    def set_flags(flags):
+        """Set these flags on the next test warp (gSovereignTestVar's slots after the warp's own three)."""
+        for slot, name in enumerate(flags, 3):
+            mem.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[name])
+            mem.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, 1)
+
+    if jump:  # from the bedroom state straight to the part's start, with Johto's and Kanto's badges and trials
         d.run(30)
         mem.write_short(sym['gCompleteTestHGSSBadges'], 0xFFFF)
+        set_flags(JUMP_FLAGS)
         result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])
         if result != 'ok':
             sys.exit(f'JUMP: the warp {result} after {frames} frames')
+    elif os.environ.get('SET_FLAGS'):  # flags a run that started with JUMP before they were in JUMP_FLAGS lacks, set
+        set_flags(os.environ['SET_FLAGS'].split(','))  # by a test warp onto the player's own tile before the parts
     video = os.environ.get('VIDEO') and Recorder(d, os.environ['VIDEO'], int(os.environ.get('VIDEO_EVERY', 3)))
 
     def u16(addr):
@@ -1870,6 +1885,10 @@ def main():
     # of its PlayerSave: include/game_options.h)
     options = save_block('SAVE_TABLE_ENTRY_PLAYER')
     mem.write_short(options, u16(options) | BATTLE_STYLE_SET)
+    if os.environ.get('SET_FLAGS') and not jump:
+        result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
+        if result != 'ok':
+            sys.exit(f'SET_FLAGS: the warp {result} after {frames} frames')
     for name, actions, end_map, marker in PARTS[first:]:
         problem = ''
         if video:
