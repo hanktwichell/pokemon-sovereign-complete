@@ -361,7 +361,8 @@ BYRON_WAY_OUT = (['RIGHT'] * 5 + ['DOWN'] + ['RIGHT'] + ['DOWN'] * 5 + ['LEFT'] 
 # (or that map), facing that way, setting those vars and flags, across a Sinnoh gym or dungeon puzzle of Platinum's the
 # walks don't solve yet (Sovereign's own, unchanged here). The stairs and doors warp
 # as the player presses toward them from their tile.
-PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',
+PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',  # beside the stairs (3,4)
+         # (a bedroom state's start can be a tile off, as the TV program ends)
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
          ('outside', ['DOWN'] * 8, NEW_BARK, None),
          ('Elm\'s greeting', ['LEFT'] * 11 + ['UP'] * 8, LAB, 'FLAG_HGSS_ELMS_LAB_PREVENT_PLAYER_ESCAPE'),
