@@ -1288,6 +1288,7 @@ BATTLE_STYLE_SET = 1 << 6  # Options' battleStyle bit (after textSpeed's 4 and s
 # the Bicycle's gear in the save (FieldOverworldState's PlayerData, include/field_overworld_state.h: five Locations,
 # bgm, weather, blackOutWarpId, cameraType, the map history, then cyclingGear): 1 is 4th gear, which climbs muddy slopes
 CYCLING_GEAR = 0x8c
+PLAYER_STATE = 0x90  # then its playerState: walking 0, cycling 1, surfing 2 (include/constants/player_avatar.h)
 RIDE_FRAMES = 4000  # the longest one hold up the Cycling Road may take, battles aside
 RIDE_STALL = 64  # frames a held key may leave the player where they are before the ride gives up
 RIDE_TRIES = 20  # holds up the Cycling Road, one after each battle on the way (it has 11 bikers)
@@ -1948,8 +1949,15 @@ def main():
         at = save_block('SAVE_TABLE_ENTRY_BAG') + BAG_REGISTERED
         if u32(at) != BICYCLE:
             mem.write_long(at, BICYCLE)
-        d.press('Y', frames=4, after=30)
-        return '' if settle() else f'the field never came free after Y, on {here()} at {d.pos()}'
+        state = save_block('SAVE_TABLE_ENTRY_FIELD_PLAYER_STATE') + PLAYER_STATE
+        before = u32(state)
+        for _ in range(3):  # a Y the field misses (as a step ends) leaves the player as they were: again
+            d.press('Y', frames=4, after=30)
+            if not settle():
+                return f'the field never came free after Y, on {here()} at {d.pos()}'
+            if u32(state) != before:
+                return ''
+        return f'Y left the player as they were (state {before}), on {here()} at {d.pos()}'
 
     def ride(key, goal):
         """Up the Cycling Road's slope on the Bicycle: key held till the player's row (or column) is goal's, as between
