@@ -1177,7 +1177,8 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
          ('Sinnoh\'s Victory Road', [('surf', (849, 694)), ('surf', (841, 642)),  # Route 223
                            ('surf', (849, 605)), 'UP', ('talk', [True]),  # up its waterfall (row 604): Waterfall, yes
                            ('surf', (851, 599)),
-                           'UP',  # past the guard's check (8 badges, Togedemaru), into Victory Road (851,597)
+                           'UP', 'UP',  # past the guard's check (851,598: 8 badges, Togedemaru), into Victory Road
+                           # (851,597)
                            ('to', (9, 42)), ('to', (45, 32)), 'DOWN',  # 1F, to the back rooms (45,33)
                            ('to', (21, 11)), 'UP', ('surf', (37, 39)), ('surf', (56, 14)), 'UP',
                            ('to', (28, 16)), 'RIGHT',  # out onto Route 224
