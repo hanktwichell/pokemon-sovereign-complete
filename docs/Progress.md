@@ -1240,3 +1240,18 @@ Test results on the new test build:
   climb it, so the walks to Mt. Coronet get on the Bicycle below it, shift with B and ride up from a run-up (a new
   'slope' action); Route 212 South's marsh has deep mud, which holds the player fast as the Great Marsh's does, and
   the walks keep off it now. Canalave City, Byron, the library, the explosion and Saturn at Lake Valor pass.
+- **Two Totems no player could reach:** the story test's walk found Totem Marowak in Rock Tunnel B1F behind Rock
+  Climb walls, before Janine; an audit of all 40 placements then found Totem Salazzle on Cinnabar Island up one too,
+  before Blaine. HeartGold's Rock Climb comes from Oak late in Kanto. `tools/complete/find_spot.py` had counted those
+  walls as walkable; it treats Rock Climb walls and waterfalls as walls now, and both Totems stand in reachable nooks
+  nearby. Since save states hold the old build's code, the final recorded run restarted from a new bedroom state.
+- **The walks learn field moves:** a Cut tree or a Rock Smash rock in a walk's way is cleared, and a Rock Climb wall
+  climbed, as a player would (A, yes). Route 223's waterfall is climbed with Waterfall on the way to Victory Road.
+- **Sinnoh's ways, checked offline:** the walk planner run over Mt. Coronet's and Victory Road's warp graphs with their
+  boulders in place found the drafted ways that couldn't work: Mt. Coronet 1F North Room 1 needs Strength pushes
+  both ways (now in Acuity Lakefront's and the Storage Key's walks); its way south from Route 211 East is one way the
+  other way, so Totem Kommo-o's walk takes Platinum's climb from 1F South (2F's boulder pushed down its column, 3F,
+  the snow outside, 4F, 5F, 6F); and the path under Route 206's Cycling Road ends at Wayward Cave, so the walk north
+  to Eterna rides the Cycling Road up (on the Bicycle before the gate, which turns back anyone on foot).
+- **The test's no-damage setting** is set again at every part: a Hall of Fame resets the DS and cleared it, and a
+  sailor's Kingdra then knocked out the lead on the S.S. Aqua.
