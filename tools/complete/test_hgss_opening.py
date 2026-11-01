@@ -329,6 +329,19 @@ AZALEA_GYM = 'MAP_HEADER_HGSS_AZALEA_GYM'
 ILEX = 'MAP_HEADER_HGSS_ILEX_FOREST'
 ECRUTEAK_GYM = 'MAP_HEADER_HGSS_ECRUTEAK_GYM'
 BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
+# Canalave Gym's lifts (Platinum's), as keys: up its floors to Byron, and back down (worked out by a search over the
+# gym's collision and its lifts' platforms)
+BYRON_WAY_IN = (['UP'] * 8 + ['LEFT'] * 8 + ['UP'] * 3 + ['RIGHT'] * 10 + ['UP'] * 2 + ['RIGHT'] * 2 + ['UP'] +
+                ['RIGHT'] * 4 + ['DOWN'] * 2 + ['RIGHT'] * 5 + ['DOWN'] * 11 + ['LEFT'] * 3 + ['UP'] + ['LEFT'] * 4 +
+                ['UP'] * 3 + ['LEFT'] * 6 + ['UP'] + ['LEFT'] * 7 + ['DOWN'] * 5 + ['RIGHT'] * 3 + ['UP'] * 2 +
+                ['LEFT'] * 3 + ['UP'] * 9 + ['RIGHT'] * 2 + ['UP'] * 8 + ['RIGHT'] * 13 + ['DOWN'] * 2 +
+                ['RIGHT'] * 2 + ['DOWN'] * 12 + ['RIGHT'] * 3 + ['UP'] * 14 + ['LEFT'] * 3 + ['DOWN'] +
+                ['LEFT'] * 3 + ['DOWN'] * 4 + ['RIGHT'] * 2 + ['LEFT'] * 9 + ['UP'] * 5)  # 186 keys, door (16,27)
+# to (16,4) on floor 3, below Byron (16,3); rides platforms 4, 8, 5, 10, 9, 16, 12, 13, 17, 18, 11, 6, 0 (red, to 30)
+BYRON_WAY_OUT = (['RIGHT'] * 5 + ['DOWN'] + ['RIGHT'] + ['DOWN'] * 5 + ['LEFT'] * 5 + ['UP'] + ['LEFT'] +
+                 ['UP'] * 5 + ['RIGHT'] * 5 + ['DOWN'] * 17 + ['RIGHT'] * 9)  # 55 keys from (16,4), platforms as left
+# by the way in, Byron's tile blocked; ends at (16,26), then 'DOWN' onto the door
+
 # (part, its actions, the map it ends on, the var that must have moved on from 0 or the flag that must be set, (var,
 # value) for a var that must have that value, ('fly', town) for the town's Fly point, or None). An action is a key to
 # press, ('to', (x, z)): a walk to that tile on the map the player is on, ('surf', (x, z)): one that may cross water,
@@ -980,9 +993,9 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_CANALAVE_CITY', ('VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE', 2)),
          ('Barry on the bridge', [('to', (47, 724))],  # the bridge's trigger (x=47, z 723-726): his battle
           'MAP_HEADER_CANALAVE_CITY', ('VAR_CANALAVE_CITY_STATE', 1)),
-         ('Byron', [('to', (39, 732)), 'UP', ('warp', (16, 4), 'UP'), ('talk', [])],  # across the platforms
+         ('Byron', [('to', (39, 732)), 'UP'] + BYRON_WAY_IN + [('talk', [])],  # up the lifts' floors
           'MAP_HEADER_CANALAVE_CITY_GYM', ('VAR_CANALAVE_CITY_STATE', 2)),  # also FLAG_RECEIVED_BYRON_TM91
-         ('the Canalave Library', [('warp', (16, 27), 'DOWN'), 'DOWN',  # back across, out: Barry's OnFrame
+         ('the Canalave Library', BYRON_WAY_OUT + ['DOWN',  # back down and out: Barry's OnFrame
                                    ('to', (37, 719)), 'UP',
                                    ('to', (12, 4)), 'LEFT',  # 1F's stairs (west stairs, 0x5f)
                                    ('to', (12, 4)), 'LEFT'],  # 2F's stairs: 3F's OnFrame scene, the explosion
