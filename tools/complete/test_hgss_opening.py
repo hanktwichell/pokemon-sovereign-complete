@@ -926,7 +926,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
           'MAP_HEADER_PASTORIA_CITY_GYM', 'FLAG_RECEIVED_WAKE_TM55'),
          ('the bomb', [('warp', (13, 42), 'DOWN'), 'DOWN',  # back across the water, out: the rival and Wake
                        # outside (OnFrame, STATE 3 -> 4)
-                       ('to', (610, 810))],  # the explosion in the marsh: the grunt runs east (STATE 5)
+                       ('to', (610, 811)), ('scene', 'UP', [])],  # the explosion in the marsh: the grunt runs
+                       # east (STATE 5; the tile then pushes the player back, so it's stepped on once)
           'MAP_HEADER_PASTORIA_CITY', ('VAR_PASTORIA_CITY_STATE', 5)),
          ('Route 213', [('to', (636, 812)), 'RIGHT', ('talk', []),  # the grunt (637,812) runs to Route 213
                         ('to', (639, 812)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # the gate
