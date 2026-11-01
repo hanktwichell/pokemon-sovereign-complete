@@ -81,28 +81,28 @@
         "rate": 15,
         "slots": [
             {
-                "level_min": 25,
-                "level_max": 30,
+                "level_min": 15,
+                "level_max": 25,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
+                "level_min": 10,
+                "level_max": 20,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 25,
-                "level_max": 35,
+                "level_min": 15,
+                "level_max": 25,
                 "species": "SPECIES_POLIWHIRL"
             },
             {
-                "level_min": 25,
-                "level_max": 35,
+                "level_min": 15,
+                "level_max": 25,
                 "species": "SPECIES_POLIWHIRL"
             },
             {
-                "level_min": 25,
-                "level_max": 35,
+                "level_min": 15,
+                "level_max": 25,
                 "species": "SPECIES_POLIWHIRL"
             }
         ]
@@ -127,28 +127,28 @@
         "slots": [
             {
                 "level_min": 10,
-                "level_max": 15,
+                "level_max": 10,
                 "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 10,
-                "level_max": 15,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 10,
-                "level_max": 15,
-                "species": "SPECIES_STARYU"
-            },
-            {
-                "level_min": 10,
-                "level_max": 15,
-                "species": "SPECIES_STARYU"
-            },
-            {
-                "level_min": 10,
-                "level_max": 15,
-                "species": "SPECIES_STARYU"
+                "level_max": 10,
+                "species": "SPECIES_POLIWAG"
             }
         ]
     },
@@ -156,29 +156,29 @@
         "rate": 50,
         "slots": [
             {
-                "level_min": 25,
-                "level_max": 30,
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_STARYU"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_CHINCHOU"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_CHINCHOU"
-            },
-            {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_CHINCHOU"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             }
         ]
     },
@@ -188,27 +188,27 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_POLIWHIRL"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_STARYU"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_LANTURN"
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_LANTURN"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_LANTURN"
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_POLIWAG",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_POLIWAG",
+        "fishing": "SPECIES_WHISCASH"
     }
 }

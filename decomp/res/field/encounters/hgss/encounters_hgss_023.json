@@ -4,76 +4,76 @@
         "rate": 25,
         "slots": [
             {
-                "level": 18,
-                "morning": "SPECIES_METAPOD",
-                "day": "SPECIES_METAPOD",
-                "night": "SPECIES_METAPOD"
+                "level": 10,
+                "morning": "SPECIES_WEEDLE",
+                "day": "SPECIES_WEEDLE",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 18,
+                "level": 10,
                 "morning": "SPECIES_KAKUNA",
                 "day": "SPECIES_KAKUNA",
-                "night": "SPECIES_KAKUNA"
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 17,
-                "morning": "SPECIES_COMBEE",
-                "day": "SPECIES_COMBEE",
-                "night": "SPECIES_COMBEE"
+                "level": 10,
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 17,
-                "morning": "SPECIES_TAILLOW",
-                "day": "SPECIES_TAILLOW",
-                "night": "SPECIES_POOCHYENA"
+                "level": 10,
+                "morning": "SPECIES_METAPOD",
+                "day": "SPECIES_METAPOD",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 18,
-                "morning": "SPECIES_NINCADA",
+                "level": 12,
+                "morning": "SPECIES_CATERPIE",
                 "day": "SPECIES_SUNKERN",
-                "night": "SPECIES_NINCADA"
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 17,
-                "morning": "SPECIES_BURMY",
-                "day": "SPECIES_BURMY",
-                "night": "SPECIES_BURMY"
+                "level": 12,
+                "morning": "SPECIES_PIDOVE",
+                "day": "SPECIES_PIDOVE",
+                "night": "SPECIES_PIDOVE"
             },
             {
-                "level": 19,
-                "morning": "SPECIES_SCYTHER",
-                "day": "SPECIES_SCYTHER",
-                "night": "SPECIES_SCYTHER"
+                "level": 12,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 19,
-                "morning": "SPECIES_PINSIR",
-                "day": "SPECIES_PINSIR",
-                "night": "SPECIES_PINSIR"
+                "level": 12,
+                "morning": "SPECIES_MORELULL",
+                "day": "SPECIES_MORELULL",
+                "night": "SPECIES_MORELULL"
             },
             {
-                "level": 18,
-                "morning": "SPECIES_HERACROSS",
-                "day": "SPECIES_HERACROSS",
-                "night": "SPECIES_HERACROSS"
+                "level": 10,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_SUNKERN",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 18,
-                "morning": "SPECIES_KRICKETUNE",
-                "day": "SPECIES_KRICKETUNE",
-                "night": "SPECIES_KRICKETUNE"
+                "level": 14,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 19,
-                "morning": "SPECIES_HERACROSS",
-                "day": "SPECIES_HERACROSS",
-                "night": "SPECIES_HERACROSS"
+                "level": 10,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_SUNKERN",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 19,
-                "morning": "SPECIES_KRICKETUNE",
-                "day": "SPECIES_KRICKETUNE",
-                "night": "SPECIES_KRICKETUNE"
+                "level": 14,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_BUTTERFREE",
-        "SPECIES_BEEDRILL"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_SCYTHER",
-        "SPECIES_HERACROSS"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_WEEDLE",
+        "land": "SPECIES_CATERPIE",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

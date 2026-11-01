@@ -82,28 +82,28 @@
         "slots": [
             {
                 "level_min": 10,
-                "level_max": 10,
-                "species": "SPECIES_MAGIKARP"
-            },
-            {
-                "level_min": 20,
                 "level_max": 20,
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 30,
-                "level_max": 30,
+                "level_min": 5,
+                "level_max": 15,
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_MAGIKARP"
+                "level_min": 10,
+                "level_max": 20,
+                "species": "SPECIES_GYARADOS"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_MAGIKARP"
+                "level_min": 10,
+                "level_max": 20,
+                "species": "SPECIES_GYARADOS"
+            },
+            {
+                "level_min": 10,
+                "level_max": 20,
+                "species": "SPECIES_GYARADOS"
             }
         ]
     },
@@ -138,7 +138,7 @@
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_FEEBAS"
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 10,
@@ -161,19 +161,19 @@
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 30,
-                "level_max": 30,
-                "species": "SPECIES_GYARADOS"
-            },
-            {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_FEEBAS"
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 20,
                 "level_max": 20,
                 "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GYARADOS"
             },
             {
                 "level_min": 20,
@@ -193,22 +193,22 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_FEEBAS"
-            },
-            {
-                "level_min": 40,
-                "level_max": 40,
                 "species": "SPECIES_GYARADOS"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_MILOTIC"
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_GYARADOS"
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_MAGIKARP",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_GYARADOS",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

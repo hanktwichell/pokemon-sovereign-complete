@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_WOOPER",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_MAGIKARP",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

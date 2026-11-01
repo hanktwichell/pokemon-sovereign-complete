@@ -4,76 +4,76 @@
         "rate": 5,
         "slots": [
             {
-                "level": 40,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 38,
+                "level": 21,
                 "morning": "SPECIES_SWINUB",
                 "day": "SPECIES_SWINUB",
                 "night": "SPECIES_SWINUB"
             },
             {
-                "level": 41,
+                "level": 22,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 39,
+                "level": 21,
                 "morning": "SPECIES_SWINUB",
                 "day": "SPECIES_SWINUB",
                 "night": "SPECIES_SWINUB"
             },
             {
-                "level": 38,
-                "morning": "SPECIES_SEEL",
-                "day": "SPECIES_SEEL",
-                "night": "SPECIES_SEEL"
+                "level": 22,
+                "morning": "SPECIES_SNOM",
+                "day": "SPECIES_SNOM",
+                "night": "SPECIES_SNOM"
             },
             {
-                "level": 38,
-                "morning": "SPECIES_SPHEAL",
-                "day": "SPECIES_SPHEAL",
-                "night": "SPECIES_SPHEAL"
-            },
-            {
-                "level": 38,
-                "morning": "SPECIES_SHELLDER",
-                "day": "SPECIES_SHELLDER",
-                "night": "SPECIES_SHELLDER"
-            },
-            {
-                "level": 39,
-                "morning": "SPECIES_SHELLDER",
-                "day": "SPECIES_SHELLDER",
-                "night": "SPECIES_SHELLDER"
-            },
-            {
-                "level": 38,
-                "morning": "SPECIES_SMOOCHUM",
-                "day": "SPECIES_SMOOCHUM",
-                "night": "SPECIES_SMOOCHUM"
-            },
-            {
-                "level": 39,
+                "level": 22,
                 "morning": "SPECIES_DELIBIRD",
                 "day": "SPECIES_DELIBIRD",
                 "night": "SPECIES_DELIBIRD"
             },
             {
-                "level": 38,
-                "morning": "SPECIES_SMOOCHUM",
-                "day": "SPECIES_SMOOCHUM",
-                "night": "SPECIES_SMOOCHUM"
+                "level": 22,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 40,
-                "morning": "SPECIES_DELIBIRD",
-                "day": "SPECIES_DELIBIRD",
-                "night": "SPECIES_DELIBIRD"
+                "level": 23,
+                "morning": "SPECIES_SWINUB",
+                "day": "SPECIES_SWINUB",
+                "night": "SPECIES_SWINUB"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_SWINUB",
+                "day": "SPECIES_SWINUB",
+                "night": "SPECIES_SWINUB"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_JYNX",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_JYNX",
+                "day": "SPECIES_JYNX",
+                "night": "SPECIES_JYNX"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_JYNX",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_JYNX",
+                "day": "SPECIES_JYNX",
+                "night": "SPECIES_JYNX"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_PILOSWINE",
-        "SPECIES_SEALEO"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_DELIBIRD",
-        "SPECIES_DELIBIRD"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_SWINUB",

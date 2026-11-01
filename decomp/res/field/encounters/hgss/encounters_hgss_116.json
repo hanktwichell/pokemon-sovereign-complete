@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 45,
-                "morning": "SPECIES_PIDGEOTTO",
-                "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_PERSIAN"
+                "level": 13,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_ODDISH"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 13,
+                "morning": "SPECIES_BELLSPROUT",
+                "day": "SPECIES_BELLSPROUT",
+                "night": "SPECIES_MEOWTH"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_RATICATE",
-                "day": "SPECIES_RATICATE",
-                "night": "SPECIES_RATICATE"
+                "level": 13,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_ODDISH"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_RATICATE",
-                "day": "SPECIES_RATICATE",
-                "night": "SPECIES_RATICATE"
+                "level": 13,
+                "morning": "SPECIES_TRUMBEAK",
+                "day": "SPECIES_TRUMBEAK",
+                "night": "SPECIES_TRUMBEAK"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_WEEPINBELL",
-                "day": "SPECIES_WEEPINBELL",
-                "night": "SPECIES_WEEPINBELL"
+                "level": 14,
+                "morning": "SPECIES_MEOWTH",
+                "day": "SPECIES_MEOWTH",
+                "night": "SPECIES_BELLSPROUT"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_WEEPINBELL",
-                "day": "SPECIES_WEEPINBELL",
-                "night": "SPECIES_WEEPINBELL"
+                "level": 14,
+                "morning": "SPECIES_BLIPBUG",
+                "day": "SPECIES_BLIPBUG",
+                "night": "SPECIES_BLIPBUG"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_PIDGEOTTO",
-                "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_PERSIAN"
+                "level": 15,
+                "morning": "SPECIES_MAGNEMITE",
+                "day": "SPECIES_MAGNEMITE",
+                "night": "SPECIES_MAGNEMITE"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 15,
+                "morning": "SPECIES_MAGNEMITE",
+                "day": "SPECIES_MAGNEMITE",
+                "night": "SPECIES_MAGNEMITE"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_CHERRIM",
-                "day": "SPECIES_CHERRIM",
-                "night": "SPECIES_GLOOM"
+                "level": 12,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_CHERRIM",
-                "day": "SPECIES_CHERRIM",
-                "night": "SPECIES_GLOOM"
+                "level": 14,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_CHERRIM",
-                "day": "SPECIES_CHERRIM",
-                "night": "SPECIES_GLOOM"
+                "level": 12,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_CHERRIM",
-                "day": "SPECIES_CHERRIM",
-                "night": "SPECIES_GLOOM"
+                "level": 14,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             }
         ]
     },
@@ -82,28 +82,28 @@
         "slots": [
             {
                 "level_min": 10,
-                "level_max": 65,
+                "level_max": 10,
                 "species": "SPECIES_PSYDUCK"
             },
             {
-                "level_min": 20,
-                "level_max": 50,
+                "level_min": 5,
+                "level_max": 5,
                 "species": "SPECIES_PSYDUCK"
             },
             {
-                "level_min": 35,
-                "level_max": 50,
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_GOLDUCK"
             },
             {
-                "level_min": 30,
-                "level_max": 40,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_GOLDUCK"
             },
             {
-                "level_min": 35,
-                "level_max": 35,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_GOLDUCK"
             }
         ]
     },
@@ -186,28 +186,28 @@
         "rate": 75,
         "slots": [
             {
-                "level_min": 50,
-                "level_max": 50,
+                "level_min": 40,
+                "level_max": 40,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
+                "level_min": 40,
+                "level_max": 40,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
+                "level_min": 40,
+                "level_max": 40,
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_POLIWHIRL"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
+                "level_min": 40,
+                "level_max": 40,
                 "species": "SPECIES_MAGIKARP"
             }
         ]
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_PIDGEY",
         "surf": "SPECIES_PSYDUCK",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_POLIWAG",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

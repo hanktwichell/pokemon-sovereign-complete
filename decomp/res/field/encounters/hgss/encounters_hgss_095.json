@@ -81,29 +81,29 @@
         "rate": 15,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_MARILL"
+                "level_min": 35,
+                "level_max": 35,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_MARILL"
+                "level_min": 30,
+                "level_max": 30,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_MARILL"
+                "level_min": 35,
+                "level_max": 35,
+                "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_MARILL"
+                "level_min": 35,
+                "level_max": 35,
+                "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_MARILL"
+                "level_min": 35,
+                "level_max": 35,
+                "species": "SPECIES_TENTACRUEL"
             }
         ]
     },
@@ -126,29 +126,29 @@
         "rate": 25,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_FINNEON"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_FINNEON"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_FINNEON"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_FINNEON"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_FINNEON"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
             }
         ]
     },
@@ -156,29 +156,29 @@
         "rate": 50,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_TENTACOOL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_ALOMOMOLA"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_TENTACOOL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SHELLDER"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_TENTACOOL"
-            },
-            {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_TENTACOOL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_CHINCHOU"
             }
         ]
     },
@@ -186,29 +186,29 @@
         "rate": 75,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_STARYU"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_CHINCHOU"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_STARYU"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SHELLDER"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_STARYU"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_STARYU"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_LANTURN"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_STARYU"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_TENTACRUEL"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_TENTACOOL",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_SHELLDER",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

@@ -2,71 +2,71 @@
     "land_rate": 10,
     "land_encounters": [
         {
-            "level": 41,
+            "level": 31,
             "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 42,
+            "level": 32,
+            "species": "SPECIES_GRAVELER"
+        },
+        {
+            "level": 30,
             "species": "SPECIES_GOLBAT"
         },
         {
-            "level": 41,
-            "species": "SPECIES_LAIRON"
+            "level": 32,
+            "species": "SPECIES_GOLBAT"
         },
         {
-            "level": 42,
+            "level": 32,
             "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 42,
-            "species": "SPECIES_MAWILE"
+            "level": 33,
+            "species": "SPECIES_ORTHWORM"
         },
         {
-            "level": 42,
+            "level": 31,
+            "species": "SPECIES_ONIX"
+        },
+        {
+            "level": 33,
+            "species": "SPECIES_GHOLDENGO"
+        },
+        {
+            "level": 30,
             "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 42,
-            "species": "SPECIES_SABLEYE"
-        },
-        {
-            "level": 42,
+            "level": 31,
             "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 43,
-            "species": "SPECIES_NOSEPASS"
-        },
-        {
-            "level": 43,
+            "level": 30,
             "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 43,
-            "species": "SPECIES_RHYDON"
-        },
-        {
-            "level": 43,
+            "level": 31,
             "species": "SPECIES_GRAVELER"
         }
     ],
     "swarms": [
         "SPECIES_GRAVELER",
-        "SPECIES_GOLBAT"
+        "SPECIES_GRAVELER"
     ],
     "day": [
-        "SPECIES_LAIRON",
-        "SPECIES_GRAVELER"
+        "SPECIES_GOLBAT",
+        "SPECIES_GOLBAT"
     ],
     "night": [
-        "SPECIES_LAIRON",
-        "SPECIES_GRAVELER"
+        "SPECIES_GOLBAT",
+        "SPECIES_GOLBAT"
     ],
     "radar": [
-        "SPECIES_SABLEYE",
-        "SPECIES_NOSEPASS",
-        "SPECIES_RHYDON",
-        "SPECIES_STEELIX"
+        "SPECIES_GRAVELER",
+        "SPECIES_GRAVELER",
+        "SPECIES_GRAVELER",
+        "SPECIES_GRAVELER"
     ],
     "rate_form0": 0,
     "rate_form1": 0,
@@ -75,24 +75,24 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_RHYDON",
-        "SPECIES_STEELIX"
+        "SPECIES_MAWILE",
+        "SPECIES_MAWILE"
     ],
     "sapphire": [
-        "SPECIES_RHYDON",
-        "SPECIES_STEELIX"
+        "SPECIES_SABLEYE",
+        "SPECIES_SABLEYE"
     ],
     "emerald": [
-        "SPECIES_RHYDON",
-        "SPECIES_STEELIX"
+        "SPECIES_GRAVELER",
+        "SPECIES_GRAVELER"
     ],
     "firered": [
-        "SPECIES_RHYDON",
-        "SPECIES_STEELIX"
+        "SPECIES_GRAVELER",
+        "SPECIES_GRAVELER"
     ],
     "leafgreen": [
-        "SPECIES_RHYDON",
-        "SPECIES_STEELIX"
+        "SPECIES_GRAVELER",
+        "SPECIES_GRAVELER"
     ],
     "surf_rate": 0,
     "surf_encounters": [

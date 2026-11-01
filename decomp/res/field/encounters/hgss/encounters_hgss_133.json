@@ -4,73 +4,73 @@
         "rate": 10,
         "slots": [
             {
-                "level": 33,
+                "level": 15,
                 "morning": "SPECIES_DIGLETT",
                 "day": "SPECIES_DIGLETT",
                 "night": "SPECIES_DIGLETT"
             },
             {
-                "level": 22,
+                "level": 17,
                 "morning": "SPECIES_DIGLETT",
                 "day": "SPECIES_DIGLETT",
                 "night": "SPECIES_DIGLETT"
             },
             {
-                "level": 41,
+                "level": 15,
                 "morning": "SPECIES_DIGLETT",
                 "day": "SPECIES_DIGLETT",
                 "night": "SPECIES_DIGLETT"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_HIPPOPOTAS",
-                "day": "SPECIES_HIPPOPOTAS",
-                "night": "SPECIES_HIPPOPOTAS"
+                "level": 17,
+                "morning": "SPECIES_BOLDORE",
+                "day": "SPECIES_BOLDORE",
+                "night": "SPECIES_BOLDORE"
             },
             {
-                "level": 33,
+                "level": 19,
                 "morning": "SPECIES_DIGLETT",
                 "day": "SPECIES_DIGLETT",
                 "night": "SPECIES_DIGLETT"
             },
             {
-                "level": 38,
+                "level": 19,
+                "morning": "SPECIES_VAROOM",
+                "day": "SPECIES_VAROOM",
+                "night": "SPECIES_VAROOM"
+            },
+            {
+                "level": 13,
                 "morning": "SPECIES_DIGLETT",
                 "day": "SPECIES_DIGLETT",
                 "night": "SPECIES_DIGLETT"
+            },
+            {
+                "level": 13,
+                "morning": "SPECIES_PASSIMIAN",
+                "day": "SPECIES_PASSIMIAN",
+                "night": "SPECIES_PASSIMIAN"
+            },
+            {
+                "level": 19,
+                "morning": "SPECIES_DUGTRIO",
+                "day": "SPECIES_DUGTRIO",
+                "night": "SPECIES_DUGTRIO"
+            },
+            {
+                "level": 24,
+                "morning": "SPECIES_DUGTRIO",
+                "day": "SPECIES_DUGTRIO",
+                "night": "SPECIES_DUGTRIO"
+            },
+            {
+                "level": 19,
+                "morning": "SPECIES_DUGTRIO",
+                "day": "SPECIES_DUGTRIO",
+                "night": "SPECIES_DUGTRIO"
             },
             {
                 "level": 29,
-                "morning": "SPECIES_DIGLETT",
-                "day": "SPECIES_DIGLETT",
-                "night": "SPECIES_DIGLETT"
-            },
-            {
-                "level": 46,
-                "morning": "SPECIES_DIGLETT",
-                "day": "SPECIES_DIGLETT",
-                "night": "SPECIES_DIGLETT"
-            },
-            {
-                "level": 51,
-                "morning": "SPECIES_DUGTRIO",
-                "day": "SPECIES_DUGTRIO",
-                "night": "SPECIES_DUGTRIO"
-            },
-            {
-                "level": 54,
-                "morning": "SPECIES_DUGTRIO",
-                "day": "SPECIES_DUGTRIO",
-                "night": "SPECIES_DUGTRIO"
-            },
-            {
-                "level": 61,
-                "morning": "SPECIES_DUGTRIO",
-                "day": "SPECIES_DUGTRIO",
-                "night": "SPECIES_DUGTRIO"
-            },
-            {
-                "level": 63,
                 "morning": "SPECIES_DUGTRIO",
                 "day": "SPECIES_DUGTRIO",
                 "night": "SPECIES_DUGTRIO"
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_HIPPOWDON",
-        "SPECIES_HIPPOWDON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_DUNSPARCE",
-        "SPECIES_DUNSPARCE"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_DIGLETT",

@@ -4,76 +4,76 @@
         "rate": 15,
         "slots": [
             {
-                "level": 53,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
-            },
-            {
-                "level": 53,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 53,
-                "morning": "SPECIES_LAIRON",
-                "day": "SPECIES_LAIRON",
-                "night": "SPECIES_LAIRON"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_MAKUHITA",
-                "day": "SPECIES_MAKUHITA",
-                "night": "SPECIES_MAKUHITA"
-            },
-            {
-                "level": 52,
+                "level": 10,
                 "morning": "SPECIES_CUBONE",
                 "day": "SPECIES_CUBONE",
                 "night": "SPECIES_CUBONE"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_DITTO",
-                "day": "SPECIES_DITTO",
-                "night": "SPECIES_DITTO"
+                "level": 10,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_MANKEY",
-                "day": "SPECIES_MANKEY",
-                "night": "SPECIES_MANKEY"
+                "level": 10,
+                "morning": "SPECIES_CUBONE",
+                "day": "SPECIES_CUBONE",
+                "night": "SPECIES_CUBONE"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_MANKEY",
-                "day": "SPECIES_MANKEY",
-                "night": "SPECIES_MANKEY"
+                "level": 10,
+                "morning": "SPECIES_SALANDIT",
+                "day": "SPECIES_SALANDIT",
+                "night": "SPECIES_SALANDIT"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_MAGNEMITE",
-                "day": "SPECIES_MAGNEMITE",
-                "night": "SPECIES_MAGNEMITE"
+                "level": 12,
+                "morning": "SPECIES_MACHOP",
+                "day": "SPECIES_MACHOP",
+                "night": "SPECIES_MACHOP"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_MAGNEMITE",
-                "day": "SPECIES_MAGNEMITE",
-                "night": "SPECIES_MAGNEMITE"
+                "level": 12,
+                "morning": "SPECIES_MASCHIFF",
+                "day": "SPECIES_MASCHIFF",
+                "night": "SPECIES_MASCHIFF"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_MAGNEMITE",
-                "day": "SPECIES_MAGNEMITE",
-                "night": "SPECIES_MAGNEMITE"
+                "level": 8,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_MAGNEMITE",
-                "day": "SPECIES_MAGNEMITE",
-                "night": "SPECIES_MAGNEMITE"
+                "level": 8,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 14,
+                "morning": "SPECIES_MACHOKE",
+                "day": "SPECIES_MACHOKE",
+                "night": "SPECIES_MACHOKE"
+            },
+            {
+                "level": 13,
+                "morning": "SPECIES_CUBONE",
+                "day": "SPECIES_CUBONE",
+                "night": "SPECIES_CUBONE"
+            },
+            {
+                "level": 14,
+                "morning": "SPECIES_MACHOKE",
+                "day": "SPECIES_MACHOKE",
+                "night": "SPECIES_MACHOKE"
+            },
+            {
+                "level": 13,
+                "morning": "SPECIES_CUBONE",
+                "day": "SPECIES_CUBONE",
+                "night": "SPECIES_CUBONE"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_HARIYAMA",
-        "SPECIES_MAGNETON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_ABSOL",
-        "SPECIES_KANGASKHAN"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_CUBONE",

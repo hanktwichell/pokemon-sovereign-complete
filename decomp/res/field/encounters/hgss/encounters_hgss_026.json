@@ -4,76 +4,76 @@
         "rate": 25,
         "slots": [
             {
-                "level": 21,
-                "morning": "SPECIES_GROWLITHE",
-                "day": "SPECIES_GROWLITHE",
-                "night": "SPECIES_GROWLITHE"
+                "level": 13,
+                "morning": "SPECIES_LEDYBA",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_SPINARAK"
             },
             {
-                "level": 21,
+                "level": 15,
+                "morning": "SPECIES_STANTLER",
+                "day": "SPECIES_STANTLER",
+                "night": "SPECIES_STANTLER"
+            },
+            {
+                "level": 13,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_SPINARAK"
+            },
+            {
+                "level": 15,
+                "morning": "SPECIES_TAROUNTULA",
+                "day": "SPECIES_TAROUNTULA",
+                "night": "SPECIES_TAROUNTULA"
+            },
+            {
+                "level": 15,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
+            },
+            {
+                "level": 15,
+                "morning": "SPECIES_SPIDOPS",
+                "day": "SPECIES_SPIDOPS",
+                "night": "SPECIES_SPIDOPS"
+            },
+            {
+                "level": 14,
                 "morning": "SPECIES_VULPIX",
                 "day": "SPECIES_VULPIX",
                 "night": "SPECIES_VULPIX"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_NIDORINO",
-                "day": "SPECIES_NIDORINO",
-                "night": "SPECIES_LINOONE"
+                "level": 14,
+                "morning": "SPECIES_GROWLITHE",
+                "day": "SPECIES_GROWLITHE",
+                "night": "SPECIES_GROWLITHE"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_LEDIAN",
-                "day": "SPECIES_LEDIAN",
-                "night": "SPECIES_ARIADOS"
-            },
-            {
-                "level": 22,
-                "morning": "SPECIES_PIDGEOTTO",
+                "level": 15,
+                "morning": "SPECIES_PIDGEY",
                 "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_NOCTOWL"
+                "night": "SPECIES_SPINARAK"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_NIDORINA",
-                "day": "SPECIES_NIDORINA",
-                "night": "SPECIES_MIGHTYENA"
+                "level": 15,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_GROWLITHE",
+                "night": "SPECIES_SPINARAK"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_ZANGOOSE",
-                "day": "SPECIES_ZANGOOSE",
-                "night": "SPECIES_ZANGOOSE"
+                "level": 15,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_SPINARAK"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_SEVIPER",
-                "day": "SPECIES_SEVIPER",
-                "night": "SPECIES_SEVIPER"
-            },
-            {
-                "level": 22,
-                "morning": "SPECIES_STANTLER",
-                "day": "SPECIES_STANTLER",
-                "night": "SPECIES_STANTLER"
-            },
-            {
-                "level": 23,
-                "morning": "SPECIES_STANTLER",
-                "day": "SPECIES_STANTLER",
-                "night": "SPECIES_STANTLER"
-            },
-            {
-                "level": 24,
-                "morning": "SPECIES_STANTLER",
-                "day": "SPECIES_STANTLER",
-                "night": "SPECIES_STANTLER"
-            },
-            {
-                "level": 24,
-                "morning": "SPECIES_STANTLER",
-                "day": "SPECIES_STANTLER",
-                "night": "SPECIES_STANTLER"
+                "level": 15,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_GROWLITHE",
+                "night": "SPECIES_SPINARAK"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_ARCANINE",
-        "SPECIES_NINETALES"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_ZANGOOSE",
-        "SPECIES_SEVIPER"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_LEDYBA",
+        "land": "SPECIES_PIDGEY",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

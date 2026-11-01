@@ -2,65 +2,65 @@
     "land_rate": 30,
     "land_encounters": [
         {
-            "level": 9,
+            "level": 7,
             "species": "SPECIES_MACHOP"
         },
         {
-            "level": 9,
-            "species": "SPECIES_RHYHORN"
+            "level": 5,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 10,
+            "level": 6,
             "species": "SPECIES_PONYTA"
         },
         {
-            "level": 9,
-            "species": "SPECIES_PANSEAR"
+            "level": 5,
+            "species": "SPECIES_KRICKETOT"
         },
         {
-            "level": 9,
-            "species": "SPECIES_PHANPY"
+            "level": 5,
+            "species": "SPECIES_PONYTA"
         },
         {
-            "level": 10,
-            "species": "SPECIES_ROOKIDEE"
-        },
-        {
-            "level": 9,
-            "species": "SPECIES_LARVITAR"
-        },
-        {
-            "level": 9,
+            "level": 6,
             "species": "SPECIES_MACHOP"
         },
         {
-            "level": 9,
+            "level": 8,
             "species": "SPECIES_MACHOP"
         },
         {
-            "level": 10,
-            "species": "SPECIES_MACHOP"
+            "level": 6,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 10,
-            "species": "SPECIES_MACHOP"
+            "level": 7,
+            "species": "SPECIES_PONYTA"
         },
         {
-            "level": 10,
-            "species": "SPECIES_MACHOP"
+            "level": 7,
+            "species": "SPECIES_GEODUDE"
+        },
+        {
+            "level": 7,
+            "species": "SPECIES_PONYTA"
+        },
+        {
+            "level": 7,
+            "species": "SPECIES_GEODUDE"
         }
     ],
     "swarms": [
-        "SPECIES_MACHOP",
+        "SPECIES_PHANPY",
         "SPECIES_PHANPY"
     ],
     "day": [
         "SPECIES_PONYTA",
-        "SPECIES_PANSEAR"
+        "SPECIES_MACHOP"
     ],
     "night": [
-        "SPECIES_PONYTA",
-        "SPECIES_PANCHAM"
+        "SPECIES_KRICKETOT",
+        "SPECIES_ZUBAT"
     ],
     "radar": [
         "SPECIES_STANTLER",
@@ -76,23 +76,23 @@
     "unown_table": 0,
     "ruby": [
         "SPECIES_PONYTA",
-        "SPECIES_PONYTA"
+        "SPECIES_GEODUDE"
     ],
     "sapphire": [
         "SPECIES_PONYTA",
-        "SPECIES_PONYTA"
+        "SPECIES_GEODUDE"
     ],
     "emerald": [
         "SPECIES_PONYTA",
-        "SPECIES_PONYTA"
+        "SPECIES_GEODUDE"
     ],
     "firered": [
         "SPECIES_PONYTA",
-        "SPECIES_PONYTA"
+        "SPECIES_GEODUDE"
     ],
     "leafgreen": [
         "SPECIES_PONYTA",
-        "SPECIES_PONYTA"
+        "SPECIES_GEODUDE"
     ],
     "surf_rate": 0,
     "surf_encounters": [

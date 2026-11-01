@@ -4,73 +4,73 @@
         "rate": 20,
         "slots": [
             {
-                "level": 51,
+                "level": 23,
                 "morning": "SPECIES_NIDORINA",
                 "day": "SPECIES_NIDORINA",
                 "night": "SPECIES_NIDORINA"
             },
             {
-                "level": 51,
+                "level": 23,
                 "morning": "SPECIES_NIDORINO",
                 "day": "SPECIES_NIDORINO",
                 "night": "SPECIES_NIDORINO"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_SWELLOW",
-                "day": "SPECIES_SWELLOW",
-                "night": "SPECIES_SWELLOW"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_SWELLOW",
-                "day": "SPECIES_SWELLOW",
-                "night": "SPECIES_SWELLOW"
-            },
-            {
-                "level": 51,
-                "morning": "SPECIES_SKIPLOOM",
-                "day": "SPECIES_SKIPLOOM",
-                "night": "SPECIES_VENOMOTH"
-            },
-            {
-                "level": 53,
-                "morning": "SPECIES_SKIPLOOM",
-                "day": "SPECIES_SKIPLOOM",
-                "night": "SPECIES_VENOMOTH"
-            },
-            {
-                "level": 55,
+                "level": 23,
                 "morning": "SPECIES_NIDORINA",
                 "day": "SPECIES_NIDORINA",
                 "night": "SPECIES_NIDORINA"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_NIDORINO",
-                "day": "SPECIES_NIDORINO",
-                "night": "SPECIES_NIDORINO"
+                "level": 23,
+                "morning": "SPECIES_SEWADDLE",
+                "day": "SPECIES_SEWADDLE",
+                "night": "SPECIES_SEWADDLE"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_SWELLOW",
-                "day": "SPECIES_SWELLOW",
-                "night": "SPECIES_SWELLOW"
+                "level": 25,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_NOCTOWL"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_CHANSEY",
-                "day": "SPECIES_CHANSEY",
-                "night": "SPECIES_CHANSEY"
+                "level": 25,
+                "morning": "SPECIES_SWADLOON",
+                "day": "SPECIES_SWADLOON",
+                "night": "SPECIES_SWADLOON"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_CHANSEY",
-                "day": "SPECIES_CHANSEY",
-                "night": "SPECIES_CHANSEY"
+                "level": 24,
+                "morning": "SPECIES_HOPPIP",
+                "day": "SPECIES_HOPPIP",
+                "night": "SPECIES_QUAGSIRE"
             },
             {
-                "level": 55,
+                "level": 24,
+                "morning": "SPECIES_WHIRLIPEDE",
+                "day": "SPECIES_WHIRLIPEDE",
+                "night": "SPECIES_WHIRLIPEDE"
+            },
+            {
+                "level": 26,
+                "morning": "SPECIES_SKIPLOOM",
+                "day": "SPECIES_SKIPLOOM",
+                "night": "SPECIES_QUAGSIRE"
+            },
+            {
+                "level": 26,
+                "morning": "SPECIES_LARVESTA",
+                "day": "SPECIES_LARVESTA",
+                "night": "SPECIES_LARVESTA"
+            },
+            {
+                "level": 26,
+                "morning": "SPECIES_SKIPLOOM",
+                "day": "SPECIES_SKIPLOOM",
+                "night": "SPECIES_QUAGSIRE"
+            },
+            {
+                "level": 25,
                 "morning": "SPECIES_CHANSEY",
                 "day": "SPECIES_CHANSEY",
                 "night": "SPECIES_CHANSEY"
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_JUMPLUFF",
-        "SPECIES_JUMPLUFF"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_BONSLY",
-        "SPECIES_MIME_JR"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_NIDORINO",
+        "land": "SPECIES_NIDORINA",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

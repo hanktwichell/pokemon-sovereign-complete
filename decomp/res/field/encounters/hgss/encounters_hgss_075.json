@@ -4,76 +4,76 @@
         "rate": 5,
         "slots": [
             {
-                "level": 49,
+                "level": 32,
                 "morning": "SPECIES_SEEL",
                 "day": "SPECIES_SEEL",
                 "night": "SPECIES_SEEL"
             },
             {
-                "level": 57,
+                "level": 34,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 58,
-                "morning": "SPECIES_SLOWBRO",
-                "day": "SPECIES_SLOWBRO",
-                "night": "SPECIES_SLOWBRO"
+                "level": 28,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
             },
             {
-                "level": 59,
-                "morning": "SPECIES_SLOWBRO",
-                "day": "SPECIES_SLOWBRO",
-                "night": "SPECIES_SLOWBRO"
+                "level": 34,
+                "morning": "SPECIES_SCOLIPEDE",
+                "day": "SPECIES_SCOLIPEDE",
+                "night": "SPECIES_SCOLIPEDE"
             },
             {
-                "level": 58,
-                "morning": "SPECIES_PILOSWINE",
-                "day": "SPECIES_PILOSWINE",
-                "night": "SPECIES_PILOSWINE"
+                "level": 32,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 59,
-                "morning": "SPECIES_PILOSWINE",
-                "day": "SPECIES_PILOSWINE",
-                "night": "SPECIES_PILOSWINE"
+                "level": 34,
+                "morning": "SPECIES_CRABOMINABLE",
+                "day": "SPECIES_CRABOMINABLE",
+                "night": "SPECIES_CRABOMINABLE"
             },
             {
-                "level": 51,
-                "morning": "SPECIES_SEEL",
-                "day": "SPECIES_SEEL",
-                "night": "SPECIES_SEEL"
+                "level": 29,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_SNORUNT",
-                "day": "SPECIES_SNORUNT",
-                "night": "SPECIES_SNORUNT"
+                "level": 28,
+                "morning": "SPECIES_CETODDLE",
+                "day": "SPECIES_CETODDLE",
+                "night": "SPECIES_CETODDLE"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_SNORUNT",
-                "day": "SPECIES_SNORUNT",
-                "night": "SPECIES_SNORUNT"
+                "level": 32,
+                "morning": "SPECIES_GOLDUCK",
+                "day": "SPECIES_GOLDUCK",
+                "night": "SPECIES_GOLDUCK"
             },
             {
-                "level": 51,
-                "morning": "SPECIES_SNORUNT",
-                "day": "SPECIES_SNORUNT",
-                "night": "SPECIES_SNORUNT"
+                "level": 28,
+                "morning": "SPECIES_EISCUE",
+                "day": "SPECIES_EISCUE",
+                "night": "SPECIES_EISCUE"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_SNORUNT",
-                "day": "SPECIES_SNORUNT",
-                "night": "SPECIES_SNORUNT"
+                "level": 27,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_SNORUNT",
-                "day": "SPECIES_SNORUNT",
-                "night": "SPECIES_SNORUNT"
+                "level": 26,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_GLALIE",
-        "SPECIES_FROSLASS"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_KINGLER",
-        "SPECIES_GOLDUCK"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_SEEL",

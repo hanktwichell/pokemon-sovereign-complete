@@ -2,71 +2,71 @@
     "land_rate": 10,
     "land_encounters": [
         {
-            "level": 51,
+            "level": 36,
+            "species": "SPECIES_SNOVER"
+        },
+        {
+            "level": 38,
             "species": "SPECIES_ABOMASNOW"
         },
         {
-            "level": 52,
+            "level": 38,
             "species": "SPECIES_MEDICHAM"
         },
         {
-            "level": 52,
-            "species": "SPECIES_LOUDRED"
-        },
-        {
-            "level": 50,
+            "level": 39,
             "species": "SPECIES_ABOMASNOW"
         },
         {
-            "level": 51,
+            "level": 40,
+            "species": "SPECIES_MACHOKE"
+        },
+        {
+            "level": 40,
+            "species": "SPECIES_AVALUGG"
+        },
+        {
+            "level": 37,
+            "species": "SPECIES_CHINGLING"
+        },
+        {
+            "level": 38,
+            "species": "SPECIES_NOSEPASS"
+        },
+        {
+            "level": 38,
             "species": "SPECIES_ABSOL"
         },
         {
-            "level": 51,
-            "species": "SPECIES_ABOMASNOW"
+            "level": 39,
+            "species": "SPECIES_AURORUS"
         },
         {
-            "level": 51,
-            "species": "SPECIES_DONPHAN"
+            "level": 40,
+            "species": "SPECIES_ABSOL"
         },
         {
-            "level": 51,
-            "species": "SPECIES_ABOMASNOW"
-        },
-        {
-            "level": 52,
-            "species": "SPECIES_URSARING"
-        },
-        {
-            "level": 52,
-            "species": "SPECIES_ABOMASNOW"
-        },
-        {
-            "level": 52,
-            "species": "SPECIES_ABOMASNOW"
-        },
-        {
-            "level": 52,
-            "species": "SPECIES_ABOMASNOW"
+            "level": 39,
+            "species": "SPECIES_CHINGLING"
         }
     ],
     "swarms": [
-        "SPECIES_ABOMASNOW",
-        "SPECIES_MEDICHAM"
+        "SPECIES_SNOVER",
+        "SPECIES_ABOMASNOW"
     ],
     "day": [
-        "SPECIES_LOUDRED",
+        "SPECIES_MEDICHAM",
         "SPECIES_ABOMASNOW"
     ],
     "night": [
-        "SPECIES_LOUDRED",
-        "SPECIES_ABOMASNOW"
+        "SPECIES_GOLBAT",
+        "SPECIES_NOCTOWL"
     ],
     "radar": [
-        "SPECIES_CLEFABLE",
-        "SPECIES_CLEFABLE",
-        "SPECIES_CLEFABLE",
-        "SPECIES_CLEFABLE"
+        "SPECIES_LOUDRED",
+        "SPECIES_LOUDRED",
+        "SPECIES_LOUDRED",
+        "SPECIES_LOUDRED"
     ],
     "rate_form0": 0,
     "rate_form1": 0,
@@ -75,24 +75,24 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_DONPHAN",
-        "SPECIES_URSARING"
+        "SPECIES_SOLROCK",
+        "SPECIES_SOLROCK"
     ],
     "sapphire": [
-        "SPECIES_DONPHAN",
-        "SPECIES_URSARING"
+        "SPECIES_LUNATONE",
+        "SPECIES_LUNATONE"
     ],
     "emerald": [
-        "SPECIES_DONPHAN",
-        "SPECIES_URSARING"
+        "SPECIES_ABSOL",
+        "SPECIES_CHINGLING"
     ],
     "firered": [
-        "SPECIES_DONPHAN",
-        "SPECIES_URSARING"
+        "SPECIES_ABSOL",
+        "SPECIES_CHINGLING"
     ],
     "leafgreen": [
-        "SPECIES_DONPHAN",
-        "SPECIES_URSARING"
+        "SPECIES_ABSOL",
+        "SPECIES_CHINGLING"
     ],
     "surf_rate": 0,
     "surf_encounters": [

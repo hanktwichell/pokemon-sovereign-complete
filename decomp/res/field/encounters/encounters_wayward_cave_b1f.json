@@ -2,11 +2,35 @@
     "land_rate": 10,
     "land_encounters": [
         {
-            "level": 21,
+            "level": 18,
+            "species": "SPECIES_BRONZOR"
+        },
+        {
+            "level": 18,
+            "species": "SPECIES_GEODUDE"
+        },
+        {
+            "level": 17,
+            "species": "SPECIES_GIBLE"
+        },
+        {
+            "level": 19,
             "species": "SPECIES_ZUBAT"
         },
         {
-            "level": 21,
+            "level": 20,
+            "species": "SPECIES_BRONZOR"
+        },
+        {
+            "level": 20,
+            "species": "SPECIES_ONIX"
+        },
+        {
+            "level": 19,
+            "species": "SPECIES_GIBLE"
+        },
+        {
+            "level": 20,
             "species": "SPECIES_GEODUDE"
         },
         {
@@ -14,44 +38,20 @@
             "species": "SPECIES_GIBLE"
         },
         {
-            "level": 21,
-            "species": "SPECIES_ZUBAT"
-        },
-        {
-            "level": 21,
-            "species": "SPECIES_BALTOY"
-        },
-        {
-            "level": 22,
-            "species": "SPECIES_ZUBAT"
-        },
-        {
-            "level": 22,
-            "species": "SPECIES_SANDSHREW"
-        },
-        {
-            "level": 22,
-            "species": "SPECIES_ZUBAT"
-        },
-        {
-            "level": 21,
+            "level": 18,
             "species": "SPECIES_ONIX"
         },
         {
-            "level": 21,
-            "species": "SPECIES_ZUBAT"
+            "level": 20,
+            "species": "SPECIES_GIBLE"
         },
         {
-            "level": 22,
-            "species": "SPECIES_SABLEYE"
-        },
-        {
-            "level": 22,
-            "species": "SPECIES_ZUBAT"
+            "level": 18,
+            "species": "SPECIES_ONIX"
         }
     ],
     "swarms": [
-        "SPECIES_ZUBAT",
+        "SPECIES_BRONZOR",
         "SPECIES_GEODUDE"
     ],
     "day": [
@@ -63,10 +63,10 @@
         "SPECIES_ZUBAT"
     ],
     "radar": [
-        "SPECIES_SANDSHREW",
+        "SPECIES_BRONZOR",
         "SPECIES_ONIX",
         "SPECIES_GIBLE",
-        "SPECIES_GIBLE"
+        "SPECIES_ONIX"
     ],
     "rate_form0": 0,
     "rate_form1": 0,
@@ -76,23 +76,23 @@
     "unown_table": 0,
     "ruby": [
         "SPECIES_GIBLE",
-        "SPECIES_GIBLE"
+        "SPECIES_ONIX"
     ],
     "sapphire": [
         "SPECIES_GIBLE",
-        "SPECIES_GIBLE"
+        "SPECIES_ONIX"
     ],
     "emerald": [
         "SPECIES_GIBLE",
-        "SPECIES_GIBLE"
+        "SPECIES_ONIX"
     ],
     "firered": [
         "SPECIES_GIBLE",
-        "SPECIES_GIBLE"
+        "SPECIES_ONIX"
     ],
     "leafgreen": [
-        "SPECIES_GIBLE",
-        "SPECIES_GIBLE"
+        "SPECIES_SANDSHREW",
+        "SPECIES_SANDSHREW"
     ],
     "surf_rate": 0,
     "surf_encounters": [

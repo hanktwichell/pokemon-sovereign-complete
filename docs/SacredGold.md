@@ -16,7 +16,7 @@ Compared with HeartGold's ROM, file by file:
 | Text (a/0/2/7) | 533 of 829 banks: Pokémon names in plain case, its new lines | Decoded from its ROM |
 | Trainers (a/0/5/5, a/0/5/6) | 316 headers, 677 parties | `import_hgss_trainers.py` |
 | Trainer pictures (a/0/5/8) | 33 of 645 files | `import_hgss_trainer_classes.py` |
-| Wild Pokémon (a/0/3/7) | 130 of 142 tables | `import_hgss_encounters.py` |
+| Wild Pokémon (a/0/3/7) | 130 of 142 tables; replaced on Nov 1, 2026 by HeartGold's and SoulSilver's own (the owner's call; `docs/Features.md`, "Wild Pokémon") | `import_hgss_encounters.py`, now `gen_wild.py` |
 | Trades (a/1/1/2) | 9 of 13 | `import_hgss_trades.py` |
 | Items (a/0/1/7, a/0/1/8, names) | 6 new items in unused slots; 11 trade items made usable | `import_hgss_items.py` (the 6) |
 | Item balls (script file 141) | 19 of 255, 15 more placed or moved | `import_hgss_field_items.py` |
@@ -175,7 +175,9 @@ HeartGold keeps a table per area with all twelve grass slots for each time of da
 Rock Smash and the three rods, the Pokégear radio's Hoenn and Sinnoh sounds and the swarm species. Platinum's tables
 keep one set of grass slots and swap two of them by day and by night. So Johto and Kanto keep HeartGold's layout:
 
-- `tools/complete/import_hgss_encounters.py` writes Sacred Gold's 142 tables as JSON
+- Since Nov 1, 2026 the tables are HeartGold's and SoulSilver's own, with new species mixed in
+  (`tools/complete/gen_wild.py`; `docs/Features.md`, "Wild Pokémon"), in the same files and layout.
+- `tools/complete/import_hgss_encounters.py` wrote Sacred Gold's 142 tables as JSON
   (`res/field/encounters/hgss/encounters_hgss_NNN.json`, named by the map in pokeheartgold's list), with Sovereign's
   species names. `tools/jsoncnv/encounter_hgss.py` packs them back into HeartGold's binary layout for
   `hgss_enc_data.narc` (all 142 convert back to Sacred Gold's bytes; its files stop 4 bytes early, before two swarm

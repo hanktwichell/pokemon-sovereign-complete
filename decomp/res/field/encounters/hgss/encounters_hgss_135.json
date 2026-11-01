@@ -4,76 +4,76 @@
         "rate": 10,
         "slots": [
             {
-                "level": 46,
-                "morning": "SPECIES_DONPHAN",
-                "day": "SPECIES_DONPHAN",
-                "night": "SPECIES_DONPHAN"
+                "level": 32,
+                "morning": "SPECIES_GRAVELER",
+                "day": "SPECIES_GRAVELER",
+                "night": "SPECIES_GRAVELER"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_URSARING",
-                "day": "SPECIES_URSARING",
-                "night": "SPECIES_URSARING"
-            },
-            {
-                "level": 46,
+                "level": 32,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_LAIRON",
-                "day": "SPECIES_LAIRON",
-                "night": "SPECIES_LAIRON"
+                "level": 32,
+                "morning": "SPECIES_CLOBBOPUS",
+                "day": "SPECIES_CLOBBOPUS",
+                "night": "SPECIES_CLOBBOPUS"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_MAWILE",
-                "day": "SPECIES_MAWILE",
-                "night": "SPECIES_MAWILE"
+                "level": 32,
+                "morning": "SPECIES_GOURGEIST",
+                "day": "SPECIES_GOURGEIST",
+                "night": "SPECIES_GOURGEIST"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_SABLEYE",
-                "day": "SPECIES_SABLEYE",
-                "night": "SPECIES_SABLEYE"
+                "level": 33,
+                "morning": "SPECIES_URSARING",
+                "day": "SPECIES_URSARING",
+                "night": "SPECIES_URSARING"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_GABITE",
-                "day": "SPECIES_GABITE",
-                "night": "SPECIES_GABITE"
+                "level": 33,
+                "morning": "SPECIES_DONPHAN",
+                "day": "SPECIES_DONPHAN",
+                "night": "SPECIES_DONPHAN"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_METANG",
-                "day": "SPECIES_METANG",
-                "night": "SPECIES_METANG"
+                "level": 34,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 34,
+                "morning": "SPECIES_GOOMY",
+                "day": "SPECIES_GOOMY",
+                "night": "SPECIES_GOOMY"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_MAGNETON",
-                "day": "SPECIES_MAGNETON",
-                "night": "SPECIES_MAGNETON"
+                "level": 36,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 35,
+                "morning": "SPECIES_DRUDDIGON",
+                "day": "SPECIES_DRUDDIGON",
+                "night": "SPECIES_DRUDDIGON"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_MAGNETON",
-                "day": "SPECIES_MAGNETON",
-                "night": "SPECIES_MAGNETON"
+                "level": 36,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 35,
+                "morning": "SPECIES_RHYHORN",
+                "day": "SPECIES_RHYHORN",
+                "night": "SPECIES_RHYHORN"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_ALAKAZAM",
-        "SPECIES_AGGRON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_CHIMECHO",
-        "SPECIES_MAROWAK"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_GRAVELER",

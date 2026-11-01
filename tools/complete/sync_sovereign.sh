@@ -17,6 +17,9 @@ cd "$root"
 repo=https://github.com/hanktwichell/pokemon-imperial-platinum
 cache=.cache/sovereign
 paths=(decomp tools data assets CITATIONS.md)
+# Sinnoh's wild Pokémon tables are Complete's own (tools/complete/gen_wild.py: Platinum's with new species mixed in), so
+# Sovereign's changes to them are left out; run gen_wild.py after a sync to pick up anything else it reads.
+skip=(':(exclude)decomp/res/field/encounters/encounters_*.json')
 old="$(cat SOVEREIGN_COMMIT)"
 target="${1:-main}"
 
@@ -40,7 +43,7 @@ fi
 
 patch="$(mktemp)"
 trap 'rm -f "$patch"' EXIT
-git -C "$cache" diff --binary --full-index "$old" "$new" -- "${paths[@]}" > "$patch"
+git -C "$cache" diff --binary --full-index "$old" "$new" -- "${paths[@]}" "${skip[@]}" > "$patch"
 
 echo "$new" > SOVEREIGN_COMMIT
 if [ ! -s "$patch" ]; then
@@ -48,7 +51,7 @@ if [ ! -s "$patch" ]; then
     exit 0
 fi
 
-changed="$(git -C "$cache" diff --name-only "$old" "$new" -- "${paths[@]}" | wc -l)"
+changed="$(git -C "$cache" diff --name-only "$old" "$new" -- "${paths[@]}" "${skip[@]}" | wc -l)"
 # git apply reports every file; keep only the clashes and errors.
 set +e
 git apply --3way --whitespace=nowarn "$patch" 2>&1 |

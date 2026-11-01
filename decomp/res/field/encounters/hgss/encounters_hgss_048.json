@@ -4,76 +4,76 @@
         "rate": 5,
         "slots": [
             {
-                "level": 48,
-                "morning": "SPECIES_KINGLER",
-                "day": "SPECIES_KINGLER",
-                "night": "SPECIES_KINGLER"
+                "level": 23,
+                "morning": "SPECIES_KRABBY",
+                "day": "SPECIES_KRABBY",
+                "night": "SPECIES_KRABBY"
             },
             {
-                "level": 49,
-                "morning": "SPECIES_DEWGONG",
-                "day": "SPECIES_DEWGONG",
-                "night": "SPECIES_DEWGONG"
+                "level": 24,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_SHELLDER",
-                "day": "SPECIES_SHELLDER",
-                "night": "SPECIES_SHELLDER"
+                "level": 23,
+                "morning": "SPECIES_KRABBY",
+                "day": "SPECIES_KRABBY",
+                "night": "SPECIES_KRABBY"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_SHELLDER",
-                "day": "SPECIES_SHELLDER",
-                "night": "SPECIES_SHELLDER"
+                "level": 24,
+                "morning": "SPECIES_PALPITOAD",
+                "day": "SPECIES_PALPITOAD",
+                "night": "SPECIES_PALPITOAD"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_SEALEO",
-                "day": "SPECIES_SEALEO",
-                "night": "SPECIES_SEALEO"
+                "level": 25,
+                "morning": "SPECIES_KRABBY",
+                "day": "SPECIES_KRABBY",
+                "night": "SPECIES_KRABBY"
             },
             {
-                "level": 49,
-                "morning": "SPECIES_SEALEO",
-                "day": "SPECIES_SEALEO",
-                "night": "SPECIES_SEALEO"
+                "level": 25,
+                "morning": "SPECIES_KILOWATTREL",
+                "day": "SPECIES_KILOWATTREL",
+                "night": "SPECIES_KILOWATTREL"
             },
             {
-                "level": 49,
+                "level": 23,
+                "morning": "SPECIES_SEEL",
+                "day": "SPECIES_SEEL",
+                "night": "SPECIES_SEEL"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_SEEL",
+                "day": "SPECIES_SEEL",
+                "night": "SPECIES_SEEL"
+            },
+            {
+                "level": 24,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 49,
+                "level": 25,
+                "morning": "SPECIES_SEEL",
+                "day": "SPECIES_SEEL",
+                "night": "SPECIES_SEEL"
+            },
+            {
+                "level": 24,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_GOLDUCK",
-                "day": "SPECIES_GOLDUCK",
-                "night": "SPECIES_GOLDUCK"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_GOLDUCK",
-                "day": "SPECIES_GOLDUCK",
-                "night": "SPECIES_GOLDUCK"
-            },
-            {
-                "level": 48,
-                "morning": "SPECIES_GOLDUCK",
-                "day": "SPECIES_GOLDUCK",
-                "night": "SPECIES_GOLDUCK"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_GOLDUCK",
-                "day": "SPECIES_GOLDUCK",
-                "night": "SPECIES_GOLDUCK"
+                "level": 25,
+                "morning": "SPECIES_SEEL",
+                "day": "SPECIES_SEEL",
+                "night": "SPECIES_SEEL"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_CLOYSTER",
-        "SPECIES_CROBAT"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_STARYU",
-        "SPECIES_STARMIE"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
-        "land": "SPECIES_KINGLER",
+        "land": "SPECIES_KRABBY",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

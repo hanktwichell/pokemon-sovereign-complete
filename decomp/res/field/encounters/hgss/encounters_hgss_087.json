@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 61,
-                "morning": "SPECIES_ONIX",
-                "day": "SPECIES_ONIX",
-                "night": "SPECIES_GOLBAT"
+                "level": 51,
+                "morning": "SPECIES_TEDDIURSA",
+                "day": "SPECIES_TEDDIURSA",
+                "night": "SPECIES_TEDDIURSA"
             },
             {
-                "level": 60,
-                "morning": "SPECIES_GLIGAR",
-                "day": "SPECIES_GLIGAR",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 63,
+                "level": 48,
                 "morning": "SPECIES_ONIX",
                 "day": "SPECIES_ONIX",
                 "night": "SPECIES_ONIX"
             },
             {
-                "level": 62,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
+                "level": 51,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 64,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GLIGAR"
+                "level": 48,
+                "morning": "SPECIES_EXCADRILL",
+                "day": "SPECIES_EXCADRILL",
+                "night": "SPECIES_EXCADRILL"
             },
             {
-                "level": 62,
-                "morning": "SPECIES_LAIRON",
-                "day": "SPECIES_LAIRON",
-                "night": "SPECIES_LAIRON"
+                "level": 48,
+                "morning": "SPECIES_PHANPY",
+                "day": "SPECIES_PHANPY",
+                "night": "SPECIES_PHANPY"
             },
             {
-                "level": 62,
-                "morning": "SPECIES_MACHOKE",
-                "day": "SPECIES_MACHOKE",
-                "night": "SPECIES_MACHOKE"
+                "level": 48,
+                "morning": "SPECIES_KROOKODILE",
+                "day": "SPECIES_KROOKODILE",
+                "night": "SPECIES_KROOKODILE"
             },
             {
-                "level": 63,
-                "morning": "SPECIES_MACHOKE",
-                "day": "SPECIES_MACHOKE",
-                "night": "SPECIES_MACHOKE"
+                "level": 50,
+                "morning": "SPECIES_URSARING",
+                "day": "SPECIES_URSARING",
+                "night": "SPECIES_URSARING"
             },
             {
-                "level": 59,
-                "morning": "SPECIES_VIBRAVA",
-                "day": "SPECIES_VIBRAVA",
-                "night": "SPECIES_VIBRAVA"
+                "level": 50,
+                "morning": "SPECIES_DONPHAN",
+                "day": "SPECIES_DONPHAN",
+                "night": "SPECIES_DONPHAN"
             },
             {
-                "level": 61,
-                "morning": "SPECIES_SKARMORY",
-                "day": "SPECIES_SKARMORY",
-                "night": "SPECIES_SKARMORY"
+                "level": 51,
+                "morning": "SPECIES_CENTISKORCH",
+                "day": "SPECIES_CENTISKORCH",
+                "night": "SPECIES_CENTISKORCH"
             },
             {
-                "level": 61,
-                "morning": "SPECIES_VIBRAVA",
-                "day": "SPECIES_VIBRAVA",
-                "night": "SPECIES_VIBRAVA"
+                "level": 20,
+                "morning": "SPECIES_TREVENANT",
+                "day": "SPECIES_TREVENANT",
+                "night": "SPECIES_TREVENANT"
             },
             {
-                "level": 64,
-                "morning": "SPECIES_SKARMORY",
-                "day": "SPECIES_SKARMORY",
-                "night": "SPECIES_SKARMORY"
+                "level": 51,
+                "morning": "SPECIES_GOLDUCK",
+                "day": "SPECIES_GOLDUCK",
+                "night": "SPECIES_GOLDUCK"
+            },
+            {
+                "level": 15,
+                "morning": "SPECIES_LARVITAR",
+                "day": "SPECIES_LARVITAR",
+                "night": "SPECIES_LARVITAR"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_GLISCOR",
-        "SPECIES_FLYGON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_SKARMORY",
-        "SPECIES_SKARMORY"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
-        "land": "SPECIES_SKARMORY",
+        "land": "SPECIES_GOLBAT",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

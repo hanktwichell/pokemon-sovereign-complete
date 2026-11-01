@@ -1,79 +1,79 @@
 {
     "map": "D41R0104",
     "land": {
-        "rate": 20,
+        "rate": 10,
         "slots": [
             {
-                "level": 62,
-                "morning": "SPECIES_PARASECT",
-                "day": "SPECIES_PARASECT",
-                "night": "SPECIES_PARASECT"
+                "level": 45,
+                "morning": "SPECIES_TEDDIURSA",
+                "day": "SPECIES_TEDDIURSA",
+                "night": "SPECIES_TEDDIURSA"
             },
             {
-                "level": 62,
+                "level": 48,
                 "morning": "SPECIES_GOLDUCK",
                 "day": "SPECIES_GOLDUCK",
                 "night": "SPECIES_GOLDUCK"
             },
             {
-                "level": 64,
-                "morning": "SPECIES_PARASECT",
-                "day": "SPECIES_PARASECT",
-                "night": "SPECIES_PARASECT"
-            },
-            {
-                "level": 63,
-                "morning": "SPECIES_PARASECT",
-                "day": "SPECIES_PARASECT",
+                "level": 45,
+                "morning": "SPECIES_QUAGSIRE",
+                "day": "SPECIES_QUAGSIRE",
                 "night": "SPECIES_MISDREAVUS"
             },
             {
-                "level": 62,
+                "level": 46,
+                "morning": "SPECIES_PHANPY",
+                "day": "SPECIES_PHANPY",
+                "night": "SPECIES_PHANPY"
+            },
+            {
+                "level": 48,
+                "morning": "SPECIES_URSARING",
+                "day": "SPECIES_URSARING",
+                "night": "SPECIES_URSARING"
+            },
+            {
+                "level": 47,
+                "morning": "SPECIES_DONPHAN",
+                "day": "SPECIES_DONPHAN",
+                "night": "SPECIES_DONPHAN"
+            },
+            {
+                "level": 45,
+                "morning": "SPECIES_PUPITAR",
+                "day": "SPECIES_PUPITAR",
+                "night": "SPECIES_PUPITAR"
+            },
+            {
+                "level": 45,
                 "morning": "SPECIES_QUAGSIRE",
                 "day": "SPECIES_QUAGSIRE",
                 "night": "SPECIES_QUAGSIRE"
             },
             {
-                "level": 61,
-                "morning": "SPECIES_SHELGON",
-                "day": "SPECIES_SHELGON",
-                "night": "SPECIES_SHELGON"
+                "level": 48,
+                "morning": "SPECIES_PYROAR",
+                "day": "SPECIES_PYROAR",
+                "night": "SPECIES_PYROAR"
             },
             {
-                "level": 64,
-                "morning": "SPECIES_QUAGSIRE",
-                "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
+                "level": 20,
+                "morning": "SPECIES_ESCAVALIER",
+                "day": "SPECIES_ESCAVALIER",
+                "night": "SPECIES_ESCAVALIER"
             },
             {
-                "level": 63,
-                "morning": "SPECIES_SHELGON",
-                "day": "SPECIES_SHELGON",
-                "night": "SPECIES_SHELGON"
+                "level": 48,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_BAGON",
-                "day": "SPECIES_BAGON",
-                "night": "SPECIES_BAGON"
-            },
-            {
-                "level": 63,
-                "morning": "SPECIES_PARASECT",
-                "day": "SPECIES_PARASECT",
-                "night": "SPECIES_PARASECT"
-            },
-            {
-                "level": 50,
-                "morning": "SPECIES_BAGON",
-                "day": "SPECIES_BAGON",
-                "night": "SPECIES_BAGON"
-            },
-            {
-                "level": 64,
-                "morning": "SPECIES_PARASECT",
-                "day": "SPECIES_PARASECT",
-                "night": "SPECIES_PARASECT"
+                "level": 15,
+                "morning": "SPECIES_LARVITAR",
+                "day": "SPECIES_LARVITAR",
+                "night": "SPECIES_LARVITAR"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_SHELGON",
-        "SPECIES_SHELGON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_PARAS",
-        "SPECIES_BAGON"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_QUAGSIRE",

@@ -4,73 +4,73 @@
         "rate": 15,
         "slots": [
             {
-                "level": 54,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
+                "level": 12,
+                "morning": "SPECIES_CUBONE",
+                "day": "SPECIES_CUBONE",
+                "night": "SPECIES_CUBONE"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
+                "level": 12,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_LAIRON",
-                "day": "SPECIES_LAIRON",
-                "night": "SPECIES_LAIRON"
+                "level": 12,
+                "morning": "SPECIES_CUBONE",
+                "day": "SPECIES_CUBONE",
+                "night": "SPECIES_CUBONE"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_HARIYAMA",
-                "day": "SPECIES_HARIYAMA",
-                "night": "SPECIES_HARIYAMA"
+                "level": 12,
+                "morning": "SPECIES_ROLYCOLY",
+                "day": "SPECIES_ROLYCOLY",
+                "night": "SPECIES_ROLYCOLY"
             },
             {
-                "level": 54,
+                "level": 16,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 16,
+                "morning": "SPECIES_TOEDSCOOL",
+                "day": "SPECIES_TOEDSCOOL",
+                "night": "SPECIES_TOEDSCOOL"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 10,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 14,
                 "morning": "SPECIES_MAROWAK",
                 "day": "SPECIES_MAROWAK",
                 "night": "SPECIES_MAROWAK"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_PRIMEAPE",
-                "day": "SPECIES_PRIMEAPE",
-                "night": "SPECIES_PRIMEAPE"
-            },
-            {
-                "level": 54,
-                "morning": "SPECIES_MAGNETON",
-                "day": "SPECIES_MAGNETON",
-                "night": "SPECIES_MAGNETON"
-            },
-            {
-                "level": 55,
-                "morning": "SPECIES_MAGNETON",
-                "day": "SPECIES_MAGNETON",
-                "night": "SPECIES_MAGNETON"
-            },
-            {
-                "level": 54,
+                "level": 14,
                 "morning": "SPECIES_KANGASKHAN",
                 "day": "SPECIES_KANGASKHAN",
                 "night": "SPECIES_KANGASKHAN"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_ONIX",
-                "day": "SPECIES_ONIX",
-                "night": "SPECIES_ONIX"
+                "level": 14,
+                "morning": "SPECIES_MAROWAK",
+                "day": "SPECIES_MAROWAK",
+                "night": "SPECIES_MAROWAK"
             },
             {
-                "level": 56,
-                "morning": "SPECIES_ONIX",
-                "day": "SPECIES_ONIX",
-                "night": "SPECIES_ONIX"
-            },
-            {
-                "level": 56,
+                "level": 14,
                 "morning": "SPECIES_KANGASKHAN",
                 "day": "SPECIES_KANGASKHAN",
                 "night": "SPECIES_KANGASKHAN"
@@ -111,14 +111,14 @@
         "rate": 20,
         "slots": [
             {
-                "level_min": 53,
-                "level_max": 56,
-                "species": "SPECIES_NOSEPASS"
+                "level_min": 12,
+                "level_max": 16,
+                "species": "SPECIES_GEODUDE"
             },
             {
-                "level_min": 55,
-                "level_max": 56,
-                "species": "SPECIES_NOSEPASS"
+                "level_min": 17,
+                "level_max": 21,
+                "species": "SPECIES_GEODUDE"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_AGGRON",
-        "SPECIES_STEELIX"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_ONIX",
-        "SPECIES_KANGASKHAN"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
-        "land": "SPECIES_MAROWAK",
+        "land": "SPECIES_CUBONE",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

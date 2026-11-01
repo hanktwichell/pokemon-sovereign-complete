@@ -4,76 +4,76 @@
         "rate": 10,
         "slots": [
             {
-                "level": 56,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 58,
+                "level": 35,
                 "morning": "SPECIES_DEWGONG",
                 "day": "SPECIES_DEWGONG",
                 "night": "SPECIES_DEWGONG"
             },
             {
-                "level": 57,
-                "morning": "SPECIES_KINGLER",
-                "day": "SPECIES_KINGLER",
-                "night": "SPECIES_KINGLER"
-            },
-            {
-                "level": 56,
-                "morning": "SPECIES_SEALEO",
-                "day": "SPECIES_SEALEO",
-                "night": "SPECIES_SEALEO"
-            },
-            {
-                "level": 57,
-                "morning": "SPECIES_PILOSWINE",
-                "day": "SPECIES_PILOSWINE",
-                "night": "SPECIES_PILOSWINE"
-            },
-            {
-                "level": 57,
-                "morning": "SPECIES_GLALIE",
-                "day": "SPECIES_GLALIE",
-                "night": "SPECIES_GLALIE"
-            },
-            {
-                "level": 57,
-                "morning": "SPECIES_DELIBIRD",
-                "day": "SPECIES_DELIBIRD",
-                "night": "SPECIES_DELIBIRD"
-            },
-            {
-                "level": 57,
-                "morning": "SPECIES_SNEASEL",
-                "day": "SPECIES_SNEASEL",
-                "night": "SPECIES_SNEASEL"
-            },
-            {
-                "level": 56,
-                "morning": "SPECIES_JYNX",
-                "day": "SPECIES_JYNX",
-                "night": "SPECIES_JYNX"
-            },
-            {
-                "level": 57,
+                "level": 36,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 58,
-                "morning": "SPECIES_JYNX",
-                "day": "SPECIES_JYNX",
-                "night": "SPECIES_JYNX"
+                "level": 32,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
             },
             {
-                "level": 60,
+                "level": 34,
+                "morning": "SPECIES_SEEL",
+                "day": "SPECIES_SEEL",
+                "night": "SPECIES_SEEL"
+            },
+            {
+                "level": 34,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_TALONFLAME",
+                "day": "SPECIES_TALONFLAME",
+                "night": "SPECIES_TALONFLAME"
+            },
+            {
+                "level": 32,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_CERULEDGE",
+                "day": "SPECIES_CERULEDGE",
+                "night": "SPECIES_CERULEDGE"
+            },
+            {
+                "level": 34,
+                "morning": "SPECIES_GOLDUCK",
+                "day": "SPECIES_GOLDUCK",
+                "night": "SPECIES_GOLDUCK"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_CARBINK",
+                "day": "SPECIES_CARBINK",
+                "night": "SPECIES_CARBINK"
+            },
+            {
+                "level": 32,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
+            },
+            {
+                "level": 31,
+                "morning": "SPECIES_ARCTIBAX",
+                "day": "SPECIES_ARCTIBAX",
+                "night": "SPECIES_ARCTIBAX"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_WEAVILE",
-        "SPECIES_MAMOSWINE"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_DELIBIRD",
-        "SPECIES_JYNX"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_DEWGONG",

@@ -4,76 +4,76 @@
         "rate": 10,
         "slots": [
             {
-                "level": 22,
+                "level": 13,
                 "morning": "SPECIES_RATTATA",
                 "day": "SPECIES_RATTATA",
                 "night": "SPECIES_RATTATA"
             },
             {
-                "level": 22,
+                "level": 14,
                 "morning": "SPECIES_KOFFING",
                 "day": "SPECIES_KOFFING",
                 "night": "SPECIES_KOFFING"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_ZIGZAGOON",
-                "day": "SPECIES_ZIGZAGOON",
-                "night": "SPECIES_ZIGZAGOON"
+                "level": 13,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_CUBONE",
-                "day": "SPECIES_CUBONE",
-                "night": "SPECIES_CUBONE"
+                "level": 14,
+                "morning": "SPECIES_PANSEAR",
+                "day": "SPECIES_PANSEAR",
+                "night": "SPECIES_PANSEAR"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_MAGBY",
-                "day": "SPECIES_MAGBY",
-                "night": "SPECIES_MAGBY"
+                "level": 15,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
+                "level": 15,
+                "morning": "SPECIES_SIZZLIPEDE",
+                "day": "SPECIES_SIZZLIPEDE",
+                "night": "SPECIES_SIZZLIPEDE"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_DUSKULL",
-                "day": "SPECIES_DUSKULL",
-                "night": "SPECIES_DUSKULL"
+                "level": 14,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_SHUPPET",
-                "day": "SPECIES_SHUPPET",
-                "night": "SPECIES_SHUPPET"
+                "level": 14,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_DUSKULL",
-                "day": "SPECIES_DUSKULL",
-                "night": "SPECIES_DUSKULL"
+                "level": 16,
+                "morning": "SPECIES_KOFFING",
+                "day": "SPECIES_KOFFING",
+                "night": "SPECIES_KOFFING"
             },
             {
-                "level": 23,
-                "morning": "SPECIES_SHUPPET",
-                "day": "SPECIES_SHUPPET",
-                "night": "SPECIES_SHUPPET"
+                "level": 15,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_DUSKULL",
-                "day": "SPECIES_DUSKULL",
-                "night": "SPECIES_DUSKULL"
+                "level": 16,
+                "morning": "SPECIES_KOFFING",
+                "day": "SPECIES_KOFFING",
+                "night": "SPECIES_KOFFING"
             },
             {
-                "level": 22,
-                "morning": "SPECIES_SHUPPET",
-                "day": "SPECIES_SHUPPET",
-                "night": "SPECIES_SHUPPET"
+                "level": 15,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_RATICATE",
-        "SPECIES_MAROWAK"
+        "SPECIES_ZIGZAGOON",
+        "SPECIES_SPINDA"
     ],
     "radio_sinnoh": [
-        "SPECIES_CHIMECHO",
-        "SPECIES_CHIMECHO"
+        "SPECIES_CHATOT",
+        "SPECIES_MEDITITE"
     ],
     "swarm": {
         "land": "SPECIES_RATTATA",

@@ -81,29 +81,29 @@
         "rate": 10,
         "slots": [
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_WINGULL"
+                "level_min": 15,
+                "level_max": 25,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_MANTYKE"
-            },
-            {
-                "level_min": 25,
-                "level_max": 35,
-                "species": "SPECIES_MANTINE"
-            },
-            {
-                "level_min": 25,
-                "level_max": 35,
+                "level_min": 15,
+                "level_max": 25,
                 "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 30,
-                "level_max": 30,
-                "species": "SPECIES_PHIONE"
+                "level_min": 15,
+                "level_max": 25,
+                "species": "SPECIES_MANTINE"
+            },
+            {
+                "level_min": 15,
+                "level_max": 25,
+                "species": "SPECIES_MANTINE"
+            },
+            {
+                "level_min": 15,
+                "level_max": 25,
+                "species": "SPECIES_MANTINE"
             }
         ]
     },
@@ -126,6 +126,36 @@
         "rate": 25,
         "slots": [
             {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
+            }
+        ]
+    },
+    "good_rod": {
+        "rate": 50,
+        "slots": [
+            {
                 "level_min": 20,
                 "level_max": 20,
                 "species": "SPECIES_MAGIKARP"
@@ -138,47 +168,17 @@
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_HORSEA"
-            },
-            {
-                "level_min": 20,
-                "level_max": 20,
-                "species": "SPECIES_HORSEA"
-            },
-            {
-                "level_min": 20,
-                "level_max": 20,
-                "species": "SPECIES_HORSEA"
-            }
-        ]
-    },
-    "good_rod": {
-        "rate": 50,
-        "slots": [
-            {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_WAILMER"
-            },
-            {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_HORSEA"
-            },
-            {
-                "level_min": 25,
-                "level_max": 30,
                 "species": "SPECIES_CHINCHOU"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_CORSOLA"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SHELLDER"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_CORSOLA"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_CHINCHOU"
             }
         ]
     },
@@ -188,27 +188,27 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_SEADRA"
+                "species": "SPECIES_CHINCHOU"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_CORSOLA"
+                "species": "SPECIES_SHELLDER"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_LANTURN"
-            },
-            {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_WAILORD"
+                "species": "SPECIES_TENTACRUEL"
             },
             {
                 "level_min": 40,
                 "level_max": 40,
                 "species": "SPECIES_LANTURN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_TENTACRUEL"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_TENTACOOL",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_SHELLDER",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

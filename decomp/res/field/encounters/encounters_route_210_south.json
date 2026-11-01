@@ -2,71 +2,71 @@
     "land_rate": 30,
     "land_encounters": [
         {
-            "level": 28,
-            "species": "SPECIES_KRICKETUNE"
+            "level": 19,
+            "species": "SPECIES_STARAVIA"
         },
         {
-            "level": 28,
-            "species": "SPECIES_NUZLEAF"
+            "level": 18,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 29,
-            "species": "SPECIES_PIDGEOTTO"
-        },
-        {
-            "level": 28,
-            "species": "SPECIES_COTTONEE"
-        },
-        {
-            "level": 29,
+            "level": 21,
             "species": "SPECIES_SCYTHER"
         },
         {
-            "level": 29,
-            "species": "SPECIES_FLABEBE"
+            "level": 20,
+            "species": "SPECIES_PONYTA"
         },
         {
-            "level": 30,
-            "species": "SPECIES_PINSIR"
+            "level": 20,
+            "species": "SPECIES_ROSELIA"
         },
         {
-            "level": 28,
-            "species": "SPECIES_CENTISKORCH"
+            "level": 19,
+            "species": "SPECIES_HERDIER"
         },
         {
-            "level": 28,
-            "species": "SPECIES_MILTANK"
+            "level": 19,
+            "species": "SPECIES_SCYTHER"
         },
         {
-            "level": 29,
-            "species": "SPECIES_MORELULL"
+            "level": 21,
+            "species": "SPECIES_BOUFFALANT"
         },
         {
-            "level": 30,
-            "species": "SPECIES_TAUROS"
+            "level": 21,
+            "species": "SPECIES_PONYTA"
         },
         {
-            "level": 30,
-            "species": "SPECIES_FLOETTE"
+            "level": 19,
+            "species": "SPECIES_CHANSEY"
+        },
+        {
+            "level": 21,
+            "species": "SPECIES_PONYTA"
+        },
+        {
+            "level": 21,
+            "species": "SPECIES_CHANSEY"
         }
     ],
     "swarms": [
-        "SPECIES_KRICKETUNE",
-        "SPECIES_NUZLEAF"
+        "SPECIES_STARAVIA",
+        "SPECIES_GEODUDE"
     ],
     "day": [
-        "SPECIES_PIDGEOTTO",
-        "SPECIES_COTTONEE"
+        "SPECIES_PONYTA",
+        "SPECIES_PONYTA"
     ],
     "night": [
         "SPECIES_NOCTOWL",
-        "SPECIES_BOUFFALANT"
+        "SPECIES_HOOTHOOT"
     ],
     "radar": [
-        "SPECIES_KECLEON",
-        "SPECIES_KECLEON",
-        "SPECIES_KECLEON",
-        "SPECIES_KECLEON"
+        "SPECIES_MILTANK",
+        "SPECIES_TAUROS",
+        "SPECIES_MILTANK",
+        "SPECIES_TAUROS"
     ],
     "rate_form0": 100,
     "rate_form1": 100,
@@ -75,24 +75,24 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_SCYTHER",
-        "SPECIES_SCYTHER"
+        "SPECIES_SEEDOT",
+        "SPECIES_NUZLEAF"
     ],
     "sapphire": [
-        "SPECIES_SCYTHER",
-        "SPECIES_SCYTHER"
+        "SPECIES_PONYTA",
+        "SPECIES_CHANSEY"
     ],
     "emerald": [
-        "SPECIES_SCYTHER",
-        "SPECIES_SCYTHER"
+        "SPECIES_PINECO",
+        "SPECIES_PINECO"
     ],
     "firered": [
-        "SPECIES_SCYTHER",
-        "SPECIES_SCYTHER"
+        "SPECIES_PONYTA",
+        "SPECIES_CHANSEY"
     ],
     "leafgreen": [
-        "SPECIES_SCYTHER",
-        "SPECIES_SCYTHER"
+        "SPECIES_PONYTA",
+        "SPECIES_CHANSEY"
     ],
     "surf_rate": 0,
     "surf_encounters": [

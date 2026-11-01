@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 52,
-                "morning": "SPECIES_GULPIN",
-                "day": "SPECIES_GULPIN",
-                "night": "SPECIES_GULPIN"
-            },
-            {
-                "level": 55,
+                "level": 28,
                 "morning": "SPECIES_FEAROW",
                 "day": "SPECIES_FEAROW",
-                "night": "SPECIES_FEAROW"
+                "night": "SPECIES_GRIMER"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_MUK",
-                "day": "SPECIES_MUK",
+                "level": 27,
+                "morning": "SPECIES_GRIMER",
+                "day": "SPECIES_SLUGMA",
+                "night": "SPECIES_GRIMER"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_FEAROW",
+                "day": "SPECIES_FEAROW",
+                "night": "SPECIES_GRIMER"
+            },
+            {
+                "level": 27,
+                "morning": "SPECIES_BINACLE",
+                "day": "SPECIES_BINACLE",
+                "night": "SPECIES_BINACLE"
+            },
+            {
+                "level": 29,
+                "morning": "SPECIES_GRIMER",
+                "day": "SPECIES_GRIMER",
+                "night": "SPECIES_GRIMER"
+            },
+            {
+                "level": 29,
+                "morning": "SPECIES_ARAQUANID",
+                "day": "SPECIES_ARAQUANID",
+                "night": "SPECIES_ARAQUANID"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_FEAROW",
+                "day": "SPECIES_FEAROW",
                 "night": "SPECIES_MUK"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_MAGCARGO",
-                "day": "SPECIES_MAGCARGO",
-                "night": "SPECIES_MAGCARGO"
+                "level": 30,
+                "morning": "SPECIES_GOLISOPOD",
+                "day": "SPECIES_GOLISOPOD",
+                "night": "SPECIES_GOLISOPOD"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
+                "level": 29,
+                "morning": "SPECIES_SLUGMA",
+                "day": "SPECIES_SLUGMA",
+                "night": "SPECIES_SLUGMA"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
+                "level": 32,
+                "morning": "SPECIES_BASCULEGION",
+                "day": "SPECIES_BASCULEGION",
+                "night": "SPECIES_BASCULEGION"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_DODRIO",
-                "day": "SPECIES_DODRIO",
-                "night": "SPECIES_MISDREAVUS"
+                "level": 29,
+                "morning": "SPECIES_SLUGMA",
+                "day": "SPECIES_SLUGMA",
+                "night": "SPECIES_SLUGMA"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
-            },
-            {
-                "level": 53,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
-            },
-            {
-                "level": 54,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
+                "level": 32,
+                "morning": "SPECIES_MUK",
+                "day": "SPECIES_MUK",
+                "night": "SPECIES_MUK"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_SWALOT",
-        "SPECIES_MISMAGIUS"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_DUSCLOPS",
-        "SPECIES_DRIFBLIM"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
         "land": "SPECIES_FEAROW",

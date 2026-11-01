@@ -60,6 +60,18 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **Following Pokémon (Oct 29, 2026).** Required, as in HeartGold. A first working version comes early, in step 1, to
   prove it before the big conversion work; it counts toward step 5's days.
 - **Pokéathlon (Oct 29, 2026).** Skipped.
+- **Sinnoh's integration (Nov 1, 2026).** Claude devises a provisional one, so the whole game can be played and tested
+  now: what arriving in Canalave City starts, Sinnoh's levels after Kanto, level caps for all three regions. Each
+  choice sits in one place, so it can change later.
+- **Megas (Nov 1, 2026).** In all three regions: the Mega Ring and Mega Stones within reach in Johto and Kanto, and
+  Megas for Johto's and Kanto's bosses as Sinnoh's big fights have.
+- **Totem trials and legendaries (Nov 1, 2026).** Sovereign's Totem trials and its legendary encounters are spread
+  over Johto, Kanto and Sinnoh instead of all being in Sinnoh.
+- **Wild Pokémon (Nov 1, 2026).** Every map's wild Pokémon are the original games' own (HeartGold/SoulSilver's in
+  Johto and Kanto, Platinum's in Sinnoh), with the Pokémon they don't have mixed in evenly over the three regions
+  (`docs/Features.md`, "Wild Pokémon"). Sacred Gold's and Sovereign's own tables are no longer used.
+- **A full test and a highlight video (Nov 1, 2026).** Once Sinnoh and the Megas are in: every test, the playthrough
+  from New Bark Town to Spear Pillar, and a 1 to 2 minute video of it.
 
 ### HeartGold features
 
@@ -96,7 +108,6 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   keep working in Sinnoh (`docs/Features.md`, "Badges").
 - **The land between:** northern Honshu, between Kanto and Sinnoh, is empty on the real map. The Sinjoh Ruins path
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
-- **Megas for Johto and Kanto bosses,** like Sinnoh's big fights after the Eterna Jupiter battle.
 - **Pokétch, Pokégear or both:** both use the bottom screen. The phone's data and calls are in (`docs/Features.md`,
   "The Pokégear phone"): calls show in the message box and are answered at once. What waits on this: the player
   calling someone (the contact list), and with it Gym Leaders' rematches, Oak's Pokédex rating by phone and the

@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 53,
+                "level": 26,
+                "morning": "SPECIES_GRIMER",
+                "day": "SPECIES_GRIMER",
+                "night": "SPECIES_GRIMER"
+            },
+            {
+                "level": 27,
                 "morning": "SPECIES_FEAROW",
                 "day": "SPECIES_FEAROW",
-                "night": "SPECIES_FEAROW"
+                "night": "SPECIES_GRIMER"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_GULPIN",
-                "day": "SPECIES_GULPIN",
-                "night": "SPECIES_GULPIN"
-            },
-            {
-                "level": 50,
+                "level": 26,
                 "morning": "SPECIES_GRIMER",
                 "day": "SPECIES_GRIMER",
                 "night": "SPECIES_GRIMER"
             },
             {
-                "level": 51,
+                "level": 27,
+                "morning": "SPECIES_DUCKLETT",
+                "day": "SPECIES_DUCKLETT",
+                "night": "SPECIES_DUCKLETT"
+            },
+            {
+                "level": 28,
                 "morning": "SPECIES_GRIMER",
                 "day": "SPECIES_GRIMER",
                 "night": "SPECIES_GRIMER"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
+                "level": 28,
+                "morning": "SPECIES_DEWPIDER",
+                "day": "SPECIES_DEWPIDER",
+                "night": "SPECIES_DEWPIDER"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_MUK",
-                "day": "SPECIES_MUK",
+                "level": 29,
+                "morning": "SPECIES_FEAROW",
+                "day": "SPECIES_FEAROW",
                 "night": "SPECIES_MUK"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_GRIMER",
-                "day": "SPECIES_GRIMER",
-                "night": "SPECIES_GRIMER"
+                "level": 29,
+                "morning": "SPECIES_WIGLETT",
+                "day": "SPECIES_WIGLETT",
+                "night": "SPECIES_WIGLETT"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_DODRIO",
-                "day": "SPECIES_DODRIO",
-                "night": "SPECIES_MURKROW"
+                "level": 27,
+                "morning": "SPECIES_SLUGMA",
+                "day": "SPECIES_SLUGMA",
+                "night": "SPECIES_SLUGMA"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_MAGCARGO",
-                "day": "SPECIES_MAGCARGO",
-                "night": "SPECIES_MAGCARGO"
+                "level": 30,
+                "morning": "SPECIES_WUGTRIO",
+                "day": "SPECIES_WUGTRIO",
+                "night": "SPECIES_WUGTRIO"
             },
             {
-                "level": 53,
-                "morning": "SPECIES_MAGCARGO",
-                "day": "SPECIES_MAGCARGO",
-                "night": "SPECIES_MAGCARGO"
+                "level": 27,
+                "morning": "SPECIES_SLUGMA",
+                "day": "SPECIES_SLUGMA",
+                "night": "SPECIES_SLUGMA"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_MAGCARGO",
-                "day": "SPECIES_MAGCARGO",
-                "night": "SPECIES_MAGCARGO"
-            },
-            {
-                "level": 56,
-                "morning": "SPECIES_MAGCARGO",
-                "day": "SPECIES_MAGCARGO",
-                "night": "SPECIES_MAGCARGO"
+                "level": 30,
+                "morning": "SPECIES_MUK",
+                "day": "SPECIES_MUK",
+                "night": "SPECIES_MUK"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_SWALOT",
-        "SPECIES_HONCHKROW"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_NINJASK",
-        "SPECIES_NINJASK"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
         "land": "SPECIES_GRIMER",

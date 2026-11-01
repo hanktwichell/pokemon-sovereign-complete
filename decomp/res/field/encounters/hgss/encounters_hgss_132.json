@@ -4,76 +4,76 @@
         "rate": 15,
         "slots": [
             {
-                "level": 43,
+                "level": 22,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 22,
                 "morning": "SPECIES_RATICATE",
                 "day": "SPECIES_RATICATE",
                 "night": "SPECIES_RATICATE"
             },
             {
-                "level": 44,
-                "morning": "SPECIES_AZUMARILL",
-                "day": "SPECIES_AZUMARILL",
-                "night": "SPECIES_AZUMARILL"
+                "level": 22,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 44,
+                "level": 22,
+                "morning": "SPECIES_FLOETTE",
+                "day": "SPECIES_FLOETTE",
+                "night": "SPECIES_FLOETTE"
+            },
+            {
+                "level": 22,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 44,
-                "morning": "SPECIES_SLOWBRO",
-                "day": "SPECIES_SLOWBRO",
-                "night": "SPECIES_SLOWBRO"
+                "level": 22,
+                "morning": "SPECIES_ESPURR",
+                "day": "SPECIES_ESPURR",
+                "night": "SPECIES_ESPURR"
             },
             {
-                "level": 43,
-                "morning": "SPECIES_SLOWBRO",
-                "day": "SPECIES_SLOWBRO",
-                "night": "SPECIES_SLOWBRO"
+                "level": 21,
+                "morning": "SPECIES_SLOWPOKE",
+                "day": "SPECIES_SLOWPOKE",
+                "night": "SPECIES_SLOWPOKE"
             },
             {
-                "level": 44,
-                "morning": "SPECIES_DEWGONG",
-                "day": "SPECIES_DEWGONG",
-                "night": "SPECIES_DEWGONG"
+                "level": 21,
+                "morning": "SPECIES_DURANT",
+                "day": "SPECIES_DURANT",
+                "night": "SPECIES_DURANT"
             },
             {
-                "level": 44,
-                "morning": "SPECIES_BRONZONG",
-                "day": "SPECIES_BRONZONG",
-                "night": "SPECIES_BRONZONG"
+                "level": 20,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_BRONZONG",
-                "day": "SPECIES_BRONZONG",
-                "night": "SPECIES_BRONZONG"
+                "level": 23,
+                "morning": "SPECIES_MIMIKYU",
+                "day": "SPECIES_MIMIKYU",
+                "night": "SPECIES_MIMIKYU"
             },
             {
-                "level": 43,
-                "morning": "SPECIES_QUAGSIRE",
-                "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
+                "level": 20,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_QUAGSIRE",
-                "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
-            },
-            {
-                "level": 44,
-                "morning": "SPECIES_QUAGSIRE",
-                "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
-            },
-            {
-                "level": 44,
-                "morning": "SPECIES_QUAGSIRE",
-                "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
+                "level": 23,
+                "morning": "SPECIES_SLOWPOKE",
+                "day": "SPECIES_SLOWPOKE",
+                "night": "SPECIES_SLOWPOKE"
             }
         ]
     },
@@ -81,28 +81,28 @@
         "rate": 10,
         "slots": [
             {
-                "level_min": 30,
-                "level_max": 40,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 30,
-                "level_max": 40,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_SLOWPOKE"
             },
             {
-                "level_min": 40,
-                "level_max": 45,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_SEAKING"
             },
             {
-                "level_min": 40,
-                "level_max": 45,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_SEAKING"
             },
             {
-                "level_min": 40,
-                "level_max": 45,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_SEAKING"
             }
         ]
@@ -196,34 +196,34 @@
                 "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 45,
-                "level_max": 45,
-                "species": "SPECIES_GYARADOS"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 45,
-                "level_max": 45,
+                "level_min": 40,
+                "level_max": 40,
                 "species": "SPECIES_SEAKING"
             },
             {
-                "level_min": 45,
-                "level_max": 45,
-                "species": "SPECIES_GYARADOS"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
     "radio_hoenn": [
-        "SPECIES_CROBAT",
-        "SPECIES_CROBAT"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_AZURILL",
+        "SPECIES_BRONZOR",
         "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_ZUBAT",
         "surf": "SPECIES_GOLDEEN",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_GOLDEEN",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

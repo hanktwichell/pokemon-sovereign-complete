@@ -81,29 +81,29 @@
         "rate": 10,
         "slots": [
             {
-                "level_min": 20,
-                "level_max": 35,
-                "species": "SPECIES_HOPPIP"
-            },
-            {
-                "level_min": 20,
-                "level_max": 35,
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 35,
-                "level_max": 45,
-                "species": "SPECIES_SKIPLOOM"
+                "level_min": 5,
+                "level_max": 5,
+                "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_MASQUERAIN"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_SEAKING"
             },
             {
-                "level_min": 45,
-                "level_max": 50,
-                "species": "SPECIES_SKIPLOOM"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_SEAKING"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_SEAKING"
             }
         ]
     },
@@ -133,22 +133,22 @@
             {
                 "level_min": 10,
                 "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 15,
-                "level_max": 15,
-                "species": "SPECIES_SEAKING"
-            },
-            {
-                "level_min": 15,
-                "level_max": 15,
-                "species": "SPECIES_SEAKING"
-            },
-            {
-                "level_min": 15,
-                "level_max": 15,
-                "species": "SPECIES_SEAKING"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_GOLDEEN"
             }
         ]
     },
@@ -158,6 +158,11 @@
             {
                 "level_min": 20,
                 "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_GOLDEEN"
             },
             {
@@ -166,19 +171,14 @@
                 "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 25,
-                "level_max": 25,
-                "species": "SPECIES_SEAKING"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 25,
-                "level_max": 25,
-                "species": "SPECIES_SEAKING"
-            },
-            {
-                "level_min": 25,
-                "level_max": 25,
-                "species": "SPECIES_SEAKING"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
             }
         ]
     },
@@ -186,29 +186,29 @@
         "rate": 75,
         "slots": [
             {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_STARYU"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
                 "species": "SPECIES_SEAKING"
             },
             {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_DRATINI"
-            },
-            {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_DRAGONAIR"
-            },
-            {
-                "level_min": 50,
-                "level_max": 50,
-                "species": "SPECIES_DRATINI"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_GOLDEEN",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_GOLDEEN",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

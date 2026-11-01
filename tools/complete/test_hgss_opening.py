@@ -282,6 +282,9 @@ HEAP_STEPS=1 checks them after each action), and the following Pokémon (the tes
 most two steps away, as a scene can leave it diagonally (gCompleteTestFollowerTile; after the starter's scene it was
 left by Elm's table before src/complete_follower.c brought it back).
 Results: one line per part; a screenshot and a save state of each part's end in OUT_DIR.
+VIDEO, a file name, records the run (both screens, every VIDEO_EVERY-th frame, 3 by default, an MPEG-TS file by
+ffmpeg, which a stopped run leaves readable), with each part's and action's start in VIDEO.events, as frame numbers of
+the recording, for tools/complete/highlights.py.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default); FROM, a part's name, starts there from the save state an earlier
@@ -293,6 +296,7 @@ import collections
 import os
 import re
 import struct
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
@@ -940,6 +944,38 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
     return keys[::-1]
 
 
+class Recorder:
+    """The run on video (VIDEO): every EVERY-th frame the emulator runs, both screens, piped to ffmpeg, which encodes it
+    at the game's speed; mark() notes the recording's frame number in PATH.events."""
+
+    def __init__(self, d, path, every):
+        # display_buffer_as_rgbx() is BGRX, the top screen above the bottom one
+        self.ffmpeg = subprocess.Popen(['ffmpeg', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr0',
+                                        '-s', '256x384', '-r', str(60 / every), '-i', '-', '-c:v', 'libx264',
+                                        '-preset', 'veryfast', '-crf', '24', '-pix_fmt', 'yuv420p', '-f', 'mpegts',
+                                        path], stdin=subprocess.PIPE)
+        self.events = open(path + '.events', 'w', encoding='utf-8')
+        self.frames = self.ran = 0
+        run = d.run
+
+        def recorded(frames):
+            for _ in range(frames):
+                run(1)
+                self.ran += 1
+                if self.ran % every == 0:
+                    self.ffmpeg.stdin.write(bytes(d.emu.display_buffer_as_rgbx()))
+                    self.frames += 1
+        d.run = recorded
+
+    def mark(self, what):
+        print(self.frames, what, file=self.events, flush=True)
+
+    def close(self):
+        self.ffmpeg.stdin.close()
+        self.ffmpeg.wait()
+        self.events.close()
+
+
 def main():
     from drive import Driver
 
@@ -968,6 +1004,7 @@ def main():
     d = Driver(rom, state)
     mem = d.emu.memory
     mem.write_byte(sym['gSovereignTestGodMode'], 1)  # battles: one hit wins, no PP used, no EXP prompts
+    video = os.environ.get('VIDEO') and Recorder(d, os.environ['VIDEO'], int(os.environ.get('VIDEO_EVERY', 3)))
 
     def u16(addr):
         return struct.unpack('<H', bytes(mem.unsigned[addr:addr + 2]))[0]
@@ -1354,7 +1391,11 @@ def main():
     mem.write_short(options, u16(options) | BATTLE_STYLE_SET)
     for name, actions, end_map, marker in PARTS[first:]:
         problem = ''
+        if video:
+            video.mark(f'part {name}')
         for action in actions:
+            if video:
+                video.mark(f'action {action!r} {here()}')
             if not settle():
                 problem = f'the field never came free before {action}, on {here()} at {d.pos()}'
             elif isinstance(action, str):
@@ -1416,9 +1457,13 @@ def main():
         d.emu.savestate.save_file(os.path.join(out, f'{name.replace(" ", "_")}.state'))  # to start a later part from
         results.append(f'{name}: {problem or "ok"}')
         print(results[-1], flush=True)
+        if video:
+            video.mark(f'end {name}: {problem or "ok"}')
         if problem:
             break
     print(f'{sum(r.endswith(": ok") for r in results)} of {len(PARTS) - first} parts ok')
+    if video:
+        video.close()
     sys.exit(0 if len(results) == len(PARTS) - first and all(r.endswith(': ok') for r in results) else 1)
 
 

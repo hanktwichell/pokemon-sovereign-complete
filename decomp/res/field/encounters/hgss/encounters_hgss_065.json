@@ -143,12 +143,12 @@
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_DRATINI"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_POLIWAG"
             }
         ]
     },
@@ -163,22 +163,22 @@
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_DRATINI"
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_POLIWAG"
             }
         ]
     },
@@ -188,7 +188,12 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_POLIWAG"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_POLIWAG"
             },
             {
                 "level_min": 40,
@@ -198,12 +203,7 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_MAGIKARP"
-            },
-            {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_DRATINI"
+                "species": "SPECIES_DRACOVISH"
             },
             {
                 "level_min": 40,
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_MAGIKARP",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_POLIWAG",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

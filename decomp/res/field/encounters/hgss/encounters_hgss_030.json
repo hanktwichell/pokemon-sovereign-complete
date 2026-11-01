@@ -4,76 +4,76 @@
         "rate": 5,
         "slots": [
             {
-                "level": 40,
-                "morning": "SPECIES_ZIGZAGOON",
-                "day": "SPECIES_ZIGZAGOON",
-                "night": "SPECIES_ZIGZAGOON"
-            },
-            {
-                "level": 43,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 40,
-                "morning": "SPECIES_GASTLY",
-                "day": "SPECIES_GASTLY",
+                "level": 20,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
                 "night": "SPECIES_GASTLY"
             },
             {
-                "level": 41,
+                "level": 21,
                 "morning": "SPECIES_RATTATA",
                 "day": "SPECIES_RATTATA",
-                "night": "SPECIES_RATTATA"
-            },
-            {
-                "level": 41,
-                "morning": "SPECIES_RATTATA",
-                "day": "SPECIES_RATTATA",
-                "night": "SPECIES_RATTATA"
-            },
-            {
-                "level": 40,
-                "morning": "SPECIES_RATTATA",
-                "day": "SPECIES_RATTATA",
-                "night": "SPECIES_RATTATA"
-            },
-            {
-                "level": 41,
-                "morning": "SPECIES_RATTATA",
-                "day": "SPECIES_RATTATA",
-                "night": "SPECIES_RATTATA"
-            },
-            {
-                "level": 41,
-                "morning": "SPECIES_GASTLY",
-                "day": "SPECIES_GASTLY",
                 "night": "SPECIES_GASTLY"
             },
             {
-                "level": 40,
-                "morning": "SPECIES_DUSKULL",
-                "day": "SPECIES_DUSKULL",
-                "night": "SPECIES_DUSKULL"
+                "level": 20,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_GASTLY"
             },
             {
-                "level": 40,
-                "morning": "SPECIES_SHUPPET",
-                "day": "SPECIES_SHUPPET",
-                "night": "SPECIES_SHUPPET"
+                "level": 21,
+                "morning": "SPECIES_LIEPARD",
+                "day": "SPECIES_LIEPARD",
+                "night": "SPECIES_LIEPARD"
             },
             {
-                "level": 41,
-                "morning": "SPECIES_DUSKULL",
-                "day": "SPECIES_DUSKULL",
-                "night": "SPECIES_DUSKULL"
+                "level": 22,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_GASTLY"
             },
             {
-                "level": 41,
-                "morning": "SPECIES_SHUPPET",
-                "day": "SPECIES_SHUPPET",
-                "night": "SPECIES_SHUPPET"
+                "level": 22,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_GASTLY"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 22,
+                "morning": "SPECIES_DREEPY",
+                "day": "SPECIES_DREEPY",
+                "night": "SPECIES_DREEPY"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 24,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 23,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 24,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_HAUNTER",
-        "SPECIES_LINOONE"
+        "SPECIES_ZIGZAGOON",
+        "SPECIES_SPINDA"
     ],
     "radio_sinnoh": [
-        "SPECIES_SHUPPET",
-        "SPECIES_DUSKULL"
+        "SPECIES_CHATOT",
+        "SPECIES_MEDITITE"
     ],
     "swarm": {
         "land": "SPECIES_RATTATA",

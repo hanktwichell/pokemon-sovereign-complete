@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 48,
+                "level": 2,
                 "morning": "SPECIES_PIDGEY",
                 "day": "SPECIES_PIDGEY",
                 "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 48,
+                "level": 2,
                 "morning": "SPECIES_RATTATA",
                 "day": "SPECIES_RATTATA",
                 "night": "SPECIES_RATTATA"
             },
             {
-                "level": 48,
+                "level": 2,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
+            },
+            {
+                "level": 2,
+                "morning": "SPECIES_FLETCHLING",
+                "day": "SPECIES_FLETCHLING",
+                "night": "SPECIES_FLETCHLING"
+            },
+            {
+                "level": 3,
                 "morning": "SPECIES_SENTRET",
                 "day": "SPECIES_SENTRET",
-                "night": "SPECIES_PONYTA"
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_ZIGZAGOON",
-                "day": "SPECIES_ZIGZAGOON",
-                "night": "SPECIES_ZIGZAGOON"
+                "level": 3,
+                "morning": "SPECIES_WOOLOO",
+                "day": "SPECIES_WOOLOO",
+                "night": "SPECIES_WOOLOO"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_BIDOOF",
-                "day": "SPECIES_BIDOOF",
-                "night": "SPECIES_BIDOOF"
+                "level": 3,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_STARLY",
-                "day": "SPECIES_STARLY",
-                "night": "SPECIES_SHINX"
+                "level": 3,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 55,
-                "morning": "SPECIES_PIDGEOTTO",
-                "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_NOCTOWL"
-            },
-            {
-                "level": 55,
-                "morning": "SPECIES_RATICATE",
-                "day": "SPECIES_RATICATE",
-                "night": "SPECIES_RATICATE"
-            },
-            {
-                "level": 58,
+                "level": 6,
                 "morning": "SPECIES_FURRET",
                 "day": "SPECIES_FURRET",
-                "night": "SPECIES_RAPIDASH"
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 56,
-                "morning": "SPECIES_STARAVIA",
-                "day": "SPECIES_STARAVIA",
-                "night": "SPECIES_LUXIO"
+                "level": 4,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             },
             {
-                "level": 60,
+                "level": 6,
                 "morning": "SPECIES_FURRET",
                 "day": "SPECIES_FURRET",
-                "night": "SPECIES_RAPIDASH"
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 58,
-                "morning": "SPECIES_STARAVIA",
-                "day": "SPECIES_STARAVIA",
-                "night": "SPECIES_LUXIO"
+                "level": 4,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_HOOTHOOT"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_STARAPTOR",
-        "SPECIES_BIBAREL"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_FURRET",
-        "SPECIES_SKIPLOOM"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_LINOONE",
+        "land": "SPECIES_POOCHYENA",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

@@ -4,76 +4,76 @@
         "rate": 15,
         "slots": [
             {
-                "level": 13,
-                "morning": "SPECIES_ZUBAT",
-                "day": "SPECIES_ZUBAT",
-                "night": "SPECIES_ZUBAT"
-            },
-            {
-                "level": 13,
-                "morning": "SPECIES_SANDSHREW",
-                "day": "SPECIES_SANDSHREW",
-                "night": "SPECIES_SANDSHREW"
-            },
-            {
-                "level": 14,
+                "level": 8,
                 "morning": "SPECIES_GEODUDE",
                 "day": "SPECIES_GEODUDE",
                 "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 14,
-                "morning": "SPECIES_BRONZOR",
-                "day": "SPECIES_BRONZOR",
-                "night": "SPECIES_BRONZOR"
+                "level": 8,
+                "morning": "SPECIES_SANDSHREW",
+                "day": "SPECIES_SANDSHREW",
+                "night": "SPECIES_SANDSHREW"
             },
             {
-                "level": 15,
-                "morning": "SPECIES_ARON",
-                "day": "SPECIES_ARON",
-                "night": "SPECIES_ARON"
+                "level": 8,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 15,
-                "morning": "SPECIES_ONIX",
-                "day": "SPECIES_ONIX",
-                "night": "SPECIES_ONIX"
+                "level": 8,
+                "morning": "SPECIES_SANDSHREW",
+                "day": "SPECIES_SANDSHREW",
+                "night": "SPECIES_SANDSHREW"
             },
             {
-                "level": 16,
-                "morning": "SPECIES_BAGON",
-                "day": "SPECIES_BAGON",
-                "night": "SPECIES_BAGON"
-            },
-            {
-                "level": 16,
-                "morning": "SPECIES_GIBLE",
-                "day": "SPECIES_GIBLE",
-                "night": "SPECIES_GIBLE"
-            },
-            {
-                "level": 16,
+                "level": 7,
                 "morning": "SPECIES_ZUBAT",
                 "day": "SPECIES_ZUBAT",
                 "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 16,
-                "morning": "SPECIES_ONIX",
-                "day": "SPECIES_ONIX",
-                "night": "SPECIES_ONIX"
-            },
-            {
-                "level": 16,
+                "level": 7,
                 "morning": "SPECIES_ZUBAT",
                 "day": "SPECIES_ZUBAT",
                 "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 16,
+                "level": 8,
                 "morning": "SPECIES_ONIX",
                 "day": "SPECIES_ONIX",
                 "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 8,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 9,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 6,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 9,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 6,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             }
         ]
     },
@@ -81,29 +81,29 @@
         "rate": 15,
         "slots": [
             {
-                "level_min": 25,
-                "level_max": 30,
+                "level_min": 10,
+                "level_max": 20,
                 "species": "SPECIES_WOOPER"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_SHELLOS"
-            },
-            {
-                "level_min": 25,
-                "level_max": 35,
+                "level_min": 15,
+                "level_max": 25,
                 "species": "SPECIES_QUAGSIRE"
             },
             {
-                "level_min": 30,
-                "level_max": 35,
-                "species": "SPECIES_GASTRODON"
+                "level_min": 10,
+                "level_max": 20,
+                "species": "SPECIES_QUAGSIRE"
             },
             {
-                "level_min": 30,
-                "level_max": 35,
-                "species": "SPECIES_GASTRODON"
+                "level_min": 10,
+                "level_max": 20,
+                "species": "SPECIES_QUAGSIRE"
+            },
+            {
+                "level_min": 10,
+                "level_max": 20,
+                "species": "SPECIES_QUAGSIRE"
             }
         ]
     },
@@ -127,28 +127,28 @@
         "slots": [
             {
                 "level_min": 10,
-                "level_max": 15,
+                "level_max": 10,
                 "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 10,
-                "level_max": 15,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_GOLDEEN"
             },
             {
                 "level_min": 10,
-                "level_max": 15,
-                "species": "SPECIES_BARBOACH"
-            },
-            {
-                "level_min": 10,
-                "level_max": 15,
-                "species": "SPECIES_BARBOACH"
-            },
-            {
-                "level_min": 10,
-                "level_max": 15,
-                "species": "SPECIES_BARBOACH"
+                "level_max": 10,
+                "species": "SPECIES_GOLDEEN"
             }
         ]
     },
@@ -156,29 +156,29 @@
         "rate": 50,
         "slots": [
             {
-                "level_min": 25,
-                "level_max": 30,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_BARBOACH"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_BARBOACH"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
             },
             {
-                "level_min": 25,
-                "level_max": 30,
-                "species": "SPECIES_BARBOACH"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_GOLDEEN"
             }
         ]
     },
@@ -188,7 +188,17 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_GYARADOS"
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_GOLDEEN"
+            },
+            {
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 40,
@@ -198,32 +208,22 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_WHISCASH"
-            },
-            {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_WHISCASH"
-            },
-            {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_WHISCASH"
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
     "radio_hoenn": [
-        "SPECIES_GOLBAT",
-        "SPECIES_STEELIX"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_CUBONE",
-        "SPECIES_CUBONE"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_GEODUDE",
         "surf": "SPECIES_WOOPER",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_GOLDEEN",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

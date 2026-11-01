@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 50,
-                "morning": "SPECIES_GROWLITHE",
-                "day": "SPECIES_GROWLITHE",
-                "night": "SPECIES_GROWLITHE"
+                "level": 17,
+                "morning": "SPECIES_MEOWTH",
+                "day": "SPECIES_MEOWTH",
+                "night": "SPECIES_MEOWTH"
             },
             {
-                "level": 50,
+                "level": 19,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_HAUNTER"
+            },
+            {
+                "level": 17,
+                "morning": "SPECIES_PUMPKABOO",
+                "day": "SPECIES_PUMPKABOO",
+                "night": "SPECIES_PUMPKABOO"
+            },
+            {
+                "level": 19,
+                "morning": "SPECIES_DRIFLOON",
+                "day": "SPECIES_DRIFLOON",
+                "night": "SPECIES_DRIFLOON"
+            },
+            {
+                "level": 15,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
+            },
+            {
+                "level": 15,
+                "morning": "SPECIES_ROTOM",
+                "day": "SPECIES_ROTOM",
+                "night": "SPECIES_ROTOM"
+            },
+            {
+                "level": 18,
                 "morning": "SPECIES_VULPIX",
                 "day": "SPECIES_VULPIX",
+                "night": "SPECIES_NOCTOWL"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_GROWLITHE",
+                "day": "SPECIES_GROWLITHE",
+                "night": "SPECIES_NOCTOWL"
+            },
+            {
+                "level": 17,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
                 "night": "SPECIES_VULPIX"
             },
             {
-                "level": 52,
+                "level": 15,
                 "morning": "SPECIES_KADABRA",
                 "day": "SPECIES_KADABRA",
                 "night": "SPECIES_KADABRA"
             },
             {
-                "level": 53,
+                "level": 17,
+                "morning": "SPECIES_PIDGEOTTO",
+                "day": "SPECIES_PIDGEOTTO",
+                "night": "SPECIES_GROWLITHE"
+            },
+            {
+                "level": 15,
                 "morning": "SPECIES_KADABRA",
                 "day": "SPECIES_KADABRA",
-                "night": "SPECIES_HAUNTER"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_XATU",
-                "day": "SPECIES_XATU",
-                "night": "SPECIES_XATU"
-            },
-            {
-                "level": 54,
-                "morning": "SPECIES_XATU",
-                "day": "SPECIES_XATU",
-                "night": "SPECIES_XATU"
-            },
-            {
-                "level": 50,
-                "morning": "SPECIES_STARAVIA",
-                "day": "SPECIES_STARAVIA",
-                "night": "SPECIES_BANETTE"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_STARAVIA",
-                "day": "SPECIES_STARAVIA",
-                "night": "SPECIES_BANETTE"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_GROWLITHE",
-                "day": "SPECIES_GROWLITHE",
-                "night": "SPECIES_GROWLITHE"
-            },
-            {
-                "level": 52,
-                "morning": "SPECIES_VULPIX",
-                "day": "SPECIES_VULPIX",
-                "night": "SPECIES_VULPIX"
-            },
-            {
-                "level": 53,
-                "morning": "SPECIES_GROWLITHE",
-                "day": "SPECIES_GROWLITHE",
-                "night": "SPECIES_GROWLITHE"
-            },
-            {
-                "level": 53,
-                "morning": "SPECIES_VULPIX",
-                "day": "SPECIES_VULPIX",
-                "night": "SPECIES_VULPIX"
+                "night": "SPECIES_KADABRA"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_ARCANINE",
-        "SPECIES_ALAKAZAM"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_DUSKULL",
-        "SPECIES_SHUPPET"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_GROWLITHE",
+        "land": "SPECIES_PIDGEOTTO",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

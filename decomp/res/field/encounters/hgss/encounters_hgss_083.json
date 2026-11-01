@@ -4,76 +4,76 @@
         "rate": 10,
         "slots": [
             {
-                "level": 31,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
-            },
-            {
-                "level": 31,
+                "level": 22,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 30,
-                "morning": "SPECIES_BALTOY",
-                "day": "SPECIES_BALTOY",
-                "night": "SPECIES_BALTOY"
+                "level": 19,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 30,
-                "morning": "SPECIES_TRAPINCH",
-                "day": "SPECIES_TRAPINCH",
-                "night": "SPECIES_TRAPINCH"
+                "level": 20,
+                "morning": "SPECIES_KRABBY",
+                "day": "SPECIES_KRABBY",
+                "night": "SPECIES_KRABBY"
             },
             {
-                "level": 31,
-                "morning": "SPECIES_MACHOKE",
-                "day": "SPECIES_MACHOKE",
-                "night": "SPECIES_MACHOKE"
-            },
-            {
-                "level": 32,
+                "level": 22,
                 "morning": "SPECIES_KINGLER",
                 "day": "SPECIES_KINGLER",
                 "night": "SPECIES_KINGLER"
             },
             {
-                "level": 31,
+                "level": 19,
+                "morning": "SPECIES_MACHOP",
+                "day": "SPECIES_MACHOP",
+                "night": "SPECIES_MACHOP"
+            },
+            {
+                "level": 20,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 18,
+                "morning": "SPECIES_WOOPER",
+                "day": "SPECIES_WOOPER",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 20,
                 "morning": "SPECIES_QUAGSIRE",
                 "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
+                "night": "SPECIES_MISDREAVUS"
             },
             {
-                "level": 32,
-                "morning": "SPECIES_QUAGSIRE",
-                "day": "SPECIES_QUAGSIRE",
-                "night": "SPECIES_QUAGSIRE"
+                "level": 20,
+                "morning": "SPECIES_GRAVELER",
+                "day": "SPECIES_GRAVELER",
+                "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 30,
-                "morning": "SPECIES_HIPPOPOTAS",
-                "day": "SPECIES_HIPPOPOTAS",
-                "night": "SPECIES_HIPPOPOTAS"
+                "level": 22,
+                "morning": "SPECIES_MACHOKE",
+                "day": "SPECIES_MACHOKE",
+                "night": "SPECIES_MACHOKE"
             },
             {
-                "level": 31,
-                "morning": "SPECIES_HIPPOPOTAS",
-                "day": "SPECIES_HIPPOPOTAS",
-                "night": "SPECIES_HIPPOPOTAS"
-            },
-            {
-                "level": 33,
+                "level": 23,
                 "morning": "SPECIES_STEELIX",
                 "day": "SPECIES_STEELIX",
                 "night": "SPECIES_STEELIX"
             },
             {
-                "level": 33,
-                "morning": "SPECIES_STEELIX",
-                "day": "SPECIES_STEELIX",
-                "night": "SPECIES_STEELIX"
+                "level": 23,
+                "morning": "SPECIES_DEINO",
+                "day": "SPECIES_DEINO",
+                "night": "SPECIES_DEINO"
             }
         ]
     },
@@ -111,14 +111,14 @@
         "rate": 30,
         "slots": [
             {
-                "level_min": 28,
-                "level_max": 35,
+                "level_min": 20,
+                "level_max": 26,
                 "species": "SPECIES_KRABBY"
             },
             {
-                "level_min": 30,
-                "level_max": 36,
-                "species": "SPECIES_GRAVELER"
+                "level_min": 28,
+                "level_max": 31,
+                "species": "SPECIES_KINGLER"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_CLAYDOL",
-        "SPECIES_HIPPOWDON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_ONIX",
-        "SPECIES_MISDREAVUS"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_GOLBAT",

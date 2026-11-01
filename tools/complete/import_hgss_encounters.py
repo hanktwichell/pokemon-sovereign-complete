@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Bring in Sacred Gold's wild Pokémon (step 4; docs/SacredGold.md).
+"""Bring in Sacred Gold's wild Pokémon (step 4; docs/SacredGold.md). Superseded on Nov 1, 2026: the owner chose
+HeartGold's and SoulSilver's own tables with the new species mixed in, which tools/complete/gen_wild.py writes into the
+same files; this stays for Sacred Gold's tables (or HeartGold's, given its ROM).
 
 From Sacred Gold's ROM (.cache/sacredgold.nds, a/0/3/7: one table per HeartGold encounter bank, in HeartGold's layout,
 pokeheartgold's include/wild_encounter.h; Sacred Gold's stop 4 bytes early, before the night-fishing and

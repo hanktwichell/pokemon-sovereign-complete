@@ -4,73 +4,73 @@
         "rate": 15,
         "slots": [
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
+                "morning": "SPECIES_GOTHITA",
+                "day": "SPECIES_GOTHITA",
+                "night": "SPECIES_GOTHITA"
+            },
+            {
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"
             },
             {
-                "level": 15,
-                "morning": "SPECIES_UNOWN",
-                "day": "SPECIES_UNOWN",
-                "night": "SPECIES_UNOWN"
-            },
-            {
-                "level": 15,
+                "level": 5,
                 "morning": "SPECIES_UNOWN",
                 "day": "SPECIES_UNOWN",
                 "night": "SPECIES_UNOWN"

@@ -2,71 +2,71 @@
     "land_rate": 10,
     "land_encounters": [
         {
-            "level": 28,
-            "species": "SPECIES_DIGLETT"
+            "level": 25,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 28,
-            "species": "SPECIES_WHISMUR"
+            "level": 24,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 29,
+            "level": 23,
+            "species": "SPECIES_GEODUDE"
+        },
+        {
+            "level": 25,
+            "species": "SPECIES_GEODUDE"
+        },
+        {
+            "level": 25,
+            "species": "SPECIES_GEODUDE"
+        },
+        {
+            "level": 25,
             "species": "SPECIES_HIPPOPOTAS"
         },
         {
-            "level": 28,
-            "species": "SPECIES_DIGLETT"
+            "level": 25,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 31,
-            "species": "SPECIES_TRAPINCH"
+            "level": 25,
+            "species": "SPECIES_HIPPOPOTAS"
         },
         {
-            "level": 29,
-            "species": "SPECIES_DIGLETT"
+            "level": 25,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 30,
-            "species": "SPECIES_LOUDRED"
+            "level": 24,
+            "species": "SPECIES_HIPPOPOTAS"
         },
         {
-            "level": 29,
-            "species": "SPECIES_DIGLETT"
+            "level": 25,
+            "species": "SPECIES_GEODUDE"
         },
         {
-            "level": 29,
-            "species": "SPECIES_DITTO"
-        },
-        {
-            "level": 32,
-            "species": "SPECIES_DIGLETT"
-        },
-        {
-            "level": 29,
-            "species": "SPECIES_DUGTRIO"
-        },
-        {
-            "level": 32,
-            "species": "SPECIES_DIGLETT"
+            "level": 26,
+            "species": "SPECIES_HIPPOPOTAS"
         }
     ],
     "swarms": [
-        "SPECIES_DIGLETT",
-        "SPECIES_WHISMUR"
+        "SPECIES_GEODUDE",
+        "SPECIES_GEODUDE"
     ],
     "day": [
-        "SPECIES_HIPPOPOTAS",
-        "SPECIES_DIGLETT"
+        "SPECIES_GEODUDE",
+        "SPECIES_GEODUDE"
     ],
     "night": [
-        "SPECIES_HIPPOPOTAS",
-        "SPECIES_DIGLETT"
+        "SPECIES_GEODUDE",
+        "SPECIES_GEODUDE"
     ],
     "radar": [
-        "SPECIES_LOUDRED",
-        "SPECIES_DITTO",
-        "SPECIES_TRAPINCH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS",
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS"
     ],
     "rate_form0": 100,
     "rate_form1": 100,
@@ -75,24 +75,24 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_TRAPINCH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS"
     ],
     "sapphire": [
-        "SPECIES_TRAPINCH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS"
     ],
     "emerald": [
-        "SPECIES_TRAPINCH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS"
     ],
     "firered": [
-        "SPECIES_TRAPINCH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS"
     ],
     "leafgreen": [
-        "SPECIES_TRAPINCH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_GEODUDE",
+        "SPECIES_HIPPOPOTAS"
     ],
     "surf_rate": 0,
     "surf_encounters": [

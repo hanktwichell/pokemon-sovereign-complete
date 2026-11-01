@@ -4,76 +4,76 @@
         "rate": 5,
         "slots": [
             {
-                "level": 48,
+                "level": 28,
                 "morning": "SPECIES_ZUBAT",
                 "day": "SPECIES_ZUBAT",
                 "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_PSYDUCK",
-                "day": "SPECIES_PSYDUCK",
-                "night": "SPECIES_PSYDUCK"
-            },
-            {
-                "level": 50,
-                "morning": "SPECIES_ZUBAT",
-                "day": "SPECIES_ZUBAT",
-                "night": "SPECIES_ZUBAT"
-            },
-            {
-                "level": 50,
-                "morning": "SPECIES_PSYDUCK",
-                "day": "SPECIES_PSYDUCK",
-                "night": "SPECIES_PSYDUCK"
-            },
-            {
-                "level": 58,
+                "level": 32,
                 "morning": "SPECIES_GOLBAT",
                 "day": "SPECIES_GOLBAT",
                 "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 28,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 29,
+                "morning": "SPECIES_KABUTO",
+                "day": "SPECIES_KABUTO",
+                "night": "SPECIES_KABUTO"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 30,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 32,
+                "morning": "SPECIES_GOLDUCK",
+                "day": "SPECIES_GOLDUCK",
+                "night": "SPECIES_GOLDUCK"
             },
             {
-                "level": 54,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 27,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 52,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 26,
+                "morning": "SPECIES_MORGREM",
+                "day": "SPECIES_MORGREM",
+                "night": "SPECIES_MORGREM"
             },
             {
-                "level": 56,
-                "morning": "SPECIES_SLOWPOKE",
-                "day": "SPECIES_SLOWPOKE",
-                "night": "SPECIES_SLOWPOKE"
+                "level": 27,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
+            },
+            {
+                "level": 26,
+                "morning": "SPECIES_MABOSSTIFF",
+                "day": "SPECIES_MABOSSTIFF",
+                "night": "SPECIES_MABOSSTIFF"
+            },
+            {
+                "level": 27,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
+            },
+            {
+                "level": 26,
+                "morning": "SPECIES_PSYDUCK",
+                "day": "SPECIES_PSYDUCK",
+                "night": "SPECIES_PSYDUCK"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_GOLDUCK",
-        "SPECIES_SLOWBRO"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_STARYU",
-        "SPECIES_STARYU"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_ZUBAT",

@@ -167,6 +167,31 @@ are `CompleteGiveBadge` and `CompleteCheckBadge` (`BADGE_ID_HGSS_*`, HeartGold's
 Test: `tools/complete/test_hgss_field_moves.py` (Ilex Forest's Cut tree with no badge and with the Hive Badge, Rock
 Smash with the Zephyr Badge, Strength with the Plain Badge).
 
+## Wild Pokémon
+
+The owner's call (Nov 1, 2026): every map's wild Pokémon are the original games' own, with the Pokémon those games
+don't have mixed in evenly over the three regions. `tools/complete/gen_wild.py` writes them; every table and each new
+species' place is listed in `docs/WildPokemon.md`.
+
+- **The originals.** Johto and Kanto: HeartGold's and SoulSilver's tables (pokeheartgold's `gs_enc_data.json`), one
+  for both versions: HeartGold's, with each SoulSilver species HeartGold's table lacks at that time of day put in a
+  slot where the versions differ and HeartGold's species is in another slot too (Route 37 has both Growlithe and
+  Vulpix). Sinnoh: Platinum's (pret's decompilation, as Sovereign first imported it). Headbutt trees, the Safari Zone
+  and the Bug-Catching Contest were HeartGold's already; the Honey Trees and the Great Marsh's lookout keep
+  Sovereign's tables, and so do encounter files Platinum doesn't have.
+- **The Pokémon mixed in:** 409 species, every regular one (not legendary, mythical, an Ultra Beast or a Paradox
+  Pokémon) of a family no original table has, but for starters, which Sovereign gives at Pokémon Centers. Each family
+  goes to one region, taking turns (134 in Johto, 134 in Kanto, 136 in Sinnoh), and each species to one slot that the
+  original table had twice, so every original species stays where it was: where the habitat suits its types and the
+  levels reach the level it evolves at, the earliest such area first, stronger species in rarer slots (Sovereign's
+  rules, from `tools/design/gen_encounters.py`). At most four grass slots and two of each water table go to new
+  species. Five final forms no table's levels reach (Hydreigon, Dragapult, Volcarona, Braviary, Kingambit) come by
+  evolving.
+- **To change it:** `PIN` (a species to a region or area), `AREA_TAGS` (Johto's and Kanto's habitats), `FREE_LAND` and
+  `FREE_WATER`, then run the generator again. Sinnoh's tables are Complete's own now, so
+  `tools/complete/sync_sovereign.sh` leaves Sovereign's changes to them out, and Sovereign's own
+  `tools/engine/gen_wild_encounters.py` isn't run here.
+
 ## Headbutt trees and Rock Smash
 
 HeartGold's two field encounters Platinum doesn't have (`src/overlay006/complete_field_encounters.c`, with the tables

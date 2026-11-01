@@ -4,76 +4,76 @@
         "rate": 25,
         "slots": [
             {
-                "level": 4,
+                "level": 3,
                 "morning": "SPECIES_GEODUDE",
                 "day": "SPECIES_GEODUDE",
                 "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 4,
+                "level": 2,
                 "morning": "SPECIES_SPEAROW",
                 "day": "SPECIES_SPEAROW",
-                "night": "SPECIES_NUMEL"
-            },
-            {
-                "level": 4,
-                "morning": "SPECIES_SPOINK",
-                "day": "SPECIES_SPOINK",
-                "night": "SPECIES_SPOINK"
-            },
-            {
-                "level": 4,
-                "morning": "SPECIES_SWABLU",
-                "day": "SPECIES_SWABLU",
                 "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 3,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
+            },
+            {
+                "level": 2,
+                "morning": "SPECIES_KLINK",
+                "day": "SPECIES_KLINK",
+                "night": "SPECIES_KLINK"
+            },
+            {
+                "level": 2,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 2,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 2,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
+            },
+            {
+                "level": 2,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
+            },
+            {
+                "level": 3,
+                "morning": "SPECIES_SPEAROW",
+                "day": "SPECIES_SPEAROW",
+                "night": "SPECIES_GEODUDE"
             },
             {
                 "level": 4,
                 "morning": "SPECIES_RATTATA",
                 "day": "SPECIES_RATTATA",
-                "night": "SPECIES_CLEFAIRY"
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 5,
-                "morning": "SPECIES_NUMEL",
-                "day": "SPECIES_NUMEL",
-                "night": "SPECIES_JIGGLYPUFF"
+                "level": 3,
+                "morning": "SPECIES_SPEAROW",
+                "day": "SPECIES_SPEAROW",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 5,
-                "morning": "SPECIES_JIGGLYPUFF",
-                "day": "SPECIES_JIGGLYPUFF",
-                "night": "SPECIES_HOUNDOUR"
-            },
-            {
-                "level": 5,
-                "morning": "SPECIES_PHANPY",
-                "day": "SPECIES_PHANPY",
-                "night": "SPECIES_SHINX"
-            },
-            {
-                "level": 5,
-                "morning": "SPECIES_PHANPY",
-                "day": "SPECIES_PHANPY",
-                "night": "SPECIES_SHINX"
-            },
-            {
-                "level": 6,
-                "morning": "SPECIES_JIGGLYPUFF",
-                "day": "SPECIES_JIGGLYPUFF",
-                "night": "SPECIES_HOUNDOUR"
-            },
-            {
-                "level": 6,
-                "morning": "SPECIES_PHANPY",
-                "day": "SPECIES_PHANPY",
-                "night": "SPECIES_SHINX"
-            },
-            {
-                "level": 6,
-                "morning": "SPECIES_JIGGLYPUFF",
-                "day": "SPECIES_JIGGLYPUFF",
-                "night": "SPECIES_HOUNDOUR"
+                "level": 4,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_GRAVELER",
-        "SPECIES_FEAROW"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_IGGLYBUFF",
-        "SPECIES_IGGLYBUFF"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
         "land": "SPECIES_GEODUDE",

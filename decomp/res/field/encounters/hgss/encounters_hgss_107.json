@@ -4,76 +4,76 @@
         "rate": 15,
         "slots": [
             {
-                "level": 48,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
+                "level": 6,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_CLEFAIRY",
-                "day": "SPECIES_CLEFAIRY",
-                "night": "SPECIES_CLEFAIRY"
+                "level": 8,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
+                "level": 6,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 49,
+                "level": 8,
+                "morning": "SPECIES_FLABEBE",
+                "day": "SPECIES_FLABEBE",
+                "night": "SPECIES_FLABEBE"
+            },
+            {
+                "level": 8,
+                "morning": "SPECIES_SANDSHREW",
+                "day": "SPECIES_SANDSHREW",
+                "night": "SPECIES_SANDSHREW"
+            },
+            {
+                "level": 8,
+                "morning": "SPECIES_IMPIDIMP",
+                "day": "SPECIES_IMPIDIMP",
+                "night": "SPECIES_IMPIDIMP"
+            },
+            {
+                "level": 12,
+                "morning": "SPECIES_PARAS",
+                "day": "SPECIES_PARAS",
+                "night": "SPECIES_PARAS"
+            },
+            {
+                "level": 12,
+                "morning": "SPECIES_PARAS",
+                "day": "SPECIES_PARAS",
+                "night": "SPECIES_PARAS"
+            },
+            {
+                "level": 10,
                 "morning": "SPECIES_SANDSLASH",
                 "day": "SPECIES_SANDSLASH",
                 "night": "SPECIES_SANDSLASH"
             },
             {
-                "level": 49,
-                "morning": "SPECIES_PARASECT",
-                "day": "SPECIES_PARASECT",
-                "night": "SPECIES_PARASECT"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_CHIMECHO",
-                "day": "SPECIES_CHIMECHO",
-                "night": "SPECIES_CHIMECHO"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_SOLROCK",
-                "day": "SPECIES_SOLROCK",
-                "night": "SPECIES_SOLROCK"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_LUNATONE",
-                "day": "SPECIES_LUNATONE",
-                "night": "SPECIES_LUNATONE"
-            },
-            {
-                "level": 50,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 50,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
-            },
-            {
-                "level": 48,
+                "level": 8,
                 "morning": "SPECIES_CLEFAIRY",
                 "day": "SPECIES_CLEFAIRY",
                 "night": "SPECIES_CLEFAIRY"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_CLEFABLE",
-                "day": "SPECIES_CLEFABLE",
-                "night": "SPECIES_CLEFABLE"
+                "level": 10,
+                "morning": "SPECIES_SANDSLASH",
+                "day": "SPECIES_SANDSLASH",
+                "night": "SPECIES_SANDSLASH"
+            },
+            {
+                "level": 8,
+                "morning": "SPECIES_CLEFAIRY",
+                "day": "SPECIES_CLEFAIRY",
+                "night": "SPECIES_CLEFAIRY"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_CLEFABLE",
-        "SPECIES_CLEFABLE"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_CHIMECHO",
-        "SPECIES_CHIMECHO"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_ZUBAT",

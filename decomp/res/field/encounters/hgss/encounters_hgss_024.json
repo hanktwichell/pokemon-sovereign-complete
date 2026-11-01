@@ -11,69 +11,69 @@
             },
             {
                 "level": 10,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 10,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 10,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_COTTONEE",
+                "day": "SPECIES_COTTONEE",
+                "night": "SPECIES_COTTONEE"
             },
             {
                 "level": 12,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 12,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_SPRITZEE",
+                "day": "SPECIES_SPRITZEE",
+                "night": "SPECIES_SPRITZEE"
             },
             {
                 "level": 12,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 12,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 10,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 14,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 10,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             },
             {
                 "level": 14,
-                "morning": "SPECIES_WEEDLE",
-                "day": "SPECIES_WEEDLE",
-                "night": "SPECIES_WEEDLE"
+                "morning": "SPECIES_CATERPIE",
+                "day": "SPECIES_CATERPIE",
+                "night": "SPECIES_CATERPIE"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_WEEDLE",
-        "SPECIES_WEEDLE"
+        "SPECIES_CATERPIE",
+        "SPECIES_CATERPIE"
     ],
     "radio_sinnoh": [
-        "SPECIES_WEEDLE",
-        "SPECIES_WEEDLE"
+        "SPECIES_CATERPIE",
+        "SPECIES_CATERPIE"
     ],
     "swarm": {
-        "land": "SPECIES_WEEDLE",
+        "land": "SPECIES_CATERPIE",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 48,
-                "morning": "SPECIES_PIDGEOTTO",
-                "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_MIGHTYENA"
+                "level": 13,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_ODDISH"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_RATICATE",
-                "day": "SPECIES_RATICATE",
-                "night": "SPECIES_RATICATE"
+                "level": 13,
+                "morning": "SPECIES_BELLSPROUT",
+                "day": "SPECIES_BELLSPROUT",
+                "night": "SPECIES_MEOWTH"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 13,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_ODDISH"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_JIGGLYPUFF",
-                "day": "SPECIES_JIGGLYPUFF",
-                "night": "SPECIES_JIGGLYPUFF"
+                "level": 13,
+                "morning": "SPECIES_PATRAT",
+                "day": "SPECIES_PATRAT",
+                "night": "SPECIES_PATRAT"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_MACHOP",
-                "day": "SPECIES_MACHOP",
-                "night": "SPECIES_MACHOP"
+                "level": 14,
+                "morning": "SPECIES_MEOWTH",
+                "day": "SPECIES_MEOWTH",
+                "night": "SPECIES_BELLSPROUT"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_MEDITITE",
-                "day": "SPECIES_MEDITITE",
-                "night": "SPECIES_MEDITITE"
+                "level": 14,
+                "morning": "SPECIES_MINCCINO",
+                "day": "SPECIES_MINCCINO",
+                "night": "SPECIES_MINCCINO"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_WEEPINBELL",
-                "day": "SPECIES_WEEPINBELL",
-                "night": "SPECIES_WEEPINBELL"
+                "level": 15,
+                "morning": "SPECIES_PIDGEY",
+                "day": "SPECIES_PIDGEY",
+                "night": "SPECIES_GLOOM"
             },
             {
-                "level": 49,
-                "morning": "SPECIES_WEEPINBELL",
-                "day": "SPECIES_WEEPINBELL",
-                "night": "SPECIES_WEEPINBELL"
+                "level": 15,
+                "morning": "SPECIES_SQUAWKABILLY",
+                "day": "SPECIES_SQUAWKABILLY",
+                "night": "SPECIES_SQUAWKABILLY"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_CHATOT",
-                "day": "SPECIES_CHATOT",
-                "night": "SPECIES_PERSIAN"
+                "level": 12,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_CHATOT",
-                "day": "SPECIES_CHATOT",
-                "night": "SPECIES_PERSIAN"
+                "level": 14,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             },
             {
-                "level": 49,
-                "morning": "SPECIES_CHATOT",
-                "day": "SPECIES_CHATOT",
-                "night": "SPECIES_PERSIAN"
+                "level": 12,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             },
             {
-                "level": 50,
-                "morning": "SPECIES_CHATOT",
-                "day": "SPECIES_CHATOT",
-                "night": "SPECIES_PERSIAN"
+                "level": 14,
+                "morning": "SPECIES_ABRA",
+                "day": "SPECIES_ABRA",
+                "night": "SPECIES_ABRA"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_MEDICHAM",
-        "SPECIES_MEDICHAM"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_STARAVIA",
-        "SPECIES_SWELLOW"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
         "land": "SPECIES_PIDGEY",

@@ -2,71 +2,71 @@
     "land_rate": 10,
     "land_encounters": [
         {
-            "level": 26,
-            "species": "SPECIES_SHUPPET"
+            "level": 18,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 26,
-            "species": "SPECIES_DUSKULL"
+            "level": 17,
+            "species": "SPECIES_ZUBAT"
         },
         {
-            "level": 27,
-            "species": "SPECIES_GOLBAT"
+            "level": 19,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 27,
-            "species": "SPECIES_SHUPPET"
+            "level": 17,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 27,
-            "species": "SPECIES_HAUNTER"
+            "level": 18,
+            "species": "SPECIES_ZUBAT"
         },
         {
-            "level": 27,
-            "species": "SPECIES_SHUPPET"
+            "level": 17,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 28,
-            "species": "SPECIES_MURKROW"
+            "level": 19,
+            "species": "SPECIES_ZUBAT"
         },
         {
-            "level": 28,
-            "species": "SPECIES_SHUPPET"
+            "level": 20,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 28,
-            "species": "SPECIES_MISDREAVUS"
+            "level": 20,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 28,
-            "species": "SPECIES_SHUPPET"
+            "level": 20,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 29,
-            "species": "SPECIES_DUSCLOPS"
+            "level": 20,
+            "species": "SPECIES_GASTLY"
         },
         {
-            "level": 29,
-            "species": "SPECIES_SHUPPET"
+            "level": 20,
+            "species": "SPECIES_GASTLY"
         }
     ],
     "swarms": [
-        "SPECIES_SHUPPET",
-        "SPECIES_DUSKULL"
+        "SPECIES_GASTLY",
+        "SPECIES_ZUBAT"
     ],
     "day": [
-        "SPECIES_GOLBAT",
-        "SPECIES_SHUPPET"
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "night": [
-        "SPECIES_GOLBAT",
-        "SPECIES_SHUPPET"
+        "SPECIES_DUSKULL",
+        "SPECIES_DUSKULL"
     ],
     "radar": [
-        "SPECIES_MURKROW",
-        "SPECIES_MISDREAVUS",
-        "SPECIES_DUSCLOPS",
-        "SPECIES_BANETTE"
+        "SPECIES_ZUBAT",
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "rate_form0": 100,
     "rate_form1": 100,
@@ -75,24 +75,24 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_DUSCLOPS",
-        "SPECIES_BANETTE"
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "sapphire": [
-        "SPECIES_DUSCLOPS",
-        "SPECIES_BANETTE"
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "emerald": [
-        "SPECIES_DUSCLOPS",
-        "SPECIES_BANETTE"
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "firered": [
-        "SPECIES_DUSCLOPS",
-        "SPECIES_BANETTE"
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "leafgreen": [
-        "SPECIES_DUSCLOPS",
-        "SPECIES_BANETTE"
+        "SPECIES_GASTLY",
+        "SPECIES_GASTLY"
     ],
     "surf_rate": 0,
     "surf_encounters": [

@@ -4,76 +4,76 @@
         "rate": 10,
         "slots": [
             {
-                "level": 35,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
+                "level": 13,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 35,
-                "morning": "SPECIES_GRAVELER",
-                "day": "SPECIES_GRAVELER",
-                "night": "SPECIES_GRAVELER"
+                "level": 13,
+                "morning": "SPECIES_MACHOP",
+                "day": "SPECIES_MACHOP",
+                "night": "SPECIES_MACHOP"
             },
             {
-                "level": 34,
-                "morning": "SPECIES_RHYHORN",
-                "day": "SPECIES_RHYHORN",
-                "night": "SPECIES_RHYHORN"
+                "level": 13,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 35,
-                "morning": "SPECIES_LAIRON",
-                "day": "SPECIES_LAIRON",
-                "night": "SPECIES_LAIRON"
+                "level": 13,
+                "morning": "SPECIES_SHIELDON",
+                "day": "SPECIES_SHIELDON",
+                "night": "SPECIES_SHIELDON"
             },
             {
-                "level": 33,
-                "morning": "SPECIES_MARILL",
-                "day": "SPECIES_MARILL",
-                "night": "SPECIES_MARILL"
+                "level": 15,
+                "morning": "SPECIES_GEODUDE",
+                "day": "SPECIES_GEODUDE",
+                "night": "SPECIES_GEODUDE"
             },
             {
-                "level": 35,
-                "morning": "SPECIES_HARIYAMA",
-                "day": "SPECIES_HARIYAMA",
-                "night": "SPECIES_HARIYAMA"
+                "level": 15,
+                "morning": "SPECIES_ROCKRUFF",
+                "day": "SPECIES_ROCKRUFF",
+                "night": "SPECIES_ROCKRUFF"
             },
             {
-                "level": 34,
-                "morning": "SPECIES_CLEFAIRY",
-                "day": "SPECIES_CLEFAIRY",
-                "night": "SPECIES_CLEFAIRY"
+                "level": 14,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 37,
-                "morning": "SPECIES_MEDICHAM",
-                "day": "SPECIES_MEDICHAM",
-                "night": "SPECIES_MEDICHAM"
+                "level": 14,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 35,
-                "morning": "SPECIES_LUNATONE",
-                "day": "SPECIES_LUNATONE",
-                "night": "SPECIES_LUNATONE"
+                "level": 15,
+                "morning": "SPECIES_MACHOP",
+                "day": "SPECIES_MACHOP",
+                "night": "SPECIES_MACHOP"
             },
             {
-                "level": 35,
-                "morning": "SPECIES_SOLROCK",
-                "day": "SPECIES_SOLROCK",
-                "night": "SPECIES_SOLROCK"
+                "level": 14,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             },
             {
-                "level": 36,
-                "morning": "SPECIES_SOLROCK",
-                "day": "SPECIES_SOLROCK",
-                "night": "SPECIES_SOLROCK"
+                "level": 15,
+                "morning": "SPECIES_MACHOP",
+                "day": "SPECIES_MACHOP",
+                "night": "SPECIES_MACHOP"
             },
             {
-                "level": 36,
-                "morning": "SPECIES_LUNATONE",
-                "day": "SPECIES_LUNATONE",
-                "night": "SPECIES_LUNATONE"
+                "level": 14,
+                "morning": "SPECIES_ZUBAT",
+                "day": "SPECIES_ZUBAT",
+                "night": "SPECIES_ZUBAT"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_RHYDON",
-        "SPECIES_AZUMARILL"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_CLEFFA",
-        "SPECIES_CLEFAIRY"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_GEODUDE",

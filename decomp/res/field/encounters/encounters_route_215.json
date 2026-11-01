@@ -2,71 +2,71 @@
     "land_rate": 30,
     "land_encounters": [
         {
-            "level": 27,
+            "level": 19,
+            "species": "SPECIES_STARAVIA"
+        },
+        {
+            "level": 20,
             "species": "SPECIES_MARILL"
         },
         {
-            "level": 27,
-            "species": "SPECIES_DROWZEE"
+            "level": 22,
+            "species": "SPECIES_SCYTHER"
         },
         {
-            "level": 28,
+            "level": 21,
+            "species": "SPECIES_STARAVIA"
+        },
+        {
+            "level": 20,
             "species": "SPECIES_LICKITUNG"
         },
         {
-            "level": 28,
-            "species": "SPECIES_DURANT"
+            "level": 19,
+            "species": "SPECIES_ABRA"
         },
         {
-            "level": 29,
+            "level": 20,
+            "species": "SPECIES_SCYTHER"
+        },
+        {
+            "level": 21,
             "species": "SPECIES_KADABRA"
         },
         {
-            "level": 29,
-            "species": "SPECIES_PASSIMIAN"
-        },
-        {
-            "level": 28,
-            "species": "SPECIES_MIGHTYENA"
-        },
-        {
-            "level": 30,
-            "species": "SPECIES_CHARJABUG"
-        },
-        {
-            "level": 29,
-            "species": "SPECIES_LINOONE"
-        },
-        {
-            "level": 29,
-            "species": "SPECIES_SHIINOTIC"
-        },
-        {
-            "level": 30,
-            "species": "SPECIES_HYPNO"
-        },
-        {
-            "level": 30,
+            "level": 22,
             "species": "SPECIES_MARILL"
+        },
+        {
+            "level": 22,
+            "species": "SPECIES_KADABRA"
+        },
+        {
+            "level": 22,
+            "species": "SPECIES_MARILL"
+        },
+        {
+            "level": 22,
+            "species": "SPECIES_KADABRA"
         }
     ],
     "swarms": [
-        "SPECIES_MARILL",
+        "SPECIES_DROWZEE",
         "SPECIES_DROWZEE"
     ],
     "day": [
-        "SPECIES_LICKITUNG",
-        "SPECIES_DURANT"
+        "SPECIES_STARAVIA",
+        "SPECIES_STARAVIA"
     ],
     "night": [
-        "SPECIES_LICKITUNG",
-        "SPECIES_BOUNSWEET"
+        "SPECIES_MARILL",
+        "SPECIES_MARILL"
     ],
     "radar": [
-        "SPECIES_ABSOL",
-        "SPECIES_ABSOL",
-        "SPECIES_ABSOL",
-        "SPECIES_ABSOL"
+        "SPECIES_LICKITUNG",
+        "SPECIES_ABRA",
+        "SPECIES_MARILL",
+        "SPECIES_KADABRA"
     ],
     "rate_form0": 100,
     "rate_form1": 100,
@@ -75,23 +75,23 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_LICKITUNG",
+        "SPECIES_MARILL",
         "SPECIES_KADABRA"
     ],
     "sapphire": [
-        "SPECIES_LICKITUNG",
+        "SPECIES_MARILL",
         "SPECIES_KADABRA"
     ],
     "emerald": [
-        "SPECIES_LICKITUNG",
+        "SPECIES_MARILL",
         "SPECIES_KADABRA"
     ],
     "firered": [
-        "SPECIES_LICKITUNG",
+        "SPECIES_MARILL",
         "SPECIES_KADABRA"
     ],
     "leafgreen": [
-        "SPECIES_LICKITUNG",
+        "SPECIES_MARILL",
         "SPECIES_KADABRA"
     ],
     "surf_rate": 0,

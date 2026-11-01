@@ -4,76 +4,76 @@
         "rate": 10,
         "slots": [
             {
-                "level": 44,
-                "morning": "SPECIES_MACHOKE",
-                "day": "SPECIES_MACHOKE",
-                "night": "SPECIES_MACHOKE"
-            },
-            {
-                "level": 45,
-                "morning": "SPECIES_HARIYAMA",
-                "day": "SPECIES_HARIYAMA",
-                "night": "SPECIES_HARIYAMA"
-            },
-            {
-                "level": 45,
-                "morning": "SPECIES_GOLBAT",
-                "day": "SPECIES_GOLBAT",
-                "night": "SPECIES_GOLBAT"
-            },
-            {
-                "level": 44,
-                "morning": "SPECIES_LAIRON",
-                "day": "SPECIES_LAIRON",
-                "night": "SPECIES_LAIRON"
-            },
-            {
-                "level": 45,
-                "morning": "SPECIES_LOUDRED",
-                "day": "SPECIES_LOUDRED",
-                "night": "SPECIES_LOUDRED"
-            },
-            {
-                "level": 45,
+                "level": 32,
                 "morning": "SPECIES_GRAVELER",
                 "day": "SPECIES_GRAVELER",
                 "night": "SPECIES_GRAVELER"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_MEDICHAM",
-                "day": "SPECIES_MEDICHAM",
-                "night": "SPECIES_MEDICHAM"
+                "level": 32,
+                "morning": "SPECIES_GOLBAT",
+                "day": "SPECIES_GOLBAT",
+                "night": "SPECIES_GOLBAT"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_MAGNETON",
-                "day": "SPECIES_MAGNETON",
-                "night": "SPECIES_MAGNETON"
+                "level": 32,
+                "morning": "SPECIES_COALOSSAL",
+                "day": "SPECIES_COALOSSAL",
+                "night": "SPECIES_COALOSSAL"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_VENOMOTH",
-                "day": "SPECIES_VENOMOTH",
-                "night": "SPECIES_VENOMOTH"
+                "level": 32,
+                "morning": "SPECIES_MIENFOO",
+                "day": "SPECIES_MIENFOO",
+                "night": "SPECIES_MIENFOO"
             },
             {
-                "level": 44,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 33,
+                "morning": "SPECIES_URSARING",
+                "day": "SPECIES_URSARING",
+                "night": "SPECIES_URSARING"
             },
             {
-                "level": 45,
-                "morning": "SPECIES_VENOMOTH",
-                "day": "SPECIES_VENOMOTH",
-                "night": "SPECIES_VENOMOTH"
+                "level": 33,
+                "morning": "SPECIES_DONPHAN",
+                "day": "SPECIES_DONPHAN",
+                "night": "SPECIES_DONPHAN"
             },
             {
-                "level": 44,
-                "morning": "SPECIES_KADABRA",
-                "day": "SPECIES_KADABRA",
-                "night": "SPECIES_KADABRA"
+                "level": 34,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 34,
+                "morning": "SPECIES_AXEW",
+                "day": "SPECIES_AXEW",
+                "night": "SPECIES_AXEW"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 35,
+                "morning": "SPECIES_HAKAMO_O",
+                "day": "SPECIES_HAKAMO_O",
+                "night": "SPECIES_HAKAMO_O"
+            },
+            {
+                "level": 36,
+                "morning": "SPECIES_ONIX",
+                "day": "SPECIES_ONIX",
+                "night": "SPECIES_ONIX"
+            },
+            {
+                "level": 35,
+                "morning": "SPECIES_RHYHORN",
+                "day": "SPECIES_RHYHORN",
+                "night": "SPECIES_RHYHORN"
             }
         ]
     },
@@ -213,12 +213,12 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_EXPLOUD",
-        "SPECIES_AGGRON"
+        "SPECIES_ABSOL",
+        "SPECIES_MAKUHITA"
     ],
     "radio_sinnoh": [
-        "SPECIES_CHIMECHO",
-        "SPECIES_MAROWAK"
+        "SPECIES_BRONZOR",
+        "SPECIES_CHINGLING"
     ],
     "swarm": {
         "land": "SPECIES_GRAVELER",

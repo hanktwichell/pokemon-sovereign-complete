@@ -4,76 +4,76 @@
         "rate": 25,
         "slots": [
             {
-                "level": 31,
+                "level": 25,
                 "morning": "SPECIES_FARFETCHD",
                 "day": "SPECIES_FARFETCHD",
-                "night": "SPECIES_FARFETCHD"
+                "night": "SPECIES_VULPIX"
             },
             {
-                "level": 31,
-                "morning": "SPECIES_TANGELA",
-                "day": "SPECIES_TANGELA",
-                "night": "SPECIES_TANGELA"
+                "level": 20,
+                "morning": "SPECIES_TAUROS",
+                "day": "SPECIES_TAUROS",
+                "night": "SPECIES_TAUROS"
             },
             {
-                "level": 30,
-                "morning": "SPECIES_DIGLETT",
-                "day": "SPECIES_DIGLETT",
-                "night": "SPECIES_DIGLETT"
+                "level": 20,
+                "morning": "SPECIES_DIGGERSBY",
+                "day": "SPECIES_DIGGERSBY",
+                "night": "SPECIES_DIGGERSBY"
             },
             {
-                "level": 31,
+                "level": 21,
+                "morning": "SPECIES_FEAROW",
+                "day": "SPECIES_FEAROW",
+                "night": "SPECIES_FEAROW"
+            },
+            {
+                "level": 22,
                 "morning": "SPECIES_GLOOM",
                 "day": "SPECIES_GLOOM",
                 "night": "SPECIES_GLOOM"
             },
             {
-                "level": 31,
-                "morning": "SPECIES_WEEPINBELL",
-                "day": "SPECIES_WEEPINBELL",
-                "night": "SPECIES_WEEPINBELL"
+                "level": 24,
+                "morning": "SPECIES_TRANQUILL",
+                "day": "SPECIES_TRANQUILL",
+                "night": "SPECIES_TRANQUILL"
             },
             {
-                "level": 32,
+                "level": 21,
+                "morning": "SPECIES_VULPIX",
+                "day": "SPECIES_VULPIX",
+                "night": "SPECIES_GROWLITHE"
+            },
+            {
+                "level": 20,
                 "morning": "SPECIES_GIRAFARIG",
                 "day": "SPECIES_GIRAFARIG",
                 "night": "SPECIES_GIRAFARIG"
             },
             {
-                "level": 33,
-                "morning": "SPECIES_TROPIUS",
-                "day": "SPECIES_TROPIUS",
-                "night": "SPECIES_TROPIUS"
+                "level": 20,
+                "morning": "SPECIES_DIGLETT",
+                "day": "SPECIES_DIGLETT",
+                "night": "SPECIES_DIGLETT"
             },
             {
-                "level": 33,
-                "morning": "SPECIES_ABSOL",
-                "day": "SPECIES_ABSOL",
-                "night": "SPECIES_ABSOL"
+                "level": 22,
+                "morning": "SPECIES_GROWLITHE",
+                "day": "SPECIES_GROWLITHE",
+                "night": "SPECIES_GROWLITHE"
             },
             {
-                "level": 31,
-                "morning": "SPECIES_CHANSEY",
-                "day": "SPECIES_CHANSEY",
-                "night": "SPECIES_CHANSEY"
+                "level": 22,
+                "morning": "SPECIES_HOPPIP",
+                "day": "SPECIES_HOPPIP",
+                "night": "SPECIES_HOPPIP"
             },
             {
-                "level": 31,
-                "morning": "SPECIES_KECLEON",
-                "day": "SPECIES_KECLEON",
-                "night": "SPECIES_KECLEON"
-            },
-            {
-                "level": 32,
-                "morning": "SPECIES_CHANSEY",
-                "day": "SPECIES_CHANSEY",
-                "night": "SPECIES_CHANSEY"
-            },
-            {
-                "level": 32,
-                "morning": "SPECIES_KECLEON",
-                "day": "SPECIES_KECLEON",
-                "night": "SPECIES_KECLEON"
+                "level": 24,
+                "morning": "SPECIES_TURTONATOR",
+                "day": "SPECIES_TURTONATOR",
+                "night": "SPECIES_TURTONATOR"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_TANGROWTH",
-        "SPECIES_DUGTRIO"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_HAPPINY",
-        "SPECIES_HAPPINY"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_FARFETCHD",
+        "land": "SPECIES_TAUROS",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

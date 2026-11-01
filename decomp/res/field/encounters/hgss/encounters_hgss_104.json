@@ -4,76 +4,76 @@
         "rate": 25,
         "slots": [
             {
-                "level": 42,
+                "level": 28,
                 "morning": "SPECIES_DODUO",
                 "day": "SPECIES_DODUO",
-                "night": "SPECIES_WOOPER"
+                "night": "SPECIES_QUAGSIRE"
             },
             {
-                "level": 43,
-                "morning": "SPECIES_SKIPLOOM",
-                "day": "SPECIES_SKIPLOOM",
-                "night": "SPECIES_HOUNDOUR"
+                "level": 28,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
             },
             {
-                "level": 42,
+                "level": 28,
+                "morning": "SPECIES_TOUCANNON",
+                "day": "SPECIES_TOUCANNON",
+                "night": "SPECIES_TOUCANNON"
+            },
+            {
+                "level": 28,
+                "morning": "SPECIES_DRIFBLIM",
+                "day": "SPECIES_DRIFBLIM",
+                "night": "SPECIES_DRIFBLIM"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_DODUO",
+                "day": "SPECIES_DODUO",
+                "night": "SPECIES_QUAGSIRE"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_SIMISAGE",
+                "day": "SPECIES_SIMISAGE",
+                "night": "SPECIES_SIMISAGE"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 30,
+                "morning": "SPECIES_RATICATE",
+                "day": "SPECIES_RATICATE",
+                "night": "SPECIES_RATICATE"
+            },
+            {
+                "level": 32,
                 "morning": "SPECIES_PONYTA",
                 "day": "SPECIES_PONYTA",
                 "night": "SPECIES_PONYTA"
             },
             {
-                "level": 43,
-                "morning": "SPECIES_PONYTA",
-                "day": "SPECIES_PONYTA",
-                "night": "SPECIES_PONYTA"
-            },
-            {
-                "level": 45,
+                "level": 30,
                 "morning": "SPECIES_DODRIO",
                 "day": "SPECIES_DODRIO",
-                "night": "SPECIES_DODRIO"
-            },
-            {
-                "level": 45,
-                "morning": "SPECIES_RAPIDASH",
-                "day": "SPECIES_RAPIDASH",
-                "night": "SPECIES_RAPIDASH"
-            },
-            {
-                "level": 44,
-                "morning": "SPECIES_SANDSLASH",
-                "day": "SPECIES_SANDSLASH",
                 "night": "SPECIES_SANDSLASH"
             },
             {
-                "level": 45,
+                "level": 32,
+                "morning": "SPECIES_PONYTA",
+                "day": "SPECIES_PONYTA",
+                "night": "SPECIES_PONYTA"
+            },
+            {
+                "level": 30,
                 "morning": "SPECIES_SANDSLASH",
                 "day": "SPECIES_SANDSLASH",
                 "night": "SPECIES_SANDSLASH"
-            },
-            {
-                "level": 44,
-                "morning": "SPECIES_ARBOK",
-                "day": "SPECIES_ARBOK",
-                "night": "SPECIES_ARBOK"
-            },
-            {
-                "level": 45,
-                "morning": "SPECIES_ARBOK",
-                "day": "SPECIES_ARBOK",
-                "night": "SPECIES_ARBOK"
-            },
-            {
-                "level": 44,
-                "morning": "SPECIES_ARBOK",
-                "day": "SPECIES_ARBOK",
-                "night": "SPECIES_ARBOK"
-            },
-            {
-                "level": 45,
-                "morning": "SPECIES_ARBOK",
-                "day": "SPECIES_ARBOK",
-                "night": "SPECIES_ARBOK"
             }
         ]
     },
@@ -81,29 +81,29 @@
         "rate": 10,
         "slots": [
             {
-                "level_min": 30,
-                "level_max": 40,
-                "species": "SPECIES_BUIZEL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_BUIZEL"
+                "level_min": 15,
+                "level_max": 15,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 45,
-                "level_max": 50,
-                "species": "SPECIES_FLOATZEL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 40,
-                "level_max": 40,
-                "species": "SPECIES_BUIZEL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 45,
-                "level_max": 50,
-                "species": "SPECIES_FLOATZEL"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_TENTACRUEL"
             }
         ]
     },
@@ -128,27 +128,27 @@
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_LUVDISC"
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 20,
-                "level_max": 20,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 20,
-                "level_max": 20,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 25,
-                "level_max": 35,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 30,
-                "level_max": 30,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_TENTACOOL"
             }
         ]
     },
@@ -158,27 +158,27 @@
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_LUVDISC"
-            },
-            {
-                "level_min": 25,
-                "level_max": 25,
-                "species": "SPECIES_LUVDISC"
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_LUVDISC"
+                "species": "SPECIES_TENTACOOL"
             },
             {
-                "level_min": 30,
-                "level_max": 30,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_CHINCHOU"
             },
             {
-                "level_min": 37,
-                "level_max": 37,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_SHELLDER"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_CHINCHOU"
             }
         ]
     },
@@ -186,44 +186,44 @@
         "rate": 75,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 39,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_CHINCHOU"
             },
             {
-                "level_min": 39,
-                "level_max": 41,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_SHELLDER"
             },
             {
-                "level_min": 38,
-                "level_max": 42,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_TENTACRUEL"
             },
             {
-                "level_min": 47,
-                "level_max": 47,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_LANTURN"
             },
             {
-                "level_min": 53,
-                "level_max": 53,
-                "species": "SPECIES_LUVDISC"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_TENTACRUEL"
             }
         ]
     },
     "radio_hoenn": [
-        "SPECIES_JUMPLUFF",
-        "SPECIES_JUMPLUFF"
+        "SPECIES_WHISMUR",
+        "SPECIES_LINOONE"
     ],
     "radio_sinnoh": [
-        "SPECIES_GRUMPIG",
-        "SPECIES_GRUMPIG"
+        "SPECIES_BUIZEL",
+        "SPECIES_BIDOOF"
     ],
     "swarm": {
         "land": "SPECIES_DODUO",
-        "surf": "SPECIES_FEEBAS",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "surf": "SPECIES_LUVDISC",
+        "night_fishing": "SPECIES_SHELLDER",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

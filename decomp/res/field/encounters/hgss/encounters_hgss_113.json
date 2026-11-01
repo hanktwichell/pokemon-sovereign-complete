@@ -4,76 +4,76 @@
         "rate": 20,
         "slots": [
             {
-                "level": 48,
-                "morning": "SPECIES_FEAROW",
-                "day": "SPECIES_FEAROW",
-                "night": "SPECIES_FEAROW"
+                "level": 5,
+                "morning": "SPECIES_SPEAROW",
+                "day": "SPECIES_SPEAROW",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_STARAVIA",
-                "day": "SPECIES_STARAVIA",
+                "level": 5,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_ZUBAT"
+            },
+            {
+                "level": 5,
+                "morning": "SPECIES_SPEAROW",
+                "day": "SPECIES_SPEAROW",
+                "night": "SPECIES_RATTATA"
+            },
+            {
+                "level": 5,
+                "morning": "SPECIES_ROGGENROLA",
+                "day": "SPECIES_ROGGENROLA",
+                "night": "SPECIES_ROGGENROLA"
+            },
+            {
+                "level": 8,
+                "morning": "SPECIES_EKANS",
+                "day": "SPECIES_EKANS",
+                "night": "SPECIES_EKANS"
+            },
+            {
+                "level": 8,
+                "morning": "SPECIES_CHARCADET",
+                "day": "SPECIES_CHARCADET",
+                "night": "SPECIES_CHARCADET"
+            },
+            {
+                "level": 6,
+                "morning": "SPECIES_JIGGLYPUFF",
+                "day": "SPECIES_JIGGLYPUFF",
                 "night": "SPECIES_JIGGLYPUFF"
             },
             {
-                "level": 47,
-                "morning": "SPECIES_PIDGEOTTO",
-                "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_NOCTOWL"
+                "level": 6,
+                "morning": "SPECIES_JIGGLYPUFF",
+                "day": "SPECIES_JIGGLYPUFF",
+                "night": "SPECIES_JIGGLYPUFF"
             },
             {
-                "level": 48,
-                "morning": "SPECIES_PRIMEAPE",
-                "day": "SPECIES_PRIMEAPE",
-                "night": "SPECIES_PRIMEAPE"
+                "level": 10,
+                "morning": "SPECIES_ARBOK",
+                "day": "SPECIES_ARBOK",
+                "night": "SPECIES_ARBOK"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_NIDORINA",
-                "day": "SPECIES_NIDORINA",
-                "night": "SPECIES_NIDORINA"
+                "level": 8,
+                "morning": "SPECIES_SPEAROW",
+                "day": "SPECIES_SPEAROW",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 46,
-                "morning": "SPECIES_NIDORINO",
-                "day": "SPECIES_NIDORINO",
-                "night": "SPECIES_NIDORINO"
+                "level": 10,
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
-                "level": 49,
-                "morning": "SPECIES_PIDGEOTTO",
-                "day": "SPECIES_PIDGEOTTO",
-                "night": "SPECIES_NOCTOWL"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_PRIMEAPE",
-                "day": "SPECIES_PRIMEAPE",
-                "night": "SPECIES_PRIMEAPE"
-            },
-            {
-                "level": 47,
-                "morning": "SPECIES_NIDORINA",
-                "day": "SPECIES_NIDORINA",
-                "night": "SPECIES_NIDORINA"
-            },
-            {
-                "level": 47,
-                "morning": "SPECIES_NIDORINO",
-                "day": "SPECIES_NIDORINO",
-                "night": "SPECIES_NIDORINO"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_NIDORINA",
-                "day": "SPECIES_NIDORINA",
-                "night": "SPECIES_NIDORINA"
-            },
-            {
-                "level": 49,
-                "morning": "SPECIES_NIDORINO",
-                "day": "SPECIES_NIDORINO",
-                "night": "SPECIES_NIDORINO"
+                "level": 8,
+                "morning": "SPECIES_SPEAROW",
+                "day": "SPECIES_SPEAROW",
+                "night": "SPECIES_RATTATA"
             }
         ]
     },
@@ -213,15 +213,15 @@
         ]
     },
     "radio_hoenn": [
-        "SPECIES_WIGGLYTUFF",
-        "SPECIES_STARAPTOR"
+        "SPECIES_PLUSLE",
+        "SPECIES_MINUN"
     ],
     "radio_sinnoh": [
-        "SPECIES_GROWLITHE",
-        "SPECIES_VULPIX"
+        "SPECIES_SHINX",
+        "SPECIES_SHINX"
     ],
     "swarm": {
-        "land": "SPECIES_SPINDA",
+        "land": "SPECIES_BALTOY",
         "surf": "SPECIES_NONE",
         "night_fishing": "SPECIES_NONE",
         "fishing": "SPECIES_NONE"

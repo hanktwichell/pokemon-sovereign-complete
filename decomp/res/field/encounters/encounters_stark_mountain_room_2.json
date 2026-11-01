@@ -2,71 +2,71 @@
     "land_rate": 10,
     "land_encounters": [
         {
-            "level": 68,
+            "level": 53,
             "species": "SPECIES_MAGCARGO"
         },
         {
-            "level": 69,
-            "species": "SPECIES_RHYDON"
+            "level": 55,
+            "species": "SPECIES_MAGCARGO"
         },
         {
-            "level": 67,
+            "level": 53,
             "species": "SPECIES_GOLBAT"
         },
         {
-            "level": 67,
-            "species": "SPECIES_CRUSTLE"
-        },
-        {
-            "level": 67,
+            "level": 52,
             "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 68,
-            "species": "SPECIES_SANDACONDA"
+            "level": 55,
+            "species": "SPECIES_RHYDON"
         },
         {
-            "level": 68,
-            "species": "SPECIES_MACHOKE"
+            "level": 54,
+            "species": "SPECIES_MANDIBUZZ"
         },
         {
-            "level": 68,
-            "species": "SPECIES_GLIMMORA"
-        },
-        {
-            "level": 69,
+            "level": 52,
             "species": "SPECIES_WEEZING"
         },
         {
-            "level": 69,
-            "species": "SPECIES_KINGAMBIT"
+            "level": 54,
+            "species": "SPECIES_GRAVELER"
         },
         {
-            "level": 69,
-            "species": "SPECIES_MUK"
+            "level": 53,
+            "species": "SPECIES_SLUGMA"
         },
         {
-            "level": 69,
-            "species": "SPECIES_MAGCARGO"
+            "level": 53,
+            "species": "SPECIES_KOFFING"
+        },
+        {
+            "level": 53,
+            "species": "SPECIES_SLUGMA"
+        },
+        {
+            "level": 53,
+            "species": "SPECIES_KOFFING"
         }
     ],
     "swarms": [
         "SPECIES_MAGCARGO",
-        "SPECIES_RHYDON"
+        "SPECIES_MAGCARGO"
     ],
     "day": [
         "SPECIES_GOLBAT",
-        "SPECIES_CRUSTLE"
+        "SPECIES_GRAVELER"
     ],
     "night": [
         "SPECIES_GOLBAT",
-        "SPECIES_LYCANROC"
+        "SPECIES_GRAVELER"
     ],
     "radar": [
-        "SPECIES_MACHOKE",
-        "SPECIES_TORKOAL",
+        "SPECIES_RHYDON",
         "SPECIES_WEEZING",
-        "SPECIES_MUK"
+        "SPECIES_SLUGMA",
+        "SPECIES_KOFFING"
     ],
     "rate_form0": 100,
     "rate_form1": 100,
@@ -75,24 +75,24 @@
     "rate_form4": 0,
     "unown_table": 0,
     "ruby": [
-        "SPECIES_WEEZING",
-        "SPECIES_MUK"
+        "SPECIES_SLUGMA",
+        "SPECIES_KOFFING"
     ],
     "sapphire": [
-        "SPECIES_WEEZING",
-        "SPECIES_MUK"
+        "SPECIES_SLUGMA",
+        "SPECIES_KOFFING"
     ],
     "emerald": [
-        "SPECIES_WEEZING",
-        "SPECIES_MUK"
+        "SPECIES_SLUGMA",
+        "SPECIES_KOFFING"
     ],
     "firered": [
-        "SPECIES_WEEZING",
-        "SPECIES_MUK"
+        "SPECIES_SLUGMA",
+        "SPECIES_KOFFING"
     ],
     "leafgreen": [
-        "SPECIES_WEEZING",
-        "SPECIES_MUK"
+        "SPECIES_SLUGMA",
+        "SPECIES_KOFFING"
     ],
     "surf_rate": 0,
     "surf_encounters": [

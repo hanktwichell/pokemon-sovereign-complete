@@ -1157,3 +1157,21 @@ Test results on the new test build:
   walks in and out go round by the pool on Surf; in Vermilion Gym, the cans action picks again from a can's free sides
   when a trainer who came over stays on the one it walked for. A fresh run of all 95 parts from the bedroom, with all
   of the test's fixes, is under way.
+
+## Nov 1, 2026: the owner's new calls, Sovereign synced, and the original wild Pokémon
+
+- **The owner's calls** (`docs/Roadmap.md`, "Decided"): a provisional Sinnoh integration of Claude's own so the whole
+  game can be tested; Megas in all three regions; Sovereign's Totem trials and legendary encounters spread over Johto,
+  Kanto and Sinnoh; the original games' wild Pokémon with the new species mixed in evenly; then a full test of the game
+  and a highlight video.
+- **Sovereign synced** to 2134aabe (its four commits since Oct 29: tall battle fronts moved down and shrunk to fit the
+  screen), with no clashes; the ROM builds and boots.
+- **Wild Pokémon** (`docs/Features.md`, "Wild Pokémon"; every table in `docs/WildPokemon.md`): new
+  `tools/complete/gen_wild.py` writes Johto's and Kanto's tables from HeartGold's and SoulSilver's (both versions' species
+  in one table) and Sinnoh's from Platinum's, and mixes in 404 of the 409 species no original table has a family of:
+  134 in Johto, 134 in Kanto, 136 in Sinnoh, each in a slot the original table had twice, by habitat and level. The
+  sync script now leaves Sovereign's changes to Sinnoh's tables out. The ROM builds and boots; the wild tests run next.
+- **The progress page** has a Sinnoh tab (what joins it already, the integration's parts) and a timeline tab (every
+  day's log entries, decisions and commits, the steps by day, and the plan ahead).
+- **The story test can record itself** (`VIDEO`: both screens to an MPEG-TS file by ffmpeg, with each part's and
+  action's frame in a list beside it), for the highlight video.

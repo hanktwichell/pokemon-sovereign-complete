@@ -86,24 +86,24 @@
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 10,
-                "level_max": 35,
+                "level_min": 5,
+                "level_max": 15,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 5,
+                "level_max": 15,
                 "species": "SPECIES_DRATINI"
             },
             {
-                "level_min": 30,
-                "level_max": 40,
-                "species": "SPECIES_GYARADOS"
+                "level_min": 5,
+                "level_max": 15,
+                "species": "SPECIES_DRATINI"
             },
             {
-                "level_min": 30,
-                "level_max": 40,
-                "species": "SPECIES_GYARADOS"
-            },
-            {
-                "level_min": 30,
-                "level_max": 40,
-                "species": "SPECIES_GYARADOS"
+                "level_min": 5,
+                "level_max": 15,
+                "species": "SPECIES_DRATINI"
             }
         ]
     },
@@ -138,7 +138,7 @@
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_DRATINI"
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 10,
@@ -148,7 +148,7 @@
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_DRATINI"
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -166,19 +166,19 @@
                 "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 25,
-                "level_max": 25,
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 20,
+                "level_max": 20,
                 "species": "SPECIES_DRATINI"
             },
             {
-                "level_min": 25,
-                "level_max": 25,
-                "species": "SPECIES_GYARADOS"
-            },
-            {
-                "level_min": 25,
-                "level_max": 25,
-                "species": "SPECIES_DRATINI"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -197,18 +197,18 @@
             },
             {
                 "level_min": 40,
-                "level_max": 44,
-                "species": "SPECIES_GYARADOS"
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             },
             {
                 "level_min": 40,
-                "level_max": 44,
+                "level_max": 40,
                 "species": "SPECIES_DRAGONAIR"
             },
             {
                 "level_min": 40,
-                "level_max": 44,
-                "species": "SPECIES_GYARADOS"
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_MAGIKARP",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_DRATINI",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }

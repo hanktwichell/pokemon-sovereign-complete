@@ -81,29 +81,29 @@
         "rate": 15,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
+                "level_min": 5,
+                "level_max": 5,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_POLIWAG"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_POLIWHIRL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_POLIWAG"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_POLIWHIRL"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_POLIWAG"
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_POLIWHIRL"
             }
         ]
     },
@@ -126,28 +126,28 @@
         "rate": 25,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
+                "species": "SPECIES_MAGIKARP"
+            },
+            {
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_POLIWAG"
-            },
-            {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_POLIWAG"
-            },
-            {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_POLIWAG"
-            },
-            {
-                "level_min": 1,
-                "level_max": 70,
+                "level_min": 10,
+                "level_max": 10,
                 "species": "SPECIES_POLIWAG"
             }
         ]
@@ -156,29 +156,29 @@
         "rate": 50,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_PSYDUCK"
+                "level_min": 20,
+                "level_max": 20,
+                "species": "SPECIES_POLIWAG"
             }
         ]
     },
@@ -186,29 +186,29 @@
         "rate": 75,
         "slots": [
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_GOLDEEN"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_GOLDEEN"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_GOLDEEN"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_GOLDEEN"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_POLIWAG"
             },
             {
-                "level_min": 1,
-                "level_max": 70,
-                "species": "SPECIES_GOLDEEN"
+                "level_min": 40,
+                "level_max": 40,
+                "species": "SPECIES_MAGIKARP"
             }
         ]
     },
@@ -223,7 +223,7 @@
     "swarm": {
         "land": "SPECIES_NONE",
         "surf": "SPECIES_POLIWAG",
-        "night_fishing": "SPECIES_NONE",
-        "fishing": "SPECIES_NONE"
+        "night_fishing": "SPECIES_POLIWAG",
+        "fishing": "SPECIES_MAGIKARP"
     }
 }
