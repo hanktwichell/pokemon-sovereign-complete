@@ -187,6 +187,11 @@ species' place is listed in `docs/WildPokemon.md`.
   rules, from `tools/design/gen_encounters.py`). At most four grass slots and two of each water table go to new
   species. Five final forms no table's levels reach (Hydreigon, Dragapult, Volcarona, Braviary, Kingambit) come by
   evolving.
+- **The spreadsheet:** `docs/WildPokemon.xlsx` (`tools/complete/wild_spreadsheet.py`) lists every place's Pokémon, how
+  each is met (walking by time of day, surfing, each rod, Rock Smash, Headbutt trees, swarms and outbreaks, the Poké
+  Radar, the dual slots, the daily Trophy Garden and Great Marsh Pokémon, Honey Trees, the Safari Zone, the
+  Bug-Catching Contest, roamers, Sovereign's Regional Forms Park and rare wild Pokémon) and the odds, by place and by
+  Pokémon, with each Pokémon's regions flagged. Run it again after a change.
 - **To change it:** `PIN` (a species to a region or area), `AREA_TAGS` (Johto's and Kanto's habitats), `FREE_LAND` and
   `FREE_WATER`, then run the generator again. Sinnoh's tables are Complete's own now, so
   `tools/complete/sync_sovereign.sh` leaves Sovereign's changes to them out, and Sovereign's own
