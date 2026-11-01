@@ -1226,6 +1226,7 @@ COLLISION = 0x8000  # a tile's collision bit (src/terrain_collision_manager.c)
 MISC_FEATURES, BLACKTHORN_FEATURE = 128 * 14, 15
 ETERNA_GYM, ETERNA_FEATURE = 'MAP_HEADER_ETERNA_CITY_GYM', 8  # enum DynamicMapFeatureID
 GREAT_MARSH, DEEP_MUD = 'map_matrix_240', {0xa5, 0xa7}  # TILE_BEHAVIOR_MUD_DEEP, ..._MUD_DEEP_WITH_GRASS
+MUDDY = {GREAT_MARSH, 'map_matrix_000'}  # the matrices with deep mud: the Great Marsh's and Sinnoh's (Route 212 South)
 HEARTHOME_FEATURE = 2
 
 
@@ -1542,16 +1543,18 @@ def main():
     def floors_blocked():
         """In Blackthorn Gym, the lava no floor is over and the floors' buttons, which a walk keeps off (the floors
         where the save has them now: blackthorn_floor); in Eterna Gym, the clock's and fountains' tiles blocked in the
-        clock's state now (eterna_clock); in the Great Marsh, its deep mud. Elsewhere nothing."""
+        clock's state now (eterna_clock); in the Great Marsh and on Sinnoh's routes (Route 212 South's marsh), the
+        deep mud. Elsewhere nothing."""
         if here() == ETERNA_GYM:
             at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
             return clock_blocked[u32(at + 4)] if u32(at) == ETERNA_FEATURE else set()
-        if matrix_of.get(here()) == GREAT_MARSH:  # its deep mud holds the player fast
-            if GREAT_MARSH not in deep_mud:
-                grid = maps.matrix(GREAT_MARSH)
-                deep_mud[GREAT_MARSH] = {(x, z) for z in range(len(grid) * 32) for x in range(len(grid[0]) * 32)
-                                         if (maps.tile(GREAT_MARSH, x, z) or 0) & 0xff in DEEP_MUD}
-            return deep_mud[GREAT_MARSH]
+        matrix = matrix_of.get(here())
+        if matrix in MUDDY:  # deep mud holds the player fast (src/overlay005's FieldTask_StuckInDeepMud)
+            if matrix not in deep_mud:
+                grid = maps.matrix(matrix)
+                deep_mud[matrix] = {(x, z) for z in range(len(grid) * 32) for x in range(len(grid[0]) * 32)
+                                    if (maps.tile(matrix, x, z) or 0) & 0xff in DEEP_MUD}
+            return deep_mud[matrix]
         if here() != BLACKTHORN_GYM:
             return set()
         at = save_block('SAVE_TABLE_ENTRY_MISC') + MISC_FEATURES
