@@ -834,7 +834,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Eterna City', [('to', (86, 36)), 'RIGHT', ('to', (305, 531)), 'UP'],  # Route 205 North, Eterna's Center
           'MAP_HEADER_ETERNA_CITY_POKECENTER_1F', 'FLAG_FIRST_ARRIVAL_ETERNA_CITY'),
          # Sinnoh, stretch B (Eterna City to Celestic Town)
-         ('Cyrus at the statue', [('to', (303, 524)),  # the rival runs into the player; Cyrus at the statue
+         ('Cyrus at the statue', [('to', (8, 12)), 'DOWN',  # out of the Pokémon Center
+                                  ('to', (303, 524)),  # the rival runs into the player; Cyrus at the statue
                           ('to', (305, 522))],  # Cynthia's HM01 (her trigger: (304-306,522), (304,523-525))
           'MAP_HEADER_ETERNA_CITY', ('VAR_ETERNA_CITY_STATE', 2)),
          ('Gardenia', [('to', (312, 564)), 'UP', ('talk', []),  # she stands in the doorway, then goes in
