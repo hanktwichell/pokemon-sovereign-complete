@@ -1129,6 +1129,9 @@ Test results on the new test build:
   of Route 20 (Route 19's sea reaches only the west door, and the cave's way from there takes several Strength
   boulders), and Sacred Gold's scientists in the gym step aside after their battles (one of them west, into the way,
   unless talked to from his west). A walk to someone (`meet`) now picks the nearest side the player can reach.
+- **Not checked yet:** Seafoam Islands' cave from its west door, the way a player who sails down Route 19 from Fuchsia
+  takes to Blaine and Cinnabar (Route 19's sea reaches neither otherwise): its Strength boulders on B1F and the ice
+  rocks on B3F. The test goes round by Route 2, which Sabrina's badge opens as it opens Route 19.
 - **New test actions:** `bike` (Y, with the Bicycle registered: Sacred Gold's Mom gives it at the start, and the
   Cycling Road's gatehouses let only riders through) and `ride` (a key held up the Cycling Road's slope, which rolls a
   still bicycle back down, through its bikers' battles). The walks now slide along Viridian Gym's arrows as the game
