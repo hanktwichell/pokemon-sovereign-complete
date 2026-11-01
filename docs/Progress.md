@@ -1150,5 +1150,10 @@ Test results on the new test build:
 - **Resumed from part 27,** the run went on to part 72, then stopped in the S.S. Aqua's first battle: Shift style's
   'Will you switch Pokémon?', which the test's A answers yes, opened the party, and a battle tap picked the Pokémon
   already out, again and again. The same part passed run again; the test now sets the save's battle style to Set, so
-  the question never comes (the part passes that way too). The rest of the chain, parts 73 to 95, is running from
-  Olivine's port.
+  the question never comes (the part passes that way too).
+- **The whole chain has now passed,** every part from the end of the one before, from the bedroom to the ferry
+  landing in Canalave City: parts 1 to 26, 27 to 72, and 73 to 95 with restarts where the test needed fixing (none of
+  them in the game). In Cerulean Gym, a trainer who comes down its one-tile side way to battle can stay in it, so the
+  walks in and out go round by the pool on Surf; in Vermilion Gym, the cans action picks again from a can's free sides
+  when a trainer who came over stays on the one it walked for. A fresh run of all 95 parts from the bedroom, with all
+  of the test's fixes, is under way.
