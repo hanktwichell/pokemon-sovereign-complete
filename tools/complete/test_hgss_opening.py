@@ -1937,6 +1937,9 @@ def main():
             sys.exit(f'SET_FLAGS: the warp {result} after {frames} frames')
     for name, actions, end_map, marker in PARTS[first:]:
         problem = ''
+        # again at each part: a Hall of Fame resets the DS (OS_ResetSystem), which clears the test build's settings, so
+        # after Johto's the battles hurt again (Sailor Stanly's Kingdra knocked out the lead on the S.S. Aqua)
+        mem.write_byte(sym['gSovereignTestGodMode'], 1)
         if video:
             video.mark(f'part {name}')
         for action in actions:
