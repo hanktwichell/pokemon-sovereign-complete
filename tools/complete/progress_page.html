@@ -97,7 +97,7 @@ td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: 
 .tile .lbl { font-size: 13px; color: var(--muted); }
 ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 76ch; }
 .decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
-.decision { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); padding: 10px 14px;
+.decision { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); padding: 10px 14px; align-content: start;
   display: grid; gap: 4px; min-width: 0; }
 .decision b { font-family: var(--display); font-size: 18px; font-weight: 600; }
 .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--muted); align-items: center; }
@@ -127,6 +127,49 @@ details .maplist { margin-top: 6px; font-family: var(--mono); font-size: 12px; c
 .tick { font-family: var(--mono); font-size: 12px; color: var(--ok); white-space: nowrap; }
 .tick.no { color: var(--muted); }
 .foot { font-size: 12.5px; color: var(--muted); }
+.s-planned { background: var(--other-soft); color: var(--muted); }
+code { font-family: var(--mono); font-size: .86em; background: var(--sunk); padding: 0 4px; border-radius: 3px;
+  overflow-wrap: anywhere; }
+.heat { border-collapse: separate; border-spacing: 3px; width: auto; background: transparent; border: 0; }
+.heat th, .heat td { border: 0; padding: 0; background: transparent; }
+.heat th { font-size: 11px; padding: 0 4px 4px; text-align: center; }
+.heat th.step { text-align: left; font-family: var(--body); font-size: 13.5px; text-transform: none; letter-spacing: 0;
+  color: var(--ink); font-weight: 400; padding-right: 12px; white-space: nowrap; }
+.heat td .c { display: block; width: 44px; height: 24px; border-radius: 3px; background: var(--sunk); }
+.heat td .c.l1 { background: color-mix(in srgb, var(--accent) 28%, var(--surface)); }
+.heat td .c.l2 { background: color-mix(in srgb, var(--accent) 58%, var(--surface)); }
+.heat td .c.l3 { background: var(--accent); }
+.heat td .c:hover { outline: 2px solid var(--ink); outline-offset: 1px; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; }
+.jump a { color: var(--accent); }
+.day { display: grid; gap: 10px; scroll-margin-top: 12px; }
+.day h2 .muted { font-family: var(--body); font-size: 15px; font-weight: 400; margin-left: 8px; }
+.events { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--line); display: grid; gap: 8px; }
+.ev { position: relative; background: var(--surface); border: 1px solid var(--line); padding: 9px 12px; min-width: 0; }
+.ev::before { content: ""; position: absolute; left: -25px; top: 14px; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg); }
+.ev.decision::before { background: var(--warn); }
+.ev.milestone::before { background: var(--ok); }
+.ev .kind { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted);
+  margin-right: 8px; }
+.ev summary { list-style: none; display: grid; gap: 3px; }
+.ev summary::-webkit-details-marker { display: none; }
+.ev summary .t { font-weight: 700; }
+.ev summary .t::after { content: " ▸"; color: var(--muted); font-weight: 400; }
+.ev details[open] summary .t::after { content: " ▾"; }
+.ev .leads { font-size: 13.5px; color: var(--muted); }
+.ev ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
+.stepchip { font-family: var(--mono); font-size: 11px; padding: 0 6px; border-radius: 3px; background: var(--info-soft);
+  color: var(--info); margin-left: 6px; white-space: nowrap; font-weight: 600; }
+details.commits summary { font-size: 13.5px; color: var(--muted); }
+details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color: var(--muted); display: grid; gap: 2px; }
+.today { font-family: var(--display); font-weight: 600; font-size: 18px; color: var(--ok); border-top: 2px dashed var(--ok);
+  padding-top: 6px; }
+.ahead td.when { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--ok); padding: 10px 14px; align-content: start;
+  display: grid; gap: 4px; min-width: 0; }
+.card b { font-family: var(--display); font-size: 18px; font-weight: 600; }
 @media (max-width: 560px) { th, td { padding: 8px 9px; } .hide-sm { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .bar span { transition: width .4s ease; } }
 </style>
@@ -135,13 +178,15 @@ details .maplist { margin-top: 6px; font-family: var(--mono); font-size: 12px; c
   <div class="wrap">
     <span class="eyebrow" id="status-line">Status</span>
     <h1>Sovereign Complete Progress</h1>
-    <p class="lede">Johto and Kanto joining Sovereign Platinum: where each step stands, what's waiting on you, every map
-      brought over, and how far a new game plays through.</p>
+    <p class="lede">Johto and Kanto joining Sovereign Platinum: where each step stands, what's waiting on you, Sinnoh's
+      side, every map brought over, how far a new game plays through, and the whole timeline.</p>
     <nav class="tabs" aria-label="Views">
       <a href="#whole-game" data-tab="whole-game">Whole game</a>
       <a href="#since-yesterday" data-tab="since-yesterday">Since yesterday</a>
+      <a href="#sinnoh" data-tab="sinnoh">Sinnoh</a>
       <a href="#maps" data-tab="maps">Maps &amp; routes</a>
       <a href="#story" data-tab="story">Story test</a>
+      <a href="#timeline" data-tab="timeline">Timeline</a>
     </nav>
   </div>
 </header>
@@ -149,8 +194,10 @@ details .maplist { margin-top: 6px; font-family: var(--mono); font-size: 12px; c
 <main>
   <div class="wrap" id="view-whole-game" data-view="whole-game"></div>
   <div class="wrap" id="view-since-yesterday" data-view="since-yesterday" hidden></div>
+  <div class="wrap" id="view-sinnoh" data-view="sinnoh" hidden></div>
   <div class="wrap" id="view-maps" data-view="maps" hidden></div>
   <div class="wrap" id="view-story" data-view="story" hidden></div>
+  <div class="wrap" id="view-timeline" data-view="timeline" hidden></div>
 </main>
 
 <script>
@@ -305,7 +352,116 @@ function story() {
   <p class="foot">✓ passed from the part before · ✓✓ also passed in the single run from the bedroom.</p>`;
 }
 
-const views = { 'whole-game': wholeGame, 'since-yesterday': sinceYesterday, maps, story };
+
+const STATUS = { done: 'Done', active: 'Under way', planned: 'Planned', waiting: 'Waiting on you' };
+const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>');
+const dayName = d => {
+  const t = new Date(d + 'T12:00:00Z');
+  return [t.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }),
+          t.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' })];
+};
+
+function sinnoh() {
+  const S = DATA.sinnoh;
+  const done = S.plan.filter(p => p.status === 'done').length;
+  return `
+  <section>
+    <h2>Sinnoh, the third region</h2>
+    <p class="muted">Sinnoh is Sovereign Platinum's world, all of it, in the same game as Johto and Kanto. A new game
+      plays Johto, then Kanto, and after Kanto's eighth badge the ferry from Olivine or Vermilion lands the player in
+      Canalave City. On Nov 1 you asked for a provisional integration of Claude's own, so the whole game can be
+      played and tested now; each choice sits in one place in the code, so any of it can change later.</p>
+    <div class="tiles">
+      <div class="tile"><span class="big num">${S.maps}</span><span class="lbl">Sinnoh maps, as Sovereign has them</span></div>
+      <div class="tile"><span class="big num">${S.scripts}</span><span class="lbl">Sinnoh script files</span></div>
+      <div class="tile"><span class="big num">${esc(S.synced)}</span><span class="lbl">Sovereign last brought in</span></div>
+      <div class="tile"><span class="big num">${done}/${S.plan.length}</span><span class="lbl">parts of the integration done</span>
+        <div class="bar" aria-hidden="true"><span style="width:${pct(done, S.plan.length)}%;background:var(--ok)"></span></div></div>
+    </div>
+  </section>
+  <section>
+    <h2>Joined already</h2>
+    <div class="cards">${S.in.map(c => `<div class="card"><b>${esc(c.title)}</b><span class="muted">${esc(c.detail)}</span></div>`).join('')}</div>
+  </section>
+  <section>
+    <h2>The provisional integration</h2>
+    <div class="scroll"><table>
+      <thead><tr><th>Part</th><th>What it is</th><th>Status</th></tr></thead>
+      <tbody>${S.plan.map(p => `<tr><td><b>${esc(p.title)}</b></td><td>${esc(p.detail)}</td>
+        <td><span class="pill s-${p.status}">${STATUS[p.status]}</span></td></tr>`).join('')}</tbody></table></div>
+  </section>
+  <p class="foot">Kept up to date in tools/complete/progress_page.py; the choices themselves are written down in
+    docs/Roadmap.md and docs/Features.md.</p>`;
+}
+
+function timeline() {
+  const T = DATA.timeline, steps = DATA.steps;
+  const level = n => n >= 4 ? 'l3' : n >= 2 ? 'l2' : n >= 1 ? 'l1' : '';
+  const heads = T.days.map(d => `<th scope="col">${esc(dayName(d)[0])}</th>`).join('');
+  const rows = steps.map(s => `<tr><th scope="row" class="step">${s.n} · ${esc(s.name)}</th>${T.days.map(d => {
+      const n = (T.grid[s.n] || {})[d] || 0;
+      return `<td><span class="c ${level(n)}" data-tip="Step ${s.n}, ${esc(s.name)} · ${esc(dayName(d)[0])}: ${n ? n + (n === 1 ? ' entry' : ' entries') : 'no entries'}"></span></td>`;
+    }).join('')}</tr>`).join('');
+  const stepName = n => (steps.find(s => s.n === n) || {}).name || '';
+  const days = T.days.map(d => {
+    const [date, weekday] = dayName(d);
+    const ev = [];
+    T.milestones.filter(m => m.date === d).forEach(m => ev.push(`<li class="ev milestone"><span class="kind">Milestone</span>${esc(m.text)}</li>`));
+    T.decisions.filter(x => x.date === d).forEach(x => ev.push(`<li class="ev decision"><span class="kind">Decided</span><b>${esc(x.title)}.</b> ${md(x.text)}</li>`));
+    T.entries.filter(e => e.date === d).forEach(e => {
+      const leads = e.items.map(i => (i.match(/^\*\*(.+?)\*\*/) || [])[1]).filter(Boolean).map(l => l.replace(/[.:,]$/, ''));
+      ev.push(`<li class="ev"><details><summary><span><span class="kind">Log</span><span class="t">${esc(e.title)}</span>${e.steps.map(n => `<span class="stepchip" title="${esc(stepName(n))}">step ${n}</span>`).join('')}</span>
+        ${leads.length ? `<span class="leads">${leads.map(md).join(' · ')}</span>` : ''}</summary>
+        <ul>${e.items.map(i => `<li>${md(i)}</li>`).join('')}</ul></details></li>`);
+    });
+    const cs = T.commits[d] || [];
+    const nEntries = T.entries.filter(e => e.date === d).length;
+    return `<section class="day" id="day-${d}"><h2>${esc(date)}<span class="muted">${esc(weekday)}</span></h2>
+      <span class="muted num">${nEntries} log ${nEntries === 1 ? 'entry' : 'entries'} · ${cs.length} commits (UTC day)</span>
+      ${ev.length ? `<ul class="events">${ev.join('')}</ul>` : ''}
+      ${cs.length ? `<details class="commits"><summary>All ${cs.length} commits</summary><ol>${cs.map(c => `<li>${esc(c)}</li>`).join('')}</ol></details>` : ''}
+    </section>`;
+  }).join('');
+  return `
+  <section>
+    <h2>Everything so far, and what's ahead</h2>
+    <p class="muted">Every day of the project: the log's entries (docs/Progress.md, each with the roadmap steps it was
+      for), the decisions, and every commit. Then the plan from today, with Claude's estimates.</p>
+    <div class="jump"><span class="muted">Jump to</span>${T.days.map(d => `<a href="#timeline" data-day="${d}">${esc(dayName(d)[0])}</a>`).join('')}<a href="#timeline" data-day="ahead">Ahead</a></div>
+  </section>
+  <section>
+    <h3>The steps, day by day</h3>
+    <div class="legend"><span>Log entries for the step that day:</span>
+      <span><i class="sw" style="background:var(--sunk)"></i>none</span>
+      <span><i class="sw" style="background:color-mix(in srgb, var(--accent) 28%, var(--surface))"></i>1</span>
+      <span><i class="sw" style="background:color-mix(in srgb, var(--accent) 58%, var(--surface))"></i>2–3</span>
+      <span><i class="sw" style="background:var(--accent)"></i>4 or more</span></div>
+    <div class="scroll"><table class="heat" id="heat"><thead><tr><th></th>${heads}</tr></thead><tbody>${rows}</tbody></table></div>
+    <div class="tip" id="heattip">Point at a square to see the step and the day.</div>
+  </section>
+  ${days}
+  <div class="today">Today, ${esc(DATA.updated)}</div>
+  <section id="day-ahead" class="day">
+    <h2>Ahead</h2>
+    <div class="scroll"><table class="ahead">
+      <thead><tr><th>When</th><th>What</th><th>Who</th><th>Status</th></tr></thead>
+      <tbody>${T.ahead.map(a => `<tr><td class="when">${esc(a.when)}</td><td>${esc(a.what)}</td><td>${esc(a.who)}</td>
+        <td><span class="pill s-${a.status}">${STATUS[a.status]}</span></td></tr>`).join('')}</tbody></table></div>
+    <p class="foot">Dates ahead are Claude's estimates as of ${esc(DATA.updated)}; the playthrough's length is the roadmap's.</p>
+  </section>`;
+}
+function wireTimeline() {
+  const tip = document.getElementById('heattip');
+  document.getElementById('heat').addEventListener('mouseover', e => {
+    const c = e.target.closest('.c');
+    if (c) tip.textContent = c.dataset.tip;
+  });
+  document.querySelectorAll('.jump a').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('day-' + a.dataset.day).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+}
+const views = { 'whole-game': wholeGame, 'since-yesterday': sinceYesterday, sinnoh, maps, story, timeline };
 const rendered = {};
 function show() {
   const name = (location.hash || '#whole-game').slice(1);
@@ -316,6 +472,7 @@ function show() {
     document.getElementById('view-' + tab).innerHTML = views[tab]();
     rendered[tab] = true;
     if (tab === 'maps') wireMaps();
+    if (tab === 'timeline') wireTimeline();
   }
 }
 function wireMaps() {

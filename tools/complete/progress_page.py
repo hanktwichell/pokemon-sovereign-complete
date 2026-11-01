@@ -2,16 +2,19 @@
 """Write the progress page (tools/complete/progress_page.html filled in), published as a claude.ai artifact.
 
 The page's tabs: the whole game (the roadmap's steps and where each stands, what's next, what waits on the owner),
-since yesterday (the latest entries of docs/Progress.md, summarized here), maps and routes (every Johto and Kanto map,
-grouped into places by its location label: its people, trainers, items, wild Pokémon, and the story test's parts that
-walk through it, with the overworld drawn block by block), and the story test (its parts, and how far a run from the
-bedroom has got).
+since yesterday (the latest entries of docs/Progress.md, summarized here), Sinnoh (what joins it to Johto and Kanto, and
+the provisional integration under way), maps and routes (every Johto and Kanto map, grouped into places by its location
+label: its people, trainers, items, wild Pokémon, and the story test's parts that walk through it, with the overworld
+drawn block by block), the story test (its parts, and how far a run from the bedroom has got), and the timeline (each
+day's log entries, decisions and commits, which roadmap steps they were for, and the plan ahead).
 
 What it reads: decomp/include/data/map_headers.h (each map's location label, scripts, wild Pokémon and music), the maps'
 events (tools/test/talk_to_objects.py's event_maps), the overworld matrix (map_matrix_hgss_0000), the story test's
 parts (tools/complete/test_hgss_opening.py's PARTS) and its logs in .cache (a part's maps are the ones its lines name,
 counted only for a part that passed). The status of the roadmap's steps, the next steps, the open decisions and the
-summary of recent work are kept below by hand (STEPS, NEXT, WAITING, RECENT): update them with docs/Progress.md.
+summary of recent work, Sinnoh's status, the steps each log entry was for and the plan ahead are kept below by hand
+(STEPS, NEXT, WAITING, RECENT, SINNOH_IN, SINNOH_PLAN, ENTRY_STEPS, MILESTONES, AHEAD): update them with
+docs/Progress.md. The roadmap's decisions are read from docs/Roadmap.md, and the commits from git.
 
 Usage: python3 tools/complete/progress_page.py [OUT]   (default .cache/progress/index.html)
 """
@@ -21,6 +24,7 @@ import glob
 import json
 import os
 import re
+import subprocess
 import sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
@@ -53,7 +57,7 @@ STEPS = [
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game now plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the ship to '
-     'Canalave City. Sinnoh\'s side waits on Platinum\'s opening; the level curve on your call.'),
+     'Canalave City. Sinnoh\'s side is next, with a provisional integration of Claude\'s own (your Nov 1 go-ahead).'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
      'the game through.'),
@@ -64,20 +68,17 @@ STEPS = [
 
 NEXT = [
     'Finish the single uninterrupted run of the story test from the bedroom (under way).',
-    'Sinnoh after the ship: once Platinum\'s opening is decided, carry the story test on from Canalave City.',
-    'The level curve and level caps across the 24 gyms and 2 Leagues, once you choose how far Johto and Kanto '
-    'compress.',
-    'The three-region Town Map (a list menu stands in for now), waiting on the art question.',
+    'Sinnoh\'s provisional integration (your Nov 1 go-ahead): arriving in Canalave City, Sinnoh\'s levels after Kanto, '
+    'level caps for all three regions. Each choice in one place, so it can change.',
+    'Megas in Johto and Kanto: the Mega Ring and stones within reach, and Megas for their bosses.',
+    'The story test on through Sinnoh to Spear Pillar, then a full test of the game and a highlight video.',
 ]
 
 WAITING = [
-    ('Platinum\'s opening', 'What happens to Twinleaf Town, Rowan\'s starters and Barry now that the game starts in '
-     'Johto. Sinnoh\'s story waits on it.'),
-    ('Unlock points', 'The ferry to Kanto after the League (as in HeartGold) and the way to Sinnoh after Kanto\'s eighth '
-     'badge: proposed, and how it works for now.'),
-    ('Level curve', 'How far Johto and Kanto compress so Sinnoh still ends at Spear Pillar by Lv. 100.'),
+    ('Sinnoh\'s integration', 'Claude is putting in a provisional one at your request (the Sinnoh tab): Platinum\'s '
+     'opening, the unlock point and the level curve. Change any of it whenever you like.'),
     ('Pokétch, Pokégear or both', 'The radio, the contact list and the Town Map\'s Johto and Kanto wait on it.'),
-    ('Red at Mt. Silver', 'Before the player leaves for Sinnoh, or saved for the post-game.'),
+    ('Red at Mt. Silver', 'Before the player leaves for Sinnoh, or saved for the post-game. As in HeartGold for now.'),
     ('Johto\'s Battle Frontier and the Pokéathlon Dome', 'Keep them open or closed.'),
     ('Voltorb Flip', 'Port it, or keep Platinum\'s slots as the stand-in.'),
     ('The Hall of Fame and the credits', 'Proposed: the credits roll once, at the end of the story.'),
@@ -107,6 +108,86 @@ RECENT = [
         'Walks to people and to Vermilion Gym\'s cans pick a side the player can reach; Cerulean Gym is crossed round '
         'its pool when a trainer stays in its narrow way.',
     ]),
+]
+
+# Sinnoh's side: what joins it to Johto and Kanto already, and the provisional integration the owner asked for on Nov 1
+# ("devise your own Sinnoh integration for now so everything can be tested"), with its status (done, active, planned)
+SINNOH_IN = [
+    ('The whole region', 'Sovereign Platinum\'s Sinnoh as it is: its maps, story, trainers, wild Pokémon, Totem trials '
+     'and features, in the same game as Johto and Kanto.'),
+    ('The ferry', 'From Kanto\'s eighth badge, the sailors at Olivine\'s and Vermilion\'s gangways sail to Canalave City, '
+     'and Canalave\'s sailor back to either (tested both ways). The story test\'s last part lands there.'),
+    ('Badges and field moves', 'A field move works with either region\'s badge for it, so Johto\'s badges keep Surf, '
+     'Strength and the rest working in Sinnoh.'),
+    ('Following Pokémon', 'The lead Pokémon follows in Sinnoh too, kept out of buildings when it\'s too tall, and talks '
+     'as in HeartGold.'),
+    ('Fly and the Town Map', 'Sinnoh keeps Platinum\'s Town Map; Johto and Kanto have a list of places for now. Each '
+     'region\'s Fly stays in that region, and the ferries join them.'),
+    ('Sovereign\'s own tests', 'Run on this build: battle mechanics 526 of 526, gifts 45 of 45, rare wild Pokémon 52 of '
+     '52, evolutions 255 of 255, wild forms on every Sinnoh map, roamers, and Sovereign\'s signs and triggers.'),
+]
+SINNOH_PLAN = [
+    ('Arriving in Sinnoh', 'What the first landing in Canalave City starts: Platinum\'s opening, Rowan and a Sinnoh '
+     'starter.', 'planned'),
+    ('Sinnoh\'s levels', 'Sinnoh\'s trainers and wild Pokémon moved up to follow Kanto, from one table of levels, with '
+     'teams evolved to match.', 'planned'),
+    ('Level caps', 'Sovereign\'s optional caps for all three regions\' gyms and Leagues, in story order.', 'planned'),
+    ('Sovereign\'s newer work', 'Four Sovereign commits since Oct 29 (tall battle sprites fitted to the screen) brought '
+     'in by the sync script.', 'planned'),
+    ('Megas everywhere', 'The Mega Ring and Mega Stones within reach in Johto and Kanto, and Megas for their bosses, as '
+     'Sinnoh\'s big fights have.', 'planned'),
+    ('Sinnoh\'s scenes with a follower', 'Platinum\'s cutscenes were written without one; each is played with a '
+     'follower out.', 'planned'),
+    ('The story test to Spear Pillar', 'The playthrough test carried on from Canalave City through Sinnoh\'s story.',
+     'planned'),
+    ('A full test, and a highlight video', 'Every test on the finished game, the playthrough from New Bark Town to '
+     'Spear Pillar, and a 1 to 2 minute video of it.', 'planned'),
+]
+
+# The timeline: the roadmap steps each docs/Progress.md entry was for, by its title (the story test's entries are
+# step 7's: a new game played through is its done-when)
+ENTRY_STEPS = {
+    'step 1 starts': (1,), 'following Pokémon, first version': (1, 5), 'room in the save': (1,),
+    'HeartGold\'s map assets are in': (2,), 'Olivine City in the engine': (1, 2),
+    'every Johto and Kanto map is in': (2,), 'step 3 under way, HeartGold\'s scripts in the game': (3,),
+    'step 4 under way, Sacred Gold\'s content': (4,), 'step 3\'s tests, roamers, Kurt\'s Apricorn Balls': (3, 5),
+    'HeartGold\'s Balls in battle, shared people, step 5 and 6 plans': (3, 5, 6), 'the Bug-Catching Contest': (5,),
+    'the Johto Safari Zone, and Johto and Kanto\'s music': (5, 6),
+    'the step 3 tests on the new build, and fixes from them': (3, 8), 'the Pokégear phone': (5,),
+    'Mom\'s savings': (5,), 'the follower keeps up mid-map': (5,), 'the Ruins of Alph puzzles': (5,),
+    'talking to the following Pokémon': (5,), 'loan Pokémon, the Magikarp record, and smaller ports': (5,),
+    'mass outbreaks': (5,),
+    'ladders, Viridian Gym\'s stop tiles, Ice Path\'s boulder holes and the Lake of Rage\'s sky': (2, 5),
+    'songs a flag puts on a map': (6,), 'Johto\'s and Kanto\'s gifts tested': (4, 8),
+    'what HeartGold\'s code set, and Sovereign\'s own tests': (5, 8),
+    'a bigger bag, and screens the scripts skipped': (5,), 'Fly over Johto and Kanto': (7,),
+    'a new game starts in New Bark Town': (7,), 'the ferry network': (7,),
+    'Viridian Gym\'s arrows light up, Fuchsia Gym\'s walls flash': (5,), 'Mahogany Gym\'s ice blocks': (5, 7),
+}
+STORY_ENTRY = re.compile(r'story test|opening|leg ahead|double free')
+# Work outside docs/Progress.md: (date, step, what)
+MILESTONES = [
+    ('2026-10-28', 0, 'The plan: the roadmap, its estimates and the open decisions.'),
+    ('2026-11-01', 0, 'You asked for a provisional Sinnoh integration of Claude\'s own, Megas in all three regions, a '
+     'full test of the game and a highlight video.'),
+]
+# Ahead, from today: (when, what, who, status: active, planned, waiting), Claude's estimates as of UPDATED
+AHEAD = [
+    ('Nov 1', 'The single story run from the bedroom to Canalave City finishes.', 'Claude', 'active'),
+    ('Nov 1–2', 'Sovereign\'s four newer commits synced; Sinnoh\'s integration designed and written down.', 'Claude',
+     'planned'),
+    ('Nov 2–3', 'Arriving in Sinnoh, Sinnoh\'s levels after Kanto, level caps for all three regions.', 'Claude',
+     'planned'),
+    ('Nov 3', 'Megas in Johto and Kanto: the Mega Ring and stones, and their bosses\' Megas.', 'Claude', 'planned'),
+    ('Nov 3–5', 'The story test on through Sinnoh to Spear Pillar, with a follower out in every scene.', 'Claude',
+     'planned'),
+    ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
+    ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
+     'for all three regions.', 'You', 'waiting'),
+    ('Your call', 'The Pokétch or Pokégear (the radio, the contact list), the art for the Town Map and sprites, '
+     'Johto\'s Battle Frontier, Voltorb Flip, the credits; and any of the provisional Sinnoh choices to change.',
+     'You', 'waiting'),
+    ('After step 9', 'Release (step 10): final fixes, then the .xdelta patches, about 3 days.', 'Both', 'planned'),
 ]
 
 KANTO = {'PalletTown', 'ViridianCity', 'PewterCity', 'CeruleanCity', 'VermilionCity', 'LavenderTown', 'CeladonCity',
@@ -192,6 +273,87 @@ def story_maps():
     return walked, passed, single
 
 
+MONTHS = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+
+
+def iso(day, year):
+    """'Oct 29', '2026' -> '2026-10-29'."""
+    month, n = day.split()
+    return f'{year}-{MONTHS.index(month) + 1:02}-{int(n):02}'
+
+
+def log_entries():
+    """docs/Progress.md's entries: their date, title, roadmap steps and items (bullets and paragraphs, as markdown)."""
+    text = open(os.path.join(ROOT, 'docs', 'Progress.md'), encoding='utf-8').read()
+    out = []
+    for m in re.finditer(r'^## (\w+ \d+), (\d{4}): ([^\n]+)\n(.*?)(?=^## |\Z)', text, re.M | re.S):
+        items, cur = [], None
+        for line in m.group(4).split('\n'):
+            if not line.strip():
+                cur = None
+            elif line.startswith('- ') or cur is None:
+                cur = [line[2:] if line.startswith('- ') else line]
+                items.append(cur)
+            else:
+                cur.append(line.strip())
+        title = m.group(3)
+        steps = ENTRY_STEPS.get(title, (7,) if STORY_ENTRY.search(title) else ())
+        out.append({'date': iso(m.group(1), m.group(2)), 'title': title, 'steps': list(steps),
+                    'items': [re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', ' '.join(i)) for i in items]})
+    return out
+
+
+def decisions():
+    """The roadmap's decided points, with their dates: (date, what)."""
+    text = open(os.path.join(ROOT, 'docs', 'Roadmap.md'), encoding='utf-8').read()
+    out = []
+    for m in re.finditer(r'^- \*\*(.+?) \((\w+ \d+)(?:–\d+)?, (\d{4})\)\.\*\* ([^\n]+)', text, re.M):
+        out.append({'date': iso(m.group(2), m.group(3)), 'title': m.group(1), 'text': m.group(4)})
+    return out
+
+
+def commits():
+    """{date (UTC): [each commit's subject, oldest first]}."""
+    log = subprocess.run(['git', '-C', ROOT, 'log', '--reverse', '--format=%ad\t%s',
+                          '--date=format-local:%Y-%m-%d'], capture_output=True, text=True,
+                         env=dict(os.environ, TZ='UTC'), check=True).stdout
+    out = collections.defaultdict(list)
+    for line in log.splitlines():
+        date, subject = line.split('\t', 1)
+        out[date].append(subject)
+    return out
+
+
+def timeline():
+    entries, decided, by_day = log_entries(), decisions(), commits()
+    days = sorted({e['date'] for e in entries} | {d['date'] for d in decided} | set(by_day) |
+                  {m[0] for m in MILESTONES})
+    grid = collections.defaultdict(lambda: collections.defaultdict(int))
+    for e in entries:
+        for step in e['steps']:
+            grid[step][e['date']] += 1
+    for d in decided:
+        grid[0][d['date']] += 1
+    for date, step, _ in MILESTONES:
+        grid[step][date] += 1
+    return {'days': days, 'entries': entries, 'decisions': decided, 'commits': by_day,
+            'milestones': [dict(zip(('date', 'step', 'text'), m)) for m in MILESTONES],
+            'grid': {str(s): dict(v) for s, v in grid.items()},
+            'ahead': [dict(zip(('when', 'what', 'who', 'status'), a)) for a in AHEAD]}
+
+
+def sinnoh():
+    src = open(os.path.join(ROOT, 'decomp', 'include', 'data', 'map_headers.h'), encoding='utf-8').read()
+    maps = len(re.findall(r'^\s*\[MAP_HEADER_(?!HGSS_)\w+\]\s*=', src, re.M))
+    scripts = len([f for f in os.listdir(os.path.join(ROOT, 'decomp', 'res', 'field', 'scripts'))
+                   if f.endswith('.s') and 'hgss' not in f])
+    synced = subprocess.run(['git', '-C', ROOT, 'log', '-1', '--format=%ad', '--date=format:%b %-d',
+                             '--', 'SOVEREIGN_COMMIT'], capture_output=True, text=True).stdout.strip()
+    return {'maps': maps, 'scripts': scripts, 'synced': synced,
+            'in': [dict(zip(('title', 'detail'), s)) for s in SINNOH_IN],
+            'plan': [dict(zip(('title', 'detail', 'status'), s)) for s in SINNOH_PLAN]}
+
+
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, '.cache', 'progress', 'index.html')
     info = headers()
@@ -256,7 +418,7 @@ def main():
         'next': NEXT, 'waiting': [dict(zip(('topic', 'detail'), w)) for w in WAITING],
         'recent': [{'title': t, 'items': items} for t, items in RECENT],
         'places': sorted(places.values(), key=lambda p: (p['region'], p['kind'] != 'town', p['name'])),
-        'regions': regions, 'overworld': overworld, 'story': story,
+        'regions': regions, 'overworld': overworld, 'story': story, 'timeline': timeline(), 'sinnoh': sinnoh(),
         'totals': {'maps': len(info), 'walked': sum(1 for n in info if walked.get(n)),
                    'parts': len(parts), 'passed': sum(s['passed'] for s in story),
                    'single': sum(s['single'] for s in story),
