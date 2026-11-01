@@ -1121,8 +1121,14 @@ Test results on the new test build:
   Erika (her badge opens Saffron's gatehouses), Sabrina (her badge sends Route 19's workmen home), Blaine in Seafoam
   Islands, Blue on Cinnabar and in Viridian Gym, and with the Earth Badge, Viridian Forest's gatehouses and the ferry
   from Vermilion to Canalave City.
-- **Parts 75 to 95** play it. Parts 75 to 81 (Diglett's Cave to the Machine Part) pass, each from the end of the one
-  before; the rest are being run.
+- **Parts 75 to 95** play it, and all pass, each from the end of the one before (Blaine's from inside his gym's door,
+  where a first try had stopped), the last landing the player in Canalave City.
+- **What the test learned on the way:** an east, west or south warp (a gatehouse's door) takes the player only from its
+  own tile with the key pressed that way, while a north warp takes them on stepping in. The last Power Plant scene ends
+  in the plant with the power on (another map). Seafoam Islands' gym is reached by its east door, from Cinnabar's side
+  of Route 20 (Route 19's sea reaches only the west door, and the cave's way from there takes several Strength
+  boulders), and Sacred Gold's scientists in the gym step aside after their battles (one of them west, into the way,
+  unless talked to from his west). A walk to someone (`meet`) now picks the nearest side the player can reach.
 - **New test actions:** `bike` (Y, with the Bicycle registered: Sacred Gold's Mom gives it at the start, and the
   Cycling Road's gatehouses let only riders through) and `ride` (a key held up the Cycling Road's slope, which rolls a
   still bicycle back down, through its bikers' battles). The walks now slide along Viridian Gym's arrows as the game
@@ -1132,3 +1138,7 @@ Test results on the new test build:
   on the S.S. Aqua's days only (Mondays and Fridays, Sundays and Wednesdays), which also kept the ferry to Canalave City
   to those days. The ferry network has no timetable (`docs/Roadmap.md`, "Ferry network"), so they let the player
   through any day now (the translator's `INSERTS`; `docs/Features.md`, "The ferries").
+- **The back-to-back run** from the bedroom passed parts 1 to 26, then stopped at 27: on the way west out of Ecruteak,
+  Sacred Gold's gentleman with the Iron Plate (a step-on scene at Route 38's gatehouse door) walked the player four
+  tiles back, which the earlier runs hadn't met. The part now walks to the door again after it; the run, resumed there,
+  is under way.

@@ -252,10 +252,13 @@ without the test warp:
     which opens Saffron's gatehouses.
 91. **Sabrina:** east along Route 7, through its gatehouse into Saffron City and Saffron Gym, over four of its warp
     panels to Sabrina: her battle, the Marsh Badge and her TM (FLAG_HGSS_GOT_TM48_FROM_SABRINA), which sends Route 19's
-    workmen home.
-92. **Blaine:** back over the gym's panels, east through Route 8's gatehouse to Lavender, south again to Fuchsia, down
-    Route 19 and by sea along Route 20 to Seafoam Islands, where Blaine keeps his gym since Cinnabar's volcano erupted:
-    his battle, the Volcano Badge and his TM (FLAG_HGSS_GOT_TM50_FROM_BLAINE).
+    workmen and the man in Route 2's way home.
+92. **Blaine:** back over the gym's panels, south through Route 6's gatehouse, through Diglett's Cave onto Route 2,
+    south past where the man stood, through Viridian City and down Route 1 to Pallet Town, by sea down Route 21 to
+    Cinnabar Island and along Route 20 to Seafoam Islands' east door (Route 19's sea reaches only its west door, and
+    the cave's way from there to the gym takes several Strength boulders), where Blaine keeps his gym since Cinnabar's
+    volcano erupted: past three of Sacred Gold's scientists, who step aside after their battles, to Blaine: his
+    battle, the Volcano Badge and his TM (FLAG_HGSS_GOT_TM50_FROM_BLAINE).
 93. **Cinnabar Island:** out of Seafoam Islands and west by sea to Cinnabar Island, where Blue talks with the player
     and flies home to open his gym (FLAG_HGSS_UNK_129).
 94. **Blue:** north by sea along Route 21 to Pallet Town, up Route 1 and through its gatehouse into Viridian City, into
@@ -682,12 +685,16 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                       ('to', (15, 14)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_SAFFRON_GYM', 'FLAG_HGSS_GOT_TM48_FROM_SABRINA'),
          ('Blaine', [('to', (18, 17)), ('to', (2, 4)), ('to', (28, 4)), ('to', (28, 25)),  # the panels back
-                     ('to', (15, 28)), 'DOWN', ('to', (1337, 240)), 'RIGHT', ('to', (10, 7)), 'RIGHT',  # Route 8
-                     ('to', (1424, 244)), ('surf', (1428, 350)), ('surf', (1380, 370)),  # Lavender, Route 12,
-                     ('to', (1350, 420)), ('to', (1248, 422)), 'LEFT', ('to', (1, 7)), 'LEFT',  # back to Fuchsia
-                     ('to', (1204, 445)), 'DOWN', ('to', (5, 12)), 'DOWN',  # Route 19, open since Sabrina's badge
-                     ('surf', (1140, 503)), ('to', (1127, 502)), 'UP',  # by sea to Seafoam Islands
-                     ('to', (55, 24)), 'UP', ('to', (13, 13)), 'UP', ('talk', [])],  # down to its gym
+                     ('to', (15, 28)), 'DOWN', ('to', (1300, 253)), 'DOWN', ('to', (5, 12)), 'DOWN',  # Route 6
+                     ('to', (1354, 303)), 'UP', ('to', (4, 4)), ('to', (10, 38)), 'UP',  # Diglett's Cave,
+                     ('to', (37, 10)), 'DOWN', ('to', (1050, 183)), 'DOWN',  # Route 2, south past the man Sabrina's
+                     ('to', (5, 12)), 'DOWN', ('to', (1036, 280)), 'DOWN',  # badge sends home, Viridian City,
+                     ('to', (5, 12)), 'DOWN', ('to', (1040, 370)), ('surf', (1036, 495)),  # Pallet Town, Cinnabar,
+                     ('surf', (1127, 502)), 'UP',  # and along Route 20 to Seafoam Islands' east door
+                     ('to', (55, 24)), 'UP',  # down to its gym, where Sacred Gold's scientists step aside after
+                     ('meet', (15, 17), []), ('meet', (20, 14), []), ('meet', (9, 12), []),  # their battles (the
+                     # one at (17, 11) steps west into the way, unless talked to from his west)
+                     ('to', (13, 13)), 'UP', ('talk', [])],
           'MAP_HEADER_HGSS_SEAFOAM_ISLANDS_CINNABAR_GYM', 'FLAG_HGSS_GOT_TM50_FROM_BLAINE'),
          ('Cinnabar Island', [('to', (14, 25)), ('to', (55, 28)), 'DOWN',  # up and out of Seafoam Islands
                               ('surf', (1036, 495)), 'UP', ('talk', [])],  # west to Cinnabar, where Blue waits
@@ -1186,8 +1193,9 @@ def main():
         return None
 
     def meet(start, answers):
-        """Talk to whoever the map put on start, who wanders (the Lake of Rage's red Gyarados): to beside them,
-        wherever they are now, by land or water, then facing them, the talk, answered. Returns a problem, or ''."""
+        """Talk to whoever the map put on start, who wanders (the Lake of Rage's red Gyarados): to beside them (the
+        nearest side the player can reach), wherever they are now, by land or water, then facing them, the talk,
+        answered. Returns a problem, or ''."""
         for _ in range(MEET_TRIES):
             at, pos = where(start), d.pos()
             if at is None:
@@ -1208,7 +1216,11 @@ def main():
                      and walkable(maps.tile(matrix, at[0] + dx, at[1] + dz))]
             if not sides:
                 return f'no tile beside {at}, where whoever started on {start} is'
-            walk_to(min(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1])), True)  # they may move on
+            # the nearest side the player can reach (one nearer may be walled off: Seafoam Gym's scientists); they
+            # may move on meanwhile
+            for side in sorted(sides, key=lambda p: abs(p[0] - pos[0]) + abs(p[1] - pos[1])):
+                if not walk_to(side, True).startswith('no way'):
+                    break
         return f'never beside whoever started on {start}, on {here()} at {d.pos()}'
 
     def switches(tiles, goal):
