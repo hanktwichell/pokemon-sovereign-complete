@@ -351,7 +351,8 @@ BYRON_WAY_OUT = (['RIGHT'] * 5 + ['DOWN'] + ['RIGHT'] + ['DOWN'] * 5 + ['LEFT'] 
 # z)): the switches below those tiles pressed until their shutters leave a way to the last tile, then the walk there,
 # ('push', key): Strength's push of the boulder the player faces that way, ('cans', [(x, z), ...]): Vermilion Gym's
 # trash cans that hide its switches, checked (the tiles of its cans by number), ('bike',): onto the Bicycle or off it,
-# ('ride', key, n): up the Cycling Road's slope that way, till the player's row (or column) is n, ('scene', key,
+# ('ride', key, n): up the Cycling Road's slope that way, till the player's row (or column) is n, ('slope', key, n):
+# up a muddy slope (Route 207's) that way on the Bicycle in 4th gear, from a run-up, till the row is n, ('scene', key,
 # answers): a step that starts a scene (into a map whose scene starts as the player arrives), its menus answered as
 # talk's are, ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the
 # player's own tile), ('door', [(x, z), ...]): Hearthome Gym's trainer room left by its right door (read from the save),
@@ -1009,7 +1010,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Saturn', [('to', (62, 754)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # Route 218's west gate
                      ('surf', (120, 758)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # its east gate, into Jubilife
                      ('to', (199, 758)), ('to', (246, 750)), 'UP', ('to', (26, 22)), 'RIGHT',  # Oreburgh Gate
-                     ('to', (302, 730)), ('to', (341, 713)), 'UP',  # Route 207 into Mt. Coronet 1F South
+                     ('to', (302, 730)), ('to', (306, 725)), ('slope', 'UP', 716),  # Route 207's slope
+                     ('to', (341, 713)), 'UP',  # into Mt. Coronet 1F South
                      ('surf', (27, 19)), 'DOWN',  # out onto Route 208
                      ('to', (444, 725)), ('to', (447, 725)), 'DOWN', ('to', (9, 7)), 'RIGHT',  # its gate, Hearthome
                      ('to', (458, 728)), 'DOWN', ('to', (5, 11)), 'DOWN',  # Route 212's gate, south
@@ -1035,7 +1037,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Acuity Lakefront', [('to', (47, 53)), 'DOWN',  # out of Lake Verity (46-47,54)
                                ('to', (142, 853)), ('to', (180, 829)), ('to', (177, 808)), ('to', (195, 760)),
                                ('to', (246, 750)), 'UP', ('to', (26, 22)), 'RIGHT',  # Route 201 to Oreburgh Gate
-                               ('to', (302, 730)), ('to', (309, 673)), ('to', (305, 607)), ('to', (305, 577)), 'UP',
+                               ('to', (302, 730)), ('to', (306, 725)), ('slope', 'UP', 716),  # Route 207's slope
+                               ('to', (309, 673)), ('to', (305, 607)), ('to', (305, 577)), 'UP',
                                # Route 207, Route 206 (the planner took the Cycling Road: bike, or the path under it)
                                ('to', (7, 3)), 'UP',  # its north gate, Eterna
                                ('to', (325, 525)), ('to', (379, 532)), 'RIGHT',  # Route 211 West, Mt. Coronet 1F N 1
@@ -1118,7 +1121,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
          ('Sunyshore City', [('to', (7, 14)), 'DOWN',  # out of the lab
                              ('to', (175, 818)), ('to', (176, 775)), ('to', (229, 758)), ('to', (246, 750)), 'UP',
                              ('to', (26, 22)), 'RIGHT',  # Route 202, Jubilife, Route 203, Oreburgh Gate, Oreburgh
-                             ('to', (302, 730)), ('to', (341, 713)), 'UP', ('surf', (27, 19)), 'DOWN',  # Mt. Coronet
+                             ('to', (302, 730)), ('to', (306, 725)), ('slope', 'UP', 716),  # Route 207's slope
+                             ('to', (341, 713)), 'UP', ('surf', (27, 19)), 'DOWN',  # Mt. Coronet
                              ('to', (444, 725)), ('to', (447, 725)), 'DOWN', ('to', (9, 7)), 'RIGHT',  # R208, Hearthome
                              ('to', (458, 728)), 'DOWN', ('to', (5, 11)), 'DOWN',  # Route 212
                              ('surf', (460, 799)), ('surf', (460, 855)), ('surf', (505, 850)), ('surf', (569, 856)),
@@ -1245,6 +1249,9 @@ BICYCLE = open(os.path.join(DECOMP, 'generated', 'items.txt')).read().split().in
 BAG_REGISTERED = 4 * sum(int(n) for n in re.findall(r'#define \w+_POCKET_SIZE\s+(\d+)',
                                                      open(os.path.join(DECOMP, 'include', 'bag.h')).read()))
 BATTLE_STYLE_SET = 1 << 6  # Options' battleStyle bit (after textSpeed's 4 and soundMode's 2): OPTIONS_BATTLE_STYLE_SET
+# the Bicycle's gear in the save (FieldOverworldState's PlayerData, include/field_overworld_state.h: five Locations,
+# bgm, weather, blackOutWarpId, cameraType, the map history, then cyclingGear): 1 is 4th gear, which climbs muddy slopes
+CYCLING_GEAR = 0x8c
 RIDE_FRAMES = 4000  # the longest one hold up the Cycling Road may take, battles aside
 RIDE_STALL = 64  # frames a held key may leave the player where they are before the ride gives up
 RIDE_TRIES = 20  # holds up the Cycling Road, one after each battle on the way (it has 11 bikers)
@@ -1976,6 +1983,14 @@ def main():
                     problem = f'the warp across: {result} after {frames} frames, on {here()} at {d.pos()}'
             elif action[0] == 'ride':
                 problem = ride(action[1], action[2])
+            elif action[0] == 'slope':  # on the Bicycle, into 4th gear (B), the ride up, and off again
+                problem = bike()
+                at = save_block('SAVE_TABLE_ENTRY_FIELD_PLAYER_STATE') + CYCLING_GEAR
+                if not problem and u16(at) != 1:
+                    d.press('B', frames=4, after=16)
+                    if u16(at) != 1:
+                        problem = f'B left the Bicycle in gear {u16(at)}, on {here()} at {d.pos()}'
+                problem = problem or ride(action[1], action[2]) or bike()
             elif action[0] == 'scene':  # the step, then the scene it starts, its menus answered (not settle's A)
                 step(action[1])
                 result, frames = talk_and_answer(d, sym, action[2], SETTLE_FRAMES, press_a=False)
