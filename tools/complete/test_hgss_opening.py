@@ -342,7 +342,8 @@ BLACKTHORN_GYM = 'MAP_HEADER_HGSS_BLACKTHORN_GYM'
 # answers): a step that starts a scene (into a map whose scene starts as the player arrives), its menus answered as
 # talk's are, ('keep', n): the party cut to its first n Pokémon (gSovereignTestPartyKeep, by the test warp onto the
 # player's own tile), ('door', [(x, z), ...]): Hearthome Gym's trainer room left by its right door (read from the save),
-# or ('warp', (x, z), key[, map[, [(var or flag, value), ...]]]): the test warp to that tile on the map the player is on
+# ('out', (x, z), key, map): a walk to that tile and the key, unless map comes first (the Great Marsh's game ending on
+# the way), or ('warp', (x, z), key[, map[, [(var or flag, value), ...]]]): the test warp to that tile on the map the player is on
 # (or that map), facing that way, setting those vars and flags, across a Sinnoh gym or dungeon puzzle of Platinum's the
 # walks don't solve yet (Sovereign's own, unchanged here). The stairs and doors warp
 # as the player presses toward them from their tile.
@@ -918,7 +919,8 @@ PARTS = [('downstairs', ['LEFT'] * 3 + ['UP'] * 2 + ['LEFT'], 'MAP_HEADER_HGSS_N
                              ('to', (5, 7)), ('scene', 'UP', [True]),  # a Safari Game, yes (x 4 or 5 only)
                              ('to', (54, 85)), 'UP', ('talk', [])],  # Great Marsh 3's Totem trial, after Maylene
           'MAP_HEADER_GREAT_MARSH_3', 'FLAG_SOVEREIGN_TOTEM_TRIAL_LURANTIS'),
-         ('Crasher Wake', [('to', (68, 118)), 'DOWN',  # out of the marsh (a prompt? see doubts)
+         ('Crasher Wake', [('out', (68, 118), 'DOWN', 'MAP_HEADER_PASTORIA_CITY_OBSERVATORY_GATE_1F'),  # out of
+                           # the marsh, or its game ends on the way and the player is taken out
                            ('to', (5, 11)), 'DOWN', ('to', (589, 828)), 'UP',
                            ('warp', (13, 5), 'UP'), ('talk', [])],  # across the water levels; the Fen Badge, HM07
           'MAP_HEADER_PASTORIA_CITY_GYM', 'FLAG_RECEIVED_WAKE_TM55'),
@@ -1927,6 +1929,13 @@ def main():
                 problem = bike()
             elif action[0] == 'door':
                 problem = door(action[1])
+            elif action[0] == 'out':  # a walk out to a map that may come first (the Great Marsh's game ends)
+                if here() != action[3]:
+                    problem = walk_to(action[1])
+                    if problem.startswith('left for') and here() == action[3]:
+                        problem = ''
+                    elif not problem:
+                        step(action[2])
             elif action[0] == 'warp':  # the test warp, across a Sinnoh gym or dungeon puzzle the walks don't solve yet
                 face = ('UP', 'DOWN', 'LEFT', 'RIGHT').index(action[2]) + 1
                 for slot, (name, value) in enumerate(action[4] if len(action) > 4 else [], 3):  # set on the warp
