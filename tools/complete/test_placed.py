@@ -17,6 +17,7 @@ From the repo root, with the test build and a bedroom state from it (tools/test/
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [NAME ...]
 """
 import os
+import re
 import struct
 import sys
 
@@ -34,8 +35,10 @@ from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: 
 LIMIT = 40000
 SCRIPT_PLACED = 2074  # CommonScript_CompletePlaced (SCRIPT_ID(COMMON_SCRIPTS, 74))
 # the tile beside the spot to stand on, and the way to face it (enum FaceDirection: up, down, left, right), which the
-# test warp turns the player to
+# test warp turns the player to (a scene on the way in may turn them again: a press that way turns them back)
 SIDES = (((0, 1), 0), ((0, -1), 1), ((1, 0), 2), ((-1, 0), 3))
+KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')
+RAM, RAM_SIZE = 0x02000000, 0x400000
 
 
 def badge_mask(gates):
@@ -117,10 +120,23 @@ def main():
                 result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face + 1)
                 if result == 'ok' and d.pos() != (x + dx, z + dz):  # a scene on the way in moved the player
                     result, _ = warp(d, sym, names.index(header), x + dx, z + dz, face + 1)
+                if result == 'ok' and facing() not in (face, None):  # a press turns them, not a step: they don't
+                    d.press(KEYS[face], frames=4, after=20)  # face that way
                 if os.environ.get('DEBUG'):
                     print(f'  arrived on {d.pos()} for ({x + dx}, {z + dz}): {result}', flush=True)
                 return result
         return 'no free side'
+
+    def facing():
+        """The way the player faces (src/map_object.c's MapObject: the player's localID 0xFF, its tile, its
+        facingDir), or None if their map object isn't found."""
+        ram, pos = bytes(mem.unsigned[RAM:RAM + RAM_SIZE]), d.pos()
+        for found in re.finditer(rb'\xff\x00\x00\x00', ram):
+            o = found.start() - 8  # the localID's offset
+            if o >= 0 and o % 4 == 0 and struct.unpack_from('<I', ram, o)[0] \
+                    and struct.unpack_from('<3i', ram, o + 100)[::2] == pos:
+                return struct.unpack_from('<I', ram, o + 40)[0]
+        return None
 
     def talk():
         mem.write_short(sym['gSovereignTestScripts'], 0)
