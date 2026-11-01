@@ -68,9 +68,11 @@ STEPS = [
 ]
 
 NEXT = [
-    'The story test through Sinnoh, from Twinleaf Town to the Hall of Fame: 70 parts drafted from Platinum\'s scripts '
-    'and running in the emulator (the opening through Rowan\'s briefcase passes so far).',
-    'Then the full test of the game from New Bark Town, recorded, and the 1 to 2 minute highlight video.',
+    'The story test through Sinnoh, from Twinleaf Town to the Hall of Fame: it passes from the opening to Saturn at '
+    'Lake Valor (58 of its 83 parts), and is on its way to Mars at Lake Verity, then Snowpoint, the Galactic HQ, '
+    'Spear Pillar, Sunyshore and the League.',
+    'The full recorded test from New Bark Town is through Johto (76 parts, its Hall of Fame included) and on the '
+    'S.S. Aqua to Kanto; when it reaches Sinnoh\'s Hall of Fame, the 1 to 2 minute highlight video is cut from it.',
 ]
 
 WAITING = [
@@ -106,6 +108,9 @@ RECENT = [
         'under way, and a highlight-video tool cuts captioned clips from its recording.',
         'Sinnoh\'s story walk passes Canalave, Byron, the library and Saturn at Lake Valor: it rides up Route 207\'s '
         'muddy slope on the Bicycle in 4th gear and keeps out of Route 212\'s deep mud.',
+        'The final recorded run passed all of Johto, its Hall of Fame included. The Hall of Fame\'s reset had switched '
+        'off the test\'s no-damage setting, so a sailor\'s Kingdra knocked out the lead on the S.S. Aqua; the test '
+        'sets it again at every part now, and the run goes on from the ship.',
     ]),
 ]
 
@@ -141,9 +146,10 @@ SINNOH_PLAN = [
      'follower out.', 'planned'),
     ('The story test through Sinnoh', 'The playthrough test carried on from Twinleaf Town through Sinnoh\'s story to '
      'the Hall of Fame. It found a freeze at Rowan\'s briefcase (the field heap ran out with the following Pokémon on '
-     'screen), now fixed.', 'active'),
-    ('A full test, and a highlight video', 'Every test on the finished game, the playthrough from New Bark Town to '
-     'Sinnoh\'s Hall of Fame, and a 1 to 2 minute video of it.', 'planned'),
+     'screen), now fixed; it passes as far as Saturn at Lake Valor.', 'active'),
+    ('A full test, and a highlight video', 'Every test on the finished game (placements 40 of 40, Megas 50 of 50, '
+     'Cyrus and Giratina pass), the playthrough from New Bark Town to Sinnoh\'s Hall of Fame (through Johto so far), '
+     'and a 1 to 2 minute video of it.', 'active'),
 ]
 
 # The timeline: the roadmap steps each docs/Progress.md entry was for, by its title (the story test's entries are
@@ -238,13 +244,17 @@ def older_name(part, seen):
     return "Lance's request" if part == 'Lance' and 'LAKE_OF_RAGE' in seen else part
 
 
+FINAL_LOGS = sorted(glob.glob(os.path.join(ROOT, '.cache', 'final', 'run*.log')),
+                    key=lambda path: int(re.search(r'run(\d+)', path).group(1)))
+
+
 def story_maps():
     """The maps each passing part of the story test walked through, from the logs in .cache, and the latest single
-    run's passed parts (story-full3*)."""
+    run's passed parts (the final recorded run from the bedroom: .cache/final/run*.log, one log for each resume)."""
     parts = [p[0] for p in test_hgss_opening.PARTS]
     walked = collections.defaultdict(set)
     passed = set()
-    for path in sorted(glob.glob(os.path.join(ROOT, '.cache', '*.log'))):
+    for path in sorted(glob.glob(os.path.join(ROOT, '.cache', '*.log')) + FINAL_LOGS):
         seen = set()
         for line in open(path, encoding='utf-8', errors='replace'):
             for name in re.findall(r'MAP_HEADER_HGSS_(\w+)', line):
@@ -258,7 +268,7 @@ def story_maps():
                         walked[name].add(part)
                 seen = set()
     single, seen = [], set()
-    for path in sorted(glob.glob(os.path.join(ROOT, '.cache', 'story-full3*.log'))):
+    for path in FINAL_LOGS:
         for line in open(path, encoding='utf-8', errors='replace'):
             for name in re.findall(r'MAP_HEADER_HGSS_(\w+)', line):
                 seen.add(name)
