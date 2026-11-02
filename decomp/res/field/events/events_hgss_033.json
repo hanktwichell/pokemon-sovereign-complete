@@ -52,7 +52,7 @@
     "object_events": [
         {
             "id": "obj_R32_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -71,7 +71,7 @@
         },
         {
             "id": "obj_R32_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -242,7 +242,7 @@
         },
         {
             "id": "obj_R32_gsbigman_2",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1AA",
@@ -261,7 +261,7 @@
         },
         {
             "id": "obj_R32_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -318,7 +318,7 @@
         },
         {
             "id": "obj_R32_gsgirl1",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_208",
@@ -394,7 +394,7 @@
         },
         {
             "id": "obj_R32_gsmiddleman1_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",

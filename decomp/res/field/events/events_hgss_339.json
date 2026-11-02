@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_T07R0501_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_T07R0501_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

@@ -12,7 +12,7 @@
     "object_events": [
         {
             "id": "obj_R02R0101_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -88,7 +88,7 @@
         },
         {
             "id": "obj_R02R0101_4",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_AJI_PERU",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_GOT_TM48_FROM_SABRINA",

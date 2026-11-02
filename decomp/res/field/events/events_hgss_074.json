@@ -71,7 +71,7 @@
         },
         {
             "id": "obj_T26_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -109,7 +109,7 @@
         },
         {
             "id": "obj_T26_gsrivel",
-            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSRIVEL",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_OLIVINE_RIVAL",
@@ -166,7 +166,7 @@
         },
         {
             "id": "obj_T26_gswoman2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN2",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -185,7 +185,7 @@
         },
         {
             "id": "obj_T26_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -204,7 +204,7 @@
         },
         {
             "clone_id": 5,
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_05E",
@@ -223,7 +223,7 @@
         },
         {
             "id": "obj_T26_9",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE8",

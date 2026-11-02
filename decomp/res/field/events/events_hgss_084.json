@@ -28,7 +28,7 @@
     "object_events": [
         {
             "id": "obj_T28_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_205",
@@ -47,7 +47,7 @@
         },
         {
             "id": "obj_T28_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -66,7 +66,7 @@
         },
         {
             "id": "obj_T28_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1F9",
@@ -85,7 +85,7 @@
         },
         {
             "id": "obj_T28_gsgirl1",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SALESWOMAN",

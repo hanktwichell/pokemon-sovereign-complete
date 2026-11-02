@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_DIRECT4_pcwoman3",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_UNUSED_RECEPTIONIST",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

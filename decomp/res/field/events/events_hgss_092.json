@@ -44,7 +44,7 @@
     "object_events": [
         {
             "id": "obj_W41_gsswimmerm",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -63,7 +63,7 @@
         },
         {
             "id": "obj_W41_gsswimmerm_2",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -82,7 +82,7 @@
         },
         {
             "id": "obj_W41_gsswimmerm_3",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -101,7 +101,7 @@
         },
         {
             "id": "obj_W41_gsswimmerm_4",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -120,7 +120,7 @@
         },
         {
             "id": "obj_W41_gsswimmerm_5",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_WALK_WEST_SOUTH_EAST_NORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -139,7 +139,7 @@
         },
         {
             "id": "obj_W41_gsswimmerw",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -158,7 +158,7 @@
         },
         {
             "id": "obj_W41_gsswimmerw_2",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -177,7 +177,7 @@
         },
         {
             "id": "obj_W41_gsswimmerw_3",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -196,7 +196,7 @@
         },
         {
             "id": "obj_W41_gsswimmerw_4",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -215,7 +215,7 @@
         },
         {
             "id": "obj_W41_gsswimmerw_5",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",

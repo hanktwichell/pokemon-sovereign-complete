@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_R17_gang",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -39,7 +39,7 @@
         },
         {
             "id": "obj_R17_gang_2",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_R17_gang_3",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -77,7 +77,7 @@
         },
         {
             "id": "obj_R17_gang_4",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -96,7 +96,7 @@
         },
         {
             "id": "obj_R17_gang_5",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -115,7 +115,7 @@
         },
         {
             "id": "obj_R17_gang_6",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -134,7 +134,7 @@
         },
         {
             "id": "obj_R17_gang_7",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -153,7 +153,7 @@
         },
         {
             "id": "obj_R17_gang_8",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -172,7 +172,7 @@
         },
         {
             "id": "obj_R17_gang_9",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_FACE_SIDES",
             "hidden_flag": "0",
@@ -191,7 +191,7 @@
         },
         {
             "id": "obj_R17_gang_10",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -210,7 +210,7 @@
         },
         {
             "id": "obj_R17_gang_11",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",

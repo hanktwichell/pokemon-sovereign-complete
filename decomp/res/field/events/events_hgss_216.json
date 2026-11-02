@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_T26R0601_1",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_MAID",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_T26R0601_4",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

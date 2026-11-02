@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_D40R0107_dancer",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_D40R0107_dancer_2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_D40R0107_dancer_3",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_D40R0107_dancer_4",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS",
@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_D40R0107_dancer_5",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WHIRL_ISLANDS_BOTTOM_KIMONO_GIRLS",

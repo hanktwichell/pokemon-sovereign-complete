@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_P01R0304_gsman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22B",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_P01R0304_gswoman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22B",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_P01R0304_mania",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MANIA",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22C",

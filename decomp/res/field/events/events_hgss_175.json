@@ -189,7 +189,7 @@
         },
         {
             "id": "obj_T25R0201_3",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_SUIT",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FAC",
@@ -208,7 +208,7 @@
         },
         {
             "id": "obj_T25R0201_4",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_T28GYM0101_gsleader7",
-            "graphics_id": "OBJ_EVENT_GFX_BYRON",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER7",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_GYM_PRYCE",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_T28GYM0101_boarder",
-            "graphics_id": "OBJ_EVENT_GFX_SKIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BOARDER",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_T28GYM0101_boarder_2",
-            "graphics_id": "OBJ_EVENT_GFX_SKIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BOARDER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",

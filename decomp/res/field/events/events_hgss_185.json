@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_T25R1002_gsgirl1",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -88,7 +88,7 @@
         },
         {
             "id": "obj_T25R1002_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -107,7 +107,7 @@
         },
         {
             "clone_id": 0,
-            "graphics_id": "OBJ_EVENT_GFX_PLAYER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_HERO",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -126,7 +126,7 @@
         },
         {
             "id": "obj_T25R1002_6",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

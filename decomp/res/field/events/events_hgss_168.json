@@ -36,7 +36,7 @@
     "object_events": [
         {
             "id": "obj_D47_gsman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -55,7 +55,7 @@
         },
         {
             "id": "obj_D47_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -131,7 +131,7 @@
         },
         {
             "id": "obj_D47_gsbabyboy1",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -150,7 +150,7 @@
         },
         {
             "id": "obj_D47_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -169,7 +169,7 @@
         },
         {
             "id": "obj_D47_gswoman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -188,7 +188,7 @@
         },
         {
             "clone_id": 6,
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -245,7 +245,7 @@
         },
         {
             "id": "obj_D47_gsbabygirl1",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -264,7 +264,7 @@
         },
         {
             "id": "obj_D47_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -321,7 +321,7 @@
         },
         {
             "id": "obj_D47_15",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE0",
@@ -340,7 +340,7 @@
         },
         {
             "clone_id": 15,
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE0",
@@ -359,7 +359,7 @@
         },
         {
             "id": "obj_D47_17",
-            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_RKANBUM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FDF",
@@ -378,7 +378,7 @@
         },
         {
             "id": "obj_D47_18",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETW",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FDF",

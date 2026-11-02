@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_T11GYM0101_itako",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ITAKO",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_T11GYM0101_itako_2",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ITAKO",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -115,7 +115,7 @@
         },
         {
             "id": "obj_T11GYM0101_gsleader10",
-            "graphics_id": "OBJ_EVENT_GFX_GARDENIA",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER10",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SAFFRON_GYM_SABRINA",

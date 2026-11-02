@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_D23R0106_rkanbum",
-            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_RKANBUM",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_D23R0106_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_2",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_D23R0106_2",
-            "graphics_id": "OBJ_EVENT_GFX_CYRUS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_SAKAKI",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",

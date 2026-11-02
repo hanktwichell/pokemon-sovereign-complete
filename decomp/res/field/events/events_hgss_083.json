@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_T27R0501_gsoldwoman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_241",
@@ -39,7 +39,7 @@
         },
         {
             "id": "obj_T27R0501_gsman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_241",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_T27R0501_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_241",
@@ -96,7 +96,7 @@
         },
         {
             "id": "obj_T27R0501_dancer",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",
@@ -115,7 +115,7 @@
         },
         {
             "id": "obj_T27R0501_dancer_2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",
@@ -134,7 +134,7 @@
         },
         {
             "id": "obj_T27R0501_dancer_3",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_23B",
@@ -153,7 +153,7 @@
         },
         {
             "id": "obj_T27R0501_dancer_4",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",
@@ -172,7 +172,7 @@
         },
         {
             "id": "obj_T27R0501_dancer_5",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",
@@ -191,7 +191,7 @@
         },
         {
             "id": "obj_T27R0501_rocketm",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_23A",
@@ -210,7 +210,7 @@
         },
         {
             "id": "obj_T27R0501_dancer_6",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",
@@ -229,7 +229,7 @@
         },
         {
             "id": "obj_T27R0501_gsbabygirl1",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_LITTLE_GIRL",
@@ -248,7 +248,7 @@
         },
         {
             "id": "obj_T27R0501_rocketm_2",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_23A",
@@ -267,7 +267,7 @@
         },
         {
             "id": "obj_T27R0501_13",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",
@@ -286,7 +286,7 @@
         },
         {
             "id": "obj_T27R0501_14",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DANCER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DANCE_STUDIO_KIMONO_GIRLS",

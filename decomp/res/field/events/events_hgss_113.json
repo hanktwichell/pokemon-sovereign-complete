@@ -88,7 +88,7 @@
         },
         {
             "id": "obj_D35R0101_gsfighter",
-            "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSFIGHTER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SHADY_SALESMAN",
@@ -126,7 +126,7 @@
         },
         {
             "id": "obj_D35R0101_gsoldwoman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDWOMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_SALESWOMAN",
@@ -145,7 +145,7 @@
         },
         {
             "id": "obj_D35R0101_wataru",
-            "graphics_id": "OBJ_EVENT_GFX_CYNTHIA",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_WATARU",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_MAHOGANY_SHOP_LANCE",

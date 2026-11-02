@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_T26R0701_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_T26R0701_gsleader6",
-            "graphics_id": "OBJ_EVENT_GFX_CANDICE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER6",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_2CB",

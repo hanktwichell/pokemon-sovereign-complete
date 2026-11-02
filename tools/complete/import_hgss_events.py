@@ -11,9 +11,10 @@ as Platinum's, and the names (object IDs, sprites) from its JSON sources. docs/M
 - objects: the same local IDs (HeartGold's object names become the LOCALID constants for scripts), position, facing
   and range; movement types 0-46 are the same in both games, the rest look south; HeartGold flag f -> flag
   COMPLETE_FLAGS_START + f (named FLAG_HGSS_* in generated/vars_flags.txt), its per-map flags (1-64) stay the same;
-  sprites: Platinum's sprite with the same number for HeartGold's first 146 (Diamond and Pearl's list, which both
-  games kept), for HeartGold's own ones the Diamond and Pearl sprite of the same kind, Sovereign's overworld Pokémon,
-  or a stand-in (SPRITE_STAND_INS) until HeartGold's sprites come in;
+  sprites: HeartGold's own, converted by tools/complete/gen_hgss_people_sprites.py (data/complete/hgss_sprites.json:
+  its people, Elm, Ethan and Lyra), else Platinum's sprite with the same number for HeartGold's first 146 (Diamond
+  and Pearl's list, which both games kept), Sovereign's overworld Pokémon, or a stand-in (SPRITE_STAND_INS: the
+  following Pokémon's sprites, the Apricorn trees, signs and 3D gimmicks, which aren't converted yet);
 - signs and hidden items (bg events): kept, same kind and facing;
 - vars: HeartGold's saved vars (0x4030 on) are named VAR_HGSS_* after HeartGold's, as aliases of VAR_COMPLETE_*;
 - scripts: Cut trees, Rock Smash rocks and Strength boulders run the same scripts in both games (10000-10002). On maps
@@ -84,6 +85,7 @@ SPRITE_STAND_INS = {
 SPRITE_BY_KEYWORD = [('LEADER', 'GYM_GUIDE'), ('SIGN', 'SIGNBOARD'), ('TOROPHY', 'POKEBALL'), ('GATE', 'BOLLARD'),
                      ('BABYBOY', 'NINJA_BOY'), ('HERO', 'PLAYER_M')]
 SPRITE_FALLBACK = 'MIDDLE_AGED_MAN'
+HGSS_SPRITES = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'data', 'complete', 'hgss_sprites.json')
 # Sovereign Complete's own vars, on Sacred Gold's last eleven (61B5 to 61BF), which its scripts never use: whether
 # HeartGold's mass outbreaks are on (src/complete_encounters.c), Johto's rival's name, a character in each of eight
 # (src/complete_rival.c), and the Ball Kurt is making and how many (src/complete_apricorns.c)
@@ -127,14 +129,18 @@ class Sprites:
             self.hg.setdefault(n, name[len('SPRITE_'):])
         self.dp_names = {self.hg[n]: n for n in range(SAME_SPRITES) if n in self.hg}
         self.unmatched = set()
+        # HeartGold's own sprites, converted (tools/complete/gen_hgss_people_sprites.py): its name -> the engine's ID
+        self.converted = json.load(open(HGSS_SPRITES))['sprites'] if os.path.exists(HGSS_SPRITES) else {}
 
     def by_number(self, n):
         return self.platinum[n + 1 if 100 <= n <= 115 else n]  # Platinum's berry soil sits at 100
 
     def name(self, n):
+        hg = self.hg.get(n, f'{n}')
+        if hg in self.converted:
+            return self.converted[hg]
         if n < SAME_SPRITES:
             return self.by_number(n)
-        hg = self.hg.get(n, f'{n}')
         # HeartGold's static Pokémon, and Sacred Gold's Pokémon standing about (its lake trio at Sinjoh, the
         # legendaries it adds): the engine's sprite of that Pokémon where it has one (Giratina's Altered Forme)
         pokemon = re.fullmatch(r'FOLLOWER_MON_(STATIC_)?(\w+?)(_SPIKY|_NORMAL|_F|_M)?', hg)

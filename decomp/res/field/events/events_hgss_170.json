@@ -39,7 +39,7 @@
         },
         {
             "id": "obj_D26R0102_rocketm",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_D26R0102_rocketm_2",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
@@ -77,7 +77,7 @@
         },
         {
             "id": "obj_D26R0102_rocketw",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETW",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
@@ -96,7 +96,7 @@
         },
         {
             "id": "obj_D26R0102_rkanbum3",
-            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_RKANBUM3",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1A9",
@@ -115,7 +115,7 @@
         },
         {
             "id": "obj_D26R0102_yadon",
-            "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_YADON",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1D5",
@@ -134,7 +134,7 @@
         },
         {
             "id": "obj_D26R0102_yadon_2",
-            "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_YADON",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1D5",
@@ -153,7 +153,7 @@
         },
         {
             "id": "obj_D26R0102_gantetsu",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GANTETSU",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1AA",

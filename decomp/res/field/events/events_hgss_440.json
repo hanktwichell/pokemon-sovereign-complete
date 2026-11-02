@@ -90,7 +90,7 @@
         },
         {
             "id": "obj_D22R0102_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_DON",
@@ -109,7 +109,7 @@
         },
         {
             "id": "obj_D22R0102_gsboy3_2",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_ED",
@@ -128,7 +128,7 @@
         },
         {
             "id": "obj_D22R0102_gswoman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN3",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_ACE_TRAINER_ABBY",
@@ -147,7 +147,7 @@
         },
         {
             "id": "obj_D22R0102_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_POKEFAN_WILLIAM",
@@ -166,7 +166,7 @@
         },
         {
             "id": "obj_D22R0102_gsboy3_3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_BENNY",
@@ -223,7 +223,7 @@
         },
         {
             "id": "obj_D22R0102_gsboy3_4",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_BUG_CATCHER_JOSH",
@@ -242,7 +242,7 @@
         },
         {
             "id": "obj_D22R0102_gsboy2",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY2",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_YOUNGSTER_SAMUEL",
@@ -261,7 +261,7 @@
         },
         {
             "id": "obj_D22R0102_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_BUG_CONTESTANT_SCHOOL_KID_KIPP",

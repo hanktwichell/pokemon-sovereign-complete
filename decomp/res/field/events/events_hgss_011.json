@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_R06_gsbabygirl1",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_R06_gsbabygirl1_2",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -89,7 +89,7 @@
         },
         {
             "id": "obj_R06_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_258",

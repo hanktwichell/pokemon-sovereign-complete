@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_P01R0101_gswoman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN3",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_P01R0101_gsboy2",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY2",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

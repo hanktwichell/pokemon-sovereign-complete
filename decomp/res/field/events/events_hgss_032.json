@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_R31_gsman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_R31_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -96,7 +96,7 @@
         },
         {
             "id": "obj_R31_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -115,7 +115,7 @@
         },
         {
             "id": "obj_R31_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",

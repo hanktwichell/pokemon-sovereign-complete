@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_D11R0106_gsleader15",
-            "graphics_id": "OBJ_EVENT_GFX_BYRON",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER15",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SEAFOAM_GYM_BLAINE",
@@ -98,7 +98,7 @@
         },
         {
             "id": "obj_D11R0106_gsassistantm",
-            "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSASSISTANTM",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FB6",
@@ -117,7 +117,7 @@
         },
         {
             "id": "obj_D11R0106_gsassistantm_2",
-            "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSASSISTANTM",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FB6",
@@ -136,7 +136,7 @@
         },
         {
             "id": "obj_D11R0106_gsassistantm_3",
-            "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSASSISTANTM",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FB6",

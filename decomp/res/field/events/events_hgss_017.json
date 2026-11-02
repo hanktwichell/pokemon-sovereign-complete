@@ -66,7 +66,7 @@
         },
         {
             "id": "obj_R12_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH_AND_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -85,7 +85,7 @@
         },
         {
             "id": "obj_R12_gsman2_2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -104,7 +104,7 @@
         },
         {
             "id": "obj_R12_gswoman2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -162,7 +162,7 @@
         },
         {
             "id": "obj_R12_gsman2_3",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -276,7 +276,7 @@
         },
         {
             "id": "obj_R12_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -295,7 +295,7 @@
         },
         {
             "clone_id": 0,
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_HIDE_OBSTACLE_22",
@@ -333,7 +333,7 @@
         },
         {
             "id": "obj_R12_gsbabyboy1",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_12_SNORLAX",
@@ -352,7 +352,7 @@
         },
         {
             "id": "obj_R12_gsbabyboy1_2",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_12_SNORLAX",
@@ -371,7 +371,7 @@
         },
         {
             "id": "obj_R12_gsbabyboy1_3",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_12_SNORLAX",

@@ -12,7 +12,7 @@
     "object_events": [
         {
             "id": "obj_T11R0701_gswoman6",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN6",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_282",
@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_T11R0701_daigo",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DAIGO",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SAFFRON_CITY_STEVEN",
@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_T11R0701_3",
-            "graphics_id": "OBJ_EVENT_GFX_PROF_ROWAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DOCTOR",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F9A",

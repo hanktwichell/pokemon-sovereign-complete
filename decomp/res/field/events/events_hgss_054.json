@@ -44,7 +44,7 @@
     "object_events": [
         {
             "id": "obj_T09_gsleader16",
-            "graphics_id": "OBJ_EVENT_GFX_VOLKNER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER16",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_25A",
@@ -63,7 +63,7 @@
         },
         {
             "id": "obj_T09_gsleader15",
-            "graphics_id": "OBJ_EVENT_GFX_BYRON",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER15",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_27D",

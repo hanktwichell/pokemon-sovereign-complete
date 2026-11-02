@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_T10R0201_gsbigfour1",
-            "graphics_id": "OBJ_EVENT_GFX_AARON",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGFOUR1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_T05R0601_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_T05R0601_gsoldwoman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_T05R0601_gsgirl1",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_T05R0601_gswoman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_T05R0601_4",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

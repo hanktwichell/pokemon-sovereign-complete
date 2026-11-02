@@ -74,7 +74,7 @@
         },
         {
             "id": "obj_R26_gswoman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN3",
             "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -93,7 +93,7 @@
         },
         {
             "id": "obj_R26_gsman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -112,7 +112,7 @@
         },
         {
             "id": "obj_R26_gsman3_2",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -131,7 +131,7 @@
         },
         {
             "id": "obj_R26_gswoman3_2",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN3",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -188,7 +188,7 @@
         },
         {
             "id": "obj_R26_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",

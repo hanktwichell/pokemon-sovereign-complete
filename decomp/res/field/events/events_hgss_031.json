@@ -52,7 +52,7 @@
     "object_events": [
         {
             "id": "obj_R30_gsman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -71,7 +71,7 @@
         },
         {
             "id": "obj_R30_gsgirl2",
-            "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL2",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -128,7 +128,7 @@
         },
         {
             "id": "obj_R30_gsboy2",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY2",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_30_YOUNGSTER_JOEY",
@@ -204,7 +204,7 @@
         },
         {
             "id": "obj_R30_gsboy2_3",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY2",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_30_BATTLERS",
@@ -299,7 +299,7 @@
         },
         {
             "id": "obj_R30_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_30_APRICORN_MAN",
@@ -318,7 +318,7 @@
         },
         {
             "id": "obj_R30_gsboy3_2",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

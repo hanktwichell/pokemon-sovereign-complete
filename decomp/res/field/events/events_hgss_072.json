@@ -87,7 +87,7 @@
         },
         {
             "id": "obj_T24_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -125,7 +125,7 @@
         },
         {
             "id": "obj_T24_gsgirl1",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -182,7 +182,7 @@
         },
         {
             "id": "obj_T24_minaki",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MINAKI",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CIANWOOD_EUSINE",
@@ -296,7 +296,7 @@
         },
         {
             "id": "obj_T24_12",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_CAITLIN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F59",

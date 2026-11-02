@@ -44,7 +44,7 @@
     "object_events": [
         {
             "id": "obj_T08_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -63,7 +63,7 @@
         },
         {
             "id": "obj_T08_gswoman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -82,7 +82,7 @@
         },
         {
             "id": "obj_T08_gsboy2",
-            "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY2",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F62",
@@ -139,7 +139,7 @@
         },
         {
             "id": "obj_T08_gsmiddleman1_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -158,7 +158,7 @@
         },
         {
             "id": "obj_T08_juggrer",
-            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_JUGGRER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F62",
@@ -500,7 +500,7 @@
         },
         {
             "id": "obj_T08_24",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F63",
@@ -595,7 +595,7 @@
         },
         {
             "id": "obj_T08_29",
-            "graphics_id": "OBJ_EVENT_GFX_FANTINA",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER13",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F63",

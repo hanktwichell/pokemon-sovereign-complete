@@ -929,13 +929,13 @@ BOOL CompleteScrCmd_ScreenShake(ScriptContext *ctx)
     return TRUE;
 }
 
-// HeartGold's GetFriendSprite: the childhood friend's look, the player sprite of the other gender (Platinum's stand in
-// for Ethan's and Lyra's, as the maps' player sprites do: tools/complete/import_hgss_events.py)
+// HeartGold's GetFriendSprite: the childhood friend's look, Lyra for a boy and Ethan for a girl (HeartGold's own
+// sprites, tools/complete/gen_hgss_people_sprites.py)
 BOOL CompleteScrCmd_GetFriendSprite(ScriptContext *ctx)
 {
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
 
-    *destVar = TrainerInfo_Gender(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData)) == GENDER_MALE ? OBJ_EVENT_GFX_PLAYER_F : OBJ_EVENT_GFX_PLAYER_M;
+    *destVar = TrainerInfo_Gender(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData)) == GENDER_MALE ? OBJ_EVENT_GFX_HGSS_HEROINE : OBJ_EVENT_GFX_HGSS_HERO;
     return FALSE;
 }
 

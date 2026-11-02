@@ -12,7 +12,7 @@
     "object_events": [
         {
             "id": "obj_T22PC0101_gsman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -31,7 +31,7 @@
         },
         {
             "id": "obj_T22PC0101_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_T22PC0101_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -88,7 +88,7 @@
         },
         {
             "id": "obj_T22PC0101_pcwoman2",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -107,7 +107,7 @@
         },
         {
             "id": "obj_T22PC0101_pcwoman2_2",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -126,7 +126,7 @@
         },
         {
             "id": "obj_T22PC0101_pcwoman2_3",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -164,7 +164,7 @@
         },
         {
             "id": "obj_T22PC0101_instructor",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_INSTRUCTOR",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -183,7 +183,7 @@
         },
         {
             "id": "obj_T22PC0101_gsman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -202,7 +202,7 @@
         },
         {
             "id": "obj_T22PC0101_10",
-            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_JUGGRER",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FF8",

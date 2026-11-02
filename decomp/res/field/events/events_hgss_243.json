@@ -204,7 +204,7 @@
     "object_events": [
         {
             "id": "obj_D32_gswoman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -223,7 +223,7 @@
         },
         {
             "id": "obj_D32_gsoldwoman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDWOMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -242,7 +242,7 @@
         },
         {
             "id": "obj_D32_gsoldman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDMAN1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -261,7 +261,7 @@
         },
         {
             "id": "obj_D32_gsbabygirl1",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -280,7 +280,7 @@
         },
         {
             "id": "obj_D32_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH_AND_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -299,7 +299,7 @@
         },
         {
             "id": "obj_D32_gsbabyboy1",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -356,7 +356,7 @@
         },
         {
             "id": "obj_D32_gsfighter",
-            "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSFIGHTER",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -432,7 +432,7 @@
         },
         {
             "id": "obj_D32_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -451,7 +451,7 @@
         },
         {
             "id": "obj_D32_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -470,7 +470,7 @@
         },
         {
             "id": "obj_D32_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -489,7 +489,7 @@
         },
         {
             "id": "obj_D32_gsbabyboy1_2",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -508,7 +508,7 @@
         },
         {
             "id": "obj_D32_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -584,7 +584,7 @@
         },
         {
             "id": "obj_D32_gswoman1_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -603,7 +603,7 @@
         },
         {
             "id": "obj_D32_gswoman1_3",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -622,7 +622,7 @@
         },
         {
             "id": "obj_D32_gsman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -660,7 +660,7 @@
         },
         {
             "id": "obj_D32_gsmiddleman1_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",

@@ -44,7 +44,7 @@
     "object_events": [
         {
             "id": "obj_R36_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -63,7 +63,7 @@
         },
         {
             "id": "obj_R36_gsgirl1",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -101,7 +101,7 @@
         },
         {
             "id": "obj_R36_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -120,7 +120,7 @@
         },
         {
             "id": "obj_R36_usokky",
-            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_USOKKY",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_36_SUDOWOODO",
@@ -139,7 +139,7 @@
         },
         {
             "id": "obj_R36_gsgirl1_2",
-            "graphics_id": "OBJ_EVENT_GFX_LASS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_36_FLOWERSHOP_GIRL",
@@ -158,7 +158,7 @@
         },
         {
             "id": "obj_R36_gsboy1_2",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1C4",
@@ -215,7 +215,7 @@
         },
         {
             "id": "obj_R36_9",
-            "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSFIGHTER",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

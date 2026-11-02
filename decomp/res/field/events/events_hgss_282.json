@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_P01R0305_fire",
-            "graphics_id": "OBJ_EVENT_GFX_VENT",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_FIRE",
             "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22A",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_P01R0305_gswoman2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22B",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_P01R0305_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22C",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_P01R0305_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_UNK_22C",

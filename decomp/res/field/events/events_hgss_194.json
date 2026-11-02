@@ -36,7 +36,7 @@
     "object_events": [
         {
             "id": "obj_D37R0104_rocketm",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -55,7 +55,7 @@
         },
         {
             "id": "obj_D37R0104_rocketm_2",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -74,7 +74,7 @@
         },
         {
             "id": "obj_D37R0104_rocketm_3",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -93,7 +93,7 @@
         },
         {
             "id": "obj_D37R0104_rocketw",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETW",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -112,7 +112,7 @@
         },
         {
             "id": "obj_D37R0104_thief",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_THIEF",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -131,7 +131,7 @@
         },
         {
             "id": "obj_D37R0104_thief_2",
-            "graphics_id": "OBJ_EVENT_GFX_ROUGHNECK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_THIEF",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -568,7 +568,7 @@
         },
         {
             "id": "obj_D37R0104_gsrivel",
-            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSRIVEL",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

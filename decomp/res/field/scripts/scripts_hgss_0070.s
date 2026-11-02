@@ -31,13 +31,13 @@ _008A:
     @ HGSS: ScrCmd_520
     Return
 _008E:
-    SetVarFromValue VAR_OBJ_GFX_ID_A, 282
+    SetVarFromValue VAR_OBJ_GFX_ID_A, OBJ_EVENT_GFX_FRONTIER_SINGLE_ATTENDANT
     Return
 _0096:
-    SetVarFromValue VAR_OBJ_GFX_ID_A, 286
+    SetVarFromValue VAR_OBJ_GFX_ID_A, OBJ_EVENT_GFX_WIFI_PLAZA_ATTENDANT_F
     Return
 _009E:
-    SetVarFromValue VAR_OBJ_GFX_ID_A, 283
+    SetVarFromValue VAR_OBJ_GFX_ID_A, OBJ_EVENT_GFX_FRONTIER_MULTI_ATTENDANT
     Return
 _00A6:
     FadeScreen 6, 1, 0, COLOR_BLACK

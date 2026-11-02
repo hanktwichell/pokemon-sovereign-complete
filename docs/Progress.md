@@ -1264,3 +1264,22 @@ Test results on the new test build:
   player has warped elsewhere on the same map (2F's way north); a scene step may take three times a talk's frames
   (Spear Pillar's runs about 35,000); and the Distortion World's stand-in opens the Spring Path, as the Giratina
   room's portal does.
+- **Sinnoh's story test passes to the Hall of Fame:** the League's lift rooms raise their lifts on a step-on trigger
+  before the door to each room (the walks now step on it); Bertha asks for her format too on a first run (singles, as
+  Aaron's, so Flint and Lucian battle in doubles); and Cynthia's win runs on through the Hall of Fame, Platinum's
+  credits and the reset to the title screen, which a new long wait ('settle') presses through to Continue in
+  Twinleaf. Every part from Twinleaf to the Hall of Fame has now passed (across resumes from each part's state).
+- **Rock Climb walls before the badge:** HeartGold marks Rock Climb walls with the same tile behaviors as Platinum
+  (one sits on Route 5), and the full recorded run tried to climb it before Lt. Surge; the walks keep off Rock Climb
+  walls until the Icicle or Earth Badge allows the move.
+- **HeartGold's people sprites:** `tools/complete/gen_hgss_people_sprites.py` converts HeartGold's own overworld
+  sprites (99 new ones: the 16 gym leaders, Silver, Team Rocket and its executives, Kurt, Bill, Eusine, Lance, Giovanni,
+  Red, Elm, Ethan and Lyra, the Kimono Girls, Johto's townsfolk, Sudowoodo, the red Gyarados and the rest), and 26
+  more turn out to be Platinum's art already (Oak, the nurse, the Gym Guide, the Maid), so they use Platinum's. Misty
+  and Whitney no longer look like Crasher Wake: 1,449 objects on 381 maps changed. The new IDs are fixed
+  (OBJ_EVENT_GFX_HGSS_<NAME> = 1024 + HeartGold's number), and the mapping is in `data/complete/hgss_sprites.json`,
+  which `import_hgss_events.py` and the script translation read. The friend is Lyra or Ethan now, not Dawn or Lucas.
+  Fixed on the way: scripts that set a sprite by number (Mom, Whitney and the friend in a scene, Silver's starter's
+  Poké Ball) used HeartGold's numbers as they were, which name other sprites in Platinum's list (365 was the Iron
+  Crown legendary) or none at all; they translate now. Still stand-ins: the following Pokémon's sprites (next), the
+  Apricorn trees, signs, statues and the 3D gimmicks HeartGold draws as models.

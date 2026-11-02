@@ -254,7 +254,7 @@
         },
         {
             "id": "obj_T06GYM0101_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -273,7 +273,7 @@
         },
         {
             "id": "obj_T06GYM0101_juggrer",
-            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_JUGGRER",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -292,7 +292,7 @@
         },
         {
             "id": "obj_T06GYM0101_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -311,7 +311,7 @@
         },
         {
             "id": "obj_T06GYM0101_gsleader9",
-            "graphics_id": "OBJ_EVENT_GFX_ROARK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER9",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_LT_SURGE",

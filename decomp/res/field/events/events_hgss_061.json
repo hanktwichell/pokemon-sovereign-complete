@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_T20R0202_storophy",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_STOROPHY",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_PLAYERS_ROOM_SILVER_TROPHY",
@@ -39,7 +39,7 @@
         },
         {
             "id": "obj_T20R0202_gtorophy",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GTOROPHY",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_PLAYERS_ROOM_GOLD_TROPHY",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_T20R0202_btorophy",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BTOROPHY",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_PLAYERS_ROOM_BRONZE_TROPHY",

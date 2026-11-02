@@ -31,7 +31,7 @@
         },
         {
             "id": "obj_T26PC0101_pcwoman2",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_T26PC0101_pcwoman2_2",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_T26PC0101_pcwoman2_3",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -88,7 +88,7 @@
         },
         {
             "id": "obj_T26PC0101_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -126,7 +126,7 @@
         },
         {
             "id": "obj_T26PC0101_gswoman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -145,7 +145,7 @@
         },
         {
             "id": "obj_T26PC0101_gswoman2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -164,7 +164,7 @@
         },
         {
             "id": "obj_T26PC0101_8",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_UNUSED_RECEPTIONIST",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3F56",

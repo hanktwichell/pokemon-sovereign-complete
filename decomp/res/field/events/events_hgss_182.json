@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_D23R0105_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_RADIO_TOWER_5F_OFFICE_DIRECTOR",
@@ -39,7 +39,7 @@
         },
         {
             "id": "obj_D23R0105_rkanbuw",
-            "graphics_id": "OBJ_EVENT_GFX_MARS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_RKANBUW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_TAKEOVER_1",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_D23R0105_rkanbum2",
-            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_RKANBUM2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_RADIO_TOWER_5F_PETREL_REVEALED",

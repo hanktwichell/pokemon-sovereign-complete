@@ -44,7 +44,7 @@
     "object_events": [
         {
             "id": "obj_T11R0702_rotomf",
-            "graphics_id": "OBJ_EVENT_GFX_ROTOM_FAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROTOMF",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SILPH_ROTOM_HEAT",
@@ -63,7 +63,7 @@
         },
         {
             "id": "obj_T11R0702_rotoms",
-            "graphics_id": "OBJ_EVENT_GFX_ROTOM_FROST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROTOMS",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SILPH_ROTOM_FAN",
@@ -82,7 +82,7 @@
         },
         {
             "id": "obj_T11R0702_rotomi",
-            "graphics_id": "OBJ_EVENT_GFX_ROTOM_HEAT",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROTOMI",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SILPH_ROTOM_FROST",
@@ -101,7 +101,7 @@
         },
         {
             "id": "obj_T11R0702_rotomw",
-            "graphics_id": "OBJ_EVENT_GFX_ROTOM_WASH",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROTOMW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SILPH_ROTOM_WASH",
@@ -120,7 +120,7 @@
         },
         {
             "id": "obj_T11R0702_rotomg",
-            "graphics_id": "OBJ_EVENT_GFX_ROTOM_MOW",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROTOMG",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_SILPH_ROTOM_MOW",

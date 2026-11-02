@@ -18,10 +18,10 @@ scr_seq_T11R0802_004:
     GetPlayerGender VAR_MAP_LOCAL_0x09
     CompareVar VAR_MAP_LOCAL_0x09, 0
     GoToIf 5, _003B
-    SetVarFromValue VAR_OBJ_GFX_ID_0, 0
+    SetVarFromValue VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_HGSS_HERO
     GoTo _0041
 _003B:
-    SetVarFromValue VAR_OBJ_GFX_ID_0, 97
+    SetVarFromValue VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_HGSS_HEROINE
 _0041:
     End
 scr_seq_T11R0802_005:

@@ -31,7 +31,7 @@
         },
         {
             "id": "obj_D47PC0101_pcwoman2",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_D47PC0101_pcwoman2_2",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_D47PC0101_pcwoman2_3",
-            "graphics_id": "OBJ_EVENT_GFX_RECEPTIONIST",
+            "graphics_id": "OBJ_EVENT_GFX_TEALA",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FE7",
@@ -126,7 +126,7 @@
         },
         {
             "id": "obj_D47PC0101_6",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETW",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FFF",
@@ -164,7 +164,7 @@
         },
         {
             "id": "obj_D47PC0101_8",
-            "graphics_id": "OBJ_EVENT_GFX_SATURN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_RKANBUM",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FFF",

@@ -112,7 +112,7 @@
         },
         {
             "id": "obj_W21_gsswimmerw",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -131,7 +131,7 @@
         },
         {
             "id": "obj_W21_gsswimmerw_2",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -150,7 +150,7 @@
         },
         {
             "id": "obj_W21_gsswimmerw_3",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERW",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -169,7 +169,7 @@
         },
         {
             "id": "obj_W21_gsswimmerm",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_WALK_WEST_SOUTH_EAST_NORTH",
             "trainer_type": "TRAINER_TYPE_SPIN_COUNTERCLOCKWISE",
             "hidden_flag": "0",
@@ -188,7 +188,7 @@
         },
         {
             "id": "obj_W21_gsswimmerm_2",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -207,7 +207,7 @@
         },
         {
             "id": "obj_W21_gsswimmerm_3",
-            "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSSWIMMERM",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -226,7 +226,7 @@
         },
         {
             "id": "obj_W21_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -245,7 +245,7 @@
         },
         {
             "id": "obj_W21_gsman2_2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -264,7 +264,7 @@
         },
         {
             "id": "obj_W21_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -283,7 +283,7 @@
         },
         {
             "clone_id": 1,
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_MAP_LOCAL_HIDE_OBSTACLE_18",

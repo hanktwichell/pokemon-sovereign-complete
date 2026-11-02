@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
 from talk_to_objects import event_maps  # noqa: E402
 import test_hgss_opening  # noqa: E402
 
-UPDATED = 'Nov 1, 2026'
+UPDATED = 'Nov 2, 2026'
 
 # The roadmap's steps (docs/Roadmap.md) and where each stands: status is one of done, mostly, active, waiting, ready,
 # later
@@ -58,7 +58,8 @@ STEPS = [
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
      'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. Sinnoh\'s levels follow Kanto\'s; Totems, '
-     'legendaries and Megas are spread over all three regions. The story test is working through Sinnoh.'),
+     'legendaries and Megas are spread over all three regions. The story test has played every part from New Bark '
+     'Town to Sinnoh\'s Hall of Fame.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
      'the game through.'),
@@ -68,12 +69,12 @@ STEPS = [
 ]
 
 NEXT = [
-    'Finish the full test: the story test through Sinnoh passes as far as Victory Road (the League and the Hall of '
-    'Fame are next), and the recorded run from New Bark Town is in Kanto; then the 1 to 2 minute highlight video. A '
-    'first 57-second preview of Johto and Kanto is out.',
-    'Then bring over every HeartGold sprite there is access to: its people (Whitney, Misty and the other leaders, Elm, '
-    'Lyra, Silver, Kurt, Team Rocket and the rest, now drawn with Sinnoh stand-ins) and its walking Pokémon, and '
-    'record the highlight clips again with them. Custom or missing Pokémon sprites are yours, later.',
+    'HeartGold\'s sprites: its people are in (Whitney and Misty look like themselves now; 99 new sprites). Next, all '
+    '566 of its walking Pokémon for the follower and the Pokémon standing about, then the Apricorn trees, signs and '
+    'statues. Custom or missing Pokémon sprites are yours, later.',
+    'The full recorded run from New Bark Town is in Kanto; when it reaches Sinnoh\'s Hall of Fame, the 1 to 2 minute '
+    'highlight video, with clips recorded again on the build with HeartGold\'s sprites. A first 57-second preview is '
+    'out.',
 ]
 
 WAITING = [
@@ -88,35 +89,29 @@ WAITING = [
     ('Art', 'Who draws the three-region Town Map and the walking sprites for #494 to #1025.'),
 ]
 
-# Since yesterday: the latest work, from docs/Progress.md (Nov 1)
+# Since yesterday: the latest work, from docs/Progress.md (Nov 1-2)
 RECENT = [
-    ('Sinnoh, the third region', [
-        'Sinnoh\'s trainers, wild Pokémon, gifts, roamers and the post-game legendaries follow Kanto\'s levels (Roark\'s '
-        'ace Lv. 72, Cynthia\'s 96), from one table you can change (data/complete/sinnoh.yaml); level caps run through '
-        'all three regions.',
-        'The first ship to Sinnoh lands in Twinleaf Town and Platinum\'s opening plays; Rowan\'s starter goes to the '
-        'PC with a full party, and his lab looks at it, not at your lead.',
+    ('HeartGold\'s sprites', [
+        'Johto\'s and Kanto\'s people use HeartGold\'s own sprites: the 16 gym leaders, Silver, Team Rocket and its '
+        'executives, Kurt, Bill, Eusine, Lance, Giovanni, Red, Elm, the Kimono Girls and the townsfolk. 1,449 people '
+        'on 381 maps changed; Misty and Whitney no longer look like Crasher Wake.',
+        'Your childhood friend is Lyra (or Ethan), not Dawn or Lucas.',
+        'Scripts that change someone\'s look in a scene (Mom, Whitney, the friend, Silver\'s starter) named the wrong '
+        'sprites; they use the right ones now.',
+    ]),
+    ('The story test reaches the end', [
+        'Every part from New Bark Town to Sinnoh\'s Hall of Fame has passed: the Elite Four (their lifts, Bertha\'s '
+        'format question), Cynthia, the Hall of Fame, the credits and the reset back to Twinleaf.',
+        'Sinnoh\'s middle and north: Canalave, Byron, Lake Valor, Acuity, the Snowpoint Temple, the Galactic HQ, Spear '
+        'Pillar, the Distortion World and Victory Road.',
+        'The walks cut trees, smash rocks, push boulders, ride the Cycling Road and climb waterfalls and Rock Climb '
+        'walls, but keep off Rock Climb walls until a badge allows it (one on Route 5 stopped the recorded run).',
     ]),
     ('Bugs the tests found and fixed', [
-        'Entering Burned Tower B1F, Dragon\'s Den or the Ruins of Alph froze the game (an item-gated legendary checked '
-        'the bag with a heap that doesn\'t exist while a map loads).',
-        'Rowan\'s briefcase froze the game: Route 201 reloading with Rowan, Dawn, Barry and the following Pokémon ran '
-        'the field heap out. The overworld\'s field heap is 32 KB bigger.',
-    ]),
-    ('Tests', [
-        'All 40 Totem and legendary placements pass; all 50 Mega-holding bosses Mega Evolve in battle.',
-        'The story test now runs 186 parts, from New Bark Town to Sinnoh\'s Hall of Fame; the final recorded run is '
-        'under way, and a highlight-video tool cuts captioned clips from its recording.',
-        'Sinnoh\'s story walk passes Canalave, Byron, the library and Saturn at Lake Valor: it rides up Route 207\'s '
-        'muddy slope on the Bicycle in 4th gear and keeps out of Route 212\'s deep mud.',
-        'Totems Marowak (Rock Tunnel) and Salazzle (Cinnabar) stood on Rock Climb ledges, which nobody can reach that '
-        'early (HeartGold\'s Rock Climb comes from Oak late in Kanto); both are moved, and the spot finder treats those '
-        'walls as walls now.',
-        'The walks now cut trees, smash rocks and climb Rock Climb walls in their way, push Mt. Coronet\'s boulders, '
-        'ride up Route 206\'s Cycling Road and climb Route 223\'s waterfall.',
-        'The first recorded run passed all of Johto, its Hall of Fame included. The Hall of Fame\'s reset had switched '
-        'off the test\'s no-damage setting, so a sailor\'s Kingdra knocked out the lead on the S.S. Aqua; the test '
-        'sets it again at every part now, and the run goes on from the ship.',
+        'Totems Marowak (Rock Tunnel) and Salazzle (Cinnabar) stood on Rock Climb ledges nobody could reach that early; '
+        'both are moved.',
+        'Entering Burned Tower B1F, Dragon\'s Den or the Ruins of Alph froze the game; Rowan\'s briefcase froze it '
+        'too (the field heap ran out). Both fixed.',
     ]),
 ]
 

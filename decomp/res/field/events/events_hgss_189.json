@@ -36,7 +36,7 @@
     "object_events": [
         {
             "id": "obj_T25R1006_gsman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN1",
             "movement_type": "MOVEMENT_TYPE_WANDER_NORTH_AND_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -55,7 +55,7 @@
         },
         {
             "id": "obj_T25R1006_gsgirl2",
-            "graphics_id": "OBJ_EVENT_GFX_BATTLE_GIRL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGIRL2",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -74,7 +74,7 @@
         },
         {
             "id": "obj_T25R1006_gswoman6",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN6",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -93,7 +93,7 @@
         },
         {
             "id": "obj_T25R1006_gsleader3",
-            "graphics_id": "OBJ_EVENT_GFX_CRASHER_WAKE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26F",
@@ -112,7 +112,7 @@
         },
         {
             "id": "obj_T25R1006_gswoman6_2",
-            "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN6",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

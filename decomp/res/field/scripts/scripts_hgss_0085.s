@@ -112,25 +112,25 @@ _01B3:
     GoToIf 1, _01DB
     Return
 _01D3:
-    SetVarFromValue VAR_OBJ_GFX_ID_1, 97
+    SetVarFromValue VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_HGSS_HEROINE
     Return
 _01DB:
-    SetVarFromValue VAR_OBJ_GFX_ID_1, 0
+    SetVarFromValue VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_HGSS_HERO
     Return
 _01E3:
-    SetVarFromValue VAR_OBJ_GFX_ID_1, 365
+    SetVarFromValue VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_HGSS_GSMAMA
     Return
 _01EB:
-    SetVarFromValue VAR_OBJ_GFX_ID_1, 366
+    SetVarFromValue VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PROF_OAK
     Return
 _01F3:
-    SetVarFromValue VAR_OBJ_GFX_ID_1, 354
+    SetVarFromValue VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_HGSS_GSLEADER3
     Return
 _01FB:
-    SetVarFromValue VAR_OBJ_GFX_ID_9, 320
+    SetVarFromValue VAR_OBJ_GFX_ID_9, OBJ_EVENT_GFX_HGSS_GSGIRL2
     Return
 _0203:
-    SetVarFromValue VAR_OBJ_GFX_ID_9, 317
+    SetVarFromValue VAR_OBJ_GFX_ID_9, OBJ_EVENT_GFX_HGSS_GSBOY2
     Return
 scr_seq_D32R0401_000:
     PlaySE SE_CONFIRM_sseq_3

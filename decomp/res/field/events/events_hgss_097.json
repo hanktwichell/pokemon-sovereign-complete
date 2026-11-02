@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_T23R0101_counterm",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_T23R0101_gsoldwoman1",
-            "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSOLDWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_R22R0101_gsleader13",
-            "graphics_id": "OBJ_EVENT_GFX_FANTINA",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER13",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_270",

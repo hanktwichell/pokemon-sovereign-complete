@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_D27R0107_gsleader6",
-            "graphics_id": "OBJ_EVENT_GFX_CANDICE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER6",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1D7",

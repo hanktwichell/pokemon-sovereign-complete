@@ -31,7 +31,7 @@
         },
         {
             "id": "obj_T25R1004_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_T25R1004_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_T25R1004_gsdsboy",
-            "graphics_id": "OBJ_EVENT_GFX_KID_WITH_NDS",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSDSBOY",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

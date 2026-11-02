@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_R43R0201_rocketm",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_43_GATE_ROCKETS",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_R43R0201_rocketm_2",
-            "graphics_id": "OBJ_EVENT_GFX_GRUNT_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_ROCKETM",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_43_GATE_ROCKETS",
@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_R43R0201_counterm",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_43_GATE_GUARD",

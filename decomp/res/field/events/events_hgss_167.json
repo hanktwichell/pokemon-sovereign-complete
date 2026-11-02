@@ -12,7 +12,7 @@
     "object_events": [
         {
             "id": "obj_D47R0101_counterm",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -31,7 +31,7 @@
         },
         {
             "id": "obj_D47R0101_counterm_2",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -50,7 +50,7 @@
         },
         {
             "id": "obj_D47R0101_counterm_3",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_D47R0101_counterm_4",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -88,7 +88,7 @@
         },
         {
             "id": "obj_D47R0101_counterm_5",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -107,7 +107,7 @@
         },
         {
             "id": "obj_D47R0101_gsgentleman",
-            "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSGENTLEMAN",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -126,7 +126,7 @@
         },
         {
             "id": "obj_D47R0101_counterm_6",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

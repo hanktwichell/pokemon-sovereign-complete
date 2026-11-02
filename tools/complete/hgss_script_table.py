@@ -211,6 +211,20 @@ def safari_arrange_areas(a):
 _labels = itertools.count()
 
 
+@functools.lru_cache(maxsize=None)
+def hgss_sprites():
+    from import_hgss_events import Sprites
+    return Sprites()
+
+
+def sprite_value(var, value):
+    """A value set to a sprite var (VAR_OBJ_GFX_ID_*): HeartGold's sprite number as the engine's graphics ID
+    (import_hgss_events.py's mapping: its own sprites, converted, or a stand-in); any other value as it is."""
+    if var.startswith('VAR_OBJ_GFX_ID_') and re.fullmatch(r'\d+', value):
+        return hgss_sprites().name(int(value))
+    return value
+
+
 def one(template):
     """An entry that becomes one line: template uses {0}, {1}... for the arguments."""
     return lambda a: [template.format(*a)]
@@ -242,7 +256,7 @@ COMMANDS = {
     **{f'GoToIf{c}': (lambda n: lambda a: [f'GoToIf {n}, {a[0]}'])(n) for c, n in CONDITIONS.items()},
     **{f'CallIf{c}': (lambda n: lambda a: [f'CallIf {n}, {a[0]}'])(n) for c, n in CONDITIONS.items()},
     # Vars
-    'SetVar': one('SetVarFromValue {0}, {1}'),
+    'SetVar': lambda a: [f'SetVarFromValue {a[0]}, {sprite_value(a[0], a[1])}'],
     'CopyVar': one('SetVarFromVar {0}, {1}'),
     # Messages
     'NPCMsg': one('Message {0}'),

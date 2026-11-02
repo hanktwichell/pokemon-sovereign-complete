@@ -3,7 +3,7 @@
     "object_events": [
         {
             "id": "obj_R29R0101_counterm",
-            "graphics_id": "OBJ_EVENT_GFX_CASHIER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_COUNTERM",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_R29R0101_gsboy1",
-            "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY1",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

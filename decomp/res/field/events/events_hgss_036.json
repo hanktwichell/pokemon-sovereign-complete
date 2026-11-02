@@ -123,7 +123,7 @@
         },
         {
             "id": "obj_R35_juggrer",
-            "graphics_id": "OBJ_EVENT_GFX_CLOWN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_JUGGRER",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -142,7 +142,7 @@
         },
         {
             "id": "obj_R35_gsboy3",
-            "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBOY3",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -161,7 +161,7 @@
         },
         {
             "id": "obj_R35_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -256,7 +256,7 @@
         },
         {
             "id": "obj_R35_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -275,7 +275,7 @@
         },
         {
             "id": "obj_R35_fire",
-            "graphics_id": "OBJ_EVENT_GFX_VENT",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_FIRE",
             "movement_type": "MOVEMENT_TYPE_WANDER_WEST_AND_EAST",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",

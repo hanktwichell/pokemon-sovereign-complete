@@ -20,7 +20,7 @@
     "object_events": [
         {
             "id": "obj_T22GYM0101_gsleader1",
-            "graphics_id": "OBJ_EVENT_GFX_ROARK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER1",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VIOLET_GYM_FALKNER",
@@ -39,7 +39,7 @@
         },
         {
             "id": "obj_T22GYM0101_gsman2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_T22GYM0101_gsman2_2",
-            "graphics_id": "OBJ_EVENT_GFX_GUITARIST",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",

@@ -44,7 +44,7 @@
     "object_events": [
         {
             "id": "obj_T20_gsrivel",
-            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSRIVEL",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_RIVAL",
@@ -63,7 +63,7 @@
         },
         {
             "id": "obj_T20_gswoman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEMON_BREEDER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -82,7 +82,7 @@
         },
         {
             "id": "obj_T20_gsbigman",
-            "graphics_id": "OBJ_EVENT_GFX_COLLECTOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBIGMAN",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -139,7 +139,7 @@
         },
         {
             "id": "obj_T20_doctor",
-            "graphics_id": "OBJ_EVENT_GFX_PROF_ROWAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_DOCTOR",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -158,7 +158,7 @@
         },
         {
             "id": "obj_T20_gsmiddleman1",
-            "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMIDDLEMAN1",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CAMERON",
@@ -177,7 +177,7 @@
         },
         {
             "id": "obj_T20_gsmama",
-            "graphics_id": "OBJ_EVENT_GFX_MOM",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAMA",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_NEW_BARK_MOM",

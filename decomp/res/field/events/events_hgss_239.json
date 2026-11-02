@@ -36,7 +36,7 @@
     "object_events": [
         {
             "id": "obj_D44R0102_gsleader8",
-            "graphics_id": "OBJ_EVENT_GFX_VOLKNER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER8",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VICTORY_ROAD_CLAIR",
@@ -55,7 +55,7 @@
         },
         {
             "id": "obj_D44R0102_gsman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSMAN3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -74,7 +74,7 @@
         },
         {
             "id": "obj_D44R0102_gswoman3",
-            "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSWOMAN3",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -93,7 +93,7 @@
         },
         {
             "id": "obj_D44R0102_gsbabygirl1",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -112,7 +112,7 @@
         },
         {
             "id": "obj_D44R0102_gsbabygirl1_2",
-            "graphics_id": "OBJ_EVENT_GFX_TWIN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYGIRL1",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NORMAL",
             "hidden_flag": "0",
@@ -151,7 +151,7 @@
         },
         {
             "id": "obj_D44R0102_gsrivel",
-            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSRIVEL",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_CHAMPIONS_ROOM_RETREAT",
@@ -208,7 +208,7 @@
         },
         {
             "id": "obj_D44R0102_gsrivel_2",
-            "graphics_id": "OBJ_EVENT_GFX_BARRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSRIVEL",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_DRAGONS_DEN_RIVAL",
@@ -246,7 +246,7 @@
         },
         {
             "id": "obj_D44R0102_wataru",
-            "graphics_id": "OBJ_EVENT_GFX_CYNTHIA",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_WATARU",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -265,7 +265,7 @@
         },
         {
             "id": "obj_D44R0102_gsleader8_2",
-            "graphics_id": "OBJ_EVENT_GFX_VOLKNER",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_GSLEADER8",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
