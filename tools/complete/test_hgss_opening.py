@@ -1691,10 +1691,20 @@ def main():
         if at is None or u32(at + 8) != 0xFF or not u32(at) \
                 or not near(struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2]):
             ram, at = bytes(mem.unsigned[RAM:RAM + RAM_SIZE]), None
+
+            def in_manager(o):  # one of its manager's objects (MapObject's mapObjMan; the manager's maxObjects and
+                # mapObj): other data can look like the player's object (a nonzero word, 0xFF, a tile beside theirs)
+                manager = struct.unpack_from('<I', ram, o + 0xb4)[0] - RAM
+                if not 0 <= manager < RAM_SIZE - 0x128:
+                    return False
+                count, objects = struct.unpack_from('<I', ram, manager + 4)[0], \
+                    struct.unpack_from('<I', ram, manager + 0x124)[0] - RAM
+                return 0 < count <= 256 and 0 <= objects <= o < objects + count * MAP_OBJECT_SIZE \
+                    and (o - objects) % MAP_OBJECT_SIZE == 0
             for found in re.finditer(rb'\xff\x00\x00\x00', ram):
                 o = found.start() - 8  # the localID's offset
-                if o >= 0 and o % 4 == 0 and struct.unpack_from('<I', ram, o)[0] \
-                        and near(struct.unpack_from('<3i', ram, o + 100)[::2]):
+                if o >= 0 and o % 4 == 0 and o + MAP_OBJECT_SIZE <= RAM_SIZE and struct.unpack_from('<I', ram, o)[0] \
+                        and near(struct.unpack_from('<3i', ram, o + 100)[::2]) and in_manager(o):
                     at = RAM + o
                     break
             player_object[0] = at
