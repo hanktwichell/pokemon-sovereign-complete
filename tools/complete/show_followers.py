@@ -4,8 +4,8 @@ species (and form) asked for.
 
 From a bedroom state (tools/test/new_game.sh), the test warp takes the player out to New Bark Town; for each Pokémon,
 the test build's gCompleteTestFollowerAction (COMPLETE_TEST_FOLLOWER_SET_LEAD, src/complete_follower.c) makes the lead
-that species and form, the player takes two steps down so the follower comes out behind, and the top screen around
-them is kept. gCompleteTestFollowerGfx gives the follower's graphics ID, which must be the species' sprite in the
+that species and form, the player takes two steps right so the follower comes out beside them, side on, and the
+top screen around them is kept. gCompleteTestFollowerGfx gives the follower's graphics ID, which must be the species' sprite in the
 range (tools/complete/gen_follower_sprites.py).
 
 Usage: python3 tools/complete/show_followers.py ROM STATE OUT.png [SPECIES[:FORM] ...]
@@ -53,7 +53,7 @@ def main():
         d.emu.memory.write_short(lead + 2, int(form or 0))
         d.emu.memory.write_byte(action, SET_LEAD)
         d.run(30)
-        for key in ('DOWN', 'DOWN'):
+        for key in ('RIGHT', 'RIGHT'):
             settle(d, idle)
             d.press(key, frames=16, after=24)
         settle(d, idle)
@@ -61,7 +61,7 @@ def main():
         g, f = gfx(d, gfx_at), follower(d, tile)
         print(f'{entry}: follower graphics {g}, on {f}, player on {d.pos()}', flush=True)
         top = d.screenshot().convert('RGB').crop((0, 0, 256, 192))
-        shots.append((entry.replace(':', ' form '), top.crop((80, 32, 176, 128)).resize((192, 192), Image.NEAREST)))
+        shots.append((entry.replace(':', ' form '), top.crop((72, 40, 168, 136)).resize((192, 192), Image.NEAREST)))
     cols = 4
     sheet = Image.new('RGB', (cols * 196, ((len(shots) + cols - 1) // cols) * 212), (250, 250, 250))
     draw = ImageDraw.Draw(sheet)
