@@ -1215,7 +1215,9 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                     ('to', (8, 6)), 'UP', ('talk', [0])],  # Aaron (8,5): the format, all singles (0)
           'MAP_HEADER_POKEMON_LEAGUE_AARON_ROOM', 'FLAG_DEFEATED_AARON'),
          ('Bertha', [('to', (8, 3)), 'UP',  # the far door (8,2), into the next lift room
-                     ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
+                     ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP',
+                     ('talk', [0])],  # her format on a first run: singles, as Aaron's, so Flint's and Lucian's are
+          # doubles, decided (scripts_pokemon_league_bertha_room.s), and they ask nothing
           'MAP_HEADER_POKEMON_LEAGUE_BERTHA_ROOM', 'FLAG_DEFEATED_BERTHA'),
          ('Flint', [('to', (8, 3)), 'UP', ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
           'MAP_HEADER_POKEMON_LEAGUE_FLINT_ROOM', 'FLAG_DEFEATED_FLINT'),
