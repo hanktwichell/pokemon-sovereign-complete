@@ -16,6 +16,7 @@ void CompleteFollower_Update(FieldSystem *fieldSystem);
 void CompleteFollower_SetInhibited(BOOL inhibited);
 // Whether the lead is too tall to follow in most buildings (HeartGold's flag).
 BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem);
+BOOL CompleteFollower_IsPassedBy(const MapObject *mover, const MapObject *other); // the player walks through it
 // HeartGold's walking Pokémon, a range of graphics IDs: the table entry the field looks up for one (its size's
 // template), and its texture's member of the field sprites' NARC (-1 for any other graphics ID)
 u32 CompleteFollower_TemplateGfx(u32 graphicsID);

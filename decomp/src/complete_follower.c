@@ -4,6 +4,7 @@
 
 #include "constants/map_object.h"
 #include "constants/player_avatar.h"
+#include "constants/scrcmd.h"
 #include "constants/species.h"
 #include "generated/genders.h"
 #include "generated/items.h"
@@ -16,12 +17,14 @@
 #include "location.h"
 #include "field_task.h"
 #include "map_object.h"
+#include "map_tile_behavior.h"
 #include "party.h"
 #include "player_avatar.h"
 #include "pokemon.h"
 #include "save_player.h"
 #include "script_manager.h"
 #include "system_flags.h"
+#include "terrain_collision_manager.h"
 #include "vars_flags.h"
 
 #include "res/graphics/field_sprites/field_sprites.naix"
@@ -193,6 +196,80 @@ static BOOL IsLeftBehind(FieldSystem *fieldSystem, MapObject *follower)
     return (dx < 0 ? -dx : dx) + (dz < 0 ? -dz : dz) > 2;
 }
 
+// Standing still on the player's own tile (a scene put the player there, or the follower came out before the tile
+// beside was free): it's made again beside the player
+static BOOL IsOnPlayer(FieldSystem *fieldSystem, MapObject *follower)
+{
+    return !MapObject_IsMoving(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar)) && !MapObject_IsMoving(follower)
+        && MapObject_GetX(follower) == PlayerAvatar_GetXPos(fieldSystem->playerAvatar)
+        && MapObject_GetZ(follower) == PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+}
+
+// The player walks through the following Pokémon (src/map_object_move.c), which steps onto the tile the player left,
+// so the two swap places, as in HeartGold; anyone else still bumps into it
+BOOL CompleteFollower_IsPassedBy(const MapObject *mover, const MapObject *other)
+{
+    return MapObject_GetLocalID(mover) == LOCALID_PLAYER && MapObject_GetLocalID(other) == LOCALID_COMPLETE_FOLLOWER
+        && MapObject_GetMovementType(other) == MOVEMENT_TYPE_FOLLOW_PLAYER;
+}
+
+// A tile beside the player the follower may come out on: no wall, step or ledge between, no water, no door or warp,
+// and nobody on it (or leaving it)
+static BOOL CanStandBeside(FieldSystem *fieldSystem, const VecFx32 *playerPos, int x, int z)
+{
+    s8 vertical;
+    u8 behavior = TerrainCollisionManager_GetTileBehavior(fieldSystem, x, z);
+
+    if (TerrainCollisionManager_WillMapObjectCollide(fieldSystem, playerPos, x, z, &vertical)) {
+        return FALSE;
+    }
+
+    if (TileBehavior_IsSurfable(behavior) || TileBehavior_IsDoor(behavior)
+        || TileBehavior_IsWarpEast(behavior) || TileBehavior_IsWarpWest(behavior)
+        || TileBehavior_IsWarpNorth(behavior) || TileBehavior_IsWarpSouth(behavior)
+        || TileBehavior_IsWarpEntranceEast(behavior) || TileBehavior_IsWarpEntranceWest(behavior)
+        || TileBehavior_IsWarpEntranceNorth(behavior) || TileBehavior_IsWarpEntranceSouth(behavior)
+        || TileBehavior_IsWarpStairsEast(behavior) || TileBehavior_IsWarpStairsWest(behavior)
+        || TileBehavior_IsWarpPanel(behavior)
+        || TileBehavior_IsJumpNorth(behavior) || TileBehavior_IsJumpSouth(behavior)
+        || TileBehavior_IsJumpWest(behavior) || TileBehavior_IsJumpEast(behavior)) {
+        return FALSE;
+    }
+
+    return sub_0206326C(fieldSystem->mapObjMan, x, z, TRUE) == NULL;
+}
+
+// The tile the follower comes out on: behind the player, else to either side; never the player's own, nor the one
+// ahead (the step out of a door goes there). FALSE when none is free: it comes out a step later.
+static BOOL FindTileBeside(FieldSystem *fieldSystem, int *x, int *z)
+{
+    static const s8 sOffsets[4][2] = { [DIR_NORTH] = { 0, -1 }, [DIR_SOUTH] = { 0, 1 }, [DIR_WEST] = { -1, 0 }, [DIR_EAST] = { 1, 0 } };
+    static const u8 sBehind[4] = { [DIR_NORTH] = DIR_SOUTH, [DIR_SOUTH] = DIR_NORTH, [DIR_WEST] = DIR_EAST, [DIR_EAST] = DIR_WEST };
+    static const u8 sSides[4][2] = { [DIR_NORTH] = { DIR_WEST, DIR_EAST }, [DIR_SOUTH] = { DIR_EAST, DIR_WEST }, [DIR_WEST] = { DIR_NORTH, DIR_SOUTH }, [DIR_EAST] = { DIR_SOUTH, DIR_NORTH } };
+    int facing = PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar);
+    int px = PlayerAvatar_GetXPos(fieldSystem->playerAvatar), pz = PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+    VecFx32 playerPos;
+
+    if (facing < DIR_NORTH || facing > DIR_EAST) {
+        facing = DIR_SOUTH;
+    }
+
+    MapObject_GetPosPtr(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar), &playerPos);
+    u8 tries[3] = { sBehind[facing], sSides[facing][0], sSides[facing][1] };
+
+    for (int i = 0; i < 3; i++) {
+        int tx = px + sOffsets[tries[i]][0], tz = pz + sOffsets[tries[i]][1];
+
+        if (CanStandBeside(fieldSystem, &playerPos, tx, tz)) {
+            *x = tx;
+            *z = tz;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 // As HeartGold's follower goes back in its ball on the bike and while surfing, and changes with the lead: on each
 // field frame the player has control (src/overlay005/field_control.c), the follower is made again when it isn't the
 // one the lead, the player and the map call for (the lead changed in the party menu or fainted, the player got on or
@@ -202,7 +279,7 @@ void CompleteFollower_Update(FieldSystem *fieldSystem)
     MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);
     int gfx = WantedGfx(fieldSystem);
 
-    if (follower == NULL ? gfx < 0 : (int)MapObject_GetGraphicsID(follower) == gfx && !MapObject_IsHidden(follower) && !IsLeftBehind(fieldSystem, follower)) {
+    if (follower == NULL ? gfx < 0 : (int)MapObject_GetGraphicsID(follower) == gfx && !MapObject_IsHidden(follower) && !IsLeftBehind(fieldSystem, follower) && !IsOnPlayer(fieldSystem, follower)) {
         return;
     }
 
@@ -217,15 +294,15 @@ void CompleteFollower_Refresh(FieldSystem *fieldSystem)
         MapObject_Delete(follower);
     }
 
-    int gfx = WantedGfx(fieldSystem);
+    int gfx = WantedGfx(fieldSystem), x, z;
 
-    if (gfx < 0) {
+    if (gfx < 0 || !FindTileBeside(fieldSystem, &x, &z)) { // beside the player, never on the player's tile
         return;
     }
 
     follower = MapObjectMan_AddMapObject(fieldSystem->mapObjMan,
-        PlayerAvatar_GetXPos(fieldSystem->playerAvatar),
-        PlayerAvatar_GetZPos(fieldSystem->playerAvatar),
+        x,
+        z,
         PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar),
         gfx,
         MOVEMENT_TYPE_FOLLOW_PLAYER,

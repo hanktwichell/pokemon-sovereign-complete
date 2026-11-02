@@ -29,6 +29,8 @@
 #include "unk_020655F4.h"
 #include "unk_020673B8.h"
 
+#include "complete_follower.h" // Sovereign Complete
+
 #define sinkInDeepSnowDistance    -12
 #define sinkInDeeperSnowDistance  -14
 #define sinkInDeepestSnowDistance -16
@@ -631,7 +633,8 @@ int sub_02063F00(const MapObject *mapObj, int x, int y, int z)
     do {
         if (v4 != mapObj
             && MapObject_CheckStatus(v4, MAP_OBJ_STATUS_0)
-            && !MapObject_CheckStatus(v4, MAP_OBJ_STATUS_18)) {
+            && !MapObject_CheckStatus(v4, MAP_OBJ_STATUS_18)
+            && !CompleteFollower_IsPassedBy(mapObj, v4)) { // Sovereign Complete: the player walks through the follower
             objX = MapObject_GetX(v4);
             objZ = MapObject_GetZ(v4);
 

@@ -1327,3 +1327,9 @@ Test results on the new test build:
 - **Shiny followers:** a shiny lead followed in its normal colours; HeartGold's walking sprites carry a shiny palette
   too, and `gen_follower_sprites.py` now converts both, the shiny ones as a second range right after the first (566
   more textures, no table entries), which a shiny lead takes.
+- **The follower never stands on the player's tile:** it used to come out on the player's own tile (after a warp,
+  getting off the Bicycle, a lead change) until the player moved. It comes out on a free tile beside the player now
+  (behind, else to a side: never ahead, where a door's step-out goes; no wall, step, water, door, warp, ledge or
+  person), a step later when none is free, and is made again beside the player if a scene leaves it on the player's
+  tile. The player walks through it, as in HeartGold, so the two swap places (a marked hook in
+  `src/map_object_move.c`'s collision check, for the player and the follower only), where it used to block the way.
