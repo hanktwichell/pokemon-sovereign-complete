@@ -202,6 +202,7 @@ BOOL CompleteScrCmd_FollowerPlace(ScriptContext *ctx)
         MapObject_SetPosDirFromCoords(follower, PlayerAvatar_GetXPos(playerAvatar) + MapObject_GetDxFromDir(dir), 0,
             PlayerAvatar_GetZPos(playerAvatar) + MapObject_GetDzFromDir(dir), facing);
         MapObject_RecalculateObjectHeight(follower);
+        MapObject_SetHidden(follower, FALSE); // off the player's tile, it shows (src/complete_follower.c)
     }
 
     return FALSE;

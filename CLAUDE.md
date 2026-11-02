@@ -55,6 +55,9 @@ work.
 ## Following Pokémon
 
 - `decomp/src/complete_follower.c` (hooks in `src/field_map_change.c`; a test-only tile record in `src/field_system.c`).
+  It never stands on the player's tile in view. As a map loads, the map's terrain isn't loaded yet
+  (`fieldSystem->landDataMan` still points at the last map's freed data), so it's made hidden on the player's tile
+  and moved beside them once the field runs. Never check tiles from the map-change hooks.
 - `tools/complete/gen_follower_sprites.py` converts all 566 of HeartGold's walking sprites into one range of graphics IDs
   (`OBJ_EVENT_GFX_HGSS_MON_*`, from 2048): the field's lookups take each one's size's template entry and its own
   texture (`CompleteFollower_TemplateGfx`, `CompleteFollower_GfxNarcIndex`; marked hooks in `src/map_object.c`,

@@ -7,7 +7,10 @@ Starts a new game on the test build, whose lead is Garchomp (it has a walking sp
 - after the test warp (SELECT+L+R, the next stop in sSovereignTestWarps) the follower is there again and keeps
   trailing;
 - when the party's first two Pokémon swap places (as the party menu's SWITCH does), the follower becomes the new lead;
-- on the bike nobody follows, and off it the follower is back (gCompleteTestFollowerAction asks the field for these).
+- on the bike nobody follows, and off it the follower is back (gCompleteTestFollowerAction asks the field for these);
+- whenever the field runs freely (a new game, after a warp, a lead change, off the bike) the follower never stands on
+  the player's tile in view: it's beside the player, or hidden on the player's tile till the player steps off it
+  (gCompleteTestFollowerHidden).
 
 The positions come from the test build's gSovereignTestPlayerTile and gCompleteTestFollowerTile (src/field_system.c,
 src/complete_follower.c), and the follower's graphics from gCompleteTestFollowerGfx, found in the symbol map next to the
@@ -75,6 +78,14 @@ def settle(d, idle_addr):
     return False
 
 
+def apart(d, addr, hidden_addr, check, where):
+    """The follower is never in view on the player's tile."""
+    f, p = follower(d, addr), d.pos()
+    hidden = d.emu.memory.unsigned[hidden_addr]
+    check(f == NO_FOLLOWER or f != p or hidden, f'{where}: the follower on {f}{" (hidden)" if hidden else ""} is off '
+          f'the player\'s tile {p} or hidden')
+
+
 def walk(d, addr, idle_addr, check, where, steps):
     """Take each step; a step that moves the player must leave the follower one tile behind the player, on the tile the
     player left (a held key sometimes takes two steps, and then the follower is on the tile between)."""
@@ -98,6 +109,7 @@ def main():
     rom = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, '..', '..', 'decomp/build_test/pokeplatinum.us.nds')
     addr = symbol(rom, 'gCompleteTestFollowerTile')
     idle_addr = symbol(rom, 'gSovereignTestIdleFrames')
+    hidden_addr = symbol(rom, 'gCompleteTestFollowerHidden')
     check = Check()
     d = Driver(rom)
 
@@ -106,6 +118,7 @@ def main():
         d.do(action)
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'bedroom: a follower exists, on {f} (player on {d.pos()})')
+    apart(d, addr, hidden_addr, check, 'bedroom')
     walk(d, addr, idle_addr, check, 'bedroom', BEDROOM_STEPS)
 
     check(settle(d, idle_addr), 'the field is free before the test warp')
@@ -113,6 +126,7 @@ def main():
     check(settle(d, idle_addr), 'the field is free after the test warp')
     f = follower(d, addr)
     check(f != NO_FOLLOWER, f'after the test warp: a follower exists, on {f} (player on {d.pos()})')
+    apart(d, addr, hidden_addr, check, 'after the test warp')
     walk(d, addr, idle_addr, check, 'after the warp', STORE_STEPS)
 
     # The lead changes mid-map: the follower becomes the new lead
@@ -122,6 +136,7 @@ def main():
     check(settle(d, idle_addr), 'the field is free after the lead changed')
     after = gfx(d, gfx_addr)
     check(after not in (before, 0xFFFF), f'after the lead changed: the follower went from graphics {before} to {after}')
+    apart(d, addr, hidden_addr, check, 'after the lead changed')
 
     # On the bike nobody follows; off it, the follower is back
     d.emu.memory.write_byte(action, BICYCLE)
@@ -130,6 +145,7 @@ def main():
     d.emu.memory.write_byte(action, BICYCLE)
     check(settle(d, idle_addr), 'the field is free off the bike')
     check(follower(d, addr) != NO_FOLLOWER, f'off the bike: a follower again, on {follower(d, addr)}')
+    apart(d, addr, hidden_addr, check, 'off the bike')
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)

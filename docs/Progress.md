@@ -1328,8 +1328,13 @@ Test results on the new test build:
   too, and `gen_follower_sprites.py` now converts both, the shiny ones as a second range right after the first (566
   more textures, no table entries), which a shiny lead takes.
 - **The follower never stands on the player's tile:** it used to come out on the player's own tile (after a warp,
-  getting off the Bicycle, a lead change) until the player moved. It comes out on a free tile beside the player now
-  (behind, else to a side: never ahead, where a door's step-out goes; no wall, step, water, door, warp, ledge or
-  person), a step later when none is free, and is made again beside the player if a scene leaves it on the player's
-  tile. The player walks through it, as in HeartGold, so the two swap places (a marked hook in
-  `src/map_object_move.c`'s collision check, for the player and the follower only), where it used to block the way.
+  getting off the Bicycle, a lead change) until the player moved. Now it comes out on a free tile beside the player
+  (behind, else to a side, never ahead, where a door's step-out goes). The tile can't be a wall, a step, water, a
+  door, a warp or a ledge, or have a person on it. As a map loads, the map's terrain isn't loaded yet, so it waits
+  hidden on the player's tile. Once the player has control, it moves beside them, or it shows when the player steps
+  off, as when leaving a door: it comes out of the door behind them. A scene that leaves it on the player's tile is
+  handled the same way. The first version checked the tiles as the map loaded and crashed the game (it read the last
+  map's freed terrain). The player walks through the follower, as in HeartGold, so the two swap places, where it used
+  to block the way. This is a marked hook in `src/map_object_move.c`'s collision check, for the player and the
+  follower only. `test_follower.py` now also checks that it's never in view on the player's tile (a new game, after
+  a warp, a lead change, off the bike): it passes.

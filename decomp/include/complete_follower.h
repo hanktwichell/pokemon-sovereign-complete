@@ -9,7 +9,10 @@
 // MOVEMENT_TYPE_FOLLOW_PLAYER, the movement Platinum's Amity Square and partner trainers use.
 #define LOCALID_COMPLETE_FOLLOWER 0xF0
 
+// The follower made again: on the field, beside the player (never on the player's tile in view); as a map loads,
+// hidden on the player's tile till the field runs (the map's terrain isn't loaded yet).
 void CompleteFollower_Refresh(FieldSystem *fieldSystem);
+void CompleteFollower_RefreshOnMapLoad(FieldSystem *fieldSystem);
 // Each field frame the player has control: the follower is made again when it isn't the one wanted.
 void CompleteFollower_Update(FieldSystem *fieldSystem);
 // HeartGold's SetFollowMonInhibitState: while set, nobody follows; the next map change clears it
@@ -43,6 +46,7 @@ extern u16 gCompleteTestFollowerTile[2];
 // Test build: the follower's graphics (0xFFFF: nobody follows), and what a test asks the field to do on its next free
 // frame: the party's first two Pokémon swap places, or the player gets on or off the bike.
 extern u16 gCompleteTestFollowerGfx;
+extern u8 gCompleteTestFollowerHidden; // TRUE while it's hidden (waiting on the player's tile, or put away by a scene)
 extern u8 gCompleteTestFollowerAction;
 extern u16 gCompleteTestFollowerLead[2]; // the species and form COMPLETE_TEST_FOLLOWER_SET_LEAD gives the lead
 

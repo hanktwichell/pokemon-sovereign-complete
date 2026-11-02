@@ -196,15 +196,6 @@ static BOOL IsLeftBehind(FieldSystem *fieldSystem, MapObject *follower)
     return (dx < 0 ? -dx : dx) + (dz < 0 ? -dz : dz) > 2;
 }
 
-// Standing still on the player's own tile (a scene put the player there, or the follower came out before the tile
-// beside was free): it's made again beside the player
-static BOOL IsOnPlayer(FieldSystem *fieldSystem, MapObject *follower)
-{
-    return !MapObject_IsMoving(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar)) && !MapObject_IsMoving(follower)
-        && MapObject_GetX(follower) == PlayerAvatar_GetXPos(fieldSystem->playerAvatar)
-        && MapObject_GetZ(follower) == PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
-}
-
 // The player walks through the following Pokémon (src/map_object_move.c), which steps onto the tile the player left,
 // so the two swap places, as in HeartGold; anyone else still bumps into it
 BOOL CompleteFollower_IsPassedBy(const MapObject *mover, const MapObject *other)
@@ -270,6 +261,79 @@ static BOOL FindTileBeside(FieldSystem *fieldSystem, int *x, int *z)
     return FALSE;
 }
 
+// Waiting on the player's tile, hidden: made as a map loads (the map's terrain isn't loaded yet, so no tile beside it
+// can be checked), or a scene left it there with no tile free beside. It comes out once the player moves off it.
+static BOOL sHiddenOnPlayer;
+
+static BOOL IsOnPlayer(FieldSystem *fieldSystem, MapObject *follower)
+{
+    return MapObject_GetX(follower) == PlayerAvatar_GetXPos(fieldSystem->playerAvatar)
+        && MapObject_GetZ(follower) == PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
+}
+
+// The follower never stands on the player's tile in view: on it (standing still), it moves to a free tile beside the
+// player, else waits there hidden; off it again, it shows. Only with the map's terrain loaded (on the field).
+static void KeepOffPlayer(FieldSystem *fieldSystem, MapObject *follower)
+{
+    int x, z;
+
+    if (MapObject_IsMoving(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar)) || MapObject_IsMoving(follower)) {
+        return;
+    }
+
+    if (!IsOnPlayer(fieldSystem, follower)) {
+        if (sHiddenOnPlayer) {
+            sHiddenOnPlayer = FALSE;
+            MapObject_SetHidden(follower, FALSE);
+        }
+    } else if (FindTileBeside(fieldSystem, &x, &z)) {
+        MapObject_SetPosDirFromCoords(follower, x, 0, z, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar));
+        MapObject_RecalculateObjectHeight(follower);
+        sHiddenOnPlayer = FALSE;
+        MapObject_SetHidden(follower, FALSE);
+    } else if (!sHiddenOnPlayer) {
+        sHiddenOnPlayer = TRUE;
+        MapObject_SetHidden(follower, TRUE);
+    }
+}
+
+// The follower on the player's tile, hidden (sHiddenOnPlayer)
+static MapObject *AddOnPlayer(FieldSystem *fieldSystem)
+{
+    MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);
+
+    if (follower != NULL) {
+        MapObject_Delete(follower);
+    }
+
+    sHiddenOnPlayer = FALSE;
+
+    int gfx = WantedGfx(fieldSystem);
+
+    if (gfx < 0) {
+        return NULL;
+    }
+
+    follower = MapObjectMan_AddMapObject(fieldSystem->mapObjMan,
+        PlayerAvatar_GetXPos(fieldSystem->playerAvatar),
+        PlayerAvatar_GetZPos(fieldSystem->playerAvatar),
+        PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar),
+        gfx,
+        MOVEMENT_TYPE_FOLLOW_PLAYER,
+        fieldSystem->location->mapHeaderID);
+
+    if (follower == NULL) {
+        return NULL;
+    }
+
+    MapObject_SetLocalID(follower, LOCALID_COMPLETE_FOLLOWER);
+    MapObject_SetScript(follower, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_FOLLOWER_TALK));
+    MapObject_SetStatusFlagOn(follower, MAP_OBJ_STATUS_PERSISTENT);
+    MapObject_SetHidden(follower, TRUE);
+    sHiddenOnPlayer = TRUE;
+    return follower;
+}
+
 // As HeartGold's follower goes back in its ball on the bike and while surfing, and changes with the lead: on each
 // field frame the player has control (src/overlay005/field_control.c), the follower is made again when it isn't the
 // one the lead, the player and the map call for (the lead changed in the party menu or fainted, the player got on or
@@ -279,42 +343,31 @@ void CompleteFollower_Update(FieldSystem *fieldSystem)
     MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);
     int gfx = WantedGfx(fieldSystem);
 
-    if (follower == NULL ? gfx < 0 : (int)MapObject_GetGraphicsID(follower) == gfx && !MapObject_IsHidden(follower) && !IsLeftBehind(fieldSystem, follower) && !IsOnPlayer(fieldSystem, follower)) {
+    if (follower == NULL ? gfx < 0 : (int)MapObject_GetGraphicsID(follower) == gfx && (sHiddenOnPlayer || !MapObject_IsHidden(follower)) && !IsLeftBehind(fieldSystem, follower)) {
+        if (follower != NULL) {
+            KeepOffPlayer(fieldSystem, follower);
+        }
+
         return;
     }
 
     CompleteFollower_Refresh(fieldSystem);
 }
 
+// On the field (a script, or the field frame above): beside the player at once, else on the player's tile, hidden
 void CompleteFollower_Refresh(FieldSystem *fieldSystem)
 {
-    MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);
+    MapObject *follower = AddOnPlayer(fieldSystem);
 
     if (follower != NULL) {
-        MapObject_Delete(follower);
+        KeepOffPlayer(fieldSystem, follower);
     }
+}
 
-    int gfx = WantedGfx(fieldSystem), x, z;
-
-    if (gfx < 0 || !FindTileBeside(fieldSystem, &x, &z)) { // beside the player, never on the player's tile
-        return;
-    }
-
-    follower = MapObjectMan_AddMapObject(fieldSystem->mapObjMan,
-        x,
-        z,
-        PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar),
-        gfx,
-        MOVEMENT_TYPE_FOLLOW_PLAYER,
-        fieldSystem->location->mapHeaderID);
-
-    if (follower == NULL) {
-        return;
-    }
-
-    MapObject_SetLocalID(follower, LOCALID_COMPLETE_FOLLOWER);
-    MapObject_SetScript(follower, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_FOLLOWER_TALK));
-    MapObject_SetStatusFlagOn(follower, MAP_OBJ_STATUS_PERSISTENT);
+// As a map loads (src/field_map_change.c), before its terrain: on the player's tile, hidden, till the field runs
+void CompleteFollower_RefreshOnMapLoad(FieldSystem *fieldSystem)
+{
+    AddOnPlayer(fieldSystem);
 }
 
 // The mood is in the byte HeartGold keeps it in: the high byte of block D's spare halfword (MON_DATA_UNUSED_159), whose
@@ -404,6 +457,7 @@ void CompleteFollower_SetShinyLeaves(Pokemon *mon, u8 leaves)
 #ifdef SOVEREIGN_TEST
 u16 gCompleteTestFollowerTile[2];
 u16 gCompleteTestFollowerGfx;
+u8 gCompleteTestFollowerHidden;
 u8 gCompleteTestFollowerAction;
 u16 gCompleteTestFollowerLead[2];
 
@@ -414,6 +468,7 @@ void CompleteFollower_TestRecordTile(FieldSystem *fieldSystem)
     gCompleteTestFollowerTile[0] = follower != NULL ? MapObject_GetX(follower) : 0xFFFF;
     gCompleteTestFollowerTile[1] = follower != NULL ? MapObject_GetZ(follower) : 0xFFFF;
     gCompleteTestFollowerGfx = follower != NULL ? MapObject_GetGraphicsID(follower) : 0xFFFF;
+    gCompleteTestFollowerHidden = follower != NULL && MapObject_IsHidden(follower);
 
     if (gCompleteTestFollowerAction == COMPLETE_TEST_FOLLOWER_NONE || FieldSystem_IsRunningTask(fieldSystem)) {
         return;
