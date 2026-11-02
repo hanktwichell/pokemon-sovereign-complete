@@ -1184,7 +1184,9 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                            ('surf', (850, 599)),
                            'UP', 'UP',  # beside Sovereign's guard (851,598), through his check (850-852,598: 8
                            # badges, Togedemaru) and into Victory Road (850-852,597)
-                           ('to', (9, 42)), ('to', (45, 32)), 'DOWN',  # 1F, to the back rooms (45,33)
+                           # 1F: the way on to the back rooms (45,33) is over 2F's Strength boulders (three across
+                           # its stairs down, 18,3-5) and down to 1F's upper level, a puzzle the walks don't solve yet:
+                           ('warp', (45, 32), 'DOWN'), 'DOWN',  # the test warp across it, to above the back rooms
                            ('to', (21, 11)), 'UP', ('surf', (37, 39)), ('surf', (56, 14)), 'UP',
                            ('to', (28, 16)), 'RIGHT',  # out onto Route 224
                            ('to', (913, 526)), ('to', (908, 493)), 'UP', ('talk', []),  # Dawn/Lucas (908,492)
@@ -1464,7 +1466,9 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
                 + ([lifts[n]] if n in (lifts or {}) else [])
             if heights is not None and choices:
                 nh = min(choices, key=lambda v: abs(v - h))
-                if not jump and abs(nh - h) >= 20:
+                climb = (t & 0xff) in ROCK_CLIMB or (maps.tile(matrix, *p) or 0) & 0xff in ROCK_CLIMB  # Rock Climb
+                # takes the player a level up or down (the walk climbs the wall when a step onto it is refused)
+                if not jump and not climb and abs(nh - h) >= 20:
                     continue
             if (n, round(nh)) in came:
                 continue
