@@ -1,0 +1,312 @@
+#!/usr/bin/env python3
+"""Record a battle on video in the test build, played as a player would: the player's lead made a given Pokémon (its
+item, moves, the MEGA toggle on so it Mega Evolves on its first move), the rest of the team Lv. 100 Pokémon of the
+caller's choosing.
+
+The lead comes from the test build's gSovereignTestLead (include/sovereign_test.h, src/overlay005/field_control.c),
+which a test battle applies as it starts: a wild one (SELECT) the player runs from, so the lead stays made. The team
+comes from two test warps onto the player's own tile (gSovereignTestPartyKeep keeps the lead, gSovereignTestPartyAdd
+adds three Pokémon a warp). No EXP is gained (gSovereignTestNoExp), so no level-up or new-move prompt holds the battle
+up. Then the battle, recorded from here:
+- by default, a room's own scene: the test warp into the room (Cynthia's, the Champion room, unless --room says
+  another), whose scene walks the player up to the trainer and starts the battle, as in the game;
+- with --trainer, a test trainer battle where the player stands (SELECT+R with gSovereignTestBattleTrainer).
+Either is a real battle unless --god makes it the test build's one-sided one (gSovereignTestGodMode: a foe that loses
+any HP faints, the player's Pokémon lose none, fast text).
+
+The battle is played from the bottom screen: on the command menu, FIGHT, then the move of the Pokémon out (its own, from the battle) that does the most to
+the foe out (its power, the user's type bonus, the sun's or rain's, and the type chart, src/battle/battle_lib.c, against the
+foe's types in gSovereignTestBattleMons); everything else (messages, the "Will you switch?" prompt) gets B, so the
+player never switches by choice. If the lead faints, the party screen's next Pokémon is sent out. Before the battle
+(the scene's lines) A pages the text; the recording ends a few seconds after the battle does (its Pokémon freed).
+
+The recording (both screens, test_hgss_opening.py's Recorder) is cut to an MP4 of both screens at twice the size.
+
+From the repo root, with the test build and a save state in the field made with it (tools/test/new_game.sh):
+    SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/record_battle.py ROM STATE OUT.mp4 \\
+        SPECIES_CHARIZARD ITEM_CHARIZARDITE_Y MOVE_FLAMETHROWER,MOVE_SOLAR_BEAM,MOVE_AIR_SLASH,MOVE_FOCUS_BLAST \\
+        [--team SPECIES_FERALIGATR,...] [--room MAP_HEADER_...:X:Z | --trainer TRAINER_...] [--god] [--level N]\\
+        [--nature MODEST] [--delay FRAMES]
+"""
+import json
+import os
+import re
+import struct
+import subprocess
+import sys
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.insert(0, os.path.join(ROOT, 'tools', 'test'))
+sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
+os.environ.setdefault('SDL_VIDEODRIVER', 'dummy')
+os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
+from battle_all_trainers import HANG_FRAMES, STEP, VBLANK_COUNTER, symbols, trainer_ids  # noqa: E402
+from talk_to_objects import SYMBOLS, header_names, warp  # noqa: E402
+
+DECOMP = os.path.join(ROOT, 'decomp')
+# struct SovereignTestLead (include/sovereign_test.h)
+LEAD = {'species': 0, 'form': 2, 'level': 3, 'item': 4, 'moves': 6, 'mega': 14, 'personality': 20}
+NATURES = ('HARDY', 'LONELY', 'BRAVE', 'ADAMANT', 'NAUGHTY', 'BOLD', 'DOCILE', 'RELAXED', 'IMPISH', 'LAX', 'TIMID',
+           'HASTY', 'SERIOUS', 'JOLLY', 'NAIVE', 'MODEST', 'MILD', 'QUIET', 'BASHFUL', 'RASH', 'CALM', 'GENTLE', 'SASSY',
+           'CAREFUL', 'QUIRKY')  # a personality's nature is personality % 25
+PARTY_ADDS = 3  # SOVEREIGN_TEST_PARTY_ADDS: struct SovereignTestPartyAdd {u16 species; u8 form; u8 level;}
+# struct SovereignTestBattleMons: the pointer, then u16 sizes and offsets
+BATTLE_MONS = ('size', 'moves', 'statBoosts', 'types', 'ability', 'ppCur', 'friendship', 'curHP', 'maxHP', 'status',
+               'statusVolatile', 'heldItem')
+# Against Cynthia's: Ice and Fairy for Garchomp, Electric for Milotic and Togekiss, Steel and Fire for the rest
+DEFAULT_TEAM = ['SPECIES_MAMOSWINE', 'SPECIES_GARDEVOIR', 'SPECIES_HEATRAN', 'SPECIES_RAIKOU', 'SPECIES_METAGROSS']
+DEFAULT_ROOM = ('MAP_HEADER_POKEMON_LEAGUE_CHAMPION_ROOM', 8, 17)  # inside the door, facing Cynthia
+FACE_UP = 1  # enum FaceDirection + 1, for the test warp
+# Bottom-screen touch spots (256x192): the command menu's FIGHT, and the move menu's four moves
+FIGHT, RUN = (128, 70), (128, 174)
+MOVE_SPOTS = ((64, 50), (192, 50), (64, 114), (192, 114))
+PARTY_SLOTS = ((60, 30), (190, 30), (60, 80), (190, 86), (60, 128), (190, 134))  # the party screen's panels
+PARTY_SHIFT = (128, 100)  # the chosen Pokémon's SHIFT
+SUN, RAIN = 'TYPE_FIRE', 'TYPE_WATER'  # the types the weather boosts
+FRAME_LIMIT = 60 * 60 * 45
+
+
+def names(kind):
+    return [line.strip() for line in open(os.path.join(DECOMP, 'generated', f'{kind}.txt')) if line.strip()]
+
+
+def type_chart():
+    """{(attacking, defending): multiplier}, from the battle's own table (src/battle/battle_lib.c)."""
+    src = open(os.path.join(DECOMP, 'src', 'battle', 'battle_lib.c')).read()
+    table = src[src.index('sTypeMatchupMultipliers[][3] = {'):]
+    table = table[:table.index('};')]
+    value = {'TYPE_MULTI_SUPER_EFF': 2.0, 'TYPE_MULTI_NOT_VERY_EFF': 0.5, 'TYPE_MULTI_IMMUNE': 0.0}
+    chart = {}
+    for attacking, defending, multi in re.findall(r'\{ (TYPE_\w+), (TYPE_\w+), (TYPE_MULTI_\w+) \}', table):
+        chart.setdefault((attacking, defending), value.get(multi, 1.0))  # Foresight's lines come after: kept first
+    return chart
+
+
+def move_data(move):
+    path = os.path.join(DECOMP, 'res', 'moves', move[len('MOVE_'):].lower(), 'data.json')
+    return json.load(open(path))
+
+
+class Battle:
+    def __init__(self, d, sym, weather):
+        self.d, self.sym, self.weather = d, sym, weather
+        self.chart, self.type_names, self.move_names = type_chart(), names('pokemon_types'), names('moves')
+        self.data = {}
+
+    def u32(self, addr):
+        return struct.unpack('<I', bytes(self.d.emu.memory.unsigned[addr:addr + 4]))[0]
+
+    def mons(self):
+        return self.u32(self.sym['gSovereignTestBattleMons'])
+
+    def battler(self, i):
+        """Battler i's (0 the player's, 1 the foe's in a single battle) moves and types, from the battle's Pokémon."""
+        base, mem = self.sym['gSovereignTestBattleMons'], self.d.emu.memory.unsigned
+        fields = dict(zip(BATTLE_MONS, struct.unpack('<12H', bytes(mem[base + 4:base + 28]))))
+        mon = self.mons() + fields['size'] * i
+        moves = struct.unpack('<4H', bytes(mem[mon + fields['moves']:mon + fields['moves'] + 8]))
+        types = {mem[mon + fields['types']], mem[mon + fields['types'] + 1]}
+        return ([self.move_names[m] if m < len(self.move_names) else 'MOVE_NONE' for m in moves],
+                [self.type_names[t] for t in types if t < len(self.type_names)])
+
+    def move(self, name):
+        if name not in self.data:
+            self.data[name] = move_data(name) if name != 'MOVE_NONE' else {}
+        return self.data[name]
+
+    def best_move(self):
+        """The slot of the move of the player's Pokémon out that does the most to the foe out: its power and
+        accuracy, the user's type bonus, the weather's and the type chart."""
+        moves, user = self.battler(0)
+        _, foe = self.battler(1)
+
+        def score(name):
+            m = self.move(name)
+            if m.get('class') == 'CLASS_STATUS' or not m.get('power'):
+                return 0
+            s = m['power'] * min(m.get('accuracy') or 100, 100) / 100
+            s *= 1.5 if m['type'] in user else 1
+            s *= 1.5 if m['type'] == self.weather else 1
+            for t in foe:
+                s *= self.chart.get((m['type'], t), 1.0)
+            return s
+        scores = [score(name) for name in moves]
+        return max(range(4), key=lambda i: scores[i]), moves, foe, scores
+
+    def screen(self):
+        """'command', 'moves', 'party' or None, from a few of the bottom screen's pixels."""
+        im = self.d.screenshot().convert('RGB')
+        px = lambda x, y: im.getpixel((x, 192 + y))  # noqa: E731
+        red = lambda c: c[0] > 170 and c[1] < 110 and c[2] < 110  # noqa: E731
+        blue = lambda c: c[2] > 150 and c[0] < 110  # noqa: E731
+        green = lambda c: c[1] > 140 and c[0] < 130 and c[2] < 140  # noqa: E731
+        orange = lambda c: c[0] > 170 and 100 < c[1] < 210 and c[2] < 90  # noqa: E731
+        purple = lambda c: c[2] > 140 and c[2] > c[0] + 20 and c[1] < 130 and c[0] > 90  # noqa: E731
+        if red(px(128, 60)) and orange(px(40, 180)) and green(px(216, 180)):
+            return 'command'
+        if blue(px(128, 174)) and blue(px(60, 174)) and blue(px(200, 174)) and not red(px(128, 60)):
+            return 'moves'
+        if purple(px(2, 100)) and purple(px(128, 160)):
+            return 'party'
+        return None
+
+    def send_next(self):
+        """On the party screen after a faint: the first Pokémon whose panel is a healthy one's blue (a fainted one's
+        is orange), then its SHIFT."""
+        im = self.d.screenshot().convert('RGB')
+        for x, y in PARTY_SLOTS:
+            c = im.getpixel((x, 192 + y))
+            if c[2] > c[0] + 20:
+                self.d.touch(x, y, frames=4, after=40)
+                self.d.touch(*PARTY_SHIFT, frames=4, after=40)
+                return True
+        return False
+
+    def play(self, limit=FRAME_LIMIT, log=print):
+        """Page the scene's text with A until the battle starts, then play it to its end (its Pokémon freed)."""
+        d, sym = self.d, self.sym
+        frames, stalled, started, turns = 0, 0, False, 0
+        vblank = self.u32(sym['gSystem'] + VBLANK_COUNTER)
+        while frames < limit:
+            d.run(STEP)
+            frames += STEP
+            now = self.u32(sym['gSystem'] + VBLANK_COUNTER)
+            stalled = stalled + STEP if now == vblank else 0
+            vblank = now
+            if stalled >= HANG_FRAMES:
+                return 'HANG', frames, turns
+            if not self.mons():
+                if started:
+                    log('the battle is over')
+                    return 'ok', frames, turns
+                if frames % (3 * STEP) == 0:
+                    d.press('A', frames=4, after=0)  # the scene's lines
+                continue
+            if not started:
+                log('the battle starts')
+            started = True
+            screen = self.screen()
+            if screen == 'command':
+                d.touch(*FIGHT, frames=4, after=30)
+                frames += 34
+                screen = self.screen()
+            if screen == 'moves':
+                slot, moves, foe, scores = self.best_move()
+                turns += 1
+                log(f'turn {turns}: {moves[slot]} into {"/".join(t[5:].title() for t in foe) or "?"} '
+                    f'({", ".join(f"{m[5:].title()} {s:.0f}" for m, s in zip(moves, scores))})')
+                d.touch(*MOVE_SPOTS[slot], frames=4, after=20)
+                frames += 24
+                continue
+            if screen == 'party':
+                log('the party screen: the next Pokémon')
+                self.send_next()
+                frames += 88
+                continue
+            d.press('B', frames=4, after=0)
+        return 'STUCK', frames, turns
+
+    def run_away(self, limit=3000):
+        """In a wild battle: RUN from the command menu, then B through the text, until the battle is over."""
+        frames, started = 0, False
+        while frames < limit:
+            self.d.run(STEP)
+            frames += STEP
+            if not self.mons():
+                if started:
+                    return True
+                continue
+            started = True
+            if self.screen() == 'command':
+                self.d.touch(*RUN, frames=4, after=30)
+            else:
+                self.d.press('B', frames=4, after=0)
+        return False
+
+
+def main():
+    from drive import Driver
+    from test_hgss_opening import Recorder
+
+    args = sys.argv[1:]
+    option = lambda name, default: args[args.index(name) + 1] if name in args else default  # noqa: E731
+    rom, state, out, species, item, moves = args[:6]
+    level = int(option('--level', 100))
+    team = option('--team', ','.join(DEFAULT_TEAM)).split(',')
+    trainer = option('--trainer', None)
+    room = option('--room', None)
+    room = (room.split(':')[0], int(room.split(':')[1]), int(room.split(':')[2])) if room else DEFAULT_ROOM
+    god = '--god' in args
+    nature = option('--nature', 'MODEST')  # the lead's: Modest for a special attacker such as Mega Charizard Y
+    delay = int(option('--delay', 0))  # frames to wait before the battle: the battle's luck follows the frame it starts on
+    sym = symbols(tuple(SYMBOLS) + ('gSovereignTestBattleTrainer', 'gSovereignTestLead', 'gSovereignTestNoExp',
+                                    'gSovereignTestBattleMons', 'gSovereignTestWild'))
+    index = {name: i for i, name in trainer_ids()}
+    species_ids, item_ids, move_ids = names('species'), names('items'), names('moves')
+    headers = header_names()
+
+    d = Driver(rom, state)
+    mem = d.emu.memory
+    d.run(30)
+    weather = {'ITEM_CHARIZARDITE_Y': SUN, 'ITEM_KYOGRE_ORB': RAIN}.get(item)  # the lead's Drought, Drizzle
+    battle = Battle(d, sym, weather)
+
+    # The lead, made as a test wild battle starts; the player runs
+    lead = sym['gSovereignTestLead']
+    mem.write_short(lead + LEAD['species'], species_ids.index(species))
+    mem.write_byte(lead + LEAD['form'], 0)
+    mem.write_byte(lead + LEAD['level'], level)
+    mem.write_short(lead + LEAD['item'], item_ids.index(item))
+    for i, move in enumerate(moves.split(',')[:4]):
+        mem.write_short(lead + LEAD['moves'] + 2 * i, move_ids.index(move))
+    mem.write_byte(lead + LEAD['mega'], 1)
+    mem.write_long(lead + LEAD['personality'], NATURES.index(nature) + 200)  # its low byte 200 or more: male
+    mem.write_byte(sym['gSovereignTestNoExp'], 1)
+    mem.write_byte(sym['gSovereignTestGodMode'], 0)
+    d.press('SELECT')
+    if not battle.run_away():
+        sys.exit('the wild battle that makes the lead never ended')
+    d.run(120)
+
+    # The team: the lead kept, the others added three a warp, onto the player's own tile
+    x, z = d.pos()
+    here = struct.unpack('<I', bytes(mem.unsigned[sym['gSovereignTestIdleMapHeaderID']:
+                                                  sym['gSovereignTestIdleMapHeaderID'] + 4]))[0]
+    for start in range(0, len(team), PARTY_ADDS):
+        adds = team[start:start + PARTY_ADDS]
+        mem.write_byte(sym['gSovereignTestPartyKeep'], 1 if start == 0 else 0)
+        for i in range(PARTY_ADDS):
+            slot = sym['gSovereignTestPartyAdd'] + 4 * i
+            mem.write_short(slot, species_ids.index(adds[i]) if i < len(adds) else 0)
+            mem.write_byte(slot + 2, 0)
+            mem.write_byte(slot + 3, 100)
+        result, _ = warp(d, sym, here, x, z, FACE_UP)
+        if result != 'ok':
+            sys.exit(f'the warp that adds {adds}: {result}')
+    d.run(60)
+
+    d.run(delay)
+    mem.write_byte(sym['gSovereignTestGodMode'], 1 if god else 0)  # the test build's one-sided battle
+    raw = out + '.ts'
+    video = Recorder(d, raw, 3)
+    if trainer:
+        mem.write_short(sym['gSovereignTestBattleTrainer'], index[trainer])
+        d.press('SELECT+R')
+    else:
+        from talk_to_objects import start_warp
+        start_warp(d, sym, headers.index(room[0]), room[1], room[2], FACE_UP)  # the room's scene starts the battle
+    def log(what):  # printed, and marked in the recording (OUT.mp4.ts.events) for cutting it
+        print(what, flush=True)
+        video.mark(what)
+    result, frames, turns = battle.play(log=log)
+    d.run(360)
+    video.close()
+    print(f'{trainer or room[0]}: {result} after {frames} frames ({frames / 60:.0f} s, {turns} turns)', flush=True)
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', raw, '-vf', 'scale=512:768:flags=neighbor',
+                    '-c:v', 'libx264', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out],
+                   check=True)
+    print(f'{out} written', flush=True)
+
+
+if __name__ == '__main__':
+    main()

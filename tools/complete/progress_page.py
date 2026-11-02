@@ -90,6 +90,19 @@ WAITING = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 1-2)
 RECENT = [
+    ('Following Pokémon', [
+        'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
+        'where you\'re heading), and when you come out of a door it appears in the doorway behind you as you step '
+        'off. You walk through it and swap places, as in HeartGold.',
+        'A shiny lead follows in its shiny colours (HeartGold\'s shiny palettes for all 566).',
+    ]),
+    ('Battle preview', [
+        'Videos of Mega Charizard Y against Cynthia in her room, from her own scene: one real battle (Charizard takes '
+        'three of her six before Garchomp\'s Outrage, and her Lv. 96 team wins) and one in the test build\'s '
+        'one-sided mode, where Charizard sweeps.',
+        'In real battles her team beat a Lv. 100 team six times out of six. She\'s hard; whether she should be this '
+        'hard is your call.',
+    ]),
     ('HeartGold\'s sprites', [
         'All 566 of HeartGold\'s walking Pokémon are in, so every species up to Arceus follows you (forms and female '
         'variants included), and the Pokémon standing about on the maps use them too.',

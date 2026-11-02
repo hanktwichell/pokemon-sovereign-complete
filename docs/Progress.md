@@ -1338,3 +1338,24 @@ Test results on the new test build:
   to block the way. This is a marked hook in `src/map_object_move.c`'s collision check, for the player and the
   follower only. `test_follower.py` now also checks that it's never in view on the player's tile (a new game, after
   a warp, a lead change, off the bike): it passes.
+- **The story test's map object scan:** the full run on the new build stuck in its first part. The walks find the
+  player's map object by scanning RAM for its local ID beside a tile near the player, and a false match came first: a
+  bogus object count kept the walk reading memory for minutes on end. A match must now be one of its manager's
+  objects (the manager's array, at a whole object's offset). The run on the build where the follower comes out beside
+  the player is under way.
+- **Battle videos:** `tools/complete/record_battle.py` records a real battle as a player would play it. A test wild
+  battle (run from) makes the lead the Pokémon asked for, with its item and moves and the MEGA toggle on. Two test
+  warps add five Lv. 100 Pokémon, and no EXP is gained, so no level-up prompts. Then the test warp into a room (by
+  default Cynthia's) plays the room's own scene, the walk up and her lines, into the battle. The battle is played
+  from the bottom screen: FIGHT, then the move of the Pokémon out that does the most to the foe out (from the
+  battle's own moves and types and the game's type chart), B for the rest (so no switch by choice), and the next
+  healthy Pokémon on the party screen after a faint. `tools/complete/cut_battle.py` cuts the recording to a preview
+  from the turn marks the recorder leaves.
+- **Mega Charizard Y against Cynthia:** the preview videos the owner asked for. In real battles (Cynthia's Lv. 96
+  team and items as the game has them) a Modest Lv. 100 Mega Charizard Y knocked out up to three of her six, but
+  her team won all six attempts: twice against the first team (Feraligatr, Ampharos, Tyranitar, Espeon,
+  Dragonite), three times against one picked for her (Mamoswine, Gardevoir, Heatran, Raikou, Metagross), and
+  once when the old driver switched Charizard out. These are bot-played battles with random IVs, no EVs and
+  level-up moves, against her competitive sets. Spiritomb's Confuse Ray and Cynthia's Full Restores drag out the
+  first turns, Garchomp's Outrage or Lucario finishes. The preview is cut from the best real one. A second video
+  shows the sweep in the test build's god mode, plainly marked as one-sided.

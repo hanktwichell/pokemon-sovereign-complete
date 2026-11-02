@@ -43,6 +43,9 @@ work.
   name). The ways through Azalea Gym's carts, Ilex Forest's Farfetch'd, Mahogany Gym's ice blocks, Ice Path B1F's
   boulder and Blackthorn Gym's floors come from `tools/complete/solve_story_puzzles.py`; its walks slide over ice and
   along Viridian Gym's arrows themselves.
+- Battle videos: `tools/complete/record_battle.py` (a real battle from a room's scene, Cynthia's by default, with a
+  given Mega lead and a Lv. 100 team; test build and a bedroom state) and `tools/complete/cut_battle.py` (a preview
+  cut from its turn marks). SDL catches SIGTERM, so stop an emulator run with `kill -9` on its PID.
 
 ## Progress page
 
