@@ -1265,6 +1265,7 @@ ICE_ROCK = GFX.index('OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' gra
 CLEARABLE = {GFX.index('OBJ_EVENT_GFX_CUT_TREE'), GFX.index('OBJ_EVENT_GFX_ROCK_SMASH')}  # a walk's way cleared by Cut
 # or Rock Smash (A at it, yes)
 ROCK_CLIMB = {0x4b, 0x4c}
+MUD_SLOPES = {0xd9, 0xda}  # the Bicycle's slopes (Route 207's, Route 209's): up them only in 4th gear
 BADGE_ICICLE, BADGE_HGSS_EARTH = 6, 15  # the badges that allow Rock Climb (enum Badge, constants/hgss_badges.h)  # TILE_BEHAVIOR_ROCK_CLIMB_N_S, ..._E_W: walls Rock Climb takes the player over (A, yes)
 CLEARS = 8  # trees, rocks and Rock Climb walls one walk may clear or climb
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
@@ -1490,6 +1491,8 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
                 # takes the player a level up or down (the walk climbs the wall when a step onto it is refused)
                 if not jump and not climb and abs(nh - h) >= 20:
                     continue
+            if heights is not None and (t & 0xff) in MUD_SLOPES and nh > h + 1:  # up a Bicycle slope: on foot the
+                continue  # player slides back down (the 'slope' action rides it up in 4th gear)
             if (n, round(nh)) in came:
                 continue
             came[(n, round(nh))] = ((p, round(h)), d)
