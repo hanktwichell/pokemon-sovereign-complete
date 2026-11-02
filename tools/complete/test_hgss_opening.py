@@ -1264,7 +1264,8 @@ GFX = open(os.path.join(DECOMP, 'generated', 'object_events_gfx.txt')).read().sp
 ICE_ROCK = GFX.index('OBJ_EVENT_GFX_ICE_ROCK')  # Mahogany Gym's ice blocks' graphics
 CLEARABLE = {GFX.index('OBJ_EVENT_GFX_CUT_TREE'), GFX.index('OBJ_EVENT_GFX_ROCK_SMASH')}  # a walk's way cleared by Cut
 # or Rock Smash (A at it, yes)
-ROCK_CLIMB = {0x4b, 0x4c}  # TILE_BEHAVIOR_ROCK_CLIMB_N_S, ..._E_W: walls Rock Climb takes the player over (A, yes)
+ROCK_CLIMB = {0x4b, 0x4c}
+BADGE_ICICLE, BADGE_HGSS_EARTH = 6, 15  # the badges that allow Rock Climb (enum Badge, constants/hgss_badges.h)  # TILE_BEHAVIOR_ROCK_CLIMB_N_S, ..._E_W: walls Rock Climb takes the player over (A, yes)
 CLEARS = 8  # trees, rocks and Rock Climb walls one walk may clear or climb
 SOUTH = 1  # Platinum's DIR_SOUTH: an ice block that faces it can be pushed
 MEET_TRIES = 12  # walks to beside someone who wanders, before giving up
@@ -1434,7 +1435,7 @@ def slide(maps, matrix, at, t, blocked):
 
 
 def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, height=0.0, surf=False, lifts=None,
-          pushable=frozenset()):
+          pushable=frozenset(), rock_climb=True):
     """The keys from start to goal over walkable land (a ledge one way), and water with surf, around the blocked tiles
     and without the steps ((tile, direction)) the player couldn't take, or None. With heights, from the player's height:
     a step takes the height nearest it at the next tile, and can't climb or drop 20 or more
@@ -1465,7 +1466,8 @@ def route(maps, matrix, start, goal, blocked, steps=frozenset(), heights=None, h
             if t is None or not (x0 <= n[0] <= x1 and z0 <= n[1] <= z1):
                 continue
             if n != goal and (n in blocked or not walkable(t)
-                              or (t & 0xff) in WATER and (not surf or (t & 0xff) in OTHER_WATER)):
+                              or (t & 0xff) in WATER and (not surf or (t & 0xff) in OTHER_WATER)
+                              or not rock_climb and (t & 0xff) in ROCK_CLIMB):  # a wall the player can't climb yet
                 continue
             while (t & 0xff) == ICE:  # on over the ice until off it or stopped (src/player_move.c)
                 ahead = (n[0] + d[0], n[1] + d[1])
@@ -1602,6 +1604,12 @@ def main():
 
     def vars_flags():
         return save_block('SAVE_TABLE_ENTRY_VARS_FLAGS')
+
+    def can_rock_climb():
+        """Whether a badge allows Rock Climb: Sinnoh's Icicle Badge or Kanto's Earth Badge
+        (src/complete_badges.c), from the player's TrainerInfo (its badges at +26, HeartGold's at +30)."""
+        player = save_block('SAVE_TABLE_ENTRY_PLAYER')
+        return bool(mem.unsigned[player + 30] & 1 << BADGE_ICICLE) or bool(u16(player + 34) & 1 << BADGE_HGSS_EARTH)
 
     gym = matrix_of.get(BLACKTHORN_GYM)
     gym_lava = {(x, z) for x in range(32) for z in range(96)
@@ -1794,6 +1802,7 @@ def main():
                                         if name.startswith(AVOIDED_TRIGGERS.get(header, '-')) for tile in tiles}
         failed = set()  # (tile, direction) steps the player couldn't take
         forgets, clears = 0, 0
+        climbs = can_rock_climb()
         stuck, last = 0, False
         before = None  # where the player was before the last step
         for n in range(WALK_STEPS):
@@ -1816,8 +1825,9 @@ def main():
             # around everyone where they are now (or where the map puts them), and if that fails, through them
             h, lift, (people, blocks) = height(), lifts(), others()
             people, blocks = (people_of[matrix], ()) if people is None else (people, blocks)
-            keys = route(maps, matrix, pos, goal, (people | avoid) - {pos}, failed, heights, h, surf, lift, blocks) \
-                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf, lift, blocks)
+            keys = route(maps, matrix, pos, goal, (people | avoid) - {pos}, failed, heights, h, surf, lift, blocks,
+                         climbs) \
+                or route(maps, matrix, pos, goal, avoid - {pos}, failed, heights, h, surf, lift, blocks, climbs)
             if not keys and failed and forgets < FORGETS:  # whoever was in the way may have moved since
                 failed.clear()
                 forgets += 1
@@ -2045,7 +2055,7 @@ def main():
         for action in actions:
             if video:
                 video.mark(f'action {action!r} {here()}')
-            if not settle():
+            if not settle(action[1] if isinstance(action, tuple) and action[0] == 'settle' else SETTLE_FRAMES):
                 problem = f'the field never came free before {action}, on {here()} at {d.pos()}'
             elif isinstance(action, str):
                 before, start = here(), d.pos()
@@ -2060,9 +2070,8 @@ def main():
                         # on the same map (Mt. Coronet 2F's way north, onto a mat back): taken, so no more presses
                         break
                     step(MAT_KEYS.get((maps.tile(matrix_of[here()], *d.pos()) or 0) & 0xff, action))
-            elif action[0] == 'settle':  # a long run of scenes and apps (the Hall of Fame, the credits) to its end
-                if not settle(action[1]):
-                    problem = f'the field never came free in {action[1]} frames, on {here()} at {d.pos()}'
+            elif action[0] == 'settle':  # a long run of scenes and apps (the Hall of Fame, the credits): settled above
+                pass
             elif action[0] == 'keep':  # the hook applies on the test warp, here onto the player's own tile
                 mem.write_byte(sym['gSovereignTestPartyKeep'], action[1])
                 result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
