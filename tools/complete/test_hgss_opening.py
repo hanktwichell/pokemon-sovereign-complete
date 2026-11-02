@@ -1210,20 +1210,23 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                                  ('to', (11, 4)),  # Barry's trigger (10-12,4): his battle
                                  'UP', ('talk', [])],  # the door guard (11,3) checks the badges, steps aside
           'MAP_HEADER_POKEMON_LEAGUE_NORTH_POKECENTER_1F', 'FLAG_POKEMON_LEAGUE_DOOR_GUARD_MOVED_AWAY'),
-         ('Aaron', [('to', (11, 3)), 'UP',  # the door (11,2), the lift down to his room
+         ('Aaron', [('to', (11, 3)), 'UP',  # the door (11,2), into the lift room below his
+                    ('to', (4, 11)), ('to', (4, 3)), 'UP',  # the lift (its trigger 4,11) up, the door (4,2)
                     ('to', (8, 6)), 'UP', ('talk', [0])],  # Aaron (8,5): the format, all singles (0)
           'MAP_HEADER_POKEMON_LEAGUE_AARON_ROOM', 'FLAG_DEFEATED_AARON'),
-         ('Bertha', [('to', (8, 3)), 'UP',  # the far door (8,2); the lift (trigger 4,11) to her room
-                     ('to', (8, 6)), 'UP', ('talk', [])],
+         ('Bertha', [('to', (8, 3)), 'UP',  # the far door (8,2), into the next lift room
+                     ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
           'MAP_HEADER_POKEMON_LEAGUE_BERTHA_ROOM', 'FLAG_DEFEATED_BERTHA'),
-         ('Flint', [('to', (8, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
+         ('Flint', [('to', (8, 3)), 'UP', ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
           'MAP_HEADER_POKEMON_LEAGUE_FLINT_ROOM', 'FLAG_DEFEATED_FLINT'),
-         ('Lucian', [('to', (8, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
+         ('Lucian', [('to', (8, 3)), 'UP', ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
           'MAP_HEADER_POKEMON_LEAGUE_LUCIAN_ROOM', 'FLAG_DEFEATED_LUCIAN'),
-         ('Cynthia', [('to', (8, 3)), 'UP'],  # the lift to her room, whose OnFrame starts her battle (format fixed)
-          'MAP_HEADER_POKEMON_LEAGUE_CHAMPION_ROOM', 'FLAG_DEFEATED_CYNTHIA'),
-         ('the Hall of Fame', [('to', (8, 3)), 'UP'],  # the hallway's OnFrame, the Hall's: ClearGame, the credits,
-          # OS_ResetSystem; the test must take the title screen's Continue (see notes)
+         ('Cynthia', [('to', (8, 3)), 'UP', ('to', (4, 19)), ('to', (4, 3)), 'UP'],  # the lift (trigger 4,19) up to
+          # her room, whose OnFrame starts her battle (format fixed); after it her lift, the hallway's scene, the Hall
+          # of Fame's, ClearGame, the credits and OS_ResetSystem all run on, and the title screen's Continue (settle's
+          # A) loads the save in the player's room, as Johto's Lance part does
+          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'FLAG_DEFEATED_CYNTHIA'),
+         ('the Hall of Fame', [],  # the game cleared and saved by the Hall of Fame
           'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'FLAG_GAME_COMPLETED')]
 # Where JUMP starts a part from the bedroom state, without the parts before it: the test warp's map, tile and facing
 # (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges) and their
