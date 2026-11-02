@@ -244,6 +244,9 @@ def talk_and_answer(d, sym, answers, limit=FRAME_LIMIT, press_a=True, done=None)
         step += 1
         if step % 3 == 0:  # a page of text
             d.press('A', frames=2, after=0)
+        elif step % 6 == 5:  # Sovereign Complete: a double battle's target screen, the left foe's box: TAPS' first
+            # tap is the right foe's, empty once it has fainted (Flint's Rapidash), where the battle waited for good
+            d.touch(64, 30, frames=4, after=0)
         else:  # the move a tap opens in a battle
             d.touch(*TAPS[frames // SWITCH_FRAMES % len(TAPS)], frames=4, after=0)
     return 'STUCK', frames
