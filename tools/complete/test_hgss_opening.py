@@ -1681,12 +1681,17 @@ def main():
         """The player's height, from their map object (src/map_object.c's MapObject: the player's localID 0xFF, its
         tile and its position's y), found again when the map changes."""
         pos, at = d.pos(), player_object[0]
-        if at is None or struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2] != pos:
+
+        def near(tile):  # the object's tile and the test build's player tile can differ by a step while the player
+            # moves on (the Cycling Road's downhill rolls the Bicycle on: it stood a tile ahead)
+            return abs(tile[0] - pos[0]) <= 2 and abs(tile[1] - pos[1]) <= 2
+        if at is None or u32(at + 8) != 0xFF or not u32(at) \
+                or not near(struct.unpack('<3i', bytes(mem.unsigned[at + 100:at + 112]))[::2]):
             ram, at = bytes(mem.unsigned[RAM:RAM + RAM_SIZE]), None
             for found in re.finditer(rb'\xff\x00\x00\x00', ram):
                 o = found.start() - 8  # the localID's offset
                 if o >= 0 and o % 4 == 0 and struct.unpack_from('<I', ram, o)[0] \
-                        and struct.unpack_from('<3i', ram, o + 100)[::2] == pos:
+                        and near(struct.unpack_from('<3i', ram, o + 100)[::2]):
                     at = RAM + o
                     break
             player_object[0] = at
