@@ -1371,6 +1371,14 @@ field_sprites_textures_complete_hgss_stills = [
     { 'file': 'npc/hgss/hgss_signball.png', 'basename': 'hg402'},
     { 'file': 'npc/hgss/hgss_statuehero.png', 'basename': 'hg403'},
     { 'file': 'npc/hgss/hgss_statueheroine.png', 'basename': 'hg404'},
+    { 'file': 'npc/hgss/hgss_bonguri.png', 'basename': 'hg262'},
+    { 'file': 'npc/hgss/hgss_bonguri_r.png', 'basename': 'hg263'},
+    { 'file': 'npc/hgss/hgss_bonguri_y.png', 'basename': 'hg264'},
+    { 'file': 'npc/hgss/hgss_bonguri_b.png', 'basename': 'hg265'},
+    { 'file': 'npc/hgss/hgss_bonguri_g.png', 'basename': 'hg266'},
+    { 'file': 'npc/hgss/hgss_bonguri_p.png', 'basename': 'hg267'},
+    { 'file': 'npc/hgss/hgss_bonguri_w.png', 'basename': 'hg268'},
+    { 'file': 'npc/hgss/hgss_bonguri_bk.png', 'basename': 'hg269'},
 ]
 foreach texture : field_sprites_textures_complete_hgss_stills
     field_sprites_nsbtxs += custom_target(

@@ -1299,3 +1299,8 @@ Test results on the new test build:
   Lugia's big sprite and share its hide flag), so they're Platinum's invisible object now. Still Platinum's: the
   Apricorn trees (HeartGold's change with the fruit, which needs the Apricorn code) and the 3D gimmicks HeartGold
   draws as models.
+- **HeartGold's Apricorn trees:** the 31 trees were Platinum's Cut tree (so the story test's walks even tried to cut
+  them); they're HeartGold's tree now, with its Apricorn's colour of fruit until it's picked that day, and bare after,
+  as HeartGold shows them. `CompleteApricorns_TreeGfx` picks the look as each tree's object is made (one marked hook
+  in `src/map_object.c`), and picking redraws the tree bare at once, the way the Bicycle redraws the player. Checked
+  in the emulator on Route 29: fruit, then picked, then bare.

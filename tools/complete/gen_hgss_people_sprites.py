@@ -15,7 +15,7 @@ HeartGold source (built by tools/complete/build_heartgold.sh into .cache/pokehea
   Platinum's invisible object. Not the following Pokémon
   (gen_follower_sprites.py), the 3D gimmicks HeartGold draws as models (their table entries point at BABYBOY1's
   art), Mahogany Gym's ice blocks (ICE: src/complete_gyms.c knows them by Platinum's ICE_ROCK), the player's own
-  states (bike, surf, ladder...), nor the Apricorn trees and Apricorns.
+  states (bike, surf, ladder...). The Apricorn trees are still, bare or with their fruit (SKIP's note).
 - A sprite whose frames are pixel for pixel one of Platinum's walkers uses Platinum's, and sprites sharing one
   graphics file share one ID, so each table entry is new art.
 - Each becomes OBJ_EVENT_GFX_HGSS_<NAME> = HGSS_BASE + its HeartGold number in generated/object_events_gfx.txt: fixed
@@ -51,8 +51,9 @@ HGSS_BASE = 1024  # OBJ_EVENT_GFX_HGSS_<NAME> = HGSS_BASE + HeartGold's number (
 SHARED = 146  # Diamond and Pearl's list, which both games kept
 EXTRA = {'DOCTOR': 16, 'HERO': 32, 'HEROINE': 32}  # below SHARED, with HeartGold's own art: Elm, Ethan and Lyra
 SKIP = {'ICE', 'FISHINGHERO', 'FISH_HEROINE'}  # Mahogany Gym's ice blocks stay Platinum's ICE_ROCK, which
-# src/complete_gyms.c pushes; the player's fishing (the player is Platinum's). The Apricorn trees and Apricorns
-# (BONGURI*, BONMI*) are left to the Apricorn trees' own sprites.
+# src/complete_gyms.c pushes; the player's fishing (the player is Platinum's). The Apricorn trees (BONGURI, bare,
+# and BONGURI_R .. _BK, with each colour's fruit) are their first frame, still: src/complete_apricorns.c shows the
+# fruit until the tree is picked. The Apricorns themselves (BONMI*) aren't shown on the field.
 # Per frame count and size: the first table's renderer, the billboard's model, frame sequence and animations
 # (Platinum's Youngster, its Pokémon Center nurse, its player, and its one-frame bollard and Regigigas)
 # HeartGold's invisible blockers: STOP objects stand around Lugia's and the Ampharos's big sprites and across closed
@@ -89,7 +90,7 @@ def hgss_sprites():
             continue
         name, model = m.group(1), m.group(2)
         seen.add(numbers[name])
-        if model not in mmodel or name.startswith(('FOLLOWER_MON_', 'BONGURI', 'BONMI')) or name in SKIP \
+        if model not in mmodel or name.startswith(('FOLLOWER_MON_', 'BONMI')) or name in SKIP \
                 or model == 'MMODEL_BABYBOY1' and name != 'BABYBOY1':  # a 3D gimmick (ov01_022073D8's list)
             continue
         path = os.path.join(HGSS, f'files/data/mmodel/mmodel/mmodel_{mmodel[model]:08d}.NSBTX')
@@ -97,13 +98,15 @@ def hgss_sprites():
     return sprites
 
 
-def sheet(path):
+def sheet(path, first_only=False):
     """HeartGold's frames stacked into Platinum's sheet, and its kind (frame count, size), or None for a sprite
-    that isn't one palette's square frames of one size."""
+    that isn't one palette's square frames of one size; with first_only, its first frame in its first palette."""
     try:
         frames, palettes = decode(path)
     except (ValueError, IndexError, AssertionError, KeyError, struct.error):
         return None
+    if first_only and frames:
+        frames, palettes = frames[:1], dict(list(palettes.items())[:1])
     if len(palettes) != 1 or not frames:
         return None
     size = frames[0][1]
@@ -178,7 +181,7 @@ def main():
             continue
         if number < SHARED and name not in EXTRA:
             continue
-        converted = sheet(path)
+        converted = sheet(path, name.startswith('BONGURI'))
         if converted is None or converted[1] not in KINDS or EXTRA.get(name, converted[1][0]) != converted[1][0] \
                 or converted[1][0] == 32 and name not in EXTRA:  # the player's own states (running, the Pokéathlon)
             continue

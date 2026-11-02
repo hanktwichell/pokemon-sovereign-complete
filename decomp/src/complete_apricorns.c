@@ -4,9 +4,11 @@
 
 #include "constants/heap.h"
 #include "generated/items.h"
+#include "generated/object_events_gfx.h"
 #include "generated/vars_flags.h"
 
 #include "field/field_system.h"
+#include "overlay005/ov5_021ECE40.h"
 
 #include "bag.h"
 #include "field_script_context.h"
@@ -75,6 +77,39 @@ static const u16 sApricornBalls[NUM_APRICORNS][2] = {
     { ITEM_BLK_APRICORN, ITEM_HEAVY_BALL },
 };
 
+// HeartGold's Apricorn trees with each colour's fruit, in sApricornBalls' order (tools/complete/gen_hgss_people_sprites.py)
+static const u16 sFruitTreeGfx[NUM_APRICORNS] = {
+    OBJ_EVENT_GFX_HGSS_BONGURI_R,
+    OBJ_EVENT_GFX_HGSS_BONGURI_Y,
+    OBJ_EVENT_GFX_HGSS_BONGURI_B,
+    OBJ_EVENT_GFX_HGSS_BONGURI_G,
+    OBJ_EVENT_GFX_HGSS_BONGURI_P,
+    OBJ_EVENT_GFX_HGSS_BONGURI_W,
+    OBJ_EVENT_GFX_HGSS_BONGURI_BK,
+};
+
+static BOOL IsPicked(FieldSystem *fieldSystem, int index)
+{
+    return VarsFlags_CheckFlag(SaveData_GetVarsFlags(fieldSystem->saveData), COMPLETE_APRICORN_TREE_FLAGS_START + index);
+}
+
+// A tree's look as its object is made (src/map_object.c): with its Apricorn's fruit until picked today, else bare,
+// as HeartGold's trees show; any other graphics as they are
+u32 CompleteApricorns_TreeGfx(FieldSystem *fieldSystem, u32 graphicsID, int index)
+{
+    if (graphicsID != OBJ_EVENT_GFX_HGSS_BONGURI || index < 0 || index >= NUM_APRICORN_TREES || IsPicked(fieldSystem, index)) {
+        return graphicsID;
+    }
+
+    for (int i = 0; i < NUM_APRICORNS; i++) {
+        if (sApricornBalls[i][0] == sTreeApricorns[index]) {
+            return sFruitTreeGfx[i];
+        }
+    }
+
+    return graphicsID;
+}
+
 static int ApricornTree_Index(FieldSystem *fieldSystem)
 {
     MapObject **tree = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_TARGET_OBJECT);
@@ -92,9 +127,8 @@ BOOL CompleteScrCmd_ApricornTree(ScriptContext *ctx)
 {
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
     int index = ApricornTree_Index(ctx->fieldSystem);
-    VarsFlags *varsFlags = SaveData_GetVarsFlags(ctx->fieldSystem->saveData);
 
-    if (index < 0 || VarsFlags_CheckFlag(varsFlags, COMPLETE_APRICORN_TREE_FLAGS_START + index)) {
+    if (index < 0 || IsPicked(ctx->fieldSystem, index)) {
         *destVar = ITEM_NONE;
     } else {
         *destVar = sTreeApricorns[index];
@@ -109,6 +143,9 @@ BOOL CompleteScrCmd_ApricornTreePick(ScriptContext *ctx)
 
     if (index >= 0) {
         VarsFlags_SetFlag(SaveData_GetVarsFlags(ctx->fieldSystem->saveData), COMPLETE_APRICORN_TREE_FLAGS_START + index);
+        // the fruit gone, the tree bare at once (as the Bicycle redraws the player)
+        MapObject **tree = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_TARGET_OBJECT);
+        ov5_021EE3FC(*tree, OBJ_EVENT_GFX_HGSS_BONGURI, NULL, NULL);
     }
 
     return FALSE;

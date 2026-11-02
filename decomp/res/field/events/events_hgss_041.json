@@ -101,7 +101,7 @@
         },
         {
             "id": "obj_R42_bonguri",
-            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BONGURI",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -120,7 +120,7 @@
         },
         {
             "id": "obj_R42_bonguri_2",
-            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BONGURI",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -139,7 +139,7 @@
         },
         {
             "id": "obj_R42_bonguri_3",
-            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BONGURI",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

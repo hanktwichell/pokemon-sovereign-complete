@@ -69,7 +69,7 @@
         },
         {
             "id": "obj_R02R0101_bonguri",
-            "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BONGURI",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

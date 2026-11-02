@@ -3,6 +3,7 @@
 
 #include "field_script_context.h"
 
+u32 CompleteApricorns_TreeGfx(FieldSystem *fieldSystem, u32 graphicsID, int index);
 BOOL CompleteScrCmd_ApricornTree(ScriptContext *ctx);
 BOOL CompleteScrCmd_ApricornTreePick(ScriptContext *ctx);
 BOOL CompleteScrCmd_CountApricorns(ScriptContext *ctx);

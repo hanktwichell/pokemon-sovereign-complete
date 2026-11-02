@@ -29,6 +29,7 @@
 #include "unk_020655F4.h"
 #include "unk_020EDBAC.h"
 
+#include "complete_apricorns.h" // Sovereign Complete
 #include "complete_follower.h" // Sovereign Complete
 
 typedef struct MapObjectManager {
@@ -683,7 +684,7 @@ static void MapObjectMan_AddMoveTask(const MapObjectManager *mapObjMan, MapObjec
 static void sub_020621E8(MapObject *mapObj, const ObjectEvent *objectEvent, FieldSystem *fieldSystem)
 {
     MapObject_SetLocalID(mapObj, ObjectEvent_GetLocalID(objectEvent));
-    MapObject_SetGraphicsID(mapObj, MapObject_GetFieldSystemGraphicsID(fieldSystem, ObjectEvent_GetGraphicsID(objectEvent)));
+    MapObject_SetGraphicsID(mapObj, CompleteApricorns_TreeGfx(fieldSystem, MapObject_GetFieldSystemGraphicsID(fieldSystem, ObjectEvent_GetGraphicsID(objectEvent)), ObjectEvent_GetDataAt(objectEvent, 0))); // Sovereign Complete: an Apricorn tree's fruit
     MapObject_SetMovementType(mapObj, ObjectEvent_GetMovementType(objectEvent));
     MapObject_SetTrainerType(mapObj, ObjectEvent_GetTrainerType(objectEvent));
     MapObject_SetFlag(mapObj, ObjectEvent_GetHiddenFlag(objectEvent));
