@@ -1353,9 +1353,9 @@ Test results on the new test build:
   from the turn marks the recorder leaves.
 - **Mega Charizard Y against Cynthia:** the preview videos the owner asked for. In real battles (Cynthia's Lv. 96
   team and items as the game has them) a Modest Lv. 100 Mega Charizard Y knocked out up to three of her six, but
-  her team won all six attempts: twice against the first team (Feraligatr, Ampharos, Tyranitar, Espeon,
-  Dragonite), three times against one picked for her (Mamoswine, Gardevoir, Heatran, Raikou, Metagross), and
-  once when the old driver switched Charizard out. These are bot-played battles with random IVs, no EVs and
+  her team won all six that ran to the end: three against the first team (Feraligatr, Ampharos, Tyranitar,
+  Espeon, Dragonite), three against one picked for her (Mamoswine, Gardevoir, Heatran, Raikou, Metagross).
+  These are bot-played battles with random IVs, no EVs and
   level-up moves, against her competitive sets. Spiritomb's Confuse Ray and Cynthia's Full Restores drag out the
   first turns, Garchomp's Outrage or Lucario finishes. The preview is cut from the best real one. A second video
   shows the sweep in the test build's god mode, plainly marked as one-sided.
