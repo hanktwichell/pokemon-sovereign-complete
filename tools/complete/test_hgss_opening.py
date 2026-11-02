@@ -1824,6 +1824,10 @@ def main():
                 clears += 1  # a tree or a rock in the way, or a wall to climb: Cut, Rock Smash or Rock Climb, as a
                 # player would (A at it, yes), and find the way again
                 result, frames = talk_and_answer(d, sym, [True], SETTLE_FRAMES)
+                if result.startswith('MENU') and d.pos() == pos:  # no question came (an A the field took before the
+                    # player faced the wall: it asks from the same state when tried again): face it again, and again
+                    d.press(keys[0], frames=8, after=16)
+                    result, frames = talk_and_answer(d, sym, [True], SETTLE_FRAMES)
                 if result != 'ok':
                     return f'clearing {ahead}: {result} after {frames} frames, on {here()} at {d.pos()}'
                 stuck = 0
