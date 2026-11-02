@@ -342,6 +342,8 @@ BYRON_WAY_OUT = (['RIGHT'] * 5 + ['DOWN'] + ['RIGHT'] + ['DOWN'] * 5 + ['LEFT'] 
                  ['UP'] * 5 + ['RIGHT'] * 5 + ['DOWN'] * 17 + ['RIGHT'] * 9)  # 55 keys from (16,4), platforms as left
 # by the way in, Byron's tile blocked; ends at (16,26), then 'DOWN' onto the door
 
+CREDITS_FRAMES = 150000  # Sinnoh's Hall of Fame, its credits (several minutes) and the title screen after the reset
+
 # (part, its actions, the map it ends on, the var that must have moved on from 0 or the flag that must be set, (var,
 # value) for a var that must have that value, ('fly', town) for the town's Fly point, or None). An action is a key to
 # press, ('to', (x, z)): a walk to that tile on the map the player is on, ('surf', (x, z)): one that may cross water,
@@ -359,8 +361,9 @@ BYRON_WAY_OUT = (['RIGHT'] * 5 + ['DOWN'] + ['RIGHT'] + ['DOWN'] * 5 + ['LEFT'] 
 # ('out', (x, z), key, map): a walk to that tile and the key, unless map comes first (the Great Marsh's game ending on
 # the way), or ('warp', (x, z), key[, map[, [(var or flag, value), ...]]]): the test warp to that tile on the map the player is on
 # (or that map), facing that way, setting those vars and flags, across a Sinnoh gym or dungeon puzzle of Platinum's the
-# walks don't solve yet (Sovereign's own, unchanged here). The stairs and doors warp
-# as the player presses toward them from their tile.
+# walks don't solve yet (Sovereign's own, unchanged here), or ('settle', frames): A through a long run of scenes and
+# apps (the Hall of Fame, the credits) until the field is free. The stairs and doors warp as the player presses toward
+# them from their tile.
 PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',  # beside the stairs (3,4)
          # (a bedroom state's start can be a tile off, as the TV program ends)
           'VAR_HGSS_SCENE_PLAYERS_HOUSE_1F'),
@@ -1223,10 +1226,10 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
           'MAP_HEADER_POKEMON_LEAGUE_FLINT_ROOM', 'FLAG_DEFEATED_FLINT'),
          ('Lucian', [('to', (8, 3)), 'UP', ('to', (4, 11)), ('to', (4, 3)), 'UP', ('to', (8, 6)), 'UP', ('talk', [])],
           'MAP_HEADER_POKEMON_LEAGUE_LUCIAN_ROOM', 'FLAG_DEFEATED_LUCIAN'),
-         ('Cynthia', [('to', (8, 3)), 'UP', ('to', (4, 19)), ('to', (4, 3)), 'UP'],  # the lift (trigger 4,19) up to
-          # her room, whose OnFrame starts her battle (format fixed); after it her lift, the hallway's scene, the Hall
-          # of Fame's, ClearGame, the credits and OS_ResetSystem all run on, and the title screen's Continue (settle's
-          # A) loads the save in the player's room, as Johto's Lance part does
+         ('Cynthia', [('to', (8, 3)), 'UP', ('to', (4, 19)), ('to', (4, 3)), 'UP',  # the lift (trigger 4,19) up to
+                      ('settle', CREDITS_FRAMES)],  # her room, whose OnFrame starts her battle (format fixed); after
+          # it her lift, the hallway's scene, the Hall of Fame's, ClearGame, Platinum's credits and OS_ResetSystem all
+          # run on, and the title screen's Continue (settle's A) loads the save in the player's room
           'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'FLAG_DEFEATED_CYNTHIA'),
          ('the Hall of Fame', [],  # the game cleared and saved by the Hall of Fame
           'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'FLAG_GAME_COMPLETED')]
@@ -1742,12 +1745,12 @@ def main():
         d.run(frames)
         return u32(sym['gSovereignTestIdleFrames']) - before >= frames // 3
 
-    def settle():
+    def settle(budget=SETTLE_FRAMES):
         """A through whatever runs (a prompt, a scene's text, a battle) until the field is free. A is pressed only
         while the field isn't free, so it never talks to whoever the player faces once a scene is over. False if the
-        field never comes free."""
+        field never comes free within budget frames."""
         frames, presses = 0, 0
-        while frames < SETTLE_FRAMES:
+        while frames < budget:
             frames += SHORT_RUN
             if free(SHORT_RUN):
                 frames += IDLE_RUN
@@ -2057,6 +2060,9 @@ def main():
                         # on the same map (Mt. Coronet 2F's way north, onto a mat back): taken, so no more presses
                         break
                     step(MAT_KEYS.get((maps.tile(matrix_of[here()], *d.pos()) or 0) & 0xff, action))
+            elif action[0] == 'settle':  # a long run of scenes and apps (the Hall of Fame, the credits) to its end
+                if not settle(action[1]):
+                    problem = f'the field never came free in {action[1]} frames, on {here()} at {d.pos()}'
             elif action[0] == 'keep':  # the hook applies on the test warp, here onto the player's own tile
                 mem.write_byte(sym['gSovereignTestPartyKeep'], action[1])
                 result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
