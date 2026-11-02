@@ -1184,19 +1184,17 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                            ('surf', (850, 599)),
                            'UP', 'UP',  # beside Sovereign's guard (851,598), through his check (850-852,598: 8
                            # badges, Togedemaru) and into Victory Road (850-852,597)
-                           # 1F: the way on to the back rooms (45,33) is over 2F's Strength boulders (three across
-                           # its stairs down, 18,3-5) and down to 1F's upper level, a puzzle the walks don't solve yet:
-                           ('warp', (45, 32), 'DOWN'), 'DOWN',  # the test warp across it, to above the back rooms
-                           ('to', (21, 11)), 'UP', ('surf', (37, 39)), ('surf', (56, 14)), 'UP',
-                           ('to', (28, 16)), 'RIGHT',  # out onto Route 224
-                           ('to', (913, 526)), ('to', (908, 493)), 'UP', ('talk', []),  # Dawn/Lucas (908,492)
-                           ('talk', [True])],  # again: yes, the battle
-          'MAP_HEADER_ROUTE_224', 'FLAG_SOVEREIGN_ROUTE_224_COUNTERPART_MET'),  # see note: the real proof is a
-         # FLAG_DEFEATED_TRAINER_SOVEREIGN_{DAWN,LUCAS}_ROUTE_224_{TURTWIG,CHIMCHAR,PIPLUP}
-         ('the Pokémon League', [('to', (897, 533)), ('to', (878, 559)), 'DOWN',  # back into Victory Road
-                                 ('to', (13, 16)), 'LEFT', ('surf', (37, 45)), ('surf', (3, 59)), 'UP',
-                                 ('to', (5, 19)), 'DOWN', ('to', (34, 7)), 'UP',  # 1F's exit (34,5): the collector
-                                 ('surf', (847, 560)), 'UP',  # is gone; the League's Pokémon Center
+                           ('to', (5, 37)), 'LEFT',  # 1F's stairs up (4,37) to 2F (20,16)
+                           # 2F: its stairs down to 1F's upper level (20,4) are behind three Strength boulders
+                           # (18,3-5), a puzzle the walks don't solve yet: the test warp across it, beside the stairs'
+                           ('warp', (5, 25), 'RIGHT', 'MAP_HEADER_VICTORY_ROAD_1F'),  # foot on 1F (4,25)
+                           ('to', (34, 7)), 'UP'],  # 1F's way out (34,4-6) to the Pokémon League. (Victory Road's back
+          # rooms, Marley's escort and Route 224's counterpart are the post-game's: Route 224's Dawn or Lucas appear
+          # once Oak's event there is done)
+          'MAP_HEADER_POKEMON_LEAGUE', None),
+         ('the Pokémon League', [('surf', (845, 570)), 'UP', ('talk', [True]),  # out of Victory Road (853,582),
+                                 # across its pool and up the falls (row 569) below the League: Waterfall, yes
+                                 ('surf', (847, 560)), 'UP',  # the League's Pokémon Center (847,559)
                                  ('to', (11, 4)),  # Barry's trigger (10-12,4): his battle
                                  'UP', ('talk', [])],  # the door guard (11,3) checks the badges, steps aside
           'MAP_HEADER_POKEMON_LEAGUE_NORTH_POKECENTER_1F', 'FLAG_POKEMON_LEAGUE_DOOR_GUARD_MOVED_AWAY'),
