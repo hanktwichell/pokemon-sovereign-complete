@@ -72,6 +72,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   (`docs/Features.md`, "Wild Pokémon"). Sacred Gold's and Sovereign's own tables are no longer used.
 - **A full test and a highlight video (Nov 1, 2026).** Once Sinnoh and the Megas are in: every test, the playthrough
   from New Bark Town to Spear Pillar, and a 1 to 2 minute video of it.
+- **HeartGold's sprites (Nov 2, 2026).** Once the full test is finished, every sprite there is access to comes over:
+  HeartGold's own people (the gym leaders, Elm, Lyra, Silver, Kurt, Team Rocket and the rest, now drawn with Sinnoh
+  stand-ins) and its walking Pokémon. The owner deals with custom or missing Pokémon sprites later. The highlight
+  clips are recorded again on that build.
 
 ### HeartGold features
 

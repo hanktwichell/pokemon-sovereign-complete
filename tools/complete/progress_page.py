@@ -68,11 +68,12 @@ STEPS = [
 ]
 
 NEXT = [
-    'The story test through Sinnoh: it passes from Twinleaf Town to Saturn at the Galactic HQ (67 of its 83 parts), '
-    'and is climbing Mt. Coronet for Totem Kommo-o, then Spear Pillar, Sunyshore, Victory Road and the League.',
-    'The full recorded test from New Bark Town restarted on the fixed build (two Totems moved, below) and is through '
-    'Johto\'s first half (32 parts); when it reaches Sinnoh\'s Hall of Fame, the 1 to 2 minute highlight video is cut '
-    'from it.',
+    'Finish the full test: the story test through Sinnoh passes as far as Victory Road (the League and the Hall of '
+    'Fame are next), and the recorded run from New Bark Town is in Kanto; then the 1 to 2 minute highlight video. A '
+    'first 57-second preview of Johto and Kanto is out.',
+    'Then bring over every HeartGold sprite there is access to: its people (Whitney, Misty and the other leaders, Elm, '
+    'Lyra, Silver, Kurt, Team Rocket and the rest, now drawn with Sinnoh stand-ins) and its walking Pokémon, and '
+    'record the highlight clips again with them. Custom or missing Pokémon sprites are yours, later.',
 ]
 
 WAITING = [
