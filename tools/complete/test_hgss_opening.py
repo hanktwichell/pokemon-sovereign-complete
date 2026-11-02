@@ -1181,9 +1181,9 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
           'MAP_HEADER_SUNYSHORE_CITY', ('VAR_SUNYSHORE_CITY_STATE', 3)),  # (853-857,743): HM07
          ('Sinnoh\'s Victory Road', [('surf', (849, 694)), ('surf', (841, 642)),  # Route 223
                            ('surf', (849, 605)), 'UP', ('talk', [True]),  # up its waterfall (row 604): Waterfall, yes
-                           ('surf', (851, 599)),
-                           'UP', 'UP',  # past the guard's check (851,598: 8 badges, Togedemaru), into Victory Road
-                           # (851,597)
+                           ('surf', (850, 599)),
+                           'UP', 'UP',  # beside Sovereign's guard (851,598), through his check (850-852,598: 8
+                           # badges, Togedemaru) and into Victory Road (850-852,597)
                            ('to', (9, 42)), ('to', (45, 32)), 'DOWN',  # 1F, to the back rooms (45,33)
                            ('to', (21, 11)), 'UP', ('surf', (37, 39)), ('surf', (56, 14)), 'UP',
                            ('to', (28, 16)), 'RIGHT',  # out onto Route 224
