@@ -1319,3 +1319,8 @@ Test results on the new test build:
   HeartGold's sprites. 504 came idle at once; 13 more have a scene on entry and pass with it played out; the last,
   the Dragon's Den shrine, is the elder's quiz, which only the story test answers (it passes there). Comparing each
   map's screen with the visit run before the sprites found no map drawn wrong.
+- **The full run on the sprite build:** New Bark Town to Sinnoh's Hall of Fame on the build with HeartGold's sprites,
+  all 186 parts passed (Johto and Kanto in one go; resumed three times in Sinnoh after test fixes): the height lookup
+  lost the player while the Bicycle rolled down Route 206's Cycling Road; walks took Route 209's Bicycle slope on foot;
+  and a talk's battle taps waited on a fainted foe's empty box in Flint's double battle. The highlight video is cut
+  again from this run, with HeartGold's people in it.

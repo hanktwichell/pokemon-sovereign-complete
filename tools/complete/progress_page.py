@@ -72,8 +72,8 @@ NEXT = [
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
     'objects and its Apricorn trees. Left: a few of HeartGold\'s 3D objects use Platinum\'s look-alikes. Custom or '
     'missing Pokémon sprites (#494 on) are yours, later.',
-    'The full recorded run passed all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame, and the 2-minute highlight '
-    'video is out. A second run on the build with HeartGold\'s sprites (now in Kanto) will give a new cut.',
+    'Both full recorded runs passed all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame, the second on the build '
+    'with HeartGold\'s sprites; the 2-minute highlight video is cut from it.',
 ]
 
 WAITING = [
