@@ -16,6 +16,10 @@ void CompleteFollower_Update(FieldSystem *fieldSystem);
 void CompleteFollower_SetInhibited(BOOL inhibited);
 // Whether the lead is too tall to follow in most buildings (HeartGold's flag).
 BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem);
+// HeartGold's walking Pokémon, a range of graphics IDs: the table entry the field looks up for one (its size's
+// template), and its texture's member of the field sprites' NARC (-1 for any other graphics ID)
+u32 CompleteFollower_TemplateGfx(u32 graphicsID);
+int CompleteFollower_GfxNarcIndex(u32 graphicsID);
 
 // HeartGold's mood (its MON_DATA_MOOD, -127 to 127): what a Pokémon went through lately, which the follower's talk
 // reflects (src/overlay006/complete_follower_talk.c). A level gained in battle raises it, fainting lowers it, and each
@@ -39,11 +43,13 @@ extern u16 gCompleteTestFollowerTile[2];
 // frame: the party's first two Pokémon swap places, or the player gets on or off the bike.
 extern u16 gCompleteTestFollowerGfx;
 extern u8 gCompleteTestFollowerAction;
+extern u16 gCompleteTestFollowerLead[2]; // the species and form COMPLETE_TEST_FOLLOWER_SET_LEAD gives the lead
 
 enum CompleteTestFollowerAction {
     COMPLETE_TEST_FOLLOWER_NONE = 0,
     COMPLETE_TEST_FOLLOWER_SWAP_LEAD,
     COMPLETE_TEST_FOLLOWER_BICYCLE,
+    COMPLETE_TEST_FOLLOWER_SET_LEAD, // its sprites (tools/complete/show_followers.py)
 };
 void CompleteFollower_TestRecordTile(FieldSystem *fieldSystem);
 #endif

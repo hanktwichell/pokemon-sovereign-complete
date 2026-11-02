@@ -104,7 +104,7 @@
         },
         {
             "id": "obj_T06R0301_tsure_poke_static_bayleef",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SKUNTANK",
             "movement_type": "MOVEMENT_TYPE_WALK_SOUTH_WEST_NORTH_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -142,7 +142,7 @@
         },
         {
             "id": "obj_T06R0301_6",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_RAPIDASH",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

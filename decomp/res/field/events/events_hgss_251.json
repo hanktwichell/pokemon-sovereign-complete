@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_poliwrath",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_POLIWRATH",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_225",
@@ -136,7 +136,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_meowth",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_MEOWTH",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -174,7 +174,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_psyduck",
-            "graphics_id": "OBJ_EVENT_GFX_PSYDUCK",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_PSYDUCK",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -193,7 +193,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_slowpoke",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWPOKE",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -212,7 +212,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_oddish",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ODDISH",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -250,7 +250,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_pidgey",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_PIDGEY",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -288,7 +288,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_slowbro",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWBRO",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -326,7 +326,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_machop",
-            "graphics_id": "OBJ_EVENT_GFX_MACHOP",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_MACHOP",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -345,7 +345,7 @@
         },
         {
             "id": "obj_D49_tsure_poke_static_farfetchd",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_FARFETCHD",
             "movement_type": "MOVEMENT_TYPE_WALK_BACK_AND_FORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

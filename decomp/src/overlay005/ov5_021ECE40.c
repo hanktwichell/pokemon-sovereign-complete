@@ -35,6 +35,8 @@
 #include "sys_task.h"
 #include "sys_task_manager.h"
 
+#include "complete_follower.h" // Sovereign Complete
+
 typedef enum {
     UnkEnum_ov5_021ED334_00 = 0,
     UnkEnum_ov5_021ED334_01,
@@ -502,6 +504,15 @@ static void ov5_021ED2AC(UnkStruct_ov5_021ED0A4 *param0)
 
 static const ObjectEventGfxFileEntry *ov5_021ED2D0(int param0, int param1, const ObjectEventGfxFileEntry *param2)
 {
+    // Sovereign Complete: HeartGold's walking Pokémon, a range of graphics IDs whose textures follow each other
+    static ObjectEventGfxFileEntry sCompleteFollowerTexture;
+
+    if (param2 == gObjectEventGfxTexturesTable && CompleteFollower_GfxNarcIndex(param0) >= 0) {
+        sCompleteFollowerTexture.id = param0;
+        sCompleteFollowerTexture.narcIdx = CompleteFollower_GfxNarcIndex(param0);
+        return &sCompleteFollowerTexture;
+    }
+
     do {
         if (param2->id == param0) {
             return param2;
@@ -1278,6 +1289,8 @@ static const ObjectEventGfxModelAnimEntry *ov5_021EDD04(int param0)
 {
     const ObjectEventGfxModelAnimEntry *v0 = gObjectEventGfxModelAnimsTable;
 
+    param0 = CompleteFollower_TemplateGfx(param0); // Sovereign Complete: HeartGold's walking Pokémon share entries
+
     do {
         if (v0->graphicsID == param0) {
             return v0;
@@ -1915,7 +1928,9 @@ static Billboard *ov5_021EE454(MapObject *param0, int param1, UnkFuncPtr_ov5_021
         BillboardGfxSequence_SetData(v11->unk_0C, &v11->unk_14);
     }
 
-    {
+    if (CompleteFollower_GfxNarcIndex(v2) >= 0) { // Sovereign Complete: HeartGold's walking Pokémon's textures
+        v11->unk_10 = ov5_021EDCF4(v8, CompleteFollower_GfxNarcIndex(v2), 0);
+    } else {
         v1 = 0;
         v3 = v2;
         v7 = gObjectEventGfxTexturesTable;

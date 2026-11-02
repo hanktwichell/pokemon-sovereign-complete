@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_T02R0201_tsure_poke_static_rattata",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_RATTATA",
             "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_T02R0201_tsure_poke_static_spearow",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SPEAROW",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

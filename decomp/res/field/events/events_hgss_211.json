@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_D27R0107_tsure_poke_static_ampharos",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_AMPHAROS",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

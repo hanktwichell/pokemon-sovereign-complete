@@ -1,28 +1,33 @@
 #!/usr/bin/env python3
-"""Bring HeartGold's walking (following) Pokémon sprites into the engine as overworld sprites.
+"""Bring all of HeartGold's walking (following) Pokémon sprites into the engine, as one range of overworld sprites.
 
-For each species asked for, this takes HeartGold's walking sprite from the HeartGold source (built by
-tools/complete/build_heartgold.sh into .cache/pokeheartgold), turns it into a Platinum overworld sprite and registers
-it:
+HeartGold has 566 walking sprites (SPRITE_FOLLOWER_MON_BULBASAUR, 428, to SPRITE_FOLLOWER_MON_ARCEUS_DARK, 993): one
+per species up to Arceus, with its female variants, Unown's letters, Arceus's types and the other forms. This takes
+them from the HeartGold source (built by tools/complete/build_heartgold.sh into .cache/pokeheartgold) and registers
+them as a range of graphics IDs, so the field overlay doesn't need four table entries for each:
 
-- HeartGold's sprite (data/mmodel, the SPRITE_FOLLOWER_MON_* entries of asm/overlay_01_sprite_data.s) is a BTX0 file
-  of 8 frames, two per direction in the order up, down, left, right, with a normal and a shiny palette. Platinum's
-  walking sprites have four frames per direction in the same order and loop through them, so each pair becomes
-  A, B, A, B. The PNG goes to res/graphics/field_sprites/pokemon/follower/ (normal palette).
+- Each sprite (data/mmodel, the SPRITE_FOLLOWER_MON_* entries of asm/overlay_01_sprite_data.s) is a BTX0 file of 8
+  frames, two per direction in the order up, down, left, right, with a normal and a shiny palette. Platinum's walking
+  sprites have four frames per direction in the same order and loop through them, so each pair becomes A, B, A, B.
+  The PNGs go to res/graphics/field_sprites/pokemon/follower/follower_NNN.png (the normal palette), NNN the sprite's
+  place in the range, and into field_sprites.order one after another, so the k-th sprite's texture is the first's
+  NARC member + k.
+- generated/object_events_gfx.txt gets OBJ_EVENT_GFX_HGSS_MON_<NAME> = FIRST + k (FIRST 2048, fixed, as graphics IDs
+  are saved), for the maps' Pokémon standing about (tools/complete/import_hgss_events.py).
+- src/overlay005/object_event_gfx_data.c gets entries for two of them only, the first 32x32 one and the first 64x64
+  one: the templates. src/complete_follower.c's CompleteFollower_TemplateGfx turns any ID in the range into its
+  size's template for the renderer, billboard and model-type lookups (src/map_object.c, src/overlay005/
+  ov5_021ECE40.c, ov5_021ECC20.c), and CompleteFollower_GfxNarcIndex gives its texture's NARC member for the texture
+  lookups (ov5_021ECE40.c). Both use src/complete_follower_gfx.h, written here: which sprites are 64x64, and per
+  species (HeartGold's sModelIndexLUT, sFormMaxLUT and sFemaleFlagLUT, src/follow_mon.c) its first sprite, its forms
+  and whether a female one follows, as HeartGold's FollowMon_GetSpriteID reads them, and HeartGold's "too tall" flag
+  (files/fielddata/tsurepoke/tp_param.csv): those stay in their ball on maps that only let small Pokémon follow.
 - 32x32 sprites use BILLBOARD_MODEL_GENERIC_32x32 and 64x64 ones BILLBOARD_MODEL_GENERIC_64x64, both with the generic
   walk, a shadow, footprints and a reflection, like Platinum's own walking Pokémon (Pikachu) and Sovereign's Totems.
-- It writes OBJ_EVENT_GFX_FOLLOWER_<SPECIES> to generated/object_events_gfx.txt, the four tables of
-  src/overlay005/object_event_gfx_data.c, field_sprites.order and the field sprites' meson.build, and the species
-  table in src/complete_follower_gfx.h, with HeartGold's "too tall" flag (files/fielddata/tsurepoke/tp_param.csv):
-  those stay in their ball on maps that only let small Pokémon follow.
 
-Every insertion sits between "Sovereign Complete: following Pokémon" markers and is rewritten on each run, so the
-script can be run again after changing the list.
+Every insertion sits between "Sovereign Complete: following Pokémon" markers and is rewritten on each run.
 
-Prototype: every table entry costs field-overlay RAM, so only the species listed are added. The full set (627 sprites
-with female and form variants) needs a range-based lookup instead of four table entries each.
-
-Usage: python3 tools/complete/gen_follower_sprites.py [SPECIES ...]   (names as in SPECIES_*, e.g. GARCHOMP)
+Usage: python3 tools/complete/gen_follower_sprites.py
 """
 import os
 import re
@@ -37,34 +42,65 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 DECOMP = os.path.join(ROOT, 'decomp')
 HGSS = os.path.join(ROOT, '.cache', 'pokeheartgold')
 
-PROTOTYPE = ['GARCHOMP', 'TURTWIG', 'STARLY', 'GALLADE', 'PIKACHU']
+FIRST = 2048  # OBJ_EVENT_GFX_HGSS_MON_* = FIRST + the sprite's place in HeartGold's range
+HG_FIRST, HG_LAST = 428, 993  # SPRITE_FOLLOWER_MON_BULBASAUR .. SPRITE_FOLLOWER_MON_ARCEUS_DARK
+HG_SPECIES = 493  # HeartGold's species, Bulbasaur to Arceus
 
 BEGIN = 'Sovereign Complete: following Pokémon (tools/complete/gen_follower_sprites.py)'
 END = 'Sovereign Complete: end of following Pokémon'
 
 
-def hgss_sprite_paths():
-    """{species name: mmodel NSBTX path} for HeartGold's walking sprites (normal form, male/default only)."""
-    mmodel = {}
-    for line in open(os.path.join(HGSS, 'include/constants/mmodel.h')):
-        m = re.match(r'#define MMODEL_FOLLOWER_MON_(\w+)\s+(\d+)', line)
+def defines(path, pattern):
+    values = {}
+    for line in open(os.path.join(HGSS, path)):
+        m = re.match(rf'#define ({pattern})\s+(0x[0-9A-Fa-f]+|\d+)\b', line)
         if m:
-            mmodel[m.group(1)] = int(m.group(2))
-    paths = {}
+            values.setdefault(m.group(1), int(m.group(2), 0))
+    return values
+
+
+def hgss_range():
+    """[(name, mmodel NSBTX path)] for HeartGold's walking sprites 428-993 in order (names without FOLLOWER_MON_)."""
+    numbers = {n: name for name, n in defines('include/constants/sprites.h', r'SPRITE_FOLLOWER_MON_\w+').items()}
+    mmodel = defines('include/constants/mmodel.h', r'MMODEL_\w+')
+    models = {}
     for line in open(os.path.join(HGSS, 'asm/overlay_01_sprite_data.s')):
-        m = re.search(r'SPRITE_FOLLOWER_MON_(\w+), MMODEL_FOLLOWER_MON_(\w+)', line)
-        if m and m.group(2) in mmodel:
-            paths[m.group(1)] = os.path.join(HGSS, f'files/data/mmodel/mmodel/mmodel_{mmodel[m.group(2)]:08d}.NSBTX')
-    return paths
+        m = re.search(r'\.short (SPRITE_FOLLOWER_MON_\w+), (MMODEL_\w+),', line)
+        if m:
+            models.setdefault(m.group(1), m.group(2))
+    sprites = []
+    for n in range(HG_FIRST, HG_LAST + 1):
+        name = numbers[n]
+        path = os.path.join(HGSS, f'files/data/mmodel/mmodel/mmodel_{mmodel[models[name]]:08d}.NSBTX')
+        sprites.append((name[len('SPRITE_FOLLOWER_MON_'):], path))
+    return sprites
 
 
-def too_tall():
-    """{species name: HeartGold's too-tall flag} from its following Pokémon parameters (the default form's row)."""
+def lookup_tables():
+    """HeartGold's per-species tables (src/follow_mon.c): [first sprite's place] (index species, 0 none), [forms - 1]
+    and [female sprite follows] (index species - 1)."""
+    offsets = defines('include/constants/follow_mon_idx.h', r'FOLLOWER_MON_\w+')
+    source = open(os.path.join(HGSS, 'src/follow_mon.c')).read()
+
+    def table(name):
+        body = re.search(rf'{name}\[\] = \{{(.*?)\n\}};', source, re.S).group(1)
+        return [re.sub(r'//.*', '', line).strip().rstrip(',') for line in body.splitlines()
+                if re.sub(r'//.*', '', line).strip()]
+    first = [offsets[v] for v in table('sModelIndexLUT')]
+    forms = [int(v, 0) for v in table('sFormMaxLUT')]
+    female = [v == 'TRUE' for v in table('sFemaleFlagLUT')]
+    assert len(first) == HG_SPECIES + 1 and len(forms) == len(female) == HG_SPECIES, (len(first), len(forms))
+    return first, forms, female
+
+
+def too_tall(first, names):
+    """[too tall] per species (index species - 1) from HeartGold's following Pokémon parameters (tp_param.csv, the
+    first row naming the species' first sprite)."""
     flags = {}
     for line in open(os.path.join(HGSS, 'files/fielddata/tsurepoke/tp_param.csv')).read().splitlines()[1:]:
         name, _, tall = line.split(',')[:3]
         flags.setdefault(name[len('TSURE_POKE_'):], tall == 'true')
-    return flags
+    return [flags.get(names[first[species]], False) for species in range(1, HG_SPECIES + 1)]
 
 
 def convert(nsbtx, png):
@@ -109,55 +145,64 @@ def edit(path, change):
         open(full, 'w').write(new)
 
 
-def main():
-    wanted = [s.upper() for s in sys.argv[1:]] or PROTOTYPE
-    sources = hgss_sprite_paths()
-    missing = [s for s in wanted if s not in sources]
-    if missing:
-        sys.exit(f'No HeartGold walking sprite for: {", ".join(missing)}')
+def bits(flags):
+    return [sum(1 << b for b in range(8) if i + b < len(flags) and flags[i + b]) for i in range(0, len(flags), 8)]
 
+
+def c_array(values, per_line=16, fmt='{}'):
+    lines = []
+    for i in range(0, len(values), per_line):
+        lines.append('    ' + ', '.join(fmt.format(v) for v in values[i:i + per_line]) + ',')
+    return '\n'.join(lines)
+
+
+def main():
     out_dir = os.path.join(DECOMP, 'res/graphics/field_sprites/pokemon/follower')
     os.makedirs(out_dir, exist_ok=True)
+    for old in os.listdir(out_dir):
+        if old.endswith('.png'):
+            os.remove(os.path.join(out_dir, old))
     sprites = []
-    for i, species in enumerate(wanted, 1):
-        stem = f'follower_{species.lower()}'
-        size = convert(sources[species], os.path.join(out_dir, stem + '.png'))
-        sprites.append((species, stem, size, f'scfol{i:03d}'))
-        print(f'{species}: {size}x{size} -> pokemon/follower/{stem}.png')
+    for k, (name, path) in enumerate(hgss_range()):
+        stem = f'follower_{k:03d}'
+        size = convert(path, os.path.join(out_dir, stem + '.png'))
+        sprites.append((k, name, stem, size))
+    names = [name for _, name, _, _ in sprites]
+    large = [size == 64 for *_, size in sprites]
+    first64 = large.index(True)
+    print(f'{len(sprites)} walking sprites, {sum(large)} of them 64x64')
 
-    gfx = lambda species: f'OBJ_EVENT_GFX_FOLLOWER_{species}'  # noqa: E731
-    model = {32: 'BILLBOARD_MODEL_GENERIC_32x32', 64: 'BILLBOARD_MODEL_GENERIC_64x64'}
-    # The first table's per-size setup: Platinum's Pikachu (32x32) and Regigigas (64x64).
-    unk = {32: '&Unk_ov5_021FAFD8', 64: '&Unk_ov5_021FB0A0'}
-
+    gfx = lambda k: f'OBJ_EVENT_GFX_HGSS_MON_{names[k]}'  # noqa: E731
     edit('generated/object_events_gfx.txt', lambda t: replace_block(
-        t, [gfx(s) for s, *_ in sprites], 'OBJ_EVENT_GFX_BERRY_SPROUT', comment='#'))
+        t, [f'{gfx(k)} = {FIRST + k}' for k in range(len(sprites))], 'OBJ_EVENT_GFX_BERRY_SPROUT', comment='#'))
+
+    templates = [(0, 'BILLBOARD_MODEL_GENERIC_32x32', '&Unk_ov5_021FAFD8'),
+                 (first64, 'BILLBOARD_MODEL_GENERIC_64x64', '&Unk_ov5_021FB0A0')]  # Pikachu's and Regigigas's setup
 
     def tables(text):
-        text = replace_block(text, [f'{{ {gfx(s)}, {unk[size]} }},' for s, _, size, _ in sprites],
+        text = replace_block(text, [f'{{ {gfx(k)}, {unk} }},' for k, _, unk in templates],
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, NULL }', indent='    ', tag='graphics')
-        text = replace_block(text, [f'{{ {gfx(s)}, {stem}_nsbtx }},' for s, stem, _, _ in sprites],
-                             '{ OBJ_EVENT_GFX_SENTINEL_ID, 0 }', indent='    ', tag='textures')
-        text = replace_block(text, [f'{{ {gfx(s)}, {model[size]}, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims }},'
-                                    for s, _, size, _ in sprites],
+        text = replace_block(text, [], '{ OBJ_EVENT_GFX_SENTINEL_ID, 0 }', indent='    ', tag='textures')
+        text = replace_block(text, [f'{{ {gfx(k)}, {model}, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims }},'
+                                    for k, model, _ in templates],
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, BILLBOARD_MODEL_SENTINEL_ID', indent='    ', tag='billboards')
-        text = replace_block(text, [f'{{ {gfx(s)}, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, '
-                                    '.hasReflection = TRUE },' for s, *_ in sprites],
+        text = replace_block(text, [f'{{ {gfx(k)}, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, '
+                                    '.hasReflection = TRUE },' for k, _, _ in templates],
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, 0, 0, 0, 0 }', indent='    ', tag='model types')
         return text
     edit('src/overlay005/object_event_gfx_data.c', tables)
 
     def order(text):
         lines = [line for line in text.splitlines() if not line.startswith('follower_')]
-        return '\n'.join(lines + [f'{stem}.nsbtx' for _, stem, _, _ in sprites]) + '\n'
+        return '\n'.join(lines + [f'{stem}.nsbtx' for _, _, stem, _ in sprites]) + '\n'
     edit('res/graphics/field_sprites/field_sprites.order', order)
 
     def meson(text):
         entries = []
         for px in (32, 64):
             entries.append(f"field_sprites_textures_complete_followers_{px} = [")
-            entries += [f"    {{ 'file': 'pokemon/follower/{stem}.png', 'basename': '{base}'}},"
-                        for _, stem, size, base in sprites if size == px]
+            entries += [f"    {{ 'file': 'pokemon/follower/{stem}.png', 'basename': 'hgmon{k:03d}'}},"
+                        for k, _, stem, size in sprites if size == px]
             entries.append(']')
         for px in (32, 64):
             entries += [
@@ -175,15 +220,41 @@ def main():
                              comment='#')
     edit('res/graphics/field_sprites/meson.build', meson)
 
+    first, forms, female = lookup_tables()
+    tall = too_tall(first, names)
     header = os.path.join(DECOMP, 'src/complete_follower_gfx.h')
     with open(header, 'w') as f:
-        f.write('// Generated by tools/complete/gen_follower_sprites.py: the walking sprite of each species that has one.\n')
-        f.write('static const struct { u16 species; u16 graphicsID : 15; u16 tooTall : 1; } sFollowerGfx[] = {\n')
-        tall = too_tall()
-        for species, *_ in sprites:
-            f.write(f'    {{ SPECIES_{species}, {gfx(species)}, {"TRUE" if tall[species] else "FALSE"} }},\n')
-        f.write('};\n')
-    print(f'{len(sprites)} walking sprites registered')
+        f.write(f'''// Generated by tools/complete/gen_follower_sprites.py: HeartGold's walking Pokémon sprites, a range of graphics
+// IDs (OBJ_EVENT_GFX_HGSS_MON_*) whose textures are NARC members one after another.
+#define FOLLOWER_GFX_FIRST {FIRST}
+#define FOLLOWER_GFX_COUNT {len(sprites)}
+#define FOLLOWER_GFX_TEMPLATE_32 {gfx(0)}
+#define FOLLOWER_GFX_TEMPLATE_64 {gfx(first64)}
+#define FOLLOWER_GFX_FIRST_TEXTURE {sprites[0][2]}_nsbtx
+#define FOLLOWER_SPECIES_COUNT {HG_SPECIES}
+
+// Bit k: the range's k-th sprite is 64x64
+static const u8 sFollowerGfxLarge[] = {{
+{c_array(bits(large), fmt='0x{:02X}')}
+}};
+
+// Per species (index species): its first sprite's place in the range (HeartGold's sModelIndexLUT)
+static const u16 sFollowerGfxFirst[] = {{
+{c_array(first)}
+}};
+
+// Per species (index species - 1): its forms beyond the first (sFormMaxLUT), and bit 7 if a female sprite follows
+// its first (sFemaleFlagLUT)
+static const u8 sFollowerGfxForms[] = {{
+{c_array([fm | (0x80 if fe else 0) for fm, fe in zip(forms, female)])}
+}};
+
+// Bit species - 1: too tall for the maps that only let small Pokémon follow (HeartGold's tp_param.csv)
+static const u8 sFollowerTooTall[] = {{
+{c_array(bits(tall), fmt='0x{:02X}')}
+}};
+''')
+    print(f'{sum(tall)} species too tall; src/complete_follower_gfx.h written')
 
 
 if __name__ == '__main__':

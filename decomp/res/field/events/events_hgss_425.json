@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_T03R0201_tsure_poke_static_nidoran_m",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_NIDORAN_M",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

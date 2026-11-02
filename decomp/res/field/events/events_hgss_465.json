@@ -28,7 +28,7 @@
     "object_events": [
         {
             "id": "obj_D02R0104_tsure_poke_static_clefairy",
-            "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CLEFAIRY",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26E",
@@ -47,7 +47,7 @@
         },
         {
             "id": "obj_D02R0104_tsure_poke_static_clefairy_2",
-            "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CLEFAIRY",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26E",
@@ -66,7 +66,7 @@
         },
         {
             "id": "obj_D02R0104_tsure_poke_static_clefairy_3",
-            "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CLEFAIRY",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26E",
@@ -85,7 +85,7 @@
         },
         {
             "id": "obj_D02R0104_tsure_poke_static_clefairy_4",
-            "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CLEFAIRY",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26E",
@@ -104,7 +104,7 @@
         },
         {
             "id": "obj_D02R0104_tsure_poke_static_clefairy_5",
-            "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CLEFAIRY",
             "movement_type": "MOVEMENT_TYPE_LOOK_WEST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26E",
@@ -123,7 +123,7 @@
         },
         {
             "id": "obj_D02R0104_tsure_poke_static_clefairy_6",
-            "graphics_id": "OBJ_EVENT_GFX_CLEFAIRY",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CLEFAIRY",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_26E",

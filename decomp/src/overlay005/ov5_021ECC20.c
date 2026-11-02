@@ -14,6 +14,8 @@
 #include "map_object.h"
 #include "narc.h"
 
+#include "complete_follower.h" // Sovereign Complete
+
 static void ov5_021ECCA4(MapObjectManager *param0);
 static void ov5_021ECCBC(MapObjectManager *param0);
 static const ObjectEventGfxRenderDetailsEntry *ov5_021ECD10(int param0);
@@ -86,6 +88,8 @@ const ObjectEventGfxRenderDetailsEntry *ov5_021ECD04(const MapObject *param0)
 static const ObjectEventGfxRenderDetailsEntry *ov5_021ECD10(int param0)
 {
     const ObjectEventGfxRenderDetailsEntry *v0 = gObjectEventGfxRenderDetailsTable;
+
+    param0 = CompleteFollower_TemplateGfx(param0); // Sovereign Complete: HeartGold's walking Pokémon share entries
 
     do {
         if (v0->graphicsID == param0) {

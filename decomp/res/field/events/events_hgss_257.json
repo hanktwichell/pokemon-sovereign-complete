@@ -109,7 +109,7 @@
         },
         {
             "id": "obj_D49R0106_tsure_poke_static_dodrio",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_DODRIO",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

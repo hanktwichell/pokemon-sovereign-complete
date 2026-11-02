@@ -5,6 +5,7 @@
 #include "constants/map_object.h"
 #include "constants/player_avatar.h"
 #include "constants/species.h"
+#include "generated/genders.h"
 #include "generated/items.h"
 #include "generated/movement_types.h"
 #include "generated/object_events_gfx.h"
@@ -23,11 +24,13 @@
 #include "system_flags.h"
 #include "vars_flags.h"
 
+#include "res/graphics/field_sprites/field_sprites.naix"
+
 #include "complete_follower_gfx.h"
 #include "complete_follower_talk.h"
 #include "complete_map_info.h"
 
-// Sovereign Complete: following Pokémon (prototype).
+// Sovereign Complete: following Pokémon.
 //
 // On every map entry the follower is made again for the current lead: the first party Pokémon, if it isn't an Egg,
 // hasn't fainted and has a walking sprite. Nobody follows while the player cycles or surfs, or while a partner
@@ -35,34 +38,79 @@
 // object is persistent, so it stays through zone changes on the overworld; warps and continuing a save remake it, and
 // so does any change while the player walks about (CompleteFollower_Update).
 // Each map's rule is HeartGold's: on some maps nobody follows, and in most buildings only Pokémon that aren't too tall
-// (HeartGold's flag, carried in sFollowerGfx); Sinnoh's buildings follow the same rule.
+// (HeartGold's flag, sFollowerTooTall); Sinnoh's buildings follow the same rule.
+//
+// The sprites are HeartGold's 566 walking Pokémon (tools/complete/gen_follower_sprites.py), a range of graphics IDs
+// from FOLLOWER_GFX_FIRST: the field's lookups take each one's size's template entry (CompleteFollower_TemplateGfx)
+// and its own texture (CompleteFollower_GfxNarcIndex). Species past HeartGold's (#494 on) have none yet.
 
-static int FollowerGfxIndex(int species)
+// The lead's sprite's place in the range, as HeartGold's FollowMon_GetSpriteID picks it (its female sprite, or its
+// form's, a form it lacks taking the first), or -1 for a species without one
+static int FollowerSprite(int species, int form, int gender)
 {
-    for (int i = 0; i < (int)NELEMS(sFollowerGfx); i++) {
-        if (sFollowerGfx[i].species == species) {
-            return i;
-        }
+    if (species <= SPECIES_NONE || species > FOLLOWER_SPECIES_COUNT) {
+        return -1;
     }
 
-    return -1;
+    int sprite = sFollowerGfxFirst[species];
+    int forms = sFollowerGfxForms[species - 1];
+
+    if (forms & 0x80) {
+        return sprite + (gender == GENDER_FEMALE);
+    }
+
+    return sprite + (form > forms ? 0 : form);
 }
 
-static int LeadSpecies(FieldSystem *fieldSystem)
+static BOOL IsTooTall(int species)
+{
+    return species > SPECIES_NONE && species <= FOLLOWER_SPECIES_COUNT
+        && (sFollowerTooTall[(species - 1) >> 3] >> ((species - 1) & 7)) & 1;
+}
+
+static BOOL IsFollowerGfx(u32 graphicsID)
+{
+    return graphicsID >= FOLLOWER_GFX_FIRST && graphicsID < FOLLOWER_GFX_FIRST + FOLLOWER_GFX_COUNT;
+}
+
+u32 CompleteFollower_TemplateGfx(u32 graphicsID)
+{
+    if (!IsFollowerGfx(graphicsID)) {
+        return graphicsID;
+    }
+
+    u32 k = graphicsID - FOLLOWER_GFX_FIRST;
+    return (sFollowerGfxLarge[k >> 3] >> (k & 7)) & 1 ? FOLLOWER_GFX_TEMPLATE_64 : FOLLOWER_GFX_TEMPLATE_32;
+}
+
+int CompleteFollower_GfxNarcIndex(u32 graphicsID)
+{
+    return IsFollowerGfx(graphicsID) ? FOLLOWER_GFX_FIRST_TEXTURE + (int)(graphicsID - FOLLOWER_GFX_FIRST) : -1;
+}
+
+// The lead, if it can follow at all (not an Egg, not fainted), or NULL
+static Pokemon *Lead(FieldSystem *fieldSystem)
 {
     Party *party = SaveData_GetParty(fieldSystem->saveData);
 
     if (Party_GetCurrentCount(party) == 0) {
-        return SPECIES_NONE;
+        return NULL;
     }
 
     Pokemon *lead = Party_GetPokemonBySlotIndex(party, 0);
 
     if (Pokemon_GetValue(lead, MON_DATA_IS_EGG, NULL) || Pokemon_GetValue(lead, MON_DATA_HP, NULL) == 0) {
-        return SPECIES_NONE;
+        return NULL;
     }
 
-    return Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL);
+    return lead;
+}
+
+static int LeadSpecies(FieldSystem *fieldSystem)
+{
+    Pokemon *lead = Lead(fieldSystem);
+
+    return lead == NULL ? SPECIES_NONE : Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL);
 }
 
 // HeartGold's Diglett and Dugtrio stay in their ball in the Bell Tower.
@@ -100,9 +148,7 @@ static BOOL CanFollow(FieldSystem *fieldSystem)
 
 BOOL CompleteFollower_IsTooTall(FieldSystem *fieldSystem)
 {
-    int gfx = FollowerGfxIndex(LeadSpecies(fieldSystem));
-
-    return gfx >= 0 && sFollowerGfx[gfx].tooTall;
+    return IsTooTall(LeadSpecies(fieldSystem));
 }
 
 // HeartGold's follower inhibit flag (its SetFollowMonInhibitState): while set, the follower stays in its ball, as for
@@ -118,15 +164,16 @@ void CompleteFollower_SetInhibited(BOOL inhibited)
 // The graphics the follower should have here and now, or -1 when nobody should follow
 static int WantedGfx(FieldSystem *fieldSystem)
 {
-    int species = LeadSpecies(fieldSystem);
-    int gfx = FollowerGfxIndex(species);
+    Pokemon *lead = Lead(fieldSystem);
+    int species = lead == NULL ? SPECIES_NONE : Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL);
+    int sprite = lead == NULL ? -1 : FollowerSprite(species, Pokemon_GetValue(lead, MON_DATA_FORM, NULL), Pokemon_GetGender(lead));
 
-    if (gfx < 0 || sInhibited || !CanFollow(fieldSystem)
-        || !MayFollowHere(fieldSystem->location->mapHeaderID, species, sFollowerGfx[gfx].tooTall)) {
+    if (sprite < 0 || sInhibited || !CanFollow(fieldSystem)
+        || !MayFollowHere(fieldSystem->location->mapHeaderID, species, IsTooTall(species))) {
         return -1;
     }
 
-    return sFollowerGfx[gfx].graphicsID;
+    return FOLLOWER_GFX_FIRST + sprite;
 }
 
 // A scene can leave the follower further off than its steps make up (Elm's lab: it comes out beside the player at the
@@ -280,6 +327,7 @@ void CompleteFollower_SetShinyLeaves(Pokemon *mon, u8 leaves)
 u16 gCompleteTestFollowerTile[2];
 u16 gCompleteTestFollowerGfx;
 u8 gCompleteTestFollowerAction;
+u16 gCompleteTestFollowerLead[2];
 
 void CompleteFollower_TestRecordTile(FieldSystem *fieldSystem)
 {
@@ -300,6 +348,12 @@ void CompleteFollower_TestRecordTile(FieldSystem *fieldSystem)
 
         PlayerAvatar_SetTransitionState(fieldSystem->playerAvatar, cycling ? PLAYER_TRANSITION_WALKING : PLAYER_TRANSITION_CYCLING);
         PlayerAvatar_RequestChangeState(fieldSystem->playerAvatar);
+    } else if (gCompleteTestFollowerAction == COMPLETE_TEST_FOLLOWER_SET_LEAD) {
+        Pokemon *lead = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), 0);
+        u32 species = gCompleteTestFollowerLead[0], form = gCompleteTestFollowerLead[1];
+
+        Pokemon_SetValue(lead, MON_DATA_SPECIES, &species);
+        Pokemon_SetValue(lead, MON_DATA_FORM, &form);
     }
 
     gCompleteTestFollowerAction = COMPLETE_TEST_FOLLOWER_NONE;

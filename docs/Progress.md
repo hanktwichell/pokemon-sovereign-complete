@@ -1283,3 +1283,12 @@ Test results on the new test build:
   Poké Ball) used HeartGold's numbers as they were, which name other sprites in Platinum's list (365 was the Iron
   Crown legendary) or none at all; they translate now. Still stand-ins: the following Pokémon's sprites (next), the
   Apricorn trees, signs, statues and the 3D gimmicks HeartGold draws as models.
+- **All of HeartGold's walking Pokémon:** `tools/complete/gen_follower_sprites.py` now converts all 566 (every species
+  to Arceus, the female variants, Unown's letters, Arceus's types and the other forms) into one range of graphics IDs
+  from 2048, instead of four field-overlay table entries each: two template entries (32x32 and 64x64) serve the whole
+  range, and the texture of each is the first's NARC member plus its place. Five small marked hooks in Sovereign's
+  field lookups (`src/map_object.c`, `src/overlay005/ov5_021ECE40.c`, `ov5_021ECC20.c`) send a range ID to its size's
+  template and its own texture. The follower picks its sprite as HeartGold does (the female one, or the form's), so
+  every species to #493 follows now, not five; Sovereign's later species have none yet. The maps' Pokémon standing
+  about (Sacred Gold's statics, shown as Poké Balls or the stand-in man before) use these sprites too.
+  `tools/complete/show_followers.py` screenshots followers of any species on the test build.

@@ -58,7 +58,7 @@
         },
         {
             "id": "obj_T23R0501_tsure_poke_static_slowpoke",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWPOKE",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",

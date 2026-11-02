@@ -87,7 +87,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_dragonite",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_DRAGONITE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1E5",
@@ -239,7 +239,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_electrode",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ELECTRODE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_ELECTRODE_1_AND_4",
@@ -258,7 +258,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_electrode_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ELECTRODE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_ELECTRODE_2_AND_5",
@@ -277,7 +277,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_electrode_3",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ELECTRODE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_ELECTRODE_3_AND_6",
@@ -296,7 +296,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_electrode_4",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ELECTRODE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_ELECTRODE_1_AND_4",
@@ -315,7 +315,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_electrode_5",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ELECTRODE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_ELECTRODE_2_AND_5",
@@ -334,7 +334,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_electrode_6",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_ELECTRODE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B3F_ELECTRODE_3_AND_6",
@@ -372,7 +372,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_murkrow",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CHATOT",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_1",
@@ -391,7 +391,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_murkrow_2",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CHATOT",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_2",
@@ -410,7 +410,7 @@
         },
         {
             "id": "obj_D35R0103_tsure_poke_static_murkrow_3",
-            "graphics_id": "OBJ_EVENT_GFX_MIDDLE_AGED_MAN",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_CHATOT",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROCKET_HIDEOUT_B2F_MURKROW_3",

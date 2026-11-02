@@ -55,8 +55,12 @@ work.
 ## Following Pokémon
 
 - `decomp/src/complete_follower.c` (hooks in `src/field_map_change.c`; a test-only tile record in `src/field_system.c`).
-- `tools/complete/gen_follower_sprites.py [SPECIES ...]` converts HeartGold's walking sprites and registers them; rerun it
-  after changing the list (its insertions sit between tagged markers).
+- `tools/complete/gen_follower_sprites.py` converts all 566 of HeartGold's walking sprites into one range of graphics IDs
+  (`OBJ_EVENT_GFX_HGSS_MON_*`, from 2048): the field's lookups take each one's size's template entry and its own
+  texture (`CompleteFollower_TemplateGfx`, `CompleteFollower_GfxNarcIndex`; marked hooks in `src/map_object.c`,
+  `src/overlay005/ov5_021ECE40.c` and `ov5_021ECC20.c`). `tools/complete/show_followers.py` screenshots followers.
+- HeartGold's people: `tools/complete/gen_hgss_people_sprites.py` (`OBJ_EVENT_GFX_HGSS_<NAME>` = 1024 + HeartGold's
+  number; the mapping in `data/complete/hgss_sprites.json`, read by `import_hgss_events.py` and the script translation).
 - Test: build the test ROM (`tools/test/build_test_rom.sh`), then `python3 tools/complete/test_follower.py`. The emulator
   is slow here (about 10 minutes); run it in the background.
 - Talking to it: `src/overlay006/complete_follower_talk.c` (HeartGold's interactions, motions and emote bubbles, from

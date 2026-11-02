@@ -142,11 +142,14 @@ class Sprites:
         if n < SAME_SPRITES:
             return self.by_number(n)
         # HeartGold's static Pokémon, and Sacred Gold's Pokémon standing about (its lake trio at Sinjoh, the
-        # legendaries it adds): the engine's sprite of that Pokémon where it has one (Giratina's Altered Forme)
+        # legendaries it adds): Sovereign's legendary sprite of that Pokémon, else HeartGold's walking sprite
+        # (tools/complete/gen_follower_sprites.py: its own, female or form, or its species'), else the engine's
+        # (Giratina's Altered Forme)
         pokemon = re.fullmatch(r'FOLLOWER_MON_(STATIC_)?(\w+?)(_SPIKY|_NORMAL|_F|_M)?', hg)
         if pokemon:
             name = pokemon.group(2)
-            for candidate in (f'LEGENDARY_{name}', name, f'{name}_ALTERED', f'FOLLOWER_{name}'):
+            own = hg[len('FOLLOWER_MON_'):].replace('STATIC_', '', 1)
+            for candidate in (f'LEGENDARY_{name}', f'HGSS_MON_{own}', f'HGSS_MON_{name}', name, f'{name}_ALTERED'):
                 if f'OBJ_EVENT_GFX_{candidate}' in self.platinum:
                     return f'OBJ_EVENT_GFX_{candidate}'
             if pokemon.group(1):

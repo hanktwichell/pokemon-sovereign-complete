@@ -163,7 +163,7 @@
         },
         {
             "id": "obj_T23_tsure_poke_static_slowpoke",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWPOKE",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
@@ -182,7 +182,7 @@
         },
         {
             "id": "obj_T23_tsure_poke_static_slowpoke_2",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWPOKE",
             "movement_type": "MOVEMENT_TYPE_LOOK_NORTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
@@ -201,7 +201,7 @@
         },
         {
             "id": "obj_T23_tsure_poke_static_slowpoke_3",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWPOKE",
             "movement_type": "MOVEMENT_TYPE_LOOK_EAST",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",
@@ -220,7 +220,7 @@
         },
         {
             "id": "obj_T23_tsure_poke_static_slowpoke_4",
-            "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_MON_SLOWPOKE",
             "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_AZALEA_SLOWPOKES",

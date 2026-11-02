@@ -29,6 +29,8 @@
 #include "unk_020655F4.h"
 #include "unk_020EDBAC.h"
 
+#include "complete_follower.h" // Sovereign Complete
+
 typedef struct MapObjectManager {
     u32 status;
     int maxObjects;
@@ -2385,6 +2387,8 @@ static UnkFuncPtr_ov5_021FB0F0_4 sub_02063240(const UnkStruct_ov5_021FB0F0 *para
 static const UnkStruct_ov5_021FB0F0 *sub_02063244(u32 param0)
 {
     const ObjectEventGfxRendererEntry *v0 = gObjectEventGfxRenderersTable;
+
+    param0 = CompleteFollower_TemplateGfx(param0); // Sovereign Complete: HeartGold's walking Pokémon share entries
 
     do {
         if (v0->graphicsID == param0) {

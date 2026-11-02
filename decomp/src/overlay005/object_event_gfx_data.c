@@ -574,11 +574,8 @@ const ObjectEventGfxRendererEntry gObjectEventGfxRenderersTable[] = {
     { OBJ_EVENT_GFX_LEGENDARY_HO_OH, &Unk_ov5_021FB0A0 },
     { OBJ_EVENT_GFX_TIME_PORTAL, &Unk_ov5_021FB0A0 },
     // Sovereign Complete: following Pokémon (tools/complete/gen_follower_sprites.py) [graphics]
-    { OBJ_EVENT_GFX_FOLLOWER_GARCHOMP, &Unk_ov5_021FAFD8 },
-    { OBJ_EVENT_GFX_FOLLOWER_TURTWIG, &Unk_ov5_021FAFD8 },
-    { OBJ_EVENT_GFX_FOLLOWER_STARLY, &Unk_ov5_021FAFD8 },
-    { OBJ_EVENT_GFX_FOLLOWER_GALLADE, &Unk_ov5_021FAFD8 },
-    { OBJ_EVENT_GFX_FOLLOWER_PIKACHU, &Unk_ov5_021FAFD8 },
+    { OBJ_EVENT_GFX_HGSS_MON_BULBASAUR, &Unk_ov5_021FAFD8 },
+    { OBJ_EVENT_GFX_HGSS_MON_STEELIX, &Unk_ov5_021FB0A0 },
     // Sovereign Complete: end of following Pokémon [graphics]
     // Sovereign Complete: HeartGold's people (tools/complete/gen_hgss_people_sprites.py) [graphics]
     { OBJ_EVENT_GFX_HGSS_HEROINE, &Unk_ov5_021FB0F0 },
@@ -1237,11 +1234,6 @@ const ObjectEventGfxFileEntry gObjectEventGfxTexturesTable[] = {
     { OBJ_EVENT_GFX_LEGENDARY_HO_OH, legendary_ho_oh_nsbtx },
     { OBJ_EVENT_GFX_TIME_PORTAL, time_portal_nsbtx },
     // Sovereign Complete: following Pokémon (tools/complete/gen_follower_sprites.py) [textures]
-    { OBJ_EVENT_GFX_FOLLOWER_GARCHOMP, follower_garchomp_nsbtx },
-    { OBJ_EVENT_GFX_FOLLOWER_TURTWIG, follower_turtwig_nsbtx },
-    { OBJ_EVENT_GFX_FOLLOWER_STARLY, follower_starly_nsbtx },
-    { OBJ_EVENT_GFX_FOLLOWER_GALLADE, follower_gallade_nsbtx },
-    { OBJ_EVENT_GFX_FOLLOWER_PIKACHU, follower_pikachu_nsbtx },
     // Sovereign Complete: end of following Pokémon [textures]
     // Sovereign Complete: HeartGold's people (tools/complete/gen_hgss_people_sprites.py) [textures]
     { OBJ_EVENT_GFX_HGSS_HEROINE, hgss_heroine_nsbtx },
@@ -2115,11 +2107,8 @@ const ObjectEventGfxModelAnimEntry gObjectEventGfxModelAnimsTable[] = {
     { OBJ_EVENT_GFX_LEGENDARY_HO_OH, BILLBOARD_MODEL_GENERIC_64x64, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
     { OBJ_EVENT_GFX_TIME_PORTAL, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
     // Sovereign Complete: following Pokémon (tools/complete/gen_follower_sprites.py) [billboards]
-    { OBJ_EVENT_GFX_FOLLOWER_GARCHOMP, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
-    { OBJ_EVENT_GFX_FOLLOWER_TURTWIG, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
-    { OBJ_EVENT_GFX_FOLLOWER_STARLY, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
-    { OBJ_EVENT_GFX_FOLLOWER_GALLADE, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
-    { OBJ_EVENT_GFX_FOLLOWER_PIKACHU, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
+    { OBJ_EVENT_GFX_HGSS_MON_BULBASAUR, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
+    { OBJ_EVENT_GFX_HGSS_MON_STEELIX, BILLBOARD_MODEL_GENERIC_64x64, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
     // Sovereign Complete: end of following Pokémon [billboards]
     // Sovereign Complete: HeartGold's people (tools/complete/gen_hgss_people_sprites.py) [billboards]
     { OBJ_EVENT_GFX_HGSS_HEROINE, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_WALK_AND_RUN, sWalkRunBillboardAnims },
@@ -2602,11 +2591,8 @@ const ObjectEventGfxRenderDetailsEntry gObjectEventGfxRenderDetailsTable[] = {
     { OBJ_EVENT_GFX_LEGENDARY_HO_OH, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
     { OBJ_EVENT_GFX_TIME_PORTAL, MODEL_TYPE_BILLBOARD, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
     // Sovereign Complete: following Pokémon (tools/complete/gen_follower_sprites.py) [model types]
-    { OBJ_EVENT_GFX_FOLLOWER_GARCHOMP, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
-    { OBJ_EVENT_GFX_FOLLOWER_TURTWIG, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
-    { OBJ_EVENT_GFX_FOLLOWER_STARLY, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
-    { OBJ_EVENT_GFX_FOLLOWER_GALLADE, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
-    { OBJ_EVENT_GFX_FOLLOWER_PIKACHU, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
+    { OBJ_EVENT_GFX_HGSS_MON_BULBASAUR, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
+    { OBJ_EVENT_GFX_HGSS_MON_STEELIX, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
     // Sovereign Complete: end of following Pokémon [model types]
     // Sovereign Complete: HeartGold's people (tools/complete/gen_hgss_people_sprites.py) [model types]
     { OBJ_EVENT_GFX_HGSS_HEROINE, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
