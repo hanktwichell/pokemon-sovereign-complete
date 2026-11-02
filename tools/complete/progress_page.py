@@ -69,12 +69,11 @@ STEPS = [
 ]
 
 NEXT = [
-    'HeartGold\'s sprites: its people are in (Whitney and Misty look like themselves now; 99 new sprites). Next, all '
-    '566 of its walking Pokémon for the follower and the Pokémon standing about, then the Apricorn trees, signs and '
-    'statues. Custom or missing Pokémon sprites are yours, later.',
-    'The full recorded run from New Bark Town is in Kanto; when it reaches Sinnoh\'s Hall of Fame, the 1 to 2 minute '
-    'highlight video, with clips recorded again on the build with HeartGold\'s sprites. A first 57-second preview is '
-    'out.',
+    'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
+    'objects and its Apricorn trees. Left: a few of HeartGold\'s 3D objects use Platinum\'s look-alikes. Custom or '
+    'missing Pokémon sprites (#494 on) are yours, later.',
+    'The full recorded run from New Bark Town is in Sinnoh; a second one runs on the build with HeartGold\'s sprites, '
+    'for the 1 to 2 minute highlight video.',
 ]
 
 WAITING = [
@@ -92,6 +91,11 @@ WAITING = [
 # Since yesterday: the latest work, from docs/Progress.md (Nov 1-2)
 RECENT = [
     ('HeartGold\'s sprites', [
+        'All 566 of HeartGold\'s walking Pokémon are in, so every species up to Arceus follows you (forms and female '
+        'variants included), and the Pokémon standing about on the maps use them too.',
+        'HeartGold\'s still objects: the Snorlax on Routes 11 and 12, the League\'s doors, signs, medals and statues. '
+        'Its Apricorn trees show their fruit until you pick it.',
+        'Its 3D objects (books, locked doors, the Elite Four rooms\' doors) use Platinum\'s 3D objects of the same kind.',
         'Johto\'s and Kanto\'s people use HeartGold\'s own sprites: the 16 gym leaders, Silver, Team Rocket and its '
         'executives, Kurt, Bill, Eusine, Lance, Giovanni, Red, Elm, the Kimono Girls and the townsfolk. 1,449 people '
         'on 381 maps changed; Misty and Whitney no longer look like Crasher Wake.',
