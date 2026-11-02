@@ -1292,3 +1292,10 @@ Test results on the new test build:
   every species to #493 follows now, not five; Sovereign's later species have none yet. The maps' Pokémon standing
   about (Sacred Gold's statics, shown as Poké Balls or the stand-in man before) use these sprites too.
   `tools/complete/show_followers.py` screenshots followers of any species on the test build.
+- **HeartGold's still objects:** the people converter also takes HeartGold's one-frame sprites, 32x32 and 64x64, drawn
+  as Platinum's bollard and Regigigas are, without a shadow or footprints: the Indigo League's room doors, the Snorlax
+  on Routes 11 and 12 (a Strength boulder before), the Pokéathlon's medals and flag, the shop signs, the scroll and
+  the player statues. HeartGold's STOP objects, which stood as bollards, are invisible blockers there (five ring
+  Lugia's big sprite and share its hide flag), so they're Platinum's invisible object now. Still Platinum's: the
+  Apricorn trees (HeartGold's change with the fruit, which needs the Apricorn code) and the 3D gimmicks HeartGold
+  draws as models.

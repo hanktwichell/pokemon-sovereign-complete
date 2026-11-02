@@ -41,7 +41,7 @@
         },
         {
             "id": "obj_T10R0201_leag_door2",
-            "graphics_id": "OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_LEAG_DOOR2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WILLS_ROOM_EXIT",
@@ -60,7 +60,7 @@
         },
         {
             "id": "obj_T10R0201_stop",
-            "graphics_id": "OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_LEAG_DOOR2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WILLS_ROOM_EXIT",
@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_T10R0201_stop_2",
-            "graphics_id": "OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_LEAG_DOOR2",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_WILLS_ROOM_EXIT",

@@ -140,7 +140,7 @@
     "object_events": [
         {
             "id": "obj_T06GYM0101_stop",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_INVISIBLE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_STOPS",
@@ -159,7 +159,7 @@
         },
         {
             "id": "obj_T06GYM0101_stop_2",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_INVISIBLE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_STOPS",
@@ -178,7 +178,7 @@
         },
         {
             "id": "obj_T06GYM0101_stop_3",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_INVISIBLE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_STOPS",
@@ -197,7 +197,7 @@
         },
         {
             "id": "obj_T06GYM0101_stop_4",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_INVISIBLE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_STOPS",
@@ -216,7 +216,7 @@
         },
         {
             "id": "obj_T06GYM0101_stop_5",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_INVISIBLE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_STOPS",
@@ -235,7 +235,7 @@
         },
         {
             "id": "obj_T06GYM0101_stop_6",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_INVISIBLE",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_VERMILION_GYM_STOPS",

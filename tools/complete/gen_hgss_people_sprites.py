@@ -9,10 +9,13 @@ HeartGold source (built by tools/complete/build_heartgold.sh into .cache/pokehea
   drawn as a 32x32 walker of 16 frames (four per direction, in Platinum's order, so the frames are stacked as they
   are), from number 146 on (the ones Diamond and Pearl's list doesn't share; below that Platinum has the same art);
   Elm (DOCTOR, 99, Rowan's number in Platinum); the Pokémon Center nurse (PCWOMAN1, 17 frames: her bow); and Ethan
-  and Lyra (HERO 0 and HEROINE 97, 32 frames: walking and running, as Platinum's player), for the friend. Not the
-  following Pokémon (gen_follower_sprites.py), the 3D gimmicks HeartGold draws as models (their table entries point at
-  BABYBOY1's art), Mahogany Gym's ice blocks (ICE: src/complete_gyms.c knows them by Platinum's ICE_ROCK), the
-  player's own states (bike, surf, ladder...), nor the sprites of other shapes (Apricorn trees, signs, statues).
+  and Lyra (HERO 0 and HEROINE 97, 32 frames: walking and running, as Platinum's player), for the friend; and its
+  one-frame objects, 32x32 or 64x64 (the League's doors, Route 11's Snorlax, the shop signs, the medal, the scroll,
+  the player's statues), drawn as Platinum's bollard and Regigigas are; its invisible blockers (FIXED) are
+  Platinum's invisible object. Not the following Pokémon
+  (gen_follower_sprites.py), the 3D gimmicks HeartGold draws as models (their table entries point at BABYBOY1's
+  art), Mahogany Gym's ice blocks (ICE: src/complete_gyms.c knows them by Platinum's ICE_ROCK), the player's own
+  states (bike, surf, ladder...), nor the Apricorn trees and Apricorns.
 - A sprite whose frames are pixel for pixel one of Platinum's walkers uses Platinum's, and sprites sharing one
   graphics file share one ID, so each table entry is new art.
 - Each becomes OBJ_EVENT_GFX_HGSS_<NAME> = HGSS_BASE + its HeartGold number in generated/object_events_gfx.txt: fixed
@@ -30,6 +33,7 @@ Usage: python3 tools/complete/gen_hgss_people_sprites.py
 import json
 import os
 import re
+import struct
 import sys
 
 from PIL import Image
@@ -47,12 +51,20 @@ HGSS_BASE = 1024  # OBJ_EVENT_GFX_HGSS_<NAME> = HGSS_BASE + HeartGold's number (
 SHARED = 146  # Diamond and Pearl's list, which both games kept
 EXTRA = {'DOCTOR': 16, 'HERO': 32, 'HEROINE': 32}  # below SHARED, with HeartGold's own art: Elm, Ethan and Lyra
 SKIP = {'ICE', 'FISHINGHERO', 'FISH_HEROINE'}  # Mahogany Gym's ice blocks stay Platinum's ICE_ROCK, which
-# src/complete_gyms.c pushes; the player's fishing (the player is Platinum's)
-# Per frame count: the first table's renderer, the billboard's frame sequence and animations (Platinum's Youngster,
-# its Pokémon Center nurse, its player)
-KINDS = {16: ('&Unk_ov5_021FAFD8', 'BILLBOARD_FRAME_SEQ_GENERIC_WALK', 'sWalkBillboardAnims'),
-         17: ('&Unk_ov5_021FB08C', 'BILLBOARD_FRAME_SEQ_POKECENTER_NURSE', 'sPokecenterNurseBillboardAnims'),
-         32: ('&Unk_ov5_021FB0F0', 'BILLBOARD_FRAME_SEQ_WALK_AND_RUN', 'sWalkRunBillboardAnims')}
+# src/complete_gyms.c pushes; the player's fishing (the player is Platinum's). The Apricorn trees and Apricorns
+# (BONGURI*, BONMI*) are left to the Apricorn trees' own sprites.
+# Per frame count and size: the first table's renderer, the billboard's model, frame sequence and animations
+# (Platinum's Youngster, its Pokémon Center nurse, its player, and its one-frame bollard and Regigigas)
+# HeartGold's invisible blockers: STOP objects stand around Lugia's and the Ampharos's big sprites and across closed
+# ways, sharing their hide flags (Whirl Islands' share Lugia's), so they block without being seen: Platinum's
+# invisible object does the same
+FIXED = {'STOP': 'OBJ_EVENT_GFX_INVISIBLE'}
+KINDS = {(16, 32): ('&Unk_ov5_021FAFD8', 'GENERIC_32x32', 'BILLBOARD_FRAME_SEQ_GENERIC_WALK', 'sWalkBillboardAnims'),
+         (17, 32): ('&Unk_ov5_021FB08C', 'GENERIC_32x32', 'BILLBOARD_FRAME_SEQ_POKECENTER_NURSE',
+                    'sPokecenterNurseBillboardAnims'),
+         (32, 32): ('&Unk_ov5_021FB0F0', 'GENERIC_32x32', 'BILLBOARD_FRAME_SEQ_WALK_AND_RUN', 'sWalkRunBillboardAnims'),
+         (1, 32): ('&Unk_ov5_021FAFD8', 'GENERIC_32x32', 'BILLBOARD_FRAME_SEQ_GENERIC_WALK', 'sWalkBillboardAnims'),
+         (1, 64): ('&Unk_ov5_021FB0A0', 'GENERIC_64x64', 'BILLBOARD_FRAME_SEQ_GENERIC_WALK', 'sWalkBillboardAnims')}
 
 BEGIN = "Sovereign Complete: HeartGold's people (tools/complete/gen_hgss_people_sprites.py)"
 END = "Sovereign Complete: end of HeartGold's people"
@@ -77,7 +89,7 @@ def hgss_sprites():
             continue
         name, model = m.group(1), m.group(2)
         seen.add(numbers[name])
-        if model not in mmodel or name.startswith('FOLLOWER_MON_') or name in SKIP \
+        if model not in mmodel or name.startswith(('FOLLOWER_MON_', 'BONGURI', 'BONMI')) or name in SKIP \
                 or model == 'MMODEL_BABYBOY1' and name != 'BABYBOY1':  # a 3D gimmick (ov01_022073D8's list)
             continue
         path = os.path.join(HGSS, f'files/data/mmodel/mmodel/mmodel_{mmodel[model]:08d}.NSBTX')
@@ -86,23 +98,26 @@ def hgss_sprites():
 
 
 def sheet(path):
-    """HeartGold's frames stacked into Platinum's sheet (RGBA, for comparing), its palette and frame count, or None
-    for a sprite that isn't a one-palette 32x32 walker."""
+    """HeartGold's frames stacked into Platinum's sheet, and its kind (frame count, size), or None for a sprite
+    that isn't one palette's square frames of one size."""
     try:
         frames, palettes = decode(path)
-    except (ValueError, IndexError, AssertionError, KeyError):
+    except (ValueError, IndexError, AssertionError, KeyError, struct.error):
         return None
-    if len(palettes) != 1 or not frames or any(f[1] != 32 or f[2] != 32 for f in frames):
+    if len(palettes) != 1 or not frames:
+        return None
+    size = frames[0][1]
+    if any(f[1] != size or f[2] != size for f in frames):
         return None
     palette = next(iter(palettes.values()))
-    image = Image.new('P', (32, 32 * len(frames)))
+    image = Image.new('P', (size, size * len(frames)))
     image.putpalette([c for rgb in palette for c in rgb])
     for i, frame in enumerate(frames):
-        tile = Image.new('P', (32, 32))
+        tile = Image.new('P', (size, size))
         tile.putdata(frame[3])
-        image.paste(tile, (0, 32 * i))
+        image.paste(tile, (0, size * i))
     image.info['transparency'] = 0
-    return image, len(frames)
+    return image, (len(frames), size)
 
 
 def rgba(image):
@@ -158,13 +173,16 @@ def main():
     platinum = platinum_walkers()
     mapping, sprites, art = {}, [], {}
     for number, name, path in hgss_sprites():
+        if name in FIXED:
+            mapping[name] = FIXED[name]
+            continue
         if number < SHARED and name not in EXTRA:
             continue
         converted = sheet(path)
-        if converted is None or converted[1] not in KINDS or EXTRA.get(name, converted[1]) != converted[1] \
-                or converted[1] == 32 and name not in EXTRA:  # the player's own states (running, the Pokéathlon)
+        if converted is None or converted[1] not in KINDS or EXTRA.get(name, converted[1][0]) != converted[1][0] \
+                or converted[1][0] == 32 and name not in EXTRA:  # the player's own states (running, the Pokéathlon)
             continue
-        image, frames = converted
+        image, kind = converted
         key = rgba(image)
         if key in platinum:  # the same art as one of Platinum's
             mapping[name] = platinum[key]
@@ -175,7 +193,7 @@ def main():
         stem, gfx = f'hgss_{name.lower()}', f'OBJ_EVENT_GFX_HGSS_{name}'
         image.save(os.path.join(out_dir, stem + '.png'), transparency=0)
         art[key] = mapping[name] = gfx
-        sprites.append((number, name, stem, gfx, frames))
+        sprites.append((number, name, stem, gfx, kind))
     print(f'{len(sprites)} HeartGold sprites converted, {len(mapping) - len(sprites)} the same as another\'s')
 
     edit('generated/object_events_gfx.txt', lambda t: replace_block(
@@ -183,15 +201,17 @@ def main():
         comment='#'))
 
     def tables(text):
-        text = replace_block(text, [f'{{ {gfx}, {KINDS[frames][0]} }},' for _, _, _, gfx, frames in sprites],
+        text = replace_block(text, [f'{{ {gfx}, {KINDS[kind][0]} }},' for _, _, _, gfx, kind in sprites],
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, NULL }', indent='    ', tag='graphics')
         text = replace_block(text, [f'{{ {gfx}, {stem}_nsbtx }},' for _, _, stem, gfx, _ in sprites],
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, 0 }', indent='    ', tag='textures')
-        text = replace_block(text, [f'{{ {gfx}, BILLBOARD_MODEL_GENERIC_32x32, {KINDS[frames][1]}, {KINDS[frames][2]} }},'
-                                    for _, _, _, gfx, frames in sprites],
+        text = replace_block(text, [f'{{ {gfx}, BILLBOARD_MODEL_{KINDS[kind][1]}, {KINDS[kind][2]}, {KINDS[kind][3]} }},'
+                                    for _, _, _, gfx, kind in sprites],
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, BILLBOARD_MODEL_SENTINEL_ID', indent='    ', tag='billboards')
         text = replace_block(text, [f'{{ {gfx}, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, '
-                                    '.hasReflection = TRUE },' for *_, gfx, _ in sprites],
+                                    '.hasReflection = TRUE },' if kind[0] > 1 else  # a still (a door, a sign) neither
+                                    f'{{ {gfx}, MODEL_TYPE_BILLBOARD, .hasShadow = FALSE, TRACK_TYPE_NONE, '
+                                    '.hasReflection = FALSE },' for *_, gfx, kind in sprites],  # walks nor casts shadow
                              '{ OBJ_EVENT_GFX_SENTINEL_ID, 0, 0, 0, 0 }', indent='    ', tag='model types')
         return text
     edit('src/overlay005/object_event_gfx_data.c', tables)
@@ -202,19 +222,23 @@ def main():
     edit('res/graphics/field_sprites/field_sprites.order', order)
 
     def meson(text):
-        entries = ['field_sprites_textures_complete_hgss_people = [']
-        entries += [f"    {{ 'file': 'npc/hgss/{stem}.png', 'basename': 'hg{number:03d}'}},"
-                    for number, _, stem, _, _ in sprites]
-        entries += [']',
-                    'foreach texture : field_sprites_textures_complete_hgss_people',
-                    '    field_sprites_nsbtxs += custom_target(',
-                    "        input: files(texture['file']),",
-                    '        build_subdir: field_sprites_private_dir,',
-                    "        output: '@BASENAME@.nsbtx',",
-                    "        command: [nitrobtx_exe, 'pack', '--texture', '@INPUT@', '--name', texture['basename'],",
-                    "                  '--spritesheet', '--frame-height', '32', '--extract-palette', '@OUTPUT@'],",
-                    '    )',
-                    'endforeach']
+        entries = []
+        for still, (listed, sheet_args) in enumerate((
+                ('people', "'--spritesheet', '--frame-height', '32', "),  # walkers: Platinum's 32-pixel sheets
+                ('stills', ''))):  # one frame: Platinum's single-frame textures (its bollard)
+            entries.append(f'field_sprites_textures_complete_hgss_{listed} = [')
+            entries += [f"    {{ 'file': 'npc/hgss/{stem}.png', 'basename': 'hg{number:03d}'}},"
+                        for number, _, stem, _, kind in sprites if (kind[0] == 1) == bool(still)]
+            entries += [']',
+                        f'foreach texture : field_sprites_textures_complete_hgss_{listed}',
+                        '    field_sprites_nsbtxs += custom_target(',
+                        "        input: files(texture['file']),",
+                        '        build_subdir: field_sprites_private_dir,',
+                        "        output: '@BASENAME@.nsbtx',",
+                        "        command: [nitrobtx_exe, 'pack', '--texture', '@INPUT@', '--name', texture['basename'],",
+                        f"                  {sheet_args}'--extract-palette', '@OUTPUT@'],",
+                        '    )',
+                        'endforeach']
         return replace_block(text, entries, 'foreach texture : field_sprites_textures_32_px_single_palette',
                              comment='#')
     edit('res/graphics/field_sprites/meson.build', meson)

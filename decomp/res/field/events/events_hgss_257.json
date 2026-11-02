@@ -128,7 +128,7 @@
         },
         {
             "id": "obj_D49R0106_signpokegear",
-            "graphics_id": "OBJ_EVENT_GFX_SIGNBOARD",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_SIGNPOKEGEAR",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_POKEATHLON_POKEGEAR_SIGN",
@@ -147,7 +147,7 @@
         },
         {
             "id": "obj_D49R0106_signball",
-            "graphics_id": "OBJ_EVENT_GFX_SIGNBOARD",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_SIGNBALL",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_POKEATHLON_BALL_SIGN",

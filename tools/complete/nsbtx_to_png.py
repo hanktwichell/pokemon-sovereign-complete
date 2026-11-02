@@ -38,7 +38,7 @@ def decode(path):
         raw = data[start:start + width * height // 2]
         pixels = [n for byte in raw for n in (byte & 15, byte >> 4)]
         frames.append((name, width, height, pixels))
-    frames.sort(key=lambda f: int(f[0].rsplit('.', 1)[1]))
+    frames.sort(key=lambda f: int(f[0].rsplit('.', 1)[1]) if f[0].rsplit('.', 1)[-1].isdigit() else 0)  # a still: one
 
     palettes = {}
     for name, entry in read_dict(data, pal_dict, 4):

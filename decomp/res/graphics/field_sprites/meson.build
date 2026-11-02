@@ -1358,6 +1358,29 @@ foreach texture : field_sprites_textures_complete_hgss_people
                   '--spritesheet', '--frame-height', '32', '--extract-palette', '@OUTPUT@'],
     )
 endforeach
+field_sprites_textures_complete_hgss_stills = [
+    { 'file': 'npc/hgss/hgss_leag_door2.png', 'basename': 'hg290'},
+    { 'file': 'npc/hgss/hgss_kabigon.png', 'basename': 'hg395'},
+    { 'file': 'npc/hgss/hgss_pokewall.png', 'basename': 'hg210'},
+    { 'file': 'npc/hgss/hgss_medal.png', 'basename': 'hg396'},
+    { 'file': 'npc/hgss/hgss_scroll.png', 'basename': 'hg397'},
+    { 'file': 'npc/hgss/hgss_signshoes.png', 'basename': 'hg398'},
+    { 'file': 'npc/hgss/hgss_signclothes.png', 'basename': 'hg399'},
+    { 'file': 'npc/hgss/hgss_signflag.png', 'basename': 'hg400'},
+    { 'file': 'npc/hgss/hgss_signpokegear.png', 'basename': 'hg401'},
+    { 'file': 'npc/hgss/hgss_signball.png', 'basename': 'hg402'},
+    { 'file': 'npc/hgss/hgss_statuehero.png', 'basename': 'hg403'},
+    { 'file': 'npc/hgss/hgss_statueheroine.png', 'basename': 'hg404'},
+]
+foreach texture : field_sprites_textures_complete_hgss_stills
+    field_sprites_nsbtxs += custom_target(
+        input: files(texture['file']),
+        build_subdir: field_sprites_private_dir,
+        output: '@BASENAME@.nsbtx',
+        command: [nitrobtx_exe, 'pack', '--texture', '@INPUT@', '--name', texture['basename'],
+                  '--extract-palette', '@OUTPUT@'],
+    )
+endforeach
 # Sovereign Complete: end of HeartGold's people [list]
 foreach texture : field_sprites_textures_32_px_single_palette
     field_sprites_nsbtxs += custom_target(
