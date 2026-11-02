@@ -83,13 +83,13 @@ SPRITE_STAND_INS = {
     'SCROLL': 'BOOK', 'FIRE': 'VENT', 'POKEWALL': 'BOLLARD', 'AJI_PERU': 'MIDDLE_AGED_MAN',
     # HeartGold's 3D gimmicks (its sprite table points them at BABYBOY1's art; they're models), as Platinum's 3D
     # objects of the same kind: the books in five houses ("History of Ecruteak"), the Elite Four rooms' doors behind
-    # the player, the locked doors (the Rocket Hideout's, the Radio Tower's Card Key door, the Basement Key door),
-    # the Ruins of Alph's walls that open and Goldenrod Tunnel's shutters as the wall before Rotom's room; the rest
-    # (the department store basement's, the hideout's B1F one, the Ruins' second one) as bollards
+    # the player, and the locked doors (the Rocket Hideout's, the Radio Tower's Card Key door, the Basement Key door)
+    # and the Ruins of Alph's walls that open as the wall before Rotom's room. Goldenrod Tunnel's 22 shutters stay
+    # bollards: that many of the wall's model leave the map undrawn. The rest (the department store basement's, the
+    # hideout's B1F one, the Ruins' second one) are bollards too.
     'BABYBOY1_2': 'BOOK', 'BABYBOY1_11': 'ELITE_FOUR_ROOM_DOOR', 'BABYBOY1_8': 'WALL_BLOCKING_ROTOMS_ROOM',
     'BABYBOY1_9': 'WALL_BLOCKING_ROTOMS_ROOM', 'BABYBOY1_12': 'WALL_BLOCKING_ROTOMS_ROOM',
-    'GATE_LEFT': 'WALL_BLOCKING_ROTOMS_ROOM', 'GATE_RIGHT': 'WALL_BLOCKING_ROTOMS_ROOM',
-    'GATE_TOP': 'WALL_BLOCKING_ROTOMS_ROOM', 'GATE_BOTTOM': 'WALL_BLOCKING_ROTOMS_ROOM',
+    'GATE_LEFT': 'BOLLARD', 'GATE_RIGHT': 'BOLLARD', 'GATE_TOP': 'BOLLARD', 'GATE_BOTTOM': 'BOLLARD',
     'BABYBOY1_5': 'BOLLARD', 'BABYBOY1_10': 'BOLLARD', 'BABYBOY1_13': 'BOLLARD',
 }
 SPRITE_BY_KEYWORD = [('LEADER', 'GYM_GUIDE'), ('SIGN', 'SIGNBOARD'), ('TOROPHY', 'POKEBALL'), ('GATE', 'BOLLARD'),

@@ -1307,5 +1307,6 @@ Test results on the new test build:
 - **HeartGold's 3D gimmicks:** the objects HeartGold draws as 3D models stood as a Ninja Boy or a bollard. They're
   Platinum's 3D objects of the same kind now: the books in five houses ("History of Ecruteak"), the Elite Four rooms'
   doors behind the player, and the locked doors (the Rocket Hideout's, the Radio Tower's Card Key door, the Basement
-  Key door), the Ruins of Alph's opening walls and Goldenrod Tunnel's shutters as the wall before Rotom's room. Three
-  whose look isn't known yet stay bollards.
+  Key door) and the Ruins of Alph's opening walls as the wall before Rotom's room. Goldenrod Tunnel's 22 shutters stay
+  bollards: as that many wall models, they left the map undrawn (black) in the emulator. Three whose look isn't known
+  yet stay bollards too.
