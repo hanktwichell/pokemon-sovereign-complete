@@ -40,8 +40,8 @@
 // Each map's rule is HeartGold's: on some maps nobody follows, and in most buildings only Pokémon that aren't too tall
 // (HeartGold's flag, sFollowerTooTall); Sinnoh's buildings follow the same rule.
 //
-// The sprites are HeartGold's 566 walking Pokémon (tools/complete/gen_follower_sprites.py), a range of graphics IDs
-// from FOLLOWER_GFX_FIRST: the field's lookups take each one's size's template entry (CompleteFollower_TemplateGfx)
+// The sprites are HeartGold's 566 walking Pokémon (tools/complete/gen_follower_sprites.py), and their shiny palettes,
+// a range of graphics IDs from FOLLOWER_GFX_FIRST: the field's lookups take each one's size's template entry (CompleteFollower_TemplateGfx)
 // and its own texture (CompleteFollower_GfxNarcIndex). Species past HeartGold's (#494 on) have none yet.
 
 // The lead's sprite's place in the range, as HeartGold's FollowMon_GetSpriteID picks it (its female sprite, or its
@@ -68,9 +68,10 @@ static BOOL IsTooTall(int species)
         && (sFollowerTooTall[(species - 1) >> 3] >> ((species - 1) & 7)) & 1;
 }
 
+// The range: HeartGold's walking sprites, then the same in their shiny palettes
 static BOOL IsFollowerGfx(u32 graphicsID)
 {
-    return graphicsID >= FOLLOWER_GFX_FIRST && graphicsID < FOLLOWER_GFX_FIRST + FOLLOWER_GFX_COUNT;
+    return graphicsID >= FOLLOWER_GFX_FIRST && graphicsID < FOLLOWER_GFX_FIRST + 2 * FOLLOWER_GFX_COUNT;
 }
 
 u32 CompleteFollower_TemplateGfx(u32 graphicsID)
@@ -79,7 +80,7 @@ u32 CompleteFollower_TemplateGfx(u32 graphicsID)
         return graphicsID;
     }
 
-    u32 k = graphicsID - FOLLOWER_GFX_FIRST;
+    u32 k = (graphicsID - FOLLOWER_GFX_FIRST) % FOLLOWER_GFX_COUNT;
     return (sFollowerGfxLarge[k >> 3] >> (k & 7)) & 1 ? FOLLOWER_GFX_TEMPLATE_64 : FOLLOWER_GFX_TEMPLATE_32;
 }
 
@@ -173,7 +174,7 @@ static int WantedGfx(FieldSystem *fieldSystem)
         return -1;
     }
 
-    return FOLLOWER_GFX_FIRST + sprite;
+    return FOLLOWER_GFX_FIRST + sprite + (Pokemon_IsShiny(lead) ? FOLLOWER_GFX_COUNT : 0); // a shiny lead's colours
 }
 
 // A scene can leave the follower further off than its steps make up (Elm's lab: it comes out beside the player at the

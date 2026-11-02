@@ -1324,3 +1324,6 @@ Test results on the new test build:
   lost the player while the Bicycle rolled down Route 206's Cycling Road; walks took Route 209's Bicycle slope on foot;
   and a talk's battle taps waited on a fainted foe's empty box in Flint's double battle. The highlight video is cut
   again from this run, with HeartGold's people in it.
+- **Shiny followers:** a shiny lead followed in its normal colours; HeartGold's walking sprites carry a shiny palette
+  too, and `gen_follower_sprites.py` now converts both, the shiny ones as a second range right after the first (566
+  more textures, no table entries), which a shiny lead takes.

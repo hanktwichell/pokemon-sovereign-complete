@@ -9,9 +9,10 @@ them as a range of graphics IDs, so the field overlay doesn't need four table en
 - Each sprite (data/mmodel, the SPRITE_FOLLOWER_MON_* entries of asm/overlay_01_sprite_data.s) is a BTX0 file of 8
   frames, two per direction in the order up, down, left, right, with a normal and a shiny palette. Platinum's walking
   sprites have four frames per direction in the same order and loop through them, so each pair becomes A, B, A, B.
-  The PNGs go to res/graphics/field_sprites/pokemon/follower/follower_NNN.png (the normal palette), NNN the sprite's
-  place in the range, and into field_sprites.order one after another, so the k-th sprite's texture is the first's
-  NARC member + k.
+  The PNGs go to res/graphics/field_sprites/pokemon/follower/follower_NNN.png (the normal palette) and
+  follower_shiny_NNN.png (the shiny one), NNN the sprite's place in the range, and into field_sprites.order one after
+  another, the shiny ones after the normal ones, so the k-th sprite's texture is the first's NARC member + k and its
+  shiny one + COUNT + k. The shiny IDs (FIRST + COUNT + k) need no names: only the follower takes them.
 - generated/object_events_gfx.txt gets OBJ_EVENT_GFX_HGSS_MON_<NAME> = FIRST + k (FIRST 2048, fixed, as graphics IDs
   are saved), for the maps' Pokémon standing about (tools/complete/import_hgss_events.py).
 - src/overlay005/object_event_gfx_data.c gets entries for two of them only, the first 32x32 one and the first 64x64
@@ -103,22 +104,24 @@ def too_tall(first, names):
     return [flags.get(names[first[species]], False) for species in range(1, HG_SPECIES + 1)]
 
 
-def convert(nsbtx, png):
-    """Write Platinum's 16-frame walking sheet from HeartGold's 8 frames. Returns the frame size."""
+def convert(nsbtx, png, shiny_png):
+    """Write Platinum's 16-frame walking sheet from HeartGold's 8 frames, in the normal palette and the shiny one.
+    Returns the frame size."""
     frames, palettes = decode(nsbtx)
     assert len(frames) == 8, f'{nsbtx}: expected 8 frames, found {len(frames)}'
     size = frames[0][1]
     assert all(f[1] == size and f[2] == size for f in frames), f'{nsbtx}: frames differ in size'
-    normal = next(colours for name, colours in palettes.items() if name.endswith('0'))
-    sheet = Image.new('P', (size, size * 16))
-    sheet.putpalette([c for rgb in normal for c in rgb])
-    for direction in range(4):
-        a, b = frames[2 * direction][3], frames[2 * direction + 1][3]
-        for step, pixels in enumerate((a, b, a, b)):
-            frame = Image.new('P', (size, size))
-            frame.putdata(pixels)
-            sheet.paste(frame, (0, (direction * 4 + step) * size))
-    sheet.save(png, transparency=0)
+    for out, digit in ((png, '0'), (shiny_png, '1')):
+        colours = next(colours for name, colours in palettes.items() if name.endswith(digit))
+        sheet = Image.new('P', (size, size * 16))
+        sheet.putpalette([c for rgb in colours for c in rgb])
+        for direction in range(4):
+            a, b = frames[2 * direction][3], frames[2 * direction + 1][3]
+            for step, pixels in enumerate((a, b, a, b)):
+                frame = Image.new('P', (size, size))
+                frame.putdata(pixels)
+                sheet.paste(frame, (0, (direction * 4 + step) * size))
+        sheet.save(out, transparency=0)
     return size
 
 
@@ -165,7 +168,7 @@ def main():
     sprites = []
     for k, (name, path) in enumerate(hgss_range()):
         stem = f'follower_{k:03d}'
-        size = convert(path, os.path.join(out_dir, stem + '.png'))
+        size = convert(path, os.path.join(out_dir, stem + '.png'), os.path.join(out_dir, f'follower_shiny_{k:03d}.png'))
         sprites.append((k, name, stem, size))
     names = [name for _, name, _, _ in sprites]
     large = [size == 64 for *_, size in sprites]
@@ -194,7 +197,8 @@ def main():
 
     def order(text):
         lines = [line for line in text.splitlines() if not line.startswith('follower_')]
-        return '\n'.join(lines + [f'{stem}.nsbtx' for _, _, stem, _ in sprites]) + '\n'
+        return '\n'.join(lines + [f'{stem}.nsbtx' for _, _, stem, _ in sprites]  # the shiny ones right after, in the
+                         + [f'follower_shiny_{k:03d}.nsbtx' for k, *_ in sprites]) + '\n'  # same order
     edit('res/graphics/field_sprites/field_sprites.order', order)
 
     def meson(text):
@@ -203,6 +207,8 @@ def main():
             entries.append(f"field_sprites_textures_complete_followers_{px} = [")
             entries += [f"    {{ 'file': 'pokemon/follower/{stem}.png', 'basename': 'hgmon{k:03d}'}},"
                         for k, _, stem, size in sprites if size == px]
+            entries += [f"    {{ 'file': 'pokemon/follower/follower_shiny_{k:03d}.png', 'basename': 'hgmos{k:03d}'}},"
+                        for k, _, _, size in sprites if size == px]
             entries.append(']')
         for px in (32, 64):
             entries += [
@@ -227,7 +233,7 @@ def main():
         f.write(f'''// Generated by tools/complete/gen_follower_sprites.py: HeartGold's walking Pokémon sprites, a range of graphics
 // IDs (OBJ_EVENT_GFX_HGSS_MON_*) whose textures are NARC members one after another.
 #define FOLLOWER_GFX_FIRST {FIRST}
-#define FOLLOWER_GFX_COUNT {len(sprites)}
+#define FOLLOWER_GFX_COUNT {len(sprites)} // and as many shiny ones after them (FIRST + COUNT + k), textures alike
 #define FOLLOWER_GFX_TEMPLATE_32 {gfx(0)}
 #define FOLLOWER_GFX_TEMPLATE_64 {gfx(first64)}
 #define FOLLOWER_GFX_FIRST_TEXTURE {sprites[0][2]}_nsbtx
