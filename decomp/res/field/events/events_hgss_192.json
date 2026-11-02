@@ -309,7 +309,7 @@
         },
         {
             "id": "obj_D37R0102_babyboy1_8",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_1C0",

@@ -1304,3 +1304,8 @@ Test results on the new test build:
   as HeartGold shows them. `CompleteApricorns_TreeGfx` picks the look as each tree's object is made (one marked hook
   in `src/map_object.c`), and picking redraws the tree bare at once, the way the Bicycle redraws the player. Checked
   in the emulator on Route 29: fruit, then picked, then bare.
+- **HeartGold's 3D gimmicks:** the objects HeartGold draws as 3D models stood as a Ninja Boy or a bollard. They're
+  Platinum's 3D objects of the same kind now: the books in five houses ("History of Ecruteak"), the Elite Four rooms'
+  doors behind the player, and the locked doors (the Rocket Hideout's, the Radio Tower's Card Key door, the Basement
+  Key door), the Ruins of Alph's opening walls and Goldenrod Tunnel's shutters as the wall before Rotom's room. Three
+  whose look isn't known yet stay bollards.

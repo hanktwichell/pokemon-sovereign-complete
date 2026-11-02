@@ -79,7 +79,7 @@
         },
         {
             "id": "obj_T30R0601_babyboy1_2",
-            "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+            "graphics_id": "OBJ_EVENT_GFX_BOOK",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
