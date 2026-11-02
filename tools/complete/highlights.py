@@ -40,8 +40,9 @@ MOMENTS = [
     ('the Valley Windworks', 'last', 0, 6, 'Team Galactic at the Valley Windworks'),
     ('Gardenia', 'last', 0, 6, 'Gardenia in Eterna'),
     ('Totem Lurantis', 'last', 0, 6, 'Totem Lurantis in the Great Marsh'),
-    ('Spear Pillar', 'last', 0, 8, 'Spear Pillar'),
-    ('Cynthia', 'end', -8, 8, 'Cynthia, Sinnoh\'s Champion'),
+    ('Spear Pillar', 'last', 0, 7, 'Spear Pillar'),
+    ('Cynthia', 'last', 1, 7, 'Cynthia, Sinnoh\'s Champion'),  # her part runs on through the Hall of Fame and the
+    ('Cynthia', 'end', -5, 5, 'The game cleared: home in Twinleaf'),  # reset, to Continue in Twinleaf
 ]
 
 

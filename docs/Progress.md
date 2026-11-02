@@ -1310,3 +1310,8 @@ Test results on the new test build:
   Key door) and the Ruins of Alph's opening walls as the wall before Rotom's room. Goldenrod Tunnel's 22 shutters stay
   bollards: as that many wall models, they left the map undrawn (black) in the emulator. Three whose look isn't known
   yet stay bollards too.
+- **The full recorded run finished:** from a new game in New Bark Town to Sinnoh's Hall of Fame, all 186 parts passed
+  (resumed three times from the failing part's state after each fix: 2, 17, 69 and 98 parts). The highlight video
+  (`tools/complete/highlights.py`, 20 moments, 1:58) is cut from it; Cynthia's clip is her part's battle now that her
+  part runs on through the Hall of Fame, and the reel ends home in Twinleaf. A second run on the build with
+  HeartGold's sprites is under way for a new cut.
