@@ -2098,9 +2098,9 @@ def main():
                         step(action[2])
             elif action[0] == 'warp':  # the test warp, across a Sinnoh gym or dungeon puzzle the walks don't solve yet
                 face = ('UP', 'DOWN', 'LEFT', 'RIGHT').index(action[2]) + 1
-                for slot, (name, value) in enumerate(action[4] if len(action) > 4 else [], 3):  # set on the warp
-                    mem.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[name])  # (the first three slots
-                    mem.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, value)  # are the warp's own)
+                for slot, (var_name, value) in enumerate(action[4] if len(action) > 4 else [], 3):  # set on the
+                    mem.write_short(sym['gSovereignTestVar'] + 4 * slot, variables[var_name])  # warp (the first three
+                    mem.write_short(sym['gSovereignTestVar'] + 4 * slot + 2, value)  # slots are the warp's own)
                 result, frames = warp(d, sym, names.index(action[3] if len(action) > 3 else here()), *action[1], face)
                 if result != 'ok':
                     problem = f'the warp across: {result} after {frames} frames, on {here()} at {d.pos()}'

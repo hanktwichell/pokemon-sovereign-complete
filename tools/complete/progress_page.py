@@ -72,8 +72,8 @@ NEXT = [
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
     'objects and its Apricorn trees. Left: a few of HeartGold\'s 3D objects use Platinum\'s look-alikes. Custom or '
     'missing Pokémon sprites (#494 on) are yours, later.',
-    'The full recorded run from New Bark Town is in Sinnoh; a second one runs on the build with HeartGold\'s sprites, '
-    'for the 1 to 2 minute highlight video.',
+    'The full recorded run passed all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame, and the 2-minute highlight '
+    'video is out. A second run on the build with HeartGold\'s sprites (now in Kanto) will give a new cut.',
 ]
 
 WAITING = [
@@ -104,6 +104,8 @@ RECENT = [
         'sprites; they use the right ones now.',
     ]),
     ('The story test reaches the end', [
+        'The full recorded run played all 186 parts in one game, from New Bark Town to Sinnoh\'s Hall of Fame (resumed '
+        'from the failing part after each fix), and the highlight video is cut from it.',
         'Every part from New Bark Town to Sinnoh\'s Hall of Fame has passed: the Elite Four (their lifts, Bertha\'s '
         'format question), Cynthia, the Hall of Fame, the credits and the reset back to Twinleaf.',
         'Sinnoh\'s middle and north: Canalave, Byron, Lake Valor, Acuity, the Snowpoint Temple, the Galactic HQ, Spear '
