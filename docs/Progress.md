@@ -1315,3 +1315,7 @@ Test results on the new test build:
   (`tools/complete/highlights.py`, 20 moments, 1:58) is cut from it; Cynthia's clip is her part's battle now that her
   part runs on through the Hall of Fame, and the reel ends home in Twinleaf. A second run on the build with
   HeartGold's sprites is under way for a new cut.
+- **Every map on the sprite build:** the visit-every-map test loaded all of Johto's and Kanto's maps on the build with
+  HeartGold's sprites. 504 came idle at once; 13 more have a scene on entry and pass with it played out; the last,
+  the Dragon's Den shrine, is the elder's quiz, which only the story test answers (it passes there). Comparing each
+  map's screen with the visit run before the sprites found no map drawn wrong.
