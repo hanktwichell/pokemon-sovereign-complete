@@ -87,6 +87,13 @@ WAITING = [
      '(data/complete/sinnoh.yaml). Change any of it whenever you like.'),
     ('Cynthia', 'Her Lv. 96 team beat a Lv. 100 team in all six real battles. Keep her that hard, or not.'),
     ('Art', 'Who draws the three-region Town Map and the walking sprites for #494 to #1025.'),
+    ('HeartGold\'s key items', 'Proposed: port the Berry Pots (about a day) and the Unown Report (half a day); the '
+     'Dowsing Machine stays with the Pokétch\'s Dowsing app. Yes or no?'),
+    ('Trade items from the bag', 'Proposed: as in Sacred Gold, the trade-evolution items (Metal Coat, King\'s Rock and '
+     'the rest) evolve a Pokémon from the bag, in all three regions, with trading still working. Yes or no?'),
+    ('The Pokéathlon Dome', 'With the Pokéathlon skipped: the building open (its people, no events) or closed?'),
+    ('The photo album', 'Cameron takes photos on 59 maps, but there\'s no album to keep them in. Port it, or leave '
+     'him out?'),
 ]
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
