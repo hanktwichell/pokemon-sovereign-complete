@@ -144,6 +144,8 @@ typedef struct CompletePokegear {
     NNSG2dScreenData *frameScreen;
     u8 contacts[NUM_PHONE_CONTACTS];
     u16 appBar[4][2][32]; // HeartGold's app bar's rows: lit and dimmed
+    BOOL mapCard; // the Map Card and the Radio Card (CompletePokegear_HasCard), as the app bar was last drawn
+    BOOL radioCard;
     u8 fly; // choosing where to Fly (CompletePokegear_GetFly)
     u8 flyPage; // the page before it
     u8 flyCount;
@@ -243,11 +245,13 @@ static void DrawList(CompletePokegear *gear)
     Window_CopyToVRAM(&gear->list);
 }
 
-// HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the settings, the phone, the map, the radio and,
-// with a Pokétch to switch to, the exit button lit. While a call rings, the phone flashes.
+// HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the settings and the phone lit, the map and the
+// radio with their cards, and, with a Pokétch to switch to, the exit button. While a call rings, the phone flashes.
 static void DrawAppBar(CompletePokegear *gear)
 {
     gear->poketchShown = CompletePokegear_PoketchAvailable(gear->saveData);
+    gear->mapCard = CompletePokegear_HasCard(gear->saveData, COMPLETE_POKEGEAR_CARD_MAP);
+    gear->radioCard = CompletePokegear_HasCard(gear->saveData, COMPLETE_POKEGEAR_CARD_RADIO);
 
     for (int y = 0; y < 4; y++) {
         u16 row[32];
@@ -257,7 +261,8 @@ static void DrawAppBar(CompletePokegear *gear)
         }
 
         for (int button = 0; button < APP_BAR_BUTTONS; button++) {
-            BOOL lit = button == APP_BAR_SETTINGS || button == APP_BAR_MAP || button == APP_BAR_RADIO || (button == APP_BAR_EXIT && gear->poketchShown)
+            BOOL lit = button == APP_BAR_SETTINGS || (button == APP_BAR_MAP && gear->mapCard) || (button == APP_BAR_RADIO && gear->radioCard)
+                || (button == APP_BAR_EXIT && gear->poketchShown)
                 || (button == APP_BAR_PHONE && (!gear->ringing || gear->ringFrames < RING_FLASH));
 
             for (int x = sAppBarButtons[button][0]; x < sAppBarButtons[button][0] + sAppBarButtons[button][1]; x++) {
@@ -781,9 +786,17 @@ static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
 
         ChangePage(gear, PAGE_PHONE);
     } else if (x >= sAppBarButtons[APP_BAR_MAP][0] * 8) {
-        ChangePage(gear, PAGE_MAP);
+        if (gear->mapCard) {
+            ChangePage(gear, PAGE_MAP);
+        } else {
+            Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // no Map Card yet
+        }
     } else if (x >= sAppBarButtons[APP_BAR_RADIO][0] * 8) {
-        ChangePage(gear, PAGE_RADIO);
+        if (gear->radioCard) {
+            ChangePage(gear, PAGE_RADIO);
+        } else {
+            Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // no Radio Card yet
+        }
     } else {
         ChangePage(gear, PAGE_SETTINGS);
     }
@@ -962,7 +975,10 @@ static void CompletePokegear_Task(SysTask *task, void *data)
             }
         }
 
-        if (CompletePokegear_PoketchAvailable(gear->saveData) != gear->poketchShown) {
+        // the Pokétch to switch to, or a card just given (the guide's Map Card, the quiz's Radio Card): the bar again
+        if (CompletePokegear_PoketchAvailable(gear->saveData) != gear->poketchShown
+            || CompletePokegear_HasCard(gear->saveData, COMPLETE_POKEGEAR_CARD_MAP) != gear->mapCard
+            || CompletePokegear_HasCard(gear->saveData, COMPLETE_POKEGEAR_CARD_RADIO) != gear->radioCard) {
             DrawAppBar(gear);
         }
     }
@@ -980,6 +996,12 @@ void CompletePokegear_Create(FieldSystem *fieldSystem, BgConfig *bgConfig)
     gear->bgConfig = bgConfig;
     gear->lit = LIST_ROWS;
     gear->page = CompletePokegear_GetPage();
+
+    // the page it was last on, unless that app's card is gone (an older save) or not had yet
+    if ((gear->page == PAGE_MAP && !CompletePokegear_HasCard(gear->saveData, COMPLETE_POKEGEAR_CARD_MAP))
+        || (gear->page == PAGE_RADIO && !CompletePokegear_HasCard(gear->saveData, COMPLETE_POKEGEAR_CARD_RADIO))) {
+        gear->page = PAGE_PHONE;
+    }
     gear->skin = CompletePokegear_GetSkin(gear->saveData);
     gear->titles = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0271, HEAP_ID_POKETCH_APP);
     gear->classes = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_TRAINER_CLASS_NAMES, HEAP_ID_POKETCH_APP);

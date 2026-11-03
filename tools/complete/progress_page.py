@@ -139,6 +139,8 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Pokégear\'s Map and Radio come with their cards, as in HeartGold: the Map Card from Cherrygrove\'s guide, '
+        'the Radio Card from the Radio Tower\'s quiz.',
         'The Rocket Hideout\'s traps go off under you before their battles (sparks, a gas cloud, falling rocks), and '
         'its Persian statues\' alarm turns the screen red, as in HeartGold. The monks in the Bell Tower and the Whirl '
         'Islands show their wings again, and their scenes after the wing play now.',

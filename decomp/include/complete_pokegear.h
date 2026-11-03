@@ -21,6 +21,15 @@ enum CompleteBottomScreen {
 // src/complete_pokegear_state.c (main)
 BOOL CompletePokegear_IsOwned(SaveData *saveData);
 BOOL CompletePokegear_PoketchAvailable(SaveData *saveData); // the Pokétch to switch to: owned, not hidden
+// HeartGold's Pokégear cards (its RegisterPokegearCard): the Map Card, which Cherrygrove City's guide gives after his
+// tour (VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW 2 on), and the Radio Card, the Radio Tower's quiz prize
+// (FLAG_HGSS_GOT_RADIO_CARD); without one, its app's button is dark, as in HeartGold
+enum CompletePokegearCard {
+    COMPLETE_POKEGEAR_CARD_MAP = 0,
+    COMPLETE_POKEGEAR_CARD_RADIO,
+};
+
+BOOL CompletePokegear_HasCard(SaveData *saveData, enum CompletePokegearCard card);
 enum CompleteBottomScreen CompleteBottomScreen_Wanted(SaveData *saveData);
 enum CompleteBottomScreen CompleteBottomScreen_Active(void);
 void CompleteBottomScreen_SetActive(enum CompleteBottomScreen screen);

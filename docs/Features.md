@@ -401,6 +401,11 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
   end, starts and ends the one shown (marked blocks), and `src/overlay005/complete_bottom_screen.c` switches them as the
   field runs, with a fade, as Platinum does when the player gets the Pokétch. Getting the Pokétch in Jubilife while the
   Pokégear shows brings the Pokétch up, as in Platinum.
+- **The cards:** as in HeartGold, the Map and the Radio come with their cards: the Map Card from Cherrygrove City's
+  guide at the end of his tour (`VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW` 2 on), the Radio Card from the Radio Tower's quiz
+  (`FLAG_HGSS_GOT_RADIO_CARD`); until then their buttons are dark and beep (`CompletePokegear_HasCard`; HeartGold's
+  RegisterPokegearCard, where the flags carry it). The app bar lights a card as it's given. Without the Map Card, Fly
+  over Johto and Kanto uses the list.
 - **The phone:** HeartGold's contact list: each contact's name in the white box and their title in the blue one (a
   trainer's class, or HeartGold's titles: Pokémon Professor, Childhood Friend, Day Care...; `include/data/
   hgss_phone_contacts.h`, from `tools/complete/import_hgss_phone.py`), six rows at a time, with the arrows to scroll

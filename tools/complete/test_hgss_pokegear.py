@@ -14,6 +14,8 @@ src/applications/complete_pokegear/pokegear.c) in the test build, from the bedro
    with no call.
 3c. **The skins:** the app bar's Settings shows HeartGold's six skins; a tap on the second (pink) dresses the
    Pokégear in it (saved with the phone), and the Phone shows in it; a tap on the first puts it back.
+3d. **No Map Card:** before the guide's Map Card a tap on the app bar's Map leaves the page as it was. Then the test
+   gives the Map Card and the Radio Card (CompletePokegear_HasCard), and the app bar lights both.
 4. **The Map:** a tap on the app bar's Map shows the map, with the player's head where HeartGold's map app puts the
    bedroom (its header's world map place, block 21, 12: pixel 172, 116) and the map scrolled to show it.
 5. **The Map on Route 30:** after a warp to Route 30 the Pokégear comes back on the Map, the head at the player's
@@ -98,6 +100,12 @@ def main():
         addr = save_part('SAVE_TABLE_ENTRY_VARS_FLAGS') + (variables['VARS_END'] - variables['VARS_START']) * 2
         n = variables[name]
         mem.write_byte(addr + n // 8, mem.unsigned[addr + n // 8] | 1 << n % 8)
+
+    def give_cards():
+        """The Pokégear's Map Card (the Cherrygrove guide's tour over) and Radio Card (the quiz's prize)."""
+        vars_at = save_part('SAVE_TABLE_ENTRY_VARS_FLAGS')
+        mem.write_short(vars_at + (variables['VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW'] - variables['VARS_START']) * 2, 2)
+        set_flag('FLAG_HGSS_GOT_RADIO_CARD')
 
     def screen():
         return mem.unsigned[sym['sActiveBottomScreen']]
@@ -270,6 +278,19 @@ def main():
     def map_state():
         """(page, the head's x, y, the map's scroll)"""
         return struct.unpack('<4H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap']:sym['gCompleteTestPokegearMap'] + 8]))
+
+    # 3d. No Map Card yet: the Map's button is dark, and a tap on it stays on the page
+    if not problem:
+        before = map_state()[0]
+        d.touch(*MAP_BUTTON, frames=6, after=60)
+        if map_state()[0] != before:
+            problem = f'the Map opened without the Map Card (page {map_state()[0]})'
+        shot('no_map_card')
+        report('no Map Card', problem)
+
+    # The cards (CompletePokegear_HasCard): the guide's Map Card, the quiz's Radio Card; the app bar lights them
+    give_cards()
+    d.run(90)
 
     # 4. The Map in the bedroom
     if not problem:

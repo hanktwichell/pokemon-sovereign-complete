@@ -95,6 +95,12 @@ def main():
         byte = mem.unsigned[addr + n // 8]
         mem.write_byte(addr + n // 8, byte | 1 << n % 8 if on else byte & ~(1 << n % 8))
 
+    def give_cards():
+        """The Pokégear's Map Card (the Cherrygrove guide's tour over) and Radio Card (the quiz's prize)."""
+        vars_at = save_part('SAVE_TABLE_ENTRY_VARS_FLAGS')
+        mem.write_short(vars_at + (variables['VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW'] - variables['VARS_START']) * 2, 2)
+        set_flag('FLAG_HGSS_GOT_RADIO_CARD')
+
     def gear():
         return u32(sym['gCompleteTestPokegear']) != 0
 
@@ -148,6 +154,7 @@ def main():
     for i in range(BOOK_SIZE):
         mem.write_byte(phone + i, CONTACTS[BOOK[i]] if i < len(BOOK) else NONE)
     set_flag('FLAG_HGSS_GOT_POKEGEAR')
+    give_cards()
     problem = '' if until(lambda: gear() and mem.unsigned[sym['sActiveBottomScreen']] == POKEGEAR) else 'no Pokégear'
     d.run(60)
     if not problem:
@@ -253,6 +260,7 @@ def main():
         for i in range(BOOK_SIZE):
             mem.write_byte(save_part('SAVE_TABLE_ENTRY_COMPLETE_PHONE') + i, CONTACTS[BOOK[i]] if i < len(BOOK) else NONE)
         set_flag('FLAG_HGSS_GOT_POKEGEAR')
+        give_cards()
         until(lambda: gear(), 600)
         d.run(60)
         d.touch(*RADIO_BUTTON, frames=6, after=90)

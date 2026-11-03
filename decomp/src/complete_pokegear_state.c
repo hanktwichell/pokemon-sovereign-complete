@@ -35,6 +35,17 @@ BOOL CompletePokegear_PoketchAvailable(SaveData *saveData)
     return Poketch_IsEnabled(SaveData_GetPoketch(saveData)) && !SystemFlag_CheckPoketchHidden(SaveData_GetVarsFlags(saveData));
 }
 
+BOOL CompletePokegear_HasCard(SaveData *saveData, enum CompletePokegearCard card)
+{
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
+
+    if (card == COMPLETE_POKEGEAR_CARD_MAP) {
+        return *VarsFlags_GetVarAddress(varsFlags, VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW) >= 2;
+    }
+
+    return VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_GOT_RADIO_CARD);
+}
+
 enum CompleteBottomScreen CompleteBottomScreen_Wanted(SaveData *saveData)
 {
     Poketch *poketch = SaveData_GetPoketch(saveData);

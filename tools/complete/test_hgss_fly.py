@@ -10,8 +10,8 @@ stands in for the Town Map there (CommonScript_CompleteFly), flies to the one ch
 3. Again, and A picks the first place, New Bark Town (the list goes in HeartGold's order and leaves out the town the
    player is in): the player must land in New Bark Town, on its Fly point. (The bedroom state has no Pokégear yet, so
    Fly shows the list, as it does with the Pokétch on the bottom screen.)
-4. With the Pokégear (FLAG_HGSS_GOT_POKEGEAR) on the bottom screen, Fly is HeartGold's fly map on its Map
-   (gCompleteTestPokegearMap): the Map page, its cursor on the place reached nearest the player (Cherrygrove City);
+4. With the Pokégear (FLAG_HGSS_GOT_POKEGEAR) on the bottom screen and its Map Card, Fly is HeartGold's fly map on its
+   Map (gCompleteTestPokegearMap): the Map page, its cursor on the place reached nearest the player (Cherrygrove City);
    B backs out, back to the page before, the player still in New Bark Town.
 5. Again: UP moves the cursor to Violet City, and a tap on it flies there.
 
@@ -84,6 +84,11 @@ def main():
         n = variables[name]
         mem.write_byte(flags_at() + n // 8, mem.unsigned[flags_at() + n // 8] | 1 << n % 8)
 
+    def give_map_card():
+        """The Pokégear's Map Card (the Cherrygrove guide's tour over: VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW 2)."""
+        vars_at = flags_at() - (variables['VARS_END'] - variables['VARS_START']) * 2
+        mem.write_short(vars_at + (variables['VAR_HGSS_SCENE_CHERRYGROVE_CITY_OW'] - variables['VARS_START']) * 2, 2)
+
     def gear_map():
         """The Pokégear's (page, ..., Fly's pick, its cursor's x and y on the screen)"""
         return struct.unpack('<8H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap']:
@@ -136,6 +141,7 @@ def main():
 
     # 4. The Pokégear's fly map
     set_flag('FLAG_HGSS_GOT_POKEGEAR')
+    give_map_card()
     for _ in range(60):  # the field puts the Pokégear on the bottom screen
         if u32(sym['gCompleteTestPokegear']) and mem.unsigned[sym['sActiveBottomScreen']] == POKEGEAR:
             break

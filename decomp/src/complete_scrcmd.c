@@ -778,8 +778,8 @@ BOOL CompleteScrCmd_InitFlyMenu(ScriptContext *ctx)
 }
 
 // Fly over Johto and Kanto on the Pokégear's map (HeartGold's fly map, include/complete_pokegear.h): countVar gets
-// how many Fly points the player has reached, or FLY_MAP_NO_POKEGEAR with the Pokétch or no bottom screen (for the
-// list instead). CompleteScrCmd_WaitFlyMap then has the Pokégear's Map show them for the player to pick from, and
+// how many Fly points the player has reached, or FLY_MAP_NO_POKEGEAR with the Pokétch, no bottom screen or no Map Card
+// yet (for the list instead). CompleteScrCmd_WaitFlyMap then has the Pokégear's Map show them for the player to pick from, and
 // waits for the pick: the spawn point, or MENU_CANCEL.
 #define FLY_MAP_NO_POKEGEAR 0xFFFD
 
@@ -788,7 +788,7 @@ BOOL CompleteScrCmd_StartFlyMap(ScriptContext *ctx)
     u16 *count = ScriptContext_GetVarPointer(ctx);
     u8 spawns[SPAWN_HGSS_COUNT];
 
-    if (CompleteBottomScreen_Active() != COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+    if (CompleteBottomScreen_Active() != COMPLETE_BOTTOM_SCREEN_POKEGEAR || !CompletePokegear_HasCard(ctx->fieldSystem->saveData, COMPLETE_POKEGEAR_CARD_MAP)) {
         *count = FLY_MAP_NO_POKEGEAR;
         return FALSE;
     }

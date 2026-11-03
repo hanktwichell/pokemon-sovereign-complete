@@ -1520,3 +1520,10 @@ Test results on the new test build:
   its battle after, the first statue's alarm, and both wings with the monks' scenes.
 - **Not ported yet, from the same HeartGold file:** Lance flying off the Lake of Rage on his Dragonite (HeartGold's
   ScrCmd_775 reuses its whole Fly take-off cut-in, which is in assembly).
+- **The Pokégear's cards:** the Map and the Radio now come with HeartGold's Map Card (Cherrygrove City's guide, at the
+  end of his tour) and Radio Card (the Radio Tower's quiz); until then their buttons are dark and beep, and Fly uses
+  the list. Both had been on from the start (HeartGold's RegisterPokegearCard was left out; the flags and the scene
+  var it goes with carry it here). The app bar lights a card as it's given. In the emulator: the Pokégear test's new
+  part (a tap on the Map before the card stays put), then its other 11, the radio's 11 and Fly's checks pass with the
+  cards given.
+
