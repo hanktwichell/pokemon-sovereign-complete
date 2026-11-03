@@ -1620,4 +1620,9 @@ Test results on the new test build:
   first, he calls only with a yes. The phone test's new part (10 of 10 pass): an Egg written into the Day-Care's save
   and turned down twice, then yes; then, with nothing, his question again and a no. (The Egg's place in the save was
   found from an empty Pokémon's encrypted words, the game's compiler laying the mail out differently from gcc.)
+- **A sweep of every short test** on build_test3 (HeartGold's sound effects, the Alph walls, Lance's take-off and the
+  Bike Shop's call; split by the session's machine restarting): 34 of 36 pass. The Bug-Catching Contest's battle
+  found no encounter in 300 steps once, and passes on a rerun (4 of 4); the phone test's Day-Care part needs the build
+  after it, where it passes (10 of 10). The story run goes on from Chuck after its first 33 parts, and the talk test
+  runs again on the newest build.
 
