@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Check HeartGold's Rocket Hideout effects (src/overlay005/complete_legend_cutscene.c) in the test build, from the
-bedroom state, on the hideout's B1F (MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1F):
+"""Check HeartGold's field effects from its demo/legend archive (src/overlay005/complete_legend_cutscene.c) in the test
+build, from the bedroom state. On the Rocket Hideout's B1F (MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1F):
 
 1. **The electric trap** (13, 16), **the poison trap** (12, 17) and **the rock trap** (15, 16): stepped onto from the
    tile beside, each goes off under the player (HeartGold's ScrCmd_708: its model and animations played to their end)
@@ -8,12 +8,18 @@ bedroom state, on the hideout's B1F (MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1
 2. **The alarm** (44, 5, in front of the first Persian statue): its red screen pulses twice (ScrCmd_709), and the scene
    after plays out.
 
-Each part must run its effect to the end (gCompleteTestLegend: the effects ended, the last one's kind) and leave the
-field free. Screenshots of each effect as it plays go to OUT_DIR. Results: a line per part.
+And the monks' wings (ShowLegendaryWing), each shining at the player's feet while the map's script 3 runs:
+
+3. **The Rainbow Wing** on the Bell Tower's 1F: with FLAG_HGSS_UNK_093 set, the player steps onto the trigger before
+   the stairs (8, 12), the monk shows the wing, and its scene after has him step aside (VAR_HGSS_UNK_40F3 1).
+4. **The Silver Wing** on the Whirl Islands' B2F: with FLAG_HGSS_UNK_094 set, the player talks to the monk (36, 30).
+
+Each part must start its effect, run it to the end (gCompleteTestLegend: the effects ended, the last one's kind) and
+leave the field free. Screenshots of each effect as it plays go to OUT_DIR. Results: a line per part.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
-    SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_hideout_effects.py \\
+    SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_hgss_field_effects.py \\
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR
 """
 import os
@@ -21,18 +27,23 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
-from talk_to_objects import SYMBOLS, header_names, play_out, symbols, warp  # noqa: E402
+from talk_to_objects import SYMBOLS, header_names, play_out, symbols, var_ids, warp  # noqa: E402
 
 HIDEOUT = 'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1F'
+BELL_TOWER = 'MAP_HEADER_HGSS_BELL_TOWER_1F'
+WHIRL_ISLANDS = 'MAP_HEADER_HGSS_WHIRL_ISLANDS_B2F'
 FACING = {'UP': 1, 'DOWN': 0, 'LEFT': 3, 'RIGHT': 4}  # the test warp's facing: enum FaceDirection + 1, 0 for down
-SHOT_FRAMES = (4, 24, 48)  # after the effect starts, as it plays
+SHOT_FRAMES = (4, 24, 48, 120)  # after the effect starts, as it plays
 START = 1200  # frames for the effect to start after the step
 LIMIT = 20000
-# (part, the tile beside the trigger, the key that steps onto it, the effect's kind: 0x100 + the trap, 0x200 the alarm)
-PARTS = [('the electric trap', (14, 16), 'LEFT', 0x100),
-         ('the poison trap', (12, 18), 'UP', 0x101),
-         ('the rock trap', (14, 16), 'RIGHT', 0x102),
-         ('the alarm', (44, 6), 'UP', 0x200)]
+# (part, the map, the tile beside the trigger, the key that steps onto it (A: talks), the effect's kind: 0x100 + the
+# trap, 0x200 the alarm, 0x300 + the wing, the flags and vars set on the way in)
+PARTS = [('the electric trap', HIDEOUT, (14, 16), 'LEFT', 0x100, []),
+         ('the poison trap', HIDEOUT, (12, 18), 'UP', 0x101, []),
+         ('the rock trap', HIDEOUT, (14, 16), 'RIGHT', 0x102, []),
+         ('the alarm', HIDEOUT, (44, 6), 'UP', 0x200, []),
+         ('the Rainbow Wing', BELL_TOWER, (8, 13), 'UP', 0x300, [('FLAG_HGSS_UNK_093', 1)]),
+         ('the Silver Wing', WHIRL_ISLANDS, (36, 31), 'A', 0x301, [('FLAG_HGSS_UNK_094', 1)])]
 
 
 def main():
@@ -42,6 +53,7 @@ def main():
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('gCompleteTestLegend',))
     names = header_names()
+    variables = var_ids()
     d = Driver(rom, state)
     mem = d.emu.memory
 
@@ -50,12 +62,15 @@ def main():
         return struct.unpack('<2H', bytes(mem.unsigned[sym['gCompleteTestLegend']:sym['gCompleteTestLegend'] + 4]))
 
     results = []
-    for name, (x, z), key, kind in PARTS:
+    for name, header, (x, z), key, kind, setup in PARTS:
         d.load_state(state)
         d.run(30)
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
+        for i, (var, value) in enumerate(setup, 2):
+            mem.write_short(sym['gSovereignTestVar'] + 4 * i, variables[var])
+            mem.write_short(sym['gSovereignTestVar'] + 4 * i + 2, value)
         problem = ''
-        arrived, _ = warp(d, sym, names.index(HIDEOUT), x, z, FACING[key])
+        arrived, _ = warp(d, sym, names.index(header), x, z, FACING.get(key, 1))
         if arrived != 'ok':
             problem = f'warp {arrived}'
         if not problem:
@@ -64,19 +79,25 @@ def main():
             mem.write_short(sym['gSovereignTestScripts'], 0)
             d.press(key, frames=8, after=0)
             stem = name.replace(' ', '_')
-            for _ in range(START // 2):
+            started = False
+            for i in range(START // 2):  # with A now and then through the lines before it (the monks')
                 if legend()[1] == kind:
+                    started = True
                     break
+                if i % 15 == 14:
+                    d.press('A', frames=2, after=0)
                 d.run(2)
             ran = 0
             for frames in SHOT_FRAMES:
                 d.run(frames - ran)
                 ran = frames
                 d.screenshot().save(os.path.join(out, f'{stem}_{frames:02d}.png'))
-            result, frames = play_out(d, sym, LIMIT, names.index(HIDEOUT), press_a=False)
+            result, frames = play_out(d, sym, LIMIT, names.index(header), press_a=False)
             d.screenshot().save(os.path.join(out, f'{stem}_end.png'))
             ended, last = legend()
-            if result != 'ok':
+            if not started:
+                problem = f'the effect didn\'t start within {START} frames'
+            elif result != 'ok':
                 problem = f'{result} after {frames} frames (effects ended {ended}, last 0x{last:X})'
             elif last != kind:
                 problem = f'the effect was 0x{last:X}, not 0x{kind:X}'

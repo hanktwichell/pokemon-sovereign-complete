@@ -715,7 +715,7 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
 Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
 least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance; both pass).
 
-## The Rocket Hideout's traps and alarms
+## The Rocket Hideout's traps and alarms, and the monks' wings
 
 - **The traps** (Mahogany Town's hideout, B1F's trapped floor): stepping on one, HeartGold's trap goes off under the
   player before its battle: sparks for a Voltorb, a cloud of gas for a Koffing, rocks for a Geodude (HeartGold's
@@ -723,13 +723,18 @@ least 20 of the cutscene's commands run, nothing of it held after and the camera
 - **The alarms:** as a Persian statue spots the player, the screen pulses red twice (HeartGold's ScrCmd_709: its red
   screen on the field's layer 2, blended over the field, a step a frame up to 12 of 31 and back), before the grunts
   come.
-- **How:** both come from the same archive as the legendary cutscenes (HeartGold's `demo/legend`, all of it now in
+- **The wings:** the Bell Tower's monk shows the Rainbow Wing, the Whirl Islands' monk the Silver Wing (HeartGold's
+  ShowLegendaryWing): it appears at the player's feet and shines while the map's next scene runs (the monk's lines and
+  his step aside, which HeartGold starts from the wing, so they had been skipped), then fades.
+- **How:** all come from the same archive as the legendary cutscenes (HeartGold's `demo/legend`, all of it now in
   `fielddata/complete/legend.narc`) and the same code (`src/overlay005/complete_legend_cutscene.c`,
-  `CompleteHideoutTrap`, `CompleteHideoutAlarm`). HeartGold's trap sounds and siren are its own: Platinum's stand in
-  (an electronic buzz, the poison step, a thud; beeps for the siren).
+  `CompleteHideoutTrap`, `CompleteHideoutAlarm`, `CompleteLegendaryWing`). HeartGold's trap sounds, siren and the
+  wing's chime are its own: Platinum's stand in (an electronic buzz, the poison step, a thud; beeps; a sparkle).
+- **Left out:** Lance flying off the Lake of Rage on his Dragonite (HeartGold's ScrCmd_775 reuses its whole Fly
+  take-off cut-in, in assembly there): he disappears as the screen fades, as before.
 
-Test: `tools/complete/test_hgss_hideout_effects.py` (the three traps stepped on and the first statue's alarm, each
-effect played to its end and the field free after; all four pass).
+Test: `tools/complete/test_hgss_field_effects.py` (the three traps stepped on, the first statue's alarm and both
+wings, each effect started, played to its end and the field free after; all six pass).
 
 ## The Magnet Train's ride
 

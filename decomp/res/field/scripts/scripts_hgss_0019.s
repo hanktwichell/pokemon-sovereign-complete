@@ -120,7 +120,7 @@ _01B1:
 _01CC:
     Message msg_0057_D17R0101_00002
     CloseMessage
-    @ HGSS: ShowLegendaryWing 0
+    CompleteLegendaryWing 0
     ReleaseAll
     SetVarFromValue VAR_HGSS_UNK_40F3, 1
     End

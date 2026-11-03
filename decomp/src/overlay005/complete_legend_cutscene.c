@@ -28,6 +28,7 @@
 #include "map_object.h"
 #include "narc.h"
 #include "player_avatar.h"
+#include "script_manager.h"
 #include "sound_playback.h"
 #include "sys_task.h"
 #include "sys_task_manager.h"
@@ -144,6 +145,8 @@ typedef struct EffectTaskData {
     Easy3DAnim anims[3];
     Easy3DObject object;
     BOOL drawing;
+    BOOL looping; // its animations looped each frame by the task itself (HeartGold's SysTask on ov02_02246048)
+    u8 animCount;
 } EffectTaskData;
 
 typedef struct BirdApproach {
@@ -730,6 +733,11 @@ static void EffectTask_Destroy(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldS
 
 static void EffectTask_Update(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *taskData)
 {
+    EffectTaskData *data = taskData;
+
+    if (data->looping) {
+        AdvanceLooping(data->anims, data->animCount);
+    }
 }
 
 static void EffectTask_Render(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSystem, void *taskData)
@@ -768,9 +776,34 @@ static UnkStruct_ov5_021D1BEC *StartEffectAnims(FieldSystem *fieldSystem, int mo
     }
 
     SetFrames(data->anims, count, 0);
+    data->animCount = count;
     Easy3DObject_SetPosition(&data->object, pos->x, pos->y, pos->z);
     Easy3DObject_SetVisible(&data->object, TRUE);
     return task;
+}
+
+// HeartGold's ov02_02245ED8: the effect's animations replaced by others of the same model
+static void ReplaceEffectAnims(UnkStruct_ov5_021D1BEC *task, const int *anims, int count)
+{
+    EffectTaskData *data = ov5_021D1C2C(task);
+    NARC *narc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, CUTSCENE_HEAP);
+
+    for (int i = 0; i < data->animCount; i++) {
+        Easy3DObject_RemoveAnim(&data->object, &data->anims[i]);
+    }
+
+    for (int i = data->animCount - 1; i >= 0; i--) {
+        Easy3DAnim_Release(&data->anims[i], &data->allocator);
+    }
+
+    for (int i = 0; i < count; i++) {
+        LoadAnim(&data->anims[i], &data->model, narc, anims[i], &data->allocator);
+        Easy3DObject_AddAnim(&data->object, &data->anims[i]);
+    }
+
+    NARC_dtor(narc);
+    SetFrames(data->anims, count, 0);
+    data->animCount = count;
 }
 
 static UnkStruct_ov5_021D1BEC *StartEffect(FieldSystem *fieldSystem, int model, const int anims[3], const VecFx32 *pos)
@@ -1333,5 +1366,101 @@ BOOL CompleteScrCmd_HideoutAlarm(ScriptContext *ctx)
     gCompleteTestLegend[1] = 0x200;
 #endif
     FieldTask_InitCall(ctx->fieldSystem->task, HideoutAlarm_Task, alarm);
+    return TRUE;
+}
+
+// HeartGold's ShowLegendaryWing (ov02_0224618C): the Rainbow Wing (0, the Bell Tower's monk) or the Silver Wing (1,
+// the Whirl Islands' monk) shown at the player's feet: it appears (HeartGold's ov02_02253254), then shines in a loop
+// (ov02_02253D80) while the map's script 3 runs (the monk's lines after it, HeartGold's QueueScript), then plays out
+// its shine and fades (ov02_02253D84). HeartGold's chime is its own: a sparkle stands in.
+#define WING_SCRIPT 3
+#define SE_WING     SEQ_SE_DP_KIRAN_sseq // SEQ_SE_GS_STOPPERKAIJO
+
+enum WingState {
+    WING_STATE_APPEAR = 0,
+    WING_STATE_SCRIPT,
+    WING_STATE_SHINE,
+    WING_STATE_FADE,
+};
+
+typedef struct LegendaryWing {
+    UnkStruct_ov5_021D1BEC *effectTask;
+    u8 wing;
+    u8 state;
+} LegendaryWing;
+
+static const struct {
+    u8 model;
+    int appear[3];
+    int shine[3];
+    int fade[3];
+} sWings[] = {
+    { 55, { 57, 56, 58 }, { 59, 60, 61 }, { 62, 63, 64 } }, // the Rainbow Wing
+    { 65, { 67, 66, 68 }, { 69, 70, 71 }, { 72, 73, 74 } }, // the Silver Wing
+};
+
+static BOOL LegendaryWing_Task(FieldTask *task)
+{
+    LegendaryWing *wing = FieldTask_GetEnv(task);
+    EffectTaskData *data = ov5_021D1C2C(wing->effectTask);
+
+    data->drawing = TRUE;
+
+    switch (wing->state) {
+    case WING_STATE_APPEAR:
+        if (AdvanceNoLoop(data->anims, data->animCount)) {
+            ReplaceEffectAnims(wing->effectTask, sWings[wing->wing].shine, 3);
+            data->looping = TRUE;
+            wing->state = WING_STATE_SCRIPT;
+            ScriptManager_Start(task, WING_SCRIPT, NULL, NULL);
+        }
+        break;
+    case WING_STATE_SCRIPT: // the script is over
+        data->looping = FALSE;
+        wing->state = WING_STATE_SHINE;
+        // fall through
+    case WING_STATE_SHINE:
+        if (AdvanceNoLoop(data->anims, data->animCount)) {
+            ReplaceEffectAnims(wing->effectTask, sWings[wing->wing].fade, 3);
+            wing->state = WING_STATE_FADE;
+        }
+        break;
+    case WING_STATE_FADE:
+        if (AdvanceNoLoop(data->anims, data->animCount)) {
+            ov5_021D1BEC(wing->effectTask);
+            Heap_Free(wing);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestLegend[0]++;
+#endif
+            return TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_LegendaryWing(ScriptContext *ctx)
+{
+    u16 which = ScriptContext_GetVar(ctx);
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    LegendaryWing *wing;
+    VecFx32 pos;
+
+    if (which >= NELEMS(sWings)) {
+        GF_ASSERT(FALSE);
+        return FALSE;
+    }
+
+    wing = Heap_AllocAtEnd(CUTSCENE_HEAP, sizeof(LegendaryWing));
+    wing->wing = which;
+    wing->state = WING_STATE_APPEAR;
+    PlayerPos(fieldSystem, &pos);
+    wing->effectTask = StartEffectAnims(fieldSystem, sWings[which].model, sWings[which].appear, 3, &pos);
+    Sound_PlayEffect(SE_WING);
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x300 + which;
+#endif
+    FieldTask_InitCall(fieldSystem->task, LegendaryWing_Task, wing);
     return TRUE;
 }

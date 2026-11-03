@@ -48,7 +48,7 @@ _0093:
 _00B4:
     Message msg_0124_D40R0104_00002
     CloseMessage
-    @ HGSS: ShowLegendaryWing 1
+    CompleteLegendaryWing 1
     ReleaseAll
     SetFlag FLAG_HGSS_UNK_106
     End

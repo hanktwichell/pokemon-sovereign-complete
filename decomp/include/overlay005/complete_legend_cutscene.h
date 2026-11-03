@@ -37,4 +37,8 @@ enum CompleteHideoutTrap {
 BOOL CompleteScrCmd_HideoutTrap(ScriptContext *ctx);
 BOOL CompleteScrCmd_HideoutAlarm(ScriptContext *ctx);
 
+// HeartGold's ShowLegendaryWing: the Rainbow Wing (0) or the Silver Wing (1) at the player's feet, while the map's
+// script 3 runs
+BOOL CompleteScrCmd_LegendaryWing(ScriptContext *ctx);
+
 #endif // POKEPLATINUM_OVERLAY005_COMPLETE_LEGEND_CUTSCENE_H

@@ -6427,6 +6427,13 @@
     .short SCRCMD_COMPLETEHIDEOUTALARM
     .endm
 
+    // HeartGold's ShowLegendaryWing: the Rainbow Wing (0) or the Silver Wing (1) at the player's feet, while the map's
+    // script 3 runs (src/overlay005/complete_legend_cutscene.c)
+    .macro CompleteLegendaryWing wing
+    .short SCRCMD_COMPLETELEGENDARYWING
+    .short \wing
+    .endm
+
     .text
     .globl _start
 _start:
