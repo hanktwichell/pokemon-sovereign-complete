@@ -715,14 +715,34 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
 Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
 least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance; both pass).
 
+## The Magnet Train's ride
+
+Between Goldenrod City and Saffron City, HeartGold's ride plays: three cuts of the train, from three cameras of their
+own, the first two closing like a camera shutter and the last fading out as the train pulls in to HeartGold's jingle.
+
+- **Which models:** HeartGold's own, chosen as it chooses them: by the way (Goldenrod to Saffron or back), by day
+  (morning and day) or by night (the evening, the night and late at night), and by the player's gender in the first
+  two cuts, where the player is aboard. The last cut takes its colors from the area's first light at the time of the
+  ride, as HeartGold has it.
+- **How:** HeartGold's overlay 104 (in assembly there) is C here, an app of its own
+  (`src/applications/complete_magnet_train/magnet_train.c`, overlay `complete_magnet_train`) drawing HeartGold's
+  models and their joint and texture animations as Platinum's Easy3D objects, with HeartGold's cameras, cut lengths
+  (91, 301 and 205 frames) and fades. The archive is HeartGold's `a/2/3/3` as it is
+  (`demo/complete/magnet_train.narc`, from `tools/complete/import_hgss_magnet_train.py`). HeartGold's ScrCmd_722 is
+  `CompleteMagnetTrain`, in the order Platinum's own scenes return to the field (the Distortion World's warp): the
+  screen fades out, the ride plays, `ReturnToField`, the warp to the other station, the screen fades in.
+- **Left out:** HeartGold's sound effects of the train (setting off, passing, pulling in), which aren't in Platinum's
+  sound archive; the station's song fades as the ride begins.
+
+Test: `tools/complete/test_hgss_magnet_train.py` (both ways, by day and at night: the scene walks the player aboard,
+all three cuts play with the right models, and the player gets off at the other station with the field free).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
 
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
-- **The Magnet Train's ride** (between Goldenrod City and Saffron City): HeartGold plays a scene of the train
-  (its `sub_020977CC`); here the screen fades out and in, and the player arrives at the other station, as in HeartGold.
 - **Fly over Johto and Kanto:** Platinum's Town Map shows only Sinnoh, so on a Johto or Kanto map Fly (from the party
   menu) is HeartGold's fly map on the Pokégear's Map ("The Pokégear and the Pokétch"), or, with the Pokétch on the
   bottom screen, a list of the places reached, by name, that flies to the one chosen. The places are HeartGold's 25

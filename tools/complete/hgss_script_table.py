@@ -346,10 +346,11 @@ COMMANDS = {
     # The map the player came from (HeartGold's ScrCmd_445), as HeartGold numbers its maps, which the scripts compare
     # it with: HeartGold's map n is MAP_HEADER_HGSS_EVERYWHERE + n
     'ScrCmd_445': lambda a: [f'GetPreviousMapID {a[0]}', f'SubVar {a[0]}, MAP_HEADER_HGSS_EVERYWHERE'],
-    # The Magnet Train (HeartGold's ScrCmd_722: its sub_020977CC): the screen fades, HeartGold's ride plays (its own
-    # scene, not ported), and the player arrives at the other city's station (the map, x, z, facing)
-    'ScrCmd_722': lambda a: ['FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen',
-                             f'Warp {hg_map_header(a[2])}, {a[3]}, {a[4]}, {a[1]}',
+    # The Magnet Train (HeartGold's ScrCmd_722: its sub_020977CC): the screen fades, HeartGold's ride plays the way
+    # given (src/applications/complete_magnet_train), and the player arrives at the other city's station (the map, x, z,
+    # facing), as Platinum's own scenes return to the field (the Distortion World's warp)
+    'ScrCmd_722': lambda a: ['FadeScreen 6, 1, 0, COLOR_BLACK', 'WaitFadeScreen', f'CompleteMagnetTrain {a[0]}',
+                             'ReturnToField', f'Warp {hg_map_header(a[2])}, {a[3]}, {a[4]}, {a[1]}',
                              'FadeScreen 6, 1, 1, COLOR_BLACK', 'WaitFadeScreen'],
     # Goldenrod Tunnel's dress-up (Platinum's Jubilife TV gallery's, unnamed in both decomps): the dressing room, the
     # photo's title (an Easy Chat word, chosen and shown), and its frames

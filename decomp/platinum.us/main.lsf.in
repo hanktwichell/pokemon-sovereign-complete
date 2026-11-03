@@ -1581,6 +1581,12 @@ Overlay complete_pokegear
 	Object src/applications/complete_pokegear/radio/shows/unown.c
 }
 
+Overlay complete_magnet_train
+{
+	After main
+	Object src/applications/complete_magnet_train/magnet_train.c
+}
+
 Overlay complete_voltorb_flip
 {
 	After main

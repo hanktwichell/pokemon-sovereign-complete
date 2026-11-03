@@ -6409,6 +6409,13 @@
     .short \arg
     .endm
 
+    // HeartGold's Magnet Train ride (src/applications/complete_magnet_train), the way given (enum
+    // CompleteMagnetTrainWay); then ReturnToField and Warp to the other station, as after the Distortion World's warp
+    .macro CompleteMagnetTrain way
+    .short SCRCMD_COMPLETEMAGNETTRAIN
+    .byte \way
+    .endm
+
     .text
     .globl _start
 _start:

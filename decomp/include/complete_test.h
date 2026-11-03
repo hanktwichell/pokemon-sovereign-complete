@@ -61,6 +61,10 @@ extern u8 gCompleteTestFly;
 // The legendary cutscenes (src/overlay005/complete_legend_cutscene.c): the ops run, the last, whether a scene's camera
 // is held, and the camera's distance (in whole units) as the scene began and once it ended
 extern u16 gCompleteTestLegend[5];
+// The Magnet Train's ride (src/applications/complete_magnet_train/magnet_train.c): the cuts played, the first cut's
+// model (its member in the archive), the frames the ride ran and whether it ended; and, as it runs, its first light's
+// color, its diffuse color, the main screen's layers (DISPCNT's low half) and its brightness (MASTER_BRIGHT)
+extern u16 gCompleteTestMagnetTrain[8];
 
 // The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
 // tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks

@@ -25,6 +25,7 @@
 #include "res/text/bank/win_sentences.h"
 
 #include "field/field_system.h"
+#include "overlay005/area_light.h"
 #include "overlay005/daycare.h"
 #include "overlay005/field_menu.h"
 #include "overlay005/map_prop.h"
@@ -36,6 +37,7 @@
 
 
 #include "applications/complete_alph_puzzle.h"
+#include "applications/complete_magnet_train.h"
 #include "applications/complete_voltorb_flip/voltorb_flip.h"
 #include "applications/naming_screen.h"
 #include "ball_seal_info.h"
@@ -84,6 +86,7 @@
 #include "string_template.h"
 #include "script_manager.h"
 #include "trainer_info.h"
+#include "unk_020559DC.h"
 #include "unk_02017038.h"
 #include "unk_020298BC.h"
 #include "unk_0203D1B8.h"
@@ -1048,6 +1051,43 @@ BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx)
     flipArgs->saveData = saveData;
     *args = flipArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, flipArgs);
+    ScriptContext_Pause(ctx, WaitForAlphPuzzle); // frees the arguments once it's done
+    return TRUE;
+}
+
+// HeartGold's ScrCmd_722: the Magnet Train's ride between Goldenrod City and Saffron City (its overlay 104, here
+// src/applications/complete_magnet_train), the way given. HeartGold's field task around it fades the screen out, runs
+// the ride and changes map; here the script does those, as Platinum's own scene apps do (the Distortion World's warp):
+// FadeScreen, this, ReturnToField, Warp, FadeScreen. The ride's light is the area's first one at the time, as
+// HeartGold's LoadAreaOrDungeonLightTxt(0), with the field's own polygon settings (src/overlay005/fieldmap.c).
+BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_magnet_train);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        CompleteMagnetTrain_Init,
+        CompleteMagnetTrain_Main,
+        CompleteMagnetTrain_Exit,
+        FS_OVERLAY_ID(complete_magnet_train),
+    };
+    u8 way = ScriptContext_ReadByte(ctx);
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    CompleteMagnetTrainArgs *trainArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompleteMagnetTrainArgs));
+    enum TimeOfDay timeOfDay = FieldSystem_GetTimeOfDay(ctx->fieldSystem);
+
+    MI_CpuClear8(trainArgs, sizeof(CompleteMagnetTrainArgs));
+    trainArgs->way = way < COMPLETE_MAGNET_TRAIN_WAYS ? way : COMPLETE_MAGNET_TRAIN_TO_SAFFRON;
+    trainArgs->gender = TrainerInfo_Gender(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData)) == GENDER_FEMALE;
+    trainArgs->night = timeOfDay != TIMEOFDAY_MORNING && timeOfDay != TIMEOFDAY_DAY;
+    trainArgs->light.polygonMode = GX_POLYGONMODE_MODULATE;
+    trainArgs->light.cullMode = GX_CULL_BACK;
+    trainArgs->light.alpha = 31;
+
+    AreaLightManager *areaLight = AreaLightManager_New(&trainArgs->light, 0);
+    AreaLightManager_Free(&areaLight);
+
+    *args = trainArgs;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, trainArgs);
     ScriptContext_Pause(ctx, WaitForAlphPuzzle); // frees the arguments once it's done
     return TRUE;
 }

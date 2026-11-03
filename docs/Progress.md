@@ -1489,3 +1489,24 @@ Test results on the new test build:
   as its return resets the camera there, the camera goes back to where it was. In the emulator
   (`tools/complete/test_hgss_legend_cutscenes.py`, both parts pass): each scene from its trigger to its end, the
   Kimono Girls dancing, the bells, the leaves and waves, Ho-Oh on the roof after.
+- **HeartGold's Magnet Train ride:** between Goldenrod City and Saffron City the ride now plays as in HeartGold, where
+  the screen had only faded out and in: three cuts of the train (the player on the platform as it comes in, the train
+  at the station, the train crossing the country), from their own cameras, the first two closing like a camera
+  shutter, the last fading out as the train pulls in to HeartGold's jingle. Its models are HeartGold's own, chosen as
+  it chooses them: by the way, by day or by night, and by the player's gender; the last cut takes the area's light at
+  the time (warm windows and a blue evening at night). HeartGold's overlay 104, in assembly there, is C here
+  (`src/applications/complete_magnet_train/magnet_train.c`), its archive brought in by
+  `tools/complete/import_hgss_magnet_train.py`, and HeartGold's ScrCmd_722 runs it between the script's fades, as
+  Platinum's own scenes return to the field. The jingle (`SEQ_GS_E_LINEAR`) joins HeartGold's songs; the train's
+  sound effects, HeartGold's own, stay out. In the emulator (`tools/complete/test_hgss_magnet_train.py`, both parts
+  pass): Goldenrod to Saffron by day and Saffron to Goldenrod at 10 p.m., each walked aboard by the platform's scene,
+  all three cuts with the right models, 617 frames, and the player welcomed at the other station and free there.
+- **The long checks on the latest build:** every Totem and legendary placement (40 of 40), every boss Mega (50 of
+  50), every tile behavior (252 of 252), the sound memory on every map (4 of 4 parts) and talking to the follower pass;
+  the hidden items are as before (241 of 243: the same two the test can't reach).
+- **The story run stopped at Bugsy's gym, and it was the test:** its talk to a cart switch kept pressing A for text
+  while the switch's short script ran, and one press landed as the script ended and flipped the switch back, so the
+  cart took the player the wrong way. Azalea Gym's switches now get one press and no more input until their script
+  is over (a new `switch` action); from the same save Bugsy's part and the Ilex Forest's pass. The story test can
+  also save a screenshot after each action (`STEP_SHOTS=1`) to see where a walk went wrong.
+

@@ -10,6 +10,8 @@ scr_seq_T11R0603_000:
     WaitTime 40, VAR_0x8004
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
+    CompleteMagnetTrain 1
+    ReturnToField
     Warp MAP_HEADER_HGSS_GOLDENROD_MAGNET_TRAIN_STATION_2F, 17, 11, 1
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

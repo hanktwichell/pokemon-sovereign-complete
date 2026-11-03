@@ -1009,6 +1009,7 @@ ScriptCommand(SCRCMD_COMPLETETUTORMOVEPRICE,                           CompleteS
 ScriptCommand(SCRCMD_COMPLETESTARTFLYMAP,                              CompleteScrCmd_StartFlyMap)
 ScriptCommand(SCRCMD_COMPLETEWAITFLYMAP,                               CompleteScrCmd_WaitFlyMap)
 ScriptCommand(SCRCMD_COMPLETELEGENDCUTSCENE,                           CompleteScrCmd_LegendCutscene)
+ScriptCommand(SCRCMD_COMPLETEMAGNETTRAIN,                              CompleteScrCmd_MagnetTrain)
 
 // clang-format on
 

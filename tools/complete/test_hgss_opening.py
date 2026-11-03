@@ -361,8 +361,9 @@ CREDITS_FRAMES = 150000  # Sinnoh's Hall of Fame, its credits (several minutes) 
 # ('out', (x, z), key, map): a walk to that tile and the key, unless map comes first (the Great Marsh's game ending on
 # the way), or ('warp', (x, z), key[, map[, [(var or flag, value), ...]]]): the test warp to that tile on the map the player is on
 # (or that map), facing that way, setting those vars and flags, across a Sinnoh gym or dungeon puzzle of Platinum's the
-# walks don't solve yet (Sovereign's own, unchanged here), or ('settle', frames): A through a long run of scenes and
-# apps (the Hall of Fame, the credits) until the field is free. The stairs and doors warp as the player presses toward
+# walks don't solve yet (Sovereign's own, unchanged here), ('switch',): A once at the switch the player faces, and no
+# more input until its script is over (talk's A for text could land as it ends and flip it back: Azalea Gym's), or
+# ('settle', frames): A through a long run of scenes and apps (the Hall of Fame, the credits) until the field is free. The stairs and doors warp as the player presses toward
 # them from their tile.
 PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F',  # beside the stairs (3,4)
          # (a bedroom state's start can be a tile off, as the TV program ends)
@@ -408,13 +409,13 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
          ('Bugsy', [('to', (4, 9)), 'DOWN', ('to', (405, 472)), 'UP', ('to', (7, 3)), 'UP',
                     ('to', (3, 33)), 'UP',  # the first row's west cart, to the second row's middle
                     ('to', (9, 18)), 'UP',  # the third row's middle cart, to the fourth row's west
-                    ('to', (4, 8)), 'UP', ('talk', []),  # the first switch
+                    ('to', (4, 8)), 'UP', ('switch',),  # the first switch
                     ('to', (3, 8)), 'DOWN',  # back down to the third row's west
-                    ('to', (2, 19)), 'UP', ('talk', []),  # the second switch
+                    ('to', (2, 19)), 'UP', ('switch',),  # the second switch
                     ('to', (3, 18)), 'UP',  # to the fourth row's middle
                     ('to', (9, 6)), 'UP', ('talk', [])],
           AZALEA_GYM, 'FLAG_HGSS_GOT_TM89_FROM_BUGSY'),
-         ('Ilex Forest', [('to', (11, 7)), 'DOWN', ('talk', []),  # the first switch back
+         ('Ilex Forest', [('to', (11, 7)), 'DOWN', ('switch',),  # the first switch back
                           ('to', (9, 8)), 'DOWN',  # the fourth row's middle cart, to the third row's middle
                           ('to', (9, 23)), 'DOWN',  # the second row's middle cart, to the first row's west
                           ('to', (9, 37)), 'DOWN', ('to', (7, 11)), 'DOWN', ('to', (392, 462)), 'LEFT',
@@ -2070,6 +2071,7 @@ def main():
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
         if video:
             video.mark(f'part {name}')
+        shots_taken = []
         for action in actions:
             if video:
                 video.mark(f'action {action!r} {here()}')
@@ -2122,6 +2124,13 @@ def main():
                 result, frames = warp(d, sym, names.index(action[3] if len(action) > 3 else here()), *action[1], face)
                 if result != 'ok':
                     problem = f'the warp across: {result} after {frames} frames, on {here()} at {d.pos()}'
+            elif action[0] == 'switch':
+                d.press('A', frames=4, after=0)
+                waited = 0
+                while not free(SHORT_RUN) and waited < SETTLE_FRAMES:
+                    waited += SHORT_RUN
+                if waited >= SETTLE_FRAMES:
+                    problem = f'the switch\'s script never ended, on {here()} at {d.pos()}'
             elif action[0] == 'ride':
                 problem = ride(action[1], action[2])
             elif action[0] == 'slope':  # on the Bicycle, into 4th gear (B), the ride up, and off again
@@ -2151,6 +2160,9 @@ def main():
                 follower = struct.unpack('<HH', bytes(mem.unsigned[sym['gCompleteTestFollowerTile']:
                                                                    sym['gCompleteTestFollowerTile'] + 4]))
                 print(f'    heaps: {heap_problems(mem, heaps) or "ok"}; the follower on {follower}', flush=True)
+            if os.environ.get('STEP_SHOTS'):  # a screenshot after each action, to see where a walk went wrong
+                d.screenshot().save(os.path.join(out, f'{name.replace(" ", "_")}_{len(shots_taken):03d}.png'))
+                shots_taken.append(action)
             if problem:
                 break
         if not problem and not settle():

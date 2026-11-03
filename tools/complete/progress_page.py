@@ -71,12 +71,11 @@ STEPS = [
 ]
 
 NEXT = [
-    'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the build with the '
-    'Pokégear\'s radio, skins, ringing calls and the Frontier\'s tutors; then one on the build with the legendary '
-    'cutscenes and Fly on the Pokégear\'s map.',
-    'The long checks are running on the latest build: every hidden item, every boss Mega, the sound memory on every '
-    'map; every tile behavior and every Totem and legendary placement already pass. Then the talk test over all '
-    '5,865 people and signs.',
+    'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build: the '
+    'legendary cutscenes, Fly on the Pokégear\'s map and the Magnet Train\'s ride. The last run stopped at Bugsy\'s '
+    'gym, where the test flipped a cart switch twice; the test presses it once now.',
+    'The long checks pass on the latest build (every Totem and legendary placement, every boss Mega, every tile '
+    'behavior, the sound memory on every map). The talk test over all 5,865 people and signs is running.',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
@@ -140,6 +139,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Magnet Train\'s ride between Goldenrod and Saffron is HeartGold\'s own now: the train pulling in, waiting '
+        'at the platform and racing across the country, with HeartGold\'s models for the time of day and for you, and '
+        'its jingle as it arrives.',
         'The Bell Tower\'s Ho-Oh scene and the Whirl Islands\' Lugia scene are HeartGold\'s own now: the Clear Bell '
         'rises and shimmers with the corner bells, leaves blow over the roof (waves in the cave), the camera pans up '
         'to the sky, and Ho-Oh flaps down onto the roof.',
