@@ -470,7 +470,7 @@ _0761:
     CloseMessage
     Return
 _0778:
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     Message msg_0146_D51R0201_00041
     WaitButton
     CloseMessage
@@ -482,7 +482,7 @@ _078F:
     BufferPlayerName 0
     Message msg_0146_D51R0201_00053
     CloseMessage
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     CheckItem ITEM_FLAME_PLATE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C4E
@@ -637,7 +637,7 @@ _078F:
     ReleaseAll
     End
 _0B3A:
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     Message msg_0146_D51R0201_00042
     WaitButton
     CloseMessage

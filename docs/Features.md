@@ -735,8 +735,12 @@ least 20 of the cutscene's commands run, nothing of it held after and the camera
   `fielddata/complete/legend.narc`) and the same code (`src/overlay005/complete_legend_cutscene.c`,
   `CompleteHideoutTrap`, `CompleteHideoutAlarm`, `CompleteLegendaryWing`). HeartGold's trap sounds, siren and the
   wing's chime are its own: Platinum's stand in (an electronic buzz, the poison step, a thud; beeps; a sparkle).
+- **Sacred Gold's Sinjoh Ruins** reuse the alarm (its siren and red screen) in the plates' event on the Mystri Stage,
+  as Drayano wrote it.
 - **Left out:** Lance flying off the Lake of Rage on his Dragonite (HeartGold's ScrCmd_775 reuses its whole Fly
-  take-off cut-in, in assembly there): he disappears as the screen fades, as before.
+  take-off cut-in, in assembly there): he disappears as the screen fades, as before. And the Rocket uniform the player
+  changes into in Goldenrod Tunnel before the Radio Tower (HeartGold's SetAvatarBits PLAYER_TRANSITION_ROCKET, a
+  player sprite of its own): only its look, as no script checks it.
 
 Test: `tools/complete/test_hgss_field_effects.py` (the three traps stepped on, the first statue's alarm and both
 wings, each effect started, played to its end and the field free after; all six pass).
