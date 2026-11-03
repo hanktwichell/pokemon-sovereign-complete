@@ -6,7 +6,7 @@ song too, TempBGM), its field music code picks (surfing, cycling, the trainers' 
 flag puts on a map, as in the Bug-Catching Contest), and its battle and victory themes; and the fanfares its scripts
 play (SEQ_ME_*: an item, a badge, a Pokémon caught), and Voltorb Flip's (its code plays them); and the Pokégear
 radio's songs (its shows' code plays them: the March, the Lullaby, the Poké Flute...), the Magnet Train ride's jingle,
-and Ho-Oh's theme in its cinematic over the Bell Tower. Sacred Gold leaves HeartGold's sound archive as it is.
+and Ho-Oh's and Arceus's themes in their cinematics. Sacred Gold leaves HeartGold's sound archive as it is.
 
 HeartGold's sound archive (its pret decomp's prebuilt files/data/sound/gs_sound_data.sdat) is unpacked into
 .cache/hgss_sound with the decomp's nitrosfx. Each song keeps HeartGold's sequence file byte for byte, and gets a bank
@@ -44,8 +44,9 @@ OUT = os.path.join(SOUND, 'complete', 'hgss')
 GS_ARCHIVE = 'WAVE_ARC_GS'
 MUSIC_PLAYERS = ('PLAYER_BGM', 'PLAYER_FIELD', 'PLAYER_ME')  # songs, and fanfares (SEQ_ME_*)
 # The battle and victory themes (the Frontier Brains' too), and surfing and cycling, which HeartGold picks by number or
-# in code; and the Magnet Train ride's jingle (its overlay 104 plays it) and Ho-Oh's theme (its overlay 106)
-OTHER_SONGS = r'SEQ_GS_(VS_(?!.*_PHC)\w+|WIN\w*|BA_BRAIN|BICYCLE|NAMINORI|E_LINEAR|E_HOUOU)'
+# in code; and the Magnet Train ride's jingle (its overlay 104 plays it) and Ho-Oh's and Arceus's themes (its overlay
+# 106)
+OTHER_SONGS = r'SEQ_GS_(VS_(?!.*_PHC)\w+|WIN\w*|BA_BRAIN|BICYCLE|NAMINORI|E_LINEAR|E_HOUOU|E_ARCEUS)'
 
 
 def unpack():

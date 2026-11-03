@@ -6441,11 +6441,17 @@
     .short \dragonite
     .endm
 
-    // HeartGold's legendary cinematics (its Cinematic): Ho-Oh over the Bell Tower or Lugia in the Whirl Islands (enum
-    // CompleteLegendCinematic), between the script's fades (src/applications/complete_legend_cinematic)
+    // HeartGold's legendary cinematics (its Cinematic): Ho-Oh over the Bell Tower, Lugia in the Whirl Islands or Arceus
+    // at the Sinjoh Ruins (enum CompleteLegendCinematic), between the script's fades
+    // (src/applications/complete_legend_cinematic)
     .macro CompleteLegendCinematic cinematic
     .short SCRCMD_COMPLETELEGENDCINEMATIC
     .short \cinematic
+    .endm
+
+    // HeartGold's UnownCircle: the Unown's circle at the Sinjoh Ruins (src/overlay005/complete_legend_cutscene.c)
+    .macro CompleteUnownCircle
+    .short SCRCMD_COMPLETEUNOWNCIRCLE
     .endm
 
     .text

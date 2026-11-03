@@ -347,5 +347,6 @@ res/prebuilt/fielddata/complete_gym_effects/fuchsia_gym.narc,/fielddata/complete
 res/prebuilt/fielddata/complete_legend/legend.narc,/fielddata/complete/legend.narc
 res/prebuilt/demo/complete_magnet_train/magnet_train.narc,/demo/complete/magnet_train.narc
 res/prebuilt/demo/complete_legend_cinematic/legend_cinematic.narc,/demo/complete/legend_cinematic.narc
+res/prebuilt/demo/complete_legend_cinematic/arceus_cinematic.narc,/demo/complete/arceus_cinematic.narc
 res/graphics/voltorb_flip/voltorb_flip.narc,/application/voltorb_flip/voltorb_flip.narc
 res/graphics/complete_pokegear/complete_pokegear.narc,/application/complete/pokegear.narc

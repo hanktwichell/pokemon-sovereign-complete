@@ -1156,6 +1156,18 @@ BOOL CompleteScrCmd_LegendCinematic(ScriptContext *ctx)
     env->args.timeOfDay = timeOfDay == TIMEOFDAY_MORNING || timeOfDay == TIMEOFDAY_DAY ? 0 : timeOfDay == TIMEOFDAY_TWILIGHT ? 1 : 2;
     env->args.light = *ctx->fieldSystem->areaModelAttrs;
 
+    // Arceus's cinematic draws the lead's own walking sprite if the lead is Arceus (HeartGold's ov106_021E66FC)
+    Party *party = SaveData_GetParty(ctx->fieldSystem->saveData);
+
+    if (Party_GetCurrentCount(party) > 0) {
+        Pokemon *lead = Party_GetPokemonBySlotIndex(party, 0);
+
+        if (Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL) == SPECIES_ARCEUS) {
+            env->args.arceusForm = Pokemon_GetValue(lead, MON_DATA_FORM, NULL);
+            env->args.arceusShiny = Pokemon_IsShiny(lead);
+        }
+    }
+
     FieldTask_InitCall(ctx->task, Task_LegendCinematic, env);
     return TRUE;
 }

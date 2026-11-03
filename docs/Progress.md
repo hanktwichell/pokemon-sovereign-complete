@@ -1556,3 +1556,16 @@ Test results on the new test build:
   In the emulator the legendary cutscenes test now checks each scene's cinematic too (begun, ended, its frames, its
   models, Lugia's trail): both scenes pass, from their trigger tiles to their ends. Arceus's cinematic at the Sinjoh
   Ruins (2D, with the Pokémon it brings) is next.
+- **The Sinjoh Ruins' event, with the Unown circle and Arceus's cinematic:** Sacred Gold's event on the Mystri Stage
+  (all 16 plates and the National Pokédex) now plays as HeartGold draws it. HeartGold's Unown circle (its
+  `event_cutscene_sinjoh.c`, here `CompleteUnownCircle` with the other legend effects): two rings of Unown spin up and
+  a light rises in them, from HeartGold's `demo/legend`. Then Arceus's cinematic, HeartGold's 2D one from the same
+  overlay as Ho-Oh's and Lugia's: overlay 106 runs it from a script of its own (513 steps: waits, fades, backgrounds
+  loaded and blended into each other, the sprite shown and moved, the music), which the importer reads out of
+  HeartGold's assembly into `include/data/hgss_arceus_cinematic.h` and the app runs step for step. Its 68 backgrounds
+  (256 colors each, with extended palettes) and its sprite come from HeartGold's archive 247, and Arceus is drawn from
+  HeartGold's own walking sprites, one per form, in the lead's form and colors if the lead is Arceus. Arceus's theme
+  (`SEQ_GS_E_ARCEUS`) joins the imported songs. In the emulator (`tools/complete/test_hgss_sinjoh.py`, 3 of 3): with
+  the event's flags, the plates and the Pokédex written into the save, a step onto the stage's middle, the circle
+  begins and ends, the cinematic plays its whole script (about 2,400 of its steps), and the scene goes on on the
+  field. HeartGold's own Arceus event there (the egg, with Cynthia) needs a distributed Arceus and stays out of reach.

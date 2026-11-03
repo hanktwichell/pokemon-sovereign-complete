@@ -585,9 +585,10 @@ COMMANDS = {
     'ShowLegendaryWing': one('CompleteLegendaryWing {0}'),
     # Lance and his Dragonite (their objects) taking off from the Lake of Rage
     'ScrCmd_775': one('CompleteLanceFlight {0}, {1}'),
-    # HeartGold's legendary cinematics (its overlay 106): Ho-Oh over the Bell Tower (0) and Lugia in the Whirl Islands
-    # (1); Arceus at the Sinjoh Ruins (2) is still to come
-    'Cinematic': lambda a: [f'CompleteLegendCinematic {a[0]}'] if a[0] in ('0', '1') else [f'@ HGSS: Cinematic {a[0]}'],
+    # HeartGold's legendary cinematics (its overlay 106): Ho-Oh over the Bell Tower (0), Lugia in the Whirl Islands (1)
+    # and Arceus at the Sinjoh Ruins (2), and the Unown's circle before Arceus's
+    'Cinematic': lambda a: [f'CompleteLegendCinematic {a[0]}'] if a[0] in ('0', '1', '2') else [f'@ HGSS: Cinematic {a[0]}'],
+    'UnownCircle': lambda a: ['CompleteUnownCircle'],
     # The player's look (HeartGold's SetAvatarBits and UpdateAvatarState are Platinum's SetPlayerState and
     # ChangePlayerState): the Rocket uniform is walking with FLAG_HGSS_SYS_ROCKET_COSTUME set, which the player's
     # walking sprite follows (src/player_avatar.c), so walking again takes it off before the redraw; HeartGold's own

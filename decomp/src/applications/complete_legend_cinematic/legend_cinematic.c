@@ -7,10 +7,12 @@
 #include "constants/narc.h"
 #include "constants/species.h"
 
+#include "bg_window.h"
 #include "camera.h"
 #include "complete_test.h"
 #include "easy3d_object.h"
 #include "g3d_pipeline.h"
+#include "graphics.h"
 #include "gx_layers.h"
 #include "heap.h"
 #include "narc.h"
@@ -18,6 +20,9 @@
 #include "screen_fade.h"
 #include "sound.h"
 #include "sound_playback.h"
+#include "sprite.h"
+#include "sprite_system.h"
+#include "sprite_util.h"
 #include "sys_task.h"
 #include "sys_task_extensions.h"
 #include "sys_task_manager.h"
@@ -32,9 +37,14 @@
 // - Lugia: in the Whirl Islands, Lugia rises from the water beneath the waterfall, cries, and the picture trails as it
 //   spreads its wings (the DS's display capture, blending each frame with the last: HeartGold's ov106_021E5E0C, which
 //   is Platinum's field motion blur, copied here as the field's overlay is out while an app runs).
+// - Arceus: at the Sinjoh Ruins, HeartGold's 2D cinematic of Arceus coming down (ScriptCinematic_Arceus): its
+//   backgrounds, faded and blended into each other by HeartGold's own script (ov106_021E70E0, in
+//   include/data/hgss_arceus_cinematic.h), over HeartGold's Arceus theme, with Arceus's walking sprite in the lead's
+//   form and colors if the lead is Arceus (a plain Arceus otherwise), as HeartGold draws it.
 // The models are HeartGold's (NARC_INDEX_DEMO__COMPLETE__LEGEND_CINEMATIC, tools/complete/import_hgss_legend_cinematic.py),
-// lit by the field's light at the time, as HeartGold has it. HeartGold's sound effects for the scenes are its own:
-// Platinum's stand in (docs/Music.md).
+// lit by the field's light at the time, as HeartGold has it; Arceus's backgrounds and sprites too
+// (NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC). HeartGold's sound effects for the scenes are its own: Platinum's
+// stand in (docs/Music.md).
 
 #define CINEMATIC_HEAP_ID   HEAP_ID_DISTORTION_WORLD_WARP // the Distortion World warp's: its scene can't run at the same time
 #define CINEMATIC_HEAP_SIZE 0x80000 // HeartGold's
@@ -71,6 +81,85 @@ enum LugiaStep {
     LUGIA_STEP_CUT,
     LUGIA_STEP_DONE,
 };
+
+// HeartGold's ScriptCinematic_Arceus steps (sScriptCinematicSubs_Arceus)
+enum ArceusMainStep {
+    ARCEUS_MAIN_START = 0,
+    ARCEUS_MAIN_END,
+    ARCEUS_MAIN_WAIT_FADE,
+    ARCEUS_MAIN_BLEND,
+    ARCEUS_MAIN_SCRIPT,
+    ARCEUS_MAIN_DONE,
+};
+
+// The steps of Arceus's script (HeartGold's ov106_021E7044, its handlers in order)
+enum ArceusStep {
+    ARCEUS_STEP_WAIT = 0, // frames
+    ARCEUS_STEP_FADE_IN_BLACK, // steps, frames a step
+    ARCEUS_STEP_FADE_OUT_BLACK,
+    ARCEUS_STEP_FADE_IN_WHITE,
+    ARCEUS_STEP_FADE_OUT_WHITE,
+    ARCEUS_STEP_WAIT_FADE,
+    ARCEUS_STEP_LOAD_BG, // layer, background
+    ARCEUS_STEP_TOGGLE_BG, // layer, on
+    ARCEUS_STEP_BG_PRIORITY, // layer, priority
+    ARCEUS_STEP_BLEND_PLANES, // which (0 the first, from its EVA; 1 the second), planes, EVA
+    ARCEUS_STEP_BLEND_TO, // EVA, frames
+    ARCEUS_STEP_BLEND_OFF,
+    ARCEUS_STEP_SAVE_BGM,
+    ARCEUS_STEP_STOP_BGM,
+    ARCEUS_STEP_PLAY_BGM, // song, or -1 for the one saved
+    ARCEUS_STEP_SPRITE_DRAW, // on
+    ARCEUS_STEP_SPRITE_POS, // x, y
+    ARCEUS_STEP_SPRITE_PRIORITY, // priority
+    ARCEUS_STEP_MARK, // nothing (HeartGold's markers in its script)
+    ARCEUS_STEP_END,
+};
+
+#include "data/hgss_arceus_cinematic.h"
+
+// What a step of Arceus's script asks for next (HeartGold's ov106_021E6988)
+enum ArceusStepResult {
+    ARCEUS_STEP_STAY = 0, // this step again next frame
+    ARCEUS_STEP_NEXT, // on to the next step, this frame
+    ARCEUS_STEP_NEXT_FRAME, // on to the next step, next frame
+};
+
+// HeartGold's archive 247 (tools/complete/import_hgss_legend_cinematic.py)
+#define ARCEUS_LAYERS          3
+#define ARCEUS_TILES_FIRST     68 // each background's tiles; its tilemap is member n, its palette PALETTES_FIRST + n
+#define ARCEUS_PALETTES_FIRST  136
+#define ARCEUS_SPRITE_TILES    204
+#define ARCEUS_SPRITE_CELLS    205
+#define ARCEUS_SPRITE_ANIMS    206
+#define ARCEUS_SPRITE_PALETTE  207
+#define ARCEUS_SPRITES_FIRST   208 // HeartGold's walking sprite for each of Arceus's forms
+#define ARCEUS_RESOURCE_ID     0xC8E9 // HeartGold's
+#define ARCEUS_EXT_PLTT_SIZE   0x2000 // a 256-color layer's extended palettes
+#define ARCEUS_SPRITE_FRAMES   8
+#define ARCEUS_SPRITE_FRAME    0x800 // 64 by 64, 16 colors
+#define ARCEUS_PALETTE_SIZE    0x20
+
+typedef struct ArceusExtPalette {
+    u8 data[ARCEUS_EXT_PLTT_SIZE];
+    u32 size; // pending for the next VBlank, or 0
+} ArceusExtPalette;
+
+typedef struct ArceusCinematic {
+    BgConfig *bgConfig;
+    NARC *narc;
+    SpriteSystem *spriteSystem;
+    SpriteManager *spriteManager;
+    ManagedSprite *sprite;
+    u16 savedBGM;
+    int blendPlane1;
+    int blendStart;
+    int blendPlane2;
+    int blendTarget;
+    int blendFrames;
+    const s32 *script;
+    ArceusExtPalette palettes[ARCEUS_LAYERS];
+} ArceusCinematic;
 
 typedef struct CinematicModelFiles {
     u16 model;
@@ -117,6 +206,7 @@ typedef struct LegendCinematic {
     int frames;
     int totalFrames;
     CinematicBlur *blur;
+    ArceusCinematic *arceus;
 } LegendCinematic;
 
 // HeartGold's ov106_021E6E50 and ov106_021E6E2C: Ho-Oh's two cuts by time of day
@@ -318,10 +408,15 @@ static void Draw(LegendCinematic *cin)
 
 // HeartGold's ov106_021E5954 to ov106_021E59D0: a fade in from or out to black or white over 6 frames, and the step
 // after it
+static void FadeEx(LegendCinematic *cin, enum FadeType type, u16 color, int steps, int framesPerStep, int afterFade)
+{
+    StartScreenFade(FADE_BOTH_SCREENS, type, type, color, steps, framesPerStep, CINEMATIC_HEAP_ID);
+    cin->afterFade = afterFade;
+}
+
 static void Fade(LegendCinematic *cin, enum FadeType type, u16 color, int steps, int afterFade)
 {
-    StartScreenFade(FADE_BOTH_SCREENS, type, type, color, steps, 1, CINEMATIC_HEAP_ID);
-    cin->afterFade = afterFade;
+    FadeEx(cin, type, color, steps, 1, afterFade);
 }
 
 // HeartGold's ov106_021E5E0C and its two tasks (Platinum's MotionBlur_New): from the next VBlank the main screen shows
@@ -505,6 +600,316 @@ static int Lugia_Step(LegendCinematic *cin)
     return LUGIA_STEP_DONE;
 }
 
+// HeartGold's ov106_021E63E0: each layer's new palettes, the backgrounds' scheduled updates and the sprites
+static void Arceus_VBlank(void *data)
+{
+    ArceusCinematic *arceus = data;
+
+    for (int i = 0; i < ARCEUS_LAYERS; i++) {
+        if (arceus->palettes[i].size != 0) {
+            GX_BeginLoadBGExtPltt();
+            GX_LoadBGExtPltt(arceus->palettes[i].data, i * ARCEUS_EXT_PLTT_SIZE, arceus->palettes[i].size);
+            GX_EndLoadBGExtPltt();
+            arceus->palettes[i].size = 0;
+        }
+    }
+
+    Bg_RunScheduledUpdates(arceus->bgConfig);
+    SpriteSystem_TransferOam();
+    OS_SetIrqCheckFlag(OS_IE_V_BLANK);
+}
+
+// HeartGold's ov106_021E6408 and ov106_021E6418: the main screen's first three layers, 256 colors each with their
+// own extended palettes, on VRAM B and C; the sprites on A
+static void Arceus_SetUpBackgrounds(ArceusCinematic *arceus)
+{
+    GXBanks banks = {
+        GX_VRAM_BG_256_BC,
+        GX_VRAM_BGEXTPLTT_0123_E,
+        GX_VRAM_SUB_BG_32_H,
+        GX_VRAM_SUB_BGEXTPLTT_NONE,
+        GX_VRAM_OBJ_128_A,
+        GX_VRAM_OBJEXTPLTT_NONE,
+        GX_VRAM_SUB_OBJ_16_I,
+        GX_VRAM_SUB_OBJEXTPLTT_NONE,
+        GX_VRAM_TEX_NONE,
+        GX_VRAM_TEXPLTT_NONE,
+    };
+    GraphicsModes modes = { GX_DISPMODE_GRAPHICS, GX_BGMODE_0, GX_BGMODE_0, GX_BG0_AS_2D };
+    BgTemplate templates[ARCEUS_LAYERS] = {
+        { 0, 0, 0x800, 0, GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_256, GX_BG_SCRBASE_0xf800, GX_BG_CHARBASE_0x10000, GX_BG_EXTPLTT_01, 0, 0, FALSE },
+        { 0, 0, 0x800, 0, GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_256, GX_BG_SCRBASE_0xf000, GX_BG_CHARBASE_0x20000, GX_BG_EXTPLTT_01, 1, 0, FALSE },
+        { 0, 0, 0x800, 0, GX_BG_SCRSIZE_TEXT_256x256, GX_BG_COLORMODE_256, GX_BG_SCRBASE_0xe800, GX_BG_CHARBASE_0x30000, GX_BG_EXTPLTT_23, 2, 0, FALSE },
+    };
+
+    GXLayers_SetBanks(&banks);
+    arceus->bgConfig = BgConfig_New(CINEMATIC_HEAP_ID);
+    SetAllGraphicsModes(&modes);
+
+    for (int i = 0; i < ARCEUS_LAYERS; i++) {
+        Bg_InitFromTemplate(arceus->bgConfig, BG_LAYER_MAIN_0 + i, &templates[i], BG_TYPE_STATIC);
+        Bg_ClearTilemap(arceus->bgConfig, BG_LAYER_MAIN_0 + i);
+        Bg_ClearTilesRange(BG_LAYER_MAIN_0 + i, 0x40, 0, CINEMATIC_HEAP_ID);
+    }
+
+    Bg_MaskPalette(BG_LAYER_MAIN_0, 0);
+    Bg_MaskPalette(BG_LAYER_SUB_0, 0);
+}
+
+// HeartGold's ov106_021E66FC: Arceus's walking sprite, its eight frames and its normal or shiny palette, into the
+// sprite's place in VRAM
+static void Arceus_LoadWalkingSprite(LegendCinematic *cin)
+{
+    ArceusCinematic *arceus = cin->arceus;
+    int form = cin->args->arceusForm < COMPLETE_LEGEND_ARCEUS_FORMS ? cin->args->arceusForm : 0;
+    void *file = LoadMemberFromOpenNARC(arceus->narc, ARCEUS_SPRITES_FIRST + form, FALSE, CINEMATIC_HEAP_ID, TRUE);
+    NNSG3dResTex *texture = NNS_G3dGetTex(file);
+    const u8 *texels = (const u8 *)texture + texture->texInfo.ofsTex;
+    const u8 *palette = (const u8 *)texture + texture->plttInfo.ofsPlttData;
+    Sprite *sprite = arceus->sprite->sprite;
+    u32 imageAt = NNS_G2dGetImageLocation(Sprite_GetImageProxy(sprite), NNS_G2D_VRAM_TYPE_2DMAIN);
+    u8 *tiles = Heap_Alloc(CINEMATIC_HEAP_ID, ARCEUS_SPRITE_FRAME);
+
+    // Each frame is a 64 by 64 texture, 32 bytes a row; the sprite's are 8 by 8 tiles, row by row
+    for (int frame = 0; frame < ARCEUS_SPRITE_FRAMES; frame++) {
+        const u8 *src = texels + frame * ARCEUS_SPRITE_FRAME;
+
+        for (int tile = 0; tile < 64; tile++) {
+            for (int row = 0; row < 8; row++) {
+                memcpy(&tiles[tile * 32 + row * 4], &src[((tile / 8) * 8 + row) * 32 + (tile % 8) * 4], 4);
+            }
+        }
+
+        DC_FlushRange(tiles, ARCEUS_SPRITE_FRAME);
+        GX_LoadOBJ(tiles, imageAt + frame * ARCEUS_SPRITE_FRAME, ARCEUS_SPRITE_FRAME);
+    }
+
+    Heap_Free(tiles);
+
+    if (cin->args->arceusShiny) {
+        palette += ARCEUS_PALETTE_SIZE;
+    }
+
+    DC_FlushRange((void *)palette, ARCEUS_PALETTE_SIZE);
+    GX_LoadOBJPltt(palette, NNS_G2dGetImagePaletteLocation(Sprite_GetPaletteProxy(sprite), NNS_G2D_VRAM_TYPE_2DMAIN), ARCEUS_PALETTE_SIZE);
+    Heap_Free(file);
+}
+
+// HeartGold's ov106_021E6520: one sprite, from its archive, hidden till the script shows it
+static void Arceus_SetUpSprite(LegendCinematic *cin)
+{
+    ArceusCinematic *arceus = cin->arceus;
+    const RenderOamTemplate oamTemplate = { 0, 128, 0, 32, 0, 128, 0, 32 };
+    const CharTransferTemplateWithModes transferTemplate = { 0x400, 0x20000, 0x4000, GX_OBJVRAMMODE_CHAR_1D_32K, GX_OBJVRAMMODE_CHAR_1D_32K };
+    const SpriteResourceCapacities capacities = { .asStruct = { 1, 1, 1, 1, 0, 0 } };
+    const SpriteTemplate template = {
+        0, 0, 0, 0, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN,
+        { ARCEUS_RESOURCE_ID, ARCEUS_RESOURCE_ID, ARCEUS_RESOURCE_ID, ARCEUS_RESOURCE_ID, -1, -1 }, 0, FALSE
+    };
+
+    arceus->spriteSystem = SpriteSystem_Alloc(CINEMATIC_HEAP_ID);
+    arceus->spriteManager = SpriteManager_New(arceus->spriteSystem);
+    SpriteSystem_Init(arceus->spriteSystem, &oamTemplate, &transferTemplate, 32);
+    SpriteSystem_InitSprites(arceus->spriteSystem, arceus->spriteManager, 1);
+    SpriteSystem_InitManagerWithCapacities(arceus->spriteSystem, arceus->spriteManager, &capacities);
+    SetSubScreenViewRect(SpriteSystem_GetRenderer(arceus->spriteSystem), 0, FX32_CONST(256));
+
+    SpriteSystem_LoadCellResObjFromOpenNarc(arceus->spriteSystem, arceus->spriteManager, arceus->narc, ARCEUS_SPRITE_CELLS, TRUE, ARCEUS_RESOURCE_ID);
+    SpriteSystem_LoadAnimResObjFromOpenNarc(arceus->spriteSystem, arceus->spriteManager, arceus->narc, ARCEUS_SPRITE_ANIMS, TRUE, ARCEUS_RESOURCE_ID);
+    SpriteSystem_LoadPlttResObjFromOpenNarc(arceus->spriteSystem, arceus->spriteManager, arceus->narc, ARCEUS_SPRITE_PALETTE, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, ARCEUS_RESOURCE_ID);
+    SpriteSystem_LoadCharResObjFromOpenNarc(arceus->spriteSystem, arceus->spriteManager, arceus->narc, ARCEUS_SPRITE_TILES, TRUE, NNS_G2D_VRAM_TYPE_2DMAIN, ARCEUS_RESOURCE_ID);
+
+    arceus->sprite = SpriteSystem_NewSprite(arceus->spriteSystem, arceus->spriteManager, &template);
+    ManagedSprite_SetDrawFlag(arceus->sprite, FALSE);
+    Arceus_LoadWalkingSprite(cin);
+    GXLayers_EngineAToggleLayers(GX_PLANEMASK_OBJ, TRUE);
+}
+
+// HeartGold's ov106_021E6B50 and ov106_021E69F0: a background's tiles and tilemap onto a layer, and its palettes
+// for the next VBlank
+static void Arceus_LoadBackground(ArceusCinematic *arceus, int layer, int background)
+{
+    NNSG2dPaletteData *paletteData;
+
+    Graphics_LoadTilesToBgLayerFromOpenNARC(arceus->narc, ARCEUS_TILES_FIRST + background, arceus->bgConfig, BG_LAYER_MAIN_0 + layer, 0, 0, TRUE, CINEMATIC_HEAP_ID);
+
+    void *file = Graphics_GetPlttDataFromOpenNARC(arceus->narc, ARCEUS_PALETTES_FIRST + background, &paletteData, CINEMATIC_HEAP_ID);
+    u32 size = paletteData->szByte < ARCEUS_EXT_PLTT_SIZE ? paletteData->szByte : ARCEUS_EXT_PLTT_SIZE;
+
+    MI_CpuCopy32(paletteData->pRawData, arceus->palettes[layer].data, size);
+    DC_FlushRange(arceus->palettes[layer].data, size);
+    arceus->palettes[layer].size = size;
+    Heap_Free(file);
+
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(arceus->narc, background, arceus->bgConfig, BG_LAYER_MAIN_0 + layer, 0, 0, TRUE, CINEMATIC_HEAP_ID);
+}
+
+static void Arceus_SetBlend(ArceusCinematic *arceus, int eva)
+{
+    G2_SetBlendAlpha(arceus->blendPlane1, arceus->blendPlane2, eva, MATH_IAbs(15 - eva));
+}
+
+// HeartGold's ov106_021E6A80 to ov106_021E6D6C: one step of Arceus's script
+static int Arceus_RunStep(LegendCinematic *cin, const s32 *step)
+{
+    ArceusCinematic *arceus = cin->arceus;
+
+    switch (step[0]) {
+    case ARCEUS_STEP_WAIT:
+        if (cin->frames == step[1]) {
+            cin->frames = 0;
+            return ARCEUS_STEP_NEXT_FRAME;
+        }
+
+        cin->frames++;
+        return ARCEUS_STEP_STAY;
+    case ARCEUS_STEP_FADE_IN_BLACK:
+        FadeEx(cin, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, step[1], step[2], ARCEUS_MAIN_SCRIPT);
+        break;
+    case ARCEUS_STEP_FADE_OUT_BLACK:
+        FadeEx(cin, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, step[1], step[2], ARCEUS_MAIN_SCRIPT);
+        break;
+    case ARCEUS_STEP_FADE_IN_WHITE:
+        FadeEx(cin, FADE_TYPE_BRIGHTNESS_IN, COLOR_WHITE, step[1], step[2], ARCEUS_MAIN_SCRIPT);
+        break;
+    case ARCEUS_STEP_FADE_OUT_WHITE:
+        FadeEx(cin, FADE_TYPE_BRIGHTNESS_OUT, COLOR_WHITE, step[1], step[2], ARCEUS_MAIN_SCRIPT);
+        break;
+    case ARCEUS_STEP_WAIT_FADE:
+        cin->step = ARCEUS_MAIN_WAIT_FADE;
+        cin->afterFade = ARCEUS_MAIN_SCRIPT;
+        return ARCEUS_STEP_NEXT_FRAME;
+    case ARCEUS_STEP_LOAD_BG:
+        Arceus_LoadBackground(arceus, step[1], step[2]);
+        break;
+    case ARCEUS_STEP_TOGGLE_BG:
+        Bg_ToggleLayer(BG_LAYER_MAIN_0 + step[1], step[2]);
+        break;
+    case ARCEUS_STEP_BG_PRIORITY:
+        Bg_SetPriority(BG_LAYER_MAIN_0 + step[1], step[2]);
+        break;
+    case ARCEUS_STEP_BLEND_PLANES:
+        if (step[1] == 0) {
+            arceus->blendPlane1 = step[2];
+            arceus->blendStart = step[3];
+        } else {
+            arceus->blendPlane2 = step[2];
+        }
+        break;
+    case ARCEUS_STEP_BLEND_TO:
+        arceus->blendTarget = step[1];
+        arceus->blendFrames = step[2];
+        cin->step = ARCEUS_MAIN_BLEND;
+        cin->afterFade = ARCEUS_MAIN_SCRIPT;
+        return ARCEUS_STEP_NEXT_FRAME;
+    case ARCEUS_STEP_BLEND_OFF:
+        G2_BlendNone();
+        arceus->blendPlane1 = arceus->blendStart = arceus->blendPlane2 = 0;
+        break;
+    case ARCEUS_STEP_SAVE_BGM:
+        arceus->savedBGM = Sound_GetCurrentBGM();
+        break;
+    case ARCEUS_STEP_STOP_BGM:
+        Sound_StopBGM(Sound_GetCurrentBGM(), 0);
+        break;
+    case ARCEUS_STEP_PLAY_BGM:
+        Sound_SetSceneAndPlayBGM(SOUND_SCENE_FIELD, step[1] < 0 ? arceus->savedBGM : step[1], 1);
+        break;
+    case ARCEUS_STEP_SPRITE_DRAW:
+        ManagedSprite_SetDrawFlag(arceus->sprite, step[1]);
+        break;
+    case ARCEUS_STEP_SPRITE_POS:
+        ManagedSprite_SetPositionXY(arceus->sprite, step[1], step[2]);
+        break;
+    case ARCEUS_STEP_SPRITE_PRIORITY:
+        ManagedSprite_SetPriority(arceus->sprite, step[1]);
+        break;
+    case ARCEUS_STEP_MARK:
+    default:
+        break;
+    }
+
+    return ARCEUS_STEP_NEXT;
+}
+
+// HeartGold's ScriptCinematic_Arceus's steps (ov106_021E6814 to ov106_021E6988)
+static int Arceus_Step(LegendCinematic *cin)
+{
+    ArceusCinematic *arceus = cin->arceus;
+
+    switch (cin->step) {
+    case ARCEUS_MAIN_START:
+        SetVBlankCallback(NULL, NULL);
+        DisableHBlank();
+        GXLayers_DisableEngineALayers();
+        GXLayers_DisableEngineBLayers();
+        G2_BlendNone();
+        G2S_BlendNone();
+
+        arceus = cin->arceus = Heap_Alloc(CINEMATIC_HEAP_ID, sizeof(ArceusCinematic));
+        memset(arceus, 0, sizeof(ArceusCinematic));
+        arceus->script = sArceusScript;
+        arceus->narc = NARC_ctor(NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC, CINEMATIC_HEAP_ID);
+        Arceus_SetUpBackgrounds(arceus);
+        Arceus_SetUpSprite(cin);
+        SetVBlankCallback(Arceus_VBlank, arceus);
+        return ARCEUS_MAIN_SCRIPT;
+    case ARCEUS_MAIN_END:
+        SetVBlankCallback(NULL, NULL);
+        Sprite_DeleteAndFreeResources(arceus->sprite);
+        SpriteSystem_FreeResourcesAndManager(arceus->spriteSystem, arceus->spriteManager);
+        SpriteSystem_Free(arceus->spriteSystem);
+
+        for (int i = ARCEUS_LAYERS - 1; i >= 0; i--) {
+            Bg_FreeTilemapBuffer(arceus->bgConfig, BG_LAYER_MAIN_0 + i);
+        }
+
+        Heap_Free(arceus->bgConfig);
+        NARC_dtor(arceus->narc);
+        Heap_Free(arceus);
+        cin->arceus = NULL;
+        return ARCEUS_MAIN_DONE;
+    case ARCEUS_MAIN_WAIT_FADE:
+        return IsScreenFadeDone() ? cin->afterFade : ARCEUS_MAIN_WAIT_FADE;
+    case ARCEUS_MAIN_BLEND:
+        // HeartGold's ov106_021E68F4: the first planes' EVA from where BLEND_PLANES left it to its target, a step a
+        // frame, the second's the rest of 15
+        if (cin->frames == arceus->blendFrames) {
+            Arceus_SetBlend(arceus, arceus->blendTarget);
+            cin->frames = 0;
+            return cin->afterFade;
+        } else {
+            int delta = ((MATH_IAbs(arceus->blendStart - arceus->blendTarget) << 8) / arceus->blendFrames * cin->frames) >> 8;
+
+            Arceus_SetBlend(arceus, arceus->blendStart > arceus->blendTarget ? arceus->blendStart - delta : arceus->blendStart + delta);
+            cin->frames++;
+            return ARCEUS_MAIN_BLEND;
+        }
+    case ARCEUS_MAIN_SCRIPT:
+        while (arceus->script[0] != ARCEUS_STEP_END) {
+            int result = Arceus_RunStep(cin, arceus->script);
+
+            if (result == ARCEUS_STEP_STAY) {
+                break;
+            }
+
+            arceus->script += sArceusStepSizes[arceus->script[0]];
+
+            if (result == ARCEUS_STEP_NEXT_FRAME) {
+                break;
+            }
+        }
+
+        if (arceus->script[0] == ARCEUS_STEP_END) {
+            return ARCEUS_MAIN_END;
+        }
+
+        return cin->step;
+    }
+
+    return ARCEUS_MAIN_DONE;
+}
+
 BOOL CompleteLegendCinematic_Init(ApplicationManager *appMan, int *state)
 {
     SetVBlankCallback(NULL, NULL);
@@ -524,9 +929,12 @@ BOOL CompleteLegendCinematic_Init(ApplicationManager *appMan, int *state)
     memset(cin, 0, sizeof(LegendCinematic));
     cin->args = ApplicationManager_Args(appMan);
 
-    SetBanks();
-    cin->pipeline = G3DPipeline_Init(CINEMATIC_HEAP_ID, TEXTURE_VRAM_SIZE_256K, PALETTE_VRAM_SIZE_64K, SetUp3D);
-    cin->camera = Camera_Alloc(CINEMATIC_HEAP_ID);
+    // Arceus's is all 2D (its own banks and layers, set up by its first step)
+    if (cin->args->cinematic != COMPLETE_LEGEND_CINEMATIC_ARCEUS) {
+        SetBanks();
+        cin->pipeline = G3DPipeline_Init(CINEMATIC_HEAP_ID, TEXTURE_VRAM_SIZE_256K, PALETTE_VRAM_SIZE_64K, SetUp3D);
+        cin->camera = Camera_Alloc(CINEMATIC_HEAP_ID);
+    }
 
     gSystem.whichScreenIs3D = DS_SCREEN_MAIN;
     GXLayers_SwapDisplay();
@@ -544,7 +952,10 @@ BOOL CompleteLegendCinematic_Main(ApplicationManager *appMan, int *state)
     LegendCinematic *cin = ApplicationManager_Data(appMan);
     int done;
 
-    if (cin->args->cinematic == COMPLETE_LEGEND_CINEMATIC_LUGIA) {
+    if (cin->args->cinematic == COMPLETE_LEGEND_CINEMATIC_ARCEUS) {
+        cin->step = Arceus_Step(cin);
+        done = cin->step == ARCEUS_MAIN_DONE;
+    } else if (cin->args->cinematic == COMPLETE_LEGEND_CINEMATIC_LUGIA) {
         cin->step = Lugia_Step(cin);
         done = cin->step == LUGIA_STEP_DONE;
     } else {
@@ -566,6 +977,13 @@ BOOL CompleteLegendCinematic_Main(ApplicationManager *appMan, int *state)
         return TRUE;
     }
 
+    if (cin->arceus != NULL) {
+        ManagedSprite_TickFrame(cin->arceus->sprite);
+        SpriteSystem_DrawSprites(cin->arceus->spriteManager);
+        cin->totalFrames++;
+        return FALSE;
+    }
+
     Draw(cin);
     cin->totalFrames++;
     return FALSE;
@@ -580,8 +998,15 @@ BOOL CompleteLegendCinematic_Exit(ApplicationManager *appMan, int *state)
     }
 
     FreeModels(cin);
-    Camera_Delete(cin->camera);
-    G3DPipelineBuffers_Free(cin->pipeline);
+
+    if (cin->camera != NULL) {
+        Camera_Delete(cin->camera);
+    }
+
+    if (cin->pipeline != NULL) {
+        G3DPipelineBuffers_Free(cin->pipeline);
+    }
+
     SetVBlankCallback(NULL, NULL);
     DisableHBlank();
     ApplicationManager_FreeData(appMan);

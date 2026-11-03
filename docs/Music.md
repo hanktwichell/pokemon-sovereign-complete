@@ -27,8 +27,8 @@ memory, measured from both decomps and both built archives.
    `BANK_BGM_BASIC`. The tool checks that every note of every sequence plays the same WAV as before. It writes
    `decomp/res/sound/complete/`, which the build packs in place of Sovereign's banks and basic waves
    (`res/sound/meson.build`), so Sovereign's files stay as they are for syncs; the sync script reruns it.
-2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 169 songs (the Pokégear radio's, the Magnet Train
-   ride's jingle and Ho-Oh's theme in its cinematic among them) and 25 fanfares (Voltorb Flip's two among them), kept as HeartGold's sequence files byte
+2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 170 songs (the Pokégear radio's, the Magnet Train
+   ride's jingle and Ho-Oh's and Arceus's themes in their cinematics among them) and 25 fanfares (Voltorb Flip's two among them), kept as HeartGold's sequence files byte
    for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's
    instruments it plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from
    `WAVE_ARC_GS`, one archive of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a

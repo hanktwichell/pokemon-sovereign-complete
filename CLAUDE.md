@@ -89,9 +89,11 @@ work.
   `tools/complete/import_hgss_legend.py`; `LEGEND_MEMBER(n)` is HeartGold's member n): the legendary cutscenes, the
   Rocket Hideout's traps and alarms, the monks' wings and Lance's take-off, in `src/overlay005/complete_legend_cutscene.c`.
   Tests: `tools/complete/test_hgss_legend_cutscenes.py`, `tools/complete/test_hgss_field_effects.py` (`ONLY`, `SHOTS`).
-- The legendary cinematics (Ho-Oh's, Lugia's): `src/applications/complete_legend_cinematic/` (HeartGold's overlay 106 in
-  C; its models from `tools/complete/import_hgss_legend_cinematic.py`), started by `CompleteLegendCinematic` between the
-  script's fades (it leaves the field map and brings it back). Test: `tools/complete/test_hgss_legend_cutscenes.py`.
+- The legendary cinematics (Ho-Oh's, Lugia's, Arceus's): `src/applications/complete_legend_cinematic/` (HeartGold's
+  overlay 106 in C; its models, Arceus's backgrounds and sprites and Arceus's script from
+  `tools/complete/import_hgss_legend_cinematic.py`), started by `CompleteLegendCinematic` between the script's fades
+  (it leaves the field map and brings it back). Tests: `tools/complete/test_hgss_legend_cutscenes.py`,
+  `tools/complete/test_hgss_sinjoh.py` (the Unown circle and Arceus's).
 - The Magnet Train's ride: `src/applications/complete_magnet_train/` (HeartGold's overlay 104, written in C from its
   assembly; its models from `tools/complete/import_hgss_magnet_train.py`), run by `CompleteMagnetTrain` between the
   script's fades. Test: `tools/complete/test_hgss_magnet_train.py`.

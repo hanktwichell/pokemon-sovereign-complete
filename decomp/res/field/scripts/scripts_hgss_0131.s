@@ -549,8 +549,8 @@ _078F:
     CompleteScreenShake 3, 3, 25, 5
     SetVarFromValue VAR_HGSS_SG_6131, 2
     FadeOutBGM 0, 30
-    @ HGSS: UnownCircle
-    @ HGSS: Cinematic 2
+    CompleteUnownCircle
+    CompleteLegendCinematic 2
     WaitTime 150, VAR_RESULT
     ApplyMovement LOCALID_PLAYER, _1320
     WaitMovement
@@ -982,8 +982,8 @@ _10C6:
     GoTo _1070
 _10E9:
     FadeOutBGM 0, 30
-    @ HGSS: UnownCircle
-    @ HGSS: Cinematic 2
+    CompleteUnownCircle
+    CompleteLegendCinematic 2
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 14
     GoToIf 1, _11A5
     ReleaseObject obj_D51R0201_champion

@@ -18,6 +18,7 @@
 
 #include "bg_window.h"
 #include "camera.h"
+#include "complete_follower.h"
 #include "complete_test.h"
 #include "easy3d_object.h"
 #include "field_script_context.h"
@@ -30,6 +31,7 @@
 #include "narc.h"
 #include "player_avatar.h"
 #include "pokemon.h"
+#include "screen_fade.h"
 #include "script_manager.h"
 #include "sound_playback.h"
 #include "sys_task.h"
@@ -1535,5 +1537,128 @@ BOOL CompleteScrCmd_LanceFlight(ScriptContext *ctx)
     gCompleteTestLegend[1] = 0x400;
 #endif
     FieldTask_InitCall(fieldSystem->task, LanceFlight_Task, flight);
+    return TRUE;
+}
+
+// HeartGold's UnownCircle (its src/field/event_cutscene_sinjoh.c, Task_SinjohCutscene): at the Sinjoh Ruins the screen
+// flashes white and two rings of Unown spin up round the following Pokémon (HeartGold's demo/legend 79 to 84), a light
+// rises in the circle (85 to 87), and the screen flashes white again, for Arceus's cinematic. Here the following
+// Pokémon is put away first (Sacred Gold's script), so the circle is where it stood, or round the player without one.
+#define UNOWN_CIRCLE_LIGHT_MODEL 85
+#define UNOWN_CIRCLE_SPIN_FRAMES 100
+#define UNOWN_CIRCLE_LIGHT_FRAMES 150
+#define UNOWN_CIRCLE_FADE_STEPS 2
+
+enum UnownCircleState {
+    UNOWN_CIRCLE_FADE_OUT = 0,
+    UNOWN_CIRCLE_LOAD,
+    UNOWN_CIRCLE_BEGIN,
+    UNOWN_CIRCLE_SPIN,
+    UNOWN_CIRCLE_LIGHT,
+    UNOWN_CIRCLE_END,
+};
+
+typedef struct UnownCircle {
+    UnkStruct_ov5_021D1BEC *rings[2];
+    UnkStruct_ov5_021D1BEC *light;
+    VecFx32 pos;
+    u8 state;
+    u8 ringsRunning;
+    u8 lightRunning;
+    u8 frames;
+} UnownCircle;
+
+static const int sUnownRings[2] = { 79, 82 };
+static const int sUnownRingAnims[2][2] = { { 80, 81 }, { 83, 84 } };
+static const int sUnownLightAnims[2] = { 86, 87 };
+
+static BOOL UnownCircle_Task(FieldTask *task)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
+    UnownCircle *circle = FieldTask_GetEnv(task);
+
+    switch (circle->state) {
+    case UNOWN_CIRCLE_FADE_OUT:
+        StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_WHITE, UNOWN_CIRCLE_FADE_STEPS, 1, HEAP_ID_FIELD1);
+        circle->state++;
+        break;
+    case UNOWN_CIRCLE_LOAD:
+        if (IsScreenFadeDone()) {
+            for (int i = 0; i < 2; i++) {
+                circle->rings[i] = StartEffectAnims(fieldSystem, sUnownRings[i], sUnownRingAnims[i], 2, &circle->pos);
+                ((EffectTaskData *)ov5_021D1C2C(circle->rings[i]))->drawing = TRUE;
+            }
+
+            circle->light = StartEffectAnims(fieldSystem, UNOWN_CIRCLE_LIGHT_MODEL, sUnownLightAnims, 2, &circle->pos);
+            StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_OUT, COLOR_WHITE, UNOWN_CIRCLE_FADE_STEPS, 1, HEAP_ID_FIELD1);
+            circle->state++;
+        }
+        break;
+    case UNOWN_CIRCLE_BEGIN:
+        if (IsScreenFadeDone()) {
+            circle->ringsRunning = TRUE;
+            circle->frames = 0;
+            ((EffectTaskData *)ov5_021D1C2C(circle->light))->drawing = TRUE;
+            circle->state++;
+        }
+        break;
+    case UNOWN_CIRCLE_SPIN:
+        if (++circle->frames >= UNOWN_CIRCLE_SPIN_FRAMES) {
+            circle->lightRunning = TRUE;
+            circle->frames = 0;
+            circle->state++;
+        }
+        break;
+    case UNOWN_CIRCLE_LIGHT:
+        if (++circle->frames >= UNOWN_CIRCLE_LIGHT_FRAMES) {
+            StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_WHITE, UNOWN_CIRCLE_FADE_STEPS, 1, HEAP_ID_FIELD1);
+            circle->state++;
+        }
+        break;
+    case UNOWN_CIRCLE_END:
+        if (IsScreenFadeDone()) {
+            ov5_021D1BEC(circle->light);
+            ov5_021D1BEC(circle->rings[1]);
+            ov5_021D1BEC(circle->rings[0]);
+            Heap_Free(circle);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestLegend[0]++;
+#endif
+            return TRUE;
+        }
+        break;
+    }
+
+    if (circle->ringsRunning) {
+        for (int i = 0; i < 2; i++) {
+            AdvanceNoLoop(((EffectTaskData *)ov5_021D1C2C(circle->rings[i]))->anims, 2);
+        }
+    }
+
+    if (circle->lightRunning) {
+        AdvanceNoLoop(((EffectTaskData *)ov5_021D1C2C(circle->light))->anims, 2);
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_UnownCircle(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    UnownCircle *circle = Heap_AllocAtEnd(CUTSCENE_HEAP, sizeof(UnownCircle));
+    MapObject *follower = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, LOCALID_COMPLETE_FOLLOWER);
+
+    memset(circle, 0, sizeof(UnownCircle));
+
+    if (follower != NULL) {
+        MapObject_GetPosPtr(follower, &circle->pos);
+    } else {
+        PlayerPos(fieldSystem, &circle->pos);
+    }
+
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x500;
+#endif
+    FieldTask_InitCall(fieldSystem->task, UnownCircle_Task, circle);
     return TRUE;
 }

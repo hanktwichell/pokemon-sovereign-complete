@@ -1015,6 +1015,7 @@ ScriptCommand(SCRCMD_COMPLETEHIDEOUTALARM,                             CompleteS
 ScriptCommand(SCRCMD_COMPLETELEGENDARYWING,                            CompleteScrCmd_LegendaryWing)
 ScriptCommand(SCRCMD_COMPLETELANCEFLIGHT,                              CompleteScrCmd_LanceFlight)
 ScriptCommand(SCRCMD_COMPLETELEGENDCINEMATIC,                          CompleteScrCmd_LegendCinematic)
+ScriptCommand(SCRCMD_COMPLETEUNOWNCIRCLE,                              CompleteScrCmd_UnownCircle)
 
 // clang-format on
 

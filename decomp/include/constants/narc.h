@@ -208,6 +208,7 @@ enum NarcID {
     NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, // Sovereign Complete: the legendary cutscenes' graphics (HeartGold's)
     NARC_INDEX_DEMO__COMPLETE__MAGNET_TRAIN, // Sovereign Complete: the Magnet Train ride's graphics (HeartGold's)
     NARC_INDEX_DEMO__COMPLETE__LEGEND_CINEMATIC, // Sovereign Complete: the legendary cinematics' models (HeartGold's)
+    NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC, // Sovereign Complete: Arceus's cinematic's graphics (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H

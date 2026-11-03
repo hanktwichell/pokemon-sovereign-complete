@@ -721,13 +721,23 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
   HeartGold's (`tools/complete/import_hgss_legend_cinematic.py`), Ho-Oh's by HeartGold's three times of day (the
   morning and the day, the evening, the night), lit by the field's light at the time. As in HeartGold, the field map
   is left for the cinematic and comes back with the scene's people where the script put them.
+- **The Sinjoh Ruins:** in Sacred Gold's event on the Mystri Stage (all 16 plates and the National Pokédex),
+  HeartGold's Unown circle (its `UnownCircle`, `event_cutscene_sinjoh.c`, here `CompleteUnownCircle` in
+  `src/overlay005/complete_legend_cutscene.c`): the screen flashes white, two rings of Unown spin up round the spot
+  the following Pokémon was put away on and a light rises in them; then Arceus's cinematic (`Cinematic 2`), HeartGold's
+  2D one, run by its own script of 513 steps (`include/data/hgss_arceus_cinematic.h`, read from its assembly by the
+  importer): the dark orb in its white glow, Arceus's eye, the rune circle with Arceus in it over the sky, a city in
+  the rain, the stars and the eclipse, and the egg it makes, the backgrounds faded and blended into each other, to
+  HeartGold's Arceus theme. Arceus is drawn from HeartGold's own walking sprite: the lead's form and colors if the
+  lead is Arceus, a plain one otherwise, as HeartGold does it. Then the battle with Arceus, as Sacred Gold has it.
 - **Left out:** HeartGold's sound effects stand in as Platinum's (Fly's whoosh for the flaps, a sparkle for the eye,
-  the bell and the light; the waves and Waterfall's rush for the falls). Arceus's cinematic at the Sinjoh Ruins
-  (`Cinematic 2`, in Sacred Gold's plates event) is still to come.
+  the bell and the light; the waves and Waterfall's rush for the falls). HeartGold's own Arceus event at the Sinjoh
+  Ruins (an egg of Dialga, Palkia or Giratina, with Cynthia), which needs a distributed Arceus, stays out of reach.
 
-Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
+Tests: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
 least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance, and its
-cinematic played to its end, Lugia's with its trail; both pass).
+cinematic played to its end, Lugia's with its trail; both pass) and `tools/complete/test_hgss_sinjoh.py` (the plates
+event from the stage's middle: the circle, Arceus's cinematic to its end and the scene back on the field; 3 of 3).
 
 ## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight
 

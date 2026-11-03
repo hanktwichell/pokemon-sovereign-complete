@@ -10680,6 +10680,14 @@
 			"playerPriority":	64,
 			"player":	"PLAYER_BGM"
 		}, {
+			"name":	"SEQ_GS_E_ARCEUS",
+			"fileName":	"SEQ_GS_E_ARCEUS.sseq",
+			"bank":	"BANK_GS_E_ARCEUS",
+			"volume":	99,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
 			"name":	"SEQ_GS_E_G_PICHU",
 			"fileName":	"SEQ_GS_E_G_PICHU.sseq",
 			"bank":	"BANK_GS_E_G_PICHU",
@@ -15452,6 +15460,10 @@
 		}, {
 			"name":	"BANK_GS_EYE_ROCKET",
 			"fileName":	"BANK_GS_EYE_ROCKET.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_ARCEUS",
+			"fileName":	"BANK_GS_E_ARCEUS.sbnk",
 			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
 		}, {
 			"name":	"BANK_GS_E_G_PICHU",

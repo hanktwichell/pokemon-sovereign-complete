@@ -40,12 +40,13 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now (Nov 3): 467 command lines of the installed scripts' about 101,300
+- Sacred Gold's scripts (`docs/SacredGold.md`) now (Nov 3): 463 command lines of the installed scripts' about 101,300
   are left as `@ HGSS:` comments. By kind: the photo album, waiting on the owner (Cameron's photos, 197); link play (the
   Union Room, the Global Terminal, Wi-Fi, 144); the Pokéathlon, which is skipped; events that came by distribution
-  (Primo's passwords, the spiky-eared Pichu, Arceus at the Sinjoh Ruins, Pal Park); and looks the scenes play fine
-  without (Arceus's cinematic and the Unown circle at the Sinjoh Ruins, the lighthouse's beam). Ported since Oct 30:
-  the Battle Frontier, the Pokégear's radio and cards, Ho-Oh's and Lugia's cutscenes and cinematics, the Magnet
+  (Primo's passwords, the spiky-eared Pichu, HeartGold's own Arceus event at the Sinjoh Ruins, Pal Park); and the
+  Pokégear's card commands, whose flags carry them. None of the scenes a player can reach is missing a look any more.
+  Ported since Oct 30: the Battle Frontier, the Pokégear's radio and cards, Ho-Oh's and Lugia's cutscenes and
+  cinematics, the Unown circle and Arceus's cinematic in Sacred Gold's plates event at the Sinjoh Ruins, the Magnet
   Train's ride, the Rocket Hideout's traps and alarms, the monks' wings (with the scenes they start), Lance's take-off
   and the Rocket uniform (`docs/Features.md`).
 - Earlier: 98.2% of 83,001 lines. Besides trainers, gifts, trades and marts,

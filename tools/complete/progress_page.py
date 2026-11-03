@@ -53,8 +53,9 @@ STEPS = [
      '1025 Pokémon.'),
     (5, 'HeartGold features', 'mostly', 'Almost done',
      'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
-     'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier and the Pokégear beside the Pokétch '
-     '(its phone, its map, its radio and the switch) are in.'),
+     'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear beside the Pokétch (its '
+     'phone, its map, its radio and the switch), the Magnet Train\'s ride and the legendaries\' cutscenes and '
+     'cinematics are in. What\'s left waits on your calls (the photo album, the Pokéathlon Dome, the key items).'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
@@ -63,17 +64,17 @@ STEPS = [
      'Town to Sinnoh\'s Hall of Fame.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
-     'the game through; one command runs all 31 of Complete\'s feature tests (the latest sweep: 28 passed, and two '
-     'of the other three were tests behind the game, now updated).'),
+     'the game through; one command runs Complete\'s 35 feature tests (the latest sweep: 32 of 33, and the one '
+     'failure, a test that talked to a wandering giver too soon, is fixed) and 8 long ones.'),
     (9, 'Your playthrough', 'ready', 'Ready for you',
      'Johto and Kanto are playable from a new game; it can start whenever you like.'),
     (10, 'Release', 'later', 'Later', 'Final fixes, then the .xdelta patches.'),
 ]
 
 NEXT = [
-    'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build: the '
-    'legendary cutscenes, Fly on the Pokégear\'s map and the Magnet Train\'s ride. The last run stopped at Bugsy\'s '
-    'gym, where the test flipped a cart switch twice; the test presses it once now.',
+    'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build, with '
+    'the Rocket uniform and Ho-Oh\'s and Lugia\'s cinematics. The last one reached Route 39 before the session\'s '
+    'machine restarted.',
     'The long checks pass on the latest build (every Totem and legendary placement, every boss Mega, every tile '
     'behavior, the sound memory on every map). The talk test over all 5,865 people and signs is running.',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
@@ -139,6 +140,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Sinjoh Ruins\' event (all 16 plates and the National Pokédex) plays as in HeartGold: the Unown\'s circle '
+        'spins up on the Mystri Stage, then HeartGold\'s Arceus cinematic, half a minute of its own art and music, '
+        'with your Arceus in its own form if it leads your party.',
         'Ho-Oh and Lugia have HeartGold\'s own cinematics now: the Clear Bell\'s rings of light, then Ho-Oh flying in '
         'around the Bell Tower to its theme; and Lugia rising through the Whirl Islands\' waterfall, the picture '
         'trailing as it cries.',
