@@ -88,6 +88,10 @@ work.
 - Its radio: `src/applications/complete_pokegear/radio/` (HeartGold's shows, one file each, and the page); its music
   is the field's BGM, kept by `src/complete_radio.c` in the main module, which the encounter and script checks ask
   (`CompleteRadio_Music`). Test: `tools/complete/test_hgss_radio.py`.
+- Its six skins: each graphic's six variants sit in a row in the NARC (`complete_pokegear.order`), loaded as the first's
+  index + `CompletePokegear_GetSkin`; the importer packs each screen's tiles to fit a page's 128. Incoming calls ring
+  (`CompletePhone_StartRinging`, main module) until the Phone button answers; the ring's limit is the clock's (the
+  host's in the emulator), not frames.
   Test-only markers the tests read belong in the main module: an overlay's memory is reused by the next overlay.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
