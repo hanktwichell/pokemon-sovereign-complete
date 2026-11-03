@@ -20,6 +20,10 @@ flag cleared) is the trainer:
 8. **Her bank:** talking to her at home (past her first scene and Elm's lab's, as a game at Route 30 is), the test
    picks WITHDRAW and in the amount window (sMomsBank open) presses up once (the highest digit the amount can have)
    and A. Passes when as much left her savings as reached the wallet.
+9. **The Bike Shop's call:** from the bedroom state again, with the Bike Shop's number in the phone and 1,023 steps
+   biked (CompletePhone_CountBikeStep), the player gets on the Bicycle (Y, with it registered) on Route 30 and rides a
+   step. Passes when the steps reach 1,024 and the Bike Shop's call trigger is set (HeartGold's
+   CALL_TRIGGER_BIKE_SHOP_STEPS), a step on foot first having counted nothing.
 
 Every prompt is answered with A (yes). The phone's save and the flags are found from the save's page table
 (sSaveDataPtr: its body, then the page table, whose entries give each part's place and size in the body).
@@ -39,7 +43,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 import battle_mechanics as bm  # noqa: E402
 from check_trainer_party import consts  # noqa: E402
-from talk_to_objects import SYMBOLS as TALK_SYMBOLS, header_names, start_warp, var_ids  # noqa: E402
+from talk_to_objects import SYMBOLS as TALK_SYMBOLS, header_names, start_warp, var_ids, warp  # noqa: E402
 
 DECOMP = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'decomp')
 MAP = 'MAP_HEADER_HGSS_ROUTE_30'
@@ -50,13 +54,19 @@ MOM_CALL_TILE = (553, 291)  # north of the call's tile (553, 292), Route 30's co
 MART, DELIVERYMAN, WEST = 'MAP_HEADER_HGSS_CHERRYGROVE_POKEMART', (4, 8), 3  # east of Mom's deliveryman (3, 8)
 HOME, MOM = 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F', (5, 7)  # west of Mom (6, 7)
 INCOMING_CALL = 2000 + 0x814 - 0x7D0  # SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL)
-PARTS = 8
+PARTS = 9
 HIDE_FLAG = 'FLAG_HGSS_HIDE_ROUTE_30_YOUNGSTER_JOEY'
 GIFT = 'ITEM_NUGGET'
 SAVE_PAGES, SAVE_SECTOR = 33, 0x1000  # SAVE_PAGE_MAX, SAVE_SECTOR_SIZE
 REMATCHES = 76  # offsetof(CompletePhoneSave, rematches)
 SAVINGS, GIFTS, TRIGGERS, BOUGHT = 376, 380, 400, 410  # offsetof(CompletePhoneSave, ...): momsSavings to momGiftsBought
 MOM_TRIGGER = 12  # CALL_TRIGGER_MOM_BOUGHT_SOMETHING
+BIKE_STEPS, BIKE_SHOP_TRIGGER, BIKE_SHOP = 414, 2, 15  # offsetof(CompletePhoneSave, bikeSteps); the trigger; contact
+BIKE_SHOP_CALL_STEPS = 1024
+WEST_FACING = 3  # the test warp's facing for west: enum FaceDirection + 1
+# the Bag in the save: its pockets of BagItems (u16 item, u16 quantity), then the item registered to Y (include/bag.h)
+BAG_REGISTERED = 4 * sum(int(n) for n in re.findall(r'#define \w+_POCKET_SIZE\s+(\d+)',
+                                                     open(os.path.join(DECOMP, 'include', 'bag.h')).read()))
 MONEY = 24  # offsetof(PlayerSave, info) + offsetof(TrainerInfo, money)
 LIMIT = 12000  # Joey's battle alone takes 3,000 frames
 STEP = 20
@@ -316,6 +326,35 @@ def main():
         d.screenshot().save(os.path.join(out, 'bank.png'))
         results.append(f'bank: {problem or "ok"}')
         print(results[-1], flush=True)
+
+    # 9. The Bike Shop's call: 1,023 steps biked, a step on foot (nothing counted), then on the bike, a step
+    d.load_state(state)
+    d.run(30)
+    from test_map_warp import floor
+    plain = floor(MAP)[0]  # a free floor tile with two more west of it, off Joey's row, the nearest to him
+    x, z = min(((x, z) for (x, z) in floor(MAP)[1] if z != STAND[1] and all(plain(x - i, z) for i in range(3))),
+               key=lambda t: (t[0] - STAND[0]) ** 2 + (t[1] - STAND[1]) ** 2)
+    arrived, _ = warp(d, sym, names.index(MAP), x, z, WEST_FACING)
+    problem = f'warp {arrived}' if arrived != 'ok' else ''
+    if not problem:
+        contacts = phone()
+        slot = next(i for i in range(75) if mem.unsigned[contacts + i] in (0xFF, BIKE_SHOP))
+        mem.write_byte(contacts + slot, BIKE_SHOP)
+        mem.write_short(phone() + BIKE_STEPS, BIKE_SHOP_CALL_STEPS - 1)
+        d.press('LEFT', frames=16, after=20)
+        walked = struct.unpack('<H', bytes(mem.unsigned[phone() + BIKE_STEPS:phone() + BIKE_STEPS + 2]))[0]
+        mem.write_long(save_part(save_entry_index('SAVE_TABLE_ENTRY_BAG'))[0] + BAG_REGISTERED, items.index('ITEM_BICYCLE'))
+        d.press('Y', frames=4, after=60)
+        d.press('LEFT', frames=8, after=30)
+        steps = struct.unpack('<H', bytes(mem.unsigned[phone() + BIKE_STEPS:phone() + BIKE_STEPS + 2]))[0]
+        trigger = bool(mem.unsigned[phone() + TRIGGERS + BIKE_SHOP_TRIGGER // 8] & (1 << BIKE_SHOP_TRIGGER % 8))
+        if walked != BIKE_SHOP_CALL_STEPS - 1:
+            problem = f'a step on foot counted ({walked})'
+        elif steps != BIKE_SHOP_CALL_STEPS or not trigger:
+            problem = f'{steps} steps biked, the call\'s trigger {trigger} (at {d.pos()})'
+    d.screenshot().save(os.path.join(out, 'bike_shop.png'))
+    results.append(f'Bike Shop: {problem or "ok"}')
+    print(results[-1], flush=True)
 
     ok = sum(r.endswith(': ok') for r in results)
     print(f'{ok} of {PARTS} parts ok')

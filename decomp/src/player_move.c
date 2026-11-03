@@ -31,6 +31,7 @@
 #include "unk_020655F4.h"
 
 #include "complete_gyms.h" // Sovereign Complete
+#include "complete_phone.h" // Sovereign Complete
 
 typedef BOOL (*TileBehaviorFunc)(u8);
 
@@ -2662,6 +2663,10 @@ static void PlayerAvatar_IncrementStepsRecord(PlayerAvatar *playerAvatar)
     GameRecords *gameRecords = SaveData_GetGameRecords(fieldSystem->saveData);
 
     GameRecords_IncrementRecordValue(gameRecords, RECORD_STEPS);
+
+    if (PlayerAvatar_GetPlayerState(playerAvatar) == PLAYER_AVATAR_CYCLING) { // Sovereign Complete: HeartGold's Bike Shop
+        CompletePhone_CountBikeStep(fieldSystem->saveData);
+    }
 }
 
 /**

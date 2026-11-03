@@ -159,6 +159,27 @@ void CompletePhone_DaycareHasEgg(SaveData *saveData)
     CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_DAYCARE_HAS_EGG, TRUE);
 }
 
+// HeartGold's GAME_STAT_STEPS_BIKED and FieldSystem_UpdateBikeShop (its field_control.c), at each step on the bike
+// (src/player_move.c): after 1,024, the Bike Shop calls, once (its call sets FLAG_HGSS_SYS_GOT_BIKE_SHOP_CALL). HeartGold
+// doesn't ask whether its number is in the phone, which it is from the bike on; here it's asked.
+#define BIKE_SHOP_CALL_STEPS 1024
+
+void CompletePhone_CountBikeStep(SaveData *saveData)
+{
+    CompletePhoneSave *phone = SaveData_GetCompletePhone(saveData);
+
+    if (phone->bikeSteps < BIKE_SHOP_CALL_STEPS) {
+        phone->bikeSteps++;
+    }
+
+    if (phone->bikeSteps >= BIKE_SHOP_CALL_STEPS
+        && !VarsFlags_CheckFlag(SaveData_GetVarsFlags(saveData), FLAG_HGSS_SYS_GOT_BIKE_SHOP_CALL)
+        && !(phone->callTriggerFlags[CALL_TRIGGER_BIKE_SHOP_STEPS / 8] & (1 << (CALL_TRIGGER_BIKE_SHOP_STEPS % 8)))
+        && CompletePhone_IsRegistered(saveData, PHONE_CONTACT_BIKE_SHOP)) {
+        CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_BIKE_SHOP_STEPS, TRUE);
+    }
+}
+
 // HeartGold's sub_02092E34, as the field's clock moves on (src/unk_020559DC.c): the first time is the time away from
 // the game, which doesn't count when it's ten minutes or more
 void CompletePhone_AddMinutes(int minutes)

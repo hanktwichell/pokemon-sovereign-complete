@@ -363,8 +363,9 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   Pokémon, where HeartGold saves its personality), and his Pokérus call when a nurse finds Pokérus; Bill's when the
   boxes are full and Oak's at each 50 caught he hasn't rated, after a wild battle; the Day-Care Man's when an Egg
   turns up (called off when he offers it); Mom's when she buys something. Baoba's calls happen without the phone (the Safari Zone, above). HeartGold's Day-Care Man
-  then asks whether to keep calling, which Platinum's doesn't, so he calls about the first Egg only. Left out: the Bike
-  Shop's call after 1,024 steps on the bike (nothing counts them, and the call changes nothing).
+  then asks whether to keep calling, which Platinum's doesn't, so he calls about the first Egg only. The Bike Shop
+  calls after 1,024 steps on the bike, once (HeartGold's steps-biked count, here the phone's save:
+  `CompletePhone_CountBikeStep`, at each step on the bike in `src/player_move.c`).
 - **Calls the player places** (HeartGold's outgoing calls): what each caller says when the player calls, as HeartGold
   picks it (`OutgoingScript`): a trainer's call from their own list (and their "you're right here" call on their
   map), Mom's (her savings question), Elm's (where his research and the journey are), Oak's Pokédex rating (a menu:

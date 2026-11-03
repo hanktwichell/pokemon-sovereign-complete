@@ -1603,3 +1603,8 @@ Test results on the new test build:
   tile instead of the middle, his and the Dragonite's objects hidden instead of the player's (unpaused first, as
   Platinum does the player's: a paused object's drawing isn't updated, which the first try showed), and no fade at
   the end, the scene going on. In the emulator the field effects test now checks both are hidden by the bird.
+- **The Bike Shop's call:** HeartGold's Bike Shop owner calls once the player has ridden 1,024 steps (its
+  GAME_STAT_STEPS_BIKED and FieldSystem_UpdateBikeShop). Platinum's game records count steps but not on the bike, so
+  the phone's save counts them (two of its reserved bytes), at each step on the bike, and sets the call's trigger
+  once there are 1,024, if the call hasn't come yet and the number is in the phone. The phone test's new part
+  (9 of 9 pass): a step on foot counts nothing, the 1,024th on the bike sets the trigger.

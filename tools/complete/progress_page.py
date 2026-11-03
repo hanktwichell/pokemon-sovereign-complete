@@ -152,6 +152,7 @@ RECENT = [
         'couldn\'t be reached before.',
         'Lance takes off from the Lake of Rage as in HeartGold: in Fly\'s cut-in he sends out his Dragonite, then the '
         'bird swoops down and carries him off, using HeartGold\'s own graphics of Lance riding.',
+        'The Bike Shop calls once you\'ve ridden 1,024 steps on the bike, as in HeartGold.',
         'The Sinjoh Ruins\' event (all 16 plates and the National Pokédex) plays as in HeartGold: the Unown\'s circle '
         'spins up on the Mystri Stage, then HeartGold\'s Arceus cinematic, half a minute of its own art and music, '
         'with your Arceus in its own form if it leads your party.',

@@ -33,7 +33,8 @@ typedef struct CompletePhoneSave {
     u8 recentCallers[8]; // the last random callers of each call group
     u16 momGiftsBought; // Mom's list of things to buy with her savings, a bit each
     u8 pokegearSkin; // HeartGold's Pokégear skin (its settings), 0-5 (include/complete_pokegear.h)
-    u8 reserved[43];
+    u16 bikeSteps; // HeartGold's GAME_STAT_STEPS_BIKED, counted up to the Bike Shop's call (CompletePhone_CountBikeStep)
+    u8 reserved[40];
 } CompletePhoneSave;
 
 #define MOM_GIFT_QUEUE_SIZE          5
@@ -53,6 +54,7 @@ void CompletePhone_MomSavingsAfterBattle(SaveData *saveData, const TrainerInfo *
 void CompletePhone_AfterWildBattle(SaveData *saveData);
 void CompletePhone_EggHatched(SaveData *saveData, Pokemon *mon);
 void CompletePhone_DaycareHasEgg(SaveData *saveData);
+void CompletePhone_CountBikeStep(SaveData *saveData); // a step on the bike (src/player_move.c)
 
 // A call the player places on the Pokégear: the field makes it as the player stands still
 // (CompletePhone_TryOutgoingCall)
