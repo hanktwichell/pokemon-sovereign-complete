@@ -35,9 +35,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_RATTATA",
-                "day": "SPECIES_RATTATA",
-                "night": "SPECIES_GASTLY"
+                "morning": "SPECIES_GIMMIGHOUL",
+                "day": "SPECIES_GIMMIGHOUL",
+                "night": "SPECIES_GIMMIGHOUL"
             },
             {
                 "level": 22,
@@ -47,9 +47,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_DREEPY",
-                "day": "SPECIES_DREEPY",
-                "night": "SPECIES_DREEPY"
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_RATTATA"
             },
             {
                 "level": 23,

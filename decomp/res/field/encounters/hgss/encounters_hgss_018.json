@@ -23,9 +23,9 @@
             },
             {
                 "level": 6,
-                "morning": "SPECIES_ZUBAT",
-                "day": "SPECIES_ZUBAT",
-                "night": "SPECIES_ZUBAT"
+                "morning": "SPECIES_TIRTOUGA",
+                "day": "SPECIES_TIRTOUGA",
+                "night": "SPECIES_TIRTOUGA"
             },
             {
                 "level": 7,
@@ -35,9 +35,9 @@
             },
             {
                 "level": 7,
-                "morning": "SPECIES_ZUBAT",
-                "day": "SPECIES_ZUBAT",
-                "night": "SPECIES_ZUBAT"
+                "morning": "SPECIES_TINKATINK",
+                "day": "SPECIES_TINKATINK",
+                "night": "SPECIES_TINKATINK"
             },
             {
                 "level": 6,
@@ -193,7 +193,7 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_SEISMITOAD"
+                "species": "SPECIES_GOLDEEN"
             },
             {
                 "level_min": 40,

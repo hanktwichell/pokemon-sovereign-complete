@@ -137,6 +137,8 @@ def main():
                                     'LYRA', 'FALKNER')])
     d.run(10)
 
+    results = []
+
     def check(name, result, want):
         problem = ''
         if not result['started']:
@@ -146,6 +148,7 @@ def main():
         else:
             problem = want(result) or ''
         (last[0] or d.screenshot()).save(os.path.join(out, f'{name.lower().replace(" ", "_").replace(",", "")}.png'))
+        results.append(f'{name}: {problem or "ok"}')
         print(f'{name}: {problem or "ok"}  ({result["handler"]}, script {result["script"]}, '
               f'messages {result["messages"]})', flush=True)
 
@@ -178,6 +181,10 @@ def main():
     start_warp(d, sym, names.index(CAVE), *CAVE_TILE, NORTH)
     d.run(400)
     check('Out of the area', place(CONTACTS['MOTHER']), lambda r: f'messages {r["messages"]}' if r['messages'] else None)
+
+    ok = sum(r.endswith(': ok') for r in results)
+    print(f'{ok} of {len(results)} parts ok', flush=True)
+    sys.exit(0 if ok == len(results) else 1)
 
 
 if __name__ == '__main__':

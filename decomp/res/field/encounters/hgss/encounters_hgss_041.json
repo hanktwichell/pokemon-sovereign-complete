@@ -143,7 +143,7 @@
             {
                 "level_min": 10,
                 "level_max": 10,
-                "species": "SPECIES_SKRELP"
+                "species": "SPECIES_FINIZEN"
             },
             {
                 "level_min": 10,
@@ -168,7 +168,7 @@
             {
                 "level_min": 20,
                 "level_max": 20,
-                "species": "SPECIES_KRABBY"
+                "species": "SPECIES_VELUZA"
             },
             {
                 "level_min": 20,
@@ -198,7 +198,7 @@
             {
                 "level_min": 40,
                 "level_max": 40,
-                "species": "SPECIES_PALAFIN"
+                "species": "SPECIES_SEISMITOAD"
             },
             {
                 "level_min": 40,

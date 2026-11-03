@@ -23,9 +23,9 @@
             },
             {
                 "level": 21,
-                "morning": "SPECIES_GOLETT",
-                "day": "SPECIES_GOLETT",
-                "night": "SPECIES_GOLETT"
+                "morning": "SPECIES_GOTHITA",
+                "day": "SPECIES_GOTHITA",
+                "night": "SPECIES_GOTHITA"
             },
             {
                 "level": 22,
@@ -35,9 +35,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_SPIRITOMB",
-                "day": "SPECIES_SPIRITOMB",
-                "night": "SPECIES_SPIRITOMB"
+                "morning": "SPECIES_POLTCHAGEIST",
+                "day": "SPECIES_POLTCHAGEIST",
+                "night": "SPECIES_POLTCHAGEIST"
             },
             {
                 "level": 22,

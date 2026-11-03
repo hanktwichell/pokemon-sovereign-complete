@@ -165,6 +165,11 @@ RECENT = [
         'walls, but keep off Rock Climb walls until a badge allows it (one on Route 5 stopped the recorded run).',
     ]),
     ('Bugs the tests found and fixed', [
+        'Since the wild Pokémon became the original games\' own, the outbreaks are HeartGold\'s (Yanma on Route 35, not '
+        'Sacred Gold\'s Illumise). The Ruins of Alph\'s halls are Unown-only again (a Gothita and three others had '
+        'been mixed in; they live elsewhere in Johto now). HeartGold\'s fishing outbreaks and its night fishing are in '
+        '(Staryu on the Super Rod in Cherrygrove at night), and Mawile, whose only wild spot needed a Game Boy Advance '
+        'game in the DS, is in a Johto cave.',
         'Totems Marowak (Rock Tunnel) and Salazzle (Cinnabar) stood on Rock Climb ledges nobody could reach that early; '
         'both are moved.',
         'Entering Burned Tower B1F, Dragon\'s Den or the Ruins of Alph froze the game; Rowan\'s briefcase froze it '
@@ -196,18 +201,18 @@ SINNOH_PLAN = [
     ('Level caps', 'Sovereign\'s optional caps for all three regions\' gyms and Leagues, in story order.', 'done'),
     ('Totems and legendaries in three regions', 'Eight Totem trials asked for by Johto\'s and Kanto\'s leaders, 32 '
      'Chronicle legendaries moved to Johto and Kanto; each placement tested in the emulator.', 'done'),
-    ('Sovereign\'s newer work', 'Four Sovereign commits since Oct 29 (tall battle sprites fitted to the screen) brought '
-     'in by the sync script.', 'planned'),
+    ('Sovereign\'s newer work', 'Sovereign\'s commits since Oct 29 (tall battle sprites fitted to the screen) are '
+     'in, by the sync script; Sovereign has none newer (checked Nov 3).', 'done'),
     ('Megas everywhere', 'Whitney gives the Mega Ring, 23 item balls hold Mega Stones, and 50 of Johto\'s and '
      'Kanto\'s 63 later bosses Mega Evolve, each checked in battle.', 'done'),
-    ('Sinnoh\'s scenes with a follower', 'Platinum\'s cutscenes were written without one; each is played with a '
-     'follower out.', 'planned'),
-    ('The story test through Sinnoh', 'The playthrough test carried on from Twinleaf Town through Sinnoh\'s story to '
+    ('Sinnoh\'s scenes with a follower', 'Platinum\'s cutscenes were written without one; the story test plays every '
+     'one with a follower out, and the follower comes out beside the player, never on their tile.', 'done'),
+    ('The story test through Sinnoh', 'The playthrough test carries on from Twinleaf Town through Sinnoh\'s story to '
      'the Hall of Fame. It found a freeze at Rowan\'s briefcase (the field heap ran out with the following Pokémon on '
-     'screen), now fixed; it passes as far as Saturn at Lake Valor.', 'active'),
+     'screen), now fixed; every part passes, Cynthia and the Hall of Fame included.', 'done'),
     ('A full test, and a highlight video', 'Every test on the finished game (placements 40 of 40, Megas 50 of 50, '
-     'Cyrus and Giratina pass), the playthrough from New Bark Town to Sinnoh\'s Hall of Fame (through Johto so far), '
-     'and a 1 to 2 minute video of it.', 'active'),
+     'Cyrus and Giratina pass), the playthrough from New Bark Town to Sinnoh\'s Hall of Fame (all 186 parts pass), '
+     'and a 2 minute video of it.', 'done'),
 ]
 
 # The timeline: the roadmap steps each docs/Progress.md entry was for, by its title (the story test's entries are
@@ -240,10 +245,9 @@ MILESTONES = [
 # Ahead, from today: (when, what, who, status: active, planned, waiting), Claude's estimates as of UPDATED
 AHEAD = [
     ('Nov 1', 'Done: Sinnoh\'s arrival, levels and caps; Totems and legendaries spread; Megas in Johto and Kanto.',
-     'Claude', 'active'),
-    ('Nov 2–5', 'The story test through Sinnoh to the Hall of Fame, with a follower out in every scene.', 'Claude',
-     'planned'),
-    ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
+     'Claude', 'done'),
+    ('Nov 2', 'Done: the story test through Sinnoh to the Hall of Fame, with a follower out in every scene; a full test '
+     'of the game, and the highlight video from its playthrough.', 'Claude', 'done'),
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
      'for all three regions.', 'You', 'waiting'),
     ('Nov 3', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, Johto\'s Battle Frontier '

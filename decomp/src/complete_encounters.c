@@ -124,9 +124,8 @@ void CompleteEncounters_Load(WildEncounters *data, enum MapHeaderID mapHeaderID)
 
 // HeartGold's mass outbreaks (its sSwarmMapLUT and encounter_check.c): from Oak's National Pokédex on
 // (VAR_COMPLETE_OUTBREAKS), each day one of these maps has its swarm species in the grass (slots 0 and 1), on the water
-// (the first surfing slot) or on the rod (Sacred Gold's tables have no fishing swarm, so those days have none). The
-// day's pick is Platinum's own daily swarm value (Sinnoh's outbreaks pick from it too), as HeartGold's is a daily
-// random value of its own.
+// (the first surfing slot) or on the rods (CompleteEncounters_FishingSpecies). The day's pick is Platinum's own daily
+// swarm value (Sinnoh's outbreaks pick from it too), as HeartGold's is a daily random value of its own.
 enum OutbreakTerrain {
     OUTBREAK_NONE = -1,
     OUTBREAK_LAND,
@@ -192,6 +191,40 @@ void CompleteEncounters_SurfOutbreak(FieldSystem *fieldSystem, int *firstSlotSpe
     if (sTable.surfSwarm != SPECIES_NONE) {
         *firstSlotSpecies = sTable.surfSwarm;
     }
+}
+
+// HeartGold's rods (its EncSlotArray_Update_NightFishing, then EncSlots_Update_FishingSwarm): at night the Good Rod's
+// fourth slot and the Super Rod's second have the map's night species; on the day's fishing outbreak the Old Rod's
+// third slot, the Good Rod's first, third and fourth, and every Super Rod slot have its outbreak species
+int CompleteEncounters_FishingSpecies(FieldSystem *fieldSystem, enum EncounterFishingRodType rod, int slot)
+{
+    static const u8 sOutbreakSlots[] = {
+        [FISHING_TYPE_OLD_ROD] = 1 << 2,
+        [FISHING_TYPE_GOOD_ROD] = (1 << 0) | (1 << 2) | (1 << 3),
+        [FISHING_TYPE_SUPER_ROD] = 0x1F,
+    };
+    enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
+    int species = 0;
+
+    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID) || rod > FISHING_TYPE_SUPER_ROD) {
+        return 0;
+    }
+
+    Read(mapHeaderID);
+
+    int time = GetTimeOfDay();
+
+    if ((time == TIMEOFDAY_NIGHT || time == TIMEOFDAY_LATE_NIGHT)
+        && ((rod == FISHING_TYPE_GOOD_ROD && slot == 3) || (rod == FISHING_TYPE_SUPER_ROD && slot == 1))) {
+        species = sTable.nightFishing;
+    }
+
+    if (((sOutbreakSlots[rod] >> slot) & 1) && sTable.fishingSwarm != SPECIES_NONE
+        && OutbreakTerrainHere(fieldSystem) == OUTBREAK_FISHING) {
+        species = sTable.fishingSwarm;
+    }
+
+    return species;
 }
 
 int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot)
@@ -335,8 +368,7 @@ u32 CompleteEncounters_UnownForms(FieldSystem *fieldSystem)
 }
 
 // Today's outbreak for Oak's Pokémon Talk on the radio (HeartGold's GetSwarmInfoFromRand): its map and the species in
-// its grass or on its water; FALSE before the outbreaks start, or on a fishing day (Sacred Gold's tables have no
-// fishing swarm species)
+// its grass, on its water or on its rods; FALSE before the outbreaks start
 BOOL CompleteEncounters_TodaysOutbreak(SaveData *saveData, u16 *mapHeaderID, u16 *species)
 {
     if (*VarsFlags_GetVarAddress(SaveData_GetVarsFlags(saveData), VAR_COMPLETE_OUTBREAKS) == 0) {
@@ -360,6 +392,9 @@ BOOL CompleteEncounters_TodaysOutbreak(SaveData *saveData, u16 *mapHeaderID, u16
         break;
     case OUTBREAK_SURF:
         *species = sTable.surfSwarm;
+        break;
+    case OUTBREAK_FISHING:
+        *species = sTable.fishingSwarm;
         break;
     default:
         *species = SPECIES_NONE;

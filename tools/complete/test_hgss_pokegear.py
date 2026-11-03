@@ -369,6 +369,10 @@ def main():
         shot('after_battle')
         report('after a battle', problem)
 
+    ok = sum(r.endswith(': ok') for r in results)
+    print(f'{ok} of {len(results)} parts ok', flush=True)
+    sys.exit(0 if ok == len(results) else 1)
+
 
 if __name__ == '__main__':
     main()

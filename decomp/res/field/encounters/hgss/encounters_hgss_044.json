@@ -23,9 +23,9 @@
             },
             {
                 "level": 23,
-                "morning": "SPECIES_CORVISQUIRE",
-                "day": "SPECIES_CORVISQUIRE",
-                "night": "SPECIES_CORVISQUIRE"
+                "morning": "SPECIES_NACLSTACK",
+                "day": "SPECIES_NACLSTACK",
+                "night": "SPECIES_NACLSTACK"
             },
             {
                 "level": 24,

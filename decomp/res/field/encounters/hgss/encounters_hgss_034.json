@@ -23,9 +23,9 @@
             },
             {
                 "level": 21,
-                "morning": "SPECIES_SANDYGAST",
-                "day": "SPECIES_SANDYGAST",
-                "night": "SPECIES_SANDYGAST"
+                "morning": "SPECIES_PHANTUMP",
+                "day": "SPECIES_PHANTUMP",
+                "night": "SPECIES_PHANTUMP"
             },
             {
                 "level": 22,
@@ -35,9 +35,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_RATTATA",
-                "day": "SPECIES_RATTATA",
-                "night": "SPECIES_GASTLY"
+                "morning": "SPECIES_SIGILYPH",
+                "day": "SPECIES_SIGILYPH",
+                "night": "SPECIES_SIGILYPH"
             },
             {
                 "level": 22,

@@ -23,9 +23,9 @@
             },
             {
                 "level": 21,
-                "morning": "SPECIES_PHANTUMP",
-                "day": "SPECIES_PHANTUMP",
-                "night": "SPECIES_PHANTUMP"
+                "morning": "SPECIES_INKAY",
+                "day": "SPECIES_INKAY",
+                "night": "SPECIES_INKAY"
             },
             {
                 "level": 22,
@@ -35,9 +35,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_ORANGURU",
-                "day": "SPECIES_ORANGURU",
-                "night": "SPECIES_ORANGURU"
+                "morning": "SPECIES_SPIRITOMB",
+                "day": "SPECIES_SPIRITOMB",
+                "night": "SPECIES_SPIRITOMB"
             },
             {
                 "level": 22,

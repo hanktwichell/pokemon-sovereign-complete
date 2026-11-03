@@ -23,9 +23,9 @@
             },
             {
                 "level": 5,
-                "morning": "SPECIES_FIDOUGH",
-                "day": "SPECIES_FIDOUGH",
-                "night": "SPECIES_FIDOUGH"
+                "morning": "SPECIES_UNOWN",
+                "day": "SPECIES_UNOWN",
+                "night": "SPECIES_UNOWN"
             },
             {
                 "level": 5,

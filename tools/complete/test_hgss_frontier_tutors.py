@@ -168,6 +168,10 @@ def main():
         problem = '' if bp() == 500 - price else f'the points are {bp()}, not {500 - price}'
         report('a move learned', problem)
 
+    ok = sum(r.endswith(': ok') for r in results)
+    print(f'{ok} of {len(results)} parts ok', flush=True)
+    sys.exit(0 if ok == len(results) else 1)
+
 
 if __name__ == '__main__':
     main()

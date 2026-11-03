@@ -23,8 +23,10 @@ the earliest such area first, stronger species in rarer slots, and spread over t
 (tools/design/gen_encounters.py's habitats, type weights, evolution levels and rarity, Sovereign's own rules). A
 species no slot in its family's region takes goes to another region's; babies go last, where slots are left.
 
-To change it: PIN (a species to a region or an area), AREA_TAGS (Johto's and Kanto's habitats, by place; Sinnoh's
-are Sovereign's), FREE_LAND and FREE_WATER (how many of a table's slots may take a new species), REGION_ORDER.
+To change it: PIN (a species to a region or an area), LATE (a family to place last), AREA_TAGS (Johto's and Kanto's
+habitats, by place; Sinnoh's are Sovereign's), FREE_LAND and FREE_WATER (how many of a table's slots may take a new
+species), REGION_ORDER. The Ruins of Alph's halls (Unown only) take none, nor do the rod slots HeartGold's night
+fishing takes, and Platinum's dual slots (a GBA game's) don't count as a family's original table.
 
 Writes decomp/res/field/encounters/encounters_*.json (Sinnoh's), decomp/res/field/encounters/hgss/
 encounters_hgss_NNN.json (Johto's and Kanto's, the layout tools/complete/import_hgss_encounters.py wrote) and
@@ -63,12 +65,20 @@ LAND_ORDER = [3, 5, 7, 9, 11, 2, 4, 6, 8, 10, 1, 0]
 WATER_ORDER = [3, 2, 4, 1]
 FREE_LAND = 4
 FREE_WATER = 2
+# Platinum's tables for a Game Boy Advance game in the DS's second slot
+DUAL_SLOTS = ('ruby', 'sapphire', 'emerald', 'firered', 'leafgreen')
+# HeartGold's night fishing (encounter_check.c): at night each Johto or Kanto table's night species takes these rod
+# slots, so no new species goes there
+NIGHT_FISHING_SLOTS = {'good_rod': (3,), 'super_rod': (1,)}
 REGION_ORDER = ('johto', 'kanto', 'sinnoh')
 # Gen I-IV starters, which the stories give (Sovereign's STARTER_BASES are Gen V-IX's)
 OLD_STARTERS = {'Bulbasaur', 'Charmander', 'Squirtle', 'Chikorita', 'Cyndaquil', 'Totodile', 'Treecko', 'Torchic',
                 'Mudkip', 'Turtwig', 'Chimchar', 'Piplup', 'Pikachu', 'Eevee'}
 # Hand placements: species name -> region, or (region, area name as docs/WildPokemon.md lists it)
 PIN = {}
+# Families placed after all the others, so the others keep the slots they had before these were added (Mawile, whose
+# only original table is a dual slot: Nov 3, 2026)
+LATE = {'Mawile'}
 
 # Johto's and Kanto's habitats, by the place's location label (TAG_TYPES' tags)
 AREA_TAGS = {
@@ -218,13 +228,15 @@ def free_land(slots, times):
     return free
 
 
-def free_water(slots):
+def free_water(slots, night=()):
+    """The slots (by WATER_ORDER) whose species is in another slot too, at most FREE_WATER, but `night`'s (the slots
+    HeartGold's night fishing takes, NIGHT_FISHING_SLOTS)"""
     count = collections.Counter(s['species'] for s in slots)
     free = []
     for i in WATER_ORDER:
         if len(free) == FREE_WATER:
             break
-        if slots[i]['level_max'] and slots[i]['species'] != 'SPECIES_NONE' and count[slots[i]['species']] > 1:
+        if i not in night and slots[i]['level_max'] and slots[i]['species'] != 'SPECIES_NONE' and count[slots[i]['species']] > 1:
             count[slots[i]['species']] -= 1
             free.append(i)
     return free
@@ -241,8 +253,10 @@ def main():
     places = hgss_places()
     platinum = platinum_tables()
 
-    # what the originals have, every table (radio, swarms, Poké Radar, the dual slots), headbutt and the Safari Zone
-    original = set(re.findall(r'SPECIES_\w+', json.dumps(hgss) + json.dumps(platinum) +
+    # what the originals have, every table (radio, swarms, Poké Radar), headbutt and the Safari Zone, but Platinum's
+    # dual slots, which need a Game Boy Advance game in the DS (Mawile is in Ruby's only)
+    reachable = {name: {k: v for k, v in t.items() if k not in DUAL_SLOTS} for name, t in platinum.items()}
+    original = set(re.findall(r'SPECIES_\w+', json.dumps(hgss) + json.dumps(reachable) +
                               open(os.path.join(HG_ARC, 'headbutt.json')).read() +
                               open(os.path.join(HG_ARC, 'safari_enc.json')).read()))
     original |= set(re.findall(r'SPECIES_\w+', open(os.path.join(ENC, 'sovereign_honey_trees.json')).read()))
@@ -262,14 +276,15 @@ def main():
                  'kanto' if label in KANTO else 'johto', AREA_TAGS.get(label, 'field').split(), bank)
         a.data, a.kind = table, 'hgss'
         land = table['land']['slots']
-        if table['land']['rate']:
+        # the Ruins of Alph's halls are Unown's own, their letters by the puzzles solved
+        if table['land']['rate'] and {s[t] for s in land if s['level'] for t in TIMES} != {'SPECIES_UNOWN'}:
             levels = [s['level'] for s in land if s['level']]
             a.tables['land'] = ((min(levels), max(levels)), free_land(land, TIMES))
         for kind in ('surf', 'old_rod', 'good_rod', 'super_rod'):
             if table[kind]['rate']:
                 s = table[kind]['slots']
                 a.tables[kind] = ((min(x['level_min'] for x in s if x['level_max']), max(x['level_max'] for x in s)),
-                                  free_water(s))
+                                  free_water(s, NIGHT_FISHING_SLOTS.get(kind, ())))
         areas.append(a)
     for i, (name, table) in enumerate(sorted(platinum.items())):
         stem = name[len('encounters_'):-len('.json')]
@@ -340,7 +355,7 @@ def main():
     families = collections.defaultdict(list)
     for r in todo:
         families[r['family_id']].append(r)
-    order = sorted(families.values(), key=lambda f: (all(r['is_baby'] == '1' for r in f),
+    order = sorted(families.values(), key=lambda f: (f[0]['name'] in LATE, all(r['is_baby'] == '1' for r in f),
                                                     min(gate[r['name']] for r in f), int(f[0]['dex'])))
 
     def put(r, spot):

@@ -1,15 +1,23 @@
 #!/usr/bin/env python3
-"""Check HeartGold's mass outbreaks in Johto and Kanto (src/complete_encounters.c) in the test build, from the bedroom
-state. Each part comes onto a map as tools/complete/test_hgss_encounters.py does and runs its survey (the game's own
-encounter code, wild_forms.SAMPLES times, gSovereignTestWildSurvey):
+"""Check HeartGold's mass outbreaks and night fishing in Johto and Kanto (src/complete_encounters.c) in the test build,
+from the bedroom state. Each part comes onto a map as tools/complete/test_hgss_encounters.py does and runs its survey
+(the game's own encounter code, wild_forms.SAMPLES times, gSovereignTestWildSurvey). Each map's outbreak and night
+species are its table's (res/field/encounters/hgss, HeartGold's own: Yanma on Route 35):
 
-1. **Off:** Route 35's grass with outbreaks off (a new game's): Illumise, its outbreak species, only as one of its
-   usual Pokémon, in fewer than a quarter of the encounters (about one in fifty).
+1. **Off:** Route 35's grass with outbreaks off (a new game's): its outbreak species only as one of its usual Pokémon,
+   in fewer than a quarter of the encounters.
 2. **Route 35:** outbreaks on (VAR_COMPLETE_OUTBREAKS, as Oak's National Pokédex sets it) and today's outbreak there
-   (gCompleteTestOutbreakMap): Illumise in the first two grass slots, so in at least a quarter of the encounters
+   (gCompleteTestOutbreakMap): the species in the first two grass slots, so in at least a quarter of the encounters
    (about two in five).
-3. **Elsewhere:** outbreaks on, today's outbreak on Route 1: Route 35 as usual, Illumise under a quarter.
-4. **Route 27's water:** outbreaks on, today's outbreak there: Feebas in the first surfing slot, at least a quarter.
+3. **Elsewhere:** outbreaks on, today's outbreak on Route 1: Route 35 as usual, the species under a quarter.
+4. **Route 27's water:** outbreaks on, today's outbreak there: its species in the first surfing slot, at least a
+   quarter.
+5. **Violet City's rods:** outbreaks on, today's outbreak there (a fishing one): the Super Rod's every slot has its
+   species.
+6. **Violet City, another day:** today's outbreak on Route 1: the Super Rod as usual, without it.
+7. **Night fishing:** Cherrygrove City's Super Rod at 10 p.m. (gSovereignTestClock): the night species in its second
+   slot, at least a quarter.
+8. **By day:** the same at 1 p.m.: none.
 
 Results: a line per part.
 
@@ -19,6 +27,7 @@ test build's folder (decomp/build_test by default):
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR
 """
 import os
+import re
 import struct
 import sys
 
@@ -28,15 +37,28 @@ from talk_to_objects import SYMBOLS, arrive, symbols, var_ids  # noqa: E402
 from test_hgss_encounters import cases  # noqa: E402
 from wild_forms import MON_SIZE, SURVEY, TERRAINS, events_of, run_survey, species_names  # noqa: E402
 
+DECOMP = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'decomp')
 ROUTE_35, ROUTE_27 = 'MAP_HEADER_HGSS_ROUTE_35', 'MAP_HEADER_HGSS_ROUTE_27'
-# Entries of the outbreak table (src/complete_encounters.c, sOutbreakMaps), + 1 for gCompleteTestOutbreakMap
-OUTBREAK_ROUTE_1, OUTBREAK_ROUTE_27, OUTBREAK_ROUTE_35 = 1, 9, 11
-PARTS = [  # (name, map, terrain, outbreaks on, today's outbreak map entry + 1, the species, whether it should appear)
-    ('off', ROUTE_35, 'land', 0, OUTBREAK_ROUTE_35, 'SPECIES_ILLUMISE', False),
-    ('Route 35', ROUTE_35, 'land', 1, OUTBREAK_ROUTE_35, 'SPECIES_ILLUMISE', True),
-    ('elsewhere', ROUTE_35, 'land', 1, OUTBREAK_ROUTE_1, 'SPECIES_ILLUMISE', False),
-    ('Route 27 water', ROUTE_27, 'surf', 1, OUTBREAK_ROUTE_27, 'SPECIES_FEEBAS', True),
+VIOLET, CHERRYGROVE, ROUTE_1 = 'MAP_HEADER_HGSS_VIOLET', 'MAP_HEADER_HGSS_CHERRYGROVE', 'MAP_HEADER_HGSS_ROUTE_1'
+PARTS = [  # (name, map, terrain, outbreaks on, today's outbreak map, the table's species, whether it should appear,
+    #         the hour or None)
+    ('off', ROUTE_35, 'land', 0, ROUTE_35, 'land', False, None),
+    ('Route 35', ROUTE_35, 'land', 1, ROUTE_35, 'land', True, None),
+    ('elsewhere', ROUTE_35, 'land', 1, ROUTE_1, 'land', False, None),
+    ('Route 27 water', ROUTE_27, 'surf', 1, ROUTE_27, 'surf', True, None),
+    ('Violet City rods', VIOLET, 'super rod', 1, VIOLET, 'fishing', True, 13),
+    ('Violet City, another day', VIOLET, 'super rod', 1, ROUTE_1, 'fishing', False, 13),
+    ('night fishing', CHERRYGROVE, 'super rod', 0, ROUTE_1, 'night_fishing', True, 22),
+    ('by day', CHERRYGROVE, 'super rod', 0, ROUTE_1, 'night_fishing', False, 13),
 ]
+
+
+def outbreak_entries():
+    """{map header: its entry in sOutbreakMaps + 1, as gCompleteTestOutbreakMap takes it}"""
+    text = open(os.path.join(DECOMP, 'src', 'complete_encounters.c')).read()
+    body = text[text.index('sOutbreakMaps[] = {'):]
+    body = body[:body.index('};')]
+    return {name: i + 1 for i, name in enumerate(re.findall(r'\{ (MAP_HEADER_\w+), OUTBREAK_\w+ \}', body))}
 
 
 def main():
@@ -44,28 +66,33 @@ def main():
 
     rom, state, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
-    sym = symbols(SYMBOLS + ('gSovereignTestWildSurvey', 'gCompleteTestOutbreakMap'))
+    sym = symbols(SYMBOLS + ('gSovereignTestWildSurvey', 'gCompleteTestOutbreakMap', 'gSovereignTestClock'))
     variables = var_ids()
     names = species_names()
-    places = {header: (header_id, tile) for header, header_id, _, tile in cases()
-              if header in (ROUTE_35, ROUTE_27)}
+    entries = outbreak_entries()
+    places = {header: (header_id, tile, table) for header, header_id, table, tile in cases()
+              if header in {part[1] for part in PARTS}}
     d = Driver(rom, state)
     d.added, d.armed = [], False
     mem = d.emu.memory
     survey = sym['gSovereignTestWildSurvey']
     terrain_ids = [t for t, _ in TERRAINS]
 
-    def setup(on, entry):
+    def setup(on, entry, hour):
         def apply():
             mem.write_short(sym['gSovereignTestVar'] + 4, variables['VAR_COMPLETE_OUTBREAKS'])  # [1]; [0] is arrive's
             mem.write_short(sym['gSovereignTestVar'] + 6, on)
             mem.write_byte(sym['gCompleteTestOutbreakMap'], entry)
+            mem.write_byte(sym['gSovereignTestClock'], 0 if hour is None else hour + 1)
         return apply
 
     results = []
-    for name, header, terrain, on, entry, species, wanted in PARTS:
-        header_id, (x, z) = places[header]
-        result, _ = arrive(d, sym, state, variables, events_of(header), header_id, (x, z), x, z, 1, setup(on, entry))
+    for name, header, terrain, on, today, kind, wanted, hour in PARTS:
+        header_id, (x, z), table = places[header]
+        species = table['swarm'][kind]  # the map's outbreak and night species
+        result, _ = arrive(d, sym, state, variables, events_of(header), header_id, (x, z), x, z, 1,
+                           setup(on, entries[today], hour))
+        d.run(30)  # the game reads the clock every 11 frames (UpdateRTC)
         problem = '' if result == 'ok' else f'arrive {result}'
         seen = 0
         if not problem:

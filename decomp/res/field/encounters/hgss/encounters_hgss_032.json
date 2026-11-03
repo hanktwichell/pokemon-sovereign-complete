@@ -23,9 +23,9 @@
             },
             {
                 "level": 21,
-                "morning": "SPECIES_INKAY",
-                "day": "SPECIES_INKAY",
-                "night": "SPECIES_INKAY"
+                "morning": "SPECIES_GOLETT",
+                "day": "SPECIES_GOLETT",
+                "night": "SPECIES_GOLETT"
             },
             {
                 "level": 22,
@@ -35,9 +35,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_SIGILYPH",
-                "day": "SPECIES_SIGILYPH",
-                "night": "SPECIES_SIGILYPH"
+                "morning": "SPECIES_RATTATA",
+                "day": "SPECIES_RATTATA",
+                "night": "SPECIES_GASTLY"
             },
             {
                 "level": 22,
@@ -47,9 +47,9 @@
             },
             {
                 "level": 22,
-                "morning": "SPECIES_RATTATA",
-                "day": "SPECIES_RATTATA",
-                "night": "SPECIES_RATTATA"
+                "morning": "SPECIES_DREEPY",
+                "day": "SPECIES_DREEPY",
+                "night": "SPECIES_DREEPY"
             },
             {
                 "level": 23,

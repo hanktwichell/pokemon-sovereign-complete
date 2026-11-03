@@ -723,7 +723,9 @@ BOOL WildEncounters_TryFishingEncounter(FieldSystem *fieldSystem, enum Encounter
         }
 
         for (u8 i = 0; i < MAX_WATER_ENCOUNTERS; i++) {
-            encounterTable[i].species = fishingEncounters[i].species;
+            int hgss = CompleteEncounters_FishingSpecies(fieldSystem, fishingRodType, i); // Sovereign Complete: HeartGold's night fishing and outbreaks
+
+            encounterTable[i].species = hgss != 0 ? hgss : fishingEncounters[i].species;
             encounterTable[i].maxLevel = fishingEncounters[i].maxLevel;
             encounterTable[i].minLevel = fishingEncounters[i].minLevel;
         }

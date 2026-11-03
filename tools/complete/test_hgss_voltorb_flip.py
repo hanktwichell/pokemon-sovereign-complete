@@ -288,5 +288,10 @@ def main():
     results.append(f'leaves: {problem or "ok"}')
     print(results[-1], flush=True)
 
+    ok = sum(': ok' in r for r in results)
+    print(f'{ok} of {len(results)} parts ok', flush=True)
+    sys.exit(0 if ok == len(results) else 1)
+
+
 if __name__ == '__main__':
     main()

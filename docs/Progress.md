@@ -1445,3 +1445,15 @@ Test results on the new test build:
 - **The story test on the follower fix:** the full run on the build where the follower comes out beside the player,
   never on their tile, passed all 186 parts, New Bark Town to Sinnoh's Hall of Fame (its first 16 in one run, the
   other 170 resumed from Azalea Town's save in another, with Cynthia beaten and the Hall of Fame entered).
+- **Wild Pokémon fixes from the original tables:** three tests had failed since the Nov 1 switch to the original
+  games' tables, and each was a real gap. The outbreak species are now HeartGold's own (Yanma on Route 35, Luvdisc on
+  Route 27's water, where Sacred Gold had Illumise and Feebas); the test reads each map's from its table now. The
+  Ruins of Alph's halls take no new species: they're Unown's, their letters let out by the puzzles, and the mixing
+  had put a Gothita, a Hatenna, a Milcery and a Fidough in them (now in other Johto areas). HeartGold's data has what
+  Sacred Gold's files lacked, so HeartGold's fishing outbreaks (Relicanth on Route 12, Qwilfish on Route 32, Remoraid
+  on Route 44, Whiscash in Violet City) and its night fishing (a night species on the Good and Super Rods after 8
+  p.m.) are in too, with no new species in the two rod slots night fishing takes. Mawile, whose only original table
+  was a Game Boy Advance dual slot, is mixed in now (Johto, placed after the rest so no other species moved).
+  `docs/WildPokemon.md` and the spreadsheet are regenerated. In the emulator: the outbreak test's 8 parts (with the
+  rods and night fishing) and the Alph puzzle test's 4 pass. The Battle Factory's part of the Frontier test failed once
+  as a slow battle ran past the test's wait: the rentals are random, so the wait is longer now.

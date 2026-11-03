@@ -6,11 +6,11 @@ Each map has its own table from HeartGold/SoulSilver (Johto, Kanto) or Platinum 
 
 | Region | New species placed |
 |---|---|
-| Johto | 134 |
+| Johto | 135 |
 | Kanto | 134 |
 | Sinnoh | 136 |
 
-409 species to place; 404 placed.
+410 species to place; 405 placed.
 
 ## Johto
 
@@ -52,9 +52,9 @@ _field, forest_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Ledyba (20%), Weedle (20%), Pidgey (16%), **Porygon**★ (10%), Caterpie (10%), **Petilil**★ (10%), Kakuna (5%), Metapod (5%), **Rellor**★ (4%) |
-| Day | Pidgey (40%), Weedle (20%), **Porygon**★ (10%), **Petilil**★ (10%), Metapod (6%), Kakuna (5%), Caterpie (5%), **Rellor**★ (4%) |
-| Night | Spinarak (30%), Rattata (30%), Hoothoot (16%), **Porygon**★ (10%), **Petilil**★ (10%), **Rellor**★ (4%) |
+| Morning | Ledyba (20%), Weedle (20%), Pidgey (16%), **Porygon**★ (10%), Caterpie (10%), **Petilil**★ (10%), Kakuna (5%), Metapod (5%), **Capsakid**★ (4%) |
+| Day | Pidgey (40%), Weedle (20%), **Porygon**★ (10%), **Petilil**★ (10%), Metapod (6%), Kakuna (5%), Caterpie (5%), **Capsakid**★ (4%) |
+| Night | Spinarak (30%), Rattata (30%), Hoothoot (16%), **Porygon**★ (10%), **Petilil**★ (10%), **Capsakid**★ (4%) |
 | Surf | Poliwag (90%), Poliwhirl (10%) |
 | Old Rod | Magikarp (95%), Poliwag (5%) |
 | Good Rod | Magikarp (60%), Poliwag (40%) |
@@ -133,46 +133,6 @@ _ruins_
 | Good Rod | Magikarp (60%), Poliwag (40%) |
 | Super Rod | Poliwag (94%), Magikarp (6%) |
 
-### Ruins Of Alph (D24R0205)
-
-_ruins_
-
-| Table | Pokémon |
-|---|---|
-| Morning | Unown (90%), **Gothita**★ (10%) |
-| Day | Unown (90%), **Gothita**★ (10%) |
-| Night | Unown (90%), **Gothita**★ (10%) |
-
-### Ruins Of Alph (D24R0216)
-
-_ruins_
-
-| Table | Pokémon |
-|---|---|
-| Morning | Unown (90%), **Hatenna**★ (10%) |
-| Day | Unown (90%), **Hatenna**★ (10%) |
-| Night | Unown (90%), **Hatenna**★ (10%) |
-
-### Ruins Of Alph (D24R0218)
-
-_ruins_
-
-| Table | Pokémon |
-|---|---|
-| Morning | Unown (90%), **Milcery**★ (10%) |
-| Day | Unown (90%), **Milcery**★ (10%) |
-| Night | Unown (90%), **Milcery**★ (10%) |
-
-### Ruins Of Alph (D24R0217)
-
-_ruins_
-
-| Table | Pokémon |
-|---|---|
-| Morning | Unown (90%), **Fidough**★ (10%) |
-| Day | Unown (90%), **Fidough**★ (10%) |
-| Night | Unown (90%), **Fidough**★ (10%) |
-
 ### Union Cave (D25R0101)
 
 _cave_
@@ -193,9 +153,9 @@ _cave_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Geodude (30%), Sandshrew (30%), Zubat (25%), Onix (10%), Rattata (5%) |
-| Day | Geodude (30%), Sandshrew (30%), Zubat (25%), Onix (10%), Rattata (5%) |
-| Night | Geodude (30%), Sandshrew (30%), Zubat (25%), Onix (10%), Rattata (5%) |
+| Morning | Geodude (30%), Zubat (25%), Sandshrew (20%), **Mawile**★ (10%), Onix (10%), Rattata (5%) |
+| Day | Geodude (30%), Zubat (25%), Sandshrew (20%), **Mawile**★ (10%), Onix (10%), Rattata (5%) |
+| Night | Geodude (30%), Zubat (25%), Sandshrew (20%), **Mawile**★ (10%), Onix (10%), Rattata (5%) |
 | Surf | Wooper (60%), Quagsire (40%) |
 | Old Rod | Magikarp (95%), Goldeen (5%) |
 | Good Rod | Magikarp (60%), Goldeen (40%) |
@@ -207,9 +167,9 @@ _cave_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Zubat (30%), Raticate (20%), **Sawk**★ (10%), Golbat (10%), **Klawf**★ (10%), Geodude (10%), Rattata (5%), Onix (5%) |
-| Day | Zubat (30%), Raticate (20%), **Sawk**★ (10%), Golbat (10%), **Klawf**★ (10%), Geodude (10%), Rattata (5%), Onix (5%) |
-| Night | Zubat (30%), Raticate (20%), **Sawk**★ (10%), Golbat (10%), **Klawf**★ (10%), Geodude (10%), Rattata (5%), Onix (5%) |
+| Morning | Zubat (30%), Raticate (20%), Golbat (20%), **Sawk**★ (10%), Geodude (10%), Rattata (5%), Onix (5%) |
+| Day | Zubat (30%), Raticate (20%), Golbat (20%), **Sawk**★ (10%), Geodude (10%), Rattata (5%), Onix (5%) |
+| Night | Zubat (30%), Raticate (20%), Golbat (20%), **Sawk**★ (10%), Geodude (10%), Rattata (5%), Onix (5%) |
 | Surf | Tentacool (60%), Quagsire (30%), Tentacruel (10%) |
 | Old Rod | Magikarp (95%), Krabby (5%) |
 | Good Rod | Magikarp (60%), Krabby (36%), Corsola (4%) |
@@ -231,13 +191,13 @@ _cave, lake_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Zubat (85%), Slowpoke (15%) |
-| Day | Zubat (85%), Slowpoke (15%) |
-| Night | Zubat (85%), Slowpoke (15%) |
+| Morning | Zubat (65%), Slowpoke (15%), **Tirtouga**★ (10%), **Tinkatink**★ (10%) |
+| Day | Zubat (65%), Slowpoke (15%), **Tirtouga**★ (10%), **Tinkatink**★ (10%) |
+| Night | Zubat (65%), Slowpoke (15%), **Tirtouga**★ (10%), **Tinkatink**★ (10%) |
 | Surf | Slowpoke (100%) |
 | Old Rod | Magikarp (95%), Goldeen (5%) |
 | Good Rod | Magikarp (60%), Goldeen (40%) |
-| Super Rod | Goldeen (60%), **Seismitoad**★ (30%), Magikarp (6%), Seaking (4%) |
+| Super Rod | Goldeen (90%), Magikarp (6%), Seaking (4%) |
 
 ### Slowpoke Well (D26R0103)
 
@@ -259,9 +219,9 @@ _forest_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Weedle (20%), Kakuna (20%), Paras (15%), **Capsakid**★ (10%), Metapod (10%), Caterpie (10%), **Grubbin**★ (10%), Zubat (5%) |
-| Day | Caterpie (30%), Weedle (20%), **Capsakid**★ (10%), Kakuna (10%), **Grubbin**★ (10%), Metapod (10%), Zubat (5%), Paras (5%) |
-| Night | Oddish (50%), Zubat (15%), Paras (15%), **Capsakid**★ (10%), **Grubbin**★ (10%) |
+| Morning | Weedle (20%), Kakuna (20%), Paras (15%), **Tarountula**★ (10%), Metapod (10%), Caterpie (10%), **Grubbin**★ (10%), Zubat (5%) |
+| Day | Caterpie (30%), Weedle (20%), **Tarountula**★ (10%), Kakuna (10%), **Grubbin**★ (10%), Metapod (10%), Zubat (5%), Paras (5%) |
+| Night | Oddish (50%), Zubat (15%), Paras (15%), **Tarountula**★ (10%), **Grubbin**★ (10%) |
 | Surf | Psyduck (90%), Golduck (10%) |
 | Old Rod | Magikarp (95%), Poliwag (5%) |
 | Good Rod | Magikarp (60%), Poliwag (40%) |
@@ -287,9 +247,9 @@ _field, lake_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Nidoran♂ (30%), Nidoran♀ (20%), Drowzee (20%), **Rookidee**★ (10%), Abra (10%), Pidgey (5%), Ditto (4%), Yanma (1%) |
-| Day | Nidoran♂ (30%), Nidoran♀ (20%), Drowzee (20%), **Rookidee**★ (10%), Abra (10%), Pidgey (5%), Ditto (4%), Yanma (1%) |
-| Night | Nidoran♂ (30%), Nidoran♀ (20%), Drowzee (20%), **Rookidee**★ (10%), Abra (10%), Hoothoot (5%), Ditto (4%), Yanma (1%) |
+| Morning | Nidoran♂ (30%), Nidoran♀ (20%), **Rookidee**★ (10%), Drowzee (10%), **Rellor**★ (10%), Abra (10%), Pidgey (5%), Ditto (4%), Yanma (1%) |
+| Day | Nidoran♂ (30%), Nidoran♀ (20%), **Rookidee**★ (10%), Drowzee (10%), **Rellor**★ (10%), Abra (10%), Pidgey (5%), Ditto (4%), Yanma (1%) |
+| Night | Nidoran♂ (30%), Nidoran♀ (20%), **Rookidee**★ (10%), Drowzee (10%), **Rellor**★ (10%), Abra (10%), Hoothoot (5%), Ditto (4%), Yanma (1%) |
 | Surf | Psyduck (90%), Golduck (10%) |
 | Old Rod | Magikarp (95%), Poliwag (5%) |
 | Good Rod | Magikarp (60%), Poliwag (40%) |
@@ -331,9 +291,9 @@ _forest_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Pidgey (30%), Ledyba (20%), Stantler (20%), **Tarountula**★ (10%), **Spidops**★ (10%), Vulpix (5%), Growlithe (5%) |
-| Day | Pidgey (40%), Stantler (20%), **Tarountula**★ (10%), **Spidops**★ (10%), Growlithe (10%), Vulpix (5%), Pidgeotto (5%) |
-| Night | Spinarak (40%), Stantler (20%), **Tarountula**★ (10%), Hoothoot (10%), **Spidops**★ (10%), Vulpix (5%), Growlithe (5%) |
+| Morning | Pidgey (30%), Ledyba (20%), Stantler (20%), **Milcery**★ (10%), **Spidops**★ (10%), Vulpix (5%), Growlithe (5%) |
+| Day | Pidgey (40%), Stantler (20%), **Milcery**★ (10%), **Spidops**★ (10%), Growlithe (10%), Vulpix (5%), Pidgeotto (5%) |
+| Night | Spinarak (40%), Stantler (20%), **Milcery**★ (10%), Hoothoot (10%), **Spidops**★ (10%), Vulpix (5%), Growlithe (5%) |
 
 ### Ecruteak City (T27)
 
@@ -372,9 +332,9 @@ _ruins, ghost_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Rattata (85%), **Liepard**★ (10%), **Dreepy**★ (5%) |
-| Day | Rattata (85%), **Liepard**★ (10%), **Dreepy**★ (5%) |
-| Night | Gastly (70%), Rattata (15%), **Liepard**★ (10%), **Dreepy**★ (5%) |
+| Morning | Rattata (80%), **Liepard**★ (10%), **Gimmighoul**★ (10%) |
+| Day | Rattata (80%), **Liepard**★ (10%), **Gimmighoul**★ (10%) |
+| Night | Gastly (60%), Rattata (20%), **Liepard**★ (10%), **Gimmighoul**★ (10%) |
 
 ### Bell Tower (D17R0103)
 
@@ -382,9 +342,9 @@ _ruins, ghost_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Rattata (80%), **Golett**★ (10%), **Spiritomb**★ (10%) |
-| Day | Rattata (80%), **Golett**★ (10%), **Spiritomb**★ (10%) |
-| Night | Gastly (60%), Rattata (20%), **Golett**★ (10%), **Spiritomb**★ (10%) |
+| Morning | Rattata (80%), **Gothita**★ (10%), **Poltchageist**★ (10%) |
+| Day | Rattata (80%), **Gothita**★ (10%), **Poltchageist**★ (10%) |
+| Night | Gastly (60%), Rattata (20%), **Gothita**★ (10%), **Poltchageist**★ (10%) |
 
 ### Bell Tower (D17R0104)
 
@@ -392,9 +352,9 @@ _ruins, ghost_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Rattata (80%), **Inkay**★ (10%), **Sigilyph**★ (10%) |
-| Day | Rattata (80%), **Inkay**★ (10%), **Sigilyph**★ (10%) |
-| Night | Gastly (60%), Rattata (20%), **Inkay**★ (10%), **Sigilyph**★ (10%) |
+| Morning | Rattata (85%), **Golett**★ (10%), **Dreepy**★ (5%) |
+| Day | Rattata (85%), **Golett**★ (10%), **Dreepy**★ (5%) |
+| Night | Gastly (70%), Rattata (15%), **Golett**★ (10%), **Dreepy**★ (5%) |
 
 ### Bell Tower (D17R0105)
 
@@ -402,9 +362,9 @@ _ruins, ghost_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Rattata (80%), **Phantump**★ (10%), **Oranguru**★ (10%) |
-| Day | Rattata (80%), **Phantump**★ (10%), **Oranguru**★ (10%) |
-| Night | Gastly (60%), Rattata (20%), **Phantump**★ (10%), **Oranguru**★ (10%) |
+| Morning | Rattata (80%), **Inkay**★ (10%), **Spiritomb**★ (10%) |
+| Day | Rattata (80%), **Inkay**★ (10%), **Spiritomb**★ (10%) |
+| Night | Gastly (60%), Rattata (20%), **Inkay**★ (10%), **Spiritomb**★ (10%) |
 
 ### Bell Tower (D17R0106)
 
@@ -412,11 +372,31 @@ _ruins, ghost_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Rattata (90%), **Sandygast**★ (10%) |
-| Day | Rattata (90%), **Sandygast**★ (10%) |
-| Night | Gastly (70%), Rattata (20%), **Sandygast**★ (10%) |
+| Morning | Rattata (80%), **Phantump**★ (10%), **Sigilyph**★ (10%) |
+| Day | Rattata (80%), **Phantump**★ (10%), **Sigilyph**★ (10%) |
+| Night | Gastly (60%), Rattata (20%), **Phantump**★ (10%), **Sigilyph**★ (10%) |
 
 ### Bell Tower (D17R0107)
+
+_ruins, ghost_
+
+| Table | Pokémon |
+|---|---|
+| Morning | Rattata (80%), **Sandygast**★ (10%), **Oranguru**★ (10%) |
+| Day | Rattata (80%), **Sandygast**★ (10%), **Oranguru**★ (10%) |
+| Night | Gastly (60%), Rattata (20%), **Sandygast**★ (10%), **Oranguru**★ (10%) |
+
+### Bell Tower (D17R0108)
+
+_ruins, ghost_
+
+| Table | Pokémon |
+|---|---|
+| Morning | Rattata (90%), **Hatenna**★ (10%) |
+| Day | Rattata (90%), **Hatenna**★ (10%) |
+| Night | Gastly (70%), Rattata (20%), **Hatenna**★ (10%) |
+
+### Bell Tower (D17R0109)
 
 _ruins, ghost_
 
@@ -425,26 +405,6 @@ _ruins, ghost_
 | Morning | Rattata (90%), **Bramblin**★ (10%) |
 | Day | Rattata (90%), **Bramblin**★ (10%) |
 | Night | Gastly (70%), Rattata (20%), **Bramblin**★ (10%) |
-
-### Bell Tower (D17R0108)
-
-_ruins, ghost_
-
-| Table | Pokémon |
-|---|---|
-| Morning | Rattata (90%), **Greavard**★ (10%) |
-| Day | Rattata (90%), **Greavard**★ (10%) |
-| Night | Gastly (70%), Rattata (20%), **Greavard**★ (10%) |
-
-### Bell Tower (D17R0109)
-
-_ruins, ghost_
-
-| Table | Pokémon |
-|---|---|
-| Morning | Rattata (90%), **Gimmighoul**★ (10%) |
-| Day | Rattata (90%), **Gimmighoul**★ (10%) |
-| Night | Gastly (70%), Rattata (20%), **Gimmighoul**★ (10%) |
 
 ### Route 38 (R38)
 
@@ -484,9 +444,9 @@ _sea, beach_
 | Table | Pokémon |
 |---|---|
 | Surf | Tentacool (90%), Tentacruel (6%), **Omanyte**★ (4%) |
-| Old Rod | Magikarp (95%), **Skrelp**★ (4%), Krabby (1%) |
-| Good Rod | Magikarp (60%), Krabby (36%), Corsola (4%) |
-| Super Rod | Krabby (61%), Corsola (30%), **Palafin**★ (5%), Kingler (4%) |
+| Old Rod | Magikarp (95%), **Finizen**★ (4%), Krabby (1%) |
+| Good Rod | Magikarp (60%), Krabby (31%), **Veluza**★ (5%), Corsola (4%) |
+| Super Rod | Krabby (61%), Corsola (30%), **Seismitoad**★ (5%), Kingler (4%) |
 
 ### Route 41 (W41)
 
@@ -505,9 +465,9 @@ _cave, sea_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Krabby (50%), Zubat (20%), Seel (15%), **Tirtouga**★ (10%), Golbat (5%) |
-| Day | Krabby (50%), Zubat (20%), Seel (15%), **Tirtouga**★ (10%), Golbat (5%) |
-| Night | Krabby (50%), Zubat (20%), Seel (15%), **Tirtouga**★ (10%), Golbat (5%) |
+| Morning | Krabby (50%), Zubat (20%), Seel (15%), **Corvisquire**★ (10%), Golbat (5%) |
+| Day | Krabby (50%), Zubat (20%), Seel (15%), **Corvisquire**★ (10%), Golbat (5%) |
+| Night | Krabby (50%), Zubat (20%), Seel (15%), **Corvisquire**★ (10%), Golbat (5%) |
 | Surf | Tentacool (60%), Horsea (30%), Tentacruel (10%) |
 | Old Rod | Magikarp (95%), Krabby (5%) |
 | Good Rod | Magikarp (60%), Krabby (36%), Horsea (4%) |
@@ -519,9 +479,9 @@ _cave, sea_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Krabby (50%), Zubat (20%), Seel (15%), **Corvisquire**★ (10%), Golbat (5%) |
-| Day | Krabby (50%), Zubat (20%), Seel (15%), **Corvisquire**★ (10%), Golbat (5%) |
-| Night | Krabby (50%), Zubat (20%), Seel (15%), **Corvisquire**★ (10%), Golbat (5%) |
+| Morning | Krabby (50%), Zubat (20%), Seel (15%), **Naclstack**★ (10%), Golbat (5%) |
+| Day | Krabby (50%), Zubat (20%), Seel (15%), **Naclstack**★ (10%), Golbat (5%) |
+| Night | Krabby (50%), Zubat (20%), Seel (15%), **Naclstack**★ (10%), Golbat (5%) |
 
 ### Whirl Islands (D40R0104)
 
@@ -529,9 +489,9 @@ _cave, sea_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Krabby (50%), Zubat (20%), Seel (15%), **Naclstack**★ (10%), Golbat (5%) |
-| Day | Krabby (50%), Zubat (20%), Seel (15%), **Naclstack**★ (10%), Golbat (5%) |
-| Night | Krabby (50%), Zubat (20%), Seel (15%), **Naclstack**★ (10%), Golbat (5%) |
+| Morning | Krabby (50%), Zubat (20%), Seel (15%), **Klawf**★ (10%), Golbat (5%) |
+| Day | Krabby (50%), Zubat (20%), Seel (15%), **Klawf**★ (10%), Golbat (5%) |
+| Night | Krabby (50%), Zubat (20%), Seel (15%), **Klawf**★ (10%), Golbat (5%) |
 | Surf | Horsea (60%), Tentacruel (30%), Seadra (10%) |
 | Old Rod | Magikarp (95%), Krabby (5%) |
 | Good Rod | Magikarp (60%), Krabby (36%), Horsea (4%) |
@@ -554,9 +514,9 @@ _sea, beach_
 | Table | Pokémon |
 |---|---|
 | Surf | Tentacool (90%), Tentacruel (6%), **Tympole**★ (4%) |
-| Old Rod | Magikarp (95%), **Finizen**★ (4%), Krabby (1%) |
-| Good Rod | Magikarp (60%), Krabby (31%), **Veluza**★ (5%), Corsola (4%) |
-| Super Rod | Krabby (61%), Corsola (30%), **Arctovish**★ (5%), Kingler (4%) |
+| Old Rod | Magikarp (95%), **Skrelp**★ (4%), Krabby (1%) |
+| Good Rod | Magikarp (60%), Krabby (36%), Corsola (4%) |
+| Super Rod | Krabby (61%), Corsola (30%), **Palafin**★ (5%), Kingler (4%) |
 
 ### Route 42 (R42)
 
@@ -564,9 +524,9 @@ _mountain, lake_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Mankey (30%), Spearow (30%), Mareep (20%), **Tinkatink**★ (10%), Flaaffy (10%) |
-| Day | Mankey (30%), Spearow (30%), Mareep (20%), **Tinkatink**★ (10%), Flaaffy (10%) |
-| Night | Mankey (30%), Zubat (30%), Mareep (20%), **Tinkatink**★ (10%), Flaaffy (10%) |
+| Morning | Mankey (30%), Spearow (30%), Mareep (20%), **Fidough**★ (10%), Flaaffy (10%) |
+| Day | Mankey (30%), Spearow (30%), Mareep (20%), **Fidough**★ (10%), Flaaffy (10%) |
+| Night | Mankey (30%), Zubat (30%), Mareep (20%), **Fidough**★ (10%), Flaaffy (10%) |
 | Surf | Goldeen (90%), Seaking (10%) |
 | Old Rod | Magikarp (95%), Goldeen (5%) |
 | Good Rod | Magikarp (60%), Goldeen (40%) |
@@ -839,7 +799,7 @@ _cave, sea_
 
 | Table | Pokémon |
 |---|---|
-| Surf | Wooper (90%), Quagsire (10%) |
+| Surf | Wooper (90%), Quagsire (6%), **Arctovish**★ (4%) |
 | Old Rod | Magikarp (100%) |
 | Good Rod | Magikarp (95%), Poliwag (5%) |
 | Super Rod | Magikarp (90%), Poliwag (10%) |
@@ -860,9 +820,9 @@ _ruins, ghost_
 
 | Table | Pokémon |
 |---|---|
-| Morning | Rattata (90%), **Poltchageist**★ (10%) |
-| Day | Rattata (90%), **Poltchageist**★ (10%) |
-| Night | Gastly (70%), Rattata (20%), **Poltchageist**★ (10%) |
+| Morning | Rattata (90%), **Greavard**★ (10%) |
+| Day | Rattata (90%), **Greavard**★ (10%) |
+| Night | Gastly (70%), Rattata (20%), **Greavard**★ (10%) |
 
 ### Mt Silver (T31)
 
@@ -1037,7 +997,7 @@ _sea_
 | Surf | Tentacool (60%), Quagsire (30%), Tentacruel (10%) |
 | Old Rod | Magikarp (95%), **Pyukumuku**★ (4%), Tentacool (1%) |
 | Good Rod | Magikarp (60%), Tentacool (40%) |
-| Super Rod | Tentacool (60%), **Barraskewda**★ (30%), Magikarp (6%), Qwilfish (4%) |
+| Super Rod | Tentacool (90%), Magikarp (6%), Qwilfish (4%) |
 
 ### Route 19 (W19)
 
@@ -1069,8 +1029,8 @@ _sea_
 |---|---|
 | Surf | Tentacool (90%), Tentacruel (10%) |
 | Old Rod | Magikarp (95%), Tentacool (5%) |
-| Good Rod | Magikarp (60%), Tentacool (30%), **Alomomola**★ (5%), Shellder (4%), Chinchou (1%) |
-| Super Rod | Chinchou (60%), Shellder (30%), Tentacruel (6%), Lanturn (4%) |
+| Good Rod | Magikarp (60%), Tentacool (30%), Chinchou (6%), Shellder (4%) |
+| Super Rod | Chinchou (60%), Shellder (30%), **Barraskewda**★ (5%), Lanturn (4%), Tentacruel (1%) |
 
 ### Viridian City (T02)
 
@@ -1102,7 +1062,7 @@ _sea, city_
 |---|---|
 | Surf | Tentacool (90%), Tentacruel (10%) |
 | Old Rod | Magikarp (95%), Tentacool (5%) |
-| Good Rod | Magikarp (60%), Tentacool (30%), Chinchou (6%), Shellder (4%) |
+| Good Rod | Magikarp (60%), Tentacool (30%), **Alomomola**★ (5%), Shellder (4%), Chinchou (1%) |
 | Super Rod | Chinchou (60%), Shellder (30%), Tentacruel (6%), Lanturn (4%) |
 
 ### Celadon City (T07)

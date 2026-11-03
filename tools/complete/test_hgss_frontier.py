@@ -128,11 +128,13 @@ def main():
             d.press('A', frames=4, after=30)
             d.press('DOWN', frames=4, after=20)
             d.press('A', frames=4, after=90)
+            d.screenshot().save(os.path.join(out, f'factory_rent_{i}.png'))
             if i < 2:
                 d.press('RIGHT', frames=4, after=30)
         d.screenshot().save(os.path.join(out, 'factory_rented.png'))
         d.press('A', frames=4, after=200)  # yes, these three
-        if not until(lambda: shows(MENU_PROBES), limit=150, after=100):  # A through the battle (god mode)
+        # A through the battle (god mode): the rentals are random, so a battle can be long (weak moves, a staller)
+        if not until(lambda: shows(MENU_PROBES), limit=400, after=100):
             problem = 'the first battle never ended'
     if not problem:
         d.run(90)  # the menu takes keys once its line has printed
@@ -173,6 +175,10 @@ def main():
         d.screenshot().save(os.path.join(out, f'{name.lower()}_start.png'))
         results.append(f'{name}: {problem or "ok"}')
         print(results[-1], flush=True)
+
+    ok = sum(r.endswith(': ok') for r in results)
+    print(f'{ok} of {len(results)} parts ok', flush=True)
+    sys.exit(0 if ok == len(results) else 1)
 
 
 if __name__ == '__main__':

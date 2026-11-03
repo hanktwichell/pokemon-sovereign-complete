@@ -7,8 +7,8 @@
 #include "overlay006/wild_encounters.h"
 #include "savedata.h"
 
-// Sovereign Complete: Johto's and Kanto's wild Pokémon, Sacred Gold's tables in HeartGold's layout
-// (res/field/encounters/hgss, hgss_enc_data.narc; docs/SacredGold.md).
+// Sovereign Complete: Johto's and Kanto's wild Pokémon, HeartGold/SoulSilver's tables with the new species mixed in
+// (res/field/encounters/hgss from tools/complete/gen_wild.py, hgss_enc_data.narc; docs/WildPokemon.md).
 
 // Fills a Johto or Kanto map's table (MapHeaderData_LoadWildEncounters): the grass slots as in the morning, day and
 // night swaps of slots 2 and 3 as HeartGold has them, surfing and the rods.
@@ -20,6 +20,9 @@ int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot);
 // HeartGold's mass outbreaks: on the day's outbreak map, the grass's first two slots (CompleteEncounters_GrassSpecies)
 // or the first surfing slot (this, on a surfing table's first species) have the map's swarm species
 void CompleteEncounters_SurfOutbreak(FieldSystem *fieldSystem, int *firstSlotSpecies);
+// The species HeartGold's night fishing or the day's fishing outbreak puts in rod slot `slot` on the field's map, or 0
+// to keep the table's
+int CompleteEncounters_FishingSpecies(FieldSystem *fieldSystem, enum EncounterFishingRodType rod, int slot);
 
 // Rock Smash on the field's map (a HeartGold encounter Platinum doesn't have): slot `slot`'s Pokémon (0 or 1, which
 // HeartGold picks at 80% and 20%) and the rate (%) a smashed rock has one, or 0 off Johto and Kanto or with none.
@@ -36,8 +39,8 @@ u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing,
 BOOL CompleteEncounters_IsRuinsOfAlphHall(enum MapHeaderID mapHeaderID);
 u32 CompleteEncounters_UnownForms(FieldSystem *fieldSystem);
 
-// For Oak's Pokémon Talk on the Pokégear radio: today's outbreak, its map and species (FALSE for none, or a fishing
-// one), and every wild Pokémon of a Johto or Kanto map (into out, at most max, once each; how many)
+// For Oak's Pokémon Talk on the Pokégear radio: today's outbreak, its map and species (FALSE for none), and every wild
+// Pokémon of a Johto or Kanto map (into out, at most max, once each; how many)
 BOOL CompleteEncounters_TodaysOutbreak(SaveData *saveData, u16 *mapHeaderID, u16 *species);
 int CompleteEncounters_MapSpecies(enum MapHeaderID mapHeaderID, u16 *out, int max);
 

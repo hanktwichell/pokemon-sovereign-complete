@@ -14,8 +14,10 @@ and the Old Rod 60/30/5/4/1, the Good and Super Rods 40/40/15/4/1, Rock Smash 80
 Safari Zone's ten slots alike, the Bug-Catching Contest's own (src/complete_bug_contest.c). A Pokémon in several slots
 of a table has their odds added. Special encounters replace slots of the walking table when they're on: Platinum's
 swarm (slots 0-1), the Poké Radar (4, 5, 10, 11), the Trophy Garden's and the Great Marsh's daily Pokémon (6-7), a
-Game Boy Advance game in the DS (8-9) and HeartGold's outbreaks (walking 0-1, surfing 0); their rows give those slots'
-odds, with what turns them on in the notes. Static encounters, gifts and trades aren't listed (the legendaries are
+Game Boy Advance game in the DS (8-9) and HeartGold's outbreaks (walking 0-1, surfing 0, the Old Rod 2, the Good Rod
+0, 2 and 3, every Super Rod slot); their rows give those slots' odds, with what turns them on in the notes. In Johto
+and Kanto the Good Rod's slot 3 and the Super Rod's slot 1 have the map's night species at night (HeartGold's night
+fishing), so those rods have a row for the morning and day and one for the night. Static encounters, gifts and trades aren't listed (the legendaries are
 moving between the regions).
 
 Usage: python3 tools/complete/wild_spreadsheet.py [OUT]   (default docs/WildPokemon.xlsx)
@@ -44,6 +46,10 @@ from gen_wild_encounters import AREA_FILES  # noqa: E402
 LAND = [20, 20, 10, 10, 10, 10, 5, 5, 4, 4, 1, 1]
 RODS = {'surf': [60, 30, 5, 4, 1], 'old_rod': [60, 30, 5, 4, 1], 'good_rod': [40, 40, 15, 4, 1],
         'super_rod': [40, 40, 15, 4, 1]}
+# HeartGold's night fishing and fishing outbreaks (src/complete_encounters.c, CompleteEncounters_FishingSpecies): the
+# slot the night species takes, and the slots the outbreak species takes
+NIGHT_FISHING = {'good_rod': 3, 'super_rod': 1}
+OUTBREAK_RODS = {'old_rod': (2,), 'good_rod': (0, 2, 3), 'super_rod': (0, 1, 2, 3, 4)}
 WATER_NAMES = {'surf': 'Surfing', 'old_rod': 'Old Rod', 'good_rod': 'Good Rod', 'super_rod': 'Super Rod'}
 HEADBUTT = [50, 15, 15, 10, 5, 5]
 TIMES = ('Morning', 'Day', 'Night')
@@ -140,8 +146,16 @@ def johto_kanto(sheet, maps):
                            [(s[key], s['level'], s['level']) for s in t['land']['slots']], LAND)
         for kind, rates in RODS.items():
             if t[kind]['rate']:
-                table_rows(sheet, where, WATER_NAMES[kind], 'Any',
-                           [(s['species'], s['level_min'], s['level_max']) for s in t[kind]['slots']], rates)
+                slots = [(s['species'], s['level_min'], s['level_max']) for s in t[kind]['slots']]
+                night = t['swarm']['night_fishing']
+                if kind in NIGHT_FISHING and night not in ('SPECIES_NONE', slots[NIGHT_FISHING[kind]][0]):
+                    # HeartGold's night fishing: at night one slot has the map's night species
+                    at_night = list(slots)
+                    at_night[NIGHT_FISHING[kind]] = (night, *slots[NIGHT_FISHING[kind]][1:])
+                    table_rows(sheet, where, WATER_NAMES[kind], 'Morning, Day', slots, rates)
+                    table_rows(sheet, where, WATER_NAMES[kind], 'Night', at_night, rates)
+                else:
+                    table_rows(sheet, where, WATER_NAMES[kind], 'Any', slots, rates)
         if t['rock_smash']['rate']:
             table_rows(sheet, where, 'Rock Smash', 'Any',
                        [(s['species'], s['level_min'], s['level_max']) for s in t['rock_smash']['slots']], [80, 20],
@@ -164,6 +178,13 @@ def johto_kanto(sheet, maps):
             s = t['surf']['slots'][0]
             sheet.add(*where, 'Mass outbreak (surfing)', 'Any', t['swarm']['surf'],
                       level_text(s['level_min'], s['level_max']), 0.6, note)
+        elif terrain == 'FISHING' and t['swarm']['fishing'] != 'SPECIES_NONE':
+            for kind, slots in OUTBREAK_RODS.items():
+                if t[kind]['rate']:
+                    got = [t[kind]['slots'][i] for i in slots]
+                    sheet.add(*where, f'Mass outbreak ({WATER_NAMES[kind]})', 'Any', t['swarm']['fishing'],
+                              level_text(min(x['level_min'] for x in got), max(x['level_max'] for x in got)),
+                              sum(RODS[kind][i] for i in slots) / 100, note)
 
     # Headbutt trees (include/data/hgss_field_encounters.h)
     src = open(os.path.join(DECOMP, 'include', 'data', 'hgss_field_encounters.h'), encoding='utf-8').read()

@@ -179,22 +179,24 @@ species' place is listed in `docs/WildPokemon.md`.
   Vulpix). Sinnoh: Platinum's (pret's decompilation, as Sovereign first imported it). Headbutt trees, the Safari Zone
   and the Bug-Catching Contest were HeartGold's already; the Honey Trees and the Great Marsh's lookout keep
   Sovereign's tables, and so do encounter files Platinum doesn't have.
-- **The Pokémon mixed in:** 409 species, every regular one (not legendary, mythical, an Ultra Beast or a Paradox
-  Pokémon) of a family no original table has, but for starters, which Sovereign gives at Pokémon Centers. Each family
-  goes to one region, taking turns (134 in Johto, 134 in Kanto, 136 in Sinnoh), and each species to one slot that the
-  original table had twice, so every original species stays where it was: where the habitat suits its types and the
-  levels reach the level it evolves at, the earliest such area first, stronger species in rarer slots (Sovereign's
-  rules, from `tools/design/gen_encounters.py`). At most four grass slots and two of each water table go to new
-  species. Five final forms no table's levels reach (Hydreigon, Dragapult, Volcarona, Braviary, Kingambit) come by
-  evolving.
+- **The Pokémon mixed in:** 410 species, every regular one (not legendary, mythical, an Ultra Beast or a Paradox
+  Pokémon) of a family no original table has, but for starters, which Sovereign gives at Pokémon Centers (Platinum's
+  dual slots, which need a Game Boy Advance game in the DS, don't count: Mawile is in Ruby's only, so it's mixed in too,
+  placed after the rest). Each family goes to one region, taking turns (135 in Johto, 134 in Kanto, 136 in Sinnoh), and
+  each species to one slot that the original table had twice, so every original species stays where it was: where the
+  habitat suits its types and the levels reach the level it evolves at, the earliest such area first, stronger species
+  in rarer slots (Sovereign's rules, from `tools/design/gen_encounters.py`). At most four grass slots and two of each
+  water table go to new species, none in the Ruins of Alph's halls (Unown's own) or in the two rod slots HeartGold's
+  night fishing takes ("Mass outbreaks and night fishing"). Five final forms no table's levels reach (Hydreigon,
+  Dragapult, Volcarona, Braviary, Kingambit) come by evolving.
 - **The spreadsheet:** `docs/WildPokemon.xlsx` (`tools/complete/wild_spreadsheet.py`) lists every place's Pokémon, how
   each is met (walking by time of day, surfing, each rod, Rock Smash, Headbutt trees, swarms and outbreaks, the Poké
   Radar, the dual slots, the daily Trophy Garden and Great Marsh Pokémon, Honey Trees, the Safari Zone, the
   Bug-Catching Contest, roamers, Sovereign's Regional Forms Park and rare wild Pokémon) and the odds, by place and by
   Pokémon, with each Pokémon's regions flagged. Run it again after a change.
-- **To change it:** `PIN` (a species to a region or area), `AREA_TAGS` (Johto's and Kanto's habitats), `FREE_LAND` and
-  `FREE_WATER`, then run the generator again. Sinnoh's tables are Complete's own now, so
-  `tools/complete/sync_sovereign.sh` leaves Sovereign's changes to them out, and Sovereign's own
+- **To change it:** `PIN` (a species to a region or area), `LATE` (a family placed after the rest), `AREA_TAGS` (Johto's
+  and Kanto's habitats), `FREE_LAND` and `FREE_WATER`, then run the generator again. Sinnoh's tables are Complete's own
+  now, so `tools/complete/sync_sovereign.sh` leaves Sovereign's changes to them out, and Sovereign's own
   `tools/engine/gen_wild_encounters.py` isn't run here.
 
 ## Totem trials and legendaries in three regions
@@ -547,26 +549,30 @@ assembly), in `src/overlay006/complete_follower_talk.c` and `CommonScript_Comple
 Test: `tools/complete/test_follower_talk.py` (a talk the tables choose in New Bark Town; a nudge, its emote, its
 question and the yes; an accessory found; a Shiny Leaf, with the friendship and mood it brings).
 
-## Mass outbreaks
+## Mass outbreaks and night fishing
 
-HeartGold's (its `encounter_check.c` and the map list in its `unk_02097F6C.c`, which Sacred Gold keeps), in
-`src/complete_encounters.c`:
+HeartGold's (its `encounter_check.c` and the map list in its `unk_02097F6C.c`), in `src/complete_encounters.c`, with
+each map's outbreak and night species from its table (HeartGold's own: "Wild Pokémon"):
 
 - **When:** from Oak's National Pokédex on (`EnableMassOutbreaks`, which sets `VAR_COMPLETE_OUTBREAKS`), each day one
   of HeartGold's 20 outbreak maps has one. The day's pick is Platinum's daily swarm value, which Sinnoh's outbreaks
   also pick from; HeartGold keeps a daily random value of its own.
 - **What:** on a grass or cave day, the map's outbreak species takes the first two grass slots (two in five
-  encounters), at any time of day; on a water day it takes the first surfing slot. Sacred Gold's: Linoone (Route 1),
-  Spinda (Route 3), Flaaffy (Route 9), Chansey (Route 13), Lairon (Route 25), Kadabra (Route 34), Illumise (Route 35),
-  Electabuzz (Route 38), Rhydon (Route 45), Altaria (Route 47), Solrock (Mt. Mortar), Larvitar (Dark Cave), Heracross
-  (Viridian Forest), and on the water Mantine (Route 19), Feebas (Route 27) and Lanturn (Vermilion City).
-- **The four fishing days** (Routes 12, 32 and 44, Violet City) have no outbreak: Sacred Gold's encounter files stop
-  before the fishing outbreak's species.
+  encounters), at any time of day: Poochyena (Route 1), Baltoy (Route 3), Sableye (Route 9), Chansey (Route 13),
+  Buneary (Route 25), Ralts (Route 34), Yanma (Route 35), Snubbull (Route 38), Swablu (Route 45), Ditto (Route 47),
+  Marill (Mt. Mortar), Dunsparce (Dark Cave) and Kricketot (Viridian Forest). On a water day it takes the first
+  surfing slot: Clamperl (Route 19), Luvdisc (Route 27), Wingull (Vermilion City). On a fishing day it takes the Old
+  Rod's third slot, the Good Rod's first, third and fourth and every Super Rod slot: Relicanth (Route 12), Qwilfish
+  (Route 32), Remoraid (Route 44), Whiscash (Violet City). Where HeartGold and SoulSilver differ (Routes 3 and 9), the
+  outbreak is HeartGold's.
+- **Night fishing:** at night (8 p.m. to 4 a.m.) on every Johto and Kanto map, the Good Rod's fourth slot and the
+  Super Rod's second have the map's night species (Staryu in Cherrygrove City, for example), as in HeartGold.
 - **On the radio:** Professor Oak's Pokémon Talk says where today's outbreak is ("The Pokégear radio";
-  `CompleteEncounters_TodaysOutbreak`).
+  `CompleteEncounters_TodaysOutbreak`), fishing days too.
 
-Test: `tools/complete/test_hgss_outbreaks.py` (no Illumise on Route 35 before the National Pokédex; Illumise there on
-its day; none on another map's day; Feebas on Route 27's water on its day).
+Test: `tools/complete/test_hgss_outbreaks.py` (no outbreak species on Route 35 before the National Pokédex; it there
+on its day; not on another map's day; Route 27's water on its day; Violet City's rods on its day and not another day;
+Cherrygrove City's night species on the Super Rod at night and not by day).
 
 ## The Pokédex
 

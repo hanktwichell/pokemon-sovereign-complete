@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Check Johto's and Kanto's wild Pokémon in the test build: the game makes what Sacred Gold's tables say, by time of
-day (step 4; docs/SacredGold.md).
+"""Check Johto's and Kanto's wild Pokémon in the test build: the game makes what their tables say (HeartGold/SoulSilver's,
+with the new species mixed in: tools/complete/gen_wild.py, docs/WildPokemon.md), by time of day.
 
 For each Johto or Kanto map with wild Pokémon (encounters_hgss_NNN, res/field/encounters/hgss), this warps onto the
 map as tools/test/wild_forms.py does and runs its surveys (gSovereignTestWildSurvey: the game's own encounter code,

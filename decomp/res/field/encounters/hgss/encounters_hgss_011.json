@@ -23,9 +23,9 @@
             },
             {
                 "level": 5,
-                "morning": "SPECIES_HATENNA",
-                "day": "SPECIES_HATENNA",
-                "night": "SPECIES_HATENNA"
+                "morning": "SPECIES_UNOWN",
+                "day": "SPECIES_UNOWN",
+                "night": "SPECIES_UNOWN"
             },
             {
                 "level": 5,
