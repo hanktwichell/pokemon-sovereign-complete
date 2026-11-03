@@ -1,5 +1,6 @@
 subdir('alph_puzzle') # Sovereign Complete: the Ruins of Alph's puzzles
 subdir('voltorb_flip') # Sovereign Complete: Voltorb Flip
+subdir('complete_pokegear') # Sovereign Complete: the Pokégear
 subdir('bag')
 subdir('battle')
 subdir('berry_tag')

@@ -53,8 +53,8 @@ STEPS = [
      '1025 Pokémon.'),
     (5, 'HeartGold features', 'mostly', 'Almost done',
      'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
-     'gym puzzles, the Johto Pokédex, Voltorb Flip and Johto\'s Battle Frontier are in. Next: the Pokégear beside the '
-     'Pokétch (the radio, the contact list, the Town Map).'),
+     'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier and the Pokégear beside the Pokétch '
+     '(its phone and the switch) are in. Next: the Pokégear\'s Map and Radio.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
@@ -98,7 +98,21 @@ RECENT = [
         'the emulator a Factory challenge rented three Pokémon, won its first battle and retired back to Johto\'s lobby, '
         'and the Tower, Hall, Castle and Arcade each started theirs. Battle Points, streaks and prints are shared with '
         'Sinnoh\'s Frontier. Left: the Frontier Access move tutors, who teach for Battle Points.',
-        'Next: the Pokégear beside the Pokétch, with a button to switch.',
+        'The Pokégear, first part: you can call the people in your phone book. Each says what they say in '
+        'HeartGold when you call: Mom asks about saving money, Elm has news, Oak rates your Johto or National Pokédex '
+        '(with his menu and fanfare), Bill counts the room in your boxes, the Day-Care couple say how your Pokémon are '
+        'doing, Lyra or Ethan tells a story about where you are, Kurt says how his Balls are coming, and the Gym '
+        'Leaders agree to rematches at the Fighting Dojo after all sixteen badges. Where HeartGold had no signal '
+        '(the Elite Four\'s rooms, the Safari Zone, Lugia\'s cave) the number is "out of the area". All 12 calls the '
+        'emulator test places pass.',
+        'The Pokégear is on the bottom screen, in HeartGold\'s own look: its phone\'s contact list (names and titles '
+        'such as Pokémon Professor or Youngster) and its app bar. It comes up when Mom gives it to you. Tap a contact '
+        'to call them; the arrows scroll. Once you also have the Pokétch, a blue button under the Pokétch\'s red side '
+        'button switches to the Pokégear, and the Pokégear\'s last app bar button switches back; your choice is '
+        'saved. All 6 parts of its emulator test pass (getting it, a call, scrolling, the switch both ways, a warp, '
+        'a battle).',
+        'Next: the Pokégear\'s Map (Johto and Kanto with where you are) and its Radio (their buttons are dimmed for '
+        'now).',
     ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
@@ -218,8 +232,9 @@ AHEAD = [
     ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
      'for all three regions.', 'You', 'waiting'),
-    ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, and Johto\'s Battle Frontier '
-     'are done; next the Pokégear beside the Pokétch (the radio, the contact list, the Town Map).', 'Claude', 'active'),
+    ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, Johto\'s Battle Frontier '
+     'and the Pokégear beside the Pokétch (its phone, calls you place, the switch) are done; next its Map and '
+     'Radio.', 'Claude', 'active'),
     ('Your call', 'The art for the Town Map and sprites, Cynthia\'s difficulty, and any of the provisional Sinnoh '
      'choices to change.', 'You', 'waiting'),
     ('After step 9', 'Release (step 10): final fixes, then the .xdelta patches, about 3 days.', 'Both', 'planned'),

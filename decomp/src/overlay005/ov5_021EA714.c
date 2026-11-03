@@ -7,6 +7,7 @@
 #include "field/field_system.h"
 #include "field/field_system_sub2_t.h"
 
+#include "complete_pokegear.h" // Sovereign Complete
 #include "game_overlay.h"
 #include "poketch.h"
 #include "render_oam.h"
@@ -19,6 +20,7 @@
 
 FS_EXTERN_OVERLAY(poketch_unavailable);
 FS_EXTERN_OVERLAY(poketch);
+FS_EXTERN_OVERLAY(complete_pokegear); // Sovereign Complete
 
 void FieldSystem_SendPoketchEvent(FieldSystem *fieldSystem, enum PoketchEventID eventID, u32 dummy)
 {
@@ -29,10 +31,9 @@ void FieldSystem_SendPoketchEvent(FieldSystem *fieldSystem, enum PoketchEventID 
 
 void ov5_021EA728(FieldSystem *fieldSystem)
 {
-    Poketch *poketch = SaveData_GetPoketch(fieldSystem->saveData);
-    VarsFlags *varsFlags = SaveData_GetVarsFlags(fieldSystem->saveData);
-
 #ifdef SOVEREIGN_TEST
+    Poketch *poketch = SaveData_GetPoketch(fieldSystem->saveData);
+
     if (gSovereignTestPoketchApp) { // here, as the bottom screen is set up, so its shutdown later matches it
         Poketch_Enable(poketch);
         Poketch_RegisterApp(poketch, gSovereignTestPoketchApp - 1);
@@ -41,8 +42,15 @@ void ov5_021EA728(FieldSystem *fieldSystem)
     }
 #endif
 
-    if (Poketch_IsEnabled(poketch)
-        && (SystemFlag_CheckPoketchHidden(varsFlags) == 0)) {
+    // Sovereign Complete: or HeartGold's Pokégear (include/complete_pokegear.h); the one shown is remembered, for its end
+    enum CompleteBottomScreen screen = CompleteBottomScreen_Wanted(fieldSystem->saveData);
+
+    CompleteBottomScreen_SetActive(screen);
+
+    if (screen == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+        Overlay_LoadByID(FS_OVERLAY_ID(complete_pokegear), 2);
+        CompletePokegear_Create(fieldSystem, fieldSystem->bgConfig);
+    } else if (screen == COMPLETE_BOTTOM_SCREEN_POKETCH) {
         Overlay_LoadByID(FS_OVERLAY_ID(poketch), 2);
         PoketchSystem_Create(fieldSystem, &fieldSystem->unk_04->poketchSys, fieldSystem->saveData, fieldSystem->bgConfig, RenderOam_GetScreenOam(1));
     } else {
@@ -51,13 +59,13 @@ void ov5_021EA728(FieldSystem *fieldSystem)
     }
 }
 
+// Sovereign Complete: the bottom screen that was started ends (Platinum asked the save again, which a script can have
+// changed since)
 void ov5_021EA790(FieldSystem *fieldSystem)
 {
-    Poketch *poketch = SaveData_GetPoketch(fieldSystem->saveData);
-    VarsFlags *varsFlags = SaveData_GetVarsFlags(fieldSystem->saveData);
-
-    if (Poketch_IsEnabled(poketch)
-        && (SystemFlag_CheckPoketchHidden(varsFlags) == 0)) {
+    if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+        CompletePokegear_StartShutdown();
+    } else if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKETCH) {
         PoketchSystem_StartShutdown(fieldSystem->unk_04->poketchSys);
     } else {
         PoketchUnavailableScreen_Exit(fieldSystem->bgConfig);
@@ -66,11 +74,12 @@ void ov5_021EA790(FieldSystem *fieldSystem)
 
 u8 ov5_021EA7CC(FieldSystem *fieldSystem)
 {
-    Poketch *poketch = SaveData_GetPoketch(fieldSystem->saveData);
-    VarsFlags *varsFlags = SaveData_GetVarsFlags(fieldSystem->saveData);
-
-    if (Poketch_IsEnabled(poketch)
-        && (SystemFlag_CheckPoketchHidden(varsFlags) == 0)) {
+    if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) { // Sovereign Complete
+        if (CompletePokegear_IsShutdown()) {
+            Overlay_UnloadByID(FS_OVERLAY_ID(complete_pokegear));
+            return 1;
+        }
+    } else if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKETCH) {
         if (PoketchSystem_IsSystemShutdown(fieldSystem->unk_04->poketchSys)) {
             fieldSystem->unk_04->poketchSys = NULL;
             Overlay_UnloadByID(FS_OVERLAY_ID(poketch));

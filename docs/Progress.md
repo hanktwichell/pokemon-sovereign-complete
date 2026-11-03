@@ -1391,3 +1391,11 @@ Test results on the new test build:
   the Johto Pokédex, the National one, and quit), Bill, both Day-Care people, Kurt, Lyra (her New Bark Town story)
   and Falkner each showed the messages HeartGold shows, and Mom from Lugia's cave was out of the area. The Pokégear's
   contact list on the bottom screen, which places these calls, comes next.
+- **The Pokégear beside the Pokétch:** the owner's call: both, with a button to switch. HeartGold's Pokégear is now
+  the field's bottom screen in the Pokétch's place, with HeartGold's own graphics (its phone frame and its app bar):
+  the contact list (names, and titles such as Pokémon Professor or Youngster), scrolling, and a tap to call. It comes
+  up as soon as Mom gives it; with the Pokétch too, a blue button under the Pokétch's side button switches to the
+  Pokégear, and the Pokégear's last app bar button switches back, with a fade; the choice is saved. In the emulator
+  (`tools/complete/test_hgss_pokegear.py`, all 6 parts pass): the Pokégear came up as the flag was set, a tap on Mom
+  called her, the down arrow then a tap called Elm, the switch went to the Pokétch and back, a warp kept the
+  Pokégear, and it came back after a wild battle. Its Map and Radio come next (their buttons are dimmed for now).

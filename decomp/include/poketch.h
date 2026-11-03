@@ -33,7 +33,8 @@ typedef struct Poketch {
     u8 pedometerEnabled : 1; //!< Whether or not the pedometer is registered and will take step count updates.
     u8 dotArtModifiedByPlayer : 1; //!< Whether or not the dot art data has ever been modified by the user. This flag can never be set to FALSE.
     u8 screenColor : 3; //!< Screen palette color (see PoketchScreenColor enum above)
-    // u8 padding : 2;
+    u8 completePokegearShown : 1; // Sovereign Complete: the Pokégear is on the bottom screen, not the Pokétch (include/complete_pokegear.h)
+    // u8 padding : 1;
 
     s8 appCount; //!< Number of currently registered apps
     s8 appIndex; //!< Currently selected app

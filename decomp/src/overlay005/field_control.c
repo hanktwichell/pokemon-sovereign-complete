@@ -96,6 +96,7 @@
 #include "wireless_manager.h"
 #include "complete_follower.h" // Sovereign Complete
 #include "complete_phone.h" // Sovereign Complete
+#include "complete_pokegear.h" // Sovereign Complete
 
 static BOOL Field_CheckMapTransition(FieldSystem *fieldSystem, const FieldInput *input);
 static u16 Field_TileBehaviorToScript(FieldSystem *fieldSystem, u8 behavior);
@@ -687,6 +688,12 @@ BOOL FieldInput_Process(const FieldInput *input, FieldSystem *fieldSystem)
     if (PlayerAvatar_GetPlayerMoveState(fieldSystem->playerAvatar) == PLAYER_MOVE_STATE_END
         || PlayerAvatar_GetPlayerMoveState(fieldSystem->playerAvatar) == PLAYER_MOVE_STATE_NONE) {
         if (CompletePhone_TryOutgoingCall(fieldSystem) == TRUE) {
+            return TRUE;
+        }
+
+        // Sovereign Complete: the bottom screen switches between the Pokétch and the Pokégear
+        // (src/overlay005/complete_bottom_screen.c)
+        if (CompleteBottomScreen_TrySwitch(fieldSystem) == TRUE) {
             return TRUE;
         }
     }

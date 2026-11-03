@@ -242,6 +242,7 @@ Static main
 	Object src/complete_bug_contest.c
 	Object src/complete_safari.c
 	Object src/complete_phone.c
+	Object src/complete_pokegear_state.c
 	Object src/complete_sound.c
 	Object src/complete_rival.c
 	Object src/complete_badges.c
@@ -499,6 +500,7 @@ Overlay overlay5
 	Object src/overlay005/script_message.c
 	Object src/overlay005/map_name_popup.c
 	Object src/overlay005/enable_poketch_task.c
+	Object src/overlay005/complete_bottom_screen.c
 	Object src/overlay005/encounter_effect.c
 	Object src/overlay005/field_effect_manager.c
 	Object src/overlay005/ov5_021DFB54.c
@@ -1554,6 +1556,12 @@ Overlay complete_alph_puzzle
 {
 	After main
 	Object src/applications/complete_alph_puzzle.c
+}
+
+Overlay complete_pokegear
+{
+	After overlay9
+	Object src/applications/complete_pokegear/pokegear.c
 }
 
 Overlay complete_voltorb_flip

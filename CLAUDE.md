@@ -82,6 +82,10 @@ work.
   `tools/complete/test_hgss_voltorb_flip.py`.
 - Johto's Battle Frontier runs Platinum's facilities (the lobbies' commands and vars map to Platinum's in
   `tools/complete/hgss_script_table.py` and `translate_hgss_scripts.py`). Test: `tools/complete/test_hgss_frontier.py`.
+- The Pokégear: the field's bottom screen is the "no Pokétch" screen, the Pokétch or the Pokégear
+  (`include/complete_pokegear.h`; the overlay `src/applications/complete_pokegear/`, in the Pokétch's place, with
+  HeartGold's graphics from `tools/complete/import_hgss_pokegear_gfx.py`). Test: `tools/complete/test_hgss_pokegear.py`.
+  Test-only markers the tests read belong in the main module: an overlay's memory is reused by the next overlay.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
 

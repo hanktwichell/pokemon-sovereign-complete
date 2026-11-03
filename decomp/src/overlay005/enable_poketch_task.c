@@ -6,6 +6,7 @@
 #include "applications/poketch/unavailable/graphics.h"
 #include "field/field_system.h"
 #include "field/field_system_sub2_t.h"
+#include "overlay005/ov5_021EA714.h"
 
 #include "brightness_controller.h"
 #include "field_task.h"
@@ -33,18 +34,17 @@ static BOOL FieldTask_EnablePoketch(FieldTask *task)
         break;
     case 1:
         if (BrightnessController_IsTransitionComplete(BRIGHTNESS_SUB_SCREEN)) {
-            PoketchUnavailableScreen_Exit(fieldSystem->bgConfig);
+            ov5_021EA790(fieldSystem); // Sovereign Complete: the bottom screen showing ends, the Pokégear's too
             taskData->state++;
         }
         break;
     case 2:
-        if (PoketchUnavailableScreen_IsDone(fieldSystem->bgConfig)) {
+        if (ov5_021EA7CC(fieldSystem)) { // Sovereign Complete: and the new Pokétch shows, by the bottom screen's own start
             Poketch *poketch = SaveData_GetPoketch(fieldSystem->saveData);
 
-            Overlay_UnloadByID(FS_OVERLAY_ID(poketch_unavailable));
-            Overlay_LoadByID(FS_OVERLAY_ID(poketch), OVERLAY_LOAD_ASYNC);
             Poketch_Enable(poketch);
-            PoketchSystem_Create(fieldSystem, &fieldSystem->unk_04->poketchSys, fieldSystem->saveData, fieldSystem->bgConfig, RenderOam_GetScreenOam(DS_SCREEN_SUB));
+            poketch->completePokegearShown = FALSE;
+            ov5_021EA728(fieldSystem);
             taskData->state++;
         }
         break;

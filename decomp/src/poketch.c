@@ -38,6 +38,7 @@ void Poketch_Init(Poketch *poketch)
     poketch->appIndex = 0;
     poketch->poketchEnabled = 0;
     poketch->screenColor = 0;
+    poketch->completePokegearShown = 0; // Sovereign Complete
     poketch->pedometerEnabled = 0;
     poketch->stepCount = 0;
     poketch->alarmSet = 0;

@@ -32,6 +32,13 @@
 #define POKETCH_BUTTON_BOTTOM_MIN_Y 96
 #define POKETCH_BUTTON_BOTTOM_MAX_Y 160
 
+// Sovereign Complete: the button under the side button that switches to the Pokégear (include/complete_pokegear.h),
+// two tile rows tall
+#define POKETCH_POKEGEAR_BUTTON_X         224
+#define POKETCH_POKEGEAR_BUTTON_TILE_Y    21
+#define POKETCH_POKEGEAR_BUTTON_MIN_Y     164
+#define POKETCH_POKEGEAR_BUTTON_PALETTE   14
+
 #define INSIDE_POKETCH_SCREEN(x, y) (((x - POKETCH_SCREEN_MIN_X) < (POKETCH_SCREEN_MAX_X - POKETCH_SCREEN_MIN_X)) & ((y - POKETCH_SCREEN_MIN_Y) < (POKETCH_SCREEN_MAX_Y - POKETCH_SCREEN_MIN_Y)))
 
 enum ButtonDir {

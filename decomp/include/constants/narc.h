@@ -204,6 +204,7 @@ enum NarcID {
     NARC_INDEX_FIELDDATA__COMPLETE__VIRIDIAN_GYM, // Sovereign Complete: Viridian Gym's arrow tiles lighting up (HeartGold's)
     NARC_INDEX_FIELDDATA__COMPLETE__FUCHSIA_GYM, // Sovereign Complete: Fuchsia Gym's invisible walls flashing (HeartGold's)
     NARC_INDEX_APPLICATION__VOLTORB_FLIP__VOLTORB_FLIP, // Sovereign Complete: Voltorb Flip (HeartGold's)
+    NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, // Sovereign Complete: the Pokégear's graphics (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H

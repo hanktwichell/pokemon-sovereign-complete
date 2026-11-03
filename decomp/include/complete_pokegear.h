@@ -1,0 +1,44 @@
+#ifndef POKEPLATINUM_COMPLETE_POKEGEAR_H
+#define POKEPLATINUM_COMPLETE_POKEGEAR_H
+
+#include "bg_window.h"
+#include "field/field_system_decl.h"
+#include "savedata.h"
+
+// Sovereign Complete: HeartGold's Pokégear beside Platinum's Pokétch (the owner's call, Nov 3, 2026: both, with a
+// button to switch). The field's bottom screen is one of three: Platinum's "no Pokétch" screen, the Pokétch, or the
+// Pokégear (src/applications/complete_pokegear/, an overlay in the Pokétch's place). The Pokégear shows once the
+// player has it (FLAG_HGSS_GOT_POKEGEAR) and either has no Pokétch or last switched to the Pokégear (a bit in the
+// Pokétch's save); a script hiding the Pokétch hides it too. src/overlay005/ov5_021EA714.c starts and ends the one
+// wanted; src/overlay005/complete_bottom_screen.c switches them as the field runs.
+
+enum CompleteBottomScreen {
+    COMPLETE_BOTTOM_SCREEN_UNAVAILABLE = 0,
+    COMPLETE_BOTTOM_SCREEN_POKETCH,
+    COMPLETE_BOTTOM_SCREEN_POKEGEAR,
+};
+
+// src/complete_pokegear_state.c (main)
+BOOL CompletePokegear_IsOwned(SaveData *saveData);
+BOOL CompletePokegear_PoketchAvailable(SaveData *saveData); // the Pokétch to switch to: owned, not hidden
+enum CompleteBottomScreen CompleteBottomScreen_Wanted(SaveData *saveData);
+enum CompleteBottomScreen CompleteBottomScreen_Active(void);
+void CompleteBottomScreen_SetActive(enum CompleteBottomScreen screen);
+void CompleteBottomScreen_RequestSwitch(SaveData *saveData); // the switch button: the other of Pokétch and Pokégear
+BOOL CompleteBottomScreen_SwitchDue(SaveData *saveData);
+
+// src/overlay005/complete_bottom_screen.c (the field): starts the switch when one is due
+BOOL CompleteBottomScreen_TrySwitch(FieldSystem *fieldSystem);
+
+
+// src/applications/complete_pokegear/pokegear.c (the complete_pokegear overlay): like the Pokétch's system, the
+// Pokégear runs in a task of its own until it's shut down, and the pointer is cleared then
+void CompletePokegear_Create(FieldSystem *fieldSystem, BgConfig *bgConfig);
+void CompletePokegear_StartShutdown(void);
+BOOL CompletePokegear_IsShutdown(void);
+
+#ifdef SOVEREIGN_TEST
+extern void *gCompleteTestPokegear;
+#endif
+
+#endif // POKEPLATINUM_COMPLETE_POKEGEAR_H

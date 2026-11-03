@@ -11,6 +11,7 @@
 #include "field/field_system_decl.h"
 
 #include "bg_window.h"
+#include "complete_pokegear.h" // Sovereign Complete
 #include "enums.h"
 #include "field_system.h"
 #include "field_task.h"
@@ -22,6 +23,7 @@
 #include "savedata.h"
 #include "sound_playback.h"
 #include "sys_task.h"
+#include "system.h" // Sovereign Complete
 #include "touch_pad.h"
 #include "touch_screen.h"
 #include "trainer_info.h"
@@ -239,6 +241,14 @@ static void PoketchSystem_MainTask(SysTask *task, void *system)
     if (poketchSys->systemState < NELEMS(sPoketchEvents)) {
         if (poketchSys->systemState != POKETCH_SYSTEM_INIT) {
             PoketchSystem_ButtonUpdate(poketchSys);
+        }
+
+        // Sovereign Complete: the button under the side button switches to the Pokégear (include/complete_pokegear.h)
+        if (poketchSys->systemState == POKETCH_SYSTEM_UPDATE && gSystem.touchPressed
+            && gSystem.touchX >= POKETCH_POKEGEAR_BUTTON_X && gSystem.touchY >= POKETCH_POKEGEAR_BUTTON_MIN_Y
+            && CompletePokegear_IsOwned(poketchSys->saveData)) {
+            Sound_PlayEffect(SEQ_SE_DP_BUTTON9_sseq);
+            CompleteBottomScreen_RequestSwitch(poketchSys->saveData);
         }
 
         sPoketchEvents[poketchSys->systemState](poketchSys);

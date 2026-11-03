@@ -3,11 +3,14 @@
 #include <nitro.h>
 #include <string.h>
 
+#include "constants/colors.h" // Sovereign Complete
+
 #include "applications/poketch/poketch_animation.h"
 #include "applications/poketch/poketch_system.h"
 #include "applications/poketch/poketch_task.h"
 
 #include "bg_window.h"
+#include "complete_pokegear.h" // Sovereign Complete
 #include "graphics.h"
 #include "gx_layers.h"
 #include "heap.h"
@@ -290,6 +293,30 @@ static void PoketchGraphics_EndTask(PoketchTaskManager *taskMan)
     PoketchTask_EndTask(taskData->activeTasks, taskMan);
 }
 
+// Sovereign Complete: the button that switches to the Pokégear (include/complete_pokegear.h), under the side button:
+// that button's top and bottom edges, in the Pokégear's blue (its colours 11 to 15, the red ones, in palette 14)
+static void PoketchGraphics_DrawPokegearButton(BgConfig *bgConfig)
+{
+    static const u16 sPokegearBlue[PALETTE_SIZE] = {
+        RGB(18, 23, 25), RGB(1, 1, 1), RGB(6, 6, 6), RGB(31, 31, 31), RGB(28, 28, 28), RGB(25, 24, 25), RGB(20, 19, 22), RGB(14, 13, 17),
+        RGB(30, 11, 12), RGB(31, 18, 18), RGB(4, 4, 4), RGB(15, 23, 31), RGB(11, 19, 31), RGB(6, 14, 29), RGB(4, 10, 24), RGB(3, 7, 18)
+    };
+    static const u8 sCapTiles[2][4] = {
+        { 0x48, 0x49, 0x4A, 0x4B }, // the side button's top row
+        { 0xF4, 0xF5, 0xF6, 0xF7 }, // and its bottom row
+    };
+
+    Bg_LoadPalette(BG_LAYER_SUB_0, (void *)sPokegearBlue, sizeof(sPokegearBlue), PLTT_OFFSET(POKETCH_POKEGEAR_BUTTON_PALETTE));
+
+    for (int y = 0; y < 2; y++) {
+        for (int x = 0; x < 4; x++) {
+            Bg_FillTilemapRect(bgConfig, BG_LAYER_SUB_0, sCapTiles[y][x], POKETCH_POKEGEAR_BUTTON_X / 8 + x, POKETCH_POKEGEAR_BUTTON_TILE_Y + y, 1, 1, POKETCH_POKEGEAR_BUTTON_PALETTE);
+        }
+    }
+
+    Bg_CopyTilemapBufferToVRAM(bgConfig, BG_LAYER_SUB_0);
+}
+
 static void PoketchGraphics_SetupBackgroundTask(SysTask *task, void *taskMan)
 {
     static const BgTemplate bgTemplateLayer4 = {
@@ -340,6 +367,10 @@ static void PoketchGraphics_SetupBackgroundTask(SysTask *task, void *taskMan)
 
     Bg_FillTilemapRect(taskData->bgConfig, BG_LAYER_SUB_1, 64 + 164, 0, 0, 32, 24, 15);
     Bg_CopyTilemapBufferToVRAM(taskData->bgConfig, BG_LAYER_SUB_1);
+
+    if (CompletePokegear_IsOwned(taskData->poketchSys->saveData)) { // Sovereign Complete
+        PoketchGraphics_DrawPokegearButton(taskData->bgConfig);
+    }
 
     GXS_SetVisiblePlane(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | GX_PLANEMASK_OBJ);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);

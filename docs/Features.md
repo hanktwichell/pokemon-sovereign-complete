@@ -376,8 +376,37 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   dialing (HeartGold's "......"), then the call in the message box, or "That number is out of the area." where
   HeartGold's map header has no signal (the Elite Four's rooms, the Safari Zone's areas, Lugia's cave). Sinnoh's maps,
   which HeartGold never knew, all have a signal. Oak's menu is `CompletePhoneCallMenu` (HeartGold's phone app's
-  choices from its bank 0271, B for quit).
+  choices from its bank 0271, B for quit). The player calls from the Pokégear's contact list ("The Pokégear and the
+  Pokétch", below).
 - **Still a stand-in:** a call that comes in is answered at once (HeartGold's Pokégear rings until the player opens it).
+
+## The Pokégear and the Pokétch
+
+The owner's call (Nov 3, 2026): both, with a button to switch between them. HeartGold's Pokégear shows on the field's
+bottom screen in the Pokétch's place (`src/applications/complete_pokegear/pokegear.c`, an overlay of its own, with
+HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`):
+
+- **When:** once the player has it (Mom gives it in New Bark Town: `FLAG_HGSS_GOT_POKEGEAR`), the bottom screen
+  switches to it at once; with no Pokétch yet it stays there. With both, the bottom screen shows the one the player
+  last switched to (a bit in the Pokétch's save, `completePokegearShown`). A script that hides the Pokétch hides the
+  Pokégear too. `include/complete_pokegear.h` decides; `src/overlay005/ov5_021EA714.c`, the bottom screen's start and
+  end, starts and ends the one shown (marked blocks), and `src/overlay005/complete_bottom_screen.c` switches them as the
+  field runs, with a fade, as Platinum does when the player gets the Pokétch. Getting the Pokétch in Jubilife while the
+  Pokégear shows brings the Pokétch up, as in Platinum.
+- **The phone:** HeartGold's contact list: each contact's name in the white box and their title in the blue one (a
+  trainer's class, or HeartGold's titles: Pokémon Professor, Childhood Friend, Day Care...; `include/data/
+  hgss_phone_contacts.h`, from `tools/complete/import_hgss_phone.py`), six rows at a time, with the arrows to scroll
+  (held, they repeat). Tapping a contact calls them: the call plays in the field's message box once the player stands
+  still ("The Pokégear phone", above).
+- **The switch:** on the Pokégear, its app bar's last button (HeartGold's exit button, lit when there's a Pokétch to go
+  to); on the Pokétch, a blue button under its side button, drawn from the side button's own edges in the Pokégear's
+  blue (`src/applications/poketch/poketch_graphics.c` and `poketch_system.c`, marked blocks), shown once the player has
+  the Pokégear.
+- **Still to come:** the Radio and the Map (their app bar buttons are dimmed), and HeartGold's skins (the settings
+  button).
+
+Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the player gets it; a tap on Mom calling her;
+scrolling; the switch to the Pokétch and back; the choice kept across a warp; the Pokégear back after a battle).
 
 ## Mom's savings
 
