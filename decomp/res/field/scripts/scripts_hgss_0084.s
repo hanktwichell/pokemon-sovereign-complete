@@ -71,22 +71,22 @@ _0126:
     GoTo _012E
     End
 _012E:
-    SetVarFromValue VAR_HGSS_UNK_4142, 0
+    SetVarFromValue VAR_BATTLE_FACTORY_LOBBY_LOAD_ACTION, 0
     Message msg_0107_D32R0301_00006
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _013F:
-    SetVarFromValue VAR_HGSS_UNK_4143, 0
+    SetVarFromValue VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 0
     GoTo _0169
     End
 _014D:
-    SetVarFromValue VAR_HGSS_UNK_4143, 1
+    SetVarFromValue VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 1
     GoTo _0169
     End
 _015B:
-    SetVarFromValue VAR_HGSS_UNK_4143, 2
+    SetVarFromValue VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 2
     GoTo _0169
     End
 _0169:
@@ -103,20 +103,20 @@ _0169:
     GoTo _0126
     End
 _01B2:
-    SetVarFromValue VAR_HGSS_UNK_4144, 0
+    SetVarFromValue VAR_BATTLE_FACTORY_CHALLENGE_LEVEL, 0
     GoTo _01CE
     End
 _01C0:
-    SetVarFromValue VAR_HGSS_UNK_4144, 1
+    SetVarFromValue VAR_BATTLE_FACTORY_CHALLENGE_LEVEL, 1
     GoTo _01CE
     End
 _01CE:
     GoTo _01D6
     End
 _01D6:
-    CompareVar VAR_HGSS_UNK_4143, 0
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 0
     CallIf 1, _0399
-    CompareVar VAR_HGSS_UNK_4143, 1
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 1
     CallIf 1, _0399
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     HealParty
@@ -124,7 +124,7 @@ _01D6:
     SetVarFromVar VAR_RESULT, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0126
-    CompareVar VAR_HGSS_UNK_4143, 2
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 2
     GoToIf 1, _0226
     GoTo _03A1
     End
@@ -148,9 +148,9 @@ _0277:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0226
     CloseMessage
-    CompareVar VAR_HGSS_UNK_4144, 0
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_LEVEL, 0
     CallIf 1, _02CF
-    CompareVar VAR_HGSS_UNK_4144, 1
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_LEVEL, 1
     CallIf 1, _02DB
     CompareVar VAR_RESULT, 1
     GoToIf 1, _02E7
@@ -159,10 +159,10 @@ _0277:
     GoTo _037B
     End
 _02CF:
-    @ HGSS: ScrCmd_226 27, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleClient 27, 0, 0, VAR_RESULT
     Return
 _02DB:
-    @ HGSS: ScrCmd_226 28, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleClient 28, 0, 0, VAR_RESULT
     Return
 _02E7:
     GoTo _0226
@@ -176,9 +176,9 @@ _02F9:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0226
     CloseMessage
-    CompareVar VAR_HGSS_UNK_4144, 0
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_LEVEL, 0
     CallIf 1, _0351
-    CompareVar VAR_HGSS_UNK_4144, 1
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_LEVEL, 1
     CallIf 1, _035D
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0369
@@ -187,10 +187,10 @@ _02F9:
     GoTo _037B
     End
 _0351:
-    @ HGSS: ScrCmd_227 27, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleServer 27, 0, 0, VAR_RESULT
     Return
 _035D:
-    @ HGSS: ScrCmd_227 28, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleServer 28, 0, 0, VAR_RESULT
     Return
 _0369:
     GoTo _0226
@@ -200,20 +200,20 @@ _0371:
     End
 _037B:
     Message msg_0107_D32R0301_00026
-    CompareVar VAR_HGSS_UNK_4143, 2
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 2
     CallIf 1, _0399
     Call _05ED
     GoTo _03A1
     End
 _0399:
-    SetVarFromValue VAR_HGSS_UNK_4142, 255
+    SetVarFromValue VAR_BATTLE_FACTORY_LOBBY_LOAD_ACTION, 255
     Return
 _03A1:
-    CompareVar VAR_HGSS_UNK_4143, 0
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 0
     CallIf 1, _0439
-    CompareVar VAR_HGSS_UNK_4143, 1
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 1
     CallIf 1, _0454
-    CompareVar VAR_HGSS_UNK_4143, 2
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 2
     CallIf 1, _046F
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     GoTo _03D4
@@ -221,16 +221,16 @@ _03A1:
 _03D4:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    CompareVar VAR_HGSS_UNK_4143, 0
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 0
     CallIf 1, _0495
-    CompareVar VAR_HGSS_UNK_4143, 1
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 1
     CallIf 1, _04A9
-    CompareVar VAR_HGSS_UNK_4143, 2
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 2
     CallIf 1, _04BD
     IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     WaitForTransition
-    @ HGSS: ScrCmd_627 3
-    CompareVar VAR_HGSS_UNK_4143, 2
+    LaunchBattleFrontierScene 3
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 2
     CallIf 1, _0435
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -255,9 +255,10 @@ _0454:
     WaitMovement
     Return
 _046F:
-    @ HGSS: NPCMsgVar msg_0107_D32R0301_00009
+    MessageNoSkip msg_0107_D32R0301_00009
     WaitTime 15, VAR_RESULT
-    @ HGSS: ScrCmd_257 169
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 169
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _04E8
     ApplyMovement VAR_LAST_TALKED, _0510
@@ -361,7 +362,7 @@ _05C1:
     Return
 scr_seq_D32R0301_001:
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
-    SetVarFromValue VAR_HGSS_UNK_4142, 0
+    SetVarFromValue VAR_BATTLE_FACTORY_LOBBY_LOAD_ACTION, 0
     Message msg_0107_D32R0301_00011
     Call _0399
     Call _05ED
@@ -378,27 +379,27 @@ scr_seq_D32R0301_002:
     LockAll
     FacePlayer
     Message msg_0107_D32R0301_00012
-    @ HGSS: ScrCmd_628 VAR_UNK_4143, VAR_UNK_4144
-    CompareVar VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 1
+    DeleteActiveBattleFactoryStreak VAR_BATTLE_FACTORY_CHALLENGE_TYPE, VAR_BATTLE_FACTORY_CHALLENGE_LEVEL
+    CompareVar VAR_BATTLE_FACTORY_PRINT_STATE, 1
     CallIf 1, _062E
-    CompareVar VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_FACTORY_PRINT_STATE, 3
     CallIf 1, _0636
     GoTo _0126
     End
 _062E:
-    SetVarFromValue VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 0
+    SetVarFromValue VAR_BATTLE_FACTORY_PRINT_STATE, 0
     Return
 _0636:
-    SetVarFromValue VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_FACTORY_PRINT_STATE, 2
     Return
 scr_seq_D32R0301_003:
-    CompareVar VAR_HGSS_UNK_4143, 0
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 0
     CallIf 1, _067A
-    CompareVar VAR_HGSS_UNK_4143, 1
+    CompareVar VAR_BATTLE_FACTORY_CHALLENGE_TYPE, 1
     CallIf 1, _067A
-    CompareVar VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 1
+    CompareVar VAR_BATTLE_FACTORY_PRINT_STATE, 1
     CallIf 1, _0680
-    CompareVar VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_FACTORY_PRINT_STATE, 3
     CallIf 1, _0697
     GoTo _0126
     End
@@ -411,7 +412,7 @@ _0680:
     Message msg_0107_D32R0301_00015
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_FACTORY_PRINT_STATE, 2
     Return
 _0697:
     Message msg_0107_D32R0301_00013
@@ -419,7 +420,7 @@ _0697:
     Message msg_0107_D32R0301_00014
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_FACTORY_PRINT_PROGRESS, 4
+    SetVarFromValue VAR_BATTLE_FACTORY_PRINT_STATE, 4
     Common_CheckAllFrontierGoldPrintsObtained
     Return
 scr_seq_D32R0301_004:

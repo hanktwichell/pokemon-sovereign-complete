@@ -523,7 +523,7 @@ _0A24:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0A85
-    @ HGSS: ScrCmd_556 VAR_SPECIAL_x8006
+    RemoveBattlePoints VAR_0x8006
     UpdateBPDisplay
     PlaySE SEQ_SE_DP_REGI_sseq
     BufferItemName 0, VAR_0x8004

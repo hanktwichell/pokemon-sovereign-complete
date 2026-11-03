@@ -56,6 +56,21 @@ def std_file_script(n):
     return None
 # Flags HeartGold's own scripts set where the engine's stand in: Mom's gift deliveryman stays hidden until she buys
 # something (Platinum's Mart script then shows him, scripts_mystery_gift_deliveryman.s)
+# Johto's Battle Frontier runs Platinum's facilities, whose own scripts set and read Platinum's vars for a lobby's
+# state, a challenge's type and level, and the prints won (res/field/frontier_scripts): HeartGold's vars for the same
+# things, in the same order, are those (tools/complete/hgss_script_table.py, the Battle Frontier's commands)
+FRONTIER_VARS = {
+    0x4142: 'VAR_BATTLE_FACTORY_LOBBY_LOAD_ACTION', 0x4143: 'VAR_BATTLE_FACTORY_CHALLENGE_TYPE',
+    0x4144: 'VAR_BATTLE_FACTORY_CHALLENGE_LEVEL', 0x4145: 'VAR_BATTLE_HALL_LOBBY_LOAD_ACTION',
+    0x4146: 'VAR_BATTLE_HALL_CHALLENGE_TYPE', 0x4147: 'VAR_BATTLE_CASTLE_LOBBY_LOAD_ACTION',
+    0x4148: 'VAR_BATTLE_CASTLE_CHALLENGE_TYPE', 0x4149: 'VAR_BATTLE_ARCADE_CHALLENGE_TYPE',
+    0x414A: 'VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION', 0x414B: 'VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION',
+    0x414C: 'VAR_BATTLE_TOWER_BATTLE_ROOM_LOAD_ACTION', 0x414D: 'VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION',
+    0x414E: 'VAR_BATTLE_TOWER_CORRIDOR_LOAD_ACTION', 0x414F: 'VAR_BATTLE_TOWER_CORRIDOR_MULTI_LOAD_ACTION',
+    0x4150: 'VAR_BATTLE_TOWER_MULTI_BATTLE_ROOM_LOAD_ACTION', 0x4151: 'VAR_BATTLE_TOWER_BATTLE_SALON_STATE',
+    0x404D: 'VAR_BATTLE_TOWER_PRINT_STATE', 0x404E: 'VAR_BATTLE_FACTORY_PRINT_STATE', 0x404F: 'VAR_BATTLE_HALL_PRINT_STATE',
+    0x4050: 'VAR_BATTLE_CASTLE_PRINT_STATE', 0x4051: 'VAR_BATTLE_ARCADE_PRINT_STATE',
+}
 NEW_GAME_FLAGS = ['FLAG_HGSS_HIDE_MOM_GIFT_DELIVERYMAN']
 # HeartGold's new game sets these in code (its NewGame_InitSaveData): the Lake of Rage's Magikarp record, 3'6"
 NEW_GAME_VARS = [('VAR_HGSS_MAGIKARP_SIZE_RECORD', 56150)]
@@ -153,6 +168,8 @@ class Names:
         n = self.hg_vars.get(name)
         if n is None:
             return None
+        if n in FRONTIER_VARS:
+            return FRONTIER_VARS[n]
         if n >= 0x8000:
             return {0x800C: 'VAR_RESULT', 0x800D: 'VAR_LAST_TALKED'}.get(n, f'VAR_0x{n:04X}')
         if n < 0x4020:

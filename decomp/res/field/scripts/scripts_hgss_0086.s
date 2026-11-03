@@ -71,15 +71,15 @@ _0126:
     GoTo _012E
     End
 _012E:
-    SetVarFromValue VAR_HGSS_UNK_4147, 0
+    SetVarFromValue VAR_BATTLE_CASTLE_LOBBY_LOAD_ACTION, 0
     Message msg_0109_D32R0501_00006
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _013F:
-    SetVarFromValue VAR_HGSS_UNK_4148, 0
-    @ HGSS: ScrCmd_637 0, 3, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 0
+    CallBattleCastleLobbyFunction 0, 3, VAR_RESULT
     BufferNumber 0, 3
     BufferNumber 1, 3
     CompareVar VAR_RESULT, 0
@@ -87,8 +87,8 @@ _013F:
     GoTo _01F0
     End
 _016C:
-    SetVarFromValue VAR_HGSS_UNK_4148, 1
-    @ HGSS: ScrCmd_637 0, 3, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 1
+    CallBattleCastleLobbyFunction 0, 3, VAR_RESULT
     BufferNumber 0, 3
     BufferNumber 1, 3
     CompareVar VAR_RESULT, 0
@@ -96,8 +96,8 @@ _016C:
     GoTo _01F0
     End
 _0199:
-    SetVarFromValue VAR_HGSS_UNK_4148, 2
-    @ HGSS: ScrCmd_637 0, 2, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
+    CallBattleCastleLobbyFunction 0, 2, VAR_RESULT
     BufferNumber 0, 2
     BufferNumber 1, 2
     CompareVar VAR_RESULT, 0
@@ -106,12 +106,12 @@ _0199:
     End
 _01C6:
     Message msg_0109_D32R0501_00008
-    @ HGSS: ScrCmd_444 9, 3, 0, 0
+    MessageSeenBanlistSpecies 9, 3
     GoTo _0126
     End
 _01DB:
     Message msg_0109_D32R0501_00008
-    @ HGSS: ScrCmd_444 9, 2, 0, 0
+    MessageSeenBanlistSpecies 9, 2
     GoTo _0126
     End
 _01F0:
@@ -119,8 +119,8 @@ _01F0:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_637 4, VAR_UNK_4148, VAR_SPECIAL_RESULT
-    @ HGSS: ScrCmd_639 VAR_TEMP_x4002, VAR_TEMP_x4005, VAR_TEMP_x4006
+    CallBattleCastleLobbyFunction 4, VAR_BATTLE_CASTLE_CHALLENGE_TYPE, VAR_RESULT
+    GetBattleCastleSelectedSlots VAR_MAP_LOCAL_0x02, VAR_MAP_LOCAL_0x05, VAR_MAP_LOCAL_0x06
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 5, _0222
 _0222:
@@ -129,15 +129,15 @@ _0222:
     WaitFadeScreen
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 1, _0126
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4002, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x02, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _05FB
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4005, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x05, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _05FB
-    CompareVar VAR_HGSS_UNK_4148, 2
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
     GoToIf 1, _0283
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4006, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x06, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _05FB
 _0283:
@@ -152,9 +152,9 @@ _02A6:
     GoTo _02AE
     End
 _02AE:
-    CompareVar VAR_HGSS_UNK_4148, 0
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 0
     CallIf 1, _046A
-    CompareVar VAR_HGSS_UNK_4148, 1
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 1
     CallIf 1, _046A
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     HealParty
@@ -162,7 +162,7 @@ _02AE:
     SetVarFromVar VAR_RESULT, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0126
-    CompareVar VAR_HGSS_UNK_4148, 2
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
     GoToIf 1, _02FE
     GoTo _04CB
     End
@@ -186,7 +186,7 @@ _034F:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _02FE
     CloseMessage
-    @ HGSS: ScrCmd_226 31, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleClient 31, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0395
     CompareVar VAR_RESULT, 3
@@ -205,7 +205,7 @@ _03A7:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _02FE
     CloseMessage
-    @ HGSS: ScrCmd_227 31, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleServer 31, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03ED
     CompareVar VAR_RESULT, 3
@@ -219,10 +219,11 @@ _03F5:
     GoTo _02FE
     End
 _03FF:
-    @ HGSS: ScrCmd_257 136
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 136
     GetPartyMonSpecies VAR_MAP_LOCAL_0x02, VAR_0x8000
     GetPartyMonSpecies VAR_MAP_LOCAL_0x05, VAR_0x8001
-    @ HGSS: ScrCmd_638 VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_RESULT
+    CheckBattleCastlePartnerUsesDifferentSpecies VAR_0x8000, VAR_0x8001, VAR_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 1
     GoToIf 1, _0472
@@ -230,15 +231,16 @@ _03FF:
     GoToIf 1, _0488
     CompareVar VAR_0x8008, 3
     GoToIf 1, _049E
-    @ HGSS: ScrCmd_257 138
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 138
     Message msg_0109_D32R0501_00045
-    CompareVar VAR_HGSS_UNK_4148, 2
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
     CallIf 1, _046A
     Call _06FD
     GoTo _04CB
     End
 _046A:
-    SetVarFromValue VAR_HGSS_UNK_4147, 255
+    SetVarFromValue VAR_BATTLE_CASTLE_LOBBY_LOAD_ACTION, 255
     Return
 _0472:
     Call _04C1
@@ -263,14 +265,15 @@ _04B9:
     GoTo _0126
     End
 _04C1:
-    @ HGSS: ScrCmd_257 139
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 139
     Return
 _04CB:
-    CompareVar VAR_HGSS_UNK_4148, 0
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 0
     CallIf 1, _0563
-    CompareVar VAR_HGSS_UNK_4148, 1
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 1
     CallIf 1, _057E
-    CompareVar VAR_HGSS_UNK_4148, 2
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
     CallIf 1, _0599
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     GoTo _04FE
@@ -278,16 +281,16 @@ _04CB:
 _04FE:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    CompareVar VAR_HGSS_UNK_4148, 0
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 0
     CallIf 1, _05BF
-    CompareVar VAR_HGSS_UNK_4148, 1
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 1
     CallIf 1, _05D3
-    CompareVar VAR_HGSS_UNK_4148, 2
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
     CallIf 1, _05E7
     IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     WaitForTransition
-    @ HGSS: ScrCmd_627 11
-    CompareVar VAR_HGSS_UNK_4148, 2
+    LaunchBattleFrontierScene 11
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 2
     CallIf 1, _055F
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -312,9 +315,10 @@ _057E:
     WaitMovement
     Return
 _0599:
-    @ HGSS: NPCMsgVar msg_0109_D32R0501_00032
+    MessageNoSkip msg_0109_D32R0501_00032
     WaitTime 10, VAR_RESULT
-    @ HGSS: ScrCmd_257 137
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 137
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _0618
     ApplyMovement VAR_LAST_TALKED, _0638
@@ -336,7 +340,7 @@ _05E7:
     WaitMovement
     Return
 _05FB:
-    SetVarFromValue VAR_HGSS_UNK_4147, 0
+    SetVarFromValue VAR_BATTLE_CASTLE_LOBBY_LOAD_ACTION, 0
     Common_GriseousOrbCouldNotBeRemoved
     End
     .balign 4, 0
@@ -412,7 +416,7 @@ _06D1:
     Return
 scr_seq_D32R0501_001:
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
-    SetVarFromValue VAR_HGSS_UNK_4147, 0
+    SetVarFromValue VAR_BATTLE_CASTLE_LOBBY_LOAD_ACTION, 0
     Message msg_0109_D32R0501_00033
     Call _046A
     Call _06FD
@@ -429,27 +433,27 @@ scr_seq_D32R0501_002:
     LockAll
     FacePlayer
     Message msg_0109_D32R0501_00034
-    @ HGSS: ScrCmd_640 VAR_UNK_4148
-    CompareVar VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 1
+    DeleteActiveBattleCastleStreak VAR_BATTLE_CASTLE_CHALLENGE_TYPE
+    CompareVar VAR_BATTLE_CASTLE_PRINT_STATE, 1
     CallIf 1, _073C
-    CompareVar VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_CASTLE_PRINT_STATE, 3
     CallIf 1, _0744
     GoTo _0126
     End
 _073C:
-    SetVarFromValue VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 0
+    SetVarFromValue VAR_BATTLE_CASTLE_PRINT_STATE, 0
     Return
 _0744:
-    SetVarFromValue VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_CASTLE_PRINT_STATE, 2
     Return
 scr_seq_D32R0501_003:
-    CompareVar VAR_HGSS_UNK_4148, 0
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 0
     CallIf 1, _0788
-    CompareVar VAR_HGSS_UNK_4148, 1
+    CompareVar VAR_BATTLE_CASTLE_CHALLENGE_TYPE, 1
     CallIf 1, _0788
-    CompareVar VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 1
+    CompareVar VAR_BATTLE_CASTLE_PRINT_STATE, 1
     CallIf 1, _078E
-    CompareVar VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_CASTLE_PRINT_STATE, 3
     CallIf 1, _07A5
     GoTo _0126
     End
@@ -462,7 +466,7 @@ _078E:
     Message msg_0109_D32R0501_00037
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_CASTLE_PRINT_STATE, 2
     Return
 _07A5:
     Message msg_0109_D32R0501_00035
@@ -470,7 +474,7 @@ _07A5:
     Message msg_0109_D32R0501_00036
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_CASTLE_PRINT_PROGRESS, 4
+    SetVarFromValue VAR_BATTLE_CASTLE_PRINT_STATE, 4
     Common_CheckAllFrontierGoldPrintsObtained
     Return
 scr_seq_D32R0501_004:

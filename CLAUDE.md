@@ -80,6 +80,8 @@ work.
   `include/applications/complete_voltorb_flip/`) names Platinum's engine by HeartGold's names, with
   `require_prototypes` on, so an unmapped name fails to compile. Only the app's own files include it. Test:
   `tools/complete/test_hgss_voltorb_flip.py`.
+- Johto's Battle Frontier runs Platinum's facilities (the lobbies' commands and vars map to Platinum's in
+  `tools/complete/hgss_script_table.py` and `translate_hgss_scripts.py`). Test: `tools/complete/test_hgss_frontier.py`.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
 

@@ -9,8 +9,8 @@
     InitScriptEntry_OnFrameTable scr_seq_D31R0202_map_scripts_2
     InitScriptEntryEnd
 scr_seq_D31R0202_map_scripts_2:
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414D, 1, _EV_scr_seq_D31R0202_001 + 1
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414D, 2, _EV_scr_seq_D31R0202_002 + 1
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414D, 3, _EV_scr_seq_D31R0202_003 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 1, _EV_scr_seq_D31R0202_001 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 2, _EV_scr_seq_D31R0202_002 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 3, _EV_scr_seq_D31R0202_003 + 1
     InitScriptFrameTableEnd
     InitScriptEnd

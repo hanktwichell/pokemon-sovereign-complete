@@ -10,9 +10,9 @@
     InitScriptEntry_OnFrameTable scr_seq_D32R0601_map_scripts_2
     InitScriptEntryEnd
 scr_seq_D32R0601_map_scripts_2:
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414A, 1, _EV_scr_seq_D32R0601_003 + 1
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414A, 2, _EV_scr_seq_D32R0601_001 + 1
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414A, 3, _EV_scr_seq_D32R0601_004 + 1
-    InitScriptGoToIfEqual VAR_HGSS_UNK_414A, 255, _EV_scr_seq_D32R0601_002 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 1, _EV_scr_seq_D32R0601_003 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 2, _EV_scr_seq_D32R0601_001 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 3, _EV_scr_seq_D32R0601_004 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 255, _EV_scr_seq_D32R0601_002 + 1
     InitScriptFrameTableEnd
     InitScriptEnd

@@ -28,13 +28,13 @@
     ScriptEntry scr_seq_D31R0201_023
     ScriptEntryEnd
 scr_seq_D31R0201_021:
-    CompareVar VAR_HGSS_UNK_414B, 1
+    CompareVar VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 1
     CallIf 1, _00A6
-    CompareVar VAR_HGSS_UNK_414B, 3
+    CompareVar VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 3
     CallIf 1, _00A6
-    CompareVar VAR_HGSS_UNK_414B, 255
+    CompareVar VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 255
     CallIf 1, _00A6
-    @ HGSS: ScrCmd_415 VAR_TEMP_x4000
+    ScrCmd_1E0 VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _00A0
     SetFlag FLAG_HGSS_HIDE_BATTLE_TOWER_RECEPTIONIST
@@ -43,12 +43,12 @@ _00A0:
     ClearFlag FLAG_HGSS_HIDE_BATTLE_TOWER_RECEPTIONIST
     End
 _00A6:
-    @ HGSS: ScrCmd_521
+    ShowPoketch
     Return
 scr_seq_D31R0201_022:
-    CompareVar VAR_HGSS_UNK_414B, 1
+    CompareVar VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 1
     GoToIf 5, _00EF
-    @ HGSS: ScrCmd_415 VAR_TEMP_x4000
+    ScrCmd_1E0 VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _00F1
     CompareVar VAR_MAP_LOCAL_0x00, 1
@@ -63,30 +63,30 @@ _00F1:
     CompleteSetObjectDir 3, 2
     End
 _00F9:
-    SetVarFromValue VAR_HGSS_UNK_414B, 255
-    SetVarFromValue VAR_HGSS_UNK_414D, 1
-    SetVarFromValue VAR_HGSS_UNK_414E, 1
-    SetVarFromValue VAR_HGSS_UNK_414C, 1
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 255
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_CORRIDOR_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_ROOM_LOAD_ACTION, 1
     Return
 _0113:
-    SetVarFromValue VAR_HGSS_UNK_414B, 255
-    SetVarFromValue VAR_HGSS_UNK_414D, 3
-    SetVarFromValue VAR_HGSS_UNK_414F, 1
-    SetVarFromValue VAR_HGSS_UNK_4150, 1
-    SetVarFromValue VAR_HGSS_UNK_4151, 1
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 255
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 3
+    SetVarFromValue VAR_BATTLE_TOWER_CORRIDOR_MULTI_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_MULTI_BATTLE_ROOM_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 1
     Return
 _0133:
-    SetVarFromValue VAR_HGSS_UNK_414B, 255
-    SetVarFromValue VAR_HGSS_UNK_414D, 1
-    SetVarFromValue VAR_HGSS_UNK_414E, 1
-    SetVarFromValue VAR_HGSS_UNK_414C, 2
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 255
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_CORRIDOR_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_ROOM_LOAD_ACTION, 2
     Return
 scr_seq_D31R0201_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
     SetVarFromValue VAR_MAP_LOCAL_0x01, 0
-    @ HGSS: ScrCmd_414 VAR_TEMP_x4002
+    ScrCmd_1DF VAR_MAP_LOCAL_0x02
     GoTo _0167
     End
 _0167:
@@ -154,7 +154,7 @@ _024E:
 scr_seq_D31R0201_000:
     LockAll
     PlaySE SE_CONFIRM_sseq_3
-    @ HGSS: ScrCmd_409
+    SetBattleTowerNull
     Message msg_0096_D31R0201_00000
     GoTo _026E
     End
@@ -194,22 +194,22 @@ _02D2:
     GoTo _085B
     End
 _0321:
-    @ HGSS: ScrCmd_410 0, 0
+    InitBattleTower 0, 0
     GoTo _032F
     End
 _032F:
-    @ HGSS: ScrCmd_412 1, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 1, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0383
-    @ HGSS: ScrCmd_444 91, 3, 0, 0
+    MessageSeenBanlistSpecies 91, 3
     GoTo _085E
     End
 _0356:
-    @ HGSS: ScrCmd_410 0, 1
-    @ HGSS: ScrCmd_412 1, 0, VAR_SPECIAL_RESULT
+    InitBattleTower 0, 1
+    CallBattleTowerFunction 1, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _042F
-    @ HGSS: ScrCmd_444 91, 4, 0, 0
+    MessageSeenBanlistSpecies 91, 4
     GoTo _085E
     End
 _0383:
@@ -217,25 +217,25 @@ _0383:
     Call _0560
     CompareVar VAR_RESULT, 0
     GoToIf 1, _085B
-    @ HGSS: ScrCmd_412 32, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 32, 0, VAR_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 1
     GoToIf 1, _0546
     CompareVar VAR_0x8008, 2
     GoToIf 1, _0553
-    @ HGSS: ScrCmd_412 53, 0, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 0, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 53, 1, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 1, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 53, 2, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 2, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     CompareVar VAR_RESULT, 4
     GoToIf 1, _0A97
     GoTo _04F6
@@ -245,42 +245,42 @@ _042F:
     Call _0560
     CompareVar VAR_RESULT, 0
     GoToIf 1, _085B
-    @ HGSS: ScrCmd_412 32, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 32, 0, VAR_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 1
     GoToIf 1, _0546
     CompareVar VAR_0x8008, 2
     GoToIf 1, _0553
-    @ HGSS: ScrCmd_412 53, 0, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 0, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 53, 1, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 1, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 53, 2, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 2, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 53, 3, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 3, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     CompareVar VAR_RESULT, 4
     GoToIf 1, _0A97
     GoTo _04F6
     End
 _04F6:
     Call _00F9
-    @ HGSS: ScrCmd_412 5, 0, 0
+    CallBattleTowerFunction 5, 0, 0
     HealParty
     Call _053A
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
-    @ HGSS: ScrCmd_412 57, 0, VAR_SPECIAL_RESULT
-    @ HGSS: ScrCmd_412 52, 0, 0
+    CallBattleTowerFunction 57, 0, VAR_RESULT
+    CallBattleTowerFunction 52, 0, 0
     Message msg_0096_D31R0201_00011
     WaitABPress
     GoTo _06CD
@@ -301,8 +301,8 @@ _0560:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: ScrCmd_412 30, 0, 0
-    @ HGSS: ScrCmd_412 31, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 30, 0, 0
+    CallBattleTowerFunction 31, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _058F
 _058F:
@@ -312,17 +312,17 @@ _058F:
     Return
 scr_seq_D31R0201_004:
     LockAll
-    SetVarFromValue VAR_HGSS_UNK_414B, 0
-    @ HGSS: ScrCmd_412 4, 0, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 0
+    CallBattleTowerFunction 4, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, scr_seq_D31R0201_005
     Message msg_0096_D31R0201_00016
-    @ HGSS: ScrCmd_410 1, 65535
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    InitBattleTower 1, 65535
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 1, _05FD
     Call _0133
-    @ HGSS: ScrCmd_412 5, 0, 0
+    CallBattleTowerFunction 5, 0, 0
     Call _0817
     Message msg_0096_D31R0201_00011
     WaitABPress
@@ -330,44 +330,44 @@ scr_seq_D31R0201_004:
     End
 _05FD:
     Call _062C
-    @ HGSS: ScrCmd_412 5, 0, 0
+    CallBattleTowerFunction 5, 0, 0
     Call _0817
-    @ HGSS: ScrCmd_412 51, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 51, 0, VAR_RESULT
     SetVarFromVar VAR_MAP_LOCAL_0x09, VAR_RESULT
     Message msg_0096_D31R0201_00032
     WaitABPress
     GoTo _06CD
     End
 _062C:
-    SetVarFromValue VAR_HGSS_UNK_414B, 255
-    SetVarFromValue VAR_HGSS_UNK_414D, 2
-    SetVarFromValue VAR_HGSS_UNK_414F, 1
-    SetVarFromValue VAR_HGSS_UNK_4150, 2
-    SetVarFromValue VAR_HGSS_UNK_4151, 0
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 255
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 2
+    SetVarFromValue VAR_BATTLE_TOWER_CORRIDOR_MULTI_LOAD_ACTION, 1
+    SetVarFromValue VAR_BATTLE_TOWER_MULTI_BATTLE_ROOM_LOAD_ACTION, 2
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 0
     Return
 scr_seq_D31R0201_005:
     LockAll
     Message msg_0096_D31R0201_00019
-    @ HGSS: ScrCmd_412 14, 0, VAR_SPECIAL_RESULT
-    CompareVar VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 1
+    CallBattleTowerFunction 14, 0, VAR_RESULT
+    CompareVar VAR_BATTLE_TOWER_PRINT_STATE, 1
     CallIf 1, _068A
-    CompareVar VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_TOWER_PRINT_STATE, 3
     CallIf 1, _0692
     CompareVar VAR_RESULT, 4
     GoToIf 1, _069A
     GoTo _0855
     End
 _068A:
-    SetVarFromValue VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 0
+    SetVarFromValue VAR_BATTLE_TOWER_PRINT_STATE, 0
     Return
 _0692:
-    SetVarFromValue VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_TOWER_PRINT_STATE, 2
     Return
 _069A:
-    @ HGSS: ScrCmd_412 9, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 9, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
-    @ HGSS: ScrCmd_412 10, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 10, 0, VAR_RESULT
     SetVarFromVar VAR_0x8000, VAR_RESULT
     BufferNumber 0, VAR_0x8000
     Message msg_0096_D31R0201_00065
@@ -375,7 +375,7 @@ _069A:
     End
 _06CD:
     CloseMessage
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 4
     GoToIf 1, _0733
@@ -412,7 +412,7 @@ _0767:
     GoTo _0781
     End
 _0781:
-    SetVarFromValue VAR_HGSS_UNK_414D, 2
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 2
     GoTo _0829
     End
 _078F:
@@ -435,7 +435,7 @@ _07CF:
 scr_seq_D31R0201_007:
     LockAll
     Call _0807
-    @ HGSS: ScrCmd_412 100, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 100, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _085B
     Message msg_0096_D31R0201_00056
@@ -444,7 +444,7 @@ scr_seq_D31R0201_007:
     End
 _0807:
     Call _0890
-    @ HGSS: ScrCmd_412 6, 0, 0
+    CallBattleTowerFunction 6, 0, 0
     Return
 _0817:
     ShowSavingIcon
@@ -475,36 +475,36 @@ _0860:
     ReleaseAll
     End
 _0872:
-    @ HGSS: ScrCmd_412 6, 0, 0
+    CallBattleTowerFunction 6, 0, 0
     Call _0882
     Return
 _0882:
-    @ HGSS: ScrCmd_412 3, 0, 0
+    CallBattleTowerFunction 3, 0, 0
     Return
 _088C:
-    @ HGSS: ScrCmd_411
+    FreeBattleTower
     Return
 _0890:
-    SetVarFromValue VAR_HGSS_UNK_414B, 0
-    SetVarFromValue VAR_HGSS_UNK_414D, 0
-    SetVarFromValue VAR_HGSS_UNK_414E, 0
-    SetVarFromValue VAR_HGSS_UNK_414F, 0
-    SetVarFromValue VAR_HGSS_UNK_414C, 0
-    SetVarFromValue VAR_HGSS_UNK_4150, 0
-    SetVarFromValue VAR_HGSS_UNK_4151, 0
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 0
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 0
+    SetVarFromValue VAR_BATTLE_TOWER_CORRIDOR_LOAD_ACTION, 0
+    SetVarFromValue VAR_BATTLE_TOWER_CORRIDOR_MULTI_LOAD_ACTION, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_ROOM_LOAD_ACTION, 0
+    SetVarFromValue VAR_BATTLE_TOWER_MULTI_BATTLE_ROOM_LOAD_ACTION, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 0
     Return
 scr_seq_D31R0201_002:
     LockAll
     PlaySE SE_CONFIRM_sseq_3
-    @ HGSS: ScrCmd_409
-    @ HGSS: ScrCmd_412 12, 0, VAR_SPECIAL_RESULT
+    SetBattleTowerNull
+    CallBattleTowerFunction 12, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _09F7
     Message msg_0096_D31R0201_00036
     GoTo _08E6
     End
 _08E6:
-    @ HGSS: ScrCmd_412 15, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 15, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0974
     GoTo _0903
@@ -575,8 +575,8 @@ _0A42:
 _0A52:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_166 VAR_TEMP_x4000
-    @ HGSS: ScrCmd_412 16, VAR_TEMP_x4001, VAR_TEMP_x4000
+    ScrCmd_0B3 VAR_MAP_LOCAL_0x00
+    CallBattleTowerFunction 16, VAR_MAP_LOCAL_0x01, VAR_MAP_LOCAL_0x00
     SetVarFromVar VAR_MAP_LOCAL_0x01, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 1, _0A81
@@ -592,7 +592,7 @@ _0A97:
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
     Call _00F9
-    @ HGSS: ScrCmd_412 5, 0, 0
+    CallBattleTowerFunction 5, 0, 0
     HealParty
     CloseMessage
     SetVarFromValue VAR_MAP_LOCAL_0x01, 0
@@ -610,16 +610,16 @@ _0ADF:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0ADF
-    SetVarFromValue VAR_HGSS_UNK_414B, 2
-    @ HGSS: ScrCmd_412 39, 0, 0
-    @ HGSS: ScrCmd_411
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 2
+    CallBattleTowerFunction 39, 0, 0
+    FreeBattleTower
     Message msg_0096_D31R0201_00056
     Call _0817
     WaitABPressTime 30
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CloseMessage
-    @ HGSS: ScrCmd_412 2, 0, 0
+    CallBattleTowerFunction 2, 0, 0
     ReleaseAll
     End
 _0B46:
@@ -631,7 +631,7 @@ _0B46:
     Call _0A52
     CompareVar VAR_RESULT, 0
     GoToIf 5, _085B
-    @ HGSS: ScrCmd_418 VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    ScrCmd_1E3 VAR_0x8004, VAR_0x8005
     BufferNumber 0, VAR_0x8004
     BufferVarPaddingDigits 1, VAR_0x8005, 2, 3
     Message msg_0096_D31R0201_00052
@@ -639,11 +639,11 @@ _0B46:
     GoTo _0860
     End
 _0B97:
-    @ HGSS: ScrCmd_410 0, 4
+    InitBattleTower 0, 4
     GoTo _032F
     End
 _0BA5:
-    @ HGSS: ScrCmd_410 0, 5
+    InitBattleTower 0, 5
     GoTo _032F
     End
 _0BB3:
@@ -653,7 +653,7 @@ _0BB3:
 scr_seq_D31R0201_001:
     LockAll
     PlaySE SE_CONFIRM_sseq_3
-    @ HGSS: ScrCmd_409
+    SetBattleTowerNull
     Message msg_0096_D31R0201_00020
     GoTo _0BD4
     End
@@ -672,10 +672,10 @@ _0C07:
     GoTo _0BD4
     End
 _0C12:
-    @ HGSS: ScrCmd_412 1, 2, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 1, 2, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0C39
-    @ HGSS: ScrCmd_444 91, 2, 0, 0
+    MessageSeenBanlistSpecies 91, 2
     GoTo _085E
     End
 _0C39:
@@ -686,12 +686,12 @@ _0C39:
     GoTo _0C55
     End
 _0C55:
-    @ HGSS: ScrCmd_410 0, 2
+    InitBattleTower 0, 2
     SetVarFromValue VAR_MAP_LOCAL_0x01, 0
     GoTo _0C7D
     End
 _0C69:
-    @ HGSS: ScrCmd_410 0, 3
+    InitBattleTower 0, 3
     SetVarFromValue VAR_MAP_LOCAL_0x01, 1
     GoTo _0C7D
     End
@@ -700,30 +700,30 @@ _0C7D:
     Call _0560
     CompareVar VAR_RESULT, 0
     GoToIf 1, _085B
-    @ HGSS: ScrCmd_412 32, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 32, 0, VAR_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 1
     GoToIf 1, _0546
     CompareVar VAR_0x8008, 2
     GoToIf 1, _0553
-    @ HGSS: ScrCmd_412 53, 0, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 0, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
-    @ HGSS: ScrCmd_412 53, 1, VAR_SPECIAL_RESULT
-    @ HGSS: DaycareSanitizeMon VAR_SPECIAL_RESULT, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 1, VAR_RESULT
+    TryRevertPokemonForm VAR_RESULT, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _14C8
     CompareVar VAR_MAP_LOCAL_0x01, 1
     GoToIf 1, _0D40
     Call _0113
-    @ HGSS: ScrCmd_412 5, 0, 0
+    CallBattleTowerFunction 5, 0, 0
     HealParty
     Call _053A
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
-    @ HGSS: ScrCmd_412 57, 0, VAR_SPECIAL_RESULT
-    @ HGSS: ScrCmd_412 52, 0, 0
+    CallBattleTowerFunction 57, 0, VAR_RESULT
+    CallBattleTowerFunction 52, 0, 0
     Message msg_0096_D31R0201_00035
     GoTo _06CD
     End
@@ -752,7 +752,7 @@ _0DA6:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0D55
     CloseMessage
-    @ HGSS: ScrCmd_226 16, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleClient 16, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0DEC
     CompareVar VAR_RESULT, 3
@@ -771,7 +771,7 @@ _0DFE:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0D55
     CloseMessage
-    @ HGSS: ScrCmd_227 16, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleServer 16, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0E44
     CompareVar VAR_RESULT, 3
@@ -785,15 +785,16 @@ _0E4C:
     GoTo _0D55
     End
 _0E56:
-    @ HGSS: ScrCmd_257 1
-    @ HGSS: ScrCmd_412 58, 0, 0
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 1
+    CallBattleTowerFunction 58, 0, 0
     GoTo _0E6C
     End
 _0E6C:
-    @ HGSS: ScrCmd_416 0, 0, VAR_SPECIAL_RESULT
+    ScrCmd_1E1 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0E6C
-    @ HGSS: ScrCmd_417 0, VAR_TEMP_x4000
+    ScrCmd_1E2 0, VAR_MAP_LOCAL_0x00
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 1
     GoToIf 1, _0EE1
@@ -801,59 +802,62 @@ _0E6C:
     GoToIf 1, _0EFF
     CompareVar VAR_0x8008, 3
     GoToIf 1, _0F1D
-    @ HGSS: ScrCmd_257 2
-    @ HGSS: ScrCmd_412 57, 0, VAR_SPECIAL_x8004
-    @ HGSS: ScrCmd_451 VAR_SPECIAL_RESULT
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 2
+    CallBattleTowerFunction 57, 0, VAR_0x8004
+    GetCurNetID VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0F84
-    @ HGSS: ScrCmd_417 1, VAR_TEMP_x4000
+    ScrCmd_1E2 1, VAR_MAP_LOCAL_0x00
     GoTo _0F52
     End
 _0EE1:
     Call _0F48
-    @ HGSS: ScrCmd_412 53, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 0, VAR_RESULT
     BufferPartyMonSpecies 0, VAR_RESULT
     Message msg_0096_D31R0201_00033
     GoTo _0855
     End
 _0EFF:
     Call _0F48
-    @ HGSS: ScrCmd_412 53, 1, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 1, VAR_RESULT
     BufferPartyMonSpecies 0, VAR_RESULT
     Message msg_0096_D31R0201_00033
     GoTo _0855
     End
 _0F1D:
     Call _0F48
-    @ HGSS: ScrCmd_412 53, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 0, VAR_RESULT
     BufferPartyMonSpecies 0, VAR_RESULT
-    @ HGSS: ScrCmd_412 53, 1, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 53, 1, VAR_RESULT
     BufferPartyMonSpecies 1, VAR_RESULT
     Message msg_0096_D31R0201_00034
     GoTo _0855
     End
 _0F48:
-    @ HGSS: ScrCmd_257 8
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 8
     Return
 _0F52:
     Call _0113
-    @ HGSS: ScrCmd_412 5, 0, 0
+    CallBattleTowerFunction 5, 0, 0
     HealParty
     Message msg_0096_D31R0201_00069
     Call _0817
-    @ HGSS: BattleTowerSetUpMultiBattle
+    LogLinkInfoInWiFiHistory
     Message msg_0096_D31R0201_00032
     WaitTime 30, VAR_RESULT
-    @ HGSS: ScrCmd_257 3
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 3
     GoTo _06CD
     End
 _0F84:
-    @ HGSS: ScrCmd_412 52, 0, 0
-    @ HGSS: ScrCmd_412 58, 0, 0
+    CallBattleTowerFunction 52, 0, 0
+    CallBattleTowerFunction 58, 0, 0
     GoTo _0F9C
     End
 _0F9C:
-    @ HGSS: ScrCmd_416 1, 0, VAR_SPECIAL_RESULT
+    ScrCmd_1E1 1, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0F9C
     GoTo _0F52
@@ -863,24 +867,24 @@ scr_seq_D31R0201_003:
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Call _0807
-    @ HGSS: ScrCmd_412 100, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 100, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _085B
-    @ HGSS: ScrCmd_412 35, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 35, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _107A
     GoTo _1001
     End
 _1001:
     Message msg_0096_D31R0201_00053
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     SetVarFromVar VAR_MAP_LOCAL_0x00, VAR_RESULT
     SetVar VAR_0x8008, VAR_MAP_LOCAL_0x00
     CompareVar VAR_0x8008, 5
     GoToIf 1, _104F
     CompareVar VAR_0x8008, 4
     GoToIf 1, _12B6
-    @ HGSS: ScrCmd_412 49, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 49, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     CallIf 1, _106F
     GoTo _104F
@@ -899,7 +903,7 @@ _106F:
     WaitFanfare
     Return
 _107A:
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     SetVarFromVar VAR_MAP_LOCAL_0x00, VAR_RESULT
     CompareVar VAR_MAP_LOCAL_0x00, 5
     GoToIf 1, _1268
@@ -907,7 +911,7 @@ _107A:
     GoToIf 1, _118D
     CompareVar VAR_MAP_LOCAL_0x00, 4
     GoToIf 1, _10E6
-    @ HGSS: ScrCmd_412 49, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 49, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 5, _10D2
     Call _1263
@@ -922,13 +926,13 @@ _10D2:
     End
 _10E6:
     Message msg_0096_D31R0201_00012
-    @ HGSS: ScrCmd_412 54, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 54, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _115A
     GoTo _1106
     End
 _1106:
-    @ HGSS: ScrCmd_412 10, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 10, 0, VAR_RESULT
     SetVarFromVar VAR_MAP_LOCAL_0x00, VAR_RESULT
     BufferPlayerName 0
     BufferNumber 1, VAR_MAP_LOCAL_0x00
@@ -936,7 +940,7 @@ _1106:
     GoTo _1127
     End
 _1127:
-    @ HGSS: ScrCmd_412 49, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 49, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _12F1
     GoTo _1144
@@ -949,7 +953,7 @@ _1144:
     GoTo _12F1
     End
 _115A:
-    @ HGSS: ScrCmd_412 49, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 49, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _12F1
     GoTo _1177
@@ -962,7 +966,7 @@ _1177:
     GoTo _12F1
     End
 _118D:
-    @ HGSS: ScrCmd_412 45, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 45, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11AA
     GoTo _11F1
@@ -974,7 +978,7 @@ _11AA:
 _11B8:
     Message msg_0096_D31R0201_00014
     Call _0817
-    @ HGSS: ScrCmd_414 VAR_SPECIAL_RESULT
+    ScrCmd_1DF VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
     Message msg_0096_D31R0201_00113
@@ -985,11 +989,11 @@ _11B8:
     GoTo _0167
     End
 _11F1:
-    CompareVar VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 1
+    CompareVar VAR_BATTLE_TOWER_PRINT_STATE, 1
     CallIf 1, _1231
-    CompareVar VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_TOWER_PRINT_STATE, 3
     CallIf 1, _1248
-    @ HGSS: ScrCmd_412 48, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 48, 0, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _11B8
     Message msg_0096_D31R0201_00084
@@ -1003,7 +1007,7 @@ _1231:
     Message msg_0096_D31R0201_00087
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_TOWER_PRINT_STATE, 2
     Return
 _1248:
     Message msg_0096_D31R0201_00085
@@ -1011,7 +1015,7 @@ _1248:
     Message msg_0096_D31R0201_00086
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_TOWER_PRINT_PROGRESS, 4
+    SetVarFromValue VAR_BATTLE_TOWER_PRINT_STATE, 4
     Common_CheckAllFrontierGoldPrintsObtained
     Return
 _1263:
@@ -1028,7 +1032,7 @@ _1273:
     GoTo _0855
     End
 _1286:
-    @ HGSS: ScrCmd_414 VAR_SPECIAL_RESULT
+    ScrCmd_1DF VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0855
     Message msg_0096_D31R0201_00113
@@ -1039,20 +1043,20 @@ _1286:
     GoTo _0167
     End
 _12B6:
-    @ HGSS: ScrCmd_412 9, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 9, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _12D3
     GoTo _12F1
     End
 _12D3:
-    @ HGSS: ScrCmd_412 10, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 10, 0, VAR_RESULT
     SetVarFromVar VAR_0x8000, VAR_RESULT
     BufferNumber 0, VAR_0x8000
     Message msg_0096_D31R0201_00065
     GoTo _12F1
     End
 _12F1:
-    @ HGSS: ScrCmd_412 11, 1, 0
+    CallBattleTowerFunction 11, 1, 0
     GoTo _1301
     End
 _1301:
@@ -1117,7 +1121,7 @@ scr_seq_D31R0201_011:
 scr_seq_D31R0201_012:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    @ HGSS: ScrCmd_419 VAR_SPECIAL_RESULT
+    ScrCmd_1E4 VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _13F9
     SetVarFromValue VAR_0x8000, 1
@@ -1133,7 +1137,7 @@ _13F9:
 _1404:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_408 VAR_SPECIAL_x8000, VAR_SPECIAL_x8001
+    OpenBattleTowerRecordsApp VAR_0x8000, VAR_0x8001
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -1195,7 +1199,7 @@ _1506:
     GetPartyMonSpecies VAR_0x8000, VAR_0x8004
     CompareVar VAR_0x8004, 0
     GoToIf 1, _1598
-    @ HGSS: StatJudge VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002, VAR_SPECIAL_x8003
+    JudgeStats VAR_0x8000, VAR_0x8001, VAR_0x8002, VAR_0x8003
     CompareVar VAR_0x8001, 90
     GoToIf 3, _15E5
     CompareVar VAR_0x8001, 120

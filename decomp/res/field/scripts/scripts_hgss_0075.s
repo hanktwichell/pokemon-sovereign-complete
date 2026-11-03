@@ -20,41 +20,41 @@
     ScriptEntry scr_seq_D31R0207_009
     ScriptEntryEnd
 scr_seq_D31R0207_006:
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 5, _004C
-    @ HGSS: ScrCmd_412 55, 2, VAR_TEMP_x4009
+    CallBattleTowerFunction 55, 2, VAR_MAP_LOCAL_0x09
     CompareVar VAR_MAP_LOCAL_0x09, 0
     GoToIf 1, _00EA
 _004C:
     ClearFlag FLAG_HGSS_UNK_2AD
 _0050:
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 5, _0072
-    @ HGSS: ScrCmd_412 55, 2, VAR_TEMP_x4009
+    CallBattleTowerFunction 55, 2, VAR_MAP_LOCAL_0x09
     CompareVar VAR_MAP_LOCAL_0x09, 1
     GoToIf 1, _00F6
 _0072:
     ClearFlag FLAG_HGSS_UNK_2AE
 _0076:
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 5, _0098
-    @ HGSS: ScrCmd_412 55, 2, VAR_TEMP_x4009
+    CallBattleTowerFunction 55, 2, VAR_MAP_LOCAL_0x09
     CompareVar VAR_MAP_LOCAL_0x09, 2
     GoToIf 1, _0102
 _0098:
     ClearFlag FLAG_HGSS_UNK_2AF
 _009C:
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 5, _00BE
-    @ HGSS: ScrCmd_412 55, 2, VAR_TEMP_x4009
+    CallBattleTowerFunction 55, 2, VAR_MAP_LOCAL_0x09
     CompareVar VAR_MAP_LOCAL_0x09, 3
     GoToIf 1, _010E
 _00BE:
     ClearFlag FLAG_HGSS_UNK_2B0
 _00C2:
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 5, _00E4
-    @ HGSS: ScrCmd_412 55, 2, VAR_TEMP_x4009
+    CallBattleTowerFunction 55, 2, VAR_MAP_LOCAL_0x09
     CompareVar VAR_MAP_LOCAL_0x09, 4
     GoToIf 1, _011A
 _00E4:
@@ -82,9 +82,9 @@ _011A:
     GoTo _00E8
     End
 scr_seq_D31R0207_007:
-    CompareVar VAR_HGSS_UNK_4151, 1
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 1
     CallIf 1, _0142
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 1, _0148
     End
 _0142:
@@ -95,11 +95,11 @@ _0148:
     End
 scr_seq_D31R0207_008:
     LockAll
-    SetVarFromValue VAR_HGSS_UNK_4151, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 0
     Call _048B
     Message msg_0099_D31R0207_00000
     CloseMessage
-    @ HGSS: ScrCmd_412 56, 0, 0
+    CallBattleTowerFunction 56, 0, 0
     ReleaseAll
     End
 scr_seq_D31R0207_000:
@@ -118,7 +118,7 @@ scr_seq_D31R0207_000:
 _01A3:
     CloseMessage
     ReleaseAll
-    SetVarFromValue VAR_HGSS_UNK_414B, 3
+    SetVarFromValue VAR_BATTLE_TOWER_LOBBY_LOAD_ACTION, 3
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 11, 6, DIR_NORTH
@@ -127,11 +127,11 @@ _01A3:
     End
 scr_seq_D31R0207_009:
     LockAll
-    SetVarFromValue VAR_HGSS_UNK_4151, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 0
     Message msg_0099_D31R0207_00002
     CloseMessage
     Call _04C5
-    SetVarFromValue VAR_HGSS_UNK_414D, 2
+    SetVarFromValue VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 2
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_BATTLE_TOWER_ELEVATOR, 3, 6, DIR_NORTH
@@ -140,10 +140,10 @@ scr_seq_D31R0207_009:
     ReleaseAll
     End
 _0216:
-    @ HGSS: ScrCmd_413 VAR_TEMP_x4009, 0, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    GetBattleTowerPartnerSpeciesAndMove VAR_MAP_LOCAL_0x09, 0, VAR_0x8004, VAR_0x8005
     BufferSpeciesNameFromVar 0, VAR_0x8004, 0, 0
     BufferMoveName 1, VAR_0x8005
-    @ HGSS: ScrCmd_413 VAR_TEMP_x4009, 1, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    GetBattleTowerPartnerSpeciesAndMove VAR_MAP_LOCAL_0x09, 1, VAR_0x8004, VAR_0x8005
     BufferSpeciesNameFromVar 2, VAR_0x8004, 0, 0
     BufferMoveName 3, VAR_0x8005
     Return
@@ -151,13 +151,13 @@ scr_seq_D31R0207_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 1, _02A7
     SetVarFromValue VAR_MAP_LOCAL_0x09, 0
-    @ HGSS: ScrCmd_413 VAR_TEMP_x4009, 0, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    GetBattleTowerPartnerSpeciesAndMove VAR_MAP_LOCAL_0x09, 0, VAR_0x8004, VAR_0x8005
     BufferSpeciesNameWithArticle 0, VAR_0x8004
     BufferMoveName 1, VAR_0x8005
-    @ HGSS: ScrCmd_413 VAR_TEMP_x4009, 1, VAR_SPECIAL_x8004, VAR_SPECIAL_x8005
+    GetBattleTowerPartnerSpeciesAndMove VAR_MAP_LOCAL_0x09, 1, VAR_0x8004, VAR_0x8005
     BufferSpeciesNameWithArticle 2, VAR_0x8004
     BufferMoveName 3, VAR_0x8005
     Message msg_0099_D31R0207_00006
@@ -171,8 +171,8 @@ _02A7:
     ReleaseAll
     End
 _02B2:
-    @ HGSS: ScrCmd_412 50, VAR_TEMP_x4009, 0
-    SetVarFromValue VAR_HGSS_UNK_4151, 2
+    CallBattleTowerFunction 50, VAR_MAP_LOCAL_0x09, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     Message msg_0099_D31R0207_00008
     CloseMessage
     ReleaseAll
@@ -183,7 +183,7 @@ scr_seq_D31R0207_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 1, _030F
     SetVarFromValue VAR_MAP_LOCAL_0x09, 1
     Call _0216
@@ -199,8 +199,8 @@ _030F:
     ReleaseAll
     End
 _031A:
-    @ HGSS: ScrCmd_412 50, VAR_TEMP_x4009, 0
-    SetVarFromValue VAR_HGSS_UNK_4151, 2
+    CallBattleTowerFunction 50, VAR_MAP_LOCAL_0x09, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     BufferPlayerName 0
     Message msg_0099_D31R0207_00017
     CloseMessage
@@ -212,7 +212,7 @@ scr_seq_D31R0207_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 1, _0377
     SetVarFromValue VAR_MAP_LOCAL_0x09, 2
     Call _0216
@@ -227,8 +227,8 @@ _0377:
     ReleaseAll
     End
 _0382:
-    @ HGSS: ScrCmd_412 50, VAR_TEMP_x4009, 0
-    SetVarFromValue VAR_HGSS_UNK_4151, 2
+    CallBattleTowerFunction 50, VAR_MAP_LOCAL_0x09, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     Message msg_0099_D31R0207_00005
     CloseMessage
     ReleaseAll
@@ -239,7 +239,7 @@ scr_seq_D31R0207_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 1, _03DC
     SetVarFromValue VAR_MAP_LOCAL_0x09, 3
     Call _0216
@@ -254,8 +254,8 @@ _03DC:
     ReleaseAll
     End
 _03E7:
-    @ HGSS: ScrCmd_412 50, VAR_TEMP_x4009, 0
-    SetVarFromValue VAR_HGSS_UNK_4151, 2
+    CallBattleTowerFunction 50, VAR_MAP_LOCAL_0x09, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     Message msg_0099_D31R0207_00014
     CloseMessage
     ReleaseAll
@@ -266,7 +266,7 @@ scr_seq_D31R0207_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CompareVar VAR_HGSS_UNK_4151, 2
+    CompareVar VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     GoToIf 1, _0441
     SetVarFromValue VAR_MAP_LOCAL_0x09, 4
     Call _0216
@@ -281,8 +281,8 @@ _0441:
     ReleaseAll
     End
 _044C:
-    @ HGSS: ScrCmd_412 50, VAR_TEMP_x4009, 0
-    SetVarFromValue VAR_HGSS_UNK_4151, 2
+    CallBattleTowerFunction 50, VAR_MAP_LOCAL_0x09, 0
+    SetVarFromValue VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2
     Message msg_0099_D31R0207_00011
     CloseMessage
     ReleaseAll

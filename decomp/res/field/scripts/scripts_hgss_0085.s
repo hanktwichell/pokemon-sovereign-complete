@@ -28,7 +28,7 @@
     ScriptEntry scr_seq_D32R0401_021
     ScriptEntryEnd
 scr_seq_D32R0401_021:
-    @ HGSS: BattleHallCountUsedSpecies VAR_TEMP_x4000
+    GetNumSpeciesWithBattleHallRecords VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 11
     CallIf 4, _0090
     CompareVar VAR_MAP_LOCAL_0x00, 101
@@ -43,7 +43,7 @@ _0090:
     SetPosition obj_D32R0401_var_10, 13, 0, 11, DIR_WEST
     Return
 scr_seq_D32R0401_020:
-    CompareVar VAR_HGSS_UNK_4145, 1
+    CompareVar VAR_BATTLE_HALL_LOBBY_LOAD_ACTION, 1
     GoToIf 1, _00B5
     End
 _00B5:
@@ -61,7 +61,7 @@ _00DF:
     End
 _00EC:
     SetFlag FLAG_HGSS_UNK_AA1
-    @ HGSS: BattleHallGetTotalStreak VAR_TEMP_x4008
+    GetBattleHallTotalSinglesRecord VAR_MAP_LOCAL_0x08
     CompareVar VAR_MAP_LOCAL_0x08, 10000
     GoToIf 4, _011D
     CompareVar VAR_MAP_LOCAL_0x08, 1000
@@ -184,41 +184,41 @@ _02F5:
     GoTo _02FD
     End
 _02FD:
-    SetVarFromValue VAR_HGSS_UNK_4145, 0
+    SetVarFromValue VAR_BATTLE_HALL_LOBBY_LOAD_ACTION, 0
     Message msg_0108_D32R0401_00006
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _030E:
-    SetVarFromValue VAR_HGSS_UNK_4146, 0
-    @ HGSS: ScrCmd_633 0, 1, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_HALL_CHALLENGE_TYPE, 0
+    CallBattleHallLobbyFunction 0, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0377
     GoTo _03A1
     End
 _0331:
-    SetVarFromValue VAR_HGSS_UNK_4146, 1
-    @ HGSS: ScrCmd_633 0, 2, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_HALL_CHALLENGE_TYPE, 1
+    CallBattleHallLobbyFunction 0, 2, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _038C
     GoTo _03A1
     End
 _0354:
-    SetVarFromValue VAR_HGSS_UNK_4146, 2
-    @ HGSS: ScrCmd_633 0, 1, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_HALL_CHALLENGE_TYPE, 2
+    CallBattleHallLobbyFunction 0, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0377
     GoTo _03A1
     End
 _0377:
     Message msg_0108_D32R0401_00035
-    @ HGSS: ScrCmd_444 37, 1, 0, 0
+    MessageSeenBanlistSpecies 37, 1
     GoTo _02F5
     End
 _038C:
     Message msg_0108_D32R0401_00036
-    @ HGSS: ScrCmd_444 37, 2, 0, 0
+    MessageSeenBanlistSpecies 37, 2
     GoTo _02F5
     End
 _03A1:
@@ -226,8 +226,8 @@ _03A1:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_633 4, VAR_UNK_4146, VAR_SPECIAL_RESULT
-    @ HGSS: ScrCmd_635 VAR_TEMP_x4002, VAR_TEMP_x4005
+    CallBattleHallLobbyFunction 4, VAR_BATTLE_HALL_CHALLENGE_TYPE, VAR_RESULT
+    GetBattleHallSelectedSlots VAR_MAP_LOCAL_0x02, VAR_MAP_LOCAL_0x05
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 5, _03D1
 _03D1:
@@ -236,15 +236,15 @@ _03D1:
     WaitFadeScreen
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 1, _02F5
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4002, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x02, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _07B9
-    CompareVar VAR_HGSS_UNK_4146, 1
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 1
     GoToIf 1, _0414
     GoTo _042F
     End
 _0414:
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4005, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x05, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _07B9
     GoTo _042F
@@ -255,10 +255,10 @@ _042F:
     GoToIf 5, _044A
     GoTo _02F5
 _044A:
-    @ HGSS: ScrCmd_633 1, VAR_UNK_4146, VAR_SPECIAL_RESULT
+    CallBattleHallLobbyFunction 1, VAR_BATTLE_HALL_CHALLENGE_TYPE, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _04D8
-    @ HGSS: ScrCmd_633 2, VAR_UNK_4146, VAR_SPECIAL_RESULT
+    CallBattleHallLobbyFunction 2, VAR_BATTLE_HALL_CHALLENGE_TYPE, VAR_RESULT
     BufferSpeciesNameFromVar 0, VAR_RESULT, 0, 0
     CompareVar VAR_RESULT, VAR_MAP_LOCAL_0x01
     GoToIf 1, _04D8
@@ -277,16 +277,16 @@ _0484:
     GoTo _02F5
     End
 _04C8:
-    @ HGSS: ScrCmd_633 3, VAR_UNK_4146, VAR_SPECIAL_RESULT
+    CallBattleHallLobbyFunction 3, VAR_BATTLE_HALL_CHALLENGE_TYPE, VAR_RESULT
     GoTo _04D8
     End
 _04D8:
     GoTo _04E0
     End
 _04E0:
-    CompareVar VAR_HGSS_UNK_4146, 0
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 0
     CallIf 1, _066C
-    CompareVar VAR_HGSS_UNK_4146, 1
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 1
     CallIf 1, _066C
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     HealParty
@@ -294,7 +294,7 @@ _04E0:
     SetVarFromVar VAR_RESULT, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 0
     GoToIf 1, _02F5
-    CompareVar VAR_HGSS_UNK_4146, 2
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 2
     GoToIf 1, _052E
     GoTo _0689
     End
@@ -318,7 +318,7 @@ _057F:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _052E
     CloseMessage
-    @ HGSS: ScrCmd_226 30, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleClient 30, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05C5
     CompareVar VAR_RESULT, 3
@@ -337,7 +337,7 @@ _05D7:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _052E
     CloseMessage
-    @ HGSS: ScrCmd_227 30, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleServer 30, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _061D
     CompareVar VAR_RESULT, 3
@@ -351,19 +351,21 @@ _0625:
     GoTo _052E
     End
 _062F:
-    @ HGSS: ScrCmd_257 108
-    @ HGSS: ScrCmd_634 VAR_TEMP_x4001, VAR_SPECIAL_RESULT
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 108
+    CheckBattleHallPartnerUsesDifferentSpecies VAR_MAP_LOCAL_0x01, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0674
-    @ HGSS: ScrCmd_257 110
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 110
     Message msg_0108_D32R0401_00032
-    CompareVar VAR_HGSS_UNK_4146, 2
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 2
     CallIf 1, _066C
     Call _08D9
     GoTo _0689
     End
 _066C:
-    SetVarFromValue VAR_HGSS_UNK_4145, 255
+    SetVarFromValue VAR_BATTLE_HALL_LOBBY_LOAD_ACTION, 255
     Return
 _0674:
     Call _0685
@@ -373,11 +375,11 @@ _0674:
 _0685:
     Return
 _0689:
-    CompareVar VAR_HGSS_UNK_4146, 0
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 0
     CallIf 1, _0721
-    CompareVar VAR_HGSS_UNK_4146, 1
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 1
     CallIf 1, _073C
-    CompareVar VAR_HGSS_UNK_4146, 2
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 2
     CallIf 1, _0757
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     GoTo _06BC
@@ -385,16 +387,16 @@ _0689:
 _06BC:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    CompareVar VAR_HGSS_UNK_4146, 0
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 0
     CallIf 1, _077D
-    CompareVar VAR_HGSS_UNK_4146, 1
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 1
     CallIf 1, _0791
-    CompareVar VAR_HGSS_UNK_4146, 2
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 2
     CallIf 1, _07A5
     IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     WaitForTransition
-    @ HGSS: ScrCmd_627 9
-    CompareVar VAR_HGSS_UNK_4146, 2
+    LaunchBattleFrontierScene 9
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 2
     CallIf 1, _071D
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -419,9 +421,10 @@ _073C:
     WaitMovement
     Return
 _0757:
-    @ HGSS: NPCMsgVar msg_0108_D32R0401_00009
+    MessageNoSkip msg_0108_D32R0401_00009
     WaitTime 10, VAR_RESULT
-    @ HGSS: ScrCmd_257 109
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 109
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _07D8
     ApplyMovement VAR_LAST_TALKED, _0800
@@ -443,7 +446,7 @@ _07A5:
     WaitMovement
     Return
 _07B9:
-    SetVarFromValue VAR_HGSS_UNK_4145, 0
+    SetVarFromValue VAR_BATTLE_HALL_LOBBY_LOAD_ACTION, 0
     Common_GriseousOrbCouldNotBeRemoved
     End
     .balign 4, 0
@@ -527,7 +530,7 @@ _08AD:
     Return
 scr_seq_D32R0401_001:
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
-    SetVarFromValue VAR_HGSS_UNK_4145, 0
+    SetVarFromValue VAR_BATTLE_HALL_LOBBY_LOAD_ACTION, 0
     Message msg_0108_D32R0401_00011
     Call _066C
     Call _08D9
@@ -542,27 +545,27 @@ _08D9:
     Return
 scr_seq_D32R0401_002:
     Message msg_0108_D32R0401_00012
-    @ HGSS: ScrCmd_636 VAR_UNK_4146
-    CompareVar VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 1
+    DeleteActiveBattleHallStreak VAR_BATTLE_HALL_CHALLENGE_TYPE
+    CompareVar VAR_BATTLE_HALL_PRINT_STATE, 1
     CallIf 1, _0914
-    CompareVar VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_HALL_PRINT_STATE, 3
     CallIf 1, _091C
     GoTo _02F5
     End
 _0914:
-    SetVarFromValue VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 0
+    SetVarFromValue VAR_BATTLE_HALL_PRINT_STATE, 0
     Return
 _091C:
-    SetVarFromValue VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_HALL_PRINT_STATE, 2
     Return
 scr_seq_D32R0401_003:
-    CompareVar VAR_HGSS_UNK_4146, 0
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 0
     CallIf 1, _0960
-    CompareVar VAR_HGSS_UNK_4146, 1
+    CompareVar VAR_BATTLE_HALL_CHALLENGE_TYPE, 1
     CallIf 1, _0960
-    CompareVar VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 1
+    CompareVar VAR_BATTLE_HALL_PRINT_STATE, 1
     CallIf 1, _0966
-    CompareVar VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_HALL_PRINT_STATE, 3
     CallIf 1, _097D
     GoTo _02F5
     End
@@ -575,7 +578,7 @@ _0966:
     Message msg_0108_D32R0401_00015
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_HALL_PRINT_STATE, 2
     Return
 _097D:
     Message msg_0108_D32R0401_00013
@@ -583,7 +586,7 @@ _097D:
     Message msg_0108_D32R0401_00014
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_HALL_PRINT_PROGRESS, 4
+    SetVarFromValue VAR_BATTLE_HALL_PRINT_STATE, 4
     Common_CheckAllFrontierGoldPrintsObtained
     Return
 scr_seq_D32R0401_004:
@@ -640,7 +643,7 @@ scr_seq_D32R0401_016:
     LockAll
     FacePlayer
     GoToIfUnset FLAG_HGSS_MET_HALL_STREAK_TRACKER_DUDE, _0AFF
-    @ HGSS: BufferBattleHallStreak 1, 2, 3, 4, VAR_BATTLE_HALL_WIN_STREAK_LEVEL, VAR_SPECIAL_RESULT
+    GetBattleHallRecordKeeperStats 1, 2, 3, 4, VAR_HGSS_BATTLE_HALL_WIN_STREAK_LEVEL, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0AD5
     CompareVar VAR_RESULT, 2
@@ -691,7 +694,7 @@ scr_seq_D32R0401_017:
     End
 _0B37:
     BufferPlayerName 0
-    @ HGSS: BattleHallCountUsedSpecies VAR_SPECIAL_x8005
+    GetNumSpeciesWithBattleHallRecords VAR_0x8005
     CompareVar VAR_0x8005, 475
     GoToIf 4, _0BBE
     CompareVar VAR_0x8005, 351
@@ -765,7 +768,7 @@ scr_seq_D32R0401_018:
     End
 _0C4A:
     BufferPlayerName 0
-    @ HGSS: BattleHallCountUsedSpecies VAR_SPECIAL_x8005
+    GetNumSpeciesWithBattleHallRecords VAR_0x8005
     CompareVar VAR_0x8005, 475
     GoToIf 4, _0CD1
     CompareVar VAR_0x8005, 351

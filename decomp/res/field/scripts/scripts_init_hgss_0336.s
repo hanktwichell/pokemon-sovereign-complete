@@ -10,7 +10,7 @@
     InitScriptEntry_OnFrameTable scr_seq_D31R0207_map_scripts_2
     InitScriptEntryEnd
 scr_seq_D31R0207_map_scripts_2:
-    InitScriptGoToIfEqual VAR_HGSS_UNK_4151, 1, _EV_scr_seq_D31R0207_008 + 1
-    InitScriptGoToIfEqual VAR_HGSS_UNK_4151, 2, _EV_scr_seq_D31R0207_009 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 1, _EV_scr_seq_D31R0207_008 + 1
+    InitScriptGoToIfEqual VAR_BATTLE_TOWER_BATTLE_SALON_STATE, 2, _EV_scr_seq_D31R0207_009 + 1
     InitScriptFrameTableEnd
     InitScriptEnd

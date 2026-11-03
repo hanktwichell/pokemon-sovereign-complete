@@ -494,6 +494,34 @@ once, at the end of the whole game.
   the team in the Hall of Fame and start the game over at home, without credits (`ClearGame_Johto`), and a later
   win at Sinnoh's League skips them.
 
+## Johto's Battle Frontier
+
+Johto's Battle Frontier is open, and its five facilities (the Battle Tower, Factory, Hall, Castle and Arcade) run
+Platinum's own challenges from their Johto lobbies: Platinum's facility code, battle rooms and scenes, started by the
+lobbies' HeartGold scripts. HeartGold built its Frontier on Platinum's, so its lobby scripts ask for the same things in
+the same way:
+
+- **Commands:** HeartGold's Frontier commands are Platinum's, renumbered in blocks (the Battle Tower's 408 on are
+  Platinum's `InitBattleTower`, `CallBattleTowerFunction` and the rest; the other facilities' 627 on are
+  `LaunchBattleFrontierScene` and each facility's lobby function, partner check, chosen slots and streak delete), with
+  the same arguments, the same function numbers inside each lobby function and the same scene numbers
+  (`tools/complete/hgss_script_table.py`). The few others are Platinum's too: the banned Pokémon the player has seen
+  (`MessageSeenBanlistSpecies`), a form put back before a challenge (`TryRevertPokemonForm`, the Griseous Orb),
+  Battle Points spent at the Exchange Service Corner, the Battle Hall's records, the IV judge, and the wireless
+  multi battle's syncs.
+- **Vars:** Platinum's facilities keep a lobby's state, a challenge's type and level and the prints won in Platinum's
+  vars, which their own scripts set as a challenge ends; HeartGold's lobbies have the same vars, in the same order,
+  under other numbers, so their scripts use Platinum's (`FRONTIER_VARS` in `tools/complete/translate_hgss_scripts.py`).
+  Battle Points, streaks, records and prints are one set for both Frontiers: a streak begun in Johto is the same
+  facility's streak in Sinnoh.
+- **Not ported:** the Frontier Access move tutors, who teach for Battle Points (HeartGold's own tutor screens and
+  price lists; Platinum's tutors take shards), say nothing yet. HeartGold's scratch-off card script is on the map
+  but nothing runs it, as in HeartGold.
+- **Test:** `tools/complete/test_hgss_frontier.py`: in the Factory a Level 50 single challenge starts, three Pokémon
+  are rented, the first battle is won (the test build's god mode) and RETIRE brings the player back to Johto's
+  Factory with its lobby cleared; at the Tower, Hall, Castle and Arcade the attendant's menus and the party screen
+  lead into Platinum's challenge.
+
 ## Voltorb Flip
 
 The Goldenrod and Celadon Game Corners' Voltorb Flip tables play HeartGold's Voltorb Flip, HeartGold's own code

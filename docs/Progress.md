@@ -1373,3 +1373,11 @@ Test results on the new test build:
   Game Corners' tables start it and the field comes back after. In the emulator, from Goldenrod's table: a round won
   by flipping every 2 and 3 paid 24 coins and moved on to level 2, a round quit with the buttons paid its 1 coin, and
   Quit brought the player back to the Game Corner (`docs/Features.md`, "Voltorb Flip").
+- **Johto's Battle Frontier:** the owner's call: open. HeartGold built its Frontier on Platinum's, so its lobbies' scripts
+  now call Platinum's own facilities: HeartGold's Frontier commands are Platinum's renumbered in blocks, with the same
+  arguments, function numbers and scene numbers, and its lobby vars are Platinum's in the same order. All five
+  facilities' lobbies translate in full (115 lines were left in the Battle Tower alone). In the emulator
+  (`tools/complete/test_hgss_frontier.py`, all five parts pass): Johto's Factory starts Platinum's challenge, three
+  Pokémon are rented, the first battle is won and RETIRE brings the player back to Johto's lobby; the Tower, Hall,
+  Castle and Arcade each lead into their challenge. Battle Points, streaks and prints are one set for both Frontiers.
+  Left: the Frontier Access's Battle Point move tutors (`docs/Features.md`, "Johto's Battle Frontier").

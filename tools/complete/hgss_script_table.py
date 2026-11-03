@@ -707,6 +707,56 @@ COMMANDS = {
     # The Game Corners' machines (Goldenrod's 22, Celadon's 14): HeartGold's Voltorb Flip (src/complete_scrcmd.c,
     # src/applications/complete_voltorb_flip)
     'CasinoGame': lambda a: [f'CompleteVoltorbFlip {a[0]}, {a[1]}'],
+    # Johto's Battle Frontier runs Platinum's own facilities: HeartGold's commands for them are Platinum's, in blocks
+    # renumbered (the Battle Tower's 408 on are Platinum's 0x1DA on; the other facilities' 627 on are Platinum's 0x2C4 on,
+    # less the commands only Platinum has), with the same arguments and the same function numbers in each facility's
+    # lobby function. The challenges themselves are Platinum's scenes (LaunchBattleFrontierScene, the same numbers).
+    'ScrCmd_408': one('OpenBattleTowerRecordsApp {0}, {1}'),
+    'ScrCmd_409': one('SetBattleTowerNull'),
+    'ScrCmd_410': one('InitBattleTower {0}, {1}'),
+    'ScrCmd_411': one('FreeBattleTower'),
+    'ScrCmd_412': one('CallBattleTowerFunction {0}, {1}, {2}'),
+    'ScrCmd_413': one('GetBattleTowerPartnerSpeciesAndMove {0}, {1}, {2}, {3}'),
+    'ScrCmd_414': one('ScrCmd_1DF {0}'),
+    'ScrCmd_415': one('ScrCmd_1E0 {0}'),
+    'ScrCmd_416': one('ScrCmd_1E1 {0}, {1}, {2}'),
+    'ScrCmd_417': one('ScrCmd_1E2 {0}, {1}'),
+    'ScrCmd_418': one('ScrCmd_1E3 {0}, {1}'),
+    'ScrCmd_419': one('ScrCmd_1E4 {0}'),
+    'BattleTowerSetUpMultiBattle': one('LogLinkInfoInWiFiHistory'),
+    'ScrCmd_627': one('LaunchBattleFrontierScene {0}'),
+    'ScrCmd_628': one('DeleteActiveBattleFactoryStreak {0}, {1}'),
+    'ScrCmd_633': one('CallBattleHallLobbyFunction {0}, {1}, {2}'),
+    'ScrCmd_634': one('CheckBattleHallPartnerUsesDifferentSpecies {0}, {1}'),
+    'ScrCmd_635': one('GetBattleHallSelectedSlots {0}, {1}'),
+    'ScrCmd_636': one('DeleteActiveBattleHallStreak {0}'),
+    'ScrCmd_637': one('CallBattleCastleLobbyFunction {0}, {1}, {2}'),
+    'ScrCmd_638': one('CheckBattleCastlePartnerUsesDifferentSpecies {0}, {1}, {2}'),
+    'ScrCmd_639': one('GetBattleCastleSelectedSlots {0}, {1}, {2}'),
+    'ScrCmd_640': one('DeleteActiveBattleCastleStreak {0}'),
+    'ScrCmd_643': one('CallBattleArcadeLobbyFunction {0}, {1}, {2}'),
+    'ScrCmd_644': one('CheckBattleArcadePartnerUsesDifferentSpecies {0}, {1}, {2}'),
+    'ScrCmd_645': one('GetBattleArcadeSelectedSlots {0}, {1}, {2}'),
+    'ScrCmd_646': one('DeleteActiveBattleArcadeStreak {0}'),
+    'BufferBattleHallStreak': one('GetBattleHallRecordKeeperStats {0}, {1}, {2}, {3}, {4}, {5}'),
+    'BattleHallCountUsedSpecies': one('GetNumSpeciesWithBattleHallRecords {0}'),
+    'BattleHallGetTotalStreak': one('GetBattleHallTotalSinglesRecord {0}'),
+    # A party Pokémon's form put back before a facility (HeartGold's name for it is the decomp's guess), the Pokémon
+    # a facility bans that the player has seen, and the Battle Points spent at the Exchange Service Corner
+    'DaycareSanitizeMon': one('TryRevertPokemonForm {0}, {1}'),
+    'ScrCmd_444': one('MessageSeenBanlistSpecies {0}, {1}'),
+    'ScrCmd_556': one('RemoveBattlePoints {0}'),
+    'StatJudge': one('JudgeStats {0}, {1}, {2}, {3}'),
+    # The Pokégear hidden while the elevator runs (HeartGold's flag 975 does what Platinum's HidePoketch does)
+    'ScrCmd_520': one('HidePoketch'),
+    'ScrCmd_521': one('ShowPoketch'),
+    # Wireless multi battles' messages and syncs with the partner's game
+    'NPCMsgVar': one('MessageNoSkip {0}'),
+    'ScrCmd_257': lambda a: ['ClearReceivedTempDataAllPlayers', f'ScrCmd_135 {a[0]}'],
+    'ScrCmd_451': one('GetCurNetID {0}'),
+    'ScrCmd_166': one('ScrCmd_0B3 {0}'),
+    'ScrCmd_226': one('StartBattleClient {0}, {1}, {2}, {3}'),
+    'ScrCmd_227': one('StartBattleServer {0}, {1}, {2}, {3}'),
     'ScrCmd_609': lambda a: [],  # resets the follower's movement after a scene; the engine's follower needs none yet
     'GenderMsgBox': one('MessageGendered {0}, {1}'),
     # The Ruins of Alph: a chamber's puzzle (src/applications/complete_alph_puzzle.c); HeartGold's effect of the hidden

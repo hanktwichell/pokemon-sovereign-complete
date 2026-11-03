@@ -81,7 +81,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **Pokétch and Pokégear (Nov 3, 2026).** Both: a button on the bottom screen switches between them. The Pokégear
   brings the phone's contact list, the radio and the Town Map of Johto and Kanto.
 - **Red at Mt. Silver (Nov 3, 2026).** Post-game: after the end of the whole game.
-- **Johto's Battle Frontier (Nov 3, 2026).** Open.
+- **Johto's Battle Frontier (Nov 3, 2026).** Open. Done: its five facilities run Platinum's challenges (`docs/Features.md`,
+  "Johto's Battle Frontier"); its Battle Point move tutors are left.
 - **Voltorb Flip (Nov 3, 2026).** Ported to the Game Corners. Done (`docs/Features.md`, "Voltorb Flip").
 - **The credits (Nov 3, 2026).** They roll once, at the end of the whole game.
 

@@ -8,9 +8,9 @@
     ScriptEntry scr_seq_D31R0202_003
     ScriptEntryEnd
 scr_seq_D31R0202_000:
-    CompareVar VAR_HGSS_UNK_414D, 0
+    CompareVar VAR_BATTLE_TOWER_ELEVATOR_LOAD_ACTION, 0
     CallIf 5, _008A
-    @ HGSS: ScrCmd_412 43, 0, VAR_TEMP_x400A
+    CallBattleTowerFunction 43, 0, VAR_MAP_LOCAL_0x0A
     Call _008E
     CompareVar VAR_MAP_LOCAL_0x0A, 2
     CallIf 1, _009E
@@ -28,7 +28,7 @@ scr_seq_D31R0202_000:
     CallIf 1, _0096
     End
 _008A:
-    @ HGSS: ScrCmd_520
+    HidePoketch
     Return
 _008E:
     SetVarFromValue VAR_OBJ_GFX_ID_A, OBJ_EVENT_GFX_FRONTIER_SINGLE_ATTENDANT
@@ -42,13 +42,13 @@ _009E:
 _00A6:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_412 43, 0, VAR_SPECIAL_RESULT
+    CallBattleTowerFunction 43, 0, VAR_RESULT
     CompareVar VAR_RESULT, 4
     GoToIf 1, _0200
     CompareVar VAR_RESULT, 5
     GoToIf 1, _0200
     WaitForTransition
-    @ HGSS: ScrCmd_627 5
+    LaunchBattleFrontierScene 5
     ReturnToField
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 15, 6, DIR_NORTH
     End
@@ -56,7 +56,7 @@ _00E9:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     WaitForTransition
-    @ HGSS: ScrCmd_627 6
+    LaunchBattleFrontierScene 6
     ReturnToField
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 11, 6, DIR_NORTH
     End
@@ -129,7 +129,7 @@ _01EC:
     EndMovement
 _0200:
     WaitForTransition
-    @ HGSS: ScrCmd_627 5
+    LaunchBattleFrontierScene 5
     ReturnToField
     Warp MAP_HEADER_HGSS_BATTLE_TOWER, 19, 6, DIR_NORTH
     End

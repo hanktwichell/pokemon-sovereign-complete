@@ -74,15 +74,15 @@ _0132:
     GoTo _013A
     End
 _013A:
-    SetVarFromValue VAR_HGSS_UNK_414A, 0
+    SetVarFromValue VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 0
     Message msg_0110_D32R0601_00006
     WaitButton
     CloseMessage
     ReleaseAll
     End
 _014B:
-    SetVarFromValue VAR_HGSS_UNK_4149, 0
-    @ HGSS: ScrCmd_643 0, 3, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 0
+    CallBattleArcadeLobbyFunction 0, 3, VAR_RESULT
     BufferNumber 0, 3
     BufferNumber 1, 3
     CompareVar VAR_RESULT, 0
@@ -90,8 +90,8 @@ _014B:
     GoTo _01FC
     End
 _0178:
-    SetVarFromValue VAR_HGSS_UNK_4149, 1
-    @ HGSS: ScrCmd_643 0, 3, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 1
+    CallBattleArcadeLobbyFunction 0, 3, VAR_RESULT
     BufferNumber 0, 3
     BufferNumber 1, 3
     CompareVar VAR_RESULT, 0
@@ -99,8 +99,8 @@ _0178:
     GoTo _01FC
     End
 _01A5:
-    SetVarFromValue VAR_HGSS_UNK_4149, 2
-    @ HGSS: ScrCmd_643 0, 2, VAR_SPECIAL_RESULT
+    SetVarFromValue VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
+    CallBattleArcadeLobbyFunction 0, 2, VAR_RESULT
     BufferNumber 0, 2
     BufferNumber 1, 2
     CompareVar VAR_RESULT, 0
@@ -109,12 +109,12 @@ _01A5:
     End
 _01D2:
     Message msg_0110_D32R0601_00008
-    @ HGSS: ScrCmd_444 9, 3, 0, 0
+    MessageSeenBanlistSpecies 9, 3
     GoTo _0132
     End
 _01E7:
     Message msg_0110_D32R0601_00008
-    @ HGSS: ScrCmd_444 9, 2, 0, 0
+    MessageSeenBanlistSpecies 9, 2
     GoTo _0132
     End
 _01FC:
@@ -122,8 +122,8 @@ _01FC:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_643 4, VAR_UNK_4149, VAR_SPECIAL_RESULT
-    @ HGSS: ScrCmd_645 VAR_TEMP_x4002, VAR_TEMP_x4005, VAR_TEMP_x4006
+    CallBattleArcadeLobbyFunction 4, VAR_BATTLE_ARCADE_CHALLENGE_TYPE, VAR_RESULT
+    GetBattleArcadeSelectedSlots VAR_MAP_LOCAL_0x02, VAR_MAP_LOCAL_0x05, VAR_MAP_LOCAL_0x06
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 5, _022E
 _022E:
@@ -132,15 +132,15 @@ _022E:
     WaitFadeScreen
     CompareVar VAR_MAP_LOCAL_0x02, 255
     GoToIf 1, _0132
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4002, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x02, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _0607
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4005, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x05, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _0607
-    CompareVar VAR_HGSS_UNK_4149, 2
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
     GoToIf 1, _028F
-    @ HGSS: DaycareSanitizeMon VAR_TEMP_x4006, VAR_SPECIAL_RESULT
+    TryRevertPokemonForm VAR_MAP_LOCAL_0x06, VAR_RESULT
     CompareVar VAR_RESULT, 255
     GoToIf 1, _0607
 _028F:
@@ -155,9 +155,9 @@ _02B2:
     GoTo _02BA
     End
 _02BA:
-    CompareVar VAR_HGSS_UNK_4149, 0
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 0
     CallIf 1, _0476
-    CompareVar VAR_HGSS_UNK_4149, 1
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 1
     CallIf 1, _0476
     SetVarFromValue VAR_MAP_LOCAL_0x00, 0
     HealParty
@@ -165,7 +165,7 @@ _02BA:
     SetVarFromVar VAR_RESULT, VAR_MAP_LOCAL_0x00
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0132
-    CompareVar VAR_HGSS_UNK_4149, 2
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
     GoToIf 1, _030A
     GoTo _04D7
     End
@@ -189,7 +189,7 @@ _035B:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _030A
     CloseMessage
-    @ HGSS: ScrCmd_226 32, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleClient 32, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03A1
     CompareVar VAR_RESULT, 3
@@ -208,7 +208,7 @@ _03B3:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _030A
     CloseMessage
-    @ HGSS: ScrCmd_227 32, 0, 0, VAR_SPECIAL_RESULT
+    StartBattleServer 32, 0, 0, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _03F9
     CompareVar VAR_RESULT, 3
@@ -222,10 +222,11 @@ _0401:
     GoTo _030A
     End
 _040B:
-    @ HGSS: ScrCmd_257 154
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 154
     GetPartyMonSpecies VAR_MAP_LOCAL_0x02, VAR_0x8000
     GetPartyMonSpecies VAR_MAP_LOCAL_0x05, VAR_0x8001
-    @ HGSS: ScrCmd_644 VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_RESULT
+    CheckBattleArcadePartnerUsesDifferentSpecies VAR_0x8000, VAR_0x8001, VAR_RESULT
     SetVar VAR_0x8008, VAR_RESULT
     CompareVar VAR_0x8008, 1
     GoToIf 1, _047E
@@ -233,15 +234,16 @@ _040B:
     GoToIf 1, _0494
     CompareVar VAR_0x8008, 3
     GoToIf 1, _04AA
-    @ HGSS: ScrCmd_257 156
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 156
     Message msg_0110_D32R0601_00045
-    CompareVar VAR_HGSS_UNK_4149, 2
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
     CallIf 1, _0476
     Call _0711
     GoTo _04D7
     End
 _0476:
-    SetVarFromValue VAR_HGSS_UNK_414A, 255
+    SetVarFromValue VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 255
     Return
 _047E:
     Call _04CD
@@ -266,14 +268,15 @@ _04C5:
     GoTo _0132
     End
 _04CD:
-    @ HGSS: ScrCmd_257 157
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 157
     Return
 _04D7:
-    CompareVar VAR_HGSS_UNK_4149, 0
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 0
     CallIf 1, _056F
-    CompareVar VAR_HGSS_UNK_4149, 1
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 1
     CallIf 1, _058A
-    CompareVar VAR_HGSS_UNK_4149, 2
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
     CallIf 1, _05A5
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     GoTo _050A
@@ -281,16 +284,16 @@ _04D7:
 _050A:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    CompareVar VAR_HGSS_UNK_4149, 0
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 0
     CallIf 1, _05CB
-    CompareVar VAR_HGSS_UNK_4149, 1
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 1
     CallIf 1, _05DF
-    CompareVar VAR_HGSS_UNK_4149, 2
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
     CallIf 1, _05F3
     IncrementGameRecord RECORD_TIMES_STARTED_BATTLE_FRONTIER_CHALLENGE
     WaitForTransition
-    @ HGSS: ScrCmd_627 15
-    CompareVar VAR_HGSS_UNK_4149, 2
+    LaunchBattleFrontierScene 15
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 2
     CallIf 1, _056B
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -315,9 +318,10 @@ _058A:
     WaitMovement
     Return
 _05A5:
-    @ HGSS: NPCMsgVar msg_0110_D32R0601_00032
+    MessageNoSkip msg_0110_D32R0601_00032
     WaitTime 10, VAR_RESULT
-    @ HGSS: ScrCmd_257 155
+    ClearReceivedTempDataAllPlayers
+    ScrCmd_135 155
     CloseMessage
     ApplyMovement LOCALID_PLAYER, _062C
     ApplyMovement VAR_LAST_TALKED, _064C
@@ -339,7 +343,7 @@ _05F3:
     WaitMovement
     Return
 _0607:
-    SetVarFromValue VAR_HGSS_UNK_414A, 0
+    SetVarFromValue VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 0
     Common_GriseousOrbCouldNotBeRemoved
     End
     .balign 4, 0
@@ -417,7 +421,7 @@ _06E5:
     Return
 scr_seq_D32R0601_001:
     SetVarFromValue VAR_MAP_LOCAL_0x03, 1
-    SetVarFromValue VAR_HGSS_UNK_414A, 0
+    SetVarFromValue VAR_BATTLE_ARCADE_LOBBY_LOAD_ACTION, 0
     Message msg_0110_D32R0601_00033
     Call _0476
     Call _0711
@@ -432,27 +436,27 @@ _0711:
     Return
 scr_seq_D32R0601_002:
     Message msg_0110_D32R0601_00034
-    @ HGSS: ScrCmd_646 VAR_UNK_4149
-    CompareVar VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 1
+    DeleteActiveBattleArcadeStreak VAR_BATTLE_ARCADE_CHALLENGE_TYPE
+    CompareVar VAR_BATTLE_ARCADE_PRINT_STATE, 1
     CallIf 1, _074C
-    CompareVar VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_ARCADE_PRINT_STATE, 3
     CallIf 1, _0754
     GoTo _0132
     End
 _074C:
-    SetVarFromValue VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 0
+    SetVarFromValue VAR_BATTLE_ARCADE_PRINT_STATE, 0
     Return
 _0754:
-    SetVarFromValue VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_ARCADE_PRINT_STATE, 2
     Return
 scr_seq_D32R0601_003:
-    CompareVar VAR_HGSS_UNK_4149, 0
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 0
     CallIf 1, _0798
-    CompareVar VAR_HGSS_UNK_4149, 1
+    CompareVar VAR_BATTLE_ARCADE_CHALLENGE_TYPE, 1
     CallIf 1, _0798
-    CompareVar VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 1
+    CompareVar VAR_BATTLE_ARCADE_PRINT_STATE, 1
     CallIf 1, _079E
-    CompareVar VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 3
+    CompareVar VAR_BATTLE_ARCADE_PRINT_STATE, 3
     CallIf 1, _07B5
     GoTo _0132
     End
@@ -465,7 +469,7 @@ _079E:
     Message msg_0110_D32R0601_00037
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 2
+    SetVarFromValue VAR_BATTLE_ARCADE_PRINT_STATE, 2
     Return
 _07B5:
     Message msg_0110_D32R0601_00035
@@ -473,7 +477,7 @@ _07B5:
     Message msg_0110_D32R0601_00036
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    SetVarFromValue VAR_HGSS_BATTLE_ARCADE_PRINT_PROGRESS, 4
+    SetVarFromValue VAR_BATTLE_ARCADE_PRINT_STATE, 4
     Common_CheckAllFrontierGoldPrintsObtained
     Return
 scr_seq_D32R0601_004:
