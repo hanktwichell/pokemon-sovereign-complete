@@ -13,9 +13,11 @@
 // the bottom screen outlives the overlays that draw it.
 
 static u8 sActiveBottomScreen = COMPLETE_BOTTOM_SCREEN_UNAVAILABLE;
+static u8 sPokegearPage; // the Pokégear's page, kept while it's off the bottom screen (a battle, a menu, a map change)
 
 #ifdef SOVEREIGN_TEST
 void *gCompleteTestPokegear; // the Pokégear while it runs (here, as the Pokétch takes the overlay's memory after it)
+u16 gCompleteTestPokegearMap[4]; // its page, and on the Map the player's place (x, y; 0xFFFF for none) and its scroll
 #endif
 static u8 sBottomScreenSwitchRequested;
 
@@ -84,4 +86,14 @@ BOOL CompleteBottomScreen_SwitchDue(SaveData *saveData)
     }
 
     return FALSE;
+}
+
+u8 CompletePokegear_GetPage(void)
+{
+    return sPokegearPage;
+}
+
+void CompletePokegear_SetPage(u8 page)
+{
+    sPokegearPage = page;
 }

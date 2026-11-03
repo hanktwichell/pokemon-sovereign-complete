@@ -8,11 +8,16 @@ src/applications/complete_pokegear/pokegear.c) in the test build, from the bedro
 2. **A call:** tapping the first contact's row (Mom) calls her: the outgoing call's script runs and the call is
    Mom's. A goes through it.
 3. **Scrolling:** a tap on the down arrow, then on the first row, calls the second contact (Elm).
-4. **The Pokétch:** with the Pokétch enabled (the test build's hook, at the next map's bottom screen) and the player
+4. **The Map:** a tap on the app bar's Map shows the map, with the player's head where HeartGold's map app puts the
+   bedroom (its header's world map place, block 21, 12: pixel 172, 116) and the map scrolled to show it.
+5. **The Map on Route 30:** after a warp to Route 30 the Pokégear comes back on the Map, the head at the player's
+   block of the overworld (17, 10: pixel 140, 100); dragging left scrolls the map; the app bar's Phone shows the list
+   again.
+6. **The Pokétch:** with the Pokétch enabled (the test build's hook, at the next map's bottom screen) and the player
    on Route 30, the Pokétch shows, with the Pokégear button under its side button. Tapping that button switches to
    the Pokégear; tapping the Pokégear's last app bar button switches back to the Pokétch.
-5. **Kept:** switched to the Pokégear again, a warp keeps it on the bottom screen (the choice is saved).
-6. **After a battle:** a wild battle (the test build's SELECT, with god mode on) ends the bottom screen; once it's
+7. **Kept:** switched to the Pokégear again, a warp keeps it on the bottom screen (the choice is saved).
+8. **After a battle:** a wild battle (the test build's SELECT, with god mode on) ends the bottom screen; once it's
    won, the Pokégear is back.
 
 Results: a line per part, 'ok' or what went wrong, and screenshots (both screens) in OUT_DIR.
@@ -42,7 +47,10 @@ UNAVAILABLE, POKETCH, POKEGEAR = 0, 1, 2  # enum CompleteBottomScreen
 ROUTE, STAND, EAST = 'MAP_HEADER_HGSS_ROUTE_30', (552, 332), 4
 FIRST_ROW, DOWN_ARROW = (60, 18), (243, 116)  # the list's first row; the down arrow
 POKEGEAR_BUTTON, EXIT_BUTTON = (240, 175), (232, 176)  # on the Pokétch; the Pokégear's last app bar button
+MAP_BUTTON, PHONE_BUTTON = (128, 176), (176, 176)  # the app bar's Map and Phone
+BEDROOM_PLACE, ROUTE_30_PLACE = (172, 116), (140, 100)  # the head's place on the map
 SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'sCall', 'gCompleteTestPokegear', 'sActiveBottomScreen',
+                                     'gCompleteTestPokegearMap',
                                      'gSovereignTestPoketchApp', 'gSovereignTestGodMode'})
 CONTACT_OFFSET = 12  # offsetof(CompletePhoneCall, contact)
 
@@ -155,7 +163,57 @@ def main():
             problem = f'the call was {contact}'
         report('scrolling', problem)
 
-    # 4. The Pokétch, and the switch both ways
+    def map_state():
+        """(page, the head's x, y, the map's scroll)"""
+        return struct.unpack('<4H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap']:sym['gCompleteTestPokegearMap'] + 8]))
+
+    # 4. The Map in the bedroom
+    if not problem:
+        d.touch(*MAP_BUTTON, frames=6, after=60)
+        page, x, y, scroll = map_state()
+        if page != 1:
+            problem = f'the page is {page}'
+        elif (x, y) != BEDROOM_PLACE:
+            problem = f'the head is at {(x, y)}'
+        elif not scroll <= x - 8 < scroll + 256 - 16:
+            problem = f'the map is scrolled to {scroll}, away from the head'
+        shot('map_bedroom')
+        report('the map', problem)
+
+    # 5. The Map on Route 30: kept, followed, dragged; then the Phone
+    if not problem:
+        start_warp(d, sym, names.index(ROUTE), *STAND, EAST)
+        d.run(400)
+        until(lambda: gear() and map_state()[0] == 1)
+        d.run(60)
+        page, x, y, scroll = map_state()
+        if page != 1:
+            problem = f'after the warp the page is {page}'
+        elif (x, y) != ROUTE_30_PLACE:
+            problem = f'the head is at {(x, y)}'
+        shot('map_route_30')
+    if not problem:
+        before = map_state()[3]
+        d.emu.input.touch_set_pos(200, 80)
+        d.run(4)
+        for tx in range(200, 80, -6):
+            d.emu.input.touch_set_pos(tx, 80)
+            d.run(1)
+        d.emu.input.touch_release()
+        d.run(30)
+        after = map_state()[3]
+        if after <= before:
+            problem = f'dragging left left the scroll at {after} (from {before})'
+        shot('map_dragged')
+    if not problem:
+        d.touch(*PHONE_BUTTON, frames=6, after=60)
+        if map_state()[0] != 0:
+            problem = f'the Phone button left the page at {map_state()[0]}'
+        shot('phone_again')
+    if results[-1].startswith('the map: ok'):
+        report('the map on Route 30', problem)
+
+    # 6. The Pokétch, and the switch both ways
     switch_ran = not problem
     if not problem:
         mem.write_byte(sym['gSovereignTestPoketchApp'], 1)  # the digital watch, at the next bottom screen
@@ -179,7 +237,7 @@ def main():
     if switch_ran:
         report('the switch', problem)
 
-    # 5. The choice is kept across a warp
+    # 7. The choice is kept across a warp
     if not problem:
         d.touch(*POKEGEAR_BUTTON, frames=6, after=10)
         until(lambda: gear())
@@ -190,7 +248,7 @@ def main():
         shot('kept')
         report('kept', problem)
 
-    # 6. A battle and back
+    # 8. A battle and back
     if not problem:
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
         d.press('SELECT', frames=4, after=200)

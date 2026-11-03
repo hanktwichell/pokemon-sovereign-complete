@@ -2,10 +2,12 @@
 
 #include "constants/heap.h"
 #include "constants/narc.h"
+#include "generated/genders.h"
 #include "generated/text_banks.h"
 #include "generated/trainers.h"
 
 #include "bg_window.h"
+#include "complete_map_info.h"
 #include "complete_phone.h"
 #include "complete_pokegear.h"
 #include "font.h"
@@ -13,6 +15,8 @@
 #include "heap.h"
 #include "message.h"
 #include "narc.h"
+#include "player_avatar.h"
+#include "render_oam.h"
 #include "savedata.h"
 #include "sound_playback.h"
 #include "string_gf.h"
@@ -22,16 +26,25 @@
 #include "text.h"
 #include "touch_pad.h"
 #include "trainer_data.h"
+#include "trainer_info.h"
+
+#include "field/field_system.h"
+#include "generated/map_headers.h"
 
 #include "data/hgss_phone_contacts.h"
+#include "res/field/matrices/map_matrix.naix"
 #include "res/graphics/complete_pokegear/complete_pokegear.naix"
 #include "res/sound/pl_sound_data.naix"
 
 // Sovereign Complete: HeartGold's Pokégear on the field's bottom screen (include/complete_pokegear.h), in the
-// Pokétch's place, with HeartGold's graphics (res/graphics/complete_pokegear/): its phone's contact list and its app
-// bar. Tapping a contact calls them (CompletePhone_RequestCall: the call plays in the field's message box once the
-// player stands still); the arrows scroll the list; the app bar's last button switches to the Pokétch when the player
-// has it. HeartGold's Radio and Map wait (their buttons are dimmed), as does its skin setting.
+// Pokétch's place, with HeartGold's graphics (res/graphics/complete_pokegear/) and its app bar, which switches between
+// its pages:
+// - the Phone: its contact list. Tapping a contact calls them (CompletePhone_RequestCall: the call plays in the field's
+//   message box once the player stands still); the arrows scroll the list.
+// - the Map: its map of Johto and Kanto, with the player's head where they are (HeartGold's map app's place: the
+//   overworld's block, or the world map place of a map off it) and the place's name; dragging scrolls it.
+// The app bar's last button switches to the Pokétch when the player has it. HeartGold's Radio and its skin setting
+// wait (their buttons are dimmed).
 
 #define LIST_ROWS        6 // HeartGold's: rows of 24 pixels, behind the frame's window
 #define ROW_HEIGHT       24
@@ -39,8 +52,16 @@
 #define LIST_Y           8
 #define LIST_WIDTH       208
 #define NAME_BOX_WIDTH   82 // HeartGold's name box, then its title box
-#define PHONE_TILE_START 128 // the phone frame's tiles, after the app bar's, in one layer
+#define BAR_TILE_START   128 // the app bar's tiles, after the phone frame's, in one layer
+#define NAME_TILE_START  256 // the map page's place name window, after them
+#define BLANK_TILE       BAR_TILE_START // the app bar's first tile, an empty one
 #define BAR_TOP          20 // the app bar's first tile row
+#define MAP_WIDTH        48 // the map's tiles (HeartGold's map app's, 8 pixels a block)
+#define MAP_HEIGHT       20
+#define MAP_SCROLL_MAX   (MAP_WIDTH * 8 - 256)
+#define NAME_TOP         18 // the place name's tile row, over the map's sea
+#define NAME_PALETTE     12
+#define MARKER_SIZE      16
 #define REFRESH_FRAMES   30 // the phone book is checked for changes this often
 #define CALL_HIGHLIGHT   30 // frames a called contact stays lit
 #define REPEAT_DELAY     20 // a held arrow scrolls again after this, then every REPEAT_FRAMES
@@ -55,6 +76,11 @@
 enum PokegearState {
     POKEGEAR_STATE_RUN = 0,
     POKEGEAR_STATE_SHUTDOWN,
+};
+
+enum PokegearPage {
+    PAGE_PHONE = 0,
+    PAGE_MAP,
 };
 
 enum AppBarButton {
@@ -72,6 +98,7 @@ typedef struct CompletePokegear {
     BgConfig *bgConfig;
     SysTask *task;
     Window list;
+    Window name; // the map's place name
     MessageLoader *titles; // HeartGold's phone app's bank (0271)
     MessageLoader *classes;
     u8 state;
@@ -83,6 +110,13 @@ typedef struct CompletePokegear {
     u8 heldFrames;
     u8 refreshTimer;
     u8 poketchShown; // the exit button lit
+    u8 page;
+    u8 marker; // the map shows the player's head
+    s16 scrollX; // the map's
+    s16 dragX; // the touch's last x as it drags the map, -1 for none
+    s16 markerX; // the player's place on the map
+    s16 markerY;
+    u16 mapHeaderID; // the place named
     u8 contacts[NUM_PHONE_CONTACTS];
     u16 appBar[4][2][32]; // HeartGold's app bar's rows: lit and dimmed
 } CompletePokegear;
@@ -166,8 +200,8 @@ static void DrawList(CompletePokegear *gear)
     Window_CopyToVRAM(&gear->list);
 }
 
-// HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the phone and, with a Pokétch to switch to, the
-// exit button lit; the rest dimmed
+// HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the phone, the map and, with a Pokétch to switch
+// to, the exit button lit; the rest dimmed
 static void DrawAppBar(CompletePokegear *gear)
 {
     gear->poketchShown = CompletePokegear_PoketchAvailable(gear->saveData);
@@ -180,7 +214,7 @@ static void DrawAppBar(CompletePokegear *gear)
         }
 
         for (int button = 0; button < APP_BAR_BUTTONS; button++) {
-            BOOL lit = button == APP_BAR_PHONE || (button == APP_BAR_EXIT && gear->poketchShown);
+            BOOL lit = button == APP_BAR_PHONE || button == APP_BAR_MAP || (button == APP_BAR_EXIT && gear->poketchShown);
 
             for (int x = sAppBarButtons[button][0]; x < sAppBarButtons[button][0] + sAppBarButtons[button][1]; x++) {
                 row[x] = gear->appBar[y][!lit][x];
@@ -193,6 +227,124 @@ static void DrawAppBar(CompletePokegear *gear)
     Bg_CopyTilemapBufferToVRAM(gear->bgConfig, BG_LAYER_SUB_0);
 }
 
+// Where the player is on the map, as HeartGold's map app puts them: on Johto and Kanto's overworld, its block of 32
+// tiles; off it, the place the map's header gives (HeartGold's MapHeader_GetWorldMapCoords). FALSE in Sinnoh, or
+// for a map with no place.
+static BOOL PlayerMapPosition(CompletePokegear *gear, s16 *x, s16 *y)
+{
+    enum MapHeaderID mapHeaderID = gear->fieldSystem->location->mapHeaderID;
+    int blockX, blockY;
+
+    if (!MapHeader_IsHGSS(mapHeaderID)) {
+        return FALSE;
+    }
+
+    if (MapHeader_GetMapMatrixID(mapHeaderID) == map_matrix_hgss_0000) {
+        blockX = PlayerAvatar_GetXPos(gear->fieldSystem->playerAvatar) / 32;
+        blockY = PlayerAvatar_GetZPos(gear->fieldSystem->playerAvatar) / 32;
+    } else {
+        MapHeader_GetWorldMapPos(mapHeaderID, &blockX, &blockY);
+
+        if (blockX == 0 && blockY == 0) {
+            return FALSE;
+        }
+    }
+
+    *x = blockX * 8 + 4;
+    *y = (blockY + 2) * 8 + 4;
+    return *x < MAP_WIDTH * 8 && *y < MAP_HEIGHT * 8;
+}
+
+static void DrawPlaceName(CompletePokegear *gear)
+{
+    MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_LOCATION_NAMES, HEAP_ID_POKETCH_APP);
+    String *name = MessageLoader_GetNewString(loader, MapHeader_GetMapLabelTextID(gear->mapHeaderID));
+
+    Window_FillTilemap(&gear->name, COLOR_ROW_GAP);
+    Text_AddPrinterWithParamsAndColor(&gear->name, FONT_SYSTEM, name, 8, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(5, 6, COLOR_ROW_GAP), NULL);
+    Window_CopyToVRAM(&gear->name);
+    String_Free(name);
+    MessageLoader_Free(loader);
+}
+
+// The page's layers: the Phone's frame (layer 0, tiles 0-127) and its list's window (layer 1); or the Map's map (layer
+// 1, its tiles over the frame's, which is off) and its place name's window (layer 0, tiles 256 on)
+static void LoadPage(CompletePokegear *gear)
+{
+    NARC *narc = NARC_ctor(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, HEAP_ID_POKETCH_APP);
+    NNSG2dScreenData *screen;
+
+    if (gear->page == PAGE_PHONE) {
+        Graphics_LoadTilesToBgLayerFromOpenNARC(narc, phone_NCGR, gear->bgConfig, BG_LAYER_SUB_0, 0, 0, FALSE, HEAP_ID_POKETCH_APP);
+        Graphics_LoadPaletteFromOpenNARC(narc, pokegear_NCLR, PAL_LOAD_SUB_BG, 0, PALETTE_SIZE_BYTES * 16, HEAP_ID_POKETCH_APP);
+
+        void *file = Graphics_GetScrnDataFromOpenNARC(narc, phone_NSCR, FALSE, &screen, HEAP_ID_POKETCH_APP);
+
+        Bg_LoadToTilemapRect(gear->bgConfig, BG_LAYER_SUB_0, screen->rawData, 0, 0, 32, BAR_TOP);
+        Heap_Free(file);
+
+        Bg_ClearTilesRange(BG_LAYER_SUB_1, TILE_SIZE_4BPP, 0, HEAP_ID_POKETCH_APP);
+        Window_Add(gear->bgConfig, &gear->list, BG_LAYER_SUB_1, LIST_X / 8, LIST_Y / 8, LIST_WIDTH / 8, LIST_ROWS * ROW_HEIGHT / 8, LIST_PALETTE, 1);
+        Window_PutToTilemap(&gear->list);
+        Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, 0);
+        DrawList(gear);
+    } else {
+        Graphics_LoadTilesToBgLayerFromOpenNARC(narc, map_NCGR, gear->bgConfig, BG_LAYER_SUB_1, 0, 0, FALSE, HEAP_ID_POKETCH_APP);
+        Graphics_LoadPaletteFromOpenNARC(narc, map_NCLR, PAL_LOAD_SUB_BG, 0, PALETTE_SIZE_BYTES * 16, HEAP_ID_POKETCH_APP);
+
+        u16 *tilemap = NARC_AllocAndReadWholeMember(narc, map_tilemap_bin, HEAP_ID_POKETCH_APP);
+
+        Bg_LoadToTilemapRect(gear->bgConfig, BG_LAYER_SUB_1, tilemap, 0, 0, MAP_WIDTH, MAP_HEIGHT);
+        Heap_Free(tilemap);
+        Bg_FillTilemapRect(gear->bgConfig, BG_LAYER_SUB_0, BLANK_TILE, 0, 0, 32, BAR_TOP, 0);
+
+        gear->mapHeaderID = gear->fieldSystem->location->mapHeaderID;
+        gear->marker = PlayerMapPosition(gear, &gear->markerX, &gear->markerY);
+        gear->scrollX = gear->marker ? gear->markerX - 128 : 0;
+        gear->scrollX = gear->scrollX < 0 ? 0 : gear->scrollX > MAP_SCROLL_MAX ? MAP_SCROLL_MAX : gear->scrollX;
+        gear->dragX = -1;
+        Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, gear->scrollX);
+
+        Window_Add(gear->bgConfig, &gear->name, BG_LAYER_SUB_0, 0, NAME_TOP, 32, 2, NAME_PALETTE, NAME_TILE_START);
+        Window_PutToTilemap(&gear->name);
+        DrawPlaceName(gear);
+    }
+
+    NARC_dtor(narc);
+    DrawAppBar(gear);
+    Bg_CopyTilemapBufferToVRAM(gear->bgConfig, BG_LAYER_SUB_0);
+    Bg_CopyTilemapBufferToVRAM(gear->bgConfig, BG_LAYER_SUB_1);
+    GXS_SetVisiblePlane(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | (gear->page == PAGE_MAP ? GX_PLANEMASK_OBJ : 0));
+}
+
+static void UnloadPage(CompletePokegear *gear)
+{
+    if (gear->page == PAGE_PHONE) {
+        Window_Remove(&gear->list);
+    } else {
+        Window_Remove(&gear->name);
+    }
+
+    Bg_ClearTilemap(gear->bgConfig, BG_LAYER_SUB_1);
+}
+
+static void ChangePage(CompletePokegear *gear, enum PokegearPage page)
+{
+    if (page == gear->page) {
+        return;
+    }
+
+    Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+    UnloadPage(gear);
+    gear->page = page;
+    CompletePokegear_SetPage(page);
+    gear->lit = LIST_ROWS;
+    gear->held = 0;
+    LoadPage(gear);
+}
+
+// The layers of both pages: layer 0 the app bar (tiles 128-255) with the phone's frame or the map's place name, layer 1
+// the list or the map (a 512-pixel-wide screen, for the map's 384); the player's head on the Map is a sprite
 static void LoadGraphics(CompletePokegear *gear)
 {
     static const BgTemplate sFrameTemplate = {
@@ -212,11 +364,11 @@ static void LoadGraphics(CompletePokegear *gear)
     static const BgTemplate sListTemplate = {
         .x = 0,
         .y = 0,
-        .bufferSize = 0x800,
+        .bufferSize = 0x1000,
         .baseTile = 0,
-        .screenSize = BG_SCREEN_SIZE_256x256,
+        .screenSize = BG_SCREEN_SIZE_512x256,
         .colorMode = GX_BG_COLORMODE_16,
-        .screenBase = GX_BG_SCRBASE_0x7000,
+        .screenBase = GX_BG_SCRBASE_0x6800,
         .charBase = GX_BG_CHARBASE_0x00000,
         .bgExtPltt = GX_BG_EXTPLTT_01,
         .priority = 1,
@@ -232,50 +384,70 @@ static void LoadGraphics(CompletePokegear *gear)
 
     Bg_InitFromTemplate(gear->bgConfig, BG_LAYER_SUB_0, &sFrameTemplate, BG_TYPE_STATIC);
     Bg_InitFromTemplate(gear->bgConfig, BG_LAYER_SUB_1, &sListTemplate, BG_TYPE_STATIC);
-    Bg_ClearTilesRange(BG_LAYER_SUB_1, TILE_SIZE_4BPP, 0, HEAP_ID_POKETCH_APP);
 
     NARC *narc = NARC_ctor(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, HEAP_ID_POKETCH_APP);
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(narc, app_bar_NCGR, gear->bgConfig, BG_LAYER_SUB_0, 0, 0, FALSE, HEAP_ID_POKETCH_APP);
-    Graphics_LoadTilesToBgLayerFromOpenNARC(narc, phone_NCGR, gear->bgConfig, BG_LAYER_SUB_0, PHONE_TILE_START, 0, FALSE, HEAP_ID_POKETCH_APP);
-    Graphics_LoadPaletteFromOpenNARC(narc, pokegear_NCLR, PAL_LOAD_SUB_BG, 0, PALETTE_SIZE_BYTES * 16, HEAP_ID_POKETCH_APP);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(narc, app_bar_NCGR, gear->bgConfig, BG_LAYER_SUB_0, BAR_TILE_START, 0, FALSE, HEAP_ID_POKETCH_APP);
 
-    // the phone's frame, rows 0-19, its tiles after the app bar's
-    void *file = Graphics_GetScrnDataFromOpenNARC(narc, phone_NSCR, FALSE, &screen, HEAP_ID_POKETCH_APP);
+    // the app bar's two states, lit (its rows 0-3) and dimmed (4-7), its tiles after the phone frame's
+    void *file = Graphics_GetScrnDataFromOpenNARC(narc, app_bar_NSCR, FALSE, &screen, HEAP_ID_POKETCH_APP);
     const u16 *src = (const u16 *)screen->rawData;
-    u16 *frame = Heap_Alloc(HEAP_ID_POKETCH_APP, 32 * BAR_TOP * sizeof(u16));
-
-    for (int i = 0; i < 32 * BAR_TOP; i++) {
-        frame[i] = src[i] + PHONE_TILE_START;
-    }
-
-    Bg_LoadToTilemapRect(gear->bgConfig, BG_LAYER_SUB_0, frame, 0, 0, 32, BAR_TOP);
-    Heap_Free(frame);
-    Heap_Free(file);
-
-    // the app bar's two states, lit (its rows 0-3) and dimmed (4-7)
-    file = Graphics_GetScrnDataFromOpenNARC(narc, app_bar_NSCR, FALSE, &screen, HEAP_ID_POKETCH_APP);
-    src = (const u16 *)screen->rawData;
 
     for (int y = 0; y < 4; y++) {
         for (int x = 0; x < 32; x++) {
-            gear->appBar[y][0][x] = src[y * 32 + x];
-            gear->appBar[y][1][x] = src[(y + 4) * 32 + x];
+            gear->appBar[y][0][x] = src[y * 32 + x] + BAR_TILE_START;
+            gear->appBar[y][1][x] = src[(y + 4) * 32 + x] + BAR_TILE_START;
         }
     }
 
     Heap_Free(file);
     NARC_dtor(narc);
 
-    Window_Add(gear->bgConfig, &gear->list, BG_LAYER_SUB_1, LIST_X / 8, LIST_Y / 8, LIST_WIDTH / 8, LIST_ROWS * ROW_HEIGHT / 8, LIST_PALETTE, 1);
-    Window_PutToTilemap(&gear->list);
-    Bg_CopyTilemapBufferToVRAM(gear->bgConfig, BG_LAYER_SUB_1);
+    // the player's heads, a boy's then a girl's, and their palette
+    Graphics_LoadObjectTiles(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, marker_NCGR, DS_SCREEN_SUB, 0, 0, FALSE, HEAP_ID_POKETCH_APP);
+    Graphics_LoadPalette(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, marker_NCLR, PAL_LOAD_SUB_OBJ, 0, PALETTE_SIZE_BYTES, HEAP_ID_POKETCH_APP);
 
-    DrawAppBar(gear);
-    DrawList(gear);
-
+    LoadPage(gear);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);
-    GXS_SetVisiblePlane(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1);
+}
+
+// The player's head over the map, each frame (HeartGold's PGMAP_SPRITE_CURSOR), while it's in view
+static void DrawMarker(CompletePokegear *gear)
+{
+    GXOamAttr oam;
+    int x = gear->markerX - gear->scrollX - MARKER_SIZE / 2;
+    int y = gear->markerY - MARKER_SIZE / 2;
+
+    if (gear->page != PAGE_MAP || !gear->marker || x < -MARKER_SIZE || x >= 256) {
+        return;
+    }
+
+    u32 head = TrainerInfo_Gender(SaveData_GetTrainerInfo(gear->saveData)) == GENDER_MALE ? 0 : 4;
+
+    G2_SetOBJAttr(&oam, x & 0x1FF, y, 0, GX_OAM_MODE_NORMAL, FALSE, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_16x16, GX_OAM_COLORMODE_16, head, 0, 0);
+    NNS_G2dEntryOamManagerOam(RenderOam_GetScreenOam(DS_SCREEN_SUB), &oam, 1);
+}
+
+// Dragging the map scrolls it (HeartGold's map scrolls by touch too)
+static void HandleMapTouch(CompletePokegear *gear)
+{
+    if (!gSystem.touchHeld || gSystem.touchY >= BAR_TOP * 8) {
+        gear->dragX = -1;
+        return;
+    }
+
+    if (gear->dragX >= 0) {
+        int scrollX = gear->scrollX - (gSystem.touchX - gear->dragX);
+
+        scrollX = scrollX < 0 ? 0 : scrollX > MAP_SCROLL_MAX ? MAP_SCROLL_MAX : scrollX;
+
+        if (scrollX != gear->scrollX) {
+            gear->scrollX = scrollX;
+            Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, scrollX);
+        }
+    }
+
+    gear->dragX = gSystem.touchX;
 }
 
 static void Scroll(CompletePokegear *gear, int by)
@@ -292,9 +464,38 @@ static void Scroll(CompletePokegear *gear, int by)
     DrawList(gear);
 }
 
+// The app bar: the Map, the Phone, and the exit button (to the Pokétch, when the player has it)
+static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
+{
+    if (x >= sAppBarButtons[APP_BAR_EXIT][0] * 8) {
+        if (gear->poketchShown) {
+            Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+            CompleteBottomScreen_RequestSwitch(gear->saveData);
+        } else {
+            Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq);
+        }
+    } else if (x >= sAppBarButtons[APP_BAR_PHONE][0] * 8) {
+        ChangePage(gear, PAGE_PHONE);
+    } else if (x >= sAppBarButtons[APP_BAR_MAP][0] * 8) {
+        ChangePage(gear, PAGE_MAP);
+    } else {
+        Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // the Radio and the settings aren't here yet
+    }
+}
+
 static void HandleTouch(CompletePokegear *gear)
 {
     u16 x = gSystem.touchX, y = gSystem.touchY;
+
+    if (gSystem.touchPressed && y >= BAR_TOP * 8) {
+        HandleAppBarTouch(gear, x);
+        return;
+    }
+
+    if (gear->page == PAGE_MAP) {
+        HandleMapTouch(gear);
+        return;
+    }
 
     if (gSystem.touchHeld && gear->held) {
         if (++gear->heldFrames >= REPEAT_DELAY && (gear->heldFrames - REPEAT_DELAY) % REPEAT_FRAMES == 0) {
@@ -324,22 +525,13 @@ static void HandleTouch(CompletePokegear *gear)
         gear->held = Touched(&sUpArrow, x, y) ? 1 : 2;
         gear->heldFrames = 0;
         Scroll(gear, gear->held == 1 ? -1 : 1);
-    } else if (y >= BAR_TOP * 8 && x >= sAppBarButtons[APP_BAR_EXIT][0] * 8) {
-        if (gear->poketchShown) {
-            Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
-            CompleteBottomScreen_RequestSwitch(gear->saveData);
-        } else {
-            Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq);
-        }
-    } else if (y >= BAR_TOP * 8) {
-        Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // the Radio, the Map and the settings aren't here yet
     }
 }
 
 static void Shutdown(CompletePokegear *gear)
 {
     DisableTouchPad();
-    Window_Remove(&gear->list);
+    UnloadPage(gear);
     Bg_FreeTilemapBuffer(gear->bgConfig, BG_LAYER_SUB_0);
     Bg_FreeTilemapBuffer(gear->bgConfig, BG_LAYER_SUB_1);
     MessageLoader_Free(gear->titles);
@@ -363,8 +555,16 @@ static void CompletePokegear_Task(SysTask *task, void *data)
     }
 
     HandleTouch(gear);
+    DrawMarker(gear);
 
-    if (gear->litTimer != 0 && --gear->litTimer == 0) {
+#ifdef SOVEREIGN_TEST
+    gCompleteTestPokegearMap[0] = gear->page;
+    gCompleteTestPokegearMap[1] = gear->marker ? gear->markerX : 0xFFFF;
+    gCompleteTestPokegearMap[2] = gear->marker ? gear->markerY : 0xFFFF;
+    gCompleteTestPokegearMap[3] = gear->scrollX;
+#endif
+
+    if (gear->litTimer != 0 && --gear->litTimer == 0 && gear->page == PAGE_PHONE) {
         gear->lit = LIST_ROWS;
         DrawList(gear);
     }
@@ -379,7 +579,25 @@ static void CompletePokegear_Task(SysTask *task, void *data)
             MI_CpuCopy8(contacts, gear->contacts, count);
             gear->numContacts = count;
             gear->top = 0;
-            DrawList(gear);
+
+            if (gear->page == PAGE_PHONE) {
+                DrawList(gear);
+            }
+        }
+
+        // the map follows the player as they walk
+        if (gear->page == PAGE_MAP) {
+            s16 x, y;
+            BOOL marker = PlayerMapPosition(gear, &x, &y);
+
+            gear->marker = marker;
+            gear->markerX = x;
+            gear->markerY = y;
+
+            if (gear->mapHeaderID != gear->fieldSystem->location->mapHeaderID) {
+                gear->mapHeaderID = gear->fieldSystem->location->mapHeaderID;
+                DrawPlaceName(gear);
+            }
         }
 
         if (CompletePokegear_PoketchAvailable(gear->saveData) != gear->poketchShown) {
@@ -399,6 +617,7 @@ void CompletePokegear_Create(FieldSystem *fieldSystem, BgConfig *bgConfig)
     gear->saveData = FieldSystem_GetSaveData(fieldSystem);
     gear->bgConfig = bgConfig;
     gear->lit = LIST_ROWS;
+    gear->page = CompletePokegear_GetPage();
     gear->titles = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0271, HEAP_ID_POKETCH_APP);
     gear->classes = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_TRAINER_CLASS_NAMES, HEAP_ID_POKETCH_APP);
     ReadPhoneBook(gear, gear->contacts, &gear->numContacts);

@@ -26,6 +26,8 @@ enum CompleteBottomScreen CompleteBottomScreen_Active(void);
 void CompleteBottomScreen_SetActive(enum CompleteBottomScreen screen);
 void CompleteBottomScreen_RequestSwitch(SaveData *saveData); // the switch button: the other of Pokétch and Pokégear
 BOOL CompleteBottomScreen_SwitchDue(SaveData *saveData);
+u8 CompletePokegear_GetPage(void); // the page the Pokégear was last on, as HeartGold's comes back to its last app
+void CompletePokegear_SetPage(u8 page);
 
 // src/overlay005/complete_bottom_screen.c (the field): starts the switch when one is due
 BOOL CompleteBottomScreen_TrySwitch(FieldSystem *fieldSystem);
@@ -39,6 +41,7 @@ BOOL CompletePokegear_IsShutdown(void);
 
 #ifdef SOVEREIGN_TEST
 extern void *gCompleteTestPokegear;
+extern u16 gCompleteTestPokegearMap[4];
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_POKEGEAR_H

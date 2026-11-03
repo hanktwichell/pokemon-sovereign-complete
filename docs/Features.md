@@ -384,7 +384,7 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
 
 The owner's call (Nov 3, 2026): both, with a button to switch between them. HeartGold's Pokégear shows on the field's
 bottom screen in the Pokétch's place (`src/applications/complete_pokegear/pokegear.c`, an overlay of its own, with
-HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`):
+HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Phone and its Map:
 
 - **When:** once the player has it (Mom gives it in New Bark Town: `FLAG_HGSS_GOT_POKEGEAR`), the bottom screen
   switches to it at once; with no Pokétch yet it stays there. With both, the bottom screen shows the one the player
@@ -402,11 +402,20 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`):
   to); on the Pokétch, a blue button under its side button, drawn from the side button's own edges in the Pokégear's
   blue (`src/applications/poketch/poketch_graphics.c` and `poketch_system.c`, marked blocks), shown once the player has
   the Pokégear.
-- **Still to come:** the Radio and the Map (their app bar buttons are dimmed), and HeartGold's skins (the settings
-  button).
+- **The map:** the app bar's Map shows HeartGold's map of Johto and Kanto (its map app's, the 48 by 20 tiles of the map
+  itself), with the player's head (Ethan's or Lyra's, HeartGold's own marker) where HeartGold's map app puts them:
+  on the overworld, the block of 32 tiles they're on; off it, the place their map's header gives. The place's name
+  shows in a strip over the sea, and dragging scrolls the map, which is half again as wide as the screen (it opens
+  scrolled to the player). HeartGold's map is 256-colour, too big for the bottom screen's 32 KB beside the app bar,
+  so the importer makes it 16-colour without changing a pixel: five 15-colour palettes, each tile in the one its
+  colours fit, and tiles that repeat (flipped or not) kept once (593 tiles). In Sinnoh it shows the place's name, with
+  no head. The Pokégear comes back to the page it was on (after a battle or a map change).
+- **Still to come:** the Radio (its app bar button is dimmed), and HeartGold's skins (the settings button). Left out
+  of the map: HeartGold's zoom, its marked places and its place-by-place descriptions.
 
 Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the player gets it; a tap on Mom calling her;
-scrolling; the switch to the Pokétch and back; the choice kept across a warp; the Pokégear back after a battle).
+scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
+phone; the switch to the Pokétch and back; the choice kept across a warp; the Pokégear back after a battle).
 
 ## Mom's savings
 

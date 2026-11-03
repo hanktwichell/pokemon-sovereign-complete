@@ -9,6 +9,13 @@ build_heartgold.sh), its first skin only:
 - pokegear.pal: one set of 16 palettes, the phone's 0-13 (pgphone_gra 10) and the app bar's 14-15 (pgear_gra 30), as
   HeartGold loads them. Its palettes are compressed (PMCP), which Platinum's loaders don't unpack, so they're plain
   here.
+- map.png / map_tilemap.bin / map.pal: the map app's map of Johto and Kanto (its pgmap_gra 10 and 11 with palette 20,
+  the 48 by 20 tiles of the map itself), made 16-colour (HeartGold's is 256-colour, too big for the bottom screen's
+  32 KB beside the app bar): each tile takes one of a few 15-colour palettes, and tiles that are the same, flipped or
+  not, are kept once. map.pal holds those palettes from 0, the place name's colours in 12 (the phone's list colours)
+  and the app bar's in 14-15. The tilemap is the 48 by 20 entries, a row after another.
+- marker.png / marker.pal: the map app's player markers (pgmap_gra 1's tiles 8-15: Ethan's head, then Lyra's, each
+  four tiles of a 16 by 16 sprite) and their palette (pgmap_gra 0's first).
 
 From the repo root:
     python3 tools/complete/import_hgss_pokegear_gfx.py
@@ -36,6 +43,99 @@ def palettes(path):
     return {n: colours[k * 16:k * 16 + 16] for k, n in enumerate(indices)}
 
 
+def nclr_colours(path):
+    """The colours of an NCLR's palette data, in order"""
+    b = open(path, 'rb').read()
+    i = b.find(b'TTLP')
+    size, off = struct.unpack('<II', b[i + 16:i + 24])
+    data = b[i + 8 + off:i + 8 + off + size]
+    return struct.unpack(f'<{len(data) // 2}H', data)
+
+
+def screen_entries(path):
+    b = open(path, 'rb').read()
+    i = b.find(b'NRCS')
+    width, height = struct.unpack('<HH', b[i + 8:i + 12])
+    size, = struct.unpack('<I', b[i + 16:i + 20])
+    return width // 8, struct.unpack(f'<{size // 2}H', b[i + 20:i + 20 + size])
+
+
+MAP_WIDTH, MAP_HEIGHT = 48, 20  # the map's tiles in its sheet
+
+
+def build_map():
+    """HeartGold's map, 16-colour: (tile pixels, the tilemap, palettes)"""
+    from PIL import Image
+
+    sheet = Image.open(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000010.png'))
+    px = sheet.load()
+    per_row = sheet.width // 8
+    colours = nclr_colours(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000020.NCLR'))
+    width, entries = screen_entries(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000011.NSCR'))
+
+    def tile_colours(entry):
+        t, hflip, vflip = entry & 0x3FF, entry >> 10 & 1, entry >> 11 & 1
+        sx, sy = t % per_row * 8, t // per_row * 8
+        return [[colours[px[sx + (7 - x if hflip else x), sy + (7 - y if vflip else y)]] for x in range(8)]
+                for y in range(8)]
+
+    tiles = [tile_colours(entries[y * width + x]) for y in range(MAP_HEIGHT) for x in range(MAP_WIDTH)]
+    # palettes of 15 colours (0 is the backdrop's), each tile in the one its colours fit best
+    palettes = []
+    owner = [0] * len(tiles)
+    order = sorted(range(len(tiles)), key=lambda k: -len({c for row in tiles[k] for c in row}))
+    for k in order:
+        need = {c for row in tiles[k] for c in row}
+        best = None
+        for n, palette in enumerate(palettes):
+            grown = len(need - palette)
+            if len(palette) + grown <= 15 and (best is None or grown < best[1]):
+                best = (n, grown)
+        if best is None:
+            palettes.append(set())
+            best = (len(palettes) - 1, len(need))
+        palettes[best[0]] |= need
+        owner[k] = best[0]
+    palettes = [sorted(p) for p in palettes]
+    assert len(palettes) <= 12, len(palettes)
+
+    pixels, tilemap, seen = [], [], {}
+    for k, tile in enumerate(tiles):
+        palette = palettes[owner[k]]
+        indices = tuple(tuple(palette.index(c) + 1 for c in row) for row in tile)
+        flips = {(0, 0): indices, (1, 0): tuple(row[::-1] for row in indices), (0, 1): indices[::-1],
+                 (1, 1): tuple(row[::-1] for row in indices[::-1])}
+        for (hflip, vflip), shape in flips.items():
+            if shape in seen:
+                tilemap.append(seen[shape] | hflip << 10 | vflip << 11 | owner[k] << 12)
+                break
+        else:
+            seen[indices] = len(pixels)
+            tilemap.append(len(pixels) | owner[k] << 12)
+            pixels.append(indices)
+    return pixels, tilemap, palettes
+
+
+def save_tiles(path, pixels):
+    """Tiles in a sheet 32 tiles wide, their 4-bit indices as an indexed PNG's"""
+    from PIL import Image
+
+    rows = (len(pixels) + 31) // 32
+    image = Image.new('P', (256, rows * 8))
+    image.putpalette([v for n in range(16) for v in (n * 16, n * 16, n * 16)])
+    out = image.load()
+    for t, tile in enumerate(pixels):
+        for y in range(8):
+            for x in range(8):
+                out[t % 32 * 8 + x, t // 32 * 8 + y] = tile[y][x]
+    image.save(path)
+
+
+def save_pal(path, rows):
+    lines = ['JASC-PAL', '0100', str(len(rows) * 16)] + [' '.join(map(str, rgb(c))) for row in rows for c in row]
+    open(path, 'w', newline='\r\n').write('\n'.join(lines) + '\n')  # JASC: CRLF
+
+
 def rgb(c):
     return (c & 31) * 255 // 31, (c >> 5 & 31) * 255 // 31, (c >> 10 & 31) * 255 // 31
 
@@ -51,9 +151,24 @@ def main():
     phone = palettes(os.path.join(HG, 'phone', 'pgphone_gra', 'pgphone_gra_00000010.NCLR'))
     gear = palettes(os.path.join(HG, 'pgear_gra', 'pgear_gra_00000030.NCLR'))
     rows = [phone[n] if n < 14 else gear[n] for n in range(16)]
-    lines = ['JASC-PAL', '0100', '256'] + [' '.join(map(str, rgb(c))) for row in rows for c in row]
-    open(os.path.join(OUT, 'pokegear.pal'), 'w', newline='\r\n').write('\n'.join(lines) + '\n')  # JASC: CRLF
-    print(f'{OUT}: app bar, phone frame, 16 palettes')
+    save_pal(os.path.join(OUT, 'pokegear.pal'), rows)
+    # the map
+    pixels, tilemap, map_palettes = build_map()
+    save_tiles(os.path.join(OUT, 'map.png'), pixels)
+    open(os.path.join(OUT, 'map_tilemap.bin'), 'wb').write(struct.pack(f'<{len(tilemap)}H', *tilemap))
+    map_rows = [[0] + list(p) + [0] * (15 - len(p)) for p in map_palettes]
+    map_rows += [[0] * 16] * (12 - len(map_rows)) + [phone[2], [0] * 16, gear[14], gear[15]]
+    save_pal(os.path.join(OUT, 'map.pal'), map_rows)
+
+    # the player markers
+    from PIL import Image
+
+    sheet = Image.open(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000001.png'))
+    marker = sheet.crop((0, 8 * 8, 8, 16 * 8))
+    marker.save(os.path.join(OUT, 'marker.png'))
+    save_pal(os.path.join(OUT, 'marker.pal'), [nclr_colours(os.path.join(HG, 'map', 'pgmap_gra',
+                                                                         'pgmap_gra_00000000.NCLR'))[:16]])
+    print(f'{OUT}: app bar, phone frame, 16 palettes; map {len(pixels)} tiles in {len(map_palettes)} palettes')
 
 
 if __name__ == '__main__':

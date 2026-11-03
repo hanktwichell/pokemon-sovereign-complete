@@ -1399,3 +1399,9 @@ Test results on the new test build:
   (`tools/complete/test_hgss_pokegear.py`, all 6 parts pass): the Pokégear came up as the flag was set, a tap on Mom
   called her, the down arrow then a tap called Elm, the switch went to the Pokétch and back, a warp kept the
   Pokégear, and it came back after a wild battle. Its Map and Radio come next (their buttons are dimmed for now).
+- **The Pokégear's map:** HeartGold's map of Johto and Kanto on the Pokégear's Map page, with the player's head where
+  HeartGold's map app puts them and the place's name; dragging scrolls it. HeartGold's map is 256-colour, too big for
+  the bottom screen's video memory, so the importer makes it 16-colour without changing a pixel (five palettes, 593
+  tiles). In the emulator (`tools/complete/test_hgss_pokegear.py`, now 8 parts, all pass): the head showed at the
+  bedroom's place, then at Route 30's after a warp (the Pokégear came back on the Map), dragging scrolled toward
+  Kanto, and the Phone button brought the list back.

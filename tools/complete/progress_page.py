@@ -54,7 +54,7 @@ STEPS = [
     (5, 'HeartGold features', 'mostly', 'Almost done',
      'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
      'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier and the Pokégear beside the Pokétch '
-     '(its phone and the switch) are in. Next: the Pokégear\'s Map and Radio.'),
+     '(its phone, its map and the switch) are in. Next: the Pokégear\'s Radio.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
@@ -111,8 +111,9 @@ RECENT = [
         'button switches to the Pokégear, and the Pokégear\'s last app bar button switches back; your choice is '
         'saved. All 6 parts of its emulator test pass (getting it, a call, scrolling, the switch both ways, a warp, '
         'a battle).',
-        'Next: the Pokégear\'s Map (Johto and Kanto with where you are) and its Radio (their buttons are dimmed for '
-        'now).',
+        'The Pokégear\'s Map: HeartGold\'s map of Johto and Kanto with your head where you are and the place\'s name; '
+        'drag it to see the rest. Checked in the emulator in your room and on Route 30.',
+        'Next: the Pokégear\'s Radio (its button is dimmed for now).',
     ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
@@ -233,7 +234,7 @@ AHEAD = [
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
      'for all three regions.', 'You', 'waiting'),
     ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, Johto\'s Battle Frontier '
-     'and the Pokégear beside the Pokétch (its phone, calls you place, the switch) are done; next its Map and '
+     'and the Pokégear beside the Pokétch (its phone, calls you place, its map, the switch) are done; next its '
      'Radio.', 'Claude', 'active'),
     ('Your call', 'The art for the Town Map and sprites, Cynthia\'s difficulty, and any of the provisional Sinnoh '
      'choices to change.', 'You', 'waiting'),
