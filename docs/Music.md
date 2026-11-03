@@ -69,7 +69,9 @@ memory, measured from both decomps and both built archives.
    32-byte record for each heap level saved, which restoring to that level keeps (each of Platinum's fanfares leaves
    one so), so an effect loads into the current level when nothing is loaded there yet (after a song, the usual case)
    and saves a level only otherwise, one that the next effect finds empty and reuses: the memory comes back whole, and
-   many effects in a row (Voltorb Flip's coins) can't pile levels up. The largest needs
+   many effects in a row (Voltorb Flip's coins) can't pile levels up. An effect that has ended goes before any new
+   level is saved (a fanfare's), so a fanfare straight after it doesn't keep it in memory; one still playing as a
+   fanfare starts stays loaded (and plays again from there) until the next song. The largest needs
    23 KB, under the 49 KB a Johto song leaves. The scripts play them (185 PlaySE in 65 of Sacred Gold's script files),
    and so do the ported scenes: the legendary cinematics and cutscenes, the Rocket Hideout's traps and siren, the
    Magnet Train, Voltorb Flip, the Ruins of Alph's puzzles, Mahogany's ice blocks and Blackthorn's lift. The test plays

@@ -278,6 +278,7 @@ void *SoundSystem_GetParam(enum SoundSystemParam param)
 
 int SoundSystem_SaveHeapState(int *state)
 {
+    CompleteSound_ReleaseOwnEffect(); // Sovereign Complete: an ended HeartGold sound effect goes before a level above it
     int newState = NNS_SndHeapSaveState(SoundSystem_Get()->heap);
     if (newState == SOUND_HEAP_STATE_INVALID) {
         GF_ASSERT(FALSE);

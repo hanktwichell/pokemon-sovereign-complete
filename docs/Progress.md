@@ -1608,3 +1608,7 @@ Test results on the new test build:
   the phone's save counts them (two of its reserved bytes), at each step on the bike, and sets the call's trigger
   once there are 1,024, if the call hasn't come yet and the number is in the phone. The phone test's new part
   (9 of 9 pass): a step on foot counts nothing, the 1,024th on the bike sets the trigger.
+- **Sound effects before a fanfare:** an ended HeartGold sound effect is freed at the sound system's next tick, so a
+  fanfare started in the same frame (Voltorb Flip plays its own once its effects have ended) saved its heap level
+  above the effect and kept it loaded until the next song. Ended effects now go before any heap level is saved. The
+  sound memory test (5 of 5), Voltorb Flip (4 of 4) and the legendary cutscenes (2 of 2) pass with it.
