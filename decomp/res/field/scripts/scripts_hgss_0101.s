@@ -8,6 +8,7 @@
     ScriptEntry scr_seq_D39R0103_003
     ScriptEntryEnd
 scr_seq_D39R0103_000:
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     ApplyMovement LOCALID_PLAYER, _00FE
     WaitTime 1, VAR_RESULT
     ShowObject LOCALID_PLAYER

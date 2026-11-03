@@ -31,6 +31,7 @@ scr_seq_D17R0110_003:
 scr_seq_D17R0110_005:
     CompareVar VAR_MAP_LOCAL_0x0B, 123
     GoToIf 5, _005C
+    StopSE SEQ_SE_GS_KYOUHUU_sseq
     SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
 _005C:
     GoToIfSet FLAG_HGSS_UNK_108, _00C3
@@ -100,12 +101,15 @@ scr_seq_D17R0110_006:
     WaitMovement
     Message msg_0058_D17R0110_00000
     CloseMessage
+    StopSE SEQ_SE_GS_KYOUHUU_sseq
     FadeScreen 4, 4, 0, COLOR_WHITE
     WaitFadeScreen
     CompleteLegendCutscene 0, 0
     CompleteLegendCutscene 2, 0
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_HO_sseq
     FadeScreen 4, 4, 1, COLOR_WHITE
     WaitFadeScreen
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_HO_sseq
     ApplyMovement obj_D17R0110_dancer, _0754
     ApplyMovement obj_D17R0110_dancer_2, _0760
     ApplyMovement obj_D17R0110_dancer_3, _076C
@@ -130,6 +134,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _07A0
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 67, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _07A0
@@ -139,6 +144,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _07A0
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     FadeScreen 4, 6, 1, COLOR_WHITE
     CompleteLegendCutscene 4, 0
@@ -157,6 +163,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _0904
@@ -172,6 +179,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 33, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _0904
@@ -187,6 +195,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _0880
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _091C
@@ -202,6 +211,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _080C
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     CompleteLegendCutscene 5, 0
     CompleteLegendCutscene 6, 0
@@ -219,6 +229,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _080C
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _090C
@@ -234,6 +245,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _080C
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 41, VAR_RESULT
     CompleteLegendCutscene 7, 0
@@ -245,6 +257,7 @@ scr_seq_D17R0110_006:
     WaitFadeScreen
     WaitTime 20, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     ReleaseObject obj_D17R0110_dancer
     ReleaseObject obj_D17R0110_dancer_2
     ReleaseObject obj_D17R0110_dancer_3
@@ -257,6 +270,7 @@ scr_seq_D17R0110_006:
     SetPosition obj_D17R0110_dancer_5, 18, 1, 12, DIR_SOUTH
     WaitTime 86, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitTime 32, VAR_RESULT
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
@@ -271,6 +285,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     WaitTime 34, VAR_RESULT
@@ -281,6 +296,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 60, VAR_RESULT
     CompleteLegendCutscene 6, 1

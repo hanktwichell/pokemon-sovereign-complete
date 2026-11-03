@@ -55,20 +55,24 @@ scr_seq_D24R0218_001:
     Message msg_0086_D24R0218_00002
     CloseMessage
     FadeOutBGM 0, 30
+    PlaySE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     FadeScreen 6, 6, 0, COLOR_BLACK
     WaitFadeScreen
     WaitTime 1, VAR_RESULT
     FadeScreen 6, 6, 1, COLOR_BLACK
     WaitFadeScreen
+    StopSE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     ApplyMovement obj_D24R0218_suit, _01AC
     WaitMovement
     Message msg_0086_D24R0218_00003
     CloseMessage
+    PlaySE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     FadeScreen 6, 6, 0, COLOR_BLACK
     WaitFadeScreen
     WaitTime 1, VAR_RESULT
     FadeScreen 6, 6, 1, COLOR_BLACK
     WaitFadeScreen
+    StopSE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 3
     SetFlag FLAG_HGSS_HIDE_ALPH_OUTSIDE_ARCEUS_EVENT_SUIT
     SetFlag FLAG_HGSS_HIDE_ALPH_MAIN_CHAMBER_ARCEUS_EVENT_PEOPLE
@@ -169,18 +173,22 @@ scr_seq_D24R0218_003:
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
+    PlaySE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     FadeScreen 6, 6, 0, COLOR_BLACK
     WaitFadeScreen
     WaitTime 1, VAR_RESULT
     FadeScreen 6, 6, 1, COLOR_BLACK
     WaitFadeScreen
+    StopSE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     ApplyMovement LOCALID_PLAYER, _0330
     WaitMovement
+    PlaySE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     FadeScreen 6, 6, 0, COLOR_BLACK
     WaitFadeScreen
     WaitTime 1, VAR_RESULT
     FadeScreen 6, 6, 1, COLOR_BLACK
     WaitFadeScreen
+    StopSE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     SetVarFromValue VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 12
     SetVarFromValue VAR_HGSS_UNK_4104, 1
     SetFlag FLAG_HGSS_HIDE_SINJOH_MYSTRI_SHRINE_CYNTHIA
@@ -209,6 +217,7 @@ _0330:
     EndMovement
 scr_seq_D24R0218_006:
     LockAll
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     ApplyMovement LOCALID_PLAYER, _038C
     ShowObject LOCALID_PLAYER
     WaitMovement

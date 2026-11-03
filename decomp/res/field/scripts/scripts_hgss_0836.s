@@ -7,7 +7,9 @@ scr_seq_T11R0603_000:
     LockAll
     ApplyMovement LOCALID_PLAYER, _0038
     WaitMovement
+    PlaySE SEQ_SE_GS_N_LINEAR_sseq
     WaitTime 40, VAR_0x8004
+    StopSE SEQ_SE_GS_N_LINEAR_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     CompleteMagnetTrain 1

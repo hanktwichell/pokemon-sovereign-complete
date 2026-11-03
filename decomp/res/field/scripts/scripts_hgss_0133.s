@@ -69,7 +69,9 @@ _00C7:
     End
 _00D6:
     Message msg_0148_D52R0101_00005
+    PlaySE SEQ_SE_GS_STOPPERKAIJO_sseq
     Message msg_0148_D52R0101_00006
+    WaitSE SEQ_SE_GS_STOPPERKAIJO_sseq
     BufferPlayerName 0
     RemoveItem ITEM_RED_ORB, 1, VAR_RESULT
     SetVar VAR_0x8004, ITEM_BLUE_ORB

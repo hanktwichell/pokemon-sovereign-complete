@@ -120,6 +120,7 @@ _019C:
     RemoveObject obj_P01R0301_gsgentleman
     SetFlag FLAG_HGSS_UNK_215
     SetVarFromValue VAR_HGSS_SCENE_SS_AQUA, 2
+    StopSE SEQ_SE_GS_N_UMIBE_sseq
     ReleaseAll
     End
 _01DD:
@@ -197,6 +198,7 @@ _02AC:
     RemoveObject obj_P01R0301_gsgentleman
     SetFlag FLAG_HGSS_UNK_215
     SetVarFromValue VAR_HGSS_SCENE_SS_AQUA, 2
+    StopSE SEQ_SE_GS_N_UMIBE_sseq
     ReleaseAll
     End
 _02F9:

@@ -391,6 +391,7 @@ _0616:
     ApplyMovement obj_T20R0101_doctor, _1246
     WaitMovement
     WaitTime 15, VAR_0x8004
+    PlaySE SEQ_SE_GS_PHONE0_sseq
     ApplyMovement obj_T20R0101_doctor, _139E
     WaitMovement
     Message msg_0543_T20R0101_00002
@@ -937,6 +938,7 @@ _0EB9:
     ApplyMovement obj_T20R0101_doctor, _1246
     WaitMovement
     WaitTime 15, VAR_0x8004
+    PlaySE SEQ_SE_GS_PHONE0_sseq
     ApplyMovement obj_T20R0101_doctor, _139E
     WaitMovement
     Message msg_0543_T20R0101_00002

@@ -20,6 +20,7 @@
 #include "screen_fade.h"
 #include "sound.h"
 #include "sound_playback.h"
+#include "sound_system.h"
 #include "sprite.h"
 #include "sprite_system.h"
 #include "sprite_util.h"
@@ -43,8 +44,8 @@
 //   form and colors if the lead is Arceus (a plain Arceus otherwise), as HeartGold draws it.
 // The models are HeartGold's (NARC_INDEX_DEMO__COMPLETE__LEGEND_CINEMATIC, tools/complete/import_hgss_legend_cinematic.py),
 // lit by the field's light at the time, as HeartGold has it; Arceus's backgrounds and sprites too
-// (NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC). HeartGold's sound effects for the scenes are its own: Platinum's
-// stand in (docs/Music.md).
+// (NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC). The sounds are HeartGold's own (tools/complete/import_hgss_sound.py,
+// each loaded as it plays: src/complete_sound.c).
 
 #define CINEMATIC_HEAP_ID   HEAP_ID_DISTORTION_WORLD_WARP // the Distortion World warp's: its scene can't run at the same time
 #define CINEMATIC_HEAP_SIZE 0x80000 // HeartGold's
@@ -54,13 +55,16 @@
 #define TIMES_OF_DAY        3
 #define LUGIA_FIRST         27 // Lugia's first file in the archive, after Ho-Oh's 27
 
-// HeartGold's own sound effects, and Platinum's that stand in for them
-#define SE_BELL_WAVE     SEQ_SE_DP_KIRAN_sseq // SEQ_SE_GS_SUZUNOONPA_APRI: the Clear Bell's sound spreading
-#define SE_LIGHT_APPEARS SEQ_SE_DP_KIRAN_sseq // SEQ_SE_GS_HAKKOUTAI_SYUTUGEN: the ring of light appearing
-#define SE_LIGHT_SPREADS SEQ_SE_DP_KIRAN_sseq // SEQ_SE_GS_HAKKOUTAI_HIROGARI and _HIROGARI2: the light spreading
-#define SE_HO_OH_FLAP    SEQ_SE_DP_FW019_sseq // SEQ_SE_GS_HOUOUHABATAKI_APRI: Ho-Oh's wings, every 64 frames
-#define SE_WATERFALL     SEQ_SE_DP_NAMI_sseq // SEQ_SE_GS_TAKI_RUGIADEMO: the waterfall, faded in, all through
-#define SE_LUGIA_RISES   SEQ_SE_DP_FW463_sseq // SEQ_SE_GS_RUGIA_TAKISHUTUGEN: Lugia through the falling water
+// HeartGold's own sound effects for the scenes
+#define SE_BELL_WAVE      SEQ_SE_GS_SUZUNOONPA_APRI_sseq // the Clear Bell's sound spreading
+#define SE_LIGHT_APPEARS  SEQ_SE_GS_HAKKOUTAI_SYUTUGEN_sseq // the ring of light appearing
+#define SE_LIGHT_SPREADS  SEQ_SE_GS_HAKKOUTAI_HIROGARI2_sseq // the light spreading, as Ho-Oh's theme begins
+#define SE_LIGHT_SPREADS2 SEQ_SE_GS_HAKKOUTAI_HIROGARI_sseq // and again
+#define SE_HO_OH_FLAP     SEQ_SE_GS_HOUOUHABATAKI_APRI_sseq // Ho-Oh's wings, every 64 frames
+#define SE_WATERFALL      SEQ_SE_GS_TAKI_RUGIADEMO_sseq // the waterfall, faded in, all through
+#define SE_LUGIA_RISES    SEQ_SE_GS_RUGIA_TAKISHUTUGEN_sseq // Lugia through the falling water
+#define WATERFALL_FADE_FRAMES 10 // to WATERFALL_VOLUME, 3 a frame (HeartGold's GF_SetVolumeBySeqNo)
+#define WATERFALL_VOLUME      30
 
 // HeartGold's ScriptCinematic_HoOh steps (sScriptCinematicSubs_HoOh)
 enum HoOhStep {
@@ -515,7 +519,7 @@ static int HoOh_Step(LegendCinematic *cin)
             Sound_PlayEffect(SE_LIGHT_SPREADS);
             break;
         case 98:
-            Sound_PlayEffect(SE_LIGHT_SPREADS);
+            Sound_PlayEffect(SE_LIGHT_SPREADS2);
             break;
         case 129:
             Fade(cin, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, HO_OH_STEP_FIRST_CUT);
@@ -577,10 +581,17 @@ static int Lugia_Step(LegendCinematic *cin)
             return LUGIA_STEP_END;
         }
 
+        // HeartGold's sub_02006118 and GF_SetVolumeBySeqNo: the waterfall from silence, 3 a frame
+        if (cin->frames <= WATERFALL_FADE_FRAMES) {
+            if (cin->frames == 0) {
+                Sound_PlayEffect(SE_WATERFALL);
+            }
+
+            NNS_SndPlayerSetVolume(SoundSystem_GetSoundHandle(SoundSystem_GetSoundHandleTypeFromPlayerID(Sound_GetPlayerForSequence(SE_WATERFALL))),
+                cin->frames < WATERFALL_FADE_FRAMES ? cin->frames * 3 : WATERFALL_VOLUME);
+        }
+
         switch (cin->frames) {
-        case 0:
-            Sound_PlayEffect(SE_WATERFALL);
-            break;
         case 115:
             Sound_PlayEffect(SE_LUGIA_RISES);
             break;

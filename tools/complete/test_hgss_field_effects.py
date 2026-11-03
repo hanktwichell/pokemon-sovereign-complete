@@ -16,6 +16,11 @@ And the monks' wings (ShowLegendaryWing), each shining at the player's feet whil
 5. **Lance's flight** at the Lake of Rage (ScrCmd_775): the player, on the water below him, talks to Lance and agrees
    to help: the cut-in shows his Dragonite, and the two are gone.
 
+And the Ruins of Alph's four chambers (OpenAlphHiddenRoom):
+
+6. **The walls' words:** in each chamber the player reads the north wall (6, 2) from the tile below: the stone tablet
+   shows its word in the Unown's letters (ESCAPE, LIGHT, WATER, HO OH) until A is pressed.
+
 Each part must start its effect, run it to the end (gCompleteTestLegend: the effects ended, the last one's kind) and
 leave the field free. Screenshots of each effect as it plays go to OUT_DIR. Results: a line per part.
 
@@ -35,19 +40,25 @@ HIDEOUT = 'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1F'
 BELL_TOWER = 'MAP_HEADER_HGSS_BELL_TOWER_1F'
 WHIRL_ISLANDS = 'MAP_HEADER_HGSS_WHIRL_ISLANDS_B2F'
 LAKE_OF_RAGE = 'MAP_HEADER_HGSS_LAKE_OF_RAGE'
+ALPH = 'MAP_HEADER_HGSS_RUINS_OF_ALPH_{}_ENTRANCE_FIRST_ROOM'  # HeartGold's D24R0202 to D24R0208
+ALPH_WALL = 0x600  # the walls' kind: 0x600 + the word
 FACING = {'UP': 1, 'DOWN': 0, 'LEFT': 3, 'RIGHT': 4}  # the test warp's facing: enum FaceDirection + 1, 0 for down
 SHOT_FRAMES = tuple(int(f) for f in os.environ['SHOTS'].split(',')) if os.environ.get('SHOTS') else (4, 24, 48, 120, 200)
 START = 4000  # frames for the effect to start after the step (Lance talks a while first)
 LIMIT = 20000
 # (part, the map, the tile beside the trigger, the key that steps onto it (A: talks), the effect's kind: 0x100 + the
-# trap, 0x200 the alarm, 0x300 + the wing, 0x400 Lance's flight, the flags and vars set on the way in)
+# trap, 0x200 the alarm, 0x300 + the wing, 0x400 Lance's flight, 0x600 + a wall's word, the flags and vars set on the
+# way in)
 PARTS = [('the electric trap', HIDEOUT, (14, 16), 'LEFT', 0x100, []),
          ('the poison trap', HIDEOUT, (12, 18), 'UP', 0x101, []),
          ('the rock trap', HIDEOUT, (14, 16), 'RIGHT', 0x102, []),
          ('the alarm', HIDEOUT, (44, 6), 'UP', 0x200, []),
          ('the Rainbow Wing', BELL_TOWER, (8, 13), 'UP', 0x300, [('FLAG_HGSS_UNK_093', 1)]),
          ('the Silver Wing', WHIRL_ISLANDS, (36, 31), 'A', 0x301, [('FLAG_HGSS_UNK_094', 1)]),
-         ("Lance's flight", LAKE_OF_RAGE, (528, 84), 'A', 0x400, [('FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE', 0)])]
+         ("Lance's flight", LAKE_OF_RAGE, (528, 84), 'A', 0x400, [('FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE', 0)])] + \
+    [(f'the {word} wall', ALPH.format(chamber), (6, 3), 'A', ALPH_WALL + i, [])
+     for i, (word, chamber) in enumerate([('ESCAPE', 'NORTHEAST'), ('LIGHT', 'SOUTHEAST'), ('WATER', 'SOUTHWEST'),
+                                          ('HO OH', 'NORTHWEST')])]
 
 
 def main():
@@ -98,10 +109,16 @@ def main():
                 d.run(frames - ran)
                 ran = frames
                 d.screenshot().save(os.path.join(out, f'{stem}_{frames:02d}.png'))
+            if kind & 0xFF00 == ALPH_WALL and started:  # the tablet stays till A
+                if legend()[0]:
+                    problem = 'the tablet closed before A was pressed'
+                d.press('A', frames=4, after=10)
             result, frames = play_out(d, sym, LIMIT, names.index(header), press_a=False)
             d.screenshot().save(os.path.join(out, f'{stem}_end.png'))
             ended, last = legend()
-            if not started:
+            if problem:
+                pass
+            elif not started:
                 problem = f'the effect didn\'t start within {START} frames'
             elif result == 'NOSCRIPT' and ended >= 1:
                 pass  # the scene was over as the screenshots were taken (Lance's), the field free on the map

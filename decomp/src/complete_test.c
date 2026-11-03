@@ -172,8 +172,8 @@ BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id)
 static BOOL sFanfarePlaying;
 
 // A song the harness asked for: in a cutscene's sound scene, a fanfare as a script plays one (with its WaitFanfare,
-// which gives the fanfare's memory back once it ends), a field song as a map's (src/field_bgm.c), any other as a
-// script's PlayMusic
+// which gives the fanfare's memory back once it ends), a field song as a map's (src/field_bgm.c), a sound effect as a
+// script's PlaySE, any other as a script's PlayMusic
 static void PlaySong(void)
 {
     u16 seqID = gCompleteTestSound.playSeq;
@@ -199,6 +199,8 @@ static void PlaySong(void)
         Sound_SetScene(SOUND_SCENE_NONE);
         Sound_SetFieldBGM(seqID);
         Sound_SetSceneAndPlayBGM(SOUND_SCENE_FIELD, seqID, 1);
+    } else if (Sound_GetPlayerForSequence(seqID) >= PLAYER_SE_1 && Sound_GetPlayerForSequence(seqID) <= PLAYER_SE_4) {
+        Sound_PlayEffect(seqID); // a sound effect as a script plays one (HeartGold's own load as they play)
     } else {
         Sound_PlayBGM(seqID);
     }

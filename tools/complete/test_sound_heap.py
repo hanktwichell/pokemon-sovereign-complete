@@ -11,9 +11,13 @@ gCompleteTestSound, which notes each load into the sound heap):
 4. **Flags:** the songs a flag puts on a map (src/complete_sound.c, sAltMusic): the player comes onto the National
    Park, a contest gatehouse and the Radio Tower with the flag set (gSovereignTestVar), and the song loads, with no
    load failing.
+5. **Effects:** HeartGold's own sound effects on New Bark Town, each loaded as it plays (src/complete_sound.c,
+   CompleteSound_LoadOwnEffect): a short one that has ended is freed (a fanfare after it has as much memory as before
+   it), each of them loads and plays with no load failing, and going to Route 29 and back frees any still playing (the
+   fanfare's memory is back again).
 
 Results: one line per part, 'ok' or what went wrong; with --all, a line per song (its sequence, the bytes free after
-it loads). --only PART runs that part alone (songs, battle, johto, flags).
+it loads). --only PART runs that part alone (songs, battle, johto, flags, effects).
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
@@ -39,6 +43,10 @@ LOG_ENTRIES, LOG_SIZE = 8, 8  # COMPLETE_TEST_SOUND_LOG; CompleteTestSoundLoad
 SCENE_SONGS = {'SEQ_BLD_ENDING_sseq': 14}  # songs only a cutscene plays, in its sound scene (enum SoundScene)
 FANFARE = 0xFFFF  # playScene: as a fanfare (COMPLETE_TEST_SOUND_FANFARE)
 FANFARE_FRAMES = 600  # a fanfare's length and more, so it ends and gives its memory back before the next
+EFFECT_FRAMES = 90  # each sound effect's time
+SHORT_EFFECT = 'SEQ_SE_GS_DENKI_TRAP_sseq'  # one that ends by itself
+SE_PLAYERS = ('PLAYER_SE_1', 'PLAYER_SE_2', 'PLAYER_SE_3', 'PLAYER_SE_4')
+EFFECTS_AWAY = 'MAP_HEADER_HGSS_ROUTE_29'
 JOHTO = ('MAP_HEADER_HGSS_NEW_BARK', 695, 397, 'SEQ_GS_T_WAKABA_sseq')  # a tile outside the player's house
 MUSIC_PLAYERS = ('PLAYER_BGM', 'PLAYER_FIELD')
 FLAG_SONGS = [  # (map, the flag, its song), one of each of sAltMusic's songs
@@ -184,13 +192,59 @@ def flags_part(h):
     h.part('flags', problem)
 
 
+def effects_part(h):
+    """5. HeartGold's sound effects on New Bark Town, each loaded as it plays."""
+    failures = h.start()
+    header, x, z, _ = JOHTO
+    arrived, _ = warp(h.d, h.sym, header_names().index(header), x, z, 0)
+    effects = songs(SE_PLAYERS, 'SEQ_SE_GS_')
+    fanfare = songs(('PLAYER_ME',), 'SEQ_ME_')[0][1]
+    problem = f'warp {arrived}' if arrived != 'ok' else '' if effects else 'no sound effects of HeartGold\'s'
+    if not problem:
+        # 'free' is the heap's free size after its last load, which a fanfare's load reads. Each fanfare keeps the
+        # heap level it saves (Platinum's way: 32 bytes of NitroSystem's), so one after another the free size steps
+        # down by that; an effect played between two must not add to the step, twice running
+        frees = []
+        for effect_first in (False, False, True, True):
+            if effect_first:
+                h.play(dict(effects)[SHORT_EFFECT], 0, 4 * EFFECT_FRAMES)
+            h.play(fanfare, FANFARE, FANFARE_FRAMES)
+            frees.append(h.read('free'))
+        base, step = frees[0], frees[0] - frees[1]
+        for i in (2, 3):
+            if frees[i - 1] - frees[i] != step:
+                problem = f'{SHORT_EFFECT} still held {frees[i - 1] - frees[i] - step} bytes after it ended ({i - 1})'
+                break
+    for name, seq in effects if not problem else []:
+        loads = h.read('loads', 2)
+        h.play(seq, 0, EFFECT_FRAMES)
+        if h.read('playSeq', 2):
+            problem = f'{name} never played'
+        elif h.read('failures') != failures:
+            problem = f'{name}: ' + h.failed_since(failures)
+        elif h.read('loads', 2) == loads:
+            problem = f'{name} never loaded'
+        if problem:
+            break
+    if not problem:  # onto Route 29 (its own song) and back: the songs' loads put the heap back below the effects
+        warp(h.d, h.sym, header_names().index(EFFECTS_AWAY), *walkable_tile(EFFECTS_AWAY), 0)
+        arrived, _ = warp(h.d, h.sym, header_names().index(header), x, z, 0)
+        h.play(fanfare, FANFARE, FANFARE_FRAMES)
+        if arrived != 'ok':
+            problem = f'warp {arrived}'
+        elif h.read('free') != base:
+            problem = f'after coming onto the map again, {base - h.read("free")} bytes still held'
+    h.part('effects', problem)
+    print(f'effects: {len(effects)} of HeartGold\'s; least memory left {h.read("minFree") // 1024} KB', flush=True)
+
+
 def main():
     rom, state, out = sys.argv[1:4]
     only = sys.argv[sys.argv.index('--only') + 1] if '--only' in sys.argv else None
     os.makedirs(out, exist_ok=True)
     h = Harness(rom, state, out)
     parts = {'songs': lambda: songs_part(h, '--all' in sys.argv), 'battle': lambda: battle_part(h),
-             'johto': lambda: johto_part(h), 'flags': lambda: flags_part(h)}
+             'johto': lambda: johto_part(h), 'flags': lambda: flags_part(h), 'effects': lambda: effects_part(h)}
     for name, run in parts.items():
         if only in (None, name):
             run()

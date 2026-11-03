@@ -136,7 +136,9 @@ _01A9:
     Message msg_0574_T24GYM0101_00011
     CloseMessage
     SetFlag FLAG_HGSS_SYS_CIANWOOD_WATERFALL_DISABLE
+    StopSE SEQ_SE_GS_N_TAKI_sseq
     PlaySE SEQ_SE_DP_SHIP03_sseq
+    PlaySE SEQ_SE_GS_TAKI2_sseq
     CompleteCianwoodGymTurnWinch VAR_MAP_LOCAL_0x00
     ReleaseAll
     End

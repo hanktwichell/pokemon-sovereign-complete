@@ -90,14 +90,15 @@ typedef StringList ListMenuItem;
 #define SEQ_SE_DP_BOX03                             SEQ_SE_DP_BOX03_sseq
 #define SEQ_SE_DP_BUTTON3                           SEQ_SE_DP_BUTTON3_sseq
 #define SEQ_SE_DP_CARD2                             SEQ_SE_DP_CARD2_sseq
-#define SEQ_SE_GS_PANERU_MEKURU                     SEQ_SE_DP_CARD2_sseq // a card turned over
-#define SEQ_SE_GS_PANERU_MEKURUMAE                  SEQ_SE_DP_SELECT78_sseq // a card about to turn
-#define SEQ_SE_GS_COIN_PAYOUT_ONE                   SEQ_SE_PL_COIN_sseq
-#define SEQ_SE_GS_COIN_PAYOUT_LAST                  SEQ_SE_PL_COIN_sseq
-#define SEQ_SE_GS_COIN_HAZURE                       SEQ_SE_DP_BOX03_sseq // no coins
-#define SEQ_SE_GS_SLOT01                            SEQ_SE_DP_SLOT01_sseq
-#define SEQ_SE_GS_SLOT02                            SEQ_SE_DP_SLOT02_sseq
-#define SEQ_SE_GS_SLOT03                            SEQ_SE_DP_SLOT01_sseq
+// HeartGold's own sound effects (tools/complete/import_hgss_sound.py), each loaded as it plays (src/complete_sound.c)
+#define SEQ_SE_GS_PANERU_MEKURU                     SEQ_SE_GS_PANERU_MEKURU_sseq
+#define SEQ_SE_GS_PANERU_MEKURUMAE                  SEQ_SE_GS_PANERU_MEKURUMAE_sseq
+#define SEQ_SE_GS_COIN_PAYOUT_ONE                   SEQ_SE_GS_COIN_PAYOUT_ONE_sseq
+#define SEQ_SE_GS_COIN_PAYOUT_LAST                  SEQ_SE_GS_COIN_PAYOUT_LAST_sseq
+#define SEQ_SE_GS_COIN_HAZURE                       SEQ_SE_GS_COIN_HAZURE_sseq
+#define SEQ_SE_GS_SLOT01                            SEQ_SE_GS_SLOT01_sseq
+#define SEQ_SE_GS_SLOT02                            SEQ_SE_GS_SLOT02_sseq
+#define SEQ_SE_GS_SLOT03                            SEQ_SE_GS_SLOT03_sseq
 
 // Backgrounds and the display
 #include "gx_layers.h"
@@ -224,7 +225,7 @@ typedef CharTransferTemplateWithModes OamCharTransferParam;
 #define GF_IsAnySEPlaying                           Sound_IsAnyEffectPlaying
 #define IsSEPlaying                                 Sound_IsEffectPlaying
 #define PlayFanfare                                 Sound_PlayFanfare
-#define SEQ_SE_GS_OKOZUKAI                          SEQ_SE_PL_COIN_sseq // the payout counting up
+#define SEQ_SE_GS_OKOZUKAI                          SEQ_SE_GS_OKOZUKAI_sseq
 #define SEQ_ME_CARDGAME1                            SEQ_ME_CARDGAME1_sseq
 #define SEQ_ME_CARDGAME2                            SEQ_ME_CARDGAME2_sseq
 #define SEQ_ME_MUSHITORI3                           SEQ_ME_MUSHITORI3_sseq

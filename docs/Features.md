@@ -527,16 +527,27 @@ graphics (`res/graphics/alph_puzzle`, its `puzzle_gra` built the same way) and t
   loose panel a quarter, dragging moves it to a free square (not a corner); once every panel sits in the middle the
   right way up, the picture flashes and the puzzle's flag is set. Quit asks first, with Platinum's touch yes and no.
   Back in the field, HeartGold's script goes on: the floor gives way and the player drops into the underground hall.
-  HeartGold's own sound effects aren't in the sound archive, so Platinum's stand in.
+  The sounds are HeartGold's own (a panel picked up and turned, the puzzle solved), loaded as they play.
 - **The Unown:** the underground hall has no Pokémon until a puzzle is solved, and then only the letters each solved
   puzzle lets out (Kabuto's A to J, Aerodactyl's R to V, Omanyte's K to Q, Ho-Oh's W to Z); its entrance in the Sinjoh
   Ruins event has ! and ? (`src/complete_encounters.c`). While the radio plays the Unown's broadcast, half of them are
   letters the Pokédex hasn't seen yet, as in HeartGold ("The Pokégear radio").
-- **Not ported:** HeartGold's effect of a hidden room's wall as the player comes back into a chamber (its flags and
-  warps are the scripts', which run).
+- **The walls' words:** reading a chamber's north wall shows its words on a stone tablet over the field, in the
+  Unown's letters, until A is pressed (HeartGold's OpenAlphHiddenRoom, `CompleteAlphWall` in
+  `src/overlay005/complete_legend_cutscene.c`): ESCAPE in Kabuto's chamber, LIGHT in Omanyte's, WATER in
+  Aerodactyl's, HO OH in Ho-Oh's. The tablet is HeartGold's (its `demo/legend` 15 to 17, on the field's BG1), the
+  words its `msg_0198`.
+- **The rooms behind** (four item balls each): used from the tile below the wall, facing it, an Escape Rope opens
+  Kabuto's chamber's, Flash Omanyte's and a Water Stone Aerodactyl's, as HeartGold's `alph_checks.c` has it
+  (`CompleteAlph_CanOpenWall`, asked by the Escape Rope's and the evolution stones' item use and by Flash's): the
+  chamber's own script shakes the room and the wall is gone, and nothing is used up. Ho-Oh's opens when it's read
+  with Ho-Oh in the party (its script).
 
-Test: `tools/complete/test_hgss_alph_puzzle.py` (the hall empty before any puzzle; Quit, yes; the Kabuto puzzle solved
-by touch and the drop into the hall; the hall's Unown then).
+Tests: `tools/complete/test_hgss_alph_puzzle.py` (the hall empty before any puzzle; Quit, yes; the Kabuto puzzle solved
+by touch and the drop into the hall; the hall's Unown then), `tools/complete/test_hgss_field_effects.py` (each
+chamber's wall read, its tablet up until A) and `tools/complete/test_hgss_alph_walls.py` (an Escape Rope and a Water
+Stone used from the bag at their walls: each wall opens and the item stays; Flash, which only a Pokémon that knows it
+can use, isn't driven).
 
 ## Talking to the following Pokémon
 
@@ -683,11 +694,11 @@ coins paid into the Coin Case, Game Info's three pages.
   few calls differ and are rewritten in place: the sub screen's sprites sit 192 lines down as Platinum's sprite system
   puts them (HeartGold's moved its sub screen to 524), the graphics are kept uncompressed, HeartGold's font palette 9
   (which Platinum's font archive doesn't have) is in the code, and Voltorb Flip uses the diploma's heap (its app can't
-  run at the same time) and the slot machines' sound effects.
+  run at the same time).
 - **The Quit question** is Platinum's touch Yes and No (`yes_no_touch_menu.c`, the buttons HeartGold's prompt draws
   too); HeartGold's also takes the buttons, its cursor on Yes, so A presses Yes and B presses No here.
-- **Sounds:** HeartGold's own effects (the cards turning, the coins counting) aren't in Platinum's sound archive, so
-  the nearest of Platinum's stand in (`hgss_compat.h`); the fanfares are HeartGold's.
+- **Sounds:** HeartGold's own, the effects (the cards turning, the coins counting) and the fanfares; the menus'
+  clicks are Platinum's, as they are HeartGold's.
 - **The Japanese Game Corners** (HeartGold's `T25R1101` and `T07R0401`, with slot machines, unused outside Japan) are
   translated too, to the same command; no warp leads to them.
 - **Test:** `tools/complete/test_hgss_voltorb_flip.py` (the test build reads the board from
@@ -730,9 +741,10 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
   the rain, the stars and the eclipse, and the egg it makes, the backgrounds faded and blended into each other, to
   HeartGold's Arceus theme. Arceus is drawn from HeartGold's own walking sprite: the lead's form and colors if the
   lead is Arceus, a plain one otherwise, as HeartGold does it. Then the battle with Arceus, as Sacred Gold has it.
-- **Left out:** HeartGold's sound effects stand in as Platinum's (Fly's whoosh for the flaps, a sparkle for the eye,
-  the bell and the light; the waves and Waterfall's rush for the falls). HeartGold's own Arceus event at the Sinjoh
-  Ruins (an egg of Dialga, Palkia or Giratina, with Cynthia), which needs a distributed Arceus, stays out of reach.
+- **Sounds:** HeartGold's own: the wings' flaps, Lugia's eyes, the Clear Bell's rings and the light, the falls fading
+  in as Lugia's cinematic begins.
+- **Left out:** HeartGold's own Arceus event at the Sinjoh Ruins (an egg of Dialga, Palkia or Giratina, with
+  Cynthia), which needs a distributed Arceus, stays out of reach.
 
 Tests: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
 least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance, and its
@@ -752,8 +764,8 @@ event from the stage's middle: the circle, Arceus's cinematic to its end and the
   his step aside, which HeartGold starts from the wing, so they had been skipped), then fades.
 - **How:** all come from the same archive as the legendary cutscenes (HeartGold's `demo/legend`, all of it now in
   `fielddata/complete/legend.narc`) and the same code (`src/overlay005/complete_legend_cutscene.c`,
-  `CompleteHideoutTrap`, `CompleteHideoutAlarm`, `CompleteLegendaryWing`). HeartGold's trap sounds, siren and the
-  wing's chime are its own: Platinum's stand in (an electronic buzz, the poison step, a thud; beeps; a sparkle).
+  `CompleteHideoutTrap`, `CompleteHideoutAlarm`, `CompleteLegendaryWing`), with HeartGold's own sounds: the three
+  traps', the Rocket Hideout's siren and the wing's chime.
 - **Sacred Gold's Sinjoh Ruins** reuse the alarm (its siren and red screen) in the plates' event on the Mystri Stage,
   as Drayano wrote it.
 - **Lance's flight** off the Lake of Rage (HeartGold's ScrCmd_775): HeartGold plays its own Fly take-off cut-in with
@@ -787,8 +799,8 @@ own, the first two closing like a camera shutter and the last fading out as the 
   (`demo/complete/magnet_train.narc`, from `tools/complete/import_hgss_magnet_train.py`). HeartGold's ScrCmd_722 is
   `CompleteMagnetTrain`, in the order Platinum's own scenes return to the field (the Distortion World's warp): the
   screen fades out, the ride plays, `ReturnToField`, the warp to the other station, the screen fades in.
-- **Left out:** HeartGold's sound effects of the train (setting off, passing, pulling in), which aren't in Platinum's
-  sound archive; the station's song fades as the ride begins.
+- **Sounds:** the station's song fades as the ride begins, and each cut has HeartGold's own sound of the train (the
+  rails passing at its distance and side).
 
 Test: `tools/complete/test_hgss_magnet_train.py` (both ways, by day and at night: the scene walks the player aboard,
 all three cuts play with the right models, and the player gets off at the other station with the field free).

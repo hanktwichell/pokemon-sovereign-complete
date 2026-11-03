@@ -139,7 +139,9 @@ scr_seq_D35R0102_000:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru, _0454
     WaitMovement
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
+    StopSE SEQ_SE_GS_AJITO_SIREN_sseq
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 5, _02C4
@@ -275,6 +277,7 @@ scr_seq_D35R0102_005:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_2, _0454
     WaitMovement
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
@@ -420,6 +423,7 @@ scr_seq_D35R0102_006:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_3, _0454
     WaitMovement
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 11
@@ -505,6 +509,7 @@ scr_seq_D35R0102_007:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_4, _0454
     WaitMovement
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 29
@@ -589,6 +594,7 @@ scr_seq_D35R0102_008:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_5, _0454
     WaitMovement
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 29
@@ -873,6 +879,7 @@ _0F24:
 scr_seq_D35R0102_013:
     LockAll
     CompleteHideoutTrap 1
+    PlaySE SEQ_SE_GS_DOKU_TRAP_sseq
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -883,6 +890,7 @@ scr_seq_D35R0102_013:
 scr_seq_D35R0102_014:
     LockAll
     CompleteHideoutTrap 0
+    PlaySE SEQ_SE_GS_DENKI_TRAP_sseq
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -893,6 +901,7 @@ scr_seq_D35R0102_014:
 scr_seq_D35R0102_015:
     LockAll
     CompleteHideoutTrap 2
+    PlaySE SEQ_SE_GS_IWA_TRAP_sseq
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -903,6 +912,7 @@ scr_seq_D35R0102_015:
 scr_seq_D35R0102_016:
     LockAll
     CompleteHideoutTrap 0
+    PlaySE SEQ_SE_GS_DENKI_TRAP_sseq
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -913,6 +923,7 @@ scr_seq_D35R0102_016:
 scr_seq_D35R0102_017:
     LockAll
     CompleteHideoutTrap 2
+    PlaySE SEQ_SE_GS_IWA_TRAP_sseq
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -923,6 +934,7 @@ scr_seq_D35R0102_017:
 scr_seq_D35R0102_018:
     LockAll
     CompleteHideoutTrap 0
+    PlaySE SEQ_SE_GS_DENKI_TRAP_sseq
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -933,6 +945,7 @@ scr_seq_D35R0102_018:
 scr_seq_D35R0102_019:
     LockAll
     CompleteHideoutTrap 0
+    PlaySE SEQ_SE_GS_DENKI_TRAP_sseq
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -943,6 +956,7 @@ scr_seq_D35R0102_019:
 scr_seq_D35R0102_020:
     LockAll
     CompleteHideoutTrap 1
+    PlaySE SEQ_SE_GS_DOKU_TRAP_sseq
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -953,6 +967,7 @@ scr_seq_D35R0102_020:
 scr_seq_D35R0102_021:
     LockAll
     CompleteHideoutTrap 1
+    PlaySE SEQ_SE_GS_DOKU_TRAP_sseq
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -963,6 +978,7 @@ scr_seq_D35R0102_021:
 scr_seq_D35R0102_022:
     LockAll
     CompleteHideoutTrap 2
+    PlaySE SEQ_SE_GS_IWA_TRAP_sseq
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -973,6 +989,7 @@ scr_seq_D35R0102_022:
 scr_seq_D35R0102_023:
     LockAll
     CompleteHideoutTrap 2
+    PlaySE SEQ_SE_GS_IWA_TRAP_sseq
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -983,6 +1000,7 @@ scr_seq_D35R0102_023:
 scr_seq_D35R0102_024:
     LockAll
     CompleteHideoutTrap 1
+    PlaySE SEQ_SE_GS_DOKU_TRAP_sseq
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -993,6 +1011,7 @@ scr_seq_D35R0102_024:
 scr_seq_D35R0102_025:
     LockAll
     CompleteHideoutTrap 0
+    PlaySE SEQ_SE_GS_DENKI_TRAP_sseq
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -1003,6 +1022,7 @@ scr_seq_D35R0102_025:
 scr_seq_D35R0102_026:
     LockAll
     CompleteHideoutTrap 0
+    PlaySE SEQ_SE_GS_DENKI_TRAP_sseq
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -1013,6 +1033,7 @@ scr_seq_D35R0102_026:
 scr_seq_D35R0102_027:
     LockAll
     CompleteHideoutTrap 1
+    PlaySE SEQ_SE_GS_DOKU_TRAP_sseq
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -1023,6 +1044,7 @@ scr_seq_D35R0102_027:
 scr_seq_D35R0102_028:
     LockAll
     CompleteHideoutTrap 2
+    PlaySE SEQ_SE_GS_IWA_TRAP_sseq
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0

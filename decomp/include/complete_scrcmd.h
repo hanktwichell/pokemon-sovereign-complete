@@ -83,6 +83,18 @@ BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx);
 BOOL CompleteScrCmd_LegendCinematic(ScriptContext *ctx);
 BOOL CompleteRocketCostume_IsOn(void); // HeartGold's Rocket uniform on (FLAG_HGSS_SYS_ROCKET_COSTUME)
 
+// HeartGold's alph_checks.c: what opens three of the Ruins of Alph chambers' north walls, used facing the wall from
+// (6, 3)
+enum CompleteAlphWallKey {
+    COMPLETE_ALPH_WALL_ESCAPE_ROPE = 0, // the Kabuto chamber's (HeartGold's D24R0202)
+    COMPLETE_ALPH_WALL_FLASH, // the Omanyte chamber's (D24R0204)
+    COMPLETE_ALPH_WALL_WATER_STONE, // the Aerodactyl chamber's (D24R0206)
+    COMPLETE_ALPH_WALL_KEYS,
+};
+#define COMPLETE_ALPH_WALL_SCRIPT 3 // the chamber's own script that opens it (HeartGold's D24R0202_002 and the others)
+
+BOOL CompleteAlph_CanOpenWall(FieldSystem *fieldSystem, enum CompleteAlphWallKey key);
+
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.
 extern BOOL gCompleteNextWildShiny;

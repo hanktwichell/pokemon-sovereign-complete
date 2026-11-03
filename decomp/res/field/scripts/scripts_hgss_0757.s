@@ -396,7 +396,9 @@ _066A:
     Message msg_0466_T03R0601_00007
     WaitButton
     CloseMessage
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 0, COLOR_WHITE
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 1, COLOR_WHITE
     Message msg_0466_T03R0601_00009
     SetVar VAR_0x8004, ITEM_ENIGMA_STONE
@@ -410,7 +412,9 @@ _06AA:
     Message msg_0466_T03R0601_00003
     WaitButton
     CloseMessage
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 0, COLOR_WHITE
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 1, COLOR_WHITE
     Message msg_0466_T03R0601_00005
     SetVar VAR_0x8004, ITEM_ENIGMA_STONE

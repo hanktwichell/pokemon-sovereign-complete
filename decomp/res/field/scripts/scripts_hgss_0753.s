@@ -48,6 +48,8 @@ scr_seq_T03PC0101_001:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0463_T03PC0101_00008

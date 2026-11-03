@@ -72,6 +72,7 @@ _0096:
     End
 scr_seq_D37R0104_002:
     LockAll
+    PlaySE SEQ_SE_GS_ZUKAN06_sseq
     CompareVar VAR_MAP_LOCAL_0x01, 0
     GoToIf 5, _00F5
     ApplyMovement obj_D37R0104_gate1_left, _05CC
@@ -149,6 +150,7 @@ _026E:
     End
 scr_seq_D37R0104_001:
     LockAll
+    PlaySE SEQ_SE_GS_ZUKAN06_sseq
     CompareVar VAR_MAP_LOCAL_0x00, 0
     GoToIf 5, _02AD
     ApplyMovement obj_D37R0104_gate0_left, _05CC
@@ -226,6 +228,7 @@ _0426:
     End
 scr_seq_D37R0104_000:
     LockAll
+    PlaySE SEQ_SE_GS_ZUKAN06_sseq
     CompareVar VAR_MAP_LOCAL_0x02, 0
     GoToIf 5, _045D
     ApplyMovement obj_D37R0104_gate2_top, _05EC
@@ -291,6 +294,7 @@ _058F:
 scr_seq_D37R0104_003:
     GoToIfSet FLAG_HGSS_OPENED_GOLDENROD_PURPLE_GATE, _05CA
     LockAll
+    PlaySE SEQ_SE_GS_ZUKAN06_sseq
     ApplyMovement obj_D37R0104_purplegate_left, _05DC
     ApplyMovement obj_D37R0104_purplegate_right, _05E4
     ApplyMovement obj_D37R0104_stop_6, _0614

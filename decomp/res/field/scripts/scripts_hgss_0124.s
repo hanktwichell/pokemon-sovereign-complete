@@ -25,6 +25,7 @@ scr_seq_D49R0102_000:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
+    StopSE SEQ_SE_GS_N_KANSEI_sseq
     StopMusic
     SetBGM SEQ_GS_E_TSURETEKE1_sseq
     GoToIfUnset FLAG_HGSS_UNK_0FA, _006A

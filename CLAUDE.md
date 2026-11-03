@@ -18,6 +18,10 @@ work.
 - `decomp/res/sound/complete/`: the sound archive the build uses, made from Sovereign's (`res/sound/`) by
   `tools/complete/split_sound_basic.py`, with HeartGold's songs from `tools/complete/import_hgss_sound.py` (run it
   first) in `hgss/` (docs/Music.md). Both need a build's `nitrosfx`. Don't edit it by hand; the sync script remakes it.
+  The importer also takes each HeartGold sound effect (`SEQ_SE_GS_*`) Sacred Gold's scripts or `decomp/src` name, so
+  rerun it after naming a new one in C. They load into sound memory as they play (`src/complete_sound.c`,
+  `CompleteSound_LoadOwnEffect`). `translate_hgss_scripts.py` reads the sound names from the release build's
+  `res/sound/pl_sound_data.naix` (`ninja -C decomp/build res/sound/pl_sound_data.naix` after an import).
 - `HEARTGOLD_COMMIT` and `tools/complete/build_heartgold.sh`: HeartGold from pret/pokeheartgold, and Sacred Gold from
   Drayano's patch, both built into `.cache/`.
 - `Sacred Gold & Storm Silver V1.05 5/`: Drayano's patches and documents, unchanged.
@@ -87,8 +91,10 @@ work.
   `tools/complete/test_hgss_voltorb_flip.py`.
 - HeartGold's field effects from its `demo/legend` archive (all of it in `fielddata/complete/legend.narc`, from
   `tools/complete/import_hgss_legend.py`; `LEGEND_MEMBER(n)` is HeartGold's member n): the legendary cutscenes, the
-  Rocket Hideout's traps and alarms, the monks' wings and Lance's take-off, in `src/overlay005/complete_legend_cutscene.c`.
-  Tests: `tools/complete/test_hgss_legend_cutscenes.py`, `tools/complete/test_hgss_field_effects.py` (`ONLY`, `SHOTS`).
+  Rocket Hideout's traps and alarms, the monks' wings, Lance's take-off and the Ruins of Alph walls' tablet, in
+  `src/overlay005/complete_legend_cutscene.c`. Tests: `tools/complete/test_hgss_legend_cutscenes.py`,
+  `tools/complete/test_hgss_field_effects.py` (`ONLY`, `SHOTS`). The walls' item and Flash hooks:
+  `CompleteAlph_CanOpenWall` (`tools/complete/test_hgss_alph_walls.py` uses items from the bag through the menus).
 - The legendary cinematics (Ho-Oh's, Lugia's, Arceus's): `src/applications/complete_legend_cinematic/` (HeartGold's
   overlay 106 in C; its models, Arceus's backgrounds and sprites and Arceus's script from
   `tools/complete/import_hgss_legend_cinematic.py`), started by `CompleteLegendCinematic` between the script's fades

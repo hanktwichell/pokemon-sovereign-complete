@@ -1621,7 +1621,7 @@ BOOL CompleteBlackthornGym_CheckButton(FieldSystem *fieldSystem)
         task->moveVector.z = task->moveDirection == 1 ? 8 * FX32_ONE : task->moveDirection == 3 ? -8 * FX32_ONE : 0;
     }
 
-    Sound_PlayEffect(SEQ_SE_DP_ELEBETA_sseq); // a stand-in for HeartGold's floor sound (step 6)
+    Sound_PlayEffect(SEQ_SE_GS_GONDORA_IDOU_sseq); // HeartGold's own, loaded as it plays
     FieldSystem_CreateTask(fieldSystem, BlackthornGym_Task, task);
     return TRUE;
 }
@@ -2270,7 +2270,7 @@ static BOOL IceBlock_Slide(FieldSystem *fieldSystem, IceBlockPush *push)
         break;
     case ICE_BLOCK_JOIN:
         if (LocalMapObj_CheckAnimationFinished(push->block)) {
-            Sound_PlayEffect(SEQ_SE_DP_KI_GASYAN_sseq); // a stand-in for HeartGold's joining sound (step 6)
+            Sound_PlayEffect(SEQ_SE_GS_HYOUKAI_KETUGOU_sseq); // HeartGold's joining sound
 
             if (push->joined != NULL) {
                 LocalMapObj_SetAnimationCode(push->joined, MOVEMENT_ACTION_FACE_NORTH);
@@ -2294,13 +2294,13 @@ static BOOL IceBlock_Task(FieldTask *task)
     switch (push->state) {
     case ICE_BLOCK_WAIT_FOR_PLAYER:
         if (LocalMapObj_CheckAnimationFinished(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar))) {
-            Sound_PlayEffect(SEQ_SE_DP_SUBERU_sseq);
+            Sound_PlayEffect(SEQ_SE_GS_HYOUKAI_SUBERU_sseq); // HeartGold's, as it slides
             push->state = ICE_BLOCK_SLIDE;
         }
         break;
     case ICE_BLOCK_SLIDE:
         if (IceBlock_Slide(fieldSystem, push)) {
-            Sound_StopEffect(SEQ_SE_DP_SUBERU_sseq, 0);
+            Sound_StopEffect(SEQ_SE_GS_HYOUKAI_SUBERU_sseq, 0);
             push->state = ICE_BLOCK_WAIT_FOR_BLOCKS;
         }
         break;
@@ -2336,7 +2336,7 @@ BOOL CompleteIceBlock_TryPush(FieldSystem *fieldSystem, MapObject *player, int d
     memset(push, 0, sizeof(IceBlockPush));
     push->block = block;
     push->dir = dir;
-    Sound_PlayEffect(SEQ_SE_DP_WALL_HIT2_sseq); // a stand-in for HeartGold's sound as the block is hit (step 6)
+    Sound_PlayEffect(SEQ_SE_GS_HYOUKAI_HIT_sseq); // HeartGold's sound as the block is hit
     FieldSystem_CreateTask(fieldSystem, IceBlock_Task, push);
 #ifdef SOVEREIGN_TEST
     gCompleteTestIceBlockPushes++;

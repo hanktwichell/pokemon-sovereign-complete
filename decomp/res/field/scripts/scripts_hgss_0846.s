@@ -90,6 +90,8 @@ _00FE:
     FadeScreen 6, 6, 0, COLOR_BLACK
     WaitFadeScreen
     StopMusic
+    PlaySE SEQ_SE_GS_TAMASYUTUGEN_sseq
+    WaitSE SEQ_SE_GS_TAMASYUTUGEN_sseq
     PlayCry SPECIES_DARKRAI, 0
     WaitCry
     PlayMusic SEQ_GS_T_WAKABA_sseq
@@ -108,7 +110,11 @@ _0154:
     FadeScreen 8, 6, 0, COLOR_BLACK
     WaitFadeScreen
     StopMusic
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     PlayCry SPECIES_DARKRAI, 0
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     WaitCry
     PlayMusic SEQ_GS_T_WAKABA_sseq
     AddObject 3

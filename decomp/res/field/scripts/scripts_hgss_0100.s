@@ -44,6 +44,7 @@ _0094:
     GoTo _00B7
 _00B7:
     WaitMovement
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_ICE_PATH_B2F, VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01, VAR_RESULT
@@ -61,6 +62,7 @@ _0108:
     ApplyMovement LOCALID_PLAYER, _018E
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0198
     WaitMovement
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_ICE_PATH_B2F, VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01, VAR_RESULT

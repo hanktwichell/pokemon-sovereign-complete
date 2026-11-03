@@ -709,6 +709,9 @@ static enum FieldMoveError FieldMoves_CheckFlash(const FieldMoveContext *fieldMo
     if (PlayerOutsideLinkRoom(fieldMoveContext) == FALSE) {
         return FIELD_MOVE_ERROR_LOCATION;
     }
+    if (CompleteAlph_CanOpenWall(fieldMoveContext->fieldSystem, COMPLETE_ALPH_WALL_FLASH)) { // Sovereign Complete
+        return FIELD_MOVE_ERROR_NONE;
+    }
 
     if (FieldMoves_IsMoveUsable(fieldMoveContext, FIELD_MOVE_FLASH)) {
         return FIELD_MOVE_ERROR_NONE;
@@ -734,7 +737,12 @@ static BOOL FieldMoves_FlashTask(FieldTask *taskMan)
     FieldMoveTaskData *taskData = FieldTask_GetEnv(taskMan);
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
 
-    ScriptManager_Change(taskMan, SCRIPT_ID(FIELD_MOVES, 15), NULL);
+    // Sovereign Complete: Flash opens the Ruins of Alph's Omanyte chamber's wall, its own script saying the move's used
+    if (CompleteAlph_CanOpenWall(fieldSystem, COMPLETE_ALPH_WALL_FLASH)) {
+        ScriptManager_Change(taskMan, COMPLETE_ALPH_WALL_SCRIPT, NULL);
+    } else {
+        ScriptManager_Change(taskMan, SCRIPT_ID(FIELD_MOVES, 15), NULL);
+    }
     FieldSystem_SetScriptParameters(fieldSystem, taskData->fieldMoveMon.fieldMonId, 0, 0, 0);
     FieldMoves_FreeTaskData(taskData);
 

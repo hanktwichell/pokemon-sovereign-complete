@@ -470,7 +470,9 @@ _0761:
     CloseMessage
     Return
 _0778:
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
+    StopSE SEQ_SE_GS_AJITO_SIREN_sseq
     Message msg_0146_D51R0201_00041
     WaitButton
     CloseMessage
@@ -482,7 +484,9 @@ _078F:
     BufferPlayerName 0
     Message msg_0146_D51R0201_00053
     CloseMessage
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
+    StopSE SEQ_SE_GS_AJITO_SIREN_sseq
     CheckItem ITEM_FLAME_PLATE, 1, VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0C4E
@@ -546,10 +550,13 @@ _078F:
     CloseMessage
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0C75
+    PlaySE SEQ_SE_GS_GONDORA_IDOU_sseq
     CompleteScreenShake 3, 3, 25, 5
     SetVarFromValue VAR_HGSS_SG_6131, 2
     FadeOutBGM 0, 30
+    PlaySE SEQ_SE_GS_TAMASYUTUGEN_sseq
     CompleteUnownCircle
+    StopSE SEQ_SE_GS_DOWSING_LOOP_sseq
     CompleteLegendCinematic 2
     WaitTime 150, VAR_RESULT
     ApplyMovement LOCALID_PLAYER, _1320
@@ -637,7 +644,9 @@ _078F:
     ReleaseAll
     End
 _0B3A:
+    PlaySE SEQ_SE_GS_AJITO_SIREN_sseq
     CompleteHideoutAlarm
+    StopSE SEQ_SE_GS_AJITO_SIREN_sseq
     Message msg_0146_D51R0201_00042
     WaitButton
     CloseMessage
@@ -737,6 +746,7 @@ _0C81:
     Message msg_0146_D51R0201_00059
     CloseMessage
     SetFlag FLAG_HGSS_SG_3F8D
+    PlaySE SEQ_SE_GS_GONDORA_IDOU_sseq
     CompleteScreenShake 3, 3, 15, 5
     ApplyMovement LOCALID_PLAYER, _135A
     Message msg_0146_D51R0201_00060
@@ -747,6 +757,7 @@ _0C81:
     WaitFadeScreen
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
     WaitSE SEQ_SE_DP_KAIDAN2_sseq
+    PlaySE SEQ_SE_GS_GONDORA_IDOU_sseq
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1360
@@ -982,7 +993,9 @@ _10C6:
     GoTo _1070
 _10E9:
     FadeOutBGM 0, 30
+    PlaySE SEQ_SE_GS_TAMASYUTUGEN_sseq
     CompleteUnownCircle
+    StopSE SEQ_SE_GS_DOWSING_LOOP_sseq
     CompleteLegendCinematic 2
     CompareVar VAR_HGSS_SCENE_SINJOH_MYSTRI_ROOM, 14
     GoToIf 1, _11A5
@@ -1032,6 +1045,7 @@ _11DB:
     AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1504
     WaitMovement
+    PlaySE SEQ_SE_GS_TAMASYUTUGEN_sseq
     CompareVar VAR_MAP_LOCAL_0x09, 483
     GoToIf 5, _12B5
     @ HGSS: ScrCmd_817 0
@@ -1057,6 +1071,7 @@ _1260:
     AddFreeCamera VAR_0x8004, VAR_0x8005
     ApplyMovement 241, _1504
     WaitMovement
+    PlaySE SEQ_SE_GS_TAMASYUTUGEN_sseq
     CompareVar VAR_MAP_LOCAL_0x09, 483
     GoToIf 5, _12B5
     @ HGSS: ScrCmd_817 0
@@ -1067,6 +1082,7 @@ _12B5:
     @ HGSS: ScrCmd_817 1
     GoTo _12CB
 _12CB:
+    StopSE SEQ_SE_GS_TAMASYUTUGEN_sseq
     ApplyMovement LOCALID_PLAYER, _1530
     WaitMovement
     @ HGSS: ScrCmd_819
@@ -1083,6 +1099,7 @@ _12DF:
     GoTo _10E9
 _12F7:
     @ HGSS: ScrCmd_817 2
+    StopSE SEQ_SE_GS_TAMASYUTUGEN_sseq
     ApplyMovement LOCALID_PLAYER, _1530
     WaitMovement
     @ HGSS: ScrCmd_819

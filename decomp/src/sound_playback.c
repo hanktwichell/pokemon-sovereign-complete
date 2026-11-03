@@ -260,6 +260,10 @@ BOOL Sound_PlayPannedEffect(u16 seqID, int pan)
 BOOL Sound_PlayEffect(u16 seqID)
 {
     enum SoundHandleType handleType = SoundSystem_GetSoundHandleTypeFromPlayerID(Sound_GetPlayerForSequence(seqID));
+
+    if (CompleteSound_HasOwnBank(seqID) && !CompleteSound_LoadOwnEffect(seqID)) { // Sovereign Complete: HeartGold's own
+        return FALSE;
+    }
     BOOL result = NNS_SndArcPlayerStartSeq(SoundSystem_GetSoundHandle(handleType), seqID);
 
     Sound_AdjustVolumeForVoiceChatEx(seqID, handleType);
@@ -270,6 +274,10 @@ BOOL Sound_PlayEffect(u16 seqID)
 BOOL Sound_PlayEffectOnPlayer(u16 seqID, int playerID)
 {
     enum SoundHandleType handleType = SoundSystem_GetSoundHandleTypeFromPlayerID(playerID);
+
+    if (CompleteSound_HasOwnBank(seqID) && !CompleteSound_LoadOwnEffect(seqID)) { // Sovereign Complete: HeartGold's own
+        return FALSE;
+    }
     BOOL result = NNS_SndArcPlayerStartSeqEx(SoundSystem_GetSoundHandle(handleType), playerID, -1, -1, seqID);
 
     Sound_AdjustVolumeForVoiceChatEx(seqID, handleType);

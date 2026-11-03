@@ -18,6 +18,7 @@ _0039:
     ApplyMovement LOCALID_PLAYER, _0070
     WaitMovement
 _0043:
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_EXTERIOR, 15, 3, DIR_SOUTH

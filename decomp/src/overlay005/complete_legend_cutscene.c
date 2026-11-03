@@ -8,6 +8,7 @@
 #include "generated/map_headers.h"
 #include "generated/object_events_gfx.h"
 #include "generated/species.h"
+#include "generated/text_banks.h"
 
 #include "field/field_system.h"
 #include "field/field_system_sub2_t.h"
@@ -23,19 +24,24 @@
 #include "easy3d_object.h"
 #include "field_script_context.h"
 #include "field_task.h"
+#include "font.h"
 #include "graphics.h"
 #include "inlines.h"
 #include "gx_layers.h"
 #include "heap.h"
 #include "map_object.h"
+#include "message.h"
 #include "narc.h"
 #include "player_avatar.h"
 #include "pokemon.h"
 #include "screen_fade.h"
 #include "script_manager.h"
 #include "sound_playback.h"
+#include "string_gf.h"
 #include "sys_task.h"
 #include "sys_task_manager.h"
+#include "system.h"
+#include "text.h"
 
 #include "data/hgss_legend.h"
 #include "res/sound/pl_sound_data.naix"
@@ -48,12 +54,14 @@
 // Tower's roof plays HeartGold's and the Whirl Islands' cave SoulSilver's. The models, animations and the leaves are
 // HeartGold's (NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, tools/complete/import_hgss_legend.py), drawn by the field's 3D
 // object tasks (ov5_021D1A94, HeartGold's Field3dObjectTask) with Platinum's Easy3D objects (HeartGold's Field3dObject).
-// HeartGold's own sound effects stand in as Platinum's (docs/Music.md): Fly's whoosh for a flap, a sparkle for the eye.
+// The sounds are HeartGold's own (its flaps, the eye's glint; tools/complete/import_hgss_sound.py, loaded as they play).
 
 #define CUTSCENE_HEAP        HEAP_ID_FIELD1
 #define TASK_PRIORITY        3
-#define SE_BIRD_FLAP         SEQ_SE_DP_FW019_sseq // HeartGold's SEQ_SE_GS_HOUOU_HABATAKI and SEQ_SE_GS_RUGIA_HABATAKI
-#define SE_EYE_GLIMMER       SEQ_SE_DP_KIRAN_sseq // HeartGold's SEQ_SE_GS_RUGIA_MENOHIKARI
+#define SE_HO_OH_FLAP        SEQ_SE_GS_HOUOU_HABATAKI_sseq
+#define SE_LUGIA_FLAP        SEQ_SE_GS_RUGIA_HABATAKI_sseq
+#define SE_EYE_GLIMMER       SEQ_SE_GS_RUGIA_MENOHIKARI_sseq
+#define SE_FLY_WHOOSH        SEQ_SE_DP_FW019_sseq // Fly's, with Platinum's cut-in for Lance's take-off
 #define LEAVES_PALETTE       6
 #define LEAVES_TILEMAPS      6
 #define LEAVES_SWITCH_FRAMES 6
@@ -916,7 +924,7 @@ static void Bird_Task(SysTask *task, void *taskData)
     case BIRD_STATE_FLAP_DOWN:
         if (++bird->timer >= (bird->lugia ? 18 : 0)) {
             if (bird->flapTimer == 0) {
-                Sound_PlayEffect(SE_BIRD_FLAP);
+                Sound_PlayEffect(bird->lugia ? SE_LUGIA_FLAP : SE_HO_OH_FLAP);
                 bird->flapTimer = 24;
             }
 
@@ -1188,8 +1196,7 @@ static BOOL RunOp(ScriptContext *ctx)
 }
 
 // HeartGold's ScrCmd_708 (ov02_022460AC): one of the Rocket Hideout's traps going off under the player, its model and
-// animations at the player's feet (HeartGold's ov02_02253264), played to their end. HeartGold's own trap sounds stand
-// in as Platinum's (docs/Music.md): an electronic buzz, the poison step, a thud.
+// animations at the player's feet (HeartGold's ov02_02253264), played to their end, with HeartGold's own trap sounds.
 typedef struct HideoutTrap {
     UnkStruct_ov5_021D1BEC *effectTask;
     u8 animCount;
@@ -1201,9 +1208,9 @@ static const struct {
     int anims[3];
     u16 se;
 } sHideoutTraps[COMPLETE_HIDEOUT_TRAPS] = {
-    [COMPLETE_HIDEOUT_TRAP_ELECTRIC] = { 10, 1, { 11 }, SEQ_SE_DP_DENSI01_sseq }, // SEQ_SE_GS_DENKI_TRAP
-    [COMPLETE_HIDEOUT_TRAP_POISON] = { 3, 2, { 4, 5 }, SEQ_SE_DP_DOKU2_sseq }, // SEQ_SE_GS_DOKU_TRAP
-    [COMPLETE_HIDEOUT_TRAP_ROCK] = { 6, 3, { 7, 8, 9 }, SEQ_SE_DP_WALL_HIT2_sseq }, // SEQ_SE_GS_IWA_TRAP
+    [COMPLETE_HIDEOUT_TRAP_ELECTRIC] = { 10, 1, { 11 }, SEQ_SE_GS_DENKI_TRAP_sseq },
+    [COMPLETE_HIDEOUT_TRAP_POISON] = { 3, 2, { 4, 5 }, SEQ_SE_GS_DOKU_TRAP_sseq },
+    [COMPLETE_HIDEOUT_TRAP_ROCK] = { 6, 3, { 7, 8, 9 }, SEQ_SE_GS_IWA_TRAP_sseq },
 };
 
 static BOOL HideoutTrap_Task(FieldTask *task)
@@ -1251,12 +1258,12 @@ BOOL CompleteScrCmd_HideoutTrap(ScriptContext *ctx)
 
 // HeartGold's ScrCmd_709 (ov02_022462E8): the Rocket Hideout's alarm as a Persian statue sees the player, a red
 // screen (HeartGold's demo/legend 12 to 14) over the field, faded in and out twice, a step a frame to 12 of 31 and back
-// (its ov02_02246490). HeartGold's siren is its own: a beep stands in. The screen is on the field's layer 2, as the
+// (its ov02_02246490), with HeartGold's siren. The screen is on the field's layer 2, as the
 // leaves are, its palette, priorities and blending put back after.
 #define ALARM_PALETTE   6
 #define ALARM_PULSES    2
 #define ALARM_PEAK      12
-#define ALARM_SE        SEQ_SE_DP_DENSI06_sseq // SEQ_SE_GS_AJITO_SIREN
+#define ALARM_SE        SEQ_SE_GS_AJITO_SIREN_sseq
 
 typedef struct HideoutAlarm {
     FieldSystem *fieldSystem;
@@ -1376,9 +1383,9 @@ BOOL CompleteScrCmd_HideoutAlarm(ScriptContext *ctx)
 // HeartGold's ShowLegendaryWing (ov02_0224618C): the Rainbow Wing (0, the Bell Tower's monk) or the Silver Wing (1,
 // the Whirl Islands' monk) shown at the player's feet: it appears (HeartGold's ov02_02253254), then shines in a loop
 // (ov02_02253D80) while the map's script 3 runs (the monk's lines after it, HeartGold's QueueScript), then plays out
-// its shine and fades (ov02_02253D84). HeartGold's chime is its own: a sparkle stands in.
+// its shine and fades (ov02_02253D84), with HeartGold's chime.
 #define WING_SCRIPT 3
-#define SE_WING     SEQ_SE_DP_KIRAN_sseq // SEQ_SE_GS_STOPPERKAIJO
+#define SE_WING     SEQ_SE_GS_STOPPERKAIJO_sseq
 
 enum WingState {
     WING_STATE_APPEAR = 0,
@@ -1498,7 +1505,7 @@ static BOOL LanceFlight_Task(FieldTask *task)
     case LANCE_FLIGHT_WAIT_CUT_IN:
         if (HMCutIn_IsFinished(flight->cutIn) == TRUE) {
             HMCutIn_EndTask(flight->cutIn);
-            Sound_PlayEffect(SE_BIRD_FLAP);
+            Sound_PlayEffect(SE_FLY_WHOOSH);
 
             for (int i = 0; i < 2; i++) {
                 if (flight->riders[i] != NULL) {
@@ -1537,6 +1544,120 @@ BOOL CompleteScrCmd_LanceFlight(ScriptContext *ctx)
     gCompleteTestLegend[1] = 0x400;
 #endif
     FieldTask_InitCall(fieldSystem->task, LanceFlight_Task, flight);
+    return TRUE;
+}
+
+// HeartGold's OpenAlphHiddenRoom (its ov02_022467C4): reading a Ruins of Alph chamber's north wall shows its words on a
+// stone tablet over the field, in the Unown's letters (ESCAPE, LIGHT, WATER, HO OH: HeartGold's msg_0198), until A is
+// pressed. The tablet is HeartGold's demo/legend 15 to 17 on the field's BG1, the word in a window on it. Despite
+// HeartGold's name, the wall opens only by the scripts (an Escape Rope, Flash, water, the Rainbow Wing).
+#define ALPH_WALL_LAYER        BG_LAYER_MAIN_1
+#define ALPH_WALL_WORD_LEFT    9
+#define ALPH_WALL_WORD_TOP     10
+#define ALPH_WALL_WORD_WIDTH   14
+#define ALPH_WALL_WORD_HEIGHT  2
+#define ALPH_WALL_WORD_TILE    0x80 // after the tablet's tiles
+#define ALPH_WALL_WORD_FILL    9
+#define ALPH_WALL_TILES_SIZE   0x1000
+#define ALPH_WALL_WORDS        4
+#define SE_ALPH_WALL           SE_CONFIRM_sseq_3 // HeartGold's SEQ_SE_DP_SELECT
+
+enum AlphWallState {
+    ALPH_WALL_SHOW = 0,
+    ALPH_WALL_WAIT,
+};
+
+typedef struct AlphWall {
+    FieldSystem *fieldSystem;
+    Window window;
+    u16 savedPalette[16];
+    u8 word;
+    u8 state;
+    u8 savedPriority;
+} AlphWall;
+
+static void AlphWall_Show(AlphWall *wall)
+{
+    BgConfig *bgConfig = wall->fieldSystem->bgConfig;
+
+    MI_CpuCopy16((void *)HW_BG_PLTT, wall->savedPalette, sizeof(wall->savedPalette));
+    Graphics_LoadPalette(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, LEGEND_MEMBER(15), PAL_LOAD_MAIN_BG, 0, sizeof(wall->savedPalette), CUTSCENE_HEAP);
+    Graphics_LoadTilesToBgLayer(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, LEGEND_MEMBER(16), bgConfig, ALPH_WALL_LAYER, 0, 0, FALSE, CUTSCENE_HEAP);
+    Graphics_LoadTilemapToBgLayer(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, LEGEND_MEMBER(17), bgConfig, ALPH_WALL_LAYER, 0, 0, FALSE, CUTSCENE_HEAP);
+    wall->savedPriority = Bg_GetPriority(bgConfig, ALPH_WALL_LAYER);
+    Bg_SetPriority(ALPH_WALL_LAYER, 0);
+    GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG1, TRUE);
+
+    Window_Add(bgConfig, &wall->window, ALPH_WALL_LAYER, ALPH_WALL_WORD_LEFT, ALPH_WALL_WORD_TOP, ALPH_WALL_WORD_WIDTH, ALPH_WALL_WORD_HEIGHT, 0, ALPH_WALL_WORD_TILE);
+    Window_FillTilemap(&wall->window, ALPH_WALL_WORD_FILL);
+
+    MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0198, CUTSCENE_HEAP);
+    String *word = MessageLoader_GetNewString(loader, wall->word);
+    int x = (ALPH_WALL_WORD_WIDTH * 8 - (int)Font_CalcStringWidth(FONT_UNOWN, word, 0)) / 2;
+
+    Text_AddPrinterWithParamsAndColor(&wall->window, FONT_UNOWN, word, x, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(15, 14, ALPH_WALL_WORD_FILL), NULL);
+    Window_ScheduleCopyToVRAM(&wall->window);
+    String_Free(word);
+    MessageLoader_Free(loader);
+}
+
+static void AlphWall_Hide(AlphWall *wall)
+{
+    BgConfig *bgConfig = wall->fieldSystem->bgConfig;
+
+    GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG1, FALSE);
+    Bg_SetPriority(ALPH_WALL_LAYER, wall->savedPriority);
+    Window_ClearAndCopyToVRAM(&wall->window);
+    Window_Remove(&wall->window);
+    Bg_ClearTilemap(bgConfig, ALPH_WALL_LAYER);
+    Bg_ClearTilesRange(ALPH_WALL_LAYER, ALPH_WALL_TILES_SIZE, 0, CUTSCENE_HEAP);
+    GX_LoadBGPltt(wall->savedPalette, 0, sizeof(wall->savedPalette));
+}
+
+static BOOL AlphWall_Task(FieldTask *task)
+{
+    AlphWall *wall = FieldTask_GetEnv(task);
+
+    switch (wall->state) {
+    case ALPH_WALL_SHOW:
+        AlphWall_Show(wall);
+        Sound_PlayEffect(SE_ALPH_WALL);
+        wall->state++;
+        break;
+    case ALPH_WALL_WAIT:
+        if (JOY_NEW(PAD_BUTTON_A)) {
+            Sound_PlayEffect(SE_ALPH_WALL);
+            AlphWall_Hide(wall);
+            Heap_Free(wall);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestLegend[0]++;
+#endif
+            return TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_AlphWall(ScriptContext *ctx)
+{
+    u8 word = ScriptContext_ReadByte(ctx);
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    AlphWall *wall;
+
+    if (word >= ALPH_WALL_WORDS) {
+        return FALSE;
+    }
+
+    wall = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(AlphWall));
+    memset(wall, 0, sizeof(AlphWall));
+    wall->fieldSystem = fieldSystem;
+    wall->word = word;
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x600 + word;
+#endif
+    FieldTask_InitCall(fieldSystem->task, AlphWall_Task, wall);
     return TRUE;
 }
 

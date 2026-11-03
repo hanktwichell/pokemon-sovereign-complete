@@ -56,7 +56,8 @@ STEPS = [
      'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear beside the Pokétch (its '
      'phone, its map, its radio and the switch), the Magnet Train\'s ride and the legendaries\' cutscenes and '
      'cinematics are in. What\'s left waits on your calls (the photo album, the Pokéathlon Dome, the key items).'),
-    (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
+    (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full, '
+     'and HeartGold\'s own sound effects play in its scenes and scripts.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
      'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. Sinnoh\'s levels follow Kanto\'s; Totems, '
@@ -140,6 +141,14 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'HeartGold\'s own sound effects play in Johto and Kanto: the Clear Bell\'s rings, Ho-Oh\'s and Lugia\'s wings, '
+        'the Whirl Islands\' falls, the Rocket Hideout\'s traps and siren, the Magnet Train on its rails, Voltorb '
+        'Flip\'s cards and coins, the Ruins of Alph\'s panels, Mahogany\'s sliding ice, and the 185 sounds Sacred '
+        'Gold\'s scripts play. Each loads as it plays and frees its memory when it ends.',
+        'The Ruins of Alph\'s walls: reading a chamber\'s north wall shows its Unown words on HeartGold\'s stone tablet '
+        '(ESCAPE, LIGHT, WATER, HO OH), and the rooms behind open as in HeartGold: an Escape Rope, Flash or a Water '
+        'Stone used facing the wall, or reading Ho-Oh\'s with Ho-Oh in your party. Each room holds four items that '
+        'couldn\'t be reached before.',
         'The Sinjoh Ruins\' event (all 16 plates and the National Pokédex) plays as in HeartGold: the Unown\'s circle '
         'spins up on the Mystri Stage, then HeartGold\'s Arceus cinematic, half a minute of its own art and music, '
         'with your Arceus in its own form if it leads your party.',

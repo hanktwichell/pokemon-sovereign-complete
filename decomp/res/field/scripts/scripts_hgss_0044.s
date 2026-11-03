@@ -7,6 +7,7 @@
     ScriptEntry scr_seq_D24R0207_002
     ScriptEntryEnd
 scr_seq_D24R0207_000:
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     ApplyMovement LOCALID_PLAYER, _0068
     ShowObject LOCALID_PLAYER
     WaitMovement
@@ -84,6 +85,7 @@ _0170:
 _0180:
     WaitMovement
 _0182:
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     CompareVar VAR_HGSS_UNOWN_REPORT_LEVEL, 7
     GoToIf 4, _01C8
     CompareVar VAR_HGSS_UNOWN_REPORT_LEVEL, 6

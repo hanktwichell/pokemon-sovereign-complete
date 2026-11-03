@@ -100,6 +100,7 @@ _0156:
     GoToIf 4, _03AC
     End
 _01AD:
+    PlaySE SEQ_SE_GS_KUJI_ATARI_sseq
     BufferNumber 0, 3
     Message msg_0597_T25R1006_00012
     GetRandom VAR_RESULT, 70
@@ -155,6 +156,7 @@ _0294:
     ReleaseAll
     End
 _02B5:
+    PlaySE SEQ_SE_GS_KUJI_ATARI_sseq
     BufferNumber 0, 2
     Message msg_0597_T25R1006_00012
     GetDayOfWeek VAR_MAP_LOCAL_0x00
@@ -206,6 +208,7 @@ _038B:
     ReleaseAll
     End
 _03AC:
+    PlaySE SEQ_SE_GS_KUJI_OOATARI_sseq
     BufferNumber 0, 1
     Message msg_0597_T25R1006_00012
     GetDayOfWeek VAR_MAP_LOCAL_0x00

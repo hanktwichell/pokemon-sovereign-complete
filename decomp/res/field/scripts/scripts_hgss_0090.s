@@ -617,6 +617,7 @@ _09C8:
     RemoveObject obj_D35R0103_tsure_poke_static_dragonite
     SetFlag FLAG_HGSS_UNK_1E5
     ReleaseAll
+    StopSE SEQ_SE_GS_N_MOTER_sseq
     SetFlag FLAG_HGSS_ROCKET_HIDEOUT_CLEARED
     ClearFlag FLAG_HGSS_HIDE_ROUTE_43_GATE_GUARD
     SetFlag FLAG_HGSS_HIDE_ROUTE_43_GATE_ROCKETS
@@ -675,6 +676,7 @@ _0ACE:
     RemoveObject obj_D35R0103_tsure_poke_static_dragonite
     SetFlag FLAG_HGSS_UNK_1E5
     ReleaseAll
+    StopSE SEQ_SE_GS_N_MOTER_sseq
     SetFlag FLAG_HGSS_ROCKET_HIDEOUT_CLEARED
     ClearFlag FLAG_HGSS_HIDE_ROUTE_43_GATE_GUARD
     SetFlag FLAG_HGSS_HIDE_ROUTE_43_GATE_ROCKETS

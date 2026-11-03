@@ -913,6 +913,13 @@ static BOOL PrintRegisteredKeyItemUseMessage(FieldTask *task)
 static void UseEvoStoneFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(usageContext->fieldTask);
+
+    // Sovereign Complete: a Water Stone opens the Ruins of Alph's Aerodactyl chamber's wall, as in HeartGold
+    if (usageContext->item == ITEM_WATER_STONE && CompleteAlph_CanOpenWall(fieldSystem, COMPLETE_ALPH_WALL_WATER_STONE)) {
+        sub_02068540(usageContext, additionalContext, COMPLETE_ALPH_WALL_SCRIPT);
+        return;
+    }
+
     StartMenu *menu = FieldTask_GetEnv(usageContext->fieldTask);
     PartyMenu *partyMenu = Heap_Alloc(HEAP_ID_FIELD2, sizeof(PartyMenu));
 
@@ -939,6 +946,12 @@ static void UseEscapeRopeFromMenu(ItemMenuUseContext *usageContext, const ItemUs
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(usageContext->fieldTask);
     StartMenu *menu = FieldTask_GetEnv(usageContext->fieldTask);
 
+    // Sovereign Complete: an Escape Rope opens the Ruins of Alph's Kabuto chamber's wall, as in HeartGold
+    if (CompleteAlph_CanOpenWall(fieldSystem, COMPLETE_ALPH_WALL_ESCAPE_ROPE)) {
+        sub_02068540(usageContext, additionalContext, COMPLETE_ALPH_WALL_SCRIPT);
+        return;
+    }
+
     FieldSystem_StartFieldMap(fieldSystem);
 
     menu->callback = WarpWithEscapeRope;
@@ -955,6 +968,9 @@ static enum ItemUseCheckResult CanUseEscapeRope(const ItemUseContext *usageConte
     }
     if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
         return ITEM_USE_CANNOT_USE_GENERIC;
+    }
+    if (CompleteAlph_CanOpenWall(usageContext->fieldSystem, COMPLETE_ALPH_WALL_ESCAPE_ROPE)) { // Sovereign Complete
+        return ITEM_USE_CAN_USE;
     }
 
     if ((MapHeader_IsCave(usageContext->mapHeaderID) == TRUE) && (MapHeader_IsEscapeRopeAllowed(usageContext->mapHeaderID) == TRUE)) {

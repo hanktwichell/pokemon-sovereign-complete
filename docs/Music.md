@@ -31,8 +31,8 @@ memory, measured from both decomps and both built archives.
    ride's jingle and Ho-Oh's and Arceus's themes in their cinematics among them) and 25 fanfares (Voltorb Flip's two among them), kept as HeartGold's sequence files byte
    for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's
    instruments it plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from
-   `WAVE_ARC_GS`, one archive of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a
-   flag `nitrosfx` now sets), so a song loads only its own waves. Its tables of which song plays when (encounter themes
+   `WAVE_ARC_GS`, one archive of all of them (175 waves, 520 KB, the sound effects' below included) that loads wave
+   by wave (NitroSystem's single load, a flag `nitrosfx` now sets), so a song loads only its own waves. Its tables of which song plays when (encounter themes
    by trainer class, battle themes by class and wild species) are generated into `include/data/hgss_sound.h`. A fanfare
    loads no waves in Platinum (its own play from the loaded basic set), so one of HeartGold's loads its own as it starts
    (`Sound_PlayFanfare`); on Johto's maps the song leaves room for the largest (49 KB).
@@ -60,15 +60,28 @@ memory, measured from both decomps and both built archives.
    them); in New Bark Town, its song loads, each of HeartGold's 23 fanfares plays over it (each given back as a script's
    WaitFanfare gives it), and a battle with HeartGold's trainer theme loads: 11 KB to spare at the least; and the
    National Park, a contest gatehouse and the Radio Tower each load the song their flag puts on them.
-6. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
+6. **HeartGold's sound effects** (Nov 3): the importer also brings in every sound effect of HeartGold's own
+   (`SEQ_SE_GS_*`) that Sacred Gold's scripts play or Complete's code names, 69 of them, each with its own bank and
+   waves as the songs are (Platinum's sound effects play from the basic set, always loaded). The SE players' own
+   heaps are a kilobyte or two, so one of HeartGold's loads into sound memory as it starts (`Sound_PlayEffect`,
+   `CompleteSound_LoadOwnEffect`): up to four at a time (the cinematics play a few together), each freed once it has
+   ended and nothing has loaded above it, and stopped first if a song's load takes the memory back. NitroSystem keeps a
+   32-byte record for each heap level saved, which restoring to that level keeps (each of Platinum's fanfares leaves
+   one so), so an effect loads into the current level when nothing is loaded there yet (after a song, the usual case)
+   and saves a level only otherwise, one that the next effect finds empty and reuses: the memory comes back whole, and
+   many effects in a row (Voltorb Flip's coins) can't pile levels up. The largest needs
+   23 KB, under the 49 KB a Johto song leaves. The scripts play them (185 PlaySE in 65 of Sacred Gold's script files),
+   and so do the ported scenes: the legendary cinematics and cutscenes, the Rocket Hideout's traps and siren, the
+   Magnet Train, Voltorb Flip, the Ruins of Alph's puzzles, Mahogany's ice blocks and Blackthorn's lift. The test plays
+   each over a Johto song and checks that sound memory comes back to what it was.
+7. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
    padding. Sovereign's own archive happened to line up.
 
 ## Left
 
-- HeartGold's own sound effects: Platinum's stand in (the Magnet Train's ride has none for the train; the legendary
-  cinematics take a sparkle for the Clear Bell's sound and its light, Fly's whoosh for Ho-Oh's wings, the waves for
-  the Whirl Islands' waterfall and Waterfall's rush for Lugia rising through it). The fanfares
+- The sound effects Platinum's own code plays (menus, doors, moves in the field) stay Platinum's in every region; a
+  sound effect of HeartGold's that neither the scripts nor the ported code play isn't imported. The fanfares
   the engine's own code plays (a level up, a Pokémon caught in battle) are Platinum's in every region. The radio and
   Pokégear songs come with the Pokégear; the Pokéathlon's are skipped with it.
 - HeartGold's players use more channels than Platinum's, so a busy song could drop notes; untested by ear.

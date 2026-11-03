@@ -102,6 +102,7 @@ scr_seq_D45R0102_001:
     CallIf 5, _02D5
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0505
     WaitMovement
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_HO_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     WaitTime 15, VAR_RESULT
@@ -148,6 +149,7 @@ _0265:
     Message msg_0131_D45R0102_00006
     CloseMessage
     ApplyMovement obj_D45R0102_sakaki, _051D
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_HO_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     WaitTime 15, VAR_RESULT
@@ -158,6 +160,7 @@ _0265:
     SetFlag FLAG_HGSS_HIDE_TOHJO_FALLS_GIOVANNI
     Message msg_0131_D45R0102_00019
     CloseMessage
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     SetFlag FLAG_HGSS_UNK_178
@@ -189,6 +192,7 @@ _02D5:
 _0317:
     MessageGendered msg_0131_D45R0102_00018, msg_0131_D45R0102_00017
     CloseMessage
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     ClearFlag FLAG_HGSS_HIDE_ILEX_FOREST_FRIEND
@@ -198,6 +202,7 @@ _0317:
     ReleaseAll
     End
 _0343:
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     ClearFlag FLAG_HGSS_HIDE_ILEX_FOREST_FRIEND
@@ -247,6 +252,7 @@ _0374:
 _0428:
     Message msg_0131_D45R0102_00037
     CloseMessage
+    PlaySE SEQ_SE_GS_GONDORA_IDOU_sseq
     CompleteScreenShake 3, 0, 15, 5
     Message msg_0131_D45R0102_00038
     CloseMessage

@@ -6454,6 +6454,13 @@
     .short SCRCMD_COMPLETEUNOWNCIRCLE
     .endm
 
+    // HeartGold's OpenAlphHiddenRoom: a Ruins of Alph chamber's wall, its Unown words on a stone tablet until A (0
+    // ESCAPE, 1 LIGHT, 2 WATER, 3 HO OH; src/overlay005/complete_legend_cutscene.c)
+    .macro CompleteAlphWall word
+    .short SCRCMD_COMPLETEALPHWALL
+    .byte \word
+    .endm
+
     .text
     .globl _start
 _start:

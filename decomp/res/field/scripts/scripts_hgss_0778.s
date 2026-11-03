@@ -291,6 +291,7 @@ _0401:
     CloseMessage
     CompleteVermilionGymLockAction 1, 0
     SetFlag FLAG_HGSS_SYS_SOLVED_LT_SURGE_GYM
+    StopSE SEQ_SE_GS_DENGEKIBARIA_sseq
     Message msg_0485_T06GYM0101_00012
     WaitButton
     CloseMessage

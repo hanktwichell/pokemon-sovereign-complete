@@ -172,6 +172,8 @@ scr_seq_T23_018:
     WaitSE SEQ_SE_DP_WALL_HIT2_sseq
     ApplyMovement obj_D36R0101_gsboy1, _05CC
     WaitMovement
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     PlayCry SPECIES_SPIRITOMB, 6
     Message msg_0564_T23_00023
     WaitCry

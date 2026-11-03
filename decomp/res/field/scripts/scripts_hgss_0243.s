@@ -38,6 +38,7 @@ scr_seq_R36_000:
     GoToIf 5, _0282
     ApplyMovement obj_R36_gsgirl1_2, _0782
     WaitMovement
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _0788
     WaitMovement
     CompareVar VAR_RESULT, 1
@@ -128,7 +129,10 @@ scr_seq_R36_011:
     GoToIfSet FLAG_HGSS_SG_3F77, _03AF
     Message msg_0390_R36_00022
     CloseMessage
+    PlaySE SEQ_SE_GS_GONDORA_IDOU_sseq
     CompleteScreenShake 3, 3, 15, 5
+    PlaySE SEQ_SE_GS_ZUTUKI_sseq
+    WaitSE SEQ_SE_GS_ZUTUKI_sseq
     FacePlayer
     Message msg_0390_R36_00020
     SetVar VAR_0x8004, ITEM_TM31
@@ -153,6 +157,7 @@ _023F:
     ClearFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
     End
 _024D:
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _0788
     WaitMovement
     Message msg_0390_R36_00000
@@ -163,6 +168,7 @@ _024D:
     GoToIf 1, _03E3
     End
 _0282:
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _0788
     WaitMovement
     CompareVar VAR_RESULT, 1
@@ -263,6 +269,7 @@ _03AF:
 _03BA:
     BufferPlayerName 0
     Message msg_0390_R36_00001
+    PlaySE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 5, _0445
@@ -275,6 +282,7 @@ _03E3:
 _03E9:
     BufferPlayerName 0
     Message msg_0390_R36_00001
+    PlaySE SEQ_SE_GS_ZENIGAME_JOURO_sseq
     GetPlayerDir VAR_RESULT
     CompareVar VAR_RESULT, 2
     GoToIf 5, _04BC
@@ -302,6 +310,7 @@ _0460:
     WaitMovement
     Message msg_0390_R36_00002
     CloseMessage
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _079A
     WaitMovement
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
@@ -328,6 +337,7 @@ _04D7:
     SetFlag FLAG_HGSS_UNK_0B4
     Message msg_0390_R36_00002
     CloseMessage
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _079A
     WaitMovement
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
@@ -359,6 +369,7 @@ _0567:
     WaitMovement
     Message msg_0390_R36_00002
     CloseMessage
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _079A
     WaitMovement
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON
@@ -391,6 +402,7 @@ _05DB:
     SetFlag FLAG_HGSS_UNK_0B4
     Message msg_0390_R36_00002
     CloseMessage
+    PlaySE SEQ_SE_GS_KI_UGOKU_sseq
     ApplyMovement obj_R36_usokky, _079A
     WaitMovement
     SetFlag FLAG_HGSS_ENGAGING_STATIC_POKEMON

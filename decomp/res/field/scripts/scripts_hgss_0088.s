@@ -71,7 +71,9 @@ scr_seq_D35R0101_006:
     WaitMovement
     Message msg_0111_D35R0101_00004
     CloseMessage
+    PlaySE SEQ_SE_GS_ZUTUKI_sseq
     ApplyMovement obj_D35R0101_tsure_poke_static_dragonite, _02AC
+    WaitSE SEQ_SE_GS_PRESSHIT_sseq
     ApplyMovement obj_D35R0101_gsfighter, _021C
     WaitMovement
     ApplyMovement obj_D35R0101_wataru, _022C

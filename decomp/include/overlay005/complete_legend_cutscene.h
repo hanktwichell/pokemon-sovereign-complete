@@ -47,4 +47,7 @@ BOOL CompleteScrCmd_LanceFlight(ScriptContext *ctx);
 // HeartGold's UnownCircle: the Unown's circle at the Sinjoh Ruins, before Arceus's cinematic
 BOOL CompleteScrCmd_UnownCircle(ScriptContext *ctx);
 
+// HeartGold's OpenAlphHiddenRoom: a Ruins of Alph chamber's wall, its Unown words (0 to 3) on a stone tablet until A
+BOOL CompleteScrCmd_AlphWall(ScriptContext *ctx);
+
 #endif // POKEPLATINUM_OVERLAY005_COMPLETE_LEGEND_CUTSCENE_H

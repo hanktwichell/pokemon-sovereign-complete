@@ -37,6 +37,7 @@ scr_seq_R10R0202_006:
     End
 scr_seq_R10R0202_007:
     LockAll
+    PlaySE SEQ_SE_GS_PHONE0_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
@@ -105,6 +106,8 @@ scr_seq_R10R0202_005:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0345_R10R0202_00021
@@ -141,6 +144,7 @@ _0246:
     RemoveItem ITEM_MACHINE_PART, 1, VAR_RESULT
     ApplyMovement obj_R10R0202_gsbigman, _0390
     WaitMovement
+    WaitSE SEQ_SE_GS_W012_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_REPAIRED, 13, 7, DIR_SOUTH

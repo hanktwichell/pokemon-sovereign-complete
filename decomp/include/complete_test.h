@@ -112,7 +112,8 @@ extern CompleteTestSafari gCompleteTestSafari;
 // free bytes, the fewest since the harness last set minFree, the loads that didn't fit (with the last one's file),
 // and the last loads (log[loads % COMPLETE_TEST_SOUND_LOG]: the file and the free bytes after). The harness sets
 // playSeq to play a song on the next free field frame: in playScene's sound scene if it sets one (a cutscene's), as a
-// fanfare for COMPLETE_TEST_SOUND_FANFARE, otherwise a field song as a map's and any other as a script plays it.
+// fanfare for COMPLETE_TEST_SOUND_FANFARE, otherwise a field song as a map's, a sound effect and any other as a
+// script plays it.
 typedef struct CompleteTestSoundLoad {
     u16 id;
     u16 loaded;

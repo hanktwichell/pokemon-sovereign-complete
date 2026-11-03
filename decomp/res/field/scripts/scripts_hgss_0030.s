@@ -204,6 +204,7 @@ _02BA:
     WaitMovement
     ApplyMovement LOCALID_PLAYER, _060C
     WaitMovement
+    PlaySE SEQ_SE_GS_OKOZUKAI_sseq
     CompareVar VAR_HGSS_BLUE_CARD_POINTS, 30
     GoToIf 4, _033F
     AddVar VAR_HGSS_BLUE_CARD_POINTS, 1

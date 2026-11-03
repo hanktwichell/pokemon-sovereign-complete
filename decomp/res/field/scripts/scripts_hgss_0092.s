@@ -1067,6 +1067,7 @@ _10DB:
     PlayCry SPECIES_CELEBI, 0
     WaitCry
     ApplyMovement LOCALID_PLAYER, _2466
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
     WaitMovement
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
@@ -1466,6 +1467,7 @@ _17AD:
     LockObject LOCALID_COMPLETE_FOLLOWER
     GoTo _1BCA
 _17B9:
+    StopSE SEQ_SE_GS_N_SESERAGI_sseq
     ApplyMovement LOCALID_PLAYER, _26D6
     ApplyMovement obj_D36R0101_gsmiddleman1, _22C4
     WaitMovement
@@ -1514,6 +1516,7 @@ _1834:
     MessageGendered msg_0115_D36R0101_00057, msg_0115_D36R0101_00056
     CloseMessage
     Common_FadeToDefaultMusic
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_HO_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     WaitTime 15, VAR_RESULT
@@ -1524,6 +1527,7 @@ _1834:
     WaitMovement
     MessageGendered msg_0115_D36R0101_00059, msg_0115_D36R0101_00058
     CloseMessage
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     SetVarFromValue VAR_HGSS_UNK_40FE, 1

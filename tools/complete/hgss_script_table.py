@@ -800,8 +800,8 @@ COMMANDS = {
     'ScrCmd_227': one('StartBattleServer {0}, {1}, {2}, {3}'),
     'ScrCmd_609': lambda a: [],  # resets the follower's movement after a scene; the engine's follower needs none yet
     'GenderMsgBox': one('MessageGendered {0}, {1}'),
-    # The Ruins of Alph: a chamber's puzzle (src/applications/complete_alph_puzzle.c); HeartGold's effect of the hidden
-    # room's wall as the player comes back in isn't ported (its flags and warps are the scripts')
+    # The Ruins of Alph: a chamber's puzzle (src/applications/complete_alph_puzzle.c) and its north wall's words on a
+    # stone tablet (src/overlay005/complete_legend_cutscene.c; the hidden room opens by the scripts' flags and warps)
     'AlphPuzzle': one('CompleteAlphPuzzle {0}'),
-    'OpenAlphHiddenRoom': lambda a: [],
+    'OpenAlphHiddenRoom': one('CompleteAlphWall {0}'),
 }

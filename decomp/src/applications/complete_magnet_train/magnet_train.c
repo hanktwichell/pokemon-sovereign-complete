@@ -25,9 +25,9 @@
 // Sovereign Complete: HeartGold's Magnet Train ride (its overlay 104, ov104_021E5900 to ov104_021E5EB0, in assembly
 // there): three cuts, each a model of HeartGold's (tools/complete/import_hgss_magnet_train.py) with its joint and
 // texture animations, from a fixed camera of its own. The first two cuts end on their animation's last frame with
-// the screen closing like a shutter, the third at its frame 205, fading to black; the next cut fades in. Its sound
-// effects (the train setting off, passing and pulling in) are HeartGold's own, which aren't in Platinum's sound
-// archive; the jingle as the train pulls in is HeartGold's (SEQ_GS_E_LINEAR).
+// the screen closing like a shutter, the third at its frame 205, fading to black; the next cut fades in. Each cut
+// begins with HeartGold's own sound of the train (setting off, passing, pulling in; tools/complete/import_hgss_sound.py
+// brings them in), and the last with HeartGold's jingle as the train pulls in (SEQ_GS_E_LINEAR).
 
 #define TRAIN_HEAP_ID HEAP_ID_DISTORTION_WORLD_WARP // the Distortion World warp's: its scene can't run at the same time
 #define TRAIN_HEAP_SIZE 0x50000
@@ -56,6 +56,7 @@ typedef struct MagnetTrain {
     TrainCut cuts[TRAIN_CUTS];
     u8 cut;
     u8 jinglePlayed;
+    u8 soundPlayed; // the cut's sound, as its first frame draws
     u16 frames;
 } MagnetTrain;
 
@@ -104,6 +105,12 @@ static const TrainCamera sCameras[COMPLETE_MAGNET_TRAIN_WAYS][TRAIN_CUTS] = {
         { 0x29AEC1, { 0xDC22, 0, 0, 0 }, 0x05C1, { 0x00018000, 0x00039F71, (fx32)0xFFFAE435 }, 150, 900 },
         { 0x299EC1, { 0xE002, 0, 0, 0 }, 0x06C1, { 0, 0x00013885, (fx32)0xFFFE3833 }, 150, 900 },
     },
+};
+
+// The sound each cut begins with, by the way (HeartGold's _021E5EF0 and ov104_021E5F08)
+static const u16 sCutSounds[COMPLETE_MAGNET_TRAIN_WAYS][TRAIN_CUTS] = {
+    [COMPLETE_MAGNET_TRAIN_TO_SAFFRON] = { SEQ_SE_GS_LINEAR_sseq, SEQ_SE_GS_LINEAR_LR3_sseq, SEQ_SE_GS_LINEAR_LR2_sseq },
+    [COMPLETE_MAGNET_TRAIN_TO_GOLDENROD] = { SEQ_SE_GS_LINEAR_LR_sseq, SEQ_SE_GS_LINEAR3_sseq, SEQ_SE_GS_LINEAR2_sseq },
 };
 
 // HeartGold's edge marking colors for its models' outlines (ov104_021E5F14)
@@ -325,10 +332,16 @@ BOOL CompleteMagnetTrain_Main(ApplicationManager *appMan, int *state)
         break;
     }
 
-    // As the last cut begins, the train pulls in to its jingle
+    // HeartGold's ov104_021E59E8: as the last cut begins the jingle, and each cut's sound on its first frame (after
+    // the jingle here: loading a song puts the sound heap back below the sound effect loaded for it)
     if (train->cut == TRAIN_CUTS - 1 && train->jinglePlayed == FALSE) {
         Sound_SetSceneAndPlayBGM(SOUND_SCENE_FIELD, SEQ_GS_E_LINEAR_sseq, 1);
         train->jinglePlayed = TRUE;
+    }
+
+    if (train->soundPlayed <= train->cut) {
+        Sound_PlayEffect(sCutSounds[train->args->way][train->cut]);
+        train->soundPlayed = train->cut + 1;
     }
 
     DrawCut(train);

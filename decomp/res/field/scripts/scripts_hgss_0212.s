@@ -154,6 +154,7 @@ scr_seq_R22_003:
     FadeOutBGM 20, 30
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0350
     WaitMovement
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_HO_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     WaitTime 15, VAR_RESULT
@@ -164,6 +165,7 @@ scr_seq_R22_003:
     WaitMovement
     MessageGendered msg_0360_R22_00024, msg_0360_R22_00023
     CloseMessage
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
     FadeScreen 6, 6, 0, COLOR_WHITE
     WaitFadeScreen
     SetVarFromValue VAR_HGSS_UNK_40FE, 2

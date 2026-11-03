@@ -243,6 +243,8 @@ _0368:
 _03DF:
     FadeScreen 6, 1, 0, COLOR_WHITE
     WaitFadeScreen
+    PlaySE SEQ_SE_GS_TIMESLIP_sseq
+    WaitSE SEQ_SE_GS_TIMESLIP_sseq
     RemoveObject 8
     SetFlag FLAG_HGSS_SG_3FB3
     FadeScreen 6, 1, 1, COLOR_WHITE

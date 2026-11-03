@@ -56,8 +56,12 @@ scr_seq_D41R0101_002:
     GoToIf 5, _01EA
     ApplyMovement LOCALID_PLAYER, _02E4
     WaitMovement
+    PlaySE SEQ_SE_GS_STOPPERKAIJO_sseq
     FadeScreen 20, 1, 0, COLOR_WHITE
     WaitFadeScreen
+    WaitSE SEQ_SE_GS_STOPPERKAIJO_sseq
+    PlaySE SEQ_SE_GS_ZUTUKI_sseq
+    WaitSE SEQ_SE_GS_ZUTUKI_sseq
     RemoveObject 2
     FadeScreen 6, 1, 1, COLOR_WHITE
     WaitFadeScreen

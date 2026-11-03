@@ -50,6 +50,7 @@ _00B8:
     SetVarFromValue VAR_HGSS_UNK_40CE, 1
     CompareVar VAR_HGSS_UNK_40EC, 1
     GoToIf 4, _0103
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL, 5, 24, DIR_NORTH
@@ -61,6 +62,7 @@ _00B8:
     End
 _0103:
     SetFlag FLAG_HGSS_HIDE_RUINS_OF_ALPH_ASSISTANTS
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_RUINS_OF_ALPH_UNDERGROUND_HALL, 5, 24, DIR_NORTH
@@ -88,6 +90,7 @@ _0173:
     WaitMovement
 _0185:
     SetVarFromValue VAR_HGSS_UNK_40CE, 1
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     CompareVar VAR_HGSS_UNOWN_REPORT_LEVEL, 7
     GoToIf 4, _01D1
     CompareVar VAR_HGSS_UNOWN_REPORT_LEVEL, 6
@@ -127,6 +130,7 @@ _0234:
     EndMovement
 scr_seq_D24R0208_001:
     LockAll
+    CompleteAlphWall 3
     CheckPartyHasSpecies VAR_RESULT, SPECIES_HO_OH
     CompareVar VAR_RESULT, 1
     GoToIf 5, _0264

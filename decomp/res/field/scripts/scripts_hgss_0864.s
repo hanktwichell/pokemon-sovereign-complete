@@ -54,6 +54,8 @@ _005F:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     Message msg_0562_T22R0601_00006

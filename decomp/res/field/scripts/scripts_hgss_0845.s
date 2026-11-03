@@ -178,11 +178,13 @@ _0299:
     ReleaseAll
     End
 _02A4:
+    PlaySE SEQ_SE_GS_FW463_sseq
     Message msg_0545_T20R0201_00039
     ShowYesNoMenu VAR_RESULT
     CloseMessage
     CompareVar VAR_RESULT, 0
     GoToIf 1, _03C7
+    PlaySE SEQ_SE_GS_HERO_SHUKUSHOU_sseq
     ReleaseAll
     End
 _02CA:
@@ -248,6 +250,12 @@ _03C7:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
+    PlaySE SEQ_SE_GS_ROUSOKU_KIERU_sseq
+    WaitSE SEQ_SE_GS_ROUSOKU_KIERU_sseq
+    PlaySE SEQ_SE_GS_ROUSOKU_KIERU_sseq
+    WaitSE SEQ_SE_GS_ROUSOKU_KIERU_sseq
+    PlaySE SEQ_SE_GS_ROUSOKU_KIERU_sseq
+    WaitSE SEQ_SE_GS_ROUSOKU_KIERU_sseq
     BufferPlayerName 0
     Message msg_0545_T20R0201_00040
     PlayCry SPECIES_ROTOM, 6
@@ -363,6 +371,7 @@ _056C:
 _057B:
     CloseMessage
     WaitTime 8, VAR_RESULT
+    PlaySE SEQ_SE_GS_OKOZUKAI_sseq
     BufferPlayerName 0
     Message msg_0545_T20R0201_00024
     WaitButton
@@ -392,6 +401,7 @@ _05AF:
 _05BE:
     CloseMessage
     WaitTime 8, VAR_RESULT
+    PlaySE SEQ_SE_GS_OKOZUKAI_sseq
     Message msg_0545_T20R0201_00023
     WaitButton
     CloseMessage

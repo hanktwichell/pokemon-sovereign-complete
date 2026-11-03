@@ -5,6 +5,7 @@
 
 #include "struct_defs/chatot_cry.h"
 
+#include "complete_sound.h" // Sovereign Complete: HeartGold's sound effects
 #include "complete_test.h" // Sovereign Complete: sound memory in the test build
 
 #include "game_options.h"
@@ -63,6 +64,7 @@ void SoundSystem_Tick()
     }
 
     Sound_UpdateChatotCry();
+    CompleteSound_ReleaseOwnEffect(); // Sovereign Complete: a HeartGold sound effect that has ended is freed
 
     for (int i = 0; i < 2; i++) {
         if (soundSys->pokemonCryDelay[i] != 0) {
@@ -280,6 +282,7 @@ int SoundSystem_SaveHeapState(int *state)
     if (newState == SOUND_HEAP_STATE_INVALID) {
         GF_ASSERT(FALSE);
     }
+    CompleteSound_NoteHeapLevel(newState); // Sovereign Complete
 
     if (state != NULL) {
         *state = newState;
@@ -290,7 +293,9 @@ int SoundSystem_SaveHeapState(int *state)
 
 void SoundSystem_LoadHeapState(int state)
 {
+    CompleteSound_BeforeHeapRestore(state); // Sovereign Complete: a HeartGold sound effect loaded above it stops
     NNS_SndHeapLoadState(SoundSystem_Get()->heap, state);
+    CompleteSound_NoteHeapLevel(state); // Sovereign Complete
 }
 
 BOOL SoundSystem_LoadSoundGroup(u16 group)

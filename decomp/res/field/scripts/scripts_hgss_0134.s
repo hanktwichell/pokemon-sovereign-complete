@@ -70,7 +70,9 @@ _00E3:
     End
 _00F2:
     Message msg_0149_D52R0102_00005
+    PlaySE SEQ_SE_GS_STOPPERKAIJO_sseq
     Message msg_0149_D52R0102_00006
+    WaitSE SEQ_SE_GS_STOPPERKAIJO_sseq
     RemoveItem ITEM_BLUE_ORB, 1, VAR_RESULT
     SetVar VAR_0x8004, ITEM_JADE_ORB
     SetVar VAR_0x8005, 1

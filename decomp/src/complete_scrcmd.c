@@ -1066,6 +1066,25 @@ BOOL CompleteRocketCostume_IsOn(void)
     return saveData != NULL && VarsFlags_CheckFlag(SaveData_GetVarsFlags(saveData), FLAG_HGSS_SYS_ROCKET_COSTUME);
 }
 
+// HeartGold's CheckUseEscapeRopeInAlphChamber, CheckUseFlashInAlphChamber and CheckUseWaterStoneInAlphChamber
+// (alph_checks.c): in the chamber, on the tile below its north wall, facing it. The Escape Rope's and the Water Stone's
+// item use (src/item_use_functions.c) and Flash's (src/field_move_tasks.c) then run the chamber's script that opens the
+// wall instead, and nothing is used up, as in HeartGold.
+BOOL CompleteAlph_CanOpenWall(FieldSystem *fieldSystem, enum CompleteAlphWallKey key)
+{
+    static const u16 chambers[COMPLETE_ALPH_WALL_KEYS] = {
+        [COMPLETE_ALPH_WALL_ESCAPE_ROPE] = MAP_HEADER_HGSS_RUINS_OF_ALPH_NORTHEAST_ENTRANCE_FIRST_ROOM,
+        [COMPLETE_ALPH_WALL_FLASH] = MAP_HEADER_HGSS_RUINS_OF_ALPH_SOUTHEAST_ENTRANCE_FIRST_ROOM,
+        [COMPLETE_ALPH_WALL_WATER_STONE] = MAP_HEADER_HGSS_RUINS_OF_ALPH_SOUTHWEST_ENTRANCE_FIRST_ROOM,
+    };
+
+    return fieldSystem != NULL && key < COMPLETE_ALPH_WALL_KEYS
+        && fieldSystem->location->mapHeaderID == chambers[key]
+        && PlayerAvatar_GetXPos(fieldSystem->playerAvatar) == 6
+        && PlayerAvatar_GetZPos(fieldSystem->playerAvatar) == 3
+        && PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar) == DIR_NORTH;
+}
+
 // HeartGold's ScrCmd_722: the Magnet Train's ride between Goldenrod City and Saffron City (its overlay 104, here
 // src/applications/complete_magnet_train), the way given. HeartGold's field task around it fades the screen out, runs
 // the ride and changes map; here the script does those, as Platinum's own scene apps do (the Distortion World's warp):

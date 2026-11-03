@@ -49,6 +49,7 @@ scr_seq_D40R0107_004:
 _007C:
     CompareVar VAR_MAP_LOCAL_0x0B, 123
     GoToIf 5, _0093
+    StopSE SEQ_SE_GS_N_TAKI_sseq
     SetVarFromValue VAR_MAP_LOCAL_0x0B, 0
 _0093:
     GoToIfSet FLAG_HGSS_UNK_109, _00FA
@@ -119,12 +120,15 @@ scr_seq_D40R0107_005:
     WaitMovement
     Message msg_0125_D40R0107_00000
     CloseMessage
+    StopSE SEQ_SE_GS_N_TAKI_sseq
     FadeScreen 4, 4, 0, COLOR_WHITE
     WaitFadeScreen
     CompleteLegendCutscene 0, 0
     CompleteLegendCutscene 2, 0
+    PlaySE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     FadeScreen 4, 4, 1, COLOR_WHITE
     WaitFadeScreen
+    WaitSE SEQ_SE_GS_SUZUSYUTUGEN_RU_sseq
     ApplyMovement obj_D40R0107_dancer_5, _096C
     ApplyMovement obj_D40R0107_dancer_3, _0978
     ApplyMovement obj_D40R0107_dancer_4, _0984
@@ -149,6 +153,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _09B8
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 67, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _09B8
@@ -158,6 +163,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _09B8
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     FadeScreen 4, 6, 1, COLOR_WHITE
     CompleteLegendCutscene 4, 0
@@ -176,6 +182,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A24
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B1C
@@ -191,6 +198,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A24
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 33, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B1C
@@ -206,6 +214,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0AC4
     WaitTime 15, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B2C
@@ -221,6 +230,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A00
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 1
+    PlaySE SEQ_SE_GS_SUZUNOONPA_RU_sseq
     WaitMovement
     CompleteLegendCutscene 5, 0
     CompleteLegendCutscene 6, 0
@@ -238,6 +248,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A00
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 29, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B24
@@ -253,6 +264,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A98
     WaitTime 15, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 41, VAR_RESULT
     CompleteLegendCutscene 7, 0
@@ -269,6 +281,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A48
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B24
@@ -284,6 +297,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A48
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 29, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B34
@@ -304,6 +318,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A48
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B34
@@ -319,6 +334,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _0A48
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     WaitTime 38, VAR_RESULT
     ApplyMovement obj_D40R0107_dancer_5, _0B1C
@@ -334,6 +350,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _09DC
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     CompleteLegendCutscene 6, 1
     WaitTime 32, VAR_RESULT
@@ -350,6 +367,7 @@ scr_seq_D40R0107_005:
     ApplyMovement obj_D40R0107_dancer_2, _09DC
     WaitTime 12, VAR_RESULT
     CompleteLegendCutscene 3, 0
+    PlaySE SEQ_SE_GS_SUZUNOONPA2_sseq
     WaitMovement
     FadeOutBGM 0, 100
     StopMusic

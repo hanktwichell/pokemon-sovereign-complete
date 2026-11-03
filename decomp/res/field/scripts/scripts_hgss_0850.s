@@ -424,11 +424,13 @@ _068A:
     ApplyMovement obj_T21_gsoldman1, _0CDA
     ApplyMovement LOCALID_PLAYER, _0CF8
     WaitMovement
+    PlaySE SEQ_SE_GS_N_UMIBE_sseq
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     Message msg_0550_T21_00005
     CloseMessage
+    StopSE SEQ_SE_GS_N_UMIBE_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
@@ -620,11 +622,13 @@ _099A:
     ApplyMovement obj_T21_gsoldman1, _0CDA
     ApplyMovement LOCALID_PLAYER, _0CF8
     WaitMovement
+    PlaySE SEQ_SE_GS_N_UMIBE_sseq
     CompleteFollowerWait
     CompleteFollowerPause 1
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     Message msg_0550_T21_00005
     CloseMessage
+    StopSE SEQ_SE_GS_N_UMIBE_sseq
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE

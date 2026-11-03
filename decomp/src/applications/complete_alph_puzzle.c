@@ -50,11 +50,12 @@
 #define PANEL_SIZE       32 // pixels
 #define BOARD_LEFT       32
 
-#define SE_PANEL_SELECT SEQ_SE_DP_BOX02_sseq // HeartGold's SEQ_SE_GS_SEKIBAN_SENTAKU
+// HeartGold's own (alph_puzzle.c), loaded on demand by complete_sound.c
+#define SE_PANEL_SELECT SEQ_SE_GS_SEKIBAN_SENTAKU_sseq
 #define SE_PANEL_BACK   SEQ_SE_DP_BOX01_sseq
-#define SE_PANEL_TURN   SEQ_SE_DP_SELECT78_sseq // SEQ_SE_GS_SEKIBAN_KAITEN
-#define SE_SOLVED       SEQ_SE_DP_PIRORIRO2_sseq // SEQ_SE_GS_PUZZLETOKU
-#define SE_QUIT         SEQ_SE_DP_DECIDE_sseq
+#define SE_PANEL_TURN   SEQ_SE_GS_SEKIBAN_KAITEN_sseq
+#define SE_SOLVED       SEQ_SE_GS_PUZZLETOKU_sseq
+#define SE_QUIT         SE_CONFIRM_sseq_3 // HeartGold's SEQ_SE_DP_SELECT
 
 // msg_0002
 #define TEXT_QUIT         0

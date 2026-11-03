@@ -71,6 +71,8 @@ _00CC:
     WaitFadeScreen
     ApplyMovement 3, _01D8
     WaitMovement
+    PlaySE SEQ_SE_GS_ZUTUKI_sseq
+    WaitSE SEQ_SE_GS_ZUTUKI_sseq
     ApplyMovement 3, _01D8
     WaitMovement
     FadeScreen 6, 1, 1, COLOR_BLACK

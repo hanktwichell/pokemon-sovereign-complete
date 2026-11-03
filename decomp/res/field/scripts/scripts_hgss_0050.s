@@ -50,6 +50,7 @@ _00C8:
 _00D8:
     WaitMovement
 _00DA:
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_RUINS_OF_ALPH_SOUTHEAST_HIDDEN_ROOM, 11, 7, VAR_RESULT

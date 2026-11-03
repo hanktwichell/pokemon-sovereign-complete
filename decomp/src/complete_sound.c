@@ -14,6 +14,7 @@
 #include "party.h"
 #include "pokemon.h"
 #include "sound.h"
+#include "sound_system.h"
 #include "unk_02054884.h"
 #include "vars_flags.h"
 
@@ -228,4 +229,113 @@ u16 CompleteSound_TrainerVictoryBGM(int mapHeaderID, u32 trainerClass)
 u16 CompleteSound_WildVictoryBGM(int mapHeaderID)
 {
     return MapHeader_IsHGSS(mapHeaderID) ? SEQ_GS_WIN2_sseq : VICTORY_WILD_POKEMON_sseq;
+}
+
+// HeartGold's own sound effects (tools/complete/import_hgss_sound.py), loaded above everything else as they start, a
+// few at once (the Whirl Islands' waterfall goes on as Lugia rises through it), each freed from the top once it has
+// ended and nothing is loaded above it
+#define OWN_EFFECTS_MAX 4
+// The sound heap's free size as each of its levels began (saved, or loaded back to): while it's the same, nothing has
+// been loaded at that level. NitroSystem's heap keeps a small record for each level saved (32 bytes), which loading back
+// to that level keeps, so an effect loads into the current level when nothing else is there yet (after a song's load,
+// the usual case) and the heap is as it was once the effect is freed; otherwise it saves a level of its own, which the
+// next effect then finds empty and reuses.
+#define HEAP_LEVELS_TRACKED 32
+
+typedef struct OwnEffect {
+    u16 seqID;
+    int level; // the heap's state just before it was loaded
+    u32 freeAfter; // the heap's free size just after: the same while nothing else is loaded above it
+} OwnEffect;
+
+static OwnEffect sOwnEffects[OWN_EFFECTS_MAX];
+static int sOwnEffectCount;
+static u32 sFreeAtLevel[HEAP_LEVELS_TRACKED]; // 0: not known
+
+void CompleteSound_NoteHeapLevel(int level)
+{
+    if (level >= 0 && level < HEAP_LEVELS_TRACKED) {
+        sFreeAtLevel[level] = NNS_SndHeapGetFreeSize(SoundSystem_Get()->heap);
+    }
+}
+
+static BOOL HeapLevelIsEmpty(int level)
+{
+    return level >= 0 && level < HEAP_LEVELS_TRACKED && sFreeAtLevel[level] != 0
+        && sFreeAtLevel[level] == NNS_SndHeapGetFreeSize(SoundSystem_Get()->heap);
+}
+
+static BOOL OwnEffect_IsLoaded(u16 seqID)
+{
+    for (int i = 0; i < sOwnEffectCount; i++) {
+        if (sOwnEffects[i].seqID == seqID) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+// The top one freed if it has ended (or ending it if stop) and nothing is loaded above it (a fanfare: it goes once
+// that has been freed)
+static BOOL OwnEffect_FreeTop(BOOL stop)
+{
+    OwnEffect *top = &sOwnEffects[sOwnEffectCount - 1];
+
+    if (!stop && NNS_SndPlayerCountPlayingSeqBySeqNo(top->seqID) != 0) {
+        return FALSE;
+    }
+
+    if (NNS_SndHeapGetFreeSize(SoundSystem_Get()->heap) != top->freeAfter) {
+        return FALSE;
+    }
+
+    SoundSystem_LoadHeapState(top->level); // which stops it and takes it off (CompleteSound_BeforeHeapRestore)
+    return TRUE;
+}
+
+BOOL CompleteSound_LoadOwnEffect(u16 seqID)
+{
+    if (OwnEffect_IsLoaded(seqID)) {
+        return TRUE;
+    }
+
+    while (sOwnEffectCount > 0 && OwnEffect_FreeTop(FALSE)) {
+    }
+
+    if (sOwnEffectCount >= OWN_EFFECTS_MAX && !OwnEffect_FreeTop(TRUE)) {
+        return FALSE;
+    }
+
+    int level = NNS_SndHeapGetCurrentLevel(SoundSystem_Get()->heap);
+
+    if (!HeapLevelIsEmpty(level)) {
+        level = SoundSystem_SaveHeapState(NULL);
+    }
+
+    if (!SoundSystem_LoadSequenceEx(seqID, NNS_SND_ARC_LOAD_SEQ | NNS_SND_ARC_LOAD_BANK | NNS_SND_ARC_LOAD_WAVE)) {
+        SoundSystem_LoadHeapState(level);
+        return FALSE; // no room: it doesn't play
+    }
+
+    OwnEffect *effect = &sOwnEffects[sOwnEffectCount++];
+
+    effect->seqID = seqID;
+    effect->level = level;
+    effect->freeAfter = NNS_SndHeapGetFreeSize(SoundSystem_Get()->heap);
+    return TRUE;
+}
+
+void CompleteSound_ReleaseOwnEffect(void)
+{
+    while (sOwnEffectCount > 0 && OwnEffect_FreeTop(FALSE)) {
+    }
+}
+
+void CompleteSound_BeforeHeapRestore(int state)
+{
+    while (sOwnEffectCount > 0 && state <= sOwnEffects[sOwnEffectCount - 1].level) {
+        NNS_SndPlayerStopSeqBySeqNo(sOwnEffects[sOwnEffectCount - 1].seqID, 0);
+        sOwnEffectCount--;
+    }
 }

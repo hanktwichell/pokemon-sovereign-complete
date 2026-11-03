@@ -1569,3 +1569,29 @@ Test results on the new test build:
   the event's flags, the plates and the Pokédex written into the save, a step onto the stage's middle, the circle
   begins and ends, the cinematic plays its whole script (about 2,400 of its steps), and the scene goes on on the
   field. HeartGold's own Arceus event there (the egg, with Cynthia) needs a distributed Arceus and stays out of reach.
+- **HeartGold's own sound effects:** the sound importer now also brings in each of HeartGold's sound effects
+  (`SEQ_SE_GS_*`) that Sacred Gold's scripts play or Complete's code names, 69 of them, each with its own bank and
+  waves (175 waves in `WAVE_ARC_GS` now, 520 KB). Platinum's sound effects play from its basic waves, always loaded,
+  and its SE players' heaps are a kilobyte or two; HeartGold's need up to 23 KB, so each loads into sound memory as it
+  starts (`CompleteSound_LoadOwnEffect`, from `Sound_PlayEffect`): up to four at once (the cinematics play a few
+  together), each freed once it has ended and nothing has loaded above it, and stopped first if a song's load takes
+  the memory back. NitroSystem's heap keeps a 32-byte record for each level saved, which restoring to the level keeps,
+  so an effect loads into the heap's current level when nothing else is there (after a song's load), and otherwise
+  saves a level that the next effect reuses: the memory comes back whole, and a game of Voltorb Flip can't pile up
+  levels. The scripts play them (185 PlaySE in 65 of Sacred Gold's script files, retranslated; the Ruins of Alph's
+  chambers' falls among them), and so do the ported scenes, which had Platinum's sounds standing in: the Clear Bell's
+  rings and light, Ho-Oh's and Lugia's wings, Lugia's eyes and the Whirl Islands' falls (fading in), the Rocket
+  Hideout's traps, siren and the wings' chime, the Magnet Train's rails for each cut, Voltorb Flip's cards and coins,
+  the Ruins of Alph puzzles' panels, Mahogany Gym's ice and Blackthorn's lift. In the emulator (build_test3): the
+  legendary cutscenes (2 of 2), the Magnet Train (2 of 2), the Sinjoh Ruins (3 of 3), Voltorb Flip (4 of 4), Mahogany
+  Gym, the Alph puzzles (4 of 4) and the field effects' seven pass with them; the sound memory test's new part plays
+  each of the 69 over New Bark Town's song (none fails to load; 95 KB left at the least) and checks that an effect
+  gives all its memory back: between two fanfares (each of which keeps its own level's record, Platinum's way), twice
+  running, it may add nothing to their step; it found the effect's own record first, gone since (build_test).
+- **The Ruins of Alph's walls:** reading a chamber's north wall now shows its words on HeartGold's stone tablet, in
+  the Unown's letters (ESCAPE, LIGHT, WATER, HO OH), until A is pressed: HeartGold's OpenAlphHiddenRoom (in assembly
+  there), here `CompleteAlphWall`, the tablet from HeartGold's `demo/legend` on the field's BG1 and the words from its
+  `msg_0198`, now imported. And the rooms behind open as in HeartGold: facing the wall from below it, an Escape Rope
+  opens Kabuto's chamber's, Flash Omanyte's and a Water Stone Aerodactyl's (`CompleteAlph_CanOpenWall`, from its
+  `alph_checks.c`, asked by the item use and by Flash), the chamber's own script shaking the room open, nothing used
+  up; Ho-Oh's opens when read with Ho-Oh in the party. Each room has four item balls, which no one could reach before.

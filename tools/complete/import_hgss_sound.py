@@ -8,6 +8,11 @@ play (SEQ_ME_*: an item, a badge, a Pokémon caught), and Voltorb Flip's (its co
 radio's songs (its shows' code plays them: the March, the Lullaby, the Poké Flute...), the Magnet Train ride's jingle,
 and Ho-Oh's and Arceus's themes in their cinematics. Sacred Gold leaves HeartGold's sound archive as it is.
 
+And HeartGold's own sound effects (SEQ_SE_GS_*): the ones Sacred Gold's scripts play and the ones Complete's ports of
+HeartGold's code name (decomp/src, where a Platinum sound stood in), each with a bank of its own as a song has, its
+waves in WAVE_ARC_GS too. They are too big to keep loaded (113 KB of waves Platinum lacks): one is loaded as it plays
+and freed after (src/complete_sound.c, CompleteSound_LoadOwnEffect).
+
 HeartGold's sound archive (its pret decomp's prebuilt files/data/sound/gs_sound_data.sdat) is unpacked into
 .cache/hgss_sound with the decomp's nitrosfx. Each song keeps HeartGold's sequence file byte for byte, and gets a bank
 of its own: HeartGold's instruments the song plays, at their numbers (the others empty), with each wave a note can
@@ -103,6 +108,16 @@ def needed_songs(seqs):
                   and seqs[n]['player'] in MUSIC_PLAYERS)
 
 
+def needed_effects(seqs):
+    """HeartGold's own sound effects that Sacred Gold's scripts play or Complete's C code names."""
+    names = set()
+    for path in glob.glob(os.path.join(SACRED_SCRIPTS, '*.s')):
+        names |= set(re.findall(r'SEQ_SE_GS_\w+', open(path, errors='replace').read()))
+    for path in glob.glob(os.path.join(ROOT, 'decomp', 'src', '**', '*.c'), recursive=True):  # by the engine's name
+        names |= {re.sub(r'_sseq$', '', n) for n in re.findall(r'SEQ_SE_GS_\w+', open(path, errors='replace').read())}
+    return sorted(n for n in names if n in seqs and seqs[n]['player'].startswith('PLAYER_SE'))
+
+
 def expand_same(lines):
     """A bank's lines with each 'SameAsAbove' instrument written out as the one above it."""
     out, last = [], []
@@ -135,7 +150,8 @@ def main():
     gs_waves, gs_index = [], {}  # the archive's WAVs in order, and their hashes' places
     banks, entries = {}, {'seqInfo': [], 'bankInfo': [], 'wavarcInfo': []}
     songs = needed_songs(seqs)
-    for name in songs:
+    effects = needed_effects(seqs)
+    for name in songs + effects:
         if name in taken:
             sys.exit(f'{name} is already a Platinum sequence')
         seq = seqs[name]
@@ -202,7 +218,7 @@ def main():
         path = os.path.join(OUT, 'BANK', f'{bank_name}.txt')
         wanted.add(path)
         changed |= write_if_changed(path, text)
-    for name in songs:
+    for name in songs + effects:
         path = os.path.join(OUT, 'SEQ', f'{name}.sseq')
         wanted.add(path)
         source = os.path.join(CACHE, 'files', seqs[name]['fileName'])
@@ -223,12 +239,12 @@ def main():
                 os.remove(path)
                 changed = True
     changed |= write_if_changed(os.path.join(OUT, 'hgss_sound.json'), json.dumps(entries, indent=1) + '\n')
-    changed |= write_if_changed(os.path.join(OUT, 'meson.build'), meson(sorted(banks), songs, len(gs_waves)))
+    changed |= write_if_changed(os.path.join(OUT, 'meson.build'), meson(sorted(banks), songs + effects, len(gs_waves)))
     changed |= write_if_changed(os.path.join(ROOT, 'decomp', 'include', 'data', 'hgss_sound.h'), music_tables())
 
     size = sum(os.path.getsize(p) for p in gs_waves)
-    print(f'{len(songs)} of HeartGold\'s songs, {len(gs_waves)} waves of their own ({size // 1024} KB); '
-          + ('written' if changed else 'unchanged'))
+    print(f'{len(songs)} of HeartGold\'s songs and {len(effects)} sound effects, {len(gs_waves)} waves of their own '
+          f'({size // 1024} KB); ' + ('written' if changed else 'unchanged'))
 
 
 def music_tables():

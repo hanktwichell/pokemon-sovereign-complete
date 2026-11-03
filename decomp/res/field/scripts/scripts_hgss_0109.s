@@ -5,6 +5,7 @@
     ScriptEntry scr_seq_D43R0102_001
     ScriptEntryEnd
 scr_seq_D43R0102_000:
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     ApplyMovement LOCALID_PLAYER, _0048
     ShowObject LOCALID_PLAYER
     WaitMovement

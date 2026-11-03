@@ -398,6 +398,8 @@ _0620:
     WaitButton
     CloseMessage
     StopMusic
+    PlaySE SEQ_SE_GS_STOPPERKAIJO_sseq
+    WaitSE SEQ_SE_GS_STOPPERKAIJO_sseq
     Message msg_0483_T06_00030
     ShowYesNoMenu VAR_RESULT
     CloseMessage

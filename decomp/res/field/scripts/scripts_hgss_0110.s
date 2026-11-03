@@ -145,6 +145,7 @@ _022E:
     GoTo _0251
 _0251:
     WaitMovement
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_VICTORY_ROAD_2F, VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01, VAR_RESULT
@@ -204,6 +205,7 @@ _0346:
     ApplyMovement LOCALID_PLAYER, _0476
     ApplyMovement LOCALID_COMPLETE_FOLLOWER, _0480
     WaitMovement
+    PlaySE SEQ_SE_GS_RAKKA01_sseq
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     Warp MAP_HEADER_HGSS_VICTORY_ROAD_2F, VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01, VAR_RESULT
