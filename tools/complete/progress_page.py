@@ -54,7 +54,7 @@ STEPS = [
     (5, 'HeartGold features', 'mostly', 'Almost done',
      'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
      'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier and the Pokégear beside the Pokétch '
-     '(its phone, its map and the switch) are in. Next: the Pokégear\'s Radio.'),
+     '(its phone, its map, its radio and the switch) are in.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
@@ -87,7 +87,7 @@ WAITING = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
-    ('Your Nov 3 calls, done so far', [
+    ('Your Nov 3 calls, done', [
         'Voltorb Flip is in both Game Corners: HeartGold\'s own game, its board, memos, levels, coins and fanfares. '
         'In the emulator a round won paid 24 coins and moved on to level 2, a round quit paid what was found, and '
         'Quit brought you back to the Game Corner.',
@@ -113,7 +113,13 @@ RECENT = [
         'a battle).',
         'The Pokégear\'s Map: HeartGold\'s map of Johto and Kanto with your head where you are and the place\'s name; '
         'drag it to see the rest. Checked in the emulator in your room and on Route 30.',
-        'Next: the Pokégear\'s Radio (its button is dimmed for now).',
+        'The Pokégear\'s Radio: HeartGold\'s globe and all twelve of its shows, with their music and text. Drag the '
+        'cursor or tap a button beside the globe: DJ Ben\'s Pokémon Music (the March brings more wild Pokémon, the '
+        'Lullaby fewer, Hoenn\'s and Sinnoh\'s sounds bring their Pokémon), Professor Oak\'s Pokémon Talk (it names '
+        'today\'s outbreak), Trainer Profiles, That Town, These People, the Search Party, the Serial Radio Drama and '
+        'Buena\'s Password (her quiz in the Radio Tower now asks for the password her show gave), with commercials. In '
+        'Kanto the Poké Flute wakes Snorlax; the Unown\'s broadcast plays in the Ruins of Alph and a strange signal '
+        'around Mahogany. Its music plays in the field while the page shows a station. Sinnoh has no signal.',
     ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
@@ -233,9 +239,9 @@ AHEAD = [
     ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
      'for all three regions.', 'You', 'waiting'),
-    ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, Johto\'s Battle Frontier '
-     'and the Pokégear beside the Pokétch (its phone, calls you place, its map, the switch) are done; next its '
-     'Radio.', 'Claude', 'active'),
+    ('Nov 3', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, Johto\'s Battle Frontier '
+     'and the Pokégear beside the Pokétch (its phone, calls you place, its map, its radio, the switch) are done.',
+     'Claude', 'done'),
     ('Your call', 'The art for the Town Map and sprites, Cynthia\'s difficulty, and any of the provisional Sinnoh '
      'choices to change.', 'You', 'waiting'),
     ('After step 9', 'Release (step 10): final fixes, then the .xdelta patches, about 3 days.', 'Both', 'planned'),

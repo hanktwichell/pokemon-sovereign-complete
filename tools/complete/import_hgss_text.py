@@ -40,10 +40,12 @@ PREFIX = 'TEXT_BANK_HGSS_MSG_'
 # names, for Johto's rival (src/applications/naming_screen.c); the phone's (src/complete_phone.c): its own lines
 # (msg_0271), the callers' greetings (msg_0640) and each contact's bank (msg_0641 to msg_0716, all but msg_0668); the
 # Ruins of Alph puzzles' (msg_0002, src/applications/complete_alph_puzzle.c); the following Pokémon's talk
-# (msg_0265, src/overlay006/complete_follower_talk.c); and Voltorb Flip's (msg_0039,
-# src/applications/complete_voltorb_flip/)
+# (msg_0265, src/overlay006/complete_follower_talk.c); Voltorb Flip's (msg_0039,
+# src/applications/complete_voltorb_flip/); and the Pokégear radio's: its own lines (msg_0269) and its shows'
+# (msg_0409 to msg_0420, src/applications/complete_pokegear/)
 SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
-    [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0265', '0039']
+    [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0265', '0039', '0269'] + \
+    [f'{n:04d}' for n in range(409, 421)]
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
 # the line breaks moved (or, where a box is narrower, the words)
 TEXT_FIXES = {

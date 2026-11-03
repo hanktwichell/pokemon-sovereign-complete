@@ -410,12 +410,56 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
   so the importer makes it 16-colour without changing a pixel: five 15-colour palettes, each tile in the one its
   colours fit, and tiles that repeat (flipped or not) kept once (593 tiles). In Sinnoh it shows the place's name, with
   no head. The Pokégear comes back to the page it was on (after a battle or a map change).
-- **Still to come:** the Radio (its app bar button is dimmed), and HeartGold's skins (the settings button). Left out
-  of the map: HeartGold's zoom, its marked places and its place-by-place descriptions.
+- **The radio:** the app bar's Radio ("The Pokégear radio", below).
+- **Still to come:** HeartGold's skins (the settings button, dimmed). Left out of the map: HeartGold's zoom, its marked
+  places and its place-by-place descriptions.
 
 Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the player gets it; a tap on Mom calling her;
 scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
 phone; the switch to the Pokétch and back; the choice kept across a warp; the Pokégear back after a battle).
+
+## The Pokégear radio
+
+HeartGold's radio (pokeheartgold's `src/application/pokegear/radio`), on the Pokégear's Radio page
+(`src/applications/complete_pokegear/radio/`; its music and what the field asks of it in `src/complete_radio.c`):
+
+- **The globe:** HeartGold's dial, where the cursor tunes the stations of where the player is. Dragging the cursor (a
+  tap near it picks it up) tunes; inside a station's inner ring the signal is clear, in its outer ring the show's
+  lines have static (letters lost to dots, as HeartGold's `String_RadioAddStatic`). The four buttons beside the
+  globe put the cursor on each station's middle. The player's buttons walk the field, so the radio takes touches
+  only (HeartGold also tunes with the + Control Pad). The cursor stays where it was left.
+- **The stations,** as HeartGold's `Radio_GetAvailableChannels` gives them: Johto's four (Pokémon Music, Pokémon
+  Talk, Trainer Profiles or That Town, These People by the hour, and the Search Party, the Serial Radio Drama or
+  Buena's Password by the hour); Kanto's once the Power Plant runs again, with the fourth station and the Poké Flute
+  (at the globe's top) once the player has the Expansion Card; only the Unown's broadcast in the Ruins of Alph's hall;
+  only the strange signal around Mahogany Town before the Rocket Hideout is cleared; only Team Rocket's broadcast while
+  they hold the Radio Tower. Places HeartGold's headers give no signal (caves and the like) have none, and Sinnoh has
+  none (the owner's call: the radio is Johto's and Kanto's).
+- **The shows:** HeartGold's twelve, each in its file under `shows/`, with their text (HeartGold's banks 0409 to 0420)
+  and music. Pokémon Music plays the day's music until the day ends (the March on Mondays and Fridays, the Lullaby on
+  Tuesdays and Saturdays, Hoenn's and Sinnoh's sounds on Wednesdays and Thursdays with the National Pokédex, an old
+  Game Boy song on Sundays with the GB Sounds); Professor Oak's Pokémon Talk names today's outbreak and five places of
+  the region with one of their Pokémon each (one not caught yet, more often than not); the talk shows end with
+  their jingle, then a commercial (those for the region and station, more as the player gets on). Each line prints
+  in a strip under the globe, one at a time (HeartGold shows two on the top screen, which here is the field's); the
+  show's title and host share the band at the top.
+- **The music** is the field's while the page shows a station (HeartGold's radio plays through the overworld too).
+  Off a station, or off the page, the map's music comes back. A battle, a menu or a new map ends the page for a
+  while; when it comes back it tunes in again where the cursor is (a show that was on picks its song up without
+  restarting it).
+- **What it does:** as in HeartGold, the March brings wild Pokémon more often and the Lullaby less often (here as the
+  White and Black Flutes change Platinum's rates, `src/overlay006/wild_encounters.c`); Hoenn's and Sinnoh's sounds put
+  the map's Hoenn or Sinnoh Pokémon in grass slots 2 to 5 (Sacred Gold's tables have them); the Unown's broadcast makes
+  half the hall's Unown letters the Pokédex hasn't seen yet; the Poké Flute wakes Snorlax on Routes 11 and 12
+  (`RadioMusicIsPlaying`, `CompleteScrCmd_RadioMusicIsPlaying`).
+- **Buena's password:** a new one each day (HeartGold's `Save_VarsFlags_UpdateBuenasPasswordSet`, with the daily
+  flags), which her show gives to players with the Blue Card and her quiz in the Radio Tower asks for, among three
+  (`GetBuenasPassword`, `CompleteScrCmd_GetBuenasPassword`; until now the quiz's three words came from nothing).
+
+Test: `tools/complete/test_hgss_radio.py` (the page in New Bark Town with the cursor on the fourth station's outer
+ring; each button's station and show; Oak's show running; the cursor dragged off the stations; leaving the page and
+coming back; Kanto's Poké Flute by Route 11's Snorlax, which then wakes; the Ruins of Alph's, Mahogany's and
+Sinnoh's stations).
 
 ## Mom's savings
 
@@ -452,8 +496,8 @@ graphics (`res/graphics/alph_puzzle`, its `puzzle_gra` built the same way) and t
   HeartGold's own sound effects aren't in the sound archive, so Platinum's stand in.
 - **The Unown:** the underground hall has no Pokémon until a puzzle is solved, and then only the letters each solved
   puzzle lets out (Kabuto's A to J, Aerodactyl's R to V, Omanyte's K to Q, Ho-Oh's W to Z); its entrance in the Sinjoh
-  Ruins event has ! and ? (`src/complete_encounters.c`). HeartGold's pull toward uncaught letters while the radio plays
-  the Unown broadcast waits for the radio.
+  Ruins event has ! and ? (`src/complete_encounters.c`). While the radio plays the Unown's broadcast, half of them are
+  letters the Pokédex hasn't seen yet, as in HeartGold ("The Pokégear radio").
 - **Not ported:** HeartGold's effect of a hidden room's wall as the player comes back into a chamber (its flags and
   warps are the scripts', which run).
 
@@ -505,8 +549,8 @@ HeartGold's (its `encounter_check.c` and the map list in its `unk_02097F6C.c`, w
   (Viridian Forest), and on the water Mantine (Route 19), Feebas (Route 27) and Lanturn (Vermilion City).
 - **The four fishing days** (Routes 12, 32 and 44, Violet City) have no outbreak: Sacred Gold's encounter files stop
   before the fishing outbreak's species.
-- **Not ported:** HeartGold says where today's outbreak is only on the Pokégear radio (Professor Oak's Pokémon Talk),
-  which waits on the Pokétch or Pokégear question.
+- **On the radio:** Professor Oak's Pokémon Talk says where today's outbreak is ("The Pokégear radio";
+  `CompleteEncounters_TodaysOutbreak`).
 
 Test: `tools/complete/test_hgss_outbreaks.py` (no Illumise on Route 35 before the National Pokédex; Illumise there on
 its day; none on another map's day; Feebas on Route 27's water on its day).
@@ -616,6 +660,3 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   spawn points: `src/spawn_locations.c`). It stays until the three-region Town Map (`docs/Roadmap.md`, "Art").
 - **The Berry Pots, the Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
   (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items.
-- **The radio's Poké Flute** (Snorlax on Routes 11 and 12): HeartGold's Snorlax wakes when the Pokégear's radio plays
-  the Poké Flute channel, which needs the Expansion Card. Until the radio comes (the same question), the Poké Flute
-  counts as playing once the player has the Expansion Card, and every other radio check finds nothing playing.

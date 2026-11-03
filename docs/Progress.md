@@ -1405,3 +1405,18 @@ Test results on the new test build:
   tiles). In the emulator (`tools/complete/test_hgss_pokegear.py`, now 8 parts, all pass): the head showed at the
   bedroom's place, then at Route 30's after a warp (the Pokégear came back on the Map), dragging scrolled toward
   Kanto, and the Phone button brought the list back.
+- **The Pokégear's radio:** the last part of the Pokétch and Pokégear call. HeartGold's radio is on the Pokégear's
+  Radio page: its globe, where dragging the cursor (or a tap on the four buttons beside it) tunes the stations of
+  where the player is, and all twelve of HeartGold's shows with their text and music (DJ Ben's Pokémon Music,
+  Professor Oak's Pokémon Talk, Trainer Profiles, That Town, These People, the Search Party, the Serial Radio Drama,
+  Buena's Password and the commercials; the Poké Flute, the Unown's broadcast, Mahogany's signal and Team Rocket's
+  broadcast). The music plays in the field while the page shows a station, and what HeartGold's radio does in the
+  field works: the March and the Lullaby change how often wild Pokémon appear, Hoenn's and Sinnoh's sounds bring
+  their Pokémon to the grass, the Unown's broadcast brings letters not yet seen, Oak's show names today's outbreak and
+  the Poké Flute wakes Snorlax (the stand-in that woke it with the Expansion Card alone is gone). Buena's password now
+  changes each day and her quiz asks for the one her show gave (its three words came from nothing before). Sinnoh has
+  no signal. The show's lines print one at a time in a strip under the globe, as the top screen is the field's. In
+  the emulator (`tools/complete/test_hgss_radio.py`, 11 parts): the page in New Bark Town on the fourth station with
+  static, each button's show (Pokémon Music playing Tuesday's Lullaby, Oak naming Misdreavus, That Town, These
+  People), off the stations, leaving the page and back, Kanto's Poké Flute by Route 11's Snorlax, which then woke, and
+  the Ruins of Alph's, Mahogany's and Sinnoh's stations.

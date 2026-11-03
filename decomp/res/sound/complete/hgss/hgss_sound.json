@@ -1,6 +1,15 @@
 {
  "seqInfo": [
   {
+   "name": "SEQ_GS_AIKOTOBA",
+   "fileName": "SEQ_GS_AIKOTOBA.sseq",
+   "bank": "BANK_GS_AIKOTOBA",
+   "volume": 92,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
    "name": "SEQ_GS_BATTLETOWER",
    "fileName": "SEQ_GS_BATTLETOWER.sseq",
    "bank": "BANK_GS_BATTLETOWER",
@@ -496,6 +505,15 @@
    "player": "PLAYER_FIELD"
   },
   {
+   "name": "SEQ_GS_HUE",
+   "fileName": "SEQ_GS_HUE.sseq",
+   "bank": "BANK_GS_HUE",
+   "volume": 89,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
    "name": "SEQ_GS_IBUKI",
    "fileName": "SEQ_GS_IBUKI.sseq",
    "bank": "BANK_GS_IBUKI",
@@ -512,6 +530,15 @@
    "channelPriority": 30,
    "playerPriority": 64,
    "player": "PLAYER_FIELD"
+  },
+  {
+   "name": "SEQ_GS_KAIDENPA",
+   "fileName": "SEQ_GS_KAIDENPA.sseq",
+   "bank": "BANK_GS_KAIDENPA",
+   "volume": 92,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
   },
   {
    "name": "SEQ_GS_KOUSOKUSEN",
@@ -536,6 +563,15 @@
    "fileName": "SEQ_GS_OHKIDO.sseq",
    "bank": "BANK_GS_OHKIDO",
    "volume": 100,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_OHKIDO_RABO",
+   "fileName": "SEQ_GS_OHKIDO_RABO.sseq",
+   "bank": "BANK_GS_OHKIDO_RABO",
+   "volume": 89,
    "channelPriority": 30,
    "playerPriority": 64,
    "player": "PLAYER_BGM"
@@ -584,6 +620,312 @@
    "channelPriority": 30,
    "playerPriority": 64,
    "player": "PLAYER_FIELD"
+  },
+  {
+   "name": "SEQ_GS_P_AIKOTOBA",
+   "fileName": "SEQ_GS_P_AIKOTOBA.sseq",
+   "bank": "BANK_GS_P_AIKOTOBA",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_ENDING",
+   "fileName": "SEQ_GS_P_ENDING.sseq",
+   "bank": "BANK_GS_P_ENDING",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_ENDING2",
+   "fileName": "SEQ_GS_P_ENDING2.sseq",
+   "bank": "BANK_GS_P_ENDING2",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_BOUZU",
+   "fileName": "SEQ_GS_P_EYE_BOUZU.sseq",
+   "bank": "BANK_GS_P_EYE_BOUZU",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_J_AYASHII",
+   "fileName": "SEQ_GS_P_EYE_J_AYASHII.sseq",
+   "bank": "BANK_GS_P_EYE_J_AYASHII",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_J_SHOUJO",
+   "fileName": "SEQ_GS_P_EYE_J_SHOUJO.sseq",
+   "bank": "BANK_GS_P_EYE_J_SHOUJO",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_J_SHOUNEN",
+   "fileName": "SEQ_GS_P_EYE_J_SHOUNEN.sseq",
+   "bank": "BANK_GS_P_EYE_J_SHOUNEN",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_K_AYASHII",
+   "fileName": "SEQ_GS_P_EYE_K_AYASHII.sseq",
+   "bank": "BANK_GS_P_EYE_K_AYASHII",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_K_SHOUJO",
+   "fileName": "SEQ_GS_P_EYE_K_SHOUJO.sseq",
+   "bank": "BANK_GS_P_EYE_K_SHOUJO",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_K_SHOUNEN",
+   "fileName": "SEQ_GS_P_EYE_K_SHOUNEN.sseq",
+   "bank": "BANK_GS_P_EYE_K_SHOUNEN",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_MAIKO",
+   "fileName": "SEQ_GS_P_EYE_MAIKO.sseq",
+   "bank": "BANK_GS_P_EYE_MAIKO",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_EYE_ROCKET",
+   "fileName": "SEQ_GS_P_EYE_ROCKET.sseq",
+   "bank": "BANK_GS_P_EYE_ROCKET",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_E_MINAKI",
+   "fileName": "SEQ_GS_P_E_MINAKI.sseq",
+   "bank": "BANK_GS_P_E_MINAKI",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_HUE",
+   "fileName": "SEQ_GS_P_HUE.sseq",
+   "bank": "BANK_GS_P_HUE",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_IBUKI",
+   "fileName": "SEQ_GS_P_IBUKI.sseq",
+   "bank": "BANK_GS_P_IBUKI",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_OHKIDO",
+   "fileName": "SEQ_GS_P_OHKIDO.sseq",
+   "bank": "BANK_GS_P_OHKIDO",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_FIELD"
+  },
+  {
+   "name": "SEQ_GS_P_OHKIDO_RABO",
+   "fileName": "SEQ_GS_P_OHKIDO_RABO.sseq",
+   "bank": "BANK_GS_P_OHKIDO_RABO",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_OPENING_TITLE_G",
+   "fileName": "SEQ_GS_P_OPENING_TITLE_G.sseq",
+   "bank": "BANK_GS_P_OPENING_TITLE_G",
+   "volume": 72,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_POKEMON_THEME",
+   "fileName": "SEQ_GS_P_POKEMON_THEME.sseq",
+   "bank": "BANK_GS_P_POKEMON_THEME",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_RADIO_JINGLE",
+   "fileName": "SEQ_GS_P_RADIO_JINGLE.sseq",
+   "bank": "BANK_GS_P_RADIO_JINGLE",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_RADIO_KOMORIUTA",
+   "fileName": "SEQ_GS_P_RADIO_KOMORIUTA.sseq",
+   "bank": "BANK_GS_P_RADIO_KOMORIUTA",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_RADIO_MARCH",
+   "fileName": "SEQ_GS_P_RADIO_MARCH.sseq",
+   "bank": "BANK_GS_P_RADIO_MARCH",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_SENKYO",
+   "fileName": "SEQ_GS_P_SENKYO.sseq",
+   "bank": "BANK_GS_P_SENKYO",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_TITLE",
+   "fileName": "SEQ_GS_P_TITLE.sseq",
+   "bank": "BANK_GS_P_TITLE",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_P_VS_ROCKET",
+   "fileName": "SEQ_GS_P_VS_ROCKET.sseq",
+   "bank": "BANK_GS_P_VS_ROCKET",
+   "volume": 73,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_JINGLE",
+   "fileName": "SEQ_GS_RADIO_JINGLE.sseq",
+   "bank": "BANK_GS_RADIO_JINGLE",
+   "volume": 82,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_KOMORIUTA",
+   "fileName": "SEQ_GS_RADIO_KOMORIUTA.sseq",
+   "bank": "BANK_GS_RADIO_KOMORIUTA",
+   "volume": 82,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_MARCH",
+   "fileName": "SEQ_GS_RADIO_MARCH.sseq",
+   "bank": "BANK_GS_RADIO_MARCH",
+   "volume": 82,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_PT",
+   "fileName": "SEQ_GS_RADIO_PT.sseq",
+   "bank": "BANK_GS_RADIO_PT",
+   "volume": 70,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_R_101",
+   "fileName": "SEQ_GS_RADIO_R_101.sseq",
+   "bank": "BANK_GS_RADIO_R_101",
+   "volume": 69,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_R_201",
+   "fileName": "SEQ_GS_RADIO_R_201.sseq",
+   "bank": "BANK_GS_RADIO_R_201",
+   "volume": 104,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_TRAINER",
+   "fileName": "SEQ_GS_RADIO_TRAINER.sseq",
+   "bank": "BANK_GS_RADIO_TRAINER",
+   "volume": 73,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_UNKNOWN",
+   "fileName": "SEQ_GS_RADIO_UNKNOWN.sseq",
+   "bank": "BANK_GS_RADIO_UNKNOWN",
+   "volume": 89,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
+  },
+  {
+   "name": "SEQ_GS_RADIO_VARIETY",
+   "fileName": "SEQ_GS_RADIO_VARIETY.sseq",
+   "bank": "BANK_GS_RADIO_VARIETY",
+   "volume": 73,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_BGM"
   },
   {
    "name": "SEQ_GS_RYUUNOANA",
@@ -833,6 +1175,15 @@
    "fileName": "SEQ_GS_SENKYO.sseq",
    "bank": "BANK_GS_SENKYO",
    "volume": 69,
+   "channelPriority": 30,
+   "playerPriority": 64,
+   "player": "PLAYER_FIELD"
+  },
+  {
+   "name": "SEQ_GS_SENKYO_R",
+   "fileName": "SEQ_GS_SENKYO_R.sseq",
+   "bank": "BANK_GS_SENKYO_R",
+   "volume": 64,
    "channelPriority": 30,
    "playerPriority": 64,
    "player": "PLAYER_FIELD"
@@ -1379,6 +1730,16 @@
   }
  ],
  "bankInfo": [
+  {
+   "name": "BANK_GS_AIKOTOBA",
+   "fileName": "BANK_GS_AIKOTOBA.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
   {
    "name": "BANK_GS_BATTLETOWER",
    "fileName": "BANK_GS_BATTLETOWER.sbnk",
@@ -1930,6 +2291,16 @@
    ]
   },
   {
+   "name": "BANK_GS_HUE",
+   "fileName": "BANK_GS_HUE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
    "name": "BANK_GS_IBUKI",
    "fileName": "BANK_GS_IBUKI.sbnk",
    "waves": [
@@ -1942,6 +2313,16 @@
   {
    "name": "BANK_GS_KABURENJOU",
    "fileName": "BANK_GS_KABURENJOU.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_KAIDENPA",
+   "fileName": "BANK_GS_KAIDENPA.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -1972,6 +2353,16 @@
   {
    "name": "BANK_GS_OHKIDO",
    "fileName": "BANK_GS_OHKIDO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_OHKIDO_RABO",
+   "fileName": "BANK_GS_OHKIDO_RABO.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -2022,6 +2413,346 @@
   {
    "name": "BANK_GS_PT_ENTR",
    "fileName": "BANK_GS_PT_ENTR.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_AIKOTOBA",
+   "fileName": "BANK_GS_P_AIKOTOBA.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_ENDING",
+   "fileName": "BANK_GS_P_ENDING.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_ENDING2",
+   "fileName": "BANK_GS_P_ENDING2.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_BOUZU",
+   "fileName": "BANK_GS_P_EYE_BOUZU.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_J_AYASHII",
+   "fileName": "BANK_GS_P_EYE_J_AYASHII.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_J_SHOUJO",
+   "fileName": "BANK_GS_P_EYE_J_SHOUJO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_J_SHOUNEN",
+   "fileName": "BANK_GS_P_EYE_J_SHOUNEN.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_K_AYASHII",
+   "fileName": "BANK_GS_P_EYE_K_AYASHII.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_K_SHOUJO",
+   "fileName": "BANK_GS_P_EYE_K_SHOUJO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_K_SHOUNEN",
+   "fileName": "BANK_GS_P_EYE_K_SHOUNEN.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_MAIKO",
+   "fileName": "BANK_GS_P_EYE_MAIKO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_EYE_ROCKET",
+   "fileName": "BANK_GS_P_EYE_ROCKET.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_E_MINAKI",
+   "fileName": "BANK_GS_P_E_MINAKI.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_HUE",
+   "fileName": "BANK_GS_P_HUE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_IBUKI",
+   "fileName": "BANK_GS_P_IBUKI.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_OHKIDO",
+   "fileName": "BANK_GS_P_OHKIDO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_OHKIDO_RABO",
+   "fileName": "BANK_GS_P_OHKIDO_RABO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_OPENING_TITLE_G",
+   "fileName": "BANK_GS_P_OPENING_TITLE_G.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_POKEMON_THEME",
+   "fileName": "BANK_GS_P_POKEMON_THEME.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_RADIO_JINGLE",
+   "fileName": "BANK_GS_P_RADIO_JINGLE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_RADIO_KOMORIUTA",
+   "fileName": "BANK_GS_P_RADIO_KOMORIUTA.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_RADIO_MARCH",
+   "fileName": "BANK_GS_P_RADIO_MARCH.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_SENKYO",
+   "fileName": "BANK_GS_P_SENKYO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_TITLE",
+   "fileName": "BANK_GS_P_TITLE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_P_VS_ROCKET",
+   "fileName": "BANK_GS_P_VS_ROCKET.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_JINGLE",
+   "fileName": "BANK_GS_RADIO_JINGLE.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_KOMORIUTA",
+   "fileName": "BANK_GS_RADIO_KOMORIUTA.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_MARCH",
+   "fileName": "BANK_GS_RADIO_MARCH.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_PT",
+   "fileName": "BANK_GS_RADIO_PT.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_R_101",
+   "fileName": "BANK_GS_RADIO_R_101.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_R_201",
+   "fileName": "BANK_GS_RADIO_R_201.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_TRAINER",
+   "fileName": "BANK_GS_RADIO_TRAINER.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_UNKNOWN",
+   "fileName": "BANK_GS_RADIO_UNKNOWN.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_RADIO_VARIETY",
+   "fileName": "BANK_GS_RADIO_VARIETY.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -2302,6 +3033,16 @@
   {
    "name": "BANK_GS_SENKYO",
    "fileName": "BANK_GS_SENKYO.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_GS_SENKYO_R",
+   "fileName": "BANK_GS_SENKYO_R.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",

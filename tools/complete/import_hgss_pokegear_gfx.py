@@ -14,8 +14,12 @@ build_heartgold.sh), its first skin only:
   32 KB beside the app bar): each tile takes one of a few 15-colour palettes, and tiles that are the same, flipped or
   not, are kept once. map.pal holds those palettes from 0, the place name's colours in 12 (the phone's list colours)
   and the app bar's in 14-15. The tilemap is the 48 by 20 entries, a row after another.
-- marker.png / marker.pal: the map app's player markers (pgmap_gra 1's tiles 8-15: Ethan's head, then Lyra's, each
-  four tiles of a 16 by 16 sprite) and their palette (pgmap_gra 0's first).
+- marker.png / marker.pal: the Pokégear's sprites, each four tiles of a 16 by 16 sprite: the map app's player markers
+  (pgmap_gra 1's tiles 8-15: Ethan's head, then Lyra's) and the radio's tuning cursor (pgradio_gra 1's first); their
+  palettes (pgmap_gra 0's first, then pgradio_gra 0's first).
+- radio.png / radio.NSCR / radio.pal: the radio app's screen (its pgradio_gra 16 and 22: the band for the show's
+  title, the globe the cursor tunes in, the four channel buttons and, below, the buttons' lit state) and its palettes
+  (pgradio_gra 10's 0-13), with the text's colours in 12 (the phone's list colours) and the app bar's in 14-15.
 
 From the repo root:
     python3 tools/complete/import_hgss_pokegear_gfx.py
@@ -164,10 +168,23 @@ def main():
     from PIL import Image
 
     sheet = Image.open(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000001.png'))
-    marker = sheet.crop((0, 8 * 8, 8, 16 * 8))
-    marker.save(os.path.join(OUT, 'marker.png'))
-    save_pal(os.path.join(OUT, 'marker.pal'), [nclr_colours(os.path.join(HG, 'map', 'pgmap_gra',
-                                                                         'pgmap_gra_00000000.NCLR'))[:16]])
+    cursor = Image.open(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000001.png'))
+    sprites = Image.new('P', (8, 12 * 8))
+    sprites.putpalette(sheet.getpalette())
+    sprites.paste(sheet.crop((0, 8 * 8, 8, 16 * 8)), (0, 0))
+    for t, (x, y) in enumerate(((0, 0), (8, 0), (0, 8), (8, 8))):  # the 16 by 16 cursor's tiles, in a sprite's order
+        sprites.paste(cursor.crop((x, y, x + 8, y + 8)), (0, (8 + t) * 8))
+    sprites.save(os.path.join(OUT, 'marker.png'))
+    save_pal(os.path.join(OUT, 'marker.pal'), [
+        nclr_colours(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000000.NCLR'))[:16],
+        nclr_colours(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000000.NCLR'))[:16]])
+
+    # the radio
+    shutil.copyfile(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000016.png'), os.path.join(OUT, 'radio.png'))
+    shutil.copyfile(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000022.NSCR'),
+                    os.path.join(OUT, 'radio.NSCR'))
+    radio = palettes(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000010.NCLR'))
+    save_pal(os.path.join(OUT, 'radio.pal'), [radio[n] for n in range(12)] + [phone[2], radio[13], gear[14], gear[15]])
     print(f'{OUT}: app bar, phone frame, 16 palettes; map {len(pixels)} tiles in {len(map_palettes)} palettes')
 
 

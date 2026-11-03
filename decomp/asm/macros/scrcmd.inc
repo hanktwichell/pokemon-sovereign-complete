@@ -6349,6 +6349,21 @@
     .short \destVar
     .endm
 
+    // HeartGold's RadioMusicIsPlaying: whether the Pokégear radio plays that music (include/complete_radio.h)
+    .macro CompleteRadioMusicIsPlaying music, destVar
+    .short SCRCMD_COMPLETERADIOMUSICISPLAYING
+    .short \music
+    .short \destVar
+    .endm
+
+    // HeartGold's GetBuenasPassword: the first of today's three password choices (a message of Buena's bank), and
+    // which of them is the one the radio gave (include/complete_radio.h)
+    .macro CompleteGetBuenasPassword msgVar, answerVar
+    .short SCRCMD_COMPLETEGETBUENASPASSWORD
+    .short \msgVar
+    .short \answerVar
+    .endm
+
     .text
     .globl _start
 _start:

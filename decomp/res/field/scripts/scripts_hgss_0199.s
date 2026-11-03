@@ -163,8 +163,7 @@ _0234:
 scr_seq_R12_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
-    SetVarFromValue VAR_RESULT, FLAG_HGSS_GOT_EXPN_CARD
-    CheckFlagFromVar VAR_RESULT, VAR_RESULT
+    CompleteRadioMusicIsPlaying 5, VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0268
     Message msg_0348_R12_00002

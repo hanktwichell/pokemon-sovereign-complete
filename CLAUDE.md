@@ -85,6 +85,9 @@ work.
 - The Pokégear: the field's bottom screen is the "no Pokétch" screen, the Pokétch or the Pokégear
   (`include/complete_pokegear.h`; the overlay `src/applications/complete_pokegear/`, in the Pokétch's place, with
   HeartGold's graphics from `tools/complete/import_hgss_pokegear_gfx.py`). Test: `tools/complete/test_hgss_pokegear.py`.
+- Its radio: `src/applications/complete_pokegear/radio/` (HeartGold's shows, one file each, and the page); its music
+  is the field's BGM, kept by `src/complete_radio.c` in the main module, which the encounter and script checks ask
+  (`CompleteRadio_Music`). Test: `tools/complete/test_hgss_radio.py`.
   Test-only markers the tests read belong in the main module: an overlay's memory is reused by the next overlay.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).

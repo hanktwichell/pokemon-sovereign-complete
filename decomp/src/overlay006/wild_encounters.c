@@ -30,6 +30,7 @@
 #include "complete_sinnoh.h"
 #include "encounter.h"
 #include "complete_encounters.h"
+#include "complete_radio.h" // Sovereign Complete
 #include "complete_scrcmd.h"
 #include "field_battle_data_transfer.h"
 #include "field_overworld_state.h"
@@ -1286,6 +1287,15 @@ static void ModifyEncounterRateWithFlute(FieldSystem *fieldSystem, u8 *encounter
         *encounterRate /= 2;
     } else if (activeFlute == FLUTE_FACTOR_USED_WHITE) {
         *encounterRate = *encounterRate + (*encounterRate / 2);
+    }
+
+    // Sovereign Complete: the Pokégear radio's March brings more wild Pokémon and its Lullaby fewer (HeartGold's
+    // encounter_check.c adds or takes 25 points of its own rate), as the White and the Black Flute do
+    // (include/complete_radio.h)
+    if (CompleteRadio_Music() == RADIO_MUSIC_MARCH) {
+        *encounterRate = *encounterRate + (*encounterRate / 2);
+    } else if (CompleteRadio_Music() == RADIO_MUSIC_LULLABY) {
+        *encounterRate /= 2;
     }
 }
 

@@ -1001,6 +1001,8 @@ ScriptCommand(SCRCMD_COMPLETEPLACEDGET,                                CompleteS
 ScriptCommand(SCRCMD_COMPLETEFINDSTARTERSLOT,                          CompleteScrCmd_FindStarterSlot)
 ScriptCommand(SCRCMD_COMPLETEVOLTORBFLIP,                              CompleteScrCmd_VoltorbFlip)
 ScriptCommand(SCRCMD_COMPLETEPHONECALLMENU,                            CompleteScrCmd_PhoneCallMenu)
+ScriptCommand(SCRCMD_COMPLETERADIOMUSICISPLAYING,                      CompleteScrCmd_RadioMusicIsPlaying)
+ScriptCommand(SCRCMD_COMPLETEGETBUENASPASSWORD,                         CompleteScrCmd_GetBuenasPassword)
 
 // clang-format on
 

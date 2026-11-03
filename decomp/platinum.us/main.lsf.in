@@ -243,6 +243,7 @@ Static main
 	Object src/complete_safari.c
 	Object src/complete_phone.c
 	Object src/complete_pokegear_state.c
+	Object src/complete_radio.c
 	Object src/complete_sound.c
 	Object src/complete_rival.c
 	Object src/complete_badges.c
@@ -1562,6 +1563,20 @@ Overlay complete_pokegear
 {
 	After overlay9
 	Object src/applications/complete_pokegear/pokegear.c
+	Object src/applications/complete_pokegear/radio/radio_page.c
+	Object src/applications/complete_pokegear/radio/radio_show.c
+	Object src/applications/complete_pokegear/radio/shows/buenas_password.c
+	Object src/applications/complete_pokegear/radio/shows/commercials.c
+	Object src/applications/complete_pokegear/radio/shows/mahogany_signal.c
+	Object src/applications/complete_pokegear/radio/shows/poke_flute.c
+	Object src/applications/complete_pokegear/radio/shows/pokemon_music.c
+	Object src/applications/complete_pokegear/radio/shows/pokemon_search_party.c
+	Object src/applications/complete_pokegear/radio/shows/pokemon_talk.c
+	Object src/applications/complete_pokegear/radio/shows/serial_radio_drama.c
+	Object src/applications/complete_pokegear/radio/shows/team_rocket.c
+	Object src/applications/complete_pokegear/radio/shows/that_town_these_people.c
+	Object src/applications/complete_pokegear/radio/shows/trainer_profiles.c
+	Object src/applications/complete_pokegear/radio/shows/unown.c
 }
 
 Overlay complete_voltorb_flip

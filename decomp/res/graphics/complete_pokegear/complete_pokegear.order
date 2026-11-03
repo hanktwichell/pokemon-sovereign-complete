@@ -8,3 +8,6 @@ map_tilemap.bin
 map.NCLR
 marker.NCGR
 marker.NCLR
+radio.NCGR
+radio.NSCR
+radio.NCLR

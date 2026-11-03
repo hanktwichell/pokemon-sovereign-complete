@@ -79,9 +79,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **The Pokédex (Nov 3, 2026).** HeartGold's Johto Pokédex (256) is the regional Pokédex until the National
   Pokédex; once the player is in Sinnoh, Sinnoh's comes back as the regional choice beside the National.
 - **Pokétch and Pokégear (Nov 3, 2026).** Both: a button on the bottom screen switches between them. The Pokégear
-  brings the phone's contact list, the radio and the Town Map of Johto and Kanto. Done so far: the Pokégear on the
-  bottom screen with its contact list, the calls the player places from it, its map of Johto and Kanto, and the
-  switch both ways (`docs/Features.md`, "The Pokégear and the Pokétch"); next, its Radio.
+  brings the phone's contact list, the radio and the Town Map of Johto and Kanto. Done: the Pokégear on the bottom
+  screen with its contact list, the calls the player places from it, its map of Johto and Kanto, its radio with
+  HeartGold's twelve shows, and the switch both ways (`docs/Features.md`, "The Pokégear and the Pokétch" and "The
+  Pokégear radio"). The radio has no signal in Sinnoh. Left: HeartGold's Pokégear skins (its settings).
 - **Red at Mt. Silver (Nov 3, 2026).** Post-game: after the end of the whole game.
 - **Johto's Battle Frontier (Nov 3, 2026).** Open. Done: its five facilities run Platinum's challenges (`docs/Features.md`,
   "Johto's Battle Frontier"); its Battle Point move tutors are left.

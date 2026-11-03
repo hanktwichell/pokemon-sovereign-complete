@@ -689,10 +689,10 @@ COMMANDS = {
     'ScrCmd_811': one('CompleteMomGiftPeek {0}, {1}'),
     'ScrCmd_812': one('CompleteMomGiftTake'),
     'UnsetPhoneCallTrigger': one('CompletePhoneClearCallTrigger {0}'),
-    # Whether the radio plays a channel (5: the Poké Flute, which wakes Snorlax on Routes 11 and 12). Until the radio
-    # comes (with the Pokétch and Pokégear question), the Poké Flute plays once the player has the Expansion Card
-    'RadioMusicIsPlaying': lambda a: ([f'SetVarFromValue {a[1]}, FLAG_HGSS_GOT_EXPN_CARD', f'CheckFlagFromVar {a[1]}, {a[1]}']
-                                      if a[0] == '5' else [f'SetVarFromValue {a[1]}, 0']),
+    # Whether the Pokégear radio plays a music (5: the Poké Flute, which wakes Snorlax on Routes 11 and 12)
+    'RadioMusicIsPlaying': one('CompleteRadioMusicIsPlaying {0}, {1}'),
+    # Buena's password quiz: today's three choices and the answer (the radio's Buena's Password gives it)
+    'GetBuenasPassword': one('CompleteGetBuenasPassword {0}, {1}'),
     # The Move Maniac (Blackthorn) and the move tutors (Draco Meteor, Sacred Gold's): Platinum's Move Reminder and tutor
     # menu, which give the same results (0xFF: nothing learned or picked); and the Move Deleter's move pick
     'ScrCmd_466': one('CheckHasLearnableReminderMoves {0}, {1}'),

@@ -118,6 +118,7 @@
 #include "complete_bug_contest.h" // Sovereign Complete: the Bug-Catching Contest
 #include "complete_safari.h" // Sovereign Complete: the Johto Safari Zone
 #include "complete_phone.h" // Sovereign Complete: the Pokégear phone
+#include "complete_radio.h" // Sovereign Complete: the Pokégear radio
 #include "complete_gyms.h" // Sovereign Complete: HeartGold's gym puzzles
 #include "complete_follower_talk.h" // Sovereign Complete: talking to the following Pokémon
 #include "field_system.h"

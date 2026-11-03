@@ -5,6 +5,7 @@
 
 #include "field/field_system_decl.h"
 #include "overlay006/wild_encounters.h"
+#include "savedata.h"
 
 // Sovereign Complete: Johto's and Kanto's wild Pokémon, Sacred Gold's tables in HeartGold's layout
 // (res/field/encounters/hgss, hgss_enc_data.narc; docs/SacredGold.md).
@@ -34,5 +35,10 @@ u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing,
 // Pokémon at all
 BOOL CompleteEncounters_IsRuinsOfAlphHall(enum MapHeaderID mapHeaderID);
 u32 CompleteEncounters_UnownForms(FieldSystem *fieldSystem);
+
+// For Oak's Pokémon Talk on the Pokégear radio: today's outbreak, its map and species (FALSE for none, or a fishing
+// one), and every wild Pokémon of a Johto or Kanto map (into out, at most max, once each; how many)
+BOOL CompleteEncounters_TodaysOutbreak(SaveData *saveData, u16 *mapHeaderID, u16 *species);
+int CompleteEncounters_MapSpecies(enum MapHeaderID mapHeaderID, u16 *out, int max);
 
 #endif // POKEPLATINUM_COMPLETE_ENCOUNTERS_H

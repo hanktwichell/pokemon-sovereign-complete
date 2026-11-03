@@ -185,7 +185,7 @@ _02B0:
 _02B8:
     WaitMovement
 _02BA:
-    @ HGSS: GetBuenasPassword VAR_SPECIAL_x8000, VAR_SPECIAL_x8001
+    CompleteGetBuenasPassword VAR_0x8000, VAR_0x8001
     InitLocalTextMenu 1, 1, 0, VAR_RESULT, 0
     AddMenuEntry VAR_0x8000, 0
     AddVar VAR_0x8000, 1

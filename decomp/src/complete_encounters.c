@@ -12,11 +12,13 @@
 #include "field/field_system.h"
 
 #include "complete_map_info.h"
+#include "complete_radio.h"
 #include "complete_test.h"
 #include "inlines.h"
 #include "location.h"
 #include "map_header.h"
 #include "narc.h"
+#include "pokedex.h"
 #include "rtc.h"
 #include "special_encounter.h"
 #include "vars_flags.h"
@@ -222,6 +224,23 @@ int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot)
         return sTable.landSwarm;
     }
 
+    // The Pokégear radio's Hoenn and Sinnoh Sounds (HeartGold's EncSlotArray_Update_HoennSinnohSounds): slots 2 and 3
+    // have the table's first Hoenn or Sinnoh Pokémon, 4 and 5 its second
+    if (slot >= 2 && slot < 6) {
+        enum CompleteRadioMusic music = CompleteRadio_Music();
+        u16 species = SPECIES_NONE;
+
+        if (music == RADIO_MUSIC_HOENN_SOUNDS) {
+            species = sTable.radioHoenn[(slot - 2) / 2];
+        } else if (music == RADIO_MUSIC_SINNOH_SOUNDS) {
+            species = sTable.radioSinnoh[(slot - 2) / 2];
+        }
+
+        if (species != SPECIES_NONE) {
+            return species;
+        }
+    }
+
     return sTable.landSpecies[time][slot];
 }
 
@@ -293,8 +312,113 @@ u32 CompleteEncounters_UnownForms(FieldSystem *fieldSystem)
     }
 
     if (forms != 0 && mapHeaderID == MAP_HEADER_HGSS_RUINS_OF_ALPH_HALL_ENTRANCE_SINJOH_EVENT) {
-        forms = (1 << UNOWN_FORM_EXC) | (1 << UNOWN_FORM_QUE);
+        return (1 << UNOWN_FORM_EXC) | (1 << UNOWN_FORM_QUE);
+    }
+
+    // The Unown's broadcast on the Pokégear radio (HeartGold's EncounterGen_ChooseUnownForm): half the time, one of the
+    // letters let out that the Pokédex hasn't seen yet, if any
+    if (forms != 0 && CompleteRadio_Music() == RADIO_MUSIC_UNOWN && LCRNG_RandMod(100) < 50) {
+        Pokedex *pokedex = SaveData_GetPokedex(fieldSystem->saveData);
+        u32 unseen = forms;
+        u32 seen = Pokedex_NumFormsSeen_Unown(pokedex);
+
+        for (u32 i = 0; i < seen; i++) {
+            unseen &= ~(1 << Pokedex_GetForm_Unown(pokedex, i));
+        }
+
+        if (unseen != 0) {
+            return unseen;
+        }
     }
 
     return forms;
+}
+
+// Today's outbreak for Oak's Pokémon Talk on the radio (HeartGold's GetSwarmInfoFromRand): its map and the species in
+// its grass or on its water; FALSE before the outbreaks start, or on a fishing day (Sacred Gold's tables have no
+// fishing swarm species)
+BOOL CompleteEncounters_TodaysOutbreak(SaveData *saveData, u16 *mapHeaderID, u16 *species)
+{
+    if (*VarsFlags_GetVarAddress(SaveData_GetVarsFlags(saveData), VAR_COMPLETE_OUTBREAKS) == 0) {
+        return FALSE;
+    }
+
+    u32 index = SpecialEncounter_GetDailyMon(SaveData_GetSpecialEncounters(saveData), DAILY_SWARM) % NELEMS(sOutbreakMaps);
+
+#ifdef SOVEREIGN_TEST
+    if (gCompleteTestOutbreakMap != 0) {
+        index = gCompleteTestOutbreakMap - 1;
+    }
+#endif
+
+    Read(sOutbreakMaps[index].mapHeaderID);
+    *mapHeaderID = sOutbreakMaps[index].mapHeaderID;
+
+    switch (sOutbreakMaps[index].terrain) {
+    case OUTBREAK_LAND:
+        *species = sTable.landSwarm;
+        break;
+    case OUTBREAK_SURF:
+        *species = sTable.surfSwarm;
+        break;
+    default:
+        *species = SPECIES_NONE;
+        break;
+    }
+
+    return *species != SPECIES_NONE;
+}
+
+static int AddSpecies(u16 *out, int count, int max, u16 species)
+{
+    if (species == SPECIES_NONE || count >= max) {
+        return count;
+    }
+
+    for (int i = 0; i < count; i++) {
+        if (out[i] == species) {
+            return count;
+        }
+    }
+
+    out[count] = species;
+    return count + 1;
+}
+
+// Every wild Pokémon of a Johto or Kanto map, once each (HeartGold's
+// RadioShow_PokemonTalk_SampleSpeciesFromMapEncounters): the grass at each time of day, surfing, Rock Smash, the
+// rods and the night's fishing
+int CompleteEncounters_MapSpecies(enum MapHeaderID mapHeaderID, u16 *out, int max)
+{
+    int count = 0;
+
+    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+        return 0;
+    }
+
+    Read(mapHeaderID);
+
+    if (sTable.landRate != 0) {
+        for (int i = 0; i < HGSS_LAND_SLOTS; i++) {
+            for (int time = HGSS_MORNING; time <= HGSS_NIGHT; time++) {
+                count = AddSpecies(out, count, max, sTable.landSpecies[time][i]);
+            }
+        }
+    }
+
+    for (int i = 0; i < HGSS_WATER_SLOTS; i++) {
+        count = sTable.surfRate != 0 ? AddSpecies(out, count, max, sTable.surf[i].species) : count;
+    }
+
+    for (int i = 0; i < 2; i++) {
+        count = sTable.rockSmashRate != 0 ? AddSpecies(out, count, max, sTable.rockSmash[i].species) : count;
+    }
+
+    for (int i = 0; i < HGSS_WATER_SLOTS; i++) {
+        count = sTable.oldRodRate != 0 ? AddSpecies(out, count, max, sTable.oldRod[i].species) : count;
+        count = sTable.goodRodRate != 0 ? AddSpecies(out, count, max, sTable.goodRod[i].species) : count;
+        count = sTable.superRodRate != 0 ? AddSpecies(out, count, max, sTable.superRod[i].species) : count;
+    }
+
+    return AddSpecies(out, count, max, sTable.nightFishing);
 }

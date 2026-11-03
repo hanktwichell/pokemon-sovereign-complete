@@ -6,6 +6,7 @@
 #include "generated/text_banks.h"
 #include "generated/trainers.h"
 
+#include "applications/complete_pokegear/radio.h"
 #include "bg_window.h"
 #include "complete_map_info.h"
 #include "complete_phone.h"
@@ -43,8 +44,10 @@
 //   message box once the player stands still); the arrows scroll the list.
 // - the Map: its map of Johto and Kanto, with the player's head where they are (HeartGold's map app's place: the
 //   overworld's block, or the world map place of a map off it) and the place's name; dragging scrolls it.
-// The app bar's last button switches to the Pokétch when the player has it. HeartGold's Radio and its skin setting
-// wait (their buttons are dimmed).
+// - the Radio (radio/radio_page.c): the globe that tunes Johto's and Kanto's stations, and their shows; its music is
+//   the field's while the page shows a station, and leaving the page turns it off.
+// The app bar's last button switches to the Pokétch when the player has it. HeartGold's skin setting waits (its
+// button is dimmed).
 
 #define LIST_ROWS        6 // HeartGold's: rows of 24 pixels, behind the frame's window
 #define ROW_HEIGHT       24
@@ -81,6 +84,7 @@ enum PokegearState {
 enum PokegearPage {
     PAGE_PHONE = 0,
     PAGE_MAP,
+    PAGE_RADIO,
 };
 
 enum AppBarButton {
@@ -117,6 +121,7 @@ typedef struct CompletePokegear {
     s16 markerX; // the player's place on the map
     s16 markerY;
     u16 mapHeaderID; // the place named
+    RadioPage *radio;
     u8 contacts[NUM_PHONE_CONTACTS];
     u16 appBar[4][2][32]; // HeartGold's app bar's rows: lit and dimmed
 } CompletePokegear;
@@ -200,8 +205,8 @@ static void DrawList(CompletePokegear *gear)
     Window_CopyToVRAM(&gear->list);
 }
 
-// HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the phone, the map and, with a Pokétch to switch
-// to, the exit button lit; the rest dimmed
+// HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the phone, the map, the radio and, with a Pokétch
+// to switch to, the exit button lit; the settings dimmed
 static void DrawAppBar(CompletePokegear *gear)
 {
     gear->poketchShown = CompletePokegear_PoketchAvailable(gear->saveData);
@@ -214,7 +219,7 @@ static void DrawAppBar(CompletePokegear *gear)
         }
 
         for (int button = 0; button < APP_BAR_BUTTONS; button++) {
-            BOOL lit = button == APP_BAR_PHONE || button == APP_BAR_MAP || (button == APP_BAR_EXIT && gear->poketchShown);
+            BOOL lit = button == APP_BAR_PHONE || button == APP_BAR_MAP || button == APP_BAR_RADIO || (button == APP_BAR_EXIT && gear->poketchShown);
 
             for (int x = sAppBarButtons[button][0]; x < sAppBarButtons[button][0] + sAppBarButtons[button][1]; x++) {
                 row[x] = gear->appBar[y][!lit][x];
@@ -267,8 +272,9 @@ static void DrawPlaceName(CompletePokegear *gear)
     MessageLoader_Free(loader);
 }
 
-// The page's layers: the Phone's frame (layer 0, tiles 0-127) and its list's window (layer 1); or the Map's map (layer
-// 1, its tiles over the frame's, which is off) and its place name's window (layer 0, tiles 256 on)
+// The page's layers: the Phone's frame (layer 0, tiles 0-127) and its list's window (layer 1); the Map's map (layer 1,
+// its tiles over the frame's, which is off) and its place name's window (layer 0, tiles 256 on); or the Radio's globe
+// and its windows (layer 0, radio_page.c)
 static void LoadPage(CompletePokegear *gear)
 {
     NARC *narc = NARC_ctor(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, HEAP_ID_POKETCH_APP);
@@ -288,6 +294,11 @@ static void LoadPage(CompletePokegear *gear)
         Window_PutToTilemap(&gear->list);
         Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, 0);
         DrawList(gear);
+    } else if (gear->page == PAGE_RADIO) {
+        Bg_ClearTilesRange(BG_LAYER_SUB_1, TILE_SIZE_4BPP, 0, HEAP_ID_POKETCH_APP);
+        Bg_ClearTilemap(gear->bgConfig, BG_LAYER_SUB_1);
+        Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, 0);
+        gear->radio = RadioPage_New(gear->fieldSystem, gear->bgConfig, HEAP_ID_POKETCH_APP);
     } else {
         Graphics_LoadTilesToBgLayerFromOpenNARC(narc, map_NCGR, gear->bgConfig, BG_LAYER_SUB_1, 0, 0, FALSE, HEAP_ID_POKETCH_APP);
         Graphics_LoadPaletteFromOpenNARC(narc, map_NCLR, PAL_LOAD_SUB_BG, 0, PALETTE_SIZE_BYTES * 16, HEAP_ID_POKETCH_APP);
@@ -314,13 +325,17 @@ static void LoadPage(CompletePokegear *gear)
     DrawAppBar(gear);
     Bg_CopyTilemapBufferToVRAM(gear->bgConfig, BG_LAYER_SUB_0);
     Bg_CopyTilemapBufferToVRAM(gear->bgConfig, BG_LAYER_SUB_1);
-    GXS_SetVisiblePlane(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | (gear->page == PAGE_MAP ? GX_PLANEMASK_OBJ : 0));
+    GXS_SetVisiblePlane(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | (gear->page != PAGE_PHONE ? GX_PLANEMASK_OBJ : 0));
 }
 
-static void UnloadPage(CompletePokegear *gear)
+// turnOff: the player left the Radio page, so its music ends (a shutdown leaves it on, for the page to pick it up again)
+static void UnloadPage(CompletePokegear *gear, BOOL turnOff)
 {
     if (gear->page == PAGE_PHONE) {
         Window_Remove(&gear->list);
+    } else if (gear->page == PAGE_RADIO) {
+        RadioPage_Free(gear->radio, turnOff);
+        gear->radio = NULL;
     } else {
         Window_Remove(&gear->name);
     }
@@ -335,7 +350,7 @@ static void ChangePage(CompletePokegear *gear, enum PokegearPage page)
     }
 
     Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
-    UnloadPage(gear);
+    UnloadPage(gear, TRUE);
     gear->page = page;
     CompletePokegear_SetPage(page);
     gear->lit = LIST_ROWS;
@@ -403,9 +418,9 @@ static void LoadGraphics(CompletePokegear *gear)
     Heap_Free(file);
     NARC_dtor(narc);
 
-    // the player's heads, a boy's then a girl's, and their palette
+    // the player's heads, a boy's then a girl's, and the radio's cursor; their palettes
     Graphics_LoadObjectTiles(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, marker_NCGR, DS_SCREEN_SUB, 0, 0, FALSE, HEAP_ID_POKETCH_APP);
-    Graphics_LoadPalette(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, marker_NCLR, PAL_LOAD_SUB_OBJ, 0, PALETTE_SIZE_BYTES, HEAP_ID_POKETCH_APP);
+    Graphics_LoadPalette(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, marker_NCLR, PAL_LOAD_SUB_OBJ, 0, PALETTE_SIZE_BYTES * 2, HEAP_ID_POKETCH_APP);
 
     LoadPage(gear);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);
@@ -478,8 +493,10 @@ static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
         ChangePage(gear, PAGE_PHONE);
     } else if (x >= sAppBarButtons[APP_BAR_MAP][0] * 8) {
         ChangePage(gear, PAGE_MAP);
+    } else if (x >= sAppBarButtons[APP_BAR_RADIO][0] * 8) {
+        ChangePage(gear, PAGE_RADIO);
     } else {
-        Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // the Radio and the settings aren't here yet
+        Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // the settings (HeartGold's skins) aren't here
     }
 }
 
@@ -495,6 +512,10 @@ static void HandleTouch(CompletePokegear *gear)
     if (gear->page == PAGE_MAP) {
         HandleMapTouch(gear);
         return;
+    }
+
+    if (gear->page == PAGE_RADIO) {
+        return; // RadioPage_Run
     }
 
     if (gSystem.touchHeld && gear->held) {
@@ -531,7 +552,7 @@ static void HandleTouch(CompletePokegear *gear)
 static void Shutdown(CompletePokegear *gear)
 {
     DisableTouchPad();
-    UnloadPage(gear);
+    UnloadPage(gear, FALSE);
     Bg_FreeTilemapBuffer(gear->bgConfig, BG_LAYER_SUB_0);
     Bg_FreeTilemapBuffer(gear->bgConfig, BG_LAYER_SUB_1);
     MessageLoader_Free(gear->titles);
@@ -556,6 +577,10 @@ static void CompletePokegear_Task(SysTask *task, void *data)
 
     HandleTouch(gear);
     DrawMarker(gear);
+
+    if (gear->page == PAGE_RADIO && gear->radio != NULL) {
+        RadioPage_Run(gear->radio);
+    }
 
 #ifdef SOVEREIGN_TEST
     gCompleteTestPokegearMap[0] = gear->page;
