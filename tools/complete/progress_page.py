@@ -139,6 +139,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'Ho-Oh and Lugia have HeartGold\'s own cinematics now: the Clear Bell\'s rings of light, then Ho-Oh flying in '
+        'around the Bell Tower to its theme; and Lugia rising through the Whirl Islands\' waterfall, the picture '
+        'trailing as it cries.',
         'In the Radio Tower takeover you wear HeartGold\'s Rocket uniform, from Goldenrod Tunnel until the director '
         'takes it back, and as in HeartGold you can\'t Fly, Surf, ride the Bicycle, fish or use an Escape Rope in it.',
         'The Pokégear\'s Map and Radio come with their cards, as in HeartGold: the Map Card from Cherrygrove\'s guide, '

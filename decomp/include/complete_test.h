@@ -65,6 +65,10 @@ extern u16 gCompleteTestLegend[5];
 // model (its member in the archive), the frames the ride ran and whether it ended; and, as it runs, its first light's
 // color, its diffuse color, the main screen's layers (DISPCNT's low half) and its brightness (MASTER_BRIGHT)
 extern u16 gCompleteTestMagnetTrain[8];
+// The legendary cinematics (src/applications/complete_legend_cinematic/legend_cinematic.c): 0x100 + the cinematic as it
+// begins, its step, the frames drawn, the models loaded, whether the motion blur is on, the main screen's layers
+// (DISPCNT's low half), its brightness (MASTER_BRIGHT) and whether it has ended
+extern u16 gCompleteTestLegendCinematic[8];
 // The player's sprite (its graphics ID) as the field last ran, for tools/complete/test_hgss_rocket_costume.py
 extern u16 gCompleteTestPlayerGfx;
 

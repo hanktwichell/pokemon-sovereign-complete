@@ -27,8 +27,8 @@ memory, measured from both decomps and both built archives.
    `BANK_BGM_BASIC`. The tool checks that every note of every sequence plays the same WAV as before. It writes
    `decomp/res/sound/complete/`, which the build packs in place of Sovereign's banks and basic waves
    (`res/sound/meson.build`), so Sovereign's files stay as they are for syncs; the sync script reruns it.
-2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 168 songs (the Pokégear radio's and the Magnet Train
-   ride's jingle among them) and 25 fanfares (Voltorb Flip's two among them), kept as HeartGold's sequence files byte
+2. **HeartGold's songs** (`tools/complete/import_hgss_sound.py`): 169 songs (the Pokégear radio's, the Magnet Train
+   ride's jingle and Ho-Oh's theme in its cinematic among them) and 25 fanfares (Voltorb Flip's two among them), kept as HeartGold's sequence files byte
    for byte (`nitrosfx` can't turn 22 of them into MIDI). Each gets a bank of its own: HeartGold's
    instruments it plays, at their numbers; a wave Platinum keeps loaded is used from there, any other from
    `WAVE_ARC_GS`, one archive of all of them (160 waves, 454 KB) that loads wave by wave (NitroSystem's single load, a
@@ -66,7 +66,9 @@ memory, measured from both decomps and both built archives.
 
 ## Left
 
-- HeartGold's own sound effects: Platinum's stand in (the Magnet Train's ride has none for the train). The fanfares
+- HeartGold's own sound effects: Platinum's stand in (the Magnet Train's ride has none for the train; the legendary
+  cinematics take a sparkle for the Clear Bell's sound and its light, Fly's whoosh for Ho-Oh's wings, the waves for
+  the Whirl Islands' waterfall and Waterfall's rush for Lugia rising through it). The fanfares
   the engine's own code plays (a level up, a Pokémon caught in battle) are Platinum's in every region. The radio and
   Pokégear songs come with the Pokégear; the Pokéathlon's are skipped with it.
 - HeartGold's players use more channels than Platinum's, so a busy song could drop notes; untested by ear.

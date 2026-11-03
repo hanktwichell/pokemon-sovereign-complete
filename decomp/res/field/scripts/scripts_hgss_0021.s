@@ -290,7 +290,7 @@ scr_seq_D17R0110_006:
     SetVarFromValue VAR_MAP_LOCAL_0x0B, 123
     FadeScreen 6, 1, 0, COLOR_WHITE
     WaitFadeScreen
-    @ HGSS: Cinematic 0
+    CompleteLegendCinematic 0
     ClearFlag FLAG_HGSS_HIDE_BELL_TOWER_HO_OH
     AddObject obj_D17R0110_hou_obj01
     ShowObject obj_D17R0110_hou_obj01

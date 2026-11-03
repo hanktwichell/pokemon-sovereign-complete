@@ -398,7 +398,7 @@ scr_seq_D40R0107_005:
     SetPosition obj_D40R0107_dancer_4, 13, 1, 27, DIR_NORTH
     SetPosition obj_D40R0107_dancer, 19, 1, 33, DIR_NORTH
     SetPosition obj_D40R0107_dancer_2, 19, 1, 27, DIR_NORTH
-    @ HGSS: Cinematic 1
+    CompleteLegendCinematic 1
     CompleteLegendCutscene 11, 0
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

@@ -1587,6 +1587,12 @@ Overlay complete_magnet_train
 	Object src/applications/complete_magnet_train/magnet_train.c
 }
 
+Overlay complete_legend_cinematic
+{
+	After main
+	Object src/applications/complete_legend_cinematic/legend_cinematic.c
+}
+
 Overlay complete_voltorb_flip
 {
 	After main

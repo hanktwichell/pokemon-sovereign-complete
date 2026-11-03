@@ -1543,3 +1543,16 @@ Test results on the new test build:
   failed: Saffron's doctor who gives them wanders, and stepped off his tile before the test talked, each time it
   warped back. The test now waits facing his tile and talks as he steps back onto it, warping back only now and then;
   the whole gifts test passes with it (23 of 23).
+- **Ho-Oh's and Lugia's cinematics:** between the Kimono Girls' dance and the landing, HeartGold's cinematic now plays
+  (its `Cinematic` command, its overlay 106, in assembly there; in C here as an app of its own,
+  `src/applications/complete_legend_cinematic/legend_cinematic.c`). Over the Bell Tower the Clear Bell's sound spreads
+  in rings of light, then Ho-Oh flies in around the tower to HeartGold's Ho-Oh theme (`SEQ_GS_E_HOUOU`, now among the
+  imported songs); in the Whirl Islands Lugia rises through the waterfall and cries as the picture trails, the DS's
+  display capture blending each frame with the last, as HeartGold does it (Platinum's own copy of that code is in
+  the field's overlay, which is out while an app runs, so the app has its own). HeartGold's models (two archives,
+  LZ-compressed there, unpacked by `tools/complete/import_hgss_legend_cinematic.py`: 34 files, 1.3 MB), Ho-Oh's by
+  HeartGold's three times of day, lit by the field's light. The field map is left for the cinematic and comes back
+  with the scene's people where the script put them, as HeartGold's command does it (Platinum's trade scene's way).
+  In the emulator the legendary cutscenes test now checks each scene's cinematic too (begun, ended, its frames, its
+  models, Lugia's trail): both scenes pass, from their trigger tiles to their ends. Arceus's cinematic at the Sinjoh
+  Ruins (2D, with the Pokémon it brings) is next.

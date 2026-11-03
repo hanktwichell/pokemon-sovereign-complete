@@ -713,12 +713,21 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
   `fielddata/complete/legend.narc` by `tools/complete/import_hgss_legend.py`), drawn by the field's 3D object tasks
   (`ov5_021D1A94`, HeartGold's Field3dObjectTask) as Platinum's Easy3D objects (HeartGold's Field3dObject), with
   HeartGold's camera points and its camera path, a step a frame, on Platinum's camera.
-- **Left out:** HeartGold's cinematic of the bird's flight (`Cinematic`) between the dance and the landing; its return
-  to the field resets the camera, so the camera goes back to where it was as the scene began. HeartGold's sound
-  effects stand in as Platinum's (Fly's whoosh for the flaps, a sparkle for the eye).
+- **The cinematics** between the dance and the landing (HeartGold's `Cinematic`, its overlay 106, in assembly there,
+  in C here: `src/applications/complete_legend_cinematic/legend_cinematic.c`, run by `CompleteLegendCinematic`): over
+  the Bell Tower the Clear Bell's sound spreads in rings of light, then, to HeartGold's Ho-Oh theme, Ho-Oh flies in
+  around the tower; in the Whirl Islands Lugia rises through the waterfall, cries and spreads its wings as the picture
+  trails (the DS's display capture blending each frame with the last, as HeartGold does it). The models are
+  HeartGold's (`tools/complete/import_hgss_legend_cinematic.py`), Ho-Oh's by HeartGold's three times of day (the
+  morning and the day, the evening, the night), lit by the field's light at the time. As in HeartGold, the field map
+  is left for the cinematic and comes back with the scene's people where the script put them.
+- **Left out:** HeartGold's sound effects stand in as Platinum's (Fly's whoosh for the flaps, a sparkle for the eye,
+  the bell and the light; the waves and Waterfall's rush for the falls). Arceus's cinematic at the Sinjoh Ruins
+  (`Cinematic 2`, in Sacred Gold's plates event) is still to come.
 
 Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
-least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance; both pass).
+least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance, and its
+cinematic played to its end, Lugia's with its trail; both pass).
 
 ## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight
 

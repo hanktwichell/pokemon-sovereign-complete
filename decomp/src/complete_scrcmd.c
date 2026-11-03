@@ -37,6 +37,7 @@
 
 
 #include "applications/complete_alph_puzzle.h"
+#include "applications/complete_legend_cinematic.h"
 #include "applications/complete_magnet_train.h"
 #include "applications/complete_voltorb_flip/voltorb_flip.h"
 #include "applications/naming_screen.h"
@@ -57,6 +58,7 @@
 #include "encounter.h"
 #include "field_map_change.h"
 #include "field_task.h"
+#include "field_transition.h"
 #include "heap.h"
 #include "field_message.h"
 #include "field_overworld_state.h"
@@ -1098,6 +1100,63 @@ BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx)
     *args = trainArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, trainArgs);
     ScriptContext_Pause(ctx, WaitForAlphPuzzle); // frees the arguments once it's done
+    return TRUE;
+}
+
+// HeartGold's legendary cinematics (its ScrCmd_Cinematic and the field task it starts, unk_02097BE0.s): the field map
+// is left (the script has faded the screen out first), the cinematic plays (src/applications/complete_legend_cinematic),
+// and the field map comes back with the scene's people where the script left them, for the script to fade in. Its
+// models are chosen by HeartGold's three times of day, and lit by the field's light as it begins.
+typedef struct LegendCinematicTask {
+    int state;
+    CompleteLegendCinematicArgs args;
+} LegendCinematicTask;
+
+static BOOL Task_LegendCinematic(FieldTask *task)
+{
+    FS_EXTERN_OVERLAY(complete_legend_cinematic);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        CompleteLegendCinematic_Init,
+        CompleteLegendCinematic_Main,
+        CompleteLegendCinematic_Exit,
+        FS_OVERLAY_ID(complete_legend_cinematic),
+    };
+    LegendCinematicTask *env = FieldTask_GetEnv(task);
+
+    switch (env->state) {
+    case 0:
+        FieldTransition_FinishMap(task);
+        env->state++;
+        break;
+    case 1:
+        FieldTask_RunApplication(task, &sTemplate, &env->args);
+        env->state++;
+        break;
+    case 2:
+        FieldTransition_StartMap(task);
+        env->state++;
+        break;
+    case 3:
+        Heap_Free(env);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_LegendCinematic(ScriptContext *ctx)
+{
+    u16 cinematic = ScriptContext_ReadHalfWord(ctx);
+    LegendCinematicTask *env = Heap_Alloc(HEAP_ID_FIELD3, sizeof(LegendCinematicTask));
+    enum TimeOfDay timeOfDay = FieldSystem_GetTimeOfDay(ctx->fieldSystem);
+
+    MI_CpuClear8(env, sizeof(LegendCinematicTask));
+    env->args.cinematic = cinematic < COMPLETE_LEGEND_CINEMATICS ? cinematic : COMPLETE_LEGEND_CINEMATIC_HO_OH;
+    env->args.timeOfDay = timeOfDay == TIMEOFDAY_MORNING || timeOfDay == TIMEOFDAY_DAY ? 0 : timeOfDay == TIMEOFDAY_TWILIGHT ? 1 : 2;
+    env->args.light = *ctx->fieldSystem->areaModelAttrs;
+
+    FieldTask_InitCall(ctx->task, Task_LegendCinematic, env);
     return TRUE;
 }
 

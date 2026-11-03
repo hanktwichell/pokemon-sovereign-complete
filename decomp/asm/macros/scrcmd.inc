@@ -6441,6 +6441,13 @@
     .short \dragonite
     .endm
 
+    // HeartGold's legendary cinematics (its Cinematic): Ho-Oh over the Bell Tower or Lugia in the Whirl Islands (enum
+    // CompleteLegendCinematic), between the script's fades (src/applications/complete_legend_cinematic)
+    .macro CompleteLegendCinematic cinematic
+    .short SCRCMD_COMPLETELEGENDCINEMATIC
+    .short \cinematic
+    .endm
+
     .text
     .globl _start
 _start:

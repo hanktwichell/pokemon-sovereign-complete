@@ -47,6 +47,7 @@ u8 gCompleteTestHatchEggs;
 u8 gCompleteTestFly;
 u16 gCompleteTestLegend[5];
 u16 gCompleteTestMagnetTrain[8];
+u16 gCompleteTestLegendCinematic[8];
 u16 gCompleteTestPlayerGfx;
 CompleteTestFieldEncounter gCompleteTestFieldEncounter;
 

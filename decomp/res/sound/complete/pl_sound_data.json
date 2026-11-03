@@ -10688,6 +10688,14 @@
 			"playerPriority":	64,
 			"player":	"PLAYER_BGM"
 		}, {
+			"name":	"SEQ_GS_E_HOUOU",
+			"fileName":	"SEQ_GS_E_HOUOU.sseq",
+			"bank":	"BANK_GS_E_HOUOU",
+			"volume":	108,
+			"channelPriority":	30,
+			"playerPriority":	64,
+			"player":	"PLAYER_BGM"
+		}, {
 			"name":	"SEQ_GS_E_LINEAR",
 			"fileName":	"SEQ_GS_E_LINEAR.sseq",
 			"bank":	"BANK_GS_E_LINEAR",
@@ -15448,6 +15456,10 @@
 		}, {
 			"name":	"BANK_GS_E_G_PICHU",
 			"fileName":	"BANK_GS_E_G_PICHU.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_GS_E_HOUOU",
+			"fileName":	"BANK_GS_E_HOUOU.sbnk",
 			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
 		}, {
 			"name":	"BANK_GS_E_LINEAR",
