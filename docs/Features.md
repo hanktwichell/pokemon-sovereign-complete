@@ -459,7 +459,7 @@ HeartGold's radio (pokeheartgold's `src/application/pokegear/radio`), on the Pok
 Test: `tools/complete/test_hgss_radio.py` (the page in New Bark Town with the cursor on the fourth station's outer
 ring; each button's station and show; Oak's show running; the cursor dragged off the stations; leaving the page and
 coming back; Kanto's Poké Flute by Route 11's Snorlax, which then wakes; the Ruins of Alph's, Mahogany's and
-Sinnoh's stations).
+Sinnoh's stations; all 11 parts pass).
 
 ## Mom's savings
 

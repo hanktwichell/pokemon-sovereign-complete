@@ -1416,7 +1416,7 @@ Test results on the new test build:
   the Poké Flute wakes Snorlax (the stand-in that woke it with the Expansion Card alone is gone). Buena's password now
   changes each day and her quiz asks for the one her show gave (its three words came from nothing before). Sinnoh has
   no signal. The show's lines print one at a time in a strip under the globe, as the top screen is the field's. In
-  the emulator (`tools/complete/test_hgss_radio.py`, 11 parts): the page in New Bark Town on the fourth station with
+  the emulator (`tools/complete/test_hgss_radio.py`, all 11 parts pass): the page in New Bark Town on the fourth station with
   static, each button's show (Pokémon Music playing Tuesday's Lullaby, Oak naming Misdreavus, That Town, These
   People), off the stations, leaving the page and back, Kanto's Poké Flute by Route 11's Snorlax, which then woke, and
   the Ruins of Alph's, Mahogany's and Sinnoh's stations.

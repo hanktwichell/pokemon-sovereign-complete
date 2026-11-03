@@ -119,7 +119,8 @@ RECENT = [
         'today\'s outbreak), Trainer Profiles, That Town, These People, the Search Party, the Serial Radio Drama and '
         'Buena\'s Password (her quiz in the Radio Tower now asks for the password her show gave), with commercials. In '
         'Kanto the Poké Flute wakes Snorlax; the Unown\'s broadcast plays in the Ruins of Alph and a strange signal '
-        'around Mahogany. Its music plays in the field while the page shows a station. Sinnoh has no signal.',
+        'around Mahogany. Its music plays in the field while the page shows a station. Sinnoh has no signal. All 11 '
+        'parts of its emulator test pass.',
     ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
