@@ -460,6 +460,25 @@ HeartGold's (its `encounter_check.c` and the map list in its `unk_02097F6C.c`, w
 Test: `tools/complete/test_hgss_outbreaks.py` (no Illumise on Route 35 before the National Pokédex; Illumise there on
 its day; none on another map's day; Feebas on Route 27's water on its day).
 
+## The Pokédex
+
+The owner's call (Nov 3, 2026): HeartGold's Johto Pokédex is the regional one until Sinnoh's story begins, then
+Sinnoh's, with the National Pokédex beside either once the player has it (Oak gives it at Olivine's port).
+
+- **When:** Johto's is the regional Pokédex while `VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE` is 0, that is until the first
+  ship to Sinnoh leaves the player in Twinleaf Town and Platinum's opening plays (`CompletePokedex_IsJohto`,
+  `src/complete_pokedex.c`).
+- **What changes:** the regional list is Johto's 256 in HeartGold's order, with HeartGold's numbers (Chansey is #222),
+  and its seen and obtained counts are Johto's (`Pokemon_SinnohDexNumber` answers with the Johto number, and
+  `pokedex_sort.c` builds the list from Johto's). The list's banner reads JOHTO POKéDEX: the list's tile sheet with
+  its SINNOH banner redrawn in the same pixel font (`tools/complete/gen_pokedex_johto_banner.py`,
+  `res/graphics/pokedex/scroll_main_background_johto.png`), loaded in Johto's place.
+- **Completion:** the regional goal is 254 seen in Johto (Mew and Celebi, the event Pokémon at its end, don't count),
+  in the regional "complete" checks and in the last tier of Oak's rating (`Pokedex_LocalDexCompleted`,
+  `Pokedex_GetRatingMessageID_Local`). The Celadon Condominiums' game designer reads the same list.
+- **The list's numbers:** `tools/complete/import_hgss_johto_dex.py` writes `include/data/hgss_johto_dex.h` from
+  HeartGold's `poketool/johtozukan.narc`: the 256 in order and each species' Johto number.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

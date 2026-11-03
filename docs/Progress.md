@@ -1359,3 +1359,8 @@ Test results on the new test build:
   level-up moves, against her competitive sets. Spiritomb's Confuse Ray and Cynthia's Full Restores drag out the
   first turns, Garchomp's Outrage or Lucario finishes. The preview is cut from the best real one. A second video
   shows the sweep in the test build's god mode, plainly marked as one-sided.
+- **The Johto Pokédex:** the owner's call: Johto's is the regional Pokédex until Sinnoh's story begins, Sinnoh's
+  after. The regional list, its numbers (Chansey #222) and its seen and obtained counts are HeartGold's Johto
+  Pokédex's, under a JOHTO POKéDEX banner drawn in the Pokédex's own pixel font; with Sinnoh's story begun the switch
+  shows SINNOH POKéDEX and Turtwig #001 as before (both checked in the emulator). Its goal is 254 seen, Mew and Celebi
+  aside (`docs/Features.md`, "The Pokédex").

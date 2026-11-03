@@ -18,6 +18,7 @@
 #include "applications/pokedex/struct_ov21_021D5B68.h"
 #include "applications/pokedex/struct_ov21_021E68F4.h"
 
+#include "complete_pokedex.h" // Sovereign Complete
 #include "bg_window.h"
 #include "brightness_controller.h"
 #include "heap.h"
@@ -684,7 +685,7 @@ static void ov21_021D62E4(PokedexGraphicData *param0, enum HeapID heapID)
     void *v0;
     NNSG2dScreenData *v1;
 
-    PokedexGraphics_LoadGraphicNarcCharacterData(param0, scroll_main_background_NCGR_lz, param0->bgConfig, 3, 0, 0, TRUE, heapID);
+    PokedexGraphics_LoadGraphicNarcCharacterData(param0, CompletePokedex_IsJohto() ? scroll_main_background_johto_NCGR_lz : scroll_main_background_NCGR_lz, /* Sovereign Complete: JOHTO POKéDEX */ param0->bgConfig, 3, 0, 0, TRUE, heapID);
 
     v0 = PokedexGraphics_GetGraphicNarcTilemapData(param0, scroll_main_background_NSCR_lz, TRUE, &v1, heapID);
 
@@ -702,7 +703,7 @@ static void ov21_021D637C(UnkStruct_ov21_021D71A8 *param0, PokedexGraphicData *p
 {
     int v0;
 
-    PokedexGraphics_LoadGraphicNarcCharacterData(param1, scroll_main_background_NCGR_lz, param1->bgConfig, 2, 0, 0, TRUE, heapID);
+    PokedexGraphics_LoadGraphicNarcCharacterData(param1, CompletePokedex_IsJohto() ? scroll_main_background_johto_NCGR_lz : scroll_main_background_NCGR_lz, /* Sovereign Complete: JOHTO POKéDEX */ param1->bgConfig, 2, 0, 0, TRUE, heapID);
 
     if (param3 == 1) {
         v0 = search_national_NSCR_lz;

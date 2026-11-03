@@ -29,6 +29,7 @@
 #include "ball_seal_info.h"
 #include "charcode_util.h"
 #include "complete_evolutions.h"
+#include "complete_pokedex.h" // Sovereign Complete
 #include "flags.h"
 #include "heap.h"
 #include "inlines.h"
@@ -4350,6 +4351,10 @@ u8 Party_GetMaxLevel(Party *party)
 u16 Pokemon_SinnohDexNumber(u16 species)
 {
     u16 result;
+
+    if (CompletePokedex_IsJohto()) { // Sovereign Complete: Johto's is the regional Pokédex until Sinnoh's story
+        return CompletePokedex_JohtoNumber(species);
+    }
 
     NARC_ReadFromMemberByIndexPair(&result, NARC_INDEX_POKETOOL__PL_POKEZUKAN, 0, species * 2, 2);
 

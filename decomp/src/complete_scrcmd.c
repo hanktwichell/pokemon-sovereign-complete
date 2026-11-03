@@ -34,7 +34,6 @@
 #include "overlay006/npc_trade.h"
 #include "struct_defs/choose_starter_data.h"
 
-#include "data/hgss_johto_dex.h"
 
 #include "applications/complete_alph_puzzle.h"
 #include "applications/naming_screen.h"
@@ -47,6 +46,7 @@
 #include "complete_follower.h"
 #include "complete_placed.h"
 #include "complete_rival.h"
+#include "complete_pokedex.h"
 #include "easy_chat_sentence.h"
 #include "easy_chat_words.h"
 #include "encounter.h"
@@ -1261,9 +1261,10 @@ BOOL CompleteScrCmd_CheckJohtoDexComplete(ScriptContext *ctx)
 
     *destVar = TRUE;
 
-    for (int i = 0; i < NELEMS(sHGSSJohtoDex); i++) {
-        if (sHGSSJohtoDex[i] != SPECIES_MEW && sHGSSJohtoDex[i] != SPECIES_CELEBI
-            && !Pokedex_HasCaughtSpecies(pokedex, sHGSSJohtoDex[i])) {
+    const u16 *johtoDex = CompletePokedex_JohtoList();
+
+    for (int i = 0; i < JOHTO_DEX_COUNT; i++) {
+        if (CompletePokedex_CountsForJohtoGoal(johtoDex[i]) && !Pokedex_HasCaughtSpecies(pokedex, johtoDex[i])) {
             *destVar = FALSE;
             break;
         }

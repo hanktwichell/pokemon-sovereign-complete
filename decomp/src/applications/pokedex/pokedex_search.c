@@ -15,6 +15,7 @@
 #include "applications/pokedex/struct_ov21_021D5B68.h"
 #include "applications/pokedex/struct_ov21_021E68F4.h"
 
+#include "complete_pokedex.h" // Sovereign Complete
 #include "bg_window.h"
 #include "brightness_controller.h"
 #include "font.h"
@@ -553,7 +554,7 @@ static void ClearScreen(PokedexSearchDisplay *searchDisplay, PokedexGraphicData 
 
 static void ov21_021D8B8C(PokedexGraphicData **param0, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
 {
-    PokedexGraphics_LoadGraphicNarcCharacterData(*param0, scroll_main_background_NCGR_lz, (*param0)->bgConfig, 3, 0, 0, TRUE, heapID);
+    PokedexGraphics_LoadGraphicNarcCharacterData(*param0, CompletePokedex_IsJohto() ? scroll_main_background_johto_NCGR_lz : scroll_main_background_NCGR_lz, /* Sovereign Complete: JOHTO POKéDEX */ (*param0)->bgConfig, 3, 0, 0, TRUE, heapID);
     PokedexGraphics_LoadGraphicNarcPaletteData(*param0, search_NCLR, 0, 0, 32, heapID);
 }
 

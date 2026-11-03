@@ -8,6 +8,7 @@
 #include "applications/pokedex/sorted_pokedex.h"
 #include "applications/pokedex/species_caught_status.h"
 
+#include "complete_pokedex.h" // Sovereign Complete
 #include "graphics.h"
 #include "heap.h"
 #include "pokedex.h"
@@ -284,7 +285,10 @@ BOOL PokedexSort_Sort(PokedexSortData *param0, enum SortOrder sortOrder, enum Fi
 
     numResulting = 0;
 
-    if (isNationalDex == FALSE) {
+    if (isNationalDex == FALSE && CompletePokedex_IsJohto()) { // Sovereign Complete: Johto's regional Pokédex
+        fullDex = CompletePokedex_NewJohtoList(heapID, &fullDexLength);
+        FilterUnencountered(encounteredPokedex, &caughtStatusLength, param0->pokedex, fullDex, fullDexLength);
+    } else if (isNationalDex == FALSE) {
         fullDex = PokedexFromNARC(heapID, PDSI_SINNOH, &fullDexLength);
         FilterUnencountered(encounteredPokedex, &caughtStatusLength, param0->pokedex, fullDex, fullDexLength);
     } else {

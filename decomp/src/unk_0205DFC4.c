@@ -6,6 +6,7 @@
 
 #include "field/field_system.h"
 
+#include "complete_pokedex.h" // Sovereign Complete
 #include "field_task.h"
 #include "heap.h"
 #include "map_object.h"
@@ -115,7 +116,7 @@ u16 Pokedex_GetRatingMessageID_Local(u16 pokemonSeen, u16 reachedEternaCity)
         return PokedexRatings_Text_RowanPokemonSeenOver180;
     }
 
-    if (pokemonSeen <= LOCAL_DEX_GOAL - 1) {
+    if (pokemonSeen <= (CompletePokedex_IsJohto() ? JOHTO_DEX_GOAL : LOCAL_DEX_GOAL) - 1) { // Sovereign Complete: Johto's
         return PokedexRatings_Text_RowanPokemonSeenOver200;
     }
 

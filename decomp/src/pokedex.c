@@ -7,6 +7,7 @@
 #include "constants/species.h"
 #include "generated/gender_ratios.h"
 
+#include "complete_pokedex.h" // Sovereign Complete
 #include "inlines.h"
 #include "pokedex_language.h"
 #include "pokemon.h"
@@ -792,7 +793,7 @@ BOOL Pokedex_LocalDexCompleted(const Pokedex *pokedexData)
 {
     u16 numSeen = Pokedex_NumSeen_Local(pokedexData);
 
-    if (numSeen >= LOCAL_DEX_GOAL) {
+    if (numSeen >= (CompletePokedex_IsJohto() ? JOHTO_DEX_GOAL : LOCAL_DEX_GOAL)) { // Sovereign Complete: Johto's
         return TRUE;
     }
 
@@ -823,7 +824,8 @@ u16 Pokedex_NumSeen_Local(const Pokedex *pokedexData)
     for (species = 1; species <= NATIONAL_DEX_COUNT; species++) {
         if (Pokedex_HasSeenSpecies(pokedexData, species) == TRUE) {
             if (Pokemon_SinnohDexNumber(species) != 0
-                && CountsForDexCompletion_Local(species) == TRUE) {
+                && CountsForDexCompletion_Local(species) == TRUE
+                && (!CompletePokedex_IsJohto() || CompletePokedex_CountsForJohtoGoal(species))) { // Sovereign Complete
                 numSeen++;
             }
         }

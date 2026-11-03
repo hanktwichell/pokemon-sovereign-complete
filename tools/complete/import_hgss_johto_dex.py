@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Bring in HeartGold's Johto Pokédex list (its poketool/johtozukan.narc: the Johto number of each species #0-493, 0 for
-none), as decomp/include/data/hgss_johto_dex.h: the 256 species in Johto order, for the Celadon Condominiums' game
-designer, who checks the Johto Pokédex is complete (src/complete_scrcmd.c, CompleteScrCmd_CheckJohtoDexComplete).
+none), as decomp/include/data/hgss_johto_dex.h: the 256 species in Johto order, and each species' Johto number (#0-493,
+0 for none). src/complete_pokedex.c reads both: Johto's is the regional Pokédex until Sinnoh's story begins, and the
+Celadon Condominiums' game designer checks it's complete.
 
 Usage: python3 tools/complete/import_hgss_johto_dex.py
 """
@@ -32,6 +33,12 @@ def main():
         '',
         'static const u16 sHGSSJohtoDex[] = {',
         *(f'    {species[s]},' for _, s in order),
+        '};',
+        '',
+        '// Each species\' Johto number, 0 for none',
+        'static const u16 sHGSSJohtoDexNumbers[] = {',
+        *(f'    [{species[s]}] = {n},' for s, n in enumerate(johto) if n),
+        f'    [{species[len(johto) - 1]}] = {johto[-1]},' if not johto[-1] else '',
         '};',
         '',
         '#endif // POKEPLATINUM_DATA_HGSS_JOHTO_DEX_H',

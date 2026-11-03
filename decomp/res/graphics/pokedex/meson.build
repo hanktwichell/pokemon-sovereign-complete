@@ -1,6 +1,7 @@
 # Tiles and tilemaps
 tiles_png_4bpp = files(
     'scroll_main_background.png',
+    'scroll_main_background_johto.png', # Sovereign Complete: JOHTO POKéDEX (tools/complete/gen_pokedex_johto_banner.py)
     'scroll_sub_background.png',
     'dummy1.png',
     'dummy2.png',
