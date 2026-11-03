@@ -65,6 +65,8 @@ extern u16 gCompleteTestLegend[5];
 // model (its member in the archive), the frames the ride ran and whether it ended; and, as it runs, its first light's
 // color, its diffuse color, the main screen's layers (DISPCNT's low half) and its brightness (MASTER_BRIGHT)
 extern u16 gCompleteTestMagnetTrain[8];
+// The player's sprite (its graphics ID) as the field last ran, for tools/complete/test_hgss_rocket_costume.py
+extern u16 gCompleteTestPlayerGfx;
 
 // The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
 // tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks

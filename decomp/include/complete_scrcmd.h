@@ -80,6 +80,7 @@ BOOL CompleteScrCmd_CheckSeenAllUnownLetters(ScriptContext *ctx);
 BOOL CompleteScrCmd_FindStarterSlot(ScriptContext *ctx);
 BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx);
 BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx);
+BOOL CompleteRocketCostume_IsOn(void); // HeartGold's Rocket uniform on (FLAG_HGSS_SYS_ROCKET_COSTUME)
 
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.

@@ -15,7 +15,9 @@
 #include "field_battle_data_transfer.h"
 #include "field_task.h"
 #include "item.h"
+#include "map_object.h"
 #include "party.h"
+#include "player_avatar.h"
 #include "pokemon.h"
 #include "script_manager.h"
 #include "sound.h"
@@ -45,6 +47,7 @@ u8 gCompleteTestHatchEggs;
 u8 gCompleteTestFly;
 u16 gCompleteTestLegend[5];
 u16 gCompleteTestMagnetTrain[8];
+u16 gCompleteTestPlayerGfx;
 CompleteTestFieldEncounter gCompleteTestFieldEncounter;
 
 // An encounter leaves a loss to its caller (a script's BlackOutFromBattle) and doesn't bring the field back, so the field
@@ -256,6 +259,7 @@ void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
     CompleteFollower_TestRecordTile(fieldSystem);
     SaveProbe(fieldSystem);
     NoteSafari(fieldSystem);
+    gCompleteTestPlayerGfx = MapObject_GetGraphicsID(PlayerAvatar_GetMapObject(fieldSystem->playerAvatar));
 }
 
 #endif

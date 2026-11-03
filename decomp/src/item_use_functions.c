@@ -27,6 +27,7 @@
 #include "berry_patch_manager.h"
 #include "bg_window.h"
 #include "complete_map_info.h"
+#include "complete_scrcmd.h" // Sovereign Complete
 #include "field_bgm.h"
 #include "field_map_change.h"
 #include "field_message.h"
@@ -473,6 +474,9 @@ static enum ItemUseCheckResult CanUseBicycle(const ItemUseContext *usageContext)
     if (usageContext->hasPartner == TRUE) {
         return ITEM_USE_CANNOT_USE_WITH_PARTNER;
     }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return ITEM_USE_CANNOT_USE_GENERIC;
+    }
 
     if (SystemFlag_HandleForceBikingInGate(v0, HANDLE_FLAG_CHECK) == TRUE) {
         return ITEM_USE_CANNOT_DISMOUNT;
@@ -824,6 +828,9 @@ static enum ItemUseCheckResult CanUseFishingRod(const ItemUseContext *usageConte
     if (usageContext->hasPartner == TRUE) {
         return ITEM_USE_CANNOT_USE_WITH_PARTNER;
     }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return ITEM_USE_CANNOT_USE_GENERIC;
+    }
 
     if (usageContext->mapHeaderID == MAP_HEADER_DISTORTION_WORLD_1F
         || usageContext->mapHeaderID == MAP_HEADER_DISTORTION_WORLD_B1F
@@ -945,6 +952,9 @@ static enum ItemUseCheckResult CanUseEscapeRope(const ItemUseContext *usageConte
 {
     if (usageContext->hasPartner == TRUE) {
         return ITEM_USE_CANNOT_USE_WITH_PARTNER;
+    }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return ITEM_USE_CANNOT_USE_GENERIC;
     }
 
     if ((MapHeader_IsCave(usageContext->mapHeaderID) == TRUE) && (MapHeader_IsEscapeRopeAllowed(usageContext->mapHeaderID) == TRUE)) {

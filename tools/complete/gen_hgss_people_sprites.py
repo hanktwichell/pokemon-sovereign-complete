@@ -9,7 +9,8 @@ HeartGold source (built by tools/complete/build_heartgold.sh into .cache/pokehea
   drawn as a 32x32 walker of 16 frames (four per direction, in Platinum's order, so the frames are stacked as they
   are), from number 146 on (the ones Diamond and Pearl's list doesn't share; below that Platinum has the same art);
   Elm (DOCTOR, 99, Rowan's number in Platinum); the Pokémon Center nurse (PCWOMAN1, 17 frames: her bow); and Ethan
-  and Lyra (HERO 0 and HEROINE 97, 32 frames: walking and running, as Platinum's player), for the friend; and its
+  and Lyra (HERO 0 and HEROINE 97, 32 frames: walking and running, as Platinum's player), for the friend, and the
+  player in the Rocket uniform (RHERO and RHEROINE, the same, which the player wears in the Radio Tower); and its
   one-frame objects, 32x32 or 64x64 (the League's doors, Route 11's Snorlax, the shop signs, the medal, the scroll,
   the player's statues), drawn as Platinum's bollard and Regigigas are; its invisible blockers (FIXED) are
   Platinum's invisible object. Not the following Pokémon
@@ -49,7 +50,8 @@ MAPPING = os.path.join(ROOT, 'data', 'complete', 'hgss_sprites.json')
 
 HGSS_BASE = 1024  # OBJ_EVENT_GFX_HGSS_<NAME> = HGSS_BASE + HeartGold's number (below BERRY_SPROUT's 4096)
 SHARED = 146  # Diamond and Pearl's list, which both games kept
-EXTRA = {'DOCTOR': 16, 'HERO': 32, 'HEROINE': 32}  # below SHARED, with HeartGold's own art: Elm, Ethan and Lyra
+EXTRA = {'DOCTOR': 16, 'HERO': 32, 'HEROINE': 32,  # below SHARED, with HeartGold's own art: Elm, Ethan and Lyra
+         'RHERO': 32, 'RHEROINE': 32}  # and the player in the Rocket uniform (src/complete_scrcmd.c's costume)
 SKIP = {'ICE', 'FISHINGHERO', 'FISH_HEROINE'}  # Mahogany Gym's ice blocks stay Platinum's ICE_ROCK, which
 # src/complete_gyms.c pushes; the player's fishing (the player is Platinum's). The Apricorn trees (BONGURI, bare,
 # and BONGURI_R .. _BK, with each colour's fruit) are their first frame, still: src/complete_apricorns.c shows the

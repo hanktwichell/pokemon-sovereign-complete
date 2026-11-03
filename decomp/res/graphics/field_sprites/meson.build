@@ -1903,6 +1903,8 @@ field_sprites_textures_complete_hgss_people = [
     { 'file': 'npc/hgss/hgss_storophy.png', 'basename': 'hg376'},
     { 'file': 'npc/hgss/hgss_btorophy.png', 'basename': 'hg379'},
     { 'file': 'npc/hgss/hgss_hero.png', 'basename': 'hg000'},
+    { 'file': 'npc/hgss/hgss_rhero.png', 'basename': 'hg258'},
+    { 'file': 'npc/hgss/hgss_rheroine.png', 'basename': 'hg259'},
     { 'file': 'npc/hgss/hgss_aji_peru.png', 'basename': 'hg287'},
     { 'file': 'npc/hgss/hgss_yadon.png', 'basename': 'hg414'},
     { 'file': 'npc/hgss/hgss_daigo.png', 'basename': 'hg421'},

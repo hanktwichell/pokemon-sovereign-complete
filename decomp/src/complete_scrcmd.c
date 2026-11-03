@@ -1055,6 +1055,15 @@ BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx)
     return TRUE;
 }
 
+// HeartGold's Rocket uniform (its FLAG_SYS_ROCKET_COSTUME, the RocketCostumeFlagAction scripts set): the player walks
+// in it (Player_GetSpriteFromStateAndGender, src/player_avatar.c) from Goldenrod Tunnel until the Radio Tower is freed
+BOOL CompleteRocketCostume_IsOn(void)
+{
+    SaveData *saveData = SaveData_Ptr();
+
+    return saveData != NULL && VarsFlags_CheckFlag(SaveData_GetVarsFlags(saveData), FLAG_HGSS_SYS_ROCKET_COSTUME);
+}
+
 // HeartGold's ScrCmd_722: the Magnet Train's ride between Goldenrod City and Saffron City (its overlay 104, here
 // src/applications/complete_magnet_train), the way given. HeartGold's field task around it fades the screen out, runs
 // the ride and changes map; here the script does those, as Platinum's own scene apps do (the Distortion World's warp):

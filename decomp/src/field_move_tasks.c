@@ -21,6 +21,7 @@
 
 #include "complete_badges.h" // Sovereign Complete
 #include "complete_map_info.h" // Sovereign Complete
+#include "complete_scrcmd.h" // Sovereign Complete
 #include "field_map_change.h"
 #include "field_overworld_state.h"
 #include "field_task.h"
@@ -384,6 +385,9 @@ static enum FieldMoveError FieldMoves_CheckFly(const FieldMoveContext *fieldMove
     if (PlayerTravellingWithPartner(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_PARTNER;
     }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return FIELD_MOVE_ERROR_LOCATION;
+    }
 
     if (PlayerInSafariZoneOrPalPark(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_LOCATION;
@@ -447,6 +451,9 @@ static enum FieldMoveError FieldMoves_CheckSurf(const FieldMoveContext *fieldMov
 
     if (PlayerTravellingWithPartner(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_PARTNER;
+    }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return FIELD_MOVE_ERROR_LOCATION;
     }
 
     return FIELD_MOVE_ERROR_NONE;
@@ -666,6 +673,9 @@ static enum FieldMoveError FieldMoves_CheckRockClimb(const FieldMoveContext *fie
     if (PlayerTravellingWithPartner(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_PARTNER;
     }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return FIELD_MOVE_ERROR_LOCATION;
+    }
 
     return FIELD_MOVE_ERROR_NONE;
 }
@@ -744,6 +754,9 @@ static enum FieldMoveError FieldMoves_CheckTeleport(const FieldMoveContext *fiel
     if (PlayerTravellingWithPartner(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_PARTNER;
     }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return FIELD_MOVE_ERROR_LOCATION;
+    }
 
     if (PlayerInSafariZoneOrPalPark(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_LOCATION;
@@ -790,6 +803,9 @@ static enum FieldMoveError FieldMoves_CheckDig(const FieldMoveContext *fieldMove
 
     if (PlayerTravellingWithPartner(fieldMoveContext) == TRUE) {
         return FIELD_MOVE_ERROR_PARTNER;
+    }
+    if (CompleteRocketCostume_IsOn()) { // Sovereign Complete: not in the Rocket uniform, as in HeartGold
+        return FIELD_MOVE_ERROR_LOCATION;
     }
 
     return FIELD_MOVE_ERROR_NONE;

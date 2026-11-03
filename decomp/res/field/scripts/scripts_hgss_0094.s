@@ -621,9 +621,10 @@ _0A71:
     CompleteFollowerSetMovementType MOVEMENT_TYPE_FOLLOW_PLAYER
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: SetAvatarBits PLAYER_TRANSITION_ROCKET
-    @ HGSS: UpdateAvatarState
-    @ HGSS: RocketCostumeFlagAction 1
+    SetFlag FLAG_HGSS_SYS_ROCKET_COSTUME
+    SetPlayerState PLAYER_TRANSITION_WALKING
+    ChangePlayerState
+    SetFlag FLAG_HGSS_SYS_ROCKET_COSTUME
     PlaySE SEQ_SE_DP_CARD2_sseq
     WaitTime 24, VAR_RESULT
     PlaySE SEQ_SE_DP_CARD2_sseq
@@ -970,9 +971,10 @@ _0F05:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: SetAvatarBits PLAYER_TRANSITION_ROCKET
-    @ HGSS: UpdateAvatarState
-    @ HGSS: RocketCostumeFlagAction 1
+    SetFlag FLAG_HGSS_SYS_ROCKET_COSTUME
+    SetPlayerState PLAYER_TRANSITION_WALKING
+    ChangePlayerState
+    SetFlag FLAG_HGSS_SYS_ROCKET_COSTUME
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE
@@ -998,9 +1000,10 @@ _0F79:
     WaitFadeScreen
     @ HGSS: CameronPhoto 10
     LockAll
-    @ HGSS: SetAvatarBits PLAYER_TRANSITION_WALKING
-    @ HGSS: UpdateAvatarState
-    @ HGSS: RocketCostumeFlagAction 0
+    ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME
+    SetPlayerState PLAYER_TRANSITION_WALKING
+    ChangePlayerState
+    ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME
     CompleteFollowerPause 0
     CompleteFollowerWait
     CompleteFollowerSetMovementType MOVEMENT_TYPE_NONE

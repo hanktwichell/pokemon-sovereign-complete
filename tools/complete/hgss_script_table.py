@@ -585,6 +585,18 @@ COMMANDS = {
     'ShowLegendaryWing': one('CompleteLegendaryWing {0}'),
     # Lance and his Dragonite (their objects) taking off from the Lake of Rage
     'ScrCmd_775': one('CompleteLanceFlight {0}, {1}'),
+    # The player's look (HeartGold's SetAvatarBits and UpdateAvatarState are Platinum's SetPlayerState and
+    # ChangePlayerState): the Rocket uniform is walking with FLAG_HGSS_SYS_ROCKET_COSTUME set, which the player's
+    # walking sprite follows (src/player_avatar.c), so walking again takes it off before the redraw; HeartGold's own
+    # flag command after it agrees
+    'SetAvatarBits': lambda a: {
+        'PLAYER_TRANSITION_ROCKET': ['SetFlag FLAG_HGSS_SYS_ROCKET_COSTUME', 'SetPlayerState PLAYER_TRANSITION_WALKING'],
+        'PLAYER_TRANSITION_WALKING': ['ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME', 'SetPlayerState PLAYER_TRANSITION_WALKING'],
+        'PLAYER_TRANSITION_HEAL': ['SetPlayerState PLAYER_TRANSITION_HEALING'],
+        'PLAYER_TRANSITION_ROCKET_HEAL': ['SetPlayerState PLAYER_TRANSITION_HEALING'],
+    }.get(a[0], [f'@ HGSS: SetAvatarBits {a[0]}']),
+    'UpdateAvatarState': lambda a: ['ChangePlayerState'],
+    'RocketCostumeFlagAction': lambda a: [('SetFlag' if a[0] != '0' else 'ClearFlag') + ' FLAG_HGSS_SYS_ROCKET_COSTUME'],
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)

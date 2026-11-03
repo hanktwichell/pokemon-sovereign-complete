@@ -330,9 +330,10 @@ _04A8:
     ApplyMovement LOCALID_PLAYER, _07BC
 _04BD:
     WaitTime 50, VAR_RESULT
-    @ HGSS: SetAvatarBits PLAYER_TRANSITION_WALKING
-    @ HGSS: UpdateAvatarState
-    @ HGSS: RocketCostumeFlagAction 0
+    ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME
+    SetPlayerState PLAYER_TRANSITION_WALKING
+    ChangePlayerState
+    ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME
     WaitMovement
     CompareVar VAR_MAP_LOCAL_0x01, 5
     GoToIf 5, _04E9

@@ -16,6 +16,7 @@
 #include "overlay005/ov5_021F61BC.h"
 #include "overlay005/surf_mount_renderer.h"
 
+#include "complete_scrcmd.h" // Sovereign Complete
 #include "heap.h"
 #include "map_object.h"
 #include "map_object_move.h"
@@ -850,6 +851,11 @@ void PlayerAvatar_SetHeightCalculationEnabledAndUpdate(PlayerAvatar *playerAvata
 int Player_GetSpriteFromStateAndGender(int playerState, int gender)
 {
     // TODO: Some OBJ_EVENT_GFX_ constants are being worked on by a different contributor, will need to add the missing constants once those get expanded
+    // Sovereign Complete: HeartGold's Rocket uniform, from Goldenrod Tunnel to the Radio Tower's rescue
+    if (playerState == PLAYER_AVATAR_WALKING && CompleteRocketCostume_IsOn()) {
+        return gender == 0 ? OBJ_EVENT_GFX_HGSS_RHERO : OBJ_EVENT_GFX_HGSS_RHEROINE;
+    }
+
     if (gender == 0) {
         switch (playerState) {
         case PLAYER_AVATAR_WALKING:

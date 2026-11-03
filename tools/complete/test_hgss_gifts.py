@@ -31,6 +31,10 @@ from talk_to_objects import (SYMBOLS, WANDER_TRIES, arrive, cases as talk_cases,
                              var_ids, warp)
 
 TEST_VARS = 2  # gSovereignTestVar's entries from here on (arrive() may use [0] and [1])
+# A wandering giver who isn't on their tile as the player talks: the player waits WANDER_WAIT_FRAMES and talks again,
+# WANDER_WAITS times a warp back to the tile (WANDER_TRIES warps).
+WANDER_WAITS = 6
+WANDER_WAIT_FRAMES = 40
 # (name, events, giver, {flag or var: value} set on the way in, the answers, [(species, level, held item, Egg)], and
 # maybe {'lead': the lead's species, for a giver who goes by it (gCompleteTestLeadSpecies), 'give': a Pokémon added to
 # the party at Lv. 50 (gSovereignTestPartyAdd), for a trade})
@@ -132,11 +136,17 @@ def main():
                                     setup=lambda: setup(flags, opts))
             if result == 'ok':
                 result, frames = talk_and_answer(d, sym, answers)
-            # a giver who wanders may step off before the test talks: back to the tile and again, as the talk test does
-            tries = WANDER_TRIES if 'WANDER' in object_event(events, giver)['movement_type'] else 0
+            # a giver who wanders may step off before the test talks (Saffron's doctor with the Johto starters): the
+            # player waits where they are, facing the giver's tile, and talks again as the giver steps back onto it,
+            # and now and then comes back to the tile from a fresh warp, as the talk test does
+            tries = WANDER_TRIES * WANDER_WAITS if 'WANDER' in object_event(events, giver)['movement_type'] else 0
             while result == 'NOSCRIPT' and tries:
                 tries -= 1
-                result, frames = warp(d, sym, header, x, z, face + 1)
+                if tries % WANDER_WAITS == 0:
+                    result, frames = warp(d, sym, header, x, z, face + 1)
+                else:
+                    d.run(WANDER_WAIT_FRAMES)
+                    result = 'ok'
                 if result == 'ok':
                     result, frames = talk_and_answer(d, sym, answers)
             wrong = []

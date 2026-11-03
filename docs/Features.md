@@ -740,11 +740,17 @@ least 20 of the cutscene's commands run, nothing of it held after and the camera
 - **Lance's flight** off the Lake of Rage (HeartGold's ScrCmd_775): HeartGold plays its own Fly take-off cut-in with
   Lance and his Dragonite (in assembly there); Platinum's cut-in window stands in, showing the Dragonite, and with
   Fly's whoosh the two are gone (`CompleteLanceFlight`).
-- **Left out:** the Rocket uniform the player changes into in Goldenrod Tunnel before the Radio Tower (HeartGold's
-  SetAvatarBits PLAYER_TRANSITION_ROCKET, a player sprite of its own): only its look, as no script checks it.
+- **The Rocket uniform:** the player changes into it in Goldenrod Tunnel before the Radio Tower, and walks in it, in
+  HeartGold's own sprites for the boy and the girl, until the Radio Tower's director takes it back after the rescue
+  (HeartGold's SetAvatarBits PLAYER_TRANSITION_ROCKET and RocketCostumeFlagAction: the flag the scenes set, read by
+  `Player_GetSpriteFromStateAndGender` in `src/player_avatar.c`). As in HeartGold, in it the player can't Fly, Surf,
+  Rock Climb, Teleport or Dig ("Can't use that here.") or use the Bicycle, a rod or an Escape Rope (Platinum's
+  message for an item that can't be used now), next to Platinum's own checks for a partner along.
 
 Test: `tools/complete/test_hgss_field_effects.py` (the three traps stepped on, the first statue's alarm, both wings and
-Lance's flight, each effect started, played to its end and the field free after; all seven pass).
+Lance's flight, each effect started, played to its end and the field free after; all seven pass), and
+`tools/complete/test_hgss_rocket_costume.py` for the uniform (its sprite, walking about in it, taken off, and the
+Bicycle on Y refused in it and taken without it).
 
 ## The Magnet Train's ride
 

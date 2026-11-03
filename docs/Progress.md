@@ -1529,3 +1529,17 @@ Test results on the new test build:
   part (a tap on the Map before the card stays put), then its other 11, the radio's 11 and Fly's checks pass with the
   cards given.
 
+- **The Rocket uniform:** in Goldenrod Tunnel the grunts put the player in a Rocket uniform for the Radio Tower, and
+  now the player wears it: HeartGold's own walking sprites for it (the boy's and the girl's, imported with its people,
+  `OBJ_EVENT_GFX_HGSS_RHERO` and `RHEROINE`), from the tunnel's scene until the Radio Tower's director takes it back.
+  HeartGold's SetAvatarBits and RocketCostumeFlagAction set and clear its flag, and the player's walking sprite comes
+  from it (`src/player_avatar.c`, a marked change). As in HeartGold, in it the player can't Fly, Surf, Rock Climb,
+  Teleport or Dig, nor ride the Bicycle, fish or use an Escape Rope (next to Platinum's checks for a partner along, in
+  `src/field_move_tasks.c` and `src/item_use_functions.c`). In the emulator
+  (`tools/complete/test_hgss_rocket_costume.py`, 5 of 5 pass): the plain sprite, the uniform on arrival and walking
+  about, taken off, the Bicycle on Y refused in it (Platinum's "Rowan's words echoed...") and taken without it. The
+  story test's way through the takeover walks everywhere, so nothing it does is refused.
+- **A sweep of every Complete test** on the build before the uniform: 32 of 33 pass. The gifts test's Johto starters
+  failed: Saffron's doctor who gives them wanders, and stepped off his tile before the test talked, each time it
+  warped back. The test now waits facing his tile and talks as he steps back onto it, warping back only now and then;
+  the whole gifts test passes with it (23 of 23).
