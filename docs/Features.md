@@ -720,7 +720,7 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
 Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
 least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance; both pass).
 
-## The Rocket Hideout's traps and alarms, and the monks' wings
+## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight
 
 - **The traps** (Mahogany Town's hideout, B1F's trapped floor): stepping on one, HeartGold's trap goes off under the
   player before its battle: sparks for a Voltorb, a cloud of gas for a Koffing, rocks for a Geodude (HeartGold's
@@ -737,13 +737,14 @@ least 20 of the cutscene's commands run, nothing of it held after and the camera
   wing's chime are its own: Platinum's stand in (an electronic buzz, the poison step, a thud; beeps; a sparkle).
 - **Sacred Gold's Sinjoh Ruins** reuse the alarm (its siren and red screen) in the plates' event on the Mystri Stage,
   as Drayano wrote it.
-- **Left out:** Lance flying off the Lake of Rage on his Dragonite (HeartGold's ScrCmd_775 reuses its whole Fly
-  take-off cut-in, in assembly there): he disappears as the screen fades, as before. And the Rocket uniform the player
-  changes into in Goldenrod Tunnel before the Radio Tower (HeartGold's SetAvatarBits PLAYER_TRANSITION_ROCKET, a
-  player sprite of its own): only its look, as no script checks it.
+- **Lance's flight** off the Lake of Rage (HeartGold's ScrCmd_775): HeartGold plays its own Fly take-off cut-in with
+  Lance and his Dragonite (in assembly there); Platinum's cut-in window stands in, showing the Dragonite, and with
+  Fly's whoosh the two are gone (`CompleteLanceFlight`).
+- **Left out:** the Rocket uniform the player changes into in Goldenrod Tunnel before the Radio Tower (HeartGold's
+  SetAvatarBits PLAYER_TRANSITION_ROCKET, a player sprite of its own): only its look, as no script checks it.
 
-Test: `tools/complete/test_hgss_field_effects.py` (the three traps stepped on, the first statue's alarm and both
-wings, each effect started, played to its end and the field free after; all six pass).
+Test: `tools/complete/test_hgss_field_effects.py` (the three traps stepped on, the first statue's alarm, both wings and
+Lance's flight, each effect started, played to its end and the field free after; all seven pass).
 
 ## The Magnet Train's ride
 

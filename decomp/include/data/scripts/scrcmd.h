@@ -1013,6 +1013,7 @@ ScriptCommand(SCRCMD_COMPLETEMAGNETTRAIN,                              CompleteS
 ScriptCommand(SCRCMD_COMPLETEHIDEOUTTRAP,                              CompleteScrCmd_HideoutTrap)
 ScriptCommand(SCRCMD_COMPLETEHIDEOUTALARM,                             CompleteScrCmd_HideoutAlarm)
 ScriptCommand(SCRCMD_COMPLETELEGENDARYWING,                            CompleteScrCmd_LegendaryWing)
+ScriptCommand(SCRCMD_COMPLETELANCEFLIGHT,                              CompleteScrCmd_LanceFlight)
 
 // clang-format on
 

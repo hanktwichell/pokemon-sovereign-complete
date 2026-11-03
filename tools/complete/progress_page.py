@@ -143,7 +143,8 @@ RECENT = [
         'the Radio Card from the Radio Tower\'s quiz.',
         'The Rocket Hideout\'s traps go off under you before their battles (sparks, a gas cloud, falling rocks), and '
         'its Persian statues\' alarm turns the screen red, as in HeartGold. The monks in the Bell Tower and the Whirl '
-        'Islands show their wings again, and their scenes after the wing play now.',
+        'Islands show their wings again, and their scenes after the wing play now. Lance takes off from the Lake of '
+        'Rage with his Dragonite in a cut-in.',
         'The Magnet Train\'s ride between Goldenrod and Saffron is HeartGold\'s own now: the train pulling in, waiting '
         'at the platform and racing across the country, with HeartGold\'s models for the time of day and for you, and '
         'its jingle as it arrives.',

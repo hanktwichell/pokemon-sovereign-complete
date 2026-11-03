@@ -6434,6 +6434,13 @@
     .short \wing
     .endm
 
+    // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
+    .macro CompleteLanceFlight lance, dragonite
+    .short SCRCMD_COMPLETELANCEFLIGHT
+    .short \lance
+    .short \dragonite
+    .endm
+
     .text
     .globl _start
 _start:

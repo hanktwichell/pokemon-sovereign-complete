@@ -41,4 +41,7 @@ BOOL CompleteScrCmd_HideoutAlarm(ScriptContext *ctx);
 // script 3 runs
 BOOL CompleteScrCmd_LegendaryWing(ScriptContext *ctx);
 
+// HeartGold's ScrCmd_775: Lance and his Dragonite (their objects' IDs) taking off from the Lake of Rage
+BOOL CompleteScrCmd_LanceFlight(ScriptContext *ctx);
+
 #endif // POKEPLATINUM_OVERLAY005_COMPLETE_LEGEND_CUTSCENE_H

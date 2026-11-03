@@ -1518,8 +1518,10 @@ Test results on the new test build:
   archive, which now carries all of HeartGold's `demo/legend` (110 files, 505 KB). In the emulator
   (`tools/complete/test_hgss_field_effects.py`, 6 of 6 pass): each trap stepped on, its effect played to the end and
   its battle after, the first statue's alarm, and both wings with the monks' scenes.
-- **Not ported yet, from the same HeartGold file:** Lance flying off the Lake of Rage on his Dragonite (HeartGold's
-  ScrCmd_775 reuses its whole Fly take-off cut-in, which is in assembly).
+- **Lance's flight** off the Lake of Rage: HeartGold's ScrCmd_775 plays its own Fly take-off cut-in (in assembly);
+  Platinum's cut-in window stands in with his Dragonite, and with Fly's whoosh Lance and the Dragonite are gone, where
+  they had vanished as the screen faded. The effects test has it as its seventh part (7 of 7 pass). Sacred Gold's
+  Sinjoh Ruins reuse the hideout's alarm in the plates' event, which plays now too.
 - **The Pokégear's cards:** the Map and the Radio now come with HeartGold's Map Card (Cherrygrove City's guide, at the
   end of his tour) and Radio Card (the Radio Tower's quiz); until then their buttons are dark and beep, and Fly uses
   the list. Both had been on from the start (HeartGold's RegisterPokegearCard was left out; the flags and the scene

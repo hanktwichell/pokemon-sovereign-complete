@@ -583,6 +583,8 @@ COMMANDS = {
     'ScrCmd_709': lambda a: ['CompleteHideoutAlarm'],
     # A monk's Rainbow Wing (0) or Silver Wing (1) shown at the player's feet, while the map's script 3 runs
     'ShowLegendaryWing': one('CompleteLegendaryWing {0}'),
+    # Lance and his Dragonite (their objects) taking off from the Lake of Rage
+    'ScrCmd_775': one('CompleteLanceFlight {0}, {1}'),
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)

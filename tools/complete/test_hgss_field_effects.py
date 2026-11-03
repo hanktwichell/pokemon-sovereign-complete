@@ -13,6 +13,8 @@ And the monks' wings (ShowLegendaryWing), each shining at the player's feet whil
 3. **The Rainbow Wing** on the Bell Tower's 1F: with FLAG_HGSS_UNK_093 set, the player steps onto the trigger before
    the stairs (8, 12), the monk shows the wing, and its scene after has him step aside (VAR_HGSS_UNK_40F3 1).
 4. **The Silver Wing** on the Whirl Islands' B2F: with FLAG_HGSS_UNK_094 set, the player talks to the monk (36, 30).
+5. **Lance's flight** at the Lake of Rage (ScrCmd_775): the player, on the water below him, talks to Lance and agrees
+   to help: the cut-in shows his Dragonite, and the two are gone.
 
 Each part must start its effect, run it to the end (gCompleteTestLegend: the effects ended, the last one's kind) and
 leave the field free. Screenshots of each effect as it plays go to OUT_DIR. Results: a line per part.
@@ -32,18 +34,20 @@ from talk_to_objects import SYMBOLS, header_names, play_out, symbols, var_ids, w
 HIDEOUT = 'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1F'
 BELL_TOWER = 'MAP_HEADER_HGSS_BELL_TOWER_1F'
 WHIRL_ISLANDS = 'MAP_HEADER_HGSS_WHIRL_ISLANDS_B2F'
+LAKE_OF_RAGE = 'MAP_HEADER_HGSS_LAKE_OF_RAGE'
 FACING = {'UP': 1, 'DOWN': 0, 'LEFT': 3, 'RIGHT': 4}  # the test warp's facing: enum FaceDirection + 1, 0 for down
-SHOT_FRAMES = (4, 24, 48, 120)  # after the effect starts, as it plays
-START = 1200  # frames for the effect to start after the step
+SHOT_FRAMES = tuple(int(f) for f in os.environ['SHOTS'].split(',')) if os.environ.get('SHOTS') else (4, 24, 48, 120, 200)
+START = 4000  # frames for the effect to start after the step (Lance talks a while first)
 LIMIT = 20000
 # (part, the map, the tile beside the trigger, the key that steps onto it (A: talks), the effect's kind: 0x100 + the
-# trap, 0x200 the alarm, 0x300 + the wing, the flags and vars set on the way in)
+# trap, 0x200 the alarm, 0x300 + the wing, 0x400 Lance's flight, the flags and vars set on the way in)
 PARTS = [('the electric trap', HIDEOUT, (14, 16), 'LEFT', 0x100, []),
          ('the poison trap', HIDEOUT, (12, 18), 'UP', 0x101, []),
          ('the rock trap', HIDEOUT, (14, 16), 'RIGHT', 0x102, []),
          ('the alarm', HIDEOUT, (44, 6), 'UP', 0x200, []),
          ('the Rainbow Wing', BELL_TOWER, (8, 13), 'UP', 0x300, [('FLAG_HGSS_UNK_093', 1)]),
-         ('the Silver Wing', WHIRL_ISLANDS, (36, 31), 'A', 0x301, [('FLAG_HGSS_UNK_094', 1)])]
+         ('the Silver Wing', WHIRL_ISLANDS, (36, 31), 'A', 0x301, [('FLAG_HGSS_UNK_094', 1)]),
+         ("Lance's flight", LAKE_OF_RAGE, (528, 84), 'A', 0x400, [('FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE', 0)])]
 
 
 def main():
@@ -63,6 +67,8 @@ def main():
 
     results = []
     for name, header, (x, z), key, kind, setup in PARTS:
+        if os.environ.get('ONLY') and os.environ['ONLY'] not in name:
+            continue
         d.load_state(state)
         d.run(30)
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
@@ -84,8 +90,8 @@ def main():
                 if legend()[1] == kind:
                     started = True
                     break
-                if i % 15 == 14:
-                    d.press('A', frames=2, after=0)
+                if i % 10 == 9:
+                    d.press('A', frames=4, after=0)  # long enough for a yes/no menu (Lance's)
                 d.run(2)
             ran = 0
             for frames in SHOT_FRAMES:
@@ -97,6 +103,8 @@ def main():
             ended, last = legend()
             if not started:
                 problem = f'the effect didn\'t start within {START} frames'
+            elif result == 'NOSCRIPT' and ended >= 1:
+                pass  # the scene was over as the screenshots were taken (Lance's), the field free on the map
             elif result != 'ok':
                 problem = f'{result} after {frames} frames (effects ended {ended}, last 0x{last:X})'
             elif last != kind:

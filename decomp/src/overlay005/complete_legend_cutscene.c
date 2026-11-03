@@ -13,6 +13,7 @@
 #include "field/field_system_sub2_t.h"
 #include "overlay005/ov5_021D1A94.h"
 #include "overlay005/struct_ov5_021D1BEC_decl.h"
+#include "overlay006/hm_cut_in.h"
 #include "overlay006/struct_ov6_0223E6EC.h"
 
 #include "bg_window.h"
@@ -28,6 +29,7 @@
 #include "map_object.h"
 #include "narc.h"
 #include "player_avatar.h"
+#include "pokemon.h"
 #include "script_manager.h"
 #include "sound_playback.h"
 #include "sys_task.h"
@@ -1462,5 +1464,76 @@ BOOL CompleteScrCmd_LegendaryWing(ScriptContext *ctx)
     gCompleteTestLegend[1] = 0x300 + which;
 #endif
     FieldTask_InitCall(fieldSystem->task, LegendaryWing_Task, wing);
+    return TRUE;
+}
+
+// HeartGold's ScrCmd_775 (ov02_022469B4): Lance taking off from the Lake of Rage on his Dragonite. HeartGold plays its
+// Fly take-off cut-in with the two of them (its ov02_022494C4, in assembly there); here Platinum's cut-in window shows
+// the Dragonite (a Lv. 100 one, as HeartGold makes), and with Fly's whoosh Lance and the Dragonite are gone, before the
+// script removes them.
+enum LanceFlightState {
+    LANCE_FLIGHT_CUT_IN = 0,
+    LANCE_FLIGHT_WAIT_CUT_IN,
+};
+
+typedef struct LanceFlight {
+    FieldSystem *fieldSystem;
+    SysTask *cutIn;
+    Pokemon *dragonite;
+    MapObject *riders[2];
+    u8 state;
+} LanceFlight;
+
+static BOOL LanceFlight_Task(FieldTask *task)
+{
+    LanceFlight *flight = FieldTask_GetEnv(task);
+
+    switch (flight->state) {
+    case LANCE_FLIGHT_CUT_IN:
+        flight->cutIn = HMCutIn_StartTask(flight->fieldSystem, FALSE, flight->dragonite, PlayerAvatar_GetGender(flight->fieldSystem->playerAvatar));
+        flight->state++;
+        break;
+    case LANCE_FLIGHT_WAIT_CUT_IN:
+        if (HMCutIn_IsFinished(flight->cutIn) == TRUE) {
+            HMCutIn_EndTask(flight->cutIn);
+            Sound_PlayEffect(SE_BIRD_FLAP);
+
+            for (int i = 0; i < 2; i++) {
+                if (flight->riders[i] != NULL) {
+                    MapObject_SetHidden(flight->riders[i], TRUE);
+                    MapObject_SetStatusFlagOn(flight->riders[i], MAP_OBJ_STATUS_HIDE_SHADOW);
+                }
+            }
+
+            Heap_Free(flight->dragonite);
+            Heap_Free(flight);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestLegend[0]++;
+#endif
+            return TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_LanceFlight(ScriptContext *ctx)
+{
+    u16 lanceID = ScriptContext_GetVar(ctx);
+    u16 dragoniteID = ScriptContext_GetVar(ctx);
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    LanceFlight *flight = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(LanceFlight));
+
+    memset(flight, 0, sizeof(LanceFlight));
+    flight->fieldSystem = fieldSystem;
+    flight->riders[0] = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, lanceID);
+    flight->riders[1] = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, dragoniteID);
+    flight->dragonite = Pokemon_New(HEAP_ID_FIELD2);
+    Pokemon_InitWith(flight->dragonite, SPECIES_DRAGONITE, 100, INIT_IVS_RANDOM, FALSE, 0, OTID_NOT_SHINY, 0);
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x400;
+#endif
+    FieldTask_InitCall(fieldSystem->task, LanceFlight_Task, flight);
     return TRUE;
 }

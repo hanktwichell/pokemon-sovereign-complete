@@ -126,7 +126,7 @@ scr_seq_T29_003:
     WaitMovement
     ApplyMovement obj_T29_wataru, _0834
     WaitMovement
-    @ HGSS: ScrCmd_775 8, 10
+    CompleteLanceFlight 8, 10
     SetFlag FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE
     RemoveObject obj_T29_wataru
     RemoveObject obj_T29_tsure_poke_static_dragonite
@@ -331,7 +331,7 @@ _04F2:
     WaitMovement
     ApplyMovement obj_T29_wataru, _0834
     WaitMovement
-    @ HGSS: ScrCmd_775 8, 10
+    CompleteLanceFlight 8, 10
     SetFlag FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE
     RemoveObject obj_T29_wataru
     RemoveObject obj_T29_tsure_poke_static_dragonite
