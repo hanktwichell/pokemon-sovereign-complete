@@ -999,6 +999,7 @@ ScriptCommand(SCRCMD_COMPLETEFUCHSIAGYMINIT,                           CompleteS
 ScriptCommand(SCRCMD_COMPLETECLOSEMESSAGEIFOPEN,                       CompleteScrCmd_CloseMessageIfOpen)
 ScriptCommand(SCRCMD_COMPLETEPLACEDGET,                                CompleteScrCmd_PlacedGet)
 ScriptCommand(SCRCMD_COMPLETEFINDSTARTERSLOT,                          CompleteScrCmd_FindStarterSlot)
+ScriptCommand(SCRCMD_COMPLETEVOLTORBFLIP,                              CompleteScrCmd_VoltorbFlip)
 
 // clang-format on
 

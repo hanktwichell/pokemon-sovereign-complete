@@ -1189,6 +1189,24 @@
    "player": "PLAYER_ME"
   },
   {
+   "name": "SEQ_ME_CARDGAME1",
+   "fileName": "SEQ_ME_CARDGAME1.sseq",
+   "bank": "BANK_ME_CARDGAME1",
+   "volume": 98,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
+   "name": "SEQ_ME_CARDGAME2",
+   "fileName": "SEQ_ME_CARDGAME2.sseq",
+   "bank": "BANK_ME_CARDGAME2",
+   "volume": 97,
+   "channelPriority": 127,
+   "playerPriority": 64,
+   "player": "PLAYER_ME"
+  },
+  {
    "name": "SEQ_ME_HYOUKA1",
    "fileName": "SEQ_ME_HYOUKA1.sseq",
    "bank": "BANK_ME_HYOUKA1",
@@ -2674,6 +2692,26 @@
   {
    "name": "BANK_ME_BPGET",
    "fileName": "BANK_ME_BPGET.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_CARDGAME1",
+   "fileName": "BANK_ME_CARDGAME1.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_ME_CARDGAME2",
+   "fileName": "BANK_ME_CARDGAME2.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",

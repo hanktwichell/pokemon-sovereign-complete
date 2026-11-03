@@ -494,13 +494,39 @@ once, at the end of the whole game.
   the team in the Hall of Fame and start the game over at home, without credits (`ClearGame_Johto`), and a later
   win at Sinnoh's League skips them.
 
+## Voltorb Flip
+
+The Goldenrod and Celadon Game Corners' Voltorb Flip tables play HeartGold's Voltorb Flip, HeartGold's own code
+(`src/applications/complete_voltorb_flip/`, the overlay `complete_voltorb_flip`) with its graphics
+(`res/graphics/voltorb_flip/`), its text (`hgss_msg_0039`) and its two fanfares (`SEQ_ME_CARDGAME1` and `2`, brought
+in by `tools/complete/import_hgss_sound.py`). The game is HeartGold's in full: the board's levels, the memos, the
+coins paid into the Coin Case, Game Info's three pages.
+
+- **Started by** `CompleteVoltorbFlip machine, city` (HeartGold's `CasinoGame`, `src/complete_scrcmd.c`), as the Alph
+  puzzles are: the field gives way to the game and `ReturnToField` brings it back. HeartGold works out each machine's
+  luck from the machine and the city, then doesn't pass it on, so the two are read and nothing more.
+- **HeartGold's names:** the code keeps HeartGold's, and `include/applications/complete_voltorb_flip/hgss_compat.h`
+  names Platinum's functions and types that way (the two games' engines are one engine under two sets of names). It
+  turns on `require_prototypes`, so a HeartGold name nothing maps fails to compile instead of linking to nothing. A
+  few calls differ and are rewritten in place: the sub screen's sprites sit 192 lines down as Platinum's sprite system
+  puts them (HeartGold's moved its sub screen to 524), the graphics are kept uncompressed, HeartGold's font palette 9
+  (which Platinum's font archive doesn't have) is in the code, and Voltorb Flip uses the diploma's heap (its app can't
+  run at the same time) and the slot machines' sound effects.
+- **The Quit question** is Platinum's touch Yes and No (`yes_no_touch_menu.c`, the buttons HeartGold's prompt draws
+  too); HeartGold's also takes the buttons, its cursor on Yes, so A presses Yes and B presses No here.
+- **Sounds:** HeartGold's own effects (the cards turning, the coins counting) aren't in Platinum's sound archive, so
+  the nearest of Platinum's stand in (`hgss_compat.h`); the fanfares are HeartGold's.
+- **The Japanese Game Corners** (HeartGold's `T25R1101` and `T07R0401`, with slot machines, unused outside Japan) are
+  translated too, to the same command; no warp leads to them.
+- **Test:** `tools/complete/test_hgss_voltorb_flip.py` (the test build reads the board from
+  `gCompleteTestVoltorbFlipGame`): the Goldenrod table opens the game; a round won by flipping every 2 and 3 (touched)
+  pays its product into the Coin Case (24 coins, then level 2); a round quit with the buttons pays what was found (the
+  question answered Yes with A); Quit on the menu brings the field back. All four parts pass.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
 
-- **Voltorb Flip** (the Goldenrod and Celadon Game Corners' machines): Platinum's slot machine stands in, on one of its
-  12 machines (each with its own odds for the day). Porting Voltorb Flip is about 3,700 lines of HeartGold's code
-  (`src/voltorb_flip/`) and its own graphics.
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
 - **The Magnet Train's ride** (between Goldenrod City and Saffron City): HeartGold plays a scene of the train

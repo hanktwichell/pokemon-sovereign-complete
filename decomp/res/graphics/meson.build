@@ -1,4 +1,5 @@
 subdir('alph_puzzle') # Sovereign Complete: the Ruins of Alph's puzzles
+subdir('voltorb_flip') # Sovereign Complete: Voltorb Flip
 subdir('bag')
 subdir('battle')
 subdir('berry_tag')

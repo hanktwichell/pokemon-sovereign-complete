@@ -72,6 +72,7 @@ BOOL CompleteScrCmd_PartyMonIsNotMine(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetEVTotal(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckSeenAllUnownLetters(ScriptContext *ctx);
 BOOL CompleteScrCmd_FindStarterSlot(ScriptContext *ctx);
+BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx);
 
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.

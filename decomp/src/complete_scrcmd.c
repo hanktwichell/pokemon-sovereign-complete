@@ -36,6 +36,7 @@
 
 
 #include "applications/complete_alph_puzzle.h"
+#include "applications/complete_voltorb_flip/voltorb_flip.h"
 #include "applications/naming_screen.h"
 #include "ball_seal_info.h"
 #include "camera.h"
@@ -974,6 +975,43 @@ BOOL CompleteScrCmd_AlphPuzzle(ScriptContext *ctx)
     *args = puzzleArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, puzzleArgs);
     ScriptContext_Pause(ctx, WaitForAlphPuzzle);
+    return TRUE;
+}
+
+#ifdef SOVEREIGN_TEST
+void *gCompleteTestVoltorbFlipGame;
+#endif
+
+// HeartGold's CasinoGame: Voltorb Flip (src/applications/complete_voltorb_flip, HeartGold's code) at a Game Corner's
+// machine. HeartGold works out the machine's luck from the city and machine and then doesn't pass it on, so the two are
+// read and nothing more; ReturnToField brings the field back, as after the Alph puzzles.
+BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_voltorb_flip);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        VoltorbFlip_Init,
+        VoltorbFlip_Main,
+        VoltorbFlip_Exit,
+        FS_OVERLAY_ID(complete_voltorb_flip),
+    };
+    SaveData *saveData = ctx->fieldSystem->saveData;
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    VoltorbFlipArgs *flipArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(VoltorbFlipArgs));
+
+    ScriptContext_ReadByte(ctx); // the machine
+    ScriptContext_ReadByte(ctx); // the city
+
+    MI_CpuClear8(flipArgs, sizeof(VoltorbFlipArgs));
+    flipArgs->options = SaveData_GetOptions(saveData);
+    flipArgs->coins = SaveData_GetCoins(saveData);
+    flipArgs->menuInputState.state = MENU_INPUT_STATE_BUTTONS;
+    flipArgs->menuInputStatePtr = &flipArgs->menuInputState;
+    flipArgs->profile = SaveData_GetTrainerInfo(saveData);
+    flipArgs->saveData = saveData;
+    *args = flipArgs;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, flipArgs);
+    ScriptContext_Pause(ctx, WaitForAlphPuzzle); // frees the arguments once it's done
     return TRUE;
 }
 

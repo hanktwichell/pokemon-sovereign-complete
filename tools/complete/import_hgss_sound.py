@@ -4,7 +4,8 @@
 The songs: every one HeartGold's map headers name, its scripts play (Sacred Gold's, which are the game's; a scene's
 song too, TempBGM), its field music code picks (surfing, cycling, the trainers' encounter themes, and the songs a
 flag puts on a map, as in the Bug-Catching Contest), and its battle and victory themes; and the fanfares its scripts
-play (SEQ_ME_*: an item, a badge, a Pokémon caught). Sacred Gold leaves HeartGold's sound archive as it is.
+play (SEQ_ME_*: an item, a badge, a Pokémon caught), and Voltorb Flip's (its code plays them). Sacred Gold leaves
+HeartGold's sound archive as it is.
 
 HeartGold's sound archive (its pret decomp's prebuilt files/data/sound/gs_sound_data.sdat) is unpacked into
 .cache/hgss_sound with the decomp's nitrosfx. Each song keeps HeartGold's sequence file byte for byte, and gets a bank
@@ -91,6 +92,8 @@ def needed_songs(seqs):
         names |= set(re.findall(r'(?:PlayBGM|PlayFanfare|TempBGM) (SEQ_\w+)', open(path, errors='replace').read()))
     names |= set(re.findall(r'SEQ_GS_\w+', open(os.path.join(HG, 'src/field_bgm.c')).read()))
     names |= set(re.findall(r'SEQ_GS_\w+', open(os.path.join(HG, 'src/sys_flags.c')).read()))  # its music overrides
+    for path in glob.glob(os.path.join(HG, 'src', 'voltorb_flip', '*.c')):  # Voltorb Flip's fanfares
+        names |= set(re.findall(r'SEQ_ME_\w+', open(path).read()))
     names |= {n for n in seqs if re.fullmatch(OTHER_SONGS, n)}
     return sorted(n for n in names if n.startswith(('SEQ_GS_', 'SEQ_ME_')) and n in seqs
                   and seqs[n]['player'] in MUSIC_PLAYERS)

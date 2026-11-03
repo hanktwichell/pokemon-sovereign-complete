@@ -82,7 +82,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   brings the phone's contact list, the radio and the Town Map of Johto and Kanto.
 - **Red at Mt. Silver (Nov 3, 2026).** Post-game: after the end of the whole game.
 - **Johto's Battle Frontier (Nov 3, 2026).** Open.
-- **Voltorb Flip (Nov 3, 2026).** Ported to the Game Corners.
+- **Voltorb Flip (Nov 3, 2026).** Ported to the Game Corners. Done (`docs/Features.md`, "Voltorb Flip").
 - **The credits (Nov 3, 2026).** They roll once, at the end of the whole game.
 
 ### HeartGold features

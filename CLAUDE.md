@@ -74,6 +74,15 @@ work.
 - A new C file in an overlay's folder must also be listed in that overlay in `platinum.us/main.lsf.in`
   (`src/meson.build` is generated from it); otherwise it links outside the overlay and calls into it crash.
 
+## HeartGold's apps
+
+- Voltorb Flip: `src/applications/complete_voltorb_flip/` keeps HeartGold's code, and its `hgss_compat.h` (in
+  `include/applications/complete_voltorb_flip/`) names Platinum's engine by HeartGold's names, with
+  `require_prototypes` on, so an unmapped name fails to compile. Only the app's own files include it. Test:
+  `tools/complete/test_hgss_voltorb_flip.py`.
+- A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
+  `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
+
 ## Game files
 
 Never commit a ROM (`.nds`) or a save file. Both games rebuild from the pret decompilations, and Drayano's patches

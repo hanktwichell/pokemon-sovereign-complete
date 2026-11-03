@@ -1556,6 +1556,17 @@ Overlay complete_alph_puzzle
 	Object src/applications/complete_alph_puzzle.c
 }
 
+Overlay complete_voltorb_flip
+{
+	After main
+	Object src/applications/complete_voltorb_flip/voltorb_flip.c
+	Object src/applications/complete_voltorb_flip/voltorb_flip_game.c
+	Object src/applications/complete_voltorb_flip/voltorb_flip_input.c
+	Object src/applications/complete_voltorb_flip/voltorb_flip_tasks.c
+	Object src/applications/complete_voltorb_flip/touchscreen_list_menu.c
+	Object src/applications/complete_voltorb_flip/grid_input_handler.c
+}
+
 Overlay dummy7
 {
 	After overlay63

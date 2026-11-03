@@ -1368,3 +1368,8 @@ Test results on the new test build:
   League is won, then Red stands there (both checked in the emulator, by a test warp to the summit). Sacred Gold's
   snow pile with the Sky Plate, which stood behind him in Red's sprite, is invisible. The credits roll only the first
   time Sinnoh's League is won; Johto's League and Red had none already (`docs/Features.md`, "Red and the credits").
+- **Voltorb Flip:** the owner's call: ported. HeartGold's code runs as it is (about 3,700 lines in an overlay of its
+  own), with a header that names Platinum's engine by HeartGold's names, its graphics, text and two fanfares. The
+  Game Corners' tables start it and the field comes back after. In the emulator, from Goldenrod's table: a round won
+  by flipping every 2 and 3 paid 24 coins and moved on to level 2, a round quit with the buttons paid its 1 coin, and
+  Quit brought the player back to the Game Corner (`docs/Features.md`, "Voltorb Flip").

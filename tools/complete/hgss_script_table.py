@@ -704,9 +704,9 @@ COMMANDS = {
     'BufferPartyMonMoveName': one('BufferPartyMoveName {0}, {1}, {2}'),
     # A party Pokémon's two types (Draco Meteor goes to Dragon types: 16 in both games; Sovereign's Fairy took 9, ???)
     'GetMonTypes': one('GetPartyMonType {0}, {1}, {2}'),
-    # The Game Corners' machines (Goldenrod's 22, Celadon's 14): HeartGold's Voltorb Flip isn't ported, so Platinum's slot
-    # machine stands in (ScrCmd_267), on one of its 12 machines (each has its own odds for the day)
-    'CasinoGame': lambda a: [f'ScrCmd_267 {int(a[0]) % 12}'],
+    # The Game Corners' machines (Goldenrod's 22, Celadon's 14): HeartGold's Voltorb Flip (src/complete_scrcmd.c,
+    # src/applications/complete_voltorb_flip)
+    'CasinoGame': lambda a: [f'CompleteVoltorbFlip {a[0]}, {a[1]}'],
     'ScrCmd_609': lambda a: [],  # resets the follower's movement after a scene; the engine's follower needs none yet
     'GenderMsgBox': one('MessageGendered {0}, {1}'),
     # The Ruins of Alph: a chamber's puzzle (src/applications/complete_alph_puzzle.c); HeartGold's effect of the hidden

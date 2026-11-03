@@ -6336,6 +6336,13 @@
     .short \destVarID
     .endm
 
+    // HeartGold's CasinoGame: Voltorb Flip at a Game Corner's machine (city 0 Goldenrod, 1 Celadon)
+    .macro CompleteVoltorbFlip machine, city
+    .short SCRCMD_COMPLETEVOLTORBFLIP
+    .byte \machine
+    .byte \city
+    .endm
+
     .text
     .globl _start
 _start:

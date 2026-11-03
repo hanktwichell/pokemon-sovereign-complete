@@ -21,7 +21,7 @@ scr_seq_T07SP0101_000:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    ScrCmd_267 0
+    CompleteVoltorbFlip 0, 0
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
