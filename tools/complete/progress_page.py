@@ -130,6 +130,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Bell Tower\'s Ho-Oh scene and the Whirl Islands\' Lugia scene are HeartGold\'s own now: the Clear Bell '
+        'rises and shimmers with the corner bells, leaves blow over the roof (waves in the cave), the camera pans up '
+        'to the sky, and Ho-Oh flaps down onto the roof.',
         'Fly over Johto and Kanto uses HeartGold\'s fly map on the Pokégear\'s Map instead of a list: its red cursor on '
         'the towns you\'ve reached; the D-pad or a tap moves it, A or a second tap flies there, B backs out. With the '
         'Pokétch on the bottom screen the list is still there.',

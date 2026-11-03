@@ -699,6 +699,15 @@ COMMANDS = {
     'ScrCmd_652': one('CompleteTutorMovePages {0}, {1}, {2}'),
     'MoveTutorChooseMove': one('CompleteTutorChooseMove {0}, {1}, {2}, {3}'),
     'TutorMoveGetPrice': one('CompleteTutorMovePrice {0}, {1}'),
+    # HeartGold's legendary cutscenes on the Bell Tower's roof and in the Whirl Islands (src/overlay005/
+    # complete_legend_cutscene.c): each of its LegendCutscene* commands, by its op (enum LegendCutsceneOp)
+    **{name: (lambda op: lambda a: [f'CompleteLegendCutscene {op}, {a[0] if a else 0}'])(op) for op, name in enumerate((
+        'LegendCutsceneClearBellAnimBegin', 'LegendCutsceneClearBellAnimEnd', 'LegendCutsceneClearBellRiseFromBag',
+        'LegendCutsceneClearBellShimmer', 'LegendCutsceneWavesOrLeavesEffectBegin',
+        'LegendCutsceneWavesOrLeavesEffectEnd', 'LegendCutscenePanCameraTo', 'LegendCutsceneWaitCameraPan',
+        'LegendCutsceneMoveCameraTo', 'LegendCutsceneBirdFinalApproach', 'LegendCutsceneLugiaEyeGlimmerEffect',
+        'LegendCutsceneLugiaArrivesEffectBegin', 'LegendCutsceneLugiaArrivesEffectEnd',
+        'LegendCutsceneLugiaArrivesEffectCameraPan'))},
     'TutorMoveTeachInSlot': one('ResetMoveSlot {0}, {2}, {1}'),
     # The Move Maniac (Blackthorn) and the move tutors (Draco Meteor, Sacred Gold's): Platinum's Move Reminder and tutor
     # menu, which give the same results (0xFF: nothing learned or picked); and the Move Deleter's move pick

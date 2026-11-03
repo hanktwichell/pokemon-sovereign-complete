@@ -58,6 +58,9 @@ extern u8 gCompleteTestHatchEggs;
 // tools/complete/test_hgss_fly.py: when set, the next free field frame starts Fly's list over Johto and Kanto
 // (CommonScript_CompleteFly), as Fly from the party menu does there (then FALSE).
 extern u8 gCompleteTestFly;
+// The legendary cutscenes (src/overlay005/complete_legend_cutscene.c): the ops run, the last, whether a scene's camera
+// is held, and the camera's distance (in whole units) as the scene began and once it ended
+extern u16 gCompleteTestLegend[5];
 
 // The wild battles HeartGold's Headbutt trees and Rock Smash have started (src/overlay006/wild_encounters.c), for
 // tools/complete/test_hgss_headbutt.py: how many, and the last one's species and level; and the items smashed rocks

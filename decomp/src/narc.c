@@ -209,6 +209,7 @@ static const char *sNarcPaths[] = {
     [NARC_INDEX_FIELDDATA__COMPLETE__FUCHSIA_GYM] = "fielddata/complete/fuchsia_gym.narc", // Sovereign Complete
     [NARC_INDEX_APPLICATION__VOLTORB_FLIP__VOLTORB_FLIP] = "application/voltorb_flip/voltorb_flip.narc", // Sovereign Complete
     [NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR] = "application/complete/pokegear.narc", // Sovereign Complete
+    [NARC_INDEX_FIELDDATA__COMPLETE__LEGEND] = "fielddata/complete/legend.narc", // Sovereign Complete
 };
 
 static void ReadFromNarcMemberByPathAndIndex(void *dest, const char *path, int memberIndex, int offset, int bytesToRead);

@@ -1480,3 +1480,12 @@ Test results on the new test build:
   Lola, the Phione Eggs' woman, Johto's starters' doctor) can step off before the test talks, so it now goes back and
   talks again, up to four times, as the talk test does, and its talk loop no longer reads a save's pause as a hang.
   (One hang came from rebuilding the test build under a running test: CLAUDE.md now says not to.)
+- **HeartGold's legendary cutscenes:** the Bell Tower's roof and the Whirl Islands now play HeartGold's scenes
+  (`src/overlay005/complete_legend_cutscene.c`, from its `legend_cutscene_camera.c`), which the translation had left
+  as comments: the Clear Bell (or the Tidal Bell) rising from the bag and shimmering with its corner bells, the leaves
+  blowing over the roof (or the waves in the cave), HeartGold's camera points and pans, Ho-Oh flapping down onto the
+  roof with a ring of light, and Lugia's eye glinting. Its models are HeartGold's own (`tools/complete/
+  import_hgss_legend.py`), drawn by Platinum's field 3D tasks. HeartGold's cinematic of the bird's flight stays out;
+  as its return resets the camera there, the camera goes back to where it was. In the emulator
+  (`tools/complete/test_hgss_legend_cutscenes.py`, both parts pass): each scene from its trigger to its end, the
+  Kimono Girls dancing, the bells, the leaves and waves, Ho-Oh on the roof after.

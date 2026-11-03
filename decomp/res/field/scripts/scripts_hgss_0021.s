@@ -102,8 +102,8 @@ scr_seq_D17R0110_006:
     CloseMessage
     FadeScreen 4, 4, 0, COLOR_WHITE
     WaitFadeScreen
-    @ HGSS: LegendCutsceneClearBellAnimBegin
-    @ HGSS: LegendCutsceneClearBellRiseFromBag
+    CompleteLegendCutscene 0, 0
+    CompleteLegendCutscene 2, 0
     FadeScreen 4, 4, 1, COLOR_WHITE
     WaitFadeScreen
     ApplyMovement obj_D17R0110_dancer, _0754
@@ -129,7 +129,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07A0
     ApplyMovement obj_D17R0110_dancer_5, _07A0
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 1
+    CompleteLegendCutscene 3, 1
     WaitMovement
     WaitTime 67, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _07A0
@@ -138,10 +138,10 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07A0
     ApplyMovement obj_D17R0110_dancer_5, _07A0
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 1
+    CompleteLegendCutscene 3, 1
     WaitMovement
     FadeScreen 4, 6, 1, COLOR_WHITE
-    @ HGSS: LegendCutsceneWavesOrLeavesEffectBegin
+    CompleteLegendCutscene 4, 0
     WaitFadeScreen
     WaitTime 4, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _0914
@@ -156,7 +156,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _080C
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 1
+    CompleteLegendCutscene 3, 1
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _0904
@@ -171,7 +171,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _080C
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 1
+    CompleteLegendCutscene 3, 1
     WaitMovement
     WaitTime 33, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _0904
@@ -186,7 +186,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _08AC
     ApplyMovement obj_D17R0110_dancer_5, _0880
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 1
+    CompleteLegendCutscene 3, 1
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _091C
@@ -201,10 +201,10 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07C4
     ApplyMovement obj_D17R0110_dancer_5, _080C
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 1
+    CompleteLegendCutscene 3, 1
     WaitMovement
-    @ HGSS: LegendCutsceneWavesOrLeavesEffectEnd
-    @ HGSS: LegendCutscenePanCameraTo 0
+    CompleteLegendCutscene 5, 0
+    CompleteLegendCutscene 6, 0
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _091C
     ApplyMovement obj_D17R0110_dancer_2, _091C
@@ -218,7 +218,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07C4
     ApplyMovement obj_D17R0110_dancer_5, _080C
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 0
+    CompleteLegendCutscene 3, 0
     WaitMovement
     WaitTime 32, VAR_RESULT
     ApplyMovement obj_D17R0110_dancer, _090C
@@ -233,18 +233,18 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07C4
     ApplyMovement obj_D17R0110_dancer_5, _080C
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 0
+    CompleteLegendCutscene 3, 0
     WaitMovement
     WaitTime 41, VAR_RESULT
-    @ HGSS: LegendCutsceneWaitCameraPan
+    CompleteLegendCutscene 7, 0
     WaitTime 8, VAR_RESULT
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: LegendCutsceneMoveCameraTo 1
+    CompleteLegendCutscene 8, 1
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     WaitTime 20, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 0
+    CompleteLegendCutscene 3, 0
     ReleaseObject obj_D17R0110_dancer
     ReleaseObject obj_D17R0110_dancer_2
     ReleaseObject obj_D17R0110_dancer_3
@@ -256,11 +256,11 @@ scr_seq_D17R0110_006:
     SetPosition obj_D17R0110_dancer_4, 18, 1, 18, DIR_NORTH
     SetPosition obj_D17R0110_dancer_5, 18, 1, 12, DIR_SOUTH
     WaitTime 86, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 0
+    CompleteLegendCutscene 3, 0
     WaitTime 32, VAR_RESULT
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: LegendCutsceneMoveCameraTo 2
+    CompleteLegendCutscene 8, 2
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
     WaitTime 22, VAR_RESULT
@@ -270,7 +270,7 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07C4
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 0
+    CompleteLegendCutscene 3, 0
     WaitMovement
     WaitTime 32, VAR_RESULT
     WaitTime 34, VAR_RESULT
@@ -280,13 +280,13 @@ scr_seq_D17R0110_006:
     ApplyMovement obj_D17R0110_dancer_4, _07C4
     ApplyMovement obj_D17R0110_dancer_5, _07E8
     WaitTime 12, VAR_RESULT
-    @ HGSS: LegendCutsceneClearBellShimmer 0
+    CompleteLegendCutscene 3, 0
     WaitMovement
     WaitTime 60, VAR_RESULT
-    @ HGSS: LegendCutscenePanCameraTo 1
-    @ HGSS: LegendCutsceneWaitCameraPan
+    CompleteLegendCutscene 6, 1
+    CompleteLegendCutscene 7, 0
     StopMusic
-    @ HGSS: LegendCutsceneClearBellAnimEnd
+    CompleteLegendCutscene 1, 0
     SetVarFromValue VAR_MAP_LOCAL_0x0B, 123
     FadeScreen 6, 1, 0, COLOR_WHITE
     WaitFadeScreen
@@ -298,7 +298,7 @@ scr_seq_D17R0110_006:
     FadeScreen 6, 1, 1, COLOR_WHITE
     WaitFadeScreen
     WaitTime 20, VAR_RESULT
-    @ HGSS: LegendCutsceneBirdFinalApproach
+    CompleteLegendCutscene 9, 0
     StopMusic
     ApplyMovement obj_D17R0110_dancer, _0798
     WaitMovement

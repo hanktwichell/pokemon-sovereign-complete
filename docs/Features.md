@@ -690,6 +690,31 @@ coins paid into the Coin Case, Game Info's three pages.
   pays its product into the Coin Case (24 coins, then level 2); a round quit with the buttons pays what was found (the
   question answered Yes with A); Quit on the menu brings the field back. All four parts pass.
 
+## The legendary cutscenes
+
+HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`), in
+`src/overlay005/complete_legend_cutscene.c`, run by `CompleteLegendCutscene op, arg`, which HeartGold's 14
+`LegendCutscene*` commands translate to (`tools/complete/hgss_script_table.py`):
+
+- **The Bell Tower's roof:** as the Kimono Girls dance, the Clear Bell rises from the player's bag and shimmers, with
+  the four corner bells at the camera's cuts; the leaves blow over the screen (HeartGold's two scrolling layers of
+  leaves, on the field's free BG layers 2 and 3, their priorities and palette put back after); the camera pans up to
+  the sky, and Ho-Oh flaps down onto the roof with a ring of light and its cry.
+- **The Whirl Islands' cave:** the Tidal Bell and its two corner bells, the waves (a 3D model), the camera to the water
+  as Lugia rises, the glint of its eye, and the camera back.
+- **One game, both scenes:** HeartGold picks by its version (Ho-Oh's for HeartGold, Lugia's for SoulSilver); here the
+  Bell Tower's roof plays HeartGold's and the Whirl Islands' SoulSilver's.
+- **How:** the models and animations are HeartGold's (its `demo/legend` members 18 to 54, packed as they are into
+  `fielddata/complete/legend.narc` by `tools/complete/import_hgss_legend.py`), drawn by the field's 3D object tasks
+  (`ov5_021D1A94`, HeartGold's Field3dObjectTask) as Platinum's Easy3D objects (HeartGold's Field3dObject), with
+  HeartGold's camera points and its camera path, a step a frame, on Platinum's camera.
+- **Left out:** HeartGold's cinematic of the bird's flight (`Cinematic`) between the dance and the landing; its return
+  to the field resets the camera, so the camera goes back to where it was as the scene began. HeartGold's sound
+  effects stand in as Platinum's (Fly's whoosh for the flaps, a sparkle for the eye).
+
+Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
+least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance; both pass).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

@@ -63,6 +63,7 @@
 #include "overlay005/ov5_021ECC20.h"
 #include "overlay005/ov5_021F6454.h"
 #include "overlay005/save_info_window.h"
+#include "overlay005/complete_legend_cutscene.h" // Sovereign Complete
 #include "overlay005/scrcmd_move_tutor.h"
 #include "overlay005/script_message.h"
 #include "overlay005/signpost.h"

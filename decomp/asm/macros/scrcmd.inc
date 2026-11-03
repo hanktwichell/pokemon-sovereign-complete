@@ -6401,6 +6401,14 @@
     .short \destVar
     .endm
 
+    // HeartGold's legendary cutscenes (src/overlay005/complete_legend_cutscene.c): one of its LegendCutscene* commands
+    // (enum LegendCutsceneOp), with its argument (a shimmer's Clear Bell only, or a camera point)
+    .macro CompleteLegendCutscene op, arg
+    .short SCRCMD_COMPLETELEGENDCUTSCENE
+    .short \op
+    .short \arg
+    .endm
+
     .text
     .globl _start
 _start:

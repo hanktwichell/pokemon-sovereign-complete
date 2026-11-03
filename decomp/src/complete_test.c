@@ -43,6 +43,7 @@ u8 gCompleteTestOutbreakMap;
 u16 gCompleteTestLeadSpecies;
 u8 gCompleteTestHatchEggs;
 u8 gCompleteTestFly;
+u16 gCompleteTestLegend[5];
 CompleteTestFieldEncounter gCompleteTestFieldEncounter;
 
 // An encounter leaves a loss to its caller (a script's BlackOutFromBattle) and doesn't bring the field back, so the field
