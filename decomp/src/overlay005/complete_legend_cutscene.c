@@ -61,7 +61,6 @@
 #define SE_HO_OH_FLAP        SEQ_SE_GS_HOUOU_HABATAKI_sseq
 #define SE_LUGIA_FLAP        SEQ_SE_GS_RUGIA_HABATAKI_sseq
 #define SE_EYE_GLIMMER       SEQ_SE_GS_RUGIA_MENOHIKARI_sseq
-#define SE_FLY_WHOOSH        SEQ_SE_DP_FW019_sseq // Fly's, with Platinum's cut-in for Lance's take-off
 #define LEAVES_PALETTE       6
 #define LEAVES_TILEMAPS      6
 #define LEAVES_SWITCH_FRAMES 6
@@ -1477,8 +1476,9 @@ BOOL CompleteScrCmd_LegendaryWing(ScriptContext *ctx)
 }
 
 // HeartGold's ScrCmd_775 (ov02_022469B4): Lance taking off from the Lake of Rage on his Dragonite. HeartGold plays its
-// Fly take-off cut-in with the two of them (its ov02_022494C4, in assembly there); here Platinum's cut-in window shows
-// the Dragonite (a Lv. 100 one, as HeartGold makes), and with Fly's whoosh Lance and the Dragonite are gone, before the
+// Fly take-off with the two of them (its ov02_022494C4, in assembly there), as here (CompleteHMCutIn_StartLanceTask,
+// in Platinum's src/overlay006/hm_cut_in.c): its cut-in shows HeartGold's Lance and the Dragonite (a Lv. 100 one, as
+// HeartGold makes), then the bird comes down for him, his and the Dragonite's objects go, and he flies off, before the
 // script removes them.
 enum LanceFlightState {
     LANCE_FLIGHT_CUT_IN = 0,
@@ -1499,15 +1499,14 @@ static BOOL LanceFlight_Task(FieldTask *task)
 
     switch (flight->state) {
     case LANCE_FLIGHT_CUT_IN:
-        flight->cutIn = HMCutIn_StartTask(flight->fieldSystem, FALSE, flight->dragonite, PlayerAvatar_GetGender(flight->fieldSystem->playerAvatar));
+        flight->cutIn = CompleteHMCutIn_StartLanceTask(flight->fieldSystem, flight->dragonite, flight->riders[0], flight->riders[1]);
         flight->state++;
         break;
     case LANCE_FLIGHT_WAIT_CUT_IN:
         if (HMCutIn_IsFinished(flight->cutIn) == TRUE) {
             HMCutIn_EndTask(flight->cutIn);
-            Sound_PlayEffect(SE_FLY_WHOOSH);
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; i++) { // gone with the bird (the cut-in hid them)
                 if (flight->riders[i] != NULL) {
                     MapObject_SetHidden(flight->riders[i], TRUE);
                     MapObject_SetStatusFlagOn(flight->riders[i], MAP_OBJ_STATUS_HIDE_SHADOW);

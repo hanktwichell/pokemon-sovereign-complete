@@ -768,9 +768,12 @@ event from the stage's middle: the circle, Arceus's cinematic to its end and the
   traps', the Rocket Hideout's siren and the wing's chime.
 - **Sacred Gold's Sinjoh Ruins** reuse the alarm (its siren and red screen) in the plates' event on the Mystri Stage,
   as Drayano wrote it.
-- **Lance's flight** off the Lake of Rage (HeartGold's ScrCmd_775): HeartGold plays its own Fly take-off cut-in with
-  Lance and his Dragonite (in assembly there); Platinum's cut-in window stands in, showing the Dragonite, and with
-  Fly's whoosh the two are gone (`CompleteLanceFlight`).
+- **Lance's flight** off the Lake of Rage (HeartGold's ScrCmd_775): HeartGold plays its Fly take-off with Lance and
+  his Dragonite (in assembly there), and so does Complete: Platinum's Fly cut-in, the same code
+  (`src/overlay006/hm_cut_in.c`, `CompleteHMCutIn_StartLanceTask`), with HeartGold's Lance as the rider, from its
+  field cut-in archive (`tools/complete/import_hgss_field_cutin.py`; Platinum's has only its two players). Lance sends
+  out his Dragonite in the cut-in, the bird swoops down for him on his tile, his and the Dragonite's objects go and he
+  is carried off, the player staying, with no fade (`CompleteLanceFlight`).
 - **The Rocket uniform:** the player changes into it in Goldenrod Tunnel before the Radio Tower, and walks in it, in
   HeartGold's own sprites for the boy and the girl, until the Radio Tower's director takes it back after the rescue
   (HeartGold's SetAvatarBits PLAYER_TRANSITION_ROCKET and RocketCostumeFlagAction: the flag the scenes set, read by

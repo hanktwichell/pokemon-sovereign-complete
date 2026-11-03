@@ -36,11 +36,26 @@
 
 #include "res/graphics/battle/sprites.naix"
 
+#ifdef SOVEREIGN_TEST
+#include "complete_test.h" // Sovereign Complete
+#endif
+
+// Sovereign Complete: the rider HMCutIn's playerGender can also be: HeartGold's Lance, from its cut-in archive
+// (tools/complete/import_hgss_field_cutin.py: HeartGold's tiles, cells, animations and palette for him)
+#define CUTIN_RIDER_LANCE           2
+#define LANCE_RIDER_TILES_MEMBER    23
+#define LANCE_RIDER_CELLS_MEMBER    24
+#define LANCE_RIDER_ANIMS_MEMBER    25
+#define LANCE_RIDER_PALETTE_MEMBER  8
+#define CUTIN_RIDERS                2
+
 typedef struct HMCutIn {
     int state;
     int isFinished;
     int subState;
     int playerGender;
+    MapObject *riders[CUTIN_RIDERS]; // Sovereign Complete: Lance's and his Dragonite's objects, for CUTIN_RIDER_LANCE
+    VecFx32 riderOffset; // Sovereign Complete: where Lance stands on screen, from the player's place at its middle
     BOOL updateSprites;
     int windParticlesAnimState; // 2 = active; 1 = inactive
     BOOL screenFaded;
@@ -1056,6 +1071,25 @@ SysTask *HMCutIn_StartTask(FieldSystem *fieldSystem, BOOL isFly, Pokemon *shownP
     return task;
 }
 
+// Sovereign Complete: HeartGold's ov02_022494C4, its Fly take-off for Lance and his Dragonite (ScrCmd_775)
+SysTask *CompleteHMCutIn_StartLanceTask(FieldSystem *fieldSystem, Pokemon *shownPokemon, MapObject *lance, MapObject *dragonite)
+{
+    HMCutIn *cutIn = CreateHMCutIn(fieldSystem);
+
+    cutIn->mon = shownPokemon;
+    cutIn->playerGender = CUTIN_RIDER_LANCE;
+    cutIn->_1 = TRUE;
+    cutIn->riders[0] = lance;
+    cutIn->riders[1] = dragonite;
+
+    if (lance != NULL) { // a tile is 16 pixels across the screen and down it, the player's in the middle
+        cutIn->riderOffset.x = FX32_CONST(16) * (MapObject_GetX(lance) - PlayerAvatar_GetXPos(fieldSystem->playerAvatar));
+        cutIn->riderOffset.y = FX32_CONST(16) * (MapObject_GetZ(lance) - PlayerAvatar_GetZPos(fieldSystem->playerAvatar));
+    }
+
+    return SysTask_Start(SysTask_CutInFly, cutIn, 133);
+}
+
 int HMCutIn_IsFinished(SysTask *cutInTask)
 {
     HMCutIn *cutIn = SysTask_GetParam(cutInTask);
@@ -1428,6 +1462,15 @@ static BOOL HMCutIn_InitFlyTasks(HMCutIn *cutIn)
     Fly_InitBirdSpritePos(cutIn);
     CutIn_InitPlaneMasksForFly(cutIn);
     HideAndStopPlayerMapObj(cutIn, TRUE);
+
+    if (cutIn->playerGender == CUTIN_RIDER_LANCE) { // Sovereign Complete: the rider stands where Lance stood
+        VecFx32 position = *Sprite_GetPosition(cutIn->playerSprite);
+
+        position.x += cutIn->riderOffset.x;
+        position.y += cutIn->riderOffset.y;
+        Sprite_SetPosition(cutIn->playerSprite, &position);
+    }
+
     cutIn->state++;
     return FALSE;
 }
@@ -1514,6 +1557,16 @@ static BOOL HMCutIn_SlideOutWindow(HMCutIn *cutIn)
 
 static BOOL HMCutIn_FadeOut(HMCutIn *cutIn)
 {
+    if (cutIn->playerGender == CUTIN_RIDER_LANCE) { // Sovereign Complete: the scene goes on, with no fade or warp
+        if (Fly_GetTaskEnvSubState(cutIn) != 2) {
+            return FALSE;
+        }
+
+        FlyAway_SetTasksDone(cutIn);
+        cutIn->state += 2; // past HMCutIn_CheckFadeOutComplete
+        return FALSE;
+    }
+
     if (cutIn->screenFaded == FALSE) {
         if (Fly_GetTaskEnvSubState(cutIn) == 4) {
             cutIn->screenFaded = TRUE;
@@ -1743,8 +1796,13 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
         cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, narc, sCutInWindParticleChar[i].memberIdx, FALSE, sCutInWindParticleChar[i].resourceId, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
     }
 
+    // Sovereign Complete: HeartGold's Lance, from its own cut-in archive
+    NARC *lanceNarc = cutIn->playerGender == CUTIN_RIDER_LANCE ? NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__FIELD_CUTIN, HEAP_ID_FIELD1) : NULL;
+
     // Char Index 1: Player
-    if (cutIn->playerGender == 0) {
+    if (lanceNarc != NULL) { // Sovereign Complete
+        cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, lanceNarc, LANCE_RIDER_TILES_MEMBER, FALSE, 2, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
+    } else if (cutIn->playerGender == 0) {
         cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, narc, 13, FALSE, 2, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
     } else {
         cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, narc, 16, FALSE, 2, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
@@ -1760,7 +1818,10 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
     }
 
     // Palette Index 1: Player Female
-    if (cutIn->playerGender == 0) {
+    if (lanceNarc != NULL) { // Sovereign Complete: Lance's, in the female's place
+        cutIn->paletteSource[i] = SpriteResourceCollection_AddPaletteFrom(cutIn->paletteLocation, lanceNarc, LANCE_RIDER_PALETTE_MEMBER, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 1, HEAP_ID_FIELD1);
+        i++;
+    } else if (cutIn->playerGender == 0) {
     } else {
         cutIn->paletteSource[i] = SpriteResourceCollection_AddPaletteFrom(cutIn->paletteLocation, narc, 4, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 1, HEAP_ID_FIELD1);
         i++;
@@ -1775,7 +1836,9 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
     }
 
     // Cell Index 1: Player
-    if (cutIn->playerGender == 0) {
+    if (lanceNarc != NULL) { // Sovereign Complete
+        cutIn->cellSource[i] = SpriteResourceCollection_AddFrom(cutIn->cellLocation, lanceNarc, LANCE_RIDER_CELLS_MEMBER, FALSE, 2, SPRITE_RESOURCE_CELL, HEAP_ID_FIELD1);
+    } else if (cutIn->playerGender == 0) {
         cutIn->cellSource[i] = SpriteResourceCollection_AddFrom(cutIn->cellLocation, narc, 14, FALSE, 2, SPRITE_RESOURCE_CELL, HEAP_ID_FIELD1);
     } else {
         cutIn->cellSource[i] = SpriteResourceCollection_AddFrom(cutIn->cellLocation, narc, 17, FALSE, 2, SPRITE_RESOURCE_CELL, HEAP_ID_FIELD1);
@@ -1792,7 +1855,10 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
     }
 
     // Animation Index 1: Player
-    if (cutIn->playerGender == 0) {
+    if (lanceNarc != NULL) { // Sovereign Complete
+        cutIn->animSource[i] = SpriteResourceCollection_AddFrom(cutIn->animLocation, lanceNarc, LANCE_RIDER_ANIMS_MEMBER, FALSE, 1, SPRITE_RESOURCE_ANIM, HEAP_ID_FIELD1);
+        NARC_dtor(lanceNarc);
+    } else if (cutIn->playerGender == 0) {
         cutIn->animSource[i] = SpriteResourceCollection_AddFrom(cutIn->animLocation, narc, 15, FALSE, 1, SPRITE_RESOURCE_ANIM, HEAP_ID_FIELD1);
     } else {
         cutIn->animSource[i] = SpriteResourceCollection_AddFrom(cutIn->animLocation, narc, 18, FALSE, 1, SPRITE_RESOURCE_ANIM, HEAP_ID_FIELD1);
@@ -1913,7 +1979,7 @@ static Sprite *CutIn_InitPlayerSprite(HMCutIn *cutIn, const VecFx32 *position)
     Sprite *playerSprite;
     u32 plttResourceID = 0;
 
-    if (cutIn->playerGender == 1) {
+    if (cutIn->playerGender == 1 || cutIn->playerGender == CUTIN_RIDER_LANCE) { // Sovereign Complete: Lance's in 1
         plttResourceID = 1;
     }
 
@@ -2416,6 +2482,9 @@ static void Fly_InitBirdSpritePos(HMCutIn *cutIn)
     VecFx32 birdScale = { 0x400, 0x400, 0 };
     FlyTaskEnv *env = OverworldAnimManager_GetFuncsContext(cutIn->unk_250);
 
+    birdPosition.x += cutIn->riderOffset.x; // Sovereign Complete: from Lance's place (none for the player)
+    birdPosition.y += cutIn->riderOffset.y;
+
     env->stage = 1;
     env->state = 0;
     env->subState = 0;
@@ -2504,6 +2573,9 @@ static void Fly_PrepareBirdForDescent(HMCutIn *cutIn)
     VecFx32 birdPosition = VEC_FX32(128, 104, 0);
     VecFx32 birdScale = VEC_FX32(1.25, 1.25, 0);
     FlyTaskEnv *env = OverworldAnimManager_GetFuncsContext(cutIn->unk_250);
+
+    birdPosition.x += cutIn->riderOffset.x; // Sovereign Complete: down to Lance (none for the player)
+    birdPosition.y += cutIn->riderOffset.y;
 
     env->stage = 2;
     env->state = 0;
@@ -3053,6 +3125,21 @@ static void *FlyLanding_AllocFromHeapAtEnd(enum HeapID heapID, int size)
 
 static void HideAndStopPlayerMapObj(HMCutIn *cutIn, BOOL hidden)
 {
+    if (cutIn->playerGender == CUTIN_RIDER_LANCE) { // Sovereign Complete: Lance and his Dragonite go, the player stays
+        for (int i = 0; i < CUTIN_RIDERS; i++) {
+            if (cutIn->riders[i] != NULL) { // unpaused, as the player is below: a paused object's drawing isn't updated
+                MapObject_SetPauseMovementOff(cutIn->riders[i]);
+                MapObject_SetHidden(cutIn->riders[i], hidden);
+                MapObject_SetStatusFlagOn(cutIn->riders[i], MAP_OBJ_STATUS_HIDE_SHADOW);
+#ifdef SOVEREIGN_TEST
+                gCompleteTestLegend[2] |= 1 << i; // the riders hidden
+#endif
+            }
+        }
+
+        return;
+    }
+
     MapObject *playObj = PlayerAvatar_GetMapObject(cutIn->fieldSystem->playerAvatar);
 
     MapObject_SetPauseMovementOff(playObj);

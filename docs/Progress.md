@@ -1595,3 +1595,11 @@ Test results on the new test build:
   opens Kabuto's chamber's, Flash Omanyte's and a Water Stone Aerodactyl's (`CompleteAlph_CanOpenWall`, from its
   `alph_checks.c`, asked by the item use and by Flash), the chamber's own script shaking the room open, nothing used
   up; Ho-Oh's opens when read with Ho-Oh in the party. Each room has four item balls, which no one could reach before.
+- **Lance's take-off:** off the Lake of Rage, Lance now leaves as in HeartGold, on his Dragonite in Fly's take-off.
+  The stand-in had been Platinum's plain cut-in band (Cut's and Surf's), the two then simply gone. HeartGold's version
+  (its ov02_022494C4) is its Fly cut-in with Lance as the rider; Platinum's Fly cut-in is the same code, so it takes a
+  third rider, HeartGold's Lance, from HeartGold's field cut-in archive (its a/0/9/3, now imported whole,
+  `fielddata/complete/field_cutin.narc`): Lance in the band sending out the Dragonite, the bird swooping down to his
+  tile instead of the middle, his and the Dragonite's objects hidden instead of the player's (unpaused first, as
+  Platinum does the player's: a paused object's drawing isn't updated, which the first try showed), and no fade at
+  the end, the scene going on. In the emulator the field effects test now checks both are hidden by the bird.

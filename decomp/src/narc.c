@@ -210,6 +210,7 @@ static const char *sNarcPaths[] = {
     [NARC_INDEX_APPLICATION__VOLTORB_FLIP__VOLTORB_FLIP] = "application/voltorb_flip/voltorb_flip.narc", // Sovereign Complete
     [NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR] = "application/complete/pokegear.narc", // Sovereign Complete
     [NARC_INDEX_FIELDDATA__COMPLETE__LEGEND] = "fielddata/complete/legend.narc", // Sovereign Complete
+    [NARC_INDEX_FIELDDATA__COMPLETE__FIELD_CUTIN] = "fielddata/complete/field_cutin.narc", // Sovereign Complete
     [NARC_INDEX_DEMO__COMPLETE__MAGNET_TRAIN] = "demo/complete/magnet_train.narc", // Sovereign Complete
     [NARC_INDEX_DEMO__COMPLETE__LEGEND_CINEMATIC] = "demo/complete/legend_cinematic.narc", // Sovereign Complete
     [NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC] = "demo/complete/arceus_cinematic.narc", // Sovereign Complete

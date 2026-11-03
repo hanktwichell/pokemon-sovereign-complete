@@ -14,7 +14,8 @@ And the monks' wings (ShowLegendaryWing), each shining at the player's feet whil
    the stairs (8, 12), the monk shows the wing, and its scene after has him step aside (VAR_HGSS_UNK_40F3 1).
 4. **The Silver Wing** on the Whirl Islands' B2F: with FLAG_HGSS_UNK_094 set, the player talks to the monk (36, 30).
 5. **Lance's flight** at the Lake of Rage (ScrCmd_775): the player, on the water below him, talks to Lance and agrees
-   to help: the cut-in shows his Dragonite, and the two are gone.
+   to help: Fly's cut-in shows HeartGold's Lance and his Dragonite, the bird comes down for him, and his and the
+   Dragonite's objects go (gCompleteTestLegend[2]: both hidden), the player's staying.
 
 And the Ruins of Alph's four chambers (OpenAlphHiddenRoom):
 
@@ -42,6 +43,7 @@ WHIRL_ISLANDS = 'MAP_HEADER_HGSS_WHIRL_ISLANDS_B2F'
 LAKE_OF_RAGE = 'MAP_HEADER_HGSS_LAKE_OF_RAGE'
 ALPH = 'MAP_HEADER_HGSS_RUINS_OF_ALPH_{}_ENTRANCE_FIRST_ROOM'  # HeartGold's D24R0202 to D24R0208
 ALPH_WALL = 0x600  # the walls' kind: 0x600 + the word
+LANCE_FLIGHT, LANCE_RIDERS_HIDDEN = 0x400, 3  # gCompleteTestLegend[2]: a bit for each of Lance's and the Dragonite's
 FACING = {'UP': 1, 'DOWN': 0, 'LEFT': 3, 'RIGHT': 4}  # the test warp's facing: enum FaceDirection + 1, 0 for down
 SHOT_FRAMES = tuple(int(f) for f in os.environ['SHOTS'].split(',')) if os.environ.get('SHOTS') else (4, 24, 48, 120, 200)
 START = 4000  # frames for the effect to start after the step (Lance talks a while first)
@@ -75,6 +77,9 @@ def main():
     def legend():
         """(the effects ended, the last one's kind)"""
         return struct.unpack('<2H', bytes(mem.unsigned[sym['gCompleteTestLegend']:sym['gCompleteTestLegend'] + 4]))
+
+    def riders_hidden():
+        return struct.unpack('<H', bytes(mem.unsigned[sym['gCompleteTestLegend'] + 4:sym['gCompleteTestLegend'] + 6]))[0]
 
     results = []
     for name, header, (x, z), key, kind, setup in PARTS:
@@ -128,6 +133,8 @@ def main():
                 problem = f'the effect was 0x{last:X}, not 0x{kind:X}'
             elif ended < 1:
                 problem = 'the effect never ended'
+            elif kind == LANCE_FLIGHT and riders_hidden() != LANCE_RIDERS_HIDDEN:
+                problem = f'the bird didn\'t take Lance and the Dragonite (hidden {riders_hidden():#x})'
         results.append(f'{name}: {problem or "ok"}')
         print(results[-1], flush=True)
 

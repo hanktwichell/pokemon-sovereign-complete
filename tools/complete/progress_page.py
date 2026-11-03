@@ -74,10 +74,11 @@ STEPS = [
 
 NEXT = [
     'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build, with '
-    'the Rocket uniform and Ho-Oh\'s and Lugia\'s cinematics. The last one reached Route 39 before the session\'s '
-    'machine restarted.',
-    'The long checks pass on the latest build (every Totem and legendary placement, every boss Mega, every tile '
-    'behavior, the sound memory on every map). The talk test over all 5,865 people and signs is running.',
+    'HeartGold\'s sound effects and the Ruins of Alph\'s walls. The one before, on the build with the cinematics and '
+    'the Rocket uniform, passed its first 32 parts (to the Olivine Lighthouse) before it was moved to the new build.',
+    'The long checks pass on the latest builds (every Totem and legendary placement, every boss Mega, every tile '
+    'behavior, the sound memory on every map). The talk test over all 5,865 people and signs is running on the '
+    'newest build too, since the scripts now play HeartGold\'s sounds.',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
@@ -149,6 +150,8 @@ RECENT = [
         '(ESCAPE, LIGHT, WATER, HO OH), and the rooms behind open as in HeartGold: an Escape Rope, Flash or a Water '
         'Stone used facing the wall, or reading Ho-Oh\'s with Ho-Oh in your party. Each room holds four items that '
         'couldn\'t be reached before.',
+        'Lance takes off from the Lake of Rage as in HeartGold: in Fly\'s cut-in he sends out his Dragonite, then the '
+        'bird swoops down and carries him off, using HeartGold\'s own graphics of Lance riding.',
         'The Sinjoh Ruins\' event (all 16 plates and the National Pokédex) plays as in HeartGold: the Unown\'s circle '
         'spins up on the Mystri Stage, then HeartGold\'s Arceus cinematic, half a minute of its own art and music, '
         'with your Arceus in its own form if it leads your party.',

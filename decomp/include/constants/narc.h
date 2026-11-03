@@ -206,6 +206,7 @@ enum NarcID {
     NARC_INDEX_APPLICATION__VOLTORB_FLIP__VOLTORB_FLIP, // Sovereign Complete: Voltorb Flip (HeartGold's)
     NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, // Sovereign Complete: the Pokégear's graphics (HeartGold's)
     NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, // Sovereign Complete: the legendary cutscenes' graphics (HeartGold's)
+    NARC_INDEX_FIELDDATA__COMPLETE__FIELD_CUTIN, // Sovereign Complete: the field cut-in's riders, Lance (HeartGold's)
     NARC_INDEX_DEMO__COMPLETE__MAGNET_TRAIN, // Sovereign Complete: the Magnet Train ride's graphics (HeartGold's)
     NARC_INDEX_DEMO__COMPLETE__LEGEND_CINEMATIC, // Sovereign Complete: the legendary cinematics' models (HeartGold's)
     NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC, // Sovereign Complete: Arceus's cinematic's graphics (HeartGold's)
