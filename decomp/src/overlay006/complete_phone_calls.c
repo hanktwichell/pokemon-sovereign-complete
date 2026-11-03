@@ -14,7 +14,10 @@
 #include "generated/vars_flags.h"
 
 #include "field/field_system.h"
+#include "overlay005/daycare.h"
+#include "overlay005/field_menu.h"
 #include "overlay005/script_message.h"
+#include "res/sound/pl_sound_data.naix"
 #include "struct_defs/trainer.h"
 #include "struct_defs/trainer_data.h"
 
@@ -23,7 +26,9 @@
 #include "complete_encounters.h"
 #include "complete_map_info.h"
 #include "complete_phone.h"
+#include "complete_pokedex.h"
 #include "complete_trainers.h"
+#include "daycare_save.h"
 #include "field_message.h"
 #include "field_script_context.h"
 #include "heap.h"
@@ -32,11 +37,13 @@
 #include "math_util.h"
 #include "message.h"
 #include "message_util.h"
+#include "pc_boxes.h"
 #include "pokedex.h"
 #include "rtc.h"
 #include "save_player.h"
 #include "scrcmd.h"
 #include "script_manager.h"
+#include "sound_playback.h"
 #include "string_gf.h"
 #include "string_template.h"
 #include "trainer_data.h"
@@ -284,6 +291,8 @@ enum CallStep {
     CALL_STEP_END = 0,
     CALL_STEP_MESSAGE,
     CALL_STEP_QUESTION, // a message, then yes or no (CompleteScrCmd_PhoneCallAnswer)
+    CALL_STEP_CHOICE, // a message, then a menu of the phone's choices (CompleteScrCmd_PhoneCallMenu), the pick answered
+    CALL_STEP_OUT_OF_AREA, // CompleteScrCmd_PhoneCallStart's answer for a call the player can't place here
 };
 
 enum HGSSTimeOfDay {
@@ -337,6 +346,9 @@ typedef struct CompletePhoneCall {
     u8 group;
     u8 candidates;
     u8 trigger;
+    u8 menuFirst; // the choices of a CALL_STEP_CHOICE: their first message in HeartGold's phone app's bank (0271)
+    u8 menuCount;
+    u8 fanfare; // the last message waits for a fanfare
 } CompletePhoneCall;
 
 static CompletePhoneCall sCall;
@@ -668,6 +680,445 @@ static enum CallStep Call_GymLeader(FieldSystem *fieldSystem)
     }
 }
 
+// The calls the player makes (HeartGold's phone app's outgoing calls), the ones with their own handler
+
+// HeartGold's GearPhoneCall_Bill: how much room is left in the PC's boxes, and the box the player is using
+static enum CallStep Call_Bill(FieldSystem *fieldSystem)
+{
+    PCBoxes *boxes = SaveData_GetPCBoxes(fieldSystem->saveData);
+    String *name;
+    int empty;
+
+    switch (sCall.step++) {
+    case 0:
+        if (sPhoneBook[sCall.contact].greeting != GREETING_NONE) {
+            return SayGreeting();
+        }
+
+        sCall.step++;
+        // fall through
+    case 1:
+        return SayGendered(3, 4);
+    case 2:
+        name = String_Init(PC_BOX_NAME_BUFFER_LEN, HEAP_ID_FIELD3);
+        PCBoxes_BufferBoxName(boxes, PCBoxes_GetCurrentBoxID(boxes), name);
+        StringTemplate_SetString(sCall.template, 10, name, 0, TRUE, GAME_LANGUAGE);
+        String_Free(name);
+
+        empty = MAX_PC_BOXES * MAX_MONS_PER_BOX;
+
+        for (int i = 0; i < MAX_PC_BOXES; i++) {
+            empty -= PCBoxes_CountMonsInBox(boxes, i);
+        }
+
+        StringTemplate_SetNumber(sCall.template, 11, empty, 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+        return SayContact(empty == 0 ? 9 : 5 + LCRNG_RandMod(3));
+    case 3:
+        return SayContact(8);
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// The Johto Pokédex's species seen and caught (Mew and Celebi, its event Pokémon, aside for Oak's rating)
+static void CountJohtoDex(Pokedex *pokedex, u16 *seen, u16 *caught, u16 *caughtForRating)
+{
+    const u16 *johtoDex = CompletePokedex_JohtoList();
+
+    *seen = *caught = *caughtForRating = 0;
+
+    for (int i = 0; i < JOHTO_DEX_COUNT; i++) {
+        *seen += Pokedex_HasSeenSpecies(pokedex, johtoDex[i]);
+
+        if (Pokedex_HasCaughtSpecies(pokedex, johtoDex[i])) {
+            (*caught)++;
+            *caughtForRating += CompletePokedex_CountsForJohtoGoal(johtoDex[i]);
+        }
+    }
+}
+
+// HeartGold's GetOakJohtoDexRating and GetOakNationalDexRating: Oak's word on the Pokémon caught, and its fanfare
+static u16 OakRating(BOOL national, u16 caught, BOOL complete, u16 *fanfare)
+{
+    static const u16 sJohtoTiers[] = { 9, 19, 34, 49, 64, 79, 94, 109, 124, 139, 154, 169, 184, 199, 214, 229, 244, 253 };
+    static const u16 sNationalTiers[] = { 100, 150, 200, 250, 300, 350, 400, 435, 465, 475, 483 };
+    const u16 *tiers = national ? sNationalTiers : sJohtoTiers;
+    int count = national ? NELEMS(sNationalTiers) : NELEMS(sJohtoTiers);
+
+    *fanfare = SEQ_ME_HYOUKA1_sseq;
+
+    if (!complete) {
+        for (int i = 0; i < count; i++) {
+            if (caught <= tiers[i]) {
+                return (national ? 46 : 28) + i;
+            }
+        }
+
+        return national ? 56 : 45; // past the last tier, with one still to catch
+    }
+
+    *fanfare = SEQ_ME_HYOUKA6_sseq;
+    return (national ? 24 : 22) + (sCall.gender != GENDER_MALE);
+}
+
+// HeartGold's GearPhoneCall_ProfOak: whether to have the Pokédex evaluated (Johto's before the National Pokédex; then
+// Johto's and the National one, until Oak has seen Johto's complete; then the National one), the Pokémon seen and
+// caught in it, and his rating, with its fanfare. Seeing one complete for the first time ends the call there.
+static enum CallStep Call_Oak(FieldSystem *fieldSystem)
+{
+    static const u8 sMenus[3][2] = { { 10, 2 }, { 12, 3 }, { 15, 2 } }; // first choice, choices: bank 0271's
+    Pokedex *pokedex = SaveData_GetPokedex(fieldSystem->saveData);
+    u16 seen, caught, caughtForRating, message;
+    BOOL complete;
+
+    switch (sCall.step++) {
+    case 0:
+        return SayGendered(13, 14);
+    case 1:
+        if (!Pokedex_IsNationalDexObtained(pokedex)) {
+            sCall.count = 0;
+        } else {
+            sCall.count = PhoneCheckFlag(fieldSystem, FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_JOHTO_DEX_COMPLETION) ? 2 : 1;
+        }
+
+        sCall.menuFirst = sMenus[sCall.count][0];
+        sCall.menuCount = sMenus[sCall.count][1];
+        SayContact(15);
+        return CALL_STEP_CHOICE;
+    case 2:
+        if (sCall.answer == 0) {
+            sCall.flag = sCall.count == 2; // the National Pokédex
+        } else if (sCall.answer == 1 && sCall.count == 1) {
+            sCall.flag = TRUE;
+        } else {
+            sCall.step = CALL_STEP_DONE;
+            return SayContact(21);
+        }
+
+        if (sCall.flag) {
+            seen = Pokedex_CountSeen_National(pokedex);
+            caught = Pokedex_CountCaught_National(pokedex);
+        } else {
+            CountJohtoDex(pokedex, &seen, &caught, &caughtForRating);
+        }
+
+        StringTemplate_SetNumber(sCall.template, 5, seen, 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+        StringTemplate_SetNumber(sCall.template, 6, caught, 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+        return SayContact(20);
+    case 3: {
+        u16 fanfare;
+
+        if (sCall.flag) {
+            caughtForRating = Pokedex_NumCaught_National(pokedex);
+            complete = Pokedex_NationalDexCompleted(pokedex);
+        } else {
+            CountJohtoDex(pokedex, &seen, &caught, &caughtForRating);
+            complete = caughtForRating >= JOHTO_DEX_GOAL;
+        }
+
+        message = OakRating(sCall.flag, caughtForRating, complete, &fanfare);
+        Sound_PlayFanfare(fanfare);
+        sCall.fanfare = TRUE;
+
+        if (complete) {
+            PhoneSetFlag(fieldSystem, sCall.flag ? FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION : FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_JOHTO_DEX_COMPLETION, TRUE);
+            sCall.step = CALL_STEP_DONE;
+        }
+
+        return SayContact(message);
+    }
+    case 4:
+        sCall.fanfare = FALSE;
+        return SayContact(21);
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// The levels a Pokémon at the Day-Care has grown there (HeartGold's DaycareMon_CalcLevelGrowth), 0 for none there
+static int DaycareLevelGrowth(Daycare *daycare, int slot)
+{
+    DaycareMon *daycareMon = Daycare_GetDaycareMon(daycare, slot);
+    BoxPokemon *boxMon = DaycareMon_GetBoxMon(daycareMon);
+
+    if (BoxPokemon_GetValue(boxMon, MON_DATA_SPECIES, NULL) == SPECIES_NONE) {
+        return 0;
+    }
+
+    return BoxPokemon_GiveExperience(boxMon, DaycareMon_GetSteps(daycareMon)) - BoxPokemon_GetLevel(boxMon); // on a copy
+}
+
+static enum CallStep SayDaycareGrowth(Daycare *daycare, int slot)
+{
+    StringTemplate_SetNickname(sCall.template, 10, DaycareMon_GetBoxMon(Daycare_GetDaycareMon(daycare, slot)));
+    StringTemplate_SetNumber(sCall.template, 11, DaycareLevelGrowth(daycare, slot), 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    return SayContact(6);
+}
+
+// HeartGold's GearPhoneCall_DayCareLady: how much the Pokémon left with her have grown
+static enum CallStep Call_DayCareLady(FieldSystem *fieldSystem)
+{
+    Daycare *daycare = SaveData_GetDaycare(fieldSystem->saveData);
+    int mons = Daycare_CountMons(daycare);
+
+    switch (sCall.step++) {
+    case 0:
+        return SayGendered(3, 4);
+    case 1:
+        if (mons == 0) {
+            sCall.step = CALL_STEP_DONE;
+            return SayContact(10);
+        }
+
+        return SayContact(5);
+    case 2:
+        if (DaycareLevelGrowth(daycare, 0) != 0) {
+            if (DaycareLevelGrowth(daycare, 1) == 0) {
+                sCall.step = 4;
+            }
+
+            return SayDaycareGrowth(daycare, 0);
+        }
+
+        if (DaycareLevelGrowth(daycare, 1) != 0) {
+            sCall.step = 4;
+            return SayDaycareGrowth(daycare, 1);
+        }
+
+        sCall.step = CALL_STEP_DONE;
+        return SayContact(9);
+    case 3:
+        return SayDaycareGrowth(daycare, 1);
+    case 4:
+        return SayContact(mons == 1 ? 8 : 9);
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// HeartGold's GearPhoneCall_DayCareMan: an Egg, or the Pokémon left with the Day-Care and how well they get along
+static enum CallStep Call_DayCareMan(FieldSystem *fieldSystem)
+{
+    Daycare *daycare = SaveData_GetDaycare(fieldSystem->saveData);
+    int mons = 0;
+
+    switch (sCall.step++) {
+    case 0:
+        for (int i = 0; i < NUM_DAYCARE_MONS; i++) {
+            BoxPokemon *boxMon = DaycareMon_GetBoxMon(Daycare_GetDaycareMon(daycare, i));
+
+            if (BoxPokemon_GetValue(boxMon, MON_DATA_SPECIES, NULL) != SPECIES_NONE) {
+                StringTemplate_SetNickname(sCall.template, 10 + i, boxMon);
+                mons++;
+            }
+        }
+
+        sCall.count = mons;
+        return SayContact(2);
+    case 1:
+        if (Daycare_HasEgg(daycare)) {
+            sCall.step = CALL_STEP_DONE;
+            return SayContact(3);
+        }
+
+        if (sCall.count < 2) {
+            sCall.step = 3;
+            return SayContact(sCall.count == 0 ? 4 : 5);
+        }
+
+        return SayContact(6);
+    case 2:
+        return SayContact(7 + Daycare_GetCompatibilityLevel(daycare));
+    case 3:
+        return SayContact(11);
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// HeartGold's GearPhoneCall_Buena: her greeting by the time of day, then a word on her show
+static enum CallStep Call_BuenaOutgoing(FieldSystem *fieldSystem)
+{
+    switch (sCall.step++) {
+    case 0:
+        return SayGendered(3 + sCall.timeOfDay * 2, 4 + sCall.timeOfDay * 2);
+    case 1:
+        return SayContact(10 + LCRNG_RandMod(3));
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// HeartGold's ov101_021F86CC: the places Ethan or Lyra has a story about when the player calls from there
+static const u16 sFriendStoryPlaces[73] = {
+    MAP_HEADER_HGSS_ROUTE_1,
+    MAP_HEADER_HGSS_ROUTE_2,
+    MAP_HEADER_HGSS_ROUTE_3,
+    MAP_HEADER_HGSS_ROUTE_4,
+    MAP_HEADER_HGSS_ROUTE_5,
+    MAP_HEADER_HGSS_ROUTE_6,
+    MAP_HEADER_HGSS_ROUTE_7,
+    MAP_HEADER_HGSS_ROUTE_8,
+    MAP_HEADER_HGSS_ROUTE_9,
+    MAP_HEADER_HGSS_ROUTE_10,
+    MAP_HEADER_HGSS_ROUTE_11,
+    MAP_HEADER_HGSS_ROUTE_12,
+    MAP_HEADER_HGSS_ROUTE_13,
+    MAP_HEADER_HGSS_ROUTE_14,
+    MAP_HEADER_HGSS_ROUTE_15,
+    MAP_HEADER_HGSS_ROUTE_16,
+    MAP_HEADER_HGSS_ROUTE_17,
+    MAP_HEADER_HGSS_ROUTE_18,
+    MAP_HEADER_HGSS_ROUTE_19,
+    MAP_HEADER_HGSS_ROUTE_20,
+    MAP_HEADER_HGSS_ROUTE_21,
+    MAP_HEADER_HGSS_ROUTE_22,
+    MAP_HEADER_HGSS_ROUTE_24,
+    MAP_HEADER_HGSS_ROUTE_25,
+    MAP_HEADER_HGSS_ROUTE_26,
+    MAP_HEADER_HGSS_ROUTE_27,
+    MAP_HEADER_HGSS_ROUTE_28,
+    MAP_HEADER_HGSS_ROUTE_29,
+    MAP_HEADER_HGSS_ROUTE_30,
+    MAP_HEADER_HGSS_ROUTE_31,
+    MAP_HEADER_HGSS_ROUTE_32,
+    MAP_HEADER_HGSS_ROUTE_33,
+    MAP_HEADER_HGSS_ROUTE_34,
+    MAP_HEADER_HGSS_ROUTE_35,
+    MAP_HEADER_HGSS_ROUTE_36,
+    MAP_HEADER_HGSS_ROUTE_37,
+    MAP_HEADER_HGSS_ROUTE_38,
+    MAP_HEADER_HGSS_ROUTE_39,
+    MAP_HEADER_HGSS_ROUTE_40,
+    MAP_HEADER_HGSS_ROUTE_41,
+    MAP_HEADER_HGSS_ROUTE_42,
+    MAP_HEADER_HGSS_ROUTE_43,
+    MAP_HEADER_HGSS_ROUTE_44,
+    MAP_HEADER_HGSS_ROUTE_45,
+    MAP_HEADER_HGSS_ROUTE_46,
+    MAP_HEADER_HGSS_ROUTE_47,
+    MAP_HEADER_HGSS_ROUTE_48,
+    MAP_HEADER_HGSS_PALLET,
+    MAP_HEADER_HGSS_VIRIDIAN,
+    MAP_HEADER_HGSS_PEWTER,
+    MAP_HEADER_HGSS_CERULEAN,
+    MAP_HEADER_HGSS_LAVENDER,
+    MAP_HEADER_HGSS_VERMILION,
+    MAP_HEADER_HGSS_CELADON,
+    MAP_HEADER_HGSS_FUCHSIA,
+    MAP_HEADER_HGSS_CINNABAR_ISLAND,
+    MAP_HEADER_HGSS_INDIGO_PLATEAU,
+    MAP_HEADER_HGSS_SAFFRON,
+    MAP_HEADER_HGSS_NEW_BARK,
+    MAP_HEADER_HGSS_CHERRYGROVE,
+    MAP_HEADER_HGSS_VIOLET,
+    MAP_HEADER_HGSS_AZALEA,
+    MAP_HEADER_HGSS_CIANWOOD,
+    MAP_HEADER_HGSS_GOLDENROD,
+    MAP_HEADER_HGSS_OLIVINE,
+    MAP_HEADER_HGSS_ECRUTEAK,
+    MAP_HEADER_HGSS_MAHOGANY,
+    MAP_HEADER_HGSS_LAKE_OF_RAGE,
+    MAP_HEADER_HGSS_BLACKTHORN,
+    MAP_HEADER_HGSS_MOUNT_SILVER,
+    MAP_HEADER_HGSS_NATIONAL_PARK,
+    MAP_HEADER_HGSS_RUINS_OF_ALPH,
+    MAP_HEADER_HGSS_SAFARI_ZONE_GATE,
+};
+
+// HeartGold's GearPhoneCall_EthanLyra and GearPhoneCall_GetEthanLyraMessage: the friend's greeting, then a story about
+// where the player is. HeartGold picks it by the outdoor map the player is on or in; here by the place's name, which
+// the buildings of a town or route share with it.
+static enum CallStep Call_FriendOutgoing(FieldSystem *fieldSystem)
+{
+    u16 place = MapHeader_GetMapLabelTextID(fieldSystem->location->mapHeaderID);
+
+    switch (sCall.step++) {
+    case 0:
+        return SayContact(4 + sCall.timeOfDay);
+    case 1:
+        for (int i = 0; i < NELEMS(sFriendStoryPlaces); i++) {
+            if (MapHeader_GetMapLabelTextID(sFriendStoryPlaces[i]) == place) {
+                return SayContact(13 + i);
+            }
+        }
+
+        return SayContact(10 + LCRNG_RandMod(3));
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// HeartGold's GearPhoneCall_Kurt: the Balls he's making from the player's Apricorns (src/complete_apricorns.c)
+static enum CallStep Call_Kurt(FieldSystem *fieldSystem)
+{
+    u16 quantity = *FieldSystem_GetVarPointer(fieldSystem, VAR_COMPLETE_KURT_QUANTITY);
+
+    switch (sCall.step++) {
+    case 0:
+        return SayContact(PhoneCheckFlag(fieldSystem, FLAG_HGSS_UNK_127) ? 6 : 2);
+    case 1:
+        if (quantity == 0) {
+            return SayContact(5);
+        }
+
+        if (PhoneCheckFlag(fieldSystem, FLAG_HGSS_DAILY_KURT_MAKING_BALLS)) {
+            return SayContact(4);
+        }
+
+        StringTemplate_SetItemName(sCall.template, 10, *FieldSystem_GetVarPointer(fieldSystem, VAR_COMPLETE_KURT_BALL));
+        StringTemplate_SetNumber(sCall.template, 11, quantity, 2, PADDING_MODE_NONE, CHARSET_MODE_EN);
+        return SayContact(3);
+    default:
+        return CALL_STEP_END;
+    }
+}
+
+// HeartGold's GearPhoneCall_GymLeader_Outgoing: after all sixteen badges, a rematch at the Fighting Dojo on the leader's
+// day and time. (HeartGold's isDojoFull only counts Falkner, so the dojo is never too full: the rematch is set.)
+static enum CallStep Call_GymLeaderOutgoing(FieldSystem *fieldSystem)
+{
+    const CompletePhoneBookEntry *entry = &sPhoneBook[sCall.contact];
+    CompletePhoneRematch *rematch = Rematch(fieldSystem, sCall.contact);
+
+    switch (sCall.step++) {
+    case 0:
+        if (entry->mapHeaderID == fieldSystem->location->mapHeaderID) {
+            sCall.step = CALL_STEP_DONE;
+            return SayContact(1);
+        }
+
+        return SayContact(2);
+    case 1:
+        sCall.step = CALL_STEP_DONE;
+
+        if (CompleteBadges_Count(SaveData_GetTrainerInfo(fieldSystem->saveData)) < 16) {
+            return SayContact(3);
+        }
+
+        if (rematch->seeking) {
+            return SayContact(9);
+        }
+
+        if (sCall.weekday != entry->rematchWeekday || sCall.timeOfDay != entry->rematchTimeOfDay) {
+            return SayContact(4);
+        }
+
+        sCall.step = 2;
+        SayContact(5);
+        return CALL_STEP_QUESTION;
+    case 2:
+        if (sCall.answer != MENU_YES) {
+            return SayContact(7);
+        }
+
+        rematch->seeking = TRUE;
+        return SayContact(6);
+    default:
+        return CALL_STEP_END;
+    }
+}
+
 static enum CallStep NextStep(FieldSystem *fieldSystem)
 {
     switch (sCall.handler) {
@@ -684,7 +1135,23 @@ static enum CallStep NextStep(FieldSystem *fieldSystem)
         return Call_Friend(fieldSystem);
     case HANDLER_GYM_LEADER_INCOMING:
         return Call_GymLeader(fieldSystem);
-    default: // the calls the player makes, which wait on the Pokégear's contact list
+    case HANDLER_BILL:
+        return Call_Bill(fieldSystem);
+    case HANDLER_OAK:
+        return Call_Oak(fieldSystem);
+    case HANDLER_DAY_CARE_LADY:
+        return Call_DayCareLady(fieldSystem);
+    case HANDLER_DAY_CARE_MAN:
+        return Call_DayCareMan(fieldSystem);
+    case HANDLER_BUENA:
+        return Call_BuenaOutgoing(fieldSystem);
+    case HANDLER_FRIEND:
+        return Call_FriendOutgoing(fieldSystem);
+    case HANDLER_KURT:
+        return Call_Kurt(fieldSystem);
+    case HANDLER_GYM_LEADER_OUTGOING:
+        return Call_GymLeaderOutgoing(fieldSystem);
+    default:
         return CALL_STEP_END;
     }
 }
@@ -847,8 +1314,174 @@ static u16 IrwinNews(FieldSystem *fieldSystem, int badges, BOOL plainBadge)
     return sOnce[once].script;
 }
 
-// HeartGold's PhoneCall_GetCallScriptId and the callers' PhoneCall_GetScriptId_*, for the calls that come to the
-// player: which call script (sCall.script) and handler. FALSE when there's no call.
+// HeartGold's PhoneCall_GetScriptId_ProfElm, for a call the player makes: where his research and the player's journey
+// are
+static u16 ElmOutgoingScript(FieldSystem *fieldSystem)
+{
+    int badges = CompleteBadges_Count(SaveData_GetTrainerInfo(fieldSystem->saveData));
+    BOOL hatchedEgg = PhoneCheckFlag(fieldSystem, FLAG_HGSS_SYS_HATCHED_TOGEPI_EGG);
+    BOOL gotEverstone = PhoneCheckFlag(fieldSystem, FLAG_HGSS_GOT_EVERSTONE_FROM_ELM);
+
+    if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GOT_ELMS_PANIC_CALL)) {
+        return 8;
+    } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GAVE_RIVAL_NAME_TO_OFFICER)) {
+        return 9;
+    } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GOT_PICK_UP_EGG_CALL_FROM_ELM)) {
+        return 10;
+    } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GOT_EGG_FROM_ELMS_ASSISTANT)) {
+        return 11;
+    } else if (badges < 7) {
+        return !hatchedEgg ? 12 : gotEverstone ? 14 + LCRNG_RandMod(2) : 13;
+    } else if (InRocketTakeover(fieldSystem)) {
+        return 16;
+    } else if (badges < 8) {
+        return 17;
+    } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GAME_CLEAR)) {
+        return 18;
+    } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GOT_SS_TICKET_FROM_ELM)) {
+        return 19;
+    } else if (!gotEverstone) {
+        return hatchedEgg ? 13 : 12;
+    }
+
+    return 20 + LCRNG_RandMod(PhoneCheckFlag(fieldSystem, FLAG_HGSS_WAS_TOLD_ABOUT_POKERUS) ? 3 : 2);
+}
+
+// HeartGold's PhoneCall_GetScriptId_Kenji: Kenji trains for days at a time, then he's at the Route 45 rest stop for a
+// rematch by day (a call while he's training, or at night, says so)
+static u16 KenjiOutgoingScript(FieldSystem *fieldSystem)
+{
+    CompletePhoneSave *phone = SaveData_GetCompletePhone(fieldSystem->saveData);
+    CompletePhoneRematch *rematch = Rematch(fieldSystem, PHONE_CONTACT_KENJI);
+
+    if (phone->kenjiWaitDays > 1 || (phone->kenjiActive && !rematch->seeking)) {
+        return 87;
+    } else if (phone->kenjiWaitDays == 1) {
+        return 88;
+    } else if (sCall.hour >= 17) { // HeartGold's evening and night (its late night, before 4, isn't)
+        return 91;
+    }
+
+    if (!phone->kenjiActive) {
+        phone->kenjiActive = TRUE;
+        rematch->seeking = TRUE;
+    }
+
+    return sCall.timeOfDay == HGSS_DAY ? 90 : 89;
+}
+
+// HeartGold's PhoneCall_GetScriptId_* for the calls the player makes: the call script (sCall.script), or a handler
+static BOOL OutgoingScript(FieldSystem *fieldSystem)
+{
+    const CompletePhoneBookEntry *entry = &sPhoneBook[sCall.contact];
+    BOOL here = entry->mapHeaderID == fieldSystem->location->mapHeaderID; // the player is where the contact is
+
+    switch (entry->type) {
+    case PHONECALLTYPE_GENERIC:
+        if (here) {
+            sCall.script = entry->localScript;
+            return sCall.script != 0;
+        }
+
+        return GenericScript(fieldSystem);
+    case PHONECALLTYPE_MOM:
+        if (here) {
+            sCall.script = 23;
+        } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_GAVE_RIVAL_NAME_TO_OFFICER)) {
+            sCall.script = 25;
+        } else if (!PhoneCheckFlag(fieldSystem, FLAG_HGSS_TALKED_TO_MOM_AFTER_NAMING_RIVAL)) {
+            sCall.script = 26;
+        } else {
+            sCall.handler = HANDLER_MOTHER;
+            return TRUE;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_PROF_ELM:
+        sCall.script = here ? 1 : ElmOutgoingScript(fieldSystem);
+        return TRUE;
+    case PHONECALLTYPE_PROF_OAK:
+        if (here) {
+            sCall.script = 68;
+        } else if (PhoneCheckFlag(fieldSystem, FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_NATIONAL_DEX_COMPLETION)) {
+            sCall.script = 81;
+        } else if (!Pokedex_IsNationalDexObtained(SaveData_GetPokedex(fieldSystem->saveData))
+            && PhoneCheckFlag(fieldSystem, FLAG_HGSS_SYS_OAK_ACKNOWLEDGED_JOHTO_DEX_COMPLETION)) {
+            sCall.script = 80;
+        } else {
+            sCall.handler = HANDLER_OAK;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_KURT:
+        if (here) {
+            sCall.script = 83;
+        } else {
+            sCall.handler = HANDLER_KURT;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_BIKE_SHOP:
+        sCall.script = here ? 84 : 85;
+        return TRUE;
+    case PHONECALLTYPE_KENJI:
+        sCall.script = here ? 86 : KenjiOutgoingScript(fieldSystem);
+        return TRUE;
+    case PHONECALLTYPE_BILL:
+        if (here) {
+            sCall.script = 92;
+        } else {
+            sCall.handler = HANDLER_BILL;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_DAYCARELADY:
+        if (here) {
+            sCall.script = 97;
+        } else {
+            sCall.handler = HANDLER_DAY_CARE_LADY;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_DAYCAREMAN:
+        sCall.handler = HANDLER_DAY_CARE_MAN;
+        return TRUE;
+    case PHONECALLTYPE_BUENA:
+        if (InRocketTakeover(fieldSystem)) {
+            sCall.script = 99;
+        } else if (sCall.hour % 3 == 2) { // her password show is on the air
+            sCall.script = 100;
+        } else if (here) {
+            sCall.script = 98;
+        } else {
+            sCall.handler = HANDLER_BUENA;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_ETHAN_LYRA:
+        if (here) {
+            sCall.script = sCall.gender == GENDER_MALE ? 102 : 101;
+        } else {
+            sCall.handler = HANDLER_FRIEND;
+        }
+
+        return TRUE;
+    case PHONECALLTYPE_GYMLEADER:
+        sCall.handler = HANDLER_GYM_LEADER_OUTGOING;
+        return TRUE;
+    case PHONECALLTYPE_BAOBA:
+        sCall.script = here ? 140 : 147 + *FieldSystem_GetVarPointer(fieldSystem, VAR_HGSS_UNK_4057);
+        return TRUE;
+    case PHONECALLTYPE_IRWIN:
+        sCall.script = InRocketTakeover(fieldSystem) ? 156 : 172 + LCRNG_RandMod(3);
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+// HeartGold's PhoneCall_GetCallScriptId and the callers' PhoneCall_GetScriptId_*: which call script (sCall.script) and
+// handler. FALSE when there's no call.
 static BOOL ChooseScript(FieldSystem *fieldSystem)
 {
     const CompletePhoneBookEntry *entry = &sPhoneBook[sCall.contact];
@@ -858,7 +1491,7 @@ static BOOL ChooseScript(FieldSystem *fieldSystem)
     sCall.script = 0;
 
     if (!incoming) {
-        return FALSE; // the calls the player makes wait on the Pokégear's contact list
+        return OutgoingScript(fieldSystem);
     }
 
     switch (entry->type) {
@@ -1134,15 +1767,55 @@ BOOL CompletePhone_TryIncomingCall(FieldSystem *fieldSystem)
     return TRUE;
 }
 
+#ifdef SOVEREIGN_TEST
+u8 gCompleteTestPhoneCallee; // the contact + 1 the player calls as the field next runs
+#endif
+
+// A call the player placed on the Pokégear (CompletePhone_RequestCall), once they stand still on the field: HeartGold's
+// phone app's outgoing call, shown in the field's message box
+BOOL CompletePhone_TryOutgoingCall(FieldSystem *fieldSystem)
+{
+    u8 contact = CompletePhone_TakeRequestedCall();
+
+#ifdef SOVEREIGN_TEST
+    if (gCompleteTestPhoneCallee != 0) {
+        contact = gCompleteTestPhoneCallee - 1;
+        gCompleteTestPhoneCallee = 0;
+    }
+#endif
+
+    if (contact >= NUM_PHONE_CONTACTS || !CompletePhone_IsRegistered(fieldSystem->saveData, contact)) {
+        return FALSE;
+    }
+
+    InitCall(fieldSystem, contact, CALL_OUTGOING, 0);
+    ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_OUTGOING_CALL), NULL);
+    return TRUE;
+}
+
+// Whether the player can place a call here: HeartGold's map headers say for Johto and Kanto (not in the Elite Four's
+// rooms, the Safari Zone's areas or Lugia's cave); Sinnoh's maps, which HeartGold's phone never knew, all have a signal
+static BOOL CanPlaceCall(FieldSystem *fieldSystem)
+{
+    enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
+    return !MapHeader_IsHGSS(mapHeaderID) || MapHeader_HasOutgoingCalls(mapHeaderID);
+}
+
+// A message of the call is done, and the fanfare a rating plays with it (HeartGold waits for both)
 static BOOL WaitForCallMessage(ScriptContext *ctx)
 {
     u8 *printerID = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_MESSAGE_ID);
-    return FieldMessage_FinishedPrinting(*printerID);
+
+    if (!FieldMessage_FinishedPrinting(*printerID)) {
+        return FALSE;
+    }
+
+    return !sCall.fanfare || !Sound_IsBGMPausedByFanfare();
 }
 
 // CompletePhoneCallStart contact, kind, script, destVar: a call from the contact (HeartGold's PhoneCall from a map
 // script: kind 2 and a script of the contact's), or with PHONE_CONTACT_NONE the call the field chose. destVar: whether
-// the call goes ahead.
+// the call goes ahead, or CALL_STEP_OUT_OF_AREA for a call the player can't place here.
 BOOL CompleteScrCmd_PhoneCallStart(ScriptContext *ctx)
 {
     u16 contact = ScriptContext_GetVar(ctx);
@@ -1155,6 +1828,11 @@ BOOL CompleteScrCmd_PhoneCallStart(ScriptContext *ctx)
     }
 
     *destVar = FALSE;
+
+    if (sCall.contact < NUM_PHONE_CONTACTS && sCall.kind == CALL_OUTGOING && !CanPlaceCall(ctx->fieldSystem)) {
+        *destVar = CALL_STEP_OUT_OF_AREA;
+        return FALSE;
+    }
 
     if (sCall.contact >= NUM_PHONE_CONTACTS || !ChooseScript(ctx->fieldSystem)) {
         return FALSE;
@@ -1190,10 +1868,43 @@ BOOL CompleteScrCmd_PhoneCallMessage(ScriptContext *ctx)
     return TRUE;
 }
 
-// CompletePhoneCallAnswer value: the yes (MENU_YES) or no the call asked for
+static BOOL ResumeOnCallMenu(ScriptContext *ctx)
+{
+    return *FieldSystem_GetVarPointer(ctx->fieldSystem, ctx->data[0]) != LIST_MENU_NO_SELECTION_YET;
+}
+
+// CompletePhoneCallMenu destVar: the call's choices (HeartGold's phone app's touch screen menus, from its bank 0271) as
+// a menu by the message box; destVar: the pick, or the last choice (Quit) on B
+BOOL CompleteScrCmd_PhoneCallMenu(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    FieldMenuManager **menu = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_FIELD_MENU_MANAGER);
+    StringTemplate **template = FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    u16 destVarID = ScriptContext_ReadHalfWord(ctx);
+
+    *menu = FieldMenuManager_New(fieldSystem, 31, 13, 0, TRUE, FieldSystem_GetVarPointer(fieldSystem, destVarID), *template, FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_MANAGER_WINDOW), NULL);
+    MessageLoader_Free((*menu)->messageLoader); // the menu frees its own loader as it closes
+    (*menu)->messageLoader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0271, HEAP_ID_FIELD1);
+
+    for (int i = 0; i < sCall.menuCount; i++) {
+        FieldMenuManager_AddMenuEntry(*menu, sCall.menuFirst + i, i);
+    }
+
+    FieldMenuManager_SetHorizontalAnchor(*menu, TRUE);
+    FieldMenuManager_SetVerticalAnchor(*menu, TRUE);
+    FieldMenuManager_ShowSingleColumnMenu(*menu);
+    ctx->data[0] = destVarID;
+    ScriptContext_Pause(ctx, ResumeOnCallMenu);
+    return TRUE;
+}
+
+// CompletePhoneCallAnswer value: the yes (MENU_YES) or no the call asked for, or the choice the player picked
 BOOL CompleteScrCmd_PhoneCallAnswer(ScriptContext *ctx)
 {
-    sCall.answer = ScriptContext_GetVar(ctx);
+    u16 answer = ScriptContext_GetVar(ctx);
+
+    sCall.answer = answer == (u16)MENU_CANCEL && sCall.menuCount != 0 ? sCall.menuCount - 1 : answer;
+    sCall.menuCount = 0;
     return FALSE;
 }
 
@@ -1217,6 +1928,7 @@ BOOL CompleteScrCmd_PhoneCallEnd(ScriptContext *ctx)
     }
 
     sCall.contact = PHONE_CONTACT_NONE;
+    sCall.fanfare = FALSE;
     CompletePhone_ResetCallTimer();
     return FALSE;
 }

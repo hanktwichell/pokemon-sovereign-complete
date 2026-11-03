@@ -682,6 +682,15 @@ BOOL FieldInput_Process(const FieldInput *input, FieldSystem *fieldSystem)
         return TRUE;
     }
 
+    // Sovereign Complete: a call the player placed on the Pokégear, made once they stand still
+    // (src/overlay006/complete_phone_calls.c)
+    if (PlayerAvatar_GetPlayerMoveState(fieldSystem->playerAvatar) == PLAYER_MOVE_STATE_END
+        || PlayerAvatar_GetPlayerMoveState(fieldSystem->playerAvatar) == PLAYER_MOVE_STATE_NONE) {
+        if (CompletePhone_TryOutgoingCall(fieldSystem) == TRUE) {
+            return TRUE;
+        }
+    }
+
 #ifdef SOVEREIGN_TEST
     // Test build only: SELECT starts a wild battle, SELECT+R a trainer battle, SELECT+B+R the next Totem trial,
     // SELECT+L breeds and hatches an egg, SELECT+B opens Easy Chat, SELECT+L+R warps to the next test location

@@ -1000,6 +1000,7 @@ ScriptCommand(SCRCMD_COMPLETECLOSEMESSAGEIFOPEN,                       CompleteS
 ScriptCommand(SCRCMD_COMPLETEPLACEDGET,                                CompleteScrCmd_PlacedGet)
 ScriptCommand(SCRCMD_COMPLETEFINDSTARTERSLOT,                          CompleteScrCmd_FindStarterSlot)
 ScriptCommand(SCRCMD_COMPLETEVOLTORBFLIP,                              CompleteScrCmd_VoltorbFlip)
+ScriptCommand(SCRCMD_COMPLETEPHONECALLMENU,                            CompleteScrCmd_PhoneCallMenu)
 
 // clang-format on
 

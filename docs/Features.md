@@ -363,10 +363,21 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   turns up (called off when he offers it); Mom's when she buys something. Baoba's calls happen without the phone (the Safari Zone, above). HeartGold's Day-Care Man
   then asks whether to keep calling, which Platinum's doesn't, so he calls about the first Egg only. Left out: the Bike
   Shop's call after 1,024 steps on the bike (nothing counts them, and the call changes nothing).
-- **Stand-ins until the Pokétch and Pokégear question is answered** (`docs/Roadmap.md`): a call is answered at once
-  (HeartGold's Pokégear rings until the player opens it), and the player can't call anyone, as that needs the
-  Pokégear's contact list: so Gym Leaders' rematches (arranged by calling them on their day), Black Belt Kenji's
-  breaks on Route 45 (he only answers, never calls), Oak's Pokédex rating by phone and the Day-Care's news wait for it.
+- **Calls the player places** (HeartGold's outgoing calls): what each caller says when the player calls, as HeartGold
+  picks it (`OutgoingScript`): a trainer's call from their own list (and their "you're right here" call on their
+  map), Mom's (her savings question), Elm's (where his research and the journey are), Oak's Pokédex rating (a menu:
+  Johto's Pokédex, the National one or quit, then the seen and caught counts and his rating with its fanfare; the
+  first complete one he sees ends the call there), Bill's word on the boxes' room, the Day-Care couple's news (levels
+  grown, how well two Pokémon get along, an Egg), Buena's, Ethan's or Lyra's story about the place the player calls
+  from (by the place's name, so a town's buildings count as the town), Kurt's Balls, Kenji's breaks on Route 45 (a
+  call by day sets his rematch), Baoba's and Irwin's, and the Gym Leaders' rematches at the Fighting Dojo after all
+  sixteen badges, on the leader's day and time (yes or no). The call starts once the player stands still on the field
+  (`CompletePhone_RequestCall`, made by `CompletePhone_TryOutgoingCall` in `src/overlay005/field_control.c`): the
+  dialing (HeartGold's "......"), then the call in the message box, or "That number is out of the area." where
+  HeartGold's map header has no signal (the Elite Four's rooms, the Safari Zone's areas, Lugia's cave). Sinnoh's maps,
+  which HeartGold never knew, all have a signal. Oak's menu is `CompletePhoneCallMenu` (HeartGold's phone app's
+  choices from its bank 0271, B for quit).
+- **Still a stand-in:** a call that comes in is answered at once (HeartGold's Pokégear rings until the player opens it).
 
 ## Mom's savings
 
@@ -385,9 +396,11 @@ HeartGold's (its `mom_gift.c`, the battle's money hand-back, and Mom's bank), in
   box. HeartGold takes the amount on the touch screen's number pad; here a window above the message box does: up and
   down change the digit under the cursor (red), left and right move it, A confirms and B gives up.
 
-Test: `tools/complete/test_hgss_phone.py` (Youngster Joey on Route 30: his number after the battle, a rematch, a gift;
+Tests: `tools/complete/test_hgss_phone.py` (Youngster Joey on Route 30: his number after the battle, a rematch, a gift;
 his call; Mom's call on Route 30; her share of his rematch's prize and the Super Potion she buys; the Cherrygrove Mart's
-deliveryman; a withdrawal at home).
+deliveryman; a withdrawal at home) and `tools/complete/test_hgss_phone_outgoing.py` (calls placed from the bedroom to
+Mom, Elm, Oak three times through his menu, Bill, the Day-Care couple, Kurt, Lyra and Falkner, each followed message by
+message; and Mom from Lugia's cave, out of the area).
 
 ## The Ruins of Alph puzzles
 

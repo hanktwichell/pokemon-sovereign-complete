@@ -1381,3 +1381,13 @@ Test results on the new test build:
   Pokémon are rented, the first battle is won and RETIRE brings the player back to Johto's lobby; the Tower, Hall,
   Castle and Arcade each lead into their challenge. Battle Points, streaks and prints are one set for both Frontiers.
   Left: the Frontier Access's Battle Point move tutors (`docs/Features.md`, "Johto's Battle Frontier").
+- **Calls the player places:** the first part of the Pokétch and Pokégear call. HeartGold's outgoing calls are in:
+  what each of the phone book's callers says when the player calls them, as HeartGold picks it (a trainer's lines,
+  Mom's savings question, Elm's news, Oak's Pokédex rating with its menu and fanfare, Bill's boxes, the Day-Care
+  couple's news, Ethan's or Lyra's story about where the player is, Kurt's Balls, Kenji's breaks, Buena, Baoba,
+  Irwin, and the Gym Leaders' rematches at the Fighting Dojo). A call starts once the player stands still, with
+  HeartGold's dialing, or "That number is out of the area." where HeartGold had no signal. In the emulator
+  (`tools/complete/test_hgss_phone_outgoing.py`, all 12 parts pass): calls from the bedroom to Mom, Elm, Oak (rating
+  the Johto Pokédex, the National one, and quit), Bill, both Day-Care people, Kurt, Lyra (her New Bark Town story)
+  and Falkner each showed the messages HeartGold shows, and Mom from Lugia's cave was out of the area. The Pokégear's
+  contact list on the bottom screen, which places these calls, comes next.

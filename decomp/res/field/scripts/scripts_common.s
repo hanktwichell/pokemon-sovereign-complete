@@ -104,6 +104,7 @@
     ScriptEntry CommonScript_CompleteTotemFirst @ 0x81B
     ScriptEntry CommonScript_CompleteMegaRingMessage @ 0x81C
     ScriptEntry CommonScript_CompleteMegaRingExplain @ 0x81D
+    ScriptEntry CommonScript_CompletePhoneOutgoingCall @ 0x81E
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2177,9 +2178,45 @@ CommonScript_CompletePhoneNextMessage:
     CompletePhoneCallMessage VAR_RESULT
     GoToIfEq VAR_RESULT, 0, CommonScript_CompletePhoneHangUp
     GoToIfEq VAR_RESULT, 1, CommonScript_CompletePhoneNextMessage
+    GoToIfEq VAR_RESULT, 3, CommonScript_CompletePhoneMenu
     ShowYesNoMenu VAR_RESULT
     CompletePhoneCallAnswer VAR_RESULT
     GoTo CommonScript_CompletePhoneNextMessage
+
+CommonScript_CompletePhoneMenu:
+    CompletePhoneCallMenu VAR_RESULT
+    CompletePhoneCallAnswer VAR_RESULT
+    GoTo CommonScript_CompletePhoneNextMessage
+
+@ Sovereign Complete: a call the player places on the Pokégear (src/overlay006/complete_phone_calls.c): HeartGold's
+@ phone app's dialing (its bank 0271's "......"), then the call, or "That number is out of the area." where there's no
+@ signal
+CommonScript_CompletePhoneOutgoingCall:
+    LockAll
+    CompletePhoneCallStart PHONE_CONTACT_NONE, 0, 0, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompletePhoneOutgoingEnd
+    PlaySE SEQ_SE_DP_BUTTON9_sseq
+    MessageFromBank TEXT_BANK_HGSS_MSG_0271, 30
+    WaitTime 20, VAR_0x8004
+    PlaySE SEQ_SE_PL_CALL_sseq
+    MessageFromBank TEXT_BANK_HGSS_MSG_0271, 31
+    WaitSE SEQ_SE_PL_CALL_sseq
+    PlaySE SEQ_SE_PL_CALL_sseq
+    MessageFromBank TEXT_BANK_HGSS_MSG_0271, 32
+    WaitSE SEQ_SE_PL_CALL_sseq
+    GoToIfEq VAR_RESULT, 4, CommonScript_CompletePhoneOutOfArea
+    Call CommonScript_CompletePhoneNextMessage
+    ReleaseAll
+    End
+
+CommonScript_CompletePhoneOutOfArea:
+    MessageFromBank TEXT_BANK_HGSS_MSG_0271, 37
+    WaitButton
+    CloseMessage
+CommonScript_CompletePhoneOutgoingEnd:
+    CompletePhoneCallEnd
+    ReleaseAll
+    End
 
 CommonScript_CompletePhoneHangUp:
     WaitButton

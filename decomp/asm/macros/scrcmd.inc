@@ -6343,6 +6343,12 @@
     .byte \city
     .endm
 
+    // A phone call's choices (CompletePhoneCallMessage's 3) as a menu; destVar: the pick
+    .macro CompletePhoneCallMenu destVar
+    .short SCRCMD_COMPLETEPHONECALLMENU
+    .short \destVar
+    .endm
+
     .text
     .globl _start
 _start:

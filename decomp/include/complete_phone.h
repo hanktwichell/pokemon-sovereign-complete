@@ -12,8 +12,8 @@
 // Sovereign Complete: HeartGold's Pokégear phone (its save_pokegear.c, phonebook_dat.c, overlay 26's rematches and the
 // phone app's calls). The contacts the player has, which of them want a rematch or have a gift waiting, and Mom's
 // savings are saved (SAVE_TABLE_ENTRY_COMPLETE_PHONE); the phone book and calls are
-// src/overlay006/complete_phone_calls.c, with HeartGold's data (tools/complete/import_hgss_phone.py). Until the
-// Pokétch and Pokégear question is answered, calls show in the field's message box.
+// src/overlay006/complete_phone_calls.c, with HeartGold's data (tools/complete/import_hgss_phone.py). Calls show in
+// the field's message box: the ones that come in, and the ones the player places from the Pokégear.
 
 typedef struct CompletePhoneRematch {
     u16 seeking : 1; // wants a rematch (a call asked for one)
@@ -38,6 +38,7 @@ typedef struct CompletePhoneSave {
 #define MOM_GIFT_QUEUE_SIZE          5
 #define MOMS_SAVINGS_MAX             999999
 #define COMPLETE_PHONE_INCOMING_CALL (0x814 - 0x7D0) // CommonScript_CompletePhoneIncomingCall
+#define COMPLETE_PHONE_OUTGOING_CALL (0x81E - 0x7D0) // CommonScript_CompletePhoneOutgoingCall
 
 int CompletePhone_SaveSize(void);
 void CompletePhone_InitSave(CompletePhoneSave *phone);
@@ -52,6 +53,11 @@ void CompletePhone_AfterWildBattle(SaveData *saveData);
 void CompletePhone_EggHatched(SaveData *saveData, Pokemon *mon);
 void CompletePhone_DaycareHasEgg(SaveData *saveData);
 
+// A call the player places on the Pokégear: the field makes it as the player stands still
+// (CompletePhone_TryOutgoingCall)
+void CompletePhone_RequestCall(u8 contact);
+u8 CompletePhone_TakeRequestedCall(void); // PHONE_CONTACT_NONE for none
+
 // The minutes since the last call (HeartGold's ring manager's, which isn't saved either)
 void CompletePhone_AddMinutes(int minutes);
 u16 CompletePhone_MinutesSinceCall(void);
@@ -61,6 +67,7 @@ void CompletePhone_ResetCallTimer(void);
 u8 CompletePhone_ContactForTrainer(u16 trainerID);
 u16 CompletePhone_GetRematchTrainer(SaveData *saveData, u8 contact);
 BOOL CompletePhone_TryIncomingCall(FieldSystem *fieldSystem);
+BOOL CompletePhone_TryOutgoingCall(FieldSystem *fieldSystem);
 
 BOOL CompleteScrCmd_PhoneRegister(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneCheckRegistered(ScriptContext *ctx);
@@ -73,6 +80,7 @@ BOOL CompleteScrCmd_PhoneRematchGift(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneCallStart(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneCallMessage(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneCallAnswer(ScriptContext *ctx);
+BOOL CompleteScrCmd_PhoneCallMenu(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneCallEnd(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneSetCallTrigger(ScriptContext *ctx);
 BOOL CompleteScrCmd_PhoneClearCallTrigger(ScriptContext *ctx);
@@ -89,6 +97,7 @@ BOOL CompleteScrCmd_BankTransaction(ScriptContext *ctx);
 
 #ifdef SOVEREIGN_TEST
 extern u8 gCompleteTestPhoneCaller;
+extern u8 gCompleteTestPhoneCallee;
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_PHONE_H

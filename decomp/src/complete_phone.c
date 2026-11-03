@@ -26,6 +26,7 @@ typedef char CompletePhoneSaveSize[sizeof(CompletePhoneSave) == 456 ? 1 : -1];
 
 static u16 sMinutesSinceCall;
 static BOOL sClockStarted;
+static u8 sRequestedCall = PHONE_CONTACT_NONE; // the contact the player called on the Pokégear, for the field to make
 
 int CompletePhone_SaveSize(void)
 {
@@ -163,6 +164,19 @@ void CompletePhone_AddMinutes(int minutes)
 u16 CompletePhone_MinutesSinceCall(void)
 {
     return sMinutesSinceCall;
+}
+
+void CompletePhone_RequestCall(u8 contact)
+{
+    sRequestedCall = contact;
+}
+
+u8 CompletePhone_TakeRequestedCall(void)
+{
+    u8 contact = sRequestedCall;
+
+    sRequestedCall = PHONE_CONTACT_NONE;
+    return contact;
 }
 
 void CompletePhone_ResetCallTimer(void)
