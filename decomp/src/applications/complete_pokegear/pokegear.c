@@ -12,6 +12,7 @@
 #include "complete_map_info.h"
 #include "complete_phone.h"
 #include "complete_pokegear.h"
+#include "field_task.h"
 #include "font.h"
 #include "graphics.h"
 #include "heap.h"
@@ -44,7 +45,7 @@
 // Pokétch's place, with HeartGold's graphics (res/graphics/complete_pokegear/) and its app bar, which switches between
 // its pages:
 // - the Phone: its contact list. Tapping a contact calls them (CompletePhone_RequestCall: the call plays in the field's
-//   message box once the player stands still); the arrows scroll the list.
+//   message box once the player stands still), but not while a scene or a warp runs; the arrows scroll the list.
 // - the Map: its map of Johto and Kanto, with the player's head where they are (HeartGold's map app's place: the
 //   overworld's block, or the world map place of a map off it) and the place's name; dragging scrolls it.
 // - the Radio (radio/radio_page.c): the globe that tunes Johto's and Kanto's stations, and their shows; its music is
@@ -771,8 +772,9 @@ static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
             Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq);
         }
     } else if (x >= sAppBarButtons[APP_BAR_PHONE][0] * 8) {
-        // a call ringing: the Phone answers it (the field makes the call as the player stands still)
-        if (CompletePhone_IsRinging()) {
+        // a call ringing: the Phone answers it (the field makes the call as the player stands still), but not in a
+        // scene or a warp
+        if (CompletePhone_IsRinging() && !FieldSystem_IsRunningTask(gear->fieldSystem)) {
             Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
             CompletePhone_Answer();
         }
@@ -841,7 +843,10 @@ static void HandleTouch(CompletePokegear *gear)
     if (x >= LIST_X && x < LIST_X + LIST_WIDTH && y >= LIST_Y && y < LIST_Y + LIST_ROWS * ROW_HEIGHT) {
         int row = (y - LIST_Y) / ROW_HEIGHT;
 
-        if ((y - LIST_Y) % ROW_HEIGHT < ROW_HEIGHT - 4 && gear->top + row < gear->numContacts) {
+        if ((y - LIST_Y) % ROW_HEIGHT < ROW_HEIGHT - 4 && gear->top + row < gear->numContacts
+            && FieldSystem_IsRunningTask(gear->fieldSystem)) {
+            Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // no calls during a scene, a warp or a battle's way in
+        } else if ((y - LIST_Y) % ROW_HEIGHT < ROW_HEIGHT - 4 && gear->top + row < gear->numContacts) {
             gear->lit = row;
             gear->litTimer = CALL_HIGHLIGHT;
             Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);

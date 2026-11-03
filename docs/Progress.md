@@ -1471,3 +1471,10 @@ Test results on the new test build:
   Platinum's opening; the test now checks both), Voltorb Flip's touched the menu's Quit before the menu took touches
   (it tries again now), and the gifts test (four givers didn't answer in the full run, though all four answer on
   their own).
+- **No calls from taps in a scene:** the new story run stopped in Sprout Tower with Joey's call on screen mid-walk:
+  the test's taps for battle moves, made while a scene ran, had landed on Joey in the Pokégear's phone list, and the
+  call came once the player stood still. A player tapping during a cutscene would get the same, so while a scene, a
+  warp or another field task runs, the Pokégear's contacts (and the Phone button's answer to a ringing call) only beep
+  now. The Pokégear test's 11 parts, the outgoing calls' 12 and the phone's 8 still pass. The gifts test's four
+  failures in the full run don't come back: run alone, and in the full run's order, they pass (Johto's starters four
+  times at the same frame count), so they're a flake of the full run, left for now.

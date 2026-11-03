@@ -405,7 +405,8 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
   trainer's class, or HeartGold's titles: Pokémon Professor, Childhood Friend, Day Care...; `include/data/
   hgss_phone_contacts.h`, from `tools/complete/import_hgss_phone.py`), six rows at a time, with the arrows to scroll
   (held, they repeat). Tapping a contact calls them: the call plays in the field's message box once the player stands
-  still ("The Pokégear phone", above).
+  still ("The Pokégear phone", above). While a scene, a warp or another field task runs, a tap on a contact (or on the
+  Phone button to answer a ringing call) only beeps, so a tap in a cutscene can't start a call after it.
 - **The switch:** on the Pokégear, its app bar's last button (HeartGold's exit button, lit when there's a Pokétch to go
   to); on the Pokétch, a blue button under its side button, drawn from the side button's own edges in the Pokégear's
   blue (`src/applications/poketch/poketch_graphics.c` and `poketch_system.c`, marked blocks), shown once the player has
