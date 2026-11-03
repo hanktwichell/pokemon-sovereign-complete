@@ -180,6 +180,8 @@ RECENT = [
         'game in the DS, is in a Johto cave.',
         'A sweep of all 31 feature tests found two that had fallen behind the game (the first ship to Sinnoh now '
         'lands in Twinleaf Town; Voltorb Flip\'s menu takes a touch once its line has printed); they\'re updated.',
+        'A tap on the Pokégear during a cutscene could queue a phone call that rang in once the scene ended (the story '
+        'test hit it in Sprout Tower); the Pokégear\'s contacts only beep during scenes and warps now.',
         'Totems Marowak (Rock Tunnel) and Salazzle (Cinnabar) stood on Rock Climb ledges nobody could reach that early; '
         'both are moved.',
         'Entering Burned Tower B1F, Dragon\'s Den or the Ruins of Alph froze the game; Rowan\'s briefcase froze it '
