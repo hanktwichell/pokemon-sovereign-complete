@@ -76,6 +76,14 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   HeartGold's own people (the gym leaders, Elm, Lyra, Silver, Kurt, Team Rocket and the rest, now drawn with Sinnoh
   stand-ins) and its walking Pokémon. The owner deals with custom or missing Pokémon sprites later. The highlight
   clips are recorded again on that build.
+- **The Pokédex (Nov 3, 2026).** HeartGold's Johto Pokédex (256) is the regional Pokédex until the National
+  Pokédex; once the player is in Sinnoh, Sinnoh's comes back as the regional choice beside the National.
+- **Pokétch and Pokégear (Nov 3, 2026).** Both: a button on the bottom screen switches between them. The Pokégear
+  brings the phone's contact list, the radio and the Town Map of Johto and Kanto.
+- **Red at Mt. Silver (Nov 3, 2026).** Post-game: after the end of the whole game.
+- **Johto's Battle Frontier (Nov 3, 2026).** Open.
+- **Voltorb Flip (Nov 3, 2026).** Ported to the Game Corners.
+- **The credits (Nov 3, 2026).** They roll once, at the end of the whole game.
 
 ### HeartGold features
 
@@ -100,7 +108,6 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   introduction (Rowan names the player and the rival), then starts in the player's room in New Bark Town, home for
   blacking out too; Twinleaf Town's opening scenes stay as they are, and Sinnoh's League still sends the player home to
   Twinleaf Town.
-- **Red at Mt. Silver:** before the player leaves for Sinnoh, or saved for the post-game.
 - **Level curve:** how far Johto and Kanto compress so that Sinnoh, third, still ends at Spear Pillar by Lv. 100
   (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: for now they
   list Sinnoh's fights only, so with the option on a player in Johto is held at Lv. 16.
@@ -112,20 +119,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   keep working in Sinnoh (`docs/Features.md`, "Badges").
 - **The land between:** northern Honshu, between Kanto and Sinnoh, is empty on the real map. The Sinjoh Ruins path
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
-- **Pokétch, Pokégear or both:** both use the bottom screen. The phone's data and calls are in (`docs/Features.md`,
-  "The Pokégear phone"): calls show in the message box and are answered at once. What waits on this: the player
-  calling someone (the contact list), and with it Gym Leaders' rematches, Oak's Pokédex rating by phone and the
-  Day-Care's news; the radio; the Town Map's Johto and Kanto.
-- **Johto's Battle Frontier:** keep it (its five facilities, Battle Points and the move tutors who take them), or leave
-  it closed, with Sinnoh's as the game's Battle Frontier. Its scripts are in; the facilities' own HeartGold code isn't.
 - **The Pokéathlon Dome:** open (the building and its people, without the Pokéathlon) or closed, now that the Pokéathlon
   is skipped.
-- **The Hall of Fame and the credits.** HeartGold plays its Hall of Fame and credits after Lance (and the credits again
-  after Red), Platinum after Cynthia. For now Johto's League records the team in the Hall of Fame, saves and starts the
-  game over at home in New Bark Town, as HeartGold does, without credits; Sinnoh's League keeps Platinum's. Proposed:
-  the credits roll once, at the end of the story (Spear Pillar or Sinnoh's League), and every League records the team.
-- **Voltorb Flip** at the Game Corners, or Platinum's slot machines, which stand in for now (`docs/Features.md`,
-  "Stand-ins"). Porting it is about a day.
 - **Art:** who draws the three-region Town Map and the walking sprites for #494–1025 and the newer forms (a community
   pack, credited, could cover most of them).
 - **Trade items from the bag:** Sacred Gold lets the trade-evolution items (Metal Coat, King's Rock, Dragon Scale,
@@ -141,14 +136,6 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   day), and leave the Dowsing Machine to the Pokétch and Pokégear question.
 - **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
   a stand-in sprite.
-- **The regional Pokédex (found Oct 30, 2026):** Platinum's Pokédex lists only Sinnoh's regional Pokédex until the
-  National Pokédex, which Sacred Gold's Oak gives at Olivine's port as the player first sails for Kanto, after the
-  Elite Four. So through all of Johto most Pokémon the player meets and catches (Sentret, Pidgey, Ledyba...) are
-  recorded but never shown. Proposed: HeartGold's Johto
-  Pokédex (256, already in the game for the Celadon game designer's check) is the regional one until the National
-  Pokédex, and Sinnoh's comes back as the regional choice beside the National once the player is in Sinnoh (about half
-  a day to a day: the Pokédex's list and numbers, its seen and caught counts, its title). Or: the National Pokédex
-  from the start.
 
 Hoenn and the Sevii Islands aren't in scope. There's no DS version of Hoenn, so it would be built from scratch.
 
