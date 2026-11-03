@@ -3,6 +3,7 @@
 #include "res/text/bank/menu_entries.h"
 #include "res/field/events/events_pokemon_day_care.h"
 #include "constants/daycare.h"
+#include "generated/text_banks.h" // Sovereign Complete
 
 
     ScriptEntry DayCareCommon_Man
@@ -18,6 +19,11 @@ DayCareCommon_Man:
     GoToIfEq VAR_RESULT, DAYCARE_EGG_WAITING, DayCareCommon_ManEggWaiting
     GoToIfEq VAR_RESULT, DAYCARE_ONE_MON, DayCareCommon_ManOneMon
     GoToIfEq VAR_RESULT, DAYCARE_TWO_MONS, DayCareCommon_ManTwoMons
+    // Sovereign Complete: Johto's, past his first Egg, asks about calling, as in HeartGold (its scr_seq_0265)
+    GetCurrentMapID VAR_RESULT
+    GoToIfNe VAR_RESULT, MAP_HEADER_HGSS_ROUTE_34, DayCareCommon_ManNothing
+    GoToIfEq VAR_HGSS_UNK_408E, 4, DayCareCommon_CompleteAskEggCalls
+DayCareCommon_ManNothing:
     Message DayCareCommon_Text_ImTheDayCareMan
     WaitButton
     CloseMessage
@@ -33,11 +39,16 @@ DayCareCommon_ManEggWaiting:
     Message DayCareCommon_Text_YouDoWantThisYes
     ShowYesNoMenu VAR_RESULT
     GoToIfEq VAR_RESULT, MENU_YES, DayCareCommon_TryGiveEgg
+    ClearFlag FLAG_DUMMY_0x0073
+    ResetDaycarePersonalityAndStepCounter
+    // Sovereign Complete: Johto's first Egg, after the Day-Care couple's numbers (HeartGold's VAR_UNK_408E 3)
+    GetCurrentMapID VAR_RESULT
+    GoToIfNe VAR_RESULT, MAP_HEADER_HGSS_ROUTE_34, DayCareCommon_ManKeepsEgg
+    GoToIfEq VAR_HGSS_UNK_408E, 3, DayCareCommon_CompleteFirstEggKept
+DayCareCommon_ManKeepsEgg:
     Message DayCareCommon_Text_IllHangOnToIt
     WaitButton
     CloseMessage
-    ClearFlag FLAG_DUMMY_0x0073
-    ResetDaycarePersonalityAndStepCounter
     ReleaseAll
     End
 
@@ -56,11 +67,63 @@ DayCareCommon_GiveEgg:
     PlayFanfare SEQ_FANFA4_sseq
     WaitFanfare
     WaitABPress
+    // Sovereign Complete: Johto's first Egg, after the Day-Care couple's numbers (HeartGold's VAR_UNK_408E 3)
+    GetCurrentMapID VAR_RESULT
+    GoToIfNe VAR_RESULT, MAP_HEADER_HGSS_ROUTE_34, DayCareCommon_ManGivesEgg
+    GoToIfEq VAR_HGSS_UNK_408E, 3, DayCareCommon_CompleteFirstEggGiven
+DayCareCommon_ManGivesEgg:
     Message DayCareCommon_Text_TakeGoodCareOfIt
     WaitButton
     CloseMessage
     GiveEggFromDaycare
     ClearFlag FLAG_DUMMY_0x0073
+    ReleaseAll
+    End
+
+// Sovereign Complete: HeartGold's Day-Care Man after his first Egg (its scr_seq_0265, msg_0439): he has called about
+// it, so a call about another comes only if the player says yes to his question (src/complete_phone.c,
+// CompletePhone_DaycareHasEgg), which he asks again when the player talks to him with nothing in his care
+DayCareCommon_CompleteFirstEggGiven:
+    GiveEggFromDaycare
+    ClearFlag FLAG_DUMMY_0x0073
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0439
+    MessageFromBank VAR_RESULT, 11
+    GoTo DayCareCommon_CompleteFirstEgg
+
+DayCareCommon_CompleteFirstEggKept:
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0439
+    MessageFromBank VAR_RESULT, 12
+DayCareCommon_CompleteFirstEgg:
+    SetVarFromValue VAR_HGSS_UNK_408E, 4
+    SetFlag FLAG_HGSS_SYS_TRIGGER_EGG_CALL
+DayCareCommon_CompleteAskEggCalls:
+    BufferPlayerName 0
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0439
+    GetPlayerGender VAR_0x8004
+    GoToIfEq VAR_0x8004, GENDER_FEMALE, DayCareCommon_CompleteAskEggCallsFemale
+    MessageFromBank VAR_RESULT, 13
+    GoTo DayCareCommon_CompleteEggCallsAnswer
+
+DayCareCommon_CompleteAskEggCallsFemale:
+    MessageFromBank VAR_RESULT, 14
+DayCareCommon_CompleteEggCallsAnswer:
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, DayCareCommon_CompleteNoEggCalls
+    SetFlag FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0439
+    MessageFromBank VAR_RESULT, 15
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+
+DayCareCommon_CompleteNoEggCalls:
+    ClearFlag FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS
+    CompletePhoneClearCallTrigger CALL_TRIGGER_DAYCARE_HAS_EGG
+    SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0439
+    MessageFromBank VAR_RESULT, 16
+    WaitButton
+    CloseMessage
     ReleaseAll
     End
 

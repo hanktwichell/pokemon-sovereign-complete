@@ -24,6 +24,12 @@ flag cleared) is the trainer:
    biked (CompletePhone_CountBikeStep), the player gets on the Bicycle (Y, with it registered) on Route 30 and rides a
    step. Passes when the steps reach 1,024 and the Bike Shop's call trigger is set (HeartGold's
    CALL_TRIGGER_BIKE_SHOP_STEPS), a step on foot first having counted nothing.
+10. **The Day-Care Man's calls:** past the Day-Care couple's numbers (VAR_HGSS_UNK_408E 3), with an Egg waiting (written
+   into the Day-Care's save), the player talks to the Day-Care Man on Route 34 and says no to the Egg twice: HeartGold's
+   lines for his first Egg, then his question about calling, yes. Passes when the state is 4, his egg-call flag is set
+   (FLAG_HGSS_SYS_TRIGGER_EGG_CALL: past the first, he calls only when asked to) and so is the yes
+   (FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS); and when, talked to again with nothing in his care, he asks again and a
+   no clears it.
 
 Every prompt is answered with A (yes). The phone's save and the flags are found from the save's page table
 (sSaveDataPtr: its body, then the page table, whose entries give each part's place and size in the body).
@@ -54,7 +60,7 @@ MOM_CALL_TILE = (553, 291)  # north of the call's tile (553, 292), Route 30's co
 MART, DELIVERYMAN, WEST = 'MAP_HEADER_HGSS_CHERRYGROVE_POKEMART', (4, 8), 3  # east of Mom's deliveryman (3, 8)
 HOME, MOM = 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F', (5, 7)  # west of Mom (6, 7)
 INCOMING_CALL = 2000 + 0x814 - 0x7D0  # SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL)
-PARTS = 9
+PARTS = 10
 HIDE_FLAG = 'FLAG_HGSS_HIDE_ROUTE_30_YOUNGSTER_JOEY'
 GIFT = 'ITEM_NUGGET'
 SAVE_PAGES, SAVE_SECTOR = 33, 0x1000  # SAVE_PAGE_MAX, SAVE_SECTOR_SIZE
@@ -63,6 +69,7 @@ SAVINGS, GIFTS, TRIGGERS, BOUGHT = 376, 380, 400, 410  # offsetof(CompletePhoneS
 MOM_TRIGGER = 12  # CALL_TRIGGER_MOM_BOUGHT_SOMETHING
 BIKE_STEPS, BIKE_SHOP_TRIGGER, BIKE_SHOP = 414, 2, 15  # offsetof(CompletePhoneSave, bikeSteps); the trigger; contact
 BIKE_SHOP_CALL_STEPS = 1024
+DAYCARE_EGG = 472  # offsetof(Daycare, offspringPersonality): two DaycareMons of 236 bytes (a BoxPokemon, its mail, steps)
 WEST_FACING = 3  # the test warp's facing for west: enum FaceDirection + 1
 # the Bag in the save: its pockets of BagItems (u16 item, u16 quantity), then the item registered to Y (include/bag.h)
 BAG_REGISTERED = 4 * sum(int(n) for n in re.findall(r'#define \w+_POCKET_SIZE\s+(\d+)',
@@ -71,7 +78,8 @@ MONEY = 24  # offsetof(PlayerSave, info) + offsetof(TrainerInfo, money)
 LIMIT = 12000  # Joey's battle alone takes 3,000 frames
 STEP = 20
 SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'gSovereignTestTrainerBattles', 'gCompleteTestKeepFlagClear',
-                                     'gCompleteTestPhoneCaller', 'sMomsBank'})
+                                     'gCompleteTestPhoneCaller', 'sMomsBank', 'gSovereignTestMenu'})
+DAY_CARE_MAN = 'MAP_HEADER_HGSS_ROUTE_34', (365, 411), 1  # below him (365, 410), facing north (the warp's 1)
 
 
 def save_entry_index(name):
@@ -354,6 +362,61 @@ def main():
             problem = f'{steps} steps biked, the call\'s trigger {trigger} (at {d.pos()})'
     d.screenshot().save(os.path.join(out, 'bike_shop.png'))
     results.append(f'Bike Shop: {problem or "ok"}')
+    print(results[-1], flush=True)
+
+    # 10. The Day-Care Man's calls: no to the Egg twice, then yes to his question; then, with nothing, his question, no
+    def set_flag(name, on):
+        at = save_part(vars_flags_entry)[0] + (variables['VARS_END'] - variables['VARS_START']) * 2 + variables[name] // 8
+        bit = 1 << variables[name] % 8
+        mem.write_byte(at, mem.unsigned[at] | bit if on else mem.unsigned[at] & ~bit & 0xFF)
+
+    def menus():
+        return u32(sym['gSovereignTestMenu'])
+
+    def talk(answers):
+        """A to talk and through the lines; each menu as it shows gets its answer ('A' yes, 'B' no); then until idle."""
+        d.press('A', frames=4, after=10)
+        shown, frames = menus(), 0
+        while answers and frames < LIMIT:
+            d.run(STEP)
+            frames += STEP
+            if menus() != shown:
+                shown = menus()
+                d.run(10)
+                d.press(answers.pop(0), frames=4, after=10)
+            elif u32(sym['gSovereignTestIdleFrames']) == 0 or frames % (3 * STEP) == 0:
+                d.press('A', frames=4, after=0)
+        return answers, run_a()
+
+    d.load_state(state)
+    d.run(30)
+    header, (x, z), facing = DAY_CARE_MAN
+    mem.write_short(sym['gSovereignTestVar'] + 8, variables['VAR_HGSS_UNK_408E'])  # past the grandparents' scene as the
+    mem.write_short(sym['gSovereignTestVar'] + 10, 3)  # map loads: the Day-Care Man outside
+    arrived, _ = warp(d, sym, names.index(header), x, z, facing)
+    problem = f'warp {arrived}' if arrived != 'ok' else ''
+    if not problem:
+        daycare, size = save_part(save_entry_index('SAVE_TABLE_ENTRY_DAYCARE'))
+        set_var('VAR_HGSS_UNK_408E', 3)
+        set_flag('FLAG_HGSS_SYS_TRIGGER_EGG_CALL', False)
+        set_flag('FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS', False)
+        mem.write_long(daycare + DAYCARE_EGG, 0x12345678)  # Daycare.offspringPersonality: an Egg waiting
+        left, result = talk(['B', 'B', 'A'])
+        at = save_part(vars_flags_entry)[0] + (variables['VAR_HGSS_UNK_408E'] - variables['VARS_START']) * 2
+        state_408e = struct.unpack('<H', bytes(mem.unsigned[at:at + 2]))[0]
+        if left or result != 'ok':
+            problem = f'{len(left)} menus never came ({result})'
+        elif state_408e != 4 or not flag('FLAG_HGSS_SYS_TRIGGER_EGG_CALL') or not flag('FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS'):
+            problem = (f'his first Egg: state {state_408e}, his egg-call flag {flag("FLAG_HGSS_SYS_TRIGGER_EGG_CALL")}, '
+                       f'the yes {flag("FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS")}')
+        else:
+            left, result = talk(['B'])
+            if left or result != 'ok':
+                problem = f'again, his question never came ({result})'
+            elif flag('FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS'):
+                problem = 'a no to his question kept the yes'
+    d.screenshot().save(os.path.join(out, 'day_care_man.png'))
+    results.append(f'Day-Care Man: {problem or "ok"}')
     print(results[-1], flush=True)
 
     ok = sum(r.endswith(': ok') for r in results)

@@ -1612,3 +1612,12 @@ Test results on the new test build:
   fanfare started in the same frame (Voltorb Flip plays its own once its effects have ended) saved its heap level
   above the effect and kept it loaded until the next song. Ended effects now go before any heap level is saved. The
   sound memory test (5 of 5), Voltorb Flip (4 of 4) and the legendary cutscenes (2 of 2) pass with it.
+- **The Day-Care Man's calls:** nothing set his egg-call flag (HeartGold's FLAG_SYS_TRIGGER_EGG_CALL), so he called
+  about every Egg with his first Egg's call. HeartGold's Day-Care Man (its scr_seq_0265) has lines for the first Egg
+  after the couple's numbers (Route 34's state 3), taken or turned down, sets the flag and asks whether to keep
+  calling, and asks again when he's talked to with nothing in his care; Johto's runs Platinum's script for him
+  (`scripts_day_care_common.s`), which now does the same on Route 34 with HeartGold's lines (its msg_0439). After the
+  first, he calls only with a yes. The phone test's new part (10 of 10 pass): an Egg written into the Day-Care's save
+  and turned down twice, then yes; then, with nothing, his question again and a no. (The Egg's place in the save was
+  found from an empty Pokémon's encrypted words, the game's compiler laying the mail out differently from gcc.)
+

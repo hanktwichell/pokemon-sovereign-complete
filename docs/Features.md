@@ -362,8 +362,10 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   also sets the flag his lab script asks for before he gives the Everstone; the Egg is told by its origin, Mr.
   Pokémon, where HeartGold saves its personality), and his Pokérus call when a nurse finds Pokérus; Bill's when the
   boxes are full and Oak's at each 50 caught he hasn't rated, after a wild battle; the Day-Care Man's when an Egg
-  turns up (called off when he offers it); Mom's when she buys something. Baoba's calls happen without the phone (the Safari Zone, above). HeartGold's Day-Care Man
-  then asks whether to keep calling, which Platinum's doesn't, so he calls about the first Egg only. The Bike Shop
+  turns up (called off when he offers it); Mom's when she buys something. Baoba's calls happen without the phone (the Safari Zone, above). Past his
+  first Egg (taken or turned down), Johto's Day-Care Man asks whether to keep calling, as HeartGold's does (Platinum's
+  script for him, `scripts_day_care_common.s`, has HeartGold's lines and question on Route 34), and asks again when
+  he's talked to with nothing in his care; after the first, he calls about an Egg only with a yes. The Bike Shop
   calls after 1,024 steps on the bike, once (HeartGold's steps-biked count, here the phone's save:
   `CompletePhone_CountBikeStep`, at each step on the bike in `src/player_move.c`).
 - **Calls the player places** (HeartGold's outgoing calls): what each caller says when the player calls, as HeartGold
