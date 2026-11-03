@@ -331,7 +331,7 @@ static void Retune(RadioPage *page)
     CoordsToStation(page);
 }
 
-RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum HeapID heapID)
+RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum HeapID heapID, u8 skin)
 {
     RadioPage *page = Heap_Alloc(heapID, sizeof(RadioPage));
 
@@ -344,9 +344,9 @@ RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum Heap
 
     NARC *narc = NARC_ctor(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, heapID);
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(narc, radio_NCGR, bgConfig, BG_LAYER_SUB_0, 0, 0, FALSE, heapID);
-    Graphics_LoadPaletteFromOpenNARC(narc, radio_NCLR, PAL_LOAD_SUB_BG, 0, PALETTE_SIZE_BYTES * 16, heapID);
-    page->screenFile = Graphics_GetScrnDataFromOpenNARC(narc, radio_NSCR, FALSE, &page->screen, heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(narc, radio_0_NCGR + skin, bgConfig, BG_LAYER_SUB_0, 0, 0, FALSE, heapID);
+    Graphics_LoadPaletteFromOpenNARC(narc, radio_0_NCLR + skin, PAL_LOAD_SUB_BG, 0, PALETTE_SIZE_BYTES * 16, heapID);
+    page->screenFile = Graphics_GetScrnDataFromOpenNARC(narc, radio_0_NSCR + skin, FALSE, &page->screen, heapID);
     Bg_LoadToTilemapRect(bgConfig, BG_LAYER_SUB_0, page->screen->rawData, 0, 0, 32, SCREEN_ROWS);
     NARC_dtor(narc);
 

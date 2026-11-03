@@ -65,25 +65,25 @@ def screen_entries(path):
 
 
 MAP_WIDTH, MAP_HEIGHT = 48, 20  # the map's tiles in its sheet
+SKINS = 6  # HeartGold's Pokégear skins, each app's graphics in six variants in a row
 
 
 def build_map():
-    """HeartGold's map, 16-colour: (tile pixels, the tilemap, palettes)"""
+    """HeartGold's map, 16-colour, the same for every skin: (tile pixels, the tilemap, palettes as sets of HeartGold's
+    256-colour indices, which each skin's palette colours)"""
     from PIL import Image
 
     sheet = Image.open(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000010.png'))
     px = sheet.load()
     per_row = sheet.width // 8
-    colours = nclr_colours(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000020.NCLR'))
     width, entries = screen_entries(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000011.NSCR'))
 
-    def tile_colours(entry):
+    def tile_indices(entry):
         t, hflip, vflip = entry & 0x3FF, entry >> 10 & 1, entry >> 11 & 1
         sx, sy = t % per_row * 8, t // per_row * 8
-        return [[colours[px[sx + (7 - x if hflip else x), sy + (7 - y if vflip else y)]] for x in range(8)]
-                for y in range(8)]
+        return [[px[sx + (7 - x if hflip else x), sy + (7 - y if vflip else y)] for x in range(8)] for y in range(8)]
 
-    tiles = [tile_colours(entries[y * width + x]) for y in range(MAP_HEIGHT) for x in range(MAP_WIDTH)]
+    tiles = [tile_indices(entries[y * width + x]) for y in range(MAP_HEIGHT) for x in range(MAP_WIDTH)]
     # palettes of 15 colours (0 is the backdrop's), each tile in the one its colours fit best
     palettes = []
     owner = [0] * len(tiles)
@@ -120,6 +120,48 @@ def build_map():
     return pixels, tilemap, palettes
 
 
+def repack(png, screens):
+    """A skin's tiles, those its screens use, each once (flipped or not): (tile pixels, each screen's NSCR file with
+    its entries renumbered). HeartGold's sheets have room to spare (one of 1,024 tiles); these fit the 128 the
+    bottom screen's Pokégear has for a page."""
+    from PIL import Image
+
+    sheet = Image.open(png)
+    px = sheet.load()
+    per_row = sheet.width // 8
+    blank = tuple(tuple(0 for _ in range(8)) for _ in range(8))
+    pixels, seen, out = [blank], {blank: 0}, []  # tile 0 blank, as the Pokégear's pages clear with it
+    for path in screens:
+        b = bytearray(open(path, 'rb').read())
+        i = b.find(b'NRCS')
+        size, = struct.unpack('<I', b[i + 16:i + 20])
+        entries = list(struct.unpack(f'<{size // 2}H', b[i + 20:i + 20 + size]))
+        for k, e in enumerate(entries):
+            t, flip, pal = e & 0x3FF, e >> 10 & 3, e & 0xF000
+            sx, sy = t % per_row * 8, t // per_row * 8
+            if sy >= sheet.height:
+                tile = tuple(tuple(0 for _ in range(8)) for _ in range(8))
+            else:
+                tile = tuple(tuple(px[sx + x, sy + y] for x in range(8)) for y in range(8))
+            if flip & 1:
+                tile = tuple(row[::-1] for row in tile)
+            if flip & 2:
+                tile = tile[::-1]
+            flips = {0: tile, 1: tuple(row[::-1] for row in tile), 2: tile[::-1], 3: tuple(row[::-1] for row in tile[::-1])}
+            for f, shape in flips.items():
+                if shape in seen:
+                    entries[k] = seen[shape] | f << 10 | pal
+                    break
+            else:
+                seen[tile] = len(pixels)
+                entries[k] = len(pixels) | pal
+                pixels.append(tile)
+        b[i + 20:i + 20 + size] = struct.pack(f'<{len(entries)}H', *entries)
+        out.append(bytes(b))
+    assert len(pixels) <= 128, (png, len(pixels))
+    return pixels, out
+
+
 def save_tiles(path, pixels):
     """Tiles in a sheet 32 tiles wide, their 4-bit indices as an indexed PNG's"""
     from PIL import Image
@@ -146,25 +188,52 @@ def rgb(c):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    for src, dst in (('pgear_gra/pgear_gra_00000048.png', 'app_bar.png'),
-                     ('pgear_gra/pgear_gra_00000054.NSCR', 'app_bar.NSCR'),
-                     ('phone/pgphone_gra/pgphone_gra_00000028.png', 'phone.png'),
-                     ('phone/pgphone_gra/pgphone_gra_00000034.NSCR', 'phone.NSCR')):
-        shutil.copyfile(os.path.join(HG, src), os.path.join(OUT, dst))
-
-    phone = palettes(os.path.join(HG, 'phone', 'pgphone_gra', 'pgphone_gra_00000010.NCLR'))
-    gear = palettes(os.path.join(HG, 'pgear_gra', 'pgear_gra_00000030.NCLR'))
-    rows = [phone[n] if n < 14 else gear[n] for n in range(16)]
-    save_pal(os.path.join(OUT, 'pokegear.pal'), rows)
-    # the map
+    for old in ('app_bar.png', 'app_bar.NSCR', 'phone.png', 'phone.NSCR', 'pokegear.pal', 'map.pal', 'radio.png',
+                'radio.NSCR', 'radio.pal'):  # the files of the first skin alone, before the others came
+        if os.path.exists(os.path.join(OUT, old)):
+            os.remove(os.path.join(OUT, old))
     pixels, tilemap, map_palettes = build_map()
     save_tiles(os.path.join(OUT, 'map.png'), pixels)
     open(os.path.join(OUT, 'map_tilemap.bin'), 'wb').write(struct.pack(f'<{len(tilemap)}H', *tilemap))
-    map_rows = [[0] + list(p) + [0] * (15 - len(p)) for p in map_palettes]
-    map_rows += [[0] * 16] * (12 - len(map_rows)) + [phone[2], [0] * 16, gear[14], gear[15]]
-    save_pal(os.path.join(OUT, 'map.pal'), map_rows)
 
-    # the player markers
+    def screens(name, png, nscrs):
+        tiles, files = repack(os.path.join(HG, png), [os.path.join(HG, n) for n in nscrs])
+        save_tiles(os.path.join(OUT, f'{name}.png'), tiles)
+        return files
+
+    for skin in range(SKINS):
+        def gra(app, folder, n, ext):
+            return f'{folder}/{app}_{n + skin:08d}.{ext}'
+
+        bar, = screens(f'app_bar_{skin}', gra('pgear_gra', 'pgear_gra', 48, 'png'), [gra('pgear_gra', 'pgear_gra', 54, 'NSCR')])
+        open(os.path.join(OUT, f'app_bar_{skin}.NSCR'), 'wb').write(bar)
+        phone_screen, = screens(f'phone_{skin}', gra('pgphone_gra', 'phone/pgphone_gra', 28, 'png'),
+                                [gra('pgphone_gra', 'phone/pgphone_gra', 34, 'NSCR')])
+        open(os.path.join(OUT, f'phone_{skin}.NSCR'), 'wb').write(phone_screen)
+        radio_screen, = screens(f'radio_{skin}', gra('pgradio_gra', 'radio/pgradio_gra', 16, 'png'),
+                                [gra('pgradio_gra', 'radio/pgradio_gra', 22, 'NSCR')])
+        open(os.path.join(OUT, f'radio_{skin}.NSCR'), 'wb').write(radio_screen)
+        config_screen, config_frame = screens(f'config_{skin}', gra('pgconf_gra', 'configure/pgconf_gra', 10, 'png'),
+                                              [gra('pgconf_gra', 'configure/pgconf_gra', 16, 'NSCR'),
+                                               gra('pgconf_gra', 'configure/pgconf_gra', 22, 'NSCR')])
+        open(os.path.join(OUT, f'config_{skin}.NSCR'), 'wb').write(config_screen)
+        open(os.path.join(OUT, f'config_frame_{skin}.NSCR'), 'wb').write(config_frame)
+
+        phone = palettes(os.path.join(HG, gra('pgphone_gra', 'phone/pgphone_gra', 10, 'NCLR')))
+        gear = palettes(os.path.join(HG, gra('pgear_gra', 'pgear_gra', 30, 'NCLR')))
+        save_pal(os.path.join(OUT, f'pokegear_{skin}.pal'), [phone[n] if n < 14 else gear[n] for n in range(16)])
+        colours = nclr_colours(os.path.join(HG, gra('pgmap_gra', 'map/pgmap_gra', 20, 'NCLR')))
+        map_rows = [[0] + [colours[c] for c in p] + [0] * (15 - len(p)) for p in map_palettes]
+        map_rows += [[0] * 16] * (12 - len(map_rows)) + [phone[2], [0] * 16, gear[14], gear[15]]
+        save_pal(os.path.join(OUT, f'map_{skin}.pal'), map_rows)
+        radio = palettes(os.path.join(HG, gra('pgradio_gra', 'radio/pgradio_gra', 10, 'NCLR')))
+        save_pal(os.path.join(OUT, f'radio_{skin}.pal'),
+                 [radio[n] for n in range(12)] + [phone[2], radio[13], gear[14], gear[15]])
+        config = palettes(os.path.join(HG, gra('pgconf_gra', 'configure/pgconf_gra', 4, 'NCLR')))
+        save_pal(os.path.join(OUT, f'config_{skin}.pal'),
+                 [config.get(n, [0] * 16) for n in range(14)] + [gear[14], gear[15]])
+
+    # the player markers and the radio's cursor, the same for every skin
     from PIL import Image
 
     sheet = Image.open(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000001.png'))
@@ -178,14 +247,8 @@ def main():
     save_pal(os.path.join(OUT, 'marker.pal'), [
         nclr_colours(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000000.NCLR'))[:16],
         nclr_colours(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000000.NCLR'))[:16]])
-
-    # the radio
-    shutil.copyfile(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000016.png'), os.path.join(OUT, 'radio.png'))
-    shutil.copyfile(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000022.NSCR'),
-                    os.path.join(OUT, 'radio.NSCR'))
-    radio = palettes(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000010.NCLR'))
-    save_pal(os.path.join(OUT, 'radio.pal'), [radio[n] for n in range(12)] + [phone[2], radio[13], gear[14], gear[15]])
-    print(f'{OUT}: app bar, phone frame, 16 palettes; map {len(pixels)} tiles in {len(map_palettes)} palettes')
+    print(f'{OUT}: {SKINS} skins of the app bar, phone, radio and settings; map {len(pixels)} tiles in '
+          f'{len(map_palettes)} palettes')
 
 
 if __name__ == '__main__':

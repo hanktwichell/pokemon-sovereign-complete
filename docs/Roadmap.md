@@ -82,7 +82,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   brings the phone's contact list, the radio and the Town Map of Johto and Kanto. Done: the Pokégear on the bottom
   screen with its contact list, the calls the player places from it, its map of Johto and Kanto, its radio with
   HeartGold's twelve shows, and the switch both ways (`docs/Features.md`, "The Pokégear and the Pokétch" and "The
-  Pokégear radio"). The radio has no signal in Sinnoh. Left: HeartGold's Pokégear skins (its settings).
+  Pokégear radio"). The radio has no signal in Sinnoh, and the Settings choose HeartGold's six skins.
 - **Red at Mt. Silver (Nov 3, 2026).** Post-game: after the end of the whole game.
 - **Johto's Battle Frontier (Nov 3, 2026).** Open. Done: its five facilities run Platinum's challenges, and its three move
   tutors teach HeartGold's moves for Battle Points (`docs/Features.md`, "Johto's Battle Frontier").

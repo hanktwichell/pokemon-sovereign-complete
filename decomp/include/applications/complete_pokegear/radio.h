@@ -150,7 +150,7 @@ BOOL RadioShow_Commercials_Teardown(RadioShow *radioShow);
 // windows on layer 1 and the cursor a sprite
 typedef struct RadioPage RadioPage;
 
-RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum HeapID heapID);
+RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum HeapID heapID, u8 skin); // in the Pokégear's skin
 void RadioPage_Free(RadioPage *page, BOOL turnOff); // turnOff: the map's music again (the player left the page)
 void RadioPage_Run(RadioPage *page); // each frame: touches, the show, the cursor
 

@@ -1436,3 +1436,9 @@ Test results on the new test build:
   the story's calls from map scripts still come through at once. In the emulator (`tools/complete/test_hgss_pokegear.py`,
   now 10 parts, all pass): Joey's call rang with no call yet, a tap on Phone answered it and his call played; another
   rang for the 59 seconds and stopped with no call. The phone test's 8 parts and the outgoing calls' 12 still pass.
+- **The Pokégear's skins:** HeartGold's six skins (blue, pink, black, wood, gold, teal) on the Pokégear's Settings page,
+  HeartGold's configure screen with its frame around the skin in use; a tap dresses the whole Pokégear in it (the
+  app bar, phone, map colours, radio and settings), saved with the phone. Each graphic comes in its six variants, its
+  tiles packed to fit a page's 128 (HeartGold's gold skin spreads over 1,024), and the map is made once for all six
+  by HeartGold's colour indices. In the emulator (`tools/complete/test_hgss_pokegear.py`, now 11 parts, all pass): the
+  pink skin chosen, saved and shown on the Phone, then the blue one back.

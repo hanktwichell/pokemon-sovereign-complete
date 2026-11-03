@@ -12,6 +12,8 @@ src/applications/complete_pokegear/pokegear.c) in the test build, from the bedro
    with no call yet; a tap on the app bar's Phone answers it, and Joey's call plays (the incoming call's script).
 3b. **Not answered:** another call rings and, after HeartGold's 59 seconds (the host's clock, as the game's), stops,
    with no call.
+3c. **The skins:** the app bar's Settings shows HeartGold's six skins; a tap on the second (pink) dresses the
+   Pokégear in it (saved with the phone), and the Phone shows in it; a tap on the first puts it back.
 4. **The Map:** a tap on the app bar's Map shows the map, with the player's head where HeartGold's map app puts the
    bedroom (its header's world map place, block 21, 12: pixel 172, 116) and the map scrolled to show it.
 5. **The Map on Route 30:** after a warp to Route 30 the Pokégear comes back on the Map, the head at the player's
@@ -53,6 +55,7 @@ ROUTE, STAND, EAST = 'MAP_HEADER_HGSS_ROUTE_30', (552, 332), 4
 FIRST_ROW, DOWN_ARROW = (60, 18), (243, 116)  # the list's first row; the down arrow
 POKEGEAR_BUTTON, EXIT_BUTTON = (240, 175), (232, 176)  # on the Pokétch; the Pokégear's last app bar button
 MAP_BUTTON, PHONE_BUTTON = (128, 176), (176, 176)  # the app bar's Map and Phone
+SETTINGS_BUTTON, SKIN_BUTTONS = (32, 176), [(48, 44), (128, 44)]  # the app bar's Settings; the first two skins
 BEDROOM_PLACE, ROUTE_30_PLACE = (172, 116), (140, 100)  # the head's place on the map
 INCOMING_CALL = 2000 + 0x814 - 0x7D0  # SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL)
 RING_SECONDS = 59  # HeartGold's limit on a ringing call, on the clock
@@ -61,6 +64,9 @@ SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'sCall', 'gCompleteTestPoke
                                      'gCompleteTestPokegearMap',
                                      'gSovereignTestPoketchApp', 'gSovereignTestGodMode'})
 CONTACT_OFFSET = 12  # offsetof(CompletePhoneCall, contact)
+# offsetof(CompletePhoneSave, pokegearSkin): the book (75) and Kenji's byte, the rematches (75 of 4 bytes, from 76),
+# Mom's savings (4, from 376), her gift queue (20), the call triggers (2), the recent callers (8), her gifts bought (2)
+SKIN_OFFSET = 76 + 75 * 4 + 4 + 20 + 2 + 8 + 2
 
 
 def save_entry_index(name):
@@ -237,6 +243,29 @@ def main():
             problem = ('still ringing' if ringing() else f'it stopped after {waited:.0f} seconds' if waited < RING_SECONDS - 5
                        else 'a call started' if count else '')
         report('not answered', problem)
+
+    # 3c. The skins
+    if not problem:
+        d.touch(*SETTINGS_BUTTON, frames=6, after=60)
+        page, skin = struct.unpack('<5H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap']:sym['gCompleteTestPokegearMap'] + 10]))[::4]
+        shot('settings')
+        if page != 3:
+            problem = f'the page is {page}'
+        else:
+            d.touch(*SKIN_BUTTONS[1], frames=6, after=60)
+            skin = struct.unpack('<H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap'] + 8:sym['gCompleteTestPokegearMap'] + 10]))[0]
+            saved = mem.unsigned[phone + SKIN_OFFSET]
+            shot('settings_pink')
+            d.touch(*PHONE_BUTTON, frames=6, after=60)
+            shot('phone_pink')
+            if skin != 1 or saved != 1:
+                problem = f'the skin is {skin}, saved {saved}'
+            d.touch(*SETTINGS_BUTTON, frames=6, after=60)
+            d.touch(*SKIN_BUTTONS[0], frames=6, after=60)
+            if not problem and mem.unsigned[phone + SKIN_OFFSET] != 0:
+                problem = 'the first skin didn\'t come back'
+            d.touch(*PHONE_BUTTON, frames=6, after=60)
+        report('the skins', problem)
 
     def map_state():
         """(page, the head's x, y, the map's scroll)"""

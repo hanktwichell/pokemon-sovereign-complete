@@ -112,6 +112,8 @@ RECENT = [
         'button switches to the Pokégear, and the Pokégear\'s last app bar button switches back; your choice is '
         'saved. All 6 parts of its emulator test pass (getting it, a call, scrolling, the switch both ways, a warp, '
         'a battle).',
+        'The Pokégear\'s Settings: HeartGold\'s six skins (blue, pink, black, wood, gold, teal); tap one and the '
+        'whole Pokégear changes to it.',
         'Calls ring now, as in HeartGold: the Pokégear\'s Phone button flashes and the ring sounds as you walk; tap '
         'Phone to answer. Left unanswered, a call stops after 59 seconds. A few (the Bike Shop, Bill, Baoba) still '
         'come straight through, as in HeartGold.',

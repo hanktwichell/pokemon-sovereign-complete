@@ -32,7 +32,8 @@ typedef struct CompletePhoneSave {
     u8 callTriggerFlags[2]; // HeartGold's call triggers (src/overlay006/complete_phone_calls.c), a bit each
     u8 recentCallers[8]; // the last random callers of each call group
     u16 momGiftsBought; // Mom's list of things to buy with her savings, a bit each
-    u8 reserved[44];
+    u8 pokegearSkin; // HeartGold's Pokégear skin (its settings), 0-5 (include/complete_pokegear.h)
+    u8 reserved[43];
 } CompletePhoneSave;
 
 #define MOM_GIFT_QUEUE_SIZE          5

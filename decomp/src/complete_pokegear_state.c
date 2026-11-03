@@ -4,6 +4,7 @@
 
 #include "generated/vars_flags.h"
 
+#include "complete_phone.h"
 #include "poketch.h"
 #include "savedata.h"
 #include "system_flags.h"
@@ -17,7 +18,7 @@ static u8 sPokegearPage; // the Pokégear's page, kept while it's off the bottom
 
 #ifdef SOVEREIGN_TEST
 void *gCompleteTestPokegear; // the Pokégear while it runs (here, as the Pokétch takes the overlay's memory after it)
-u16 gCompleteTestPokegearMap[4]; // its page, and on the Map the player's place (x, y; 0xFFFF for none) and its scroll
+u16 gCompleteTestPokegearMap[5]; // its page, and on the Map the player's place (x, y; 0xFFFF for none) and its scroll; its skin
 #endif
 static u8 sBottomScreenSwitchRequested;
 
@@ -96,4 +97,16 @@ u8 CompletePokegear_GetPage(void)
 void CompletePokegear_SetPage(u8 page)
 {
     sPokegearPage = page;
+}
+
+u8 CompletePokegear_GetSkin(SaveData *saveData)
+{
+    u8 skin = SaveData_GetCompletePhone(saveData)->pokegearSkin;
+
+    return skin < COMPLETE_POKEGEAR_SKINS ? skin : 0;
+}
+
+void CompletePokegear_SetSkin(SaveData *saveData, u8 skin)
+{
+    SaveData_GetCompletePhone(saveData)->pokegearSkin = skin < COMPLETE_POKEGEAR_SKINS ? skin : 0;
 }

@@ -29,6 +29,11 @@ BOOL CompleteBottomScreen_SwitchDue(SaveData *saveData);
 u8 CompletePokegear_GetPage(void); // the page the Pokégear was last on, as HeartGold's comes back to its last app
 void CompletePokegear_SetPage(u8 page);
 
+// HeartGold's six Pokégear skins (its settings app; all six from the start, as HeartGold has them), saved with the phone
+#define COMPLETE_POKEGEAR_SKINS 6
+u8 CompletePokegear_GetSkin(SaveData *saveData);
+void CompletePokegear_SetSkin(SaveData *saveData, u8 skin);
+
 // src/overlay005/complete_bottom_screen.c (the field): starts the switch when one is due
 BOOL CompleteBottomScreen_TrySwitch(FieldSystem *fieldSystem);
 
@@ -41,7 +46,7 @@ BOOL CompletePokegear_IsShutdown(void);
 
 #ifdef SOVEREIGN_TEST
 extern void *gCompleteTestPokegear;
-extern u16 gCompleteTestPokegearMap[4];
+extern u16 gCompleteTestPokegearMap[5];
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_POKEGEAR_H

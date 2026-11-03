@@ -417,13 +417,19 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
   colours fit, and tiles that repeat (flipped or not) kept once (593 tiles). In Sinnoh it shows the place's name, with
   no head. The Pokégear comes back to the page it was on (after a battle or a map change).
 - **The radio:** the app bar's Radio ("The Pokégear radio", below).
-- **Still to come:** HeartGold's skins (the settings button, dimmed). Left out of the map: HeartGold's zoom, its marked
-  places and its place-by-place descriptions.
+- **The skins:** the app bar's Settings shows HeartGold's six skins (its configure app: blue, pink, black, wood, gold,
+  teal; all six from the start, as HeartGold's code has them), with its frame around the one in use. A tap on one
+  dresses the whole Pokégear in it (the app bar, the phone, the map's colours, the radio, the settings), saved with the
+  phone (`CompletePhoneSave.pokegearSkin`). The importer brings each graphic's six variants
+  (`tools/complete/import_hgss_pokegear_gfx.py`), its tiles packed to fit the 128 a page has (HeartGold's gold skin
+  spreads its screen over a sheet of 1,024), and the map's tiles made once for all six, by HeartGold's colour indices.
+- **Left out** of the map: HeartGold's zoom, its marked places and its place-by-place descriptions.
 
 Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the player gets it; a tap on Mom calling her;
 scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
-phone; a call ringing, answered from the Phone button, and another left to stop after 59 seconds; the switch to the
-Pokétch and back; the choice kept across a warp; the Pokégear back after a battle; all 10 parts pass).
+phone; a call ringing, answered from the Phone button, and another left to stop after 59 seconds; the second skin
+chosen on the Settings, saved and shown on the Phone, and the first back; the switch to the Pokétch and back; the
+choice kept across a warp; the Pokégear back after a battle; all 11 parts pass).
 
 ## The Pokégear radio
 
