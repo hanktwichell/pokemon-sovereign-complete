@@ -40,12 +40,14 @@ Platinum's `CompareVar` then `GoToIf` with the same condition.
   command of the same name taking the same arguments. Coverage of all 965 files: 95.7% of the command lines, more
   than half kept as they are. What's left is mostly HeartGold's own features (the photographer Cameron, the Battle
   Frontier, phone rematches, Voltorb Flip) and trainer battles (step 4).
-- Sacred Gold's scripts (`docs/SacredGold.md`) now: 98.9% of 83,514 lines (928 left, Oct 30). What's left, by kind:
-  features waiting on the owner (the Battle Frontier, the photo album, the radio and the Pokégear's cards, the
-  Pokéathlon, which is skipped), link play (the Union Room, the Global Terminal, Wi-Fi), events that came by
-  distribution (Primo's passwords, the spiky-eared Pichu, Arceus at the Sinjoh Ruins, Pal Park), and visual effects
-  the scenes play fine without (Ho-Oh's and Lugia's cutscenes and their cinematics, Lance's Dragonite taking off, the
-  lighthouse's beam, the Rocket hideout's traps and statues, the Rocket disguise's sprite, the wings' glow).
+- Sacred Gold's scripts (`docs/SacredGold.md`) now (Nov 3): 481 command lines of the installed scripts' 101,302 are
+  left as `@ HGSS:` comments. By kind: the photo album, waiting on the owner (Cameron's photos, 197); link play (the
+  Union Room, the Global Terminal, Wi-Fi, 144); the Pokéathlon, which is skipped; events that came by distribution
+  (Primo's passwords, the spiky-eared Pichu, Arceus at the Sinjoh Ruins, Pal Park); and looks the scenes play fine
+  without (the legendary birds' cinematics, the lighthouse's beam, the Rocket uniform's sprite). Ported since Oct 30:
+  the Battle Frontier, the Pokégear's radio and cards, Ho-Oh's and Lugia's cutscenes, the Magnet Train's ride, the
+  Rocket Hideout's traps and alarms, the monks' wings (with the scenes they start) and Lance's take-off
+  (`docs/Features.md`).
 - Earlier: 98.2% of 83,001 lines. Besides trainers, gifts, trades and marts,
   about 50 more of HeartGold's commands turned out to be Platinum's under another name, checked against both games'
   code: money and coins (`AddMoney` is `GiveMoney`, `CheckCoinsImmediate` `HasCoinsFromValue`...), the party
