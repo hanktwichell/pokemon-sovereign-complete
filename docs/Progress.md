@@ -1442,3 +1442,6 @@ Test results on the new test build:
   tiles packed to fit a page's 128 (HeartGold's gold skin spreads over 1,024), and the map is made once for all six
   by HeartGold's colour indices. In the emulator (`tools/complete/test_hgss_pokegear.py`, now 11 parts, all pass): the
   pink skin chosen, saved and shown on the Phone, then the blue one back.
+- **The story test on the follower fix:** the full run on the build where the follower comes out beside the player,
+  never on their tile, passed all 186 parts, New Bark Town to Sinnoh's Hall of Fame (its first 16 in one run, the
+  other 170 resumed from Azalea Town's save in another, with Cynthia beaten and the Hall of Fame entered).
