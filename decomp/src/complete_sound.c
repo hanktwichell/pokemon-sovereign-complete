@@ -234,7 +234,7 @@ u16 CompleteSound_WildVictoryBGM(int mapHeaderID)
 // HeartGold's own sound effects (tools/complete/import_hgss_sound.py), loaded above everything else as they start, a
 // few at once (the Whirl Islands' waterfall goes on as Lugia rises through it), each freed from the top once it has
 // ended and nothing is loaded above it
-#define OWN_EFFECTS_MAX 4
+#define OWN_EFFECTS_MAX 8 // more than play at once: one still playing as a fanfare starts stays until the next song
 // The sound heap's free size as each of its levels began (saved, or loaded back to): while it's the same, nothing has
 // been loaded at that level. NitroSystem's heap keeps a small record for each level saved (32 bytes), which loading back
 // to that level keeps, so an effect loads into the current level when nothing else is there yet (after a song's load,

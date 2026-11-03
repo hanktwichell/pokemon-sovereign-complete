@@ -64,7 +64,7 @@ memory, measured from both decomps and both built archives.
    (`SEQ_SE_GS_*`) that Sacred Gold's scripts play or Complete's code names, 69 of them, each with its own bank and
    waves as the songs are (Platinum's sound effects play from the basic set, always loaded). The SE players' own
    heaps are a kilobyte or two, so one of HeartGold's loads into sound memory as it starts (`Sound_PlayEffect`,
-   `CompleteSound_LoadOwnEffect`): up to four at a time (the cinematics play a few together), each freed once it has
+   `CompleteSound_LoadOwnEffect`): up to eight at a time (the cinematics play a few together), each freed once it has
    ended and nothing has loaded above it, and stopped first if a song's load takes the memory back. NitroSystem keeps a
    32-byte record for each heap level saved, which restoring to that level keeps (each of Platinum's fanfares leaves
    one so), so an effect loads into the current level when nothing is loaded there yet (after a song, the usual case)
