@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
 from talk_to_objects import event_maps  # noqa: E402
 import test_hgss_opening  # noqa: E402
 
-UPDATED = 'Nov 2, 2026'
+UPDATED = 'Nov 3, 2026'
 
 # The roadmap's steps (docs/Roadmap.md) and where each stands: status is one of done, mostly, active, waiting, ready,
 # later
@@ -53,7 +53,8 @@ STEPS = [
      '1025 Pokémon.'),
     (5, 'HeartGold features', 'mostly', 'Almost done',
      'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
-     'gym puzzles and more are in. The radio waits on the Pokétch or Pokégear decision.'),
+     'gym puzzles, the Johto Pokédex and Voltorb Flip are in. Next: Johto\'s Battle Frontier, and the Pokégear beside '
+     'the Pokétch (the radio, the contact list, the Town Map).'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
@@ -80,16 +81,21 @@ WAITING = [
     ('Sinnoh\'s integration', 'A provisional one of Claude\'s is in (the Sinnoh tab): the first ship lands in '
      'Twinleaf Town for Platinum\'s opening, and Sinnoh\'s levels follow Kanto\'s, from one table '
      '(data/complete/sinnoh.yaml). Change any of it whenever you like.'),
-    ('Pokétch, Pokégear or both', 'The radio, the contact list and the Town Map\'s Johto and Kanto wait on it.'),
-    ('Red at Mt. Silver', 'Before the player leaves for Sinnoh, or saved for the post-game. As in HeartGold for now.'),
-    ('Johto\'s Battle Frontier and the Pokéathlon Dome', 'Keep them open or closed.'),
-    ('Voltorb Flip', 'Port it, or keep Platinum\'s slots as the stand-in.'),
-    ('The Hall of Fame and the credits', 'Proposed: the credits roll once, at the end of the story.'),
+    ('Cynthia', 'Her Lv. 96 team beat a Lv. 100 team in all six real battles. Keep her that hard, or not.'),
     ('Art', 'Who draws the three-region Town Map and the walking sprites for #494 to #1025.'),
 ]
 
-# Since yesterday: the latest work, from docs/Progress.md (Nov 1-2)
+# Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your Nov 3 calls, done so far', [
+        'Voltorb Flip is in both Game Corners: HeartGold\'s own game, its board, memos, levels, coins and fanfares. '
+        'In the emulator a round won paid 24 coins and moved on to level 2, a round quit paid what was found, and '
+        'Quit brought you back to the Game Corner.',
+        'The Johto Pokédex is the regional one until Sinnoh\'s story begins (HeartGold\'s list and numbers, under a '
+        'JOHTO POKéDEX banner); Sinnoh\'s after.',
+        'Red waits on Mt. Silver until Sinnoh\'s League is won. The credits roll once, at the end of the whole game.',
+        'Next: Johto\'s Battle Frontier open, then the Pokégear beside the Pokétch with a button to switch.',
+    ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
         'where you\'re heading), and when you come out of a door it appears in the doorway behind you as you step '
@@ -208,9 +214,11 @@ AHEAD = [
     ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
      'for all three regions.', 'You', 'waiting'),
-    ('Your call', 'The Pokétch or Pokégear (the radio, the contact list), the art for the Town Map and sprites, '
-     'Johto\'s Battle Frontier, Voltorb Flip, the credits; and any of the provisional Sinnoh choices to change.',
-     'You', 'waiting'),
+    ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits are done; Johto\'s Battle '
+     'Frontier open, then the Pokégear beside the Pokétch (the radio, the contact list, the Town Map).', 'Claude',
+     'active'),
+    ('Your call', 'The art for the Town Map and sprites, Cynthia\'s difficulty, and any of the provisional Sinnoh '
+     'choices to change.', 'You', 'waiting'),
     ('After step 9', 'Release (step 10): final fixes, then the .xdelta patches, about 3 days.', 'Both', 'planned'),
 ]
 
