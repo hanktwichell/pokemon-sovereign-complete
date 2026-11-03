@@ -71,11 +71,14 @@ STEPS = [
 ]
 
 NEXT = [
+    'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the build with the '
+    'Pokégear\'s radio, skins, ringing calls and the Frontier\'s tutors; then one on the build with the legendary '
+    'cutscenes and Fly on the Pokégear\'s map.',
+    'The long checks are running on the latest build: every hidden item, every boss Mega, the sound memory on every '
+    'map; every tile behavior and every Totem and legendary placement already pass. Then the talk test over all '
+    '5,865 people and signs.',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
-    'objects and its Apricorn trees. Left: a few of HeartGold\'s 3D objects use Platinum\'s look-alikes. Custom or '
-    'missing Pokémon sprites (#494 on) are yours, later.',
-    'Both full recorded runs passed all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame, the second on the build '
-    'with HeartGold\'s sprites; the 2-minute highlight video is cut from it.',
+    'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
 
 WAITING = [
