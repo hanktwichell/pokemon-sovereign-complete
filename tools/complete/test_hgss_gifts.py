@@ -27,7 +27,8 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 from gift_pokemon import names, note_party, talk_and_answer  # noqa: E402
-from talk_to_objects import SYMBOLS, arrive, cases as talk_cases, symbols, var_ids  # noqa: E402
+from talk_to_objects import (SYMBOLS, WANDER_TRIES, arrive, cases as talk_cases, object_event, symbols,  # noqa: E402
+                             var_ids, warp)
 
 TEST_VARS = 2  # gSovereignTestVar's entries from here on (arrive() may use [0] and [1])
 # (name, events, giver, {flag or var: value} set on the way in, the answers, [(species, level, held item, Egg)], and
@@ -131,6 +132,13 @@ def main():
                                     setup=lambda: setup(flags, opts))
             if result == 'ok':
                 result, frames = talk_and_answer(d, sym, answers)
+            # a giver who wanders may step off before the test talks: back to the tile and again, as the talk test does
+            tries = WANDER_TRIES if 'WANDER' in object_event(events, giver)['movement_type'] else 0
+            while result == 'NOSCRIPT' and tries:
+                tries -= 1
+                result, frames = warp(d, sym, header, x, z, face + 1)
+                if result == 'ok':
+                    result, frames = talk_and_answer(d, sym, answers)
             wrong = []
             if result == 'ok':
                 party = note_party(d, sym)

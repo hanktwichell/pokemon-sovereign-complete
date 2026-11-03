@@ -1476,5 +1476,7 @@ Test results on the new test build:
   call came once the player stood still. A player tapping during a cutscene would get the same, so while a scene, a
   warp or another field task runs, the Pokégear's contacts (and the Phone button's answer to a ringing call) only beep
   now. The Pokégear test's 11 parts, the outgoing calls' 12 and the phone's 8 still pass. The gifts test's four
-  failures in the full run don't come back: run alone, and in the full run's order, they pass (Johto's starters four
-  times at the same frame count), so they're a flake of the full run, left for now.
+  failures in the full run don't come back: on a matching state it passes 23 of 23. Its givers who wander (Razor,
+  Lola, the Phione Eggs' woman, Johto's starters' doctor) can step off before the test talks, so it now goes back and
+  talks again, up to four times, as the talk test does, and its talk loop no longer reads a save's pause as a hang.
+  (One hang came from rebuilding the test build under a running test: CLAUDE.md now says not to.)

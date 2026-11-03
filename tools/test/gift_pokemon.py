@@ -41,8 +41,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from battle_all_trainers import HANG_FRAMES, SWITCH_FRAMES, TAPS, VBLANK_COUNTER, heap_info  # noqa: E402
 from battle_evolutions import data_of  # noqa: E402
 from heap_check import heap_problems  # noqa: E402
-from talk_to_objects import (DECOMP, FRAME_LIMIT, START_FRAMES, SYMBOLS, arrive, cases as talk_cases,  # noqa: E402
-                             parse_args, symbols, u32, var_ids)
+from talk_to_objects import (DECOMP, FRAME_LIMIT, SAVE_STALL_FRAMES, START_FRAMES, SYMBOLS, arrive,  # noqa: E402
+                             cases as talk_cases, parse_args, saving, symbols, u32, var_ids)
 
 EVENTS = 'events_fight_area_pokecenter_1f'
 DELIVERYMAN = 'LOCALID_FIGHT_AREA_SOVEREIGN_EVENT_DELIVERYMAN'
@@ -204,7 +204,8 @@ def talk_and_answer(d, sym, answers, limit=FRAME_LIMIT, press_a=True, done=None)
         now = u32(d, sym['gSystem'] + VBLANK_COUNTER)
         stalled = stalled + STEP if now == vblank else 0
         vblank = now
-        if stalled >= HANG_FRAMES:
+        # Sovereign Complete: a save stops the frames a while (as in talk_to_objects.play_out)
+        if stalled >= HANG_FRAMES and not (stalled < SAVE_STALL_FRAMES and saving(d)):
             return 'HANG', frames
         if done and not answers and done():
             return heap_result(d), frames
