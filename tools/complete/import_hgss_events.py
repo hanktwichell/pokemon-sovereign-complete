@@ -101,6 +101,12 @@ HGSS_SPRITES = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.
 # (src/complete_rival.c), and the Ball Kurt is making and how many (src/complete_apricorns.c)
 COMPLETE_VARS = [('VAR_COMPLETE_OUTBREAKS', 0x1F5), ('VAR_COMPLETE_RIVAL_NAME', 0x1F6),
                  ('VAR_COMPLETE_KURT_BALL', 0x1FE), ('VAR_COMPLETE_KURT_QUANTITY', 0x1FF)]
+# Single objects drawn otherwise, by their events file and name: Sacred Gold's snow pile on Mt. Silver's summit, where
+# the Sky Plate is ("There appears to be something in this pile of snow..."), stands behind Red with his sprite, a
+# second Red; now that Red waits for the end of the game, it would stand there alone as him
+OBJECT_SPRITES = {(419, 'obj_D41R0108_1'): 'OBJ_EVENT_GFX_INVISIBLE'}
+# Sovereign Complete's own flags, on Sacred Gold flags its scripts never use: Red's at Mt. Silver (HIDDEN_FLAGS)
+COMPLETE_FLAGS = [('FLAG_COMPLETE_HIDE_MT_SILVER_RED', 'FLAG_HGSS_SG_3FFE')]
 # HeartGold's Apricorn tree script (its std_apricorn_tree) and the engine's (CommonScript_CompleteApricornTree,
 # res/field/scripts/scripts_common.s)
 STD_APRICORN_TREE = 2800
@@ -115,7 +121,10 @@ STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201, 10202: 10202}
 # the Bug-Catching Contest's contestants and prize keeper
 STD_PEOPLE.update({n: 11000 + n - 10400 for n in range(10400, 10429)})
 # The deliveryman shows himself by Platinum's flag (scripts_mystery_gift_deliveryman.s)
-HIDDEN_FLAGS = {'FLAG_HGSS_HIDE_MYSTERY_GIFT_DELIVERYMAN': 'FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN'}
+HIDDEN_FLAGS = {'FLAG_HGSS_HIDE_MYSTERY_GIFT_DELIVERYMAN': 'FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN',
+                # Red at Mt. Silver's summit: his own hide flag, which the summit sets as it loads until the whole
+                # game is won (tools/complete/translate_hgss_scripts.py, MT_SILVER_RED_SCRIPT)
+                'FLAG_HGSS_UNK_25F': 'FLAG_COMPLETE_HIDE_MT_SILVER_RED'}
 
 
 def lines(path):
@@ -332,7 +341,7 @@ def main():
             # HeartGold); people with a trainer type and another script stay plain people
             trainer_name = trainer(script) if TRAINER_SCRIPTS.start <= script < TRAINER_SCRIPTS.stop else None
             obj.update({
-                'graphics_id': sprites.name(sprite),
+                'graphics_id': OBJECT_SPRITES.get((bank, named['id']), sprites.name(sprite)),
                 'movement_type': movement_types[movement] if movement < SAME_MOVEMENT_TYPES else OTHER_MOVEMENT,
                 'trainer_type': trainer_types[kind] if trainer_name and kind else 'TRAINER_TYPE_NONE',
                 'hidden_flag': HIDDEN_FLAGS.get(flag(hidden, names, platinum_local), flag(hidden, names, platinum_local)),
@@ -366,6 +375,7 @@ def main():
 
     # HeartGold's flags by name, before VARS_START (which sets its own value, so the numbering after it holds).
     block = [f'{name} = {number}' for number, name in sorted(names.items())]
+    block += [f'{name} = {alias}' for name, alias in COMPLETE_FLAGS]
     def change(text):
         text = re.sub(rf'# {re.escape(MARK)}\n.*?# {re.escape(MARK_END)}\n', '', text, flags=re.S)
         body = f'# {MARK}\n' + ''.join(f'{line}\n' for line in block) + f'# {MARK_END}\n'

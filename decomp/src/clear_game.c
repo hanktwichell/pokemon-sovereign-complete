@@ -59,7 +59,7 @@ typedef struct ClearGameStruct {
     void *dial;
     int printerID;
     int delay;
-    BOOL johto; // Sovereign Complete: Johto's League (ClearGame_Johto): no end credits yet
+    BOOL johto; // Sovereign Complete: Johto's League or Red (ClearGame_Johto): no end credits
 } ClearGameStruct;
 
 static void sub_02052F28(FieldSystem *fieldSystem, ClearGameStruct *clearGameStruct);
@@ -156,7 +156,9 @@ static BOOL FieldTask_DoClearGameSequence(FieldTask *task)
         if (IsScreenFadeDone()) {
             ClearGame_FreeStringRemoveWindowFreeTilemapBuffer(fieldSystem, clearGameStruct);
 
-            if (!clearGameStruct->johto) { // Sovereign Complete
+            // Sovereign Complete: the credits roll once, at the end of the whole game (the owner's call, Nov 3,
+            // 2026): Sinnoh's League won the first time; not after Johto's League or Red, nor after a later win
+            if (!clearGameStruct->johto && !clearGameStruct->gameCompleted) {
                 FieldSystem_StartEndCredits(fieldSystem, &(clearGameStruct->playerInfo));
             }
 

@@ -1364,3 +1364,7 @@ Test results on the new test build:
   Pokédex's, under a JOHTO POKéDEX banner drawn in the Pokédex's own pixel font; with Sinnoh's story begun the switch
   shows SINNOH POKéDEX and Turtwig #001 as before (both checked in the emulator). Its goal is 254 seen, Mew and Celebi
   aside (`docs/Features.md`, "The Pokédex").
+- **Red after the whole game, the credits once:** the owner's calls. Mt. Silver's summit stays empty until Sinnoh's
+  League is won, then Red stands there (both checked in the emulator, by a test warp to the summit). Sacred Gold's
+  snow pile with the Sky Plate, which stood behind him in Red's sprite, is invisible. The credits roll only the first
+  time Sinnoh's League is won; Johto's League and Red had none already (`docs/Features.md`, "Red and the credits").

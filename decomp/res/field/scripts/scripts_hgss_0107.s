@@ -6,6 +6,7 @@
 
     ScriptEntry scr_seq_D41R0108_000
     ScriptEntry scr_seq_D41R0108_001
+    ScriptEntry CompleteMtSilverRed_OnTransition  @ Sovereign Complete: Red after the game
     ScriptEntryEnd
 scr_seq_D41R0108_000:
     PlaySE SE_CONFIRM_sseq_3
@@ -91,3 +92,10 @@ _0140:
     EmoteExclamationMark
     EndMovement
     .balign 4, 0
+CompleteMtSilverRed_OnTransition:
+    SetFlag FLAG_COMPLETE_HIDE_MT_SILVER_RED
+    GoToIfUnset FLAG_GAME_COMPLETED, CompleteMtSilverRed_End
+    GoToIfSet FLAG_HGSS_UNK_25F, CompleteMtSilverRed_End
+    ClearFlag FLAG_COMPLETE_HIDE_MT_SILVER_RED
+CompleteMtSilverRed_End:
+    End

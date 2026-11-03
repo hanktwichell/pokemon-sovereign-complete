@@ -301,7 +301,8 @@ def engine_name(stem):
 
 
 # Sovereign Complete's own additions to Sacred Gold's scripts, kept here so a new translation keeps them: {file stem:
-# (a translated line, the lines put after its first appearance, the lines added at the file's end)}. The ferry network
+# (a translated line, the lines put after its first appearance, the lines added at the file's end)}; a line starting
+# with '<' puts the lines before it instead. The ferry network
 # (docs/Roadmap.md, "Ferry network"): once the way to Sinnoh is open, Olivine's and Vermilion's gangway sailors ask
 # where to, the S.S. Aqua's port or Canalave City (CommonScript_CompleteFerry), before boarding the S.S. Aqua.
 def ferry_insert(boat_arrived, aqua_port):
@@ -342,6 +343,21 @@ def mega_ring_insert(after):
                     'CompleteMegaRing_Done:'], [])
 
 
+# Red at Mt. Silver after the whole game (the owner's call, Nov 3, 2026): as the summit loads, Red stays away until
+# Sinnoh's League is won (FLAG_GAME_COMPLETED) and once he's been beaten (FLAG_HGSS_UNK_25F, which Johto's League
+# clears again, as in HeartGold), through his own hide flag (tools/complete/import_hgss_events.py, HIDDEN_FLAGS)
+MT_SILVER_RED_SCRIPT = ('    ScriptEntry scr_seq_D41R0108_001',
+                        ['    ScriptEntry CompleteMtSilverRed_OnTransition  @ Sovereign Complete: Red after the game'],
+                        ['CompleteMtSilverRed_OnTransition:',
+                         '    SetFlag FLAG_COMPLETE_HIDE_MT_SILVER_RED',
+                         '    GoToIfUnset FLAG_GAME_COMPLETED, CompleteMtSilverRed_End',
+                         '    GoToIfSet FLAG_HGSS_UNK_25F, CompleteMtSilverRed_End',
+                         '    ClearFlag FLAG_COMPLETE_HIDE_MT_SILVER_RED',
+                         'CompleteMtSilverRed_End:',
+                         '    End'])
+MT_SILVER_RED_INIT = ('<    InitScriptEntryEnd', ['    InitScriptEntry_OnTransition 3  @ CompleteMtSilverRed_OnTransition'], [])
+
+
 def both(first, second):
     """Two inserts in one script (the second's anchor after the first's)."""
     return ('', [], [], first, second)
@@ -361,6 +377,8 @@ INSERTS = {
     'scr_seq_0153_P01R0102': ferry_insert('_0211', 'VermilionCity'),
     'scr_seq_0154_P01R0103': any_day_insert('    GoToIf 1, _0158', '_00EF'),
     'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
+    'scr_seq_0107_D41R0108': MT_SILVER_RED_SCRIPT,
+    'scr_seq_0368_D41R0108_hdr': MT_SILVER_RED_INIT,
 }
 
 
@@ -368,8 +386,9 @@ def apply_inserts(stem, body):
     if stem not in INSERTS:
         return body
     inserts = INSERTS[stem][3:] if len(INSERTS[stem]) == 5 else [INSERTS[stem]]
-    for after, lines, end in inserts:
-        i = body.index(after) + 1  # a ValueError: Sacred Gold's script changed, and the insert needs a new place
+    for after, lines, end in inserts:  # after a line, or before it when the anchor starts with '<'
+        i = body.index(after[1:]) if after.startswith('<') else body.index(after) + 1  # a ValueError: Sacred Gold's
+        # script changed, and the insert needs a new place
         body = body[:i] + lines + body[i:] + end
     return body
 

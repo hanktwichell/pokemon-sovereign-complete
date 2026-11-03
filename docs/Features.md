@@ -479,6 +479,21 @@ Sinnoh's, with the National Pokédex beside either once the player has it (Oak g
 - **The list's numbers:** `tools/complete/import_hgss_johto_dex.py` writes `include/data/hgss_johto_dex.h` from
   HeartGold's `poketool/johtozukan.narc`: the 256 in order and each species' Johto number.
 
+## Red and the credits
+
+The owner's calls (Nov 3, 2026): Red at Mt. Silver is post-game, after the end of the whole game, and the credits roll
+once, at the end of the whole game.
+
+- **Red:** as Mt. Silver's summit loads, Red stays away until Sinnoh's League is won (`FLAG_GAME_COMPLETED`), through
+  his own hide flag (`FLAG_COMPLETE_HIDE_MT_SILVER_RED`, on a Sacred Gold flag its scripts never use) and the summit's
+  own on-entry script (`CompleteMtSilverRed_OnTransition`, an insert in `tools/complete/translate_hgss_scripts.py`).
+  Once he's been beaten he stays away until Johto's League is won again, as in HeartGold (`FLAG_HGSS_UNK_25F`).
+  Sacred Gold's snow pile behind him, where the Sky Plate is, used Red's sprite (two Reds stood there); it's invisible
+  now (`OBJECT_SPRITES` in `tools/complete/import_hgss_events.py`).
+- **The credits:** they roll the first time Sinnoh's League is won (`src/clear_game.c`). Johto's League and Red record
+  the team in the Hall of Fame and start the game over at home, without credits (`ClearGame_Johto`), and a later
+  win at Sinnoh's League skips them.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
