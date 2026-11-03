@@ -2,6 +2,7 @@
 
 #include <nitro.h>
 
+#include "constants/hgss_spawns.h"
 #include "generated/map_headers.h"
 #include "generated/vars_flags.h"
 
@@ -13,6 +14,7 @@
 #include "map_object.h"
 #include "rtc.h"
 #include "savedata.h"
+#include "spawn_locations.h"
 #include "vars_flags.h"
 
 #include "res/field/matrices/map_matrix.naix"
@@ -175,4 +177,20 @@ BOOL CompleteMapInfo_BoulderFell(FieldSystem *fieldSystem, MapObject *boulder)
     }
 
     return FALSE;
+}
+
+int CompleteMapInfo_FlyPoints(FieldSystem *fieldSystem, u8 *spawns, int max)
+{
+    int count = 0;
+
+    for (int spawn = SPAWN_HGSS_FIRST; spawn < SPAWN_HGSS_FIRST + SPAWN_HGSS_COUNT && count < max; spawn++) {
+        enum MapHeaderID mapHeaderID = GetFlyLocationMap(spawn);
+
+        if (mapHeaderID != MAP_HEADER_EVERYWHERE && mapHeaderID != fieldSystem->location->mapHeaderID
+            && CheckFlyLocationUnlocked(fieldSystem, spawn)) {
+            spawns[count++] = spawn;
+        }
+    }
+
+    return count;
 }

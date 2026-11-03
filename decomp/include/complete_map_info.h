@@ -39,6 +39,9 @@ u32 MapHeader_GetMomCallIntroParam(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasOutgoingCalls(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasIncomingCalls(enum MapHeaderID mapHeaderID);
 BOOL MapHeader_HasRadioSignal(enum MapHeaderID mapHeaderID);
+// Fly over Johto and Kanto: the Fly points (HeartGold's spawn points, from SPAWN_HGSS_FIRST) the player has reached, but
+// the one on this map, in HeartGold's order, into spawns (at most max); how many
+int CompleteMapInfo_FlyPoints(FieldSystem *fieldSystem, u8 *spawns, int max);
 // HeartGold's changes to the overworld's blocks as a map loads: Mahogany Town's antenna tree, the Lake of Rage's level
 void CompleteMapInfo_LoadMatrix(MapMatrix *mapMatrix, SaveData *saveData, enum MapHeaderID mapHeaderID);
 // Whether the Lake of Rage is low today, seen from this map (its water level, and a clear sky over the lake)

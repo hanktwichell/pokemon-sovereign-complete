@@ -63,7 +63,8 @@ STEPS = [
      'Town to Sinnoh\'s Hall of Fame.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
-     'the game through.'),
+     'the game through; one command runs all 31 of Complete\'s feature tests (the latest sweep: 28 passed, and two '
+     'of the other three were tests behind the game, now updated).'),
     (9, 'Your playthrough', 'ready', 'Ready for you',
      'Johto and Kanto are playable from a new game; it can start whenever you like.'),
     (10, 'Release', 'later', 'Later', 'Final fixes, then the .xdelta patches.'),
@@ -128,6 +129,13 @@ RECENT = [
         'around Mahogany. Its music plays in the field while the page shows a station. Sinnoh has no signal. All 11 '
         'parts of its emulator test pass.',
     ]),
+    ('More of HeartGold', [
+        'Fly over Johto and Kanto uses HeartGold\'s fly map on the Pokégear\'s Map instead of a list: its red cursor on '
+        'the towns you\'ve reached; the D-pad or a tap moves it, A or a second tap flies there, B backs out. With the '
+        'Pokétch on the bottom screen the list is still there.',
+        'HeartGold\'s fishing outbreaks and night fishing are in (Staryu bites on the Super Rod in Cherrygrove at '
+        'night).',
+    ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
         'where you\'re heading), and when you come out of a door it appears in the doorway behind you as you step '
@@ -170,6 +178,8 @@ RECENT = [
         'been mixed in; they live elsewhere in Johto now). HeartGold\'s fishing outbreaks and its night fishing are in '
         '(Staryu on the Super Rod in Cherrygrove at night), and Mawile, whose only wild spot needed a Game Boy Advance '
         'game in the DS, is in a Johto cave.',
+        'A sweep of all 31 feature tests found two that had fallen behind the game (the first ship to Sinnoh now '
+        'lands in Twinleaf Town; Voltorb Flip\'s menu takes a touch once its line has printed); they\'re updated.',
         'Totems Marowak (Rock Tunnel) and Salazzle (Cinnabar) stood on Rock Climb ledges nobody could reach that early; '
         'both are moved.',
         'Entering Burned Tower B1F, Dragon\'s Den or the Ruins of Alph froze the game; Rowan\'s briefcase froze it '

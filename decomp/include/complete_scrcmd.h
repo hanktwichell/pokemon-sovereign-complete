@@ -69,6 +69,8 @@ BOOL CompleteScrCmd_CanLearnHeadbutt(ScriptContext *ctx);
 BOOL CompleteScrCmd_TutorMovePages(ScriptContext *ctx);
 BOOL CompleteScrCmd_TutorChooseMove(ScriptContext *ctx);
 BOOL CompleteScrCmd_TutorMovePrice(ScriptContext *ctx);
+BOOL CompleteScrCmd_StartFlyMap(ScriptContext *ctx);
+BOOL CompleteScrCmd_WaitFlyMap(ScriptContext *ctx);
 BOOL CompleteScrCmd_WhirlpoolSteps(ScriptContext *ctx);
 BOOL CompleteScrCmd_CountPartySpecies(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckKyogreGroudonInParty(ScriptContext *ctx);

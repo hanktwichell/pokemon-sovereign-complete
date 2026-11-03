@@ -1006,6 +1006,8 @@ ScriptCommand(SCRCMD_COMPLETEGETBUENASPASSWORD,                         Complete
 ScriptCommand(SCRCMD_COMPLETETUTORMOVEPAGES,                           CompleteScrCmd_TutorMovePages)
 ScriptCommand(SCRCMD_COMPLETETUTORCHOOSEMOVE,                          CompleteScrCmd_TutorChooseMove)
 ScriptCommand(SCRCMD_COMPLETETUTORMOVEPRICE,                           CompleteScrCmd_TutorMovePrice)
+ScriptCommand(SCRCMD_COMPLETESTARTFLYMAP,                              CompleteScrCmd_StartFlyMap)
+ScriptCommand(SCRCMD_COMPLETEWAITFLYMAP,                               CompleteScrCmd_WaitFlyMap)
 
 // clang-format on
 

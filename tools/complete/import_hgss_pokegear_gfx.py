@@ -15,8 +15,9 @@ build_heartgold.sh), its first skin only:
   not, are kept once. map.pal holds those palettes from 0, the place name's colours in 12 (the phone's list colours)
   and the app bar's in 14-15. The tilemap is the 48 by 20 entries, a row after another.
 - marker.png / marker.pal: the Pokégear's sprites, each four tiles of a 16 by 16 sprite: the map app's player markers
-  (pgmap_gra 1's tiles 8-15: Ethan's head, then Lyra's) and the radio's tuning cursor (pgradio_gra 1's first); their
-  palettes (pgmap_gra 0's first, then pgradio_gra 0's first).
+  (pgmap_gra 1's tiles 8-15: Ethan's head, then Lyra's), the radio's tuning cursor (pgradio_gra 1's first) and the
+  map app's cursor, which Fly's choice uses, in its two frames (pgmap_gra 1's tiles 0-7); their palettes (pgmap_gra
+  0's first, then pgradio_gra 0's first).
 - radio.png / radio.NSCR / radio.pal: the radio app's screen (its pgradio_gra 16 and 22: the band for the show's
   title, the globe the cursor tunes in, the four channel buttons and, below, the buttons' lit state) and its palettes
   (pgradio_gra 10's 0-13), with the text's colours in 12 (the phone's list colours) and the app bar's in 14-15.
@@ -238,11 +239,12 @@ def main():
 
     sheet = Image.open(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000001.png'))
     cursor = Image.open(os.path.join(HG, 'radio', 'pgradio_gra', 'pgradio_gra_00000001.png'))
-    sprites = Image.new('P', (8, 12 * 8))
+    sprites = Image.new('P', (8, 20 * 8))
     sprites.putpalette(sheet.getpalette())
     sprites.paste(sheet.crop((0, 8 * 8, 8, 16 * 8)), (0, 0))
     for t, (x, y) in enumerate(((0, 0), (8, 0), (0, 8), (8, 8))):  # the 16 by 16 cursor's tiles, in a sprite's order
         sprites.paste(cursor.crop((x, y, x + 8, y + 8)), (0, (8 + t) * 8))
+    sprites.paste(sheet.crop((0, 0, 8, 8 * 8)), (0, 12 * 8))  # the map's cursor, its two frames
     sprites.save(os.path.join(OUT, 'marker.png'))
     save_pal(os.path.join(OUT, 'marker.pal'), [
         nclr_colours(os.path.join(HG, 'map', 'pgmap_gra', 'pgmap_gra_00000000.NCLR'))[:16],

@@ -45,7 +45,9 @@
 #include "complete_badges.h"
 #include "complete_sinnoh.h"
 #include "complete_follower.h"
+#include "complete_map_info.h"
 #include "complete_placed.h"
+#include "complete_pokegear.h"
 #include "complete_rival.h"
 #include "complete_pokedex.h"
 #include "easy_chat_sentence.h"
@@ -754,16 +756,7 @@ BOOL CompleteScrCmd_InitFlyMenu(ScriptContext *ctx)
     u16 *count = ScriptContext_GetVarPointer(ctx);
     u8 spawns[FIELD_MENU_ENTRIES_MAX];
 
-    *count = 0;
-
-    for (int spawn = SPAWN_HGSS_FIRST; spawn < SPAWN_HGSS_FIRST + SPAWN_HGSS_COUNT && *count < FIELD_MENU_ENTRIES_MAX; spawn++) {
-        enum MapHeaderID mapHeaderID = GetFlyLocationMap(spawn);
-
-        if (mapHeaderID != MAP_HEADER_EVERYWHERE && mapHeaderID != fieldSystem->location->mapHeaderID
-            && CheckFlyLocationUnlocked(fieldSystem, spawn)) {
-            spawns[(*count)++] = spawn;
-        }
-    }
+    *count = CompleteMapInfo_FlyPoints(fieldSystem, spawns, FIELD_MENU_ENTRIES_MAX);
 
     if (*count == 0) {
         return FALSE; // no list: nowhere to fly yet
@@ -778,6 +771,49 @@ BOOL CompleteScrCmd_InitFlyMenu(ScriptContext *ctx)
     }
 
     ctx->data[0] = selectedOptionVar;
+    return TRUE;
+}
+
+// Fly over Johto and Kanto on the Pokégear's map (HeartGold's fly map, include/complete_pokegear.h): countVar gets
+// how many Fly points the player has reached, or FLY_MAP_NO_POKEGEAR with the Pokétch or no bottom screen (for the
+// list instead). CompleteScrCmd_WaitFlyMap then has the Pokégear's Map show them for the player to pick from, and
+// waits for the pick: the spawn point, or MENU_CANCEL.
+#define FLY_MAP_NO_POKEGEAR 0xFFFD
+
+BOOL CompleteScrCmd_StartFlyMap(ScriptContext *ctx)
+{
+    u16 *count = ScriptContext_GetVarPointer(ctx);
+    u8 spawns[SPAWN_HGSS_COUNT];
+
+    if (CompleteBottomScreen_Active() != COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+        *count = FLY_MAP_NO_POKEGEAR;
+        return FALSE;
+    }
+
+    *count = CompleteMapInfo_FlyPoints(ctx->fieldSystem, spawns, SPAWN_HGSS_COUNT);
+    return FALSE;
+}
+
+static BOOL FlyMapChosen(ScriptContext *ctx)
+{
+    u16 spawn;
+    enum CompletePokegearFly state = CompletePokegear_GetFly(&spawn);
+
+    // the Pokégear gone from the bottom screen: backed out
+    if (state == COMPLETE_POKEGEAR_FLY_CHOOSING && CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+        return FALSE;
+    }
+
+    *FieldSystem_GetVarPointer(ctx->fieldSystem, ctx->data[0]) = state == COMPLETE_POKEGEAR_FLY_CHOSEN ? spawn : MENU_CANCEL;
+    CompletePokegear_SetFly(COMPLETE_POKEGEAR_FLY_NONE, 0);
+    return TRUE;
+}
+
+BOOL CompleteScrCmd_WaitFlyMap(ScriptContext *ctx)
+{
+    ctx->data[0] = ScriptContext_ReadHalfWord(ctx);
+    CompletePokegear_SetFly(COMPLETE_POKEGEAR_FLY_CHOOSING, 0);
+    ScriptContext_Pause(ctx, FlyMapChosen);
     return TRUE;
 }
 

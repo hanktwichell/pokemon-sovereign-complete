@@ -15,7 +15,10 @@ The ferry network (docs/Roadmap.md, "Ferry network"; CommonScript_CompleteFerry)
 (gCompleteTestHGSSBadges), which opens the way to Sinnoh for now:
 
 5. **Olivine or Vermilion to Canalave:** the gangway's sailor asks where to; the second choice, Canalave City, sails
-   there. The first, the S.S. Aqua's port, boards the S.S. Aqua as before; the last stays in port.
+   there once Sinnoh's story has begun (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE set). The first, the S.S. Aqua's port,
+   boards the S.S. Aqua as before; the last stays in port.
+5a. **The first time, to Twinleaf:** before Sinnoh's story has begun, the second choice is Twinleaf Town, and the ship
+   leaves the player in their room there for Platinum's opening (docs/Features.md, "Sinnoh, the third region").
 6. **Canalave to Olivine or Vermilion:** Canalave's sailor (Eldritch) offers both after Iron Island; the ship lands
    the player at the S.S. Aqua's door in that port, where its arrival scene plays.
 7. **Before the badge,** the gangway's sailor asks nothing and boards the S.S. Aqua (a menu fails the part).
@@ -53,15 +56,18 @@ PARTS = [('board at Olivine', OLIVINE, (26, 22), EAST, [], False, SHIP),
          ('arrive at Olivine', SHIP, (24, 16), SOUTH, ARRIVED + [('VAR_HGSS_BOAT_DIRECTION', 2)], True, OLIVINE)]
 CANALAVE = 'MAP_HEADER_CANALAVE_CITY'
 EARTH_BADGE = 1 << 15  # BADGE_ID_HGSS_EARTH, Kanto's eighth
+TWINLEAF_ROOM = 'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F'
+SINNOH_BEGUN = [('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)]  # the first ship to Sinnoh went to Twinleaf Town
 # (part, the map, the tile beside the sailor and the facing, Johto's and Kanto's badges, the answers to the menus
-# (talk_and_answer's: a menu entry's number), the map the part ends on)
-NETWORK = [('Olivine to Canalave', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], CANALAVE),
-           ('Vermilion to Canalave', VERMILION, (22, 19), EAST, EARTH_BADGE, [1], CANALAVE),
-           ('Olivine to the S.S. Aqua with the menu', OLIVINE, (26, 22), EAST, EARTH_BADGE, [0], SHIP),
-           ('Olivine, staying in port', OLIVINE, (26, 22), EAST, EARTH_BADGE, [2], OLIVINE),
-           ('Canalave to Olivine', CANALAVE, (44, 750), EAST, EARTH_BADGE, [1], OLIVINE),
-           ('Canalave to Vermilion', CANALAVE, (44, 750), EAST, EARTH_BADGE, [2], VERMILION),
-           ('Olivine before the badge', OLIVINE, (26, 22), EAST, 0, [], SHIP)]
+# (talk_and_answer's: a menu entry's number), the map the part ends on, vars set on the way in)
+NETWORK = [('Olivine to Canalave', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], CANALAVE, SINNOH_BEGUN),
+           ('Vermilion to Canalave', VERMILION, (22, 19), EAST, EARTH_BADGE, [1], CANALAVE, SINNOH_BEGUN),
+           ('Olivine to Twinleaf, the first time', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], TWINLEAF_ROOM, []),
+           ('Olivine to the S.S. Aqua with the menu', OLIVINE, (26, 22), EAST, EARTH_BADGE, [0], SHIP, []),
+           ('Olivine, staying in port', OLIVINE, (26, 22), EAST, EARTH_BADGE, [2], OLIVINE, []),
+           ('Canalave to Olivine', CANALAVE, (44, 750), EAST, EARTH_BADGE, [1], OLIVINE, SINNOH_BEGUN),
+           ('Canalave to Vermilion', CANALAVE, (44, 750), EAST, EARTH_BADGE, [2], VERMILION, SINNOH_BEGUN),
+           ('Olivine before the badge', OLIVINE, (26, 22), EAST, 0, [], SHIP, [])]
 WALK_OUT = 5  # tiles from the sailor's to the door mat, the press that takes it, and one for a prompt on the way
 LIMIT = 6000
 SYMBOLS = tuple(TALK_SYMBOLS) + ('gSovereignTestMenu', 'gCompleteTestHGSSBadges', 'sSaveDataPtr')
@@ -122,12 +128,15 @@ def main():
         d.screenshot().save(os.path.join(out, f'{name.replace(" ", "_")}.png'))
         results.append(f'{name}: {problem or "ok"}')
         print(results[-1], flush=True)
-    for name, start_map, (x, z), face, badges, answers, end_map in NETWORK:
+    for name, start_map, (x, z), face, badges, answers, end_map, setup in NETWORK:
         if only not in name:
             continue
         d.load_state(state)
         d.run(30)
         mem.write_short(sym['gCompleteTestHGSSBadges'], badges)
+        for i, (var, value) in enumerate(setup):
+            mem.write_short(sym['gSovereignTestVar'] + 4 * i, variables[var])
+            mem.write_short(sym['gSovereignTestVar'] + 4 * i + 2, value)
         problem = ''
         arrived, _ = warp(d, sym, names.index(start_map), x, z, 0)
         if arrived == 'ok':

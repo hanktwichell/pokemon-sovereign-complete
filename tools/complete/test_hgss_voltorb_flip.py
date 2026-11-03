@@ -274,11 +274,18 @@ def main():
 
     # 4. Leave from the menu
     if not problem:
-        touch(*MENU_QUIT)
+        # the menu can show before it takes a touch (its line still printing): touch Quit again while it shows, as A
+        # there would pick Play
+        for _ in range(10):
+            touch(*MENU_QUIT)
+            d.run(30)
+            if not menu_shown():
+                break
         for _ in range(20):
             if field_running(30):
                 break
-            d.press('A', frames=4, after=30)
+            if not menu_shown():
+                d.press('A', frames=4, after=30)
         settle()
         shot('field_after')
         if not field_running():

@@ -418,6 +418,15 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
   so the importer makes it 16-colour without changing a pixel: five 15-colour palettes, each tile in the one its
   colours fit, and tiles that repeat (flipped or not) kept once (593 tiles). In Sinnoh it shows the place's name, with
   no head. The Pokégear comes back to the page it was on (after a battle or a map change).
+- **Fly:** Fly over Johto and Kanto (from the party menu) is HeartGold's fly map on the Map: HeartGold's red cursor
+  (its map app's, flashing between its two frames) on the place reached nearest the player, its name below, and the
+  field's message "Where do you want to fly?". The D-pad moves the cursor to the nearest place reached that way, a tap
+  on a place moves it there; A, or a tap on the place picked, flies there, and B backs out to the page the Pokégear was
+  on. The places are the list's (HeartGold's 25 Fly points reached, but the one the player is on:
+  `CompleteMapInfo_FlyPoints`); the map scrolls to keep the cursor in view; the app bar waits meanwhile. With the
+  Pokétch on the bottom screen (or before the Pokégear), Fly shows the list instead ("Stand-ins"). The field asks and
+  waits (`CompleteStartFlyMap`, `CompleteWaitFlyMap` in `CommonScript_CompleteFly`) through a request kept in the main
+  module (`CompletePokegear_GetFly`), as the Pokégear's overlay runs on its own.
 - **The radio:** the app bar's Radio ("The Pokégear radio", below).
 - **The skins:** the app bar's Settings shows HeartGold's six skins (its configure app: blue, pink, black, wood, gold,
   teal; all six from the start, as HeartGold's code has them), with its frame around the one in use. A tap on one
@@ -431,7 +440,9 @@ Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the pla
 scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
 phone; a call ringing, answered from the Phone button, and another left to stop after 59 seconds; the second skin
 chosen on the Settings, saved and shown on the Phone, and the first back; the switch to the Pokétch and back; the
-choice kept across a warp; the Pokégear back after a battle; all 11 parts pass).
+choice kept across a warp; the Pokégear back after a battle; all 11 parts pass), and for Fly
+`tools/complete/test_hgss_fly.py` (the list without the Pokégear; with it, the fly map's cursor on Cherrygrove City from
+New Bark Town, B backing out, UP to Violet City and a tap on it flying there).
 
 ## The Pokégear radio
 
@@ -685,8 +696,9 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
 - **The Magnet Train's ride** (between Goldenrod City and Saffron City): HeartGold plays a scene of the train
   (its `sub_020977CC`); here the screen fades out and in, and the player arrives at the other station, as in HeartGold.
 - **Fly over Johto and Kanto:** Platinum's Town Map shows only Sinnoh, so on a Johto or Kanto map Fly (from the party
-  menu) shows a list of the places reached instead, by name, and flies to the one chosen. The places are HeartGold's
-  25 Fly points, each recorded as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its
-  spawn points: `src/spawn_locations.c`). It stays until the three-region Town Map (`docs/Roadmap.md`, "Art").
+  menu) is HeartGold's fly map on the Pokégear's Map ("The Pokégear and the Pokétch"), or, with the Pokétch on the
+  bottom screen, a list of the places reached, by name, that flies to the one chosen. The places are HeartGold's 25
+  Fly points, each recorded as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn
+  points: `src/spawn_locations.c`). Both stay until the three-region Town Map (`docs/Roadmap.md`, "Art").
 - **The Berry Pots, the Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
   (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items.

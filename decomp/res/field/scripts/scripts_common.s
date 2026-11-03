@@ -2272,10 +2272,24 @@ CommonScript_CompleteFollowerTalkEnd:
     ReleaseAll
     End
 
-// Sovereign Complete: Fly over Johto and Kanto until the three-region Town Map (src/field_move_tasks.c): a list of
-// the places reached, then Fly to the one chosen
+// Sovereign Complete: Fly over Johto and Kanto until the three-region Town Map (src/field_move_tasks.c): HeartGold's
+// fly map on the Pokégear's Map (the places reached, to pick from), or with the Pokétch on the bottom screen a list of
+// them; then Fly to the one chosen
 CommonScript_CompleteFly:
     LockAll
+    CompleteStartFlyMap VAR_0x8004
+    GoToIfEq VAR_0x8004, 0xFFFD, CommonScript_CompleteFlyList
+    GoToIfEq VAR_0x8004, 0, CommonScript_CompleteFlyEnd
+    MessageInstant CommonStrings_Text_CompleteFlyWhere
+    CompleteWaitFlyMap VAR_RESULT
+    CloseMessage
+    GoToIfEq VAR_RESULT, MENU_CANCEL, CommonScript_CompleteFlyEnd
+    CompleteFlyTo VAR_RESULT
+    ReleaseAll
+    End
+
+// With the Pokétch on the bottom screen: the list of the places reached
+CommonScript_CompleteFlyList:
     CompleteInitFlyMenu VAR_RESULT, VAR_0x8004
     GoToIfEq VAR_0x8004, 0, CommonScript_CompleteFlyEnd
     ShowListMenu

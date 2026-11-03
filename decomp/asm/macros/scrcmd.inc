@@ -6388,6 +6388,19 @@
     .short \destVar
     .endm
 
+    // Fly over Johto and Kanto on the Pokégear's map (HeartGold's fly map): countVar gets how many Fly points the
+    // player has reached (0xFFFD: no Pokégear on the bottom screen, for the list instead). CompleteWaitFlyMap has the
+    // Pokégear's Map show them to pick from and waits for the pick: its spawn point, or MENU_CANCEL.
+    .macro CompleteStartFlyMap countVar
+    .short SCRCMD_COMPLETESTARTFLYMAP
+    .short \countVar
+    .endm
+
+    .macro CompleteWaitFlyMap destVar
+    .short SCRCMD_COMPLETEWAITFLYMAP
+    .short \destVar
+    .endm
+
     .text
     .globl _start
 _start:

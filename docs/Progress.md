@@ -1457,3 +1457,17 @@ Test results on the new test build:
   `docs/WildPokemon.md` and the spreadsheet are regenerated. In the emulator: the outbreak test's 8 parts (with the
   rods and night fishing) and the Alph puzzle test's 4 pass. The Battle Factory's part of the Frontier test failed once
   as a slow battle ran past the test's wait: the rentals are random, so the wait is longer now.
+- **Fly on the Pokégear's map:** Fly over Johto and Kanto is HeartGold's fly map now, on the Pokégear's Map, in place
+  of the list: HeartGold's red cursor (its map app's own, flashing) on the town reached nearest the player, the
+  field asking "Where do you want to fly?". The D-pad moves the cursor to the nearest town that way, a tap moves it
+  to the town tapped, and A, or a tap on the town picked, flies there; B backs out to the page the Pokégear was on.
+  With the Pokétch on the bottom screen, or before the Pokégear, the list stays. In the emulator
+  (`tools/complete/test_hgss_fly.py`, its 13 checks pass): the list without the Pokégear, then with it the cursor on
+  Cherrygrove City from New Bark Town, B backing out, UP to Violet City and a tap there flying to it.
+- **A test runner, and a sweep:** `tools/complete/run_tests.py` runs Complete's emulator tests a few at a time on a
+  test build, from a bedroom state it makes, and sums up (six tests that always exited 0 now exit with their result).
+  Its first sweep on the latest build: 28 of 31 passed. The three that didn't were tests left behind by the game: the
+  ferry test still expected the first ship to Sinnoh to go to Canalave City (since Nov 1 it lands in Twinleaf Town for
+  Platinum's opening; the test now checks both), Voltorb Flip's touched the menu's Quit before the menu took touches
+  (it tries again now), and the gifts test (four givers didn't answer in the full run, though all four answer on
+  their own).

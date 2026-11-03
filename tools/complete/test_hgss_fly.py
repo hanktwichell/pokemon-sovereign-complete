@@ -8,7 +8,12 @@ stands in for the Town Map there (CommonScript_CompleteFly), flies to the one ch
 2. In Violet City, gCompleteTestFly starts the list, as Fly from the party menu does on a Johto or Kanto map. B closes
    it: the player stays in Violet City.
 3. Again, and A picks the first place, New Bark Town (the list goes in HeartGold's order and leaves out the town the
-   player is in): the player must land in New Bark Town, on its Fly point.
+   player is in): the player must land in New Bark Town, on its Fly point. (The bedroom state has no Pokégear yet, so
+   Fly shows the list, as it does with the Pokétch on the bottom screen.)
+4. With the Pokégear (FLAG_HGSS_GOT_POKEGEAR) on the bottom screen, Fly is HeartGold's fly map on its Map
+   (gCompleteTestPokegearMap): the Map page, its cursor on the place reached nearest the player (Cherrygrove City);
+   B backs out, back to the page before, the player still in New Bark Town.
+5. Again: UP moves the cursor to Violet City, and a tap on it flies there.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
@@ -27,6 +32,14 @@ from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: 
 
 TOWNS = ['NEW_BARK', 'CHERRYGROVE', 'VIOLET']  # visited in this order (their headers are MAP_HEADER_HGSS_<town>)
 NOT_VISITED = 'AZALEA'
+PAGE_MAP, POKEGEAR = 1, 2  # the Pokégear's Map page; enum CompleteBottomScreen's Pokégear
+NO_PICK = 0xFFFF
+
+
+def spawn_ids():
+    """{town: its spawn point} (include/constants/hgss_spawns.h)"""
+    text = open(os.path.join(DECOMP, 'include', 'constants', 'hgss_spawns.h'), encoding='utf-8').read()
+    return {name: int(n) for name, n in re.findall(r'#define SPAWN_HGSS_(\w+) (\d+)', text)}
 
 
 def fly_points():
@@ -45,7 +58,9 @@ def main():
 
     rom, state, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
-    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gCompleteTestFly'))
+    sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gCompleteTestFly', 'gCompleteTestPokegear', 'gCompleteTestPokegearMap',
+                             'sActiveBottomScreen'))
+    spawns = spawn_ids()
     variables = var_ids()
     ids = header_names()
     points = fly_points()
@@ -56,12 +71,23 @@ def main():
     def u32(addr):
         return struct.unpack('<I', bytes(mem.unsigned[addr:addr + 4]))[0]
 
-    def flag(n):
+    def flags_at():
         base = u32(sym['sSaveDataPtr'])
         page_info = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4
         addr = base + 20 + u32(page_info + save_entry_index('SAVE_TABLE_ENTRY_VARS_FLAGS') * 16 + 8)
-        addr += (variables['VARS_END'] - variables['VARS_START']) * 2
-        return bool(mem.unsigned[addr + n // 8] & (1 << (n % 8)))
+        return addr + (variables['VARS_END'] - variables['VARS_START']) * 2
+
+    def flag(n):
+        return bool(mem.unsigned[flags_at() + n // 8] & (1 << (n % 8)))
+
+    def set_flag(name):
+        n = variables[name]
+        mem.write_byte(flags_at() + n // 8, mem.unsigned[flags_at() + n // 8] | 1 << n % 8)
+
+    def gear_map():
+        """The Pokégear's (page, ..., Fly's pick, its cursor's x and y on the screen)"""
+        return struct.unpack('<8H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap']:
+                                                       sym['gCompleteTestPokegearMap'] + 16]))
 
     def visited(town):
         return flag(variables['FLAG_HGSS_SYS_FLYPOINT_PALLET'] + points[town][0])
@@ -107,6 +133,44 @@ def main():
     check(f'A flies to New Bark Town ({result} {frames}; on {ids[where()]})',
           result == 'ok' and where() == ids.index('MAP_HEADER_HGSS_NEW_BARK'))
     d.screenshot().save(os.path.join(out, 'landed.png'))
+
+    # 4. The Pokégear's fly map
+    set_flag('FLAG_HGSS_GOT_POKEGEAR')
+    for _ in range(60):  # the field puts the Pokégear on the bottom screen
+        if u32(sym['gCompleteTestPokegear']) and mem.unsigned[sym['sActiveBottomScreen']] == POKEGEAR:
+            break
+        d.run(10)
+    d.run(60)
+    page_before = gear_map()[0]
+    mem.write_byte(sym['gCompleteTestFly'], 1)
+    d.run(90)
+    d.screenshot().save(os.path.join(out, 'fly_map.png'))
+    page, pick = gear_map()[0], gear_map()[5]
+    check(f'Fly shows the Pokégear\'s Map (page {page}), its cursor on Cherrygrove City (spawn {pick})',
+          page == PAGE_MAP and pick == spawns['CHERRYGROVE'])
+    d.press('B')
+    d.run(60)
+    before = u32(sym['gSovereignTestIdleFrames'])
+    d.run(60)
+    idle = u32(sym['gSovereignTestIdleFrames']) - before
+    check(f'B backs out to the page before ({gear_map()[0]}, was {page_before}; {idle} idle frames of 60)',
+          gear_map()[5] == NO_PICK and gear_map()[0] == page_before and idle >= 25
+          and where() == ids.index('MAP_HEADER_HGSS_NEW_BARK'))
+
+    # 5. UP to Violet City, and a tap on it
+    mem.write_byte(sym['gCompleteTestFly'], 1)
+    d.run(90)
+    d.press('UP')
+    d.run(30)
+    pick, x, y = gear_map()[5:8]
+    d.screenshot().save(os.path.join(out, 'fly_violet.png'))
+    check(f'UP moves the cursor to Violet City (spawn {pick})', pick == spawns['VIOLET'])
+    if pick == spawns['VIOLET']:
+        d.touch(x, y, frames=6, after=10)
+        result, frames = play_out(d, sym, 4000, press_a=False)
+        check(f'a tap on it flies there ({result} {frames}; on {ids[where()]})',
+              result == 'ok' and where() == ids.index('MAP_HEADER_HGSS_VIOLET'))
+        d.screenshot().save(os.path.join(out, 'landed_violet.png'))
 
     print(f'{len(problems)} problems')
     sys.exit(1 if problems else 0)
