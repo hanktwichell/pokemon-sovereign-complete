@@ -435,7 +435,9 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
   phone (`CompletePhoneSave.pokegearSkin`). The importer brings each graphic's six variants
   (`tools/complete/import_hgss_pokegear_gfx.py`), its tiles packed to fit the 128 a page has (HeartGold's gold skin
   spreads its screen over a sheet of 1,024), and the map's tiles made once for all six, by HeartGold's colour indices.
-- **Left out** of the map: HeartGold's zoom, its marked places and its place-by-place descriptions.
+- **Left out** of the map: HeartGold's zoom, its marked places and its place-by-place descriptions, and its look for
+  what the player hasn't reached (Kanto covered until Route 27 and the S.S. Aqua, `ScrCmd_804`; unvisited towns
+  greyed): its patches need about 56 more tiles than the bottom screen has room for beside the app bar.
 
 Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the player gets it; a tap on Mom calling her;
 scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
