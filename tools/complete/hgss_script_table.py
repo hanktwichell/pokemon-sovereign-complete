@@ -693,6 +693,13 @@ COMMANDS = {
     'RadioMusicIsPlaying': one('CompleteRadioMusicIsPlaying {0}, {1}'),
     # Buena's password quiz: today's three choices and the answer (the radio's Buena's Password gives it)
     'GetBuenasPassword': one('CompleteGetBuenasPassword {0}, {1}'),
+    # The Battle Frontier's move tutors (src/overlay005/complete_move_tutor.c): the pages of a Pokémon's moves to learn,
+    # the list, a move's price in Battle Points, and the move put in the slot chosen (Platinum's ResetMoveSlot, whose
+    # arguments come in another order)
+    'ScrCmd_652': one('CompleteTutorMovePages {0}, {1}, {2}'),
+    'MoveTutorChooseMove': one('CompleteTutorChooseMove {0}, {1}, {2}, {3}'),
+    'TutorMoveGetPrice': one('CompleteTutorMovePrice {0}, {1}'),
+    'TutorMoveTeachInSlot': one('ResetMoveSlot {0}, {2}, {1}'),
     # The Move Maniac (Blackthorn) and the move tutors (Draco Meteor, Sacred Gold's): Platinum's Move Reminder and tutor
     # menu, which give the same results (0xFF: nothing learned or picked); and the Move Deleter's move pick
     'ScrCmd_466': one('CheckHasLearnableReminderMoves {0}, {1}'),

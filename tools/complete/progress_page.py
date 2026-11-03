@@ -97,7 +97,8 @@ RECENT = [
         'Johto\'s Battle Frontier is open: its five facilities run Platinum\'s own challenges from their Johto lobbies. In '
         'the emulator a Factory challenge rented three Pokémon, won its first battle and retired back to Johto\'s lobby, '
         'and the Tower, Hall, Castle and Arcade each started theirs. Battle Points, streaks and prints are shared with '
-        'Sinnoh\'s Frontier. Left: the Frontier Access move tutors, who teach for Battle Points.',
+        'Sinnoh\'s Frontier. Its three move tutors teach HeartGold\'s 51 moves for Battle Points, at HeartGold\'s '
+        'prices (checked in the emulator: Fury Cutter for 32 BP).',
         'The Pokégear, first part: you can call the people in your phone book. Each says what they say in '
         'HeartGold when you call: Mom asks about saving money, Elm has news, Oak rates your Johto or National Pokédex '
         '(with his menu and fanfare), Bill counts the room in your boxes, the Day-Care couple say how your Pokémon are '

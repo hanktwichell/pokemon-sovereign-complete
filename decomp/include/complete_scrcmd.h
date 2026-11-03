@@ -65,6 +65,10 @@ BOOL CompleteScrCmd_CheckFieldMoveBadge(ScriptContext *ctx);
 BOOL CompleteScrCmd_Headbutt(ScriptContext *ctx);
 BOOL CompleteScrCmd_RockSmashFind(ScriptContext *ctx);
 BOOL CompleteScrCmd_CanLearnHeadbutt(ScriptContext *ctx);
+// src/overlay005/complete_move_tutor.c: the Battle Frontier's move tutors
+BOOL CompleteScrCmd_TutorMovePages(ScriptContext *ctx);
+BOOL CompleteScrCmd_TutorChooseMove(ScriptContext *ctx);
+BOOL CompleteScrCmd_TutorMovePrice(ScriptContext *ctx);
 BOOL CompleteScrCmd_WhirlpoolSteps(ScriptContext *ctx);
 BOOL CompleteScrCmd_CountPartySpecies(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckKyogreGroudonInParty(ScriptContext *ctx);
@@ -77,5 +81,11 @@ BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx);
 // Set by CompleteStartWildBattle for a shiny static encounter; CreateWildMon_Scripted (overlay006/wild_encounters.c)
 // makes the next scripted wild Pokémon shiny and clears it.
 extern BOOL gCompleteNextWildShiny;
+
+#ifdef SOVEREIGN_TEST
+// The Battle Frontier move tutors' last: pages of moves, entries in the list (with NEXT and QUIT), price asked, and the
+// move chosen
+extern u16 gCompleteTestTutor[4];
+#endif
 
 #endif // POKEPLATINUM_COMPLETE_SCRCMD_H

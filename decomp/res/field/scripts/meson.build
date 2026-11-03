@@ -1149,6 +1149,7 @@ scr_seq_files = files(
     'scripts_route_220.s',
     'scripts_init_route_220.s',
     # Sovereign Complete: HeartGold map headers (tools/complete/import_hgss_headers.py)
+    'scripts_hgss_0002.s',
     'scripts_hgss_0005.s',
     'scripts_hgss_0006.s',
     'scripts_hgss_0007.s',

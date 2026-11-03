@@ -84,8 +84,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   HeartGold's twelve shows, and the switch both ways (`docs/Features.md`, "The Pokégear and the Pokétch" and "The
   Pokégear radio"). The radio has no signal in Sinnoh. Left: HeartGold's Pokégear skins (its settings).
 - **Red at Mt. Silver (Nov 3, 2026).** Post-game: after the end of the whole game.
-- **Johto's Battle Frontier (Nov 3, 2026).** Open. Done: its five facilities run Platinum's challenges (`docs/Features.md`,
-  "Johto's Battle Frontier"); its Battle Point move tutors are left.
+- **Johto's Battle Frontier (Nov 3, 2026).** Open. Done: its five facilities run Platinum's challenges, and its three move
+  tutors teach HeartGold's moves for Battle Points (`docs/Features.md`, "Johto's Battle Frontier").
 - **Voltorb Flip (Nov 3, 2026).** Ported to the Game Corners. Done (`docs/Features.md`, "Voltorb Flip").
 - **The credits (Nov 3, 2026).** They roll once, at the end of the whole game.
 

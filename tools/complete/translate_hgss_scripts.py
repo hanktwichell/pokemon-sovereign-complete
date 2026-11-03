@@ -43,9 +43,13 @@ BATTLE_OUTCOMES = {
 STD_SCRIPTS = {'std_hide_show_deliverymen': '10200', 'std_hide_show_deliverymen_2': '10200'}
 # HeartGold's standard script files the engine has as they are, translated, at their own script IDs
 # (include/script_manager.h): the Bug-Catching Contest's (its 10400 on, here 11000 on: Platinum has 10400) and the
-# Johto Safari Zone's (its 8800 on, here 11100 on: Platinum's Safari game has 8800), with their numbers of scripts (the
-# next of HeartGold's standard script groups starts after them: its Battle Frontier move tutors at 10440)
-STD_FILES = {'scr_seq_0151': (10400, 11000, 29), 'scr_seq_0262': (8800, 11100, 7)}
+# Johto Safari Zone's (its 8800 on, here 11100 on: Platinum's Safari game has 8800) and the Battle Frontier's move
+# tutors' (its 10440 on, here 11200 on), with their numbers of scripts
+STD_FILES = {'scr_seq_0151': (10400, 11000, 29), 'scr_seq_0262': (8800, 11100, 7), 'scr_seq_0002': (10440, 11200, 3)}
+# HeartGold's move tutors (its include/constants/scrcmd.h): the Battle Frontier's three, by their place in the Frontier
+# Access (src/overlay005/complete_move_tutor.c)
+MOVE_TUTORS = {'MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT': '0', 'MOVE_TUTOR_NPC_FRONTIER_TOP_RIGHT': '1',
+               'MOVE_TUTOR_NPC_FRONTIER_BOTTOM_RIGHT': '2', 'MOVE_TUTOR_NPC_HEADBUTT': '3'}
 
 
 def std_file_script(n):
@@ -212,6 +216,8 @@ class Names:
         elif tok in self.hg_trainers:
             out = 'TRAINER_HGSS_' + tok[len('TRAINER_'):]
             out = out if out in self.our_trainers else 'TRAINER_NONE'
+        elif tok in MOVE_TUTORS:
+            out = MOVE_TUTORS[tok]
         elif tok.startswith('RGB_'):
             out = 'COLOR_' + tok[len('RGB_'):]
         elif tok in STD_SCRIPTS:

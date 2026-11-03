@@ -6364,6 +6364,30 @@
     .short \answerVar
     .endm
 
+    // HeartGold's Battle Frontier move tutors (src/overlay005/complete_move_tutor.c): the pages of the moves a party
+    // Pokémon can learn from the tutor (ScrCmd_652), the page's list (MoveTutorChooseMove: the move, 0xFFFD for NEXT,
+    // 0xFFFE for QUIT), and a move's price in Battle Points (TutorMoveGetPrice)
+    .macro CompleteTutorMovePages partySlot, tutor, destVar
+    .short SCRCMD_COMPLETETUTORMOVEPAGES
+    .short \partySlot
+    .short \tutor
+    .short \destVar
+    .endm
+
+    .macro CompleteTutorChooseMove partySlot, tutor, page, destVar
+    .short SCRCMD_COMPLETETUTORCHOOSEMOVE
+    .short \partySlot
+    .short \tutor
+    .short \page
+    .short \destVar
+    .endm
+
+    .macro CompleteTutorMovePrice move, destVar
+    .short SCRCMD_COMPLETETUTORMOVEPRICE
+    .short \move
+    .short \destVar
+    .endm
+
     .text
     .globl _start
 _start:

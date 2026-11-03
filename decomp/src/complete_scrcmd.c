@@ -980,6 +980,7 @@ BOOL CompleteScrCmd_AlphPuzzle(ScriptContext *ctx)
 
 #ifdef SOVEREIGN_TEST
 void *gCompleteTestVoltorbFlipGame;
+u16 gCompleteTestTutor[4]; // src/overlay005/complete_move_tutor.c's, here as the main module keeps it
 #endif
 
 // HeartGold's CasinoGame: Voltorb Flip (src/applications/complete_voltorb_flip, HeartGold's code) at a Game Corner's

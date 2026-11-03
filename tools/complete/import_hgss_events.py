@@ -120,6 +120,8 @@ STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201, 10202: 10202}
 # People running one of the standard script files translated as they are (translate_hgss_scripts.py's STD_FILES):
 # the Bug-Catching Contest's contestants and prize keeper
 STD_PEOPLE.update({n: 11000 + n - 10400 for n in range(10400, 10429)})
+# and the Battle Frontier's move tutors
+STD_PEOPLE.update({n: 11200 + n - 10440 for n in range(10440, 10443)})
 # The deliveryman shows himself by Platinum's flag (scripts_mystery_gift_deliveryman.s)
 HIDDEN_FLAGS = {'FLAG_HGSS_HIDE_MYSTERY_GIFT_DELIVERYMAN': 'FLAG_HIDE_MART_MYSTERY_GIFT_DELIVERYMAN',
                 # Red at Mt. Silver's summit: his own hide flag, which the summit sets as it loads until the whole

@@ -57,6 +57,7 @@
 
 // clang-format off
 #define SCRIPT_RANGE_TABLE(Entry) \
+    Entry(SCRIPT_ID_OFFSET_COMPLETE_FRONTIER_TUTORS,       scripts_hgss_0002,                      TEXT_BANK_HGSS_MSG_0748) \
     Entry(SCRIPT_ID_OFFSET_COMPLETE_SAFARI,                scripts_hgss_0262,                      TEXT_BANK_HGSS_MSG_0427) \
     Entry(SCRIPT_ID_OFFSET_COMPLETE_BUG_CONTEST,           scripts_hgss_0151,                      TEXT_BANK_HGSS_MSG_0246) \
     Entry(SCRIPT_ID_OFFSET_SCRATCH_OFF_CARDS,              scripts_scratch_off_cards,              TEXT_BANK_SCRATCH_OFF_CARDS) \

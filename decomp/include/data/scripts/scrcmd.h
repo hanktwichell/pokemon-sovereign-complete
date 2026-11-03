@@ -1003,6 +1003,9 @@ ScriptCommand(SCRCMD_COMPLETEVOLTORBFLIP,                              CompleteS
 ScriptCommand(SCRCMD_COMPLETEPHONECALLMENU,                            CompleteScrCmd_PhoneCallMenu)
 ScriptCommand(SCRCMD_COMPLETERADIOMUSICISPLAYING,                      CompleteScrCmd_RadioMusicIsPlaying)
 ScriptCommand(SCRCMD_COMPLETEGETBUENASPASSWORD,                         CompleteScrCmd_GetBuenasPassword)
+ScriptCommand(SCRCMD_COMPLETETUTORMOVEPAGES,                           CompleteScrCmd_TutorMovePages)
+ScriptCommand(SCRCMD_COMPLETETUTORCHOOSEMOVE,                          CompleteScrCmd_TutorChooseMove)
+ScriptCommand(SCRCMD_COMPLETETUTORMOVEPRICE,                           CompleteScrCmd_TutorMovePrice)
 
 // clang-format on
 

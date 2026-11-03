@@ -609,10 +609,21 @@ the same way:
   under other numbers, so their scripts use Platinum's (`FRONTIER_VARS` in `tools/complete/translate_hgss_scripts.py`).
   Battle Points, streaks, records and prints are one set for both Frontiers: a streak begun in Johto is the same
   facility's streak in Sinnoh.
-- **Not ported:** the Frontier Access move tutors, who teach for Battle Points (HeartGold's own tutor screens and
-  price lists; Platinum's tutors take shards), say nothing yet. HeartGold's scratch-off card script is on the map
-  but nothing runs it, as in HeartGold.
-- **Test:** `tools/complete/test_hgss_frontier.py`: in the Factory a Level 50 single challenge starts, three Pokémon
+- **The move tutors:** the three in the Frontier Access's tutor house teach HeartGold's 51 moves for Battle Points, at
+  HeartGold's prices (`src/overlay005/complete_move_tutor.c`, its script HeartGold's `scr_seq_0002`, at script 11200
+  on). Each lists the moves the Pokémon picked can learn from him and doesn't know, six a page with NEXT, each with
+  its price (HeartGold's list lines, in Platinum's script menu); then, as in HeartGold, a Pokémon with four moves
+  forgets one, and the points come off. Who can learn what: for the 38 moves Platinum's tutors also teach, the
+  engine's own tutor data (each species' `by_tutor`, as Platinum's shard tutors use it); for HeartGold's 13 others
+  (Super Fang, Pain Split, String Shot, Tailwind, Gravity, Worry Seed, Magic Coat, Role Play, Heal Bell, Low Kick, Sky
+  Attack, Block, Bug Bite), HeartGold's list up to Arceus and, after it, the species that learn the move by level or
+  as an egg move, as for Ilex Forest's Headbutt (`include/data/hgss_frontier_tutors.h`, from
+  `tools/complete/import_hgss_tutors.py`; forms go by their species). Draco Meteor and the starters' strongest moves stay
+  with Blackthorn's tutor house, as in HeartGold.
+- **Not ported:** HeartGold's scratch-off card script is on the map but nothing runs it, as in HeartGold.
+- **Test:** `tools/complete/test_hgss_frontier_tutors.py` (the first tutor's list for the lead, with each move's price
+  and QUIT; a move too dear with no Battle Points; with 500, the lead forgets a move, learns Fury Cutter and 32 come
+  off; all three parts pass) and `tools/complete/test_hgss_frontier.py`: in the Factory a Level 50 single challenge starts, three Pokémon
   are rented, the first battle is won (the test build's god mode) and RETIRE brings the player back to Johto's
   Factory with its lobby cleared; at the Tower, Hall, Castle and Arcade the attendant's menus and the party screen
   lead into Platinum's challenge.

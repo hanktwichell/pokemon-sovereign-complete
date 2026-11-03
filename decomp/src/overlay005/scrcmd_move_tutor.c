@@ -70,7 +70,6 @@ typedef struct {
 static BOOL ScriptContextShouldResume(ScriptContext *ctx);
 static u16 GetMoveID(u16 moveIndex);
 static u16 GetMoveIndex(u16 moveID);
-static u8 Pokemon_ReadMovesetMaskByte(Pokemon *mon, u8 offset);
 static BOOL Pokemon_HasLearnableMovesAt(Pokemon *mon, enum TutorLocation location);
 static void MoveTutorManager_SetMessageLoader(MoveTutorManager *moveTutorManager, MessageLoader *messageLoader);
 static void MoveTutorManager_Init(FieldSystem *fieldSystem, MoveTutorManager *moveTutorManager, u8 tilemapLeft, u8 tilemapTop, u8 initialCursorPos, u8 canExitWithB, u16 *selectedOptionPtr, StringTemplate *stringTemplate, Window *scriptManagerWindow, MessageLoader *messageLoader);
@@ -208,7 +207,7 @@ static u16 GetMoveIndex(u16 moveID)
     return 0;
 }
 
-static u8 Pokemon_ReadMovesetMaskByte(Pokemon *mon, u8 offset)
+u8 Pokemon_ReadMovesetMaskByte(Pokemon *mon, u8 offset) // Sovereign Complete: was static, for complete_move_tutor.c
 {
     u32 species = Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL);
     u32 form = Pokemon_GetValue(mon, MON_DATA_FORM, NULL);

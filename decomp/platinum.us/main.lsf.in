@@ -574,6 +574,7 @@ Overlay overlay5
 	Object src/overlay005/ov5_021F61BC.c
 	Object src/overlay005/ov5_021F6454.c
 	Object src/overlay005/scrcmd_move_tutor.c
+	Object src/overlay005/complete_move_tutor.c
 	Object src/overlay005/villa_furniture.c
 	Object src/overlay005/dist_world_surf_mount_renderer.c
 }

@@ -1420,3 +1420,12 @@ Test results on the new test build:
   static, each button's show (Pokémon Music playing Tuesday's Lullaby, Oak naming Misdreavus, That Town, These
   People), off the stations, leaving the page and back, Kanto's Poké Flute by Route 11's Snorlax, which then woke, and
   the Ruins of Alph's, Mahogany's and Sinnoh's stations.
+- **The Battle Frontier's move tutors:** the last part of Johto's Battle Frontier. The three tutors in the Frontier
+  Access teach HeartGold's 51 moves for Battle Points at HeartGold's prices: HeartGold's own script (its common
+  scr_seq_0002, here at script 11200 on), with its three commands for the list, the price and the move's slot done
+  in the engine (`src/overlay005/complete_move_tutor.c`): the moves the Pokémon can learn and doesn't know, six a
+  page, each with its price, in Platinum's script menu. Who can learn Platinum's 38 tutor moves the engine's own data
+  decides; HeartGold's 13 others come from HeartGold's list, and for the species after Arceus from their own
+  learnsets, as for Headbutt (`tools/complete/import_hgss_tutors.py`). In the emulator
+  (`tools/complete/test_hgss_frontier_tutors.py`, all 3 parts pass): the first tutor listed Fury Cutter at 32 BP for
+  the lead, turned it down with no points, and with 500 taught it in place of a move it forgot, leaving 468.
