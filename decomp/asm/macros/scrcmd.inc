@@ -6416,6 +6416,17 @@
     .byte \way
     .endm
 
+    // HeartGold's Rocket Hideout traps (its ScrCmd_708): the trap given (enum CompleteHideoutTrap) goes off under the
+    // player; and its alarm (ScrCmd_709) as a Persian statue sees them (src/overlay005/complete_legend_cutscene.c)
+    .macro CompleteHideoutTrap trap
+    .short SCRCMD_COMPLETEHIDEOUTTRAP
+    .short \trap
+    .endm
+
+    .macro CompleteHideoutAlarm
+    .short SCRCMD_COMPLETEHIDEOUTALARM
+    .endm
+
     .text
     .globl _start
 _start:

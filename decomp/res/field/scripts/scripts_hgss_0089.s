@@ -139,7 +139,7 @@ scr_seq_D35R0102_000:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru, _0454
     WaitMovement
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 5, _02C4
@@ -275,7 +275,7 @@ scr_seq_D35R0102_005:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_2, _0454
     WaitMovement
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 4
     GoToIf 5, _04F7
@@ -420,7 +420,7 @@ scr_seq_D35R0102_006:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_3, _0454
     WaitMovement
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 11
     GoToIf 5, _073B
@@ -505,7 +505,7 @@ scr_seq_D35R0102_007:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_4, _0454
     WaitMovement
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 29
     GoToIf 5, _08EC
@@ -589,7 +589,7 @@ scr_seq_D35R0102_008:
     WaitMovement
     ApplyMovement obj_D35R0102_aji_peru_5, _0454
     WaitMovement
-    @ HGSS: ScrCmd_709
+    CompleteHideoutAlarm
     GetPlayerMapPos VAR_MAP_LOCAL_0x00, VAR_MAP_LOCAL_0x01
     CompareVar VAR_MAP_LOCAL_0x01, 29
     GoToIf 5, _0A99
@@ -872,7 +872,7 @@ _0F24:
     End
 scr_seq_D35R0102_013:
     LockAll
-    @ HGSS: ScrCmd_708 1
+    CompleteHideoutTrap 1
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -882,7 +882,7 @@ scr_seq_D35R0102_013:
     End
 scr_seq_D35R0102_014:
     LockAll
-    @ HGSS: ScrCmd_708 0
+    CompleteHideoutTrap 0
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -892,7 +892,7 @@ scr_seq_D35R0102_014:
     End
 scr_seq_D35R0102_015:
     LockAll
-    @ HGSS: ScrCmd_708 2
+    CompleteHideoutTrap 2
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -902,7 +902,7 @@ scr_seq_D35R0102_015:
     End
 scr_seq_D35R0102_016:
     LockAll
-    @ HGSS: ScrCmd_708 0
+    CompleteHideoutTrap 0
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -912,7 +912,7 @@ scr_seq_D35R0102_016:
     End
 scr_seq_D35R0102_017:
     LockAll
-    @ HGSS: ScrCmd_708 2
+    CompleteHideoutTrap 2
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -922,7 +922,7 @@ scr_seq_D35R0102_017:
     End
 scr_seq_D35R0102_018:
     LockAll
-    @ HGSS: ScrCmd_708 0
+    CompleteHideoutTrap 0
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -932,7 +932,7 @@ scr_seq_D35R0102_018:
     End
 scr_seq_D35R0102_019:
     LockAll
-    @ HGSS: ScrCmd_708 0
+    CompleteHideoutTrap 0
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -942,7 +942,7 @@ scr_seq_D35R0102_019:
     End
 scr_seq_D35R0102_020:
     LockAll
-    @ HGSS: ScrCmd_708 1
+    CompleteHideoutTrap 1
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -952,7 +952,7 @@ scr_seq_D35R0102_020:
     End
 scr_seq_D35R0102_021:
     LockAll
-    @ HGSS: ScrCmd_708 1
+    CompleteHideoutTrap 1
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -962,7 +962,7 @@ scr_seq_D35R0102_021:
     End
 scr_seq_D35R0102_022:
     LockAll
-    @ HGSS: ScrCmd_708 2
+    CompleteHideoutTrap 2
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -972,7 +972,7 @@ scr_seq_D35R0102_022:
     End
 scr_seq_D35R0102_023:
     LockAll
-    @ HGSS: ScrCmd_708 2
+    CompleteHideoutTrap 2
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -982,7 +982,7 @@ scr_seq_D35R0102_023:
     End
 scr_seq_D35R0102_024:
     LockAll
-    @ HGSS: ScrCmd_708 1
+    CompleteHideoutTrap 1
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -992,7 +992,7 @@ scr_seq_D35R0102_024:
     End
 scr_seq_D35R0102_025:
     LockAll
-    @ HGSS: ScrCmd_708 0
+    CompleteHideoutTrap 0
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -1002,7 +1002,7 @@ scr_seq_D35R0102_025:
     End
 scr_seq_D35R0102_026:
     LockAll
-    @ HGSS: ScrCmd_708 0
+    CompleteHideoutTrap 0
     CompleteStartWildBattle SPECIES_VOLTORB, 35, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -1012,7 +1012,7 @@ scr_seq_D35R0102_026:
     End
 scr_seq_D35R0102_027:
     LockAll
-    @ HGSS: ScrCmd_708 1
+    CompleteHideoutTrap 1
     CompleteStartWildBattle SPECIES_WEEZING, 37, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
@@ -1022,7 +1022,7 @@ scr_seq_D35R0102_027:
     End
 scr_seq_D35R0102_028:
     LockAll
-    @ HGSS: ScrCmd_708 2
+    CompleteHideoutTrap 2
     CompleteStartWildBattle SPECIES_GRAVELER, 36, 0
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0

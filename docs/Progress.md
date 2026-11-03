@@ -1509,4 +1509,13 @@ Test results on the new test build:
   cart took the player the wrong way. Azalea Gym's switches now get one press and no more input until their script
   is over (a new `switch` action); from the same save Bugsy's part and the Ilex Forest's pass. The story test can
   also save a screenshot after each action (`STEP_SHOTS=1`) to see where a walk went wrong.
+- **The Rocket Hideout's traps and alarms:** the hideout's trapped floor now sets off HeartGold's traps under the
+  player before their battles (sparks, a gas cloud, falling rocks), and a Persian statue spotting the player pulses
+  the screen red twice, where both had been left out (HeartGold's ScrCmd_708 and 709, in assembly there, are C here:
+  `src/overlay005/complete_legend_cutscene.c`). They use the legendary cutscenes' archive, which now carries all of
+  HeartGold's `demo/legend` (110 files, 505 KB). In the emulator (`tools/complete/test_hgss_hideout_effects.py`, 4 of 4
+  pass): each trap stepped on, its effect played to the end and its battle after, and the first statue's alarm.
+- **Not ported yet, from the same HeartGold file:** Lance flying off the Lake of Rage on his Dragonite (HeartGold's
+  ScrCmd_775 reuses its whole Fly take-off cut-in, which is in assembly) and the Bell Tower monk showing the Rainbow
+  Wing (`ShowLegendaryWing`, which also starts the map's next scene).
 

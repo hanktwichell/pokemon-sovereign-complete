@@ -577,6 +577,10 @@ COMMANDS = {
     'ViridianGymInit': lambda a: ['CompleteViridianGymInit'],
     'FuchsiaGymInit': lambda a: ['CompleteFuchsiaGymInit'],
     'ScreenShake': one('CompleteScreenShake {0}, {1}, {2}, {3}'),
+    # The Rocket Hideout's traps going off under the player (HeartGold's ScrCmd_708, the trap: electric, poison, rock)
+    # and its alarm as a Persian statue sees them (ScrCmd_709), src/overlay005/complete_legend_cutscene.c
+    'ScrCmd_708': one('CompleteHideoutTrap {0}'),
+    'ScrCmd_709': lambda a: ['CompleteHideoutAlarm'],
     'ScriptOverlayCmd': lambda a: [],  # loads or frees HeartGold's own code overlays
     # Objects' saved place, facing and movement; text buffers; the party; the daycare; the summary screen for learning
     # a move (HeartGold's form 1, read back by GetMoveSelection 1)

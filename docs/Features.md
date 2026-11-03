@@ -704,7 +704,7 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
   as Lugia rises, the glint of its eye, and the camera back.
 - **One game, both scenes:** HeartGold picks by its version (Ho-Oh's for HeartGold, Lugia's for SoulSilver); here the
   Bell Tower's roof plays HeartGold's and the Whirl Islands' SoulSilver's.
-- **How:** the models and animations are HeartGold's (its `demo/legend` members 18 to 54, packed as they are into
+- **How:** the models and animations are HeartGold's (its `demo/legend`, packed as it is into
   `fielddata/complete/legend.narc` by `tools/complete/import_hgss_legend.py`), drawn by the field's 3D object tasks
   (`ov5_021D1A94`, HeartGold's Field3dObjectTask) as Platinum's Easy3D objects (HeartGold's Field3dObject), with
   HeartGold's camera points and its camera path, a step a frame, on Platinum's camera.
@@ -714,6 +714,22 @@ HeartGold's (its `src/field/legend_cutscene_camera.c` and `camera_translation.c`
 
 Test: `tools/complete/test_hgss_legend_cutscenes.py` (both scenes from their trigger tile to their end, each with at
 least 20 of the cutscene's commands run, nothing of it held after and the camera back at its distance; both pass).
+
+## The Rocket Hideout's traps and alarms
+
+- **The traps** (Mahogany Town's hideout, B1F's trapped floor): stepping on one, HeartGold's trap goes off under the
+  player before its battle: sparks for a Voltorb, a cloud of gas for a Koffing, rocks for a Geodude (HeartGold's
+  ScrCmd_708: its model and animations, played to their end).
+- **The alarms:** as a Persian statue spots the player, the screen pulses red twice (HeartGold's ScrCmd_709: its red
+  screen on the field's layer 2, blended over the field, a step a frame up to 12 of 31 and back), before the grunts
+  come.
+- **How:** both come from the same archive as the legendary cutscenes (HeartGold's `demo/legend`, all of it now in
+  `fielddata/complete/legend.narc`) and the same code (`src/overlay005/complete_legend_cutscene.c`,
+  `CompleteHideoutTrap`, `CompleteHideoutAlarm`). HeartGold's trap sounds and siren are its own: Platinum's stand in
+  (an electronic buzz, the poison step, a thud; beeps for the siren).
+
+Test: `tools/complete/test_hgss_hideout_effects.py` (the three traps stepped on and the first statue's alarm, each
+effect played to its end and the field free after; all four pass).
 
 ## The Magnet Train's ride
 

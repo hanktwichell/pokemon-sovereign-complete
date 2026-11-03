@@ -1010,6 +1010,8 @@ ScriptCommand(SCRCMD_COMPLETESTARTFLYMAP,                              CompleteS
 ScriptCommand(SCRCMD_COMPLETEWAITFLYMAP,                               CompleteScrCmd_WaitFlyMap)
 ScriptCommand(SCRCMD_COMPLETELEGENDCUTSCENE,                           CompleteScrCmd_LegendCutscene)
 ScriptCommand(SCRCMD_COMPLETEMAGNETTRAIN,                              CompleteScrCmd_MagnetTrain)
+ScriptCommand(SCRCMD_COMPLETEHIDEOUTTRAP,                              CompleteScrCmd_HideoutTrap)
+ScriptCommand(SCRCMD_COMPLETEHIDEOUTALARM,                             CompleteScrCmd_HideoutAlarm)
 
 // clang-format on
 

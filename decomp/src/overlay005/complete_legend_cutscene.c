@@ -20,7 +20,9 @@
 #include "complete_test.h"
 #include "easy3d_object.h"
 #include "field_script_context.h"
+#include "field_task.h"
 #include "graphics.h"
+#include "inlines.h"
 #include "gx_layers.h"
 #include "heap.h"
 #include "map_object.h"
@@ -739,8 +741,9 @@ static void EffectTask_Render(UnkStruct_ov5_021D1BEC *task, FieldSystem *fieldSy
     }
 }
 
-// A 3D effect of three animations (HeartGold's loadEyeGlimmer3dModel, and Task_BirdFinalApproach's init) at pos
-static UnkStruct_ov5_021D1BEC *StartEffect(FieldSystem *fieldSystem, int model, const int anims[3], const VecFx32 *pos)
+// A 3D effect of one to three animations (HeartGold's ov02_02245E04, its loadEyeGlimmer3dModel and
+// Task_BirdFinalApproach's init) at pos
+static UnkStruct_ov5_021D1BEC *StartEffectAnims(FieldSystem *fieldSystem, int model, const int *anims, int count, const VecFx32 *pos)
 {
     static const UnkStruct_ov6_0223E6EC sTemplate = {
         TASK_PRIORITY, sizeof(EffectTaskData), EffectTask_Init, EffectTask_Destroy, EffectTask_Update, EffectTask_Render
@@ -749,24 +752,30 @@ static UnkStruct_ov5_021D1BEC *StartEffect(FieldSystem *fieldSystem, int model, 
     EffectTaskData *data = ov5_021D1C2C(task);
     NARC *narc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, CUTSCENE_HEAP);
 
+    GF_ASSERT(count >= 1 && count <= 3);
     HeapExp_FndInitAllocator(&data->allocator, CUTSCENE_HEAP, 0x20);
     LoadModel(&data->model, narc, model);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < count; i++) {
         LoadAnim(&data->anims[i], &data->model, narc, anims[i], &data->allocator);
     }
 
     NARC_dtor(narc);
     Easy3DObject_Init(&data->object, &data->model);
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < count; i++) {
         Easy3DObject_AddAnim(&data->object, &data->anims[i]);
     }
 
-    SetFrames(data->anims, 3, 0);
+    SetFrames(data->anims, count, 0);
     Easy3DObject_SetPosition(&data->object, pos->x, pos->y, pos->z);
     Easy3DObject_SetVisible(&data->object, TRUE);
     return task;
+}
+
+static UnkStruct_ov5_021D1BEC *StartEffect(FieldSystem *fieldSystem, int model, const int anims[3], const VecFx32 *pos)
+{
+    return StartEffectAnims(fieldSystem, model, anims, 3, pos);
 }
 
 // HeartGold's Task_LugiaEyeGlimmer
@@ -1139,4 +1148,190 @@ static BOOL RunOp(ScriptContext *ctx)
     default:
         return FALSE;
     }
+}
+
+// HeartGold's ScrCmd_708 (ov02_022460AC): one of the Rocket Hideout's traps going off under the player, its model and
+// animations at the player's feet (HeartGold's ov02_02253264), played to their end. HeartGold's own trap sounds stand
+// in as Platinum's (docs/Music.md): an electronic buzz, the poison step, a thud.
+typedef struct HideoutTrap {
+    UnkStruct_ov5_021D1BEC *effectTask;
+    u8 animCount;
+} HideoutTrap;
+
+static const struct {
+    u8 model;
+    u8 animCount;
+    int anims[3];
+    u16 se;
+} sHideoutTraps[COMPLETE_HIDEOUT_TRAPS] = {
+    [COMPLETE_HIDEOUT_TRAP_ELECTRIC] = { 10, 1, { 11 }, SEQ_SE_DP_DENSI01_sseq }, // SEQ_SE_GS_DENKI_TRAP
+    [COMPLETE_HIDEOUT_TRAP_POISON] = { 3, 2, { 4, 5 }, SEQ_SE_DP_DOKU2_sseq }, // SEQ_SE_GS_DOKU_TRAP
+    [COMPLETE_HIDEOUT_TRAP_ROCK] = { 6, 3, { 7, 8, 9 }, SEQ_SE_DP_WALL_HIT2_sseq }, // SEQ_SE_GS_IWA_TRAP
+};
+
+static BOOL HideoutTrap_Task(FieldTask *task)
+{
+    HideoutTrap *trap = FieldTask_GetEnv(task);
+    EffectTaskData *data = ov5_021D1C2C(trap->effectTask);
+
+    data->drawing = TRUE;
+
+    if (AdvanceNoLoop(data->anims, trap->animCount)) {
+        ov5_021D1BEC(trap->effectTask);
+        Heap_Free(trap);
+#ifdef SOVEREIGN_TEST
+        gCompleteTestLegend[0]++;
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_HideoutTrap(ScriptContext *ctx)
+{
+    u16 kind = ScriptContext_GetVar(ctx);
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    HideoutTrap *trap;
+    VecFx32 pos;
+
+    if (kind >= COMPLETE_HIDEOUT_TRAPS) {
+        GF_ASSERT(FALSE);
+        return FALSE;
+    }
+
+    trap = Heap_AllocAtEnd(CUTSCENE_HEAP, sizeof(HideoutTrap));
+    PlayerPos(fieldSystem, &pos);
+    trap->animCount = sHideoutTraps[kind].animCount;
+    trap->effectTask = StartEffectAnims(fieldSystem, sHideoutTraps[kind].model, sHideoutTraps[kind].anims, trap->animCount, &pos);
+    Sound_PlayEffect(sHideoutTraps[kind].se);
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x100 + kind;
+#endif
+    FieldTask_InitCall(fieldSystem->task, HideoutTrap_Task, trap);
+    return TRUE;
+}
+
+// HeartGold's ScrCmd_709 (ov02_022462E8): the Rocket Hideout's alarm as a Persian statue sees the player, a red
+// screen (HeartGold's demo/legend 12 to 14) over the field, faded in and out twice, a step a frame to 12 of 31 and back
+// (its ov02_02246490). HeartGold's siren is its own: a beep stands in. The screen is on the field's layer 2, as the
+// leaves are, its palette, priorities and blending put back after.
+#define ALARM_PALETTE   6
+#define ALARM_PULSES    2
+#define ALARM_PEAK      12
+#define ALARM_SE        SEQ_SE_DP_DENSI06_sseq // SEQ_SE_GS_AJITO_SIREN
+
+typedef struct HideoutAlarm {
+    FieldSystem *fieldSystem;
+    u8 state;
+    u8 pulses;
+    u8 step;
+    u8 alpha;
+    u16 savedPalette[16];
+    u16 savedBg0Control;
+    u16 savedBg2Control;
+    u16 savedBlendControl;
+    u16 savedBlendAlpha;
+} HideoutAlarm;
+
+static void HideoutAlarm_SetBlend(u8 alpha)
+{
+    G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG2, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BD, alpha, 31 - alpha);
+}
+
+static void HideoutAlarm_Begin(HideoutAlarm *alarm)
+{
+    BgConfig *bgConfig = alarm->fieldSystem->bgConfig;
+
+    alarm->savedBg0Control = reg_G2_BG0CNT;
+    alarm->savedBg2Control = reg_G2_BG2CNT;
+    alarm->savedBlendControl = reg_G2_BLDCNT;
+    alarm->savedBlendAlpha = reg_G2_BLDALPHA;
+    MI_CpuCopy16((void *)(HW_BG_PLTT + ALARM_PALETTE * 32), alarm->savedPalette, sizeof(alarm->savedPalette));
+
+    alarm->alpha = 0;
+    HideoutAlarm_SetBlend(0);
+    Graphics_LoadPalette(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, LEGEND_MEMBER(12), PAL_LOAD_MAIN_BG, ALARM_PALETTE * 32, 32, CUTSCENE_HEAP);
+    Graphics_LoadTilesToBgLayer(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, LEGEND_MEMBER(13), bgConfig, BG_LAYER_MAIN_2, 0, 0x40, FALSE, CUTSCENE_HEAP);
+    Graphics_LoadTilemapToBgLayer(NARC_INDEX_FIELDDATA__COMPLETE__LEGEND, LEGEND_MEMBER(14), bgConfig, BG_LAYER_MAIN_2, 0, 0, FALSE, CUTSCENE_HEAP);
+    Bg_ChangeTilemapRectPalette(bgConfig, BG_LAYER_MAIN_2, 0, 0, 32, 32, ALARM_PALETTE);
+    Bg_ScheduleTilemapTransfer(bgConfig, BG_LAYER_MAIN_2);
+    Bg_SetOffset(bgConfig, BG_LAYER_MAIN_2, BG_OFFSET_UPDATE_SET_X, 0);
+    Bg_SetOffset(bgConfig, BG_LAYER_MAIN_2, BG_OFFSET_UPDATE_SET_Y, 0);
+    G2_SetBG2Priority(0);
+    G2_SetBG0Priority(1);
+    GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, TRUE);
+}
+
+static void HideoutAlarm_End(HideoutAlarm *alarm)
+{
+    BgConfig *bgConfig = alarm->fieldSystem->bgConfig;
+
+    GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, FALSE);
+    Bg_ClearTilemap(bgConfig, BG_LAYER_MAIN_2);
+    reg_G2_BG0CNT = alarm->savedBg0Control;
+    reg_G2_BG2CNT = alarm->savedBg2Control;
+    reg_G2_BLDCNT = alarm->savedBlendControl;
+    reg_G2_BLDALPHA = alarm->savedBlendAlpha;
+    GX_LoadBGPltt(alarm->savedPalette, ALARM_PALETTE * 32, sizeof(alarm->savedPalette));
+}
+
+// HeartGold's ov02_02246490: one pulse, a step a frame; TRUE once it's over
+static BOOL HideoutAlarm_Pulse(HideoutAlarm *alarm)
+{
+    HideoutAlarm_SetBlend(alarm->alpha);
+
+    if (alarm->step++ < ALARM_PEAK) {
+        alarm->alpha++;
+    } else {
+        alarm->alpha--;
+    }
+
+    if (alarm->step > ALARM_PEAK * 2) {
+        alarm->step = 0;
+        alarm->alpha = 0;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+static BOOL HideoutAlarm_Task(FieldTask *task)
+{
+    HideoutAlarm *alarm = FieldTask_GetEnv(task);
+
+    switch (alarm->state) {
+    case 0:
+        HideoutAlarm_Begin(alarm);
+        Sound_PlayEffect(ALARM_SE);
+        alarm->state++;
+        break;
+    case 1:
+        if (HideoutAlarm_Pulse(alarm) && ++alarm->pulses >= ALARM_PULSES) {
+            alarm->state++;
+        }
+        break;
+    default:
+        HideoutAlarm_End(alarm);
+        Heap_Free(alarm);
+#ifdef SOVEREIGN_TEST
+        gCompleteTestLegend[0]++;
+#endif
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_HideoutAlarm(ScriptContext *ctx)
+{
+    HideoutAlarm *alarm = Heap_AllocAtEnd(CUTSCENE_HEAP, sizeof(HideoutAlarm));
+
+    memset(alarm, 0, sizeof(HideoutAlarm));
+    alarm->fieldSystem = ctx->fieldSystem;
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x200;
+#endif
+    FieldTask_InitCall(ctx->fieldSystem->task, HideoutAlarm_Task, alarm);
+    return TRUE;
 }

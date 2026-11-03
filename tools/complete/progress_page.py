@@ -139,6 +139,8 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Rocket Hideout\'s traps go off under you before their battles (sparks, a gas cloud, falling rocks), and '
+        'its Persian statues\' alarm turns the screen red, as in HeartGold.',
         'The Magnet Train\'s ride between Goldenrod and Saffron is HeartGold\'s own now: the train pulling in, waiting '
         'at the platform and racing across the country, with HeartGold\'s models for the time of day and for you, and '
         'its jingle as it arrives.',
