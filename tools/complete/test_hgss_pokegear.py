@@ -8,6 +8,10 @@ src/applications/complete_pokegear/pokegear.c) in the test build, from the bedro
 2. **A call:** tapping the first contact's row (Mom) calls her: the outgoing call's script runs and the call is
    Mom's. A goes through it.
 3. **Scrolling:** a tap on the down arrow, then on the first row, calls the second contact (Elm).
+3a. **A call rings:** a call comes in at the next step (the test build's gCompleteTestPhoneRing, Joey's): it rings,
+   with no call yet; a tap on the app bar's Phone answers it, and Joey's call plays (the incoming call's script).
+3b. **Not answered:** another call rings and, after HeartGold's 59 seconds (the host's clock, as the game's), stops,
+   with no call.
 4. **The Map:** a tap on the app bar's Map shows the map, with the player's head where HeartGold's map app puts the
    bedroom (its header's world map place, block 21, 12: pixel 172, 116) and the map scrolled to show it.
 5. **The Map on Route 30:** after a warp to Route 30 the Pokégear comes back on the Map, the head at the player's
@@ -31,6 +35,7 @@ import os
 import re
 import struct
 import sys
+import time
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 import battle_mechanics as bm  # noqa: E402
@@ -49,7 +54,10 @@ FIRST_ROW, DOWN_ARROW = (60, 18), (243, 116)  # the list's first row; the down a
 POKEGEAR_BUTTON, EXIT_BUTTON = (240, 175), (232, 176)  # on the Pokétch; the Pokégear's last app bar button
 MAP_BUTTON, PHONE_BUTTON = (128, 176), (176, 176)  # the app bar's Map and Phone
 BEDROOM_PLACE, ROUTE_30_PLACE = (172, 116), (140, 100)  # the head's place on the map
+INCOMING_CALL = 2000 + 0x814 - 0x7D0  # SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL)
+RING_SECONDS = 59  # HeartGold's limit on a ringing call, on the clock
 SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'sCall', 'gCompleteTestPokegear', 'sActiveBottomScreen',
+                                     'sRinging', 'gCompleteTestPhoneRing',
                                      'gCompleteTestPokegearMap',
                                      'gSovereignTestPoketchApp', 'gSovereignTestGodMode'})
 CONTACT_OFFSET = 12  # offsetof(CompletePhoneCall, contact)
@@ -162,6 +170,73 @@ def main():
         if contact != CONTACTS['PROF__ELM']:
             problem = f'the call was {contact}'
         report('scrolling', problem)
+
+    def ringing():
+        return mem.unsigned[sym['sRinging']] != 0
+
+    def field_idle(frames=60):
+        before = u32(sym['gSovereignTestIdleFrames'])
+        d.run(frames)
+        return u32(sym['gSovereignTestIdleFrames']) - before > frames // 3
+
+    def ring(contact):
+        """The contact's call, rung at the next step (a step left, then back), once the field runs"""
+        for _ in range(30):  # A through what's left of a call
+            if field_idle():
+                break
+            d.press('A', frames=4, after=20)
+        mem.write_byte(sym['gCompleteTestPhoneRing'], contact + 1)
+        for _ in range(4):  # another step event (the Repel wearing off, say) can take a step first
+            d.press('LEFT', frames=16, after=20)
+            d.press('RIGHT', frames=16, after=20)
+            if until(ringing, 120):
+                return True
+            for _ in range(6):
+                d.press('A', frames=4, after=30)
+        return False
+
+    # 3a. A call rings, and the Phone answers it
+    if not problem:
+        scripts = sym['gSovereignTestScripts']
+        mem.write_short(scripts, 0)
+        if not ring(CONTACTS['JOEY']):
+            problem = 'no ring'
+        else:
+            d.run(120)
+            if struct.unpack('<H', bytes(mem.unsigned[scripts:scripts + 2]))[0] != 0:
+                problem = 'a call started before it was answered'
+        shot('ringing')
+        if not problem:
+            d.touch(*PHONE_BUTTON, frames=6, after=10)
+            started = until(lambda: mem.unsigned[sym['sCall'] + CONTACT_OFFSET] == CONTACTS['JOEY']
+                            and struct.unpack('<H', bytes(mem.unsigned[scripts + 2:scripts + 4]))[0] == INCOMING_CALL, 300)
+            shot('answered')
+            if not started:
+                problem = 'answering made no call'
+            for _ in range(60):  # A through the call
+                if mem.unsigned[sym['sCall'] + CONTACT_OFFSET] == NONE:
+                    break
+                d.press('A', frames=4, after=26)
+            d.run(60)
+            if not problem and ringing():
+                problem = 'still ringing'
+        report('a call rings', problem)
+
+    # 3b. Not answered: it stops
+    if not problem:
+        mem.write_short(sym['gSovereignTestScripts'], 0)
+        if not ring(CONTACTS['JOEY']):
+            problem = 'no ring'
+        else:
+            mem.write_short(sym['gSovereignTestScripts'], 0)  # from here (the steps' own scripts, a Repel's, aside)
+            started = time.time()  # the game's clock is the host's, whatever the emulator's speed
+            while ringing() and time.time() - started < RING_SECONDS + 30:
+                d.run(60)
+            waited = time.time() - started
+            count = struct.unpack('<H', bytes(mem.unsigned[sym['gSovereignTestScripts']:sym['gSovereignTestScripts'] + 2]))[0]
+            problem = ('still ringing' if ringing() else f'it stopped after {waited:.0f} seconds' if waited < RING_SECONDS - 5
+                       else 'a call started' if count else '')
+        report('not answered', problem)
 
     def map_state():
         """(page, the head's x, y, the map's scroll)"""

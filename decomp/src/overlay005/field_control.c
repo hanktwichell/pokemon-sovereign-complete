@@ -683,7 +683,9 @@ BOOL FieldInput_Process(const FieldInput *input, FieldSystem *fieldSystem)
         return TRUE;
     }
 
-    // Sovereign Complete: a call the player placed on the Pokégear, made once they stand still
+    CompletePhone_UpdateRinging(); // Sovereign Complete: a call coming in rings on the Pokégear
+
+    // Sovereign Complete: a call the player placed on the Pokégear (or answered), made once they stand still
     // (src/overlay006/complete_phone_calls.c)
     if (PlayerAvatar_GetPlayerMoveState(fieldSystem->playerAvatar) == PLAYER_MOVE_STATE_END
         || PlayerAvatar_GetPlayerMoveState(fieldSystem->playerAvatar) == PLAYER_MOVE_STATE_NONE) {

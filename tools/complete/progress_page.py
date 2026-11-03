@@ -112,6 +112,9 @@ RECENT = [
         'button switches to the Pokégear, and the Pokégear\'s last app bar button switches back; your choice is '
         'saved. All 6 parts of its emulator test pass (getting it, a call, scrolling, the switch both ways, a warp, '
         'a battle).',
+        'Calls ring now, as in HeartGold: the Pokégear\'s Phone button flashes and the ring sounds as you walk; tap '
+        'Phone to answer. Left unanswered, a call stops after 59 seconds. A few (the Bike Shop, Bill, Baoba) still '
+        'come straight through, as in HeartGold.',
         'The Pokégear\'s Map: HeartGold\'s map of Johto and Kanto with your head where you are and the place\'s name; '
         'drag it to see the rest. Checked in the emulator in your room and on Route 30.',
         'The Pokégear\'s Radio: HeartGold\'s globe and all twelve of its shows, with their music and text. Drag the '

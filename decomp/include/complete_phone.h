@@ -58,6 +58,24 @@ void CompletePhone_DaycareHasEgg(SaveData *saveData);
 void CompletePhone_RequestCall(u8 contact);
 u8 CompletePhone_TakeRequestedCall(void); // PHONE_CONTACT_NONE for none
 
+// A call coming in rings (HeartGold's GearPhoneRingManager) until the player answers it on the Pokégear (its Phone
+// button) or, after HeartGold's 59 seconds, it stops: the call, as CompletePhone_TryIncomingCall chose it, waits here
+// (the field's overlay may be reloaded in between), and the field makes it as the player stands still.
+typedef struct CompletePhoneRing {
+    u8 contact;
+    u8 kind;
+    u16 predefined;
+    u8 trigger;
+    u8 group;
+    u8 candidates;
+} CompletePhoneRing;
+
+void CompletePhone_StartRinging(const CompletePhoneRing *call);
+BOOL CompletePhone_IsRinging(void); // or answered, until the field takes the call
+void CompletePhone_Answer(void); // the Pokégear: the player answered
+BOOL CompletePhone_TakeAnswer(CompletePhoneRing *call); // the field: the call answered, once
+void CompletePhone_UpdateRinging(void); // each frame the field runs: the ring, and HeartGold's limit
+
 // The minutes since the last call (HeartGold's ring manager's, which isn't saved either)
 void CompletePhone_AddMinutes(int minutes);
 u16 CompletePhone_MinutesSinceCall(void);
@@ -98,6 +116,8 @@ BOOL CompleteScrCmd_BankTransaction(ScriptContext *ctx);
 #ifdef SOVEREIGN_TEST
 extern u8 gCompleteTestPhoneCaller;
 extern u8 gCompleteTestPhoneCallee;
+extern u8 gCompleteTestPhoneRing; // the contact + 1 whose call rings at the next step
+
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_PHONE_H

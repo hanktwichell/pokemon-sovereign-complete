@@ -1429,3 +1429,10 @@ Test results on the new test build:
   learnsets, as for Headbutt (`tools/complete/import_hgss_tutors.py`). In the emulator
   (`tools/complete/test_hgss_frontier_tutors.py`, all 3 parts pass): the first tutor listed Fury Cutter at 32 BP for
   the lead, turned it down with no points, and with 500 taught it in place of a move it forgot, leaving 468.
+- **Calls ring:** the phone's last stand-in. A call that comes in now rings, as HeartGold's does, instead of starting
+  at once: the ring sounds every so often as the player walks and the Pokégear's Phone button flashes; a tap on it
+  answers, and the call plays once the player stands still. Nobody answering, it stops after HeartGold's 59 seconds
+  and is missed (a triggered call comes again later). HeartGold's forced calls (the Bike Shop's, Bill's, Baoba's) and
+  the story's calls from map scripts still come through at once. In the emulator (`tools/complete/test_hgss_pokegear.py`,
+  now 10 parts, all pass): Joey's call rang with no call yet, a tap on Phone answered it and his call played; another
+  rang for the 59 seconds and stopped with no call. The phone test's 8 parts and the outgoing calls' 12 still pass.

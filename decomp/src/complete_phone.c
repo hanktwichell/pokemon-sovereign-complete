@@ -7,14 +7,18 @@
 #include "generated/species.h"
 #include "generated/vars_flags.h"
 #include "res/text/bank/special_met_location_names.h"
+#include "res/sound/pl_sound_data.naix"
 
 #include "inlines.h"
 #include "math_util.h"
 #include "pc_boxes.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "rtc.h"
 #include "savedata.h"
 #include "savedata/save_table.h"
+#include "sound_playback.h"
+#include "system.h"
 #include "trainer_info.h"
 #include "unk_02017038.h"
 #include "vars_flags.h"
@@ -27,6 +31,15 @@ typedef char CompletePhoneSaveSize[sizeof(CompletePhoneSave) == 456 ? 1 : -1];
 static u16 sMinutesSinceCall;
 static BOOL sClockStarted;
 static u8 sRequestedCall = PHONE_CONTACT_NONE; // the contact the player called on the Pokégear, for the field to make
+
+#define RING_SECONDS    59 // HeartGold's limit on a ringing call, in the clock's seconds as its own
+#define RING_SOUND_GAP  40 // main-loop frames (gSystem.vblankCounter's, 30 a second on the field) between rings
+
+static CompletePhoneRing sRing;
+static BOOL sRinging;
+static BOOL sAnswered;
+static u32 sRingStart; // the clock's second of the day as it began
+static u32 sLastRing;
 
 int CompletePhone_SaveSize(void)
 {
@@ -309,5 +322,66 @@ void CompletePhone_MomSavingsAfterBattle(SaveData *saveData, const TrainerInfo *
 
     if (MomShops(phone, savings)) {
         CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_MOM_BOUGHT_SOMETHING, TRUE);
+    }
+}
+
+static u32 SecondOfDay(void)
+{
+    RTCTime time;
+
+    RTC_GetCurrentTime(&time);
+    return (time.hour * 60 + time.minute) * 60 + time.second;
+}
+
+void CompletePhone_StartRinging(const CompletePhoneRing *call)
+{
+    sRing = *call;
+    sRinging = TRUE;
+    sAnswered = FALSE;
+    sRingStart = SecondOfDay();
+    sLastRing = gSystem.vblankCounter - RING_SOUND_GAP;
+}
+
+BOOL CompletePhone_IsRinging(void)
+{
+    return sRinging; // answered too, until the field takes the call
+}
+
+void CompletePhone_Answer(void)
+{
+    if (sRinging) {
+        sAnswered = TRUE;
+    }
+}
+
+BOOL CompletePhone_TakeAnswer(CompletePhoneRing *call)
+{
+    if (!sRinging || !sAnswered) {
+        return FALSE;
+    }
+
+    *call = sRing;
+    sRinging = FALSE;
+    sAnswered = FALSE;
+    return TRUE;
+}
+
+// HeartGold's SysTask_RingGearPhone and GearPhoneRingManager_HandleTimeAdvance: the ring every so often, and a call
+// nobody answers stops, the call timer starting over (HeartGold's reset)
+void CompletePhone_UpdateRinging(void)
+{
+    if (!sRinging || sAnswered) {
+        return;
+    }
+
+    if ((SecondOfDay() + 24 * 60 * 60 - sRingStart) % (24 * 60 * 60) > RING_SECONDS) {
+        sRinging = FALSE;
+        CompletePhone_ResetCallTimer();
+        return;
+    }
+
+    if (gSystem.vblankCounter - sLastRing >= RING_SOUND_GAP && !Sound_IsEffectPlaying(SEQ_SE_PL_CALL_sseq)) {
+        Sound_PlayEffect(SEQ_SE_PL_CALL_sseq);
+        sLastRing = gSystem.vblankCounter;
     }
 }

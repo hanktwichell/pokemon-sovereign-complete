@@ -47,7 +47,7 @@
 // - the Radio (radio/radio_page.c): the globe that tunes Johto's and Kanto's stations, and their shows; its music is
 //   the field's while the page shows a station, and leaving the page turns it off.
 // The app bar's last button switches to the Pokétch when the player has it. HeartGold's skin setting waits (its
-// button is dimmed).
+// button is dimmed). A call coming in rings, the Phone button flashing, until the player taps it to answer.
 
 #define LIST_ROWS        6 // HeartGold's: rows of 24 pixels, behind the frame's window
 #define ROW_HEIGHT       24
@@ -69,6 +69,7 @@
 #define CALL_HIGHLIGHT   30 // frames a called contact stays lit
 #define REPEAT_DELAY     20 // a held arrow scrolls again after this, then every REPEAT_FRAMES
 #define REPEAT_FRAMES    6
+#define RING_FLASH       16 // frames the Phone button is lit, then dimmed, while a call rings
 
 // The palette (HeartGold's phone palette 2) colours of a contact's row (HeartGold's PhoneContactListUI_DrawNameSlotBG)
 #define COLOR_ROW_GAP   11
@@ -114,6 +115,8 @@ typedef struct CompletePokegear {
     u8 heldFrames;
     u8 refreshTimer;
     u8 poketchShown; // the exit button lit
+    u8 ringing; // a call rings: the Phone button flashes
+    u8 ringFrames;
     u8 page;
     u8 marker; // the map shows the player's head
     s16 scrollX; // the map's
@@ -206,7 +209,7 @@ static void DrawList(CompletePokegear *gear)
 }
 
 // HeartGold's app bar (its PokegearApp_UpdateAppSwitchButtonBGState): the phone, the map, the radio and, with a Pokétch
-// to switch to, the exit button lit; the settings dimmed
+// to switch to, the exit button lit; the settings dimmed. While a call rings, the phone flashes.
 static void DrawAppBar(CompletePokegear *gear)
 {
     gear->poketchShown = CompletePokegear_PoketchAvailable(gear->saveData);
@@ -219,7 +222,8 @@ static void DrawAppBar(CompletePokegear *gear)
         }
 
         for (int button = 0; button < APP_BAR_BUTTONS; button++) {
-            BOOL lit = button == APP_BAR_PHONE || button == APP_BAR_MAP || button == APP_BAR_RADIO || (button == APP_BAR_EXIT && gear->poketchShown);
+            BOOL lit = button == APP_BAR_MAP || button == APP_BAR_RADIO || (button == APP_BAR_EXIT && gear->poketchShown)
+                || (button == APP_BAR_PHONE && (!gear->ringing || gear->ringFrames < RING_FLASH));
 
             for (int x = sAppBarButtons[button][0]; x < sAppBarButtons[button][0] + sAppBarButtons[button][1]; x++) {
                 row[x] = gear->appBar[y][!lit][x];
@@ -490,6 +494,12 @@ static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
             Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq);
         }
     } else if (x >= sAppBarButtons[APP_BAR_PHONE][0] * 8) {
+        // a call ringing: the Phone answers it (the field makes the call as the player stands still)
+        if (CompletePhone_IsRinging()) {
+            Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+            CompletePhone_Answer();
+        }
+
         ChangePage(gear, PAGE_PHONE);
     } else if (x >= sAppBarButtons[APP_BAR_MAP][0] * 8) {
         ChangePage(gear, PAGE_MAP);
@@ -588,6 +598,16 @@ static void CompletePokegear_Task(SysTask *task, void *data)
     gCompleteTestPokegearMap[2] = gear->marker ? gear->markerY : 0xFFFF;
     gCompleteTestPokegearMap[3] = gear->scrollX;
 #endif
+
+    // a call ringing: the Phone button flashes
+    if (CompletePhone_IsRinging() || gear->ringing) {
+        gear->ringing = CompletePhone_IsRinging();
+        gear->ringFrames = (gear->ringFrames + 1) % (RING_FLASH * 2);
+
+        if (gear->ringFrames % RING_FLASH == 0 || !gear->ringing) {
+            DrawAppBar(gear);
+        }
+    }
 
     if (gear->litTimer != 0 && --gear->litTimer == 0 && gear->page == PAGE_PHONE) {
         gear->lit = LIST_ROWS;

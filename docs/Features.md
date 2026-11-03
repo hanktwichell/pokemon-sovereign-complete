@@ -378,7 +378,13 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   which HeartGold never knew, all have a signal. Oak's menu is `CompletePhoneCallMenu` (HeartGold's phone app's
   choices from its bank 0271, B for quit). The player calls from the Pokégear's contact list ("The Pokégear and the
   Pokétch", below).
-- **Still a stand-in:** a call that comes in is answered at once (HeartGold's Pokégear rings until the player opens it).
+- **Ringing:** a call that comes in rings, as HeartGold's GearPhoneRingManager does: the ring sounds every so often as
+  the player walks, and the Pokégear's Phone button flashes; a tap on it answers, and the call plays once the player
+  stands still. Nobody answering, it stops after HeartGold's 59 seconds and the call timer starts over (the call is
+  missed; a triggered one comes again later). HeartGold's forced calls (the Bike Shop's, Bill's about full boxes,
+  Baoba's) come through at once, as do the story's calls from map scripts (Elm's, Mom's on Route 30). With the Pokétch
+  on the bottom screen, the player switches to the Pokégear to answer. The call waits in the main module
+  (`CompletePhone_StartRinging`, `src/complete_phone.c`), so a battle in between doesn't lose it.
 
 ## The Pokégear and the Pokétch
 
@@ -416,7 +422,8 @@ HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Ph
 
 Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the player gets it; a tap on Mom calling her;
 scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
-phone; the switch to the Pokétch and back; the choice kept across a warp; the Pokégear back after a battle).
+phone; a call ringing, answered from the Phone button, and another left to stop after 59 seconds; the switch to the
+Pokétch and back; the choice kept across a warp; the Pokégear back after a battle; all 10 parts pass).
 
 ## The Pokégear radio
 

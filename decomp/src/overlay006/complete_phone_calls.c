@@ -354,23 +354,26 @@ typedef struct CompletePhoneCall {
 static CompletePhoneCall sCall;
 
 // HeartGold's call triggers (overlay 2's ov02_02253C84): who calls, and with which call script
+// who calls, with which call script, and whether the call comes through at once (HeartGold's forcePickUp) rather than
+// ringing until the player answers
 static const struct {
     u8 contact;
     u16 script;
+    u8 forced;
 } sCallTriggers[NUM_CALL_TRIGGERS] = {
-    { PHONE_CONTACT_PROF__ELM, 13 }, // the Egg hatched
-    { PHONE_CONTACT_PROF__ELM, 7 }, // Pokérus
-    { PHONE_CONTACT_BIKE_SHOP, 85 },
-    { PHONE_CONTACT_BILL, 93 }, // the boxes are full
-    { PHONE_CONTACT_PROF__OAK, 0 },
-    { PHONE_CONTACT_DAY_C_MAN, 0 },
-    { PHONE_CONTACT_BAOBA, 0 },
-    { PHONE_CONTACT_BAOBA, 142 }, // the Safari Zone's next test
-    { PHONE_CONTACT_BAOBA, 143 }, // object arrangement
-    { PHONE_CONTACT_BAOBA, 144 }, // new objects
-    { PHONE_CONTACT_BAOBA, 145 }, // many objects
-    { PHONE_CONTACT_BAOBA, 146 }, // a time loop
-    { PHONE_CONTACT_MOTHER, 27 }, // Mom bought something with the player's money
+    { PHONE_CONTACT_PROF__ELM, 13, FALSE }, // the Egg hatched
+    { PHONE_CONTACT_PROF__ELM, 7, FALSE }, // Pokérus
+    { PHONE_CONTACT_BIKE_SHOP, 85, TRUE },
+    { PHONE_CONTACT_BILL, 93, TRUE }, // the boxes are full
+    { PHONE_CONTACT_PROF__OAK, 0, FALSE },
+    { PHONE_CONTACT_DAY_C_MAN, 0, FALSE },
+    { PHONE_CONTACT_BAOBA, 0, FALSE },
+    { PHONE_CONTACT_BAOBA, 142, TRUE }, // the Safari Zone's next test
+    { PHONE_CONTACT_BAOBA, 143, TRUE }, // object arrangement
+    { PHONE_CONTACT_BAOBA, 144, TRUE }, // new objects
+    { PHONE_CONTACT_BAOBA, 145, TRUE }, // many objects
+    { PHONE_CONTACT_BAOBA, 146, TRUE }, // a time loop
+    { PHONE_CONTACT_MOTHER, 27, FALSE }, // Mom bought something with the player's money
 };
 
 // Elm's calls from map scripts: the panic call, the Egg, the radio, and two "come to the lab"
@@ -1736,7 +1739,16 @@ static BOOL ChooseTriggeredCall(FieldSystem *fieldSystem)
 
 #ifdef SOVEREIGN_TEST
 u8 gCompleteTestPhoneCaller; // the contact + 1 who calls at the next step, at once
+u8 gCompleteTestPhoneRing; // the contact + 1 whose call rings at the next step
 #endif
+
+// The call chosen rings on the Pokégear until the player answers (include/complete_phone.h)
+static void Ring(void)
+{
+    CompletePhoneRing ring = { sCall.contact, sCall.kind, sCall.predefined, sCall.trigger, sCall.group, sCall.candidates };
+
+    CompletePhone_StartRinging(&ring);
+}
 
 // HeartGold's ov02_02251F20, at each step (src/overlay005/field_control.c): ten minutes after the last call, on a map
 // with a signal, a call trigger's call, or half the time a random caller's. The phone rings and the call plays out at
@@ -1750,21 +1762,33 @@ BOOL CompletePhone_TryIncomingCall(FieldSystem *fieldSystem)
         ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL), NULL);
         return TRUE;
     }
+
+    if (gCompleteTestPhoneRing != 0) {
+        InitCall(fieldSystem, gCompleteTestPhoneRing - 1, CALL_INCOMING, 0);
+        gCompleteTestPhoneRing = 0;
+        Ring();
+        return FALSE;
+    }
 #endif
 
-    if (!MapHeader_HasIncomingCalls(fieldSystem->location->mapHeaderID) || CompletePhone_MinutesSinceCall() < MIN_CALL_MINUTES) {
+    if (CompletePhone_IsRinging() || !MapHeader_HasIncomingCalls(fieldSystem->location->mapHeaderID)
+        || CompletePhone_MinutesSinceCall() < MIN_CALL_MINUTES) {
         return FALSE;
     }
 
-    if (!ChooseTriggeredCall(fieldSystem)) {
-        if (MTRNG_Next() % 100 > RANDOM_CALL_ODDS || !ChooseRandomCaller(fieldSystem)) {
-            CompletePhone_ResetCallTimer();
-            return FALSE;
+    if (ChooseTriggeredCall(fieldSystem)) {
+        // HeartGold's forced calls (the Bike Shop's, Bill's, Baoba's) come through at once
+        if (sCallTriggers[sCall.trigger].forced) {
+            ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL), NULL);
+            return TRUE;
         }
+    } else if (MTRNG_Next() % 100 > RANDOM_CALL_ODDS || !ChooseRandomCaller(fieldSystem)) {
+        CompletePhone_ResetCallTimer();
+        return FALSE;
     }
 
-    ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL), NULL);
-    return TRUE;
+    Ring();
+    return FALSE;
 }
 
 #ifdef SOVEREIGN_TEST
@@ -1775,6 +1799,18 @@ u8 gCompleteTestPhoneCallee; // the contact + 1 the player calls as the field ne
 // phone app's outgoing call, shown in the field's message box
 BOOL CompletePhone_TryOutgoingCall(FieldSystem *fieldSystem)
 {
+    CompletePhoneRing ring;
+
+    // a call that rang, answered on the Pokégear: the call as it was chosen
+    if (CompletePhone_TakeAnswer(&ring)) {
+        InitCall(fieldSystem, ring.contact, ring.kind, ring.predefined);
+        sCall.trigger = ring.trigger;
+        sCall.group = ring.group;
+        sCall.candidates = ring.candidates;
+        ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL), NULL);
+        return TRUE;
+    }
+
     u8 contact = CompletePhone_TakeRequestedCall();
 
 #ifdef SOVEREIGN_TEST
