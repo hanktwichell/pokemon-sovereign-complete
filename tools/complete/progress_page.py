@@ -53,8 +53,8 @@ STEPS = [
      '1025 Pokémon.'),
     (5, 'HeartGold features', 'mostly', 'Almost done',
      'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
-     'gym puzzles, the Johto Pokédex and Voltorb Flip are in. Next: Johto\'s Battle Frontier, and the Pokégear beside '
-     'the Pokétch (the radio, the contact list, the Town Map).'),
+     'gym puzzles, the Johto Pokédex, Voltorb Flip and Johto\'s Battle Frontier are in. Next: the Pokégear beside the '
+     'Pokétch (the radio, the contact list, the Town Map).'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
@@ -94,7 +94,11 @@ RECENT = [
         'The Johto Pokédex is the regional one until Sinnoh\'s story begins (HeartGold\'s list and numbers, under a '
         'JOHTO POKéDEX banner); Sinnoh\'s after.',
         'Red waits on Mt. Silver until Sinnoh\'s League is won. The credits roll once, at the end of the whole game.',
-        'Next: Johto\'s Battle Frontier open, then the Pokégear beside the Pokétch with a button to switch.',
+        'Johto\'s Battle Frontier is open: its five facilities run Platinum\'s own challenges from their Johto lobbies. In '
+        'the emulator a Factory challenge rented three Pokémon, won its first battle and retired back to Johto\'s lobby, '
+        'and the Tower, Hall, Castle and Arcade each started theirs. Battle Points, streaks and prints are shared with '
+        'Sinnoh\'s Frontier. Left: the Frontier Access move tutors, who teach for Battle Points.',
+        'Next: the Pokégear beside the Pokétch, with a button to switch.',
     ]),
     ('Following Pokémon', [
         'Your Pokémon never stands on your tile any more. It comes out beside you (behind you, or to a side, never '
@@ -214,9 +218,8 @@ AHEAD = [
     ('Nov 5–6', 'A full test of the game, and the highlight video from its playthrough.', 'Claude', 'planned'),
     ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
      'for all three regions.', 'You', 'waiting'),
-    ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits are done; Johto\'s Battle '
-     'Frontier open, then the Pokégear beside the Pokétch (the radio, the contact list, the Town Map).', 'Claude',
-     'active'),
+    ('Nov 3–5', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, and Johto\'s Battle Frontier '
+     'are done; next the Pokégear beside the Pokétch (the radio, the contact list, the Town Map).', 'Claude', 'active'),
     ('Your call', 'The art for the Town Map and sprites, Cynthia\'s difficulty, and any of the provisional Sinnoh '
      'choices to change.', 'You', 'waiting'),
     ('After step 9', 'Release (step 10): final fixes, then the .xdelta patches, about 3 days.', 'Both', 'planned'),
