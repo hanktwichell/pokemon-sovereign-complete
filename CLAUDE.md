@@ -85,6 +85,10 @@ work.
   `include/applications/complete_voltorb_flip/`) names Platinum's engine by HeartGold's names, with
   `require_prototypes` on, so an unmapped name fails to compile. Only the app's own files include it. Test:
   `tools/complete/test_hgss_voltorb_flip.py`.
+- HeartGold's field effects from its `demo/legend` archive (all of it in `fielddata/complete/legend.narc`, from
+  `tools/complete/import_hgss_legend.py`; `LEGEND_MEMBER(n)` is HeartGold's member n): the legendary cutscenes, the
+  Rocket Hideout's traps and alarms, the monks' wings and Lance's take-off, in `src/overlay005/complete_legend_cutscene.c`.
+  Tests: `tools/complete/test_hgss_legend_cutscenes.py`, `tools/complete/test_hgss_field_effects.py` (`ONLY`, `SHOTS`).
 - The Magnet Train's ride: `src/applications/complete_magnet_train/` (HeartGold's overlay 104, written in C from its
   assembly; its models from `tools/complete/import_hgss_magnet_train.py`), run by `CompleteMagnetTrain` between the
   script's fades. Test: `tools/complete/test_hgss_magnet_train.py`.
