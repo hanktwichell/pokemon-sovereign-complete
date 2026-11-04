@@ -24,7 +24,9 @@ work.
   Each archive entry stays in sound memory (about 32 bytes a bank), and the title song needs nearly all of it: run
   the sound memory test (`sound_heap`) after adding sounds. They load into sound memory as they play (`src/complete_sound.c`,
   `CompleteSound_LoadOwnEffect`). `translate_hgss_scripts.py` reads the sound names from the release build's
-  `res/sound/pl_sound_data.naix` (`ninja -C decomp/build res/sound/pl_sound_data.naix` after an import).
+  `res/sound/pl_sound_data.naix` (`ninja -C decomp/build res/sound/pl_sound_data.naix` after an import). Run it
+  as `--install --from .cache/sacredgold/scr_seq [FILE_STEM ...]`: without `--from` it translates HeartGold's own
+  scripts, not Sacred Gold's.
 - `HEARTGOLD_COMMIT` and `tools/complete/build_heartgold.sh`: HeartGold from pret/pokeheartgold, and Sacred Gold from
   Drayano's patch, both built into `.cache/`.
 - `Sacred Gold & Storm Silver V1.05 5/`: Drayano's patches and documents, unchanged.

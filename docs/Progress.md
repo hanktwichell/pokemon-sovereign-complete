@@ -1721,6 +1721,10 @@ Test results on the new test build:
   map change clears; checked in the emulator: surfing in the gym's pool leaves the gym's song playing, on Route 24
   the surf theme plays); Mystery Gift unlocks with the Pokédex at Mr. Pokémon's, as in HeartGold; the Ruins of Alph's
   line in the Unown script prints (Platinum's own Unown-font message); and Flash at the Omanyte chamber's wall shows
-  the Pokémon's HM cut-in. The walls test passes (2 of 2). A note for later: a full run of the script translator
-  doesn't reproduce today's installed scripts (two of its inserts no longer find their anchors, in Sacred Gold's
-  Cinnabar Gym and Cerulean Gym scripts), so these four were installed one file at a time.
+  the Pokémon's HM cut-in. The walls test passes (2 of 2).
+- **The script translator reproduces the installed scripts:** run as `--install --from .cache/sacredgold/scr_seq`
+  (without `--from` it reads HeartGold's own scripts, whose labels and anchors differ), it gives back every installed
+  file but five, which carry table entries added after they were last installed: Dragon's Den's rival's Pokémon
+  sprites (now installed; nothing on that map draws them) and four wireless rooms (the Union Room, the Global
+  Terminal, the Wi-Fi Plaza's room and the Safari Zone's link counter), whose link commands stay comments until
+  they're tested. CLAUDE.md says how to run it.
