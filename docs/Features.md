@@ -838,6 +838,8 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   menu) is HeartGold's fly map on the Pokégear's Map ("The Pokégear and the Pokétch"), or, with the Pokétch on the
   bottom screen, a list of the places reached, by name, that flies to the one chosen. The places are HeartGold's 25
   Fly points, each recorded as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn
-  points: `src/spawn_locations.c`). Both stay until the three-region Town Map (`docs/Roadmap.md`, "Art").
+  points: `src/spawn_locations.c`). Both stay until the three-region Town Map (`docs/Roadmap.md`, "Art"). Until then
+  the bag's Town Map (given in Sinnoh) shows Sinnoh's map wherever it's used; on a Johto or Kanto map its cursor
+  starts on Twinleaf Town (checked in the emulator on Route 30).
 - **The Berry Pots, the Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
   (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items.
