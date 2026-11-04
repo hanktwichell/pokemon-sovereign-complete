@@ -26,6 +26,7 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import battle_mechanics as bm  # noqa: E402
 from check_trainer_party import consts  # noqa: E402
 from gift_pokemon import talk_and_answer  # noqa: E402
@@ -68,14 +69,17 @@ def open_ground(tiles):
                 yield x, z
 
 
-def land_slots():
-    """{area: [(species, level)] * 10} at noon, from the engine's table."""
-    text = open(os.path.join(DECOMP, 'include', 'data', 'complete_safari.h')).read()
+def land_slots(area_names, species):
+    """{area: [(species, level)] * 10} at noon, from the engine's table (fielddata/complete/safari_encounters.narc: a
+    member per area, its land table first, whose base slots are morning's, day's and night's ten, each a u16 species
+    and a u8 level, padded to 4 bytes; tools/complete/import_hgss_safari.py)."""
+    from narc import read_narc
+    members = read_narc(os.path.join(DECOMP, 'res', 'prebuilt', 'fielddata', 'complete_safari', 'safari_encounters.narc'))
     out = {}
-    for area, block in re.findall(r'\[SAFARI_ZONE_AREA_(\w+)\] = \{(.*?)\n    \},', text, re.S):
-        land = block.split('.base = {', 1)[1].split('},\n            },', 1)[0]
-        rows = re.findall(r'\{ ((?:\{ SPECIES_\w+, \d+ \}(?:, )?)+) \}', land)
-        out[area] = re.findall(r'(SPECIES_\w+), (\d+)', rows[NOON])
+    for name, member in zip(area_names, members):
+        base = NOON * 10 * 4
+        out[name] = [(species[s], str(lv)) for s, lv in (struct.unpack('<HBx', member[base + 4 * i:base + 4 * i + 4])
+                                                            for i in range(10))]
     return out
 
 
@@ -90,7 +94,7 @@ def main():
     _, _, header, way_in, x, z, face = next(c for c in cases() if c[:2] == GATE)
     area_names = ['PLAINS', 'MEADOW', 'SAVANNAH', 'PEAK', 'ROCKY_BEACH', 'WETLAND', 'FOREST', 'SWAMP', 'MARSHLAND',
                   'WASTELAND', 'MOUNTAIN', 'DESERT']  # enum SafariZoneArea
-    slots = land_slots()
+    slots = land_slots(area_names, species)
     d = Driver(rom, state)
     mem = d.emu.memory
     results = []

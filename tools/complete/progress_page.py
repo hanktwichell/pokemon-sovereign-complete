@@ -143,6 +143,8 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'Baoba calls on the Pokégear about the Safari Zone, as in HeartGold: his next test, the objects you can place '
+        '(a group at a time), and which areas have new Pokémon, by name.',
         'The Bug-Catching Contest\'s battles have HeartGold\'s own bottom screen: a BALL button that throws a Sport '
         'Ball, and above the menu the bug net, the Sport Balls left and the Pokémon you\'ve kept so far (its icon, '
         'gender and level).',

@@ -11,6 +11,7 @@
 #include "field/field_system.h"
 #include "savedata/save_table.h"
 
+#include "constants/hgss_phone.h"
 #include "constants/player_avatar.h"
 #include "constants/scrcmd.h"
 #include "generated/genders.h"
@@ -19,6 +20,7 @@
 
 #include "overlay005/field_menu.h"
 
+#include "complete_phone.h"
 #include "field_map_change.h"
 #include "field_overworld_state.h"
 #include "field_script_context.h"
@@ -29,6 +31,7 @@
 #include "map_object.h"
 #include "map_tile_behavior.h"
 #include "message.h"
+#include "narc.h"
 #include "party.h"
 #include "play_time.h"
 #include "player_avatar.h"
@@ -231,14 +234,19 @@ static int Safari_TimeOfDay(int timeOfDay)
 }
 
 // The ten slots of an arranged area's table at this time of day: its base Pokémon, with the bonus Pokémon its objects
-// bring out taking the first slots (HeartGold's SafariZoneAreaSet_LoadAreaEncounters). An area with no surfing
+// bring out taking the first slots (HeartGold's SafariZoneAreaSet_LoadAreaEncounters, which also reads its area's
+// tables from a NARC as it needs them: fielddata/complete/safari_encounters.narc, from tools/complete/import_hgss_safari.py). An area with no surfing
 // bonus has no water: its water tables are HeartGold's placeholder, Magikarp at 5.
 void CompleteSafari_GetEncounterSlots(SaveData *saveData, int area, enum SafariZoneEncounterType type, int timeOfDay, SafariZoneSlot *slots)
 {
     SafariZoneSave *safari = Safari_Get(saveData);
-    const SafariEncounters *table = &sSafariEncounters[safari->areas[area].areaNo][type];
-    const SafariEncounters *surf = &sSafariEncounters[safari->areas[area].areaNo][SAFARI_ZONE_ENCOUNTERS_SURF];
+    SafariEncounters tables[2]; // this type's, and surfing's (its area's member of the encounters' NARC)
+    const SafariEncounters *table = &tables[0];
+    const SafariEncounters *surf = &tables[1];
     int time = Safari_TimeOfDay(timeOfDay);
+
+    NARC_ReadFromMemberByIndexPair(&tables[0], NARC_INDEX_FIELDDATA__COMPLETE__SAFARI_ENCOUNTERS, safari->areas[area].areaNo, type * sizeof(SafariEncounters), sizeof(SafariEncounters));
+    NARC_ReadFromMemberByIndexPair(&tables[1], NARC_INDEX_FIELDDATA__COMPLETE__SAFARI_ENCOUNTERS, safari->areas[area].areaNo, SAFARI_ZONE_ENCOUNTERS_SURF * sizeof(SafariEncounters), sizeof(SafariEncounters));
 
     if (type != SAFARI_ZONE_ENCOUNTERS_LAND && surf->bonusCount == 0) {
         for (int i = 0; i < SAFARI_ZONE_ENCOUNTER_SLOTS; i++) {
@@ -273,11 +281,32 @@ void CompleteSafari_GetEncounterSlots(SaveData *saveData, int area, enum SafariZ
     }
 }
 
+// A cell's morning Pokémon, all five ways of meeting them, as one number: HeartGold compares the slots themselves
+static u32 Safari_CellDigest(SaveData *saveData, int cell)
+{
+    SafariZoneSlot slots[SAFARI_ZONE_ENCOUNTER_SLOTS];
+    u32 digest = 2166136261u;
+
+    for (int type = 0; type < NUM_SAFARI_ZONE_ENCOUNTER_TYPES; type++) {
+        CompleteSafari_GetEncounterSlots(saveData, cell, type, TIMEOFDAY_MORNING, slots);
+
+        for (int i = 0; i < SAFARI_ZONE_ENCOUNTER_SLOTS; i++) {
+            digest = (digest ^ (slots[i].species | slots[i].level << 16)) * 16777619u;
+        }
+    }
+
+    return digest;
+}
+
 // Days passing (HeartGold's SaveData_SafariZone_CheckAreasWithUpdatedEncounters): once Baoba has let the player place
-// objects, every area's days go up; during a Safari game they wait for its end.
+// objects, every area's days go up; during a Safari game they wait for its end. The areas whose Pokémon change with
+// them are the ones Baoba calls about (CompletePhone_SetSafariAreas), or none.
 void CompleteSafari_AddDays(SaveData *saveData, int days)
 {
     SafariZoneSave *safari = SaveData_GetCompleteSafari(saveData);
+    u32 before[SAFARI_ZONE_AREAS_PER_SET];
+    u8 changed[SAFARI_ZONE_AREAS_PER_SET];
+    int count = 0;
 
     if (safari->objectUnlockLevel == 0 || days <= 0) {
         return;
@@ -288,9 +317,28 @@ void CompleteSafari_AddDays(SaveData *saveData, int days)
         return;
     }
 
+    for (int cell = 0; cell < SAFARI_ZONE_AREAS_PER_SET; cell++) {
+        before[cell] = Safari_CellDigest(saveData, cell);
+    }
+
     for (int i = 0; i < NUM_SAFARI_ZONE_AREAS; i++) {
         safari->areaLevels[i] = safari->areaLevels[i] + days > 255 ? 255 : safari->areaLevels[i] + days;
     }
+
+    for (int cell = 0; cell < SAFARI_ZONE_AREAS_PER_SET; cell++) {
+        u8 area = safari->areas[cell].areaNo;
+        BOOL listed = FALSE;
+
+        for (int i = 0; i < count; i++) {
+            listed |= changed[i] == area;
+        }
+
+        if (!listed && Safari_CellDigest(saveData, cell) != before[cell]) {
+            changed[count++] = area;
+        }
+    }
+
+    CompletePhone_SetSafariAreas(saveData, changed, count);
 }
 
 // HeartGold's SafariZoneAction: 0 starts a Safari game (30 Safari Balls), 1 ends it, adding the days that passed
@@ -784,26 +832,63 @@ BOOL CompleteScrCmd_SafariStampBaoba(ScriptContext *ctx)
     return FALSE;
 }
 
-// Baoba's calls, until there is a Pokégear (HeartGold's sub_02092E54 and phone_scripts_baoba.c): what each would do
-// happens at the first map load after it would have rung, and he says the rest at the gate. Three hours of play
-// after the player passes his first test, his next test (VAR 4057 to 4, which the gate's map script picks up); three
-// hours after the second, with the National Dex, the objects (to 7), one more group each three hours after that.
+// HeartGold's sub_02092E54, at each map load: Baoba's calls about his tests and objects, once three hours of play have
+// passed since he last spoke (src/overlay006/complete_phone_calls.c plays them, CompleteSafari_BaobaCall what they
+// do): after the player passes his first test, the next; after the second, with the National Dex, the objects, one
+// more group a call; and if the play time stops counting (past 59,999 minutes), all of them at once.
 static void Safari_BaobaCalls(SaveData *saveData)
 {
     SafariZoneSave *safari = SaveData_GetCompleteSafari(saveData);
-    u16 *progress = VarsFlags_GetVarAddress(SaveData_GetVarsFlags(saveData), VAR_HGSS_UNK_4057);
+    u16 progress = *VarsFlags_GetVarAddress(SaveData_GetVarsFlags(saveData), VAR_HGSS_UNK_4057);
     u16 minutes = Safari_PlayMinutes(saveData);
+    int passed = minutes - safari->baobaStampMinutes >= SAFARI_BAOBA_HOURS * 60 ? 1 : minutes >= SAFARI_MAX_STAMP ? 2 : 0;
 
-    if (*progress < 3 || safari->objectUnlockLevel >= SAFARI_MAX_UNLOCK_LEVEL
-        || (minutes - safari->baobaStampMinutes < SAFARI_BAOBA_HOURS * 60 && minutes < SAFARI_MAX_STAMP)) {
+    for (int trigger = CALL_TRIGGER_BAOBA_NEXT_TEST; trigger <= CALL_TRIGGER_BAOBA_MEMORY_LOSS; trigger++) {
+        if (CompletePhone_CheckCallTrigger(saveData, trigger)) {
+            return;
+        }
+    }
+
+    if (progress < 3 || safari->objectUnlockLevel >= SAFARI_MAX_UNLOCK_LEVEL || passed == 0) {
         return;
     }
 
-    if (*progress == 3) {
-        *progress = 4;
-    } else if (*progress >= 6 && Pokedex_IsNationalDexObtained(SaveData_GetPokedex(saveData))) {
-        safari->objectUnlockLevel++;
-        safari->baobaStampMinutes = minutes;
-        *progress = 7;
+    if (progress == 3) {
+        CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_BAOBA_NEXT_TEST, TRUE);
+    } else if (progress >= 6 && Pokedex_IsNationalDexObtained(SaveData_GetPokedex(saveData))) {
+        if (passed > 1) {
+            CompletePhone_SetCallTrigger(saveData, safari->objectUnlockLevel < 3 ? CALL_TRIGGER_BAOBA_MEMORY_LOSS : CALL_TRIGGER_BAOBA_EVEN_MORE_OBJECTS, TRUE);
+        } else {
+            CompletePhone_SetCallTrigger(saveData, safari->objectUnlockLevel == 0 ? CALL_TRIGGER_BAOBA_OBJECT_ARRANGEMENT : safari->objectUnlockLevel == 3 ? CALL_TRIGGER_BAOBA_EVEN_MORE_OBJECTS : CALL_TRIGGER_BAOBA_MORE_OBJECTS, TRUE);
+        }
     }
+}
+
+// HeartGold's PhoneCall_GetScriptId_Baoba: what a call of his does as it plays, and the call's script: his next test
+// (VAR 4057 to 4, which the gate's map script picks up), one more group of objects (his time stamped again), or all
+// of them; then VAR 4057 to 7. Any other is a plain call.
+u16 CompleteSafari_BaobaCall(SaveData *saveData, u16 script)
+{
+    SafariZoneSave *safari = SaveData_GetCompleteSafari(saveData);
+    u16 *progress = VarsFlags_GetVarAddress(SaveData_GetVarsFlags(saveData), VAR_HGSS_UNK_4057);
+
+    switch (script) {
+    case SAFARI_BAOBA_CALL_NEXT_TEST:
+        *progress = 4;
+        return script;
+    case SAFARI_BAOBA_CALL_OBJECTS:
+    case SAFARI_BAOBA_CALL_MORE_OBJECTS:
+        safari->objectUnlockLevel = safari->objectUnlockLevel + 1 > SAFARI_MAX_UNLOCK_LEVEL ? SAFARI_MAX_UNLOCK_LEVEL : safari->objectUnlockLevel + 1;
+        safari->baobaStampMinutes = Safari_PlayMinutes(saveData);
+        break;
+    case SAFARI_BAOBA_CALL_EVEN_MORE_OBJECTS:
+    case SAFARI_BAOBA_CALL_MEMORY_LOSS:
+        safari->objectUnlockLevel = SAFARI_MAX_UNLOCK_LEVEL;
+        break;
+    default:
+        return SAFARI_BAOBA_CALL_PLAIN;
+    }
+
+    *progress = 7;
+    return script;
 }

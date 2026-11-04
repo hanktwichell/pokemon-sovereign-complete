@@ -1,6 +1,7 @@
 #include "complete_phone.h"
 
 #include <nitro.h>
+#include <string.h>
 
 #include "constants/savedata/save_table.h"
 #include "generated/items.h"
@@ -86,6 +87,27 @@ void CompletePhone_Register(SaveData *saveData, u8 contact)
             phone->contacts[i] = contact;
             return;
         }
+    }
+}
+
+BOOL CompletePhone_CheckCallTrigger(SaveData *saveData, u8 trigger)
+{
+    return (SaveData_GetCompletePhone(saveData)->callTriggerFlags[trigger / 8] & (1 << (trigger % 8))) != 0;
+}
+
+// The end of HeartGold's SaveData_SafariZone_CheckAreasWithUpdatedEncounters: as days pass in the Safari Zone, the
+// areas whose Pokémon changed, which Baoba calls about (src/overlay006/complete_phone_calls.c), or none
+void CompletePhone_SetSafariAreas(SaveData *saveData, const u8 *areas, int count)
+{
+    CompletePhoneSave *phone = SaveData_GetCompletePhone(saveData);
+
+    phone->safariAreaCount = count;
+    memcpy(phone->safariAreas, areas, count);
+
+    if (count == 0) {
+        phone->callTriggerFlags[CALL_TRIGGER_BAOBA_NEW_POKEMON / 8] &= ~(1 << (CALL_TRIGGER_BAOBA_NEW_POKEMON % 8));
+    } else {
+        CompletePhone_SetCallTrigger(saveData, CALL_TRIGGER_BAOBA_NEW_POKEMON, FALSE);
     }
 }
 

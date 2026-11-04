@@ -137,19 +137,24 @@ parts, and where each went:
   again in place. As each area's block loads (all five of the engine's ways), its objects are added as props, with
   their tiles blocked (behavior 0x23, which A finds).
 - **Baoba:** his tests (catch a Geodude, then a Sandshrew, in the Safari Zone) are HeartGold's scripts; the check is
-  `CompleteSafariChallengeCompleted`. His calls come by Pokégear in HeartGold; until there is a phone, what each call
-  does happens at the first map load after it would have rung: three hours of play after the first test, the second;
-  three hours after the second, with the National Dex, the objects, one more group every three hours. His console in
-  the gate (HeartGold's area screen, also in assembly) is two list menus, a cell then its area: an area in another
-  cell swaps places with it, objects and all; a new one starts empty.
+  `CompleteSafariChallengeCompleted`. He calls on the Pokégear, as in HeartGold: three hours of play after the first
+  test, about the second; three hours after the second, with the National Dex, about the objects, one more group a
+  call every three hours (all of them at once if the play time has stopped counting). A map load sets the call's
+  trigger (HeartGold's `sub_02092E54`: `Safari_BaobaCalls`), the call comes through at the next step after ten
+  minutes since the last, and as it plays it does what it says (HeartGold's `PhoneCall_GetScriptId_Baoba`:
+  `CompleteSafari_BaobaCall`). When days pass and an area's Pokémon change (its morning slots, all five ways of meeting
+  them), he calls about the areas by name, as HeartGold's `SaveData_SafariZone_CheckAreasWithUpdatedEncounters` and
+  `GearPhoneCall_Baoba` do (the areas are kept in the phone's save; that call rings until answered). His console in the
+  gate (HeartGold's area screen, also in assembly) is two list menus, a cell then its area: an area in another cell
+  swaps places with it, objects and all; a new one starts empty.
 
 - **Test:** `tools/complete/test_hgss_safari.py` pays at the gate (a Safari game with 30 Balls, on the outside map),
   checks the six arranged areas, surveys each grassy area (every Pokémon one of its ten noon slots, at their levels),
   places an object with Baoba's objects given (saved in its area, its tile blocking the way) and takes it away, walks
   out (the game ends), and rearranges two cells at Baoba's console (a new area, then a swap). All six parts pass.
 
-Left: the object and area screens as HeartGold has them (moving an object about before it is placed), Baoba's calls
-on the Pokégear, link play's friend's Safari Zone, and the Safari Zone's music (step 6).
+Left: the object and area screens as HeartGold has them (moving an object about before it is placed), and link play's
+friend's Safari Zone. (Its gate and areas play HeartGold's Safari songs, as every Johto and Kanto map plays its own.)
 
 ## Badges
 
@@ -373,7 +378,8 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
   also sets the flag his lab script asks for before he gives the Everstone; the Egg is told by its origin, Mr.
   Pokémon, where HeartGold saves its personality), and his Pokérus call when a nurse finds Pokérus; Bill's when the
   boxes are full and Oak's at each 50 caught he hasn't rated, after a wild battle; the Day-Care Man's when an Egg
-  turns up (called off when he offers it); Mom's when she buys something. Baoba's calls happen without the phone (the Safari Zone, above). Past his
+  turns up (called off when he offers it); Mom's when she buys something; Baoba's about his tests, the Safari Zone's
+  objects and its new Pokémon (the Safari Zone, above). Past his
   first Egg (taken or turned down), Johto's Day-Care Man asks whether to keep calling, as HeartGold's does (Platinum's
   script for him, `scripts_day_care_common.s`, has HeartGold's lines and question on Route 34), and asks again when
   he's talked to with nothing in his care; after the first, he calls about an Egg only with a yes. The Bike Shop

@@ -110,6 +110,15 @@ int CompleteSafari_AreaAt(FieldSystem *fieldSystem);
 void CompleteSafari_GetEncounterSlots(SaveData *saveData, int area, enum SafariZoneEncounterType type, int timeOfDay, SafariZoneSlot *slots);
 void CompleteSafari_AddDays(SaveData *saveData, int days);
 
+// Baoba's Safari Zone calls, HeartGold's phone scripts (src/overlay006/complete_phone_calls.c's sPhoneScripts)
+#define SAFARI_BAOBA_CALL_NEXT_TEST         142
+#define SAFARI_BAOBA_CALL_OBJECTS           143
+#define SAFARI_BAOBA_CALL_MORE_OBJECTS      144
+#define SAFARI_BAOBA_CALL_EVEN_MORE_OBJECTS 145
+#define SAFARI_BAOBA_CALL_MEMORY_LOSS       146
+#define SAFARI_BAOBA_CALL_PLAIN             154
+u16 CompleteSafari_BaobaCall(SaveData *saveData, u16 script);
+
 BOOL CompleteScrCmd_SafariZoneAction(ScriptContext *ctx);
 
 // The objects (stage two): props and blocked tiles as an area's block loads, and placing and taking them away

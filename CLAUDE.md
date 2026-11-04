@@ -52,6 +52,12 @@ work.
   Never rebuild a test build while a test runs on it (build the next change into another test build), and make a new
   bedroom state after each rebuild: a state made on another build of the ROM, or a ROM changed under a running test,
   can hang the game or fail at random.
+- Main memory is nearly full: the boot carves fixed heaps (`sHeapInitParams`, `src/system.c`, plus a random 0-252
+  bytes) out of what the main module's code and data leave, and the test build, with its test code, had a few
+  hundred bytes left. Past that the last heap doesn't fit and the ROM shows a white screen at boot (no title; the new
+  bedroom state is then a dead one, at (0, 0)). Read what's left with the main arena's pointers at 0x027FFDA0 (low,
+  then high nine words on) after a few frames; keep big tables out of the main module (in a NARC read as needed, as
+  the Safari Zone's encounters are, or in an overlay).
 - Battle videos: `tools/complete/record_battle.py` (a real battle from a room's scene, Cynthia's by default, with a
   given Mega lead and a Lv. 100 team; test build and a bedroom state) and `tools/complete/cut_battle.py` (a preview
   cut from its turn marks). SDL catches SIGTERM, so stop an emulator run with `kill -9` on its PID.

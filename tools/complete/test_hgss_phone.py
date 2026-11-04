@@ -31,6 +31,14 @@ flag cleared) is the trainer:
    (FLAG_HGSS_SYS_SUBSCRIBED_TO_EGG_CALLS); and when, talked to again with nothing in his care, he asks again and a
    no clears it.
 
+11. **Baoba's calls:** from the bedroom state again, five hours played and Baoba's time stamp at none, past his first
+   test (VAR_HGSS_UNK_4057 3), a map load sets his next-test call's trigger (src/complete_safari.c); with the ten
+   minutes since the last call gone (sMinutesSinceCall), a step brings the call, which sets the var to 4. Then past his
+   second (6), with the National Dex, the objects' call gives the first group (the Safari Zone's unlock level 1, his
+   stamp the play time, the var 7). Then his call about the areas whose Pokémon changed, two of them written into the
+   phone's save (gCompleteTestPhoneCaller: his call at the next step). Passes when each call's script ran to its end
+   and did that.
+
 Every prompt is answered with A (yes). The phone's save and the flags are found from the save's page table
 (sSaveDataPtr: its body, then the page table, whose entries give each part's place and size in the body).
 
@@ -60,7 +68,8 @@ MOM_CALL_TILE = (553, 291)  # north of the call's tile (553, 292), Route 30's co
 MART, DELIVERYMAN, WEST = 'MAP_HEADER_HGSS_CHERRYGROVE_POKEMART', (4, 8), 3  # east of Mom's deliveryman (3, 8)
 HOME, MOM = 'MAP_HEADER_HGSS_NEW_BARK_PLAYER_HOUSE_1F', (5, 7)  # west of Mom (6, 7)
 INCOMING_CALL = 2000 + 0x814 - 0x7D0  # SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL)
-PARTS = 10
+REPEL_WORE_OFF = 2000 + 0x7F0 - 0x7D0  # CommonScript_RepelsEffectWoreOff
+PARTS = 11
 HIDE_FLAG = 'FLAG_HGSS_HIDE_ROUTE_30_YOUNGSTER_JOEY'
 GIFT = 'ITEM_NUGGET'
 SAVE_PAGES, SAVE_SECTOR = 33, 0x1000  # SAVE_PAGE_MAX, SAVE_SECTOR_SIZE
@@ -69,6 +78,12 @@ SAVINGS, GIFTS, TRIGGERS, BOUGHT = 376, 380, 400, 410  # offsetof(CompletePhoneS
 MOM_TRIGGER = 12  # CALL_TRIGGER_MOM_BOUGHT_SOMETHING
 BIKE_STEPS, BIKE_SHOP_TRIGGER, BIKE_SHOP = 414, 2, 15  # offsetof(CompletePhoneSave, bikeSteps); the trigger; contact
 BIKE_SHOP_CALL_STEPS = 1024
+BAOBA = 24  # PHONE_CONTACT_BAOBA
+BAOBA_TRIGGERS = range(7, 12)  # CALL_TRIGGER_BAOBA_NEXT_TEST to CALL_TRIGGER_BAOBA_MEMORY_LOSS
+SAFARI_AREAS, SAFARI_AREA_COUNT = 416, 422  # offsetof(CompletePhoneSave, safariAreas), safariAreaCount
+SAFARI_UNLOCK, SAFARI_STAMP = 745, 748  # offsetof(SafariZoneSave, objectUnlockLevel), baobaStampMinutes
+PLAY_HOURS = 38  # offsetof(PlayerSave, playTime): two options' words, then a 32-byte TrainerInfo and the coins
+NATIONAL_DEX_FROM_END = 9  # Pokedex.nationalDexObtained: the save part's size less a u32 and two bytes, and padding
 DAYCARE_EGG = 472  # offsetof(Daycare, offspringPersonality): two DaycareMons of 236 bytes (a BoxPokemon, its mail, steps)
 WEST_FACING = 3  # the test warp's facing for west: enum FaceDirection + 1
 # the Bag in the save: its pockets of BagItems (u16 item, u16 quantity), then the item registered to Y (include/bag.h)
@@ -417,6 +432,76 @@ def main():
                 problem = 'a no to his question kept the yes'
     d.screenshot().save(os.path.join(out, 'day_care_man.png'))
     results.append(f'Day-Care Man: {problem or "ok"}')
+    print(results[-1], flush=True)
+
+    # 11. Baoba's calls: his next test, the first objects, then the areas with new Pokémon
+    import subprocess
+    nef = os.path.join(os.path.dirname(rom), 'main.nef')
+    statics = {line.split()[2]: int(line.split()[0], 16) for line in subprocess.run(
+        ['arm-none-eabi-nm', nef], capture_output=True, text=True).stdout.splitlines() if len(line.split()) == 3}
+
+    def triggered(trigger):
+        return bool(mem.unsigned[phone() + TRIGGERS + trigger // 8] & (1 << trigger % 8))
+
+    def var(name):
+        at = save_part(vars_flags_entry)[0] + (variables[name] - variables['VARS_START']) * 2
+        return struct.unpack('<H', bytes(mem.unsigned[at:at + 2]))[0]
+
+    def baoba_call(step, caller=None):
+        """A step that brings a call, run to its end: '' or what went wrong. A step whose script is the bedroom
+        state's Super Repel wearing off is taken again."""
+        for _ in range(3):
+            mem.write_short(statics['sMinutesSinceCall'], 10)
+            mem.write_short(sym['gSovereignTestScripts'], 0)
+            mem.write_short(sym['gSovereignTestScripts'] + 2, 0)
+            if caller is not None:
+                mem.write_byte(sym['gCompleteTestPhoneCaller'], caller + 1)
+            d.press(step, frames=16, after=8)
+            result = run_a()
+            scripts = sym['gSovereignTestScripts']
+            count, first = struct.unpack('<HH', bytes(mem.unsigned[scripts:scripts + 4]))
+            if result != 'ok' or first != REPEL_WORE_OFF:
+                break
+            step = 'RIGHT' if step == 'LEFT' else 'LEFT'
+        return result if result != 'ok' else '' if count and first == INCOMING_CALL else f'no call ({count}, {first})'
+
+    d.load_state(state)
+    d.run(30)
+    safari = save_part(save_entry_index('SAVE_TABLE_ENTRY_COMPLETE_SAFARI'))[0]
+    mem.write_short(save_part(player_entry)[0] + PLAY_HOURS, 5)
+    mem.write_short(safari + SAFARI_STAMP, 0)
+    mem.write_byte(safari + SAFARI_UNLOCK, 0)
+    set_var('VAR_HGSS_UNK_4057', 3)
+    arrived, _ = warp(d, sym, names.index(MAP), x, z, WEST_FACING)  # part 9's tile: a map load
+    problem = f'warp {arrived}' if arrived != 'ok' else ''
+    if not problem and not triggered(BAOBA_TRIGGERS[0]):
+        problem = 'the map load set no trigger for his next test'
+    if not problem:
+        problem = baoba_call('LEFT')
+        if not problem and (var('VAR_HGSS_UNK_4057') != 4 or triggered(BAOBA_TRIGGERS[0])):
+            problem = f'his next test: the var {var("VAR_HGSS_UNK_4057")}, the trigger {triggered(BAOBA_TRIGGERS[0])}'
+    if not problem:
+        pokedex, size = save_part(save_entry_index('SAVE_TABLE_ENTRY_POKEDEX'))
+        mem.write_byte(pokedex + size - NATIONAL_DEX_FROM_END, 1)
+        set_var('VAR_HGSS_UNK_4057', 6)
+        arrived, _ = warp(d, sym, names.index(MAP), x, z, WEST_FACING)
+        problem = f'warp {arrived}' if arrived != 'ok' else ''
+        if not problem and not triggered(BAOBA_TRIGGERS[1]):
+            problem = 'the map load set no trigger for the objects ' + str([t for t in BAOBA_TRIGGERS if triggered(t)])
+        if not problem:
+            problem = baoba_call('RIGHT')
+            unlock = mem.unsigned[safari + SAFARI_UNLOCK]
+            stamp = struct.unpack('<H', bytes(mem.unsigned[safari + SAFARI_STAMP:safari + SAFARI_STAMP + 2]))[0]
+            if not problem and (unlock != 1 or var('VAR_HGSS_UNK_4057') != 7 or stamp < 5 * 60):
+                problem = f'the objects: unlock level {unlock}, the var {var("VAR_HGSS_UNK_4057")}, stamp {stamp}'
+    if not problem:
+        for i, area in enumerate((0, 5)):
+            mem.write_byte(phone() + SAFARI_AREAS + i, area)
+        mem.write_byte(phone() + SAFARI_AREA_COUNT, 2)
+        problem = baoba_call('LEFT', BAOBA)
+        problem = problem and f'his areas call: {problem}'
+    d.screenshot().save(os.path.join(out, 'baoba.png'))
+    results.append(f'Baoba: {problem or "ok"}')
     print(results[-1], flush=True)
 
     ok = sum(r.endswith(': ok') for r in results)

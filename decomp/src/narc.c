@@ -214,6 +214,7 @@ static const char *sNarcPaths[] = {
     [NARC_INDEX_DEMO__COMPLETE__MAGNET_TRAIN] = "demo/complete/magnet_train.narc", // Sovereign Complete
     [NARC_INDEX_DEMO__COMPLETE__LEGEND_CINEMATIC] = "demo/complete/legend_cinematic.narc", // Sovereign Complete
     [NARC_INDEX_DEMO__COMPLETE__ARCEUS_CINEMATIC] = "demo/complete/arceus_cinematic.narc", // Sovereign Complete
+    [NARC_INDEX_FIELDDATA__COMPLETE__SAFARI_ENCOUNTERS] = "fielddata/complete/safari_encounters.narc", // Sovereign Complete
 };
 
 static void ReadFromNarcMemberByPathAndIndex(void *dest, const char *path, int memberIndex, int offset, int bytesToRead);

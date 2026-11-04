@@ -1651,4 +1651,19 @@ Test results on the new test build:
 - **A fix to the Ball importer:** a one-line edit had replaced its check function's first line, and its check then
   compared HeartGold's members with the built archives, which hold them now; it compares with Platinum's own members
   only.
+- **Baoba's calls on the Pokégear:** Baoba's Safari Zone calls had been a stand-in, their changes made at a map load
+  with no call. They're HeartGold's now: a map load sets the call's trigger once three hours of play have passed
+  (HeartGold's `sub_02092E54`: after his first test, his next; after the second, with the National Dex, the objects),
+  the call comes through at the next step, and as it plays it does what it says (HeartGold's
+  `PhoneCall_GetScriptId_Baoba`: the next test, one more group of objects with his time stamped again, or all of them).
+  His call about new Pokémon is in too: when days pass and an area's Pokémon change, the areas go into the phone's
+  save, and he names them (HeartGold's `SaveData_SafariZone_CheckAreasWithUpdatedEncounters` and
+  `GearPhoneCall_Baoba`). The phone test's new part (11 of 11 pass): his next-test call sets the test going, his
+  objects call gives the first group, and his areas call names the Plains and Wetland Areas written into the save.
+- **The test build's memory:** the first test build with Baoba's calls showed a white screen at boot. The boot carves
+  fixed heaps out of the main memory the code and data leave, and the test build, with its test code, had 296 bytes
+  left; Baoba's code needed 544. The Safari Zone's encounter table (16,920 bytes, the main module's biggest of
+  Complete's) is a NARC now, read an area at a time as it's needed (`fielddata/complete/safari_encounters.narc`,
+  from `tools/complete/import_hgss_safari.py`; byte for byte the table the code held, checked against the running
+  game). The test build has 16 KB left now and the release build 39 KB (it had 22). CLAUDE.md says how to read it.
 

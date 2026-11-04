@@ -27,6 +27,7 @@
 #include "complete_map_info.h"
 #include "complete_phone.h"
 #include "complete_pokedex.h"
+#include "complete_safari.h"
 #include "complete_trainers.h"
 #include "daycare_save.h"
 #include "field_message.h"
@@ -1077,6 +1078,39 @@ static enum CallStep Call_Kurt(FieldSystem *fieldSystem)
     }
 }
 
+// HeartGold's GearPhoneCall_Baoba: which Safari Zone areas have new Pokémon since days passed (CompletePhone_SetSafariAreas),
+// by name: none, one to five, or all of them
+static enum CallStep Call_Baoba(FieldSystem *fieldSystem)
+{
+    CompletePhoneSave *phone = SaveData_GetCompletePhone(fieldSystem->saveData);
+    int count = phone->safariAreaCount;
+
+    switch (sCall.step++) {
+    case 0:
+        if (count == 0) {
+            return SayGendered(38, 39);
+        }
+
+        if (count >= SAFARI_ZONE_AREAS_PER_SET) {
+            return SayGendered(24, 25);
+        }
+
+        MessageLoader *names = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0428, HEAP_ID_FIELD3);
+
+        for (int i = 0; i < count; i++) {
+            String *name = MessageLoader_GetNewString(names, phone->safariAreas[i]);
+
+            StringTemplate_SetString(sCall.template, 10 + i, name, 0, TRUE, GAME_LANGUAGE);
+            String_Free(name);
+        }
+
+        MessageLoader_Free(names);
+        return SayGendered(14 + 2 * (count - 1), 15 + 2 * (count - 1));
+    default:
+        return CALL_STEP_END;
+    }
+}
+
 // HeartGold's GearPhoneCall_GymLeader_Outgoing: after all sixteen badges, a rematch at the Fighting Dojo on the leader's
 // day and time. (HeartGold's isDojoFull only counts Falkner, so the dojo is never too full: the rematch is set.)
 static enum CallStep Call_GymLeaderOutgoing(FieldSystem *fieldSystem)
@@ -1154,6 +1188,8 @@ static enum CallStep NextStep(FieldSystem *fieldSystem)
         return Call_Kurt(fieldSystem);
     case HANDLER_GYM_LEADER_OUTGOING:
         return Call_GymLeaderOutgoing(fieldSystem);
+    case HANDLER_BAOBA:
+        return Call_Baoba(fieldSystem);
     default:
         return CALL_STEP_END;
     }
@@ -1545,8 +1581,18 @@ static BOOL ChooseScript(FieldSystem *fieldSystem)
     case PHONECALLTYPE_GYMLEADER:
         sCall.handler = HANDLER_GYM_LEADER_INCOMING;
         return TRUE;
-    case PHONECALLTYPE_BAOBA: // his Safari Zone calls' changes are made by src/complete_safari.c's stand-in
-        sCall.script = sCall.kind == CALL_SCRIPTED ? 141 : sCall.predefined != 0 ? sCall.predefined : 154;
+    case PHONECALLTYPE_BAOBA: // HeartGold's PhoneCall_GetScriptId_Baoba: his Safari Zone calls do what they say as they play
+        if (sCall.kind == CALL_SCRIPTED) {
+            sCall.script = 141;
+            break;
+        }
+
+        if (sCall.predefined == 0) { // a random call, or the one about the areas whose Pokémon changed
+            sCall.handler = HANDLER_BAOBA;
+            return TRUE;
+        }
+
+        sCall.script = CompleteSafari_BaobaCall(fieldSystem->saveData, sCall.predefined);
         break;
     case PHONECALLTYPE_IRWIN: {
         TrainerInfo *info = SaveData_GetTrainerInfo(fieldSystem->saveData);
