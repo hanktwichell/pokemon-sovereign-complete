@@ -1639,3 +1639,16 @@ Test results on the new test build:
   Platinum's 16). `tools/complete/import_hgss_balls.py` brings the graphics in. The Ball test now also watches each
   throw for the Ball's own colours and opens the caught Pokémon's summary for its icon's: 7 of 7 pass, and the
   contest test (4 of 4) checks its Sport Ball's throw the same way.
+- **The Bug-Catching Contest's battle screen:** the bottom screen is HeartGold's contest menu now: BALL where BAG was,
+  one party Ball, and over the menu HeartGold's bug net, a Sport Ball with the Balls left, and the Pokémon the contest
+  keeps (its icon, gender and level). The battle's contest Pokémon was an empty slot for a new catch; it starts as a
+  copy of the kept one, so the menu can show it. HeartGold's net and Ball need colours Platinum's bottom-screen
+  palettes don't have, and all sixteen palettes there are in use, so the contest's battles load HeartGold's own
+  version of those palettes (Platinum's seven with the colours added), as HeartGold does. The contest test catches
+  with as many Sport Balls as it takes (one missed a Lv. 30 Beedrill), returns to the grass every 25 steps (a step
+  blocked one way had walked the player off it, the earlier "no encounter" failure), and checks a second battle's
+  menu for the kept Pokémon before running from it: 4 of 4 pass, and so does the Safari Zone's test.
+- **A fix to the Ball importer:** a one-line edit had replaced its check function's first line, and its check then
+  compared HeartGold's members with the built archives, which hold them now; it compares with Platinum's own members
+  only.
+

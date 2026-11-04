@@ -226,6 +226,7 @@ void BattleSystem_SetCatchingTutorialLowHP(BattleSystem *battleSys, u8 value);
 int BattleSystem_GetMetBebe(BattleSystem *battleSys);
 BOOL BattleSystem_IsMegaUnlocked(BattleSystem *battleSys);
 BOOL BattleSystem_IsFishing(BattleSystem *battleSys); // Sovereign Complete
+Pokemon *BattleSystem_CompleteBugContestMon(BattleSystem *battleSys); // Sovereign Complete: the contest's kept Pokémon, or NULL
 void BattleSystem_TryIncrementRecordValue(BattleSystem *battleSys, int id);
 void BattleSystem_TryIncrementTrainerScoreCaughtSpecies(BattleSystem *battleSys);
 void BattleSystem_SetCommandSelectionFlags(BattleSystem *battleSys, int flags);

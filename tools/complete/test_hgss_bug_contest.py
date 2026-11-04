@@ -6,9 +6,11 @@ bedroom state, on a Tuesday (gSovereignTestClock's weekday), with the party cut 
    Pokémon with him), the player is on the contest map with one Pokémon, and the contest runs (sBugContest).
 2. **Encounters:** a survey (wild_forms.py's) of the contest map's grass: every Pokémon is one of the day's ten, at
    that slot's levels.
-3. **A battle:** walking in the grass until one starts, the wild Pokémon is put to sleep at 1 HP, and BAG throws a
-   Sport Ball, drawn as itself (its own colours on the top screen as it flies: test_hgss_balls.py's check), which
-   catches it (A on the Pokédex's page, B elsewhere). The contest keeps it, with 19 Sport Balls left.
+3. **A battle:** walking in the grass until one starts, the wild Pokémon is put to sleep at 1 HP, and BALL (BAG's
+   button) throws a Sport Ball, drawn as itself (its own colours on the top screen as it flies: test_hgss_balls.py's
+   check), until one catches it (A on the Pokédex's page, B elsewhere). The contest keeps it, with a Sport Ball fewer
+   for each thrown. Then a second battle's menu must show the kept Pokémon over it (its icon, gender and level, where
+   the first battle's had none), and RUN ends that battle.
 4. **Time up:** with the contest's start moved back 21 minutes, the announcement plays, the player goes to the
    National Park, and the judging runs (no nickname). Then the contest is over, and the party is the two Pokémon and
    the caught one, in its Sport Ball.
@@ -45,8 +47,14 @@ SLEEP = 3  # MON_CONDITION_SLEEP: asleep for 3 turns
 CONTEST = {'startTime': 0, 'nationalDex': 24, 'caught': 28, 'sportBalls': 32}
 SPORT_BALL_ITEM = 'ITEM_SPORT_BALL'
 STEPS_MAX = 300
+HOME_STEPS = 25
 BATTLE_FRAMES = 6000
 BAG = (35, 165)
+RUN = (128, 180)
+# Over the menu, between the bug net and the Sport Ball: the kept Pokémon's icon, gender and level (HeartGold's
+# BattleInput_CreateMainMenuObjects; in screenshot pixels, the bottom screen from y 192)
+KEPT_BOX = (104, 192, 184, 216)
+KEPT_SHOWN = 40  # pixels there that change once a Pokémon is kept
 POKEDEX_BANNER = ((200, 4), (248, 208, 0))
 SYMBOLS = tuple(set(TALK_SYMBOLS) | set(bm.SYMBOLS) | {
     'gSovereignTestParty', 'gSovereignTestMenu', 'gSovereignTestWildSurvey', 'gSovereignTestPlayerTile', 'sBugContest'})
@@ -92,17 +100,32 @@ def grass_spot(maps):
     return min(spots, key=lambda p: abs(p[0] - 75) + abs(p[1] - 39))
 
 
-def battle(d, sym, names):
-    """Walk in the grass until a battle starts, then catch with a Sport Ball. Returns '' or what went wrong."""
-    b = bm.Battle(d, sym)
+def menu_up(d):
+    """Whether the battle's menu is on the bottom screen (BALL's button)."""
+    return d.screenshot().convert('RGB').getpixel((20, 350)) == (224, 152, 40)
+
+
+def start_battle(d, b, home):
+    """Walk in the grass until a battle starts, back on its tile (home()) every so often: a step blocked one way
+    walks the player off the grass. Returns '' or what went wrong."""
     for step in range(STEPS_MAX):
+        if step and step % HOME_STEPS == 0:
+            home()
         d.press('RIGHT' if step % 2 == 0 else 'LEFT', frames=20, after=8)  # long enough to turn and step
         if b.mons():
-            break
+            return ''
         d.press('B', frames=4, after=4)  # the bedroom state's Super Repel wears off: no other
-    else:
-        return f'no battle in {STEPS_MAX} steps'
-    phase, frames = 'start', 0
+    return f'no battle in {STEPS_MAX} steps'
+
+
+def battle(d, sym, names, home):
+    """Walk in the grass until a battle starts, then catch with Sport Balls (thrown again after a miss). Returns
+    ('' or what went wrong, the Balls thrown, the menu's screenshot)."""
+    b = bm.Battle(d, sym)
+    problem = start_battle(d, b, home)
+    if problem:
+        return problem, 0, None
+    phase, frames, thrown, menu = 'start', 0, 0, None
     while frames < BATTLE_FRAMES:
         d.run(10)
         frames += 10
@@ -112,28 +135,63 @@ def battle(d, sym, names):
             b.write(bm.FOE_B, 'curHP', 1, 4)
             b.write(bm.FOE_B, 'status', SLEEP, 4)
             phase = 'menu'
-        elif phase == 'menu' and d.screenshot().convert('RGB').getpixel((20, 350)) == (224, 152, 40):
+        elif phase in ('menu', 'thrown') and b.mons() and menu_up(d):  # the first throw, or the next after a miss
+            d.run(20)
+            menu = menu or d.screenshot()
             colours = own_colours('SPORT_BALL')
             before_throw = shown(d.screenshot(), colours)
             d.touch(*BAG, frames=4, after=0)
+            thrown += 1
             most = 0
             for _ in range(0, THROW_FRAMES, THROW_STEP):
                 d.run(THROW_STEP)
                 most = max(most, shown(d.screenshot(), colours) - before_throw)
             frames += 4 + THROW_FRAMES
             if most < SHOWN:
-                return f'the Sport Ball wasn\'t drawn as itself (at most {most} pixels of its own colours)'
+                return f'the Sport Ball wasn\'t drawn as itself ({most} pixels of its own colours)', thrown, menu
             phase = 'thrown'
         elif phase == 'thrown':
             if not b.mons():
                 idle = u32(d, sym['gSovereignTestIdleFrames'])
                 d.run(30)
                 if u32(d, sym['gSovereignTestIdleFrames']) != idle:
-                    return ''
+                    return '', thrown, menu
             pixel, banner = POKEDEX_BANNER
             d.press('A' if d.screenshot().convert('RGB').getpixel(pixel) == banner else 'B', frames=4, after=20)
             frames += 24
-    return f'battle not over ({phase})'
+    return f'battle not over ({phase})', thrown, menu
+
+
+def kept_menu(d, sym, home):
+    """A second battle's menu, which shows the kept Pokémon over it; then RUN. Returns ('' or what went wrong, the
+    menu's screenshot)."""
+    b = bm.Battle(d, sym)
+    problem = start_battle(d, b, home)
+    if problem:
+        return problem, None
+    for _ in range(BATTLE_FRAMES // 10):
+        d.run(10)
+        if b.mons() and menu_up(d):
+            break
+    else:
+        return 'the second battle\'s menu never came', None
+    d.run(20)
+    menu = d.screenshot()
+    d.touch(*RUN, frames=4, after=60)
+    for _ in range(BATTLE_FRAMES // 10):
+        d.press('B', frames=4, after=6)
+        if not b.mons():
+            idle = u32(d, sym['gSovereignTestIdleFrames'])
+            d.run(30)
+            if u32(d, sym['gSovereignTestIdleFrames']) != idle:
+                return '', menu
+    return 'the second battle didn\'t end', menu
+
+
+def changed(before, after, box):
+    """How many of the box's pixels differ between two screenshots."""
+    one, two = before.convert('RGB').crop(box).tobytes(), after.convert('RGB').crop(box).tobytes()
+    return sum(1 for i in range(0, len(one), 3) if one[i:i + 3] != two[i:i + 3])
 
 
 def main():
@@ -193,10 +251,26 @@ def main():
 
     # 3. A battle
     gx, gz = grass_spot(Maps(DECOMP))
-    arrived, _ = warp(d, sym, headers.index(CONTEST_MAP), gx, gz, 0)
-    problem = battle(d, sym, names) if arrived == 'ok' else f'warp to the grass: {arrived}'
-    if not problem and (field(d, sym, 'caught') != 1 or field(d, sym, 'sportBalls', 2) != 19):
-        problem = f'caught {field(d, sym, "caught")}, Sport Balls {field(d, sym, "sportBalls", 2)}'
+
+    def home():
+        return warp(d, sym, headers.index(CONTEST_MAP), gx, gz, 0)[0]
+
+    arrived = home()
+    problem, thrown, first_menu = (battle(d, sym, names, home) if arrived == 'ok' else
+                                   (f'warp to the grass: {arrived}', 0, None))
+    balls = field(d, sym, 'sportBalls', 2)
+    if not problem and (field(d, sym, 'caught') != 1 or balls != 20 - thrown):
+        problem = f'caught {field(d, sym, "caught")}, Sport Balls {balls} after {thrown} thrown'
+    if not problem:
+        arrived = home()  # the walk can have left the grass
+        problem, second_menu = kept_menu(d, sym, home) if arrived == 'ok' else (f'warp back: {arrived}', None)
+        problem = problem and f'the second battle: {problem}'
+        if os.environ.get('SHOTS') and first_menu and second_menu:
+            first_menu.save(os.path.join(out, 'menu_first.png'))
+            second_menu.save(os.path.join(out, 'menu_kept.png'))
+        kept = changed(first_menu, second_menu, KEPT_BOX) if not problem else 0
+        if not problem and kept < KEPT_SHOWN:
+            problem = f'the second battle\'s menu doesn\'t show the kept Pokémon ({kept} pixels changed)'
     if not part('battle', problem):
         return finish(results)
 

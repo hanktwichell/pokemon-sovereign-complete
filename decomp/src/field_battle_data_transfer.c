@@ -28,6 +28,7 @@
 #include "chatot_cry.h"
 #include "comm_manager.h"
 #include "communication_system.h"
+#include "complete_bug_contest.h" // Sovereign Complete
 #include "complete_phone.h"
 #include "field_overworld_state.h"
 #include "game_options.h"
@@ -155,6 +156,11 @@ FieldBattleDTO *FieldBattleDTO_NewBugContest(enum HeapID heapID, int countSportB
     dto->countSafariBalls = countSportBalls;
     dto->bugContestHasMon = hasMon;
     dto->bugContestMon = Pokemon_New(heapID);
+
+    if (hasMon && CompleteBugContest_GetCaughtMon() != NULL) { // the kept one, which the battle's menu shows until a new catch takes its place
+        Pokemon_Copy(CompleteBugContest_GetCaughtMon(), dto->bugContestMon);
+    }
+
     return dto;
 }
 

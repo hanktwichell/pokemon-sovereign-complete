@@ -1150,6 +1150,13 @@ BOOL BattleSystem_IsFishing(BattleSystem *battleSys)
     return battleSys->isFishing;
 }
 
+// Sovereign Complete: the Pokémon the Bug-Catching Contest keeps, from before this battle (HeartGold's
+// BattleSystem_GetBugContestCaughtMon), or NULL
+Pokemon *BattleSystem_CompleteBugContestMon(BattleSystem *battleSys)
+{
+    return battleSys->bugContestHasMon ? battleSys->bugContestMon : NULL;
+}
+
 void BattleSystem_TryIncrementRecordValue(BattleSystem *battleSys, int id)
 {
     if (battleSys->battleStatusMask & BATTLE_STATUS_RECORDING) {

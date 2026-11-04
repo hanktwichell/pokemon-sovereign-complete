@@ -372,3 +372,7 @@ ball_throws/hgss/friend_ball.NCLR
 ball_throws/hgss/moon_ball.NCLR
 ball_throws/hgss/sport_ball.NCLR
 ball_throws/hgss/park_ball.NCLR
+interface/hgss/contest_net.NCGR.lz
+interface/hgss/contest_net_cell.NCER.lz
+interface/hgss/contest_net_anim.NANR.lz
+interface/hgss/contest_menu.NCLR

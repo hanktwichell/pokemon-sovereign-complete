@@ -143,6 +143,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Bug-Catching Contest\'s battles have HeartGold\'s own bottom screen: a BALL button that throws a Sport '
+        'Ball, and above the menu the bug net, the Sport Balls left and the Pokémon you\'ve kept so far (its icon, '
+        'gender and level).',
         'HeartGold\'s own Balls look like themselves now: the seven Apricorn Balls (and the contest\'s Sport Ball) fly '
         'in their own colours when thrown or sent out, and the summary screen shows each one\'s own icon, as in '
         'HeartGold. They had all looked like Poké Balls.',

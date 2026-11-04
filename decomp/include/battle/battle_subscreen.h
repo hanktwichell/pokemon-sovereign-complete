@@ -234,6 +234,10 @@ typedef struct BattleSubscreen {
     SysTask *sovereignMegaAnimTask;
     u8 sovereignMegaSelected; // the button is on: the move chosen next Mega Evolves the Pokémon
     u8 sovereignMegaCursor; // the D-pad cursor is on the button
+    // Sovereign Complete: HeartGold's bug net, Sport Ball and kept Pokémon over the Bug-Catching Contest's menu
+    ManagedSprite *completeContestNet;
+    ManagedSprite *completeContestBall;
+    ManagedSprite *completeContestMonIcon;
 } BattleSubscreen;
 
 typedef struct SlideInPanelState {

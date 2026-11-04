@@ -1077,7 +1077,9 @@ void BattleSubscreen_SetupBackground(NARC *unused, NARC *spriteNarc, BattleSubsc
         }
     }
 
-    SpriteSystem_LoadPaletteBufferFromOpenNarc(BattleSystem_GetPaletteData(btlSubscreen->battleSys), 3, spriteSys, spriteMan, spriteNarc, 72, 0, 7, NNS_G2D_VRAM_TYPE_2DSUB, 20023);
+    // Sovereign Complete: the Bug-Catching Contest's menu has HeartGold's palettes, with its net's, Ball's and text's colours
+    int spritePalettes = (BattleSystem_GetBattleType(btlSubscreen->battleSys) & BATTLE_TYPE_BUG_CONTEST) ? interface_hgss_contest_menu_NCLR : 72;
+    SpriteSystem_LoadPaletteBufferFromOpenNarc(BattleSystem_GetPaletteData(btlSubscreen->battleSys), 3, spriteSys, spriteMan, spriteNarc, spritePalettes, 0, 7, NNS_G2D_VRAM_TYPE_2DSUB, 20023);
     btlSubscreen->activeMenuConfigIndex = menuConfigIndex;
 
     G2S_SetBlendAlpha(GX_BLEND_PLANEMASK_BG1, GX_BLEND_BGALL, 8, 12);
@@ -1265,7 +1267,11 @@ void BattleSubscreen_ShowBallSprites(BattleSubscreen *btlSubscreen)
 {
     GF_ASSERT(btlSubscreen->playerPartyBallSprites[0] && btlSubscreen->opponentPartyBallSprites[0]);
 
-    for (int i = 0; i < SNELEMS(btlSubscreen->playerPartyBallSprites); i++) {
+    // Sovereign Complete: the Bug-Catching Contest's party is its one Pokémon, so its menu shows one Ball (HeartGold's
+    // BattleInput_EnableBallGauge), leaving room for the contest's net and kept Pokémon
+    int shown = (BattleSystem_GetBattleType(btlSubscreen->battleSys) & BATTLE_TYPE_BUG_CONTEST) ? 1 : SNELEMS(btlSubscreen->playerPartyBallSprites);
+
+    for (int i = 0; i < shown; i++) {
         Sprite_SetDrawFlag2(btlSubscreen->playerPartyBallSprites[i]->sprite, 1);
     }
 
@@ -1459,6 +1465,137 @@ static void BattleSubscreen_SlideInPanel(BattleSubscreen *btlSubscreen, int dire
     slideInPanelState->task = SysTask_ExecuteOnVBlank(SysTask_ApplySlideInBgOffsets, slideInPanelState, 10);
 }
 
+// Sovereign Complete: HeartGold's Bug-Catching Contest menu (its BattleInput_CreateMainMenuObjects' contest part and
+// BattleInput_CreateBugContestGraphics): its bug net and a Sport Ball over the menu with the Balls left, and the
+// Pokémon the contest keeps, its icon, gender and level. The net's and Ball's graphics are HeartGold's
+// (res/graphics/battle/interface/hgss/, tools/complete/import_hgss_balls.py), and so are their palettes and the text's:
+// the contest's battles load HeartGold's sprite palettes (resource 20023), which have these colours in palettes 3 to 5
+// (the bottom screen has no free palettes for more).
+#define COMPLETE_CONTEST_RES_ID      20044 // char, cell and animation of the net and Ball
+#define COMPLETE_CONTEST_ICON_RES_ID 20045 // the kept Pokémon's icon's char
+#define COMPLETE_CONTEST_TEXT_PLTT   3
+#define COMPLETE_CONTEST_FONT_GENDER 4 // fontOAMEntry slots, after the menu's four
+#define COMPLETE_CONTEST_FONT_LEVEL  5
+#define COMPLETE_CONTEST_FONT_BALLS  6
+
+static const SpriteTemplate sCompleteContestNetTemplate = {
+    88,
+    8,
+    0x0,
+    0x0,
+    10,
+    4,
+    NNS_G2D_VRAM_TYPE_2DSUB,
+    { COMPLETE_CONTEST_RES_ID, 20023, COMPLETE_CONTEST_RES_ID, COMPLETE_CONTEST_RES_ID, 0xFFFFFFFF, 0xFFFFFFFF },
+    0x1,
+    0x0,
+};
+
+static const SpriteTemplate sCompleteContestBallTemplate = {
+    208,
+    16,
+    0x0,
+    0x0,
+    10,
+    5,
+    NNS_G2D_VRAM_TYPE_2DSUB,
+    { COMPLETE_CONTEST_RES_ID, 20023, COMPLETE_CONTEST_RES_ID, COMPLETE_CONTEST_RES_ID, 0xFFFFFFFF, 0xFFFFFFFF },
+    0x1,
+    0x0,
+};
+
+static void BattleSubscreen_DrawCompleteContest(BattleSubscreen *btlSubscreen, MessageLoader *msgLoader)
+{
+    SpriteSystem *spriteSys = BattleSystem_GetSpriteSystem(btlSubscreen->battleSys);
+    SpriteManager *spriteMan = BattleSystem_GetSpriteManager(btlSubscreen->battleSys);
+    StringTemplate *template = BattleSystem_GetStringTemplate(btlSubscreen->battleSys);
+    String *formatted = String_Init(32, HEAP_ID_BATTLE);
+    Pokemon *kept = BattleSystem_CompleteBugContestMon(btlSubscreen->battleSys);
+
+    GF_ASSERT(btlSubscreen->completeContestNet == NULL);
+
+    SpriteSystem_LoadCharResObj(spriteSys, spriteMan, NARC_INDEX_BATTLE__GRAPHIC__PL_BATT_OBJ, interface_hgss_contest_net_NCGR_lz, TRUE, NNS_G2D_VRAM_TYPE_2DSUB, COMPLETE_CONTEST_RES_ID);
+    SpriteSystem_LoadCellResObj(spriteSys, spriteMan, NARC_INDEX_BATTLE__GRAPHIC__PL_BATT_OBJ, interface_hgss_contest_net_cell_NCER_lz, TRUE, COMPLETE_CONTEST_RES_ID);
+    SpriteSystem_LoadAnimResObj(spriteSys, spriteMan, NARC_INDEX_BATTLE__GRAPHIC__PL_BATT_OBJ, interface_hgss_contest_net_anim_NANR_lz, TRUE, COMPLETE_CONTEST_RES_ID);
+
+    if (kept != NULL && Pokemon_GetValue(kept, MON_DATA_SPECIES, NULL) != SPECIES_NONE) {
+        String *text = NULL;
+        TextColor genderColor = TEXT_COLOR(12, 13, 0);
+
+        switch (Pokemon_GetGender(kept)) {
+        case GENDER_MALE:
+            text = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_CompleteContestMonMale);
+            break;
+        case GENDER_FEMALE:
+            text = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_CompleteContestMonFemale);
+            genderColor = TEXT_COLOR(14, 15, 0);
+            break;
+        }
+
+        if (text != NULL) {
+            BattleSubscreen_NewFontOAM(btlSubscreen, &btlSubscreen->fontOAMEntry[COMPLETE_CONTEST_FONT_GENDER], text, FONT_SYSTEM, genderColor, COMPLETE_CONTEST_TEXT_PLTT, 20023, 136, 16, 0, NULL);
+            String_Free(text);
+        }
+
+        text = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_CompleteContestMonLevel);
+        StringTemplate_SetNumber(template, 1, Pokemon_GetValue(kept, MON_DATA_LEVEL, NULL), 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+        StringTemplate_Format(template, formatted, text);
+        BattleSubscreen_NewFontOAM(btlSubscreen, &btlSubscreen->fontOAMEntry[COMPLETE_CONTEST_FONT_LEVEL], formatted, FONT_SYSTEM, TEXT_COLOR(9, 8, 0), COMPLETE_CONTEST_TEXT_PLTT, 20023, 144, 16, 0, NULL);
+        String_Free(text);
+
+        SpriteSystem_LoadCharResObj(spriteSys, spriteMan, NARC_INDEX_POKETOOL__ICONGRA__PL_POKE_ICON, Pokemon_IconSpriteIndex(kept), FALSE, NNS_G2D_VRAM_TYPE_2DSUB, COMPLETE_CONTEST_ICON_RES_ID);
+
+        SpriteTemplate iconTemplate = sTargetSelectPokeIconTemplate;
+        iconTemplate.resources[0] = COMPLETE_CONTEST_ICON_RES_ID;
+        iconTemplate.x = 120;
+        iconTemplate.y = 8;
+        btlSubscreen->completeContestMonIcon = SpriteSystem_NewSprite(spriteSys, spriteMan, &iconTemplate);
+        ManagedSprite_SetPositionXYWithSubscreenOffset(btlSubscreen->completeContestMonIcon, iconTemplate.x, iconTemplate.y, (192 + 80) << FX32_SHIFT);
+        Sprite_SetExplicitPaletteOffsetAutoAdjust(btlSubscreen->completeContestMonIcon->sprite, Pokemon_IconPaletteIndex(kept));
+        ManagedSprite_TickFrame(btlSubscreen->completeContestMonIcon);
+    }
+
+    String *ballsLeft = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_CompleteSportBallsLeft);
+    StringTemplate_SetNumber(template, 0, BattleSystem_GetNumSafariBalls(btlSubscreen->battleSys), 2, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    StringTemplate_Format(template, formatted, ballsLeft);
+    BattleSubscreen_NewFontOAM(btlSubscreen, &btlSubscreen->fontOAMEntry[COMPLETE_CONTEST_FONT_BALLS], formatted, FONT_SYSTEM, TEXT_COLOR(9, 8, 0), COMPLETE_CONTEST_TEXT_PLTT, 20023, 224, 16, 0, NULL);
+    String_Free(ballsLeft);
+    String_Free(formatted);
+
+    btlSubscreen->completeContestBall = SpriteSystem_NewSprite(spriteSys, spriteMan, &sCompleteContestBallTemplate);
+    ManagedSprite_SetPositionXYWithSubscreenOffset(btlSubscreen->completeContestBall, sCompleteContestBallTemplate.x, sCompleteContestBallTemplate.y, (192 + 80) << FX32_SHIFT);
+    ManagedSprite_TickFrame(btlSubscreen->completeContestBall);
+
+    btlSubscreen->completeContestNet = SpriteSystem_NewSprite(spriteSys, spriteMan, &sCompleteContestNetTemplate);
+    ManagedSprite_SetAnim(btlSubscreen->completeContestNet, 1);
+    ManagedSprite_SetPositionXYWithSubscreenOffset(btlSubscreen->completeContestNet, sCompleteContestNetTemplate.x, sCompleteContestNetTemplate.y, (192 + 80) << FX32_SHIFT);
+    ManagedSprite_TickFrame(btlSubscreen->completeContestNet);
+}
+
+static void BattleSubscreen_FreeCompleteContest(BattleSubscreen *btlSubscreen)
+{
+    SpriteManager *spriteMan = BattleSystem_GetSpriteManager(btlSubscreen->battleSys);
+
+    if (btlSubscreen->completeContestNet == NULL) {
+        return;
+    }
+
+    Sprite_DeleteAndFreeResources(btlSubscreen->completeContestNet);
+    Sprite_DeleteAndFreeResources(btlSubscreen->completeContestBall);
+    btlSubscreen->completeContestNet = NULL;
+    btlSubscreen->completeContestBall = NULL;
+
+    if (btlSubscreen->completeContestMonIcon != NULL) {
+        Sprite_DeleteAndFreeResources(btlSubscreen->completeContestMonIcon);
+        btlSubscreen->completeContestMonIcon = NULL;
+        SpriteManager_UnloadCharObjById(spriteMan, COMPLETE_CONTEST_ICON_RES_ID);
+    }
+
+    SpriteManager_UnloadCharObjById(spriteMan, COMPLETE_CONTEST_RES_ID);
+    SpriteManager_UnloadCellObjById(spriteMan, COMPLETE_CONTEST_RES_ID);
+    SpriteManager_UnloadAnimObjById(spriteMan, COMPLETE_CONTEST_RES_ID);
+}
+
 static void BattleSubscreen_OpenActionMenu(BattleSubscreen *btlSubscreen, int unused1, int unused2)
 {
     int direction = btlSubscreen->activeMenuData.actionData.battlerType;
@@ -1485,6 +1622,10 @@ static void BattleSubscreen_DrawActionMenu(BattleSubscreen *btlSubscreen, int un
         fightOrBallText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_BallPalPark);
         bagOrBaitText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Bait);
         pokemonOrMudText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Mud);
+    } else if (BattleSystem_GetBattleType(btlSubscreen->battleSys) & BATTLE_TYPE_BUG_CONTEST) { // Sovereign Complete: HeartGold's BALL, which throws a Sport Ball
+        fightOrBallText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Fight);
+        bagOrBaitText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Ball);
+        pokemonOrMudText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Pokemon);
     } else {
         fightOrBallText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Fight);
         bagOrBaitText = MessageLoader_GetNewString(msgLoader, BattleStrings_Text_Bag);
@@ -1525,6 +1666,10 @@ static void BattleSubscreen_DrawActionMenu(BattleSubscreen *btlSubscreen, int un
         }
 
         ManagedSprite_SetPositionXYWithSubscreenOffset(manSprite, x, y - (((192 + 80) << FX32_SHIFT) >> FX32_SHIFT), (192 + 80) << FX32_SHIFT);
+
+        if (BattleSystem_GetBattleType(btlSubscreen->battleSys) & BATTLE_TYPE_BUG_CONTEST) { // Sovereign Complete
+            BattleSubscreen_DrawCompleteContest(btlSubscreen, msgLoader);
+        }
     }
 }
 
@@ -2683,6 +2828,7 @@ static void BattleSubscreen_Cleanup(BattleSubscreen *btlSubscreen, BOOL freeSpri
 
 static void BattleSubscreen_FreeAllSprites(BattleSubscreen *btlSubscreen)
 {
+    BattleSubscreen_FreeCompleteContest(btlSubscreen); // Sovereign Complete
     BattleSubscreen_FreeSovereignMegaButton(btlSubscreen);
     FreeMoveTypeIcons(btlSubscreen);
     FreeCategoryIcons(btlSubscreen);

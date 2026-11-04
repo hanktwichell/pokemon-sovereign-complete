@@ -9,11 +9,11 @@ Kurt in Azalea Town makes Poké Balls from Apricorns, which grow on 31 trees acr
 - **Trees.** HeartGold's Apricorn trees are people on the map running its `std_apricorn_tree` script, with the tree's
   number in their first parameter (HeartGold's `sTreeApricorns`, `src/apricorn_tree_sys.c`, gives each its colour).
   `tools/complete/import_hgss_events.py` gives them `CommonScript_CompleteApricornTree`
-  (`res/field/scripts/scripts_common.s`, common script 0x80F) and, until HeartGold's sprites come in, Platinum's Cut
-  tree as a stand-in (its berry soil, the first stand-in, showed Sinnoh's berry patches). The script is HeartGold's
-  with its text (in `common_strings.json`): a tree gives its Apricorn once a day to a player with the Apricorn Box. A
-  picked tree's flag (`COMPLETE_APRICORN_TREE_FLAGS_START`, past HeartGold's and Sacred Gold's flags) is cleared with
-  the daily flags.
+  (`res/field/scripts/scripts_common.s`, common script 0x80F) and HeartGold's tree sprite: with its Apricorn's colour
+  of fruit until it's picked that day, bare after (`CompleteApricorns_TreeGfx`, `src/complete_apricorns.c`, as each
+  tree's object is made). The script is HeartGold's with its text (in `common_strings.json`): a tree gives its
+  Apricorn once a day to a player with the Apricorn Box. A picked tree's flag (`COMPLETE_APRICORN_TREE_FLAGS_START`,
+  past HeartGold's and Sacred Gold's flags) is cleared with the daily flags.
 - **Apricorns** are bag items (the Items pocket), where HeartGold keeps them in the Apricorn Box. The box is still the
   key item Kurt gives, which lets the player pick them, as in HeartGold.
 - **Kurt.** Where HeartGold opens its Apricorn Box, the bag opens on the Items pocket: Kurt takes all of the kind of
@@ -58,8 +58,8 @@ Kurt in Azalea Town makes Poké Balls from Apricorns, which grow on 31 trees acr
 - **Test:** `tools/complete/test_hgss_balls.py` throws each at a wild Pokémon in the test build: all seven catch, the
   Pokémon keeps that Ball, and a Friend Ball's starts at 200 friendship.
 
-Left: Kurt's phone calls (with the Pokégear), HeartGold's tree and Apricorn sprites, and the Apricorn juice stand,
-which is the skipped Pokéathlon's.
+Kurt calls about his Balls on the Pokégear's phone ("The Pokégear phone"). Left: the Apricorn juice stand, which is
+the skipped Pokéathlon's.
 
 ## Bug-Catching Contest
 
@@ -80,8 +80,15 @@ judged against five of ten Bug Catchers. HeartGold's own parts, and where each w
   flags held in a variable (the contestants' hide flags) have two of their own.
 - **Encounters:** grass and Sweet Scent bring out the day's set while it runs (slots 20/20/10/10/10/10/5/5/5/5%); the
   map's own rate still decides when.
-- **Battle:** a contest battle type (the lead still gains experience), where BAG throws a Sport Ball (×1.5), as the
-  Great Marsh's BALL throws a Safari Ball. A catch gets no nickname and goes to the contest, not the party; with one
+- **Battle:** a contest battle type (the lead still gains experience), where BALL (BAG's button) throws a Sport Ball
+  (×1.5), as the Great Marsh's BALL throws a Safari Ball. The bottom screen is HeartGold's contest menu
+  (`BattleSubscreen_DrawCompleteContest`, `src/battle/battle_subscreen.c`, from its `battle_input.c`): BALL in BAG's
+  place, one party Ball (the contest's one Pokémon), and over the menu its bug net, a Sport Ball with the Balls left,
+  and the Pokémon the contest keeps, with its icon, gender and level (the battle's contest Pokémon starts as a copy
+  of it, `FieldBattleDTO_NewBugContest`). The net's and Ball's sprites are HeartGold's
+  (`tools/complete/import_hgss_balls.py`, `res/graphics/battle/interface/hgss/`), and the contest's battles load
+  HeartGold's bottom-screen sprite palettes in place of Platinum's: they're the same seven with the net's, Ball's and
+  gender's colours added, and the bottom screen's sixteen palettes have no room for more. A catch gets no nickname and goes to the contest, not the party; with one
   already kept, the battle asks which to keep, where HeartGold has a screen of its own after the battle (an app still
   in assembly). The last Ball missing ends the battle and the contest; losing heals the party and ends it.
 - **Field:** the time-up check runs each frame the field takes input, as HeartGold's; the start menu shows the Sport
@@ -90,12 +97,13 @@ judged against five of ten Bug Catchers. HeartGold's own parts, and where each w
   contest's one-Pokémon party for it, and leaves after.
 
 - **Test:** `tools/complete/test_hgss_bug_contest.py` enters at Route 36's gate on a Tuesday, surveys the contest's
-  grass (every Pokémon is one of the day's ten, at its levels), catches one with a Sport Ball (the contest keeps it,
-  with 19 Balls left), and lets the time run out: the announcement, the National Park, the judging, and the party back
-  with the caught Pokémon in its Sport Ball. All four parts pass.
+  grass (every Pokémon is one of the day's ten, at its levels), catches one with Sport Balls (each thrown in its own
+  colours; the contest keeps the Pokémon, with a Ball fewer for each thrown), checks that a second battle's menu shows
+  the kept Pokémon and runs from it, and lets the time run out: the announcement, the National Park, the judging, and
+  the party back with the caught Pokémon in its Sport Ball. All four parts pass.
 
-Left: the Sport Ball and the bug net on the battle's bottom screen (HeartGold's BALL label and Ball count, with the
-kept Pokémon), the Sport Ball's own graphics, the contest's music and fanfares (step 6), and the Pokégear calls.
+The Sport Ball is thrown in its own graphics, and the contest's music plays in the National Park and its gatehouses
+(docs/Music.md).
 
 ## Johto Safari Zone
 

@@ -77,3 +77,14 @@ battle_sprites += [
     preserve_path_from: base_directory,
   ),
 ]
+
+# Sovereign Complete: HeartGold's bug net and Sport Ball over the Bug-Catching Contest's battle menu, and its
+# bottom-screen sprite palettes, which the contest's battles load
+# (tools/complete/import_hgss_balls.py; src/battle/battle_subscreen.c)
+battle_sprites += [
+  lz_gen.process(
+    files('hgss/contest_net.NCGR', 'hgss/contest_net_cell.NCER', 'hgss/contest_net_anim.NANR'),
+    preserve_path_from: base_directory,
+  ),
+  copy_gen.process(files('hgss/contest_menu.NCLR'), preserve_path_from: base_directory),
+]

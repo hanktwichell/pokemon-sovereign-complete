@@ -11333,6 +11333,22 @@
         "for winning!\r",
         "Sent some to Mom!\r"
       ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSportBallsLeft",
+      "en_US": "x{STRVAR_1 51, 0, 0}"
+    },
+    {
+      "id": "BattleStrings_Text_CompleteContestMonMale",
+      "en_US": "♂"
+    },
+    {
+      "id": "BattleStrings_Text_CompleteContestMonFemale",
+      "en_US": "♀"
+    },
+    {
+      "id": "BattleStrings_Text_CompleteContestMonLevel",
+      "en_US": "{ALN_RIGHT}Lv. {STRVAR_1 52, 1, 0}"
     }
   ]
 }
