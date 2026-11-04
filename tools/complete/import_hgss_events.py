@@ -9,7 +9,7 @@ as Platinum's, and the names (object IDs, sprites) from its JSON sources. docs/M
 - warps: HeartGold map n -> MAP_HEADER_HGSS_* (n + MAP_HEADER_HGSS_EVERYWHERE), same arrival warp; the dynamic
   warp (4095, back where the player came from) is the same in both games;
 - objects: the same local IDs (HeartGold's object names become the LOCALID constants for scripts), position, facing
-  and range; movement types 0-46 are the same in both games, the rest look south; HeartGold flag f -> flag
+  and range; movement types 0-46 and the disguises (51-54) are the same in both games, the rest look south; HeartGold flag f -> flag
   COMPLETE_FLAGS_START + f (named FLAG_HGSS_* in generated/vars_flags.txt), its per-map flags (1-64) stay the same;
   sprites: HeartGold's own, converted by tools/complete/gen_hgss_people_sprites.py (data/complete/hgss_sprites.json:
   its people, Elm, Ethan and Lyra), else Platinum's sprite with the same number for HeartGold's first 146 (Diamond
@@ -61,6 +61,11 @@ FIELD_MOVE_SCRIPTS = (10000, 10001, 10002)  # Cut, Rock Smash, Strength: the sam
 DYNAMIC = 4095  # "back where the player came from", the same in both games (MAP_HEADER_DYNAMIC)
 SAME_MOVEMENT_TYPES = 47  # MOVEMENT_TYPE_NONE .. MOVEMENT_TYPE_LOOK_WEST_AND_EAST
 OTHER_MOVEMENT = 'MOVEMENT_TYPE_LOOK_SOUTH'
+# The four disguises, the same in both games (each game's table has them at 51-54, kinds 0-3, drawn with the same
+# models: nin_hide_s, _b, _g and _k): an object hidden under a pile, as Platinum's Galactic grunts are. HeartGold hides
+# the Kanto Snorlax's three other tiles so; Sacred Gold its plates' snow and dirt piles (Pewter City, Bellchime Trail,
+# the Sinjoh Ruins, Mt. Silver's summit).
+DISGUISE_MOVEMENT_TYPES = range(51, 55)
 SAME_SPRITES = 146  # Diamond and Pearl's list, kept by both games (Platinum adds the berry soil at 100)
 SPRITE_STAND_INS = {
     'PCWOMAN1': 'POKECENTER_NURSE', 'PCWOMAN2': 'RECEPTIONIST', 'PCWOMAN3': 'RECEPTIONIST',
@@ -344,7 +349,8 @@ def main():
             trainer_name = trainer(script) if TRAINER_SCRIPTS.start <= script < TRAINER_SCRIPTS.stop else None
             obj.update({
                 'graphics_id': OBJECT_SPRITES.get((bank, named['id']), sprites.name(sprite)),
-                'movement_type': movement_types[movement] if movement < SAME_MOVEMENT_TYPES else OTHER_MOVEMENT,
+                'movement_type': movement_types[movement]
+                if movement < SAME_MOVEMENT_TYPES or movement in DISGUISE_MOVEMENT_TYPES else OTHER_MOVEMENT,
                 'trainer_type': trainer_types[kind] if trainer_name and kind else 'TRAINER_TYPE_NONE',
                 'hidden_flag': HIDDEN_FLAGS.get(flag(hidden, names, platinum_local), flag(hidden, names, platinum_local)),
                 'script': trainer_name or script_of(script),

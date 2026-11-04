@@ -83,7 +83,7 @@
         {
             "id": "obj_D17R1101_2",
             "graphics_id": "OBJ_EVENT_GFX_POKEBALL",
-            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "movement_type": "MOVEMENT_TYPE_DISGUISE_ROCK",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_SG_3FA5",
             "script": 5,

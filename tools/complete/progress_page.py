@@ -143,6 +143,10 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'All sixteen of Arceus\'s plates can be found: a test takes each one from its giver, pile or spot. On the way, '
+        'Sacred Gold\'s hidden piles were fixed: Pewter City had a Cynthia standing where the Stone Plate\'s dirt pile '
+        'should be, the Sinjoh Ruins a Snorlax for its snow pile, and the Kanto Snorlax three little boys around it. '
+        'They\'re mounds of dirt and snow now, as in Sacred Gold.',
         'Every one-time Pokémon in Sacred Gold\'s event guide works: a new test meets each one (Rotom, Spiritomb, the '
         'shiny pseudo-legends, Lapras on Fridays, Kanto\'s birds, Mewtwo, Mew after its three teleports, Celebi, '
         'Jirachi and Shaymin with the Azure Flute, the Regis and Regigigas, Latios, Groudon, Kyogre and Rayquaza, '

@@ -798,12 +798,22 @@ and each starts its battle as the guide gives it:
 Ho-Oh's and Lugia's are the legendary cutscenes' (above), Arceus's the Sinjoh Ruins' plates event's, and the roamers
 are HeartGold's roaming code's.
 
+**Arceus's sixteen plates** (the guide's treasure hunt) are where Sacred Gold put them: dirt piles in Bellchime Trail
+and by Pewter's museum, snow piles in the Sinjoh Ruins and on Mt. Silver's summit, the hard ground in the National
+Park during the contest, Elm's bin, the Power Plant's bookcase, Diglett's Cave's ball, Steven in the Route 38
+gatehouse, and the people who want something: a Phione then a Manaphy shown on the S.S. Aqua, a Bellossom's dance on
+Route 39, a final-stage Psychic Pokémon in Saffron, respects paid in Lavender Town, 15 Poké Balls and a Destiny Knot
+in the Olivine Lighthouse; the Fist and Draco Plates come held by Tyrogue and Dragonair. The piles are HeartGold's
+disguises (an object hidden under a mound, as Platinum's Galactic grunts are, the same four kinds and models in both
+games), as are the Kanto Snorlax's three other tiles.
+
 Test: `tools/complete/test_hgss_special_events.py`. For each encounter it sets what the script waits for (badges,
 items, flags, the party, the hour, the weekday), talks or steps on, and checks the battle's Pokémon, its level and
 whether it's shiny, as the test build records each scripted wild battle as it starts (`gCompleteTestScriptedWild`,
 in `CreateWildMon_Scripted`). It also checks that the early tries start no battle, and the steps that open the way:
 the nightmare shows Cresselia, the tablet breaks for the three Regis (and not without them), the Lavender Town woman
-trades the Azure Flute for the Magma Stone, and picking up the Magma Stone brings Heatran out.
+trades the Azure Flute for the Magma Stone, and picking up the Magma Stone brings Heatran out. And each plate's giver,
+pile or spot puts it in the bag.
 
 ## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight
 

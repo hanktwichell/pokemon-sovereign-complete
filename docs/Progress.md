@@ -1699,3 +1699,16 @@ Test results on the new test build:
   (to Kanto's Power Plant), all passing. The talk test is most of the way through with one stop more than the known
   three: Johto's Battle Factory attendant, whose lobby runs Platinum's Factory since the Frontier opened, stops at
   the same rental menu the test can't drive in Sinnoh's.
+
+- **Arceus's plates, and the piles they hide under:** every one of the sixteen plates Arceus asks for can be had
+  (`docs/Features.md`, "Sacred Gold's special encounters"): the special events test now takes each of the fourteen
+  that aren't held by a gift Pokémon from its giver, pile or spot and checks it lands in the bag (57 of 57 pass,
+  with the lead a Phione then a Manaphy, a Bellossom or an Alakazam where the giver wants one, and 15 Poké Balls
+  for the lighthouse woman). On the way a sprite fault turned up: Sacred Gold hides the Stone, Flame, Icicle and Sky
+  Plates under dirt and snow piles, which are HeartGold's disguises (movement types 51-54, an object under a mound,
+  as Platinum's Galactic grunts are), and the events importer turned every movement type past 46 into "look
+  south". So Pewter City had a Cynthia standing by the museum, the Sinjoh Ruins a Snorlax in the snow, Bellchime
+  Trail a Poké Ball, and the Kanto Snorlax three little boys on its other tiles. HeartGold's table has Platinum's
+  four disguises at the same numbers, drawn from the same models (`nin_hide_s`, `_b`, `_g`, `_k`, checked in both
+  games' field-effect archives), so they're kept now: the piles show as mounds, and the Snorlax stands alone. The
+  radio test, which wakes the Route 11 Snorlax, passes (11 of 11).

@@ -57,7 +57,8 @@ LATE_NIGHT, FRIDAY = 1, 5  # an hour of TIMEOFDAY_LATE_NIGHT (0 to 3), and Frida
 # maybe {flag: value} the script must leave). The target is ('obj', events, object id), talked to from the tile the
 # talk test stands on; ('bg', map header, x, z, the way the player faces it), A pressed from the tile beside it; or
 # ('coord', map header, x, z, the way the player steps onto it). What's set: 'badges' (the last badge needed, and the
-# ones before it), 'items', 'flags' ({flag or var: value}), 'party' (species), 'hour', 'weekday', and 'keep': False
+# ones before it), 'items', 'flags' ({flag or var: value}), 'party' (species), 'lead' (the lead's species),
+# 'poke_balls' (that many in the bag's Balls pocket), 'hour', 'weekday', and 'keep': False
 # for an object whose hide flag the script sets (it's then left to the story's flags). A ('walk', events,
 # object id, map header, [(x, z)...]) target talks to the object, then walks to each tile in turn and talks to what
 # stands there.
@@ -137,6 +138,39 @@ EVENTS = [
      {'flags': {'FLAG_HGSS_SG_3FC2': 1}}, [], None, {'FLAG_HGSS_SG_3FC2': 0, 'ITEM_MAGMA_STONE': 1}),
     ('Mew (after its three teleports)', ('walk', 'events_hgss_143', 'obj_D46R0101_12', 'MAP_HEADER_HGSS_VIRIDIAN_FOREST',
                                           [(33, 25), (41, 62), (26, 41)]), {}, [], ('SPECIES_MEW', 45, False)),
+    # Arceus's sixteen plates (the guide's treasure hunt; the Fist and Draco Plates come held by the gifts' Tyrogue
+    # and Dragonair, tools/complete/test_hgss_gifts.py): each one's giver, pile or spot puts it in the bag
+    ("the Flame Plate (Bellchime Trail's dirt pile)", ('obj', 'events_hgss_004', 'obj_D17R1101_2'), {}, [], None,
+     {'ITEM_FLAME_PLATE': 1}),
+    ("the Insect Plate (the contest's hard ground)",
+     ('bg', 'MAP_HEADER_HGSS_NATIONAL_PARK_BUG_CATCHING_CONTEST', 50, 24, None), {}, [], None, {'ITEM_INSECT_PLATE': 1}),
+    ('the Dread Plate (15 Poke Balls and a Destiny Knot)', ('obj', 'events_hgss_112', 'obj_D27R0101_2'),
+     {'items': ['ITEM_DESTINY_KNOT'], 'poke_balls': 15}, [True], None, {'ITEM_DREAD_PLATE': 1, 'ITEM_DESTINY_KNOT': 0}),
+    ("the Sky Plate (Mt. Silver's summit)", ('obj', 'events_hgss_419', 'obj_D41R0108_1'), {}, [], None,
+     {'ITEM_SKY_PLATE': 1}),
+    ("the Icicle Plate (the Sinjoh Ruins' snow)", ('obj', 'events_hgss_473', 'obj_D51R0101_mount_2'), {}, [], None,
+     {'ITEM_ICICLE_PLATE': 1}),
+    ('a Phione shown on the S.S. Aqua', ('obj', 'events_hgss_278', 'obj_P01R0301_4'), {'lead': 'SPECIES_PHIONE'}, [],
+     None, {'FLAG_HGSS_SG_3FAD': 1}),
+    ('the Splash Plate (a Manaphy shown after)', ('obj', 'events_hgss_278', 'obj_P01R0301_4'),
+     {'lead': 'SPECIES_MANAPHY', 'flags': {'FLAG_HGSS_SG_3FAD': 1}}, [], None, {'ITEM_SPLASH_PLATE': 1}),
+    ("the Zap Plate (the Power Plant's bookcase)", ('bg', 'MAP_HEADER_HGSS_ROUTE_10_POWER_PLANT_REPAIRED', 19, 18, None),
+     {}, [], None, {'ITEM_ZAP_PLATE': 1}),
+    ('the Iron Plate (Steven in the gatehouse)', ('coord', 'MAP_HEADER_HGSS_ROUTE_38_ECRUTEAK_GATEHOUSE', 1, 7, None),
+     {}, [], None, {'ITEM_IRON_PLATE': 1}),
+    ("the Meadow Plate (a Bellossom's dance)", ('obj', 'events_hgss_040', 'obj_R39_13'),
+     {'lead': 'SPECIES_BELLOSSOM', 'flags': {'FLAG_HGSS_SG_3FA3': 1}}, [True], None,
+     {'ITEM_MEADOW_PLATE': 1, 'ITEM_TM53': 1}),
+    ("the Stone Plate (Pewter's dirt pile)", ('obj', 'events_hgss_048', 'obj_T03_11'), {}, [], None,
+     {'ITEM_STONE_PLATE': 1}),
+    ('the Spooky Plate (respects paid)', ('obj', 'events_hgss_393', 'obj_T05R0601_gsoldwoman1'), {}, [True], None,
+     {'ITEM_SPOOKY_PLATE': 1}),
+    ('the Mind Plate (an Alakazam shown)', ('obj', 'events_hgss_356', 'obj_T11R0501_1'), {'lead': 'SPECIES_ALAKAZAM'},
+     [], None, {'ITEM_MIND_PLATE': 1}),
+    ("the Toxic Plate (Elm's bin)", ('bg', 'MAP_HEADER_HGSS_NEW_BARK_ELMS_LAB_1F', 6, 3, None), {'badges': 'PLAIN'},
+     [True], None, {'ITEM_TOXIC_PLATE': 1}),
+    ("the Earth Plate (Diglett's Cave's ball)", ('obj', 'events_hgss_103', 'obj_D01R0101_monstarball'), {}, [], None,
+     {'ITEM_EARTH_PLATE': 1}),
 ]
 WALK_STEPS = 300
 
@@ -158,7 +192,8 @@ def main():
     os.makedirs(out, exist_ok=True)
     chosen = [e for e in EVENTS if not only or any(o in e[0] for o in only)]
     sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gSovereignTestPartyKeep', 'gSovereignTestPartyAdd',
-                             'gCompleteTestHGSSBadges', 'gCompleteTestKeepFlagClear', 'gCompleteTestScriptedWild'))
+                             'gCompleteTestHGSSBadges', 'gCompleteTestKeepFlagClear', 'gCompleteTestScriptedWild',
+                             'gCompleteTestLeadSpecies'))
     variables = var_ids()
     headers = header_names()
     species_names, item_names = names('species'), names('items')
@@ -182,15 +217,29 @@ def main():
         return int(bool(mem.unsigned[flags + n // 8] & (1 << (n % 8))))
 
     bag_text = open(os.path.join(DECOMP, 'include', 'bag.h'), encoding='utf-8').read()
-    bag_slots = sum(int(n) for n in re.findall(r'#define \w+_POCKET_SIZE\s+(\d+)', bag_text))
+    pockets = re.findall(r'#define (\w+)_POCKET_SIZE\s+(\d+)', bag_text)  # in struct Bag's order
+    bag_slots = sum(int(n) for _, n in pockets)
+    balls_slot = sum(int(n) for name, n in pockets[:[name for name, _ in pockets].index('POKEBALL')])
+
+    def bag():
+        base = u32(sym['sSaveDataPtr'])
+        at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index('SAVE_TABLE_ENTRY_BAG') * 16 + 8
+        return base + 20 + u32(at)
+
+    def put_poke_balls(count):
+        """count Poke Balls in the Balls pocket: in its Poke Ball slot, or its first empty one."""
+        ball, at = item_names.index('ITEM_POKE_BALL'), bag() + 4 * balls_slot
+        slots = [struct.unpack('<HH', bytes(mem.unsigned[at + 4 * i:at + 4 * i + 4]))
+                 for i in range(int(dict(pockets)['POKEBALL']))]
+        i = next((i for i, (item, _) in enumerate(slots) if item == ball), None)
+        i = i if i is not None else next(i for i, (item, _) in enumerate(slots) if item == 0)
+        mem.write_short(at + 4 * i, ball)
+        mem.write_short(at + 4 * i + 2, count)
 
     def bag_count(item):
         """How many of the item the bag holds (include/bag.h: every pocket's BagItems, item and quantity)."""
-        base = u32(sym['sSaveDataPtr'])
-        at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index('SAVE_TABLE_ENTRY_BAG') * 16 + 8
-        bag = base + 20 + u32(at)
-        want = item_names.index(item)
-        slots = struct.unpack(f'<{2 * bag_slots}H', bytes(mem.unsigned[bag:bag + 4 * bag_slots]))
+        start, want = bag(), item_names.index(item)
+        slots = struct.unpack(f'<{2 * bag_slots}H', bytes(mem.unsigned[start:start + 4 * bag_slots]))
         return sum(slots[i + 1] for i in range(0, len(slots), 2) if slots[i] == want)
 
     def after_value(name):
@@ -216,6 +265,10 @@ def main():
                 mem.write_short(sym['gSovereignTestPartyAdd'] + 4 * i, species_names.index(species))
                 mem.write_byte(sym['gSovereignTestPartyAdd'] + 4 * i + 2, 0)  # form
                 mem.write_byte(sym['gSovereignTestPartyAdd'] + 4 * i + 3, 50)  # level
+        if 'lead' in gates:
+            mem.write_short(sym['gCompleteTestLeadSpecies'], species_names.index(gates['lead']))
+        if 'poke_balls' in gates:
+            put_poke_balls(gates['poke_balls'])
         items = gates.get('items', [])
         if items:
             mem.write_short(sym['gSovereignTestBagItem'], item_names.index(items[0]))

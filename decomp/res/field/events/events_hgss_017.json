@@ -334,7 +334,7 @@
         {
             "id": "obj_R12_gsbabyboy1",
             "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
-            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "movement_type": "MOVEMENT_TYPE_DISGUISE_ROCK",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_12_SNORLAX",
             "script": 6,
@@ -353,7 +353,7 @@
         {
             "id": "obj_R12_gsbabyboy1_2",
             "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
-            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "movement_type": "MOVEMENT_TYPE_DISGUISE_ROCK",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_12_SNORLAX",
             "script": 6,
@@ -372,7 +372,7 @@
         {
             "id": "obj_R12_gsbabyboy1_3",
             "graphics_id": "OBJ_EVENT_GFX_HGSS_GSBABYBOY1",
-            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "movement_type": "MOVEMENT_TYPE_DISGUISE_ROCK",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_HIDE_ROUTE_12_SNORLAX",
             "script": 6,
