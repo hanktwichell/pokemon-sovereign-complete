@@ -59,3 +59,18 @@ battle_sprites += [
     preserve_path_from: base_directory,
   ),
 ]
+
+# Sovereign Complete: HeartGold's own Balls' throws, Fast to Park (tools/complete/import_hgss_balls.py; their rows in
+# src/battle_anim/ov12_02235E94.c)
+hgss_balls = [ 'fast', 'level', 'lure', 'heavy', 'love', 'friend', 'moon', 'sport', 'park' ]
+hgss_ball_tiles = []
+hgss_ball_palettes = []
+foreach ball : hgss_balls
+  hgss_ball_tiles += files('hgss' / ball + '_ball.NCGR')
+  hgss_ball_palettes += files('hgss' / ball + '_ball.NCLR')
+endforeach
+
+battle_sprites += [
+  lz_gen.process(hgss_ball_tiles, preserve_path_from: base_directory),
+  copy_gen.process(hgss_ball_palettes, preserve_path_from: base_directory),
+]

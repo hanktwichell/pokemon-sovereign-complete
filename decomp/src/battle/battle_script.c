@@ -11309,7 +11309,7 @@ static void BattleScript_CatchMonTask(SysTask *task, void *inData)
             ballThrow.mode = BALL_THROW_MODE_THROW;
             ballThrow.heapID = HEAP_ID_BATTLE;
             ballThrow.target = battler + 20000;
-            ballThrow.ballID = data->ball;
+            ballThrow.ballID = Pokemon_BallToDraw(data->ball); // Sovereign Complete: HeartGold's own Balls by HeartGold's numbers
             ballThrow.cellActorSys = BattleSystem_GetSpriteSystem(data->battleSys);
             ballThrow.paletteSys = BattleSystem_GetPaletteData(data->battleSys);
             ballThrow.bgPrio = 1;
@@ -11365,7 +11365,7 @@ static void BattleScript_CatchMonTask(SysTask *task, void *inData)
         break;
     case SEQ_CATCH_MON_CALC_SHAKES:
         if (--data->tmpData[CATCH_MON_DELAY] == 0) {
-            BattleController_EmitOpenCaptureBall(data->battleSys, battler, Pokemon_BallToDraw(data->ball)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
+            BattleController_EmitOpenCaptureBall(data->battleSys, battler, Pokemon_BallToDraw(data->ball)); // Sovereign Complete: HeartGold's own Balls by HeartGold's numbers
             data->tmpData[CATCH_MON_TOTAL_SHAKES] = BattleScript_CalcCatchShakes(data->battleSys, data->battleCtx);
 
             if (data->tmpData[CATCH_MON_TOTAL_SHAKES] < BALL_3_SHAKES_SUCCESS) {

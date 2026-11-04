@@ -4990,11 +4990,11 @@ BOOL Pokemon_PlayCry(Pokemon *mon)
     return Sound_PlayPokemonCry(species, form);
 }
 
-// Sovereign Complete: the Ball a Pokémon's Ball is drawn as. Platinum's Ball graphics and tables have its 16; HeartGold's
-// own draw as a Poké Ball until theirs come in (docs/Features.md)
+// Sovereign Complete: the Ball a Ball item is drawn as: Platinum's 16 as they are, HeartGold's own as HeartGold's Ball
+// numbers (17 to 25), whose throws, colours and summary icons are HeartGold's (docs/Features.md)
 int Pokemon_BallToDraw(int ball)
 {
-    return ball >= ITEM_FAST_BALL && ball <= ITEM_PARK_BALL ? ITEM_POKE_BALL : ball;
+    return ball >= ITEM_FAST_BALL && ball <= ITEM_PARK_BALL ? BALL_DRAW_HGSS_FIRST + ball - ITEM_FAST_BALL : ball;
 }
 
 void Pokemon_SetCatchData(Pokemon *mon, TrainerInfo *trainerInfo, int monPokeball, int metLocation, int metTerrain, enum HeapID heapID)

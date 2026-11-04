@@ -209,6 +209,14 @@ palettes_nclr_8bpp = nclr_gen.process(palettes_pal_8bpp,
     ],
 )
 
+# Sovereign Complete: HeartGold's own Balls' icons and palettes, Fast to Sport (tools/complete/import_hgss_balls.py;
+# PokemonSummaryScreen_SetCaughtBallGfx), at the end of pokemon_summary_screen.order
+hgss_ball_icons = []
+foreach ball : [ 'fast', 'level', 'lure', 'heavy', 'love', 'friend', 'moon', 'sport' ]
+    hgss_ball_icons += files(balls_dir / 'hgss' / 'hgss_' + ball + '_ball.NCGR', balls_dir / 'hgss' / 'hgss_' + ball + '_ball.NCLR')
+endforeach
+hgss_ball_icon_files = copy_gen.process(hgss_ball_icons)
+
 pokemon_summary_screen_narc = custom_target('pl_pst_gra.narc',
     output: [
         'pl_pst_gra.narc',
@@ -224,6 +232,7 @@ pokemon_summary_screen_narc = custom_target('pl_pst_gra.narc',
         sprites_nanr,
         palettes_nclr_4bpp,
         palettes_nclr_8bpp,
+        hgss_ball_icon_files, # Sovereign Complete
     ],
     command: [
         nitroarc_exe,

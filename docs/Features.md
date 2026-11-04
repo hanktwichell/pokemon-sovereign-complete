@@ -34,29 +34,32 @@ Kurt in Azalea Town makes Poké Balls from Apricorns, which grow on 31 trees acr
   The catch rate is capped at 255 after them, as in HeartGold.
 - **Keeping the Ball.** A Pokémon keeps HeartGold's Balls (Fast to Park) as HeartGold keeps them: its Ball number
   (17-25) in the byte after Platinum's (`MON_DATA_POKEBALL`, `src/pokemon.c`), with a Poké Ball in Platinum's, so the
-  engine's Ball is still an item. Until their graphics come in, they are drawn as a Poké Ball wherever a Pokémon's
-  Ball is drawn (`Pokemon_BallToDraw`: sending out, the capsule, the summary, the trade room) and thrown as one.
+  engine's Ball is still an item.
+- **Drawing the Ball.** Wherever a Pokémon's Ball is drawn (sending out, the capture, the capsule, the summary, the
+  trade room), `Pokemon_BallToDraw` gives the Ball graphics' tables Platinum's 16 as their items and HeartGold's own
+  as HeartGold numbers them (`BALL_DRAW_HGSS_FIRST` 17, Fast, to `BALL_DRAW_HGSS_LAST` 25, Park, in `pokemon.h`), and
+  each table has HeartGold's rows for them:
+  - **Thrown and sent out** (`src/battle_anim/ov12_02235E94.c`): the throw's tiles and palette are HeartGold's
+    (`tools/complete/import_hgss_balls.py` takes them from its battle sprites, `a/0/0/8`, members 309 + 3n and 99 + n,
+    into `res/graphics/battle/ball_throws/hgss/`, at the end of `sprites.order`; the build compresses the tiles as
+    Platinum's are). Their cells and animations are the Poké Ball's, as in HeartGold, and so are their open and catch
+    particles (HeartGold's are copies of its Poké Ball's). The new rows come after the special throws' (Pal Park's,
+    the Safari Zone's mud and bait, 0xFF + 17 to 20), at `BALL_ROW_HGSS_FIRST`, so no caller changes. The Park
+    Ball's tiles are Platinum's own Park Ball's; its palette is HeartGold's.
+  - **The flash** as the Pokémon comes out or goes in (`sFadeColors`, `src/battle/battle_display.c`): HeartGold's
+    colours, the Poké Ball's pink for Fast to Sport and white for the Park Ball.
+  - **The summary screen's icon** (`PokemonSummaryScreen_SetCaughtBallGfx`): HeartGold's icons and their palettes
+    (`a/1/6/2`, members 41-48 and 53-60, Fast to Sport) at the end of `pl_pst_gra` (`balls/hgss/`). HeartGold has no
+    Park Ball icon (its summary screen reads a palette there), so the Park Ball shows a Poké Ball.
+  - **The trade room's cards** have Platinum's 16 Balls' animations, in a prebuilt archive; HeartGold's show a Poké
+    Ball there.
+  - The catch's own throw (`BattleScript_CatchMonTask`'s `SEQ_CATCH_MON_START`) goes through `Pokemon_BallToDraw` too,
+    so the Bug-Catching Contest's Sport Ball is thrown as itself.
 - **Test:** `tools/complete/test_hgss_balls.py` throws each at a wild Pokémon in the test build: all seven catch, the
   Pokémon keeps that Ball, and a Friend Ball's starts at 200 friendship.
 
-Left: the Balls' own graphics (in battle and on the summary screen; `a/0/0/8` and `a/1/6/2` below), Kurt's phone
-calls (with the Pokégear), HeartGold's tree and Apricorn sprites, and the Apricorn juice stand, which is the skipped
-Pokéathlon's.
-
-### HeartGold's Balls' graphics (planned)
-
-What drawing them takes, from both decomps (the rest of the original plan is done above):
-
-- **Tables to grow** (17 entries now): the summary screen's palette table (`sBallIDToPaletteNum`), the battle fade
-  colours (`sFadeColors`), and the three throw tables in `src/battle_anim/ov12_02235E94.c`, whose rows past 16 are
-  special throws (Park, mud, bait, close) reached as 0xFF + n: those move to a new offset, as HeartGold moved them
-  to 1000 + n, so Balls 17-25 can take ball − 1. `Pokemon_BallToDraw` then gives HeartGold's Ball numbers.
-- **Graphics.** HeartGold's throw sprites (`a/0/0/8`: Fast 309/99/308/307 to Park 333/107/332/331, images, palettes,
-  cells, animations) go into Platinum's battle sprites; their open and catch particles are byte for byte the Poké
-  Ball's, so the new rows point at Platinum's. Summary icons: HeartGold's `a/1/6/2` members 41-48 (Fast to Sport) and
-  their palettes 53-60, added through a lookup table rather than after Cherish (later members are hard-coded); neither
-  game has a Park Ball icon.
-- Also: the trade room's Ball animations are in a prebuilt archive.
+Left: Kurt's phone calls (with the Pokégear), HeartGold's tree and Apricorn sprites, and the Apricorn juice stand,
+which is the skipped Pokéathlon's.
 
 ## Bug-Catching Contest
 

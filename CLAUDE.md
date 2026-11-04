@@ -105,6 +105,11 @@ work.
 - The Magnet Train's ride: `src/applications/complete_magnet_train/` (HeartGold's overlay 104, written in C from its
   assembly; its models from `tools/complete/import_hgss_magnet_train.py`), run by `CompleteMagnetTrain` between the
   script's fades. Test: `tools/complete/test_hgss_magnet_train.py`.
+- HeartGold's own Balls (Fast to Park) are drawn as HeartGold numbers them, 17 to 25 (`Pokemon_BallToDraw`,
+  `BALL_DRAW_HGSS_*` in `pokemon.h`), with HeartGold's throws, flash colours and summary icons
+  (`tools/complete/import_hgss_balls.py`, into `res/graphics/battle/ball_throws/hgss/` and
+  `res/graphics/pokemon_summary_screen/balls/hgss/`, at the end of each archive's `.order`). Test:
+  `tools/complete/test_hgss_balls.py` (each throw's colours, the catch, the summary's icon).
 - Johto's Battle Frontier runs Platinum's facilities (the lobbies' commands and vars map to Platinum's in
   `tools/complete/hgss_script_table.py` and `translate_hgss_scripts.py`). Test: `tools/complete/test_hgss_frontier.py`.
 - The Pokégear: the field's bottom screen is the "no Pokétch" screen, the Pokétch or the Pokégear

@@ -1080,18 +1080,45 @@ void PokemonSummaryScreen_UpdatePageArrows(PokemonSummaryScreen *summaryScreen, 
     Sprite_SetDrawFlag(summaryScreen->sprites[SUMMARY_SPRITE_PAGE_ARROW_RIGHT], showArrows);
 }
 
+// Sovereign Complete: HeartGold's own Balls' icons and palettes, Fast to Sport (Pokemon_BallToDraw's 17 to 24; HeartGold
+// has no Park Ball icon, so it shows a Poké Ball's)
+static const u16 sHGSSBallIcons[][2] = {
+    { hgss_fast_ball_NCGR, hgss_fast_ball_NCLR },
+    { hgss_level_ball_NCGR, hgss_level_ball_NCLR },
+    { hgss_lure_ball_NCGR, hgss_lure_ball_NCLR },
+    { hgss_heavy_ball_NCGR, hgss_heavy_ball_NCLR },
+    { hgss_love_ball_NCGR, hgss_love_ball_NCLR },
+    { hgss_friend_ball_NCGR, hgss_friend_ball_NCLR },
+    { hgss_moon_ball_NCGR, hgss_moon_ball_NCLR },
+    { hgss_sport_ball_NCGR, hgss_sport_ball_NCLR },
+};
+
 void PokemonSummaryScreen_SetCaughtBallGfx(PokemonSummaryScreen *summaryScreen)
 {
     u32 ballMember;
 
-    if (summaryScreen->monData.caughtBall == ITEM_NONE) {
+    int ball = summaryScreen->monData.caughtBall; // Sovereign Complete: HeartGold's own Balls
+
+    if (ball == BALL_DRAW_PARK) {
+        ball = ITEM_POKE_BALL;
+    }
+
+    if (ball >= BALL_DRAW_HGSS_FIRST && ball < BALL_DRAW_HGSS_FIRST + NELEMS(sHGSSBallIcons)) {
+        const u16 *icon = sHGSSBallIcons[ball - BALL_DRAW_HGSS_FIRST];
+
+        SpriteSystem_ReplaceCharResObj(summaryScreen->spriteSys, summaryScreen->spriteMan, NARC_INDEX_GRAPHIC__PL_PST_GRA, icon[0], FALSE, 0);
+        SpriteSystem_ReplacePlttResObj(summaryScreen->spriteSys, summaryScreen->spriteMan, NARC_INDEX_GRAPHIC__PL_PST_GRA, icon[1], FALSE, 6);
+        return;
+    }
+
+    if (ball == ITEM_NONE) {
         ballMember = master_ball_NCGR;
     } else {
-        ballMember = master_ball_NCGR + summaryScreen->monData.caughtBall - 1;
+        ballMember = master_ball_NCGR + ball - 1;
     }
 
     SpriteSystem_ReplaceCharResObj(summaryScreen->spriteSys, summaryScreen->spriteMan, NARC_INDEX_GRAPHIC__PL_PST_GRA, ballMember, FALSE, 0);
-    SpriteSystem_ReplacePlttResObj(summaryScreen->spriteSys, summaryScreen->spriteMan, NARC_INDEX_GRAPHIC__PL_PST_GRA, balls_0_NCLR + sBallIDToPaletteNum[summaryScreen->monData.caughtBall], FALSE, 6);
+    SpriteSystem_ReplacePlttResObj(summaryScreen->spriteSys, summaryScreen->spriteMan, NARC_INDEX_GRAPHIC__PL_PST_GRA, balls_0_NCLR + sBallIDToPaletteNum[ball], FALSE, 6);
 }
 
 void PokemonSummaryScreen_UpdateStatusIcon(PokemonSummaryScreen *summaryScreen)

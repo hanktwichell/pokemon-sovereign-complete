@@ -74,11 +74,12 @@ STEPS = [
 
 NEXT = [
     'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build, with '
-    'HeartGold\'s sound effects and the Ruins of Alph\'s walls: its first 33 parts pass (to Cianwood City), and it '
-    'goes on from Chuck after the session\'s machine restarted.',
+    'HeartGold\'s sound effects and the Ruins of Alph\'s walls: every part so far passes, from New Bark Town through '
+    'Chuck, Jasmine and the Lake of Rage into Mahogany\'s Rocket Hideout (Petrel, 44 parts).',
     'The long checks pass on the latest builds (every Totem and legendary placement, every boss Mega, every tile '
     'behavior, the sound memory on every map). The talk test over all 5,865 people and signs is running on the '
-    'newest build too, since the scripts now play HeartGold\'s sounds.',
+    'newest build too, since the scripts now play HeartGold\'s sounds: half of it is through, with only the three '
+    'known stops (menus the test can\'t drive).',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
@@ -142,6 +143,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'HeartGold\'s own Balls look like themselves now: the seven Apricorn Balls (and the contest\'s Sport Ball) fly '
+        'in their own colours when thrown or sent out, and the summary screen shows each one\'s own icon, as in '
+        'HeartGold. They had all looked like Poké Balls.',
         'HeartGold\'s own sound effects play in Johto and Kanto: the Clear Bell\'s rings, Ho-Oh\'s and Lugia\'s wings, '
         'the Whirl Islands\' falls, the Rocket Hideout\'s traps and siren, the Magnet Train on its rails, Voltorb '
         'Flip\'s cards and coins, the Ruins of Alph\'s panels, Mahogany\'s sliding ice, and the 185 sounds Sacred '

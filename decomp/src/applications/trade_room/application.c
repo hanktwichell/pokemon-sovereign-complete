@@ -787,7 +787,11 @@ static void TradeRoom_CachePokemonDisplayData(Pokemon *mon, TradeRoomMonDisplayD
 {
     int wasDecrypted = Pokemon_EnterDecryptionContext(mon);
 
-    displayData->pokeBall = Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
+    displayData->pokeBall = Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL));
+
+    if (displayData->pokeBall >= BALL_DRAW_HGSS_FIRST) { // Sovereign Complete: the cards' Ball animations are Platinum's 16; HeartGold's own Balls show a Poké Ball
+        displayData->pokeBall = ITEM_POKE_BALL;
+    }
     displayData->species = Pokemon_GetValue(mon, MON_DATA_SPECIES, NULL);
     displayData->form = Pokemon_GetValue(mon, MON_DATA_FORM, NULL);
     displayData->isEgg = Pokemon_GetValue(mon, MON_DATA_IS_EGG, NULL);

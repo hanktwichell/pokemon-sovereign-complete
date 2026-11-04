@@ -142,7 +142,18 @@ static const int sBallThrowGraphics[][4] = {
     { ball_throws_park_ball_NCGR_lz,    ball_throws_park_ball_NCLR,    ball_throws_shared_cell_NCER_lz_17, ball_throws_shared_anim_NANR_lz_13         },
     { ball_throws_mud_NCGR_lz,          ball_throws_mud_NCLR,          ball_throws_mud_cell_NCER_lz,       ball_throws_mud_anim_NANR_lz               },
     { ball_throws_bait_NCGR_lz,         ball_throws_bait_NCLR,         ball_throws_shared_cell_NCER_lz_18, ball_throws_bait_anim_NANR_lz              },
-    { ball_throws_bait_NCGR_lz,         ball_throws_bait_NCLR,         ball_throws_shared_cell_NCER_lz_18, ball_throws_bait_anim_NANR_lz              },
+    { ball_throws_bait_NCGR_lz,         ball_throws_bait_NCLR,         ball_throws_shared_cell_NCER_lz_18, ball_throws_bait_anim_NANR_lz              },    // Sovereign Complete: HeartGold's own Balls, Fast to Park (Pokemon_BallToDraw's 17 to 25, at BALL_ROW_HGSS_FIRST
+    // on): HeartGold's tiles and palettes (tools/complete/import_hgss_balls.py), the Poké Ball's cells and animations,
+    // as in HeartGold
+    { ball_throws_hgss_fast_ball_NCGR_lz, ball_throws_hgss_fast_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_level_ball_NCGR_lz, ball_throws_hgss_level_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_lure_ball_NCGR_lz, ball_throws_hgss_lure_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_heavy_ball_NCGR_lz, ball_throws_hgss_heavy_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_love_ball_NCGR_lz, ball_throws_hgss_love_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_friend_ball_NCGR_lz, ball_throws_hgss_friend_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_moon_ball_NCGR_lz, ball_throws_hgss_moon_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_sport_ball_NCGR_lz, ball_throws_hgss_sport_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
+    { ball_throws_hgss_park_ball_NCGR_lz, ball_throws_hgss_park_ball_NCLR, ball_throws_shared_cell_NCER_lz_1, ball_throws_shared_anim_NANR_lz },
 };
 // clang-format on
 
@@ -166,7 +177,17 @@ static const int Unk_ov12_0223AD70[][2] = {
     { 0x11, 0x3 },
     { 0x1, 0x5 },
     { 0x1, 0x5 },
-    { 0x24, 0x2 }
+    { 0x24, 0x2 },
+    // Sovereign Complete: HeartGold's own Balls open with the Poké Ball's particles (HeartGold's are copies of its)
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
+    { 0x4, 0x3 },
 };
 
 static const int Unk_ov12_0223AE10[][3] = {
@@ -189,12 +210,29 @@ static const int Unk_ov12_0223AE10[][3] = {
     { 0x23, 0x3, 0x5 },
     { 0x13, 0x0, 0x5 },
     { 0x13, 0x0, 0x5 },
-    { 0x24, 0xFF, 0x2 }
+    { 0x24, 0xFF, 0x2 },
+    // Sovereign Complete: and are caught with them
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
+    { 0x16, 0x3, 0x5 },
 };
+
+// Sovereign Complete: HeartGold's own Balls' rows, after the special throws' (0xFF + 17 to 0xFF + 20)
+#define BALL_ROW_HGSS_FIRST 20
 
 static int ov12_02235E94(int param0)
 {
     int v0;
+
+    if (param0 >= BALL_DRAW_HGSS_FIRST && param0 <= BALL_DRAW_HGSS_LAST) { // Sovereign Complete
+        return BALL_ROW_HGSS_FIRST + param0 - BALL_DRAW_HGSS_FIRST;
+    }
 
     if ((param0 < 1) || (param0 > (0xFF + 20))) {
         v0 = 4;
@@ -378,7 +416,7 @@ void ov12_02236030(BallCapsuleSealEffect *ballCapSealEff, const BallCapsuleConfi
         if (ballCapSealEff->ballCapCfg.ballTypeOverride != 0) {
             ballCapSealEff->ballType = ballCapSealEff->ballCapCfg.ballTypeOverride;
         } else {
-            ballCapSealEff->ballType = Pokemon_BallToDraw(Pokemon_GetValue(ballCapSealEff->ballCapCfg.mon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
+            ballCapSealEff->ballType = Pokemon_BallToDraw(Pokemon_GetValue(ballCapSealEff->ballCapCfg.mon, MON_DATA_POKEBALL, NULL)); // Sovereign Complete: HeartGold's own Balls by HeartGold's numbers
         }
     } else {
         ballCapSealEff->hasCapsule = 1;

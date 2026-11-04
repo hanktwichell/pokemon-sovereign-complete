@@ -1626,3 +1626,16 @@ Test results on the new test build:
   after it, where it passes (10 of 10). The story run goes on from Chuck after its first 33 parts, and the talk test
   runs again on the newest build.
 
+- **Room for eight sound effects:** checked on its own build: the sound memory test (5 of 5) and Voltorb Flip (4 of
+  4) pass with the eight-effect stack.
+- **HeartGold's Balls drawn as themselves:** the seven Apricorn Balls, the Sport Ball and the Park Ball had been
+  drawn as Poké Balls. `Pokemon_BallToDraw` now gives the Ball graphics' tables HeartGold's Ball numbers (17 to 25),
+  and each table has HeartGold's rows: the throw (its tiles and palettes from HeartGold's battle sprites, matched to
+  Platinum's by content, with the Poké Ball's cells, animations and particles, which HeartGold's are copies of), the
+  flash as a Pokémon comes out (HeartGold's colours) and the summary screen's icon (HeartGold's icons and palettes;
+  HeartGold has none for the Park Ball, which shows a Poké Ball). The rows go after Platinum's special throws, so
+  nothing that throws mud or bait changes. The catch's own throw now goes through the same lookup, so the
+  Bug-Catching Contest's Sport Ball is thrown as itself; the trade room's cards keep a Poké Ball (their animations are
+  Platinum's 16). `tools/complete/import_hgss_balls.py` brings the graphics in. The Ball test now also watches each
+  throw for the Ball's own colours and opens the caught Pokémon's summary for its icon's: 7 of 7 pass, and the
+  contest test (4 of 4) checks its Sport Ball's throw the same way.

@@ -7,7 +7,8 @@ bedroom state, on a Tuesday (gSovereignTestClock's weekday), with the party cut 
 2. **Encounters:** a survey (wild_forms.py's) of the contest map's grass: every Pokémon is one of the day's ten, at
    that slot's levels.
 3. **A battle:** walking in the grass until one starts, the wild Pokémon is put to sleep at 1 HP, and BAG throws a
-   Sport Ball, which catches it (A on the Pokédex's page, B elsewhere). The contest keeps it, with 19 Sport Balls left.
+   Sport Ball, drawn as itself (its own colours on the top screen as it flies: test_hgss_balls.py's check), which
+   catches it (A on the Pokédex's page, B elsewhere). The contest keeps it, with 19 Sport Balls left.
 4. **Time up:** with the contest's start moved back 21 minutes, the announcement plays, the player goes to the
    National Park, and the judging runs (no nickname). Then the contest is over, and the party is the two Pokémon and
    the caught one, in its Sport Ball.
@@ -30,6 +31,7 @@ from check_trainer_party import consts  # noqa: E402
 from gift_pokemon import MON, PARTY, talk_and_answer  # noqa: E402
 from talk_to_objects import DECOMP, SYMBOLS as TALK_SYMBOLS, arrive, cases, header_names, u32, var_ids, warp  # noqa: E402
 from wild_forms import MON_SIZE, SURVEY, run_survey  # noqa: E402
+from test_hgss_balls import SHOWN, THROW_FRAMES, THROW_STEP, own_colours, shown  # noqa: E402
 
 GATE = ('events_hgss_101', 'obj_R36R0201_counterm_2')  # Route 36's gatehouse guard on contest days (the other, on others)
 CONTEST_MAP = 'MAP_HEADER_HGSS_NATIONAL_PARK_BUG_CATCHING_CONTEST'
@@ -111,7 +113,16 @@ def battle(d, sym, names):
             b.write(bm.FOE_B, 'status', SLEEP, 4)
             phase = 'menu'
         elif phase == 'menu' and d.screenshot().convert('RGB').getpixel((20, 350)) == (224, 152, 40):
-            d.touch(*BAG, frames=4, after=60)
+            colours = own_colours('SPORT_BALL')
+            before_throw = shown(d.screenshot(), colours)
+            d.touch(*BAG, frames=4, after=0)
+            most = 0
+            for _ in range(0, THROW_FRAMES, THROW_STEP):
+                d.run(THROW_STEP)
+                most = max(most, shown(d.screenshot(), colours) - before_throw)
+            frames += 4 + THROW_FRAMES
+            if most < SHOWN:
+                return f'the Sport Ball wasn\'t drawn as itself (at most {most} pixels of its own colours)'
             phase = 'thrown'
         elif phase == 'thrown':
             if not b.mons():

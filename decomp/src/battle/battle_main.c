@@ -939,7 +939,7 @@ static void BattleMain_InitTerrains(BattleSystem *battleSys)
         }
 
         mon = BattleSystem_GetPartyPokemon(battleSys, battler, selectedPartySlot);
-        BattlerData_InitSendOutBallThrow(battleSys, battleSys->battlers[battler], Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL)), selectedPartySlot); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
+        BattlerData_InitSendOutBallThrow(battleSys, battleSys->battlers[battler], Pokemon_BallToDraw(Pokemon_GetValue(mon, MON_DATA_POKEBALL, NULL)), selectedPartySlot); // Sovereign Complete: HeartGold's own Balls by HeartGold's numbers
     }
 
     BattleMain_SetNetworkIconStrength();

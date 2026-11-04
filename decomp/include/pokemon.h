@@ -831,7 +831,12 @@ void PlayCryWithParams(ChatotCry *chatotCry, enum PokemonCryMod cryMod, u16 spec
  */
 void Species_PlayDelayedCry(ChatotCry *chatotCry, enum PokemonCryMod cryMod, u16 species, int form, int pan, int volume, int forceDefaultChatot, enum HeapID heapID, u8 delay);
 BOOL Pokemon_PlayCry(Pokemon *mon);
-int Pokemon_BallToDraw(int ball); // Sovereign Complete: HeartGold's own Balls draw as a Poké Ball
+// Sovereign Complete: the Ball the Ball graphics' tables draw for a Ball item: Platinum's 16 as their items, HeartGold's
+// own (Fast to Park) as HeartGold numbers them, BALL_DRAW_HGSS_FIRST (Fast) to BALL_DRAW_HGSS_LAST (Park)
+#define BALL_DRAW_HGSS_FIRST 17
+#define BALL_DRAW_HGSS_LAST  25
+#define BALL_DRAW_PARK       BALL_DRAW_HGSS_LAST
+int Pokemon_BallToDraw(int ball);
 void Pokemon_SetCatchData(Pokemon *mon, TrainerInfo *trainerInfo, int monPokeball, int metLocation, int metTerrain, enum HeapID heapID);
 void Pokemon_UpdateAfterCatch(Pokemon *mon, TrainerInfo *trainer, int monPokeball, int metLocation, int metTerrain, int heapID);
 void Pokemon_GiveHeldItem(Pokemon *mon, u32 battleType, int itemRates);

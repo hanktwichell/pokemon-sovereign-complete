@@ -187,6 +187,17 @@ static const u16 sFadeColors[] = {
     RGB(31, 24, 28),
     RGB(17, 26, 31),
     RGB(30, 8, 5),
+    // Sovereign Complete: HeartGold's own Balls (Pokemon_BallToDraw's 17 to 25), with HeartGold's colours: the Poké
+    // Ball's for Fast to Sport, white for the Park Ball
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 31, 31),
 };
 
 void BattleDisplay_InitTaskSetupUI(BattleSystem *battleSys, BattlerData *battlerData)
