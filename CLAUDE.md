@@ -18,8 +18,11 @@ work.
 - `decomp/res/sound/complete/`: the sound archive the build uses, made from Sovereign's (`res/sound/`) by
   `tools/complete/split_sound_basic.py`, with HeartGold's songs from `tools/complete/import_hgss_sound.py` (run it
   first) in `hgss/` (docs/Music.md). Both need a build's `nitrosfx`. Don't edit it by hand; the sync script remakes it.
-  The importer also takes each HeartGold sound effect (`SEQ_SE_GS_*`) Sacred Gold's scripts or `decomp/src` name, so
-  rerun it after naming a new one in C. They load into sound memory as they play (`src/complete_sound.c`,
+  The importer also takes each HeartGold sound effect (`SEQ_SE_GS_*`) Sacred Gold's scripts, `decomp/src` or
+  `decomp/res/field/scripts` name, so rerun it after naming a new one, then `split_sound_basic.py`, then
+  `ninja -C <build> res/sound/pl_sound_data.naix` before the build (the scripts link against it, built in no order).
+  Each archive entry stays in sound memory (about 32 bytes a bank), and the title song needs nearly all of it: run
+  the sound memory test (`sound_heap`) after adding sounds. They load into sound memory as they play (`src/complete_sound.c`,
   `CompleteSound_LoadOwnEffect`). `translate_hgss_scripts.py` reads the sound names from the release build's
   `res/sound/pl_sound_data.naix` (`ninja -C decomp/build res/sound/pl_sound_data.naix` after an import).
 - `HEARTGOLD_COMMIT` and `tools/complete/build_heartgold.sh`: HeartGold from pret/pokeheartgold, and Sacred Gold from

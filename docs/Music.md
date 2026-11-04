@@ -61,7 +61,9 @@ memory, measured from both decomps and both built archives.
    WaitFanfare gives it), and a battle with HeartGold's trainer theme loads: 11 KB to spare at the least; and the
    National Park, a contest gatehouse and the Radio Tower each load the song their flag puts on them.
 6. **HeartGold's sound effects** (Nov 3): the importer also brings in every sound effect of HeartGold's own
-   (`SEQ_SE_GS_*`) that Sacred Gold's scripts play or Complete's code names, 69 of them, each with its own bank and
+   (`SEQ_SE_GS_*`) that Sacred Gold's scripts play or Complete's code and own scripts name, 76 of them (the
+   Pokégear's and the phone's among them: its cursor, decide, cancel, app change and map touch, the ring, the dialing
+   tone and the hang-up, as HeartGold's Pokégear plays them), each with its own bank (or another's just like it) and
    waves as the songs are (Platinum's sound effects play from the basic set, always loaded). The SE players' own
    heaps are a kilobyte or two, so one of HeartGold's loads into sound memory as it starts (`Sound_PlayEffect`,
    `CompleteSound_LoadOwnEffect`): up to eight at a time (the cinematics play a few together), each freed once it has
@@ -76,6 +78,11 @@ memory, measured from both decomps and both built archives.
    and so do the ported scenes: the legendary cinematics and cutscenes, the Rocket Hideout's traps and siren, the
    Magnet Train, Voltorb Flip, the Ruins of Alph's puzzles, Mahogany's ice blocks and Blackthorn's lift. The test plays
    each over a Johto song and checks that sound memory comes back to what it was.
+   Every song, effect and bank in the archive stays in sound memory as its info and its file's place (about 32 bytes a
+   bank, 64 an effect with its bank), and the title screen's song needs nearly all the memory left: the seven
+   Pokégear effects took the last of it, and the title song no longer loaded (the sound memory test caught it). Banks
+   alike are one now (the importer keeps the first by name: 221 for 271 songs and effects), which gave back 1.6 KB:
+   the title song leaves 1 KB, Johto's songs and fanfares 5 KB at the least.
 7. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
    padding. Sovereign's own archive happened to line up.

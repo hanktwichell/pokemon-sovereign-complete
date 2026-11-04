@@ -2170,10 +2170,8 @@ CommonScript_CompletePhoneIncomingCall:
 
 CommonScript_CompletePhoneTalk:
     GoToIfEq VAR_RESULT, FALSE, CommonScript_CompletePhoneEnd
-    PlaySE SEQ_SE_PL_CALL_sseq
-    WaitSE SEQ_SE_PL_CALL_sseq
-    PlaySE SEQ_SE_PL_CALL_sseq
-    WaitSE SEQ_SE_PL_CALL_sseq
+    PlaySE SEQ_SE_GS_PHONE1_sseq @ HeartGold's ring
+    WaitSE SEQ_SE_GS_PHONE1_sseq
 CommonScript_CompletePhoneNextMessage:
     CompletePhoneCallMessage VAR_RESULT
     GoToIfEq VAR_RESULT, 0, CommonScript_CompletePhoneHangUp
@@ -2189,21 +2187,20 @@ CommonScript_CompletePhoneMenu:
     GoTo CommonScript_CompletePhoneNextMessage
 
 @ Sovereign Complete: a call the player places on the Pokégear (src/overlay006/complete_phone_calls.c): HeartGold's
-@ phone app's dialing (its bank 0271's "......"), then the call, or "That number is out of the area." where there's no
-@ signal
+@ phone app's dialing (its bank 0271's "......" with its dialing tone, PhoneCall_NoSignalMessage's), then the call, or
+@ "That number is out of the area." where there's no signal
 CommonScript_CompletePhoneOutgoingCall:
     LockAll
     CompletePhoneCallStart PHONE_CONTACT_NONE, 0, 0, VAR_RESULT
     GoToIfEq VAR_RESULT, FALSE, CommonScript_CompletePhoneOutgoingEnd
-    PlaySE SEQ_SE_DP_BUTTON9_sseq
     MessageFromBank TEXT_BANK_HGSS_MSG_0271, 30
     WaitTime 20, VAR_0x8004
-    PlaySE SEQ_SE_PL_CALL_sseq
+    PlaySE SEQ_SE_GS_PHONE0_sseq
     MessageFromBank TEXT_BANK_HGSS_MSG_0271, 31
-    WaitSE SEQ_SE_PL_CALL_sseq
-    PlaySE SEQ_SE_PL_CALL_sseq
+    WaitSE SEQ_SE_GS_PHONE0_sseq
+    PlaySE SEQ_SE_GS_PHONE0_sseq
     MessageFromBank TEXT_BANK_HGSS_MSG_0271, 32
-    WaitSE SEQ_SE_PL_CALL_sseq
+    WaitSE SEQ_SE_GS_PHONE0_sseq
     GoToIfEq VAR_RESULT, 4, CommonScript_CompletePhoneOutOfArea
     Call CommonScript_CompletePhoneNextMessage
     ReleaseAll
@@ -2220,6 +2217,7 @@ CommonScript_CompletePhoneOutgoingEnd:
 
 CommonScript_CompletePhoneHangUp:
     WaitButton
+    PlaySE SEQ_SE_GS_PHONE_OFF_sseq @ HeartGold's hang-up (PhoneCall_HangupTone)
     MessageFromBank TEXT_BANK_HGSS_MSG_0271, 36
     WaitTime 30, VAR_RESULT
     CloseMessage

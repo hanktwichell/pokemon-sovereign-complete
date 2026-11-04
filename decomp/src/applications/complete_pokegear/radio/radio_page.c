@@ -414,7 +414,7 @@ static void HandleTouch(RadioPage *page)
     if (button != TOUCHSCREEN_INPUT_NONE) {
         ToggleButtons(page, button, page->selectedButton);
         page->selectedButton = button;
-        Sound_PlayEffect(SEQ_SE_DP_BUTTON9_sseq);
+        Sound_PlayEffect(SEQ_SE_GS_GEARCURSOR_sseq);
         MoveCursor(page, sTuningHitboxes_Johto[button * 2].circle.x, sTuningHitboxes_Johto[button * 2].circle.y);
         return;
     }

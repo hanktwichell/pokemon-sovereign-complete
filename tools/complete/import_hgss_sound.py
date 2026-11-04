@@ -9,7 +9,8 @@ radio's songs (its shows' code plays them: the March, the Lullaby, the Poké Flu
 and Ho-Oh's and Arceus's themes in their cinematics. Sacred Gold leaves HeartGold's sound archive as it is.
 
 And HeartGold's own sound effects (SEQ_SE_GS_*): the ones Sacred Gold's scripts play and the ones Complete's ports of
-HeartGold's code name (decomp/src, where a Platinum sound stood in), each with a bank of its own as a song has, its
+HeartGold's code and Complete's own scripts name (decomp/src and decomp/res/field/scripts, where a Platinum sound
+stood in), each with a bank of its own as a song has, its
 waves in WAVE_ARC_GS too. They are too big to keep loaded (113 KB of waves Platinum lacks): one is loaded as it plays
 and freed after (src/complete_sound.c, CompleteSound_LoadOwnEffect).
 
@@ -19,6 +20,9 @@ of its own: HeartGold's instruments the song plays, at their numbers (the others
 play: a wave Platinum keeps loaded (WAVE_ARC_BASIC after tools/complete/split_sound_basic.py) is used from there, any
 other from WAVE_ARC_GS, one archive of all of them, which loads wave by wave (NitroSystem's single load), so a song
 loads only its own. A key split or drum region the song never plays points at Platinum's first loaded wave.
+
+Banks alike are written once, and the songs and effects with them share it (each bank stays in sound memory as its
+info, about 32 bytes, and the title screen's song needs nearly all there is).
 
 Written to decomp/res/sound/complete/hgss/: the banks (BANK/), the sequences (SEQ/), the waves (WAVE_ARC_GS/), the
 archive entries to add after Platinum's (hgss_sound.json, which tools/complete/split_sound_basic.py adds to the
@@ -109,13 +113,29 @@ def needed_songs(seqs):
 
 
 def needed_effects(seqs):
-    """HeartGold's own sound effects that Sacred Gold's scripts play or Complete's C code names."""
+    """HeartGold's own sound effects that Sacred Gold's scripts play or Complete's C code or own scripts name."""
     names = set()
     for path in glob.glob(os.path.join(SACRED_SCRIPTS, '*.s')):
         names |= set(re.findall(r'SEQ_SE_GS_\w+', open(path, errors='replace').read()))
-    for path in glob.glob(os.path.join(ROOT, 'decomp', 'src', '**', '*.c'), recursive=True):  # by the engine's name
+    engine = glob.glob(os.path.join(ROOT, 'decomp', 'src', '**', '*.c'), recursive=True)
+    engine += glob.glob(os.path.join(ROOT, 'decomp', 'res', 'field', 'scripts', '*.s'))  # the engine's own scripts
+    for path in engine:  # by the engine's name
         names |= {re.sub(r'_sseq$', '', n) for n in re.findall(r'SEQ_SE_GS_\w+', open(path, errors='replace').read())}
     return sorted(n for n in names if n in seqs and seqs[n]['player'].startswith('PLAYER_SE'))
+
+
+def merge_same_banks(banks, entries):
+    """Banks alike are one bank, the first by name: every bank in the archive stays in sound memory as its info and
+    its file's place (about 32 bytes; the title screen's song needs nearly all the memory there is), so a song or an
+    effect whose bank is like another's takes that one. The banks left; the entries are changed to match."""
+    first = {}
+    for name in sorted(banks):
+        first.setdefault(banks[name], name)
+    keep = {name: first[text] for name, text in banks.items()}
+    for seq in entries['seqInfo']:
+        seq['bank'] = keep[seq['bank']]
+    entries['bankInfo'] = [b for b in entries['bankInfo'] if keep[b['name']] == b['name']]
+    return {name: text for name, text in banks.items() if keep[name] == name}
 
 
 def expand_same(lines):
@@ -210,6 +230,7 @@ def main():
                                     'waves': [BASIC, GS_ARCHIVE, '', '']})
         entries['seqInfo'].append(dict(seq, fileName=f'{name}.sseq', bank=bank_name))
     entries['wavarcInfo'].append({'name': GS_ARCHIVE, 'fileName': f'{GS_ARCHIVE}.swar', 'singleLoad': True})
+    banks = merge_same_banks(banks, entries)
 
     # Written out: anything this run no longer makes goes
     changed = False

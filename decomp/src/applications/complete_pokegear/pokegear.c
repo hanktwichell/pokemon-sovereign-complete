@@ -451,7 +451,7 @@ static void ChangePage(CompletePokegear *gear, enum PokegearPage page)
         return;
     }
 
-    Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+    Sound_PlayEffect(SEQ_SE_GS_GEARAPPLICHANGE_sseq);
     UnloadPage(gear, TRUE);
     gear->page = page;
     CompletePokegear_SetPage(page);
@@ -489,7 +489,7 @@ static void ChangeSkin(CompletePokegear *gear, u8 skin)
         return;
     }
 
-    Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+    Sound_PlayEffect(SEQ_SE_GS_GEARDECIDE_sseq);
     CompletePokegear_SetSkin(gear->saveData, skin);
     UnloadPage(gear, FALSE);
     gear->skin = skin;
@@ -589,7 +589,7 @@ static void Scroll(CompletePokegear *gear, int by)
 
     gear->top = top;
     gear->lit = LIST_ROWS;
-    Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
+    Sound_PlayEffect(SEQ_SE_GS_GEARCURSOR_sseq);
     DrawList(gear);
 }
 
@@ -654,7 +654,7 @@ static void StartFly(CompletePokegear *gear)
 
 static void EndFly(CompletePokegear *gear, enum CompletePokegearFly result)
 {
-    Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+    Sound_PlayEffect(result == COMPLETE_POKEGEAR_FLY_CHOSEN ? SEQ_SE_GS_GEARDECIDE_sseq : SEQ_SE_GS_GEARCANCEL_sseq);
     CompletePokegear_SetFly(result, result == COMPLETE_POKEGEAR_FLY_CHOSEN ? gear->flySpawns[gear->flySelected] : 0);
     gear->fly = FALSE;
     gear->mapHeaderID = gear->fieldSystem->location->mapHeaderID;
@@ -687,7 +687,7 @@ static void MoveFlyCursor(CompletePokegear *gear, int dx, int dy)
 
     if (best >= 0) {
         gear->flySelected = best;
-        Sound_PlayEffect(SEQ_SE_DP_SELECT5_sseq);
+        Sound_PlayEffect(SEQ_SE_GS_GEARCURSOR_sseq);
         ShowFlyPick(gear);
     }
 }
@@ -743,7 +743,7 @@ static BOOL HandleFlyTouch(CompletePokegear *gear)
         EndFly(gear, COMPLETE_POKEGEAR_FLY_CHOSEN);
     } else {
         gear->flySelected = best;
-        Sound_PlayEffect(SEQ_SE_DP_SELECT5_sseq);
+        Sound_PlayEffect(SEQ_SE_GS_GEARMAPTOUCH_sseq);
         ShowFlyPick(gear);
     }
 
@@ -771,7 +771,7 @@ static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
 {
     if (x >= sAppBarButtons[APP_BAR_EXIT][0] * 8) {
         if (gear->poketchShown) {
-            Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+            Sound_PlayEffect(SEQ_SE_GS_GEARCANCEL_sseq);
             CompleteBottomScreen_RequestSwitch(gear->saveData);
         } else {
             Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq);
@@ -780,7 +780,7 @@ static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
         // a call ringing: the Phone answers it (the field makes the call as the player stands still), but not in a
         // scene or a warp
         if (CompletePhone_IsRinging() && !FieldSystem_IsRunningTask(gear->fieldSystem)) {
-            Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+            Sound_PlayEffect(SEQ_SE_GS_GEARDECIDE_sseq);
             CompletePhone_Answer();
         }
 
@@ -862,7 +862,7 @@ static void HandleTouch(CompletePokegear *gear)
         } else if ((y - LIST_Y) % ROW_HEIGHT < ROW_HEIGHT - 4 && gear->top + row < gear->numContacts) {
             gear->lit = row;
             gear->litTimer = CALL_HIGHLIGHT;
-            Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
+            Sound_PlayEffect(SEQ_SE_GS_GEARDECIDE_sseq);
             DrawList(gear);
             CompletePhone_RequestCall(gear->contacts[gear->top + row]);
         }

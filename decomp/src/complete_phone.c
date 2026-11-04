@@ -423,8 +423,8 @@ void CompletePhone_UpdateRinging(void)
         return;
     }
 
-    if (gSystem.vblankCounter - sLastRing >= RING_SOUND_GAP && !Sound_IsEffectPlaying(SEQ_SE_PL_CALL_sseq)) {
-        Sound_PlayEffect(SEQ_SE_PL_CALL_sseq);
+    if (gSystem.vblankCounter - sLastRing >= RING_SOUND_GAP && !Sound_IsEffectPlaying(SEQ_SE_GS_PHONE1_sseq)) {
+        Sound_PlayEffect(SEQ_SE_GS_PHONE1_sseq); // HeartGold's ring (its GearPhoneRingManager)
         sLastRing = gSystem.vblankCounter;
     }
 }

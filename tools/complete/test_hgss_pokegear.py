@@ -13,7 +13,9 @@ src/applications/complete_pokegear/pokegear.c) in the test build, from the bedro
 3b. **Not answered:** another call rings and, after HeartGold's 59 seconds (the host's clock, as the game's), stops,
    with no call.
 3c. **The skins:** the app bar's Settings shows HeartGold's six skins; a tap on the second (pink) dresses the
-   Pokégear in it (saved with the phone), and the Phone shows in it; a tap on the first puts it back.
+   Pokégear in it (saved with the phone), and the Phone shows in it; a tap on the first puts it back. The page's
+   change plays HeartGold's own sound for it, and the skin's its own (SEQ_SE_GS_GEARAPPLICHANGE, SEQ_SE_GS_GEARDECIDE:
+   each loaded into sound memory, gCompleteTestSound's log).
 3d. **No Map Card:** before the guide's Map Card a tap on the app bar's Map leaves the page as it was. Then the test
    gives the Map Card and the Radio Card (CompletePokegear_HasCard), and the app bar lights both.
 4. **The Map:** a tap on the app bar's Map shows the map, with the player's head where HeartGold's map app puts the
@@ -61,7 +63,8 @@ SETTINGS_BUTTON, SKIN_BUTTONS = (32, 176), [(48, 44), (128, 44)]  # the app bar'
 BEDROOM_PLACE, ROUTE_30_PLACE = (172, 116), (140, 100)  # the head's place on the map
 INCOMING_CALL = 2000 + 0x814 - 0x7D0  # SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_PHONE_INCOMING_CALL)
 RING_SECONDS = 59  # HeartGold's limit on a ringing call, on the clock
-SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'sCall', 'gCompleteTestPokegear', 'sActiveBottomScreen',
+SOUND_LOG, SOUND_LOG_SIZE, SOUND_LOADS = 20, 8, 14  # CompleteTestSound: its log of (id, loaded, free), its loads
+SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'sCall', 'gCompleteTestPokegear', 'sActiveBottomScreen', 'gCompleteTestSound',
                                      'sRinging', 'gCompleteTestPhoneRing',
                                      'gCompleteTestPokegearMap',
                                      'gSovereignTestPoketchApp', 'gSovereignTestGodMode'})
@@ -252,21 +255,47 @@ def main():
                        else 'a call started' if count else '')
         report('not answered', problem)
 
+    def sound_ids():
+        naix = os.path.join(DECOMP, os.environ.get('TEST_BUILD', 'build_test'), 'res', 'sound', 'pl_sound_data.naix')
+        return {k: int(v) for k, v in re.findall(r'#define (\w+) (\d+)', open(naix).read())}
+
+    def loaded_since(loads, name):
+        """Whether a sound with this name loaded since the log counted loads (its last eight)."""
+        at = sym['gCompleteTestSound']
+        now = struct.unpack('<H', bytes(mem.unsigned[at + SOUND_LOADS:at + SOUND_LOADS + 2]))[0]
+        want = sound_ids()[name]
+        for n in range(max(loads, now - SOUND_LOG_SIZE), now):
+            entry = at + SOUND_LOG + (n % SOUND_LOG_SIZE) * 8
+            sound, ok = struct.unpack('<HH', bytes(mem.unsigned[entry:entry + 4]))
+            if sound == want and ok:
+                return True
+        return False
+
+    def loads():
+        at = sym['gCompleteTestSound'] + SOUND_LOADS
+        return struct.unpack('<H', bytes(mem.unsigned[at:at + 2]))[0]
+
     # 3c. The skins
     if not problem:
+        before_tap = loads()
         d.touch(*SETTINGS_BUTTON, frames=6, after=60)
+        if not loaded_since(before_tap, 'SEQ_SE_GS_GEARAPPLICHANGE_sseq'):
+            problem = 'the page\'s change played no SEQ_SE_GS_GEARAPPLICHANGE'
         page, skin = struct.unpack('<5H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap']:sym['gCompleteTestPokegearMap'] + 10]))[::4]
         shot('settings')
         if page != 3:
-            problem = f'the page is {page}'
-        else:
+            problem = problem or f'the page is {page}'
+        elif not problem:
+            before_tap = loads()
             d.touch(*SKIN_BUTTONS[1], frames=6, after=60)
+            if not loaded_since(before_tap, 'SEQ_SE_GS_GEARDECIDE_sseq'):
+                problem = 'the skin played no SEQ_SE_GS_GEARDECIDE'
             skin = struct.unpack('<H', bytes(mem.unsigned[sym['gCompleteTestPokegearMap'] + 8:sym['gCompleteTestPokegearMap'] + 10]))[0]
             saved = mem.unsigned[phone + SKIN_OFFSET]
             shot('settings_pink')
             d.touch(*PHONE_BUTTON, frames=6, after=60)
             shot('phone_pink')
-            if skin != 1 or saved != 1:
+            if not problem and (skin != 1 or saved != 1):
                 problem = f'the skin is {skin}, saved {saved}'
             d.touch(*SETTINGS_BUTTON, frames=6, after=60)
             d.touch(*SKIN_BUTTONS[0], frames=6, after=60)

@@ -143,6 +143,8 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The Pokégear sounds like HeartGold\'s: its own clicks for the app bar, the cursor, picking and backing out, '
+        'the map, and the phone\'s ring, dialing tone and hang-up.',
         'Baoba calls on the Pokégear about the Safari Zone, as in HeartGold: his next test, the objects you can place '
         '(a group at a time), and which areas have new Pokémon, by name.',
         'The Bug-Catching Contest\'s battles have HeartGold\'s own bottom screen: a BALL button that throws a Sport '

@@ -1669,4 +1669,12 @@ Test results on the new test build:
 - **A sweep of every short test** on build_test2 (HeartGold's Balls and the contest's screen): 34 of 36 pass. The
   phone and Safari tests failed only because they were changed during the sweep for the next build (Baoba's part,
   the encounters' NARC), where they pass (11 of 11, 6 of 6).
+- **The Pokégear's own sounds:** it played Platinum's beeps. It plays HeartGold's now, as HeartGold's Pokégear code
+  does: the app bar's change, the cursor (scrolling, the radio's buttons, the fly map's D-pad), picking, backing out
+  and touching the map, and the phone's ring, dialing tone and hang-up click. The importer now also reads the engine's
+  own scripts for HeartGold's sound names. Seven more effects cost the archive about 450 bytes of the sound memory
+  that stays loaded, and the title screen's song, which needs nearly all of it, stopped fitting; HeartGold's banks
+  that are just like another (50 of 271) are merged into it, which gives back 1.6 KB (the title song leaves 1 KB, the
+  most it has). The Pokégear test now checks two of the sounds load as they play; it, the sound memory test (5 of 5),
+  the phone (11 of 11), its calls (12 of 12), the radio, Fly, the cutscenes and Voltorb Flip pass.
 

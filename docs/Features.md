@@ -412,7 +412,9 @@ HeartGold's phone, from its data (Sacred Gold's phone book and HeartGold's call 
 
 The owner's call (Nov 3, 2026): both, with a button to switch between them. HeartGold's Pokégear shows on the field's
 bottom screen in the Pokétch's place (`src/applications/complete_pokegear/pokegear.c`, an overlay of its own, with
-HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`), with its Phone and its Map:
+HeartGold's graphics: `tools/complete/import_hgss_pokegear_gfx.py`, and its sounds: the app bar's change, the cursor,
+picking, backing out and touching the map play HeartGold's own, as do a call's ring, the dialing tone and the
+hang-up; docs/Music.md), with its Phone and its Map:
 
 - **When:** once the player has it (Mom gives it in New Bark Town: `FLAG_HGSS_GOT_POKEGEAR`), the bottom screen
   switches to it at once; with no Pokétch yet it stays there. With both, the bottom screen shows the one the player
