@@ -143,6 +143,8 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'The lamp at the top of Olivine Lighthouse comes back on once Amphy has had the SecretPotion: HeartGold\'s '
+        'scene, its lamp turning and shining to a rising hum, the screen white, and back.',
         'Cerulean Gym\'s pool and the Lugia cave keep their own music while you surf, as in HeartGold; Mystery Gift '
         'unlocks with the Pokédex at Mr. Pokémon\'s; the Ruins of Alph\'s Unown line shows; Flash at the Omanyte '
         'wall shows your Pokémon\'s cut-in.',
