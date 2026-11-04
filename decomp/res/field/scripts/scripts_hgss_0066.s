@@ -72,7 +72,7 @@ _0095:
     Message msg_0094_D27R0107_00006
     WaitCry
     CloseMessage
-    @ HGSS: ScrCmd_459
+    CompleteLighthouseLight
     ApplyMovement obj_D27R0107_tsure_poke_static_ampharos, _0206
     WaitMovement
     PlayCry SPECIES_AMPHAROS, 0

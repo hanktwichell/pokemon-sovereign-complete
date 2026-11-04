@@ -22,6 +22,12 @@ And the Ruins of Alph's four chambers (OpenAlphHiddenRoom):
 6. **The walls' words:** in each chamber the player reads the north wall (6, 2) from the tile below: the stone tablet
    shows its word in the Unown's letters (ESCAPE, LIGHT, WATER, HO OH) until A is pressed.
 
+And the Olivine Lighthouse (ScrCmd_459):
+
+7. **The lamp:** with the SecretPotion in the bag (FLAG_HGSS_GOT_SECRETPOTION set), the player talks to Jasmine in
+   the light room (7, 8) and gives it: Amphy gets well, and the lamp lights (HeartGold's demo/legend 0 to 2, its
+   sounds), the screen flashes white and comes back.
+
 Each part must start its effect, run it to the end (gCompleteTestLegend: the effects ended, the last one's kind) and
 leave the field free. Screenshots of each effect as it plays go to OUT_DIR. Results: a line per part.
 
@@ -35,7 +41,7 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
-from talk_to_objects import SYMBOLS, header_names, play_out, symbols, var_ids, warp  # noqa: E402
+from talk_to_objects import DECOMP, SYMBOLS, header_names, play_out, symbols, var_ids, warp  # noqa: E402
 
 HIDEOUT = 'MAP_HEADER_HGSS_TEAM_ROCKET_HEADQUARTERS_B1F'
 BELL_TOWER = 'MAP_HEADER_HGSS_BELL_TOWER_1F'
@@ -43,14 +49,15 @@ WHIRL_ISLANDS = 'MAP_HEADER_HGSS_WHIRL_ISLANDS_B2F'
 LAKE_OF_RAGE = 'MAP_HEADER_HGSS_LAKE_OF_RAGE'
 ALPH = 'MAP_HEADER_HGSS_RUINS_OF_ALPH_{}_ENTRANCE_FIRST_ROOM'  # HeartGold's D24R0202 to D24R0208
 ALPH_WALL = 0x600  # the walls' kind: 0x600 + the word
+LIGHTHOUSE = 'MAP_HEADER_HGSS_OLIVINE_LIGHTHOUSE_LIGHT_ROOM'
 LANCE_FLIGHT, LANCE_RIDERS_HIDDEN = 0x400, 3  # gCompleteTestLegend[2]: a bit for each of Lance's and the Dragonite's
 FACING = {'UP': 1, 'DOWN': 0, 'LEFT': 3, 'RIGHT': 4}  # the test warp's facing: enum FaceDirection + 1, 0 for down
 SHOT_FRAMES = tuple(int(f) for f in os.environ['SHOTS'].split(',')) if os.environ.get('SHOTS') else (4, 24, 48, 120, 200)
 START = 4000  # frames for the effect to start after the step (Lance talks a while first)
 LIMIT = 20000
 # (part, the map, the tile beside the trigger, the key that steps onto it (A: talks), the effect's kind: 0x100 + the
-# trap, 0x200 the alarm, 0x300 + the wing, 0x400 Lance's flight, 0x600 + a wall's word, the flags and vars set on the
-# way in)
+# trap, 0x200 the alarm, 0x300 + the wing, 0x400 Lance's flight, 0x600 + a wall's word, 0x700 the lighthouse's lamp,
+# the flags and vars set on the way in, and an item (ITEM_*) put in the bag)
 PARTS = [('the electric trap', HIDEOUT, (14, 16), 'LEFT', 0x100, []),
          ('the poison trap', HIDEOUT, (12, 18), 'UP', 0x101, []),
          ('the rock trap', HIDEOUT, (14, 16), 'RIGHT', 0x102, []),
@@ -60,7 +67,9 @@ PARTS = [('the electric trap', HIDEOUT, (14, 16), 'LEFT', 0x100, []),
          ("Lance's flight", LAKE_OF_RAGE, (528, 84), 'A', 0x400, [('FLAG_HGSS_HIDE_LAKE_OF_RAGE_LANCE', 0)])] + \
     [(f'the {word} wall', ALPH.format(chamber), (6, 3), 'A', ALPH_WALL + i, [])
      for i, (word, chamber) in enumerate([('ESCAPE', 'NORTHEAST'), ('LIGHT', 'SOUTHEAST'), ('WATER', 'SOUTHWEST'),
-                                          ('HO OH', 'NORTHWEST')])]
+                                          ('HO OH', 'NORTHWEST')])] + \
+    [('the lighthouse lamp', LIGHTHOUSE, (7, 9), 'A', 0x700, [('FLAG_HGSS_GOT_SECRETPOTION', 1),
+                                                                ('ITEM_SECRETPOTION', 1)])]
 
 
 def main():
@@ -69,6 +78,7 @@ def main():
     rom, state, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('gCompleteTestLegend',))
+    items = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'items.txt')) if line.strip()]
     names = header_names()
     variables = var_ids()
     d = Driver(rom, state)
@@ -89,6 +99,9 @@ def main():
         d.run(30)
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
         for i, (var, value) in enumerate(setup, 2):
+            if var.startswith('ITEM_'):  # one of it in the bag, as the warp arrives
+                mem.write_short(sym['gSovereignTestBagItem'], items.index(var))
+                continue
             mem.write_short(sym['gSovereignTestVar'] + 4 * i, variables[var])
             mem.write_short(sym['gSovereignTestVar'] + 4 * i + 2, value)
         problem = ''

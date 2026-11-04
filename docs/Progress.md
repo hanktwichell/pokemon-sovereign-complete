@@ -1728,3 +1728,10 @@ Test results on the new test build:
   sprites (now installed; nothing on that map draws them) and four wireless rooms (the Union Room, the Global
   Terminal, the Wi-Fi Plaza's room and the Safari Zone's link counter), whose link commands stay comments until
   they're tested. CLAUDE.md says how to run it.
+- **The lighthouse lamp comes back on:** at the top of Olivine Lighthouse, once Amphy has had the SecretPotion,
+  HeartGold's lamp scene plays (its ScrCmd_459, here `CompleteLighthouseLight` in
+  `src/overlay005/complete_legend_cutscene.c`; `docs/Features.md`, the field effects): its lamp model from
+  `demo/legend` turns and shines for a second and a half to a rising hum, the screen goes white and fades back in.
+  Its two sounds are Diamond and Pearl effects HeartGold kept and Platinum dropped (`SEQ_SE_DP_FW411`, `_F207`): the
+  sound importer now also takes those when Complete's code names one (`docs/Music.md`). The field effects test has
+  the scene as its twelfth part (12 of 12 pass on build_test2), the sound memory test passes (5 of 5) and the release build boots.

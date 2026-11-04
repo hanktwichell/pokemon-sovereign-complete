@@ -36,6 +36,7 @@
 #include "pokemon.h"
 #include "screen_fade.h"
 #include "script_manager.h"
+#include "sound.h"
 #include "sound_playback.h"
 #include "string_gf.h"
 #include "sys_task.h"
@@ -1780,5 +1781,106 @@ BOOL CompleteScrCmd_UnownCircle(ScriptContext *ctx)
     gCompleteTestLegend[1] = 0x500;
 #endif
     FieldTask_InitCall(fieldSystem->task, UnownCircle_Task, circle);
+    return TRUE;
+}
+
+// HeartGold's ScrCmd_459 (ov02_02245B80): the Olivine Lighthouse's lamp coming back on, once Amphy is well. The lamp
+// (HeartGold's demo/legend 0, its two animations 1 and 2 looping) lights at its place in the room, to a sound that
+// comes six times faster and higher (HeartGold's own timing, its DP sounds); then the screen flashes white, the lamp's
+// effect ends and the screen comes back. HeartGold then also loads the room's lit area light, which Complete's
+// lighthouse, lit as a room is, already has.
+#define LIGHTHOUSE_LAMP_MODEL     0
+#define LIGHTHOUSE_SHINE_FRAMES   90 // before the flash
+#define LIGHTHOUSE_WHITE_FRAMES   60 // held white
+#define LIGHTHOUSE_FADE_OUT_STEPS 24
+#define LIGHTHOUSE_FADE_IN_STEPS  18
+#define SE_LIGHTHOUSE             SEQ_SE_DP_FW411_sseq
+#define SE_LIGHTHOUSE_LIT         SEQ_SE_DP_F207_sseq
+
+enum LighthouseState {
+    LIGHTHOUSE_STATE_SHINE = 0,
+    LIGHTHOUSE_STATE_FADE_OUT,
+    LIGHTHOUSE_STATE_WHITE,
+    LIGHTHOUSE_STATE_FADE_IN,
+};
+
+typedef struct LighthouseLight {
+    UnkStruct_ov5_021D1BEC *effectTask;
+    u16 state;
+    u16 frame;
+} LighthouseLight;
+
+static BOOL LighthouseLight_Task(FieldTask *task)
+{
+    LighthouseLight *light = FieldTask_GetEnv(task);
+
+    switch (light->state) {
+    case LIGHTHOUSE_STATE_SHINE: {
+        int frame = light->frame;
+
+        if (frame == 0 || frame == 30 || frame == 50 || frame == 60 || frame == 70 || frame == 80) {
+            Sound_PlayEffect(SE_LIGHTHOUSE);
+
+            if (frame == 50) {
+                Sound_PlayEffect(SE_LIGHTHOUSE_LIT);
+            }
+
+            if (frame >= 60) {
+                Sound_SetPitchForSequence(SE_LIGHTHOUSE, 0xFFFF, (frame / 10 - 5) * 64);
+            }
+        }
+
+        if (++light->frame > LIGHTHOUSE_SHINE_FRAMES) {
+            StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_WHITE, LIGHTHOUSE_FADE_OUT_STEPS, 2, CUTSCENE_HEAP);
+            light->state = LIGHTHOUSE_STATE_FADE_OUT;
+        }
+        break;
+    }
+    case LIGHTHOUSE_STATE_FADE_OUT:
+        if (IsScreenFadeDone()) {
+            light->frame = 0;
+            light->state = LIGHTHOUSE_STATE_WHITE;
+        }
+        break;
+    case LIGHTHOUSE_STATE_WHITE:
+        if (++light->frame > LIGHTHOUSE_WHITE_FRAMES) {
+            ov5_021D1BEC(light->effectTask);
+            light->effectTask = NULL;
+            StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_WHITE, LIGHTHOUSE_FADE_IN_STEPS, 1, CUTSCENE_HEAP);
+            light->state = LIGHTHOUSE_STATE_FADE_IN;
+        }
+        break;
+    case LIGHTHOUSE_STATE_FADE_IN:
+        if (IsScreenFadeDone()) {
+            Heap_Free(light);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestLegend[0]++;
+#endif
+            return TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_LighthouseLight(ScriptContext *ctx)
+{
+    static const int sLampAnims[] = { 1, 2 };
+    static const VecFx32 sLampPos = { FX32_CONST(136), 0, FX32_CONST(160) }; // HeartGold's, in the light room
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    LighthouseLight *light = Heap_AllocAtEnd(CUTSCENE_HEAP, sizeof(LighthouseLight));
+    EffectTaskData *data;
+
+    light->state = LIGHTHOUSE_STATE_SHINE;
+    light->frame = 0;
+    light->effectTask = StartEffectAnims(fieldSystem, LIGHTHOUSE_LAMP_MODEL, sLampAnims, NELEMS(sLampAnims), &sLampPos);
+    data = ov5_021D1C2C(light->effectTask);
+    data->looping = TRUE;
+    data->drawing = TRUE;
+#ifdef SOVEREIGN_TEST
+    gCompleteTestLegend[1] = 0x700;
+#endif
+    FieldTask_InitCall(fieldSystem->task, LighthouseLight_Task, light);
     return TRUE;
 }

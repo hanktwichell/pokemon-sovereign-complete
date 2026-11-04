@@ -63,7 +63,10 @@ memory, measured from both decomps and both built archives.
 6. **HeartGold's sound effects** (Nov 3): the importer also brings in every sound effect of HeartGold's own
    (`SEQ_SE_GS_*`) that Sacred Gold's scripts play or Complete's code and own scripts name, 76 of them (the
    Pokégear's and the phone's among them: its cursor, decide, cancel, app change and map touch, the ring, the dialing
-   tone and the hang-up, as HeartGold's Pokégear plays them), each with its own bank (or another's just like it) and
+   tone and the hang-up, as HeartGold's Pokégear plays them), and any of the Diamond and Pearl effects HeartGold kept
+   and Platinum dropped that Complete's code names (`SEQ_SE_DP_*` not in Platinum's list; the code names them with
+   their `_sseq` ends, as Platinum's list doesn't have them: the lighthouse lamp's `SEQ_SE_DP_FW411_sseq` and
+   `SEQ_SE_DP_F207_sseq`), each with its own bank (or another's just like it) and
    waves as the songs are (Platinum's sound effects play from the basic set, always loaded). The SE players' own
    heaps are a kilobyte or two, so one of HeartGold's loads into sound memory as it starts (`Sound_PlayEffect`,
    `CompleteSound_LoadOwnEffect`): up to eight at a time (the cinematics play a few together), each freed once it has

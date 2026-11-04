@@ -112,15 +112,19 @@ def needed_songs(seqs):
                   and seqs[n]['player'] in MUSIC_PLAYERS)
 
 
-def needed_effects(seqs):
-    """HeartGold's own sound effects that Sacred Gold's scripts play or Complete's C code or own scripts name."""
+def needed_effects(seqs, taken=frozenset()):
+    """HeartGold's own sound effects that Sacred Gold's scripts play or Complete's C code or own scripts name: its
+    SEQ_SE_GS_*, and the Diamond and Pearl effects it kept that Platinum dropped (SEQ_SE_DP_* not among Platinum's
+    names, taken: the Olivine Lighthouse's lamp's)."""
     names = set()
     for path in glob.glob(os.path.join(SACRED_SCRIPTS, '*.s')):
         names |= set(re.findall(r'SEQ_SE_GS_\w+', open(path, errors='replace').read()))
     engine = glob.glob(os.path.join(ROOT, 'decomp', 'src', '**', '*.c'), recursive=True)
     engine += glob.glob(os.path.join(ROOT, 'decomp', 'res', 'field', 'scripts', '*.s'))  # the engine's own scripts
     for path in engine:  # by the engine's name
-        names |= {re.sub(r'_sseq$', '', n) for n in re.findall(r'SEQ_SE_GS_\w+', open(path, errors='replace').read())}
+        text = open(path, errors='replace').read()
+        names |= {re.sub(r'_sseq$', '', n) for n in re.findall(r'SEQ_SE_GS_\w+', text)}
+        names |= {n for n in (re.sub(r'_sseq$', '', m) for m in re.findall(r'SEQ_SE_DP_\w+', text)) if n not in taken}
     return sorted(n for n in names if n in seqs and seqs[n]['player'].startswith('PLAYER_SE'))
 
 
@@ -170,7 +174,7 @@ def main():
     gs_waves, gs_index = [], {}  # the archive's WAVs in order, and their hashes' places
     banks, entries = {}, {'seqInfo': [], 'bankInfo': [], 'wavarcInfo': []}
     songs = needed_songs(seqs)
-    effects = needed_effects(seqs)
+    effects = needed_effects(seqs, taken)
     for name in songs + effects:
         if name in taken:
             sys.exit(f'{name} is already a Platinum sequence')

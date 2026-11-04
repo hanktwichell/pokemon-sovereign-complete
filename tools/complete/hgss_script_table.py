@@ -593,6 +593,8 @@ COMMANDS = {
     'ScrCmd_709': lambda a: ['CompleteHideoutAlarm'],
     # A monk's Rainbow Wing (0) or Silver Wing (1) shown at the player's feet, while the map's script 3 runs
     'ShowLegendaryWing': one('CompleteLegendaryWing {0}'),
+    # The Olivine Lighthouse's lamp coming back on once Amphy is well (src/overlay005/complete_legend_cutscene.c)
+    'ScrCmd_459': one('CompleteLighthouseLight'),
     # Lance and his Dragonite (their objects) taking off from the Lake of Rage
     'ScrCmd_775': one('CompleteLanceFlight {0}, {1}'),
     # HeartGold's legendary cinematics (its overlay 106): Ho-Oh over the Bell Tower (0), Lugia in the Whirl Islands (1)

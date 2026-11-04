@@ -44,6 +44,9 @@ BOOL CompleteScrCmd_LegendaryWing(ScriptContext *ctx);
 // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects' IDs) taking off from the Lake of Rage
 BOOL CompleteScrCmd_LanceFlight(ScriptContext *ctx);
 
+// HeartGold's ScrCmd_459: the Olivine Lighthouse's lamp coming back on, once Amphy is well
+BOOL CompleteScrCmd_LighthouseLight(ScriptContext *ctx);
+
 // HeartGold's UnownCircle: the Unown's circle at the Sinjoh Ruins, before Arceus's cinematic
 BOOL CompleteScrCmd_UnownCircle(ScriptContext *ctx);
 

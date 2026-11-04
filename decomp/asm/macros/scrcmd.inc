@@ -6434,6 +6434,11 @@
     .short \wing
     .endm
 
+    // HeartGold's ScrCmd_459: the Olivine Lighthouse's lamp coming back on (src/overlay005/complete_legend_cutscene.c)
+    .macro CompleteLighthouseLight
+    .short SCRCMD_COMPLETELIGHTHOUSELIGHT
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

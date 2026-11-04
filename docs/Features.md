@@ -816,7 +816,7 @@ the nightmare shows Cresselia, the tablet breaks for the three Regis (and not wi
 trades the Azure Flute for the Magma Stone, and picking up the Magma Stone brings Heatran out. And each plate's giver,
 pile or spot puts it in the bag.
 
-## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight
+## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight, the lighthouse lamp
 
 - **The traps** (Mahogany Town's hideout, B1F's trapped floor): stepping on one, HeartGold's trap goes off under the
   player before its battle: sparks for a Voltorb, a cloud of gas for a Koffing, rocks for a Geodude (HeartGold's
@@ -839,6 +839,12 @@ pile or spot puts it in the bag.
   field cut-in archive (`tools/complete/import_hgss_field_cutin.py`; Platinum's has only its two players). Lance sends
   out his Dragonite in the cut-in, the bird swoops down for him on his tile, his and the Dragonite's objects go and he
   is carried off, the player staying, with no fade (`CompleteLanceFlight`).
+- **The lighthouse lamp:** once Jasmine's Ampharos has had the SecretPotion, its light comes back on at the top of
+  Olivine Lighthouse (HeartGold's ScrCmd_459, `CompleteLighthouseLight`): the lamp's model turns and shines over the
+  room for a second and a half to HeartGold's rising hum, the screen goes white, the light is put away and the room
+  fades back in, before Jasmine thanks the player. The model and its two animations are HeartGold's `demo/legend` 0 to
+  2, and the two sounds are Diamond and Pearl effects HeartGold has and Platinum doesn't (`SEQ_SE_DP_FW411` and
+  `SEQ_SE_DP_F207`, brought in by the sound importer with HeartGold's own).
 - **The Rocket uniform:** the player changes into it in Goldenrod Tunnel before the Radio Tower, and walks in it, in
   HeartGold's own sprites for the boy and the girl, until the Radio Tower's director takes it back after the rescue
   (HeartGold's SetAvatarBits PLAYER_TRANSITION_ROCKET and RocketCostumeFlagAction: the flag the scenes set, read by
@@ -847,7 +853,8 @@ pile or spot puts it in the bag.
   message for an item that can't be used now), next to Platinum's own checks for a partner along.
 
 Test: `tools/complete/test_hgss_field_effects.py` (the three traps stepped on, the first statue's alarm, both wings and
-Lance's flight, each effect started, played to its end and the field free after; all seven pass), and
+Lance's flight, and the lamp with the SecretPotion in the bag, each effect started, played to its end and the field
+free after; with the four Ruins of Alph walls, all twelve parts pass), and
 `tools/complete/test_hgss_rocket_costume.py` for the uniform (its sprite, walking about in it, taken off, and the
 Bicycle on Y refused in it and taken without it).
 
