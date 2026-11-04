@@ -369,6 +369,18 @@ static void LoadSettings(CompletePokegear *gear, NARC *narc)
 // The page's layers: the Phone's frame (layer 0, tiles 0-127) and its list's window (layer 1); the Map's map (layer 1,
 // its tiles over the frame's, which is off) and its place name's window (layer 0, tiles 256 on); or the Radio's globe
 // and its windows (layer 0, radio_page.c)
+// A window whose pixels come from the given heap, not its BG config's: the Pokégear draws on the field's BG config,
+// whose heap is the field map's, and its contact list alone is 15 KB, more than the field map's heap can spare on a
+// crowded map (Route 201's briefcase scene ran it out as the map came back after the starter was chosen)
+static void AddWindowFromHeap(BgConfig *bgConfig, Window *window, u8 bgLayer, u8 left, u8 top, u8 width, u8 height, u8 palette, u16 baseTile, enum HeapID heapID)
+{
+    enum HeapID bgHeapID = bgConfig->heapID;
+
+    bgConfig->heapID = heapID;
+    Window_Add(bgConfig, window, bgLayer, left, top, width, height, palette, baseTile);
+    bgConfig->heapID = bgHeapID;
+}
+
 static void LoadPage(CompletePokegear *gear)
 {
     NARC *narc = NARC_ctor(NARC_INDEX_APPLICATION__COMPLETE__POKEGEAR, HEAP_ID_POKETCH_APP);
@@ -384,7 +396,7 @@ static void LoadPage(CompletePokegear *gear)
         Heap_Free(file);
 
         Bg_ClearTilesRange(BG_LAYER_SUB_1, TILE_SIZE_4BPP, 0, HEAP_ID_POKETCH_APP);
-        Window_Add(gear->bgConfig, &gear->list, BG_LAYER_SUB_1, LIST_X / 8, LIST_Y / 8, LIST_WIDTH / 8, LIST_ROWS * ROW_HEIGHT / 8, LIST_PALETTE, 1);
+        AddWindowFromHeap(gear->bgConfig, &gear->list, BG_LAYER_SUB_1, LIST_X / 8, LIST_Y / 8, LIST_WIDTH / 8, LIST_ROWS * ROW_HEIGHT / 8, LIST_PALETTE, 1, HEAP_ID_POKETCH_APP);
         Window_PutToTilemap(&gear->list);
         Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, 0);
         DrawList(gear);
@@ -414,7 +426,7 @@ static void LoadPage(CompletePokegear *gear)
         gear->dragX = -1;
         Bg_SetOffset(gear->bgConfig, BG_LAYER_SUB_1, BG_OFFSET_UPDATE_SET_X, gear->scrollX);
 
-        Window_Add(gear->bgConfig, &gear->name, BG_LAYER_SUB_0, 0, NAME_TOP, 32, 2, NAME_PALETTE, NAME_TILE_START);
+        AddWindowFromHeap(gear->bgConfig, &gear->name, BG_LAYER_SUB_0, 0, NAME_TOP, 32, 2, NAME_PALETTE, NAME_TILE_START, HEAP_ID_POKETCH_APP);
         Window_PutToTilemap(&gear->name);
         DrawPlaceName(gear);
     }
