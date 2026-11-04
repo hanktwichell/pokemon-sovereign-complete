@@ -1714,3 +1714,13 @@ Test results on the new test build:
   radio test, which wakes the Route 11 Snorlax, passes (11 of 11). The test also meets the guide's "special
   surprise" on Mewtwo's spot once it's caught: a trainer battle with "???" and Lugia, Ho-Oh and Mewtwo at Lv. 100
   (the test build's record of trainer battles), which starts as it should.
+- **Four more of HeartGold's script commands:** of the 463 lines Sacred Gold's scripts still leave untranslated,
+  nearly all belong to what's skipped or waits on the owner (Cameron's photos, the Pokéathlon, the Union Room and
+  Wi-Fi, Pal Park). Four small ones in ordinary places run now: Cerulean Gym's pool and the Whirl Islands' Lugia cave
+  keep their own music while the player surfs, as in HeartGold (its flag 0x99A, which their map scripts set and every
+  map change clears; checked in the emulator: surfing in the gym's pool leaves the gym's song playing, on Route 24
+  the surf theme plays); Mystery Gift unlocks with the Pokédex at Mr. Pokémon's, as in HeartGold; the Ruins of Alph's
+  line in the Unown script prints (Platinum's own Unown-font message); and Flash at the Omanyte chamber's wall shows
+  the Pokémon's HM cut-in. The walls test passes (2 of 2). A note for later: a full run of the script translator
+  doesn't reproduce today's installed scripts (two of its inserts no longer find their anchors, in Sacred Gold's
+  Cinnabar Gym and Cerulean Gym scripts), so these four were installed one file at a time.

@@ -67,7 +67,7 @@ scr_seq_D24R0211_001:
     WaitFadeScreen
     CompleteSetObjectDir 2, 2
     Message msg_0079_D24R0211_00003
-    @ HGSS: ScrCmd_527 4
+    MessageUnown 4
     Message msg_0079_D24R0211_00005
     BufferPlayerName 0
     Message msg_0079_D24R0211_00006

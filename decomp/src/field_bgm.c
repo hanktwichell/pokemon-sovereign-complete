@@ -137,6 +137,14 @@ void FieldBGM_ClearOverride(FieldSystem *fieldSystem)
     *bgm = SEQ_NONE;
 }
 
+// Sovereign Complete: HeartGold's maps that keep their own music while the player surfs (Cerulean Gym's pool and
+// the Whirl Islands' Lugia cave): their map-load scripts set HeartGold's flag 0x99A (its FieldBGM_GetEffective), and
+// every map change clears it (src/field_map_change.c).
+BOOL FieldBGM_CompleteKeepsMusicSurfing(FieldSystem *fieldSystem)
+{
+    return VarsFlags_CheckFlag(SaveData_GetVarsFlags(fieldSystem->saveData), FLAG_HGSS_UNK_99A);
+}
+
 u16 FieldBGM_GetEffective(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID)
 {
     PlayerAvatar *playerAvatar = fieldSystem->playerAvatar;
@@ -156,7 +164,9 @@ u16 FieldBGM_GetEffective(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID
         case MAP_HEADER_DISTORTION_WORLD_TURNBACK_CAVE_ROOM:
             break;
         default:
-            return CompleteSound_ForMap(mapHeaderID, SEQ_NAMINORI_sseq); // Sovereign Complete: Johto and Kanto's own
+            if (!FieldBGM_CompleteKeepsMusicSurfing(fieldSystem)) {
+                return CompleteSound_ForMap(mapHeaderID, SEQ_NAMINORI_sseq); // Sovereign Complete: Johto and Kanto's own
+            }
         }
     }
 
@@ -231,6 +241,10 @@ BOOL FieldBGM_TryFadeOut(FieldSystem *fieldSystem, u16 bgmID, int mode)
 {
     PlayerAvatar *playerAvatar;
     int fadeOutFrames, waitFrames, playerState;
+
+    if (bgmID == SEQ_NAMINORI_sseq && FieldBGM_CompleteKeepsMusicSurfing(fieldSystem)) { // Sovereign Complete
+        return FALSE;
+    }
 
     bgmID = CompleteSound_ForMap(fieldSystem->location->mapHeaderID, bgmID); // Sovereign Complete: surfing, cycling
 

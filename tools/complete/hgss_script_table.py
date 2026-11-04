@@ -432,6 +432,16 @@ COMMANDS = {
     # Celebi's time travel (Sacred Gold's GS Ball story): HeartGold's scene ends on a white screen, which the scripts
     # then fade in from; until the scene is ported, a fade to white
     'ScrCmd_810': lambda a: ['FadeScreen 6, 6, 0, COLOR_WHITE', 'WaitFadeScreen'],
+    # Mystery Gift unlocked with the Pokédex at Mr. Pokémon's (HeartGold's Save_SysInfo_SetMysteryGiftActive), as
+    # Platinum's Jubilife TV phrase unlocks it
+    'ScrCmd_573': one('UnlockMysteryGift'),
+    # Cerulean Gym's pool and the Lugia cave keep their own music while the player surfs (HeartGold's flag 0x99A,
+    # src/field_bgm.c's FieldBGM_CompleteKeepsMusicSurfing)
+    'ScrCmd_814': one('SetFlag FLAG_HGSS_UNK_99A'),
+    # A message in the Unown font (the Ruins of Alph), as Platinum's own
+    'ScrCmd_527': one('MessageUnown {0}'),
+    # The HM cut-in of a party Pokémon using its move (Flash at a Ruins of Alph wall), Platinum's the same
+    'ScrCmd_183': one('PlayHMCutIn {0}'),
     'GetDynamicWarpFloorNo': one('CompleteGetElevatorFloor {0}'),
     'BufferDeptStoreFloorNo': one('CompleteBufferFloorName {0}, {1}'),
     'ElevatorCurFloorBox': one('ShowCurrentFloor {0}, {1}, {2}'),

@@ -122,7 +122,7 @@ _019C:
     SetFlag FLAG_HGSS_GOT_POKEDEX
     PlayFanfare SEQ_ME_ITEM_sseq
     WaitFanfare
-    @ HGSS: ScrCmd_573
+    UnlockMysteryGift
     MessageGendered msg_0377_R30R0201_00013, msg_0377_R30R0201_00014
     CloseMessage
     BufferPlayerName 0

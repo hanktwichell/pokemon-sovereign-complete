@@ -308,6 +308,7 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
 
     FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_TRANSITION);
     CompleteFollower_SetInhibited(FALSE); // Sovereign Complete: a script kept it away on the last map only
+    VarsFlags_ClearFlag(SaveData_GetVarsFlags(fieldSystem->saveData), FLAG_HGSS_UNK_99A); // Sovereign Complete: FieldBGM_CompleteKeepsMusicSurfing
 
     fieldSystem->wildBattleMetadata.encounterAttempts = 0;
     fieldSystem->wildBattleMetadata.wildMonDefeated = 0;
@@ -1368,6 +1369,7 @@ static BOOL sub_02054494(FieldTask *task)
         FieldMapChange_SetNewLocation(fieldSystem, &mapChangeSub->nextLocation);
         FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_TRANSITION);
         CompleteFollower_SetInhibited(FALSE); // Sovereign Complete
+        VarsFlags_ClearFlag(SaveData_GetVarsFlags(fieldSystem->saveData), FLAG_HGSS_UNK_99A); // Sovereign Complete: FieldBGM_CompleteKeepsMusicSurfing
         mapChangeSub->state++;
         break;
     case 2:

@@ -142,7 +142,7 @@ scr_seq_D24R0204_002:
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0211
     MessageFromBank VAR_RESULT, 28
     CloseMessage
-    @ HGSS: ScrCmd_183 VAR_SPECIAL_x8000
+    PlayHMCutIn VAR_0x8000
     WaitTime 2, VAR_0x8004
     GoToIfSet FLAG_HGSS_OPENED_ALPH_FLASH_SECRET_ROOM, _02A9
     CompleteScreenShake 0, 2, 10, 6

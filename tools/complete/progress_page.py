@@ -143,6 +143,9 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'Cerulean Gym\'s pool and the Lugia cave keep their own music while you surf, as in HeartGold; Mystery Gift '
+        'unlocks with the Pokédex at Mr. Pokémon\'s; the Ruins of Alph\'s Unown line shows; Flash at the Omanyte '
+        'wall shows your Pokémon\'s cut-in.',
         'All sixteen of Arceus\'s plates can be found: a test takes each one from its giver, pile or spot. On the way, '
         'Sacred Gold\'s hidden piles were fixed: Pewter City had a Cynthia standing where the Stone Plate\'s dirt pile '
         'should be, the Sinjoh Ruins a Snorlax for its snow pile, and the Kanto Snorlax three little boys around it. '

@@ -12,6 +12,7 @@ void FieldBGM_Stop(void);
 void FieldBGM_SetOverride(FieldSystem *fieldSystem, u16 bgmID);
 u16 FieldBGM_GetOverride(FieldSystem *fieldSystem);
 void FieldBGM_ClearOverride(FieldSystem *fieldSystem);
+BOOL FieldBGM_CompleteKeepsMusicSurfing(FieldSystem *fieldSystem); // Sovereign Complete
 u16 FieldBGM_GetEffective(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID);
 u16 FieldBGM_GetForMapHeader(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID);
 BOOL FieldBGM_TryFadeOut(FieldSystem *fieldSystem, u16 bgmID, int mode);

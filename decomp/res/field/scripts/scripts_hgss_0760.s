@@ -59,7 +59,7 @@ scr_seq_T04GYM0101_004:
     GoToIf 1, _02F5
     End
 scr_seq_T04GYM0101_006:
-    @ HGSS: ScrCmd_814
+    SetFlag FLAG_HGSS_UNK_99A
     GoToIfSet FLAG_HGSS_HIDE_CERULEAN_GYM_MACHINE_PART, _0315
     ShowObject obj_T04GYM0101_stop
     ShowObject obj_T04GYM0101_stop_2
