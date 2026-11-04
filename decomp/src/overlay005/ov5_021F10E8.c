@@ -7,9 +7,15 @@
 
 #include "overlay005/field_effect_manager.h"
 
+#include "constants/narc.h" // Sovereign Complete
+#include "generated/object_events_gfx.h" // Sovereign Complete
+
 #include "map_object.h"
+#include "narc.h" // Sovereign Complete
 #include "overworld_anim_manager.h"
 #include "simple3d.h"
+
+#include "data/hgss_gimmicks.h" // Sovereign Complete
 
 typedef struct {
     u32 unk_00;
@@ -129,6 +135,43 @@ static UnkStruct_021F1118 *ov5_021F1174(UnkStruct_021F114C *param0, u32 param1)
     return NULL;
 }
 
+// Sovereign Complete: HeartGold's 3D gimmick objects (its doors, shutters, boxes and the Ruins of Alph's walls,
+// include/data/hgss_gimmicks.h) take their models from an archive of their own, the first time a map draws one, into
+// spare slots past Platinum's, one for each (a map has four kinds at most); like Platinum's they're freed with the
+// field effects (ov5_021F114C)
+#define COMPLETE_GIMMICK_SLOTS NELEMS(sCompleteGimmickGfx)
+
+static int CompleteGimmick_ModelMember(u32 graphicsID)
+{
+    for (int i = 0; i < NELEMS(sCompleteGimmickGfx); i++) {
+        if (sCompleteGimmickGfx[i] == graphicsID) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static UnkStruct_021F1118 *CompleteGimmick_Load(FieldEffectManager *fieldEffMan, UnkStruct_021F114C *context, u32 graphicsID)
+{
+    int member = CompleteGimmick_ModelMember(graphicsID);
+    UnkStruct_021F1118 *slot = member >= 0 ? ov5_021F1174(context, 0xffff) : NULL;
+
+    if (slot == NULL) {
+        return NULL;
+    }
+
+    NARC *narc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__GIMMICKS, fieldEffMan->heapID);
+
+    slot->unk_00 = graphicsID;
+    Simple3D_LoadModelFromSet(&slot->unk_04, 0, narc, member, fieldEffMan->heapID, FALSE);
+    Simple3D_ScheduleBindModelTexture(&slot->unk_04);
+    Simple3D_CreateRenderObject(&slot->unk_18, &slot->unk_04);
+    NARC_dtor(narc);
+
+    return slot;
+}
+
 void ov5_021F1188(FieldEffectManager *param0, u32 param1)
 {
     UnkStruct_021F1118 *v0;
@@ -172,6 +215,10 @@ Simple3DRenderObj *ov5_021F11FC(FieldEffectManager *param0, u32 param1)
 {
     UnkStruct_021F114C *v0 = FieldEffectManager_GetRendererContext(param0, 29);
     UnkStruct_021F1118 *v1 = ov5_021F1174(v0, param1);
+
+    if (v1 == NULL) {
+        v1 = CompleteGimmick_Load(param0, v0, param1); // Sovereign Complete: HeartGold's gimmicks, on first use
+    }
 
     GF_ASSERT(v1 != NULL);
     return &v1->unk_18;
@@ -264,7 +311,7 @@ void FieldEffect_InitRenderObject(FieldEffectManager *param0)
     const UnkStruct_ov5_02200230 *v0 = Unk_ov5_02200230;
     u32 v1 = NELEMS(Unk_ov5_02200230);
 
-    ov5_021F1188(param0, v1);
+    ov5_021F1188(param0, v1 + COMPLETE_GIMMICK_SLOTS); // Sovereign Complete: and slots for HeartGold's gimmicks
 
     do {
         ov5_021F11C0(param0, v0->unk_00, v0->unk_04);

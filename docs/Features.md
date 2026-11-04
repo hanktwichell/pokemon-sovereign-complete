@@ -880,6 +880,21 @@ own, the first two closing like a camera shutter and the last fading out as the 
 Test: `tools/complete/test_hgss_magnet_train.py` (both ways, by day and at night: the scene walks the player aboard,
 all three cuts play with the right models, and the player gets off at the other station with the field free).
 
+## HeartGold's 3D objects
+
+The map objects HeartGold draws as small 3D models rather than sprites are drawn with HeartGold's own models (its
+field effects' `door3`, `door4`, `box`, the four shutters, `m_present01`, `leag_door1`, `alfu_door` and `alfu_hole`;
+`tools/complete/import_hgss_gimmicks.py`), each the first time a map shows one (`src/overlay005/ov5_021F10E8.c`):
+
+- **Doors:** the light room's at the top of Olivine Lighthouse (Jasmine opens it), Goldenrod Tunnel's, the locked
+  doors of the Radio Tower (the Card Key's), the warehouse and the Rocket Hideout, and the Elite Four rooms' doors.
+- **Goldenrod Tunnel's shutters** (the basement's switch puzzle), the warehouse's boxes, the Rocket Hideout B1F's
+  trap switch, and the Ruins of Alph chambers' walls that open and the holes behind them.
+
+Before, they stood as Platinum's wall before Rotom's room (a large black panel: at the top of the lighthouse it hid
+Jasmine and Amphy), its Elite Four door or a bollard. HeartGold's book (five houses' "History of Ecruteak" and the
+like) is Platinum's own book.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

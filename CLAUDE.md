@@ -90,6 +90,9 @@ work.
   `src/overlay005/ov5_021ECE40.c` and `ov5_021ECC20.c`). `tools/complete/show_followers.py` screenshots followers.
 - HeartGold's people: `tools/complete/gen_hgss_people_sprites.py` (`OBJ_EVENT_GFX_HGSS_<NAME>` = 1024 + HeartGold's
   number; the mapping in `data/complete/hgss_sprites.json`, read by `import_hgss_events.py` and the script translation).
+  Its 3D gimmick objects (doors, shutters, boxes, the Ruins of Alph's walls): `tools/complete/import_hgss_gimmicks.py`
+  (the same numbering; their models in `fielddata/complete/gimmicks.narc`, loaded the first time a map draws one, in
+  `src/overlay005/ov5_021F10E8.c`), then rerun `import_hgss_events.py --rom .cache/sacredgold.nds`.
 - Test: build the test ROM (`tools/test/build_test_rom.sh`), then `python3 tools/complete/test_follower.py`. The emulator
   is slow here (about 10 minutes); run it in the background.
 - Talking to it: `src/overlay006/complete_follower_talk.c` (HeartGold's interactions, motions and emote bubbles, from

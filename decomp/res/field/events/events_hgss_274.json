@@ -22,7 +22,7 @@
         },
         {
             "id": "obj_T10R0401_babyboy1_11",
-            "graphics_id": "OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BABYBOY1_11",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

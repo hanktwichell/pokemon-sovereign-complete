@@ -2071,7 +2071,7 @@ def main():
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
         if video:
             video.mark(f'part {name}')
-        shots_taken = []
+        shots_taken, step_states = [], []
         for action in actions:
             if video:
                 video.mark(f'action {action!r} {here()}')
@@ -2160,6 +2160,9 @@ def main():
                 follower = struct.unpack('<HH', bytes(mem.unsigned[sym['gCompleteTestFollowerTile']:
                                                                    sym['gCompleteTestFollowerTile'] + 4]))
                 print(f'    heaps: {heap_problems(mem, heaps) or "ok"}; the follower on {follower}', flush=True)
+            if os.environ.get('STEP_STATES'):  # a save state after each action, to try what comes next on its own
+                d.emu.savestate.save_file(os.path.join(out, f'{name.replace(" ", "_")}_{len(step_states):03d}.state'))
+                step_states.append(action)
             if os.environ.get('STEP_SHOTS'):  # a screenshot after each action, to see where a walk went wrong
                 d.screenshot().save(os.path.join(out, f'{name.replace(" ", "_")}_{len(shots_taken):03d}.png'))
                 shots_taken.append(action)

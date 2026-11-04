@@ -448,6 +448,19 @@ const ObjectEventGfxRendererEntry gObjectEventGfxRenderersTable[] = {
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_F_SURF, &Unk_ov5_021FAF60 },
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_M_HOLDING_POKEBALL, &Unk_ov5_021FAFB0 },
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_F_HOLDING_POKEBALL, &Unk_ov5_021FAFB0 },
+    // Sovereign Complete: HeartGold's gimmicks (tools/complete/import_hgss_gimmicks.py) [renderers]
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_8, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_9, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_5, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_GATE_RIGHT, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_GATE_LEFT, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_GATE_TOP, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_GATE_BOTTOM, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_10, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_11, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_12, &Unk_ov5_021FB000 },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_13, &Unk_ov5_021FB000 },
+    // Sovereign Complete: HeartGold's gimmicks: end [renderers]
     { OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM, &Unk_ov5_021FB000 },
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_F, &Unk_ov5_021FB0F0 },
     { OBJ_EVENT_GFX_DIST_WORLD_B1F_MESPRIT, &Unk_ov5_021FAFC4 },
@@ -2531,6 +2544,19 @@ const ObjectEventGfxRenderDetailsEntry gObjectEventGfxRenderDetailsTable[] = {
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_F_SURF, MODEL_TYPE_BILLBOARD, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_M_HOLDING_POKEBALL, MODEL_TYPE_BILLBOARD, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_F_HOLDING_POKEBALL, MODEL_TYPE_BILLBOARD, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    // Sovereign Complete: HeartGold's gimmicks (tools/complete/import_hgss_gimmicks.py) [model types]
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_8, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_9, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_5, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_GATE_RIGHT, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_GATE_LEFT, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_GATE_TOP, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_GATE_BOTTOM, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_10, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_11, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_12, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    { OBJ_EVENT_GFX_HGSS_BABYBOY1_13, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
+    // Sovereign Complete: HeartGold's gimmicks: end [model types]
     { OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM, MODEL_TYPE_3D, .hasShadow = FALSE, TRACK_TYPE_NONE, .hasReflection = FALSE },
     { OBJ_EVENT_GFX_DIST_WORLD_PLAYER_F, MODEL_TYPE_BILLBOARD, .hasShadow = FALSE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
     { OBJ_EVENT_GFX_DIST_WORLD_B1F_MESPRIT, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
@@ -2886,6 +2912,52 @@ const ObjectEventGfxFieldAnimsInitialPosEntry gObjectEventGfxOverworldAnimsIniti
         OBJ_EVENT_GFX_ELITE_FOUR_ROOM_DOOR,
         VEC_FX32(0, 0, 0),
     },
+    // Sovereign Complete: HeartGold's gimmicks (tools/complete/import_hgss_gimmicks.py) [positions]
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_8,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_9,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_5,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_GATE_RIGHT,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_GATE_LEFT,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_GATE_TOP,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_GATE_BOTTOM,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_10,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_11,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_12,
+        VEC_FX32(0, 0, 0),
+    },
+    {
+        OBJ_EVENT_GFX_HGSS_BABYBOY1_13,
+        VEC_FX32(0, 0, 0),
+    },
+    // Sovereign Complete: HeartGold's gimmicks: end [positions]
     {
         OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM,
         VEC_FX32(0, 0, 0),
