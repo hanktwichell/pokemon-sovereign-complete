@@ -1711,4 +1711,6 @@ Test results on the new test build:
   Trail a Poké Ball, and the Kanto Snorlax three little boys on its other tiles. HeartGold's table has Platinum's
   four disguises at the same numbers, drawn from the same models (`nin_hide_s`, `_b`, `_g`, `_k`, checked in both
   games' field-effect archives), so they're kept now: the piles show as mounds, and the Snorlax stands alone. The
-  radio test, which wakes the Route 11 Snorlax, passes (11 of 11).
+  radio test, which wakes the Route 11 Snorlax, passes (11 of 11). The test also meets the guide's "special
+  surprise" on Mewtwo's spot once it's caught: a trainer battle with "???" and Lugia, Ho-Oh and Mewtwo at Lv. 100
+  (the test build's record of trainer battles), which starts as it should.

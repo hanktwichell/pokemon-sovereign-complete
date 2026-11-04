@@ -53,7 +53,8 @@ KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')  # enum FaceDirection
 STEPS = ((0, -1), (0, 1), (-1, 0), (1, 0))
 LATE_NIGHT, FRIDAY = 1, 5  # an hour of TIMEOFDAY_LATE_NIGHT (0 to 3), and Friday (Sunday is 0)
 
-# (name, the target, what's set on the way in, the answers, the battle: (species, level, shiny) or None for none, and
+# (name, the target, what's set on the way in, the answers, the battle: (species, level, shiny), ('trainer', its
+# name) for a trainer battle (gSovereignTestTrainerBattles), or None for none, and
 # maybe {flag: value} the script must leave). The target is ('obj', events, object id), talked to from the tile the
 # talk test stands on; ('bg', map header, x, z, the way the player faces it), A pressed from the tile beside it; or
 # ('coord', map header, x, z, the way the player steps onto it). What's set: 'badges' (the last badge needed, and the
@@ -85,6 +86,10 @@ EVENTS = [
      {'flags': {'FLAG_HGSS_HIDE_SEAFOAM_GYM_BLAINE': 1, 'FLAG_HGSS_SG_3FB6': 1}}, [], ('SPECIES_MOLTRES', 60, False)),
     ('Mewtwo', ('obj', 'events_hgss_406', 'obj_D03R0103_tsure_poke_static_mewtwo'), {}, [],
      ('SPECIES_MEWTWO', 75, False)),
+    # the guide's "special surprise" on Mewtwo's spot once it's caught: a trainer ("???") with Lugia, Ho-Oh and
+    # Mewtwo at Lv. 100
+    ('the surprise after Mewtwo', ('obj', 'events_hgss_406', 'obj_D03R0103_16'),
+     {'flags': {'FLAG_HGSS_HIDE_CERULEAN_CAVE_MEWTWO': 1}}, [], ('trainer', 'TRAINER_HGSS_YOUNGSTER_MICKEY')),
     ('Celebi (Azure Flute)', ('bg', 'MAP_HEADER_HGSS_ILEX_FOREST', 16, 55, 0), {'items': ['ITEM_AZURE_FLUTE']}, [True],
      ('SPECIES_CELEBI', 45, False)),
     ('the shrine without the flute', ('bg', 'MAP_HEADER_HGSS_ILEX_FOREST', 16, 55, 0), {}, [], None),
@@ -193,7 +198,8 @@ def main():
     chosen = [e for e in EVENTS if not only or any(o in e[0] for o in only)]
     sym = symbols(SYMBOLS + ('sSaveDataPtr', 'gSovereignTestMenu', 'gSovereignTestPartyKeep', 'gSovereignTestPartyAdd',
                              'gCompleteTestHGSSBadges', 'gCompleteTestKeepFlagClear', 'gCompleteTestScriptedWild',
-                             'gCompleteTestLeadSpecies'))
+                             'gCompleteTestLeadSpecies', 'gSovereignTestTrainerBattles'))
+    trainer_names = names('trainers')
     variables = var_ids()
     headers = header_names()
     species_names, item_names = names('species'), names('items')
@@ -361,6 +367,7 @@ def main():
             after = after[0] if after else {}
             result, frames, _ = go(target if target[0] != 'walk' else ('obj',) + target[1:3], gates)
             before = wild()
+            mem.write_long(sym['gSovereignTestTrainerBattles'], 0)  # the trainer battles started from here on
             if result == 'ok':
                 if target[0] == 'walk':
                     result, frames = talk_and_answer(d, sym, [], LIMIT)
@@ -379,6 +386,12 @@ def main():
             if result == 'ok':
                 if want is None and got[0] != before[0]:
                     wrong.append(f'a battle with {species_names[got[1]]} Lv. {got[2]} (want none)')
+                elif want is not None and want[0] == 'trainer':
+                    battles = sym['gSovereignTestTrainerBattles']
+                    started = u32(battles)
+                    opponent = trainer_names[u16(battles + 4)] if started else None
+                    if opponent != want[1]:
+                        wrong.append(f'trainer battle {opponent} (want {want[1]})')
                 elif want is not None and got[0] == before[0]:
                     wrong.append('no battle')
                 elif want is not None:

@@ -783,7 +783,8 @@ and each starts its battle as the guide gives it:
   **pseudo-legends** from the radio in Tohjo Falls's hidden room after the Earth Badge: the channel picked brings
   Dragonite, Tyranitar, Salamence, Metagross or Garchomp, shiny, at Lv. 60.
 - **Kanto's legends:** Articuno and Zapdos (Lv. 60), Moltres in the Cinnabar Gym once Heatran is caught (Lv. 60),
-  Mewtwo (Lv. 75), and Mew in Viridian Forest, which teleports three times before it battles (Lv. 45).
+  Mewtwo (Lv. 75; once it's caught, the guide's "special surprise" waits on its spot: a trainer, "???", with Lugia,
+  Ho-Oh and Mewtwo at Lv. 100), and Mew in Viridian Forest, which teleports three times before it battles (Lv. 45).
 - **With the Azure Flute** (the Lavender Town woman's, for the Magma Stone): Celebi at Ilex Forest's shrine,
   Jirachi in Mt. Mortar (its four wishes, the battle among them) and Shaymin in the National Park, each Lv. 45.
 - **The others:** the three Regis (Lv. 40) and Regigigas (Lv. 75, behind the Mt. Silver tablet that breaks for the
