@@ -66,6 +66,11 @@ work.
   bedroom state is then a dead one, at (0, 0)). Read what's left with the main arena's pointers at 0x027FFDA0 (low,
   then high nine words on) after a few frames; keep big tables out of the main module (in a NARC read as needed, as
   the Safari Zone's encounters are, or in an overlay).
+- The field map's heap (`HEAP_ID_FIELD1`, 0xCC000 in the overworld, `sMapLoadMode` in `src/field_map_change.c`) is
+  nearly full on a crowded map (Route 201's briefcase scene, with a big follower); a failed allocation there reads a
+  texture into a null buffer and crashes later. It can't grow again (the application heap keeps 36 KB free while the
+  field runs, and the wireless club's link takes 28 KB), so keep Complete's field-time buffers in their own heaps: a
+  window on the field's BG config takes its pixels from the field map's heap (the Pokégear's `AddWindowFromHeap`).
 - Battle videos: `tools/complete/record_battle.py` (a real battle from a room's scene, Cynthia's by default, with a
   given Mega lead and a Lv. 100 team; test build and a bedroom state) and `tools/complete/cut_battle.py` (a preview
   cut from its turn marks). SDL catches SIGTERM, so stop an emulator run with `kill -9` on its PID.

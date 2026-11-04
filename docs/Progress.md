@@ -1735,3 +1735,18 @@ Test results on the new test build:
   Its two sounds are Diamond and Pearl effects HeartGold kept and Platinum dropped (`SEQ_SE_DP_FW411`, `_F207`): the
   sound importer now also takes those when Complete's code names one (`docs/Music.md`). The field effects test has
   the scene as its twelfth part (12 of 12 pass on build_test2), the sound memory test passes (5 of 5) and the release build boots.
+- **A black panel at the top of the lighthouse:** in Olivine Lighthouse's light room a large black box hid Jasmine
+  and Amphy (and the lamp scene). It was the room's door, one of HeartGold's 3D gimmick objects, which the events
+  importer had drawn as Platinum's wall before Rotom's room. HeartGold gives each of its eleven gimmicks a model of its
+  own in its field effects archive (overlay 1's ov01_02208E30): the lighthouse's and Goldenrod Tunnel's doors, the
+  Radio Tower's, warehouse's and Rocket Hideout's locked doors, the Elite Four rooms' doors, Goldenrod Tunnel's four
+  shutters, the warehouse's boxes, the Rocket Hideout's trap switch, and the Ruins of Alph's walls and holes. They are
+  drawn with those models now (`docs/Features.md`, "HeartGold's 3D objects"; `tools/complete/import_hgss_gimmicks.py`),
+  each loaded the first time a map shows one. (The Radio Tower deck's dark skylight is HeartGold's: its glass is
+  nearly clear, alpha 7 of 31, over an empty housing, and both games clear the 3D background to black.)
+- **A crash at Rowan's briefcase again:** the story run crashed as Route 201 came back after the starter was chosen
+  (an undefined instruction in low memory), as on Nov 1: a sprite's texture (13 KB) didn't fit in the field map's
+  heap and was read into a null buffer. A trace of every allocation in that heap found 15 KB of it held by the
+  Pokégear's contact list window, which takes its pixels from the field's BG config's heap. The Pokégear's windows
+  now come from its own heap (0x18000, nearly empty), as the rest of it does. The heap couldn't simply grow again: the
+  application heap keeps 36 KB free while the field runs, and the wireless club's link takes 28 KB of it.

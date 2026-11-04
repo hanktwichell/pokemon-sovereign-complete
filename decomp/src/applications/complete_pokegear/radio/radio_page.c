@@ -331,6 +331,17 @@ static void Retune(RadioPage *page)
     CoordsToStation(page);
 }
 
+// A window whose pixels come from the given heap (the Pokégear's), not the field's BG config's (the field map's,
+// which is short on a crowded map: pokegear.c's AddWindowFromHeap)
+static void AddWindowFromHeap(BgConfig *bgConfig, Window *window, u8 bgLayer, u8 left, u8 top, u8 width, u8 height, u8 palette, u16 baseTile, enum HeapID heapID)
+{
+    enum HeapID bgHeapID = bgConfig->heapID;
+
+    bgConfig->heapID = heapID;
+    Window_Add(bgConfig, window, bgLayer, left, top, width, height, palette, baseTile);
+    bgConfig->heapID = bgHeapID;
+}
+
 RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum HeapID heapID, u8 skin)
 {
     RadioPage *page = Heap_Alloc(heapID, sizeof(RadioPage));
@@ -350,8 +361,8 @@ RadioPage *RadioPage_New(FieldSystem *fieldSystem, BgConfig *bgConfig, enum Heap
     Bg_LoadToTilemapRect(bgConfig, BG_LAYER_SUB_0, page->screen->rawData, 0, 0, 32, SCREEN_ROWS);
     NARC_dtor(narc);
 
-    Window_Add(bgConfig, &page->title, BG_LAYER_SUB_0, WINDOW_LEFT, TITLE_TOP, WINDOW_WIDTH, 2, TEXT_PALETTE, WINDOW_TILE_START);
-    Window_Add(bgConfig, &page->script, BG_LAYER_SUB_0, WINDOW_LEFT, SCRIPT_TOP, WINDOW_WIDTH, 2, TEXT_PALETTE, WINDOW_TILE_START + WINDOW_WIDTH * 2);
+    AddWindowFromHeap(bgConfig, &page->title, BG_LAYER_SUB_0, WINDOW_LEFT, TITLE_TOP, WINDOW_WIDTH, 2, TEXT_PALETTE, WINDOW_TILE_START, heapID);
+    AddWindowFromHeap(bgConfig, &page->script, BG_LAYER_SUB_0, WINDOW_LEFT, SCRIPT_TOP, WINDOW_WIDTH, 2, TEXT_PALETTE, WINDOW_TILE_START + WINDOW_WIDTH * 2, heapID);
     Window_FillTilemap(&page->title, 0);
     Window_FillTilemap(&page->script, COLOR_STRIP);
     Window_PutToTilemap(&page->title);
