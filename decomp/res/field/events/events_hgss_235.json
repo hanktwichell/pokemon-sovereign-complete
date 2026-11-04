@@ -193,7 +193,7 @@
         },
         {
             "id": "obj_D35R0104_babyboy1_9",
-            "graphics_id": "OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BABYBOY1_9",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",
@@ -212,7 +212,7 @@
         },
         {
             "id": "obj_D35R0104_babyboy1_9_2",
-            "graphics_id": "OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BABYBOY1_9",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "0",

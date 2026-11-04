@@ -12,7 +12,7 @@
     "object_events": [
         {
             "id": "obj_D24R0202_babyboy1_12",
-            "graphics_id": "OBJ_EVENT_GFX_WALL_BLOCKING_ROTOMS_ROOM",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BABYBOY1_12",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_OPENED_ALPH_ESCAPE_ROPE_SECRET_ROOM",
@@ -31,7 +31,7 @@
         },
         {
             "id": "obj_D24R0202_babyboy1_13",
-            "graphics_id": "OBJ_EVENT_GFX_BOLLARD",
+            "graphics_id": "OBJ_EVENT_GFX_HGSS_BABYBOY1_13",
             "movement_type": "MOVEMENT_TYPE_NONE",
             "trainer_type": "TRAINER_TYPE_NONE",
             "hidden_flag": "FLAG_HGSS_UNK_21C",
