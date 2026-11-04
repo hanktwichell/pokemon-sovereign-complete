@@ -65,8 +65,8 @@ STEPS = [
      'Town to Sinnoh\'s Hall of Fame.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
-     'the game through; one command runs Complete\'s 35 feature tests (the latest sweep: 32 of 33, and the one '
-     'failure, a test that talked to a wandering giver too soon, is fixed) and 8 long ones.'),
+     'the game through; one command runs Complete\'s 36 feature tests (the latest sweep: 34 of 36, the two others '
+     'changed during it for the next build, where they pass) and 8 long ones.'),
     (9, 'Your playthrough', 'ready', 'Ready for you',
      'Johto and Kanto are playable from a new game; it can start whenever you like.'),
     (10, 'Release', 'later', 'Later', 'Final fixes, then the .xdelta patches.'),

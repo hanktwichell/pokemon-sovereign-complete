@@ -1666,4 +1666,7 @@ Test results on the new test build:
   Complete's) is a NARC now, read an area at a time as it's needed (`fielddata/complete/safari_encounters.narc`,
   from `tools/complete/import_hgss_safari.py`; byte for byte the table the code held, checked against the running
   game). The test build has 16 KB left now and the release build 39 KB (it had 22). CLAUDE.md says how to read it.
+- **A sweep of every short test** on build_test2 (HeartGold's Balls and the contest's screen): 34 of 36 pass. The
+  phone and Safari tests failed only because they were changed during the sweep for the next build (Baoba's part,
+  the encounters' NARC), where they pass (11 of 11, 6 of 6).
 
