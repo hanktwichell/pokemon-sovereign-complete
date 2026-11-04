@@ -142,6 +142,14 @@ RECENT = [
         'around Mahogany. Its music plays in the field while the page shows a station. Sinnoh has no signal. All 11 '
         'parts of its emulator test pass.',
     ]),
+    ('Fixes', [
+        'A crash right after choosing your starter from Rowan\'s briefcase on Route 201 is fixed: the Pokégear\'s phone '
+        'list was taking 15 KB of the memory the map needs as it comes back, so a sprite didn\'t fit and the game '
+        'crashed. The Pokégear keeps its list in its own memory now.',
+        'HeartGold\'s doors, shutters and boxes look like HeartGold\'s: the door at the top of Olivine Lighthouse (a '
+        'big black box hid Jasmine and Amphy there), the locked doors in the Radio Tower, the warehouse and the Rocket '
+        'Hideout, Goldenrod Tunnel\'s shutters, the Elite Four\'s doors and the Ruins of Alph\'s walls.',
+    ]),
     ('More of HeartGold', [
         'The lamp at the top of Olivine Lighthouse comes back on once Amphy has had the SecretPotion: HeartGold\'s '
         'scene, its lamp turning and shining to a rising hum, the screen white, and back.',
