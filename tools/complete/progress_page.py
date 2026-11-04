@@ -75,11 +75,11 @@ STEPS = [
 NEXT = [
     'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build, with '
     'HeartGold\'s sound effects and the Ruins of Alph\'s walls: every part so far passes, from New Bark Town through '
-    'Chuck, Jasmine and the Lake of Rage into Mahogany\'s Rocket Hideout (Petrel, 44 parts).',
+    'Johto\'s League, the S.S. Aqua and Kanto\'s first gyms to the Power Plant (85 parts).',
     'The long checks pass on the latest builds (every Totem and legendary placement, every boss Mega, every tile '
-    'behavior, the sound memory on every map). The talk test over all 5,865 people and signs is running on the '
-    'newest build too, since the scripts now play HeartGold\'s sounds: half of it is through, with only the three '
-    'known stops (menus the test can\'t drive).',
+    'behavior, the sound memory on every map, every map\'s wild Pokémon). The talk test over all 5,865 people and '
+    'signs is running on the newest build too: most of it is through, with only the known stops (menus the test '
+    'can\'t drive; Johto\'s Battle Factory attendant is one now, as its lobby runs Platinum\'s Factory).',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
@@ -143,6 +143,12 @@ RECENT = [
         'parts of its emulator test pass.',
     ]),
     ('More of HeartGold', [
+        'Every one-time Pokémon in Sacred Gold\'s event guide works: a new test meets each one (Rotom, Spiritomb, the '
+        'shiny pseudo-legends, Lapras on Fridays, Kanto\'s birds, Mewtwo, Mew after its three teleports, Celebi, '
+        'Jirachi and Shaymin with the Azure Flute, the Regis and Regigigas, Latios, Groudon, Kyogre and Rayquaza, '
+        'Deoxys late at night, the lake and creation trios, Heatran, Cresselia and Darkrai) and checks its level, that '
+        'none comes before its time, and the steps that open the way (the nightmare, the Regis\' tablet, the Azure '
+        'Flute trade, the Magma Stone). 42 of 42 pass; nothing needed fixing.',
         'The Pokégear sounds like HeartGold\'s: its own clicks for the app bar, the cursor, picking and backing out, '
         'the map, and the phone\'s ring, dialing tone and hang-up.',
         'Baoba calls on the Pokégear about the Safari Zone, as in HeartGold: his next test, the objects you can place '

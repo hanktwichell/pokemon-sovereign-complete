@@ -1678,3 +1678,24 @@ Test results on the new test build:
   most it has). The Pokégear test now checks two of the sounds load as they play; it, the sound memory test (5 of 5),
   the phone (11 of 11), its calls (12 of 12), the radio, Fly, the cutscenes and Voltorb Flip pass.
 
+
+- **Sacred Gold's special encounters, checked:** every one-time Pokémon in Sacred Gold's Special Event Guide that
+  wasn't tested yet has a test now (`tools/complete/test_hgss_special_events.py`; `docs/Features.md`, "Sacred
+  Gold's special encounters"). For each, the test sets what the script waits for (badges, an item, flags, the party,
+  the hour or the weekday), talks to it, presses A at its spot or steps onto its trigger, and checks the battle's
+  Pokémon, level and shininess, which the test build now records as each scripted wild battle starts
+  (`gCompleteTestScriptedWild`). All of them start as the guide has them: Rotom, Spiritomb, the five shiny
+  pseudo-legends (two tried), Friday's Lapras, Kanto's birds, Mewtwo, Mew after its three teleports (the test walks
+  after it, as a warp would load the forest again), Celebi, Jirachi and Shaymin with the Azure
+  Flute, the Regis and Regigigas, Latios with the Soul Dew, Groudon, Kyogre and Rayquaza, Deoxys late at night, the
+  lake trio and the creation trio, Heatran, Cresselia and Darkrai. The tries before their time start nothing
+  (Rotom before the Plain Badge, the well without a keystone, the radio before the Earth Badge, the shrine and
+  Shaymin without the flute, the meteorites by day), and the steps that open the way work: the nightmare shows
+  Cresselia, the Mt. Silver tablet breaks for the three Regis (not without them), the Lavender Town woman trades the
+  Azure Flute for the Magma Stone, and picking up the Magma Stone brings Heatran out. Nothing in the game needed a
+  fix; the test's one early failure was its own (Moltres takes Blaine's tile only once Heatran's catch has hidden
+  him). 42 of 42 pass on build_test2.
+- **The long runs:** every map's wild Pokémon passes on build_test3 (59 minutes). The story run is through 85 parts
+  (to Kanto's Power Plant), all passing. The talk test is most of the way through with one stop more than the known
+  three: Johto's Battle Factory attendant, whose lobby runs Platinum's Factory since the Frontier opened, stops at
+  the same rental menu the test can't drive in Sinnoh's.

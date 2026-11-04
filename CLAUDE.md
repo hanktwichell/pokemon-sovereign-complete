@@ -50,6 +50,9 @@ work.
   name). The ways through Azalea Gym's carts, Ilex Forest's Farfetch'd, Mahogany Gym's ice blocks, Ice Path B1F's
   boulder and Blackthorn Gym's floors come from `tools/complete/solve_story_puzzles.py`; its walks slide over ice and
   along Viridian Gym's arrows themselves.
+- Sacred Gold's one-time encounters (its Special Event Guide): `tools/complete/test_hgss_special_events.py` checks
+  each battle's Pokémon, level and shininess from the test build's record of each scripted wild battle
+  (`gCompleteTestScriptedWild`, set in `CreateWildMon_Scripted`), and the steps that unlock them.
 - All of Complete's emulator tests: `TEST_BUILD=build_test3 python3 tools/complete/run_tests.py` (two at a time, from a
   bedroom state it makes on that build; the long ones with `--all` or by name). Summary in `.cache/tests/BUILD/`.
   Never rebuild a test build while a test runs on it (build the next change into another test build), and make a new

@@ -50,6 +50,7 @@ u16 gCompleteTestMagnetTrain[8];
 u16 gCompleteTestLegendCinematic[8];
 u16 gCompleteTestPlayerGfx;
 CompleteTestFieldEncounter gCompleteTestFieldEncounter;
+CompleteTestScriptedWild gCompleteTestScriptedWild;
 
 // An encounter leaves a loss to its caller (a script's BlackOutFromBattle) and doesn't bring the field back, so the field
 // overlay, where SovereignTest_BattleTask is, isn't loaded when it returns: this runs from the main module.

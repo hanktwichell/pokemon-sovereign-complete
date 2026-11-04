@@ -1644,11 +1644,18 @@ void CreateWildMon_Scripted(FieldSystem *fieldSystem, u16 species, u8 level, Fie
     if (gCompleteNextWildShiny) {
         gCompleteNextWildShiny = FALSE;
         CreateWildMonShinyWithGenderOrNature(species, level, 1, encounterFieldParams.trainerID, &encounterFieldParams, firstPartyMon, battleParams);
-        return;
+    } else {
+        CreateWildMon(species, level, 1, &encounterFieldParams, firstPartyMon, battleParams);
     }
 
-    CreateWildMon(species, level, 1, &encounterFieldParams, firstPartyMon, battleParams);
-    return;
+#ifdef SOVEREIGN_TEST
+    // Sovereign Complete: the static encounter as it was made, for tools/complete/test_hgss_special_events.py
+    Pokemon *wildMon = Party_GetPokemonBySlotIndex(battleParams->parties[BATTLER_ENEMY_1], 0);
+    gCompleteTestScriptedWild.count++;
+    gCompleteTestScriptedWild.species = Pokemon_GetValue(wildMon, MON_DATA_SPECIES, NULL);
+    gCompleteTestScriptedWild.level = Pokemon_GetValue(wildMon, MON_DATA_LEVEL, NULL);
+    gCompleteTestScriptedWild.shiny = Pokemon_IsShiny(wildMon);
+#endif
 }
 
 BOOL WildEncounters_TileHasEncounterRate(FieldSystem *fieldSystem, u8 tileBehavior)

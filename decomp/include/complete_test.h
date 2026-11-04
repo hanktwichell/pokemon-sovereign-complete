@@ -86,6 +86,17 @@ typedef struct CompleteTestFieldEncounter {
 
 extern CompleteTestFieldEncounter gCompleteTestFieldEncounter;
 
+// The static encounters scripts have started (CreateWildMon_Scripted, src/overlay006/wild_encounters.c), for
+// tools/complete/test_hgss_special_events.py: how many, and the last foe's species, level and whether it's shiny.
+typedef struct CompleteTestScriptedWild {
+    u16 count;
+    u16 species;
+    u16 level;
+    u16 shiny;
+} CompleteTestScriptedWild;
+
+extern CompleteTestScriptedWild gCompleteTestScriptedWild;
+
 // A field task for the test build's battles (src/overlay005/field_control.c's SovereignTest_BattleTask), which starts
 // them under it: after a lost battle it blacks out, as the script that starts a battle in the game has it do. Its env is
 // the battle's result.

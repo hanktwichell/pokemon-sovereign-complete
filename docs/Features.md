@@ -773,6 +773,38 @@ least 20 of the cutscene's commands run, nothing of it held after and the camera
 cinematic played to its end, Lugia's with its trail; both pass) and `tools/complete/test_hgss_sinjoh.py` (the plates
 event from the stage's middle: the circle, Arceus's cinematic to its end and the scene back on the field; 3 of 3).
 
+## Sacred Gold's special encounters
+
+The one-time Pokémon of Sacred Gold's Special Event Guide come with its scripts, translated as all its scripts are,
+and each starts its battle as the guide gives it:
+
+- **Rotom** in New Bark Town's TV once the Plain Badge is won (Lv. 20), **Spiritomb** at the top of the Slowpoke
+  Well's ladder for an Odd Keystone (Lv. 20), **Lapras** in Union Cave on Fridays (Lv. 25), and the
+  **pseudo-legends** from the radio in Tohjo Falls's hidden room after the Earth Badge: the channel picked brings
+  Dragonite, Tyranitar, Salamence, Metagross or Garchomp, shiny, at Lv. 60.
+- **Kanto's legends:** Articuno and Zapdos (Lv. 60), Moltres in the Cinnabar Gym once Heatran is caught (Lv. 60),
+  Mewtwo (Lv. 75), and Mew in Viridian Forest, which teleports three times before it battles (Lv. 45).
+- **With the Azure Flute** (the Lavender Town woman's, for the Magma Stone): Celebi at Ilex Forest's shrine,
+  Jirachi in Mt. Mortar (its four wishes, the battle among them) and Shaymin in the National Park, each Lv. 45.
+- **The others:** the three Regis (Lv. 40) and Regigigas (Lv. 75, behind the Mt. Silver tablet that breaks for the
+  three in the party); Latios at Vermilion's plaque with the Soul Dew (Lv. 40); Groudon and Kyogre (Lv. 70) and
+  Rayquaza (Lv. 75) in the Embedded Tower; Deoxys on Route 3's meteorites late at night (Lv. 60); Uxie, Mesprit and
+  Azelf (Lv. 50) and Dialga, Palkia and Giratina (Lv. 70) at the Sinjoh Ruins; Heatran, out once its Magma Stone is
+  picked up (Lv. 70); Cresselia in Mt. Moon after the nightmare in the player's bed (Lv. 50); and Darkrai at the bed
+  with the Lunar Wing (Lv. 50).
+- **Not before their time:** Rotom before the Plain Badge, the well without a keystone, the radio before the Earth
+  Badge, the shrine and Shaymin without the flute, the meteorites by day.
+
+Ho-Oh's and Lugia's are the legendary cutscenes' (above), Arceus's the Sinjoh Ruins' plates event's, and the roamers
+are HeartGold's roaming code's.
+
+Test: `tools/complete/test_hgss_special_events.py`. For each encounter it sets what the script waits for (badges,
+items, flags, the party, the hour, the weekday), talks or steps on, and checks the battle's Pokémon, its level and
+whether it's shiny, as the test build records each scripted wild battle as it starts (`gCompleteTestScriptedWild`,
+in `CreateWildMon_Scripted`). It also checks that the early tries start no battle, and the steps that open the way:
+the nightmare shows Cresselia, the tablet breaks for the three Regis (and not without them), the Lavender Town woman
+trades the Azure Flute for the Magma Stone, and picking up the Magma Stone brings Heatran out.
+
 ## The Rocket Hideout's traps and alarms, the monks' wings, Lance's flight
 
 - **The traps** (Mahogany Town's hideout, B1F's trapped floor): stepping on one, HeartGold's trap goes off under the
