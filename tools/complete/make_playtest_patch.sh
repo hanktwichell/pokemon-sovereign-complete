@@ -40,7 +40,8 @@ for clean in "$@"; do
         *) echo "$clean: not a clean Pokémon Platinum (US) dump (SHA-1 matches neither Rev 0 nor Rev 1)" >&2; exit 1 ;;
     esac
     patch="$out/SovereignCompletePlaytest$rev.xdelta"
-    xdelta3 -e -9 -f -s "$clean" "$rom" "$patch"
+    # No secondary compression (-S none): every VCDIFF patcher reads it (Delta Patcher, Rom Patcher JS in a browser)
+    xdelta3 -e -9 -S none -f -s "$clean" "$rom" "$patch"
     # Check the patch round-trips to exactly the built ROM.
     tmp="$(mktemp)"
     xdelta3 -d -f -s "$clean" "$patch" "$tmp"
