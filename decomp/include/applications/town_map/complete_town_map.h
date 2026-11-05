@@ -10,6 +10,10 @@
 
 // The top screen's layers: the frame in front (layer 0), Sinnoh's map (2) and Johto and Kanto's on the sea (3), each
 // map 512 by 512 with tiles of its own
+// The Town Map's heap grows by this much (src/applications/town_map/main.c): its sprite manager holds HeartGold's 30
+// Fly points too (sprites.c), and the three regions' map graphics load into it
+#define COMPLETE_TOWN_MAP_HEAP_EXTRA 0x4000
+
 void CompleteTownMap_AdjustBgTemplates(BgTemplate *templates);
 void CompleteTownMap_LoadGraphics(TownMapAppData *appData);
 // The maps' tilemaps and the frame, in place of Platinum's two map layers; TRUE (always) so it copies neither

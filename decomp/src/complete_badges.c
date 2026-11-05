@@ -2,6 +2,7 @@
 
 #include <nitro.h>
 
+#include "complete_playtest.h"
 #include "trainer_info.h"
 
 // The badge that allows each of Sinnoh's field moves in HeartGold (its src/field_move.c), by Sinnoh's badge. Defog
@@ -43,6 +44,12 @@ BOOL CompleteBadges_AllowsFieldMove(const TrainerInfo *info, enum Badge sinnohBa
     if (TrainerInfo_HasBadge(info, sinnohBadge)) {
         return TRUE;
     }
+
+#ifdef COMPLETE_PLAYTEST
+    if (CompletePlaytest_AllowsFieldMove(sinnohBadge)) {
+        return TRUE;
+    }
+#endif
 
     return sHGSSFieldMoveBadges[sinnohBadge] >= 0 && CompleteBadges_Has(info, sHGSSFieldMoveBadges[sinnohBadge]);
 }

@@ -107,7 +107,7 @@ BOOL TownMap_Init(ApplicationManager *appMan, int *unused)
     TownMapAppData *appData = NULL;
     TownMapContext *ctx = ApplicationManager_Args(appMan);
 
-    Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_TOWN_MAP, HEAP_SIZE_TOWN_MAP);
+    Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_TOWN_MAP, HEAP_SIZE_TOWN_MAP + COMPLETE_TOWN_MAP_HEAP_EXTRA); // Sovereign Complete
 
     appData = ApplicationManager_NewData(appMan, sizeof(TownMapAppData), HEAP_ID_TOWN_MAP);
     memset(appData, 0, sizeof(TownMapAppData));

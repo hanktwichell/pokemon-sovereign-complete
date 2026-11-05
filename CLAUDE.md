@@ -44,6 +44,10 @@ work.
   named as the wrap's `source_filename`, and check it against `source_hash`.
 - `tools/complete/build_heartgold.sh` builds `.cache/heartgold.nds` (the retail HeartGold US ROM, checked by SHA-1)
   and `.cache/sacredgold.nds` (Sacred Gold, Complete version, checked against the MD5 the patch records for it).
+- The owner's playtest: `tools/complete/make_playtest_patch.sh CLEAN_ROM...` builds `decomp/build_playtest` (meson
+  option `complete_playtest`: the release game, but a new game starts with Cynthia's Garchomp at Lv. 80, Staraptor
+  with Fly and Empoleon with Surf at Lv. 50, and every Fly point, and Fly and Surf need no badge;
+  `src/complete_playtest.c`) and writes an `.xdelta` for each clean Platinum (US) dump, as Sovereign's release patch.
 - Boot check: `python3 tools/test/boot_smoke.py decomp/build/pokeplatinum.us.nds .cache/smoke` (with
   `SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy`).
 - Story check: `tools/complete/test_hgss_opening.py` plays a new game from New Bark Town as a player would, part by

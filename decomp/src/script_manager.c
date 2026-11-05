@@ -27,6 +27,7 @@
 #include "vars_flags.h"
 
 #include "complete_badges.h" // Sovereign Complete
+#include "complete_playtest.h" // Sovereign Complete
 #include "complete_radio.h" // Sovereign Complete
 #include "complete_trainers.h" // Sovereign Complete
 
@@ -1027,6 +1028,9 @@ void FieldSystem_InitNewGameState(FieldSystem *fieldSystem)
     FieldSystem_RunScript(fieldSystem, SCRIPT_ID(INIT_NEW_GAME, 0));
 #ifdef SOVEREIGN_TEST
     SovereignTest_SetupNewGame(fieldSystem);
+#endif
+#ifdef COMPLETE_PLAYTEST
+    CompletePlaytest_SetupNewGame(fieldSystem); // Sovereign Complete: the playtest build's team and Fly points
 #endif
 }
 

@@ -1791,3 +1791,18 @@ Test results on the new test build:
 - **The long checks on today's build:** the hidden items test found 240 of 243 as before but one, in Violet City,
   where a wandering boy had stepped onto the item's tile, so A talked to him (as it would in HeartGold). The test now
   warps back and tries again a little later when a wanderer is in the way: Violet City's two items pass.
+- **A playtest build for the owner:** `tools/complete/make_playtest_patch.sh` builds `decomp/build_playtest` (meson
+  option `complete_playtest`, `src/complete_playtest.c`) and writes an `.xdelta` from a clean Platinum (US) dump. It's
+  the release game, but a new game starts with Champion Cynthia's Garchomp (Lv. 80: Earthquake, Outrage, Stone Edge,
+  Swords Dance, Yache Berry), Staraptor with Fly and Empoleon with Surf (Lv. 50), and every town's Fly point in the
+  three regions, and Fly and Surf need no badge; badges and the story are untouched. Checked in the emulator from
+  Rowan's intro: the party and moves, Fly from New Bark Town to Cianwood City, Surf there with no badge.
+- **Fly crashed once many of Johto's and Kanto's towns were reached:** the Town Map's sprite manager had room for
+  Platinum's 20 Fly markers, the player and the places last visited, and HeartGold's Fly points were added on top, so
+  past the few free slots a marker came back NULL and the game crashed as Fly opened the map (as it would have for a
+  player who reached Sinnoh after Johto and Kanto). It has room for HeartGold's 30 now, and the Town Map's heap is
+  16 KB bigger for them (it was nearly full: the three regions' map graphics load into it; the application heap has
+  about 820 KB free while the Town Map runs).
+- **The POKéMON option in the start menu** showed only once Sinnoh's starter variable was set (Rowan's briefcase on
+  Route 201), which Elm's starter doesn't set (`VAR_HGSS_PLAYER_STARTER`): it shows with any Pokémon in the party now.
+  (The story test's test party had hidden this.)
