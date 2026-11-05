@@ -78,6 +78,7 @@ BOOL CompleteScrCmd_PartyMonIsNotMine(ScriptContext *ctx);
 BOOL CompleteScrCmd_GetEVTotal(ScriptContext *ctx);
 BOOL CompleteScrCmd_CheckSeenAllUnownLetters(ScriptContext *ctx);
 BOOL CompleteScrCmd_FindStarterSlot(ScriptContext *ctx);
+BOOL CompleteScrCmd_GivePokemonAtLevel(ScriptContext *ctx);
 BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx);
 BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx);
 BOOL CompleteScrCmd_LegendCinematic(ScriptContext *ctx);

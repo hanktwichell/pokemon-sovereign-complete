@@ -13,6 +13,7 @@ int CompleteSinnoh_Level(int level);
 int CompleteSinnoh_EvolvedSpecies(int species, int level);
 void CompleteSinnoh_ScaleParty(int trainerID, void *party, int monDataType, int count);
 u8 CompleteSinnoh_WildLevel(u8 level);
+void CompleteSinnoh_KeepLevels(BOOL keep);
 int CompleteSinnoh_StarterSlot(SaveData *saveData);
 
 #endif // POKEPLATINUM_COMPLETE_SINNOH_H

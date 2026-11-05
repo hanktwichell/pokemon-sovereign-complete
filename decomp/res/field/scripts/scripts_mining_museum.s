@@ -382,7 +382,8 @@ MiningMuseum_SovereignFossilManiac:
     BufferPlayerName 0
     Message MiningMuseum_Text_SovereignFossilManiacReceived
     WaitFanfare
-    GivePokemon VAR_0x8005, VAR_0x8006, ITEM_NONE, VAR_RESULT
+    // Sovereign Complete: at the shown Pokémon's level, not moved up to Sinnoh's (src/complete_sinnoh.c)
+    CompleteGivePokemonAtLevel VAR_0x8005, VAR_0x8006, ITEM_NONE, VAR_RESULT
     SovereignSetParadoxGiven 0, VAR_0x8005
     Message MiningMuseum_Text_SovereignFossilManiacNickname
     ShowYesNoMenu VAR_RESULT
@@ -460,7 +461,8 @@ MiningMuseum_SovereignFutureScientist:
     BufferPlayerName 0
     Message MiningMuseum_Text_SovereignFutureScientistReceived
     WaitFanfare
-    GivePokemon VAR_0x8005, VAR_0x8006, ITEM_NONE, VAR_RESULT
+    // Sovereign Complete: at the shown Pokémon's level, not moved up to Sinnoh's (src/complete_sinnoh.c)
+    CompleteGivePokemonAtLevel VAR_0x8005, VAR_0x8006, ITEM_NONE, VAR_RESULT
     SovereignSetParadoxGiven 1, VAR_0x8005
     Message MiningMuseum_Text_SovereignFutureScientistNickname
     ShowYesNoMenu VAR_RESULT

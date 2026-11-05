@@ -208,6 +208,17 @@ QUESTIONS = [
          ['Keep it', 'New art'],
          'Keep it.'),
     ]),
+    ('Battles', [
+        ('The Pledge moves (Grass, Fire and Water Pledge)',
+         'No Pokémon learns them, by level or tutor, and in the battle engine they\'re plain 80-power hits with no '
+         'combinations (no rainbow, sea of fire or swamp). The same is true in Sovereign. Ally Switch, the other move '
+         'you asked about, is being fixed now: it did nothing, like Splash, for the 21 species that learn it.',
+         ['Leave them out (nobody learns them)',
+          'A tutor teaches them to the Grass, Fire and Water starters, with the full combinations',
+          'Add them to Sovereign first, then sync'],
+         'A tutor for the starters (as from Gen 5 on), at the Battle Frontier\'s BP tutors, with the full '
+         'combinations, tested in double battles.'),
+    ]),
     ('Leftovers and release', [
         ('The Pokégear\'s fly map',
          'Fly used to open HeartGold\'s fly map on the Pokégear (or a list) in Johto and Kanto; now it opens the Town '

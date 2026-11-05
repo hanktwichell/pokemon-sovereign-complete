@@ -59,6 +59,8 @@ from battle_mechanics import LOG_CHARS, charmap, decode_log, log_length  # noqa:
 from talk_to_objects import (DECOMP, FRAME_LIMIT, HOUR, SYMBOLS, header_names, play_out, symbols, u32,  # noqa: E402
                              var_ids, warp)
 from wild_forms import MON_SIZE, SURVEY, TERRAINS, cases, run_survey, species_names  # noqa: E402
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'complete'))
+from sinnoh_levels import level as sinnoh_level  # noqa: E402  Sovereign Complete: Sinnoh's levels after Kanto
 
 ROAMER = '<HBBHHI'  # struct SovereignTestRoamer: map, route index, level, species, HP, personality
 ROAMER_SIZE = struct.calcsize(ROAMER)
@@ -108,7 +110,9 @@ def released():
 def slot_species():
     """{slot: (species, level)}, from RoamingPokemon_ActivateSlot."""
     text = open(os.path.join(DECOMP, 'src', 'roaming_pokemon.c'), encoding='utf-8').read()
-    return {slot: (species, int(level)) for slot, species, level in
+    return {slot: (species, sinnoh_level(int(level)) if slot_names().index(slot) < slot_names().index(
+                'ROAMING_SLOT_RAIKOU') else int(level))  # Sovereign Complete: Sovereign's roamers at Sinnoh's levels
+            for slot, species, level in
             re.findall(r'case (ROAMING_SLOT_\w+):\s*species = (SPECIES_\w+);\s*level = (\d+);', text)}
 
 

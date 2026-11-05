@@ -82,6 +82,7 @@
 #include "save_player.h"
 #include "save_catchrecords.h"
 #include "scrcmd.h"
+#include "scrcmd_party.h"
 #include "spawn_locations.h"
 #include "string_gf.h"
 #include "terrain_collision_manager.h"
@@ -1665,5 +1666,15 @@ BOOL CompleteScrCmd_FindStarterSlot(ScriptContext *ctx)
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
 
     *destVar = CompleteSinnoh_StarterSlot(ctx->fieldSystem->saveData);
+    return FALSE;
+}
+
+// GivePokemon at the level given, not moved up to Sinnoh's: a gift at the level of a Pokémon the player shows (the
+// Mining Museum's Paradox dealers), which is already at the player's own level
+BOOL CompleteScrCmd_GivePokemonAtLevel(ScriptContext *ctx)
+{
+    CompleteSinnoh_KeepLevels(TRUE);
+    ScrCmd_GivePokemon(ctx);
+    CompleteSinnoh_KeepLevels(FALSE);
     return FALSE;
 }

@@ -24,6 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import talk_to_objects  # noqa: E402
 from talk_to_objects import DECOMP, SYMBOLS, arrive, parse_args, symbols, var_ids  # noqa: E402
 from wild_forms import MON_SIZE, SURVEY, TERRAINS, cases, events_of, run_survey, species_names  # noqa: E402
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'complete'))
+from sinnoh_levels import level as sinnoh_level  # noqa: E402  Sovereign Complete: Sinnoh's levels after Kanto
 
 ENTRY = re.compile(r'\{ (MAP_HEADER_\w+), (SPECIES_\w+), (SPECIES_\w+), (\d+), SOVEREIGN_RARE_WILD_(\w+), (\d+), '
                    r'(\d+), (\d+) \}')
@@ -38,7 +40,7 @@ def entries():
     for header, species, _, _, terrain, rate, low, high in ENTRY.findall(text):
         offset = taken.get((header, terrain), 0)
         taken[(header, terrain)] = offset + int(rate)
-        out.append((header, species, terrain, offset, int(low), int(high)))
+        out.append((header, species, terrain, offset, sinnoh_level(int(low)), sinnoh_level(int(high))))
     return out
 
 

@@ -43,6 +43,8 @@ from battle_evolutions import data_of  # noqa: E402
 from heap_check import heap_problems  # noqa: E402
 from talk_to_objects import (DECOMP, FRAME_LIMIT, SAVE_STALL_FRAMES, START_FRAMES, SYMBOLS, arrive,  # noqa: E402
                              cases as talk_cases, parse_args, saving, symbols, u32, var_ids)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'complete'))
+from sinnoh_levels import level as sinnoh_level  # noqa: E402  Sovereign Complete: Sinnoh's levels after Kanto
 
 EVENTS = 'events_fight_area_pokecenter_1f'
 DELIVERYMAN = 'LOCALID_FIGHT_AREA_SOVEREIGN_EVENT_DELIVERYMAN'
@@ -149,18 +151,20 @@ def cases():
     for index, (species, form, level, move) in enumerate(event_gifts()):
         if level == 0:  # a Mythical's event form: he restyles one the player caught instead
             continue
+        level = sinnoh_level(level)  # Sovereign Complete: GivePokemon on a Sinnoh map, at Sinnoh's levels after Kanto
         moves = default_moves(species, form, level)
         if move != 'MOVE_NONE':
             moves[3] = move
         out.append(Gift(f'event gift {index}', EVENTS, DELIVERYMAN, 0, None, [[index, False]],
                         [(species, form, level, 'ITEM_NONE', moves)]))
     out.append(Gift('Battle Bond Greninja', EVENTS, GRENINJA_TRAINER, 0, None, [[True, False]],
-                    [('SPECIES_GRENINJA', 1, 50, 'ITEM_NONE',
+                    [('SPECIES_GRENINJA', 1, sinnoh_level(50), 'ITEM_NONE',  # Sovereign Complete: moved up
                       ['MOVE_WATER_SHURIKEN', 'MOVE_AERIAL_ACE', 'MOVE_DOUBLE_TEAM', 'MOVE_NIGHT_SLASH'])]))
     for events, local, answers, gifts in interviewers():
         out.append(Gift(f'Interviewer {events[len("events_"):-len("_pokecenter_1f")]}', events, local, ALL_BADGES,
                         None, [answers, [False] * len(gifts)],
-                        [(sp, 0, lv, it, default_moves(sp, 0, lv)) for sp, lv, it in gifts]))
+                        [(sp, 0, sinnoh_level(lv), it, default_moves(sp, 0, sinnoh_level(lv)))  # Sovereign Complete
+                         for sp, lv, it in gifts]))
     for index, (species, form, level, move) in enumerate(event_gifts()):
         if level == 0:  # the deliveryman restyles a party Pokémon of a Mythical's into its event form
             out.append(Gift(f'event restyle {index}', EVENTS, DELIVERYMAN, 0, None, [[index, ('party', 1)]],
@@ -174,7 +178,8 @@ def cases():
                         add=(present, 0, SHOWN_LEVEL)))
     for name, events, giver, var, talks, gifts in SIMPLE:
         out.append(Gift(name, events, giver, 0, var, talks,
-                        [(sp, 0, lv, it, default_moves(sp, 0, lv)) for sp, lv, it in gifts]))
+                        [(sp, 0, sinnoh_level(lv), it, default_moves(sp, 0, sinnoh_level(lv)))  # Sovereign Complete
+                         for sp, lv, it in gifts]))
     # An Egg of one of these at random, at Lv. 1 (Egg_CreateEgg), knowing its species' moves at that level.
     out.append(Gift("Trainers' School Egg", 'events_trainers_school', 'LOCALID_COWGIRL', 0, None, [[True]],
                     [(school_egg(), 0, 1, 'ITEM_NONE', None)]))

@@ -1796,3 +1796,15 @@ Test results on the new test build:
   sends Victreebel in too late to Evolve before the god-mode battle ends, with tonight's random numbers (from the
   clock). The test now fights a boss again from two fixed seeds when the first battle shows no Mega: Erika's Victreebel
   Mega Evolves, and the long checks (wild encounters, hidden items, tile behaviors, placements, sound memory) pass.
+- **Sovereign's own tests after Sinnoh's level move:** the rare wild Pokémon test (`tools/test/rare_wild.py`) still
+  expected Sovereign's levels (Guzzlord Lv. 65); since Nov 1 Sinnoh's maps make them at Sinnoh's levels after Kanto
+  (Lv. 91), as planned. The rare wild, roamers and gifts tests now read the level map from the generated header
+  (`tools/complete/sinnoh_levels.py`, rounding as `CompleteSinnoh_Level` does; `gen_sinnoh.py` now rounds the same
+  way): the rare wild test passes 26 of 26.
+- **A Paradox Pokémon at the shown Pokémon's level:** the Mining Museum's dealers give it at the level of the
+  present-day Pokémon shown to them, but on Sinnoh's maps every `GivePokemon` moves its level up, so a Lv. 50 one
+  would have brought a Lv. 85 Paradox Pokémon. They use `CompleteGivePokemonAtLevel` now, which keeps the level.
+- **Ally Switch and the Pledge moves (the owner asked):** neither works. Ally Switch has Splash's effect ("But
+  nothing happened!") for the 21 species that learn it; the three Pledges are plain 80-power hits, and nothing learns
+  them. The same is true in Sovereign. Ally Switch is being made to swap the two Pokémon in double battles; the
+  Pledges' combinations wait on whether anything should learn them (the progress page's questions).

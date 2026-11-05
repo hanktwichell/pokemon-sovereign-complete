@@ -1019,6 +1019,7 @@ ScriptCommand(SCRCMD_COMPLETEUNOWNCIRCLE,                              CompleteS
 ScriptCommand(SCRCMD_COMPLETEALPHWALL,                                 CompleteScrCmd_AlphWall)
 ScriptCommand(SCRCMD_COMPLETELIGHTHOUSELIGHT,                          CompleteScrCmd_LighthouseLight)
 ScriptCommand(SCRCMD_COMPLETEUPDATEDAYCAREMONOBJECTS,                  CompleteScrCmd_UpdateDaycareMonObjects)
+ScriptCommand(SCRCMD_COMPLETEGIVEPOKEMONATLEVEL,                      CompleteScrCmd_GivePokemonAtLevel)
 
 // clang-format on
 

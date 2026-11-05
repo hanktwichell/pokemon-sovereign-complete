@@ -6444,6 +6444,15 @@
     .short SCRCMD_COMPLETEUPDATEDAYCAREMONOBJECTS
     .endm
 
+    // GivePokemon at the level given, on Sinnoh's maps too (not moved up after Kanto): a gift at a shown Pokémon's level
+    .macro CompleteGivePokemonAtLevel species, level, heldItem, successVar
+    .short SCRCMD_COMPLETEGIVEPOKEMONATLEVEL
+    .short \species
+    .short \level
+    .short \heldItem
+    .short \successVar
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

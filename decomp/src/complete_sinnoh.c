@@ -29,6 +29,7 @@
 // species unless the plan says otherwise. Johto's and Kanto's trainers and maps keep Sacred Gold's levels.
 
 static BOOL sOnSinnohMap;
+static BOOL sKeepLevels; // a gift at a party Pokémon's level (CompleteSinnoh_KeepLevels)
 
 void CompleteSinnoh_OnMapLoaded(int mapHeaderID)
 {
@@ -139,7 +140,14 @@ void CompleteSinnoh_ScaleParty(int trainerID, void *party, int monDataType, int 
 // A wild Pokémon's level as it's made (wild_encounters.c): on a Sinnoh map, moved up
 u8 CompleteSinnoh_WildLevel(u8 level)
 {
-    return sOnSinnohMap ? CompleteSinnoh_Level(level) : level;
+    return sOnSinnohMap && !sKeepLevels ? CompleteSinnoh_Level(level) : level;
+}
+
+// While on, Pokémon made on Sinnoh's maps keep the level they're given: for a gift at the level of a party Pokémon,
+// which is already the player's own (CompleteScrCmd_GivePokemonAtLevel)
+void CompleteSinnoh_KeepLevels(BOOL keep)
+{
+    sKeepLevels = keep;
 }
 
 // The species it first evolves into, or SPECIES_NONE

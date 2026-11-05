@@ -18,7 +18,7 @@ def moved(points, level):
     """The level here for Sovereign's level (straight between the plan's points)."""
     for (a, b), (c, e) in zip(points, points[1:]):
         if a <= level <= c:
-            return round(b + (level - a) * (e - b) / (c - a))
+            return b + ((level - a) * (e - b) * 2 + (c - a)) // ((c - a) * 2)  # half up, as CompleteSinnoh_Level
     return points[-1][1] if level > points[-1][0] else points[0][1]
 
 
