@@ -74,10 +74,10 @@ STEPS = [
 ]
 
 NEXT = [
-    'The gallery is filling in: every gym leader, Elite Four member and champion has a battle on the Gallery tab, '
-    'and 180 of the 230 places have their photos; the rest of Sinnoh is being shot now.',
-    'Every feature test is running again on today\'s build (the Town Map and the Day Care\'s yard have new ones, '
-    'both passing); all 31 finished so far pass. A full story run follows on the same build.',
+    'The Gallery tab is complete: all 230 places in Sinnoh, Johto and Kanto have their photos, and every gym '
+    'leader, Elite Four member and champion has a battle.',
+    'Every feature test ran again on today\'s build: all 39 pass (the Town Map and the Day Care\'s yard have new '
+    'ones; the special events test needed a fix for people who wander). A full story run is going on the newest build.',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
@@ -107,8 +107,8 @@ RECENT = [
         'reach the Indigo Plateau and Mt. Silver). Its emulator test flies around Johto, Kanto and Sinnoh as a player '
         'would: 33 of 33 checks pass. Screenshots: Gallery tab, "New in the game".',
         'The Gallery tab: click a town or route on the region maps to see its photos, and every gym leader, Elite '
-        'Four member and champion has a battle (all 35, 34 to 55 shots each). The places are still being shot: 180 '
-        'of 230 so far.',
+        'Four member and champion has a battle (all 35, 34 to 55 shots each), and all 230 places in the three '
+        'regions have their photos, up to 30 each.',
         'The Sinjoh Ruins: yes, Sacred Gold\'s plates event plays (the Unown circle, Arceus\'s cinematic, the '
         'battle), and its test passes. HeartGold\'s Arceus egg for Cynthia was an event distribution, so it\'s out.',
     ]),

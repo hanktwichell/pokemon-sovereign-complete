@@ -1786,3 +1786,5 @@ Test results on the new test build:
   events with no battle the test took "nothing happened" for a pass's start. It now waits and talks again, and warps
   back now and then, as the gifts test does for its wandering givers: the three pass (the game was fine; the same
   three fail the same way on yesterday's build_test2 today).
+- **The gallery is complete:** all 230 places in Sinnoh, Johto and Kanto have their photos (up to 30 each, from the
+  test warp to spots spread over each map) and all 35 bosses their battles, on the progress page's Gallery tab.
