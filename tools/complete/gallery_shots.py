@@ -37,6 +37,9 @@ from talk_to_objects import SYMBOLS, event_maps, header_names, symbols, warp  # 
 
 DECOMP = os.path.join(ROOT, 'decomp')
 OUT = os.path.join(ROOT, '.cache', 'gallery')
+# Where a boss's battle starts when the middle of their gym won't do: Ecruteak Gym's dark floor drops the player at
+# once, so Morty's starts inside its door
+BOSS_SPOTS = {'Morty': (16, 51)}
 MAX_SHOTS = 30  # a place's shots at most
 INDOOR_SHOTS = 14  # of them, from its buildings at most
 SETTLE = 50  # frames after a warp before the shot
@@ -215,7 +218,10 @@ def shoot_battles(d, sym, state, names):
         d.load_state(state)
         d.run(30)
         index = []
-        if header in matrices:
+        if boss in BOSS_SPOTS:
+            warp(d, sym, names.index(header), *BOSS_SPOTS[boss], 0)
+            d.run(SETTLE)
+        elif header in matrices:
             matrix, gj, ev = matrices[header]
             spots = spots_of(maps, header, matrix, gj, True, ev)
             if spots:

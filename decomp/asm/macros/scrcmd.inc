@@ -6439,6 +6439,11 @@
     .short SCRCMD_COMPLETELIGHTHOUSELIGHT
     .endm
 
+    // HeartGold's UpdateDaycareMonObjects: the Route 34 Day Care's two Pokémon in its yard (src/overlay005/complete_daycare.c)
+    .macro CompleteUpdateDaycareMonObjects
+    .short SCRCMD_COMPLETEUPDATEDAYCAREMONOBJECTS
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

@@ -576,6 +576,7 @@ Overlay overlay5
 	Object src/overlay005/scrcmd_move_tutor.c
 	Object src/overlay005/complete_move_tutor.c
 	Object src/overlay005/complete_legend_cutscene.c
+	Object src/overlay005/complete_daycare.c
 	Object src/overlay005/villa_furniture.c
 	Object src/overlay005/dist_world_surf_mount_renderer.c
 }
@@ -1344,6 +1345,7 @@ Overlay town_map
 	Object src/applications/town_map/sprites.c
 	Object src/applications/town_map/fly_locations.c
 	Object src/applications/town_map/map_blocks.c
+	Object src/applications/town_map/complete_town_map.c
 }
 
 Overlay journal_display

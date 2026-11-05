@@ -166,6 +166,6 @@ _0204:
     WalkOnSpotNormalSouth
     EndMovement
 scr_seq_R34R0101_000:
-    @ HGSS: UpdateDaycareMonObjects
+    CompleteUpdateDaycareMonObjects
     End
     .balign 4, 0

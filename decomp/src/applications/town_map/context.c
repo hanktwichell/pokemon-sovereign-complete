@@ -7,6 +7,8 @@
 #include "applications/town_map/main.h"
 #include "field/field_system.h"
 
+#include "complete_map_info.h" // Sovereign Complete
+
 #include "field_overworld_state.h"
 #include "field_system.h"
 #include "heap.h"
@@ -37,6 +39,9 @@ typedef struct TownMapDistWorldMapOffset {
 } TownMapDistWorldMapOffset;
 
 static void PerformTownMapDescriptionsChecks(FieldSystem *fieldSystem, TownMapContext *ctx, const char *flagsFilePath);
+
+#define CANALAVE_BLOCK_X 1 // Sovereign Complete: Canalave City's block on Sinnoh's map
+#define CANALAVE_BLOCK_Z 22
 
 static const TownMapDistWorldMapOffset sDistWorldMapOffsets[10] = {
     { .mapHeader = MAP_HEADER_DISTORTION_WORLD_1F, .x = 21, .y = 288, .z = 10 },
@@ -149,6 +154,19 @@ void TownMapContext_Init(FieldSystem *fieldSystem, TownMapContext *ctx, enum Tow
     PerformTownMapDescriptionsChecks(fieldSystem, ctx, "data/tmap_flags.dat");
 
     ctx->townMapMode = townMapMode;
+
+    // Sovereign Complete: the three-region Town Map's hand-off (complete_town_map.c). From Johto or Kanto, Sinnoh's
+    // cursor starts at Canalave City, the ferry's harbour, without the places last visited (their blocks are HeartGold's)
+    CompleteMapInfo_TownMapInit(fieldSystem, townMapMode == TOWN_MAP_MODE_FLY);
+
+    if (MapHeader_IsHGSS(fieldSystem->location->mapHeaderID)) {
+        ctx->playerX = CANALAVE_BLOCK_X * MAP_TILES_COUNT_X + MAP_TILES_COUNT_X / 2;
+        ctx->playerZ = CANALAVE_BLOCK_Z * MAP_TILES_COUNT_Z + MAP_TILES_COUNT_Z / 2;
+
+        for (i = 0; i < TOWN_MAP_HISTORY_LENGTH; i++) {
+            ctx->locationHistory[i].isSet = FALSE;
+        }
+    }
 }
 
 static void PerformTownMapDescriptionsChecks(FieldSystem *fieldSystem, TownMapContext *ctx, const char *flagsFilePath)

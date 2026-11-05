@@ -1755,3 +1755,19 @@ Test results on the new test build:
   build_test2 the story test from Twinleaf Town passes the briefcase, with nothing failing in the field map's heap
   as Route 201 comes back; the release build boots (38,904 bytes of the main arena to spare). The story test has a
   new option, STEP_STATES, a save state after each action, to try what comes next on its own.
+- **One Town Map for all three regions (the owner's call, Nov 5):** the Town Map now shows Sinnoh as Platinum does and
+  Johto and Kanto (HeartGold's map, from its Pokégear) on the sea to its south-west, on one canvas the view scrolls
+  across (`docs/Features.md`, "The Town Map of three regions"; `src/applications/town_map/complete_town_map.c`, its
+  graphics from `tools/complete/import_town_map.py`). Scrolled to Sinnoh it is Platinum's screen pixel for pixel; L
+  and R switch regions, and the D-pad crosses over at the edges, onto the nearest place. Fly from the party menu
+  opens it everywhere and goes only within the player's region: Johto's and Kanto's places each fly to the Indigo
+  Plateau and Mt. Silver, and those fly to either. The new test (`tools/complete/test_town_map.py`, Fly as a player
+  uses it from Violet City, the Indigo Plateau, Vermilion City and Jubilife City) passes all 33 checks on
+  build_test3; the first run showed sea cells named "Mystery Zone", the crossing landing in the sea and L from
+  Sinnoh opening on the sea, all fixed. The release build boots.
+- **The Day Care's yard:** the Pokémon left at the Route 34 Day Care stand in its yard beside the house, as in
+  HeartGold (its UpdateDaycareMonObjects, the house's init script; `src/overlay005/complete_daycare.c`), each as its
+  walking sprite, and leave it when taken back. Its test (`tools/complete/test_hgss_daycare_yard.py`: a Pikachu and
+  a Marill left there by the test build's breeding hook) passes on build_test3.
+- **Gallery captures:** the boss battles are all shot (34 of 35 bosses, 34 to 55 shots each; Morty's battle started
+  on Ecruteak Gym's dark floor and is redone from inside its door), and 85 of the 230 places; the rest are running.

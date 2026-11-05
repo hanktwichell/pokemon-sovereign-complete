@@ -42,6 +42,34 @@ BOOL MapHeader_HasRadioSignal(enum MapHeaderID mapHeaderID);
 // Fly over Johto and Kanto: the Fly points (HeartGold's spawn points, from SPAWN_HGSS_FIRST) the player has reached, but
 // the one on this map, in HeartGold's order, into spawns (at most max); how many
 int CompleteMapInfo_FlyPoints(FieldSystem *fieldSystem, u8 *spawns, int max);
+// The three-region Town Map (src/applications/town_map/complete_town_map.c): set as the field opens it, read by its
+// overlay. playerRegion: COMPLETE_TOWN_MAP_REGION_*; playerX, playerY: the player's cell on HeartGold's map (when in
+// Johto or Kanto); flyPoints: bit n set for HeartGold's Fly point SPAWN_HGSS_FIRST + n the player can fly to now
+// (reached, and in their region or the area between Johto and Kanto; none from Sinnoh). The Town Map keeps its view in
+// viewRegion (0 Sinnoh, 1 Johto and Kanto) and the cursor's cell there in viewX, viewY (Platinum's grid in Sinnoh,
+// HeartGold's map's in Johto and Kanto), for the tests.
+enum CompleteTownMapRegion {
+    COMPLETE_TOWN_MAP_REGION_SINNOH,
+    COMPLETE_TOWN_MAP_REGION_JOHTO,
+    COMPLETE_TOWN_MAP_REGION_KANTO,
+};
+
+typedef struct CompleteTownMapInfo {
+    u8 playerRegion;
+    u8 playerX;
+    u8 playerY;
+    u8 viewRegion;
+    u8 viewX;
+    u8 viewY;
+    u32 flyPoints;
+} CompleteTownMapInfo;
+
+extern CompleteTownMapInfo gCompleteTownMap;
+
+void CompleteMapInfo_TownMapInit(FieldSystem *fieldSystem, BOOL fly);
+// The cell on HeartGold's map of a map's tile (HeartGold's MapHeader_GetWorldMapCoords: on the overworld, its 32-tile
+// block; off it, its header's place); FALSE in Sinnoh or for a map with no place
+BOOL CompleteMapInfo_HGSSMapCell(enum MapHeaderID mapHeaderID, int tileX, int tileZ, int *x, int *y);
 // HeartGold's changes to the overworld's blocks as a map loads: Mahogany Town's antenna tree, the Lake of Rage's level
 void CompleteMapInfo_LoadMatrix(MapMatrix *mapMatrix, SaveData *saveData, enum MapHeaderID mapHeaderID);
 // Whether the Lake of Rage is low today, seen from this map (its water level, and a clear sky over the lake)

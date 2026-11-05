@@ -145,6 +145,10 @@ work.
   (`CompletePhone_StartRinging`, main module) until the Phone button answers; the ring's limit is the clock's (the
   host's in the emulator), not frames.
   Test-only markers the tests read belong in the main module: an overlay's memory is reused by the next overlay.
+- The Town Map of three regions: `src/applications/town_map/complete_town_map.c` (marked hooks in the overlay's
+  `main.c`, `graphics.c` and `context.c`; the field's hand-off in `gCompleteTownMap`, `src/complete_map_info.c`), its
+  graphics from `tools/complete/import_town_map.py` (`graphic/complete/town_map.narc`). Fly from the party menu opens
+  it everywhere. Test: `tools/complete/test_town_map.py`.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
 

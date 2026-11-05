@@ -91,7 +91,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **One Town Map (Nov 5, 2026).** A single Town Map for all three regions, Sinnoh's and Johto and Kanto's joined into
   one that the player scrolls across, so the game needs only one. Claude makes a first version from the two games'
   own maps. Fly goes only between places in the region the player is in; Johto and Kanto can both fly to the area
-  between them.
+  between them. First version in (`docs/Features.md`, "The Town Map of three regions").
 - **A photo gallery on the progress page (Nov 5, 2026).** A tab where the owner clicks a region's map (Sinnoh, Johto,
   Kanto), picks a town or route and sees dozens of in-game screenshots of it, with battle screenshots of every gym
   leader, Elite Four member and champion.

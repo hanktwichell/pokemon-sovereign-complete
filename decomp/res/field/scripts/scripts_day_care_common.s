@@ -352,6 +352,8 @@ DayCareCommon_GetPokemonBack:
     ApplyMovement LOCALID_DAY_CARE_LADY, DayCareCommon_Movement_LadyGetPokemon
     WaitMovement
     MoveMonToPartyFromDaycareSlot VAR_0x8002, VAR_0x8001
+    // Sovereign Complete: at the Route 34 Day Care, the Pokémon leaves its yard (as HeartGold's does)
+    CompleteUpdateDaycareMonObjects
     RemoveMoney2 VAR_0x8004
     UpdateMoneyDisplay
     PlaySE SEQ_SE_DP_REGI_sseq

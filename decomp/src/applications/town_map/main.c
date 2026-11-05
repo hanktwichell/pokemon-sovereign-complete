@@ -5,6 +5,7 @@
 
 #include "constants/field/map.h"
 
+#include "applications/town_map/complete_town_map.h" // Sovereign Complete
 #include "applications/town_map/graphics.h"
 #include "applications/town_map/map_blocks.h"
 #include "applications/town_map/sprites.h"
@@ -236,6 +237,7 @@ static BOOL InitDefaultAppResources(TownMapAppData *appData)
         appData->bgConfig = BgConfig_New(appData->heapID);
         InitBGLayers(appData, appData->bgConfig);
         LoadBGGraphics(appData);
+        CompleteTownMap_LoadGraphics(appData); // Sovereign Complete
         EnableTouchPad();
         InitializeTouchPad(4);
         TownMap_InitSpriteSystem(appData);
@@ -407,6 +409,8 @@ static void InitBGLayers(TownMapAppData *appData, BgConfig *bgConfig)
     };
 
     int layer = BG_LAYER_MAIN_0;
+
+    CompleteTownMap_AdjustBgTemplates(bgTemplates); // Sovereign Complete: the three-region map's layers
 
     for (int i = BG_LAYER_MAIN_0; i < BG_LAYER_MAX; i++) {
         Bg_InitFromTemplate(bgConfig, layer, &(bgTemplates[i]), BG_TYPE_STATIC);

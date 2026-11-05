@@ -595,6 +595,8 @@ COMMANDS = {
     'ShowLegendaryWing': one('CompleteLegendaryWing {0}'),
     # The Olivine Lighthouse's lamp coming back on once Amphy is well (src/overlay005/complete_legend_cutscene.c)
     'ScrCmd_459': one('CompleteLighthouseLight'),
+    # The Route 34 Day Care's two Pokémon in its yard (src/overlay005/complete_daycare.c)
+    'UpdateDaycareMonObjects': lambda a: ['CompleteUpdateDaycareMonObjects'],
     # Lance and his Dragonite (their objects) taking off from the Lake of Rage
     'ScrCmd_775': one('CompleteLanceFlight {0}, {1}'),
     # HeartGold's legendary cinematics (its overlay 106): Ho-Oh over the Bell Tower (0), Lugia in the Whirl Islands (1)

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Check Fly over Johto and Kanto in the test build: arriving in a town records its Fly point, as in HeartGold
-(FLAG_HGSS_SYS_FLYPOINT_*, from its spawn points: src/spawn_locations.c), and Fly's list of the places reached, which
-stands in for the Town Map there (CommonScript_CompleteFly), flies to the one chosen.
+(FLAG_HGSS_SYS_FLYPOINT_*, from its spawn points: src/spawn_locations.c), and the list of the places reached
+(CommonScript_CompleteFly) flies to the one chosen. Fly from the party menu opens the Town Map of three regions now
+(tools/complete/test_town_map.py); the list and the Pokégear's fly map stay in the code, which this still runs.
 
 1. From the bedroom state, the player warps to New Bark Town, Cherrygrove City and Violet City (the test warp, which
    arrives as any warp does): each town's Fly point flag must be set, and a town not visited (Azalea Town) must not.
-2. In Violet City, gCompleteTestFly starts the list, as Fly from the party menu does on a Johto or Kanto map. B closes
+2. In Violet City, gCompleteTestFly starts the list, as Fly from the party menu did on a Johto or Kanto map. B closes
    it: the player stays in Violet City.
 3. Again, and A picks the first place, New Bark Town (the list goes in HeartGold's order and leaves out the town the
    player is in): the player must land in New Bark Town, on its Fly point. (The bedroom state has no Pokégear yet, so

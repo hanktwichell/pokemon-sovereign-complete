@@ -36,3 +36,5 @@ prebuilt_files = [
 foreach f : prebuilt_files
     nitrofs_files += fs.copyfile(f)
 endforeach
+
+subdir('complete_town_map') # Sovereign Complete: the three-region Town Map

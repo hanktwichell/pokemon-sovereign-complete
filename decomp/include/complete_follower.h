@@ -23,6 +23,9 @@ BOOL CompleteFollower_IsPassedBy(const MapObject *mover, const MapObject *other)
 // HeartGold's walking Pokémon, a range of graphics IDs: the table entry the field looks up for one (its size's
 // template), and its texture's member of the field sprites' NARC (-1 for any other graphics ID)
 u32 CompleteFollower_TemplateGfx(u32 graphicsID);
+// A Pokémon's walking sprite's graphics ID (HeartGold's FollowMon_GetSpriteID, its shiny colours if shiny), or -1 for a
+// species without one
+int CompleteFollower_MonGfx(int species, int form, int gender, BOOL shiny);
 int CompleteFollower_GfxNarcIndex(u32 graphicsID);
 
 // HeartGold's mood (its MON_DATA_MOOD, -127 to 127): what a Pokémon went through lately, which the follower's talk

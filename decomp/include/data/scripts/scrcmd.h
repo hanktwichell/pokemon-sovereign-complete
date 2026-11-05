@@ -1018,6 +1018,7 @@ ScriptCommand(SCRCMD_COMPLETELEGENDCINEMATIC,                          CompleteS
 ScriptCommand(SCRCMD_COMPLETEUNOWNCIRCLE,                              CompleteScrCmd_UnownCircle)
 ScriptCommand(SCRCMD_COMPLETEALPHWALL,                                 CompleteScrCmd_AlphWall)
 ScriptCommand(SCRCMD_COMPLETELIGHTHOUSELIGHT,                          CompleteScrCmd_LighthouseLight)
+ScriptCommand(SCRCMD_COMPLETEUPDATEDAYCAREMONOBJECTS,                  CompleteScrCmd_UpdateDaycareMonObjects)
 
 // clang-format on
 

@@ -12,6 +12,7 @@
 #include "map_header.h"
 #include "map_matrix.h"
 #include "map_object.h"
+#include "player_avatar.h"
 #include "rtc.h"
 #include "savedata.h"
 #include "spawn_locations.h"
@@ -193,4 +194,66 @@ int CompleteMapInfo_FlyPoints(FieldSystem *fieldSystem, u8 *spawns, int max)
     }
 
     return count;
+}
+
+CompleteTownMapInfo gCompleteTownMap;
+
+BOOL CompleteMapInfo_HGSSMapCell(enum MapHeaderID mapHeaderID, int tileX, int tileZ, int *x, int *y)
+{
+    if (!MapHeader_IsHGSS(mapHeaderID)) {
+        return FALSE;
+    }
+
+    if (MapHeader_GetMapMatrixID(mapHeaderID) == map_matrix_hgss_0000) {
+        *x = tileX / 32;
+        *y = tileZ / 32;
+        return TRUE;
+    }
+
+    MapHeader_GetWorldMapPos(mapHeaderID, x, y);
+    return *x != 0 || *y != 0;
+}
+
+// The area between Johto and Kanto, which both fly to: the Indigo Plateau and Mt. Silver
+static BOOL IsBetweenRegions(int spawn)
+{
+    return spawn == SPAWN_HGSS_INDIGO || spawn == SPAWN_HGSS_MT_SILVER;
+}
+
+void CompleteMapInfo_TownMapInit(FieldSystem *fieldSystem, BOOL fly)
+{
+    enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
+    int x = 0, y = 0;
+
+    gCompleteTownMap.playerRegion = !MapHeader_IsHGSS(mapHeaderID) ? COMPLETE_TOWN_MAP_REGION_SINNOH
+        : MapHeader_GetRegion(mapHeaderID) == MAP_REGION_KANTO ? COMPLETE_TOWN_MAP_REGION_KANTO
+                                                               : COMPLETE_TOWN_MAP_REGION_JOHTO;
+    gCompleteTownMap.flyPoints = 0;
+
+    if (CompleteMapInfo_HGSSMapCell(mapHeaderID, PlayerAvatar_GetXPos(fieldSystem->playerAvatar), PlayerAvatar_GetZPos(fieldSystem->playerAvatar), &x, &y)) {
+        gCompleteTownMap.playerX = x;
+        gCompleteTownMap.playerY = y;
+    } else {
+        gCompleteTownMap.playerX = gCompleteTownMap.playerY = 0xFF;
+    }
+
+    // at the Indigo Plateau or Mt. Silver, between Johto and Kanto, the player flies to either
+    BOOL between = mapHeaderID == GetFlyLocationMap(SPAWN_HGSS_INDIGO) || mapHeaderID == GetFlyLocationMap(SPAWN_HGSS_MT_SILVER);
+
+    for (int spawn = SPAWN_HGSS_FIRST; spawn < SPAWN_HGSS_FIRST + SPAWN_HGSS_COUNT; spawn++) {
+        enum MapHeaderID flyMap = GetFlyLocationMap(spawn);
+
+        if (flyMap == MAP_HEADER_EVERYWHERE || !CheckFlyLocationUnlocked(fieldSystem, spawn)) {
+            continue;
+        }
+
+        // flying: only within the region the player is in (the area between Johto and Kanto from either, and either
+        // from there)
+        if (fly && (gCompleteTownMap.playerRegion == COMPLETE_TOWN_MAP_REGION_SINNOH
+                       || (!between && !IsBetweenRegions(spawn) && (MapHeader_GetRegion(flyMap) == MAP_REGION_KANTO) != (gCompleteTownMap.playerRegion == COMPLETE_TOWN_MAP_REGION_KANTO)))) {
+            continue;
+        }
+
+        gCompleteTownMap.flyPoints |= 1 << (spawn - SPAWN_HGSS_FIRST);
+    }
 }

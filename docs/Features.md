@@ -446,7 +446,8 @@ hang-up; docs/Music.md), with its Phone and its Map:
   so the importer makes it 16-colour without changing a pixel: five 15-colour palettes, each tile in the one its
   colours fit, and tiles that repeat (flipped or not) kept once (593 tiles). In Sinnoh it shows the place's name, with
   no head. The Pokégear comes back to the page it was on (after a battle or a map change).
-- **Fly:** Fly over Johto and Kanto (from the party menu) is HeartGold's fly map on the Map: HeartGold's red cursor
+- **Fly** (no longer how Fly starts: Fly opens the Town Map of three regions, below; this stays in the code, unused):
+  HeartGold's fly map on the Map: HeartGold's red cursor
   (its map app's, flashing between its two frames) on the place reached nearest the player, its name below, and the
   field's message "Where do you want to fly?". The D-pad moves the cursor to the nearest place reached that way, a tap
   on a place moves it there; A, or a tap on the place picked, flies there, and B backs out to the page the Pokégear was
@@ -895,18 +896,52 @@ Before, they stood as Platinum's wall before Rotom's room (a large black panel: 
 Jasmine and Amphy), its Elite Four door or a bollard. HeartGold's book (five houses' "History of Ecruteak" and the
 like) is Platinum's own book.
 
+## The Town Map of three regions
+
+One Town Map shows all three regions (the owner's call, Nov 5): Sinnoh as Platinum shows it, and Johto and Kanto
+(HeartGold's map, from its Pokégear) on the sea to its south-west, on one canvas the view scrolls across
+(`src/applications/town_map/complete_town_map.c`, its graphics from `tools/complete/import_town_map.py`). The bag's
+Town Map, Fly and the wall maps all open it.
+
+- **Sinnoh** is Platinum's map, pixel for pixel, with its cursor, zoomed-in bottom screen, Fly points, hidden places
+  and the places last visited. Platinum's two map layers are one here (Sinnoh's land and routes, made 16-colour:
+  452 tiles in two palettes), with Johto and Kanto on a second layer and Platinum's frame and bar in front, each
+  layer 512 by 512 pixels.
+- **Johto and Kanto** are HeartGold's map (its 47 by 17 blocks, a cell of 8 pixels a block, as the Pokégear's map
+  places them). The cursor moves a block a step (holding repeats), the view follows it, and the place's name shows in
+  Platinum's bar. The player's marker sits where HeartGold's map would put them (on the overworld, the block they're
+  on; off it, their map's place), and HeartGold's Fly points reached show as Platinum's Fly squares.
+- **Between them:** L (from Sinnoh) and R (from Johto and Kanto) switch the view, and the D-pad crosses over: a fresh
+  press off Sinnoh's west or south edge goes to the nearest place on HeartGold's map, and off its north or east edge
+  back to Sinnoh. The map opens on the player's region; in Johto or Kanto, Sinnoh's cursor starts at Canalave City,
+  the ferry's harbour.
+- **Fly** goes only between places in the region the player is in: in Sinnoh, Platinum's Fly points; in Johto, Johto's
+  and the area between Johto and Kanto (the Indigo Plateau and Mt. Silver); in Kanto, Kanto's and that area; and from
+  that area, either region's. A place Fly can't reach doesn't show as a Fly point, and A on it does nothing. Fly from
+  the party menu opens this map everywhere now; HeartGold's fly map on the Pokégear and the list of places reached
+  (`CommonScript_CompleteFly`) are no longer how Fly starts.
+
+Test: `tools/complete/test_town_map.py` (Fly from the party menu in Violet City, Vermilion City, the Indigo Plateau
+and Jubilife City: the view, the cursor and the Fly points shown; walking the cursor; a place in the other region
+refused; flying within the region; crossing over and back).
+
+## The Day Care's yard
+
+The Pokémon left at the Route 34 Day Care stand in its yard beside the house, seen through its window, as in HeartGold
+(its UpdateDaycareMonObjects; `src/overlay005/complete_daycare.c`): each as its walking sprite (the following
+Pokémon's, in its shiny colours if shiny), the first at (8, 5) and the second at (10, 9), looking about. The house's
+init script places them each time its map comes back, and taking one back takes it out of the yard at once.
+Test: `tools/complete/test_hgss_daycare_yard.py`.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
 
 - **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
   keep it in.
-- **Fly over Johto and Kanto:** Platinum's Town Map shows only Sinnoh, so on a Johto or Kanto map Fly (from the party
-  menu) is HeartGold's fly map on the Pokégear's Map ("The Pokégear and the Pokétch"), or, with the Pokétch on the
-  bottom screen, a list of the places reached, by name, that flies to the one chosen. The places are HeartGold's 25
-  Fly points, each recorded as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn
-  points: `src/spawn_locations.c`). Both stay until the three-region Town Map (`docs/Roadmap.md`, "Art"). Until then
-  the bag's Town Map (given in Sinnoh) shows Sinnoh's map wherever it's used; on a Johto or Kanto map its cursor
-  starts on Twinleaf Town (checked in the emulator on Route 30).
+- **Fly over Johto and Kanto:** done by the Town Map of three regions (above). HeartGold's 25 Fly points are recorded
+  as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn points:
+  `src/spawn_locations.c`). The fly map on the Pokégear's Map and the list of places reached that stood in before
+  stay in the code (`CommonScript_CompleteFly`, which `tools/complete/test_hgss_fly.py` still runs), unused.
 - **The Berry Pots, the Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
   (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items.

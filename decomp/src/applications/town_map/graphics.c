@@ -9,6 +9,7 @@
 #include "generated/map_headers.h"
 #include "generated/signpost_types.h"
 
+#include "applications/town_map/complete_town_map.h" // Sovereign Complete
 #include "applications/town_map/defs.h"
 #include "applications/town_map/fly_locations.h"
 #include "applications/town_map/main.h"
@@ -112,6 +113,7 @@ BOOL TownMap_FreeGraphics(TownMapAppData *appData)
 {
     TownMapGraphicsManager *graphicsMan = appData->graphicsMan;
 
+    CompleteTownMap_Free(appData); // Sovereign Complete: the three-region map's sprites
     ClearBGLayers(appData);
 
     if (appData->mode != TOWN_MAP_MODE_WALL_MAP) {
@@ -150,6 +152,7 @@ BOOL TownMap_LoadGraphics(TownMapAppData *appData)
         graphicsMan->flyLocations = TownMap_LoadFlyLocations(appData->spriteSystem, appData->spriteMan, appData->context->unlockedFlyLocations, 20, appData->heapID);
         UpdateHoveredLocation(appData);
         UpdateBottomScreenText(appData);
+        CompleteTownMap_Start(appData); // Sovereign Complete: the view on the player's region
         graphicsMan->graphicsLoadStage = 0;
         return TRUE;
     }
@@ -381,6 +384,10 @@ static void HandleInput(TownMapAppData *appData, int heldKeys)
             }
         }
 
+        return;
+    }
+
+    if (CompleteTownMap_HandleInput(appData, heldKeys)) { // Sovereign Complete: the cursor in and to Johto and Kanto
         return;
     }
 
@@ -720,20 +727,33 @@ static void ShowHiddenLocation(TownMapAppData *appData, enum HiddenLocation loca
     const TilemapRectCopyParams *zoomedInMapBG = &((TilemapRectCopyParams *)hiddenLocationGraphicsRects)[location * 4 + 2];
     const TilemapRectCopyParams *zoomedInMap = &((TilemapRectCopyParams *)hiddenLocationGraphicsRects)[location * 4 + 3];
 
-    Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_2, fullScreenMap->destX, fullScreenMap->destY, fullScreenMap->width, fullScreenMap->height, appData->hiddenLocationsFullScreenMapGraphics->rawData, fullScreenMap->srcX, fullScreenMap->srcY, ((appData->hiddenLocationsFullScreenMapGraphics)->screenWidth / TILE_WIDTH_PIXELS), ((appData->hiddenLocationsFullScreenMapGraphics)->screenHeight / TILE_HEIGHT_PIXELS));
+    // Sovereign Complete: the place drawn on the three-region map's Sinnoh instead of Platinum's two top layers
+    BOOL onCompleteMap = CompleteTownMap_ShowHiddenLocation(appData, location);
+
+    if (!onCompleteMap) {
+        Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_2, fullScreenMap->destX, fullScreenMap->destY, fullScreenMap->width, fullScreenMap->height, appData->hiddenLocationsFullScreenMapGraphics->rawData, fullScreenMap->srcX, fullScreenMap->srcY, ((appData->hiddenLocationsFullScreenMapGraphics)->screenWidth / TILE_WIDTH_PIXELS), ((appData->hiddenLocationsFullScreenMapGraphics)->screenHeight / TILE_HEIGHT_PIXELS));
+    }
+
     Bg_CopyRectToTilemapRect(appData->bgConfig, BG_LAYER_SUB_2, zoomedInMap->destX, zoomedInMap->destY, zoomedInMap->width, zoomedInMap->height, appData->hiddenLocationsZoomedInMapGraphics->rawData, zoomedInMap->srcX, zoomedInMap->srcY, ((appData->hiddenLocationsZoomedInMapGraphics)->screenWidth / TILE_WIDTH_PIXELS), ((appData->hiddenLocationsZoomedInMapGraphics)->screenHeight / TILE_HEIGHT_PIXELS));
 
     if (location == HIDDEN_LOCATION_SPRING_PATH) {
         return;
     }
 
-    Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_3, fullScreenMapBG->destX, fullScreenMapBG->destY, fullScreenMapBG->width, fullScreenMapBG->height, appData->hiddenLocationsFullScreenMapGraphics->rawData, fullScreenMapBG->srcX, fullScreenMapBG->srcY, ((appData->hiddenLocationsFullScreenMapGraphics)->screenWidth / TILE_WIDTH_PIXELS), ((appData->hiddenLocationsFullScreenMapGraphics)->screenHeight / TILE_HEIGHT_PIXELS));
+    if (!onCompleteMap) {
+        Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_3, fullScreenMapBG->destX, fullScreenMapBG->destY, fullScreenMapBG->width, fullScreenMapBG->height, appData->hiddenLocationsFullScreenMapGraphics->rawData, fullScreenMapBG->srcX, fullScreenMapBG->srcY, ((appData->hiddenLocationsFullScreenMapGraphics)->screenWidth / TILE_WIDTH_PIXELS), ((appData->hiddenLocationsFullScreenMapGraphics)->screenHeight / TILE_HEIGHT_PIXELS));
+    }
+
     Bg_CopyRectToTilemapRect(appData->bgConfig, BG_LAYER_SUB_3, zoomedInMapBG->destX, zoomedInMapBG->destY, zoomedInMapBG->width, zoomedInMapBG->height, appData->hiddenLocationsZoomedInMapGraphics->rawData, zoomedInMapBG->srcX, zoomedInMapBG->srcY, ((appData->hiddenLocationsZoomedInMapGraphics)->screenWidth / TILE_WIDTH_PIXELS), ((appData->hiddenLocationsZoomedInMapGraphics)->screenHeight / TILE_HEIGHT_PIXELS));
 }
 
 static void LoadMapGraphics(TownMapAppData *appData)
 {
     TownMapGraphicsManager *graphicsMan = appData->graphicsMan;
+
+    if (CompleteTownMap_DrawMaps(appData)) { // Sovereign Complete: the three-region map in place of Platinum's top screen
+        goto bottomScreen;
+    }
 
     Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_2, 0, 0, HW_LCD_WIDTH / TILE_WIDTH_PIXELS, HW_LCD_HEIGHT / TILE_HEIGHT_PIXELS, appData->fullScreenMap->rawData, 0, 0, ((appData->fullScreenMap)->screenWidth / TILE_WIDTH_PIXELS), ((appData->fullScreenMap)->screenHeight / TILE_HEIGHT_PIXELS));
     Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_3, 0, 0, HW_LCD_WIDTH / TILE_WIDTH_PIXELS, HW_LCD_HEIGHT / TILE_HEIGHT_PIXELS, appData->fullScreenBG->rawData, 0, 0, ((appData->fullScreenBG)->screenWidth / TILE_WIDTH_PIXELS), ((appData->fullScreenBG)->screenHeight / TILE_HEIGHT_PIXELS));
@@ -742,6 +762,7 @@ static void LoadMapGraphics(TownMapAppData *appData)
         Bg_CopyToTilemapRect(appData->bgConfig, BG_LAYER_MAIN_3, 16, 21, 2, 3, appData->fullScreenBG->rawData, 0, 21, ((appData->fullScreenBG)->screenWidth / TILE_WIDTH_PIXELS), ((appData->fullScreenBG)->screenHeight / TILE_HEIGHT_PIXELS));
     }
 
+bottomScreen:
     DrawZoomButton(appData, 0, TRUE);
 
     Bg_CopyRectToTilemapRect(appData->bgConfig, BG_LAYER_SUB_2, 0, 0, 512 / TILE_WIDTH_PIXELS, 512 / TILE_HEIGHT_PIXELS, appData->zoomedInMap->rawData, 0, 0, appData->zoomedInMap->screenWidth / TILE_WIDTH_PIXELS, appData->zoomedInMap->screenHeight / TILE_HEIGHT_PIXELS);
@@ -1124,6 +1145,12 @@ static void Task_SwitchBottomScreenToZoomButton(SysTask *sysTask, void *_appData
 
 static BOOL CanFlyToHoveredLocation(TownMapAppData *appData)
 {
+    BOOL completeCanFly;
+
+    if (CompleteTownMap_CanFly(appData, &completeCanFly)) { // Sovereign Complete: Johto and Kanto's Fly points
+        return completeCanFly;
+    }
+
     TownMapGraphicsManager *graphicsMan = appData->graphicsMan;
     TownMapAppFlyLocation *flyLocation = NULL;
 

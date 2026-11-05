@@ -165,19 +165,26 @@ void CompleteFollower_SetInhibited(BOOL inhibited)
     sInhibited = inhibited;
 }
 
+int CompleteFollower_MonGfx(int species, int form, int gender, BOOL shiny)
+{
+    int sprite = FollowerSprite(species, form, gender);
+
+    return sprite < 0 ? -1 : FOLLOWER_GFX_FIRST + sprite + (shiny ? FOLLOWER_GFX_COUNT : 0); // a shiny one's colours
+}
+
 // The graphics the follower should have here and now, or -1 when nobody should follow
 static int WantedGfx(FieldSystem *fieldSystem)
 {
     Pokemon *lead = Lead(fieldSystem);
     int species = lead == NULL ? SPECIES_NONE : Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL);
-    int sprite = lead == NULL ? -1 : FollowerSprite(species, Pokemon_GetValue(lead, MON_DATA_FORM, NULL), Pokemon_GetGender(lead));
+    int gfx = lead == NULL ? -1 : CompleteFollower_MonGfx(species, Pokemon_GetValue(lead, MON_DATA_FORM, NULL), Pokemon_GetGender(lead), Pokemon_IsShiny(lead));
 
-    if (sprite < 0 || sInhibited || !CanFollow(fieldSystem)
+    if (gfx < 0 || sInhibited || !CanFollow(fieldSystem)
         || !MayFollowHere(fieldSystem->location->mapHeaderID, species, IsTooTall(species))) {
         return -1;
     }
 
-    return FOLLOWER_GFX_FIRST + sprite + (Pokemon_IsShiny(lead) ? FOLLOWER_GFX_COUNT : 0); // a shiny lead's colours
+    return gfx;
 }
 
 // A scene can leave the follower further off than its steps make up (Elm's lab: it comes out beside the player at the
