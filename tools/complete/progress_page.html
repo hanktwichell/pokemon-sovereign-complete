@@ -173,6 +173,9 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
 @media (max-width: 560px) { th, td { padding: 8px 9px; } .hide-sm { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .bar span { transition: width .4s ease; } }
 
+.gal-anim { margin: 16px 0 0; max-width: 512px; }
+.gal-anim img { width: 100%; height: auto; image-rendering: pixelated; border-radius: 6px; display: block; }
+.gal-anim figcaption { margin-top: 6px; font-size: 14px; }
 /* Gallery: the region maps to click, a place's shots, the bosses, a viewer over the page */
 .gal-maps { display: grid; gap: 18px; }
 .gal-map { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px; }
@@ -543,7 +546,10 @@ function gallery() {
     <p class="muted">From the latest features' emulator tests. Click one to step through its screenshots.</p>
     <div class="gal-bosses">${G.features.map((f, i) => `<button data-feature="${i}">
       <span class="face" style="${galShot(f.sheet, 0, f.count)}"></span>
-      <span class="who">${esc(f.name)}<span>${f.count} shots</span></span></button>`).join('')}</div></section>` : '';
+      <span class="who">${esc(f.name)}<span>${f.count} shots</span></span></button>`).join('')}</div>
+    ${G.features.filter(f => f.anim).map(f => `<figure class="gal-anim"><img src="${esc(f.anim)}" width="256" height="192"
+      alt="${esc(f.animCaption)}" loading="lazy"><figcaption class="muted">${esc(f.animCaption)}</figcaption></figure>`).join('')}
+    </section>` : '';
   return `${features}<section><h2>Gallery</h2>
     <p class="muted">Screenshots from the test build: ${shots} so far, of ${Object.keys(G.places).length} places in
     all three regions, taken by <code>tools/complete/gallery_shots.py</code> (the test warp to spots spread over each

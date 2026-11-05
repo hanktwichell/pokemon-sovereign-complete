@@ -481,8 +481,13 @@ def gallery(out_dir):
         slug = os.path.basename(os.path.dirname(index_path))
         files = [os.path.join(os.path.dirname(index_path), s['file']) for s in index['shots']]
         sheet(files, (256, 384), os.path.join(dest, 'feature_' + slug + '.jpg'))
-        features.append({'name': index['name'], 'order': index.get('order', 99), 'count': len(files),
-                         'sheet': f'{GALLERY_OUT}/feature_{slug}.jpg', 'caps': [s['caption'] for s in index['shots']]})
+        feature = {'name': index['name'], 'order': index.get('order', 99), 'count': len(files),
+                   'sheet': f'{GALLERY_OUT}/feature_{slug}.jpg', 'caps': [s['caption'] for s in index['shots']]}
+        if index.get('anim'):  # an animation of it, shown as it is
+            shutil.copyfile(os.path.join(os.path.dirname(index_path), index['anim']),
+                            os.path.join(dest, f'feature_{slug}.gif'))
+            feature.update(anim=f'{GALLERY_OUT}/feature_{slug}.gif', animCaption=index.get('anim_caption', ''))
+        features.append(feature)
     features.sort(key=lambda f: f['order'])
     return {'maps': maps_out, 'places': places, 'bosses': bosses, 'features': features, 'cols': SHEET_COLS}
 
