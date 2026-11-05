@@ -20,6 +20,9 @@ from battle_all_trainers import FRAME_LIMIT, fight, symbols, trainer_ids  # noqa
 
 SPECIES = [line.strip() for line in open(os.path.join(ROOT, 'decomp', 'generated', 'species.txt')) if line.strip()]
 
+# The battle's random numbers (gSovereignTestBattleSeed; 0, the clock's): a boss whose AI switches its Pokémon about can
+# send its Mega in too late to Evolve (Erika's Victreebel, as her Jumpluff U-turns): the battle again from fixed seeds
+SEEDS = (0, 0x1234, 0xC0FFEE)
 
 def bosses():
     """[(TRAINER_*, its Mega's species)] from docs/BossMegas.md's rows with a stone."""
@@ -39,7 +42,7 @@ def main():
     only = sys.argv[4:]
     os.makedirs(out, exist_ok=True)
     sym = symbols(('gSovereignTestBattleTrainer', 'gSovereignTestGodMode', 'gSovereignTestIdleFrames', 'gSystem',
-                   'gSovereignTestFoeMega'))
+                   'gSovereignTestFoeMega', 'gSovereignTestBattleSeed'))
     index = {name: i for i, name in trainer_ids()}
     d = Driver(rom, state)
     mem = d.emu.memory
@@ -47,14 +50,19 @@ def main():
     for trainer, species in bosses():
         if only and trainer not in only:
             continue
-        d.load_state(state)
-        d.run(30)
-        mem.write_short(sym['gSovereignTestBattleTrainer'], index[trainer])
-        mem.write_byte(sym['gSovereignTestGodMode'], 1)
-        mem.write_short(sym['gSovereignTestFoeMega'], 0)
-        d.press('SELECT+R')
-        result, frames = fight(d, sym, FRAME_LIMIT[0] + FRAME_LIMIT[1] * 6)
-        mega = struct.unpack('<H', bytes(mem.unsigned[sym['gSovereignTestFoeMega']:sym['gSovereignTestFoeMega'] + 2]))[0]
+        for seed in SEEDS:
+            d.load_state(state)
+            d.run(30)
+            mem.write_long(sym['gSovereignTestBattleSeed'], seed)
+            mem.write_short(sym['gSovereignTestBattleTrainer'], index[trainer])
+            mem.write_byte(sym['gSovereignTestGodMode'], 1)
+            mem.write_short(sym['gSovereignTestFoeMega'], 0)
+            d.press('SELECT+R')
+            result, frames = fight(d, sym, FRAME_LIMIT[0] + FRAME_LIMIT[1] * 6)
+            mega = struct.unpack('<H', bytes(mem.unsigned[sym['gSovereignTestFoeMega']:
+                                                          sym['gSovereignTestFoeMega'] + 2]))[0]
+            if result != 'ok' or SPECIES[mega] == species:
+                break
         problem = ''
         if result != 'ok':
             problem = f'the battle: {result} after {frames} frames'

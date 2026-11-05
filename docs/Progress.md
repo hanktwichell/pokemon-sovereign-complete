@@ -1791,3 +1791,8 @@ Test results on the new test build:
 - **The long checks on today's build:** the hidden items test found 240 of 243 as before but one, in Violet City,
   where a wandering boy had stepped onto the item's tile, so A talked to him (as it would in HeartGold). The test now
   warps back and tries again a little later when a wanderer is in the way: Violet City's two items pass.
+- **The boss Megas test, again from fixed seeds:** 49 of 50 bosses Mega Evolved on today's build; Erika's Victreebel
+  didn't, here or on the Nov 3 build where it had passed. Her AI switches her Pokémon about (Jumpluff's U-turn) and
+  sends Victreebel in too late to Evolve before the god-mode battle ends, with tonight's random numbers (from the
+  clock). The test now fights a boss again from two fixed seeds when the first battle shows no Mega: Erika's Victreebel
+  Mega Evolves, and the long checks (wild encounters, hidden items, tile behaviors, placements, sound memory) pass.
