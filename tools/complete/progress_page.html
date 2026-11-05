@@ -96,6 +96,18 @@ td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: 
 .tile .big { font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; }
 .tile .lbl { font-size: 13px; color: var(--muted); }
 ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 76ch; }
+.qs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 86ch; }
+.q { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); padding: 12px 16px;
+  display: grid; gap: 8px; min-width: 0; scroll-margin-top: 80px; }
+.q h3 { margin: 0; font-family: var(--display); font-size: 19px; font-weight: 600; line-height: 1.25; display: flex;
+  gap: 10px; align-items: baseline; }
+.q .qn { flex: none; min-width: 1.9em; padding: 1px 6px; text-align: center; font-size: 14px; border-radius: 999px;
+  background: var(--warn-soft); color: var(--warn); }
+.q p { margin: 0; }
+.q .qk { display: block; font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.q .qopts ul { margin: 0; padding-left: 20px; display: grid; gap: 2px; }
+.q .qprop { border-top: 1px dashed var(--line); padding-top: 8px; }
 .decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
 .decision { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); padding: 10px 14px; align-content: start;
   display: grid; gap: 4px; min-width: 0; }
@@ -224,6 +236,7 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
       side, every map brought over, how far a new game plays through, and the whole timeline.</p>
     <nav class="tabs" aria-label="Views">
       <a href="#whole-game" data-tab="whole-game">Whole game</a>
+      <a href="#questions" data-tab="questions">Your questions</a>
       <a href="#since-yesterday" data-tab="since-yesterday">Since yesterday</a>
       <a href="#sinnoh" data-tab="sinnoh">Sinnoh</a>
       <a href="#gallery" data-tab="gallery">Gallery</a>
@@ -236,6 +249,7 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
 
 <main>
   <div class="wrap" id="view-whole-game" data-view="whole-game"></div>
+  <div class="wrap" id="view-questions" data-view="questions" hidden></div>
   <div class="wrap" id="view-since-yesterday" data-view="since-yesterday" hidden></div>
   <div class="wrap" id="view-sinnoh" data-view="sinnoh" hidden></div>
   <div class="wrap" id="view-gallery" data-view="gallery" hidden></div>
@@ -280,10 +294,32 @@ function wholeGame() {
   </section>
   <section>
     <h2>Waiting on you</h2>
+    <p class="muted">The short list. Every open question, numbered, is on the <a href="#questions">Your questions</a>
+      tab.</p>
     <div class="decisions">${DATA.waiting.map(w => `<div class="decision"><b>${esc(w.topic)}</b>
       <span class="muted">${esc(w.detail)}</span></div>`).join('')}</div>
   </section>
   <p class="foot">Built from the repo on ${esc(DATA.generated)} by tools/complete/progress_page.py.</p>`;
+}
+
+// Your questions: every decision waiting on the owner, numbered across the groups, each with what the game does now,
+// the options and Claude's proposal
+function questions() {
+  let n = 0;
+  const total = DATA.questions.reduce((t, g) => t + g.items.length, 0);
+  const groups = DATA.questions.map(g => `<section><h2>${esc(g.group)}</h2><ol class="qs">${g.items.map(q => {
+    n += 1;
+    return `<li class="q" id="q${n}" value="${n}"><h3><span class="qn num">${n}</span>${esc(q.q)}</h3>
+      <p><span class="qk">Now</span>${esc(q.now)}</p>
+      <div class="qopts"><span class="qk">Options</span><ul>${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ul></div>
+      <p class="qprop"><span class="qk">Claude's proposal</span>${q.proposal ? esc(q.proposal) : '<span class="muted">None: your taste.</span>'}</p>
+    </li>`;
+  }).join('')}</ol></section>`).join('');
+  return `<section><h2>Your questions</h2>
+    <p class="muted">Every decision waiting on you, ${total} in all. Answer any of them by number whenever you like
+      (for example "3: keep it, 9: yes"); where Claude has a proposal, that's what happens if you say "go with your
+      proposals". The game plays as described under "Now" until you answer.</p></section>${groups}
+    <p class="foot">Kept in tools/complete/progress_page.py (QUESTIONS), in step with docs/Roadmap.md's "Still open".</p>`;
 }
 
 function sinceYesterday() {
@@ -630,7 +666,7 @@ function wireGallery() {
     if (b) { const boss = G.bosses.find(x => x.name === b.dataset.boss); galOpenPlace(boss.place); }
   });
 }
-const views = { 'whole-game': wholeGame, 'since-yesterday': sinceYesterday, sinnoh, gallery, maps, story, timeline };
+const views = { 'whole-game': wholeGame, questions, 'since-yesterday': sinceYesterday, sinnoh, gallery, maps, story, timeline };
 const rendered = {};
 function show() {
   const name = (location.hash || '#whole-game').slice(1);
