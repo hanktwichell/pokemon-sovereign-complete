@@ -88,6 +88,13 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   tutors teach HeartGold's moves for Battle Points (`docs/Features.md`, "Johto's Battle Frontier").
 - **Voltorb Flip (Nov 3, 2026).** Ported to the Game Corners. Done (`docs/Features.md`, "Voltorb Flip").
 - **The credits (Nov 3, 2026).** They roll once, at the end of the whole game.
+- **One Town Map (Nov 5, 2026).** A single Town Map for all three regions, Sinnoh's and Johto and Kanto's joined into
+  one that the player scrolls across, so the game needs only one. Claude makes a first version from the two games'
+  own maps. Fly goes only between places in the region the player is in; Johto and Kanto can both fly to the area
+  between them.
+- **A photo gallery on the progress page (Nov 5, 2026).** A tab where the owner clicks a region's map (Sinnoh, Johto,
+  Kanto), picks a town or route and sees dozens of in-game screenshots of it, with battle screenshots of every gym
+  leader, Elite Four member and champion.
 
 ### HeartGold features
 
@@ -125,8 +132,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
 - **The Pokéathlon Dome:** open (the building and its people, without the Pokéathlon) or closed, now that the Pokéathlon
   is skipped.
-- **Art:** who draws the three-region Town Map and the walking sprites for #494–1025 and the newer forms (a community
-  pack, credited, could cover most of them).
+- **Art:** who draws the walking sprites for #494–1025 and the newer forms (a community pack, credited, could cover
+  most of them). The Town Map is Claude's, from the games' own maps (Nov 5).
 - **Trade items from the bag:** Sacred Gold lets the trade-evolution items (Metal Coat, King's Rock, Dragon Scale,
   Up-Grade, Dubious Disc, Protector, Electirizer, Magmarizer, Reaper Cloth, DeepSeaTooth, DeepSeaScale) be used from
   the bag like a stone, so no trade is needed. Its own six evolution items are in (Covenant Orb for trades with no
