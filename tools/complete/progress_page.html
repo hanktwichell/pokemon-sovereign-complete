@@ -504,7 +504,7 @@ function wireTimeline() {
 }
 
 // Gallery: click a place on a region map (or in the list), see its shots; the bosses' battles below
-const G = DATA.gallery || { maps: {}, places: {}, bosses: [], cols: 6 };
+const G = DATA.gallery || { maps: {}, places: {}, bosses: [], features: [], cols: 6 };
 const GREGION = { johto: 'Johto', kanto: 'Kanto', sinnoh: 'Sinnoh' };
 let galView = null;
 function galShot(src, i, w, h, tall) {
@@ -539,7 +539,12 @@ function gallery() {
     .filter(b => b.region === r).map((b, i) => `<button data-boss="${esc(b.name)}" ${b.count ? '' : 'disabled'}>
       <span class="face" style="${b.count ? galShot(b.sheet, Math.min(1, b.count - 1), b.count) : ''}"></span>
       <span class="who">${esc(b.name)}<span>${b.count ? b.count + ' shots' : 'coming'}</span></span></button>`).join('')}</div>`).join('');
-  return `<section><h2>Gallery</h2>
+  const features = (G.features || []).length ? `<section><h2>New in the game</h2>
+    <p class="muted">From the latest features' emulator tests. Click one to step through its screenshots.</p>
+    <div class="gal-bosses">${G.features.map((f, i) => `<button data-feature="${i}">
+      <span class="face" style="${galShot(f.sheet, 0, f.count)}"></span>
+      <span class="who">${esc(f.name)}<span>${f.count} shots</span></span></button>`).join('')}</div></section>` : '';
+  return `${features}<section><h2>Gallery</h2>
     <p class="muted">Screenshots from the test build: ${shots} so far, of ${Object.keys(G.places).length} places in
     all three regions, taken by <code>tools/complete/gallery_shots.py</code> (the test warp to spots spread over each
     map, at 1 p.m.). Click a town or route on a map, or a place in the lists below it.</p>
@@ -612,6 +617,9 @@ function wireGallery() {
   view.addEventListener('click', e => {
     const g = e.target.closest('g.pl, .gal-chips button');
     if (g) { galOpenPlace(g.dataset.key); return; }
+    const f = e.target.closest('button[data-feature]');
+    if (f) { const ft = G.features[+f.dataset.feature]; galShow({ src: ft.sheet, count: ft.count, i: 0, name: ft.name,
+      caps: ft.caps, tall: true }); return; }
     const b = e.target.closest('.gal-bosses button');
     if (b) { const boss = G.bosses.find(x => x.name === b.dataset.boss); galOpenPlace(boss.place); }
   });

@@ -1755,6 +1755,9 @@ Test results on the new test build:
   build_test2 the story test from Twinleaf Town passes the briefcase, with nothing failing in the field map's heap
   as Route 201 comes back; the release build boots (38,904 bytes of the main arena to spare). The story test has a
   new option, STEP_STATES, a save state after each action, to try what comes next on its own.
+
+## Nov 5, 2026: one Town Map for all three regions, the Day Care's yard, and the gallery
+
 - **One Town Map for all three regions (the owner's call, Nov 5):** the Town Map now shows Sinnoh as Platinum does and
   Johto and Kanto (HeartGold's map, from its Pokégear) on the sea to its south-west, on one canvas the view scrolls
   across (`docs/Features.md`, "The Town Map of three regions"; `src/applications/town_map/complete_town_map.c`, its

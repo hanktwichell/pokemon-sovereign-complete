@@ -60,7 +60,8 @@ STEPS = [
      'and HeartGold\'s own sound effects play in its scenes and scripts.'),
     (7, 'Joining the world', 'active', 'In progress',
      'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
-     'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. Sinnoh\'s levels follow Kanto\'s; Totems, '
+     'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. One Town Map shows all three regions, and Fly '
+     'stays within the region you\'re in. Sinnoh\'s levels follow Kanto\'s; Totems, '
      'legendaries and Megas are spread over all three regions. The story test has played every part from New Bark '
      'Town to Sinnoh\'s Hall of Fame.'),
     (8, 'Automated testing', 'active', 'In progress',
@@ -73,14 +74,12 @@ STEPS = [
 ]
 
 NEXT = [
-    'A new full story run (all 186 parts, New Bark Town to Sinnoh\'s Hall of Fame) is going on the newest build, with '
-    'HeartGold\'s sound effects and the Ruins of Alph\'s walls: every part so far passes, from New Bark Town through '
-    'Johto\'s League, the S.S. Aqua and Kanto\'s first gyms to the Power Plant (85 parts).',
-    'The long checks pass on the latest builds (every Totem and legendary placement, every boss Mega, every tile '
-    'behavior, the sound memory on every map, every map\'s wild Pokémon). The talk test over all 5,865 people and '
-    'signs is running on the newest build too: most of it is through, with only the known stops (menus the test '
-    'can\'t drive; Johto\'s Battle Factory attendant is one now, as its lobby runs Platinum\'s Factory).',
-    'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you now), its still '
+    'The gallery is filling in: every gym leader, Elite Four member and champion has a battle on the Gallery tab '
+    '(Morty\'s is being redone), and 85 of the 230 places have their photos; the rest of Johto, Kanto and all of '
+    'Sinnoh are being shot now and appear as they finish.',
+    'A full story run (New Bark Town to Sinnoh\'s Hall of Fame) is going on the build before today\'s changes; the '
+    'Town Map and the Day Care\'s yard each have their own emulator test, and both pass.',
+    'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
 
@@ -89,7 +88,8 @@ WAITING = [
      'Twinleaf Town for Platinum\'s opening, and Sinnoh\'s levels follow Kanto\'s, from one table '
      '(data/complete/sinnoh.yaml). Change any of it whenever you like.'),
     ('Cynthia', 'Her Lv. 96 team beat a Lv. 100 team in all six real battles. Keep her that hard, or not.'),
-    ('Art', 'Who draws the three-region Town Map and the walking sprites for #494 to #1025.'),
+    ('Art', 'Who draws the walking sprites for #494 to #1025. The Town Map of three regions is in, made from the '
+     'two games\' own maps (the Gallery tab has screenshots); new art for it is welcome but not needed.'),
     ('HeartGold\'s key items', 'Proposed: port the Berry Pots (about a day) and the Unown Report (half a day); the '
      'Dowsing Machine stays with the Pokétch\'s Dowsing app. Yes or no?'),
     ('Trade items from the bag', 'Proposed: as in Sacred Gold, the trade-evolution items (Metal Coat, King\'s Rock and '
@@ -101,46 +101,17 @@ WAITING = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
-    ('Your Nov 3 calls, done', [
-        'Voltorb Flip is in both Game Corners: HeartGold\'s own game, its board, memos, levels, coins and fanfares. '
-        'In the emulator a round won paid 24 coins and moved on to level 2, a round quit paid what was found, and '
-        'Quit brought you back to the Game Corner.',
-        'The Johto Pokédex is the regional one until Sinnoh\'s story begins (HeartGold\'s list and numbers, under a '
-        'JOHTO POKéDEX banner); Sinnoh\'s after.',
-        'Red waits on Mt. Silver until Sinnoh\'s League is won. The credits roll once, at the end of the whole game.',
-        'Johto\'s Battle Frontier is open: its five facilities run Platinum\'s own challenges from their Johto lobbies. In '
-        'the emulator a Factory challenge rented three Pokémon, won its first battle and retired back to Johto\'s lobby, '
-        'and the Tower, Hall, Castle and Arcade each started theirs. Battle Points, streaks and prints are shared with '
-        'Sinnoh\'s Frontier. Its three move tutors teach HeartGold\'s 51 moves for Battle Points, at HeartGold\'s '
-        'prices (checked in the emulator: Fury Cutter for 32 BP).',
-        'The Pokégear, first part: you can call the people in your phone book. Each says what they say in '
-        'HeartGold when you call: Mom asks about saving money, Elm has news, Oak rates your Johto or National Pokédex '
-        '(with his menu and fanfare), Bill counts the room in your boxes, the Day-Care couple say how your Pokémon are '
-        'doing, Lyra or Ethan tells a story about where you are, Kurt says how his Balls are coming, and the Gym '
-        'Leaders agree to rematches at the Fighting Dojo after all sixteen badges. Where HeartGold had no signal '
-        '(the Elite Four\'s rooms, the Safari Zone, Lugia\'s cave) the number is "out of the area". All 12 calls the '
-        'emulator test places pass.',
-        'The Pokégear is on the bottom screen, in HeartGold\'s own look: its phone\'s contact list (names and titles '
-        'such as Pokémon Professor or Youngster) and its app bar. It comes up when Mom gives it to you. Tap a contact '
-        'to call them; the arrows scroll. Once you also have the Pokétch, a blue button under the Pokétch\'s red side '
-        'button switches to the Pokégear, and the Pokégear\'s last app bar button switches back; your choice is '
-        'saved. All 6 parts of its emulator test pass (getting it, a call, scrolling, the switch both ways, a warp, '
-        'a battle).',
-        'The Pokégear\'s Settings: HeartGold\'s six skins (blue, pink, black, wood, gold, teal); tap one and the '
-        'whole Pokégear changes to it.',
-        'Calls ring now, as in HeartGold: the Pokégear\'s Phone button flashes and the ring sounds as you walk; tap '
-        'Phone to answer. Left unanswered, a call stops after 59 seconds. A few (the Bike Shop, Bill, Baoba) still '
-        'come straight through, as in HeartGold.',
-        'The Pokégear\'s Map: HeartGold\'s map of Johto and Kanto with your head where you are and the place\'s name; '
-        'drag it to see the rest. Checked in the emulator in your room and on Route 30.',
-        'The Pokégear\'s Radio: HeartGold\'s globe and all twelve of its shows, with their music and text. Drag the '
-        'cursor or tap a button beside the globe: DJ Ben\'s Pokémon Music (the March brings more wild Pokémon, the '
-        'Lullaby fewer, Hoenn\'s and Sinnoh\'s sounds bring their Pokémon), Professor Oak\'s Pokémon Talk (it names '
-        'today\'s outbreak), Trainer Profiles, That Town, These People, the Search Party, the Serial Radio Drama and '
-        'Buena\'s Password (her quiz in the Radio Tower now asks for the password her show gave), with commercials. In '
-        'Kanto the Poké Flute wakes Snorlax; the Unown\'s broadcast plays in the Ruins of Alph and a strange signal '
-        'around Mahogany. Its music plays in the field while the page shows a station. Sinnoh has no signal. All 11 '
-        'parts of its emulator test pass.',
+    ('Your Nov 5 calls, done', [
+        'One Town Map for all three regions: Sinnoh as Platinum shows it, and Johto and Kanto from HeartGold\'s map '
+        'beside it on one map you scroll across. L and R switch regions; the D-pad crosses over at the edges. Fly '
+        'from the party menu opens it everywhere and only flies within the region you\'re in (Johto and Kanto both '
+        'reach the Indigo Plateau and Mt. Silver). Its emulator test flies around Johto, Kanto and Sinnoh as a player '
+        'would: 33 of 33 checks pass. Screenshots: Gallery tab, "New in the game".',
+        'The Gallery tab: click a town or route on the region maps to see its photos, and every gym leader, Elite '
+        'Four member and champion has a battle (34 of 35 so far, 34 to 55 shots each). The places are still being '
+        'shot: 85 of 230 so far.',
+        'The Sinjoh Ruins: yes, Sacred Gold\'s plates event plays (the Unown circle, Arceus\'s cinematic, the '
+        'battle), and its test passes. HeartGold\'s Arceus egg for Cynthia was an event distribution, so it\'s out.',
     ]),
     ('Fixes', [
         'A crash right after choosing your starter from Rowan\'s briefcase on Route 201 is fixed: the Pokégear\'s phone '
@@ -151,6 +122,8 @@ RECENT = [
         'Hideout, Goldenrod Tunnel\'s shutters, the Elite Four\'s doors and the Ruins of Alph\'s walls.',
     ]),
     ('More of HeartGold', [
+        'The Route 34 Day Care\'s yard: the Pokémon you leave there stand in the yard beside the house, as in '
+        'HeartGold, and leave when you take them back.',
         'The lamp at the top of Olivine Lighthouse comes back on once Amphy has had the SecretPotion: HeartGold\'s '
         'scene, its lamp turning and shining to a rising hum, the screen white, and back.',
         'Cerulean Gym\'s pool and the Lugia cave keep their own music while you surf, as in HeartGold; Mystery Gift '
@@ -279,8 +252,8 @@ SINNOH_IN = [
      'Strength and the rest working in Sinnoh.'),
     ('Following Pokémon', 'The lead Pokémon follows in Sinnoh too, kept out of buildings when it\'s too tall, and talks '
      'as in HeartGold.'),
-    ('Fly and the Town Map', 'Sinnoh keeps Platinum\'s Town Map; Johto and Kanto have a list of places for now. Each '
-     'region\'s Fly stays in that region, and the ferries join them.'),
+    ('Fly and the Town Map', 'One Town Map shows Sinnoh, Johto and Kanto; scroll from one to the others. Fly stays in '
+     'the region you\'re in (Johto and Kanto both reach the Indigo Plateau and Mt. Silver), and the ferries join them.'),
     ('Sovereign\'s own tests', 'Run on this build: battle mechanics 526 of 526, gifts 45 of 45, rare wild Pokémon 52 of '
      '52, evolutions 255 of 255, wild forms on every Sinnoh map, roamers, and Sovereign\'s signs and triggers.'),
 ]
@@ -502,7 +475,17 @@ def gallery(out_dir):
                 sheet(files, (256, 384), os.path.join(dest, 'battle_' + slug + '.jpg'))
                 entry.update(sheet=f'{GALLERY_OUT}/battle_{slug}.jpg', count=len(files))
         bosses.append(entry)
-    return {'maps': maps_out, 'places': places, 'bosses': bosses, 'cols': SHEET_COLS}
+    # New features, from their emulator tests' screenshots (both screens), each with a caption
+    features = []
+    for index_path in glob.glob(os.path.join(GALLERY, 'features', '*', 'index.json')):
+        index = json.load(open(index_path))
+        slug = os.path.basename(os.path.dirname(index_path))
+        files = [os.path.join(os.path.dirname(index_path), s['file']) for s in index['shots']]
+        sheet(files, (256, 384), os.path.join(dest, 'feature_' + slug + '.jpg'))
+        features.append({'name': index['name'], 'order': index.get('order', 99), 'count': len(files),
+                         'sheet': f'{GALLERY_OUT}/feature_{slug}.jpg', 'caps': [s['caption'] for s in index['shots']]})
+    features.sort(key=lambda f: f['order'])
+    return {'maps': maps_out, 'places': places, 'bosses': bosses, 'features': features, 'cols': SHEET_COLS}
 
 
 MONTHS = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
