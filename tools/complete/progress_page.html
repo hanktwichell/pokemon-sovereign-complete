@@ -172,6 +172,45 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
 .card b { font-family: var(--display); font-size: 18px; font-weight: 600; }
 @media (max-width: 560px) { th, td { padding: 8px 9px; } .hide-sm { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .bar span { transition: width .4s ease; } }
+
+/* Gallery: the region maps to click, a place's shots, the bosses, a viewer over the page */
+.gal-maps { display: grid; gap: 18px; }
+.gal-map { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px; }
+.gal-map figcaption { font-family: var(--display); font-weight: 600; font-size: 18px; margin-bottom: 6px; }
+.gal-frame { position: relative; width: 100%; }
+.gal-frame img { display: block; width: 100%; height: auto; image-rendering: pixelated; border-radius: 3px; }
+.gal-frame svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gal-frame g.pl rect { fill: transparent; stroke: none; cursor: pointer; }
+.gal-frame g.pl:hover rect, .gal-frame g.pl.on rect { fill: rgba(255,255,255,.45); stroke: #17202b; stroke-width: .6; }
+.gal-frame g.pl.none rect { cursor: default; }
+.gal-frame g.pl.none:hover rect { fill: rgba(0,0,0,.18); stroke: none; }
+.gal-tip { font-size: 13px; color: var(--muted); min-height: 1.5em; margin-top: 6px; }
+.gal-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.gal-chips button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); cursor: pointer; }
+.gal-chips button:hover, .gal-chips button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.gal-chips button .num { color: var(--muted); }
+#gal-panel { scroll-margin-top: 12px; }
+.gal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.gal-grid button { padding: 0; border: 1px solid var(--line); border-radius: 4px; background: #000; cursor: zoom-in;
+  aspect-ratio: 4 / 3; background-repeat: no-repeat; image-rendering: pixelated; }
+.gal-grid.tall button { aspect-ratio: 2 / 3; }
+.gal-bosses { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; }
+.gal-bosses button { font: inherit; text-align: left; padding: 0; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--surface); color: var(--ink); cursor: pointer; overflow: hidden; }
+.gal-bosses button .face { display: block; aspect-ratio: 2 / 3; background: #000 no-repeat; image-rendering: pixelated; }
+.gal-bosses button .who { display: block; padding: 4px 8px; font-weight: 700; font-size: 13px; }
+.gal-bosses button .who span { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+.gal-bosses button:disabled { opacity: .5; cursor: default; }
+.gal-view { position: fixed; inset: 0; background: rgba(5,8,12,.88); display: grid; place-items: center; z-index: 50;
+  padding: 16px; }
+.gal-view .pic { max-width: min(96vw, 768px); width: 100%; aspect-ratio: 4 / 3; background-repeat: no-repeat;
+  image-rendering: pixelated; border-radius: 4px; }
+.gal-view.tall .pic { max-width: min(96vw, 52vh); aspect-ratio: 2 / 3; }
+.gal-view .gal-bar { display: flex; gap: 10px; align-items: center; color: #e6ebf1; margin-top: 8px; font-size: 14px;
+  justify-content: center; flex-wrap: wrap; }
+.gal-view button { font: inherit; padding: 6px 14px; border-radius: 6px; border: 1px solid #56606e; background: #1b222c;
+  color: #e6ebf1; cursor: pointer; }
 </style>
 
 <header class="band">
@@ -184,6 +223,7 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
       <a href="#whole-game" data-tab="whole-game">Whole game</a>
       <a href="#since-yesterday" data-tab="since-yesterday">Since yesterday</a>
       <a href="#sinnoh" data-tab="sinnoh">Sinnoh</a>
+      <a href="#gallery" data-tab="gallery">Gallery</a>
       <a href="#maps" data-tab="maps">Maps &amp; routes</a>
       <a href="#story" data-tab="story">Story test</a>
       <a href="#timeline" data-tab="timeline">Timeline</a>
@@ -195,6 +235,7 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
   <div class="wrap" id="view-whole-game" data-view="whole-game"></div>
   <div class="wrap" id="view-since-yesterday" data-view="since-yesterday" hidden></div>
   <div class="wrap" id="view-sinnoh" data-view="sinnoh" hidden></div>
+  <div class="wrap" id="view-gallery" data-view="gallery" hidden></div>
   <div class="wrap" id="view-maps" data-view="maps" hidden></div>
   <div class="wrap" id="view-story" data-view="story" hidden></div>
   <div class="wrap" id="view-timeline" data-view="timeline" hidden></div>
@@ -461,7 +502,121 @@ function wireTimeline() {
     document.getElementById('day-' + a.dataset.day).scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
 }
-const views = { 'whole-game': wholeGame, 'since-yesterday': sinceYesterday, sinnoh, maps, story, timeline };
+
+// Gallery: click a place on a region map (or in the list), see its shots; the bosses' battles below
+const G = DATA.gallery || { maps: {}, places: {}, bosses: [], cols: 6 };
+const GREGION = { johto: 'Johto', kanto: 'Kanto', sinnoh: 'Sinnoh' };
+let galView = null;
+function galShot(src, i, w, h, tall) {
+  const cols = G.cols, x = (i % cols), y = Math.floor(i / cols);
+  return `background-image:url('${src}');background-size:${cols * 100}% auto;` +
+    `background-position:${cols > 1 ? x * 100 / (cols - 1) : 0}% ${y * 100 / Math.max(1, Math.ceil(w / cols) - 1)}%`;
+}
+function galMap(name, title) {
+  const m = G.maps[name];
+  if (!m) return '';
+  const groups = Object.entries(m.places).map(([key, rects]) => {
+    const p = G.places[key];
+    const label = p ? p.name : key.replace(/^(hgss|sinnoh)_/, '').replace(/([a-z])([A-Z0-9])/g, '$1 $2');
+    return `<g class="pl${p ? '' : ' none'}" data-key="${esc(key)}" data-name="${esc(label)}">` +
+      rects.map(([x, y, w, h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}"></rect>`).join('') + '</g>';
+  }).join('');
+  return `<figure class="gal-map"><figcaption>${esc(title)}</figcaption>
+    <div class="gal-frame"><img src="${esc(m.img)}" alt="${esc(title)}" width="${m.w}" height="${m.h}">
+    <svg viewBox="0 0 ${m.w} ${m.h}" aria-hidden="true">${groups}</svg></div>
+    <div class="gal-tip" data-tip="${name}">Point at a place; click to see its photos.</div></figure>`;
+}
+function gallery() {
+  const onMap = new Set(Object.values(G.maps).flatMap(m => Object.keys(m.places)));
+  const off = ['johto', 'kanto', 'sinnoh'].map(r => {
+    const ps = Object.entries(G.places).filter(([k, p]) => p.region === r && !onMap.has(k))
+      .sort((a, b) => a[1].name.localeCompare(b[1].name));
+    return ps.length ? `<h3>${GREGION[r]}: places off the map</h3><div class="gal-chips">${ps.map(([k, p]) =>
+      `<button data-key="${esc(k)}">${esc(p.name)} <span class="num">${p.count}</span></button>`).join('')}</div>` : '';
+  }).join('');
+  const shots = Object.values(G.places).reduce((n, p) => n + p.count, 0);
+  const bosses = ['johto', 'kanto', 'sinnoh'].map(r => `<h3>${GREGION[r]}</h3><div class="gal-bosses">${G.bosses
+    .filter(b => b.region === r).map((b, i) => `<button data-boss="${esc(b.name)}" ${b.count ? '' : 'disabled'}>
+      <span class="face" style="${b.count ? galShot(b.sheet, Math.min(1, b.count - 1), b.count) : ''}"></span>
+      <span class="who">${esc(b.name)}<span>${b.count ? b.count + ' shots' : 'coming'}</span></span></button>`).join('')}</div>`).join('');
+  return `<section><h2>Gallery</h2>
+    <p class="muted">Screenshots from the test build: ${shots} so far, of ${Object.keys(G.places).length} places in
+    all three regions, taken by <code>tools/complete/gallery_shots.py</code> (the test warp to spots spread over each
+    map, at 1 p.m.). Click a town or route on a map, or a place in the lists below it.</p>
+    <div class="gal-maps">${galMap('johto_kanto', 'Johto and Kanto')}${galMap('sinnoh', 'Sinnoh')}</div>
+    ${off}</section>
+    <section id="gal-panel"><p class="muted">Pick a place to see its photos.</p></section>
+    <section><h2>Gyms, the Elite Four and the champions</h2>
+    <p class="muted">A battle with each, from the test build's trainer battle in their own gym or room (god mode, so
+    each of their Pokémon goes down in one hit), both screens every few seconds.</p>${bosses}</section>`;
+}
+function galOpenPlace(key) {
+  const p = G.places[key], panel = document.getElementById('gal-panel');
+  document.querySelectorAll('.gal-frame g.pl').forEach(g => g.classList.toggle('on', g.dataset.key === key));
+  document.querySelectorAll('.gal-chips button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.key === key)));
+  if (!p) { panel.innerHTML = '<p class="muted">No photos of this place yet: the capture is still running.</p>'; return; }
+  const bosses = G.bosses.filter(b => b.place === key && b.count);
+  panel.innerHTML = `<h2>${esc(p.name)} <span class="muted num">${GREGION[p.region]} · ${p.count} photos</span></h2>
+    <div class="gal-grid">${Array.from({ length: p.count }, (_, i) =>
+      `<button data-i="${i}" aria-label="${esc(p.name)}, photo ${i + 1}: ${esc(p.maps[i])}"
+        style="${galShot(p.sheet, i, p.count)}"></button>`).join('')}</div>
+    ${bosses.map(b => `<h3>${esc(b.name)}'s battle</h3><div class="gal-grid tall" data-boss="${esc(b.name)}">${Array.from(
+      { length: b.count }, (_, i) => `<button data-i="${i}" aria-label="${esc(b.name)}, shot ${i + 1}"
+        style="${galShot(b.sheet, i, b.count, 0, true)}"></button>`).join('')}</div>`).join('')}`;
+  panel.querySelector('.gal-grid').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (b) galShow({ src: p.sheet, count: p.count, i: +b.dataset.i,
+      name: p.name, caps: p.maps });
+  });
+  panel.querySelectorAll('.gal-grid.tall').forEach(grid => grid.addEventListener('click', e => {
+    const b = e.target.closest('button'), boss = G.bosses.find(x => x.name === grid.dataset.boss);
+    if (b) galShow({ src: boss.sheet, count: boss.count, i: +b.dataset.i, name: boss.name + "'s battle", tall: true });
+  }));
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function galShow(v) {
+  galView = v;
+  let el = document.querySelector('.gal-view');
+  if (!el) {
+    el = document.createElement('div');
+    el.className = 'gal-view';
+    el.setAttribute('role', 'dialog');
+    el.innerHTML = `<div style="width:100%;display:grid;justify-items:center"><div class="pic"></div><div class="gal-bar">
+      <button data-go="-1">‹ Back</button><span class="cap"></span><button data-go="1">Next ›</button>
+      <button data-go="0">Close</button></div></div>`;
+    el.addEventListener('click', e => {
+      const b = e.target.closest('button');
+      if (b && +b.dataset.go) galStep(+b.dataset.go);
+      else if (b || e.target === el) { el.remove(); galView = null; }
+    });
+    document.body.appendChild(el);
+  }
+  el.classList.toggle('tall', !!v.tall);
+  el.querySelector('.pic').setAttribute('style', galShot(v.src, v.i, v.count, 0, v.tall));
+  el.querySelector('.cap').textContent = `${v.name} · ${v.i + 1} of ${v.count}${v.caps ? ' · ' + v.caps[v.i] : ''}`;
+}
+function galStep(d) { if (galView) { galView.i = (galView.i + d + galView.count) % galView.count; galShow(galView); } }
+document.addEventListener('keydown', e => {
+  if (!galView) return;
+  if (e.key === 'ArrowRight') galStep(1);
+  else if (e.key === 'ArrowLeft') galStep(-1);
+  else if (e.key === 'Escape') { document.querySelector('.gal-view')?.remove(); galView = null; }
+});
+function wireGallery() {
+  const view = document.getElementById('view-gallery');
+  view.addEventListener('mouseover', e => {
+    const g = e.target.closest('g.pl');
+    if (!g) return;
+    const tip = g.closest('.gal-map').querySelector('.gal-tip'), p = G.places[g.dataset.key];
+    tip.textContent = `${g.dataset.name} · ${p ? p.count + ' photos' : 'no photos yet'}`;
+  });
+  view.addEventListener('click', e => {
+    const g = e.target.closest('g.pl, .gal-chips button');
+    if (g) { galOpenPlace(g.dataset.key); return; }
+    const b = e.target.closest('.gal-bosses button');
+    if (b) { const boss = G.bosses.find(x => x.name === b.dataset.boss); galOpenPlace(boss.place); }
+  });
+}
+const views = { 'whole-game': wholeGame, 'since-yesterday': sinceYesterday, sinnoh, gallery, maps, story, timeline };
 const rendered = {};
 function show() {
   const name = (location.hash || '#whole-game').slice(1);
@@ -472,6 +627,7 @@ function show() {
     document.getElementById('view-' + tab).innerHTML = views[tab]();
     rendered[tab] = true;
     if (tab === 'maps') wireMaps();
+    if (tab === 'gallery') wireGallery();
     if (tab === 'timeline') wireTimeline();
   }
 }

@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
 from talk_to_objects import event_maps  # noqa: E402
 import test_hgss_opening  # noqa: E402
 
-UPDATED = 'Nov 3, 2026'
+UPDATED = 'Nov 5, 2026'
 
 # The roadmap's steps (docs/Roadmap.md) and where each stands: status is one of done, mostly, active, waiting, ready,
 # later
@@ -436,6 +436,75 @@ def story_maps():
     return walked, passed, single
 
 
+GALLERY = os.path.join(ROOT, '.cache', 'gallery')
+GALLERY_OUT = 'gallery'  # beside the page: the sheets and maps it shows
+SHEET_COLS = 6
+SINNOH_NAMES = {'TwinleafTown': 'Twinleaf Town', 'MtCoronet': 'Mt. Coronet', 'PokemonLeague': 'Pokémon League',
+                'GreatMarsh': 'Great Marsh', 'SpearPillar': 'Spear Pillar', 'ValleyWindworks': 'Valley Windworks'}
+
+
+def sheet(files, size, out):
+    """The shots side by side in one image, SHEET_COLS a row (rebuilt when a shot is newer)."""
+    from PIL import Image
+    if os.path.exists(out) and os.path.getmtime(out) >= max(os.path.getmtime(f) for f in files):
+        return
+    rows = (len(files) + SHEET_COLS - 1) // SHEET_COLS
+    im = Image.new('RGB', (SHEET_COLS * size[0], rows * size[1]))
+    for i, f in enumerate(files):
+        im.paste(Image.open(f).convert('RGB').resize(size), ((i % SHEET_COLS) * size[0], (i // SHEET_COLS) * size[1]))
+    im.save(out, quality=82, optimize=True)
+
+
+def gallery(out_dir):
+    """The gallery tab's data: each region map with its places, each place's and boss's sheet of shots (from
+    tools/complete/gallery_shots.py and render_region_maps.py), the sheets and maps written beside the page."""
+    import shutil
+    import gallery_shots
+    dest = os.path.join(out_dir, GALLERY_OUT)
+    os.makedirs(dest, exist_ok=True)
+    maps_dir = os.path.join(ROOT, '.cache', 'maps')
+    regions = json.load(open(os.path.join(maps_dir, 'places.json'))) if os.path.exists(
+        os.path.join(maps_dir, 'places.json')) else {}
+    maps_out = {}
+    for name in regions:
+        shutil.copyfile(os.path.join(maps_dir, name + '.png'), os.path.join(dest, name + '.png'))
+        from PIL import Image
+        w, h = Image.open(os.path.join(maps_dir, name + '.png')).size
+        maps_out[name] = {'img': f'{GALLERY_OUT}/{name}.png', 'w': w, 'h': h, 'places': regions[name]}
+    places = {}
+    for folder in sorted(glob.glob(os.path.join(GALLERY, 'shots', '*', 'index.json'))):
+        key = os.path.basename(os.path.dirname(folder))
+        index = json.load(open(folder))
+        label = index['label']
+        files = [os.path.join(os.path.dirname(folder), s['file']) for s in index['shots']]
+        if not files:
+            continue
+        sheet(files, (256, 192), os.path.join(dest, key + '.jpg'))
+        hg = key.startswith('hgss_')
+        places[key] = {'name': place_name(label) if hg else SINNOH_NAMES.get(label, place_name(label)),
+                       'region': ('kanto' if label in KANTO else 'johto') if hg else 'sinnoh',
+                       'kind': kind_of(label), 'sheet': f'{GALLERY_OUT}/{key}.jpg', 'count': len(files),
+                       'maps': [s['header'].replace('MAP_HEADER_', '').replace('HGSS_', '').replace('_', ' ').title()
+                                for s in index['shots']]}
+    bosses = []
+    info = gallery_shots.map_headers()
+    for boss, trainer, header in gallery_shots.BOSSES:
+        slug = re.sub(r'\W+', '_', boss).strip('_').lower()
+        index_path = os.path.join(GALLERY, 'battles', slug, 'index.json')
+        label = info.get(header, (None,))[0]
+        hg = header.startswith('MAP_HEADER_HGSS_')
+        entry = {'name': boss, 'region': ('kanto' if label in KANTO else 'johto') if hg else 'sinnoh',
+                 'place': gallery_shots.place_key(header, label), 'count': 0}
+        if os.path.exists(index_path):
+            shots = json.load(open(index_path))['shots']
+            files = [os.path.join(os.path.dirname(index_path), s['file']) for s in shots]
+            if files:
+                sheet(files, (256, 384), os.path.join(dest, 'battle_' + slug + '.jpg'))
+                entry.update(sheet=f'{GALLERY_OUT}/battle_{slug}.jpg', count=len(files))
+        bosses.append(entry)
+    return {'maps': maps_out, 'places': places, 'bosses': bosses, 'cols': SHEET_COLS}
+
+
 MONTHS = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
 
 
@@ -582,6 +651,7 @@ def main():
         'recent': [{'title': t, 'items': items} for t, items in RECENT],
         'places': sorted(places.values(), key=lambda p: (p['region'], p['kind'] != 'town', p['name'])),
         'regions': regions, 'overworld': overworld, 'story': story, 'timeline': timeline(), 'sinnoh': sinnoh(),
+        'gallery': gallery(os.path.dirname(os.path.abspath(out))),
         'totals': {'maps': len(info), 'walked': sum(1 for n in info if walked.get(n)),
                    'parts': len(parts), 'passed': sum(s['passed'] for s in story),
                    'single': sum(s['single'] for s in story),
