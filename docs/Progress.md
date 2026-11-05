@@ -1774,3 +1774,9 @@ Test results on the new test build:
   a Marill left there by the test build's breeding hook) passes on build_test3.
 - **Gallery captures:** the boss battles are all shot (34 of 35 bosses, 34 to 55 shots each; Morty's battle started
   on Ecruteak Gym's dark floor and is redone from inside its door), and 85 of the 230 places; the rest are running.
+- **Places off the overworld on HeartGold's map:** the Town Map names the places HeartGold's map puts on cells the
+  overworld leaves to the sea (the Battle Frontier, the Pokéathlon Dome, the Sinjoh Ruins, the S.S. Aqua, Victory
+  Road), from each map's world map position, as the Pokégear's map does. The Town Map test walks the cursor to the
+  Battle Frontier (34 of 34 checks pass on build_test). Morty's gallery battle is shot (Ecruteak Gym stays shut
+  until the Burned Tower's scene, so the capture opens it first): all 35 bosses are in. The feature sweep on
+  build_test3 is under way; the old Fly test (12 of 12) and the follower test pass on it.

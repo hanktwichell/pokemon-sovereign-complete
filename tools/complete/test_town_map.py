@@ -15,7 +15,8 @@ save's HM02 in the bag offers it), with every badge (gSovereignTestBadges, gComp
    player stays.
 6. The player warps to Twinleaf Town and Jubilife City (Sinnoh). Fly opens on Sinnoh, as Platinum's map, the cursor on
    Jubilife City; L turns the view to Johto and Kanto, the cursor on Goldenrod City, where no Fly point shows (none
-   from Sinnoh), and A doesn't fly;
+   from Sinnoh), and A doesn't fly; the cursor walks to the Battle Frontier (a place off the overworld, named from
+   its map's world map position);
    R back, the cursor to Twinleaf Town, and A flies there.
 
 Results: a line per check, screenshots of each view in OUT_DIR (both screens), and the count of problems.
@@ -37,6 +38,7 @@ from test_hgss_fly import fly_points, spawn_ids  # noqa: E402
 
 HGSS_TOWNS = ['NEW_BARK', 'CHERRYGROVE', 'VERMILION', 'INDIGO_PLATEAU', 'VIOLET']  # visited in this order
 SINNOH_TOWNS = [('TWINLEAF_TOWN', 0x74, 0x376), ('JUBILIFE_CITY', 0xB4, 0x309)]  # Platinum's Fly points
+FRONTIER = (7, 7)  # the Battle Frontier's cell on HeartGold's map (its world map position; sea on the overworld)
 CANALAVE = (1, 22)  # Sinnoh's cursor's first place from Johto or Kanto (src/applications/town_map/context.c)
 SINNOH, HGSS = 0, 1  # gCompleteTownMap.viewRegion
 # gCompleteTownMap: playerRegion, playerX, playerY, viewRegion, viewX, viewY, (padding), flyPoints
@@ -206,6 +208,9 @@ def main():
     check(f'L turns the view to Johto and Kanto, the cursor on Goldenrod City (view {view}, cell {vx, vy})',
           view == HGSS and (vx, vy) == cell('GOLDENROD'))
     check('A in Johto from Sinnoh doesn\'t fly', no_fly())
+    check('the cursor walks to the Battle Frontier (off the overworld: its name from its world map place)',
+          walk_to(*FRONTIER))
+    shot('battle_frontier')
     d.press('R', after=60)
     check('R turns it back to Sinnoh', info()[3] == SINNOH)
     check('the cursor walks to Twinleaf Town', walk_to(0x74 // 32, 0x376 // 32))

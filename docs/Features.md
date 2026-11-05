@@ -909,7 +909,9 @@ Town Map, Fly and the wall maps all open it.
   layer 512 by 512 pixels.
 - **Johto and Kanto** are HeartGold's map (its 47 by 17 blocks, a cell of 8 pixels a block, as the Pokégear's map
   places them). The cursor moves a block a step (holding repeats), the view follows it, and the place's name shows in
-  Platinum's bar. The player's marker sits where HeartGold's map would put them (on the overworld, the block they're
+  Platinum's bar: the overworld's map there, else a place off the overworld that HeartGold's map puts there (its
+  header's world map position: the Battle Frontier, the Pokéathlon Dome, the Sinjoh Ruins, the S.S. Aqua, Victory
+  Road), and nothing on the sea. The player's marker sits where HeartGold's map would put them (on the overworld, the block they're
   on; off it, their map's place), and HeartGold's Fly points reached show as Platinum's Fly squares.
 - **Between them:** L (from Sinnoh) and R (from Johto and Kanto) switch the view, and the D-pad crosses over: a fresh
   press off Sinnoh's west or south edge goes to the nearest place on HeartGold's map, and off its north or east edge

@@ -16,6 +16,7 @@
 #include "font.h"
 #include "heap.h"
 #include "location.h"
+#include "map_header.h"
 #include "map_header_util.h"
 #include "map_matrix.h"
 #include "message.h"
@@ -341,9 +342,8 @@ static int FlyPointAtCursor(void)
     return -1;
 }
 
-// The place on a cell of HeartGold's map (its overworld's map there), or MAP_HEADER_EVERYWHERE for the sea and the
-// edges
-static enum MapHeaderID HGSSPlaceAt(int x, int y)
+// The place on a cell of HeartGold's overworld map, or MAP_HEADER_EVERYWHERE for the sea and the edges
+static enum MapHeaderID HGSSOverworldPlaceAt(int x, int y)
 {
     if (sMap.matrix == NULL || x < 0 || y < 0 || x >= MapMatrix_GetWidth(sMap.matrix) || y >= MapMatrix_GetHeight(sMap.matrix)) {
         return MAP_HEADER_EVERYWHERE;
@@ -351,6 +351,33 @@ static enum MapHeaderID HGSSPlaceAt(int x, int y)
 
     enum MapHeaderID header = MapMatrix_GetMapHeaderIDAtCoords(sMap.matrix, x, y);
     return header == MAP_HEADER_HGSS_EVERYWHERE ? MAP_HEADER_EVERYWHERE : header;
+}
+
+// The place on a cell of HeartGold's map: the overworld's, else a place off it that HeartGold's map puts there (its
+// header's world map position, as the Pokégear's map names it: the Battle Frontier, the Pokéathlon Dome, the Sinjoh
+// Ruins, the S.S. Aqua, Victory Road), the first such map, or the Battle Frontier itself
+static enum MapHeaderID HGSSPlaceAt(int x, int y)
+{
+    enum MapHeaderID header = HGSSOverworldPlaceAt(x, y);
+
+    if (header != MAP_HEADER_EVERYWHERE) {
+        return header;
+    }
+
+    for (enum MapHeaderID id = MAP_HEADER_HGSS_EVERYWHERE + 1; MapHeader_IsHGSS(id); id++) {
+        int mapX, mapY;
+
+        MapHeader_GetWorldMapPos(id, &mapX, &mapY);
+
+        if (mapX == x && mapY == y && (mapX != 0 || mapY != 0) && MapHeader_GetMapMatrixID(id) != MapHeader_GetMapMatrixID(MAP_HEADER_HGSS_NEW_BARK)) {
+            int frontierX, frontierY;
+
+            MapHeader_GetWorldMapPos(MAP_HEADER_HGSS_BATTLE_FRONTIER, &frontierX, &frontierY);
+            return frontierX == x && frontierY == y ? MAP_HEADER_HGSS_BATTLE_FRONTIER : id;
+        }
+    }
+
+    return MAP_HEADER_EVERYWHERE;
 }
 
 // The place under the cursor in Johto and Kanto, on the top screen's line (as Platinum's PrintLocationName does)
@@ -454,7 +481,7 @@ static void NearestHGSSCell(int px, int py, int *x, int *y)
 
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
-            if (HGSSPlaceAt(i, j) == MAP_HEADER_EVERYWHERE) {
+            if (HGSSOverworldPlaceAt(i, j) == MAP_HEADER_EVERYWHERE) {
                 continue;
             }
 
