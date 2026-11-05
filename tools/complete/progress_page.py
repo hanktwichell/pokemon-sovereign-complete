@@ -74,11 +74,10 @@ STEPS = [
 ]
 
 NEXT = [
-    'The gallery is filling in: every gym leader, Elite Four member and champion has a battle on the Gallery tab '
-    '(Morty\'s is being redone), and 85 of the 230 places have their photos; the rest of Johto, Kanto and all of '
-    'Sinnoh are being shot now and appear as they finish.',
-    'A full story run (New Bark Town to Sinnoh\'s Hall of Fame) is going on the build before today\'s changes; the '
-    'Town Map and the Day Care\'s yard each have their own emulator test, and both pass.',
+    'The gallery is filling in: every gym leader, Elite Four member and champion has a battle on the Gallery tab, '
+    'and 180 of the 230 places have their photos; the rest of Sinnoh is being shot now.',
+    'Every feature test is running again on today\'s build (the Town Map and the Day Care\'s yard have new ones, '
+    'both passing); all 31 finished so far pass. A full story run follows on the same build.',
     'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you), its still '
     'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
 ]
@@ -108,8 +107,8 @@ RECENT = [
         'reach the Indigo Plateau and Mt. Silver). Its emulator test flies around Johto, Kanto and Sinnoh as a player '
         'would: 33 of 33 checks pass. Screenshots: Gallery tab, "New in the game".',
         'The Gallery tab: click a town or route on the region maps to see its photos, and every gym leader, Elite '
-        'Four member and champion has a battle (34 of 35 so far, 34 to 55 shots each). The places are still being '
-        'shot: 85 of 230 so far.',
+        'Four member and champion has a battle (all 35, 34 to 55 shots each). The places are still being shot: 180 '
+        'of 230 so far.',
         'The Sinjoh Ruins: yes, Sacred Gold\'s plates event plays (the Unown circle, Arceus\'s cinematic, the '
         'battle), and its test passes. HeartGold\'s Arceus egg for Cynthia was an event distribution, so it\'s out.',
     ]),
