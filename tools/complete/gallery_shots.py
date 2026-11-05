@@ -33,13 +33,16 @@ from PIL import Image, ImageChops  # noqa: E402
 
 from check_object_tiles import Maps, walkable  # noqa: E402
 from drive import Driver  # noqa: E402
-from talk_to_objects import SYMBOLS, event_maps, header_names, symbols, warp  # noqa: E402
+from talk_to_objects import SYMBOLS, event_maps, header_names, symbols, var_ids, warp  # noqa: E402
 
 DECOMP = os.path.join(ROOT, 'decomp')
 OUT = os.path.join(ROOT, '.cache', 'gallery')
-# Where a boss's battle starts when the middle of their gym won't do: Ecruteak Gym's dark floor drops the player at
-# once, so Morty's starts inside its door
-BOSS_SPOTS = {'Morty': (16, 51)}
+# Where a boss's battle starts when the middle of their gym won't do: Ecruteak Gym's dark floor drops the player, so
+# Morty's starts on his platform, before him
+BOSS_SPOTS = {'Morty': (10, 9)}
+# A var a boss's room needs first (gSovereignTestVar, set by the warp): Ecruteak Gym stays shut until the Burned
+# Tower's scene (VAR_HGSS_UNK_4079 2), its sage walking the player back out
+BOSS_VARS = {'Morty': ('VAR_HGSS_UNK_4079', 2)}
 MAX_SHOTS = 30  # a place's shots at most
 INDOOR_SHOTS = 14  # of them, from its buildings at most
 SETTLE = 50  # frames after a warp before the shot
@@ -218,15 +221,23 @@ def shoot_battles(d, sym, state, names):
         d.load_state(state)
         d.run(30)
         index = []
-        if boss in BOSS_SPOTS:
-            warp(d, sym, names.index(header), *BOSS_SPOTS[boss], 0)
-            d.run(SETTLE)
-        elif header in matrices:
+        spot = BOSS_SPOTS.get(boss)
+        if spot is None and header in matrices:
             matrix, gj, ev = matrices[header]
             spots = spots_of(maps, header, matrix, gj, True, ev)
-            if spots:
-                warp(d, sym, names.index(header), *spots[0], 0)
-                d.run(SETTLE)
+            spot = spots[0] if spots else None
+        if boss in BOSS_VARS:
+            var, value = BOSS_VARS[boss]
+            d.emu.memory.write_short(sym['gSovereignTestVar'], var_ids()[var])
+            d.emu.memory.write_short(sym['gSovereignTestVar'] + 2, value)
+        for _ in range(2):  # again if a script took the player out
+            if spot is None:
+                break
+            warp(d, sym, names.index(header), *spot, 0)
+            d.run(SETTLE)
+            at = sym['gSovereignTestIdleMapHeaderID']
+            if struct.unpack('<H', bytes(d.emu.memory.unsigned[at:at + 2]))[0] == names.index(header):
+                break
         d.emu.memory.write_short(sym['gSovereignTestBattleTrainer'], trainers.index(trainer))
         d.emu.memory.write_byte(sym['gSovereignTestGodMode'], 1)
         d.press('SELECT+R')
