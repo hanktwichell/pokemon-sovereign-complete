@@ -1788,3 +1788,6 @@ Test results on the new test build:
   three fail the same way on yesterday's build_test2 today).
 - **The gallery is complete:** all 230 places in Sinnoh, Johto and Kanto have their photos (up to 30 each, from the
   test warp to spots spread over each map) and all 35 bosses their battles, on the progress page's Gallery tab.
+- **The long checks on today's build:** the hidden items test found 240 of 243 as before but one, in Violet City,
+  where a wandering boy had stepped onto the item's tile, so A talked to him (as it would in HeartGold). The test now
+  warps back and tries again a little later when a wanderer is in the way: Violet City's two items pass.

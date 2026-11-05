@@ -16,17 +16,21 @@ From the repo root, with the test build and a bedroom state (tools/test/new_game
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR [--part I/N] [EVENTS ...]
 Each hidden item is a line in OUT_DIR/results.txt.
 """
+import json
 import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 from check_object_tiles import Maps  # noqa: E402
-from talk_to_objects import (DECOMP, FRAME_LIMIT, SYMBOLS, arrive, event_maps, header_at, header_names,  # noqa: E402
-                             parse_args, play_out, stand_next_to, symbols, u32, var_ids, warp, way_in_to)
+from talk_to_objects import (DECOMP, FRAME_LIMIT, SYMBOLS, WANDER_TRIES, arrive, event_maps, header_at,  # noqa: E402
+                             header_names, parse_args, play_out, stand_next_to, symbols, u32, var_ids, warp, way_in_to)
 
 HIDDEN_ITEM = 2  # BG_EVENT_TYPE_HIDDEN_ITEM
 SCRIPTS = range(8300, 8800)  # Johto's and Kanto's (import_hgss_field_items.hidden_item_script)
 UNDER = {}  # (events, script): the script of the object standing on the item, if one does
+# A person who wanders can step onto the item's tile (Violet City's little boy): the test warps back and tries again,
+# each time a little later, so they're elsewhere
+WANDER_WAIT_FRAMES = 40
 HEADBUTT = 0x810  # CommonScript_CompleteHeadbutt: a Headbutt tree's tile, under some items
 
 
@@ -74,6 +78,12 @@ def pick_up(d, sym, header, script, x, z, face):
     return ('AGAIN' if started >> 16 == script else f'OTHER {started >> 16} the second time'), frames + more
 
 
+def wanderers(events):
+    """The scripts of the map's people who wander"""
+    path = os.path.join(DECOMP, 'res', 'field', 'events', events + '.json')
+    return {o['script'] for o in json.load(open(path))['object_events'] if 'WANDER' in o['movement_type']}
+
+
 def main():
     from drive import Driver
 
@@ -93,6 +103,13 @@ def main():
                 result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face)
                 if result == 'ok':
                     result, frames = pick_up(d, sym, header, script, x, z, face)
+                for wait in range(1, WANDER_TRIES + 1):
+                    if not (result.startswith('OTHER ') and int(result.split()[1]) in wanderers(events)):
+                        break
+                    result, frames = arrive(d, sym, state, variables, events, header, way_in, x, z, face)
+                    if result == 'ok':
+                        d.run(WANDER_WAIT_FRAMES * wait)
+                        result, frames = pick_up(d, sym, header, script, x, z, face)
                 if result == f'OTHER {UNDER[events, script]}':
                     result = 'UNDER'
             if result not in ('ok', 'UNDER'):
