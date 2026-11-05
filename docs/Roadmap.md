@@ -146,6 +146,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   nothing; Platinum's Pokétch Dowsing app finds Johto's and Kanto's hidden items too. Proposed: port the Berry Pots
   (about a day: their screen, the pots in the save, Berries growing with time) and the Unown Report (about half a
   day), and leave the Dowsing Machine to the Pokétch and Pokégear question.
+- **The Town Map's item in Johto (proposed, Nov 5):** Fly opens the one Town Map everywhere, but the bag's Town Map
+  is given only in Sinnoh (Dawn or Lucas, in Jubilife's Trainers' School), so a new game in New Bark Town has none
+  until then. Proposed: the Cherrygrove City guide, who gives the Pokégear's Map Card, gives it too, and Sinnoh's
+  gift is skipped when the player has it.
 - **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
   a stand-in sprite.
 

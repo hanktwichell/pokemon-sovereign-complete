@@ -96,6 +96,10 @@ WAITING = [
     ('The Pokéathlon Dome', 'With the Pokéathlon skipped: the building open (its people, no events) or closed?'),
     ('The photo album', 'Cameron takes photos on 59 maps, but there\'s no album to keep them in. Port it, or leave '
      'him out?'),
+    ('The Town Map in Johto', 'Fly opens the one Town Map everywhere, but the bag\'s Town Map is only given in Sinnoh '
+     '(Jubilife\'s Trainers\' School), so a new game has none until then. Proposed: the Cherrygrove City guide, who '
+     'gives the Pokégear\'s Map Card, gives the Town Map with it, and Sinnoh\'s gift is skipped if you have it. Yes or '
+     'no?'),
 ]
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
