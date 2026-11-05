@@ -120,8 +120,9 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   blacking out too; Twinleaf Town's opening scenes stay as they are, and Sinnoh's League still sends the player home to
   Twinleaf Town.
 - **Level curve:** how far Johto and Kanto compress so that Sinnoh, third, still ends at Spear Pillar by Lv. 100
-  (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: for now they
-  list Sinnoh's fights only, so with the option on a player in Johto is held at Lv. 16.
+  (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: one list
+  for all three regions in story order, Johto's and Kanto's at Sacred Gold's aces' levels, then Sinnoh's moved up
+  (Nov 1, 2026; `docs/Features.md`, "Sinnoh, the third region").
 - **Whirlpool's HM:** HeartGold's HM05 is Whirlpool and Platinum's is Defog; Lance gives HM05 in Johto, which is
   Defog here. For now HM05 in the bag also lets the player use Whirlpool (Sovereign's HM-in-the-bag rule). A separate
   Whirlpool HM is a new item, with every species' compatibility. Proposed: keep it this way.

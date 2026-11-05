@@ -176,9 +176,8 @@ are `CompleteGiveBadge` and `CompleteCheckBadge` (`BADGE_ID_HGSS_*`, HeartGold's
 - **Counts:** every badge counts where Platinum counts badges: how high a traded Pokémon obeys, the money lost on
   blacking out (capped at eight, as its table is), the common Poké Mart's stock, the save and continue screens. Scripts
   that count Sinnoh's badges (`CountBadgesAcquired`) still count Sinnoh's.
-- **Not yet:** the Trainer Card shows Sinnoh's badges only (Johto's and Kanto's need their art); Sovereign's level caps
-  (an option, off by default) follow Sinnoh's fights only, so with the option on a player in Johto is held at Lv. 16
-  until the level curve is decided (`docs/Roadmap.md`).
+- **Not yet:** the Trainer Card shows Sinnoh's badges only (Johto's and Kanto's need their art). Sovereign's level
+  caps (an option, off by default) run through all three regions' fights in story order ("Sinnoh, the third region").
 
 Test: `tools/complete/test_hgss_field_moves.py` (Ilex Forest's Cut tree with no badge and with the Hive Badge, Rock
 Smash with the Zephyr Badge, Strength with the Plain Badge).
