@@ -48,6 +48,9 @@ work.
   option `complete_playtest`: the release game, but a new game starts with Cynthia's Garchomp at Lv. 80, Staraptor
   with Fly and Empoleon with Surf at Lv. 50, and every Fly point, and Fly and Surf need no badge;
   `src/complete_playtest.c`) and writes an `.xdelta` for each clean Platinum (US) dump, as Sovereign's release patch.
+  Clean dumps come from pret/pokeplatinum, cloned into `.cache/pret_platinum` and built with
+  `make BUILD=build_rev1 ROM_REVISION=1 rom` (and `0`; SHA-1s `0862ec35…` and `ce81046e…`). Its yyjson wrap fetches a
+  WrapDB patch the proxy refuses: copy `decomp/subprojects/yyjson.wrap` and `packagefiles/yyjson/` into its subprojects.
 - Boot check: `python3 tools/test/boot_smoke.py decomp/build/pokeplatinum.us.nds .cache/smoke` (with
   `SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy`).
 - Story check: `tools/complete/test_hgss_opening.py` plays a new game from New Bark Town as a player would, part by
