@@ -1780,3 +1780,9 @@ Test results on the new test build:
   Battle Frontier (34 of 34 checks pass on build_test). Morty's gallery battle is shot (Ecruteak Gym stays shut
   until the Burned Tower's scene, so the capture opens it first): all 35 bosses are in. The feature sweep on
   build_test3 is under way; the old Fly test (12 of 12) and the follower test pass on it.
+- **The feature sweep on today's build:** 38 of 39 of Complete's tests passed on build_test3. The other, the special
+  events test, missed three events whose person or Pokémon wanders (the S.S. Aqua's assistant for the Phione and
+  Manaphy, Union Cave's Friday Lapras): on this run they had stepped off their tiles when the test talked, and for
+  events with no battle the test took "nothing happened" for a pass's start. It now waits and talks again, and warps
+  back now and then, as the gifts test does for its wandering givers: the three pass (the game was fine; the same
+  three fail the same way on yesterday's build_test2 today).

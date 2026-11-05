@@ -42,13 +42,18 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
 from check_object_tiles import Maps, walkable  # noqa: E402
 from find_spot import header_info  # noqa: E402
 from gift_pokemon import names, talk_and_answer  # noqa: E402
-from talk_to_objects import (DECOMP, SYMBOLS, arrive, cases as talk_cases, hidden_flag, header_names,  # noqa: E402
-                             symbols, var_ids)
+from talk_to_objects import (DECOMP, SYMBOLS, WANDER_TRIES, arrive, cases as talk_cases, hidden_flag,  # noqa: E402
+                             header_names, object_event, symbols, var_ids, warp)
 from test_hgss_opening import KEYS as STEP_KEYS, route  # noqa: E402
 from test_hgss_togepi import SAVE_PAGES, SAVE_SECTOR, save_entry_index  # noqa: E402
 
 TEST_VARS = 2  # gSovereignTestVar's entries from here on (arrive() may use [0] and [1])
 LIMIT = 30000
+# A wandering object (the S.S. Aqua's assistant, Union Cave's Lapras) can step off its tile before the test talks to
+# it: the player waits WANDER_WAIT_FRAMES facing the tile and talks again, and every WANDER_WAITS tries comes back to
+# the tile from a fresh warp (WANDER_TRIES warps), as the gifts test does
+WANDER_WAITS = 6
+WANDER_WAIT_FRAMES = 40
 KEYS = ('UP', 'DOWN', 'LEFT', 'RIGHT')  # enum FaceDirection
 STEPS = ((0, -1), (0, 1), (-1, 0), (1, 0))
 LATE_NIGHT, FRIDAY = 1, 5  # an hour of TIMEOFDAY_LATE_NIGHT (0 to 3), and Friday (Sunday is 0)
@@ -379,6 +384,19 @@ def main():
                     result, frames = talk_and_answer(d, sym, answers, LIMIT, press_a=False)
                 else:
                     result, frames = talk_and_answer(d, sym, answers, LIMIT)
+                    tries = 0
+                    if target[0] == 'obj' and 'WANDER' in object_event(target[1], target[2])['movement_type']:
+                        tries = WANDER_TRIES * WANDER_WAITS
+                        _, _, header_id, _, x, z, face = places[(target[1], target[2])]
+                    while result == 'NOSCRIPT' and tries:
+                        tries -= 1
+                        if tries % WANDER_WAITS == 0:
+                            result, frames = warp(d, sym, header_id, x, z, face + 1)
+                        else:
+                            d.run(WANDER_WAIT_FRAMES)
+                            result = 'ok'
+                        if result == 'ok':
+                            result, frames = talk_and_answer(d, sym, answers, LIMIT)
                 if result == 'NOSCRIPT' and want is None:
                     result = 'ok'
             got = wild()
