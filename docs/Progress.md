@@ -1806,3 +1806,8 @@ Test results on the new test build:
 - **The POKéMON option in the start menu** showed only once Sinnoh's starter variable was set (Rowan's briefcase on
   Route 201), which Elm's starter doesn't set (`VAR_HGSS_PLAYER_STARTER`): it shows with any Pokémon in the party now.
   (The story test's test party had hidden this.)
+- **Johto's and Kanto's trainers drew as dots in battle** (the owner's playtest, Elite Four Will): every HeartGold
+  class's front picture was a 4-bit PNG (nitrogfx's own output in `import_hgss_trainer_classes.py`), and the build
+  converts each class's picture with `-convertTo4Bpp`, which reads it as 8-bit, so every other pixel drew. Sovereign's
+  105 classes keep 8-bit PNGs; the 68 HeartGold ones are 8-bit now (the same pixels and 16 colors), and the importer
+  writes them so. Will, Falkner, Koga and Youngster Joey draw right on build_test.
