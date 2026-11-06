@@ -17,10 +17,10 @@ sys.path.insert(0, os.path.dirname(__file__))
 import gym_teams_page as page  # noqa: E402
 
 SPRITE_URL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{}.png'
-HEADERS = (['#', 'Trainer', 'Where', 'Battle', 'Slot', 'Sprite', 'Pokémon', 'Lv.', 'Ability', 'Item', 'Nature',
+HEADERS = (['Battle no. (story order)', 'Trainer', 'Where', 'Team', 'Slot', 'Sprite', 'Pokémon', 'Level', 'Ability', 'Item', 'Nature',
             'Move 1', 'Move 2', 'Move 3', 'Move 4']
            + [f'IV {label}' for _, label in page.STATS] + [f'EV {label}' for _, label in page.STATS] + ['Notes'])
-WIDTHS = [5, 14, 24, 13, 5, 9, 15, 5, 15, 17, 9, 15, 15, 15, 15] + [6] * 12 + [34]
+WIDTHS = [10, 14, 24, 13, 5, 9, 15, 5, 15, 17, 9, 15, 15, 15, 15] + [6] * 12 + [34]
 FILLS = [PatternFill('solid', fgColor='FFFFFF'), PatternFill('solid', fgColor='F3EFE6')]
 HEAD_FILL = PatternFill('solid', fgColor='1E1C19')
 REMATCH_FILL = [PatternFill('solid', fgColor='EEF3FB'), PatternFill('solid', fgColor='E2EAF6')]
@@ -91,6 +91,8 @@ def main():
                     for col in (1, 5, 8) + tuple(range(16, 28)):
                         ws.cell(r, col).alignment = Alignment(horizontal='center', vertical='center')
                     ws.cell(r, 7).font = Font(bold=True)
+                    ws.cell(r, 8).font = Font(bold=True, size=12, color='C0392B')
+                    ws.cell(r, 1).font = Font(color='8A8378')
                     if r == start:
                         ws.cell(r, 2).font = Font(bold=True, size=12)
                 if b == 0:
