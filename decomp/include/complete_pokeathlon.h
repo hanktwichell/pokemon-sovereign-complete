@@ -47,6 +47,26 @@ typedef struct CompletePokeathlonTotals {
     u32 unk70;
 } CompletePokeathlonTotals;
 
+// A course record's Pokémon (HeartGold's 12 bytes, which the course record screen draws: ov99_021E5B7C, ov98_0221E7E8).
+// HeartGold gives the species 9 bits, too few for Complete's, so here it has two of the word's spare bits as well.
+typedef struct CompletePokeathlonRecordMon {
+    u32 species : 11;
+    u32 form : 5;
+    u32 gender : 2;
+    u32 shiny : 1;
+    u32 padding : 13;
+    u32 personality;
+    u32 unused; // HeartGold never writes it
+} CompletePokeathlonRecordMon;
+
+// HeartGold's best run of a course (the first 0xDC bytes of its PokeathlonSave, 0x2C a course): each event's points
+// (at most 999), the total (the bonus is the rest; 0 while the course hasn't been run) and the three Pokémon
+typedef struct CompletePokeathlonCourseRecord {
+    u16 eventPoints[3];
+    u16 total;
+    CompletePokeathlonRecordMon mons[3];
+} CompletePokeathlonCourseRecord;
+
 typedef struct CompletePokeathlonCourseEntry {
     u16 unk_0;
     u8 unk_2[6];
@@ -72,7 +92,7 @@ typedef struct CompletePokeathlonStatue {
 typedef struct CompletePokeathlonSave {
     u32 magic;
     u32 session; // the play session that wrote it (the working copy's; the saved one's says nothing)
-    u8 unk_0[0xDC];
+    CompletePokeathlonCourseRecord courseRecords[COMPLETE_POKEATHLON_COURSES]; // HeartGold's unk_0
     u8 medals[COMPLETE_POKEATHLON_MEDAL_SPECIES]; // HeartGold's unk_DC: [species - 1], a bit a course
     CompletePokeathlonRecordsSolo recordsSolo[COMPLETE_POKEATHLON_RECORDS];
     CompletePokeathlonRecordsLink recordsLink[COMPLETE_POKEATHLON_RECORDS];
@@ -107,6 +127,11 @@ void CompletePokeathlon_SetReceivedDailyItemSlot(CompletePokeathlonSave *pokeath
 // The Athlete Points and the data cards and day's prizes bought, as last read or written; the session; the last text a
 // prize counter refused with (hgss_msg_0435's: src/overlay007/complete_pokeathlon_shop.c); the counters' purchases
 extern u32 gCompleteTestPokeathlon[6];
+// The record screen open (1 + its ScrCmd_712 number: 1 the course record; 0 when none), its page drawn last (1 + the
+// course) and its cursor (0-4 the courses, 5 Return); the open screen's copy of the course records, which a test can
+// fill and then turn a page to see (src/applications/complete_pokeathlon_records/)
+extern u8 gCompleteTestPokeathlonRecordScreen[3];
+extern CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_H

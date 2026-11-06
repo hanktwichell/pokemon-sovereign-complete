@@ -217,6 +217,7 @@ enum NarcID {
     NARC_INDEX_GRAPHIC__COMPLETE__BERRY_POTS, // Sovereign Complete: the Berry Pots' graphics (HeartGold's)
     NARC_INDEX_GRAPHIC__COMPLETE__UNOWN_REPORT, // Sovereign Complete: the Unown Report's graphics (HeartGold's)
     NARC_INDEX_GRAPHIC__COMPLETE__DOWSING, // Sovereign Complete: the Dowsing Machine's graphics (HeartGold's)
+    NARC_INDEX_GRAPHIC__COMPLETE__POKEATHLON_RECORDS, // Sovereign Complete: the Pokéathlon record screens' graphics (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H
