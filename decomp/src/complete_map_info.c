@@ -240,10 +240,24 @@ void CompleteMapInfo_TownMapInit(FieldSystem *fieldSystem, BOOL fly)
     // at the Indigo Plateau or Mt. Silver, between Johto and Kanto, the player flies to either
     BOOL between = mapHeaderID == GetFlyLocationMap(SPAWN_HGSS_INDIGO) || mapHeaderID == GetFlyLocationMap(SPAWN_HGSS_MT_SILVER);
 
+    // the Sinjoh Ruins (the owner's call, Nov 6, 2026): from them, Fly reaches anywhere in Johto (as from Johto) and
+    // in Sinnoh (complete_town_map.c's CompleteTownMap_CanFly)
+    gCompleteTownMap.fromSinjoh = fly && mapHeaderID == GetFlyLocationMap(SPAWN_HGSS_SINJOH_RUINS);
+
     for (int spawn = SPAWN_HGSS_FIRST; spawn < SPAWN_HGSS_FIRST + SPAWN_HGSS_COUNT; spawn++) {
         enum MapHeaderID flyMap = GetFlyLocationMap(spawn);
 
         if (flyMap == MAP_HEADER_EVERYWHERE || !CheckFlyLocationUnlocked(fieldSystem, spawn)) {
+            continue;
+        }
+
+        // once reached, the Sinjoh Ruins are a Fly point from anywhere in Sinnoh or Johto (Mt. Silver and the Indigo
+        // Plateau too), not from Kanto
+        if (spawn == SPAWN_HGSS_SINJOH_RUINS) {
+            if (!fly || between || gCompleteTownMap.playerRegion != COMPLETE_TOWN_MAP_REGION_KANTO) {
+                gCompleteTownMap.flyPoints |= 1 << (spawn - SPAWN_HGSS_FIRST);
+            }
+
             continue;
         }
 

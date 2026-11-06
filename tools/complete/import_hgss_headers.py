@@ -288,6 +288,9 @@ def main():
     # Maps with a table of Complete's own: Kanto's Pal Park takes Platinum's park table, its rates (its Pokémon come
     # from data/complete/pal_parks.yaml, src/overlay006/wild_encounters.c)
     OWN_ENCOUNTERS = {'MAP_HEADER_HGSS_PAL_PARK': 'encounters_pal_park'}
+    # Maps Fly works from in Complete that HeartGold keeps it off: the Sinjoh Ruins (the owner's call, Nov 6, 2026),
+    # whose Fly point reaches Sinnoh and Johto (src/complete_map_info.c)
+    OWN_FLY = {'MAP_HEADER_HGSS_SINJOH_RUINS_EXTERIOR'}
 
     # wild Pokémon: HeartGold's ENCDATA_<map> is the entry for <map> in its list, packed in hgss_enc_data.narc
     # (tools/complete/import_hgss_encounters.py)
@@ -327,7 +330,7 @@ def main():
             f'        .isBikeAllowed = {f["bikeAllowed"]},',
             f'        .isRunningAllowed = {f["runningAllowed_Unused"]},',
             f'        .isEscapeRopeAllowed = {f["escapeRopeAllowed"]},',
-            f'        .isFlyAllowed = {f["flyAllowed"]},',
+            f'        .isFlyAllowed = {"TRUE" if header in OWN_FLY else f["flyAllowed"]},',
             '    },',
         ]
         follow = f['followMode'].replace('MAP_FOLLOWMODE_', 'FOLLOW_MODE_')

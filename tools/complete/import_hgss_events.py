@@ -110,7 +110,9 @@ OBJECT_SPRITES = {(419, 'obj_D41R0108_1'): 'OBJ_EVENT_GFX_INVISIBLE'}
 # Candice's thanks in the Snowpoint Temple (Sovereign's record of it was HM08 in the bag, which the player brings from
 # Kanto; res/field/scripts/scripts_snowpoint_temple_b5f.s)
 COMPLETE_FLAGS = [('FLAG_COMPLETE_HIDE_MT_SILVER_RED', 'FLAG_HGSS_SG_3FFE'),
-                  ('FLAG_COMPLETE_REGIGIGAS_CALMED', 'FLAG_HGSS_SG_3FFD')]
+                  ('FLAG_COMPLETE_REGIGIGAS_CALMED', 'FLAG_HGSS_SG_3FFD'),
+                  # the Sinjoh Ruins' Fly point (tools/complete/import_hgss_spawns.py): HeartGold's next Fly point flag
+                  ('FLAG_COMPLETE_FLYPOINT_SINJOH', 'FLAG_HGSS_UNK_9D6')]
 # HeartGold's Apricorn tree script (its std_apricorn_tree) and the engine's (CommonScript_CompleteApricornTree,
 # res/field/scripts/scripts_common.s)
 STD_APRICORN_TREE = 2800

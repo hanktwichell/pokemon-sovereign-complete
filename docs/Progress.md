@@ -1992,3 +1992,11 @@ Test results on the new test build:
   Johto's and Kanto's table reader leaves it out (`CompleteEncounters_HasHGSSTable`). Tested
   (`tools/complete/test_pal_parks.py`): the walk in and out, and 64 encounters per quadrant and terrain in both parks,
   every one a Pokémon of its zone at a level in its range (Sinnoh's moved up with its levels).
+- **Fly to and from the Sinjoh Ruins (the owner's call):** once the player has been to the Ruins, Fly reaches them
+  from anywhere in Sinnoh or Johto (Mt. Silver and the Indigo Plateau too, not Kanto), and from the Ruins it reaches
+  Johto's Fly points and Sinnoh's. A 31st Johto and Kanto spawn point (`SPAWN_HGSS_SINJOH_RUINS`) with the Fly flag
+  after HeartGold's last, Fly allowed on the Ruins' grounds, and the Town Map's rules (`src/complete_map_info.c`,
+  `CompleteTownMap_CanFly`). Tested (`tools/complete/test_sinjoh_fly.py`, 0 problems: no point before a visit; from
+  Jubilife the Ruins and nothing else of HeartGold's, and the flight there; from the Ruins Johto's and Sinnoh's, and
+  the flight to Jubilife; none from Vermilion; from the Indigo Plateau and Violet City, and the flight); the Town Map
+  test still passes.

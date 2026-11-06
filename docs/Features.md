@@ -963,6 +963,12 @@ Town Map, Fly and the wall maps all open it.
   that area, either region's. A place Fly can't reach doesn't show as a Fly point, and A on it does nothing. Fly from
   the party menu opens this map everywhere now; HeartGold's fly map on the Pokégear and the list of places reached
   (`CommonScript_CompleteFly`) are no longer how Fly starts.
+- **The Sinjoh Ruins** (the owner's call, Nov 6): once the player has been there, they're a Fly point from anywhere in
+  Sinnoh or Johto, Mt. Silver and the Indigo Plateau too (not Kanto), and from the Ruins Fly reaches Johto's points,
+  that area's and Sinnoh's. It's a spawn point of Complete's after HeartGold's (`SPAWN_HGSS_SINJOH_RUINS`, landing
+  south of the cabin, `tools/complete/import_hgss_spawns.py`), its Fly flag the one after HeartGold's last
+  (`FLAG_COMPLETE_FLYPOINT_SINJOH`), and Fly works from the Ruins' grounds (HeartGold keeps it off there;
+  `import_hgss_headers.py`'s `OWN_FLY`). Test: `tools/complete/test_sinjoh_fly.py`.
 
 Test: `tools/complete/test_town_map.py` (Fly from the party menu in Violet City, Vermilion City, the Indigo Plateau
 and Jubilife City: the view, the cursor and the Fly points shown; walking the cursor; a place in the other region

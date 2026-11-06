@@ -45,7 +45,8 @@ int CompleteMapInfo_FlyPoints(FieldSystem *fieldSystem, u8 *spawns, int max);
 // The three-region Town Map (src/applications/town_map/complete_town_map.c): set as the field opens it, read by its
 // overlay. playerRegion: COMPLETE_TOWN_MAP_REGION_*; playerX, playerY: the player's cell on HeartGold's map (when in
 // Johto or Kanto); flyPoints: bit n set for HeartGold's Fly point SPAWN_HGSS_FIRST + n the player can fly to now
-// (reached, and in their region or the area between Johto and Kanto; none from Sinnoh). The Town Map keeps its view in
+// (reached, and in their region or the area between Johto and Kanto; none from Sinnoh), and the Sinjoh Ruins' from
+// Sinnoh and Johto. The Town Map keeps its view in
 // viewRegion (0 Sinnoh, 1 Johto and Kanto) and the cursor's cell there in viewX, viewY (Platinum's grid in Sinnoh,
 // HeartGold's map's in Johto and Kanto), for the tests.
 enum CompleteTownMapRegion {
@@ -62,6 +63,7 @@ typedef struct CompleteTownMapInfo {
     u8 viewX;
     u8 viewY;
     u32 flyPoints;
+    u8 fromSinjoh; // flying from the Sinjoh Ruins, which reach Sinnoh's Fly points too
 } CompleteTownMapInfo;
 
 extern CompleteTownMapInfo gCompleteTownMap;

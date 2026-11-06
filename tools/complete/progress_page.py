@@ -268,6 +268,8 @@ RECENT = [
         'The Pal Parks: Kanto\'s by Fuchsia City (open from the start, no Catching Show: walk in and catch) has '
         'Alola\'s forms in the west and Galar\'s in the east, its water forms in the pond and lake; Sinnoh\'s, on '
         'Route 221, has Hisui\'s in the north and Paldea\'s in the south. Every regional form is in one of them.',
+        'Fly to the Sinjoh Ruins once you\'ve been there, from anywhere in Sinnoh or Johto (Mt. Silver and the '
+        'Indigo Plateau too), and from the Ruins to Johto or Sinnoh.',
     ]),
     ('Your Nov 6 call: the Indigo Plateau\'s Elite Four', [
         'Sovereign\'s format at the Indigo Plateau: Will and Koga each ask single or double battle; if both got the '

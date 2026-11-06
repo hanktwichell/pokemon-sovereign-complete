@@ -632,8 +632,8 @@ static BOOL HandleInput(TownMapAppData *appData, int heldKeys)
 BOOL CompleteTownMap_CanFly(TownMapAppData *appData, BOOL *canFly)
 {
     if (sMap.region == REGION_SINNOH) {
-        if (gCompleteTownMap.playerRegion == COMPLETE_TOWN_MAP_REGION_SINNOH) {
-            return FALSE; // Platinum's own check
+        if (gCompleteTownMap.playerRegion == COMPLETE_TOWN_MAP_REGION_SINNOH || gCompleteTownMap.fromSinjoh) {
+            return FALSE; // Platinum's own check: in Sinnoh, or from the Sinjoh Ruins
         }
 
         *canFly = FALSE; // from Johto or Kanto, not to Sinnoh

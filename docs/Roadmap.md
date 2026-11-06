@@ -77,7 +77,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
       The owner redraws the map in one style (19). Once the Sinjoh Ruins are unlocked, Fly reaches them from anywhere
       in Sinnoh or Johto (Mt. Silver and the Indigo Plateau too), and from the Ruins Fly reaches anywhere in Sinnoh or
       Johto. *The Town Map and the Trainers' School: done Nov 6 (Barry's parcel holds Altarianite, Claude's pick, for
-      the owner to confirm).*
+      the owner to confirm). Fly to and from the Sinjoh Ruins: done Nov 6 (not from Kanto, as asked).*
   13. **The Pal Parks hold the regional forms:** Sinnoh's Pal Park Paldea's and Hisui's, Kanto's Pal Park (open
       earlier) Alola's and Galar's, about as many in each. *Done Nov 6 (`data/complete/pal_parks.yaml`,
       `docs/PalParks.md`): every regional form is in one of them, Kanto's open from the start with no Catching Show.

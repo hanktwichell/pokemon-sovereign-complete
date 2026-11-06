@@ -24571,7 +24571,7 @@ static const MapHeader sMapHeaders[] = {
         .isBikeAllowed = FALSE,
         .isRunningAllowed = TRUE,
         .isEscapeRopeAllowed = FALSE,
-        .isFlyAllowed = FALSE,
+        .isFlyAllowed = TRUE,
     },
     [MAP_HEADER_HGSS_SINJOH_RUINS_MYSTRI_STAGE] = {
         .areaDataArchiveID = area_data_176,
