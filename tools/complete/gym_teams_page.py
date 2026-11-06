@@ -52,8 +52,40 @@ def silver(*numbers):
     return [f'hgss_rival_silver{"" if n == 1 else "_" + str(n)}' for n in numbers]
 
 
+# Teams the data doesn't have yet, shown from another team until they're built: {stem: the team it starts from}
+VIRTUAL = {}
+
+
+def source(stem):
+    return VIRTUAL.get(stem, stem)
+
+
+def exists(stem):
+    return os.path.exists(os.path.join(TRAINERS, source(stem) + '.json'))
+
+
+def load_data(stem):
+    return json.load(open(os.path.join(TRAINERS, source(stem) + '.json'), encoding='utf-8'))
+
+
+def elite_four(stem, rematch, doubles, rematch_doubles, where):
+    """An Elite Four member: singles and doubles, first battle and rematch. A doubles team the data hasn't got
+    starts as a copy of the singles one (a stem of its own, so its edits are its own)"""
+    for d, base in ((doubles, stem), (rematch_doubles, rematch)):
+        if not os.path.exists(os.path.join(TRAINERS, d + '.json')):
+            VIRTUAL[d] = base
+    return {'where': where, 'tabs': [('Singles', stem), ('Doubles', doubles), ('Rematch', rematch),
+                                     ('Rematch (doubles)', rematch_doubles)]}
+
+
 def league_s(n):
-    return gym(f'elite_four_{n}', f'elite_four_{n}_rematch', 'Elite Four')
+    return elite_four(f'elite_four_{n}', f'elite_four_{n}_rematch', f'sovereign_elite_four_{n}_doubles',
+                      f'sovereign_elite_four_{n}_rematch_doubles', 'Elite Four (Sinnoh League)')
+
+
+def league_jk(n, where='Elite Four (Indigo Plateau)'):
+    stem = f'hgss_elite_four_{n}_{n}'
+    return elite_four(stem, stem + '_2', stem + '_doubles', stem + '_2_doubles', where)
 
 
 def dawn_lucas(route):
@@ -89,10 +121,10 @@ SECTIONS = [
             'The Kimono Girls'),
         gym('hgss_leader_clair_clair', 'hgss_leader_clair_clair_2', 'Blackthorn City Gym'),
         by_starter('Victory Road', silver(5, 9, 13)),
-        gym('hgss_elite_four_will_will', 'hgss_elite_four_will_will_2', 'Elite Four (Indigo Plateau)'),
-        gym('hgss_elite_four_koga_koga', 'hgss_elite_four_koga_koga_2', 'Elite Four'),
-        gym('hgss_elite_four_bruno_bruno', 'hgss_elite_four_bruno_bruno_2', 'Elite Four'),
-        gym('hgss_elite_four_karen_karen', 'hgss_elite_four_karen_karen_2', 'Elite Four'),
+        league_jk('will'),
+        league_jk('koga'),
+        league_jk('bruno'),
+        league_jk('karen'),
         gym('hgss_champion_lance', 'hgss_champion_lance_2', 'Champion'),
     ]),
     ('kanto', 'Kanto', 'kanto', [
@@ -187,13 +219,17 @@ def split_rematches(sections):
     groups = {'leader': [], 'e4': [], 'champion': []}
     for _, _, region, entries in sections:
         for e in entries:
-            keep = [t for t in e['tabs'] if t[0] != 'Rematch']
+            keep = [t for t in e['tabs'] if not (t[0] or '').startswith('Rematch')]
             for t in e['tabs']:
-                if t[0] == 'Rematch':
+                if (t[0] or '').startswith('Rematch'):
                     where = e['where']
                     if where in ('Elite Four', 'Champion', 'Elite Four (Indigo Plateau)'):
                         where = where.split(' (')[0] + (' (Indigo Plateau)' if region in ('johto', 'kanto') else ' (Sinnoh League)')
-                    groups[e['kind']].append({'where': 'Rematch \u00b7 ' + where, 'tabs': [t], 'kind': 'rematch',
+                    same = [g for g in groups[e['kind']] if g.get('of') is e]
+                    if same:
+                        same[0]['tabs'].append(t)
+                        continue
+                    groups[e['kind']].append({'of': e, 'where': 'Rematch \u00b7 ' + where, 'tabs': [t], 'kind': 'rematch',
                                               'rematch_of': e['kind'], 'region': region})
             e['tabs'] = keep
     rematches = groups['leader'] + groups['e4'] + groups['champion']
@@ -544,7 +580,7 @@ def mon_card(m, slot, stem=''):
 
 
 def raw_ace(stem):
-    data = json.load(open(os.path.join(TRAINERS, stem + '.json'), encoding='utf-8'))
+    data = load_data(stem)
     return max(m['level'] for m in data['party'])
 
 
@@ -561,12 +597,13 @@ def plan():
 def planned_team(key, stem):
     """(trainer data, the planned Pokémon, the Pokémon as the game makes them now) for a tab: key is (section,
     entry, tab)"""
-    data = json.load(open(os.path.join(TRAINERS, stem + '.json'), encoding='utf-8'))
-    now = [build_mon(stem, data, mon) for mon in data['party']]
+    data = load_data(stem)
+    src = source(stem)
+    now = [build_mon(src, data, mon) for mon in data['party']]
     party = data['party']
     if stem == 'champion_cynthia_rematch':  # the owner's call: her first team, as it is
         party = json.load(open(os.path.join(TRAINERS, 'champion_cynthia.json'), encoding='utf-8'))['party']
-    sinnoh = TRAINER_IDS['TRAINER_' + stem.upper()] < TRAINER_HGSS_FIRST
+    sinnoh = TRAINER_IDS['TRAINER_' + src.upper()] < TRAINER_HGSS_FIRST
     planned = boss_plan.plan_party(
         party, plan().get(key), sinnoh_evolved if sinnoh else (lambda sp, lv: sp),
         lambda sp, form: form_data(sp, form)['base_stats'], lambda mv: move_info(mv)[2], default_moves)
@@ -574,7 +611,7 @@ def planned_team(key, stem):
         mons = now
     else:
         pdata = dict(data, party=planned)
-        mons = [build_mon(stem, pdata, mon, planned=True) for mon in planned]
+        mons = [build_mon(src, pdata, mon, planned=True) for mon in planned]
     for i, m in enumerate(mons):
         old = now[i] if i < len(now) and stem != 'champion_cynthia_rematch' else None
         m['now'] = None if old and (old['level'], old['species']) == (m['level'], m['species']) else old
@@ -599,7 +636,7 @@ def mega_owners():
     for si, (_, _, _, entries) in enumerate(SECTIONS):
         for ei, entry in enumerate(entries):
             for ti, (_, stem) in enumerate(entry['tabs']):
-                if os.path.exists(os.path.join(TRAINERS, stem + '.json')):
+                if exists(stem):
                     data, mons = planned_team((si, ei, ti), stem)
                     out[character(data)] |= {m['name'] for m in mons if m['mega']}
     return out
@@ -632,7 +669,7 @@ def character(data):
 def trainer_card(si, ei, entry, megas, after_whitney):
     tabs, panes, first, chars = [], [], None, []
     for i, (label, stem) in enumerate(entry['tabs']):
-        if not os.path.exists(os.path.join(TRAINERS, stem + '.json')):
+        if not exists(stem):
             continue
         data, mons, team, ace, doubles = team_html((si, ei, i), stem)
         if first is None:
@@ -643,12 +680,17 @@ def trainer_card(si, ei, entry, megas, after_whitney):
             label = species_name(starter_line(data)) if entry.get('starter_tabs') else data['name']
             if entry.get('named_tabs'):
                 label = data['name'] + ': ' + label
+        if stem in VIRTUAL:
+            label += ' \u00b7 new'
         on = ' on' if not tabs else ''
         sprite = trainer_sprite(data['class'])
         tabs.append(f'<button class="tab{on}" data-k="{i}" data-sprite="{sprite}">'
                     f'{esc(label)} <span>Lv. {ace}</span></button>')
         panes.append(f'<div class="pane{on}" data-k="{i}">{team}</div>')
     name = entry.get('name') or character(first)
+    if any(st in VIRTUAL for _, st in entry['tabs']):
+        entry.setdefault('note', 'A tab marked \u201cnew\u201d is a team the game doesn\u2019t have yet: it starts as a copy of the '
+                                 'singles team, to rebuild here.')
     note = entry.get('note') or ('One version for each starter: the tab names the rival\u2019s own.' if entry.get('starter_tabs') else '')
     chips = []
     if after_whitney:

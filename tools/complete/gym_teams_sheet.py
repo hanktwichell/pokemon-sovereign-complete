@@ -69,9 +69,9 @@ def main():
             order += 1
             battles = []
             for ti, (label, stem) in enumerate(entry['tabs']):
-                if not os.path.exists(os.path.join(page.TRAINERS, stem + '.json')):
+                if not page.exists(stem):
                     continue
-                data = json.load(open(os.path.join(page.TRAINERS, stem + '.json'), encoding='utf-8'))
+                data = page.load_data(stem)
                 if label is None:
                     label = (page.species_name(page.starter_line(data)) + ' (rival\u2019s starter)'
                              if entry.get('starter_tabs') else data['name'])

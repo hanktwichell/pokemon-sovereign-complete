@@ -9,7 +9,7 @@ The owner's rules:
   (the next Gym Leader's or Champion's ace).
 - A Gym Leader's team: in Johto, nothing more than 2 levels under the ace; in Kanto, 1; in Sinnoh, all at the ace's
   level. A Gym's other trainers are at the level of its leader's lowest Pokémon.
-- Cynthia always battles alone (no doubles League). Her rematch team is her first team.
+- Cynthia always battles alone; the Elite Four have a singles and a doubles team each (the owner, Nov 6). Her rematch team is her first team.
 - Bosses and Gym Leaders: optimal EVs. Grunts and Gym trainers: 20% less in every stat, other trainers 40% less (both
   rounded up to the next 4). Every team: optimal IVs.
 
@@ -144,7 +144,7 @@ def plan_levels(sections, ace_of):
             key = stem_key(stem)
             if stem in UNCHANGED:
                 out[(si, ei, ti)] = None
-            elif label == 'Rematch':
+            elif label and label.startswith('Rematch'):
                 spread = SPREAD.get(entry.get('region', region), 0)  # a rematch keeps its region's team rule
                 kind = entry.get('rematch_of', entry['kind'])
                 out[(si, ei, ti)] = (REMATCH[kind if kind in REMATCH else 'leader'], None, spread)
