@@ -3972,6 +3972,13 @@ u16 Pokemon_GetEvolutionTargetSpecies(Party *party, Pokemon *mon, u8 evoClass, u
                     *evoTypeResult = EVO_LEVEL_ICE_ROCK;
                 }
                 break;
+
+            case EVO_TRADE: // Sovereign Complete: a trade with no held item is also a level-up evolution
+                if (COMPLETE_TRADE_EVOLUTION_LEVEL <= monLevel) {
+                    targetSpecies = speciesEvolutions[i].targetSpecies;
+                    *evoTypeResult = EVO_LEVEL;
+                }
+                break;
             }
 
             if (targetSpecies) {

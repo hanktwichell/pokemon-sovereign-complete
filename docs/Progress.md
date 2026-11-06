@@ -1935,3 +1935,10 @@ Test results on the new test build:
   double-battle team is their own team with the doubles AI, and keeps the Elite Four's music.
   `tools/complete/test_hgss_indigo_e4.py` plays eight runs through the formats: all eight pass, each battle with the
   right member, format and team.
+- **Trade evolutions without trading (the owner's call):** a trade's held item evolves the Pokémon when it's used on
+  it from the bag, as a stone does (Onix's Metal Coat and the rest, twelve species; the item is used up and keeps its
+  held effect), and a trade with no item (Kadabra, Machoke, Graveler and Alolan Graveler, Haunter) is also a level-up
+  evolution at Lv. 37. Sacred Gold's Covenant Orb still evolves those at any level. In code, the species' data left
+  as Sovereign's (`include/complete_evolutions.h`; `tools/complete/trade_evolutions.py` gives the items the stones'
+  field use). `tools/complete/test_trade_evolutions.py` uses each item, a Rare Candy and the Covenant Orb from the bag
+  through the menus: 22 of 22 cases pass (a wrong item is refused and stays in the bag; Lv. 36 doesn't evolve).

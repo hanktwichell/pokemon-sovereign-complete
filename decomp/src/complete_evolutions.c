@@ -28,6 +28,12 @@ static const struct {
 
 u16 CompleteEvolution_ByItem(u16 species, const SpeciesEvolution *evolutions, u16 item)
 {
+    for (int j = 0; j < MAX_EVOLUTIONS; j++) { // a trade's held item, used like a stone
+        if (evolutions[j].method == EVO_TRADE_WITH_HELD_ITEM && evolutions[j].param == item) {
+            return evolutions[j].targetSpecies;
+        }
+    }
+
     for (int i = 0; i < NELEMS(sItemMethods); i++) {
         if (sItemMethods[i].item != item
             || (sItemMethods[i].species != SPECIES_NONE && sItemMethods[i].species != species)) {

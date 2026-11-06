@@ -998,6 +998,19 @@ Sovereign Platinum), with Lance a single battle. Of Will, Koga, Bruno and Karen,
   `VAR_SOVEREIGN_E4_FORMAT` (one League is run at a time).
 Test: `tools/complete/test_hgss_indigo_e4.py` (eight runs through the formats).
 
+## Trade evolutions without trading
+
+The owner's call (Nov 6, 2026); link play is out of the build. In code, with the species' data left as Sovereign's
+(`include/complete_evolutions.h`):
+- A trade with a held item evolves the Pokémon when that item is used on it from the bag, as a stone does (Onix's and
+  Scyther's Metal Coat, Clamperl's DeepSeaTooth and DeepSeaScale, Poliwhirl's and Slowpoke's King's Rock, Porygon's
+  Up-Grade, Porygon2's Dubious Disc, Rhydon's Protector, Electabuzz's Electirizer, Magmar's Magmarizer, Dusclops's
+  Reaper Cloth, Seadra's Dragon Scale), and the item is used up (`CompleteEvolution_ByItem`). The items keep their
+  held effects; their field use is the stones' (`tools/complete/trade_evolutions.py` sets it in their data).
+- A trade with none (Kadabra, Machoke, Graveler and Alolan Graveler, Haunter) is also a level-up evolution at Lv. 37
+  (`COMPLETE_TRADE_EVOLUTION_LEVEL`). Sacred Gold's Covenant Orb still evolves them at any level.
+Test: `tools/complete/test_trade_evolutions.py` (each item and a Rare Candy used from the bag through the menus).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
