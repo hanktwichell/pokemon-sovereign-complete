@@ -1109,6 +1109,31 @@ Sovereign's zone code, now choosing the park by map).
 Test: `tools/complete/test_pal_parks.py` (Kanto's walk in and out, and each quadrant's grass and water Pokémon in both
 parks).
 
+## People where Sinnoh's HMs held the player back
+
+The owner's note (Nov 6, 2026): the player reaches Sinnoh with every HM from Johto and Kanto (whose badges let them use
+it there), and Sinnoh's HM givers give Mega Stones now, so the trees, rocks, water and cliffs that kept Platinum's
+story in order no longer do. A survey of every Sinnoh map's tiles against the story's order found where an HM opens a
+way the story didn't mean to open yet; at each, people stand in the way (`tools/complete/sinnoh_blockers.py` adds them
+to the maps' events), and go once the player reaches the point Platinum would have let them through
+(`src/complete_blockers.c` sets each group's hide flag as a map loads):
+- **Mt. Coronet 1F South**, at the stairs up the climb to Spear Pillar (Surf, Rock Climb): a Hiker, until the
+  Galactic HQ's lake Pokémon are freed (`FLAG_FREED_GALACTIC_HQ_POKEMON`). The finale could otherwise start early.
+- **Acuity Lakefront**, at Lake Acuity's door (Rock Climb): two Skiers, until Candice's Icicle Badge. Jupiter's scene
+  there would otherwise open the Galactic HQ early.
+- **Route 205 South**, at Eterna Forest's door (Surf on the river past the bridge's grunts): a Camper and a Picnicker,
+  until the Valley Windworks is freed.
+- **The Ravaged Path**, beside the rocks between Route 204's halves (Rock Smash): three Workers, until Roark's Coal
+  Badge (Platinum's Rock Smash needed it).
+- **Mt. Coronet 1F North Room 1**, at the boulder on the way through to Route 211 East and Celestic Town (Strength): a
+  Hiker, until the Psyduck on Route 210 move (`FLAG_USED_SECRETPOTION`).
+- **Route 221's workers** (Sovereign's own, at the Pal Park lobby's door, which Surf from Sandgem Town reaches on
+  arrival) stay until the Fen Badge (Platinum's Surf); Sovereign hid them always.
+
+Each says why they're there and, mostly, what lets the player through. Places an HM reaches with only items or
+shortcuts behind them (the Old Chateau, Fuego Ironworks, Oreburgh Gate's basement) stay open. Test:
+`tools/complete/test_sinnoh_blockers.py` (each group stops the player and talks before, and is gone after).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

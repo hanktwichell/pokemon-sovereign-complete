@@ -1198,6 +1198,55 @@
     {
       "id": "CommonStrings_Text_CompletePalParkLeave",
       "en_US": "Would you like to leave the park?"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteBlockerSpearPillar",
+      "en_US": [
+        "Rocks keep tumbling down from\n",
+        "the peak. Something’s going on\f",
+        "up there...\r",
+        "I’m not letting anyone climb\n",
+        "past me until it settles down."
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteBlockerLakeAcuity",
+      "en_US": [
+        "The ice by Lake Acuity is too\n",
+        "thin to cross right now.\r",
+        "Candice, Snowpoint’s Gym Leader,\n",
+        "keeps an eye on the lake. Ask\f",
+        "her when it’s safe!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteBlockerEternaForest",
+      "en_US": [
+        "We heard Team Galactic took over\n",
+        "the Valley Windworks!\r",
+        "We’re not going into the forest\n",
+        "until somebody sorts them out."
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteBlockerRavagedPath",
+      "en_US": [
+        "These rocks came down in a slide.\r",
+        "Roark, the Gym Leader in Oreburgh\n",
+        "City, is in charge of clearing them.\r",
+        "Earn his Coal Badge, and you can\n",
+        "smash your way through!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteBlockerCoronetNorth",
+      "en_US": [
+        "This boulder is wedged in tight.\n",
+        "Nobody’s getting past it for now.\r",
+        "The way to Celestic Town is along\n",
+        "Route 210, but I hear a crowd of\f",
+        "Psyduck is stuck there..."
+      ]
     }
   ]
 }

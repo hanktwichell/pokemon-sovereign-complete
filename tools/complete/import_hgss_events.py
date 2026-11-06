@@ -112,7 +112,14 @@ OBJECT_SPRITES = {(419, 'obj_D41R0108_1'): 'OBJ_EVENT_GFX_INVISIBLE'}
 COMPLETE_FLAGS = [('FLAG_COMPLETE_HIDE_MT_SILVER_RED', 'FLAG_HGSS_SG_3FFE'),
                   ('FLAG_COMPLETE_REGIGIGAS_CALMED', 'FLAG_HGSS_SG_3FFD'),
                   # the Sinjoh Ruins' Fly point (tools/complete/import_hgss_spawns.py): HeartGold's next Fly point flag
-                  ('FLAG_COMPLETE_FLYPOINT_SINJOH', 'FLAG_HGSS_UNK_9D6')]
+                  ('FLAG_COMPLETE_FLYPOINT_SINJOH', 'FLAG_HGSS_UNK_9D6'),
+                  # the hide flags of the people where Sinnoh's HMs held the player back (tools/complete/sinnoh_blockers.py):
+                  # HeartGold's flags after its last Fly point's, which nothing reads
+                  ('FLAG_COMPLETE_HIDE_BLOCKER_SPEAR_PILLAR', 'FLAG_HGSS_UNK_9D7'),
+                  ('FLAG_COMPLETE_HIDE_BLOCKER_LAKE_ACUITY', 'FLAG_HGSS_UNK_9D8'),
+                  ('FLAG_COMPLETE_HIDE_BLOCKER_ETERNA_FOREST', 'FLAG_HGSS_UNK_9D9'),
+                  ('FLAG_COMPLETE_HIDE_BLOCKER_RAVAGED_PATH', 'FLAG_HGSS_UNK_9DA'),
+                  ('FLAG_COMPLETE_HIDE_BLOCKER_CORONET_NORTH', 'FLAG_HGSS_UNK_9DB')]
 # HeartGold's Apricorn tree script (its std_apricorn_tree) and the engine's (CommonScript_CompleteApricornTree,
 # res/field/scripts/scripts_common.s)
 STD_APRICORN_TREE = 2800

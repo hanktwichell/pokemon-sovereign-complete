@@ -130,6 +130,21 @@
             "x": 15,
             "z": 17,
             "y": 0
+        },
+        {
+            "id": "LOCALID_COMPLETE_BLOCKER_HIKER",
+            "graphics_id": "OBJ_EVENT_GFX_HIKER",
+            "movement_type": "MOVEMENT_TYPE_LOOK_SOUTH",
+            "trainer_type": "TRAINER_TYPE_NONE",
+            "hidden_flag": "FLAG_COMPLETE_HIDE_BLOCKER_SPEAR_PILLAR",
+            "script": 2084,
+            "initial_dir": 1,
+            "data": [],
+            "movement_range_x": 0,
+            "movement_range_z": 0,
+            "x": 25,
+            "z": 4,
+            "y": 0
         }
     ],
     "warp_events": [

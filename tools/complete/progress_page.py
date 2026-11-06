@@ -80,11 +80,10 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: Showdown\'s icons for the forms too (regional forms, Megas), then people where Sinnoh\'s HMs used to hold '
-    'the player back (your note), checked against the full Sinnoh story run going now.',
-    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), the Rapid Ferry, Fly to the '
-    'Sinjoh Ruins, the Pal Parks, the Pledges, then HeartGold\'s ports (the album, the Berry Pots, the Unown Report, '
-    'the Dowsing Machine, the Pokéathlon).',
+    'Now: the Pledges (a tutor for the starters, and the combinations: Sea of Fire, Rainbow, Swamp), with the full '
+    'Sinnoh story run going now.',
+    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), then HeartGold\'s ports (the '
+    'album, the Berry Pots, the Unown Report, the Dowsing Machine, the Pokéathlon).',
 ]
 
 WAITING = [
@@ -270,6 +269,9 @@ RECENT = [
         'Route 221, has Hisui\'s in the north and Paldea\'s in the south. Every regional form is in one of them.',
         'Fly to the Sinjoh Ruins once you\'ve been there, from anywhere in Sinnoh or Johto (Mt. Silver and the '
         'Indigo Plateau too), and from the Ruins to Johto or Sinnoh.',
+        'Your note: people now stand where Johto\'s HMs would let you skip Sinnoh\'s story (Spear Pillar\'s climb, '
+        'Lake Acuity, Eterna Forest by Surf, the Ravaged Path, Mt. Coronet\'s boulder to Celestic), each until the '
+        'point Platinum would have let you through. Pictures: Gallery tab.',
     ]),
     ('Your Nov 6 call: the Indigo Plateau\'s Elite Four', [
         'Sovereign\'s format at the Indigo Plateau: Will and Koga each ask single or double battle; if both got the '

@@ -2000,3 +2000,14 @@ Test results on the new test build:
   Jubilife the Ruins and nothing else of HeartGold's, and the flight there; from the Ruins Johto's and Sinnoh's, and
   the flight to Jubilife; none from Vermilion; from the Indigo Plateau and Violet City, and the flight); the Town Map
   test still passes.
+- **People where Sinnoh's HMs held the player back (the owner's note):** a survey of every Sinnoh map's tiles against
+  the story's order found five places where Johto's and Kanto's HMs open a way early: Mt. Coronet 1F South's climb to
+  Spear Pillar, Lake Acuity before Candice (whose Jupiter scene opens the Galactic HQ), Eterna Forest by Surf before
+  the Valley Windworks, the Ravaged Path before Roark, and Mt. Coronet's boulder to Celestic before the Psyduck. People
+  now stand at each (`tools/complete/sinnoh_blockers.py`), and go at the point Platinum would have let the player
+  through (`src/complete_blockers.c`, as each map loads); Route 221's workers keep the Pal Park lobby until the Fen
+  Badge. Tested (`tools/complete/test_sinnoh_blockers.py`): each group stops the player and talks, then is gone.
+  Found on the way: a test build linked with plain `ninja` after a `main.lsf.in` change left the new file out of the
+  linker spec (`platinum.us/main.lsf` is the Makefile's), and the game froze on a new game; noted in CLAUDE.md. The
+  story test's JUMP now gives the Bicycle too (Eterna's exits reopen only with it), and its Sinnoh run is past
+  Hearthome City.

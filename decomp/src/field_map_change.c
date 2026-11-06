@@ -27,6 +27,7 @@
 #include "communication_system.h"
 #include "field_bgm.h"
 #include "field_map_change_flags.h"
+#include "complete_blockers.h" // Sovereign Complete: the people where Sinnoh's HMs held the player back
 #include "complete_follower.h" // Sovereign Complete: following Pokémon
 #include "complete_map_info.h" // Sovereign Complete: HeartGold's map changes
 #include "field_message.h"
@@ -306,6 +307,7 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
         }
     }
 
+    CompleteBlockers_Update(fieldSystem); // Sovereign Complete: before the map's objects and its own transition script
     FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_TRANSITION);
     CompleteFollower_SetInhibited(FALSE); // Sovereign Complete: a script kept it away on the last map only
     VarsFlags_ClearFlag(SaveData_GetVarsFlags(fieldSystem->saveData), FLAG_HGSS_UNK_99A); // Sovereign Complete: FieldBGM_CompleteKeepsMusicSurfing

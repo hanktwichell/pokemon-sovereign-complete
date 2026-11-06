@@ -103,8 +103,9 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **The owner's note (Nov 6, 2026): people where Sinnoh's HMs used to hold the player back.** The player reaches
   Sinnoh with every HM from Johto and Kanto, and Sinnoh's HM givers now give Mega Stones, so the trees, rocks, water,
   boulders, cliffs and waterfalls that kept Platinum's story in order no longer do. Each such place needs a person
-  (or another story block) standing in the way until the point Platinum's HM would have opened it. To do: list every
-  HM-gated way in Sinnoh against the story's order, and place them.
+  (or another story block) standing in the way until the point Platinum's HM would have opened it. *Done Nov 6: five
+  places from a survey of every Sinnoh map, and Route 221's workers (`docs/Features.md`, "People where Sinnoh's HMs
+  held the player back").*
 - **The owner's note to remember (Nov 6, 2026): the Elite Four's rematch teams should be slightly better than their
   first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
 - **To do (the owner, Nov 6, 2026): every sprite in Sovereign Platinum ported to Sovereign Complete** (Pokémon

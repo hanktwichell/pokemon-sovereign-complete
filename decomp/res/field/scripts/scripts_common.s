@@ -110,6 +110,11 @@
     ScriptEntry CommonScript_CompleteSinnohArrival @ 0x821
     ScriptEntry CommonScript_CompletePalParkEnter @ 0x822
     ScriptEntry CommonScript_CompletePalParkLeave @ 0x823
+    ScriptEntry CommonScript_CompleteBlockerSpearPillar @ 0x824
+    ScriptEntry CommonScript_CompleteBlockerLakeAcuity @ 0x825
+    ScriptEntry CommonScript_CompleteBlockerEternaForest @ 0x826
+    ScriptEntry CommonScript_CompleteBlockerRavagedPath @ 0x827
+    ScriptEntry CommonScript_CompleteBlockerCoronetNorth @ 0x828
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2559,6 +2564,23 @@ CommonScript_CompletePalParkLeave:
 CommonScript_CompletePalParkLeaveYes:
     SetVar VAR_RESULT, 1
     ReturnCommonScript
+    End
+// Sovereign Complete: the people where Sinnoh's HMs held the player back (tools/complete/sinnoh_blockers.py), each
+// group's words; they stand there until what lifts them (src/complete_blockers.c)
+CommonScript_CompleteBlockerSpearPillar:
+    NPCMessage CommonStrings_Text_CompleteBlockerSpearPillar
+    End
+CommonScript_CompleteBlockerLakeAcuity:
+    NPCMessage CommonStrings_Text_CompleteBlockerLakeAcuity
+    End
+CommonScript_CompleteBlockerEternaForest:
+    NPCMessage CommonStrings_Text_CompleteBlockerEternaForest
+    End
+CommonScript_CompleteBlockerRavagedPath:
+    NPCMessage CommonStrings_Text_CompleteBlockerRavagedPath
+    End
+CommonScript_CompleteBlockerCoronetNorth:
+    NPCMessage CommonStrings_Text_CompleteBlockerCoronetNorth
     End
 // Canalave City's sailor asks this before offering Olivine City and Vermilion City (VAR_RESULT)
 CommonScript_CompleteFerryToSinnohOpen:

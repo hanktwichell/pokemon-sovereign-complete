@@ -17,7 +17,8 @@ work.
   there are made by a script that is their record (`tools/complete/trade_evolutions.py` for the trade items' field
   use, `tools/complete/hm_moves.py` for HM05 Whirlpool, HM09 Defog and the species' HM lists,
   `tools/complete/import_showdown_icons.py` for every species' and form's icon, `tools/complete/gen_pal_parks.py` for
-  Sinnoh's Pal Park's texts and Pokédex area); rerun it if a sync clashes on those lines. Rerun the icons' importer after `tools/engine/gen_forms.py` changes the forms (a build error says so).
+  Sinnoh's Pal Park's texts and Pokédex area, `tools/complete/sinnoh_blockers.py` for the people where Sinnoh's HMs
+  held the player back); rerun it if a sync clashes on those lines. Rerun the icons' importer after `tools/engine/gen_forms.py` changes the forms (a build error says so).
 - `tools/complete/`: Sovereign Complete's own tools. A sync never touches them.
 - `decomp/res/sound/complete/`: the sound archive the build uses, made from Sovereign's (`res/sound/`) by
   `tools/complete/split_sound_basic.py`, with HeartGold's songs from `tools/complete/import_hgss_sound.py` (run it
@@ -120,6 +121,9 @@ work.
   the archive `tools/complete/import_hgss_follower_talk.py` packs); test `tools/complete/test_follower_talk.py`.
 - A new C file in an overlay's folder must also be listed in that overlay in `platinum.us/main.lsf.in`
   (`src/meson.build` is generated from it); otherwise it links outside the overlay and calls into it crash.
+- `platinum.us/main.lsf` (the linker spec) and `src/meson.build` are made from `main.lsf.in` by the Makefile
+  (`tools/scripts/lsfgen.py`), not by ninja: after changing `main.lsf.in`, build with `make` (or run lsfgen) before
+  `ninja -C <build>`, or the new file's code gets no place in the ROM and calls into it freeze the game.
 
 ## HeartGold's apps
 

@@ -12,8 +12,8 @@
 @ Sovereign (decision 47, as in Renegade): the lobby is open mid-game, for Darach and the Tea that Route 218's gate
 @ asks for. The park itself waits for the Hall of Fame (the lobby worker), so the workers no longer stand at the door.
 Route221_OnTransition:
-    SetFlag FLAG_HIDE_ROUTE_221_WORKER_WEST
-    SetFlag FLAG_HIDE_ROUTE_221_WORKER_EAST
+    @ Sovereign Complete: the workers stay at the lobby's door until the Fen Badge (Platinum's Surf), as Surf from
+    @ Sandgem Town reaches it on arrival in Sinnoh; their hide flags are src/complete_blockers.c's now
     End
 
 Route221_WorkerWest:
