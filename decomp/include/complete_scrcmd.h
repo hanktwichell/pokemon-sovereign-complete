@@ -93,10 +93,16 @@ BOOL CompleteScrCmd_ShowAthletePoints(ScriptContext *ctx);
 BOOL CompleteScrCmd_HideAthletePoints(ScriptContext *ctx);
 BOOL CompleteScrCmd_UpdateAthletePoints(ScriptContext *ctx);
 BOOL CompleteScrCmd_PokeathlonRecords(ScriptContext *ctx);
+BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx);
 BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx);
 BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx);
 BOOL CompleteScrCmd_LegendCinematic(ScriptContext *ctx);
 BOOL CompleteRocketCostume_IsOn(void); // HeartGold's Rocket uniform on (FLAG_HGSS_SYS_ROCKET_COSTUME)
+
+// ScriptContext_Pause's, for a command that started an app with its arguments (on the heap) in
+// SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA: until the app ends, then the arguments are freed (HeartGold's
+// ScrNative_WaitApplication_DestroyTaskData). In the main module, so commands in the field's overlays can use it.
+BOOL CompleteScript_WaitApplicationDestroyArgs(ScriptContext *ctx);
 
 // HeartGold's alph_checks.c: what opens three of the Ruins of Alph chambers' north walls, used facing the wall from
 // (6, 3)

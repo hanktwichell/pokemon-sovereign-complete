@@ -1624,6 +1624,13 @@ Overlay complete_unown_report
 	Object src/applications/complete_unown_report/unown_report.c
 }
 
+Overlay complete_pokeathlon_records
+{
+	After main
+	Object src/applications/complete_pokeathlon_records/course_record.c
+	Object src/applications/complete_pokeathlon_records/records_common.c
+}
+
 Overlay complete_berry_pots
 {
 	After main

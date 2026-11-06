@@ -6,6 +6,7 @@
 #include "constants/heap.h"
 #include "generated/items.h"
 #include "generated/text_banks.h"
+#include "generated/vars_flags.h"
 
 #include "field/field_system.h"
 #include "overlay007/shop_menu.h"
@@ -13,8 +14,10 @@
 #include "bag.h"
 #include "bg_window.h"
 #include "complete_pokeathlon.h"
+#include "complete_pokeathlon_records.h"
 #include "complete_scrcmd.h"
 #include "field_script_context.h"
+#include "field_system.h"
 #include "field_task.h"
 #include "font.h"
 #include "heap.h"
@@ -30,6 +33,7 @@
 #include "string_template.h"
 #include "system.h"
 #include "text.h"
+#include "vars_flags.h"
 
 #include "res/text/bank/hgss_msg_0191.h"
 #include "res/text/bank/hgss_msg_0277.h"
@@ -38,7 +42,8 @@
 
 // Sovereign Complete: the Pokéathlon Dome's prize counters and the Athlete Points commands its scripts use
 // (HeartGold's src/scrcmd_mart.c, src/overlay_03/shop_menu.c's Pokéathlon branches and src/overlay_22.c; its points
-// box, ov01_021EEC00). In overlay 7, the field's, as Platinum's shop is.
+// box, ov01_021EEC00), its PC's records and its record rooms' screens. In overlay 7, the field's, as Platinum's shop
+// is.
 
 typedef struct PokeathlonPrize {
     u16 item;
@@ -499,6 +504,40 @@ BOOL CompleteScrCmd_PokeathlonRecords(ScriptContext *ctx)
     records->page = page < 3 ? page : 0;
     records->state = 0;
     FieldTask_InitCall(ctx->task, FieldTask_PokeathlonRecords, records);
+    return TRUE;
+}
+
+// HeartGold's ScrCmd_712: a Dome record room's screen (enum CompletePokeathlonRecordScreen), after the script's fade
+// (ReturnToField brings the field back), as the Voltorb Flip and Alph puzzle commands open theirs. The wait that frees
+// the arguments is in the main module: this overlay goes with the field's map as the screen opens. Only the course
+// record is ported so far; the other screens' rooms leave the field as it is (ReturnToField finds it running and
+// returns).
+BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_pokeathlon_records);
+
+    static const ApplicationManagerTemplate sCourseRecordTemplate = {
+        CompletePokeathlonCourseRecord_Init,
+        CompletePokeathlonCourseRecord_Main,
+        CompletePokeathlonCourseRecord_Exit,
+        FS_OVERLAY_ID(complete_pokeathlon_records),
+    };
+    u8 screen = ScriptContext_ReadByte(ctx);
+
+    if (screen != COMPLETE_POKEATHLON_SCREEN_COURSE_RECORD) {
+        return FALSE;
+    }
+
+    SaveData *saveData = ctx->fieldSystem->saveData;
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    CompletePokeathlonCourseRecordArgs *recordArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompletePokeathlonCourseRecordArgs));
+
+    recordArgs->saveData = saveData;
+    recordArgs->trophyGoals = VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0EF) && VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0F0) && VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0F1);
+    *args = recordArgs;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sCourseRecordTemplate, recordArgs);
+    ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
     return TRUE;
 }
 

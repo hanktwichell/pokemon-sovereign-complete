@@ -899,7 +899,8 @@ BOOL CompleteScrCmd_GetFriendSprite(ScriptContext *ctx)
     return FALSE;
 }
 
-static BOOL WaitForAlphPuzzle(ScriptContext *ctx)
+// HeartGold's ScrNative_WaitApplication_DestroyTaskData: until the app ends, then its arguments freed
+BOOL CompleteScript_WaitApplicationDestroyArgs(ScriptContext *ctx)
 {
     void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
 
@@ -932,7 +933,7 @@ BOOL CompleteScrCmd_AlphPuzzle(ScriptContext *ctx)
     puzzleArgs->puzzle = puzzle;
     *args = puzzleArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, puzzleArgs);
-    ScriptContext_Pause(ctx, WaitForAlphPuzzle);
+    ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
     return TRUE;
 }
 
@@ -970,7 +971,7 @@ BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx)
     flipArgs->saveData = saveData;
     *args = flipArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, flipArgs);
-    ScriptContext_Pause(ctx, WaitForAlphPuzzle); // frees the arguments once it's done
+    ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs); // frees the arguments once it's done
     return TRUE;
 }
 
@@ -1035,7 +1036,7 @@ BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx)
 
     *args = trainArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, trainArgs);
-    ScriptContext_Pause(ctx, WaitForAlphPuzzle); // frees the arguments once it's done
+    ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs); // frees the arguments once it's done
     return TRUE;
 }
 
