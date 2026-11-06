@@ -1863,3 +1863,12 @@ Test results on the new test build:
   Now Johto 31, Kanto 29, Sinnoh 30, each species in one place (`docs/Legendaries.md`). On build_test: the new
   `test_one_of_each.py` (Hall of Origin, Rock Peak Ruins), the special events test and the Sinjoh test pass.
   `docs/Drayano.md` lists what the game takes from Sacred Gold and Renegade Platinum.
+
+## Nov 6, 2026: the gym teams page
+
+For the owner's redo of the gym teams: `tools/complete/gym_teams_page.py` builds a page of the 24 Gym Leaders, the
+Indigo Plateau's Elite Four, Lance and Red, and Sinnoh's Elite Four and Cynthia, each with their first battle and
+rematch: the trainer's picture, the six Pokémon in a 3×2 grid with their levels, and each one's moves, ability, held item,
+nature and IV/EV spreads. It works each Pokémon out as `TrainerData_BuildParty` does: Sinnoh's at their levels after
+Kanto and evolved to match, the nature from the trainer's seeded personality, the level-up moves where the data names
+none. Published at https://claude.ai/artifact/AzmcKhuVbzgkUu7jPceRyd (rerun the script and republish after a change).
