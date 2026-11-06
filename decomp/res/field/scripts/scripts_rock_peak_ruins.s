@@ -25,6 +25,7 @@ RockPeakRuins_Statue:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
+    GoTo RockPeakRuins_SeemsToExudePower  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): this Regi is Mt. Mortar's
     GoToIfEq VAR_ROCK_PEAK_RUINS_STATE, RUINS_STATE_CAUGHT_REGI, RockPeakRuins_CaughtRegirockStatueStoppedEmanatingPower
     GoToIfEq VAR_ROCK_PEAK_RUINS_STATE, RUINS_STATE_DID_NOT_CATCH_REGI, RockPeakRuins_DidNotCatchRegirockStatueStoppedEmanatingPower
     @ Sovereign (E10): as in Renegade, no Champion check; the chamber only opens with Relicanth and Wailord.

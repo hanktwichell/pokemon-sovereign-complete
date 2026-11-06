@@ -33,7 +33,7 @@ AFTER = (16, 17)  # where the scene walks the player after the cinematic
 NORTH = 1  # the test warp's facing: enum FaceDirection + 1
 FLAGS = ['FLAG_HGSS_SG_3FCE', 'FLAG_HGSS_SG_3FCD', 'FLAG_HGSS_SG_3FCC', 'FLAG_HGSS_SG_3FC6', 'FLAG_HGSS_SG_3FC5',
          'FLAG_HGSS_SG_3FC4', 'FLAG_HGSS_SG_3FC3', 'FLAG_HGSS_SG_3FC8', 'FLAG_HGSS_SG_3FB0', 'FLAG_HGSS_SG_3FAE',
-         'FLAG_HGSS_SG_3F8C', 'FLAG_CAUGHT_DARKRAI', 'FLAG_HGSS_SG_3FBE']  # Sovereign's Darkrai
+         'FLAG_HGSS_SG_3F8C', 'FLAG_CAUGHT_DARKRAI', 'FLAG_CAUGHT_SHAYMIN']  # Sinnoh's Darkrai and Shaymin
 PLATES = ['FLAME', 'SPLASH', 'ZAP', 'MEADOW', 'ICICLE', 'FIST', 'TOXIC', 'EARTH', 'SKY', 'MIND', 'INSECT', 'STONE',
           'SPOOKY', 'DRACO', 'DREAD', 'IRON']
 UNOWN_CIRCLE = 0x500  # gCompleteTestLegend[1] as it begins

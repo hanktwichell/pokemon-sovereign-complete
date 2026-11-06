@@ -66,6 +66,9 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   (`docs/PlaytestIssues.md`, issue 1).
 - **Sacred Gold's Cresselia and Darkrai (Nov 6, 2026).** Out: HeartGold has neither, and Platinum's Fullmoon and
   Newmoon Islands keep theirs, so each is met once, in Sinnoh after its League.
+- **One of each legendary (Nov 6, 2026).** Every legendary and mythical is met once, spread over the regions:
+  HeartGold's own encounters stay in Johto and Kanto (Sinnoh's copies go), and the other doubles are split to balance
+  them (Johto 31, Kanto 29, Sinnoh 30). The list and what was switched off: `docs/Legendaries.md`.
 - **Pokéathlon (Oct 29, 2026).** Skipped.
 - **Sinnoh's integration (Nov 1, 2026).** Claude devises a provisional one, so the whole game can be played and tested
   now: what arriving in Canalave City starts, Sinnoh's levels after Kanto, level caps for all three regions. Each

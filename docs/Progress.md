@@ -1854,3 +1854,12 @@ Test results on the new test build:
   translator's `NO_NIGHTMARE` and the D51R0201 insert, written into `scripts_hgss_0846.s` and `0131.s`). Each is met
   once, on Sinnoh's islands after its League. On build_test the special events test's new bed cases pass (a rest, no
   battle, Cresselia's flag left set), and so does the Sinjoh test (the circle, the cinematic, the field).
+- **One of each legendary** (the owner's call, Nov 6): `tools/complete/list_legendaries.py` lists every way to meet
+  each of the 98 legendaries and mythicals (scripts, roamers, placed); 33 could be met twice (Sacred Gold's in Johto or
+  Kanto, Renegade's in Sinnoh). HeartGold's own encounters stay and Sinnoh's copies go (12 objects off their maps in
+  `placed.yaml`, Celebi's, Mew's, Deoxys's, the Latis', the Regis' and Arceus's scripts stopped short); of the rest,
+  Sacred Gold's Jirachi, Shaymin, Manaphy Egg, Heatran, Regigigas and Sinjoh trios are off their maps (the events
+  importer's `SCRAPPED`), the Magma Stone brings out Moltres, and Arceus asks for Sinnoh's Jirachi, Darkrai and Shaymin.
+  Now Johto 31, Kanto 29, Sinnoh 30, each species in one place (`docs/Legendaries.md`). On build_test: the new
+  `test_one_of_each.py` (Hall of Origin, Rock Peak Ruins), the special events test and the Sinjoh test pass.
+  `docs/Drayano.md` lists what the game takes from Sacred Gold and Renegade Platinum.

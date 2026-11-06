@@ -129,6 +129,14 @@ HIDDEN_FLAGS = {'FLAG_HGSS_HIDE_MYSTERY_GIFT_DELIVERYMAN': 'FLAG_HIDE_MART_MYSTE
                 # game is won (tools/complete/translate_hgss_scripts.py, MT_SILVER_RED_SCRIPT)
                 'FLAG_HGSS_UNK_25F': 'FLAG_COMPLETE_HIDE_MT_SILVER_RED'}
 
+# One of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): Sacred Gold's legendaries met in Sinnoh
+# instead are off their maps (6666, 6666), as Sacred Gold takes an item ball away, so the maps' scripts keep their
+# objects' numbers: Jirachi (Mt. Mortar), Shaymin (National Park), the Kimono Girl with the Manaphy Egg (Route 40),
+# Heatran (Cinnabar Island), Regigigas (Mt. Silver) and the lake and creation trios (the Sinjoh Ruins)
+SCRAPPED = {(238, 'obj_D38R0104_8'), (93, 'obj_D22R0101_29'), (91, 'obj_W40_8'), (54, 'obj_T09_3'),
+            (416, 'obj_D41R0105_tsure_poke_static_moltres'), (474, 'obj_D51R0201_1'), (474, 'obj_D51R0201_2'),
+            (474, 'obj_D51R0201_3'), (474, 'obj_D51R0201_5'), (474, 'obj_D51R0201_6'), (474, 'obj_D51R0201_7')}
+
 
 def lines(path):
     return [line.strip() for line in open(os.path.join(DECOMP, path)) if line.strip() and not line.startswith('#')]
@@ -363,6 +371,8 @@ def main():
             })
             if trainer_name and script >= 5000:
                 obj['double_battle_id'] = 2
+            if (bank, obj.get('id')) in SCRAPPED:  # off the map, as Sacred Gold takes away an item ball
+                obj['x'] = obj['z'] = 6666
             object_events.append(obj)
         warp_events = [{'x': x, 'z': z, 'dest_header_id': header_names[header] if header != DYNAMIC else 'MAP_HEADER_DYNAMIC',
                         'dest_warp_id': anchor}

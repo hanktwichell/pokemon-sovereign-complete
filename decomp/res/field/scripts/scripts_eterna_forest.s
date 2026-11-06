@@ -738,6 +738,7 @@ EternaForest_SovereignPortal:
     Message EternaForest_Text_SovereignPortalGone
     WaitButton
     CloseMessage
+    GoTo EternaForest_SovereignPortalEnd  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): Celebi is Ilex Forest's
     GoToIfUnset FLAG_DEFEATED_TRAINER_SOVEREIGN_FALKNER_MEMORY, EternaForest_SovereignPortalEnd
     GoToIfUnset FLAG_DEFEATED_TRAINER_SOVEREIGN_BUGSY_MEMORY, EternaForest_SovereignPortalEnd
     GoToIfUnset FLAG_DEFEATED_TRAINER_SOVEREIGN_WHITNEY_MEMORY, EternaForest_SovereignPortalEnd

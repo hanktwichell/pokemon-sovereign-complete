@@ -540,13 +540,20 @@ _078F:
     GoToIf 1, _0C5B
     GoToIfUnset FLAG_HGSS_SG_3FC8, _0C68
     GoToIfUnset FLAG_HGSS_SG_3FB0, _0C68
+    SovereignCheckSpeciesCaught SPECIES_JIRACHI, VAR_RESULT  @ Sovereign Complete: Sinnoh's Jirachi
+    GoToIfEq VAR_RESULT, FALSE, _0C68
+    GoTo CompleteArceusJirachi_Done
     GoToIfUnset FLAG_HGSS_SG_3FAE, _0C68
+CompleteArceusJirachi_Done:
     GoToIfUnset FLAG_HGSS_SG_3F8C, _0C68
     GoToIfUnset FLAG_CAUGHT_DARKRAI, _0C68  @ Sovereign Complete: Newmoon Island's Darkrai
     GoTo CompleteArceusDarkrai_Done
     GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68
 CompleteArceusDarkrai_Done:
+    GoToIfUnset FLAG_CAUGHT_SHAYMIN, _0C68  @ Sovereign Complete: Flower Paradise's Shaymin
+    GoTo CompleteArceusShaymin_Done
     GoToIfUnset FLAG_HGSS_SG_3FBE, _0C68
+CompleteArceusShaymin_Done:
     Message msg_0146_D51R0201_00056
     BufferPlayerName 0
     ShowYesNoMenu VAR_RESULT

@@ -11,6 +11,8 @@
 
 @ Sovereign (E10, Renegade): no Arceus distribution check; only the Azure Flute's player reaches this hall.
 HallOfOrigin_OnTransition:
+    SetVar VAR_HALL_OF_ORIGIN_STATE, 0  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): Arceus is the Sinjoh Ruins'
+    GoTo HallOfOrigin_HideArceus
     GoToIfSet FLAG_CAUGHT_ARCEUS, HallOfOrigin_HideArceus
     ClearFlag FLAG_HIDE_HALL_OF_ORIGIN_ARCEUS
     End

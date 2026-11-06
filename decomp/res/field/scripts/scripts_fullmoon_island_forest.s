@@ -98,6 +98,7 @@ FullmoonIslandForest_SovereignLatiRockFront:
     Message FullmoonIslandForest_Text_SovereignAllDreamsAreReality
     WaitButton
     CloseMessage
+    GoTo FullmoonIslandForest_SovereignNothingHappened  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): Latias and Latios are Kanto's
     CheckItem ITEM_SOUL_DEW, 1, VAR_RESULT
     GoToIfEq VAR_RESULT, FALSE, FullmoonIslandForest_SovereignLatiRockRelease
     WaitTime 15, VAR_RESULT

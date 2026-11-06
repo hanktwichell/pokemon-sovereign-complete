@@ -120,6 +120,9 @@ scr_seq_T09_007:
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     CloseMessage
+    ClearFlag FLAG_HGSS_SG_3FB7  @ Sovereign Complete: Moltres with the Magma Stone (Heatran is Sinnoh's)
+    ReleaseAll
+    End
     PlayCry SPECIES_HEATRAN, 0
     WaitCry
     FadeScreen 11, 5, 0, COLOR_BLACK

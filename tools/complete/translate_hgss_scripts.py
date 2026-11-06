@@ -402,6 +402,16 @@ def both(first, second):
     return ('', [], [], first, second)
 
 
+def several(*inserts):
+    """Inserts in one script, in order (each one's anchor after the last's)."""
+    return ('', [], []) + inserts
+
+
+def instead(anchor, lines, label):
+    """Lines in place of the anchor line (the anchor is kept, but jumped over to the label after it)."""
+    return (('<' + anchor, lines + [f'    GoTo {label}'], []), (anchor, [f'{label}:'], []))
+
+
 INSERTS = {
     'scr_seq_0869_T23GYM0102': totem_first_insert('    GoToIf 1, _018E', 0, 'GUMSHOOS'),  # Bugsy
     'scr_seq_0886_T25GYM0101': both(totem_first_insert('    GoToIf 1, _01C4', 2, 'VIKAVOLT'),  # Whitney
@@ -419,17 +429,29 @@ INSERTS = {
     'scr_seq_0107_D41R0108': MT_SILVER_RED_SCRIPT,
     'scr_seq_0368_D41R0108_hdr': MT_SILVER_RED_INIT,
     'scr_seq_0846_T20R0202': NO_NIGHTMARE,
-    'scr_seq_0131_D51R0201': both(('<    GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68',
-                                   ['    GoToIfUnset FLAG_CAUGHT_DARKRAI, _0C68  @ Sovereign Complete: Newmoon Island\'s Darkrai',
-                                    '    GoTo CompleteArceusDarkrai_Done'], []),
-                                  ('    GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68', ['CompleteArceusDarkrai_Done:'], [])),  # in place of the bed's
+    # the Sinjoh Ruins' Arceus asks for the mythicals met in Sinnoh in place of Sacred Gold's (docs/Legendaries.md)
+    'scr_seq_0131_D51R0201': several(
+        *instead('    GoToIfUnset FLAG_HGSS_SG_3FAE, _0C68',
+                 ['    SovereignCheckSpeciesCaught SPECIES_JIRACHI, VAR_RESULT  @ Sovereign Complete: Sinnoh\'s Jirachi',
+                  '    GoToIfEq VAR_RESULT, FALSE, _0C68'], 'CompleteArceusJirachi_Done'),
+        *instead('    GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68',
+                 ["    GoToIfUnset FLAG_CAUGHT_DARKRAI, _0C68  @ Sovereign Complete: Newmoon Island's Darkrai"],
+                 'CompleteArceusDarkrai_Done'),
+        *instead('    GoToIfUnset FLAG_HGSS_SG_3FBE, _0C68',
+                 ["    GoToIfUnset FLAG_CAUGHT_SHAYMIN, _0C68  @ Sovereign Complete: Flower Paradise's Shaymin"],
+                 'CompleteArceusShaymin_Done')),
+    # Cinnabar Island: Heatran is Sinnoh's, so the Magma Stone brings out Moltres in the Cinnabar Gym itself, as
+    # catching Heatran did (FLAG_HGSS_SG_3FB7, its hide flag)
+    'scr_seq_0815_T09': ('<    PlayCry SPECIES_HEATRAN, 0',
+                         ["    ClearFlag FLAG_HGSS_SG_3FB7  @ Sovereign Complete: Moltres with the Magma Stone (Heatran is Sinnoh's)",
+                          '    ReleaseAll', '    End'], []),
 }
 
 
 def apply_inserts(stem, body):
     if stem not in INSERTS:
         return body
-    inserts = INSERTS[stem][3:] if len(INSERTS[stem]) == 5 else [INSERTS[stem]]
+    inserts = INSERTS[stem][3:] if len(INSERTS[stem]) > 3 else [INSERTS[stem]]
     for after, lines, end in inserts:  # after a line, or before it when the anchor starts with '<'
         i = body.index(after[1:]) if after.startswith('<') else body.index(after) + 1  # a ValueError: Sacred Gold's
         # script changed, and the insert needs a new place

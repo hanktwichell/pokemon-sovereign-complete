@@ -25,6 +25,7 @@ IronRuins_Statue:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
+    GoTo IronRuins_ItsAStatueOfAPokemon  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): this Regi is Dark Cave's
     GoToIfEq VAR_IRON_RUINS_STATE, RUINS_STATE_CAUGHT_REGI, IronRuins_CaughtRegisteelStatueStoppedEmanatingPower
     GoToIfEq VAR_IRON_RUINS_STATE, RUINS_STATE_DID_NOT_CATCH_REGI, IronRuins_DidNotCatchRegisteelStatueStoppedEmanatingPower
     @ Sovereign (E10): as in Renegade, no Champion check; the chamber only opens with Relicanth and Wailord.

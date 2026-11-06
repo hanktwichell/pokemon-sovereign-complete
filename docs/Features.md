@@ -781,6 +781,10 @@ event from the stage's middle: the circle, Arceus's cinematic to its end and the
 
 ## Sacred Gold's special encounters
 
+**One of each** (the owner's call, Nov 6, 2026): Jirachi, Shaymin, the Manaphy Egg, Heatran, Regigigas, the Sinjoh
+Ruins' lake and creation trios, Cresselia and Darkrai are met in Sinnoh instead, so Sacred Gold's are off their maps;
+the Magma Stone brings out Moltres. Where each legendary is, and Sinnoh's copies switched off: `docs/Legendaries.md`.
+
 The one-time Pokémon of Sacred Gold's Special Event Guide come with its scripts, translated as all its scripts are,
 and each starts its battle as the guide gives it:
 

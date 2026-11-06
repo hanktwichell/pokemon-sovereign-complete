@@ -1343,6 +1343,7 @@ VeilstoneCity_MeteoriteFromTheStars:
     WaitButton
     CloseMessage
     GoToIfUnset FLAG_GAME_COMPLETED, VeilstoneCity_MeteoriteFromTheStarsEnd
+    GoTo VeilstoneCity_MeteoriteFromTheStarsEnd  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): Deoxys is Route 3's
     GoToIfSet FLAG_SOVEREIGN_DEOXYS_SENSED, VeilstoneCity_MeteoriteFromTheStarsEnd
     SovereignCheckSpeciesCaught SPECIES_DEOXYS, VAR_RESULT
     GoToIfEq VAR_RESULT, TRUE, VeilstoneCity_MeteoriteFromTheStarsEnd

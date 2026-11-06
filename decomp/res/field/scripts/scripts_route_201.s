@@ -1273,6 +1273,7 @@ Route201_SovereignMewPachirisu:
     WaitFadeScreen
     SetFlag FLAG_SOVEREIGN_HIDE_MEW_PACHIRISU
     RemoveObject LOCALID_SOVEREIGN_MEW_PACHIRISU
+    GoTo Route201_CompleteNoMew  @ Sovereign Complete: one of each legendary (the owner's call, Nov 6, 2026; docs/Legendaries.md): Mew is Viridian Forest's
     ClearFlag FLAG_SOVEREIGN_HIDE_ROUTE_201_MEW
     AddObject LOCALID_LEGENDARY_MEW
     FadeScreenIn FADE_SCREEN_SPEED_SLOW, COLOR_WHITE
@@ -1283,6 +1284,12 @@ Route201_SovereignMewPachirisu:
     WaitCry
     WaitButton
     CloseMessage
+    ReleaseAll
+    End
+
+Route201_CompleteNoMew:
+    FadeScreenIn FADE_SCREEN_SPEED_SLOW, COLOR_WHITE
+    WaitFadeScreen
     ReleaseAll
     End
 
