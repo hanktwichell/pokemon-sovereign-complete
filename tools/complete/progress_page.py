@@ -80,10 +80,10 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: the Pledges (a tutor for the starters, and the combinations: Sea of Fire, Rainbow, Swamp), with the full '
-    'Sinnoh story run going now.',
-    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), then HeartGold\'s ports (the '
-    'album, the Berry Pots, the Unown Report, the Dowsing Machine, the Pokéathlon).',
+    'Now: HeartGold\'s ports (the album first, then the Berry Pots, the Unown Report, the Dowsing Machine, the '
+    'Pokéathlon), with the full Sinnoh story run going now.',
+    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), and taking the Pokégear\'s '
+    'old Fly map out.',
 ]
 
 WAITING = [
@@ -272,6 +272,9 @@ RECENT = [
         'Your note: people now stand where Johto\'s HMs would let you skip Sinnoh\'s story (Spear Pillar\'s climb, '
         'Lake Acuity, Eterna Forest by Surf, the Ravaged Path, Mt. Coronet\'s boulder to Celestic), each until the '
         'point Platinum would have let you through. Pictures: Gallery tab.',
+        'The Pledges: a tutor in Elm\'s lab teaches every starter (Gen I to IX, every stage) its type\'s Pledge; in '
+        'a double battle two different Pledges become one 150-power move that leaves a sea of fire, a rainbow or a '
+        'swamp for 4 turns, as in the newer games. Pictures: Gallery tab.',
     ]),
     ('Your Nov 6 call: the Indigo Plateau\'s Elite Four', [
         'Sovereign\'s format at the Indigo Plateau: Will and Koga each ask single or double battle; if both got the '

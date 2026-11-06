@@ -11404,6 +11404,167 @@
         "the foe’s {STRVAR_1 1, 1, 0}\r",
         "switched places!"
       ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_AllyAlly",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} is waiting\n",
+        "for {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_AllyWild",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} is waiting\n",
+        "for the wild {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_AllyFoe",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} is waiting\n",
+        "for the foe’s {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_WildAlly",
+      "en_US": [
+        "The wild {STRVAR_1 1, 0, 0} is waiting\n",
+        "for {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_WildWild",
+      "en_US": [
+        "The wild {STRVAR_1 1, 0, 0} is waiting\n",
+        "for the wild {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_FoeAlly",
+      "en_US": [
+        "The foe’s {STRVAR_1 1, 0, 0} is waiting\n",
+        "for {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeWaiting_FoeFoe",
+      "en_US": [
+        "The foe’s {STRVAR_1 1, 0, 0} is waiting\n",
+        "for the foe’s {STRVAR_1 1, 1, 0}’s move..."
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompletePledgeCombined",
+      "en_US": [
+        "The two moves have become one!\n",
+        "It’s a combined move!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSeaOfFireYourTeam",
+      "en_US": [
+        "A sea of fire enveloped\n",
+        "your team!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSeaOfFireEnemyTeam",
+      "en_US": [
+        "A sea of fire enveloped\n",
+        "the enemy team!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSeaOfFireEndYourTeam",
+      "en_US": [
+        "The sea of fire around\n",
+        "your team disappeared!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSeaOfFireEndEnemyTeam",
+      "en_US": [
+        "The sea of fire around\n",
+        "the enemy team disappeared!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSwampYourTeam",
+      "en_US": [
+        "A swamp enveloped\n",
+        "your team!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSwampEnemyTeam",
+      "en_US": [
+        "A swamp enveloped\n",
+        "the enemy team!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSwampEndYourTeam",
+      "en_US": [
+        "The swamp around\n",
+        "your team disappeared!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteSwampEndEnemyTeam",
+      "en_US": [
+        "The swamp around\n",
+        "the enemy team disappeared!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteRainbowYourTeam",
+      "en_US": [
+        "A rainbow appeared in the sky\n",
+        "on your team’s side!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteRainbowEnemyTeam",
+      "en_US": [
+        "A rainbow appeared in the sky\n",
+        "on the enemy team’s side!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteRainbowEndYourTeam",
+      "en_US": [
+        "The rainbow on your team’s\n",
+        "side disappeared!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteRainbowEndEnemyTeam",
+      "en_US": [
+        "The rainbow on the enemy team’s\n",
+        "side disappeared!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteHurtBySeaOfFire_Ally",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} is hurt\n",
+        "by the sea of fire!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteHurtBySeaOfFire_Wild",
+      "en_US": [
+        "The wild {STRVAR_1 1, 0, 0} is hurt\n",
+        "by the sea of fire!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteHurtBySeaOfFire_Foe",
+      "en_US": [
+        "The foe’s {STRVAR_1 1, 0, 0} is hurt\n",
+        "by the sea of fire!"
+      ]
     }
   ]
 }

@@ -1000,7 +1000,7 @@ its ally trade places (`src/battle/complete_ally_switch.c`, `subscript_complete_
   a Dondozo).
 - The trainer AI doesn't use it, as it didn't before.
 
-21 species learn it. The Pledge moves are plain hits that nothing learns; see the progress page's questions.
+21 species learn it. The Pledge moves' combinations are below ("The Pledges").
 Tests: `tools/test/battle_mechanics.py ally_switch ally_switch_single`.
 
 ## The player: Ethan or Dawn
@@ -1133,6 +1133,28 @@ to the maps' events), and go once the player reaches the point Platinum would ha
 Each says why they're there and, mostly, what lets the player through. Places an HM reaches with only items or
 shortcuts behind them (the Old Chateau, Fuego Ironworks, Oreburgh Gate's basement) stay open. Test:
 `tools/complete/test_sinnoh_blockers.py` (each group stops the player and talks before, and is gone after).
+
+## The Pledges
+
+The owner's call (Nov 6, 2026): a tutor teaches the Pledges to the starters, with the combinations, as in Gen VI on
+(Pokémon Champions' rules follow Gen IX's; `src/battle/complete_pledges.c`, its data from `tools/complete/pledges.py`).
+- **The tutor**, in Professor Elm's lab in New Bark Town (`CommonScript_CompletePledgeTutor`; added to the lab by
+  `tools/complete/import_hgss_events.py`'s `OWN_OBJECTS`), teaches any starter of Gen I to IX, at any stage, its own
+  type's Pledge (Grass, Fire or Water), free, as Sword and Shield's tutor taught them.
+- **On its own** a Pledge is an 80-power hit (Gen VI on).
+- **Combined:** in a double battle, a Pledge user whose ally has chosen a different Pledge and is still to act this
+  turn waits ("... is waiting for ...'s move...", no PP spent); its ally acts next, and its Pledge becomes the
+  combined one ("The two moves have become one! It's a combined move!"): 150 power, always with STAB, of the pair's
+  type, and it leaves a field for 4 turns:
+  - **Fire and Grass:** Fire, a **sea of fire** on the target's side: its Pokémon that aren't Fire lose 1/8 of their
+    max HP at the end of each turn (not with Magic Guard).
+  - **Water and Fire:** Water, a **rainbow** on the user's side: its Pokémon's added effects (a move's secondary
+    effects, King's Rock's and Stench's flinch) are twice as likely (the flinch not again with Serene Grace).
+  - **Grass and Water:** Grass, a **swamp** on the target's side: its Pokémon's Speed is quartered.
+  - The same Pledge twice, or one in a single battle, is a plain hit. Court Change swaps the fields too.
+- The trainer AI uses them as plain hits.
+
+Tests: `tools/test/battle_mechanics.py pledge_*` (each combination, the same Pledge twice, a single battle).
 
 ## Stand-ins
 

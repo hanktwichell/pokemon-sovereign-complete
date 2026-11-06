@@ -1001,4 +1001,23 @@ CASES = [
          partner='SNORLAX', partner_moves=['HEADBUTT'] * 4, nogod=1),
     dict(name='ally_switch_single', lead='ALAKAZAM', lead_move='ALLY_SWITCH', all_moves=1, foe_move='SPLASH',
          survive=1),
+
+    # Sovereign Complete: the Pledges' combinations (src/battle/complete_pledges.c). In a double battle, the first of
+    # two allies using different Pledges waits ("... is waiting for ...'s move..."), its ally acts next, and the combined
+    # Pledge (150 power, STAB) leaves a sea of fire on the foes' side (Fire and Grass: non-Fire foes hurt at each turn's
+    # end), a rainbow on the user's (Water and Fire) or a swamp on the foes' (Grass and Water), for 4 turns. The same
+    # Pledge twice, or one in a single battle, is a plain hit.
+    dict(name='pledge_sea_of_fire', lead='EMBOAR', lead_level=30, lead_move='FIRE_PLEDGE', all_moves=1,
+         trainer='BELLE_AND_PA_AVA_AND_MATT', partner='SERPERIOR', partner_level=30, partner_moves=['GRASS_PLEDGE'] * 4,
+         nogod=1),
+    dict(name='pledge_rainbow', lead='EMBOAR', lead_level=50, lead_move='FIRE_PLEDGE', all_moves=1,
+         trainer='BELLE_AND_PA_AVA_AND_MATT', partner='SAMUROTT', partner_level=50, partner_moves=['WATER_PLEDGE'] * 4,
+         nogod=1),
+    dict(name='pledge_swamp', lead='SERPERIOR', lead_level=30, lead_move='GRASS_PLEDGE', all_moves=1,
+         trainer='BELLE_AND_PA_AVA_AND_MATT', partner='SAMUROTT', partner_level=30, partner_moves=['WATER_PLEDGE'] * 4,
+         nogod=1),
+    dict(name='pledge_same', lead='EMBOAR', lead_level=30, lead_move='FIRE_PLEDGE', all_moves=1,
+         trainer='BELLE_AND_PA_AVA_AND_MATT', partner='INFERNAPE', partner_level=30, partner_moves=['FIRE_PLEDGE'] * 4,
+         nogod=1),
+    dict(name='pledge_single', lead='EMBOAR', lead_move='FIRE_PLEDGE', all_moves=1, foe_move='SPLASH', survive=1),
 ]

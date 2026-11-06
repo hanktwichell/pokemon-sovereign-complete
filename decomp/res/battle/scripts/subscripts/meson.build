@@ -497,4 +497,9 @@ subscript_files = files(
     'subscript_sovereign_howl.s',
     'subscript_complete_throw_sport_ball.s',
     'subscript_complete_ally_switch.s',
+    'subscript_complete_pledge_combine.s',
+    'subscript_complete_pledge_field.s',
+    'subscript_complete_pledge_wait.s',
+    'subscript_complete_pledge_end.s',
+    'subscript_complete_sea_of_fire_damage.s',
 )

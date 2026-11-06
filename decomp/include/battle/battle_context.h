@@ -76,7 +76,9 @@ typedef struct TurnFlags {
     u32 sovereignShellTrap : 1; // Sovereign (item 11): it set a shell trap this turn
     u32 sovereignShellTrapHit : 1; // Sovereign (item 11): a foe's physical move sprang its shell trap
     u32 sovereignItemUsed : 1; // Sovereign: it used up its held item this turn (Pickup)
-    u32 padding00_0A : 10;
+    u32 completePledgeCombo : 2; // Sovereign Complete: its ally's Pledge, waiting to combine with its own (1 Fire, 2
+    // Water, 3 Grass; src/battle/complete_pledges.c)
+    u32 padding00_0A : 8;
 
     int physicalDamageTakenFrom[MAX_BATTLERS];
     int physicalDamageLastAttacker;
@@ -360,6 +362,7 @@ struct BattleContext {
     // Crafty Shield (8) for each side
     int sovereignSideFaintTurn[2]; // Sovereign (item 11): totalTurns + 1 when a Pokemon on the side last fainted (Retaliate)
     int sovereignAuroraVeilTurns[2]; // Sovereign (item 11)
+    u8 completePledgeTurns[2][3]; // Sovereign Complete: each side's Pledge fields' turns left (enum CompletePledgeField)
     int sovereignWishHP[MAX_BATTLERS]; // Sovereign: half the max HP of the Pokemon that used Wish from this slot
     int sovereignEchoedVoiceTurn; // Sovereign (item 11): totalTurns + 1 of the last Echoed Voice (0 = none yet)
     int sovereignEchoedVoiceCount; // Sovereign (item 11): consecutive turns of Echoed Voice, up to 5

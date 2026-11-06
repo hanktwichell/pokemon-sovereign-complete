@@ -35,6 +35,7 @@
 #include "battle/battle_main.h"
 #include "battle/battle_mon.h"
 #include "battle/battle_system.h"
+#include "battle/complete_pledges.h" // Sovereign Complete: the Pledges' combinations
 #include "battle/btlcmd.h"
 #include "battle/common.h"
 #include "battle/terrain.h"
@@ -1341,6 +1342,11 @@ static BOOL BtlCmd_Wait(BattleSystem *battleSys, BattleContext *battleCtx)
 static void BattleScript_CalcMoveDamage(BattleSystem *battleSys, BattleContext *battleCtx)
 {
     int moveType;
+
+    // Sovereign Complete: the combined Pledge takes its pair's type (set before the move, too)
+    if (CompletePledge_IsCombined(battleCtx, battleCtx->attacker, battleCtx->moveCur)) {
+        battleCtx->moveType = CompletePledge_CombinedType(battleCtx, battleCtx->attacker, battleCtx->moveCur);
+    }
 
     // Sovereign (item 11): Terrain Pulse takes the terrain's type (read by the type chart after this, too).
     if (battleCtx->moveCur == MOVE_TERRAIN_PULSE) {
@@ -8774,6 +8780,7 @@ static BOOL BtlCmd_CheckEffectActivation(BattleSystem *battleSys, BattleContext 
     } else {
         effectChance = CURRENT_MOVE_DATA.effectChance;
     }
+    effectChance = CompletePledge_RainbowChance(battleSys, battleCtx, battleCtx->attacker, effectChance); // Sovereign Complete
 
     GF_ASSERT(effectChance != 0);
 
@@ -10214,6 +10221,13 @@ static void *BattleScript_VarAddress(BattleSystem *battleSys, BattleContext *bat
         // (FALSE when it already is)
         battleCtx->sovereignTerrainTemp = battleCtx->turnFlags[battleCtx->defender].sovereignPowdered == FALSE;
         battleCtx->turnFlags[battleCtx->defender].sovereignPowdered = TRUE;
+        return &battleCtx->sovereignTerrainTemp;
+    case BTLVAR_COMPLETE_PLEDGE_COMBINED: // Sovereign Complete: read-only, whether the move is the combined Pledge
+        battleCtx->sovereignTerrainTemp = CompletePledge_IsCombined(battleCtx, battleCtx->attacker, battleCtx->moveCur);
+        return &battleCtx->sovereignTerrainTemp;
+    case BTLVAR_COMPLETE_PLEDGE_FIELD: // Sovereign Complete: read-only, starts the combined Pledge's field (msgTemp:
+        // which; FALSE when it's up already)
+        battleCtx->sovereignTerrainTemp = CompletePledge_StartField(battleSys, battleCtx);
         return &battleCtx->sovereignTerrainTemp;
     case BTLVAR_SOVEREIGN_INSTRUCT: // Sovereign (item 11): read-only, the defender will use its last move again once
         // this move is over (BattleControllerPlayer_MoveEnd; FALSE when it can't: Sovereign_CanInstruct)

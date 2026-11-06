@@ -26,6 +26,7 @@
 #include "battle/battle_display.h"
 #include "battle/battle_mon.h"
 #include "battle/battle_system.h"
+#include "battle/complete_pledges.h" // Sovereign Complete: the Pledges' combinations
 #include "battle/common.h"
 
 #include "charcode_util.h"
@@ -1316,6 +1317,8 @@ u8 BattleSystem_CompareBattlerSpeed(BattleSystem *battleSys, BattleContext *batt
         battler1Speed *= 2;
     }
 
+    battler1Speed = CompletePledge_SwampSpeed(battleSys, battleCtx, battler1, battler1Speed); // Sovereign Complete: a swamp quarters it
+
     if (battler1ItemEffect == HOLD_EFFECT_SOMETIMES_PRIORITY) {
         if (battleCtx->speedRand[battler1] % (100 / battler1ItemParam) == 0) {
             battler1QuickClaw = 1;
@@ -1381,6 +1384,8 @@ u8 BattleSystem_CompareBattlerSpeed(BattleSystem *battleSys, BattleContext *batt
     if (battleCtx->sideConditionsMask[BattleSystem_GetBattlerSide(battleSys, battler2)] & SIDE_CONDITION_TAILWIND) {
         battler2Speed *= 2;
     }
+
+    battler2Speed = CompletePledge_SwampSpeed(battleSys, battleCtx, battler2, battler2Speed); // Sovereign Complete: a swamp quarters it
 
     if (battler2ItemEffect == HOLD_EFFECT_SOMETIMES_PRIORITY) {
         if (battleCtx->speedRand[battler2] % (100 / battler2ItemParam) == 0) {
@@ -1638,6 +1643,7 @@ BOOL BattleSystem_TriggerSecondaryEffect(BattleSystem *battleSys, BattleContext 
         } else {
             effectChance = CURRENT_MOVE_DATA.effectChance;
         }
+        effectChance = CompletePledge_RainbowChance(battleSys, battleCtx, battleCtx->attacker, effectChance); // Sovereign Complete
 
         GF_ASSERT(effectChance != 0);
 
@@ -1658,6 +1664,7 @@ BOOL BattleSystem_TriggerSecondaryEffect(BattleSystem *battleSys, BattleContext 
         } else {
             effectChance = CURRENT_MOVE_DATA.effectChance;
         }
+        effectChance = CompletePledge_RainbowChance(battleSys, battleCtx, battleCtx->attacker, effectChance); // Sovereign Complete
 
         GF_ASSERT(effectChance != 0);
 
@@ -2830,7 +2837,8 @@ int BattleSystem_ApplyTypeChart(BattleSystem *battleSys, BattleContext *battleCt
 
     movePower = MOVE_DATA(move).power;
 
-    if ((battleCtx->battleStatusMask & SYSCTL_IGNORE_TYPE_CHECKS) == FALSE && MON_HAS_TYPE(attacker, moveType)) {
+    if ((battleCtx->battleStatusMask & SYSCTL_IGNORE_TYPE_CHECKS) == FALSE
+        && (MON_HAS_TYPE(attacker, moveType) || CompletePledge_IsCombined(battleCtx, attacker, move))) { // Sovereign Complete: the combined Pledge's STAB
         if (Battler_Ability(battleCtx, attacker) == ABILITY_ADAPTABILITY) {
             damage *= 2;
         } else {
@@ -10071,6 +10079,8 @@ BOOL Sovereign_RollSecondEffect(BattleSystem *battleSys, BattleContext *battleCt
         chance *= 2;
     }
 
+    chance = CompletePledge_RainbowChance(battleSys, battleCtx, battleCtx->attacker, chance); // Sovereign Complete
+
     if (Move_SheerForceApplies(battleCtx, battleCtx->attacker, battleCtx->moveCur)
         || Sovereign_CovertCloakBlocks(battleCtx)
         || battleCtx->battleMons[battleCtx->sideEffectMon].curHP == 0) {
@@ -10165,6 +10175,7 @@ BOOL Sovereign_CourtChange(BattleContext *battleCtx)
     int veilTurns = battleCtx->sovereignAuroraVeilTurns[0];
     battleCtx->sovereignAuroraVeilTurns[0] = battleCtx->sovereignAuroraVeilTurns[1];
     battleCtx->sovereignAuroraVeilTurns[1] = veilTurns;
+    CompletePledge_SwapSides(battleCtx); // Sovereign Complete: the Pledges' fields
     return TRUE;
 }
 
@@ -10546,6 +10557,14 @@ int Sovereign_MovePower(BattleSystem *battleSys, BattleContext *battleCtx, int m
     case MOVE_LASH_OUT: // double if the user's stats were lowered this turn
         if (battleCtx->turnFlags[attacker].sovereignStatsLowered) {
             power *= 2;
+        }
+        break;
+
+    case MOVE_FIRE_PLEDGE: // Sovereign Complete: the combined Pledge (src/battle/complete_pledges.c)
+    case MOVE_WATER_PLEDGE:
+    case MOVE_GRASS_PLEDGE:
+        if (CompletePledge_IsCombined(battleCtx, attacker, move)) {
+            power = 150;
         }
         break;
 

@@ -2011,3 +2011,13 @@ Test results on the new test build:
   linker spec (`platinum.us/main.lsf` is the Makefile's), and the game froze on a new game; noted in CLAUDE.md. The
   story test's JUMP now gives the Bicycle too (Eterna's exits reopen only with it), and its Sinnoh run is past
   Hearthome City.
+- **The Pledges (the owner's call):** a tutor in Professor Elm's lab teaches every starter of Gen I to IX, at every
+  stage, its own type's Pledge (`CommonScript_CompletePledgeTutor`, its list of starters from
+  `tools/complete/pledges.py`), and the Pledges combine as in Gen VI on (`src/battle/complete_pledges.c`): in a double
+  battle the first of two allies with different Pledges waits for the other, who acts next with the combined Pledge
+  (150 power, STAB, the pair's type), which leaves a sea of fire (Fire and Grass: the target's side's non-Fire Pokémon
+  lose 1/8 of their HP at each of its 4 turns' ends, the last too, before it ends), a rainbow (Water and Fire: the user's side's added effects twice as likely) or a
+  swamp (Grass and Water: the target's side's Speed quartered) for 4 turns, with Platinum-style lines for each. Tested:
+  the tutor (`tools/complete/test_pledge_tutor.py`: Turtwig learns Grass Pledge through the menus, Garchomp is
+  refused) and five battle cases (`tools/test/battle_mechanics.py pledge_*`: each field's start, its turns and its
+  end, the same Pledge twice and a single battle as plain hits).

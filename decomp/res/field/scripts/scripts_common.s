@@ -115,6 +115,7 @@
     ScriptEntry CommonScript_CompleteBlockerEternaForest @ 0x826
     ScriptEntry CommonScript_CompleteBlockerRavagedPath @ 0x827
     ScriptEntry CommonScript_CompleteBlockerCoronetNorth @ 0x828
+    ScriptEntry CommonScript_CompletePledgeTutor @ 0x829
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2582,6 +2583,159 @@ CommonScript_CompleteBlockerRavagedPath:
 CommonScript_CompleteBlockerCoronetNorth:
     NPCMessage CommonStrings_Text_CompleteBlockerCoronetNorth
     End
+// Sovereign Complete: the Pledge tutor in Elm's lab (the owner's call, Nov 6, 2026; run as the person's own script): any
+// starter Pokemon, at any stage, learns its own type's Pledge (CommonScript_CompletePledgeTutorStarter, from
+// tools/complete/pledges.py), whose combinations src/battle/complete_pledges.c plays out.
+CommonScript_CompletePledgeTutor:
+    PlaySE SE_CONFIRM_sseq_3
+    LockAll
+    FacePlayer
+    Message CommonStrings_Text_CompletePledgeTutorIntro
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, CommonScript_CompletePledgeTutorBye
+    Message CommonStrings_Text_CompletePledgeTutorWhich
+    CloseMessage
+    FadeScreenOut
+    WaitFadeScreen
+    SelectMoveTutorPokemon
+    GetSelectedPartySlot VAR_0x8000
+    ReturnToField
+    FadeScreenIn
+    WaitFadeScreen
+    GoToIfEq VAR_0x8000, PARTY_SLOT_NONE, CommonScript_CompletePledgeTutorBye
+    GetPartyMonSpecies VAR_0x8000, VAR_0x8001
+    GoToIfEq VAR_0x8001, SPECIES_NONE, CommonScript_CompletePledgeTutorCant
+    Call CommonScript_CompletePledgeTutorStarter
+    GoToIfEq VAR_0x8003, 0, CommonScript_CompletePledgeTutorCant
+    BufferPartyMonSpecies 0, VAR_0x8000
+    BufferMoveName 1, VAR_0x8003
+    CheckPartyMonHasMove VAR_RESULT, VAR_0x8003, VAR_0x8000
+    GoToIfEq VAR_RESULT, TRUE, CommonScript_CompletePledgeTutorKnows
+    Message CommonStrings_Text_CompletePledgeTutorAsk
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_NO, CommonScript_CompletePledgeTutorBye
+    CloseMessage
+    FadeScreenOut
+    WaitFadeScreen
+    OpenMoveTutorMenu VAR_0x8000, VAR_0x8003
+    CheckLearnedTutorMove VAR_RESULT
+    ReturnToField
+    FadeScreenIn
+    WaitFadeScreen
+    GoToIfEq VAR_RESULT, 0xFF, CommonScript_CompletePledgeTutorBye
+    Message CommonStrings_Text_CompletePledgeTutorDone
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+CommonScript_CompletePledgeTutorCant:
+    Message CommonStrings_Text_CompletePledgeTutorCant
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+CommonScript_CompletePledgeTutorKnows:
+    Message CommonStrings_Text_CompletePledgeTutorKnows
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+CommonScript_CompletePledgeTutorBye:
+    Message CommonStrings_Text_CompletePledgeTutorBye
+    WaitButton
+    CloseMessage
+    ReleaseAll
+    End
+@ Sovereign Complete: the Pledge tutor's starters (tools/complete/pledges.py)
+CommonScript_CompletePledgeTutorStarter:
+    SetVar VAR_0x8003, MOVE_GRASS_PLEDGE
+    GoToIfEq VAR_0x8001, SPECIES_BULBASAUR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_IVYSAUR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_VENUSAUR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CHIKORITA, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_BAYLEEF, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_MEGANIUM, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TREECKO, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_GROVYLE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SCEPTILE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TURTWIG, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_GROTLE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TORTERRA, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SNIVY, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SERVINE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SERPERIOR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CHESPIN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_QUILLADIN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CHESNAUGHT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_ROWLET, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_DARTRIX, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_DECIDUEYE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_GROOKEY, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_THWACKEY, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_RILLABOOM, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SPRIGATITO, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_FLORAGATO, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_MEOWSCARADA, CommonScript_CompletePledgeTutorStarterEnd
+    SetVar VAR_0x8003, MOVE_FIRE_PLEDGE
+    GoToIfEq VAR_0x8001, SPECIES_CHARMANDER, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CHARMELEON, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CHARIZARD, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CYNDAQUIL, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_QUILAVA, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TYPHLOSION, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TORCHIC, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_COMBUSKEN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_BLAZIKEN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CHIMCHAR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_MONFERNO, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_INFERNAPE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TEPIG, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_PIGNITE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_EMBOAR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_FENNEKIN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_BRAIXEN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_DELPHOX, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_LITTEN, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TORRACAT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_INCINEROAR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SCORBUNNY, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_RABOOT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CINDERACE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_FUECOCO, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CROCALOR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SKELEDIRGE, CommonScript_CompletePledgeTutorStarterEnd
+    SetVar VAR_0x8003, MOVE_WATER_PLEDGE
+    GoToIfEq VAR_0x8001, SPECIES_SQUIRTLE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_WARTORTLE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_BLASTOISE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_TOTODILE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_CROCONAW, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_FERALIGATR, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_MUDKIP, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_MARSHTOMP, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SWAMPERT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_PIPLUP, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_PRINPLUP, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_EMPOLEON, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_OSHAWOTT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_DEWOTT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SAMUROTT, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_FROAKIE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_FROGADIER, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_GRENINJA, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_POPPLIO, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_BRIONNE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_PRIMARINA, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_SOBBLE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_DRIZZILE, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_INTELEON, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_QUAXLY, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_QUAXWELL, CommonScript_CompletePledgeTutorStarterEnd
+    GoToIfEq VAR_0x8001, SPECIES_QUAQUAVAL, CommonScript_CompletePledgeTutorStarterEnd
+    SetVar VAR_0x8003, 0
+CommonScript_CompletePledgeTutorStarterEnd:
+    Return
+@ Sovereign Complete: end of the Pledge tutor's starters
 // Canalave City's sailor asks this before offering Olivine City and Vermilion City (VAR_RESULT)
 CommonScript_CompleteFerryToSinnohOpen:
     Call CommonScript_CompleteFerryCheckSinnoh

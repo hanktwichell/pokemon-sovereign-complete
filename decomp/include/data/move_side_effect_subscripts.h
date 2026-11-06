@@ -255,5 +255,7 @@ static const int sSideEffectSubscripts[] = {
     [MOVE_SUBSCRIPT_PTR_SOVEREIGN_HOWL] = subscript_sovereign_howl,
     [MOVE_SUBSCRIPT_PTR_SOVEREIGN_BURN_OUT] = subscript_sovereign_burn_out,
     [MOVE_SUBSCRIPT_PTR_COMPLETE_ALLY_SWITCH] = subscript_complete_ally_switch, // Sovereign Complete
+    [MOVE_SUBSCRIPT_PTR_COMPLETE_PLEDGE_COMBINE] = subscript_complete_pledge_combine, // Sovereign Complete
+    [MOVE_SUBSCRIPT_PTR_COMPLETE_PLEDGE_FIELD] = subscript_complete_pledge_field, // Sovereign Complete
 };
 // clang-format on

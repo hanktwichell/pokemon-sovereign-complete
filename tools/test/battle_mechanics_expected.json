@@ -19733,6 +19733,446 @@
    ]
   ]
  },
+ "pledge_rainbow": {
+  "result": "limit",
+  "messages": [
+   "You are challenged by Belle & Pa Ava & Matt!",
+   "Belle & Pa Ava & Matt sent out TAUROS and MILTANK!",
+   "Go! EMBOAR and SAMUROTT!",
+   "The foe’s TAUROS’s Intimidate cuts SAMUROTT’s Attack!",
+   "The foe’s TAUROS’s Intimidate cuts EMBOAR’s Attack!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "What will SAMUROTT do?",
+   "What will SAMUROTT do?",
+   "The foe’s TAUROS used Zen Headbutt!",
+   "It’s super effective!",
+   "SAMUROTT is waiting for EMBOAR’s move...",
+   "EMBOAR flinched!",
+   "The foe’s MILTANK used Headbutt!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "What will SAMUROTT do?",
+   "What will SAMUROTT do?",
+   "The foe’s TAUROS used Horn Attack!",
+   "SAMUROTT is waiting for EMBOAR’s move...",
+   "EMBOAR used Fire Pledge!",
+   "The two moves have become one! It’s a combined move!",
+   "A rainbow appeared in the sky on your team’s side!",
+   "The foe’s TAUROS fainted!",
+   "The foe’s MILTANK used Zen Headbutt!",
+   "It’s super effective!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?"
+  ],
+  "hp": [
+   [
+    183,
+    96,
+    161,
+    109
+   ],
+   [
+    135,
+    96,
+    161,
+    109
+   ],
+   [
+    135,
+    96,
+    137,
+    109
+   ],
+   [
+    135,
+    96,
+    115,
+    109
+   ],
+   [
+    135,
+    0,
+    115,
+    109
+   ],
+   [
+    97,
+    0,
+    115,
+    109
+   ]
+  ]
+ },
+ "pledge_same": {
+  "result": "limit",
+  "messages": [
+   "You are challenged by Belle & Pa Ava & Matt!",
+   "Belle & Pa Ava & Matt sent out TAUROS and MILTANK!",
+   "Go! EMBOAR and INFERNAPE!",
+   "The foe’s TAUROS’s Intimidate cuts INFERNAPE’s Attack!",
+   "The foe’s TAUROS’s Intimidate cuts EMBOAR’s Attack!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "What will INFERNAPE do?",
+   "What will INFERNAPE do?",
+   "The foe’s TAUROS used Zen Headbutt!",
+   "It’s super effective!",
+   "INFERNAPE used Fire Pledge!",
+   "The foe’s MILTANK used Heal Bell!",
+   "A bell chimed!",
+   "EMBOAR used Fire Pledge!",
+   "The foe’s TAUROS fainted!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?"
+  ],
+  "hp": [
+   [
+    114,
+    96,
+    89,
+    109
+   ],
+   [
+    114,
+    96,
+    21,
+    109
+   ],
+   [
+    114,
+    21,
+    21,
+    109
+   ],
+   [
+    114,
+    0,
+    21,
+    109
+   ]
+  ]
+ },
+ "pledge_sea_of_fire": {
+  "result": "limit",
+  "messages": [
+   "You are challenged by Belle & Pa Ava & Matt!",
+   "Belle & Pa Ava & Matt sent out TAUROS and MILTANK!",
+   "Go! EMBOAR and SERPERIOR!",
+   "The foe’s TAUROS’s Intimidate cuts SERPERIOR’s Attack!",
+   "The foe’s TAUROS’s Intimidate cuts EMBOAR’s Attack!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "The foe’s TAUROS used Zen Headbutt!",
+   "The attack of the foe’s TAUROS missed!",
+   "SERPERIOR is waiting for EMBOAR’s move...",
+   "EMBOAR used Fire Pledge!",
+   "The two moves have become one! It’s a combined move!",
+   "A sea of fire enveloped the enemy team!",
+   "The foe’s MILTANK used Zen Headbutt!",
+   "It’s super effective!",
+   "The foe’s TAUROS is hurt by the sea of fire!",
+   "The foe’s MILTANK is hurt by the sea of fire!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "The foe’s TAUROS used Zen Headbutt!",
+   "It’s super effective!",
+   "EMBOAR fainted!",
+   "SERPERIOR used Grass Pledge!",
+   "The foe’s TAUROS fainted!",
+   "The foe’s MILTANK used Zen Headbutt!",
+   "The foe’s MILTANK is hurt by the sea of fire!",
+   "Go! GALLADE!",
+   "What will GALLADE do?",
+   "What will GALLADE do?",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "SERPERIOR used Grass Pledge!",
+   "The foe’s MILTANK used Headbutt!",
+   "GALLADE used Aerial Ace!",
+   "The foe’s MILTANK is hurt by the sea of fire!",
+   "What will GALLADE do?",
+   "What will GALLADE do?",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "SERPERIOR used Grass Pledge!",
+   "The foe’s MILTANK used Heal Bell!",
+   "A bell chimed!",
+   "GALLADE used False Swipe!",
+   "The foe’s MILTANK is hurt by the sea of fire!",
+   "The sea of fire around the enemy team disappeared!",
+   "What will GALLADE do?",
+   "What will GALLADE do?",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "SERPERIOR used Grass Pledge!",
+   "The foe’s MILTANK used Headbutt!",
+   "SERPERIOR fainted!",
+   "GALLADE used False Swipe!"
+  ],
+  "hp": [
+   [
+    114,
+    96,
+    88,
+    109
+   ],
+   [
+    114,
+    17,
+    88,
+    109
+   ],
+   [
+    50,
+    17,
+    88,
+    109
+   ],
+   [
+    50,
+    5,
+    88,
+    109
+   ],
+   [
+    50,
+    5,
+    88,
+    96
+   ],
+   [
+    0,
+    5,
+    88,
+    96
+   ],
+   [
+    0,
+    0,
+    88,
+    96
+   ],
+   [
+    0,
+    0,
+    63,
+    96
+   ],
+   [
+    0,
+    0,
+    63,
+    83
+   ],
+   [
+    82,
+    0,
+    63,
+    83
+   ],
+   [
+    60,
+    0,
+    63,
+    83
+   ],
+   [
+    60,
+    0,
+    30,
+    83
+   ],
+   [
+    60,
+    0,
+    30,
+    67
+   ],
+   [
+    60,
+    0,
+    30,
+    54
+   ],
+   [
+    36,
+    0,
+    30,
+    54
+   ],
+   [
+    36,
+    0,
+    30,
+    42
+   ],
+   [
+    36,
+    0,
+    30,
+    29
+   ],
+   [
+    12,
+    0,
+    30,
+    29
+   ],
+   [
+    12,
+    0,
+    0,
+    29
+   ],
+   [
+    12,
+    0,
+    0,
+    18
+   ]
+  ]
+ },
+ "pledge_single": {
+  "result": "ended",
+  "messages": [
+   "A wild NINJASK appeared!",
+   "Go! EMBOAR!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "EMBOAR used Fire Pledge!",
+   "It’s super effective!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will EMBOAR do?",
+   "What will EMBOAR do?",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "EMBOAR used Fire Pledge!",
+   "It’s super effective!",
+   "The wild NINJASK fainted!"
+  ],
+  "hp": [
+   [
+    183,
+    235
+   ],
+   [
+    183,
+    0
+   ]
+  ]
+ },
+ "pledge_swamp": {
+  "result": "limit",
+  "messages": [
+   "You are challenged by Belle & Pa Ava & Matt!",
+   "Belle & Pa Ava & Matt sent out TAUROS and MILTANK!",
+   "Go! SERPERIOR and SAMUROTT!",
+   "The foe’s TAUROS’s Intimidate cuts SERPERIOR’s Attack!",
+   "The foe’s TAUROS’s Intimidate cuts SAMUROTT’s Attack!",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "What will SAMUROTT do?",
+   "What will SAMUROTT do?",
+   "The foe’s TAUROS used Horn Attack!",
+   "SERPERIOR is waiting for SAMUROTT’s move...",
+   "SAMUROTT used Water Pledge!",
+   "The two moves have become one! It’s a combined move!",
+   "A swamp enveloped the enemy team!",
+   "The foe’s MILTANK used Heal Bell!",
+   "A bell chimed!",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "What will SAMUROTT do?",
+   "What will SAMUROTT do?",
+   "SERPERIOR is waiting for SAMUROTT’s move...",
+   "SAMUROTT used Water Pledge!",
+   "The two moves have become one! It’s a combined move!",
+   "It’s not very effective...",
+   "A swamp enveloped your team!",
+   "The foe’s TAUROS used Horn Attack!",
+   "The foe’s MILTANK used Headbutt!",
+   "What will SERPERIOR do?",
+   "What will SERPERIOR do?",
+   "What will SAMUROTT do?",
+   "What will SAMUROTT do?",
+   "The foe’s TAUROS used Horn Attack!",
+   "SAMUROTT fainted!",
+   "SERPERIOR used Grass Pledge!",
+   "The foe’s TAUROS fainted!",
+   "The foe’s MILTANK used Headbutt!",
+   "SERPERIOR fainted!",
+   "Go! GALLADE!"
+  ],
+  "hp": [
+   [
+    93,
+    96,
+    100,
+    109
+   ],
+   [
+    60,
+    96,
+    100,
+    109
+   ],
+   [
+    60,
+    2,
+    100,
+    109
+   ],
+   [
+    25,
+    2,
+    100,
+    109
+   ],
+   [
+    25,
+    2,
+    63,
+    109
+   ],
+   [
+    25,
+    2,
+    27,
+    109
+   ],
+   [
+    25,
+    2,
+    0,
+    109
+   ],
+   [
+    25,
+    0,
+    0,
+    109
+   ],
+   [
+    0,
+    0,
+    0,
+    109
+   ],
+   [
+    82,
+    0,
+    0,
+    109
+   ]
+  ]
+ },
  "pollen_puff_ally": {
   "result": "limit",
   "messages": [

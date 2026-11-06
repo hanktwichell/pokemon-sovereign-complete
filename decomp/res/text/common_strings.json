@@ -1247,6 +1247,61 @@
         "Route 210, but I hear a crowd of\f",
         "Psyduck is stuck there..."
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorIntro",
+      "en_US": [
+        "I teach the Pledges, moves only\n",
+        "starter Pokémon can learn!\r",
+        "Grass Pledge to Grass starters,\n",
+        "Fire Pledge to Fire starters and\f",
+        "Water Pledge to Water starters.\r",
+        "In a double battle, two different\n",
+        "Pledges used together make one\f",
+        "powerful combined move!\r",
+        "Shall I teach one of yours?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorWhich",
+      "en_US": [
+        "Which Pokémon should learn it?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorAsk",
+      "en_US": [
+        "Shall I teach {STRVAR_1 6, 1, 0}\n",
+        "to {STRVAR_1 0, 0, 0}?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorCant",
+      "en_US": [
+        "Only a starter Pokémon can learn\n",
+        "a Pledge, I’m afraid."
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorKnows",
+      "en_US": [
+        "{STRVAR_1 0, 0, 0} knows\n",
+        "{STRVAR_1 6, 1, 0} already!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorDone",
+      "en_US": [
+        "Try it with an ally’s Pledge in a\n",
+        "double battle: a sea of fire, a\f",
+        "rainbow or a swamp, by the pair!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePledgeTutorBye",
+      "en_US": [
+        "Come back any time!"
+      ]
     }
   ]
 }

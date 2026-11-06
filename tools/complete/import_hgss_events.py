@@ -129,6 +129,12 @@ COMMON_APRICORN_TREE = 0x80F
 # Gift deliveryman, and Mom's deliveryman next to him (a script added to that file). Platinum's Colosseum, Union Room
 # and Wi-Fi Club attendants walk the player through Platinum's rooms (their doors are at fixed tiles), so HeartGold's
 # (9001, 9003, 9203) keep script 0 for now, as do its B1F Teala (9201) and Pichu check (9202), which Platinum lacks.
+# Complete's own people on Johto's and Kanto's maps, after the map's own (no local ID moves), by events bank: the Pledge
+# tutor in Elm's lab (the owner's call, Nov 6, 2026; CommonScript_CompletePledgeTutor, 0x829, run as a common script)
+OWN_OBJECTS = {58: [{'id': 'obj_complete_pledge_tutor', 'graphics_id': 'OBJ_EVENT_GFX_ACE_TRAINER_F',
+                     'movement_type': 'MOVEMENT_TYPE_LOOK_WEST', 'trainer_type': 'TRAINER_TYPE_NONE', 'hidden_flag': '0',
+                     'script': 0x829 - 0x7D0 + 2000, 'initial_dir': 2, 'data': [0, 0, 0], 'movement_range_x': 0,
+                     'movement_range_z': 0, 'x': 11, 'z': 13, 'y': 0}]}
 STD_PEOPLE = {9017: 9011, 9500: 9500, 9501: 9501, 10201: 10201, 10202: 10202}
 # People running one of the standard script files translated as they are (translate_hgss_scripts.py's STD_FILES):
 # the Bug-Catching Contest's contestants and prize keeper
@@ -376,6 +382,7 @@ def main():
             if trainer_name and script >= 5000:
                 obj['double_battle_id'] = 2
             object_events.append(obj)
+        object_events += OWN_OBJECTS.get(bank, [])
         warp_events = [{'x': x, 'z': z, 'dest_header_id': header_names[header] if header != DYNAMIC else 'MAP_HEADER_DYNAMIC',
                         'dest_warp_id': anchor}
                        for x, z, header, anchor, _ in events['warps']]

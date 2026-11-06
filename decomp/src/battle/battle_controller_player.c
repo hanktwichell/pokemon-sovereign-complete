@@ -29,6 +29,7 @@
 #include "battle/battle_main.h"
 #include "battle/battle_script.h"
 #include "battle/battle_system.h"
+#include "battle/complete_pledges.h" // Sovereign Complete: the Pledges' combinations
 #include "battle/common.h"
 #include "battle/message_defs.h"
 
@@ -1564,6 +1565,7 @@ enum MonCondCheckState {
     MON_COND_CHECK_STATE_CURSE,
     MON_COND_CHECK_STATE_BIND,
     MON_COND_CHECK_STATE_SOVEREIGN_SALT_CURE,
+    MON_COND_CHECK_STATE_COMPLETE_SEA_OF_FIRE, // Sovereign Complete
     MON_COND_CHECK_STATE_SOVEREIGN_SYRUP_BOMB,
     MON_COND_CHECK_STATE_SOVEREIGN_OCTOLOCK,
     MON_COND_CHECK_STATE_BAD_DREAMS,
@@ -1816,6 +1818,21 @@ static void BattleControllerPlayer_CheckMonConditions(BattleSystem *battleSys, B
                 battleCtx->msgBattlerTemp = battler;
 
                 PrepareSubroutineSequence(battleCtx, subscript_sovereign_salt_cure_damage);
+                state = STATE_BREAK_OUT;
+            }
+
+            battleCtx->monConditionCheckState++;
+            break;
+
+        case MON_COND_CHECK_STATE_COMPLETE_SEA_OF_FIRE: // Sovereign Complete: 1/8 of the max HP, but for Fire types
+            if (CompletePledge_FieldOn(battleSys, battleCtx, battler, COMPLETE_PLEDGE_SEA_OF_FIRE)
+                && battleCtx->battleMons[battler].curHP
+                && MON_HAS_TYPE(battler, TYPE_FIRE) == FALSE
+                && Battler_Ability(battleCtx, battler) != ABILITY_MAGIC_GUARD) {
+                battleCtx->hpCalcTemp = BattleSystem_Divide(battleCtx->battleMons[battler].maxHP * -1, 8);
+                battleCtx->msgBattlerTemp = battler;
+
+                PrepareSubroutineSequence(battleCtx, subscript_complete_sea_of_fire_damage);
                 state = STATE_BREAK_OUT;
             }
 
@@ -2131,6 +2148,7 @@ enum SideCondCheckState {
     SIDE_COND_CHECK_STATE_FUTURE_SIGHT = SIDE_COND_CHECK_START,
     SIDE_COND_CHECK_STATE_PERISH_SONG,
     SIDE_COND_CHECK_STATE_TRICK_ROOM,
+    SIDE_COND_CHECK_STATE_COMPLETE_PLEDGES, // Sovereign Complete
 
     SIDE_COND_CHECK_END
 };
@@ -2238,6 +2256,25 @@ static void BattleControllerPlayer_CheckSideConditions(BattleSystem *battleSys, 
             battleCtx->fieldConditionsMask -= (1 << FIELD_CONDITION_TRICK_ROOM_SHIFT);
             if ((battleCtx->fieldConditionsMask & FIELD_CONDITION_TRICK_ROOM) == FALSE) {
                 PrepareSubroutineSequence(battleCtx, subscript_trick_room_end);
+                return;
+            }
+        }
+
+        battleCtx->sideConditionCheckState++;
+        battleCtx->sideConditionCheckTemp = 0;
+        // fall-through
+
+    case SIDE_COND_CHECK_STATE_COMPLETE_PLEDGES: // Sovereign Complete: the Pledges' sea of fire, rainbow and swamp end
+        // here, after the turn's sea of fire damage (the mon conditions), so a field's last turn still hurts (Gen V on)
+        while (battleCtx->sideConditionCheckTemp < NUM_BATTLE_SIDES * 3) {
+            int side = battleCtx->sideConditionCheckTemp / 3;
+            int field = battleCtx->sideConditionCheckTemp % 3;
+
+            battleCtx->sideConditionCheckTemp++;
+            if (battleCtx->completePledgeTurns[side][field] && --battleCtx->completePledgeTurns[side][field] == 0) {
+                battleCtx->msgTemp = field;
+                battleCtx->msgBattlerTemp = BattleSystem_SideToBattler(battleSys, battleCtx, side);
+                PrepareSubroutineSequence(battleCtx, subscript_complete_pledge_end);
                 return;
             }
         }
@@ -4121,6 +4158,18 @@ static void BattleControllerPlayer_BeforeMove(BattleSystem *battleSys, BattleCon
             && (battleCtx->turnFlags[battleCtx->attacker].physicalDamageAttackerMask
                 || battleCtx->turnFlags[battleCtx->attacker].specialDamageAttackerMask)) {
             LOAD_SUBSEQ(subscript_sovereign_lost_focus);
+            battleCtx->command = BATTLE_CONTROL_EXEC_SCRIPT;
+            battleCtx->commandNext = BATTLE_CONTROL_UPDATE_MOVE_BUFFERS;
+            return;
+        }
+
+        // Sovereign Complete: a Pledge user waits for its ally's different Pledge, which acts next as the combined
+        // Pledge (src/battle/complete_pledges.c): no attack message and no PP spent, as Focus Punch's lost focus. The
+        // combined Pledge takes its pair's type here, before the redirection and the type checks.
+        if (CompletePledge_IsCombined(battleCtx, battleCtx->attacker, battleCtx->moveCur)) {
+            battleCtx->moveType = CompletePledge_CombinedType(battleCtx, battleCtx->attacker, battleCtx->moveCur);
+        } else if (CompletePledge_TryWait(battleSys, battleCtx)) {
+            LOAD_SUBSEQ(subscript_complete_pledge_wait);
             battleCtx->command = BATTLE_CONTROL_EXEC_SCRIPT;
             battleCtx->commandNext = BATTLE_CONTROL_UPDATE_MOVE_BUFFERS;
             return;
@@ -6272,6 +6321,8 @@ static BOOL BattleControllerPlayer_CheckExtraFlinch(BattleSystem *battleSys, Bat
     }
     if (Battler_Ability(battleCtx, battleCtx->attacker) == ABILITY_SERENE_GRACE) {
         chance *= 2;
+    } else {
+        chance = CompletePledge_RainbowChance(battleSys, battleCtx, battleCtx->attacker, chance); // Sovereign Complete
     }
 
     if (battleCtx->defender != BATTLER_NONE
