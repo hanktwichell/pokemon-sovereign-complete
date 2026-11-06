@@ -9,6 +9,10 @@ Starts a new game on the test build, then through gCompleteTestSaveProbe (src/co
 Step 1 also puts one of every key item and every Ball in the bag, and step 3 looks for each: all must fit (the
 Key Items and Poké Balls pockets, include/bag.h) and be there after the reload.
 
+The Pokéathlon's save (include/complete_pokeathlon.h) counts only once the game is saved, as HeartGold's does: step 1
+gives 1234 Athlete Points, which the save keeps; after the save 500 more are given and the game isn't saved again, so
+after the reload there are 1234.
+
 A save that loaded as "no save data" (a layout mismatch) would leave only NEW GAME on the main menu, and CONTINUE would
 start a new game instead: the read-back then finds the flags clear.
 
@@ -29,9 +33,9 @@ os.environ.setdefault('SDL_AUDIODRIVER', 'dummy')
 from drive import Driver  # noqa: E402
 from test_follower import Check, settle, symbol  # noqa: E402
 
-NONE, WRITE, SAVE, READ = 0, 1, 2, 3
-# CompleteTestSaveProbe: u32 request, done, saveOK; u16 flags[5], vars[3], keyItems, balls
-PROBE_FORMAT = '<III5H3H2H'
+NONE, WRITE, SAVE, READ, POKEATHLON_UNSAVED = 0, 1, 2, 3, 4
+# CompleteTestSaveProbe: u32 request, done, saveOK; u16 flags[5], vars[3], keyItems, balls; u32 athletePoints
+PROBE_FORMAT = '<III5H3H2HI'
 WANT_FLAGS = (1, 1, 1, 1, 0)
 WANT_VARS = (0xC0DE, 0xBEEF, 0)
 
@@ -74,8 +78,13 @@ def main():
     check(written is not None, 'the probe flags and vars are set')
     if written:
         check(tuple(written[11:13]) == want_bag, f'key items and Balls put in the bag: {written[11:13]} (want {want_bag})')
+    if written:
+        check(written[13] == 1234, f'Athlete Points given: {written[13]} (want 1234)')
     saved = ask(d, addr, idle_addr, SAVE, frames=3600)
     check(saved is not None and saved[2] == 1, f'the game saved (FieldSystem_Save: {saved and saved[2]})')
+    unsaved = ask(d, addr, idle_addr, POKEATHLON_UNSAVED)
+    check(unsaved is not None and unsaved[13] == 1734, f'500 more Athlete Points, not saved: {unsaved and unsaved[13]} '
+          '(want 1734)')
     d.run(600)
     battery = os.path.join(tempfile.mkdtemp(), 'complete_save_test.sav')
     d.do('export:' + battery)
@@ -95,6 +104,7 @@ def main():
               + ' (want ' + ', '.join(f'0x{v:04X}' for v in WANT_VARS) + ')')
         check(tuple(values[11:13]) == want_bag, f'key items and Balls in the bag after the reload: {values[11:13]} '
               f'(want {want_bag})')
+        check(values[13] == 1234, f'Athlete Points after the reload: {values[13]} (want the saved 1234, not 1734)')
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)

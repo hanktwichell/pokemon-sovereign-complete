@@ -43,6 +43,7 @@
 #include "vars_flags.h"
 #include "complete_phone.h" // Sovereign Complete
 #include "complete_photo.h" // Sovereign Complete
+#include "complete_pokeathlon.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 #include "wifi_history_save_data.h"
 #include "wifi_list.h"
@@ -126,6 +127,9 @@ const SaveTableEntry gExtraSaveTable[] = {
     { EXTRA_SAVE_TABLE_ENTRY_DL_RECORDINGS_2, SAVE_PAGE_MAX + 11, (SaveEntrySizeFunc)BattleRecording_SaveSize, (SaveEntryInitFunc)BattleRecording_Init },
     // Sovereign Complete: the photo album, one sector (SAVE_PAGE_MAX + 13 = 46 of each copy's 64)
     { EXTRA_SAVE_TABLE_ENTRY_COMPLETE_PHOTO_ALBUM, SAVE_PAGE_MAX + 13, (SaveEntrySizeFunc)CompletePhotoAlbum_SaveSize, (SaveEntryInitFunc)CompletePhotoAlbum_Init },
+    // Sovereign Complete: the Pokéathlon, saved and working copies (SAVE_PAGE_MAX + 14 and 15 = 47 and 48 of the 64)
+    { EXTRA_SAVE_TABLE_ENTRY_COMPLETE_POKEATHLON, SAVE_PAGE_MAX + 14, (SaveEntrySizeFunc)CompletePokeathlon_SaveSize, (SaveEntryInitFunc)CompletePokeathlon_Init },
+    { EXTRA_SAVE_TABLE_ENTRY_COMPLETE_POKEATHLON_WORK, SAVE_PAGE_MAX + 15, (SaveEntrySizeFunc)CompletePokeathlon_SaveSize, (SaveEntryInitFunc)CompletePokeathlon_Init },
 };
 
 // Sovereign Complete: the photo album plus its footer must fit its sector.

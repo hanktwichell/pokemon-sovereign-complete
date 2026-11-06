@@ -2105,3 +2105,11 @@ Test results on the new test build:
   29-39, 43 for the rarer forms, 50 for the Galarian birds (`data/complete/pal_parks.yaml`,
   `tools/complete/gen_pal_parks.py`, `docs/PalParks.md`). Sinnoh's park (after the Hall of Fame) is unchanged.
   `tools/complete/test_pal_parks.py`: 0 problems, every Kanto encounter in its new range.
+- **The Pokéathlon, stage 1 begun: its save (docs/Roadmap.md has the stages):** HeartGold's Pokéathlon save (its
+  PokeathlonSave field by field, with per-species medals for all of Complete's species: `include/complete_pokeathlon.h`,
+  `src/complete_pokeathlon.c`) in two save sectors of its own after the photo album's (47 and 48 of 64), so the save's
+  blocks keep their sizes. HeartGold keeps it in the main save, so a change counts only once the game is saved: here
+  changes go to a working copy marked with the play session, and the end of a save that writes the main block copies
+  it over the saved one (`src/savedata.c`, `CompletePokeathlon_Commit`); after a reset without saving the working copy
+  is an older session's and is ignored. The day's prizes come back each day (`FieldSystem_ClearDailyFlags`).
+  `tools/complete/test_save.py` checks it: 1234 Athlete Points saved, 500 more not, 1234 after the reload.

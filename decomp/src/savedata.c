@@ -15,6 +15,8 @@
 #include "unk_0209A74C.h"
 #include "unk_0209AA74.h"
 
+#include "complete_pokeathlon.h" // Sovereign Complete
+
 static void SaveTable_Clear(SaveDataBody *body, const SavePageInfo *pageInfo);
 static void SavePageInfo_Init(SavePageInfo *pageInfo);
 static void SaveBlockInfo_Init(SaveBlockInfo *blockInfo, const SavePageInfo *pageInfo);
@@ -754,6 +756,11 @@ static void SaveDataState_End(SaveData *saveData, SaveDataState *state, int save
         saveData->dataExists = TRUE;
         saveData->isNewGameData = FALSE;
         saveData->fullSaveRequired = FALSE;
+
+        // Sovereign Complete: with the main block saved, the Pokéathlon's changes are too (include/complete_pokeathlon.h)
+        if (state->startBlock == SAVE_BLOCK_ID_NORMAL) {
+            CompletePokeathlon_Commit(saveData);
+        }
     }
 
     SleepUnlock(SLEEP_TYPE_SAVE_DATA);

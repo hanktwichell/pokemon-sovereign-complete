@@ -13,6 +13,7 @@ enum CompleteTestSaveRequest {
     COMPLETE_TEST_SAVE_WRITE, // set the probe flags and vars
     COMPLETE_TEST_SAVE_SAVE, // save as the start menu does (FieldSystem_Save)
     COMPLETE_TEST_SAVE_READ, // read the probe flags and vars back
+    COMPLETE_TEST_SAVE_POKEATHLON_UNSAVED, // add 500 Athlete Points, not saved (include/complete_pokeathlon.h)
 };
 
 // The harness writes request; the game does it on the next free field frame, then sets done to it.
@@ -24,6 +25,7 @@ typedef struct CompleteTestSaveProbe {
     u16 vars[3];
     u16 keyItems; // one of every key item and every Ball is put in the bag; how many are there
     u16 balls;
+    u32 athletePoints; // the Pokéathlon's: 1234 are added with the probe flags, read back with them
 } CompleteTestSaveProbe;
 
 extern CompleteTestSaveProbe gCompleteTestSaveProbe;

@@ -11,6 +11,8 @@
 #include "bag.h"
 #include "complete_follower.h"
 #include "complete_map_info.h"
+#include "complete_pokeathlon.h"
+#include "heap.h"
 #include "complete_safari.h"
 #include "field_battle_data_transfer.h"
 #include "field_task.h"
@@ -94,6 +96,20 @@ static void BagProbe(SaveData *saveData, BOOL write, u16 *keyItems, u16 *balls)
     }
 }
 
+// The Pokéathlon's Athlete Points, with some added (to its working copy: saved only when the game is)
+static void PokeathlonProbe(SaveData *saveData, u16 add, u32 *points)
+{
+    CompletePokeathlonSave *pokeathlon = CompletePokeathlon_Load(saveData, HEAP_ID_FIELD2);
+
+    if (add) {
+        CompletePokeathlon_AddAthletePoints(pokeathlon, add);
+        CompletePokeathlon_Store(saveData, pokeathlon);
+    }
+
+    *points = CompletePokeathlon_GetAthletePoints(pokeathlon);
+    Heap_Free(pokeathlon);
+}
+
 static void SaveProbe(FieldSystem *fieldSystem)
 {
     CompleteTestSaveProbe *probe = &gCompleteTestSaveProbe;
@@ -110,6 +126,10 @@ static void SaveProbe(FieldSystem *fieldSystem)
         }
 
         BagProbe(fieldSystem->saveData, TRUE, &probe->keyItems, &probe->balls);
+        PokeathlonProbe(fieldSystem->saveData, 1234, &probe->athletePoints);
+        break;
+    case COMPLETE_TEST_SAVE_POKEATHLON_UNSAVED:
+        PokeathlonProbe(fieldSystem->saveData, 500, &probe->athletePoints);
         break;
     case COMPLETE_TEST_SAVE_SAVE:
         probe->saveOK = FieldSystem_Save(fieldSystem);
@@ -124,6 +144,7 @@ static void SaveProbe(FieldSystem *fieldSystem)
         }
 
         BagProbe(fieldSystem->saveData, FALSE, &probe->keyItems, &probe->balls);
+        PokeathlonProbe(fieldSystem->saveData, 0, &probe->athletePoints);
         break;
     default:
         return;

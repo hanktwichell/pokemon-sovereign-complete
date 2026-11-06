@@ -30,6 +30,7 @@
 
 #include "complete_badges.h" // Sovereign Complete
 #include "complete_playtest.h" // Sovereign Complete
+#include "complete_pokeathlon.h" // Sovereign Complete
 #include "complete_radio.h" // Sovereign Complete
 #include "complete_trainers.h" // Sovereign Complete
 
@@ -529,6 +530,7 @@ void FieldSystem_ClearDailyFlags(FieldSystem *fieldSystem)
     memset(VarsFlags_GetFlagChunk(varsFlags, COMPLETE_DAILY_FLAGS_START), 0, COMPLETE_DAILY_FLAGS_COUNT / 8);
     memset(VarsFlags_GetFlagChunk(varsFlags, COMPLETE_APRICORN_TREE_FLAGS_START), 0, COMPLETE_APRICORN_TREE_FLAGS_COUNT / 8);
     CompleteRadio_NewBuenasPassword(fieldSystem->saveData); // Sovereign Complete: Buena's password changes each day
+    CompletePokeathlon_NewDay(fieldSystem->saveData); // Sovereign Complete: the Pokéathlon's day's prizes are back
 }
 
 void FieldSystem_SetScriptParameters(FieldSystem *fieldSystem, u16 scriptParam0, u16 scriptParam1, u16 scriptParam2, u16 scriptParam3)

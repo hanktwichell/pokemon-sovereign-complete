@@ -68,6 +68,10 @@ enum ExtraSaveTableEntryID {
 // Outside the enum: the misc block's extra save keys are counted by EXTRA_SAVE_TABLE_ENTRY_MAX, and the album, read
 // and written whole like the Hall of Fame, needs none, so the save's blocks keep their sizes.
 #define EXTRA_SAVE_TABLE_ENTRY_COMPLETE_PHOTO_ALBUM EXTRA_SAVE_TABLE_ENTRY_MAX
+// Sovereign Complete: HeartGold's Pokéathlon (include/complete_pokeathlon.h), the saved copy and the working copy, a
+// sector each after the album's
+#define EXTRA_SAVE_TABLE_ENTRY_COMPLETE_POKEATHLON      (EXTRA_SAVE_TABLE_ENTRY_MAX + 1)
+#define EXTRA_SAVE_TABLE_ENTRY_COMPLETE_POKEATHLON_WORK (EXTRA_SAVE_TABLE_ENTRY_MAX + 2)
 
 // Sovereign Complete: one more sector for Johto and Kanto's flags and vars (vanilla and Sovereign: 32). The extra
 // saves start at SAVE_PAGE_MAX, so they move up one sector; the last still ends well inside each copy's 64.
