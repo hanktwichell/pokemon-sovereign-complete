@@ -25,34 +25,141 @@ DECOMP = os.path.join(ROOT, 'decomp')
 RES = os.path.join(DECOMP, 'res')
 TRAINERS = os.path.join(RES, 'trainers', 'data')
 
-JOHTO = ['falkner_falkner', 'bugsy_bugsy', 'whitney', 'morty_morty', 'chuck_chuck', 'jasmine_jasmine', 'pryce_pryce',
-         'clair_clair']
-KANTO = ['brock_brock', 'misty_misty', 'lt_surge_lt__surge', 'erika_erika', 'janine_janine', 'sabrina_sabrina',
-         'blaine_blaine', 'blue_blue']
-SINNOH = ['roark', 'gardenia', 'maylene', 'wake', 'fantina', 'byron', 'candice', 'volkner']
-TOWNS = {
-    'falkner_falkner': 'Violet City', 'bugsy_bugsy': 'Azalea Town', 'whitney': 'Goldenrod City',
-    'morty_morty': 'Ecruteak City', 'chuck_chuck': 'Cianwood City', 'jasmine_jasmine': 'Olivine City',
-    'pryce_pryce': 'Mahogany Town', 'clair_clair': 'Blackthorn City', 'brock_brock': 'Pewter City',
-    'misty_misty': 'Cerulean City', 'lt_surge_lt__surge': 'Vermilion City', 'erika_erika': 'Celadon City',
-    'janine_janine': 'Fuchsia City', 'sabrina_sabrina': 'Saffron City', 'blaine_blaine': 'Seafoam Islands',
-    'blue_blue': 'Viridian City', 'roark': 'Oreburgh City', 'gardenia': 'Eterna City', 'maylene': 'Veilstone City',
-    'wake': 'Pastoria City', 'fantina': 'Hearthome City', 'byron': 'Canalave City', 'candice': 'Snowpoint City',
-    'volkner': 'Sunyshore City'}
+def gym(stem, rematch, where, extra=()):
+    """A battle with its rematch: tabs First battle and Rematch (and any extra (label, file))"""
+    return {'where': where, 'tabs': [('First battle', stem)] + ([('Rematch', rematch)] if rematch else []) + list(extra)}
 
-# (section id, title, [(first battle file, rematch file or None, subtitle)])
+
+def by_starter(where, files, note=''):
+    """A rival's battle in its versions for the player's starter, each tab named after the rival's own starter line"""
+    return {'where': where, 'tabs': [(None, f) for f in files], 'starter_tabs': True, 'note': note}
+
+
+def tag(where, files, name, note=''):
+    """A tag or double battle against two trainers: a tab each"""
+    return {'where': where, 'tabs': [(None, f) for f in files], 'name': name, 'note': note}
+
+
+def sinnoh_rival(place):
+    return [f'rival_{place}_{s}' for s in ('turtwig', 'chimchar', 'piplup')]
+
+
+def silver(*numbers):
+    return [f'hgss_rival_silver{"" if n == 1 else "_" + str(n)}' for n in numbers]
+
+
+def league_s(n):
+    return gym(f'elite_four_{n}', f'elite_four_{n}_rematch', 'Elite Four',
+               [('Doubles', f'sovereign_elite_four_{n}_doubles'), ('Doubles rematch', f'sovereign_elite_four_{n}_rematch_doubles')])
+
+
+# The story's boss battles in the order a player meets them (Johto, then Kanto, then Sinnoh), each with its rematch
+# where there is one: (section id, title, [battle])
 SECTIONS = [
-    ('johto', 'Johto Gyms', [(f'hgss_leader_{n}', f'hgss_leader_{n}_2', TOWNS[n]) for n in JOHTO]),
-    ('kanto', 'Kanto Gyms', [(f'hgss_leader_{n}', f'hgss_leader_{n}_2', TOWNS[n]) for n in KANTO]),
-    ('sinnoh', 'Sinnoh Gyms', [(f'leader_{n}', f'leader_{n}_rematch', TOWNS[n]) for n in SINNOH]),
-    ('league-jk', 'Indigo Plateau', [(f'hgss_elite_four_{n}_{n}', f'hgss_elite_four_{n}_{n}_2', 'Elite Four')
-                                     for n in ('will', 'koga', 'bruno', 'karen')]
-     + [('hgss_champion_lance', 'hgss_champion_lance_2', 'Champion'),
-        ('hgss_pkmn_trainer_red_red', None, 'Mt. Silver')]),
-    ('league-s', 'Sinnoh League', [(f'elite_four_{n}', f'elite_four_{n}_rematch', 'Elite Four')
-                                   for n in ('aaron', 'bertha', 'flint', 'lucian')]
-     + [('champion_cynthia', 'champion_cynthia_rematch', 'Champion')]),
+    ('johto', 'Johto', [
+        dict(by_starter('Cherrygrove City (named \u201cBoy\u201d until you learn his name)',
+                        ['hgss_passerby_boy', 'hgss_passerby_boy_2', 'hgss_passerby_boy_3']), name='Silver'),
+        gym('hgss_leader_falkner_falkner', 'hgss_leader_falkner_falkner_2', 'Violet City Gym'),
+        gym('hgss_executive_proton_proton', None, 'Slowpoke Well (Team Rocket)'),
+        gym('hgss_leader_bugsy_bugsy', 'hgss_leader_bugsy_bugsy_2', 'Azalea Town Gym'),
+        by_starter('Azalea Town', silver(1, 7, 10)),
+        gym('hgss_leader_whitney', 'hgss_leader_whitney_2', 'Goldenrod City Gym'),
+        by_starter('Burned Tower (Ecruteak City)', silver(4, 8, 11)),
+        gym('hgss_leader_morty_morty', 'hgss_leader_morty_morty_2', 'Ecruteak City Gym'),
+        gym('hgss_mystery_man_eusine', None, 'Cianwood City'),
+        gym('hgss_leader_chuck_chuck', 'hgss_leader_chuck_chuck_2', 'Cianwood City Gym'),
+        gym('hgss_leader_jasmine_jasmine', 'hgss_leader_jasmine_jasmine_2', 'Olivine City Gym'),
+        gym('hgss_executive_petrel_petrel_2', None, 'Team Rocket Hideout B3F (Mahogany Town)'),
+        tag('Team Rocket Hideout B2F, with Lance at your side', ['hgss_executive_ariana_ariana_2', 'hgss_team_rocket_grunt_25'],
+            'Ariana & Grunt'),
+        gym('hgss_leader_pryce_pryce', 'hgss_leader_pryce_pryce_2', 'Mahogany Town Gym'),
+        gym('hgss_executive_petrel_petrel', None, 'Radio Tower 5F (Goldenrod City)'),
+        by_starter('Goldenrod Underground', silver(17, 18, 12)),
+        gym('hgss_executive_archer_archer', None, 'Radio Tower, the top floor'),
+        tag('Ecruteak Dance Theater, one after another', [f'hgss_kimono_girl_{n}' for n in ('zuki', 'naoko', 'miki', 'sayo', 'kuni')],
+            'The Kimono Girls'),
+        gym('hgss_leader_clair_clair', 'hgss_leader_clair_clair_2', 'Blackthorn City Gym'),
+        by_starter('Victory Road', silver(5, 9, 13)),
+        gym('hgss_elite_four_will_will', 'hgss_elite_four_will_will_2', 'Elite Four (Indigo Plateau)'),
+        gym('hgss_elite_four_koga_koga', 'hgss_elite_four_koga_koga_2', 'Elite Four'),
+        gym('hgss_elite_four_bruno_bruno', 'hgss_elite_four_bruno_bruno_2', 'Elite Four'),
+        gym('hgss_elite_four_karen_karen', 'hgss_elite_four_karen_karen_2', 'Elite Four'),
+        gym('hgss_champion_lance', 'hgss_champion_lance_2', 'Champion'),
+    ]),
+    ('kanto', 'Kanto', [
+        gym('hgss_leader_brock_brock', 'hgss_leader_brock_brock_2', 'Pewter City Gym'),
+        by_starter('Mt. Moon', silver(14, 15, 16)),
+        gym('hgss_leader_misty_misty', 'hgss_leader_misty_misty_2', 'Cerulean City Gym'),
+        gym('hgss_leader_lt_surge_lt__surge', 'hgss_leader_lt_surge_lt__surge_2', 'Vermilion City Gym'),
+        gym('hgss_leader_janine_janine', 'hgss_leader_janine_janine_2', 'Fuchsia City Gym'),
+        gym('hgss_leader_erika_erika', 'hgss_leader_erika_erika_2', 'Celadon City Gym'),
+        gym('hgss_leader_sabrina_sabrina', 'hgss_leader_sabrina_sabrina_2', 'Saffron City Gym'),
+        gym('hgss_leader_blaine_blaine', 'hgss_leader_blaine_blaine_2', 'Seafoam Islands Gym'),
+        gym('hgss_leader_blue_blue', 'hgss_leader_blue_blue_2', 'Viridian City Gym'),
+        gym('hgss_pkmn_trainer_red_red', None, 'Mt. Silver'),
+        by_starter('Indigo Plateau and Saffron’s Dojo (rematches)', silver(19, 20, 21)),
+        tag('Dragon’s Den, with Silver at your side', ['hgss_champion_lance_3', 'hgss_leader_clair_clair_3'], 'Lance & Clair'),
+        gym('hgss_rocket_boss_giovanni', None, 'Celebi’s journey into the past (Team Rocket)'),
+        gym('hgss_youngster_mickey', None, 'Cerulean Cave, after Mewtwo'),
+    ]),
+    ('sinnoh', 'Sinnoh', [
+        by_starter('Route 201', sinnoh_rival('route_201')),
+        by_starter('Route 203', sinnoh_rival('route_203')),
+        gym('leader_roark', 'leader_roark_rematch', 'Oreburgh City Gym'),
+        gym('commander_mars_valley_windworks', None, 'Valley Windworks (Team Galactic)'),
+        gym('sovereign_cheryl_eterna_forest', None, 'Eterna Forest'),
+        gym('leader_gardenia', 'leader_gardenia_rematch', 'Eterna City Gym'),
+        gym('commander_jupiter_team_galactic_eterna_building', None, 'Galactic Eterna Building'),
+        gym('sovereign_mira_wayward_cave', None, 'Wayward Cave'),
+        gym('leader_fantina', 'leader_fantina_rematch', 'Hearthome City Gym'),
+        by_starter('Route 209 gate', sinnoh_rival('route_209')),
+        tag('Pokémon Mansion, with Cedric at your side', ['sovereign_saturn_pokemon_mansion', 'sovereign_backlot_pokemon_mansion'],
+            'Saturn & Backlot'),
+        gym('leader_maylene', 'leader_maylene_rematch', 'Veilstone City Gym'),
+        by_starter('Pastoria City', sinnoh_rival('pastoria_city')),
+        gym('leader_wake', 'leader_wake_rematch', 'Pastoria City Gym'),
+        gym('galactic_boss_cyrus_celestic_town_ruins', None, 'Celestic Town ruins'),
+        gym('sovereign_darach_pal_park', None, 'Pal Park'),
+        by_starter('Canalave City', sinnoh_rival('canalave_city')),
+        gym('sovereign_riley_iron_island', None, 'Iron Island'),
+        gym('leader_byron', 'leader_byron_rematch', 'Canalave City Gym'),
+        gym('commander_mars_lake_verity', None, 'Lake Verity'),
+        gym('commander_saturn_valor_cavern', None, 'Valor Cavern'),
+        gym('leader_candice', 'leader_candice_rematch', 'Snowpoint City Gym'),
+        gym('commander_saturn_galactic_hq', None, 'Galactic HQ'),
+        gym('galactic_boss_cyrus_galactic_hq', None, 'Galactic HQ'),
+        tag('Spear Pillar, with Cedric at your side', ['commander_mars_spear_pillar', 'commander_jupiter_spear_pillar'], 'Mars & Jupiter'),
+        gym('galactic_boss_cyrus_distortion_world', None, 'Distortion World',
+            [('Dialga & Palkia', 'sovereign_cyrus_distortion_world_legends')]),
+        gym('leader_volkner', 'leader_volkner_rematch', 'Sunyshore City Gym'),
+        gym('sovereign_dahlia_sunyshore', None, 'Sunyshore City'),
+        gym('sovereign_marley_victory_road', None, 'Victory Road'),
+        by_starter('Pokémon League', sinnoh_rival('pokemon_league')),
+        league_s('aaron'), league_s('bertha'), league_s('flint'), league_s('lucian'),
+        gym('champion_cynthia', 'champion_cynthia_rematch', 'Champion',
+            [('Doubles', 'sovereign_champion_cynthia_doubles'), ('Doubles rematch', 'sovereign_champion_cynthia_rematch_doubles')]),
+    ]),
+    ('postgame', 'Sinnoh after the League', [
+        by_starter('Fight Area', sinnoh_rival('fight_area')),
+        tag('Fight Area, with Cedric at your side', ['leader_volkner_fight_area', 'elite_four_flint_fight_area'], 'Volkner & Flint'),
+        tag('Stark Mountain, one after the other', ['commander_mars_stark_mountain', 'commander_jupiter_stark_mountain'],
+            'Mars & Jupiter'),
+        gym('sovereign_buck_route_227', None, 'Route 227'),
+        by_starter('Survival Area', sinnoh_rival('survival_area_1')),
+        by_starter('Survival Area, again', sinnoh_rival('survival_area_2')),
+        gym('sovereign_steven_oreburgh', None, 'Oreburgh City'),
+    ]),
+    ('battleground', 'The Battleground', [
+        gym('sovereign_cyrus_battleground', None, 'Battleground'),
+        tag('Battleground', ['sovereign_mars_battleground', 'sovereign_jupiter_battleground', 'sovereign_saturn_battleground'],
+            'Mars, Jupiter & Saturn'),
+        by_starter('Battleground', [f'sovereign_lucas_battleground_{s}' for s in ('turtwig', 'chimchar', 'piplup')]),
+        by_starter('Battleground', [f'sovereign_dawn_battleground_{s}' for s in ('turtwig', 'chimchar', 'piplup')]),
+        tag('Battleground', ['cheryl_battleground', 'mira_battleground', 'riley_battleground', 'buck_battleground',
+                             'marley_battleground'], 'Cheryl, Mira, Riley, Buck & Marley'),
+    ]),
 ]
+
 
 TYPE_COLOURS = {
     'NORMAL': '#9a9a7c', 'FIRE': '#e8743c', 'WATER': '#5b8ee8', 'ELECTRIC': '#e8c232', 'GRASS': '#6cbb4a',
@@ -400,23 +507,37 @@ def team_html(trainer_file):
 </div>''', ace, data.get('double_battle')
 
 
-def trainer_card(first, rematch, subtitle):
-    data, first_html, ace, doubles = team_html(first)
-    tabs = f'<button class="tab on" data-k="a">First battle <span>Lv. {ace}</span></button>'
-    panes = f'<div class="pane on" data-k="a">{first_html}</div>'
-    if rematch and os.path.exists(os.path.join(TRAINERS, rematch + '.json')):
-        _, re_html, re_ace, _ = team_html(rematch)
-        tabs += f'<button class="tab" data-k="b">Rematch <span>Lv. {re_ace}</span></button>'
-        panes += f'<div class="pane" data-k="b">{re_html}</div>'
-    cls_label = data['class'][len('TRAINER_CLASS_'):]
-    return f'''<article class="trainer" id="{esc(first)}">
+def trainer_card(entry):
+    tabs, panes, first = [], [], None
+    for i, (label, stem) in enumerate(entry['tabs']):
+        if not os.path.exists(os.path.join(TRAINERS, stem + '.json')):
+            continue
+        data, team, ace, doubles = team_html(stem)
+        if first is None:
+            first = data
+        if label is None:
+            label = species_name(starter_line(data)) if entry.get('starter_tabs') else data['name']
+        on = ' on' if not tabs else ''
+        sprite = trainer_sprite(data['class'])
+        tabs.append(f'<button class="tab{on}" data-k="{i}" data-sprite="{sprite}" data-sub="{" · Double battle" if doubles else ""}">'
+                    f'{esc(label)} <span>Lv. {ace}</span></button>')
+        panes.append(f'<div class="pane{on}" data-k="{i}">{team}</div>')
+    name = entry.get('name') or first['name']
+    note = entry.get('note') or ('One version for each starter: the tab names the rival’s own.' if entry.get('starter_tabs') else '')
+    sprite = tabs[0].split('data-sprite="')[1].split('"')[0]
+    return f"""<article class="trainer" id="{esc(entry['tabs'][0][1])}">
   <header>
-    <img class="tsprite" src="{trainer_sprite(data["class"])}" alt="{esc(data["name"])}">
-    <div class="th"><h3>{esc(data["name"])}</h3><div class="sub">{esc(subtitle)}{' · Double battle' if doubles else ''}</div>
-      <div class="tabs" role="tablist">{tabs}</div></div>
+    <img class="tsprite" src="{sprite}" alt="{esc(name)}">
+    <div class="th"><h3>{esc(name)}</h3><div class="sub">{esc(entry['where'])}</div>{f'<div class="sub">{esc(note)}</div>' if note else ''}
+      <div class="tabs" role="tablist">{''.join(tabs)}</div></div>
   </header>
-  {panes}
-</article>'''
+  {''.join(panes)}
+</article>"""
+
+
+def starter_line(data):
+    """The rival's starter, from its team's last Pokémon (the ace)"""
+    return data['party'][-1]['species']
 
 
 CSS = '''
@@ -503,25 +624,41 @@ document.querySelectorAll('.team').forEach(team=>{
 '''
 
 
+def dedupe_images(page):
+    """Each picture once, in a table the page's script fills the images from (the same sprites repeat a lot)"""
+    ids = {}
+
+    def key(uri):
+        return ids.setdefault(uri, len(ids))
+
+    page = re.sub(r'src="(data:image/png;base64,[^"]+)"', lambda m: f'data-img="{key(m.group(1))}"', page)
+    page = re.sub(r'data-sprite="(data:image/png;base64,[^"]+)"', lambda m: f'data-sprite="{key(m.group(1))}"', page)
+    table = json.dumps(list(ids))
+    script = ('<script>const IMG=' + table + ';document.querySelectorAll("[data-img]").forEach(e=>e.src=IMG[e.dataset.img]);'
+              'document.querySelectorAll("[data-sprite]").forEach(e=>e.dataset.sprite=IMG[e.dataset.sprite]);</script>')
+    return page.replace('<script>', script + '<script>', 1)
+
+
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, '.cache', 'gym_teams', 'index.html')
     body = []
     for sid, title, rows in SECTIONS:
         body.append(f'<section id="{sid}"><h2>{esc(title)}</h2><div class="trainers">')
-        body.extend(trainer_card(*row) for row in rows)
+        body.extend(trainer_card(entry) for entry in rows)
         body.append('</div></section>')
     nav = ''.join(f'<a href="#{sid}">{esc(title)}</a>' for sid, title, _ in SECTIONS)
     page = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="claude:viewport-fit-sides" content="cover">
-<title>Sovereign Complete Gym Teams</title>
+<title>Sovereign Complete Boss Teams</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
 <style>{CSS}</style></head>
 <body><div class="wrap">
-<h1>Gym Leaders, Elite Fours and Champions</h1>
-<p class="lede">Every team as the game builds it today: Johto's and Kanto's from Sacred Gold, Sinnoh's from Renegade Platinum
-through Sovereign, at their levels after Kanto and evolved to match. Tap a Pokémon to see its set below the grid; switch to the
-rematch with the tabs.</p>
+<h1>Boss battles, in story order</h1>
+<p class="lede">Every Gym Leader, rival, villain, Elite Four and Champion, in the order a player meets them: Johto, then Kanto,
+then Sinnoh. Each team is as the game builds it today: Johto's and Kanto's from Sacred Gold, Sinnoh's from Renegade
+Platinum through Sovereign, at their levels after Kanto and evolved to match. Rematches are a tab on the first battle's
+card; a rival's card has a tab for each starter. Tap a Pokémon to see its set.</p>
 <nav>{nav}</nav>
 {''.join(body)}
 <footer>Built from the repository by <code>tools/complete/gym_teams_page.py</code>. IVs come from each Pokémon's IV scale
@@ -529,6 +666,7 @@ unless its data sets them; a nature marked “seeded” comes from the trainer's
 changes if the trainer's class, level, species or IV scale does. Moves marked “Level-up moves” are the last four it learns
 by its level, because its data names none.</footer>
 </div><script>{JS}</script></body></html>'''
+    page = dedupe_images(page)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(page)
     print(out, f'{len(page) / 1e6:.2f} MB')

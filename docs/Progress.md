@@ -1872,3 +1872,10 @@ rematch: the trainer's picture, the six Pokémon in a 3×2 grid with their level
 nature and IV/EV spreads. It works each Pokémon out as `TrainerData_BuildParty` does: Sinnoh's at their levels after
 Kanto and evolved to match, the nature from the trainer's seeded personality, the level-up moves where the data names
 none. Published at https://claude.ai/artifact/AzmcKhuVbzgkUu7jPceRyd (rerun the script and republish after a change).
+
+The page now lists every boss battle in story order (the owner's call, Nov 6): Johto, Kanto and Sinnoh's Gym Leaders,
+the rivals (a tab for each starter), Team Rocket's and Team Galactic's bosses, the Kimono Girls, Eusine, Red, the "???"
+trainer, Renegade's added battles (Cheryl, Mira, Darach, Riley, Dahlia, Marley, Buck, Steven), the Elite Fours and
+Champions (Sinnoh's with their doubles versions), the tag battles, Sinnoh after the League and the Battleground.
+`tools/complete/gym_teams_sheet.py` writes the same as a spreadsheet (one tab per part, one row per Pokémon) for the
+owner's Google Sheet. The game has no Team Magma or Aqua battles.
