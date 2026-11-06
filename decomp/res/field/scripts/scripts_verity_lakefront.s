@@ -9,6 +9,7 @@
     ScriptEntryEnd
 
 VerityLakefront_OnLoad:
+    SetVar VAR_VERITY_LAKEFRONT_STATE, 1 @ Sovereign Complete: as on transition, below
     GoToIfUnset FLAG_DEFEATED_COMMANDER_SATURN_VALOR_CAVERN, VerityLakefront_RemoveWarpsLakeVerityNormal
     GoToIfSet FLAG_DEFEATED_COMMANDER_SATURN_VALOR_CAVERN, VerityLakefront_RemoveWarpsLakeVerityLowWater
     End
@@ -24,6 +25,7 @@ VerityLakefront_RemoveWarpsLakeVerityLowWater:
     End
 
 VerityLakefront_OnTransition:
+    SetVar VAR_VERITY_LAKEFRONT_STATE, 1 @ Sovereign Complete: Platinum's walk to the lake with Barry doesn't play (Sinnoh's opening is Canalave's; CommonScript_CompleteSinnohArrival), for saves from before it set this too
     GoToIfUnset FLAG_DEFEATED_COMMANDER_SATURN_VALOR_CAVERN, VerityLakefront_RemoveWarpsLakeVerityNormal
     GoToIfSet FLAG_DEFEATED_COMMANDER_SATURN_VALOR_CAVERN, VerityLakefront_RemoveWarpsLakeVerityLowWater
     End

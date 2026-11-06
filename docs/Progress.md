@@ -2061,3 +2061,9 @@ Test results on the new test build:
   from its table of 118 (a vanilla overrun), leaving the pots' patches with Berries numbered as high as 108 (there are 64) and
   yields of 542 or 65535: the pots are emptied the first time they open (their time still unset), for new games and earlier
   saves.
+- **Lake Verity's Mars unreachable (found by the Sinnoh story run):** Verity Lakefront's walk to the lake with Barry
+  (Platinum's opening) fires while `VAR_VERITY_LAKEFRONT_STATE` is 0 and warps to the low-water lake, where Mars never
+  is. Complete's Sinnoh opening (Canalave, then the starter at Sandgem's lab) marks Platinum's opening done but missed
+  that var, so the player could never reach Lake Verity's Galactic scene, and the walk would have tried to move a Barry
+  who isn't there. `CommonScript_CompleteSinnohArrival` now sets it, and the lakefront sets it as it loads, for saves
+  from before. The story run from "Mars at Lake Verity" passes and goes on.
