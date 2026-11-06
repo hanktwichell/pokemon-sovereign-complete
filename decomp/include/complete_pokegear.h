@@ -10,13 +10,15 @@
 // Pokégear (src/applications/complete_pokegear/, an overlay in the Pokétch's place). The Pokégear shows once the
 // player has it (FLAG_HGSS_GOT_POKEGEAR) and either has no Pokétch or last switched to the Pokégear (a bit in the
 // Pokétch's save); a script hiding the Pokétch hides it too. src/overlay005/ov5_021EA714.c starts and ends the one
-// wanted; src/overlay005/complete_bottom_screen.c switches them as the field runs.
+// wanted; src/overlay005/complete_bottom_screen.c switches them as the field runs. A photo from the album
+// (include/complete_photo.h) and HeartGold's Dowsing Machine (include/complete_dowsing.h) take its place too.
 
 enum CompleteBottomScreen {
     COMPLETE_BOTTOM_SCREEN_UNAVAILABLE = 0,
     COMPLETE_BOTTOM_SCREEN_POKETCH,
     COMPLETE_BOTTOM_SCREEN_POKEGEAR,
     COMPLETE_BOTTOM_SCREEN_PHOTO, // a photo from the album shows (include/complete_photo.h)
+    COMPLETE_BOTTOM_SCREEN_DOWSING, // HeartGold's Dowsing Machine is on (include/complete_dowsing.h)
 };
 
 // src/complete_pokegear_state.c (main)
@@ -35,6 +37,7 @@ enum CompleteBottomScreen CompleteBottomScreen_Wanted(SaveData *saveData);
 enum CompleteBottomScreen CompleteBottomScreen_Active(void);
 void CompleteBottomScreen_SetActive(enum CompleteBottomScreen screen);
 void CompleteBottomScreen_RequestSwitch(SaveData *saveData); // the switch button: the other of Pokétch and Pokégear
+void CompleteBottomScreen_RequestRefresh(void); // the screen wanted may have changed (the Dowsing Machine on or off)
 BOOL CompleteBottomScreen_SwitchDue(SaveData *saveData);
 u8 CompletePokegear_GetPage(void); // the page the Pokégear was last on, as HeartGold's comes back to its last app
 void CompletePokegear_SetPage(u8 page);

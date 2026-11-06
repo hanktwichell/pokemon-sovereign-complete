@@ -10,6 +10,7 @@
 #include "heap.h"
 #include "math_util.h"
 #include "sys_task_manager.h"
+#include "complete_dowsing.h" // Sovereign Complete
 
 #define MAIN_TASK_MAX        160
 #define VBLANK_TASK_MAX      32
@@ -308,7 +309,8 @@ void ReadKeypadAndTouchpad(void)
         return;
     }
 
-    padRead = PAD_Read();
+    padRead = PAD_Read() | gCompleteSimulatedKeys; // Sovereign Complete: and the touch screen's A (HeartGold's simulatedInputs)
+    gCompleteSimulatedKeys = 0;
 
     gSystem.pressedKeysRaw = padRead & (padRead ^ gSystem.heldKeysRaw);
     gSystem.pressedKeysRepeatableRaw = gSystem.pressedKeysRaw;

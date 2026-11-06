@@ -32,6 +32,7 @@
 
 #include "complete_gyms.h" // Sovereign Complete
 #include "complete_phone.h" // Sovereign Complete
+#include "complete_dowsing.h" // Sovereign Complete
 
 typedef BOOL (*TileBehaviorFunc)(u8);
 
@@ -2472,6 +2473,11 @@ static BOOL MovementAction_IsWalkOnSpotSlow(enum MovementAction movementAction)
 BOOL PlayerAvatar_IsRunButtonHeld(PlayerAvatar *playerAvatar, u16 pad)
 {
     if (pad & PAD_BUTTON_B) {
+        return TRUE;
+    }
+
+    // Sovereign Complete: or HeartGold's running shoes are on (its RunningShoesLock, include/complete_dowsing.h)
+    if (CompleteDowsing_RunningShoesOn(MapObject_FieldSystem(PlayerAvatar_GetMapObject(playerAvatar))->saveData)) {
         return TRUE;
     }
 

@@ -41,3 +41,4 @@ subdir('complete_town_map') # Sovereign Complete: the three-region Town Map
 subdir('complete_photo_album') # Sovereign Complete: HeartGold's photo album
 subdir('complete_berry_pots') # Sovereign Complete: HeartGold's Berry Pots
 subdir('complete_unown_report') # Sovereign Complete: HeartGold's Unown Report
+subdir('complete_dowsing') # Sovereign Complete: HeartGold's Dowsing Machine

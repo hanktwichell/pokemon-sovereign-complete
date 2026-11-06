@@ -1212,6 +1212,28 @@ from its assembly in `src/applications/complete_unown_report/`; its graphics fro
 Test: `tools/complete/test_unown_report.py` (16 Unown seen and every report: the 9 pages turned with the buttons and the
 touch screen's arrows, CANCEL and B; at report level 2, 5 pages).
 
+## The Dowsing Machine
+
+HeartGold's Dowsing Machine, ported (`include/complete_dowsing.h`; its screen, HeartGold's overlay 28, written in C
+from its assembly in `src/applications/complete_dowsing/`; its graphics from HeartGold's a/2/5/1 and its touch-screen
+buttons from a/0/1/4, by `tools/complete/import_hgss_dowsing.py`; its labels HeartGold's message bank 196; its beep
+HeartGold's `SEQ_SE_GS_DOWSING_SINGLE`):
+- **The key item:** the man in Ecruteak City's Dowsing Machine house gives it. Used from the bag (back to the field)
+  or registered to Y, it takes the field's bottom screen in the Pokégear's or the Pokétch's place, and stays on
+  through battles, menus and map changes until EXIT; the Pokégear or Pokétch comes back then.
+- **The radar:** hold the circle and the nearest hidden item within 17 tiles is found. The four needles circling the
+  radar strengthen (their colour and blink) and swing toward it, more the nearer it is; within 8 tiles all four point
+  from the touch at the item. The dots around the touch light up, brightest over the item within 8 tiles; a beep
+  every few frames rises with the needles and, within 8 tiles, as the touch nears the item. Let go and they fade.
+- **HeartGold's touch-screen buttons around it:** the A button, labelled with what A does (CHECK; TALK facing a person;
+  NEXT while a message shows; FISHING with a rod out), presses A when touched (the pad's next frame,
+  `gCompleteSimulatedKeys`); the running shoes, touched, make the player run without holding B (HeartGold's running
+  shoes lock, in Complete's phone save, so saves keep their size); EXIT. The shoes and EXIT hide while a script or
+  menu runs on the field, and the shoes on the bike, as in HeartGold.
+
+Test: `tools/complete/test_dowsing.py` (next to a Johto hidden item: Y, the radar held, its levels from 10, 15 and 20
+tiles away, the A button picking the item up, the running shoes, EXIT, the bag's USE, a map change).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
@@ -1220,6 +1242,3 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn points:
   `src/spawn_locations.c`). The fly map on the Pokégear's Map and the list of places reached that stood in before
   were taken out (the owner's call, Nov 6).
-- **The Dowsing Machine** (a key item Sacred Gold's scripts give) does nothing yet (`docs/Roadmap.md`, "Still open");
-  the Pokétch's Dowsing app finds Johto's and Kanto's hidden items. The Berry Pots and the Unown Report are ported
-  (above).

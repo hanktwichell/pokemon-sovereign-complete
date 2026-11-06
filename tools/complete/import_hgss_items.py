@@ -12,9 +12,10 @@ files/itemtool/itemdata/item_icon/, converted with nitrogfx; they convert back b
 
 The items: the S.S. Ticket (Platinum's item at its number is the Tea) and HeartGold's own from the Apricorn Box on,
 except the Pokéathlon's 27 data cards (the Pokéathlon is skipped) and the ones Sovereign has (the Silver and
-Rainbow Wings, the Red and Blue Orbs). Kurt's balls are in the Poké Balls pocket but can't be thrown until their
-catch rules and graphics come (step 5); the Apricorn Box, Berry Pots, Dowsing Machine, Unown Report and GB Sounds
-are key items with no use until their features come.
+Rainbow Wings, the Red and Blue Orbs). Kurt's balls are in the Poké Balls pocket and thrown in battle with
+HeartGold's catch rules (src/battle/battle_script.c); the Berry Pots, Unown Report and Dowsing Machine are key items
+used from the bag or on Y (OWN_FIELD_USES); the Apricorn Box and GB Sounds have no use yet. A rerun keeps the items'
+numbers: the entries go back where they were, before the HM09 that tools/complete/hm_moves.py lists last.
 
 Sacred Gold's own items follow (step 4; docs/SacredGold.md): six items it put in slots HeartGold doesn't use (the
 Journal, Seal Bag, Works Key, Old Charm, Member Card and Secret Key), each used from the bag like an evolution stone
@@ -78,12 +79,14 @@ def icon_indices():
 OWN_FIELD_USES = {
     'berry_pots': ('ITEM_USE_FUNC_COMPLETE_BERRY_POTS', True),  # include/complete_berry_pots.h
     'unown_report': ('ITEM_USE_FUNC_COMPLETE_UNOWN_REPORT', True),  # include/complete_unown_report.h
+    'dowsing_mchn': ('ITEM_USE_FUNC_COMPLETE_DOWSING', True),  # include/complete_dowsing.h
 }
 
 
 def item_json(stem, name, plural, article, description, price, pocket, prevent_toss=False, fling_power=0,
               field_use='ITEM_USE_FUNC_NONE'):
     field_use, can_register = OWN_FIELD_USES.get(stem, (field_use, False))
+    thrown = pocket == 'POCKET_BALLS' and stem not in ('sport_ball', 'park_ball')
     return {
         'name': name,
         'plural': plural,
@@ -102,9 +105,11 @@ def item_json(stem, name, plural, article, description, price, pocket, prevent_t
         'preventToss': prevent_toss,
         'canRegister': can_register,  # the key items HeartGold registers, once they have their use (OWN_FIELD_USES)
         'fieldPocket': pocket,
-        'battlePocket': 'BATTLE_POCKET_MASK_NONE',  # Kurt's balls: thrown from step 5
+        # Kurt's Apricorn Balls are thrown from the bag in battle (HeartGold's catch rules, src/battle/battle_script.c);
+        # the Sport and Park Balls only in their own events' battles (the Bug-Catching Contest's, the Pal Park's)
+        'battlePocket': 'BATTLE_POCKET_MASK_POKE_BALLS' if thrown else 'BATTLE_POCKET_MASK_NONE',
         'fieldUseFunc': field_use,
-        'battleUseCategory': 'BATTLE_USE_CATEGORY_NONE',
+        'battleUseCategory': 'BATTLE_USE_CATEGORY_POKE_BALL' if thrown else 'BATTLE_USE_CATEGORY_NONE',
         'itemUseParams': {} if field_use == 'ITEM_USE_FUNC_EVO_STONE' else None,
     }
 
@@ -209,8 +214,11 @@ def main():
             new_names.append(name)
             stems.append(stem)
 
-    max_at = ours.index('MAX_ITEMS')
-    open(items_txt, 'w').write('\n'.join(ours[:max_at] + new_names + ours[max_at:]) + '\n')
+    # where a rerun's entries were, so the items added after them (HM09, tools/complete/hm_moves.py) keep their numbers
+    listed = [line for line in open(items_txt).read().splitlines() if line.strip()]
+    first = next((i for i, line in enumerate(listed) if line in ours_names), None)
+    at = len([line for line in listed[:first] if line not in ours_names]) if first is not None else ours.index('MAX_ITEMS')
+    open(items_txt, 'w').write('\n'.join(ours[:at] + new_names + ours[at:]) + '\n')
 
     meson = os.path.join(ITEMS_DIR, 'icons/meson.build')
     text = open(meson).read()

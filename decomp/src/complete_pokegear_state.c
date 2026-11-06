@@ -4,6 +4,7 @@
 
 #include "generated/vars_flags.h"
 
+#include "complete_dowsing.h"
 #include "complete_phone.h"
 #include "poketch.h"
 #include "savedata.h"
@@ -52,6 +53,10 @@ enum CompleteBottomScreen CompleteBottomScreen_Wanted(SaveData *saveData)
         return COMPLETE_BOTTOM_SCREEN_UNAVAILABLE;
     }
 
+    if (CompleteDowsing_IsOn()) {
+        return COMPLETE_BOTTOM_SCREEN_DOWSING;
+    }
+
     if (CompletePokegear_IsOwned(saveData) && (!Poketch_IsEnabled(poketch) || poketch->completePokegearShown)) {
         return COMPLETE_BOTTOM_SCREEN_POKEGEAR;
     }
@@ -80,6 +85,11 @@ void CompleteBottomScreen_RequestSwitch(SaveData *saveData)
         poketch->completePokegearShown = FALSE;
         sBottomScreenSwitchRequested = TRUE;
     }
+}
+
+void CompleteBottomScreen_RequestRefresh(void)
+{
+    sBottomScreenSwitchRequested = TRUE;
 }
 
 // The field switches the bottom screen as it runs when the player asked for the other one, or got the Pokégear while

@@ -27,6 +27,7 @@
 #include "berry_patch_manager.h"
 #include "bg_window.h"
 #include "complete_berry_pots.h" // Sovereign Complete
+#include "complete_dowsing.h" // Sovereign Complete
 #include "complete_unown_report.h" // Sovereign Complete
 #include "complete_map_info.h"
 #include "complete_scrcmd.h" // Sovereign Complete
@@ -105,6 +106,9 @@ static void UseCompleteBerryPotsFromMenu(ItemMenuUseContext *usageContext, const
 static BOOL UseCompleteBerryPotsInField(ItemFieldUseContext *usageContext); // Sovereign Complete
 static void UseCompleteUnownReportFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext); // Sovereign Complete
 static BOOL UseCompleteUnownReportInField(ItemFieldUseContext *usageContext); // Sovereign Complete
+static void UseCompleteDowsingFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext); // Sovereign Complete
+static BOOL UseCompleteDowsingInField(ItemFieldUseContext *usageContext); // Sovereign Complete
+static enum ItemUseCheckResult CanUseCompleteDowsing(const ItemUseContext *usageContext); // Sovereign Complete
 static BOOL UseBicycleInField(ItemFieldUseContext *usageContext);
 static BOOL UseJournalInField(ItemFieldUseContext *usageContext);
 static BOOL UseOldRodInField(ItemFieldUseContext *usageContext);
@@ -175,6 +179,7 @@ static const ItemUseFuncDat sItemUseFuncs[] = {
     [ITEM_USE_FUNC_SOVEREIGN_FORM] = { UseSovereignFormItemFromMenu, NULL,          NULL              },
     [ITEM_USE_FUNC_COMPLETE_BERRY_POTS] = { UseCompleteBerryPotsFromMenu, UseCompleteBerryPotsInField, NULL }, // Sovereign Complete
     [ITEM_USE_FUNC_COMPLETE_UNOWN_REPORT] = { UseCompleteUnownReportFromMenu, UseCompleteUnownReportInField, NULL }, // Sovereign Complete
+    [ITEM_USE_FUNC_COMPLETE_DOWSING] = { UseCompleteDowsingFromMenu, UseCompleteDowsingInField, CanUseCompleteDowsing }, // Sovereign Complete
 };
 // clang-format on
 
@@ -1106,6 +1111,34 @@ static BOOL UseCompleteUnownReportInField(ItemFieldUseContext *usageContext)
 {
     RegisteredItem_CreateGoToAppTask(usageContext, CompleteUnownReport_LaunchRegistered);
     return TRUE;
+}
+
+// Sovereign Complete: HeartGold's Dowsing Machine (include/complete_dowsing.h), from the bag (back to the field, as
+// HeartGold's ItemMenuUseFunc_DowsingMchn) or registered to Y, where it's a bottom screen to take; on Y while it's
+// already on, nothing (HeartGold's)
+static enum ItemUseCheckResult CanUseCompleteDowsing(const ItemUseContext *usageContext)
+{
+    return CompleteDowsing_CanUse(usageContext->fieldSystem) ? ITEM_USE_CAN_USE : ITEM_USE_CANNOT_USE_GENERIC;
+}
+
+static void UseCompleteDowsingFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(usageContext->fieldTask);
+    StartMenu *menu = FieldTask_GetEnv(usageContext->fieldTask);
+
+    FieldSystem_StartFieldMap(fieldSystem);
+    menu->callback = CompleteDowsing_FieldTask_Start;
+    menu->taskData = NULL;
+    menu->state = START_MENU_STATE_NEW_TASK;
+}
+
+static BOOL UseCompleteDowsingInField(ItemFieldUseContext *usageContext)
+{
+    if (!CompleteDowsing_IsOn()) {
+        FieldSystem_CreateTask(usageContext->fieldSystem, CompleteDowsing_FieldTask_Start, NULL);
+    }
+
+    return FALSE;
 }
 
 // Sovereign (FM): the form-change key items (Reveal Glass, DNA Splicers...) open the party menu like the Gracidea, and

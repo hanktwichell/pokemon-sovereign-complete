@@ -80,8 +80,8 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: HeartGold\'s ports (the album, the Berry Pots and the Unown Report are in; next the Dowsing Machine, then '
-    'the Pokéathlon), and the Sinnoh story run, now past Lake Verity.',
+    'Now: HeartGold\'s ports (the album, the Berry Pots, the Unown Report and the Dowsing Machine are in; next the '
+    'Pokéathlon, the biggest), and the Sinnoh story run, now past Lake Verity.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -224,7 +224,7 @@ ANSWERED = [
     (7, 'The photo album', 'Port it; every HeartGold feature gets ported, used or not.', 'Done'),
     (8, 'The Pokéathlon', 'Port it too.', 'Claude, planned (the biggest port)'),
     (9, 'HeartGold\'s key items', 'Port all three: the Berry Pots, the Unown Report, the Dowsing Machine.',
-     'Berry Pots and Unown Report done; the Dowsing Machine next'),
+     'Done'),
     (10, 'Trade evolutions', 'Trade items work from the bag like stones; trade evolutions with no item become level-up '
      'evolutions.', 'Done'),
     (11, 'Whirlpool and Defog', 'Whirlpool is HM05; Defog is a new HM09 where Platinum has it; HMs can be forgotten '
@@ -248,6 +248,15 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('HeartGold\'s Dowsing Machine (your answer 9)', [
+        'The Dowsing Machine from the man in Ecruteak City now works: from the bag or on Y, HeartGold\'s radar takes the '
+        'bottom screen until you touch EXIT. Hold the circle and its needles swing toward the nearest hidden item, its '
+        'dots light up brightest over it, and it beeps higher as you get close. Around it, HeartGold\'s touch buttons: '
+        'A (labelled CHECK, TALK, NEXT or FISHING) and the running shoes, which let you run without holding B. Written '
+        'in C from HeartGold\'s machine code, like the Unown Report. Tested in the emulator: 0 problems. Pictures: Gallery '
+        'tab.',
+        'With it, all three of HeartGold\'s key items you asked for are in. Next: the Pokéathlon.',
+    ]),
     ('The Pokégear\'s fly map taken out (your answer 21)', [
         'Fly is the Town Map\'s everywhere, so HeartGold\'s fly map on the Pokégear\'s Map page, and the list of places '
         'that stood in before it, are gone, with their code and tests. The Town Map, Pokégear and Sinjoh Fly tests pass.',

@@ -2083,3 +2083,18 @@ Test results on the new test build:
   macros, the common script, which keeps its number as an empty stub, the Fly text, and their tests). Fly from the
   party menu opens the Town Map everywhere, as before. The fly points' table the Town Map and Sinjoh tests read moved
   to `tools/complete/hgss_fly_points.py`. The Town Map, Pokégear and Sinjoh Fly tests pass on the new build.
+- **HeartGold's Dowsing Machine (the owner's call: every HeartGold feature ported):** the key item from Ecruteak
+  City's Dowsing Machine house now works, from the bag or on Y (`docs/Features.md`, "The Dowsing Machine"). HeartGold's
+  overlay 28, written in C from pret's assembly (`src/applications/complete_dowsing/`), takes the field's bottom
+  screen as a fourth screen beside the Pokétch, the Pokégear and the photo caption (`COMPLETE_BOTTOM_SCREEN_DOWSING`),
+  on until EXIT: the radar's needles, dots and beep find the nearest hidden item within 17 tiles as HeartGold's do,
+  and HeartGold's touch buttons around it work: the A button (its label from what the player faces, and touched it
+  presses A, through a small hook in `src/system.c`), the running shoes (run without B: a hook in
+  `PlayerAvatar_IsRunButtonHeld`, kept in a spare byte of Complete's phone save) and EXIT. Graphics from HeartGold's
+  a/2/5/1 and a/0/1/4 (`tools/complete/import_hgss_dowsing.py`), text bank 196, sound `SEQ_SE_GS_DOWSING_SINGLE`
+  (the fly map's `SEQ_SE_GS_GEARMAPTOUCH` left the archive with it). `tools/complete/test_dowsing.py`: 0 problems
+  (Y, the radar's four levels, the A button picking up the item, the shoes, EXIT, the bag's USE, a map change).
+- **The items importer kept item numbers and Kurt's Balls on a rerun:** `tools/complete/import_hgss_items.py`, rerun
+  for the Dowsing Machine's use, would have moved `ITEM_HM09` (renumbering items in saves) and made the Apricorn Balls
+  unthrowable again (both set by later steps). It now puts its items back where they were, and gives HeartGold's Balls
+  their battle use (the Sport and Park Balls only in their own events), so a rerun changes nothing else.

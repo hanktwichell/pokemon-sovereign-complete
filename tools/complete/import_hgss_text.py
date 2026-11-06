@@ -46,7 +46,7 @@ PREFIX = 'TEXT_BANK_HGSS_MSG_'
 # (msg_0409 to msg_0420, src/applications/complete_pokegear/); the photo album's (msg_0000,
 # src/applications/complete_photo_album/ and complete_photo_caption/); the Unown Report's (msg_0001,
 # src/applications/complete_unown_report/)
-SHARED = ['0000', '0001', '0248', '0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
+SHARED = ['0000', '0001', '0196', '0248', '0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
     [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0198', '0265', '0039', '0269'] + \
     [f'{n:04d}' for n in range(409, 421)]
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with

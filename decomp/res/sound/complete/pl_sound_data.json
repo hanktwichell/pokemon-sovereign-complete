@@ -11992,6 +11992,14 @@
 			"playerPriority":	64,
 			"player":	"PLAYER_SE_1"
 		}, {
+			"name":	"SEQ_SE_GS_DOWSING_SINGLE",
+			"fileName":	"SEQ_SE_GS_DOWSING_SINGLE.sseq",
+			"bank":	"BANK_SE_GS_COIN_PAYOUT_ONE",
+			"volume":	95,
+			"channelPriority":	104,
+			"playerPriority":	64,
+			"player":	"PLAYER_SE_2"
+		}, {
 			"name":	"SEQ_SE_GS_FW463",
 			"fileName":	"SEQ_SE_GS_FW463.sseq",
 			"bank":	"BANK_SE_GS_FW463",
@@ -12028,14 +12036,6 @@
 			"fileName":	"SEQ_SE_GS_GEARDECIDE.sseq",
 			"bank":	"BANK_SE_GS_GEARDECIDE",
 			"volume":	92,
-			"channelPriority":	104,
-			"playerPriority":	64,
-			"player":	"PLAYER_SE_1"
-		}, {
-			"name":	"SEQ_SE_GS_GEARMAPTOUCH",
-			"fileName":	"SEQ_SE_GS_GEARMAPTOUCH.sseq",
-			"bank":	"BANK_SE_GS_COIN_PAYOUT_ONE",
-			"volume":	85,
 			"channelPriority":	104,
 			"playerPriority":	64,
 			"player":	"PLAYER_SE_1"

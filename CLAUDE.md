@@ -190,6 +190,10 @@ work.
 - The Unown Report: `include/complete_unown_report.h` (HeartGold's overlay 113 in C,
   `src/applications/complete_unown_report/`). Test: `tools/complete/test_unown_report.py`. HeartGold's `{ALN_CENTER}`
   and `{ALN_RIGHT}` (control codes 0x205, 0x206) now work in Platinum's text renderer (`src/render_text.c`).
+- The Dowsing Machine: `include/complete_dowsing.h` (HeartGold's overlay 28 in C, `src/applications/complete_dowsing/`,
+  a fourth field bottom screen, `COMPLETE_BOTTOM_SCREEN_DOWSING`). Its A button presses A through
+  `gCompleteSimulatedKeys` (read with the pad in `src/system.c`); its running shoes are a byte of Complete's phone save.
+  Test: `tools/complete/test_dowsing.py`. The field runs at 30 frames a second: a test's waits count two vblanks a frame.
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

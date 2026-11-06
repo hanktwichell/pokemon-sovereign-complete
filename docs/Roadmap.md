@@ -67,7 +67,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   6. **An HM earned in Johto works everywhere** (with the badge rules as they are).
   7. **Every HeartGold feature is ported,** whether or not the game uses it: HeartGold's photo album first.
   8. **The Pokéathlon is ported** too.
-  9. **The Berry Pots, the Unown Report and the Dowsing Machine are ported.**
+  9. **The Berry Pots, the Unown Report and the Dowsing Machine are ported.** *Done Nov 6: all three, from the bag
+      or on Y (`docs/Features.md`).*
   10. **Trade evolutions:** a trade-evolution item is used from the bag like a stone; a trade evolution with no item
       becomes a level-up evolution. *Done Nov 6: at Lv. 37; Sacred Gold's Covenant Orb still works too
       (`docs/Features.md`).*
@@ -188,7 +189,22 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 | Bug-Catching Contest | Keep | ½–1 | National Park's timed contest |
 | Johto Safari Zone | Keep | ½–1 | Including the objects you place to change what appears |
 | Kurt's Apricorn Balls | Keep | ½–1 | The seven Poké Balls Kurt makes |
-| Pokéathlon | Port (Nov 6) | — | A whole separate set of minigames: ported, whether or not the game uses it |
+| Pokéathlon | Port (Nov 6) | 6–10 | A whole separate set of minigames: ported, whether or not the game uses it (plan below) |
+
+**The Pokéathlon's port, in stages (Claude's plan, Nov 6).** HeartGold's Pokéathlon is the biggest piece of its code
+pret hasn't decompiled: overlay 96 (the course and its ten events, 1,435 functions, about 109,000 lines of assembly),
+97 to 99 and 102 to 103 (the record screens and the course's parts), against about 2,800 lines for the Dowsing
+Machine. Each stage is written in C from the assembly, as the other HeartGold screens were, and goes in when it plays
+and has its test:
+1. **The Dome without the events:** HeartGold's Pokéathlon save (Athlete Points, data cards, the day's prizes, the
+   records) in its own save sector, as the photo album's is, so saves keep their size; the two prize counters paid
+   in Athlete Points (HeartGold's `ScrCmd_771`, 772, 834, 835: Platinum's Battle Point shop, with HeartGold's lists);
+   the four record screens (`ScrCmd_712`); the Pokémon's performance (Speed, Power, Skill, Stamina, Jump) from
+   HeartGold's data.
+2. **The course:** entering a course with three Pokémon, the course's flow from event to event, the results and the
+   points (overlay 96's state machine and overlays 97 and 98).
+3. **The ten events,** one at a time: Hurdle Dash, Pennant Capture, Relay Run, Block Smash, Disc Catch, Lamp Jump,
+   Circle Push, Snow Throw, Goal Roll and Ring Drop. The link-play parts stay out with the rest of link play (answer 14).
 
 ### Still open
 

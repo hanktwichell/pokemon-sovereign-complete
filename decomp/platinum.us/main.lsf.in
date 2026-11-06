@@ -252,6 +252,7 @@ Static main
 	Object src/complete_photo.c
 	Object src/complete_berry_pots.c
 	Object src/complete_unown_report.c
+	Object src/complete_dowsing.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c
@@ -1574,6 +1575,12 @@ Overlay complete_photo_caption
 {
 	After overlay9
 	Object src/applications/complete_photo_caption/photo_caption.c
+}
+
+Overlay complete_dowsing
+{
+	After overlay9
+	Object src/applications/complete_dowsing/dowsing.c
 }
 
 Overlay complete_pokegear
