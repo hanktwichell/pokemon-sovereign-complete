@@ -125,6 +125,16 @@ POSSIBLE_ISSUES = [
     ('Nov 6', 'The player in Johto and Kanto',
      'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
      'Intended so far; say if you want HeartGold\'s player in Johto and Kanto.', 'trainer_dots.jpg', 'yours'),
+    ('Nov 6', 'The player\'s name at a battle\'s end',
+     'In the recording of your team against Cynthia, the win reads "Player defeated Champion Cynthia!" but the prize '
+     'reads "A got $31200 for winning!": two names for the player (the test save\'s is A). Checked: "Player '
+     'defeated" is Platinum\'s own line (BattleStrings_Text_PlayerDefeatedLinkTr reads "Player defeated {trainer}!" '
+     'in the game\'s text), not the player\'s name; HeartGold says the same. Say if you\'d like the player\'s name '
+     'there instead.', None, 'explained'),
+    ('Nov 6', 'Your team against Cynthia, recorded',
+     'Mega Evolution works: Charizardite Y reacts to the Mega Ring on turn 1, Drought brings the sun, Heat Wave takes '
+     'Roserade and Spiritomb; Cynthia\'s double battle won in 6 turns (her Garchomp\'s Stone Edge took Mega Charizard). '
+     'Nothing else looked off.', None, 'explained'),
     ('Nov 6', 'Mega Charizard Y\'s back sprite',
      'In the recording of your team against Cynthia, Claude thought Charizard kept its normal back sprite after Mega '
      'Evolving, and was about to call it a bug. You checked: it is the Mega\'s own back (the two are close: the Mega '
