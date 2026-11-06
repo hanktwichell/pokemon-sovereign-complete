@@ -248,6 +248,13 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Kanto\'s Pal Park levels scaled down (your request)', [
+        'Kanto\'s Pal Park had Sovereign\'s post-game levels, above the land around it (Kanto\'s routes there are '
+        'Lv. 22-35, its caps 61-70). It\'s now scaled so the Galarian birds are Lv. 50, as you suggested, with the '
+        'rest in the same proportion: the regular forms 29-39 and the rarer ones (Raichu, Golem, Slowbro and the like) '
+        '43. Sinnoh\'s Pal Park, after the Hall of Fame, is unchanged. Tested: every Pokémon in the park at its new '
+        'level.',
+    ]),
     ('HeartGold\'s Dowsing Machine (your answer 9)', [
         'The Dowsing Machine from the man in Ecruteak City now works: from the bag or on Y, HeartGold\'s radar takes the '
         'bottom screen until you touch EXIT. Hold the circle and its needles swing toward the nearest hidden item, its '

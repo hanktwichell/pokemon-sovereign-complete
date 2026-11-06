@@ -66,49 +66,49 @@ static const CompletePalParkEntry sCompletePalParkSinnohPaldeaWater3[] = {
 };
 
 static const CompletePalParkEntry sCompletePalParkKantoAlolaGrass0[] = {
-    { SPECIES_RATTATA, 1, 12, 40, 55 }, // Alolan Rattata
-    { SPECIES_MEOWTH, 1, 12, 40, 55 }, // Alolan Meowth
-    { SPECIES_SANDSHREW, 1, 10, 40, 55 }, // Alolan Sandshrew
-    { SPECIES_VULPIX, 1, 10, 40, 55 }, // Alolan Vulpix
-    { SPECIES_DIGLETT, 1, 10, 40, 55 }, // Alolan Diglett
-    { SPECIES_GEODUDE, 1, 10, 40, 55 }, // Alolan Geodude
-    { SPECIES_GRIMER, 1, 8, 40, 55 }, // Alolan Grimer
-    { SPECIES_RATICATE, 1, 5, 40, 55 }, // Alolan Raticate
-    { SPECIES_PERSIAN, 1, 5, 40, 55 }, // Alolan Persian
-    { SPECIES_GRAVELER, 1, 5, 40, 55 }, // Alolan Graveler
-    { SPECIES_SANDSLASH, 1, 3, 40, 55 }, // Alolan Sandslash
-    { SPECIES_NINETALES, 1, 3, 40, 55 }, // Alolan Ninetales
-    { SPECIES_DUGTRIO, 1, 3, 40, 55 }, // Alolan Dugtrio
-    { SPECIES_MUK, 1, 3, 40, 55 }, // Alolan Muk
-    { SPECIES_GOLEM, 1, 2, 60, 60 }, // Alolan Golem
-    { SPECIES_RAICHU, 1, 2, 60, 60 }, // Alolan Raichu
-    { SPECIES_EXEGGUTOR, 1, 2, 60, 60 }, // Alolan Exeggutor
-    { SPECIES_MAROWAK, 1, 2, 60, 60 }, // Alolan Marowak
+    { SPECIES_RATTATA, 1, 12, 29, 39 }, // Alolan Rattata
+    { SPECIES_MEOWTH, 1, 12, 29, 39 }, // Alolan Meowth
+    { SPECIES_SANDSHREW, 1, 10, 29, 39 }, // Alolan Sandshrew
+    { SPECIES_VULPIX, 1, 10, 29, 39 }, // Alolan Vulpix
+    { SPECIES_DIGLETT, 1, 10, 29, 39 }, // Alolan Diglett
+    { SPECIES_GEODUDE, 1, 10, 29, 39 }, // Alolan Geodude
+    { SPECIES_GRIMER, 1, 8, 29, 39 }, // Alolan Grimer
+    { SPECIES_RATICATE, 1, 5, 29, 39 }, // Alolan Raticate
+    { SPECIES_PERSIAN, 1, 5, 29, 39 }, // Alolan Persian
+    { SPECIES_GRAVELER, 1, 5, 29, 39 }, // Alolan Graveler
+    { SPECIES_SANDSLASH, 1, 3, 29, 39 }, // Alolan Sandslash
+    { SPECIES_NINETALES, 1, 3, 29, 39 }, // Alolan Ninetales
+    { SPECIES_DUGTRIO, 1, 3, 29, 39 }, // Alolan Dugtrio
+    { SPECIES_MUK, 1, 3, 29, 39 }, // Alolan Muk
+    { SPECIES_GOLEM, 1, 2, 43, 43 }, // Alolan Golem
+    { SPECIES_RAICHU, 1, 2, 43, 43 }, // Alolan Raichu
+    { SPECIES_EXEGGUTOR, 1, 2, 43, 43 }, // Alolan Exeggutor
+    { SPECIES_MAROWAK, 1, 2, 43, 43 }, // Alolan Marowak
 };
 
 static const CompletePalParkEntry sCompletePalParkKantoGalarGrass1[] = {
-    { SPECIES_MEOWTH, 2, 12, 40, 55 }, // Galarian Meowth
-    { SPECIES_PONYTA, 1, 12, 40, 55 }, // Galarian Ponyta
-    { SPECIES_ZIGZAGOON, 1, 12, 40, 55 }, // Galarian Zigzagoon
-    { SPECIES_FARFETCHD, 1, 10, 40, 55 }, // Galarian Farfetch’d
-    { SPECIES_DARUMAKA, 1, 10, 40, 55 }, // Galarian Darumaka
-    { SPECIES_YAMASK, 1, 10, 40, 55 }, // Galarian Yamask
-    { SPECIES_MR_MIME, 1, 8, 40, 55 }, // Galarian Mr. Mime
-    { SPECIES_LINOONE, 1, 6, 40, 55 }, // Galarian Linoone
-    { SPECIES_STUNFISK, 1, 5, 40, 55 }, // Galarian Stunfisk
-    { SPECIES_RAPIDASH, 1, 4, 40, 55 }, // Galarian Rapidash
-    { SPECIES_WEEZING, 1, 4, 40, 55 }, // Galarian Weezing
-    { SPECIES_DARMANITAN, 2, 3, 40, 55 }, // Standard Galarian Darmanitan
-    { SPECIES_ARTICUNO, 1, 1, 70, 70 }, // Galarian Articuno
-    { SPECIES_ZAPDOS, 1, 1, 70, 70 }, // Galarian Zapdos
-    { SPECIES_MOLTRES, 1, 1, 70, 70 }, // Galarian Moltres
+    { SPECIES_MEOWTH, 2, 12, 29, 39 }, // Galarian Meowth
+    { SPECIES_PONYTA, 1, 12, 29, 39 }, // Galarian Ponyta
+    { SPECIES_ZIGZAGOON, 1, 12, 29, 39 }, // Galarian Zigzagoon
+    { SPECIES_FARFETCHD, 1, 10, 29, 39 }, // Galarian Farfetch’d
+    { SPECIES_DARUMAKA, 1, 10, 29, 39 }, // Galarian Darumaka
+    { SPECIES_YAMASK, 1, 10, 29, 39 }, // Galarian Yamask
+    { SPECIES_MR_MIME, 1, 8, 29, 39 }, // Galarian Mr. Mime
+    { SPECIES_LINOONE, 1, 6, 29, 39 }, // Galarian Linoone
+    { SPECIES_STUNFISK, 1, 5, 29, 39 }, // Galarian Stunfisk
+    { SPECIES_RAPIDASH, 1, 4, 29, 39 }, // Galarian Rapidash
+    { SPECIES_WEEZING, 1, 4, 29, 39 }, // Galarian Weezing
+    { SPECIES_DARMANITAN, 2, 3, 29, 39 }, // Standard Galarian Darmanitan
+    { SPECIES_ARTICUNO, 1, 1, 50, 50 }, // Galarian Articuno
+    { SPECIES_ZAPDOS, 1, 1, 50, 50 }, // Galarian Zapdos
+    { SPECIES_MOLTRES, 1, 1, 50, 50 }, // Galarian Moltres
 };
 
 static const CompletePalParkEntry sCompletePalParkKantoGalarWater1[] = {
-    { SPECIES_SLOWPOKE, 1, 45, 40, 55 }, // Galarian Slowpoke
-    { SPECIES_CORSOLA, 1, 35, 40, 55 }, // Galarian Corsola
-    { SPECIES_SLOWBRO, 1, 10, 60, 60 }, // Galarian Slowbro
-    { SPECIES_SLOWKING, 1, 10, 60, 60 }, // Galarian Slowking
+    { SPECIES_SLOWPOKE, 1, 45, 29, 39 }, // Galarian Slowpoke
+    { SPECIES_CORSOLA, 1, 35, 29, 39 }, // Galarian Corsola
+    { SPECIES_SLOWBRO, 1, 10, 43, 43 }, // Galarian Slowbro
+    { SPECIES_SLOWKING, 1, 10, 43, 43 }, // Galarian Slowking
 };
 
 static const CompletePalPark sCompletePalParks[] = {

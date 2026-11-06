@@ -9,7 +9,8 @@ The regional forms live in two Pal Parks (the owner's call, Nov 6, 2026):
 - **Kanto's**, HeartGold's Pal Park by Fuchsia City, open as soon as the player gets there, with **Alola's** forms in
   the west's tall grass and **Galar's** in the east, its water forms in the pond and the lake. There's no Catching
   Show: the receptionist lets the player in, and they catch with their own Poké Balls. The worker by the gate, or
-  stepping into the gate, takes them back out.
+  stepping into the gate, takes them back out. Its levels are Sovereign's scaled down to fit Kanto (5/7: the
+  Galarian birds at Lv. 50).
 
 Each park's map is split into quadrants; an encounter in a quadrant's tall grass or water picks one of its Pokémon by
 the odds below, at a random level in its range. Every regional form is in one of the parks.
@@ -81,24 +82,24 @@ Tall grass:
 
 | Pokémon | Odds | Levels |
 |---|---|---|
-| Alolan Rattata | 11% | 40–55 |
-| Alolan Meowth | 11% | 40–55 |
-| Alolan Sandshrew | 9% | 40–55 |
-| Alolan Vulpix | 9% | 40–55 |
-| Alolan Diglett | 9% | 40–55 |
-| Alolan Geodude | 9% | 40–55 |
-| Alolan Grimer | 7% | 40–55 |
-| Alolan Raticate | 5% | 40–55 |
-| Alolan Persian | 5% | 40–55 |
-| Alolan Graveler | 5% | 40–55 |
-| Alolan Sandslash | 3% | 40–55 |
-| Alolan Ninetales | 3% | 40–55 |
-| Alolan Dugtrio | 3% | 40–55 |
-| Alolan Muk | 3% | 40–55 |
-| Alolan Golem | 2% | 60 |
-| Alolan Raichu | 2% | 60 |
-| Alolan Exeggutor | 2% | 60 |
-| Alolan Marowak | 2% | 60 |
+| Alolan Rattata | 11% | 29–39 |
+| Alolan Meowth | 11% | 29–39 |
+| Alolan Sandshrew | 9% | 29–39 |
+| Alolan Vulpix | 9% | 29–39 |
+| Alolan Diglett | 9% | 29–39 |
+| Alolan Geodude | 9% | 29–39 |
+| Alolan Grimer | 7% | 29–39 |
+| Alolan Raticate | 5% | 29–39 |
+| Alolan Persian | 5% | 29–39 |
+| Alolan Graveler | 5% | 29–39 |
+| Alolan Sandslash | 3% | 29–39 |
+| Alolan Ninetales | 3% | 29–39 |
+| Alolan Dugtrio | 3% | 29–39 |
+| Alolan Muk | 3% | 29–39 |
+| Alolan Golem | 2% | 43 |
+| Alolan Raichu | 2% | 43 |
+| Alolan Exeggutor | 2% | 43 |
+| Alolan Marowak | 2% | 43 |
 
 ### Galar: the grass and the pond (north-east)
 
@@ -106,30 +107,30 @@ Tall grass:
 
 | Pokémon | Odds | Levels |
 |---|---|---|
-| Galarian Meowth | 12% | 40–55 |
-| Galarian Ponyta | 12% | 40–55 |
-| Galarian Zigzagoon | 12% | 40–55 |
-| Galarian Farfetch’d | 10% | 40–55 |
-| Galarian Darumaka | 10% | 40–55 |
-| Galarian Yamask | 10% | 40–55 |
-| Galarian Mr. Mime | 8% | 40–55 |
-| Galarian Linoone | 6% | 40–55 |
-| Galarian Stunfisk | 5% | 40–55 |
-| Galarian Rapidash | 4% | 40–55 |
-| Galarian Weezing | 4% | 40–55 |
-| Galarian Darmanitan | 3% | 40–55 |
-| Galarian Articuno | 1% | 70 |
-| Galarian Zapdos | 1% | 70 |
-| Galarian Moltres | 1% | 70 |
+| Galarian Meowth | 12% | 29–39 |
+| Galarian Ponyta | 12% | 29–39 |
+| Galarian Zigzagoon | 12% | 29–39 |
+| Galarian Farfetch’d | 10% | 29–39 |
+| Galarian Darumaka | 10% | 29–39 |
+| Galarian Yamask | 10% | 29–39 |
+| Galarian Mr. Mime | 8% | 29–39 |
+| Galarian Linoone | 6% | 29–39 |
+| Galarian Stunfisk | 5% | 29–39 |
+| Galarian Rapidash | 4% | 29–39 |
+| Galarian Weezing | 4% | 29–39 |
+| Galarian Darmanitan | 3% | 29–39 |
+| Galarian Articuno | 1% | 50 |
+| Galarian Zapdos | 1% | 50 |
+| Galarian Moltres | 1% | 50 |
 
 Surfing and fishing:
 
 | Pokémon | Odds | Levels |
 |---|---|---|
-| Galarian Slowpoke | 45% | 40–55 |
-| Galarian Corsola | 35% | 40–55 |
-| Galarian Slowbro | 10% | 60 |
-| Galarian Slowking | 10% | 60 |
+| Galarian Slowpoke | 45% | 29–39 |
+| Galarian Corsola | 35% | 29–39 |
+| Galarian Slowbro | 10% | 43 |
+| Galarian Slowking | 10% | 43 |
 
 ### Alola: the field by the gate (south-west)
 
@@ -137,24 +138,24 @@ Tall grass:
 
 | Pokémon | Odds | Levels |
 |---|---|---|
-| Alolan Rattata | 11% | 40–55 |
-| Alolan Meowth | 11% | 40–55 |
-| Alolan Sandshrew | 9% | 40–55 |
-| Alolan Vulpix | 9% | 40–55 |
-| Alolan Diglett | 9% | 40–55 |
-| Alolan Geodude | 9% | 40–55 |
-| Alolan Grimer | 7% | 40–55 |
-| Alolan Raticate | 5% | 40–55 |
-| Alolan Persian | 5% | 40–55 |
-| Alolan Graveler | 5% | 40–55 |
-| Alolan Sandslash | 3% | 40–55 |
-| Alolan Ninetales | 3% | 40–55 |
-| Alolan Dugtrio | 3% | 40–55 |
-| Alolan Muk | 3% | 40–55 |
-| Alolan Golem | 2% | 60 |
-| Alolan Raichu | 2% | 60 |
-| Alolan Exeggutor | 2% | 60 |
-| Alolan Marowak | 2% | 60 |
+| Alolan Rattata | 11% | 29–39 |
+| Alolan Meowth | 11% | 29–39 |
+| Alolan Sandshrew | 9% | 29–39 |
+| Alolan Vulpix | 9% | 29–39 |
+| Alolan Diglett | 9% | 29–39 |
+| Alolan Geodude | 9% | 29–39 |
+| Alolan Grimer | 7% | 29–39 |
+| Alolan Raticate | 5% | 29–39 |
+| Alolan Persian | 5% | 29–39 |
+| Alolan Graveler | 5% | 29–39 |
+| Alolan Sandslash | 3% | 29–39 |
+| Alolan Ninetales | 3% | 29–39 |
+| Alolan Dugtrio | 3% | 29–39 |
+| Alolan Muk | 3% | 29–39 |
+| Alolan Golem | 2% | 43 |
+| Alolan Raichu | 2% | 43 |
+| Alolan Exeggutor | 2% | 43 |
+| Alolan Marowak | 2% | 43 |
 
 ### Galar: the lake (south-east)
 
@@ -162,7 +163,7 @@ Surfing and fishing:
 
 | Pokémon | Odds | Levels |
 |---|---|---|
-| Galarian Slowpoke | 45% | 40–55 |
-| Galarian Corsola | 35% | 40–55 |
-| Galarian Slowbro | 10% | 60 |
-| Galarian Slowking | 10% | 60 |
+| Galarian Slowpoke | 45% | 29–39 |
+| Galarian Corsola | 35% | 29–39 |
+| Galarian Slowbro | 10% | 43 |
+| Galarian Slowking | 10% | 43 |

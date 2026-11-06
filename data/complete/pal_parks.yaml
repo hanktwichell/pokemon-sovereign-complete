@@ -10,8 +10,12 @@
 #
 # Every regional form of the four regions is in one of the parks: Sinnoh's has fewer, as Hisui and Paldea have fewer
 # forms than Alola and Galar (21 to 37).
-# Levels: Sovereign's (40-55; 60 for the rarer forms; 70 for the Galarian birds). Sinnoh's park is on a Sinnoh map, so
-# Sinnoh's level move (data/complete/sinnoh.yaml) takes them up to about 79-87 there; Kanto's keep them.
+# Levels: Sinnoh's park keeps Sovereign's (40-55; 60 for the rarer forms), and as it's on a Sinnoh map, Sinnoh's level
+# move (data/complete/sinnoh.yaml) takes them up to about 79-87 there. Kanto's park is scaled down to fit the land
+# around it (the owner's call, Nov 6, 2026: "Scale down Kanto's pal park levels appropriately for the level caps around
+# it. Maybe level 50 for the birds?"): Sovereign's levels times 5/7, so the Galarian birds are Lv. 50 and the spread
+# stays Sovereign's: 29-39 for the regular forms, 43 for the rarer ones (Kanto's routes nearby are 22-35, its caps
+# 61-70).
 
 parks:
   # Sinnoh's: Pal Park's grounds on Route 221, Sovereign's Regional Forms Park (open after the Hall of Fame). Hisui's
@@ -69,48 +73,48 @@ parks:
       - name: Alola    # the strip of grass, north-west
         place: the strip of tall grass (north-west)
         grass: &alola
-          - [rattata-alola,    12, 40, 55]
-          - [meowth-alola,     12, 40, 55]
-          - [sandshrew-alola,  10, 40, 55]
-          - [vulpix-alola,     10, 40, 55]
-          - [diglett-alola,    10, 40, 55]
-          - [geodude-alola,    10, 40, 55]
-          - [grimer-alola,      8, 40, 55]
-          - [raticate-alola,    5, 40, 55]
-          - [persian-alola,     5, 40, 55]
-          - [graveler-alola,    5, 40, 55]
-          - [sandslash-alola,   3, 40, 55]
-          - [ninetales-alola,   3, 40, 55]
-          - [dugtrio-alola,     3, 40, 55]
-          - [muk-alola,         3, 40, 55]
-          - [golem-alola,       2, 60, 60]
-          - [raichu-alola,      2, 60, 60]
-          - [exeggutor-alola,   2, 60, 60]
-          - [marowak-alola,     2, 60, 60]
+          - [rattata-alola,    12, 29, 39]
+          - [meowth-alola,     12, 29, 39]
+          - [sandshrew-alola,  10, 29, 39]
+          - [vulpix-alola,     10, 29, 39]
+          - [diglett-alola,    10, 29, 39]
+          - [geodude-alola,    10, 29, 39]
+          - [grimer-alola,      8, 29, 39]
+          - [raticate-alola,    5, 29, 39]
+          - [persian-alola,     5, 29, 39]
+          - [graveler-alola,    5, 29, 39]
+          - [sandslash-alola,   3, 29, 39]
+          - [ninetales-alola,   3, 29, 39]
+          - [dugtrio-alola,     3, 29, 39]
+          - [muk-alola,         3, 29, 39]
+          - [golem-alola,       2, 43, 43]
+          - [raichu-alola,      2, 43, 43]
+          - [exeggutor-alola,   2, 43, 43]
+          - [marowak-alola,     2, 43, 43]
         water: []
       - name: Galar    # the grass and the pond, north-east
         place: the grass and the pond (north-east)
         grass:
-          - [meowth-galar,               12, 40, 55]
-          - [ponyta-galar,               12, 40, 55]
-          - [zigzagoon-galar,            12, 40, 55]
-          - [farfetchd-galar,            10, 40, 55]
-          - [darumaka-galar,             10, 40, 55]
-          - [yamask-galar,               10, 40, 55]
-          - [mr-mime-galar,               8, 40, 55]
-          - [linoone-galar,               6, 40, 55]
-          - [stunfisk-galar,              5, 40, 55]
-          - [rapidash-galar,              4, 40, 55]
-          - [weezing-galar,               4, 40, 55]
-          - [darmanitan-galar-standard,   3, 40, 55]
-          - [articuno-galar,              1, 70, 70]
-          - [zapdos-galar,                1, 70, 70]
-          - [moltres-galar,               1, 70, 70]
+          - [meowth-galar,               12, 29, 39]
+          - [ponyta-galar,               12, 29, 39]
+          - [zigzagoon-galar,            12, 29, 39]
+          - [farfetchd-galar,            10, 29, 39]
+          - [darumaka-galar,             10, 29, 39]
+          - [yamask-galar,               10, 29, 39]
+          - [mr-mime-galar,               8, 29, 39]
+          - [linoone-galar,               6, 29, 39]
+          - [stunfisk-galar,              5, 29, 39]
+          - [rapidash-galar,              4, 29, 39]
+          - [weezing-galar,               4, 29, 39]
+          - [darmanitan-galar-standard,   3, 29, 39]
+          - [articuno-galar,              1, 50, 50]
+          - [zapdos-galar,                1, 50, 50]
+          - [moltres-galar,               1, 50, 50]
         water: &galar_water
-          - [slowpoke-galar,  45, 40, 55]
-          - [corsola-galar,   35, 40, 55]
-          - [slowbro-galar,   10, 60, 60]
-          - [slowking-galar,  10, 60, 60]
+          - [slowpoke-galar,  45, 29, 39]
+          - [corsola-galar,   35, 29, 39]
+          - [slowbro-galar,   10, 43, 43]
+          - [slowking-galar,  10, 43, 43]
       - name: Alola    # the big field by the gate, south-west, where the player arrives
         place: the field by the gate (south-west)
         grass: *alola

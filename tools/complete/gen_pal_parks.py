@@ -182,7 +182,8 @@ The regional forms live in two Pal Parks (the owner's call, Nov 6, 2026):
 - **Kanto's**, HeartGold's Pal Park by Fuchsia City, open as soon as the player gets there, with **Alola's** forms in
   the west's tall grass and **Galar's** in the east, its water forms in the pond and the lake. There's no Catching
   Show: the receptionist lets the player in, and they catch with their own Poké Balls. The worker by the gate, or
-  stepping into the gate, takes them back out.
+  stepping into the gate, takes them back out. Its levels are Sovereign's scaled down to fit Kanto (5/7: the
+  Galarian birds at Lv. 50).
 
 Each park's map is split into quadrants; an encounter in a quadrant's tall grass or water picks one of its Pokémon by
 the odds below, at a random level in its range. Every regional form is in one of the parks.

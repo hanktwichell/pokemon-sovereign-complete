@@ -2098,3 +2098,10 @@ Test results on the new test build:
   for the Dowsing Machine's use, would have moved `ITEM_HM09` (renumbering items in saves) and made the Apricorn Balls
   unthrowable again (both set by later steps). It now puts its items back where they were, and gives HeartGold's Balls
   their battle use (the Sport and Park Balls only in their own events), so a rerun changes nothing else.
+- **Kanto's Pal Park levels scaled down (the owner's call: "Scale down Kanto's pal park levels appropriately for the
+  level caps around it. Maybe level 50 for the birds?"):** the park opens at Fuchsia City, where Kanto's routes are
+  Lv. 22-35 and the caps 61-70, but it had Sovereign's post-game levels (40-55, 60 for the rarer forms, 70 for the
+  Galarian birds, at or above every Kanto cap). Its levels are now Sovereign's times 5/7, keeping Sovereign's spread:
+  29-39, 43 for the rarer forms, 50 for the Galarian birds (`data/complete/pal_parks.yaml`,
+  `tools/complete/gen_pal_parks.py`, `docs/PalParks.md`). Sinnoh's park (after the Hall of Fame) is unchanged.
+  `tools/complete/test_pal_parks.py`: 0 problems, every Kanto encounter in its new range.

@@ -1089,7 +1089,8 @@ Sovereign's zone code, now choosing the park by map).
   gone). Its levels move up with Sinnoh's, to about 79–87.
 - **Kanto's** is HeartGold's Pal Park by Fuchsia City, open as soon as the player gets there: Alola's forms in the
   west's tall grass, Galar's in the east's grass and its water forms (Slowpoke, Corsola and their evolutions) in the
-  pond and the lake, at Sovereign's levels (40–55, 60 for the rarer, 70 for the Galarian birds). There's no Catching
+  pond and the lake, at Sovereign's levels scaled down to fit Kanto (the owner's call: 29–39, 43 for the rarer, 50 for
+  the Galarian birds; Kanto's routes nearby are Lv. 22–35, its caps 61–70). There's no Catching
   Show: Fuchsia's receptionist asks and walks the player in (`CommonScript_CompletePalParkEnter`), and the hiker by
   the gate, or the gate's step, asks before seeing them out (`CommonScript_CompletePalParkLeave`), through inserts in
   `tools/complete/translate_hgss_scripts.py`. The park takes Platinum's park table for its encounter rates
