@@ -107,7 +107,9 @@ OWNER_NOTES = [
     ('Nov 6', 'Make sure every sprite in Sovereign Platinum has been ported to Sovereign Complete (Pokémon fronts, '
      'backs and forms, icons, trainers, overworld). On Claude\'s list.'),
     ('Nov 6', 'Sinnoh\'s top levels: with Roark\'s ace at Lv. 72, Cynthia\'s first ace about 88 to 90, her '
-     'rematch\'s 96. Done: Cynthia Lv. 89, her rematch 95 to 96, the Elite Four 87 to 88 (rematches 92 to 95).'),
+     'rematch\'s 96; aces a level over their teams, but the Elite Four\'s rematches and Sovereign\'s trainer flat. '
+     'Done: Roark 71 (ace 72), Cynthia 88 (ace 89), her rematch 95 (ace 96), the Elite Four 86 to 88, their rematches '
+     'flat at 93 to 95.'),
 ]
 
 # Anything that looked off in Claude's tests or screenshots, logged for the owner to look at, even when it may be
@@ -128,9 +130,10 @@ POSSIBLE_ISSUES = [
      'Evolving, and was about to call it a bug. You checked: it is the Mega\'s own back (the two are close: the Mega '
      'has a spikier crest). Not an issue; Claude misread the screenshot.', None, 'explained'),
     ('Nov 6', 'Sinnoh\'s aces level with their teams',
-     'Sovereign gives each boss\'s ace a level more than the rest; the level plan\'s top end is so flat now that the '
-     'two land on the same level (Cynthia\'s six all Lv. 89, the Elite Four\'s 87 or 88). Your call: keep it, or '
-     'keep the ace one level up after the move.', None, 'yours'),
+     'Sovereign gives each boss\'s ace a level more than the rest; the level plan\'s top end made the two land on the '
+     'same level (Cynthia\'s six all Lv. 89). Your call: aces a level over their teams everywhere but the Sinnoh '
+     'Elite Four\'s rematches and Sovereign\'s trainer, which are flat. Done: Roark 71 with his ace 72, Cynthia 88 '
+     'and 89, her rematch 95 and 96, the Elite Four\'s rematches all at one level (93 to 95).', None, 'fixed'),
     ('Nov 6', 'Falkner\'s six Poké Balls',
      'The battle\'s ball indicator shows six for Falkner: Sacred Gold gives him six Pokémon. As Sacred Gold has it; '
      'listed in case it looks wrong to you.', None, 'explained'),

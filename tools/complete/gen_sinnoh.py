@@ -5,6 +5,7 @@ src/level_cap.c. The Sinnoh part of the caps is Sovereign's list (data/level_cap
 
 Usage: python3 tools/complete/gen_sinnoh.py
 """
+import json
 import os
 
 import yaml
@@ -22,6 +23,27 @@ def moved(points, level):
     return points[-1][1] if level > points[-1][0] else points[0][1]
 
 
+def team_levels(points, levels, flat=False):
+    """A Sinnoh trainer's team's levels after the move, as CompleteSinnoh_ScaleParty does: each moved, one Sovereign put
+    below another at least a level below it (the ace keeps its moved level), or all at the highest for a flat team."""
+    new = [moved(points, lv) for lv in levels]
+    for _ in levels:
+        for i, above in enumerate(levels):
+            for j, other in enumerate(levels):
+                if other < above and new[j] >= new[i] > 1:
+                    new[j] = new[i] - 1
+    return [max(new)] * len(new) if flat else new
+
+
+def ace_level(points, trainer, level, flat_teams):
+    """The moved level of a Sinnoh trainer's ace (its team's highest), from its data, or the level moved."""
+    path = os.path.join(ROOT, 'decomp', 'res', 'trainers', 'data', trainer[len('TRAINER_'):].lower() + '.json')
+    if not os.path.exists(path):
+        return moved(points, level)
+    party = json.load(open(path, encoding='utf-8'))['party']
+    return max(team_levels(points, [m['level'] for m in party], trainer in flat_teams))
+
+
 def main():
     plan = yaml.safe_load(open(os.path.join(ROOT, 'data', 'complete', 'sinnoh.yaml'), encoding='utf-8'))
     sovereign = yaml.safe_load(open(os.path.join(ROOT, 'data', 'level_caps.yaml'), encoding='utf-8'))
@@ -31,7 +53,8 @@ def main():
         steps.append((cap['trainers'], 'LEVEL_CAP_ALL', cap['level'], cap['label']))
     for cap in sovereign['caps']:
         trainers = cap.get('trainers') or cap.get('any')
-        steps.append((trainers, 'LEVEL_CAP_ALL' if 'trainers' in cap else 'LEVEL_CAP_ANY', moved(points, cap['level']),
+        steps.append((trainers, 'LEVEL_CAP_ALL' if 'trainers' in cap else 'LEVEL_CAP_ANY',
+                      max(ace_level(points, t, cap['level'], plan.get('flat_teams', [])) for t in trainers),
                       cap['label']))
     rows = []
     for trainers, mode, level, label in steps:
@@ -53,6 +76,11 @@ def main():
         f'#define COMPLETE_SINNOH_EVOLVE_FIRST {plan["evolve_at"][0]}',
         f'#define COMPLETE_SINNOH_EVOLVE_SECOND {plan["evolve_at"][1]}',
         f'#define COMPLETE_SINNOH_EVOLVE_WILD {"TRUE" if plan.get("evolve_wild") else "FALSE"}',
+        '',
+        '// The teams all at one level, their ace\'s (the others keep their order, an ace a level over its team)',
+        'static const u16 sCompleteSinnohFlatTeams[] = {',
+        *[f'    {t},' for t in plan.get('flat_teams', [])],
+        '};',
         '',
         '// The level caps of all three regions, in story order (src/level_cap.c)',
         'static const LevelCapStep sCompleteLevelCapSteps[] = {',

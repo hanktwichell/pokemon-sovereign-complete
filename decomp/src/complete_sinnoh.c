@@ -128,10 +128,44 @@ void CompleteSinnoh_ScaleParty(int trainerID, void *party, int monDataType, int 
     }
 #endif
 
+    u8 levels[MAX_PARTY_SIZE];
+    BOOL flat = FALSE;
+    int top = 0;
+
+    count = count > MAX_PARTY_SIZE ? MAX_PARTY_SIZE : count;
+
+    for (int i = 0; i < NELEMS(sCompleteSinnohFlatTeams); i++) {
+        flat |= sCompleteSinnohFlatTeams[i] == trainerID;
+    }
+
+    // Each Pokémon's level moved up; one that Sovereign put below another stays at least a level below it (a boss's
+    // team a level under its ace, which keeps its moved level), or, for the flat teams, all at the highest
+    for (int i = 0; i < count; i++) {
+        levels[i] = CompleteSinnoh_Level(((u16 *)((u8 *)party + i * sizes[monDataType]))[1]);
+    }
+
+    for (int pass = 0; pass < count; pass++) {
+        for (int i = 0; i < count; i++) {
+            u16 above = ((u16 *)((u8 *)party + i * sizes[monDataType]))[1];
+
+            for (int j = 0; j < count; j++) {
+                u16 other = ((u16 *)((u8 *)party + j * sizes[monDataType]))[1];
+
+                if (other < above && levels[j] >= levels[i] && levels[i] > 1) {
+                    levels[j] = levels[i] - 1;
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < count; i++) {
+        top = levels[i] > top ? levels[i] : top;
+    }
+
     for (int i = 0; i < count; i++) {
         u16 *mon = (u16 *)((u8 *)party + i * sizes[monDataType]);
         u16 mask = monDataType == TRDATATYPE_SOVEREIGN ? 0xFFFF : TRAINER_MON_SPECIES_MASK;
-        int level = CompleteSinnoh_Level(mon[1]);
+        int level = flat ? top : levels[i];
         int species = mon[2] & mask;
         int evolved = CompleteSinnoh_EvolvedSpecies(species, level);
 

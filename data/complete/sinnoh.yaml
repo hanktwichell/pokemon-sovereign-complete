@@ -8,6 +8,15 @@
 # call, Nov 6, 2026: with Roark's ace at 72, Cynthia's first ace no higher than about 88 to 90, her rematch's 96).
 levels: [[1, 66], [16, 72], [78, 89], [89, 96], [100, 100]]
 
+# A trainer's Pokémon keep their order after the move: one Sovereign put below another stays at least a level below it
+# (a boss's team a level under its ace, which keeps its moved level). These teams are all at one level instead, their
+# ace's (the owner's call, Nov 6, 2026): the Sinnoh Elite Four's rematches, singles and doubles, and Sovereign's own
+# trainer.
+flat_teams: [TRAINER_ELITE_FOUR_AARON_REMATCH, TRAINER_ELITE_FOUR_BERTHA_REMATCH, TRAINER_ELITE_FOUR_FLINT_REMATCH,
+             TRAINER_ELITE_FOUR_LUCIAN_REMATCH, TRAINER_SOVEREIGN_ELITE_FOUR_AARON_REMATCH_DOUBLES,
+             TRAINER_SOVEREIGN_ELITE_FOUR_BERTHA_REMATCH_DOUBLES, TRAINER_SOVEREIGN_ELITE_FOUR_FLINT_REMATCH_DOUBLES,
+             TRAINER_SOVEREIGN_ELITE_FOUR_LUCIAN_REMATCH_DOUBLES, TRAINER_SOVEREIGN_TEST]
+
 # Sinnoh's trainers' Pokémon evolve to match their new level: by the level they evolve at, or, for an evolution by a
 # stone, a trade, friendship and the like, from these levels on (the first evolution, the second)
 evolve_at: [36, 50]

@@ -153,85 +153,103 @@ def main():
         warps = {(w['x'], w['z']) for w in events.get('warp_events', [])}
         triggers = {(c['x'] + i, c['z'] + j) for c in events.get('coord_events', [])
                     for i in range(c['width']) for j in range(c['length'])}
-        blocked = (people | warps | triggers) - {start}
-        todo = reachable(maps, matrix, start, blocked)
-        entry['reachable'] = len(todo)
+        blocked = people | warps | triggers
+        # Where a walk starts: beside each of the map's warps (where a player comes in), then the open tile; each
+        # area reachable from one of them is walked from there
+        starts = []
+        for wx, wz in sorted(warps):
+            for dx, dz in DIRS:
+                t = maps.tile(matrix, wx + dx, wz + dz)
+                if t is not None and walkable(t) and (t & 0xff) not in AVOID_BEHAVIORS \
+                        and (wx + dx, wz + dz) not in blocked:
+                    starts.append((wx + dx, wz + dz))
+        starts.append(start)
+        areas, todo = [], set()
+        for first in starts:
+            if first in todo or first in blocked and first != start:
+                continue
+            area = reachable(maps, matrix, first, blocked - {first})
+            todo |= area
+            areas.append((first, area))
+        entry['reachable'], entry['areas'] = len(todo), len(areas)
 
         d.load_state(state)
         mem.write_byte(sym['gSovereignTestGodMode'], 1)
         mem.write_byte(sym['gSovereignTestClock'], HOUR + 1)
         d.run(30)
-        result, frames = warp(d, sym, names.index(header), start[0], start[1], 0)
-        if result != 'ok' or d.pos() != start:
-            entry['skipped'] = f'the warp: {result} at {d.pos()}'
-            results[header] = entry
-            say(f'{header}: SKIPPED (the warp {result}, at {d.pos()} not {start})')
-            continue
-        header_id = here()
-        walked, failed, skipped = {start}, set(), set()
-        steps, budget = 0, min(MAX_STEPS, STEP_BUDGET * len(todo) + 50)
+        walked, failed, skipped = set(), set(), set()
+        steps, budget = 0, min(MAX_STEPS, STEP_BUDGET * len(todo) + 50 * len(areas))
         vblank, stalled = u32(d, sym['gSystem'] + VBLANK_COUNTER), 0
-        shot(folder, 'start')
-        while steps < budget:
-            pos = d.pos()
-            goal = nearest(maps, matrix, pos, todo - walked - skipped, blocked, failed)
-            if goal is None:
-                break
-            keys = route(maps, matrix, pos, goal, blocked - {goal}, failed)
-            if not keys:
-                skipped.add(goal)
+        header_id = names.index(header)
+        for start, area in areas:
+            result, frames = warp(d, sym, header_id, start[0], start[1], 0)
+            if result != 'ok' or d.pos() != start:
+                entry.setdefault('unreached_areas', []).append({'start': list(start), 'size': len(area),
+                                                               'warp': f'{result} at {list(d.pos())}'})
                 continue
-            for key in keys:
-                step = next(dd for dd, k in KEYS.items() if k == key)
+            header_id = here()
+            walked.add(start)
+            shot(folder, f'start_{start[0]}_{start[1]}')
+            while steps < budget:
                 pos = d.pos()
-                ahead = (pos[0] + step[0], pos[1] + step[1])
-                idle = u32(d, sym['gSovereignTestIdleFrames'])
-                d.press(key, frames=8, after=16)
-                steps += 1
-                if d.pos() == pos:
-                    d.run(16)
-                if d.pos() == pos:  # once more: a press that only turned the player
+                goal = nearest(maps, matrix, pos, area - walked - skipped, blocked, failed)
+                if goal is None:
+                    break
+                keys = route(maps, matrix, pos, goal, blocked - {goal}, failed)
+                if not keys:
+                    skipped.add(goal)
+                    continue
+                for key in keys:
+                    step = next(dd for dd, k in KEYS.items() if k == key)
+                    pos = d.pos()
+                    ahead = (pos[0] + step[0], pos[1] + step[1])
+                    idle = u32(d, sym['gSovereignTestIdleFrames'])
                     d.press(key, frames=8, after=16)
                     steps += 1
-                now = u32(d, sym['gSystem'] + VBLANK_COUNTER)
-                stalled = stalled + 1 if now == vblank else 0
-                vblank = now
-                if stalled >= 3:
-                    entry['hang'] = f'at {pos}, stepping {key}'
-                    shot(folder, f'hang_{steps:05d}')
-                    break
-                started = u32(d, sym['gSovereignTestIdleFrames']) - idle < 8  # the field isn't free
-                if started:  # something started: played out, then the way found again from where the player is
-                    shot(folder, f'started_{steps:05d}_{pos[0]}_{pos[1]}')
-                    result, frames = play_out(d, sym, FRAME_LIMIT, None, press_a=False)
-                    entry['started'].append({'at': list(pos), 'key': key, 'result': result})
-                    if result == 'HANG':
-                        entry['hang'] = f'after what started at {pos}'
+                    if d.pos() == pos:
+                        d.run(16)
+                    if d.pos() == pos:  # once more: a press that only turned the player
+                        d.press(key, frames=8, after=16)
+                        steps += 1
+                    now = u32(d, sym['gSystem'] + VBLANK_COUNTER)
+                    stalled = stalled + 1 if now == vblank else 0
+                    vblank = now
+                    if stalled >= 3:
+                        entry['hang'] = f'at {pos}, stepping {key}'
+                        shot(folder, f'hang_{steps:05d}')
                         break
-                if here() != header_id:
-                    entry['left'].append({'at': list(pos), 'key': key, 'to': names[here()] if here() < len(names)
-                                          else hex(here())})
-                    shot(folder, f'left_{steps:05d}')
-                    warp(d, sym, header_id, pos[0], pos[1], 0)
-                    failed.add((pos, step))
-                    break
-                if started:
+                    started = u32(d, sym['gSovereignTestIdleFrames']) - idle < 8  # the field isn't free
+                    if started:  # something started: played out, then the way found again from where the player is
+                        shot(folder, f'started_{steps:05d}_{pos[0]}_{pos[1]}')
+                        result, frames = play_out(d, sym, FRAME_LIMIT, None, press_a=False)
+                        entry['started'].append({'at': list(pos), 'key': key, 'result': result})
+                        if result == 'HANG':
+                            entry['hang'] = f'after what started at {pos}'
+                            break
+                    if here() != header_id:
+                        entry['left'].append({'at': list(pos), 'key': key, 'to': names[here()] if here() < len(names)
+                                              else hex(here())})
+                        shot(folder, f'left_{steps:05d}')
+                        warp(d, sym, header_id, pos[0], pos[1], 0)
+                        failed.add((pos, step))
+                        break
+                    if started:
+                        walked.add(d.pos())
+                        break
+                    if d.pos() == pos:
+                        failed.add((pos, step))
+                        t = maps.tile(matrix, *ahead)
+                        bridge = len(heights.at(matrix, *ahead)) > 1 or len(heights.at(matrix, *pos)) > 1
+                        entry['refused'].append({'at': list(pos), 'key': key, 'to': list(ahead),
+                                                 'behavior': (t or 0) & 0xff, 'bridge': bridge})
+                        if len(entry['refused']) <= 12:
+                            shot(folder, f'refused_{steps:05d}_{ahead[0]}_{ahead[1]}')
+                        break
                     walked.add(d.pos())
+                    if steps % SHOT_EVERY == 0:
+                        shot(folder, f'step_{steps:05d}')
+                if entry['hang']:
                     break
-                if d.pos() == pos:
-                    failed.add((pos, step))
-                    t = maps.tile(matrix, *ahead)
-                    bridge = len(heights.at(matrix, *ahead)) > 1 or len(heights.at(matrix, *pos)) > 1
-                    entry['refused'].append({'at': list(pos), 'key': key, 'to': list(ahead),
-                                             'behavior': (t or 0) & 0xff, 'bridge': bridge})
-                    if len(entry['refused']) <= 12:
-                        shot(folder, f'refused_{steps:05d}_{ahead[0]}_{ahead[1]}')
-                    break
-                walked.add(d.pos())
-                if steps % SHOT_EVERY == 0:
-                    shot(folder, f'step_{steps:05d}')
-            if entry['hang']:
-                break
         entry.update(walked=len(walked & todo), steps=steps, skipped_tiles=len(skipped))
         results[header] = entry
         real = [r for r in entry['refused'] if not r['bridge']]

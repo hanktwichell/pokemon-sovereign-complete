@@ -1906,3 +1906,8 @@ Test results on the new test build:
 - **The progress page's Possible issues tab:** anything that looks off in Claude's tests and screenshots is logged
   there for the owner, even when it may be nothing (the owner's rule, after the trainer pictures drawn as dots that
   Claude's own gallery shots had shown).
+- **Aces a level over their teams (the owner's call):** the level move kept each Pokémon's order only loosely, so a
+  boss's ace landed on its team's level. Now a Pokémon Sovereign put below another stays at least a level below it,
+  the ace keeping its moved level (`CompleteSinnoh_ScaleParty`; the caps follow, `gen_sinnoh.py`): Roark 71 with his
+  ace 72, Cynthia 88 and 89, her rematch 95 and 96. The Sinnoh Elite Four's rematches (singles and doubles) and
+  Sovereign's trainer are flat, all at their ace's level (`flat_teams` in `data/complete/sinnoh.yaml`).

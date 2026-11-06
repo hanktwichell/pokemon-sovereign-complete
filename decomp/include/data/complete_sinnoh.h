@@ -18,6 +18,19 @@ static const u8 sCompleteSinnohLevels[][2] = {
 #define COMPLETE_SINNOH_EVOLVE_SECOND 50
 #define COMPLETE_SINNOH_EVOLVE_WILD FALSE
 
+// The teams all at one level, their ace's (the others keep their order, an ace a level over its team)
+static const u16 sCompleteSinnohFlatTeams[] = {
+    TRAINER_ELITE_FOUR_AARON_REMATCH,
+    TRAINER_ELITE_FOUR_BERTHA_REMATCH,
+    TRAINER_ELITE_FOUR_FLINT_REMATCH,
+    TRAINER_ELITE_FOUR_LUCIAN_REMATCH,
+    TRAINER_SOVEREIGN_ELITE_FOUR_AARON_REMATCH_DOUBLES,
+    TRAINER_SOVEREIGN_ELITE_FOUR_BERTHA_REMATCH_DOUBLES,
+    TRAINER_SOVEREIGN_ELITE_FOUR_FLINT_REMATCH_DOUBLES,
+    TRAINER_SOVEREIGN_ELITE_FOUR_LUCIAN_REMATCH_DOUBLES,
+    TRAINER_SOVEREIGN_TEST,
+};
+
 // The level caps of all three regions, in story order (src/level_cap.c)
 static const LevelCapStep sCompleteLevelCapSteps[] = {
     { { TRAINER_HGSS_LEADER_FALKNER_FALKNER, TRAINER_NONE, TRAINER_NONE, TRAINER_NONE, TRAINER_NONE, TRAINER_NONE }, LEVEL_CAP_ALL, 15 }, // Falkner
