@@ -13,6 +13,25 @@
 #include "system.h"
 #include "text.h"
 
+// Sovereign Complete: the width of a line from here (HeartGold's GetStringWidthFirstLine), for its alignment codes:
+// the characters up to the line's end, its control codes skipped
+static int CompleteFirstLineWidth(u32 font, const charcode_t *str, u32 letterSpacing)
+{
+    charcode_t line[128];
+    int n = 0;
+
+    while (*str != CHAR_EOS && *str != CHAR_CR && n < (int)NELEMS(line) - 1) {
+        if (*str == CHAR_FORMAT_ARG) {
+            str = CharCode_SkipFormatArg(str);
+        } else {
+            line[n++] = *str++;
+        }
+    }
+
+    line[n] = CHAR_EOS;
+    return n == 0 ? 0 : Font_CalcCharArrayWidth(font, line, letterSpacing);
+}
+
 #define SPEED_UP_ON_TOUCH_PRESS (gSystem.touchPressed && sRenderControlFlags.speedUpOnTouch)
 #define SPEED_UP_ON_TOUCH_HOLD  (gSystem.touchHeld && sRenderControlFlags.speedUpOnTouch)
 
@@ -146,6 +165,20 @@ enum RenderResult RenderText(TextPrinter *printer)
             case CHAR_CONTROL_CURSOR_Y:
                 printer->template.currY = CharCode_FormatArgParam(printer->template.toPrint.raw, 0);
                 break;
+
+            case CHAR_CONTROL_ALIGN_CENTER: // Sovereign Complete: HeartGold's alignment of a line (its render_text.c)
+            case CHAR_CONTROL_ALIGN_RIGHT: {
+                int windowWidth = Window_GetWidth(printer->template.window) * 8;
+                int width = CompleteFirstLineWidth(printer->template.fontID, printer->template.toPrint.raw, printer->template.letterSpacing);
+
+                if (width >= windowWidth) {
+                    printer->template.currX = printer->template.x;
+                } else if (currChar == CHAR_CONTROL_ALIGN_CENTER) {
+                    printer->template.currX = printer->template.x + (windowWidth - width) / 2;
+                } else {
+                    printer->template.currX = windowWidth - width;
+                }
+            } break;
 
             case CHAR_CONTROL_SET_SIZE: {
                 u16 percentScale = CharCode_FormatArgParam(printer->template.toPrint.raw, 0);

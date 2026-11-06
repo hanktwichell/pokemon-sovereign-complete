@@ -174,6 +174,7 @@
 #define ITEM_USE_FUNC_GRACIDEA     24
 #define ITEM_USE_FUNC_SOVEREIGN_FORM 25 // Sovereign (FM): a form-change key item used on a Pokemon (src/sovereign_form_items.c)
 #define ITEM_USE_FUNC_COMPLETE_BERRY_POTS 26 // Sovereign Complete: HeartGold's Berry Pots (include/complete_berry_pots.h)
+#define ITEM_USE_FUNC_COMPLETE_UNOWN_REPORT 27 // Sovereign Complete: HeartGold's Unown Report (include/complete_unown_report.h)
 
 #define BATTLE_USE_CATEGORY_NONE      0
 #define BATTLE_USE_CATEGORY_POKE_BALL 1

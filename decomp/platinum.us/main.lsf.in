@@ -251,6 +251,7 @@ Static main
 	Object src/complete_playtest.c
 	Object src/complete_photo.c
 	Object src/complete_berry_pots.c
+	Object src/complete_unown_report.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c
@@ -1606,6 +1607,12 @@ Overlay complete_photo_album
 	After main
 	Object src/applications/complete_photo_album/photo_album.c
 	Object src/applications/complete_photo_album/list_menu.c
+}
+
+Overlay complete_unown_report
+{
+	After main
+	Object src/applications/complete_unown_report/unown_report.c
 }
 
 Overlay complete_berry_pots

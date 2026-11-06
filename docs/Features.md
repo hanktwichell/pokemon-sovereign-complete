@@ -1203,6 +1203,25 @@ HeartGold's Berry Pots, ported (`include/complete_berry_pots.h`; the screen's gr
 Test: `tools/complete/test_berry_pots.py` (Mulch and an Oran Berry in the first pot through the bag, two hours on and
 WATER, sixteen hours on and TAKE BERRIES, back on the field; then USE from the bag's Key Items, and back to the bag).
 
+## The Unown Report
+
+HeartGold's Unown Report, ported (`include/complete_unown_report.h`; its screen, HeartGold's overlay 113, written in C
+from its assembly in `src/applications/complete_unown_report/`; its graphics from HeartGold by
+`tools/complete/import_hgss_unown_report.py`, its texts HeartGold's message bank 1):
+- **The key item:** the researchers give it in the Ruins of Alph's inner chamber, the first time the player drops in,
+  as in Sacred Gold. Used from the bag (which comes
+  back after) or registered to Y, it opens as a book across both screens: UP and DOWN, or the arrows, turn a page; B
+  or CANCEL closes it.
+- **The pages:** the cover (the player's name, the number of Unown kinds), the Unown (14 a page, 7 on each screen,
+  each its icon and its word: ANGER, BEAR...), then the researchers' reports, a spread more each time they find
+  something in the Ruins (`VAR_HGSS_UNOWN_REPORT_LEVEL`, which the Ruins' scripts raise). From the fourth report on,
+  the Unown pages run A to Z, as HeartGold's.
+- **Seen, not caught:** HeartGold lists the Unown caught; Platinum's Pokédex keeps only the forms seen, so the report
+  lists those, as the Ruins' scripts already count them.
+
+Test: `tools/complete/test_unown_report.py` (16 Unown seen and every report: the 9 pages turned with the buttons and the
+touch screen's arrows, CANCEL and B; at report level 2, 5 pages).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
@@ -1211,6 +1230,6 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn points:
   `src/spawn_locations.c`). The fly map on the Pokégear's Map and the list of places reached that stood in before
   stay in the code (`CommonScript_CompleteFly`, which `tools/complete/test_hgss_fly.py` still runs), unused.
-- **The Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
-  (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items. The Berry Pots
-  are ported (above).
+- **The Dowsing Machine** (a key item Sacred Gold's scripts give) does nothing yet (`docs/Roadmap.md`, "Still open");
+  the Pokétch's Dowsing app finds Johto's and Kanto's hidden items. The Berry Pots and the Unown Report are ported
+  (above).

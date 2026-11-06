@@ -187,6 +187,9 @@ work.
   unset pointers and the heap corrupts ITCM through address 0's mirror). And `SpriteSystem_NewSpriteFromResourceHeader`
   ignores HeartGold's palette mode (the template's last fields): mode 1 keeps the cell's palettes, which Platinum
   overrides with the template's.
+- The Unown Report: `include/complete_unown_report.h` (HeartGold's overlay 113 in C,
+  `src/applications/complete_unown_report/`). Test: `tools/complete/test_unown_report.py`. HeartGold's `{ALN_CENTER}`
+  and `{ALN_RIGHT}` (control codes 0x205, 0x206) now work in Platinum's text renderer (`src/render_text.c`).
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

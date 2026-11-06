@@ -215,6 +215,7 @@ enum NarcID {
     NARC_INDEX_GRAPHIC__COMPLETE__TOWN_MAP, // Sovereign Complete: the three-region Town Map's graphics
     NARC_INDEX_GRAPHIC__COMPLETE__PHOTO_ALBUM, // Sovereign Complete: the photo album's graphics and photo spots (HeartGold's)
     NARC_INDEX_GRAPHIC__COMPLETE__BERRY_POTS, // Sovereign Complete: the Berry Pots' graphics (HeartGold's)
+    NARC_INDEX_GRAPHIC__COMPLETE__UNOWN_REPORT, // Sovereign Complete: the Unown Report's graphics (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H

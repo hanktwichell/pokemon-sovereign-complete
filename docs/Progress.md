@@ -2067,3 +2067,14 @@ Test results on the new test build:
   that var, so the player could never reach Lake Verity's Galactic scene, and the walk would have tried to move a Barry
   who isn't there. `CommonScript_CompleteSinnohArrival` now sets it, and the lakefront sets it as it loads, for saves
   from before. The story run from "Mars at Lake Verity" passes and goes on.
+- **HeartGold's Unown Report (the owner's call: every HeartGold feature ported):** the key item the researchers give in
+  the Ruins of Alph opens HeartGold's report (its overlay 113, written in C from pret's assembly in
+  `src/applications/complete_unown_report/`, launched from `src/complete_unown_report.c`), from the bag or on Y: a book
+  across both screens, the cover, the Unown seen (icons and words, 14 a page), and the researchers' reports as
+  `VAR_HGSS_UNOWN_REPORT_LEVEL` rises. Its graphics from HeartGold's a/2/3/9
+  (`tools/complete/import_hgss_unown_report.py`), its text HeartGold's message bank 1. The Unown listed are those seen
+  (Platinum's Pokédex keeps no caught list), as the Ruins' scripts already count them. Tested
+  (`tools/complete/test_unown_report.py`). On the way: Platinum's text renderer had no alignment codes, so every
+  HeartGold text with `{ALN_CENTER}` or `{ALN_RIGHT}` (the report's cover, Voltorb Flip's hint screens, the album's)
+  printed left-aligned; `src/render_text.c` now centres or right-aligns the line as HeartGold's does (Platinum's own
+  texts never use those codes). The sprites' teardown avoids the Berry Pots' freeze from the start.

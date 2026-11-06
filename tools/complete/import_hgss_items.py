@@ -77,6 +77,7 @@ def icon_indices():
 # HeartGold's key items that have their use in Complete: (their use from the bag, registered to Y as HeartGold's are)
 OWN_FIELD_USES = {
     'berry_pots': ('ITEM_USE_FUNC_COMPLETE_BERRY_POTS', True),  # include/complete_berry_pots.h
+    'unown_report': ('ITEM_USE_FUNC_COMPLETE_UNOWN_REPORT', True),  # include/complete_unown_report.h
 }
 
 

@@ -503,6 +503,8 @@ enum CharCode {
     CHAR_CONTROL_CALLBACK,
     CHAR_CONTROL_CURSOR_X,
     CHAR_CONTROL_CURSOR_Y,
+    CHAR_CONTROL_ALIGN_CENTER, // Sovereign Complete: HeartGold's {ALN_CENTER} and {ALN_RIGHT}, in its texts (src/render_text.c)
+    CHAR_CONTROL_ALIGN_RIGHT,
 
     CHAR_CONTROL_CLEAR = 0x25BC,
     CHAR_CONTROL_SCROLL,
