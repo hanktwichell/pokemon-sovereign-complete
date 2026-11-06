@@ -8,7 +8,8 @@ runs past its time is stopped with SIGKILL (SDL catches SIGTERM). The summary, a
 its exit code and the last result line), is printed and kept in .cache/tests/BUILD/summary.txt.
 
 The long ones (LONG: the story test, every map's wild Pokémon, every person's talk, every hidden item, every tile
-behavior, every placement and boss Mega, the sound heap's every map) run only with --all or by name. Tools that aren't
+behavior, every placement and boss Mega, the sound heap's every map, the walk onto every map's every tile) run only
+with --all or by name. Tools that aren't
 ROM STATE OUT_DIR tests (OTHER) are left out.
 
 From the repo root, after building a test build (tools/test/build_test_rom.sh, or make BUILD=build_test3 rom):
@@ -25,7 +26,7 @@ import time
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 LONG = {'hgss_opening', 'hgss_encounters', 'follower_talk', 'hgss_hidden_items', 'hgss_tile_behaviors', 'placed',
-        'boss_megas', 'sound_heap'}
+        'boss_megas', 'sound_heap', 'walk_everywhere'}
 OTHER = {'follower', 'save', 'map_warp'}  # ROM-only tests and the warp tool
 # The following Pokémon are off (COMPLETE_FOLLOWER_ENABLED, the owner's call, Nov 6, 2026): their tests wait for them
 RETIRED = {'follower_talk', 'follower_inhibit'}

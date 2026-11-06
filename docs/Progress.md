@@ -2151,3 +2151,9 @@ Test results on the new test build:
   Sinnoh story run on that older build then passed from Lake Verity to the Hall of Fame (Spear Pillar, the Distortion
   World, Sunyshore, Volkner, the Elite Four, Cynthia). The arrival script's own setting of it waits for a Sinnoh run
   from the opening on a new build.
+- **Buena's Password had lost its password; the radio test checks it now.** With her Blue Card, her show read
+  "Today's password is... !": HeartGold's `{STRVAR_34}` wasn't one of Platinum's string variables, so the password
+  was left out. The record screens' change to `src/charcode.c` (above) fixed it: the line reads the day's password
+  ("Cyndaquil!" in the test). `tools/complete/test_hgss_radio.py` has a twelfth part for it (at 2:00 with the Blue
+  Card, no line of her show as short as a lone "!", the password counted heard): 12 of 12 on build_test2. The two
+  Pokéathlon tests' clock now reads noon as meant (the test clock takes the hour + 1): 0 problems each.

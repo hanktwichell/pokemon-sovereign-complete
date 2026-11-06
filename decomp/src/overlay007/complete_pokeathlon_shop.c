@@ -515,34 +515,41 @@ BOOL CompleteScrCmd_PokeathlonRecords(ScriptContext *ctx)
 
 // HeartGold's ScrCmd_712: a Dome record room's screen (enum CompletePokeathlonRecordScreen), after the script's fade
 // (ReturnToField brings the field back), as the Voltorb Flip and Alph puzzle commands open theirs. The wait that frees
-// the arguments is in the main module: this overlay goes with the field's map as the screen opens. Only the course
-// record is ported so far; the other screens' rooms leave the field as it is (ReturnToField finds it running and
-// returns).
+// the arguments is in the main module: this overlay goes with the field's map as the screen opens. Screens not ported
+// yet leave the field as it is (ReturnToField finds it running and returns).
 BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
 {
     FS_EXTERN_OVERLAY(complete_pokeathlon_records);
 
-    static const ApplicationManagerTemplate sCourseRecordTemplate = {
-        CompletePokeathlonCourseRecord_Init,
-        CompletePokeathlonCourseRecord_Main,
-        CompletePokeathlonCourseRecord_Exit,
-        FS_OVERLAY_ID(complete_pokeathlon_records),
+    static const ApplicationManagerTemplate sTemplates[] = {
+        [COMPLETE_POKEATHLON_SCREEN_COURSE_RECORD] = {
+            CompletePokeathlonCourseRecord_Init,
+            CompletePokeathlonCourseRecord_Main,
+            CompletePokeathlonCourseRecord_Exit,
+            FS_OVERLAY_ID(complete_pokeathlon_records),
+        },
+        [COMPLETE_POKEATHLON_SCREEN_MEDALS] = {
+            CompletePokeathlonMedals_Init,
+            CompletePokeathlonMedals_Main,
+            CompletePokeathlonMedals_Exit,
+            FS_OVERLAY_ID(complete_pokeathlon_records),
+        },
     };
     u8 screen = ScriptContext_ReadByte(ctx);
 
-    if (screen != COMPLETE_POKEATHLON_SCREEN_COURSE_RECORD) {
+    if (screen >= NELEMS(sTemplates)) {
         return FALSE;
     }
 
     SaveData *saveData = ctx->fieldSystem->saveData;
     VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
     void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
-    CompletePokeathlonCourseRecordArgs *recordArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompletePokeathlonCourseRecordArgs));
+    CompletePokeathlonRecordArgs *recordArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompletePokeathlonRecordArgs));
 
     recordArgs->saveData = saveData;
     recordArgs->trophyGoals = VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0EF) && VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0F0) && VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0F1);
     *args = recordArgs;
-    FieldSystem_StartChildProcess(ctx->fieldSystem, &sCourseRecordTemplate, recordArgs);
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplates[screen], recordArgs);
     ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
     return TRUE;
 }
