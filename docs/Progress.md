@@ -2040,3 +2040,24 @@ Test results on the new test build:
   into Voltorb Flip (the flipping card) and Arceus's cinematic; all three now set the BG priority (noted in
   CLAUDE.md). The Sinnoh story test's Route 218 gate check still expected the Tea from before Canalave opened first;
   fixed, and two of its parts shared a name.
+- **HeartGold's Berry Pots (the owner's call: every HeartGold feature ported):** the key item the girl on Route 36
+  gives opens HeartGold's screen (its overlay 17 in C, `src/applications/complete_berry_pots/`, with Voltorb Flip's
+  list menu compiled again under the pots' names), from the bag or registered to Y. A manager in the main module
+  (`src/complete_berry_pots.c`, HeartGold's overlay 16) runs the screen, and, for FERTILIZE or PLANT BERRY, Platinum's
+  bag at its Items or Berries pocket in gardening mode, then the screen again with what was chosen. HeartGold's growth
+  rules (`berry_pots_growth.c`) on four of the save's berry patches Sinnoh doesn't use (124 to 127); their time is in
+  Complete's phone save, so no save block changed size. Its graphics, texts and two sounds from HeartGold
+  (`tools/complete/import_hgss_berry_pots.py`, message bank 248, `SEQ_SE_GS_KP01`/`MIZU`). Tested
+  (`tools/complete/test_berry_pots.py`, 0 problems: Mulch and an Oran Berry through the bag, two hours on and WATER,
+  sixteen hours on and TAKE BERRIES, back on the field, then USE from the bag and back to it); the release build
+  boots, and the sound memory test passes (5 of 5 parts, with the pots' two sounds). Found on the way and fixed: the
+  screen froze the game as it closed. The emulator showed every interrupt calling the VBlank handler thousands of times
+  a frame; the OS's interrupt handler had been overwritten in ITCM, through address 0x24 (ITCM mirrors at 0): a heap
+  free had followed a garbage pointer. The port loads the pots' first sprite manager by capacities (one resource at a
+  time) where HeartGold loads it from resource lists, but still freed it the lists' way, freeing the unset table
+  pointers; it's now freed as it's made, and the sprite list the two managers share is deleted once. The pots' soil
+  drew black: Platinum's sprite-from-header always sets the template's palette, where HeartGold's palette mode 1 keeps
+  the cell's own; the pots' compat header now honours the mode. And Platinum's new game fills all 128 berry patches
+  from its table of 118 (a vanilla overrun), leaving the pots' patches with Berries numbered as high as 108 (there are 64) and
+  yields of 542 or 65535: the pots are emptied the first time they open (their time still unset), for new games and earlier
+  saves.

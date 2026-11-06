@@ -55,8 +55,8 @@ STEPS = [
     (5, 'HeartGold features', 'active', 'In progress',
      'In: the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, gym puzzles, '
      'the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear (phone, map, radio), the Magnet Train, '
-     'the legendaries\' cutscenes, the photo album. Following Pokémon are built but turned off (your call). Still to '
-     'port (answers 8, 9): the Pokéathlon, the Berry Pots, the Unown Report and the Dowsing Machine; link play '
+     'the legendaries\' cutscenes, the photo album, the Berry Pots. Following Pokémon are built but turned off (your '
+     'call). Still to port (answers 8, 9): the Pokéathlon, the Unown Report and the Dowsing Machine; link play '
      'later.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full, '
      'and HeartGold\'s own sound effects play in its scenes and scripts.'),
@@ -80,8 +80,8 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: HeartGold\'s ports (the album is in; next the Berry Pots, the Unown Report, the Dowsing Machine, then the '
-    'Pokéathlon), with the Sinnoh story run going again past Canalave.',
+    'Now: HeartGold\'s ports (the album and the Berry Pots are in; next the Unown Report, the Dowsing Machine, then '
+    'the Pokéathlon), and the Sinnoh story run, which now stops at Lake Verity.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), and taking the Pokégear\'s '
     'old Fly map out.',
 ]
@@ -249,6 +249,17 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('HeartGold\'s Berry Pots (your answer 7)', [
+        'The Berry Pots the girl on Route 36 gives now work: from the bag or on Y, HeartGold\'s screen of four pots. '
+        'FERTILIZE and PLANT BERRY open the bag at its Items or Berries pocket; WATER (the watering can) and TAKE '
+        'BERRIES work too. They grow by HeartGold\'s rules, by the time since you last looked. Old saves still load. '
+        'Tested in the emulator: 0 problems (Mulch and an Oran Berry planted, watered, grown to Berries, picked). '
+        'Pictures: Gallery tab.',
+        'Found and fixed on the way: the screen froze the game as it closed (a sprite cleanup freed memory it never '
+        'had, which overwrote the system\'s interrupt handler), the soil drew black (a palette setting the two games '
+        'treat differently), and a new game left junk Berries in the pots\' save space (an old Platinum overrun; the '
+        'pots now empty themselves the first time).',
+    ]),
     ('HeartGold\'s photo album (your answer 7)', [
         'Cameron the photographer takes your photo at HeartGold\'s 66 spots: the place with only you and your '
         'party in it, the viewfinder, the shutter. The Pokémon Center\'s PC has a PHOTO ALBUM (under your PC) with '

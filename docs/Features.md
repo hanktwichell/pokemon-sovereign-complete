@@ -1180,6 +1180,29 @@ HeartGold's photo album, ported (`include/complete_photo.h`; its graphics, photo
 Test: `tools/complete/test_photo_album.py` (Cameron's photo on Route 1, then the album from Cherrygrove's PC and the
 photo viewed; `SHOTS=1` for a screenshot every 30 frames of the photo).
 
+## The Berry Pots
+
+HeartGold's Berry Pots, ported (`include/complete_berry_pots.h`; the screen's graphics from HeartGold by
+`tools/complete/import_hgss_berry_pots.py`, its texts HeartGold's message bank 248):
+- **The key item:** the girl on Route 36 gives it after the Sudowoodo, with 3 Oran and 3 Pecha Berries, as in Sacred
+  Gold. Used from the bag (which comes back after, as in HeartGold), or registered to Y, it opens HeartGold's screen:
+  four pots on a shelf, touched or chosen with the buttons.
+- **A pot's menu:** FERTILIZE and PLANT BERRY open Platinum's bag at its Items pocket (for Mulch) or its Berries
+  pocket (`BAG_MODE_GARDENING`), and the screen comes back with the Mulch laid or the Berry planted (HeartGold's
+  messages and sounds). A planted pot offers WATER (the watering can, moved with the D-pad or the touch screen) and,
+  when its Berries are out, TAKE BERRIES, which puts them in the bag.
+- **Growth:** HeartGold's rules, not Sinnoh's soft soil's: the pots grow by the minutes since the screen was last open,
+  the next time it opens. A stage lasts the Berry's hours (a quarter less with Growth Mulch, half again with Damp
+  Mulch), the soil dries each hour and a dry hour costs the yield, the Berries stay four stages (six with Stable
+  Mulch), then fall and the plant grows again, ten times (fifteen with Gooey Mulch).
+- **The save:** the pots are four of the save's berry patches that Sinnoh's soil doesn't use (124 to 127), and the
+  time they last grew is in Complete's phone save, so the save's blocks keep their sizes. Platinum's new game fills
+  those patches with leftovers (its table has 118 patches' Berries and it fills 128), so the pots are emptied the
+  first time they open, in new games and earlier saves alike.
+
+Test: `tools/complete/test_berry_pots.py` (Mulch and an Oran Berry in the first pot through the bag, two hours on and
+WATER, sixteen hours on and TAKE BERRIES, back on the field; then USE from the bag's Key Items, and back to the bag).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
@@ -1188,5 +1211,6 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
   as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn points:
   `src/spawn_locations.c`). The fly map on the Pokégear's Map and the list of places reached that stood in before
   stay in the code (`CommonScript_CompleteFly`, which `tools/complete/test_hgss_fly.py` still runs), unused.
-- **The Berry Pots, the Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
-  (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items.
+- **The Unown Report and the Dowsing Machine** (key items Sacred Gold's scripts give) do nothing yet
+  (`docs/Roadmap.md`, "Still open"); the Pokétch's Dowsing app finds Johto's and Kanto's hidden items. The Berry Pots
+  are ported (above).

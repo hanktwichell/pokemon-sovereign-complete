@@ -180,6 +180,17 @@ work.
 - The photo album: `include/complete_photo.h` (the field's side in `src/complete_photo.c`, the album app in
   `src/applications/complete_photo_album/`, the photo's bottom screen in `src/applications/complete_photo_caption/`,
   which loads `FONT_SUBSCREEN` itself: the field doesn't). Test: `tools/complete/test_photo_album.py`.
+- The Berry Pots: `include/complete_berry_pots.h` (the manager in `src/complete_berry_pots.c` runs HeartGold's screen,
+  `src/applications/complete_berry_pots/`, and Platinum's bag in turn). Test: `tools/complete/test_berry_pots.py`.
+  Two traps its port hit: Platinum's `SpriteSystem_DestroySpriteManager` frees a manager loaded from resource lists; one
+  set up by `SpriteSystem_InitManagerWithCapacities` must go with `SpriteSystem_FreeResourcesAndManager` (else it frees
+  unset pointers and the heap corrupts ITCM through address 0's mirror). And `SpriteSystem_NewSpriteFromResourceHeader`
+  ignores HeartGold's palette mode (the template's last fields): mode 1 keeps the cell's palettes, which Platinum
+  overrides with the template's.
+- Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
+  any of them, and empty them on first use.
+- In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields
+  byte by byte.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
 

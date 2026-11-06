@@ -36,7 +36,8 @@ typedef struct CompletePhoneSave {
     u16 bikeSteps; // HeartGold's GAME_STAT_STEPS_BIKED, counted up to the Bike Shop's call (CompletePhone_CountBikeStep)
     u8 safariAreas[6]; // HeartGold's PhoneCallPersistentState_SafariZoneArrangement: the areas whose Pokémon changed,
     u8 safariAreaCount; // which Baoba calls about (CompletePhone_SetSafariAreas)
-    u8 reserved[33];
+    u8 berryPotsTime[28]; // when HeartGold's Berry Pots last grew: an RTCDate and RTCTime (include/complete_berry_pots.h)
+    u8 reserved[5];
 } CompletePhoneSave;
 
 #define MOM_GIFT_QUEUE_SIZE          5

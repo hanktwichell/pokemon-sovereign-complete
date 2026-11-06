@@ -26,6 +26,7 @@
 #include "bag_context.h"
 #include "berry_patch_manager.h"
 #include "bg_window.h"
+#include "complete_berry_pots.h" // Sovereign Complete
 #include "complete_map_info.h"
 #include "complete_scrcmd.h" // Sovereign Complete
 #include "field_bgm.h"
@@ -99,6 +100,8 @@ static void UseAzureFluteFromMenu(ItemMenuUseContext *usageContext, const ItemUs
 static void UseVsRecorderFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext);
 static void UseGracideaFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext);
 static void UseSovereignFormItemFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext);
+static void UseCompleteBerryPotsFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext); // Sovereign Complete
+static BOOL UseCompleteBerryPotsInField(ItemFieldUseContext *usageContext); // Sovereign Complete
 static BOOL UseBicycleInField(ItemFieldUseContext *usageContext);
 static BOOL UseJournalInField(ItemFieldUseContext *usageContext);
 static BOOL UseOldRodInField(ItemFieldUseContext *usageContext);
@@ -167,6 +170,7 @@ static const ItemUseFuncDat sItemUseFuncs[] = {
     [ITEM_USE_FUNC_VS_RECORDER]  = { UseVsRecorderFromMenu,  UseVsRecorderInField,  NULL              },
     [ITEM_USE_FUNC_GRACIDEA]     = { UseGracideaFromMenu,    UseGracideaInField,    NULL              },
     [ITEM_USE_FUNC_SOVEREIGN_FORM] = { UseSovereignFormItemFromMenu, NULL,          NULL              },
+    [ITEM_USE_FUNC_COMPLETE_BERRY_POTS] = { UseCompleteBerryPotsFromMenu, UseCompleteBerryPotsInField, NULL }, // Sovereign Complete
 };
 // clang-format on
 
@@ -1062,6 +1066,24 @@ static BOOL UseGracideaInField(ItemFieldUseContext *usageContext)
 static void *OpenPartyMenuForGracidea(void *fieldSystem)
 {
     return FieldSystem_OpenPartyMenu_SelectForItemUsage(fieldSystem, HEAP_ID_FIELD2, ITEM_GRACIDEA);
+}
+
+// Sovereign Complete: HeartGold's Berry Pots (include/complete_berry_pots.h), from the bag (back to it after, as the Pal
+// Pad's) or registered to Y
+static void UseCompleteBerryPotsFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(usageContext->fieldTask);
+    StartMenu *menu = FieldTask_GetEnv(usageContext->fieldTask);
+
+    CompleteBerryPots_Launch(fieldSystem);
+    menu->taskData = NULL;
+    StartMenu_SetCallback(menu, StartMenu_ExitPalPad);
+}
+
+static BOOL UseCompleteBerryPotsInField(ItemFieldUseContext *usageContext)
+{
+    RegisteredItem_CreateGoToAppTask(usageContext, CompleteBerryPots_LaunchRegistered);
+    return TRUE;
 }
 
 // Sovereign (FM): the form-change key items (Reveal Glass, DNA Splicers...) open the party menu like the Gracidea, and

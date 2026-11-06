@@ -74,8 +74,15 @@ def icon_indices():
         r'\s*NARC_item_icon_item_icon_(\d+)_NCLR', text)}
 
 
+# HeartGold's key items that have their use in Complete: (their use from the bag, registered to Y as HeartGold's are)
+OWN_FIELD_USES = {
+    'berry_pots': ('ITEM_USE_FUNC_COMPLETE_BERRY_POTS', True),  # include/complete_berry_pots.h
+}
+
+
 def item_json(stem, name, plural, article, description, price, pocket, prevent_toss=False, fling_power=0,
               field_use='ITEM_USE_FUNC_NONE'):
+    field_use, can_register = OWN_FIELD_USES.get(stem, (field_use, False))
     return {
         'name': name,
         'plural': plural,
@@ -92,7 +99,7 @@ def item_json(stem, name, plural, article, description, price, pocket, prevent_t
         'naturalGiftPower': 0,
         'naturalGiftType': None,
         'preventToss': prevent_toss,
-        'canRegister': False,  # the key items HeartGold registers have no use yet
+        'canRegister': can_register,  # the key items HeartGold registers, once they have their use (OWN_FIELD_USES)
         'fieldPocket': pocket,
         'battlePocket': 'BATTLE_POCKET_MASK_NONE',  # Kurt's balls: thrown from step 5
         'fieldUseFunc': field_use,

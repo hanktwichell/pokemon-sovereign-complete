@@ -2044,6 +2044,15 @@
    "player": "PLAYER_SE_1"
   },
   {
+   "name": "SEQ_SE_GS_KP01",
+   "fileName": "SEQ_SE_GS_KP01.sseq",
+   "bank": "BANK_SE_GS_KP01",
+   "volume": 125,
+   "channelPriority": 89,
+   "playerPriority": 64,
+   "player": "PLAYER_SE_1"
+  },
+  {
    "name": "SEQ_SE_GS_KUJI_ATARI",
    "fileName": "SEQ_SE_GS_KUJI_ATARI.sseq",
    "bank": "BANK_SE_GS_KUJI_ATARI",
@@ -2120,6 +2129,15 @@
    "fileName": "SEQ_SE_GS_LINEAR_LR3.sseq",
    "bank": "BANK_SE_GS_LINEAR3",
    "volume": 70,
+   "channelPriority": 89,
+   "playerPriority": 64,
+   "player": "PLAYER_SE_1"
+  },
+  {
+   "name": "SEQ_SE_GS_MIZU",
+   "fileName": "SEQ_SE_GS_MIZU.sseq",
+   "bank": "BANK_SE_GS_MIZU",
+   "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
    "player": "PLAYER_SE_1"
@@ -4468,6 +4486,16 @@
    ]
   },
   {
+   "name": "BANK_SE_GS_KP01",
+   "fileName": "BANK_SE_GS_KP01.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
    "name": "BANK_SE_GS_KUJI_ATARI",
    "fileName": "BANK_SE_GS_KUJI_ATARI.sbnk",
    "waves": [
@@ -4490,6 +4518,16 @@
   {
    "name": "BANK_SE_GS_LINEAR3",
    "fileName": "BANK_SE_GS_LINEAR3.sbnk",
+   "waves": [
+    "WAVE_ARC_BASIC",
+    "WAVE_ARC_GS",
+    "",
+    ""
+   ]
+  },
+  {
+   "name": "BANK_SE_GS_MIZU",
+   "fileName": "BANK_SE_GS_MIZU.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",

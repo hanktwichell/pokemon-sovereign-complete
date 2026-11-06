@@ -6,7 +6,10 @@
 // album's own files include it.
 
 // The touch screen list menu: Voltorb Flip's port of HeartGold's, compiled again into the album's overlay under its
-// own names (src/applications/complete_photo_album/list_menu.c), as each overlay needs its own copy
+// own names (src/applications/complete_photo_album/list_menu.c), as each overlay needs its own copy; another port that
+// includes this header names its own copy first (COMPLETE_LIST_MENU_NAMED)
+#ifndef COMPLETE_LIST_MENU_NAMED
+#define COMPLETE_LIST_MENU_NAMED
 #define TouchscreenListMenuSpawner_Create        PhotoAlbumListMenuSpawner_Create
 #define TouchscreenListMenuSpawner_Destroy       PhotoAlbumListMenuSpawner_Destroy
 #define TouchscreenListMenu_Create               PhotoAlbumListMenu_Create
@@ -16,6 +19,7 @@
 #define TouchscreenListMenu_Destroy              PhotoAlbumListMenu_Destroy
 #define TouchscreenListMenu_DestroyButtons       PhotoAlbumListMenu_DestroyButtons
 #define TouchscreenListMenu_HandleInput          PhotoAlbumListMenu_HandleInput
+#endif
 
 #include "applications/complete_voltorb_flip/hgss_compat.h"
 #include "applications/complete_voltorb_flip/touchscreen_list_menu.h"
