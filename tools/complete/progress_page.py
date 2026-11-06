@@ -55,9 +55,9 @@ STEPS = [
     (5, 'HeartGold features', 'active', 'In progress',
      'In: the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, gym puzzles, '
      'the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear (phone, map, radio), the Magnet Train, '
-     'the legendaries\' cutscenes. Following Pokémon are built but being turned off (your call). Still to port '
-     '(answers 7, 8, 9): the photo album, the Pokéathlon, the Berry Pots, the Unown Report and the Dowsing Machine; '
-     'link play later.'),
+     'the legendaries\' cutscenes, the photo album. Following Pokémon are built but turned off (your call). Still to '
+     'port (answers 8, 9): the Pokéathlon, the Berry Pots, the Unown Report and the Dowsing Machine; link play '
+     'later.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full, '
      'and HeartGold\'s own sound effects play in its scenes and scripts.'),
     (7, 'Joining the world', 'active', 'In progress',
@@ -80,8 +80,8 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: HeartGold\'s ports (the album first, then the Berry Pots, the Unown Report, the Dowsing Machine, the '
-    'Pokéathlon), with the full Sinnoh story run going now.',
+    'Now: HeartGold\'s ports (the album is in; next the Berry Pots, the Unown Report, the Dowsing Machine, then the '
+    'Pokéathlon), with the Sinnoh story run going again past Canalave.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), and taking the Pokégear\'s '
     'old Fly map out.',
 ]
@@ -222,7 +222,7 @@ ANSWERED = [
     (4, 'Cynthia', 'Keep her hard; a good matchup wins.', 'Done'),
     (5, 'The land between', 'Keep it empty.', 'Done'),
     (6, 'Field moves', 'An HM earned in Johto works everywhere.', 'Works this way now'),
-    (7, 'The photo album', 'Port it; every HeartGold feature gets ported, used or not.', 'Claude, planned'),
+    (7, 'The photo album', 'Port it; every HeartGold feature gets ported, used or not.', 'Done'),
     (8, 'The Pokéathlon', 'Port it too.', 'Claude, planned (the biggest port)'),
     (9, 'HeartGold\'s key items', 'Port all three: the Berry Pots, the Unown Report, the Dowsing Machine.',
      'Claude, planned'),
@@ -249,6 +249,18 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('HeartGold\'s photo album (your answer 7)', [
+        'Cameron the photographer takes your photo at HeartGold\'s 66 spots: the place with only you and your '
+        'party in it, the viewfinder, the shutter. The Pokémon Center\'s PC has a PHOTO ALBUM (under your PC) with '
+        'HeartGold\'s album: view, move or delete a photo; a photo viewed shows the place again as it was, at the hour '
+        'it was taken, with its caption on the bottom screen. Old saves still load (the album has its own space). '
+        'Tested in the emulator: 0 problems. Pictures: Gallery tab.',
+        'Found and fixed on the way: a crash as a photo showed (a font the field never loads), the PC\'s entry '
+        'reading "RULES", coming back at the Pokémon Center\'s door instead of the PC, and a sprite setting with '
+        'different meanings in the two games (also in Voltorb Flip and Arceus\'s cinematic).',
+        'The Sinnoh story test had stopped at Canalave: its check still expected the gate policeman\'s Tea from '
+        'before Canalave opened first. Fixed; the run is going again.',
+    ]),
     ('Your Nov 6 calls, done', [
         'Trade evolutions without trading: Metal Coat and the other trade items work like stones from the bag; '
         'Kadabra, Machoke, Graveler and Haunter also evolve at Lv. 37; Sacred Gold\'s Covenant Orb still works. Tested '

@@ -833,7 +833,7 @@ static int Arceus_RunStep(LegendCinematic *cin, const s32 *step)
         ManagedSprite_SetPositionXY(arceus->sprite, step[1], step[2]);
         break;
     case ARCEUS_STEP_SPRITE_PRIORITY:
-        ManagedSprite_SetPriority(arceus->sprite, step[1]);
+        ManagedSprite_SetExplicitPriority(arceus->sprite, step[1]); // HeartGold's SetPriority: the BG priority
         break;
     case ARCEUS_STEP_MARK:
     default:

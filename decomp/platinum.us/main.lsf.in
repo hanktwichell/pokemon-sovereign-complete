@@ -249,6 +249,7 @@ Static main
 	Object src/complete_rival.c
 	Object src/complete_badges.c
 	Object src/complete_playtest.c
+	Object src/complete_photo.c
 	Object src/unk_02054884.c
 	Object src/terrain_attributes.c
 	Object src/terrain_collision_manager.c
@@ -1567,6 +1568,12 @@ Overlay complete_alph_puzzle
 	Object src/applications/complete_alph_puzzle.c
 }
 
+Overlay complete_photo_caption
+{
+	After overlay9
+	Object src/applications/complete_photo_caption/photo_caption.c
+}
+
 Overlay complete_pokegear
 {
 	After overlay9
@@ -1591,6 +1598,13 @@ Overlay complete_magnet_train
 {
 	After main
 	Object src/applications/complete_magnet_train/magnet_train.c
+}
+
+Overlay complete_photo_album
+{
+	After main
+	Object src/applications/complete_photo_album/photo_album.c
+	Object src/applications/complete_photo_album/list_menu.c
 }
 
 Overlay complete_legend_cinematic

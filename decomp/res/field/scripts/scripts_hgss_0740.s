@@ -411,14 +411,14 @@ _0676:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _080E
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0819
     Message msg_0451_T01R0301_00029
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 90
+    CompleteCameronPhoto 90
     FacePlayer
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
@@ -440,14 +440,14 @@ _06DE:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _080E
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0819
     Message msg_0451_T01R0301_00029
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 90
+    CompleteCameronPhoto 90
     FacePlayer
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK

@@ -1097,7 +1097,14 @@ CommonScript_InitPlayersPCMenu:
     InitGlobalTextListMenu 1, 1, 0, VAR_RESULT
     AddListMenuEntry MenuEntries_Text_PC_Mailbox, 0, MenuEntries_Text_PC_DescriptionMailBox
     AddListMenuEntry MenuEntries_Text_PC_BallCapsules, 1, MenuEntries_Text_PC_DescriptionBallCapsules
+    @ Sovereign Complete: HeartGold's PHOTO ALBUM, with a photo in it (include/complete_photo.h)
+    CompleteCountSavedPhotos VAR_0x8009
+    CallIfNe VAR_0x8009, 0, CommonScript_CompleteAddPhotoAlbumEntry
     AddListMenuEntry MenuEntries_Text_PC_LogOut, 3, MenuEntries_Text_PC_DescriptionLogOut
+    Return
+
+CommonScript_CompleteAddPhotoAlbumEntry:
+    AddListMenuEntry MenuEntries_Text_PC_CompletePhotoAlbum, 2, MenuEntries_Text_PC_DescriptionCompletePhotoAlbum
     Return
 
 CommonScript_HandlePlayersPCMenuInput:
@@ -1105,7 +1112,16 @@ CommonScript_HandlePlayersPCMenuInput:
     SetVar VAR_0x8008, VAR_RESULT
     GoToIfEq VAR_0x8008, 0, CommonScript_Mailbox
     GoToIfEq VAR_0x8008, 1, CommonScript_BallCapsules
+    GoToIfEq VAR_0x8008, 2, CommonScript_CompletePhotoAlbum @ Sovereign Complete
     GoTo CommonScript_AccessWhichPC
+
+@ Sovereign Complete: HeartGold's photo album, and the photos looked at from it (include/complete_photo.h)
+CommonScript_CompletePhotoAlbum:
+    CloseMessage
+    Call CommonScript_PCFadeOut
+    CompleteOpenPhotoAlbum
+    ReturnToField
+    GoTo CommonScript_BallCapsulesEnd
 
 CommonScript_Mailbox:
     CloseMessage

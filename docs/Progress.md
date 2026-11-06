@@ -2021,3 +2021,22 @@ Test results on the new test build:
   the tutor (`tools/complete/test_pledge_tutor.py`: Turtwig learns Grass Pledge through the menus, Garchomp is
   refused) and five battle cases (`tools/test/battle_mechanics.py pledge_*`: each field's start, its turns and its
   end, the same Pledge twice and a single battle as plain hits).
+- **HeartGold's photo album (the owner's call: every HeartGold feature ported):** Cameron the photographer's photos
+  (66 photos on 59 maps) go in an album: asked for a photo, he walks the player to the spot, the map loads again with
+  only the player and the party in HeartGold's photo camera, the viewfinder comes up and the shutter clicks
+  (`src/complete_photo.c`, HeartGold's field_take_photo.c). The Pokémon Center's PC gains PHOTO ALBUM under the
+  player's PC once there's a photo: HeartGold's album app (overlay 109, `src/applications/complete_photo_album/`, with
+  Voltorb Flip's list menu), where a photo is viewed, moved or deleted; a photo viewed shows again as it was taken (the
+  map at its spot, the hour it was taken, the player as they were) with HeartGold's caption and buttons on the bottom
+  screen (`src/applications/complete_photo_caption/`). The album has its own save sector after the battle videos, so
+  earlier saves still load. Its data from HeartGold (`tools/complete/import_hgss_photos.py`). Tested
+  (`tools/complete/test_photo_album.py`, 0 problems: the photo on Route 1, the album from Cherrygrove's PC walked up
+  to, the photo viewed, back to the album, out to the PC, the player where they stood). Found on the way and fixed:
+  the photo's bottom screen printed with a font the field never loads (the game crashed as the photo's map started;
+  found by tracing every call in the emulator); the PC's entry read "RULES" (Platinum's list-menu command kept text
+  IDs in a byte, and the album's is 296; only the album's texts were past 255); the way back from a photo was where
+  the player came into the Pokémon Center, not where they stood; and HeartGold's `ManagedSprite_SetPriority` (a BG
+  priority) means the draw order in Platinum, so the album's EXIT button hid its text. The same name had been carried
+  into Voltorb Flip (the flipping card) and Arceus's cinematic; all three now set the BG priority (noted in
+  CLAUDE.md). The Sinnoh story test's Route 218 gate check still expected the Tea from before Canalave opened first;
+  fixed, and two of its parts shared a name.

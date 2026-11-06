@@ -1156,12 +1156,34 @@ The owner's call (Nov 6, 2026): a tutor teaches the Pledges to the starters, wit
 
 Tests: `tools/test/battle_mechanics.py pledge_*` (each combination, the same Pledge twice, a single battle).
 
+## The photo album
+
+HeartGold's photo album, ported (`include/complete_photo.h`; its graphics, photo spots and texts from HeartGold by
+`tools/complete/import_hgss_photos.py`):
+- **Cameron the photographer** stands at 59 of HeartGold's places (66 photos, a few on certain days). Asked for a
+  photo, he walks the player to the spot, and the map loads again with no one on it but the player and the party
+  (or the player, their lead and the place's own person, as HeartGold does), in HeartGold's photo camera; the
+  viewfinder comes up, the shutter clicks (HeartGold's sound), and the photo goes in the album. The player is back
+  where he left them, and his script ends as it does in Sacred Gold. He says the album is full at 36, as HeartGold's.
+- **The album:** the Pokémon Center's PC gains a PHOTO ALBUM entry under the player's PC once there is a photo. It
+  is HeartGold's album app (its two screens, page turns and touch list): a photo picked can be viewed, moved (swapped
+  with another) or deleted.
+- **Viewing a photo:** the map loads at the photo's spot, at the hour it was taken, with the player as they were
+  (walking, cycling, surfing) and the party in it, as HeartGold shows it; the bottom screen has its caption (whose
+  photo, when, of whom, where) and HeartGold's buttons for the photo before and after, and back to the album. Out of
+  the album, the player is where they were at the PC.
+- **The save:** the album has its own sector after the battle videos, so the save's blocks keep their sizes and
+  earlier saves still load (with an empty album).
+- A Pokémon HeartGold has no field sprite for (Gen V on) is left out of the photo (`CompleteFollower_MonGfx`); the
+  album's caption still names the lead.
+
+Test: `tools/complete/test_photo_album.py` (Cameron's photo on Route 1, then the album from Cherrygrove's PC and the
+photo viewed; `SHOTS=1` for a screenshot every 30 frames of the photo).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:
 
-- **The photo album** (Cameron the photographer, 66 photos on 59 maps): he takes the photo, but there is no album to
-  keep it in.
 - **Fly over Johto and Kanto:** done by the Town Map of three regions (above). HeartGold's 25 Fly points are recorded
   as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn points:
   `src/spawn_locations.c`). The fly map on the Pokégear's Map and the list of places reached that stood in before

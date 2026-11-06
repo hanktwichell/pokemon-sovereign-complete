@@ -1988,8 +1988,8 @@ static BOOL ScrCmd_InitLocalTextListMenu(ScriptContext *ctx)
 static BOOL ScrCmd_AddListMenuEntry(ScriptContext *ctx)
 {
     FieldMenuManager **fieldMenuMan = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_FIELD_MENU_MANAGER);
-    u8 entryStringID = ScriptContext_GetVar(ctx);
-    u8 altTextStringID = ScriptContext_GetVar(ctx);
+    u16 entryStringID = ScriptContext_GetVar(ctx); // Sovereign Complete: u16, the menu texts past 255 (was u8)
+    u16 altTextStringID = ScriptContext_GetVar(ctx); // Sovereign Complete: u16 (was u8)
     u8 entryIndex = ScriptContext_GetVar(ctx);
 
     FieldMenuManager_AddListMenuEntry(*fieldMenuMan, entryStringID, altTextStringID, entryIndex);

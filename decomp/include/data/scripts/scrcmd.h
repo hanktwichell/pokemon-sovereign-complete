@@ -1020,6 +1020,10 @@ ScriptCommand(SCRCMD_COMPLETEALPHWALL,                                 CompleteS
 ScriptCommand(SCRCMD_COMPLETELIGHTHOUSELIGHT,                          CompleteScrCmd_LighthouseLight)
 ScriptCommand(SCRCMD_COMPLETEUPDATEDAYCAREMONOBJECTS,                  CompleteScrCmd_UpdateDaycareMonObjects)
 ScriptCommand(SCRCMD_COMPLETEGIVEPOKEMONATLEVEL,                      CompleteScrCmd_GivePokemonAtLevel)
+ScriptCommand(SCRCMD_COMPLETECAMERONPHOTO,                             CompleteScrCmd_CameronPhoto)
+ScriptCommand(SCRCMD_COMPLETECOUNTSAVEDPHOTOS,                         CompleteScrCmd_CountSavedPhotos)
+ScriptCommand(SCRCMD_COMPLETEOPENPHOTOALBUM,                           CompleteScrCmd_OpenPhotoAlbum)
+ScriptCommand(SCRCMD_COMPLETEPHOTOALBUMISFULL,                         CompleteScrCmd_PhotoAlbumIsFull)
 
 // clang-format on
 

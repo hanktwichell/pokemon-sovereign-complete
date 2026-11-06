@@ -4,6 +4,7 @@
 #include <nnsys.h>
 #include <string.h>
 
+#include "complete_photo.h" // Sovereign Complete
 #include "inlines.h"
 
 #ifdef SOVEREIGN_TEST
@@ -61,6 +62,7 @@ static void GetTimeCallback(RTCResult result, void *data)
     state->valid = 1;
     state->date = state->tempDate;
     state->time = state->tempTime;
+    CompletePhoto_ApplyFrozenTime(&state->time); // Sovereign Complete: a photo shows at the hour it was taken
 
 #ifdef SOVEREIGN_TEST
     // Test build only: the hour or month a test harness set (include/sovereign_test.h).

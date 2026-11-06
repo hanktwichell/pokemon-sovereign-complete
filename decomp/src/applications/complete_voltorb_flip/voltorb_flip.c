@@ -2198,7 +2198,8 @@ static void VoltorbFlip_CreateSprites(VoltorbFlipAppData *work) {
 
     ManagedSprite_SetDrawFlag(work->sprites[VF_SPRITE_02], TRUE);
     ManagedSprite_SetDrawFlag(work->sprites[VF_SPRITE_03], TRUE);
-    ManagedSprite_SetPriority(work->sprites[VF_SPRITE_FLIPPING_CARD], 1);
+    // HeartGold's ManagedSprite_SetPriority is the BG priority (Platinum's explicit one; Platinum's is the draw order)
+    ManagedSprite_SetExplicitPriority(work->sprites[VF_SPRITE_FLIPPING_CARD], 1);
     ManagedSprite_SetPaletteOverride(work->sprites[VF_SPRITE_10], 4);
 }
 

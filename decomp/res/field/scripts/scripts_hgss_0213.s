@@ -393,7 +393,7 @@ _0553:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05B4
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _05BF
     Message msg_0361_R22R0101_00013
@@ -401,7 +401,7 @@ _0553:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 70
+    CompleteCameronPhoto 70
     FacePlayer
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK

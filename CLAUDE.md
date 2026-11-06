@@ -174,6 +174,12 @@ work.
   `main.c`, `graphics.c` and `context.c`; the field's hand-off in `gCompleteTownMap`, `src/complete_map_info.c`), its
   graphics from `tools/complete/import_town_map.py` (`graphic/complete/town_map.narc`). Fly from the party menu opens
   it everywhere. Test: `tools/complete/test_town_map.py`.
+- Names that mean different things in the two engines: HeartGold's `ManagedSprite_SetPriority`/`Sprite_SetPriority`
+  set a sprite's BG priority (Platinum's `ManagedSprite_SetExplicitPriority`); Platinum's set the draw order
+  (HeartGold's `SetDrawPriority`). A port that keeps the call by name draws the sprite over the text it should sit under.
+- The photo album: `include/complete_photo.h` (the field's side in `src/complete_photo.c`, the album app in
+  `src/applications/complete_photo_album/`, the photo's bottom screen in `src/applications/complete_photo_caption/`,
+  which loads `FONT_SUBSCREEN` itself: the field doesn't). Test: `tools/complete/test_photo_album.py`.
 - A new NARC needs its line in `platinum.us/filesys.csv`, its `constants/narc.h` entry and its path in `src/narc.c`'s
   `sNarcPaths` (without the path, opening it reads a null name and the game crashes).
 

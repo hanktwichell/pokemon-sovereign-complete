@@ -43,8 +43,9 @@ PREFIX = 'TEXT_BANK_HGSS_MSG_'
 # src/overlay005/complete_legend_cutscene.c); the following Pokémon's talk
 # (msg_0265, src/overlay006/complete_follower_talk.c); Voltorb Flip's (msg_0039,
 # src/applications/complete_voltorb_flip/); and the Pokégear radio's: its own lines (msg_0269) and its shows'
-# (msg_0409 to msg_0420, src/applications/complete_pokegear/)
-SHARED = ['0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
+# (msg_0409 to msg_0420, src/applications/complete_pokegear/); the photo album's (msg_0000,
+# src/applications/complete_photo_album/ and complete_photo_caption/)
+SHARED = ['0000', '0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
     [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0198', '0265', '0039', '0269'] + \
     [f'{n:04d}' for n in range(409, 421)]
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
@@ -70,6 +71,9 @@ TEXT_FIXES = {
     'msg_0190_00001': ['So, you like {COLOR 3}Chikorita{COLOR 0},\n', 'the Grass-type Pokémon?'],
     'msg_0190_00002': ['You’ll take {COLOR 1}Cyndaquil{COLOR 0},\n', 'the Fire-type Pokémon?'],
     'msg_0190_00003': ['Do you want {COLOR 2}Totodile{COLOR 0},\n', 'the Water-type Pokémon?'],
+    # Mom's line as she gives the Running Shoes, its lines kept to the box (a hand fix, kept here so a rerun keeps it)
+    'msg_0545_T20R0201_00005': ['I’m sure you know how to use these.\f', 'Oh, I hear Professor Elm has a gift\n',
+                                'for you.\r'],
 }
 
 

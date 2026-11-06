@@ -49,6 +49,7 @@
 #include "complete_sinnoh.h"
 #include "complete_follower.h"
 #include "complete_map_info.h"
+#include "complete_photo.h"
 #include "complete_placed.h"
 #include "complete_pokegear.h"
 #include "complete_rival.h"
@@ -1676,5 +1677,34 @@ BOOL CompleteScrCmd_GivePokemonAtLevel(ScriptContext *ctx)
     CompleteSinnoh_KeepLevels(TRUE);
     ScrCmd_GivePokemon(ctx);
     CompleteSinnoh_KeepLevels(FALSE);
+    return FALSE;
+}
+
+// Sovereign Complete: HeartGold's photo album's commands (include/complete_photo.h)
+BOOL CompleteScrCmd_CameronPhoto(ScriptContext *ctx)
+{
+    CompletePhoto_StartTakePhoto(ctx->fieldSystem, ScriptContext_ReadHalfWord(ctx));
+    return TRUE;
+}
+
+BOOL CompleteScrCmd_CountSavedPhotos(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = CompletePhotoAlbum_CountSaved(ctx->fieldSystem->saveData);
+    return FALSE;
+}
+
+BOOL CompleteScrCmd_OpenPhotoAlbum(ScriptContext *ctx)
+{
+    CompletePhoto_StartViewAlbum(ctx->fieldSystem);
+    return TRUE;
+}
+
+BOOL CompleteScrCmd_PhotoAlbumIsFull(ScriptContext *ctx)
+{
+    u16 *destVar = ScriptContext_GetVarPointer(ctx);
+
+    *destVar = CompletePhotoAlbum_CountSaved(ctx->fieldSystem->saveData) >= COMPLETE_PHOTO_ALBUM_MAX;
     return FALSE;
 }
