@@ -230,6 +230,16 @@ Location: `assets/sprites/icons_placeholder/` (converted by `tools/sprites/make_
 The Pokémon Company; PokeAPI hosts it. In the ROM as `decomp/res/pokemon/<species>/icon.png` (written by
 `tools/engine/gen_new_species.py`). **Placeholders only**, to be replaced by DS-style icons.
 
+### Box, PC and party icons from Pokémon Showdown (Sovereign Complete, #1–1025)
+Sovereign Complete replaces every species' icon (`decomp/res/pokemon/<species>/icon.png`, and its `icon_palette`) with
+Pokémon Showdown's (the owner's call, Nov 6, 2026), converted to the DS's two-frame 32×32 icons in the three shared icon
+palettes by `tools/complete/import_showdown_icons.py`. Source: **Pokémon Showdown's icon sheet**,
+https://play.pokemonshowdown.com/sprites/pokemonicons-sheet.png, with its index in
+https://play.pokemonshowdown.com/js/battle-dex-data.js (`BattlePokemonIconIndexes`). The icon art is © Nintendo / Game
+Freak / The Pokémon Company; Showdown's sheet collects the official menu icons and, for the newest Pokémon and forms,
+icons drawn by its sprite contributors, whom Showdown credits (https://pokemonshowdown.com/credits). The PokeAPI
+placeholders above are no longer in the ROM.
+
 ### Item icons for the 245 new items (#468–712)
 Location: `decomp/res/items/icons/<item>.png` + `.pal`, converted by `tools/engine/gen_items.py` (reduced to 15 colours
 plus transparent, at most 24×24 px). Source: **PokeAPI sprites**, https://github.com/PokeAPI/sprites (commit

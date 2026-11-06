@@ -1066,6 +1066,14 @@ The owner's call (Nov 6, 2026), with `tools/complete/hm_moves.py` for the data:
   (`SOVEREIGN_HMS_FORGETTABLE`). A field move works from the bag's HM with no Pokémon knowing it (Sovereign's), so
   Whirlpool needs HM05 in the bag and Defog HM09.
 
+## Box, PC and party icons from Pokémon Showdown
+
+The owner's call (Nov 6, 2026): Showdown's icon for every Pokémon, #1 to 1025, in place of Platinum's own (#1–493) and
+the PokeAPI placeholders (#494–1025), so all of them share one style (`tools/complete/import_showdown_icons.py`). Each
+is drawn in whichever of the three shared icon palettes matches it best, so some colours shift; Showdown's icons have
+one frame, so the second frame is a one-pixel bounce (Platinum's own had a real second frame). The forms still show
+their species' icon: their own icons are next (168 of Sovereign's 227 forms are on Showdown's sheet by name).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

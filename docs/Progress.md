@@ -1969,3 +1969,6 @@ Test results on the new test build:
   and Kanto. Found on the way: Snowpoint's Regigigas story took HM08 in the bag as Candice's thanks, so the player's
   own HM08 from Kanto skipped it; a flag (`FLAG_COMPLETE_REGIGIGAS_CALMED`) is the record now.
 - **The owner's note:** Sinnoh needs people where its HMs used to hold the player back (`docs/Roadmap.md`).
+- **Showdown's icons for every Pokémon (the owner's call):** #1–1025 now use Pokémon Showdown's box icons, converted
+  to the DS's icons in the three shared palettes (`tools/complete/import_showdown_icons.py`): 712 changed, the rest
+  were the same PokeAPI icons already. Checked in the party menu on the test build; the forms come next.

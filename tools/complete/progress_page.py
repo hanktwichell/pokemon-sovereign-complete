@@ -63,10 +63,11 @@ STEPS = [
     (7, 'Joining the world', 'active', 'In progress',
      'Done: a new game plays from New Bark Town through Johto, Kanto and Sinnoh to the Hall of Fame; one Town Map of '
      'three regions; Sinnoh\'s levels after Kanto; Totems, legendaries and Megas in all three regions; Ally Switch. '
-     'To do from your answers: Sinnoh entered at Canalave City (Rowan and his starter), the Rapid Ferry, Mega Stones '
-     'from Sinnoh\'s HM givers, Whirlpool HM05 and Defog HM09, the Town Map from Cherrygrove, Fly to the Sinjoh Ruins, '
-     'trade evolutions from the bag, the Pal Parks\' regional forms, 24 badges on the Trainer Card, the starters\' '
-     'Pledge tutor. Done Nov 6: the player is Ethan (or Dawn); the Indigo Plateau\'s two-and-two Elite Four.'),
+     'Done Nov 6 from your answers: the player is Ethan (or Dawn); the Indigo Plateau\'s two-and-two Elite Four; '
+     'trade evolutions from the bag; Whirlpool HM05 and Defog HM09; Sinnoh entered at Canalave City (Rowan and his '
+     'starter); the Town Map from Cherrygrove; Mega Stones from Sinnoh\'s HM givers; no following Pokémon; '
+     'Showdown\'s icons. To do: people where Sinnoh\'s HMs held the player back, the Rapid Ferry, Fly to the Sinjoh '
+     'Ruins, the Pal Parks\' regional forms, 24 badges on the Trainer Card, the starters\' Pledge tutor.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Complete\'s 40 feature tests and 8 long ones (the story test plays the whole game), and Sovereign\'s own suites, '
      'rerun Nov 6: battle mechanics 526 of 526 plus Ally Switch\'s 2, gifts 45 of 45, rare wild Pokémon 26 of 26, '
@@ -79,12 +80,11 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: the Trainer Card with all 24 badges (a preview for you, HeartGold\'s League Badges page for Johto and '
-    'Kanto beside Platinum\'s Sinnoh case), with Ethan\'s picture on it; then the intro\'s pictures and the Town '
-    'Map\'s head.',
-    'Then your answers in turn: trade evolutions, the '
-    'HMs, the Mega Stone gifts, the Town Map, Canalave City and Rowan, the Rapid Ferry, the Pal Parks, the Pledges, '
-    'then HeartGold\'s ports (the album, the Berry Pots, the Unown Report, the Dowsing Machine, the Pokéathlon).',
+    'Now: Showdown\'s icons for the forms too (regional forms, Megas), then people where Sinnoh\'s HMs used to hold '
+    'the player back (your note), checked against the full Sinnoh story run going now.',
+    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), the Rapid Ferry, Fly to the '
+    'Sinjoh Ruins, the Pal Parks, the Pledges, then HeartGold\'s ports (the album, the Berry Pots, the Unown Report, '
+    'the Dowsing Machine, the Pokéathlon).',
 ]
 
 WAITING = [
@@ -240,6 +240,21 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your Nov 6 calls, done', [
+        'Trade evolutions without trading: Metal Coat and the other trade items work like stones from the bag; '
+        'Kadabra, Machoke, Graveler and Haunter also evolve at Lv. 37; Sacred Gold\'s Covenant Orb still works. Tested '
+        'through the bag\'s menus: 22 of 22.',
+        'HM05 is Whirlpool (HeartGold\'s list of who learns it), Defog a new HM09 where Platinum had its HM05. HM moves '
+        'were already forgettable. Tested: 6 of 6.',
+        'Sinnoh begins in Canalave City: Rowan and his assistant meet you on the dock; his briefcase is in the Sandgem '
+        'lab; nothing blocks the way to Jubilife; Barry\'s Parcel comes from Rowan. Tested by the ferry test (16 of 16) '
+        'and the story test through Roark\'s mine. Pictures: Gallery tab.',
+        'The Town Map from Cherrygrove\'s Guide Gent; Barry\'s parcel holds Altarianite (your call: Questions tab).',
+        'Sinnoh\'s HM givers give your Mega Stones. Found on the way: Snowpoint\'s Regigigas story counted HM08 in '
+        'the bag as Candice being done, so the HM08 you bring from Kanto skipped it; fixed.',
+        'No following Pokémon: off, the code kept.',
+        'Showdown\'s box icons for all 1025 species (the forms next).',
+    ]),
     ('Your Nov 6 call: the Indigo Plateau\'s Elite Four', [
         'Sovereign\'s format at the Indigo Plateau: Will and Koga each ask single or double battle; if both got the '
         'same, Bruno and Karen get the other and Koga tells you so after his battle; otherwise Bruno asks and Karen '

@@ -27,12 +27,14 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 LONG = {'hgss_opening', 'hgss_encounters', 'follower_talk', 'hgss_hidden_items', 'hgss_tile_behaviors', 'placed',
         'boss_megas', 'sound_heap'}
 OTHER = {'follower', 'save', 'map_warp'}  # ROM-only tests and the warp tool
+# The following Pokémon are off (COMPLETE_FOLLOWER_ENABLED, the owner's call, Nov 6, 2026): their tests wait for them
+RETIRED = {'follower_talk', 'follower_inhibit'}
 
 
 def tests():
     names = [os.path.basename(p)[len('test_'):-len('.py')]
              for p in glob.glob(os.path.join(ROOT, 'tools', 'complete', 'test_*.py'))]
-    return sorted(n for n in names if n not in OTHER)
+    return sorted(n for n in names if n not in OTHER and n not in RETIRED)
 
 
 def last_result(log):
