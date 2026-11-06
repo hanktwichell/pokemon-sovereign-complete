@@ -15,8 +15,9 @@ static BOOL sChanged; // a change was stored since the game was last saved
 
 #ifdef SOVEREIGN_TEST
 u32 gCompleteTestPokeathlon[6];
-u8 gCompleteTestPokeathlonRecordScreen[3]; // here as the record screens' overlay is reused when they close
+u8 gCompleteTestPokeathlonRecordScreen[4]; // here as the record screens' overlay is reused when they close
 CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
+u8 *gCompleteTestPokeathlonMedals;
 u16 gCompleteTestPokeathlonStatues[4];
 #endif
 

@@ -221,8 +221,8 @@ and its 39 direct reads of `gSystem` checked against Platinum's layout. A first 
 lines) would show whether it holds before the course is attempted.
 
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
-reception's totals, the course record screen (`ScrCmd_712` 0, HeartGold's overlay 99's first app, in C) and the
-Friendship Room's statues. Left in stage 1: the other three record screens (`ScrCmd_712` 1 to 3), the Pokémon's
+reception's totals, the course record and medals screens (`ScrCmd_712` 0 and 1, HeartGold's overlay 99's apps, in
+C) and the Friendship Room's statues. Left in stage 1: the other two record screens (`ScrCmd_712` 2 and 3), the Pokémon's
 performance and the Aprijuice stand (`ScrCmd_740`, 741: it runs HeartGold's Apricorn Box app, overlay 58, in a juice
 mode, and the juice changes a Pokémon's performance; Complete keeps Apricorns in the bag, so it comes with the
 performance).

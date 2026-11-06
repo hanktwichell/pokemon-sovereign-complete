@@ -1263,17 +1263,25 @@ events are still to come (stages 2 and 3).
   touch screen work as in HeartGold, and a course's page slides in. HeartGold's course record keeps a Pokémon's
   species in 9 bits; here it has 11. Text: HeartGold's banks 313 and 314; its `STRVAR_3`, `STRVAR_4` and `STRVAR_34`
   now expand as Platinum's string variables (`src/charcode.c`, marked).
+- **The medals screen** (HeartGold's `ScrCmd_712` 1, its overlay 99's `PokeathlonMedals`, in C:
+  `src/applications/complete_pokeathlon_records/medals.c`): the Trust Room's board opens it. Every species with a
+  medal, 30 icons a page in National Pokédex order (all of Complete's species, so past HeartGold's 493 too: 35 pages
+  at most), a gold mark on each medalist (all five courses' medals); the Pokémon under the cursor on the top screen
+  with its five medals and, for a medalist, HeartGold's "Medalist Pokémon" banner; the medalists' count and the ten
+  Trust Trophy crowns (1 to 200 medalists). The D-pad, held, moves over the grid and turns pages at its edges, the
+  arrows turn them by touch, and a page slides in.
 - **The Friendship Room's statues** (HeartGold's `CreatePokeathlonFriendshipRoomStatues`,
   `CompleteScrCmd_PokeathlonStatues`): the three Pokémon of the save's friendship records stand on the room's
   pedestals as their walking sprites (their form's and gender's), made again each time the room loads.
-- **Not yet:** the courses and events (no Athlete Points or records are earned yet, so the counters, the record screen
-  and the statues wait for them), the other three record screens (`ScrCmd_712` 1 to 3: their rooms fade out and back
-  for now), the Aprijuice stand and the Pokémon's performance.
+- **Not yet:** the courses and events (no Athlete Points, records or medals are earned yet, so the counters, the
+  record screens and the statues wait for them), the event record and HeartGold's fourth record screen (`ScrCmd_712`
+  2 and 3: their rooms fade out and back for now), the Aprijuice stand and the Pokémon's performance.
 
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),
 `tools/complete/test_pokeathlon_records.py` (the record screen: two courses' records, pages by the D-pad and by touch,
-closed with A on Return, B and a touch) and `tools/complete/test_pokeathlon_statues.py` (three statues, female and
+closed with A on Return, B and a touch), `tools/complete/test_pokeathlon_medals.py` (46 species' medals, two pages,
+the cursor, Return and B) and `tools/complete/test_pokeathlon_statues.py` (three statues, female and
 Origin Forme sprites, none for a species without a walking sprite).
 
 ## Stand-ins

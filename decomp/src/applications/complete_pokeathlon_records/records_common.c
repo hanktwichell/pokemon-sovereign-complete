@@ -29,6 +29,7 @@
 #include "string_template.h"
 #include "system.h"
 #include "text.h"
+#include "touch_screen.h"
 
 #include "res/graphics/battle/sprites.naix"
 #include "res/text/bank/hgss_msg_0313.h"
@@ -59,6 +60,14 @@ static const CharTransferTemplateWithModes sCharTransfer = { // ov98_0221F1AC (i
 };
 
 static const u32 sPowersOfTen[] = { 1, 10, 100, 1000, 10000 }; // ov98_0221F1E4
+static const u16 sTrustTrophyMedalists[] = { 200, 150, 100, 75, 50, 25, 10, 5, 2, 1 }; // ov98_0221F220
+
+static const TouchScreenHitTable sReturnHitTable[] = { // ov98_0221F1E0 (its right edge 0: the screen's, as the check wraps)
+    { .rect = { 160, 192, 192, 0 } },
+};
+
+#define SPRITE_ROW_LENGTH  10
+#define SPRITE_ROW_SPACING 16
 
 // ov98_0221F090
 void PokeathlonRecords_SetUpScreens(void)
@@ -137,6 +146,27 @@ void PokeathlonRecords_DrawSprites(PokeathlonRecordsSprites *sprites)
 ManagedSprite *PokeathlonRecords_NewSprite(PokeathlonRecordsSprites *sprites, const SpriteTemplate *template)
 {
     return SpriteSystem_NewSprite(sprites->spriteSystem, sprites->spriteManager, template);
+}
+
+void PokeathlonRecords_NewSpriteRow(PokeathlonRecordsSprites *sprites, ManagedSprite **spriteList, const int resourceIDs[4], int lit, int startIdx, s16 x, s16 y, enum NNS_G2D_VRAM_TYPE vramType)
+{
+    SpriteTemplate template;
+
+    GF_ASSERT(lit <= SPRITE_ROW_LENGTH);
+    MI_CpuClear8(&template, sizeof(SpriteTemplate));
+    template.y = y;
+    template.vramType = vramType;
+
+    for (int i = 0; i < 4; i++) {
+        template.resources[i] = resourceIDs[i];
+    }
+
+    for (int i = 0; i < SPRITE_ROW_LENGTH; i++) {
+        template.animIdx = i < lit ? 1 : 0;
+        template.x = x + SPRITE_ROW_SPACING * i;
+        spriteList[startIdx + i] = PokeathlonRecords_NewSprite(sprites, &template);
+        ManagedSprite_SetAnimateFlag(spriteList[startIdx + i], TRUE);
+    }
 }
 
 // ov98_0221E784: a Pokémon picture's sprite resources (char, palette, cells, animations), its tiles and palette drawn
@@ -282,6 +312,14 @@ void PokeathlonRecords_FreeText(PokeathlonRecordsText *text)
     Heap_Free(text);
 }
 
+void PokeathlonRecords_SetSpeciesName(PokeathlonRecordsText *text, u32 idx, u16 species)
+{
+    String *name = MessageLoader_GetNewString(text->speciesNames, species);
+
+    StringTemplate_SetString(text->template, idx, name, 0, TRUE, GAME_LANGUAGE);
+    String_Free(name);
+}
+
 // ov98_0221EF14 and ov98_0221EE84
 static void FillWindow(PokeathlonRecordsText *text, int window)
 {
@@ -402,4 +440,35 @@ u16 PokeathlonRecords_Digit(u32 number, u8 place)
 {
     GF_ASSERT(place != 0 && place < NELEMS(sPowersOfTen));
     return (number % sPowersOfTen[place]) / sPowersOfTen[place - 1];
+}
+
+BOOL PokeathlonRecords_ReturnPressed(void)
+{
+    return TouchScreen_LocationPressed(sReturnHitTable) || JOY_NEW(PAD_BUTTON_B);
+}
+
+u16 PokeathlonRecords_CountMedalists(const u8 *medals)
+{
+    u16 medalists = 0;
+
+    for (int i = 0; i < NATIONAL_DEX_COUNT; i++) {
+        if (MATH_CountPopulation(medals[i]) == COMPLETE_POKEATHLON_COURSES) {
+            medalists++;
+        }
+    }
+
+    return medalists;
+}
+
+int PokeathlonRecords_TrustTrophyRank(u16 medalists)
+{
+    int i;
+
+    for (i = 0; i < NELEMS(sTrustTrophyMedalists); i++) {
+        if (sTrustTrophyMedalists[i] <= medalists) {
+            break;
+        }
+    }
+
+    return NELEMS(sTrustTrophyMedalists) - i;
 }

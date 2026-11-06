@@ -1628,6 +1628,7 @@ Overlay complete_pokeathlon_records
 {
 	After main
 	Object src/applications/complete_pokeathlon_records/course_record.c
+	Object src/applications/complete_pokeathlon_records/medals.c
 	Object src/applications/complete_pokeathlon_records/records_common.c
 }
 

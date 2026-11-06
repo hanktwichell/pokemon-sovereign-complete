@@ -18,7 +18,8 @@
 // HeartGold) that its Pokéathlon record screens share, written in C on Platinum's libraries
 // (src/applications/complete_pokeathlon_records/records_common.c): a sprite system with the Pokémon icons' archive
 // open, with the Pokémon's pictures and icons drawn into sprites; a set of text windows with the screen's messages and
-// the species' names; the screens' set-up and a few sums. Ported so far: what the course record screen calls.
+// the species' names; the screens' set-up and a few sums. Ported so far: what the course record and medals screens
+// call.
 
 // HeartGold's ov98_0221E5E0's
 typedef struct PokeathlonRecordsSprites {
@@ -51,6 +52,9 @@ PokeathlonRecordsSprites *PokeathlonRecords_NewSprites(enum HeapID heapID, const
 void PokeathlonRecords_FreeSprites(PokeathlonRecordsSprites *sprites, ManagedSprite **spriteList, int count);
 void PokeathlonRecords_DrawSprites(PokeathlonRecordsSprites *sprites);
 ManagedSprite *PokeathlonRecords_NewSprite(PokeathlonRecordsSprites *sprites, const SpriteTemplate *template);
+// ov98_0221E6F0: a row of ten sprites into spriteList from startIdx, 16 pixels apart from (x, y), the first lit of them
+// in their animation 1 and the rest in 0 (a trophy's crowns)
+void PokeathlonRecords_NewSpriteRow(PokeathlonRecordsSprites *sprites, ManagedSprite **spriteList, const int resourceIDs[4], int lit, int startIdx, s16 x, s16 y, enum NNS_G2D_VRAM_TYPE vramType);
 void PokeathlonRecords_LoadMonPicResources(PokeathlonRecordsSprites *sprites, const int resourceIDs[4], enum NNS_G2D_VRAM_TYPE vramType);
 BOOL PokeathlonRecords_DrawMonPic(ManagedSprite *sprite, const CompletePokeathlonRecordMon *mon, enum NNS_G2D_VRAM_TYPE vramType, enum HeapID heapID);
 void PokeathlonRecords_LoadIconResources(PokeathlonRecordsSprites *sprites, const int resourceIDs[4], int count, enum NNS_G2D_VRAM_TYPE vramType, BOOL animated);
@@ -67,6 +71,8 @@ void PokeathlonRecords_PrintMessageAt(PokeathlonRecordsText *text, int window, u
 void PokeathlonRecords_PrintNumberMessage(PokeathlonRecordsText *text, int window, u32 entryID, int number, u32 digits, u32 templateIdx);
 void PokeathlonRecords_PrintSpeciesName(PokeathlonRecordsText *text, int window, u16 species);
 void PokeathlonRecords_ClearWindow(PokeathlonRecordsText *text, int window);
+// HeartGold's BufferSpeciesName (its main module's), the species' name from the text's own bank
+void PokeathlonRecords_SetSpeciesName(PokeathlonRecordsText *text, u32 idx, u16 species);
 
 // HeartGold's BufferPokeathlonCourseName, BufferPokeathlonMedalName and BufferPokeathlonEventName (its main module's;
 // its text bank 313)
@@ -78,5 +84,12 @@ void PokeathlonRecords_SetEventName(StringTemplate *template, u32 idx, u32 event
 int PokeathlonRecords_CourseTrophyRank(u16 total);
 // ov98_0221F120: a number's digit, 1 the ones, 2 the tens, up to 4
 u16 PokeathlonRecords_Digit(u32 number, u8 place);
+// ov98_0221EF24: Return touched (the screens' bottom-right button) or B pressed
+BOOL PokeathlonRecords_ReturnPressed(void);
+// ov98_0221F024 and ov98_0221EF80: the species with all five medals (the medal bytes, [species - 1]; HeartGold counts
+// its 493, Complete all its species), and the Trust Trophies that many earn (0 to 10: one from 1, then 2, 5, 10, 25,
+// 50, 75, 100, 150 and 200)
+u16 PokeathlonRecords_CountMedalists(const u8 *medals);
+int PokeathlonRecords_TrustTrophyRank(u16 medalists);
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_RECORDS_COMMON_H

@@ -354,7 +354,7 @@ static void NoteForTests(const CourseRecord *app)
 
 BOOL CompletePokeathlonCourseRecord_Init(ApplicationManager *appMan, int *state)
 {
-    CompletePokeathlonCourseRecordArgs *args = ApplicationManager_Args(appMan);
+    CompletePokeathlonRecordArgs *args = ApplicationManager_Args(appMan);
 
     GF_ASSERT(args != NULL);
     Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_COURSE_RECORD, COURSE_RECORD_HEAP_SIZE);

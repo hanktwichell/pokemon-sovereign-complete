@@ -201,8 +201,8 @@ work.
   after HM09 at the list's end (`tools/complete/import_hgss_data_cards.py`), never between, so saves' items keep their
   numbers. Overlay 7's chain ends well before the battle overlay, which sets the arena: code there costs no heap.
   Its record screens: `include/complete_pokeathlon_records.h` (HeartGold's overlay 99 in C, the overlay
-  `complete_pokeathlon_records`; only the course record so far), opened by `CompletePokeathlonRecordScreen` between the
-  script's fades; test `tools/complete/test_pokeathlon_records.py`. The Friendship Room's statues:
+  `complete_pokeathlon_records`; the course record and the medals so far), opened by `CompletePokeathlonRecordScreen`
+  between the script's fades; tests `tools/complete/test_pokeathlon_records.py` and `test_pokeathlon_medals.py`. The Friendship Room's statues:
   `CompleteScrCmd_PokeathlonStatues`; test `tools/complete/test_pokeathlon_statues.py` (the save probe
   `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records).
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use

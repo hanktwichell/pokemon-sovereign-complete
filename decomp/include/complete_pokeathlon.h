@@ -127,11 +127,15 @@ void CompletePokeathlon_SetReceivedDailyItemSlot(CompletePokeathlonSave *pokeath
 // The Athlete Points and the data cards and day's prizes bought, as last read or written; the session; the last text a
 // prize counter refused with (hgss_msg_0435's: src/overlay007/complete_pokeathlon_shop.c); the counters' purchases
 extern u32 gCompleteTestPokeathlon[6];
-// The record screen open (1 + its ScrCmd_712 number: 1 the course record; 0 when none), its page drawn last (1 + the
-// course) and its cursor (0-4 the courses, 5 Return); the open screen's copy of the course records, which a test can
-// fill and then turn a page to see (src/applications/complete_pokeathlon_records/)
-extern u8 gCompleteTestPokeathlonRecordScreen[3];
+// The record screen open (1 + its ScrCmd_712 number: 1 the course record, 2 the medals; 0 when none), its page drawn
+// last (1 + the course; 1 + the medals' page) and its cursor (the course record's 0-4 the courses, 5 Return; the
+// medals' 0-29 the Pokémon, 30 Return); [3], a test's request (1) that the medals screen reread its medals and redraw,
+// cleared once done (src/applications/complete_pokeathlon_records/). The open screens' data, which a test can fill: the
+// course record's copy of the course records (turn a page to see them) and the medals screen's copy of the medals
+// ([species - 1], a bit a course; then the request)
+extern u8 gCompleteTestPokeathlonRecordScreen[4];
 extern CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
+extern u8 *gCompleteTestPokeathlonMedals;
 // The Friendship Room's statues (CompleteScrCmd_PokeathlonStatues): how many times the room made them, then each
 // statue's walking sprite (its graphics ID; 0 for none)
 extern u16 gCompleteTestPokeathlonStatues[4];
