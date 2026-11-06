@@ -176,9 +176,33 @@ SECTIONS = [
 for _sid, _title, _region, _entries in SECTIONS:
     for _e in _entries:
         _stem = _e['tabs'][0][1]
-        _e['kind'] = ('e4' if _stem in boss_plan.ELITE_FOUR
+        _e['kind'] = _e.get('kind') or ('e4' if _stem in boss_plan.ELITE_FOUR
                       else 'champion' if _stem in ('hgss_champion_lance', 'champion_cynthia')
                       else 'leader' if 'leader_' in _stem and 'fight_area' not in _stem and not _e.get('name') else 'boss')
+
+
+def split_rematches(sections):
+    """Each rematch as a battle of its own, in a Rematches section after Sinnoh's post-game (the plan's rematch levels:
+    the Gym Leaders at 98, the Elite Fours at 99, the Champions at 100), Johto's, Kanto's and then Sinnoh's in each"""
+    groups = {'leader': [], 'e4': [], 'champion': []}
+    for _, _, region, entries in sections:
+        for e in entries:
+            keep = [t for t in e['tabs'] if t[0] != 'Rematch']
+            for t in e['tabs']:
+                if t[0] == 'Rematch':
+                    where = e['where']
+                    if where in ('Elite Four', 'Champion', 'Elite Four (Indigo Plateau)'):
+                        where = where.split(' (')[0] + (' (Indigo Plateau)' if region in ('johto', 'kanto') else ' (Sinnoh League)')
+                    groups[e['kind']].append({'where': 'Rematch \u00b7 ' + where, 'tabs': [t], 'kind': 'rematch',
+                                              'rematch_of': e['kind'], 'region': region})
+            e['tabs'] = keep
+    rematches = groups['leader'] + groups['e4'] + groups['champion']
+    at = next(i for i, sec in enumerate(sections) if sec[0] == 'postgame') + 1
+    sections.insert(at, ('rematches', 'Rematches', 'sinnoh', rematches))
+
+
+split_rematches(SECTIONS)
+
 # Johto's Whitney: every leader and boss after her has a Mega (the owner's call)
 MEGA_FROM = 'hgss_leader_whitney'
 
@@ -994,7 +1018,7 @@ renderReview();
 renderMegas();
 (async () => {
   const timer = setTimeout(() => say('Saved edits can\\u2019t be reached yet.'), 10000);
-  const db = await claude.use('db');
+  const db = window.claude && window.claude.use ? await window.claude.use('db') : null;
   if (!db) { clearTimeout(timer); say('Editing works on the page in claude.ai, signed in.'); return; }
   DB = db; WRITABLE = true; renderReview(); renderMegas();
   db.collection('megas').onSnapshot(snap => {

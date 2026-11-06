@@ -145,7 +145,9 @@ def plan_levels(sections, ace_of):
             if stem in UNCHANGED:
                 out[(si, ei, ti)] = None
             elif label == 'Rematch':
-                out[(si, ei, ti)] = (REMATCH[entry['kind'] if entry['kind'] in REMATCH else 'leader'], None, spread)
+                spread = SPREAD.get(entry.get('region', region), 0)  # a rematch keeps its region's team rule
+                kind = entry.get('rematch_of', entry['kind'])
+                out[(si, ei, ti)] = (REMATCH[kind if kind in REMATCH else 'leader'], None, spread)
             elif key in POSTGAME or stem in POSTGAME:
                 ace = POSTGAME.get(stem, POSTGAME.get(key))
                 out[(si, ei, ti)] = (ace, ace - 2, spread)
