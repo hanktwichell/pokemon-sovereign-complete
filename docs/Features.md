@@ -371,11 +371,13 @@ Platinum's scene, which first sails its own ship out of the dock when there is o
 fade-out when there isn't (`src/cutscenes/boat_cutscene/boat_cutscene.c`), as at HeartGold's ports. The first trip's
 scenes and the cabin's rest play as in Sacred Gold.
 
-**The cruise or straight there** (the owner's call, Nov 6, 2026): once the S.S. Aqua's first voyage is done, the
-sailor at Olivine's or Vermilion's gangway asks "Where to? A cruise on the S.S. Aqua, or straight to port?": the
+**The cruise or the Rapid Ferry** (the owner's calls, Nov 6, 2026): once the S.S. Aqua's first voyage is done, the
+sailor at Olivine's or Vermilion's gangway asks "Where to? A cruise on the S.S. Aqua, or the Rapid Ferry straight to
+port?": the
 cruise boards the ship as before (its passengers to battle, the cabin's rest), and the other port is Platinum's boat
 scene and then that port's dock, where Canalave's ships land (`CommonScript_CompleteFerryStraight`). The first voyage
-always boards.
+always boards. Every trip that isn't the cruise is the Rapid Ferry: no passengers to battle, Platinum's Iron Island
+boat scene, between Olivine, Vermilion and Canalave City (whose Iron Island sailor offers the other two).
 
 **The ferry network** (`docs/Roadmap.md`, "Ferry network") joins the three main ports: once the way to Sinnoh is open,
 the sailor at Olivine's or Vermilion's gangway asks where to, the S.S. Aqua's cruise, its other port or Canalave City

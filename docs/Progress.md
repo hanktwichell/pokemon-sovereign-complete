@@ -1977,3 +1977,8 @@ Test results on the new test build:
   archive in Sovereign's packing order, so a form's icon is found from its place in that order
   (`Pokemon_SovereignFormIndex`), with a 96-byte palette table. Checked in the party menu with an Alolan Vulpix and a
   Paldean Wooper leading; the boot check passes.
+- **The Rapid Ferry (the owner's call):** the ferry network's trips other than the S.S. Aqua's cruise are the Rapid
+  Ferry now in the sailors' words ("a cruise on the S.S. Aqua, or the Rapid Ferry straight to port?"): no passengers
+  to battle, Platinum's Iron Island boat scene, between Olivine, Vermilion and Canalave City. The ferry test passes
+  (16 of 16). The story test's JUMP gives Johto's HMs (a real save has them), so Sinnoh's parts after the HM givers
+  run as a player's would.

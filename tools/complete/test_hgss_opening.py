@@ -1224,6 +1224,7 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
 # (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges) and their
 # Totem trials done (JUMP_FLAGS: Sinnoh's people ask for some of them)
 PART_STARTS = {'Canalave City': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
+JUMP_ITEMS = [f'ITEM_HM0{n}' for n in range(1, 9)]
 JUMP_FLAGS = ['FLAG_SOVEREIGN_TOTEM_TRIAL_' + p['totem'][len('TOTEM_TRIAL_'):]
               for p in yaml.safe_load(open(os.path.join(DECOMP, '..', 'data', 'complete', 'placed.yaml'),
                                            encoding='utf-8'))['placed'] if 'totem' in p]
@@ -1571,17 +1572,20 @@ def main():
         d.run(30)
         mem.write_short(sym['gCompleteTestHGSSBadges'], 0xFFFF)
         set_flags(JUMP_FLAGS)
-        mem.write_short(sym['gSovereignTestBagItem'], items.index('ITEM_HM04'))  # Johto's Strength, which Barry
-        result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])  # asks for in Canalave
-        if result == 'ok':  # and Johto's Surf, which Route 218 needs on the way from Canalave City
-            mem.write_short(sym['gSovereignTestBagItem'], items.index('ITEM_HM03'))
+        # the HMs a player brings from Johto and Kanto (Sinnoh's HM givers give Mega Stones: Barry asks for Strength
+        # in Canalave, Route 218 needs Surf...), one test warp each
+        for hm in JUMP_ITEMS:
+            mem.write_short(sym['gSovereignTestBagItem'], items.index(hm))
             result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])
+            if result != 'ok':
+                break
         if result != 'ok':
             sys.exit(f'JUMP: the warp {result} after {frames} frames')
     elif os.environ.get('SET_FLAGS') or os.environ.get('SET_ITEM'):  # flags or an item a run that started with JUMP
         set_flags(os.environ.get('SET_FLAGS', '').split(',') if os.environ.get('SET_FLAGS') else [])  # before they
-        if os.environ.get('SET_ITEM'):  # were in it lacks, given by a test warp onto the player's own tile
-            mem.write_short(sym['gSovereignTestBagItem'], items.index(os.environ['SET_ITEM']))
+        if os.environ.get('SET_ITEM'):  # were in it lacks, given by a test warp onto the player's own tile (a
+            set_items = os.environ['SET_ITEM'].split(',')  # comma-separated list: the first now, the rest by warps
+            mem.write_short(sym['gSovereignTestBagItem'], items.index(set_items[0]))
     video = os.environ.get('VIDEO') and Recorder(d, os.environ['VIDEO'], int(os.environ.get('VIDEO_EVERY', 3)))
 
     def u16(addr):
@@ -2051,6 +2055,11 @@ def main():
     mem.write_short(options, u16(options) | BATTLE_STYLE_SET)
     if (os.environ.get('SET_FLAGS') or os.environ.get('SET_ITEM')) and not jump:
         result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
+        for item in (os.environ.get('SET_ITEM') or '').split(',')[1:]:  # the list's other items, a warp each
+            if result != 'ok':
+                break
+            mem.write_short(sym['gSovereignTestBagItem'], items.index(item))
+            result, frames = warp(d, sym, names.index(here()), *d.pos(), 0)
         if result != 'ok':
             sys.exit(f'SET_FLAGS: the warp {result} after {frames} frames')
     for name, actions, end_map, marker in PARTS[first:]:

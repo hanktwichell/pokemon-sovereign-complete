@@ -58,7 +58,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
      owner confirms: the progress page's reminder).
   2. **The Rapid Ferry:** a fast S.S. Aqua with no passengers to battle, between Vermilion City or Olivine City and
      Canalave City. Canalave's boat to Iron Island also offers a rush to Olivine City or Vermilion City. Every Rapid
-     Ferry trip uses the Iron Island boat's animation.
+     Ferry trip uses the Iron Island boat's animation. *Done: the ferry network's trips other than the cruise, named
+     the Rapid Ferry in the sailors' words (Nov 6).*
   3. **The level curve stays** (Sinnoh after Kanto, as now); the gyms aren't normalized. Byron's gym in Canalave City
      may need its levels lowered if nothing in the story holds it back now that Canalave City is the way in.
   4. **Cynthia stays hard;** a good matchup should beat her.
