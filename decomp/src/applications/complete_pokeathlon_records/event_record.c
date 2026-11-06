@@ -332,7 +332,11 @@ BOOL CompletePokeathlonEventRecord_Main(ApplicationManager *appMan, int *state)
             gCompleteTestPokeathlonRecordScreen[3] = 0;
             MergeDefaultRecords(app);
             DrawPanels(app);
-            app->redraw = app->shownEvent >= 0;
+
+            if (app->shownEvent >= 0 && app->cursor == app->shownEvent) {
+                ShowIcons(app, FALSE);
+                app->redraw = TRUE;
+            }
         }
 #endif
         if (app->switchMode) {
