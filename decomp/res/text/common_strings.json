@@ -1142,6 +1142,43 @@
         "OK! Next stop, Vermilion City!\n",
         "All aboard!\r"
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteIndigoE4HowToChallenge",
+      "en_US": [
+        "You’re the Champion now, so you\n",
+        "may choose how to take us on.\r",
+        "How would you like to battle the\n",
+        "Elite Four this time?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteIndigoE4MenuAllSingles",
+      "en_US": "All singles"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteIndigoE4MenuAllDoubles",
+      "en_US": "All doubles"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteIndigoE4MenuTwoAndTwo",
+      "en_US": "Two and two"
+    },
+    {
+      "id": "CommonStrings_Text_CompleteIndigoE4TwiceSingles",
+      "en_US": [
+        "You’ve chosen single battles twice.\r",
+        "Bruno and Karen will meet you in\n",
+        "double battles!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteIndigoE4TwiceDoubles",
+      "en_US": [
+        "You’ve chosen double battles twice.\r",
+        "Bruno and Karen will meet you in\n",
+        "single battles!"
+      ]
     }
   ]
 }

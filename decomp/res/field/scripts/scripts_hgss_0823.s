@@ -26,10 +26,19 @@ scr_seq_T10R0501_001:
     GoToIfSet FLAG_HGSS_DEFEATED_KAREN, _00FC
     BufferPlayerName 0
     Message msg_0526_T10R0501_00000
+    SetVar VAR_0x8004, 3  @ Sovereign Complete: the Elite Four format
+    SetVar VAR_0x8005, 0
+    CompareVar VAR_HGSS_UNK_4135, 8
+    GoToIf 0, CompleteIndigoKaren_Ask
+    SetVar VAR_0x8005, 1
+CompleteIndigoKaren_Ask:
+    CallCommonScript 0x81F  @ CommonScript_CompleteIndigoE4Format
     CloseMessage
     CompareVar VAR_HGSS_UNK_4135, 8
     GoToIf 0, _0107
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoKaren_RematchDoubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_KAREN_KAREN_2, 0
+CompleteIndigoKaren_AfterRematch:
     GoTo _012D
 scr_seq_T10R0501_003:
     PlaySE SE_CONFIRM_sseq_3
@@ -69,7 +78,9 @@ _00FC:
     ReleaseAll
     End
 _0107:
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoKaren_Doubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_KAREN_KAREN, 0
+CompleteIndigoKaren_AfterBattle:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _025F
@@ -174,3 +185,9 @@ _0270:
     SetInvisible 0
     EndMovement
     .balign 4, 0
+CompleteIndigoKaren_Doubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_KAREN_DOUBLES, 0
+    GoTo CompleteIndigoKaren_AfterBattle
+CompleteIndigoKaren_RematchDoubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_KAREN_REMATCH_DOUBLES, 0
+    GoTo CompleteIndigoKaren_AfterRematch

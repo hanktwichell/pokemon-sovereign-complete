@@ -14,8 +14,28 @@
 // (COMPLETE_FLAGS_START + HeartGold's flag).
 #define HGSS_TRAINER_FLAG_BASE 0x550
 
+// The Indigo Plateau's double-battle teams (after HeartGold's, in the order Will, Koga, Bruno, Karen, then their
+// rematch teams) count as their members' own teams: a win records the singles team's flag
+#define TRAINER_COMPLETE_INDIGO_FIRST TRAINER_COMPLETE_INDIGO_WILL_DOUBLES
+#define TRAINER_COMPLETE_INDIGO_LAST  TRAINER_COMPLETE_INDIGO_KAREN_REMATCH_DOUBLES
+
+static inline u16 CompleteTrainer_IndigoSingles(u16 trainerID)
+{
+    static const u16 singles[] = {
+        TRAINER_HGSS_ELITE_FOUR_WILL_WILL, TRAINER_HGSS_ELITE_FOUR_KOGA_KOGA, TRAINER_HGSS_ELITE_FOUR_BRUNO_BRUNO,
+        TRAINER_HGSS_ELITE_FOUR_KAREN_KAREN, TRAINER_HGSS_ELITE_FOUR_WILL_WILL_2, TRAINER_HGSS_ELITE_FOUR_KOGA_KOGA_2,
+        TRAINER_HGSS_ELITE_FOUR_BRUNO_BRUNO_2, TRAINER_HGSS_ELITE_FOUR_KAREN_KAREN_2
+    };
+
+    return singles[trainerID - TRAINER_COMPLETE_INDIGO_FIRST];
+}
+
 static inline u16 Trainer_DefeatedFlag(u16 trainerID)
 {
+    if (trainerID >= TRAINER_COMPLETE_INDIGO_FIRST && trainerID <= TRAINER_COMPLETE_INDIGO_LAST) {
+        trainerID = CompleteTrainer_IndigoSingles(trainerID);
+    }
+
     if (trainerID >= TRAINER_HGSS_FIRST && trainerID <= TRAINER_HGSS_LAST) {
         return COMPLETE_FLAGS_START + HGSS_TRAINER_FLAG_BASE + (trainerID - TRAINER_HGSS_FIRST + 1);
     }

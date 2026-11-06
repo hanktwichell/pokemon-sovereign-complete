@@ -397,6 +397,45 @@ def both(first, second):
     return ('', [], [], first, second)
 
 
+def several(*inserts):
+    """Any number of inserts in one script."""
+    return ('', [], []) + inserts
+
+
+# The Indigo Plateau's Elite Four in Sovereign's format (the owner's call, Nov 6, 2026; docs/Features.md): each
+# member asks for, or is given, a single or a double battle (CommonScript_CompleteIndigoE4Format, after the member's
+# greeting: VAR_0x8008 1 for doubles), and fights with the double-battle team (TRAINER_COMPLETE_INDIGO_*_DOUBLES) when
+# it's doubles; Koga says after his battle when Bruno's and Karen's are forced (CommonScript_CompleteIndigoE4Announce).
+# Lance stays a single battle. An anchor ending in " #2" is the line's second occurrence.
+def indigo_e4_insert(member, name, bank, room):
+    label = f'CompleteIndigo{name.title()}'
+    trainer = f'TRAINER_HGSS_ELITE_FOUR_{name}_{name}'
+    inserts = [
+        (f'    Message msg_{bank}_{room}_00000',
+         [f'    SetVar VAR_0x8004, {member}  @ Sovereign Complete: the Elite Four format',
+          '    SetVar VAR_0x8005, 0',
+          '    CompareVar VAR_HGSS_UNK_4135, 8',
+          f'    GoToIf 0, {label}_Ask',
+          '    SetVar VAR_0x8005, 1',
+          f'{label}_Ask:',
+          '    CallCommonScript 0x81F  @ CommonScript_CompleteIndigoE4Format'],
+         [f'{label}_Doubles:',
+          f'    StartTrainerBattle TRAINER_COMPLETE_INDIGO_{name}_DOUBLES, 0',
+          f'    GoTo {label}_AfterBattle',
+          f'{label}_RematchDoubles:',
+          f'    StartTrainerBattle TRAINER_COMPLETE_INDIGO_{name}_REMATCH_DOUBLES, 0',
+          f'    GoTo {label}_AfterRematch']),
+        (f'<    StartTrainerBattle {trainer}_2, 0', [f'    GoToIfEq VAR_0x8008, 1, {label}_RematchDoubles'], []),
+        (f'    StartTrainerBattle {trainer}_2, 0', [f'{label}_AfterRematch:'], []),
+        (f'<    StartTrainerBattle {trainer}, 0', [f'    GoToIfEq VAR_0x8008, 1, {label}_Doubles'], []),
+        (f'    StartTrainerBattle {trainer}, 0', [f'{label}_AfterBattle:'], []),
+    ]
+    if name == 'KOGA':  # after either team's defeat line
+        inserts += [(f'    Message msg_{bank}_{room}_00001', ['    CallCommonScript 0x820  @ CommonScript_CompleteIndigoE4Announce'], []),
+                    (f'    Message msg_{bank}_{room}_00001 #2', ['    CallCommonScript 0x820  @ CommonScript_CompleteIndigoE4Announce'], [])]
+    return several(*inserts)
+
+
 INSERTS = {
     'scr_seq_0869_T23GYM0102': totem_first_insert('    GoToIf 1, _018E', 0, 'GUMSHOOS'),  # Bugsy
     'scr_seq_0886_T25GYM0101': both(totem_first_insert('    GoToIf 1, _01C4', 2, 'VIKAVOLT'),  # Whitney
@@ -413,16 +452,24 @@ INSERTS = {
     'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
     'scr_seq_0107_D41R0108': MT_SILVER_RED_SCRIPT,
     'scr_seq_0368_D41R0108_hdr': MT_SILVER_RED_INIT,
+    'scr_seq_0820_T10R0201': indigo_e4_insert(0, 'WILL', '0523', 'T10R0201'),
+    'scr_seq_0821_T10R0301': indigo_e4_insert(1, 'KOGA', '0524', 'T10R0301'),
+    'scr_seq_0822_T10R0401': indigo_e4_insert(2, 'BRUNO', '0525', 'T10R0401'),
+    'scr_seq_0823_T10R0501': indigo_e4_insert(3, 'KAREN', '0526', 'T10R0501'),
 }
 
 
 def apply_inserts(stem, body):
     if stem not in INSERTS:
         return body
-    inserts = INSERTS[stem][3:] if len(INSERTS[stem]) == 5 else [INSERTS[stem]]
+    inserts = INSERTS[stem][3:] if INSERTS[stem][0] == '' else [INSERTS[stem]]
     for after, lines, end in inserts:  # after a line, or before it when the anchor starts with '<'
-        i = body.index(after[1:]) if after.startswith('<') else body.index(after) + 1  # a ValueError: Sacred Gold's
-        # script changed, and the insert needs a new place
+        before = after.startswith('<')
+        anchor, _, nth = (after[1:] if before else after).partition(' #')
+        i = -1
+        for _ in range(int(nth or 1)):  # a ValueError: Sacred Gold's script changed, and the insert needs a new place
+            i = body.index(anchor, i + 1)
+        i += 0 if before else 1
         body = body[:i] + lines + body[i:] + end
     return body
 

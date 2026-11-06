@@ -65,8 +65,8 @@ STEPS = [
      'three regions; Sinnoh\'s levels after Kanto; Totems, legendaries and Megas in all three regions; Ally Switch. '
      'To do from your answers: Sinnoh entered at Canalave City (Rowan and his starter), the Rapid Ferry, Mega Stones '
      'from Sinnoh\'s HM givers, Whirlpool HM05 and Defog HM09, the Town Map from Cherrygrove, Fly to the Sinjoh Ruins, '
-     'trade evolutions from the bag, the Pal Parks\' regional forms, 24 badges on the Trainer Card, the Indigo '
-     'Plateau\'s two-and-two Elite Four, the starters\' Pledge tutor.'),
+     'trade evolutions from the bag, the Pal Parks\' regional forms, 24 badges on the Trainer Card, the starters\' '
+     'Pledge tutor. Done Nov 6: the player is Ethan (or Dawn); the Indigo Plateau\'s two-and-two Elite Four.'),
     (8, 'Automated testing', 'active', 'In progress',
      'Complete\'s 40 feature tests and 8 long ones (the story test plays the whole game), and Sovereign\'s own suites, '
      'rerun Nov 6: battle mechanics 526 of 526 plus Ally Switch\'s 2, gifts 45 of 45, rare wild Pokémon 26 of 26, '
@@ -79,11 +79,10 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: your final boss team (Sovereign\'s developer team) against Cynthia, recorded as a video of a real double '
-    'battle, Mega Charizard Y and Primal Kyogre included.',
-    'Then: the Indigo Plateau\'s Elite Four as two single and two double battles, as Sovereign\'s Sinnoh League already '
-    'is (Lance a single battle, Cynthia a double battle).',
-    'Then: the Trainer Card with all 24 badges (a preview for you), and your answers in turn: trade evolutions, the '
+    'Now: the Trainer Card with all 24 badges (a preview for you, HeartGold\'s League Badges page for Johto and '
+    'Kanto beside Platinum\'s Sinnoh case), with Ethan\'s picture on it; then the intro\'s pictures and the Town '
+    'Map\'s head.',
+    'Then your answers in turn: trade evolutions, the '
     'HMs, the Mega Stone gifts, the Town Map, Canalave City and Rowan, the Rapid Ferry, the Pal Parks, the Pledges, '
     'then HeartGold\'s ports (the album, the Berry Pots, the Unown Report, the Dowsing Machine, the Pokéathlon).',
 ]
@@ -98,7 +97,24 @@ WAITING = [
 
 # Every question waiting on the owner, numbered, for the "Your questions" tab: (group, [(question, what the game does
 # now, the options, Claude's proposal or None)]). Kept in step with docs/Roadmap.md's "Still open".
-QUESTIONS = []
+QUESTIONS = [
+    ('From Nov 6 (pictures on the Gallery tab, "Your call")', [
+        ('The Trainer Card with all 24 badges: is the preview\'s layout right?',
+         'Platinum\'s card: the 8 Sinnoh leaders on its bottom screen.',
+         ['Two pages, L and R between them: HeartGold\'s League Badges page (Johto and Kanto, as HeartGold shows it) '
+          'and Platinum\'s Sinnoh page (the preview)',
+          'Three pages, one per region',
+          'Something else'],
+         'Two pages, as in the preview: each game\'s own page, as its players know it.'),
+        ('Box and party icons from Pokémon Showdown: go ahead?',
+         'Placeholder icons for #494 to 1025 (PokeAPI\'s); forms show their base Pokémon\'s icon.',
+         ['Showdown\'s for #494 to 1025 and every form, in the DS\'s three shared icon palettes (the sample\'s middle '
+          'column)',
+          'That, and more icon palettes so the colours stay true (more work: each screen that draws icons)',
+          'Keep the placeholders'],
+         'Showdown\'s for all of them now; more palettes later if the colours bother you.'),
+    ]),
+]
 
 # The owner's notes to remember (things they asked to have written down), shown on the Questions tab
 OWNER_NOTES = [
@@ -212,6 +228,17 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your Nov 6 call: the Indigo Plateau\'s Elite Four', [
+        'Sovereign\'s format at the Indigo Plateau: Will and Koga each ask single or double battle; if both got the '
+        'same, Bruno and Karen get the other and Koga tells you so after his battle; otherwise Bruno asks and Karen '
+        'takes what\'s left. Lance is always a single battle. With the rematch teams Will first offers all singles, '
+        'all doubles, or two and two. One Pokémon able to fight? A double battle warns you first.',
+        'Each member\'s double-battle team is their own six, with the doubles AI, and they keep the Elite Four\'s '
+        'music in a double battle.',
+        'Tested in the emulator: eight full runs through the five rooms, every way the menus can go (singles or '
+        'doubles first, the rematch menu\'s three choices, a lone Pokémon answering no), each battle with the right '
+        'member, format and team, and won.',
+    ]),
     ('Your Nov 6 calls: Ethan, the icons, the Totems', [
         'The boy is now HeartGold\'s Ethan, in every pose the field draws him in: walking, running, the bike, '
         'surfing, fishing, saving and the Pokémon Center\'s counter are HeartGold\'s own art; HeartGold never drew '
@@ -477,8 +504,10 @@ AHEAD = [
      'playtest session).', 'Claude', 'done'),
     ('Nov 6', 'Done: Ally Switch, Sovereign\'s suites rerun and their fixes (the Paradox Pokémon\'s level), your '
      'answers recorded.', 'Claude', 'done'),
-    ('Nov 6', 'Your final boss team against Cynthia (video); the Indigo Plateau\'s two-and-two Elite Four; the '
-     'Trainer Card\'s 24 badges (a preview).', 'Claude', 'active'),
+    ('Nov 6', 'Done: your final boss team against Cynthia (video); the player as Ethan (every pose, his back, Fly); '
+     'the Indigo Plateau\'s two-and-two Elite Four.', 'Claude', 'done'),
+    ('Nov 7', 'The Trainer Card\'s 24 badges (a preview first), Ethan on it; Showdown\'s icons if you want them.',
+     'Claude', 'active'),
     ('Nov 7 to 8', 'Trade evolutions from the bag, Whirlpool HM05 and Defog HM09 (HMs forgettable), the Mega Stone '
      'gifts, the Town Map from Cherrygrove, Fly to the Sinjoh Ruins: about 2 days.', 'Claude', 'planned'),
     ('Nov 9 to 11', 'Sinnoh from Canalave City: Rowan meets you, his lab\'s starter, the way to Jubilife opened, '

@@ -105,6 +105,8 @@
     ScriptEntry CommonScript_CompleteMegaRingMessage @ 0x81C
     ScriptEntry CommonScript_CompleteMegaRingExplain @ 0x81D
     ScriptEntry CommonScript_CompletePhoneOutgoingCall @ 0x81E
+    ScriptEntry CommonScript_CompleteIndigoE4Format @ 0x81F
+    ScriptEntry CommonScript_CompleteIndigoE4Announce @ 0x820
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -1802,6 +1804,136 @@ CommonScript_CompleteMegaRingMessage:
 CommonScript_CompleteMegaRingExplain:
     Message CommonStrings_Text_CompleteExplainMegaRing
     WaitButton
+    ReturnCommonScript
+    End
+
+@ Sovereign Complete: the Indigo Plateau's Elite Four in Sovereign's format (docs/Features.md, "The Indigo Plateau's
+@ Elite Four"): two single and two double battles among Will, Koga, Bruno and Karen, chosen as Sinnoh's League chooses
+@ them (scripts_pokemon_league_*_room.s), and Lance a single battle. One League is run at a time, so the run's formats
+@ live in Sinnoh's VAR_SOVEREIGN_E4_FORMAT: bits 0 to 3 the four members (1 = doubles), 4 the Champion (0: Lance
+@ single), 5 the rest decided, 6 Koga announces the forced pair. VAR_0x8004: the member, 0 Will to 3 Karen; VAR_0x8005:
+@ 1 for the rematch teams (Will asks how to take them all on). VAR_0x8008 comes back 1 for a double battle.
+CommonScript_CompleteIndigoE4Format:
+    GoToIfNe VAR_0x8004, 0, CommonScript_CompleteIndigoE4Later
+    GoToIfEq VAR_0x8005, 0, CommonScript_CompleteIndigoE4TwoAndTwo
+    Message CommonStrings_Text_CompleteIndigoE4HowToChallenge
+    InitLocalTextMenu 31, 11, 0, VAR_RESULT, FALSE
+    SetMenuXOriginToRight
+    AddMenuEntryImm CommonStrings_Text_CompleteIndigoE4MenuAllSingles, 0
+    AddMenuEntryImm CommonStrings_Text_CompleteIndigoE4MenuAllDoubles, 1
+    AddMenuEntryImm CommonStrings_Text_CompleteIndigoE4MenuTwoAndTwo, 2
+    ShowMenu
+    GoToIfEq VAR_RESULT, 0, CommonScript_CompleteIndigoE4AllSingles
+    GoToIfEq VAR_RESULT, 1, CommonScript_CompleteIndigoE4AllDoubles
+CommonScript_CompleteIndigoE4TwoAndTwo:
+    SetVar VAR_SOVEREIGN_E4_FORMAT, 0
+    Call CommonScript_CompleteIndigoE4Ask
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 0, VAR_0x8008
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteIndigoE4AllSingles:
+    SetVar VAR_SOVEREIGN_E4_FORMAT, 32
+    SetVar VAR_0x8008, 0
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteIndigoE4AllDoubles:
+    SetVar VAR_SOVEREIGN_E4_FORMAT, 47
+    Call CommonScript_CompleteIndigoE4LoneMon
+    ReturnCommonScript
+    End
+
+@ Koga, Bruno and Karen: the format decided already, or Koga's or Bruno's question
+CommonScript_CompleteIndigoE4Later:
+    CheckVarBit VAR_SOVEREIGN_E4_FORMAT, 5, VAR_RESULT
+    GoToIfEq VAR_RESULT, 1, CommonScript_CompleteIndigoE4Decided
+    Call CommonScript_CompleteIndigoE4Ask
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, VAR_0x8004, VAR_0x8008
+    GoToIfEq VAR_0x8004, 2, CommonScript_CompleteIndigoE4BrunoChose
+    CheckVarBit VAR_SOVEREIGN_E4_FORMAT, 0, VAR_RESULT
+    GoToIfNe VAR_RESULT, VAR_0x8008, CommonScript_CompleteIndigoE4End
+    @ Koga's format is Will's: Bruno and Karen get the other, and Koga says so after his battle
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 5, 1
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 6, 1
+    CallIfEq VAR_0x8008, 0, CommonScript_CompleteIndigoE4PairDoubles
+    CallIfEq VAR_0x8008, 1, CommonScript_CompleteIndigoE4PairSingles
+CommonScript_CompleteIndigoE4End:
+    ReturnCommonScript
+    End
+
+@ Bruno chose: Karen takes the other
+CommonScript_CompleteIndigoE4BrunoChose:
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 5, 1
+    CallIfEq VAR_0x8008, 0, CommonScript_CompleteIndigoE4KarenDoubles
+    CallIfEq VAR_0x8008, 1, CommonScript_CompleteIndigoE4KarenSingles
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteIndigoE4Decided:
+    CheckVarBit VAR_SOVEREIGN_E4_FORMAT, VAR_0x8004, VAR_0x8008
+    GoToIfEq VAR_0x8008, 0, CommonScript_CompleteIndigoE4End
+    Call CommonScript_CompleteIndigoE4LoneMon
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteIndigoE4PairDoubles:
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 2, 1
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 3, 1
+    Return
+
+CommonScript_CompleteIndigoE4PairSingles:
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 2, 0
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 3, 0
+    Return
+
+CommonScript_CompleteIndigoE4KarenDoubles:
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 3, 1
+    Return
+
+CommonScript_CompleteIndigoE4KarenSingles:
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 3, 0
+    Return
+
+@ "Single battle or double battle?" (Sovereign's CommonScript_SovereignE4AskFormat, as a subroutine): VAR_0x8008
+CommonScript_CompleteIndigoE4Ask:
+    Message CommonStrings_Text_SovereignE4AskFormat
+    InitLocalTextMenu 31, 11, 0, VAR_RESULT, FALSE
+    SetMenuXOriginToRight
+    AddMenuEntryImm CommonStrings_Text_SovereignE4MenuSingles, 0
+    AddMenuEntryImm CommonStrings_Text_SovereignE4MenuDoubles, 1
+    ShowMenu
+    SetVar VAR_0x8008, VAR_RESULT
+    GoToIfEq VAR_0x8008, 1, CommonScript_CompleteIndigoE4LoneMon
+    Return
+
+@ A double battle with one Pokémon able to battle: the player may take a single battle instead
+@ (Sovereign's CommonScript_SovereignE4CheckLoneMon, as a subroutine): VAR_0x8008
+CommonScript_CompleteIndigoE4LoneMon:
+    SetVar VAR_0x8008, 1
+    CheckHasTwoAliveMons VAR_RESULT
+    GoToIfEq VAR_RESULT, TRUE, CommonScript_CompleteIndigoE4LoneMonEnd
+    Message CommonStrings_Text_SovereignE4LoneMon
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, CommonScript_CompleteIndigoE4LoneMonEnd
+    SetVar VAR_0x8008, 0
+CommonScript_CompleteIndigoE4LoneMonEnd:
+    Return
+
+@ After Koga's battle: when his format matched Will's, the pair that follows
+CommonScript_CompleteIndigoE4Announce:
+    CheckVarBit VAR_SOVEREIGN_E4_FORMAT, 6, VAR_RESULT
+    GoToIfEq VAR_RESULT, 0, CommonScript_CompleteIndigoE4End
+    SetVarBit VAR_SOVEREIGN_E4_FORMAT, 6, 0
+    WaitButton
+    CheckVarBit VAR_SOVEREIGN_E4_FORMAT, 2, VAR_RESULT
+    GoToIfEq VAR_RESULT, 1, CommonScript_CompleteIndigoE4AnnounceDoubles
+    Message CommonStrings_Text_CompleteIndigoE4TwiceDoubles
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteIndigoE4AnnounceDoubles:
+    Message CommonStrings_Text_CompleteIndigoE4TwiceSingles
     ReturnCommonScript
     End
 

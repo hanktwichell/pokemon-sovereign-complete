@@ -32,6 +32,8 @@
 #define HGSS_BATTLE_MUSIC_ROCKET_LAST   34
 #define HGSS_BATTLE_MUSIC_KIMONO_GIRL   43
 #define HGSS_BATTLE_MUSIC_RED           44
+#define HGSS_BATTLE_MUSIC_ELITE_FOUR_FIRST 16 // Will, Koga, Bruno, Karen, then Lance (20)
+#define HGSS_BATTLE_MUSIC_CHAMPION      20
 
 // Sovereign Complete: HeartGold's songs in the engine's sound code (docs/Music.md). Platinum's field songs share its
 // field and dungeon banks, and its surfing and cycling songs play with the map's song's bank. Each of HeartGold's
@@ -110,7 +112,8 @@ u16 CompleteSound_AltMusicForHeader(VarsFlags *varsFlags, enum MapHeaderID mapHe
 // HeartGold's encounter theme for one of its trainers (its src/field_bgm.c), or SEQ_NONE for Sinnoh's
 u16 CompleteSound_EncounterBGM(u16 trainerID, u32 trainerClass)
 {
-    if (trainerID < TRAINER_HGSS_FIRST || trainerID > TRAINER_HGSS_LAST) {
+    if ((trainerID < TRAINER_HGSS_FIRST || trainerID > TRAINER_HGSS_LAST)
+        && (trainerID < TRAINER_COMPLETE_INDIGO_FIRST || trainerID > TRAINER_COMPLETE_INDIGO_LAST)) {
         return SEQ_NONE;
     }
 
@@ -153,7 +156,8 @@ u16 CompleteSound_BattleBGM(const FieldBattleDTO *dto)
             if (row != HGSS_BATTLE_MUSIC_FRONTIER_BRAIN) {
                 row = (battleType & BATTLE_TYPE_DOUBLES) ? HGSS_BATTLE_MUSIC_DOUBLES : HGSS_BATTLE_MUSIC_FRONTIER;
             }
-        } else if ((row < HGSS_BATTLE_MUSIC_ROCKET_FIRST || row > HGSS_BATTLE_MUSIC_ROCKET_LAST) && row != HGSS_BATTLE_MUSIC_KIMONO_GIRL && row != HGSS_BATTLE_MUSIC_RED) {
+        } else if ((row < HGSS_BATTLE_MUSIC_ROCKET_FIRST || row > HGSS_BATTLE_MUSIC_ROCKET_LAST) && row != HGSS_BATTLE_MUSIC_KIMONO_GIRL && row != HGSS_BATTLE_MUSIC_RED
+            && (row < HGSS_BATTLE_MUSIC_ELITE_FOUR_FIRST || row > HGSS_BATTLE_MUSIC_CHAMPION)) { // the Elite Four's double battles (the Indigo format) keep their theme
             if (battleType & BATTLE_TYPE_DOUBLES) {
                 row = HGSS_BATTLE_MUSIC_DOUBLES;
             } else if (battleType & BATTLE_TYPE_LINK) {

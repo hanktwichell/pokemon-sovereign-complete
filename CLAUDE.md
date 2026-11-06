@@ -144,6 +144,11 @@ work.
   (`tools/complete/import_hgss_balls.py`, into `res/graphics/battle/ball_throws/hgss/` and
   `res/graphics/pokemon_summary_screen/balls/hgss/`, at the end of each archive's `.order`). Test:
   `tools/complete/test_hgss_balls.py` (each throw's colours, the catch, the summary's icon).
+- The Indigo Plateau's Elite Four in Sovereign's format (two singles, two doubles, Lance single): common scripts
+  `CommonScript_CompleteIndigoE4Format`/`Announce` (0x81F, 0x820), called from the rooms by the translator's
+  `indigo_e4_insert`; the doubles teams `TRAINER_COMPLETE_INDIGO_*_DOUBLES` follow HeartGold's trainers in
+  `generated/trainers.txt` (import_hgss_trainers.py keeps them there) and record their members' singles flags.
+  Test: `tools/complete/test_hgss_indigo_e4.py`.
 - Johto's Battle Frontier runs Platinum's facilities (the lobbies' commands and vars map to Platinum's in
   `tools/complete/hgss_script_table.py` and `translate_hgss_scripts.py`). Test: `tools/complete/test_hgss_frontier.py`.
 - The Pokégear: the field's bottom screen is the "no Pokétch" screen, the Pokétch or the Pokégear

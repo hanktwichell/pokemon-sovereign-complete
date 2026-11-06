@@ -980,6 +980,24 @@ The owner's choice (Nov 6, 2026): the boy is HeartGold's Ethan, the girl Platinu
   Lance's take-off does), `src/overlay006/hm_cut_in.c`.
 - Not yet: the intro's pictures (Rowan's), the Trainer Card's, the Town Map's head.
 
+## The Indigo Plateau's Elite Four
+
+The owner's call (Nov 6, 2026): Sovereign's League format at the Indigo Plateau too (`docs/EliteFourFormat.md` in
+Sovereign Platinum), with Lance a single battle. Of Will, Koga, Bruno and Karen, two are single battles and two double:
+- Will asks "single battle or double battle?"; Koga asks too. If both got the same, Bruno and Karen get the other, and
+  Koga says so after his battle ("You've chosen single battles twice. Bruno and Karen will meet you in double
+  battles!"); otherwise Bruno asks and Karen gets what's left.
+- With the rematch teams (after the first win), Will first asks how to take them all on: all singles, all doubles, or
+  two and two.
+- A double battle with one Pokémon able to fight warns first; "no" makes that battle a single battle.
+- Each member's double-battle team is their own team, in a double battle with the doubles AI
+  (`TRAINER_COMPLETE_INDIGO_*_DOUBLES`, after HeartGold's trainers; a win records the member's own trainer flag). The
+  Elite Four keep their own music in a double battle (HeartGold plays its doubles theme for any other).
+- The questions are common scripts (`CommonScript_CompleteIndigoE4Format`, `CommonScript_CompleteIndigoE4Announce`),
+  called from each room by the translator's `indigo_e4_insert`; the run's formats live in Sinnoh's
+  `VAR_SOVEREIGN_E4_FORMAT` (one League is run at a time).
+Test: `tools/complete/test_hgss_indigo_e4.py` (eight runs through the formats).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

@@ -114,8 +114,10 @@ static size_t          numMessages     = 0;
 static void EmitTrainerScripts(void)
 {
     // Sovereign Complete: HeartGold's trainers use HeartGold's own defeated flags (include/complete_trainers.h)
+    // and the Indigo Plateau's double-battle teams their members' singles flags
     size_t numFlags = TRAINER_DEFEATED_FLAGS_END - TRAINER_DEFEATED_FLAGS_START + 1
-        + (TRAINER_HGSS_LAST - TRAINER_HGSS_FIRST + 1);
+        + (TRAINER_HGSS_LAST - TRAINER_HGSS_FIRST + 1)
+        + (TRAINER_COMPLETE_INDIGO_KAREN_REMATCH_DOUBLES - TRAINER_COMPLETE_INDIGO_WILL_DOUBLES + 1);
     if (MAX_TRAINERS > numFlags) {
         Driver_Fail("more trainers defined (%d) than there are trainer flags (%zu)", MAX_TRAINERS, numFlags);
     }

@@ -26,10 +26,19 @@ scr_seq_T10R0401_001:
     GoToIfSet FLAG_HGSS_DEFEATED_BRUNO, _00EF
     BufferPlayerName 0
     Message msg_0525_T10R0401_00000
+    SetVar VAR_0x8004, 2  @ Sovereign Complete: the Elite Four format
+    SetVar VAR_0x8005, 0
+    CompareVar VAR_HGSS_UNK_4135, 8
+    GoToIf 0, CompleteIndigoBruno_Ask
+    SetVar VAR_0x8005, 1
+CompleteIndigoBruno_Ask:
+    CallCommonScript 0x81F  @ CommonScript_CompleteIndigoE4Format
     CloseMessage
     CompareVar VAR_HGSS_UNK_4135, 8
     GoToIf 0, _00FA
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoBruno_RematchDoubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_BRUNO_BRUNO_2, 0
+CompleteIndigoBruno_AfterRematch:
     GoTo _0120
 scr_seq_T10R0401_003:
     PlaySE SE_CONFIRM_sseq_3
@@ -67,7 +76,9 @@ _00EF:
     ReleaseAll
     End
 _00FA:
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoBruno_Doubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_BRUNO_BRUNO, 0
+CompleteIndigoBruno_AfterBattle:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01EC
@@ -149,3 +160,9 @@ _01F2:
     SetInvisible 0
     EndMovement
     .balign 4, 0
+CompleteIndigoBruno_Doubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_BRUNO_DOUBLES, 0
+    GoTo CompleteIndigoBruno_AfterBattle
+CompleteIndigoBruno_RematchDoubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_BRUNO_REMATCH_DOUBLES, 0
+    GoTo CompleteIndigoBruno_AfterRematch

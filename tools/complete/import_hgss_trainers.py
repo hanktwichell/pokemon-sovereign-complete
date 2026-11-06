@@ -197,7 +197,9 @@ def main():
 
     path = os.path.join(DECOMP, 'generated/trainers.txt')
     current = [line.strip() for line in open(path) if line.strip() and not line.startswith(PREFIX)]
-    at = current.index('MAX_TRAINERS')
+    # before Complete's own trainers that follow HeartGold's (TRAINER_COMPLETE_*: the Indigo Plateau's double-battle
+    # teams), so that every trainer keeps its number
+    at = next(i for i, line in enumerate(current) if line.startswith('TRAINER_COMPLETE_') or line == 'MAX_TRAINERS')
     open(path, 'w').write('\n'.join(current[:at] + [stem.upper().replace('HGSS_', PREFIX, 1) for stem in stems]
                                     + current[at:]) + '\n')
     names_ = [stem.upper().replace('HGSS_', PREFIX, 1) for stem in stems]

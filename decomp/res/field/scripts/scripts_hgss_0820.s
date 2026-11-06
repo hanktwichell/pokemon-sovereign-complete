@@ -39,10 +39,19 @@ scr_seq_T10R0201_001:
     FacePlayer
     GoToIfSet FLAG_HGSS_DEFEATED_WILL, _012F
     Message msg_0523_T10R0201_00000
+    SetVar VAR_0x8004, 0  @ Sovereign Complete: the Elite Four format
+    SetVar VAR_0x8005, 0
+    CompareVar VAR_HGSS_UNK_4135, 8
+    GoToIf 0, CompleteIndigoWill_Ask
+    SetVar VAR_0x8005, 1
+CompleteIndigoWill_Ask:
+    CallCommonScript 0x81F  @ CommonScript_CompleteIndigoE4Format
     CloseMessage
     CompareVar VAR_HGSS_UNK_4135, 8
     GoToIf 0, _013A
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoWill_RematchDoubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_WILL_WILL_2, 0
+CompleteIndigoWill_AfterRematch:
     GoTo _0160
 scr_seq_T10R0201_003:
     PlaySE SE_CONFIRM_sseq_3
@@ -84,7 +93,9 @@ _012F:
     ReleaseAll
     End
 _013A:
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoWill_Doubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_WILL_WILL, 0
+CompleteIndigoWill_AfterBattle:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _022C
@@ -170,3 +181,9 @@ _0238:
     SetInvisible 0
     EndMovement
     .balign 4, 0
+CompleteIndigoWill_Doubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_WILL_DOUBLES, 0
+    GoTo CompleteIndigoWill_AfterBattle
+CompleteIndigoWill_RematchDoubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_WILL_REMATCH_DOUBLES, 0
+    GoTo CompleteIndigoWill_AfterRematch

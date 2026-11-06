@@ -1928,3 +1928,10 @@ Test results on the new test build:
 - **Ethan flies as himself:** the Fly take-off's cut-in and the landing draw HeartGold's own rider for him (the boy in
   HeartGold's cut-in archive, which Lance's take-off already used). The Town Map test flies across all three regions
   with it (0 problems), and the gallery shows him in the cut-in.
+
+- **The Indigo Plateau's Elite Four in Sovereign's format (the owner's call):** two single and two double battles
+  among Will, Koga, Bruno and Karen, chosen as Sinnoh's League chooses them, and Lance a single battle; with the
+  rematch teams Will first offers all singles, all doubles, or two and two (`docs/Features.md`). Each member's
+  double-battle team is their own team with the doubles AI, and keeps the Elite Four's music.
+  `tools/complete/test_hgss_indigo_e4.py` plays eight runs through the formats: all eight pass, each battle with the
+  right member, format and team.

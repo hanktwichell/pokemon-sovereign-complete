@@ -26,10 +26,19 @@ scr_seq_T10R0301_001:
     FacePlayer
     GoToIfSet FLAG_HGSS_DEFEATED_KOGA, _00F5
     Message msg_0524_T10R0301_00000
+    SetVar VAR_0x8004, 1  @ Sovereign Complete: the Elite Four format
+    SetVar VAR_0x8005, 0
+    CompareVar VAR_HGSS_UNK_4135, 8
+    GoToIf 0, CompleteIndigoKoga_Ask
+    SetVar VAR_0x8005, 1
+CompleteIndigoKoga_Ask:
+    CallCommonScript 0x81F  @ CommonScript_CompleteIndigoE4Format
     CloseMessage
     CompareVar VAR_HGSS_UNK_4135, 8
     GoToIf 0, _0100
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoKoga_RematchDoubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_KOGA_KOGA_2, 0
+CompleteIndigoKoga_AfterRematch:
     GoTo _0126
 scr_seq_T10R0301_003:
     PlaySE SE_CONFIRM_sseq_3
@@ -70,12 +79,15 @@ _00F5:
     ReleaseAll
     End
 _0100:
+    GoToIfEq VAR_0x8008, 1, CompleteIndigoKoga_Doubles
     StartTrainerBattle TRAINER_HGSS_ELITE_FOUR_KOGA_KOGA, 0
+CompleteIndigoKoga_AfterBattle:
     CheckWonBattle VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _01F2
     SetFlag FLAG_HGSS_DEFEATED_KOGA
     Message msg_0524_T10R0301_00001
+    CallCommonScript 0x820  @ CommonScript_CompleteIndigoE4Announce
     CloseMessage
     ReleaseAll
     End
@@ -85,6 +97,7 @@ _0126:
     GoToIf 1, _01F2
     SetFlag FLAG_HGSS_DEFEATED_KOGA
     Message msg_0524_T10R0301_00001
+    CallCommonScript 0x820  @ CommonScript_CompleteIndigoE4Announce
     CloseMessage
     ReleaseAll
     End
@@ -152,3 +165,9 @@ _01F8:
     SetInvisible 0
     EndMovement
     .balign 4, 0
+CompleteIndigoKoga_Doubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_KOGA_DOUBLES, 0
+    GoTo CompleteIndigoKoga_AfterBattle
+CompleteIndigoKoga_RematchDoubles:
+    StartTrainerBattle TRAINER_COMPLETE_INDIGO_KOGA_REMATCH_DOUBLES, 0
+    GoTo CompleteIndigoKoga_AfterRematch
