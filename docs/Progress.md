@@ -1827,3 +1827,60 @@ Test results on the new test build:
   Kanto, so Sovereign's roamers test (which flies over Sinnoh) never met them. It leaves them to
   `tools/complete/test_hgss_roamers.py` now, which releases, meets and battles them in their regions with HeartGold's
   four (their status in Sovereign's `VAR_ROAMING_*_STATE`).
+- **A playtest build for the owner:** `tools/complete/make_playtest_patch.sh` builds `decomp/build_playtest` (meson
+  option `complete_playtest`, `src/complete_playtest.c`) and writes an `.xdelta` from a clean Platinum (US) dump. It's
+  the release game, but a new game starts with Champion Cynthia's Garchomp (Lv. 80: Earthquake, Outrage, Stone Edge,
+  Swords Dance, Yache Berry), Staraptor with Fly and Empoleon with Surf (Lv. 50), and every town's Fly point in the
+  three regions, and Fly and Surf need no badge; badges and the story are untouched. Checked in the emulator from
+  Rowan's intro: the party and moves, Fly from New Bark Town to Cianwood City, Surf there with no badge.
+- **Fly crashed once many of Johto's and Kanto's towns were reached:** the Town Map's sprite manager had room for
+  Platinum's 20 Fly markers, the player and the places last visited, and HeartGold's Fly points were added on top, so
+  past the few free slots a marker came back NULL and the game crashed as Fly opened the map (as it would have for a
+  player who reached Sinnoh after Johto and Kanto). It has room for HeartGold's 30 now, and the Town Map's heap is
+  16 KB bigger for them (it was nearly full: the three regions' map graphics load into it; the application heap has
+  about 820 KB free while the Town Map runs).
+- **The POKéMON option in the start menu** showed only once Sinnoh's starter variable was set (Rowan's briefcase on
+  Route 201), which Elm's starter doesn't set (`VAR_HGSS_PLAYER_STARTER`): it shows with any Pokémon in the party now.
+  (The story test's test party had hidden this.)
+- **Johto's and Kanto's trainers drew as dots in battle** (the owner's playtest, Elite Four Will): every HeartGold
+  class's front picture was a 4-bit PNG (nitrogfx's own output in `import_hgss_trainer_classes.py`), and the build
+  converts each class's picture with `-convertTo4Bpp`, which reads it as 8-bit, so every other pixel drew. Sovereign's
+  105 classes keep 8-bit PNGs; the 68 HeartGold ones are 8-bit now (the same pixels and 16 colors), and the importer
+  writes them so. Will, Falkner, Koga and Youngster Joey draw right on build_test.
+- **The owner's notes from the playtest, first fixes:** the bedroom TV's comment says Rowan has returned to Sinnoh from
+  the Johto region (it said Kanto), and Mom says "Professor Elm has a gift for you" (it said "Elm"). All 68 of
+  HeartGold's trainer classes were battled on build_test after the picture fix: each draws right. The starter scene
+  passed with Chikorita and Cyndaquil, with parties of one to three, and with a nickname given (the naming screen and
+  back), so the freeze the owner saw after choosing a starter isn't reproduced yet. Two Poké Balls on Elm's table is
+  the playtest's party (the lab shows two when the party isn't empty), and "received GARCHOMP from Professor Elm" names
+  the party's lead, the starter in a real game.
+- **The owner's playtest notes still open (Nov 6, 2026):** the freeze after choosing a starter (not reproduced on
+  build_test; asked the owner for details); the person who leaves Elm's lab has the male player's sprite; the
+  following Pokémon appears inside the door as the player walks out of a building; Johto's and Kanto's Pokémon Centers
+  show no Poké Balls on the healing machine; the S.S. Aqua's sailing scene is Platinum's icebreaker; the Mega
+  Evolution animation and the Mega icon look bad (later; the owner will redo the stone shown on screen). The owner was
+  given a release build (`decomp/build`, from a clean Rev 1 dump) to play through.
+- **The S.S. Aqua's guard with no sprite** (the owner's note, Nov 6): on B1F, the first voyage's step-on scene has a
+  sailor ask the player to find his buddy, but he belongs to the group of the ship's people that only Olivine's
+  first-voyage boarding shows (FLAG_HGSS_UNK_22A clear). Vermilion's port sailor always showed the other group, so a
+  first voyage from Vermilion (Kanto reached first, as the owner's playtest Fly allowed) played the scene with no one
+  there. Vermilion's sailor now shows Olivine's first-voyage group while the first voyage isn't done
+  (VAR_HGSS_SCENE_SS_AQUA below 7; the translator's `FIRST_VOYAGE_GROUP`, written into `scripts_hgss_0154.s` too, as
+  the translator needs Sacred Gold's ROM to run). Checked on build_test through Vermilion's port building (the ferry
+  test warps onto the dock past it), and the ferry test passes (12 of 12).
+- **The owner's requests (Nov 6), not started:** in a double battle, when one move makes both foes faint, the EXP
+  lines after both "fainted" lines, one per Pokémon for both foes together (up to 6 lines, not 12); faster HP bar
+  animations (the gauge's step, `UpdateGauge` in `src/battle/healthbox.c`); the double battle's Poké Ball indicators
+  of each side's party don't follow which Pokémon are left. Pokéfans Georgia (5 Pokémon) and Jeremy (3) on the
+  S.S. Aqua see the player together, so they battle as one double with 8 Pokémon, as in HeartGold; the indicator has 6
+  slots a side.
+- **Faster HP bars** (the owner's request): the bar moves 2 pixels each time the healthbox redraws it (every other
+  frame), whatever the Pokémon's HP, so a full bar takes 0.8 s (`COMPLETE_HP_GAUGE_PIXELS_PER_FRAME`,
+  `src/battle/healthbox.c`). Platinum moved it one HP per redraw above 48 HP: on build_test, a third of a Lv. 100
+  Blissey's bar took about 8 s before and 16 frames now. The EXP bar is unchanged.
+- **The S.S. Aqua: the cruise or straight there** (the owner's design, Nov 6): after the first voyage, the sailor at
+  Olivine's or Vermilion's gangway asks "Where to? A cruise on the S.S. Aqua, or straight to port?": S.S. AQUA CRUISE
+  boards the ship as before, the other port's name is Platinum's boat scene and then that port's dock (where Canalave's
+  ships land), and Canalave City stays once Sinnoh is open (`CommonScript_CompleteFerry`). The ferry test's four new
+  cases pass with the twelve before (16 of 16 on build_test). The owner also scrapped the following Pokémon
+  (`docs/Roadmap.md`; issue 1 of `docs/PlaytestIssues.md`, handed to the Sovereign Platinum session).

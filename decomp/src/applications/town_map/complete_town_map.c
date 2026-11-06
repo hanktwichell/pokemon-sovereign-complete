@@ -321,6 +321,10 @@ static void MakeHGSSFlyPoints(TownMapAppData *appData)
 
         Sprite *sprite = SpriteSystem_NewSpriteFromResourceHeader(appData->spriteSystem, appData->spriteMan, &template);
 
+        if (sprite == NULL) { // no room left in the sprite manager (src/applications/town_map/sprites.c)
+            break;
+        }
+
         Sprite_SetDrawFlag(sprite, TRUE);
         Sprite_SetExplicitPalette(sprite, 5 + 1);
         Sprite_UpdateAnim(sprite, FX32_CONST(0));

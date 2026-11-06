@@ -5,6 +5,7 @@
 
 #include "applications/town_map/defs.h"
 #include "applications/town_map/main.h"
+#include "constants/hgss_spawns.h" // Sovereign Complete
 
 #include "gx_layers.h"
 #include "sprite_system.h"
@@ -39,7 +40,8 @@ void TownMap_InitSpriteSystem(TownMapAppData *appData)
     };
 
     SpriteSystem_Init(appData->spriteSystem, &oamTemplate, &charTransferTemplate, 32);
-    SpriteSystem_InitSprites(appData->spriteSystem, appData->spriteMan, 3 + TOWN_MAP_HISTORY_LENGTH + NUM_FLY_LOCATIONS); // player sprite, cursor sprite, zoom button shockwave
+    // Sovereign Complete: and HeartGold's Fly points (src/applications/town_map/complete_town_map.c)
+    SpriteSystem_InitSprites(appData->spriteSystem, appData->spriteMan, 3 + TOWN_MAP_HISTORY_LENGTH + NUM_FLY_LOCATIONS + SPAWN_HGSS_COUNT); // player sprite, cursor sprite, zoom button shockwave
     SpriteResourceDataPaths resourcePaths = {
         .asStruct = {
             .charResources = "data/tmapn_chr.resdat",

@@ -341,8 +341,14 @@ Platinum's scene, which first sails its own ship out of the dock when there is o
 fade-out when there isn't (`src/cutscenes/boat_cutscene/boat_cutscene.c`), as at HeartGold's ports. The first trip's
 scenes and the cabin's rest play as in Sacred Gold.
 
+**The cruise or straight there** (the owner's call, Nov 6, 2026): once the S.S. Aqua's first voyage is done, the
+sailor at Olivine's or Vermilion's gangway asks "Where to? A cruise on the S.S. Aqua, or straight to port?": the
+cruise boards the ship as before (its passengers to battle, the cabin's rest), and the other port is Platinum's boat
+scene and then that port's dock, where Canalave's ships land (`CommonScript_CompleteFerryStraight`). The first voyage
+always boards.
+
 **The ferry network** (`docs/Roadmap.md`, "Ferry network") joins the three main ports: once the way to Sinnoh is open,
-the sailor at Olivine's or Vermilion's gangway asks where to, the S.S. Aqua's port or Canalave City
+the sailor at Olivine's or Vermilion's gangway asks where to, the S.S. Aqua's cruise, its other port or Canalave City
 (`CommonScript_CompleteFerry`; the question is added to Sacred Gold's scripts by the translator's `INSERTS`), and
 Canalave's sailor offers Olivine City and Vermilion City after his islands. A ship to Canalave City is Platinum's boat
 scene from the islands; a ship from it lands the player at the S.S. Aqua's door in the other port, where the S.S.
@@ -352,7 +358,7 @@ the gangways board the S.S. Aqua as in Sacred Gold, and Canalave's sailor has on
 
 Test: `tools/complete/test_hgss_ferry.py` (the S.S. Aqua: boarding at each port, and arriving at each; the network:
 Olivine and Vermilion to Canalave, Canalave to each, the S.S. Aqua and staying in port from the menu, and no question
-before the badge).
+before the badge; after the first voyage, straight to each other port, the cruise, and Canalave).
 
 ## The Pokégear phone
 

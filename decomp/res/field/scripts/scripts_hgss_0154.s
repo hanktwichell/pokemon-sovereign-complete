@@ -78,6 +78,10 @@ _00EF:
     SetFlag FLAG_HGSS_UNK_22A
     ClearFlag FLAG_HGSS_UNK_22C
     SetFlag FLAG_HGSS_UNK_22B
+    GoToIfGe VAR_HGSS_SCENE_SS_AQUA, 7, CompleteFirstVoyage_End  @ Sovereign Complete: B1F's guard
+    ClearFlag FLAG_HGSS_UNK_22A
+    SetFlag FLAG_HGSS_UNK_22C
+CompleteFirstVoyage_End:
     ReleaseAll
     End
 _0142:

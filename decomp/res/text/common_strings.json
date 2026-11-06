@@ -1070,7 +1070,10 @@
     },
     {
       "id": "CommonStrings_Text_CompleteFerryWhereTo",
-      "en_US": "Where are you sailing to?"
+      "en_US": [
+        "Where to? A cruise on the S.S. Aqua,\n",
+        "or straight to port?"
+      ]
     },
     {
       "id": "CommonStrings_Text_CompleteFerryAnotherTime",
@@ -1124,6 +1127,20 @@
         "First time to Sinnoh? Then this ship\n",
         "calls at Twinleaf Town for you.\r",
         "All aboard!"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteFerryStraightToOlivine",
+      "en_US": [
+        "OK! Next stop, Olivine City!\n",
+        "All aboard!\r"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompleteFerryStraightToVermilion",
+      "en_US": [
+        "OK! Next stop, Vermilion City!\n",
+        "All aboard!\r"
       ]
     }
   ]

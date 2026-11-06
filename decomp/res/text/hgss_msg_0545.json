@@ -39,8 +39,9 @@
     {
       "id": "msg_0545_T20R0201_00005",
       "en_US": [
-        "I’m sure you know how to use these.\n",
-        "Oh, I hear Elm has a gift for you.\r"
+        "I’m sure you know how to use these.\f",
+        "Oh, I hear Professor Elm has a gift\n",
+        "for you.\r"
       ]
     },
     {

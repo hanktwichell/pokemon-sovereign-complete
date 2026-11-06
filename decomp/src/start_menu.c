@@ -372,7 +372,10 @@ static u32 StartMenu_GetNormalHiddenOptions(FieldSystem *fieldSystem)
         hideFlags |= HIDE_OPTION_POKEDEX;
     }
 
-    if (SystemVars_GetPlayerStarter(SaveData_GetVarsFlags(fieldSystem->saveData)) == SPECIES_NONE) {
+    // Sovereign Complete: and with Pokémon in the party, as Elm's starter (VAR_HGSS_PLAYER_STARTER) comes long
+    // before Rowan's
+    if (SystemVars_GetPlayerStarter(SaveData_GetVarsFlags(fieldSystem->saveData)) == SPECIES_NONE
+        && Party_GetCurrentCount(SaveData_GetParty(fieldSystem->saveData)) == 0) {
         hideFlags |= HIDE_OPTION_POKEMON;
     }
 

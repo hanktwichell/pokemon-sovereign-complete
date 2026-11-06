@@ -60,6 +60,10 @@
 #define HEALTHBOX_NAME_TEXT_COLOR       TEXT_COLOR(14, 2, HEALTHBOX_NAME_BACKGROUND_COLOR)
 
 #define HEALTHBOX_HP_CELL_COUNT  6
+// Sovereign Complete: the HP bar moves this many pixels each time the healthbox redraws it (every other frame), whatever
+// the Pokémon's HP: a full bar in 48 frames. Platinum's moved one pixel below 48 HP and one HP above, so a Lv. 100
+// Blissey's full bar took about 24 seconds
+#define COMPLETE_HP_GAUGE_PIXELS_PER_FRAME 2
 #define HEALTHBOX_EXP_CELL_COUNT 12
 
 #define VRAM_TRANSFER_DST(vram, transferTable, index_0, index_1, imgProxy) ( \
@@ -162,7 +166,7 @@ enum HealthBoxPart {
 };
 
 static s32 HealthBox_DrawGauge(HealthBox *healthbox, enum HealthBoxGaugeType gaugeType);
-static s32 UpdateGauge(s32 max, s32 cur, s32 diff, s32 *temp, u8 size, u16 fillOffset);
+static s32 UpdateGauge(s32 max, s32 cur, s32 diff, s32 *temp, u8 size, u16 fillOffset, u8 pixelsPerFrame);
 static u8 FillCells(s32 max, s32 cur, s32 diff, s32 *temp, u8 *cells, u8 cellNum);
 static u32 CalcGaugeFill(s32 curVal, s32 diff, s32 maxVal, u8 gaugeSize);
 static const u8 *GetHealthBoxPartsTile(enum HealthBoxPart part);
@@ -1508,7 +1512,14 @@ static s32 HealthBox_DrawGauge(HealthBox *healthbox, enum HealthBoxGaugeType gau
     s32 fillOffset;
 
     if (gaugeType == HEALTHBOX_GAUGE_HP) {
-        result = UpdateGauge(healthbox->maxHP, healthbox->curHP, healthbox->damage, &healthbox->hpTemp, HEALTHBOX_HP_CELL_COUNT, 1);
+        // Sovereign Complete: the HP a frame that moves the bar COMPLETE_HP_GAUGE_PIXELS_PER_FRAME pixels
+        fillOffset = healthbox->maxHP * COMPLETE_HP_GAUGE_PIXELS_PER_FRAME / (HEALTHBOX_HP_CELL_COUNT * HEALTHBOX_NAME_BLOCK_COUNT_X);
+
+        if (fillOffset < 1) {
+            fillOffset = 1;
+        }
+
+        result = UpdateGauge(healthbox->maxHP, healthbox->curHP, healthbox->damage, &healthbox->hpTemp, HEALTHBOX_HP_CELL_COUNT, fillOffset, COMPLETE_HP_GAUGE_PIXELS_PER_FRAME);
     } else {
         fillOffset = CalcGaugeFill(healthbox->curExp, healthbox->expReward, healthbox->maxExp, HEALTHBOX_EXP_CELL_COUNT);
 
@@ -1517,7 +1528,7 @@ static s32 HealthBox_DrawGauge(HealthBox *healthbox, enum HealthBoxGaugeType gau
         }
 
         fillOffset = abs(healthbox->expReward / fillOffset);
-        result = UpdateGauge(healthbox->maxExp, healthbox->curExp, healthbox->expReward, &healthbox->expTemp, HEALTHBOX_EXP_CELL_COUNT, fillOffset);
+        result = UpdateGauge(healthbox->maxExp, healthbox->curExp, healthbox->expReward, &healthbox->expTemp, HEALTHBOX_EXP_CELL_COUNT, fillOffset, 1);
     }
 
     if (gaugeType != HEALTHBOX_GAUGE_HP || healthbox->numberMode != TRUE) {
@@ -1611,7 +1622,7 @@ static void DrawGauge(HealthBox *healthbox, u8 gaugeType)
  * @param temp      Temporary value stored in the gauge
  * @return          Number of pixels to be filled
  */
-static s32 UpdateGauge(s32 max, s32 cur, s32 diff, s32 *temp, u8 size, u16 fillOffset)
+static s32 UpdateGauge(s32 max, s32 cur, s32 diff, s32 *temp, u8 size, u16 fillOffset, u8 pixelsPerFrame)
 {
     s32 updated, final, ratio;
 
@@ -1644,7 +1655,7 @@ static s32 UpdateGauge(s32 max, s32 cur, s32 diff, s32 *temp, u8 size, u16 fillO
     }
 
     if (max < corrected) {
-        ratio = max * 0x100 / corrected;
+        ratio = max * 0x100 * pixelsPerFrame / corrected; // Sovereign Complete: pixelsPerFrame (1 in Platinum)
 
         if (diff < 0) {
             *temp += ratio;

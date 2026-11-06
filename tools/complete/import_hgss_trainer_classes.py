@@ -33,6 +33,7 @@ import tempfile
 
 import ndspy.narc
 import ndspy.rom
+from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from import_hgss_maps import DECOMP, HG, ROOT  # noqa: E402
@@ -77,6 +78,18 @@ def nitrogfx(*args):
     subprocess.run([NITROGFX, *args], check=True, capture_output=True)
 
 
+def eight_bit(png):
+    """The picture as an 8-bit PNG, as Sovereign's classes keep theirs: the build converts each class's front picture
+    with nitrogfx -convertTo4Bpp, which reads nitrogfx's own 4-bit PNG as 8-bit and draws every other pixel. The same
+    pixels and 16 colors, the palette padded to 256."""
+    im = Image.open(png)
+    im.load()
+    out = Image.frombytes('P', im.size, im.tobytes())
+    palette = im.getpalette()[:48]
+    out.putpalette(palette + [0] * (768 - len(palette)))
+    out.save(png, bits=8, **({'transparency': im.info['transparency']} if 'transparency' in im.info else {}))
+
+
 def convert(files, out_dir):
     """A class's five HeartGold files into Sovereign's class files; checks that they convert back."""
     ncgr, nclr, ncer, nanr, scan = files
@@ -89,6 +102,7 @@ def convert(files, out_dir):
         nitrogfx(t('f.NCER'), o('front_cell.json'))
         nitrogfx(t('f.NANR'), o('front_anim.json'))
         nitrogfx(t('f.NCGR'), o('front.png'), '-palette', t('f.NCLR'), '-cell', o('front_cell.json'))
+        eight_bit(o('front.png'))
         nitrogfx(t('s.NCGR'), o('front_scan.png'), '-palette', t('f.NCLR'), '-scanfronttoback', '-width', '20')
         nitrogfx(o('front_cell.json'), t('b.NCER'))
         nitrogfx(o('front_anim.json'), t('b.NANR'))
