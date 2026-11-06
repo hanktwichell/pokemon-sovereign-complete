@@ -121,6 +121,9 @@ PokemonLeagueChampionRoom_BlackOut:
 @ Sovereign (E11, docs/EliteFourFormat.md): Cynthia's format was decided earlier in the run (bit 4 of
 @ VAR_SOVEREIGN_E4_FORMAT, see PokemonLeagueAaronRoom_SovereignChooseFormat).
 PokemonLeagueChampionRoom_SovereignDecidedFormat:
+    @ Sovereign Complete: Cynthia always battles alone (the owner's call, Nov 6, 2026); the Elite Four keep the choice
+    SetVar VAR_0x8008, 0
+    GoTo PokemonLeagueChampionRoom_SovereignDecidedFormatEnd
     CheckVarBit VAR_SOVEREIGN_E4_FORMAT, 4, VAR_0x8008
     GoToIfEq VAR_0x8008, 0, PokemonLeagueChampionRoom_SovereignDecidedFormatEnd
     Common_SovereignE4CheckLoneMon
