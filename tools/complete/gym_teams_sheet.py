@@ -27,13 +27,12 @@ REMATCH_FILL = [PatternFill('solid', fgColor='EEF3FB'), PatternFill('solid', fgC
 THICK = Side(style='medium', color='8A8378')
 
 
-def rows_for(trainer_file, battle, where, order, name=None):
-    data = json.load(open(os.path.join(page.TRAINERS, trainer_file + '.json'), encoding='utf-8'))
-    for slot, mon in enumerate(data['party'], 1):
-        m = page.build_mon(trainer_file, data, mon)
+def rows_for(key, trainer_file, battle, where, order, name=None):
+    data, mons = page.planned_team(key, trainer_file)
+    for slot, m in enumerate(mons, 1):
         notes = []
-        if m['evolved']:
-            notes.append(f'Lv. {m["from_level"]} {m["from"]} in the data')
+        if m.get('now'):
+            notes.append(f'now Lv. {m["now"]["level"]} {m["now"]["name"]}')
         if not m['nature_set']:
             notes.append('nature seeded')
         if not m['moves_set']:
@@ -54,7 +53,7 @@ def main():
     wb = Workbook()
     wb.remove(wb.active)
     order = 0
-    for _, title, trainers in page.SECTIONS:
+    for si, (_, title, _, trainers) in enumerate(page.SECTIONS):
         ws = wb.create_sheet(title)
         ws.append(HEADERS)
         for c in ws[1]:
@@ -66,21 +65,23 @@ def main():
         for i, w in enumerate(WIDTHS, 1):
             ws.column_dimensions[get_column_letter(i)].width = w
         band = 0
-        for entry in trainers:
+        for ei, entry in enumerate(trainers):
             order += 1
             battles = []
-            for label, stem in entry['tabs']:
+            for ti, (label, stem) in enumerate(entry['tabs']):
                 if not os.path.exists(os.path.join(page.TRAINERS, stem + '.json')):
                     continue
                 data = json.load(open(os.path.join(page.TRAINERS, stem + '.json'), encoding='utf-8'))
                 if label is None:
                     label = (page.species_name(page.starter_line(data)) + ' (rival\u2019s starter)'
                              if entry.get('starter_tabs') else data['name'])
-                battles.append((stem, label))
-            for b, (f, label) in enumerate(battles):
+                if entry.get('named_tabs'):
+                    label = data['name'] + ': ' + label
+                battles.append((stem, label, ti))
+            for b, (f, label, ti) in enumerate(battles):
                 start = ws.max_row + 1
                 rematch = 'ematch' in label
-                for row in rows_for(f, label, entry['where'], order, entry.get('name')):
+                for row in rows_for((si, ei, ti), f, label, entry['where'], order, entry.get('name')):
                     ws.append(row)
                     r = ws.max_row
                     ws.row_dimensions[r].height = 48

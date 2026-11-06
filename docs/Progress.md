@@ -1879,3 +1879,8 @@ trainer, Renegade's added battles (Cheryl, Mira, Darach, Riley, Dahlia, Marley, 
 Champions (Sinnoh's with their doubles versions), the tag battles, Sinnoh after the League and the Battleground.
 `tools/complete/gym_teams_sheet.py` writes the same as a spreadsheet (one tab per part, one row per Pokémon) for the
 owner's Google Sheet. The game has no Team Magma or Aqua battles.
+
+The owner's new rules for the boss battles (docs/Roadmap.md, "The boss battles redo") are planned in
+`tools/complete/boss_plan.py`: the page and the sheet now show each team as planned (levels, EVs, IVs, natures), with
+what it is in the game now, and each character's Mega from Morty on. Dawn's and Lucas's route battles (202, 207, 210,
+224) are on the page too; the League's doubles versions are off it.

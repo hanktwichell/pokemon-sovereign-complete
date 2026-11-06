@@ -10,6 +10,7 @@ level-up moves when it gives none, the IVs from the IV scale or its "ivs" (a sta
 Usage: python3 tools/complete/gym_teams_page.py [OUT]   (default .cache/gym_teams/index.html)
 """
 import base64
+import collections
 import html
 import io
 import json
@@ -19,6 +20,9 @@ import sys
 
 import yaml
 from PIL import Image
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import boss_plan  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 DECOMP = os.path.join(ROOT, 'decomp')
@@ -49,14 +53,19 @@ def silver(*numbers):
 
 
 def league_s(n):
-    return gym(f'elite_four_{n}', f'elite_four_{n}_rematch', 'Elite Four',
-               [('Doubles', f'sovereign_elite_four_{n}_doubles'), ('Doubles rematch', f'sovereign_elite_four_{n}_rematch_doubles')])
+    return gym(f'elite_four_{n}', f'elite_four_{n}_rematch', 'Elite Four')
+
+
+def dawn_lucas(route):
+    """Dawn's battle (for a male player) and Lucas's (for a female one), each in a version for each starter"""
+    files = [f'sovereign_{who}_{route}_{s}' for who in ('dawn', 'lucas') for s in ('turtwig', 'chimchar', 'piplup')]
+    return dict(by_starter(route.replace('_', ' ').title(), files), name='Dawn or Lucas', named_tabs=True)
 
 
 # The story's boss battles in the order a player meets them (Johto, then Kanto, then Sinnoh), each with its rematch
 # where there is one: (section id, title, [battle])
 SECTIONS = [
-    ('johto', 'Johto', [
+    ('johto', 'Johto', 'johto', [
         dict(by_starter('Cherrygrove City (named \u201cBoy\u201d until you learn his name)',
                         ['hgss_passerby_boy', 'hgss_passerby_boy_2', 'hgss_passerby_boy_3']), name='Silver'),
         gym('hgss_leader_falkner_falkner', 'hgss_leader_falkner_falkner_2', 'Violet City Gym'),
@@ -86,7 +95,7 @@ SECTIONS = [
         gym('hgss_elite_four_karen_karen', 'hgss_elite_four_karen_karen_2', 'Elite Four'),
         gym('hgss_champion_lance', 'hgss_champion_lance_2', 'Champion'),
     ]),
-    ('kanto', 'Kanto', [
+    ('kanto', 'Kanto', 'kanto', [
         gym('hgss_leader_brock_brock', 'hgss_leader_brock_brock_2', 'Pewter City Gym'),
         by_starter('Mt. Moon', silver(14, 15, 16)),
         gym('hgss_leader_misty_misty', 'hgss_leader_misty_misty_2', 'Cerulean City Gym'),
@@ -102,8 +111,9 @@ SECTIONS = [
         gym('hgss_rocket_boss_giovanni', None, 'Celebi’s journey into the past (Team Rocket)'),
         gym('hgss_youngster_mickey', None, 'Cerulean Cave, after Mewtwo'),
     ]),
-    ('sinnoh', 'Sinnoh', [
+    ('sinnoh', 'Sinnoh', 'sinnoh', [
         by_starter('Route 201', sinnoh_rival('route_201')),
+        dawn_lucas('route_202'),
         by_starter('Route 203', sinnoh_rival('route_203')),
         gym('leader_roark', 'leader_roark_rematch', 'Oreburgh City Gym'),
         gym('commander_mars_valley_windworks', None, 'Valley Windworks (Team Galactic)'),
@@ -111,6 +121,7 @@ SECTIONS = [
         gym('leader_gardenia', 'leader_gardenia_rematch', 'Eterna City Gym'),
         gym('commander_jupiter_team_galactic_eterna_building', None, 'Galactic Eterna Building'),
         gym('sovereign_mira_wayward_cave', None, 'Wayward Cave'),
+        dawn_lucas('route_207'),
         gym('leader_fantina', 'leader_fantina_rematch', 'Hearthome City Gym'),
         by_starter('Route 209 gate', sinnoh_rival('route_209')),
         tag('Pokémon Mansion, with Cedric at your side', ['sovereign_saturn_pokemon_mansion', 'sovereign_backlot_pokemon_mansion'],
@@ -118,6 +129,7 @@ SECTIONS = [
         gym('leader_maylene', 'leader_maylene_rematch', 'Veilstone City Gym'),
         by_starter('Pastoria City', sinnoh_rival('pastoria_city')),
         gym('leader_wake', 'leader_wake_rematch', 'Pastoria City Gym'),
+        dawn_lucas('route_210'),
         gym('galactic_boss_cyrus_celestic_town_ruins', None, 'Celestic Town ruins'),
         gym('sovereign_darach_pal_park', None, 'Pal Park'),
         by_starter('Canalave City', sinnoh_rival('canalave_city')),
@@ -134,12 +146,12 @@ SECTIONS = [
         gym('leader_volkner', 'leader_volkner_rematch', 'Sunyshore City Gym'),
         gym('sovereign_dahlia_sunyshore', None, 'Sunyshore City'),
         gym('sovereign_marley_victory_road', None, 'Victory Road'),
+        dawn_lucas('route_224'),
         by_starter('Pokémon League', sinnoh_rival('pokemon_league')),
         league_s('aaron'), league_s('bertha'), league_s('flint'), league_s('lucian'),
-        gym('champion_cynthia', 'champion_cynthia_rematch', 'Champion',
-            [('Doubles', 'sovereign_champion_cynthia_doubles'), ('Doubles rematch', 'sovereign_champion_cynthia_rematch_doubles')]),
+        gym('champion_cynthia', 'champion_cynthia_rematch', 'Champion'),
     ]),
-    ('postgame', 'Sinnoh after the League', [
+    ('postgame', 'Sinnoh after the League', 'sinnoh', [
         by_starter('Fight Area', sinnoh_rival('fight_area')),
         tag('Fight Area, with Cedric at your side', ['leader_volkner_fight_area', 'elite_four_flint_fight_area'], 'Volkner & Flint'),
         tag('Stark Mountain, one after the other', ['commander_mars_stark_mountain', 'commander_jupiter_stark_mountain'],
@@ -149,7 +161,7 @@ SECTIONS = [
         by_starter('Survival Area, again', sinnoh_rival('survival_area_2')),
         gym('sovereign_steven_oreburgh', None, 'Oreburgh City'),
     ]),
-    ('battleground', 'The Battleground', [
+    ('battleground', 'The Battleground', 'sinnoh', [
         gym('sovereign_cyrus_battleground', None, 'Battleground'),
         tag('Battleground', ['sovereign_mars_battleground', 'sovereign_jupiter_battleground', 'sovereign_saturn_battleground'],
             'Mars, Jupiter & Saturn'),
@@ -160,6 +172,15 @@ SECTIONS = [
     ]),
 ]
 
+
+for _sid, _title, _region, _entries in SECTIONS:
+    for _e in _entries:
+        _stem = _e['tabs'][0][1]
+        _e['kind'] = ('e4' if _stem in boss_plan.ELITE_FOUR
+                      else 'champion' if _stem in ('hgss_champion_lance', 'champion_cynthia')
+                      else 'leader' if 'leader_' in _stem and 'fight_area' not in _stem and not _e.get('name') else 'boss')
+# Johto's Whitney: every leader and boss after her has a Mega (the owner's call)
+MEGA_FROM = 'hgss_leader_whitney'
 
 TYPE_COLOURS = {
     'NORMAL': '#9a9a7c', 'FIRE': '#e8743c', 'WATER': '#5b8ee8', 'ELECTRIC': '#e8c232', 'GRASS': '#6cbb4a',
@@ -406,12 +427,12 @@ def item_icon(item):
     return _item_icon_cache[item]
 
 
-def build_mon(trainer_file, data, mon):
+def build_mon(trainer_file, data, mon, planned=False):
     tid = TRAINER_IDS['TRAINER_' + trainer_file.upper()]
     cls = data['class']
     species, level = mon['species'], mon['level']
     sinnoh = tid < TRAINER_HGSS_FIRST
-    if sinnoh:
+    if sinnoh and not planned:
         level = sinnoh_level(level)
         species = sinnoh_evolved(species, level)
     form = mon.get('form', 0)
@@ -478,7 +499,9 @@ def mon_card(m, slot):
         for n, t, c in (move_info(x) for x in m['moves']))
     icon = item_icon(m['item']) if m['item'] else None
     item = (f'<img class="ii" src="{icon}" alt="">' if icon else '') + esc(item_name(m['item'])) if m['item'] else '<span class="none">None</span>'
-    note = f'<div class="note">Lv. {m["from_level"]} {esc(m["from"])} in the data</div>' if m['evolved'] else ''
+    old = m.get('now')
+    note = (f'<div class="note">now Lv. {old["level"]}{"" if old["species"] == m["species"] else " " + esc(old["name"])}</div>'
+            if old else '')
     return f'''<div class="mon" data-slot="{slot}">
   <div class="mtop"><img class="ms" src="{m["sprite"]}" alt="{esc(m["name"])}" loading="lazy"><span class="lv">Lv. {m["level"]}</span></div>
   <div class="mname">{esc(m["name"])}{' <span class="shiny" title="Shiny">★</span>' if m['shiny'] else ''}</div>{'<span class="mega">Mega</span>' if m['mega'] else ''}
@@ -496,39 +519,107 @@ def mon_card(m, slot):
 </div>'''
 
 
-def team_html(trainer_file):
-    data = json.load(open(os.path.join(TRAINERS, trainer_file + '.json'), encoding='utf-8'))
-    mons = [build_mon(trainer_file, data, mon) for mon in data['party']]
+def raw_ace(stem):
+    data = json.load(open(os.path.join(TRAINERS, stem + '.json'), encoding='utf-8'))
+    return max(m['level'] for m in data['party'])
+
+
+_plan = None
+
+
+def plan():
+    global _plan
+    if _plan is None:
+        _plan = boss_plan.plan_levels(SECTIONS, raw_ace)
+    return _plan
+
+
+def planned_team(key, stem):
+    """(trainer data, the planned Pokémon, the Pokémon as the game makes them now) for a tab: key is (section,
+    entry, tab)"""
+    data = json.load(open(os.path.join(TRAINERS, stem + '.json'), encoding='utf-8'))
+    now = [build_mon(stem, data, mon) for mon in data['party']]
+    party = data['party']
+    if stem == 'champion_cynthia_rematch':  # the owner's call: her first team, as it is
+        party = json.load(open(os.path.join(TRAINERS, 'champion_cynthia.json'), encoding='utf-8'))['party']
+    sinnoh = TRAINER_IDS['TRAINER_' + stem.upper()] < TRAINER_HGSS_FIRST
+    planned = boss_plan.plan_party(
+        party, plan().get(key), sinnoh_evolved if sinnoh else (lambda sp, lv: sp),
+        lambda sp, form: form_data(sp, form)['base_stats'], lambda mv: move_info(mv)[2], default_moves)
+    if plan().get(key) is None:
+        mons = now
+    else:
+        pdata = dict(data, party=planned)
+        mons = [build_mon(stem, pdata, mon, planned=True) for mon in planned]
+    for i, m in enumerate(mons):
+        old = now[i] if i < len(now) and stem != 'champion_cynthia_rematch' else None
+        m['now'] = None if old and (old['level'], old['species']) == (m['level'], m['species']) else old
+    return data, mons
+
+
+def team_html(key, stem):
+    data, mons = planned_team(key, stem)
     cards, dets = zip(*(mon_card(m, i) for i, m in enumerate(mons)))
     ace = max(m['level'] for m in mons)
-    return data, f'''<div class="team">
+    return data, mons, f'''<div class="team">
   <div class="grid">{''.join(cards)}{''.join('<div class="mon empty"></div>' for _ in range(6 - len(mons)))}</div>
   <div class="dets">{''.join(dets)}</div>
 </div>''', ace, data.get('double_battle')
 
 
-def trainer_card(entry):
-    tabs, panes, first = [], [], None
+def mega_owners():
+    """{character: {Mega species}} over every planned team"""
+    out = collections.defaultdict(set)
+    for si, (_, _, _, entries) in enumerate(SECTIONS):
+        for ei, entry in enumerate(entries):
+            for ti, (_, stem) in enumerate(entry['tabs']):
+                if os.path.exists(os.path.join(TRAINERS, stem + '.json')):
+                    data, mons = planned_team((si, ei, ti), stem)
+                    out[character(data)] |= {m['name'] for m in mons if m['mega']}
+    return out
+
+
+def character(data):
+    return {'Boy': 'Silver'}.get(data['name'], data['name'])
+
+
+def trainer_card(si, ei, entry, megas, after_whitney):
+    tabs, panes, first, chars = [], [], None, []
     for i, (label, stem) in enumerate(entry['tabs']):
         if not os.path.exists(os.path.join(TRAINERS, stem + '.json')):
             continue
-        data, team, ace, doubles = team_html(stem)
+        data, mons, team, ace, doubles = team_html((si, ei, i), stem)
         if first is None:
             first = data
+        if character(data) not in chars and data['name'] != 'Grunt':
+            chars.append(character(data))
         if label is None:
             label = species_name(starter_line(data)) if entry.get('starter_tabs') else data['name']
+            if entry.get('named_tabs'):
+                label = data['name'] + ': ' + label
         on = ' on' if not tabs else ''
         sprite = trainer_sprite(data['class'])
-        tabs.append(f'<button class="tab{on}" data-k="{i}" data-sprite="{sprite}" data-sub="{" · Double battle" if doubles else ""}">'
+        tabs.append(f'<button class="tab{on}" data-k="{i}" data-sprite="{sprite}">'
                     f'{esc(label)} <span>Lv. {ace}</span></button>')
         panes.append(f'<div class="pane{on}" data-k="{i}">{team}</div>')
-    name = entry.get('name') or first['name']
-    note = entry.get('note') or ('One version for each starter: the tab names the rival’s own.' if entry.get('starter_tabs') else '')
+    name = entry.get('name') or character(first)
+    note = entry.get('note') or ('One version for each starter: the tab names the rival\u2019s own.' if entry.get('starter_tabs') else '')
+    chips = []
+    if after_whitney:
+        for c in chars:
+            mine = sorted(megas.get(c, ()))
+            shared = sorted(o for o, ms in megas.items() if o != c and set(mine) & ms)
+            if not mine:
+                chips.append(f'<span class="chip warn">{esc(c)}: needs a Mega</span>')
+            else:
+                text = f'{esc(c)}: Mega {esc(" / ".join(mine))}' + (f' \u00b7 also {esc(", ".join(shared))}' if shared else '')
+                chips.append(f'<span class="chip{" warn" if shared or len(mine) > 1 else ""}">{text}</span>')
     sprite = tabs[0].split('data-sprite="')[1].split('"')[0]
     return f"""<article class="trainer" id="{esc(entry['tabs'][0][1])}">
   <header>
     <img class="tsprite" src="{sprite}" alt="{esc(name)}">
     <div class="th"><h3>{esc(name)}</h3><div class="sub">{esc(entry['where'])}</div>{f'<div class="sub">{esc(note)}</div>' if note else ''}
+      {f'<div class="chips">{"".join(chips)}</div>' if chips else ''}
       <div class="tabs" role="tablist">{''.join(tabs)}</div></div>
   </header>
   {''.join(panes)}
@@ -578,6 +669,9 @@ h2{font-size:21px;margin:34px 0 12px;letter-spacing:-.01em}
 .types{display:flex;gap:3px;justify-content:center;flex-wrap:wrap;margin-top:2px}
 .ty{font-size:10px;font-weight:700;color:#fff;background:var(--t);padding:0 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.03em;text-shadow:0 1px 0 rgba(0,0,0,.25)}
 .shiny{color:#e0a800}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin:-2px 0 8px}
+.chip{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--chip)}
+.chip.warn{background:#f6d7c9;color:#7a2a12}
 .mega{position:absolute;top:6px;left:6px;font-size:10px;font-weight:700;color:#fff;background:linear-gradient(135deg,#7b4fd6,#d64f9a);border-radius:5px;padding:1px 6px}
 .mon{position:relative}
 .note{font-size:11px;color:var(--muted);margin-top:3px}
@@ -642,11 +736,15 @@ def dedupe_images(page):
 def main():
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, '.cache', 'gym_teams', 'index.html')
     body = []
-    for sid, title, rows in SECTIONS:
+    megas = mega_owners()
+    after = False
+    for si, (sid, title, _, rows) in enumerate(SECTIONS):
         body.append(f'<section id="{sid}"><h2>{esc(title)}</h2><div class="trainers">')
-        body.extend(trainer_card(entry) for entry in rows)
+        for ei, entry in enumerate(rows):
+            body.append(trainer_card(si, ei, entry, megas, after))
+            after = after or entry['tabs'][0][1] == MEGA_FROM
         body.append('</div></section>')
-    nav = ''.join(f'<a href="#{sid}">{esc(title)}</a>' for sid, title, _ in SECTIONS)
+    nav = ''.join(f'<a href="#{sid}">{esc(title)}</a>' for sid, title, _, _ in SECTIONS)
     page = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -654,17 +752,19 @@ def main():
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
 <style>{CSS}</style></head>
 <body><div class="wrap">
-<h1>Boss battles, in story order</h1>
-<p class="lede">Every Gym Leader, rival, villain, Elite Four and Champion, in the order a player meets them: Johto, then Kanto,
-then Sinnoh. Each team is as the game builds it today: Johto's and Kanto's from Sacred Gold, Sinnoh's from Renegade
-Platinum through Sovereign, at their levels after Kanto and evolved to match. Rematches are a tab on the first battle's
-card; a rival's card has a tab for each starter. Tap a Pokémon to see its set.</p>
+<h1>Boss battles: the plan</h1>
+<p class="lede">Every Gym Leader, rival, villain, Elite Four and Champion in the order a player meets them, with the owner's
+new rules applied (not in the game yet): Cynthia at Lv. 95 and her first team again at 100 in the rematch; no boss more than
+two levels under the level cap of the moment; Gym Leaders' teams within 2 levels of the ace in Johto, 1 in Kanto, all at
+the ace's level in Sinnoh; optimal EVs, IVs and natures everywhere. A Pokémon's grey note says what it is in the game
+now. From Morty on, each character's card says which Mega they have, or that they need one. Tap a Pokémon to see its set.</p>
 <nav>{nav}</nav>
 {''.join(body)}
-<footer>Built from the repository by <code>tools/complete/gym_teams_page.py</code>. IVs come from each Pokémon's IV scale
-unless its data sets them; a nature marked “seeded” comes from the trainer's fixed random seed, as the game makes it, and
-changes if the trainer's class, level, species or IV scale does. Moves marked “Level-up moves” are the last four it learns
-by its level, because its data names none.</footer>
+<footer>Built from the repository by <code>tools/complete/gym_teams_page.py</code>, with the plan in
+<code>tools/complete/boss_plan.py</code>. EVs: an attacker maxes its attacking stat and Speed (HP if it's slow or on a
+Trick Room team); a Pokémon with one attack or none maxes HP and its weaker defence. IVs are 31, with 0 Attack on a
+Pokémon with no physical move and 0 Speed on Trick Room's slow ones; a Pokémon with Hidden Power keeps 31s
+until its type is chosen. Moves marked “Level-up moves” are the last four it learns by its level.</footer>
 </div><script>{JS}</script></body></html>'''
     page = dedupe_images(page)
     os.makedirs(os.path.dirname(out), exist_ok=True)

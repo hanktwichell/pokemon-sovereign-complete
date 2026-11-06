@@ -200,3 +200,17 @@ Johto and Kanto together are close to a second Sinnoh.
   here a whole world comes from another game and every script is translated.
 - Days are days of one Claude session running nonstop. Playthrough hours are an estimate for three regions at
   Drayano's difficulty. A small test port at step 1 will firm everything up.
+
+### The boss battles redo (the owner's calls, Nov 6, 2026)
+
+Planned in `tools/complete/boss_plan.py` and shown on the gym teams page; not in the trainer data yet (the teams and
+Megas are being settled first):
+- Cynthia's first battle at Lv. 95 (Sinnoh's curve from Roark at 72), her rematch at 100 with her first team. She
+  always battles alone: the League's doubles versions go.
+- Only Gym Leaders and Champions set level caps (Sovereign's list for Sinnoh also has bosses: they come out), and no
+  boss is more than two levels under the cap of the moment.
+- Gym Leaders' teams: in Johto at most 2 levels under the ace, in Kanto 1, in Sinnoh all at the ace's level. A Gym's
+  other trainers at the leader's lowest level.
+- Optimal EVs for Gym Leaders and bosses; grunts and Gym trainers 20% less in each stat, other trainers 40% less
+  (rounded up to the next 4); optimal IVs for every team.
+- From after Whitney, every Gym Leader and boss has a Mega, a different one for each character (to discuss).
