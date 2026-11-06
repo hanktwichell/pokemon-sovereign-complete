@@ -74,12 +74,11 @@ STEPS = [
 ]
 
 NEXT = [
-    'The Gallery tab is complete: all 230 places in Sinnoh, Johto and Kanto have their photos, and every gym '
-    'leader, Elite Four member and champion has a battle.',
-    'Every feature test ran again on today\'s build: all 39 pass (the Town Map and the Day Care\'s yard have new '
-    'ones; the special events test needed a fix for people who wander). A full story run is going on the newest build.',
-    'HeartGold\'s sprites are in: its people, all 566 walking Pokémon (every species to #493 follows you), its still '
-    'objects and its Apricorn trees. Custom or missing Pokémon sprites (#494 on) are yours, later.',
+    'Your final boss team against Cynthia, recorded, to show Mega Evolution working.',
+    'Sovereign\'s Elite Four format (two single battles, two double battles) at the Indigo Plateau and in Sinnoh; '
+    'Champion Lance a single battle, Champion Cynthia a double battle.',
+    'The Trainer Card with all 24 badges (a preview for you), then your Nov 6 answers in turn (the Questions tab has '
+    'each one\'s status).',
 ]
 
 WAITING = [
@@ -105,135 +104,61 @@ WAITING = [
 # Every question waiting on the owner, numbered, for the "Your questions" tab: (group, [(question, what the game does
 # now, the options, Claude's proposal or None)]). Kept in step with docs/Roadmap.md's "Still open".
 QUESTIONS = [
-    ('The story and the world', [
-        ('Platinum\'s opening: what happens to Twinleaf Town, Rowan\'s starters and Barry?',
-         'A new game plays Platinum\'s introduction (Rowan names you and your rival), then starts in your room in New '
-         'Bark Town. The first ship to Sinnoh lands in Twinleaf Town, where Platinum\'s opening plays as it is: Rowan, '
-         'Barry and the starter (it goes to the PC if your party is full). Sinnoh\'s League sends you home to Twinleaf '
-         'Town. The whole story test passes this way.',
-         ['Keep it', 'Rowan offers a Sinnoh starter when you arrive in Canalave City instead', 'No Sinnoh starter',
-          'Something else'],
-         'Keep it for your playthrough; change it after, if it feels wrong.'),
-        ('When do the ways to Kanto and Sinnoh open?',
-         'The S.S. Aqua to Kanto after the Indigo League, as in Sacred Gold. The ships between Canalave City and '
-         'Olivine or Vermilion City from Kanto\'s eighth badge (the Earth Badge).',
-         ['Keep it', 'Sinnoh earlier or later', 'Sinnoh only through the Sinjoh Ruins'],
-         'Keep it.'),
-        ('The level curve: keep Sinnoh following Kanto?',
-         'Johto and Kanto are at Sacred Gold\'s levels; Sinnoh\'s trainers, wild Pokémon and gifts moved up to follow '
-         'Kanto (Roark\'s ace Lv. 72 to Cynthia\'s 96), from one table (data/complete/sinnoh.yaml). Sovereign\'s level '
-         'caps (an option, off by default) follow the same order through all three regions.',
-         ['Keep it', 'Squeeze Johto and Kanto so Sinnoh starts lower', 'Your own numbers'],
-         'Keep it for your playthrough.'),
-        ('Cynthia\'s difficulty',
-         'Her Lv. 96 team beat a Lv. 100 team in all six real battles the test played.',
-         ['Keep her that hard', 'Lower her levels', 'Change her team or items'],
-         None),
-        ('The land between Kanto and Sinnoh',
-         'The way to Sinnoh is the ferry, or the Sinjoh Ruins\' short path, as in HeartGold. Northern Honshu, between '
-         'the two, is empty.',
-         ['Keep it short', 'A new area there (new maps, several days)'],
-         'Keep it short.'),
-        ('Field moves with either region\'s badges',
-         'A field move works with Sinnoh\'s badge for it or with HeartGold\'s (Cut: Forest or Hive, Surf: Fen or Fog...), '
-         'so Johto\'s badges keep working in Sinnoh.',
-         ['Keep it', 'Each region\'s own badges only'],
-         'Keep it.'),
+    ('Reminder: waiting on you', [
+        ('What should Sinnoh\'s HM givers give now? (your answer 1)',
+         'Every HM can be earned in Johto and Kanto before Sinnoh (Whirlpool as HM05), so Sinnoh\'s HM givers are free. '
+         'Defog stays where Platinum has it, as the new HM09. Every Mega Stone is also sold in Sovereign\'s Mega Stone '
+         'shops (Hearthome, Pastoria, Snowpoint, the Survival Area), so these would be early gifts.',
+         ['Cynthia in Eterna City (was HM01 Cut): Garchompite Z',
+          'The Galactic Warehouse\'s item ball in Veilstone City (HM02 Fly): Staraptite',
+          'Cynthia\'s grandmother in Celestic Town (HM03 Surf): Galladite',
+          'Riley on Iron Island (HM04 Strength): Lucarionite',
+          'The Oreburgh Gate\'s hiker (HM06 Rock Smash): Excadrite',
+          'Crasher Wake in Pastoria City (HM07 Waterfall): Sharpedonite',
+          'Snowpoint Temple\'s last floor (HM08 Rock Climb): Froslassite',
+          'Platinum\'s Defog item ball (HM05): HM09 Defog, as you said'],
+         'The list above: each Mega Stone close to its giver (Cynthia\'s Garchomp, Riley\'s Lucario, Candice\'s town\'s '
+         'Froslass, Wake\'s water, an Excadrill for the hiker who smashes rocks). Swap any for a TM if you prefer; '
+         'say which.'),
     ]),
-    ('HeartGold features not in yet', [
-        ('The photo album',
-         'Cameron the photographer takes your photo on 59 maps (66 photos), but there\'s no album to keep them in.',
-         ['Port HeartGold\'s album (a new screen, about two days)', 'Leave Cameron out'],
-         None),
-        ('The Pokéathlon Dome',
-         'The Pokéathlon is skipped (your call). The Dome is open now: its people stand and talk, its guide\'s menu '
-         'offers events that can\'t start.',
-         ['Open, with its people, and the guide saying it\'s closed for now', 'Closed'],
-         'Open, with the guide saying the events are closed.'),
-        ('HeartGold\'s key items: the Berry Pots, the Unown Report, the Dowsing Machine',
-         'Sacred Gold\'s scripts give them, and they do nothing yet. The Pokétch\'s Dowsing app finds Johto\'s and '
-         'Kanto\'s hidden items.',
-         ['Port the Berry Pots (about a day) and the Unown Report (half a day)', 'Port some', 'Leave them as they are'],
-         'Port the Berry Pots and the Unown Report; leave the Dowsing Machine to the Pokétch.'),
-        ('Trade evolutions from the bag',
-         'Sacred Gold lets the trade-evolution items (Metal Coat, King\'s Rock, Dragon Scale, Up-Grade, Dubious Disc, '
-         'Protector, Electirizer, Magmarizer, Reaper Cloth, DeepSeaTooth, DeepSeaScale) be used from the bag like a '
-         'stone. In Complete they still need a trade.',
-         ['From the bag, in all three regions, with trading still working', 'Only by trade, as in Platinum'],
-         'From the bag, in all three regions.'),
-        ('Whirlpool\'s HM',
-         'HeartGold\'s HM05 is Whirlpool and Platinum\'s is Defog. Lance gives HM05 (Defog here), and having it in the '
-         'bag also lets you use Whirlpool.',
-         ['Keep it', 'A separate Whirlpool HM (a new item, with every species\' compatibility)'],
-         'Keep it.'),
-        ('The Town Map in Johto',
-         'Fly opens the one Town Map everywhere, but the bag\'s Town Map is only given in Sinnoh (Jubilife\'s '
-         'Trainers\' School), so a new game has none until then.',
-         ['The Cherrygrove City guide gives it with the Map Card (Sinnoh\'s gift skipped if you have it)',
-          'Somewhere else in Johto', 'Only in Sinnoh, as now'],
-         'The Cherrygrove City guide gives it.'),
-        ('Kanto\'s Pal Park',
-         'HeartGold\'s Pal Park (bringing Pokémon over from the Game Boy Advance games) is on the map, but its own game '
-         'doesn\'t run. Platinum\'s Pal Park in Sinnoh does the same and works.',
-         ['Close Kanto\'s; Sinnoh\'s does the job', 'Make Kanto\'s run as Sinnoh\'s does'],
-         'Close Kanto\'s.'),
-        ('Wireless play in Johto and Kanto',
-         'The Union Room, the Global Terminal, the Wi-Fi Plaza\'s room, the Safari Zone\'s link counter and the '
-         'League\'s rankings are on the maps, their link steps left out until they can be tested (they can\'t be '
-         'here). Platinum\'s own wireless rooms in Sinnoh are as Sovereign has them.',
-         ['Close Johto\'s and Kanto\'s; link play in Sinnoh\'s rooms', 'Keep them, untested'],
-         'Close them; link play in Sinnoh\'s rooms.'),
-        ('Event-only encounters',
-         'Two HeartGold events need a Pokémon only Nintendo\'s distributions gave: the Spiky-eared Pichu at Ilex '
-         'Forest\'s shrine, and the Arceus egg at the Sinjoh Ruins (with Cynthia). Both are left out. Sacred Gold\'s '
-         'own event (the plates and Arceus\'s battle) plays.',
-         ['Leave them out', 'Make one or both reachable without the distribution'],
-         'Leave them out.'),
-    ]),
-    ('Art', [
-        ('Walking sprites for #494 to #1025',
-         'HeartGold\'s 566 walking sprites cover every species to #493; the rest have none, so they don\'t follow you.',
-         ['An artist', 'A community sprite pack, credited', 'Leave them without one'],
-         None),
-        ('Until then: a following Pokémon with no sprite',
-         'It stays in its Poké Ball (nobody follows).',
-         ['Stay in its ball', 'A stand-in sprite'],
-         'Stay in its ball.'),
-        ('Johto\'s and Kanto\'s badges on the Trainer Card',
-         'The Trainer Card shows Sinnoh\'s eight badges only.',
-         ['Add Johto\'s and Kanto\'s, with HeartGold\'s own badge art', 'Leave it'],
-         'Add them with HeartGold\'s art.'),
-        ('The Town Map\'s art',
-         'Claude made it from the two games\' own maps (the Gallery tab has it, scrolling).',
-         ['Keep it', 'New art'],
-         'Keep it.'),
-    ]),
-    ('Battles', [
-        ('The Pledge moves (Grass, Fire and Water Pledge)',
-         'No Pokémon learns them, by level or tutor, and in the battle engine they\'re plain 80-power hits with no '
-         'combinations (no rainbow, sea of fire or swamp). The same is true in Sovereign. Ally Switch, the other move '
-         'you asked about, did nothing, like Splash; now the user and its ally trade places in double battles.',
-         ['Leave them out (nobody learns them)',
-          'A tutor teaches them to the Grass, Fire and Water starters, with the full combinations',
-          'Add them to Sovereign first, then sync'],
-         'A tutor for the starters (as from Gen 5 on), at the Battle Frontier\'s BP tutors, with the full '
-         'combinations, tested in double battles.'),
-    ]),
-    ('Leftovers and release', [
-        ('The Pokégear\'s fly map',
-         'Fly used to open HeartGold\'s fly map on the Pokégear (or a list) in Johto and Kanto; now it opens the Town '
-         'Map. That code is still there, unused. The Pokégear\'s Map stays, to look at.',
-         ['Remove it', 'Let the Pokégear\'s Map fly too'],
-         'Remove it.'),
-        ('Your playthrough (step 9)',
-         'Johto, Kanto and Sinnoh play from a new game, and the story test has played every part.',
-         ['Start now', 'Wait for some of the answers above'],
-         None),
-        ('How you get the game to play',
-         'Complete builds from source; ROMs never go in the repository.',
-         ['An .xdelta patch for the US Platinum ROM (as the release will be)', 'You build it'],
-         'An .xdelta patch.'),
-    ]),
+]
+
+# The owner's answers of Nov 6, 2026, to the 23 questions (by their numbers), with who's on each and where it stands
+ANSWERED = [
+    (1, 'Platinum\'s opening', 'The first ship lands in Canalave City; Rowan meets you there and invites you to his lab, '
+     'where you may choose a Sinnoh starter. The people blocking Canalave City from Jubilife City go. Sinnoh\'s HM '
+     'givers give TMs or Mega Stones (the reminder above).', 'Claude, planned'),
+    (2, 'The ways to Kanto and Sinnoh', 'The Rapid Ferry: a fast S.S. Aqua with no passengers to battle, Vermilion or '
+     'Olivine to Canalave; Canalave\'s Iron Island boat also rushes you to Olivine or Vermilion; every Rapid Ferry '
+     'trip uses the Iron Island boat\'s animation.', 'Claude, planned'),
+    (3, 'The level curve', 'Keep it. Byron\'s gym may need lower levels now that Canalave City opens first.',
+     'Kept; Byron next to check'),
+    (4, 'Cynthia', 'Keep her hard; a good matchup wins.', 'Done'),
+    (5, 'The land between', 'Keep it empty.', 'Done'),
+    (6, 'Field moves', 'An HM earned in Johto works everywhere.', 'Works this way now'),
+    (7, 'The photo album', 'Port it; every HeartGold feature gets ported, used or not.', 'Claude, planned'),
+    (8, 'The Pokéathlon', 'Port it too.', 'Claude, planned (the biggest port)'),
+    (9, 'HeartGold\'s key items', 'Port all three: the Berry Pots, the Unown Report, the Dowsing Machine.',
+     'Claude, planned'),
+    (10, 'Trade evolutions', 'Trade items work from the bag like stones; trade evolutions with no item become level-up '
+     'evolutions.', 'Claude, planned'),
+    (11, 'Whirlpool and Defog', 'Whirlpool is HM05; Defog is a new HM09 where Platinum has it; HMs can be forgotten '
+     'without the Move Deleter.', 'Claude, planned'),
+    (12, 'The Town Map', 'The Cherrygrove City guide gives it; Jubilife\'s Trainers\' School gives a Mega Stone '
+     'instead. Fly to and from the Sinjoh Ruins, all over Sinnoh and Johto, once unlocked.', 'Claude, planned'),
+    (13, 'The Pal Parks', 'Regional forms: Sinnoh\'s Paldea and Hisui, Kanto\'s Alola and Galar.', 'Claude, planned'),
+    (14, 'Link play', 'Later, when nothing else is left; out of the build for now.', 'Later'),
+    (15, 'Event-only encounters', 'As Sacred Gold has them.', 'Claude, planned'),
+    (16, 'Following Pokémon', 'Turned off; the code stays.', 'Playtest session'),
+    (17, 'A follower with no sprite', 'Moot.', 'Done'),
+    (18, 'Badges on the Trainer Card', 'All 24, Johto, Kanto, Sinnoh, each in its own art; a preview for you.',
+     'Claude, next'),
+    (19, 'The Town Map\'s art', 'You\'ll draw new maps.', 'Yours'),
+    (20, 'The Pledges', 'A tutor teaches them to the starters, with the combinations; Pokémon Champions\' rules and '
+     'learnsets.', 'Claude, planned'),
+    (21, 'The Pokégear\'s fly map', 'Fly is Platinum\'s; the Pokégear\'s fly map goes.', 'Claude, planned'),
+    (22, 'Your playthrough', 'Started; bugs go to the playtest session (docs/PlaytestIssues.md).', 'Playtest session'),
+    (23, 'The game to play', 'An .xdelta patch.', 'Done (playtest session)'),
 ]
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
@@ -788,6 +713,7 @@ def main():
         'updated': UPDATED, 'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
         'steps': [dict(zip(('n', 'name', 'status', 'label', 'detail'), s)) for s in STEPS],
         'next': NEXT, 'waiting': [dict(zip(('topic', 'detail'), w)) for w in WAITING],
+        'answered': [dict(zip(('n', 'q', 'answer', 'status'), a)) for a in ANSWERED],
         'questions': [{'group': g, 'items': [dict(zip(('q', 'now', 'options', 'proposal'), q)) for q in qs]}
                       for g, qs in QUESTIONS],
         'recent': [{'title': t, 'items': items} for t, items in RECENT],

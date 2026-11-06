@@ -107,7 +107,19 @@ ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 76
 .q .qk { display: block; font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: .04em;
   text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 .q .qopts ul { margin: 0; padding-left: 20px; display: grid; gap: 2px; }
-.q .qprop { border-top: 1px dashed var(--line); padding-top: 8px; }
+.q .tablewrap { overflow-x: auto; }
+table.ans { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.ans th, table.ans td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line, #ddd); }
+table.ans td.st { white-space: nowrap; }
+@media (max-width: 640px) {
+  table.ans thead { display: none; }
+  table.ans, table.ans tbody, table.ans tr, table.ans td { display: block; width: auto; }
+  table.ans tr { padding: 8px 0; border-bottom: 1px solid var(--line, #ddd); }
+  table.ans td { border: 0; padding: 2px 0; }
+  table.ans td.num { font-weight: 600; }
+  table.ans td.st { white-space: normal; font-style: italic; }
+}
+.qprop { border-top: 1px dashed var(--line); padding-top: 8px; }
 .decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
 .decision { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); padding: 10px 14px; align-content: start;
   display: grid; gap: 4px; min-width: 0; }
@@ -315,11 +327,15 @@ function questions() {
       <p class="qprop"><span class="qk">Claude's proposal</span>${q.proposal ? esc(q.proposal) : '<span class="muted">None: your taste.</span>'}</p>
     </li>`;
   }).join('')}</ol></section>`).join('');
+  const answered = DATA.answered.length ? `<section><h2>Your answers (Nov 6)</h2>
+    <p class="muted">Your 23 answers, by the questions' numbers, and where each stands.</p>
+    <div class="tablewrap"><table class="ans"><thead><tr><th>#</th><th>Question</th><th>Your answer</th><th>Status</th></tr></thead>
+    <tbody>${DATA.answered.map(a => `<tr><td class="num">${a.n}</td><td>${esc(a.q)}</td><td>${esc(a.answer)}</td>
+      <td class="st">${esc(a.status)}</td></tr>`).join('')}</tbody></table></div></section>` : '';
   return `<section><h2>Your questions</h2>
-    <p class="muted">Every decision waiting on you, ${total} in all. Answer any of them by number whenever you like
-      (for example "3: keep it, 9: yes"); where Claude has a proposal, that's what happens if you say "go with your
-      proposals". The game plays as described under "Now" until you answer.</p></section>${groups}
-    <p class="foot">Kept in tools/complete/progress_page.py (QUESTIONS), in step with docs/Roadmap.md's "Still open".</p>`;
+    <p class="muted">${total ? `Waiting on you: ${total}. Answer by number whenever you like; where Claude has a
+      proposal, that's what happens if you say "go with your proposal".` : 'Nothing waiting on you.'}</p></section>${groups}${answered}
+    <p class="foot">Kept in tools/complete/progress_page.py (QUESTIONS, ANSWERED), in step with docs/Roadmap.md.</p>`;
 }
 
 function sinceYesterday() {

@@ -49,6 +49,48 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 
 ### Decided
 
+- **The owner's answers to the 23 open questions (Nov 6, 2026)**, by the progress page's numbers. Who does what: the
+  playtest session (branch `claude/cool-bohr-b3a91c`, `docs/PlaytestIssues.md`) takes the owner's playtest notes,
+  including turning the following Pokémon off (16) and the playtest patch (23); this session takes the rest.
+  1. **Sinnoh's opening:** the first ship to Sinnoh lands in Canalave City. Rowan meets the player there and invites
+     them to his lab in Sandgem Town, where the player may choose a Sinnoh starter. The people who block the way from
+     Canalave City to Jubilife City go. Sinnoh's HM givers give TMs or Mega Stones instead (Claude proposes, the
+     owner confirms: the progress page's reminder).
+  2. **The Rapid Ferry:** a fast S.S. Aqua with no passengers to battle, between Vermilion City or Olivine City and
+     Canalave City. Canalave's boat to Iron Island also offers a rush to Olivine City or Vermilion City. Every Rapid
+     Ferry trip uses the Iron Island boat's animation.
+  3. **The level curve stays** (Sinnoh after Kanto, as now); the gyms aren't normalized. Byron's gym in Canalave City
+     may need its levels lowered if nothing in the story holds it back now that Canalave City is the way in.
+  4. **Cynthia stays hard;** a good matchup should beat her.
+  5. **Northern Honshu stays empty.**
+  6. **An HM earned in Johto works everywhere** (with the badge rules as they are).
+  7. **Every HeartGold feature is ported,** whether or not the game uses it: HeartGold's photo album first.
+  8. **The Pokéathlon is ported** too.
+  9. **The Berry Pots, the Unown Report and the Dowsing Machine are ported.**
+  10. **Trade evolutions:** a trade-evolution item is used from the bag like a stone; a trade evolution with no item
+      becomes a level-up evolution.
+  11. **HMs:** Whirlpool is HM05 (as in HeartGold); Defog becomes a new HM09, found where Platinum has it. An HM can
+      be forgotten without the Move Deleter.
+  12. **The Town Map:** the Cherrygrove City guide gives it; Jubilife's Trainers' School gives a Mega Stone instead.
+      The owner redraws the map in one style (19). Once the Sinjoh Ruins are unlocked, Fly reaches them from anywhere
+      in Sinnoh or Johto (Mt. Silver and the Indigo Plateau too), and from the Ruins Fly reaches anywhere in Sinnoh or
+      Johto.
+  13. **The Pal Parks hold the regional forms:** Sinnoh's Pal Park Paldea's and Hisui's, Kanto's Pal Park (open
+      earlier) Alola's and Galar's, about as many in each.
+  14. **Link play** waits: on the to-do list for when nothing else is left, and out of the build until then.
+  15. **Event-only encounters:** as Sacred Gold has them.
+  16. **No following Pokémon:** the player's Pokémon no longer walk behind them (too many issues); the code stays, off,
+      in case it comes back.
+  17. (Moot with 16.)
+  18. **The Trainer Card shows all 24 badges,** Johto's, Kanto's and Sinnoh's in that order, each in its own game's art.
+      The owner wants a preview.
+  19. **The Town Map's art:** the owner draws new maps; the regions will be made to fit together.
+  20. **The Pledges are in:** a tutor teaches them to the starters (with the combinations), on Pokémon Champions'
+      battle rules and learnsets.
+  21. **Fly is Platinum's** (the Town Map); the Pokégear's fly map goes.
+  22. The owner's playtest notes are in `docs/PlaytestIssues.md` (the playtest session).
+  23. **Builds for the owner are xdelta patches** (`tools/complete/make_playtest_patch.sh`).
+
 - **Story order (Oct 29, 2026).** Johto, then Kanto, then Sinnoh. The game starts in New Bark Town and ends at Spear
   Pillar, as Sovereign Platinum does.
 - **Ferry network (Oct 28–29, 2026).** Three main ports, one in each region: Olivine City (Johto), Vermilion City
@@ -105,58 +147,23 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 
 | Feature | Default | Days | Notes |
 |---|---|---|---|
-| Following Pokémon | Required (decided) | 4–7 | The biggest single feature. The movement starts from Platinum's own follow-the-player code (Amity Square's walking Pokémon, partner trainers like Cheryl). The behaviour ports HeartGold's follower code (`src/follow_mon.c`, about 2,000 lines): which Pokémon may follow where, surfing, cycling, doors, shiny, forms, talking to it. HeartGold's 627 walking sprites cover #1–493 with female and form variants; #494–1025 and newer forms need a community pack or an artist. Platinum's Sinnoh cutscenes were written without a follower, so each one is checked with a follower out |
+| Following Pokémon | Off (Nov 6: built, then turned off; the code stays) | 4–7 | The biggest single feature. The movement starts from Platinum's own follow-the-player code (Amity Square's walking Pokémon, partner trainers like Cheryl). The behaviour ports HeartGold's follower code (`src/follow_mon.c`, about 2,000 lines): which Pokémon may follow where, surfing, cycling, doors, shiny, forms, talking to it. HeartGold's 627 walking sprites cover #1–493 with female and form variants; #494–1025 and newer forms need a community pack or an artist. Platinum's Sinnoh cutscenes were written without a follower, so each one is checked with a follower out |
 | Pokégear phone and radio | Keep | 1–2 | Phone rematches and radio shows; beside the Pokétch or replacing it |
 | Bug-Catching Contest | Keep | ½–1 | National Park's timed contest |
 | Johto Safari Zone | Keep | ½–1 | Including the objects you place to change what appears |
 | Kurt's Apricorn Balls | Keep | ½–1 | The seven Poké Balls Kurt makes |
-| Pokéathlon | Skipped (decided) | — | A whole separate set of minigames |
+| Pokéathlon | Port (Nov 6) | — | A whole separate set of minigames: ported, whether or not the game uses it |
 
 ### Still open
 
-- **Unlock points (proposed):** the ferry to Kanto after the Indigo League, as in HeartGold; the way to Sinnoh, by
-  ferry or through the Sinjoh Ruins, after Kanto's eighth badge. The ferry network works this way for now (Oct 31,
-  2026): the S.S. Aqua as in Sacred Gold, and the ships between Canalave City and the other two ports from the Earth
-  Badge on (`docs/Features.md`, "The ferries"). A player who arrives in Canalave City this way meets Sinnoh's story
-  wherever its scripts stand, which waits on Platinum's opening (next).
-- **Platinum's opening:** the game now starts in Johto. What happens to Twinleaf Town, Rowan's starters and Barry? For
-  example, Rowan offers a Sinnoh starter when the player arrives. For now (Oct 31, 2026) a new game plays Platinum's
-  introduction (Rowan names the player and the rival), then starts in the player's room in New Bark Town, home for
-  blacking out too; Twinleaf Town's opening scenes stay as they are, and Sinnoh's League still sends the player home to
-  Twinleaf Town.
-- **Level curve:** how far Johto and Kanto compress so that Sinnoh, third, still ends at Spear Pillar by Lv. 100
-  (Sovereign's developer battle is Lv. 100). Sovereign's level caps (an option, off by default) follow it: one list
-  for all three regions in story order, Johto's and Kanto's at Sacred Gold's aces' levels, then Sinnoh's moved up
-  (Nov 1, 2026; `docs/Features.md`, "Sinnoh, the third region").
-- **Whirlpool's HM:** HeartGold's HM05 is Whirlpool and Platinum's is Defog; Lance gives HM05 in Johto, which is
-  Defog here. For now HM05 in the bag also lets the player use Whirlpool (Sovereign's HM-in-the-bag rule). A separate
-  Whirlpool HM is a new item, with every species' compatibility. Proposed: keep it this way.
-- **Badges for field moves (done this way for now):** a field move works with Sinnoh's badge for it or with
-  HeartGold's (Cut: Forest or Hive, Surf: Fen or Fog...), so Johto's badges open the field moves in Johto and they
-  keep working in Sinnoh (`docs/Features.md`, "Badges").
-- **The land between:** northern Honshu, between Kanto and Sinnoh, is empty on the real map. The Sinjoh Ruins path
-  could stay short, or become a new area there. A new area is new maps, not converted ones, so it adds days.
-- **The Pokéathlon Dome:** open (the building and its people, without the Pokéathlon) or closed, now that the Pokéathlon
-  is skipped.
-- **Art:** who draws the walking sprites for #494–1025 and the newer forms (a community pack, credited, could cover
-  most of them). The Town Map is Claude's, from the games' own maps (Nov 5).
-- **Trade items from the bag:** Sacred Gold lets the trade-evolution items (Metal Coat, King's Rock, Dragon Scale,
-  Up-Grade, Dubious Disc, Protector, Electirizer, Magmarizer, Reaper Cloth, DeepSeaTooth, DeepSeaScale) be used from
-  the bag like a stone, so no trade is needed. Its own six evolution items are in (Covenant Orb for trades with no
-  item, and the rest: `docs/SacredGold.md`). Proposed: the trade items work from the bag too, in all three regions,
-  while trading still works.
-- **HeartGold's key-item screens (found Oct 30, 2026):** Sacred Gold's scripts give the Berry Pots (Violet City:
-  HeartGold grows Berries in them, as Johto has no soil patches), the Unown Report (the Ruins of Alph: the Unown
-  caught) and the Dowsing Machine (it finds hidden items on HeartGold's Pokégear). For now they're key items that do
-  nothing; Platinum's Pokétch Dowsing app finds Johto's and Kanto's hidden items too. Proposed: port the Berry Pots
-  (about a day: their screen, the pots in the save, Berries growing with time) and the Unown Report (about half a
-  day), and leave the Dowsing Machine to the Pokétch and Pokégear question.
-- **The Town Map's item in Johto (proposed, Nov 5):** Fly opens the one Town Map everywhere, but the bag's Town Map
-  is given only in Sinnoh (Dawn or Lucas, in Jubilife's Trainers' School), so a new game in New Bark Town has none
-  until then. Proposed: the Cherrygrove City guide, who gives the Pokégear's Map Card, gives it too, and Sinnoh's
-  gift is skipped when the player has it.
-- **Followers without a sprite yet:** until every walking sprite exists, those Pokémon stay in their Poké Ball, or use
-  a stand-in sprite.
+The questions open until Nov 5 were all answered on Nov 6 (above, "The owner's answers"). Open now:
+- **What Sinnoh's HM givers give instead** (Claude's proposal, for the owner to confirm; the progress page has it):
+  Cynthia in Eterna City (was HM01 Cut) Garchompite Z; the Galactic Warehouse's item ball in Veilstone City (HM02
+  Fly) Staraptite; Cynthia's grandmother in Celestic Town (HM03 Surf) Galladite; Riley on Iron Island (HM04
+  Strength) Lucarionite; the Oreburgh Gate's hiker (HM06 Rock Smash) Excadrite; Crasher Wake in Pastoria City (HM07
+  Waterfall) Sharpedonite; Snowpoint Temple's last floor (HM08 Rock Climb) Froslassite; Platinum's Defog (HM05) stays
+  where it is, as the new HM09. Every one is also sold in Sovereign's Mega Stone shops; these are early gifts.
+- **Byron's levels** once Canalave City is the way into Sinnoh (answer 3).
 
 Hoenn and the Sevii Islands aren't in scope. There's no DS version of Hoenn, so it would be built from scratch.
 
