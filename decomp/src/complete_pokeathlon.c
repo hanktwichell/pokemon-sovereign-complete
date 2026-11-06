@@ -19,6 +19,7 @@ u8 gCompleteTestPokeathlonRecordScreen[5]; // here as the record screens' overla
 CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
 u8 *gCompleteTestPokeathlonMedals;
 CompletePokeathlonRecordsSolo *gCompleteTestPokeathlonEventRecords;
+CompletePokeathlonSave *gCompleteTestPokeathlonSaveCopy;
 u16 gCompleteTestPokeathlonStatues[4];
 #endif
 

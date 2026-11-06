@@ -6524,8 +6524,8 @@
     .short \page
     .endm
 
-    // HeartGold's ScrCmd_712: a Dome record room's screen (0 the course record, 1 the medals, 2 the event record; 3,
-    // HeartGold's fourth, isn't ported yet and does nothing), after the script's fade; ReturnToField after it
+    // HeartGold's ScrCmd_712: a Dome record room's screen (0 the course record, 1 the medals, 2 the event record, 3 the
+    // player's trophies), after the script's fade; ReturnToField after it
     // (src/applications/complete_pokeathlon_records/)
     .macro CompletePokeathlonRecordScreen screen
     .short SCRCMD_COMPLETEPOKEATHLONRECORDSCREEN

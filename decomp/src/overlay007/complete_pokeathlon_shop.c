@@ -515,8 +515,8 @@ BOOL CompleteScrCmd_PokeathlonRecords(ScriptContext *ctx)
 
 // HeartGold's ScrCmd_712: a Dome record room's screen (enum CompletePokeathlonRecordScreen), after the script's fade
 // (ReturnToField brings the field back), as the Voltorb Flip and Alph puzzle commands open theirs. The wait that frees
-// the arguments is in the main module: this overlay goes with the field's map as the screen opens. Screens not ported
-// yet leave the field as it is (ReturnToField finds it running and returns).
+// the arguments is in the main module: this overlay goes with the field's map as the screen opens. Another number leaves
+// the field as it is (ReturnToField finds it running and returns).
 BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
 {
     FS_EXTERN_OVERLAY(complete_pokeathlon_records);
@@ -538,6 +538,12 @@ BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
             CompletePokeathlonEventRecord_Init,
             CompletePokeathlonEventRecord_Main,
             CompletePokeathlonEventRecord_Exit,
+            FS_OVERLAY_ID(complete_pokeathlon_records),
+        },
+        [COMPLETE_POKEATHLON_SCREEN_TROPHIES] = {
+            CompletePokeathlonTrophies_Init,
+            CompletePokeathlonTrophies_Main,
+            CompletePokeathlonTrophies_Exit,
             FS_OVERLAY_ID(complete_pokeathlon_records),
         },
     };

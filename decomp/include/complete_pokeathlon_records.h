@@ -7,13 +7,13 @@
 // Sovereign Complete: HeartGold's Pokéathlon record screens (its overlay 99, written in C from its assembly in
 // src/applications/complete_pokeathlon_records/, with the parts its overlay 98 gives them), which the Dome's record
 // rooms open (HeartGold's ScrCmd_712, CompleteScrCmd_PokeathlonRecordScreen) between the script's fades. Ported so far:
-// the course record (ScrCmd_712 0), the medals (1) and the event record (2); HeartGold's fourth screen (3) comes later.
+// all four: the course record (ScrCmd_712 0), the medals (1), the event record (2) and the player's trophies (3).
 
 enum CompletePokeathlonRecordScreen {
     COMPLETE_POKEATHLON_SCREEN_COURSE_RECORD = 0, // HeartGold's PokeathlonCourseRecord
     COMPLETE_POKEATHLON_SCREEN_MEDALS, // PokeathlonMedals
     COMPLETE_POKEATHLON_SCREEN_EVENT_RECORD, // PokeathlonEventRecord
-    COMPLETE_POKEATHLON_SCREEN_UNK_3, // PokeathlonUnk (not ported yet)
+    COMPLETE_POKEATHLON_SCREEN_TROPHIES, // HeartGold's PokeathlonUnk (ov99_021E677C)
 };
 
 // Every screen's arguments (HeartGold's PokeathlonCourseRecordArgs, PokeathlonMedalsArgs and the others, each built
@@ -39,5 +39,10 @@ BOOL CompletePokeathlonMedals_Exit(ApplicationManager *appMan, int *state);
 BOOL CompletePokeathlonEventRecord_Init(ApplicationManager *appMan, int *state);
 BOOL CompletePokeathlonEventRecord_Main(ApplicationManager *appMan, int *state);
 BOOL CompletePokeathlonEventRecord_Exit(ApplicationManager *appMan, int *state);
+
+// src/applications/complete_pokeathlon_records/trophies.c (overlay complete_pokeathlon_records)
+BOOL CompletePokeathlonTrophies_Init(ApplicationManager *appMan, int *state);
+BOOL CompletePokeathlonTrophies_Main(ApplicationManager *appMan, int *state);
+BOOL CompletePokeathlonTrophies_Exit(ApplicationManager *appMan, int *state);
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_RECORDS_H
