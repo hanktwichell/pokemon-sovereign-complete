@@ -213,6 +213,7 @@ enum NarcID {
     NARC_INDEX_FIELDDATA__COMPLETE__SAFARI_ENCOUNTERS, // Sovereign Complete: the Johto Safari Zone's encounters (HeartGold's)
     NARC_INDEX_FIELDDATA__COMPLETE__GIMMICKS, // Sovereign Complete: the 3D gimmick objects' models (HeartGold's)
     NARC_INDEX_GRAPHIC__COMPLETE__TOWN_MAP, // Sovereign Complete: the three-region Town Map's graphics
+    NARC_INDEX_GRAPHIC__COMPLETE__PHOTO_ALBUM, // Sovereign Complete: the photo album's graphics and photo spots (HeartGold's)
 };
 
 #endif // POKEPLATINUM_CONSTANTS_NARC_H

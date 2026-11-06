@@ -38,3 +38,4 @@ foreach f : prebuilt_files
 endforeach
 
 subdir('complete_town_map') # Sovereign Complete: the three-region Town Map
+subdir('complete_photo_album') # Sovereign Complete: HeartGold's photo album
