@@ -32,6 +32,12 @@ a clean Platinum (US) Rev 1 dump (`CLAUDE.md`, "Building"), so new fixes reach t
 8. **Double battles: one EXP message per Pokémon for both foes** when one move makes both faint: both "fainted" lines
    first, then each party Pokémon's EXP for the two together (up to 6 lines, not 12).
 9. **The Mega Evolution animation and the Mega icon look bad** (later; the owner will redo the stone shown on screen).
+10. **A black screen after leaving the PC on the S.S. Aqua** (the owner's release build, Nov 6; the ship's one PC is in
+   the player's cabin, `MAP_HEADER_HGSS_SS_AQUA_1F_SOUTHEAST_ROOMS`, tiles (26, 2-3), used facing north from (26, 4)).
+   Not reproduced on build_test from the bedroom state: the PC's menus and the storage app (Deposit) open and close,
+   and the field comes back. Asked the owner for their save file (the emulator's battery `.sav`; never commit it), to
+   load with `drive.py ROM sav:FILE` on a release build, which also helps with issue 2. Suspect the field map's heap
+   on the way back (`CLAUDE.md`, "Building": nearly full on a crowded map with a big follower; issue 1 may settle it).
 
 ## Fixed
 
