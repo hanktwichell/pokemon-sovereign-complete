@@ -475,9 +475,9 @@ def main():
         from battle_mechanics import LOG_CHARS, charmap, decode_log
         base, um = sym['gSovereignTestMessageLog'], mem.unsigned
         length = um[base] | um[base + 1] << 8
-        raw = bytes(um[base + 2:base + 2 + 2 * min(length, LOG_CHARS)])
+        text = bytes(um[base + 2:base + 2 + 2 * min(length, LOG_CHARS)])
         with open(out + '.messages.txt', 'w', encoding='utf-8') as f:
-            f.write('\n'.join(decode_log([raw[i] | raw[i + 1] << 8 for i in range(0, len(raw), 2)], charmap())) + '\n')
+            f.write('\n'.join(decode_log([text[i] | text[i + 1] << 8 for i in range(0, len(text), 2)], charmap())) + '\n')
     except Exception as e:  # noqa: BLE001  the video matters more than its text
         print(f'(no message log: {e})', flush=True)
     d.run(360)
