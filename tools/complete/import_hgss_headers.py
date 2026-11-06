@@ -285,12 +285,18 @@ def main():
     # Header IDs, before MAP_HEADER_COUNT, in HeartGold's order.
     edit('generated/map_headers.txt', lambda t: between_markers(t, header_names, '\nMAP_HEADER_COUNT\n', '#'))
 
+    # Maps with a table of Complete's own: Kanto's Pal Park takes Platinum's park table, its rates (its Pokémon come
+    # from data/complete/pal_parks.yaml, src/overlay006/wild_encounters.c)
+    OWN_ENCOUNTERS = {'MAP_HEADER_HGSS_PAL_PARK': 'encounters_pal_park'}
+
     # wild Pokémon: HeartGold's ENCDATA_<map> is the entry for <map> in its list, packed in hgss_enc_data.narc
     # (tools/complete/import_hgss_encounters.py)
     enc_maps = [e['map'] for e in json.load(open(os.path.join(HG, 'files/fielddata/encountdata/gs_enc_data.json')))[
         'encounters']]
 
-    def encounters(bank):
+    def encounters(bank, header):
+        if header in OWN_ENCOUNTERS:
+            return OWN_ENCOUNTERS[header]
         code = bank[len('ENCDATA_'):]
         if code == 'NA' or not os.path.exists(os.path.join(DECOMP, 'res/field/encounters/hgss/encounters.order')):
             return 'ENCOUNTERS_NONE'
@@ -310,7 +316,7 @@ def main():
             f'        .msgArchiveID = {text_bank(f["msgBank"])},',
             f'        .dayMusicID = {stand_in_music(f["dayMusicId"], map_type, 0)},',
             f'        .nightMusicID = {stand_in_music(f["nightMusicId"], map_type, 1)},',
-            f'        .wildEncountersArchiveID = {encounters(f["wildEncounterBank"])},',
+            f'        .wildEncountersArchiveID = {encounters(f["wildEncounterBank"], header)},',
             f'        .eventsArchiveID = {events[f["eventsBank"]]},',
             f'        .mapLabelTextID = {label_ids[mapsecs[f["mapsec"]]]},',
             f'        .mapLabelWindowID = MAP_LABEL_WINDOW_{LABEL_WINDOW[int(f["areaIcon"])]},',

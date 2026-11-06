@@ -80,9 +80,9 @@
     {
       "id": "PalPark_Text_SovereignWorker",
       "en_US": [
-        "Alola’s forms are in the field,\n",
-        "Galar’s in the forest, Hisui’s on\f",
-        "the mountain and Paldea’s at sea.\r",
+        "Hisui’s forms are in the forest and\n",
+        "on the mountain, Paldea’s in the\f",
+        "field and out at sea.\r",
         "Would you like to leave the park?"
       ]
     },
@@ -93,14 +93,14 @@
     {
       "id": "PalPark_Text_SovereignSignAlola",
       "en_US": [
-        "Alola Zone\n",
+        "Paldea Zone\n",
         "The field: tall grass"
       ]
     },
     {
       "id": "PalPark_Text_SovereignSignGalar",
       "en_US": [
-        "Galar Zone\n",
+        "Hisui Zone\n",
         "The forest: tall grass"
       ]
     },

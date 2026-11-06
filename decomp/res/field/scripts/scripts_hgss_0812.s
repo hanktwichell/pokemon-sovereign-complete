@@ -42,6 +42,9 @@ scr_seq_T08R0201_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
+    CallCommonScript 0x822  @ Sovereign Complete: CommonScript_CompletePalParkEnter
+    GoToIfEq VAR_RESULT, FALSE, CompletePalPark_End
+    GoTo CompletePalPark_WalkIn
     GoToIfSet FLAG_HGSS_UNK_136, _019B
     SetFlag FLAG_HGSS_UNK_136
     BufferPlayerName 0
@@ -120,6 +123,7 @@ _01FB:
     Call _0062
     BufferPlayerName 0
     MessageGendered msg_0516_T08R0201_00010, msg_0516_T08R0201_00011
+CompletePalPark_WalkIn:
     CloseMessage
     ApplyMovement obj_T08R0201_workman, _0280
     WaitMovement
@@ -181,6 +185,8 @@ scr_seq_T08R0201_002:
     ReleaseAll
     End
 scr_seq_T08R0201_001:
+    SetVar VAR_HGSS_UNK_4124, 0  @ Sovereign Complete: no Catching Show
+    End
     LockAll
     SetVarFromValue VAR_HGSS_UNK_4124, 0
     ApplyMovement LOCALID_PLAYER, _03DC
@@ -572,3 +578,6 @@ _0929:
     SetVarFromValue VAR_0x8006, 174
     Return
     .balign 4, 0
+CompletePalPark_End:
+    ReleaseAll
+    End

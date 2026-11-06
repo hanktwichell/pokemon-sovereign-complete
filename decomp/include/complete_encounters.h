@@ -10,6 +10,9 @@
 // Sovereign Complete: Johto's and Kanto's wild Pokémon, HeartGold/SoulSilver's tables with the new species mixed in
 // (res/field/encounters/hgss from tools/complete/gen_wild.py, hgss_enc_data.narc; docs/WildPokemon.md).
 
+// Whether the map is Johto's or Kanto's and has one of HeartGold's tables: Kanto's Pal Park has Platinum's park table
+BOOL CompleteEncounters_HasHGSSTable(enum MapHeaderID mapHeaderID);
+
 // Fills a Johto or Kanto map's table (MapHeaderData_LoadWildEncounters): the grass slots as in the morning, day and
 // night swaps of slots 2 and 3 as HeartGold has them, surfing and the rods.
 void CompleteEncounters_Load(WildEncounters *data, enum MapHeaderID mapHeaderID);

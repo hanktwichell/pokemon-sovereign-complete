@@ -445,6 +445,23 @@ def indigo_e4_insert(member, name, bank, room):
     return several(*inserts)
 
 
+# The Pal Parks (the owner's call, Nov 6, 2026; tools/complete/gen_pal_parks.py): Kanto's has Alola's and Galar's
+# forms, with no Catching Show. Fuchsia's receptionist lets the player walk in (CommonScript_CompletePalParkEnter,
+# which sets VAR_HGSS_UNK_4124 to 1, past the park's countdown at 0), and the park's worker and gate ask before seeing
+# them out (CommonScript_CompletePalParkLeave, in place of the Catching Show's retire question); back in the lobby
+# with the var at 1 (after a blackout in the park), it's only set back to 0 (no Catching Show's score to tally)
+PAL_PARK_LOBBY = several(
+    ('<    GoToIfSet FLAG_HGSS_UNK_136, _019B',
+     ['    CallCommonScript 0x822  @ Sovereign Complete: CommonScript_CompletePalParkEnter',
+      '    GoToIfEq VAR_RESULT, FALSE, CompletePalPark_End',
+      '    GoTo CompletePalPark_WalkIn'],
+     ['CompletePalPark_End:', '    ReleaseAll', '    End']),
+    ('    MessageGendered msg_0516_T08R0201_00010, msg_0516_T08R0201_00011', ['CompletePalPark_WalkIn:'], []),
+    ('scr_seq_T08R0201_001:',
+     ['    SetVar VAR_HGSS_UNK_4124, 0  @ Sovereign Complete: no Catching Show', '    End'], []))
+PAL_PARK_FIELD = ('_0180:', ['    CallCommonScript 0x823  @ Sovereign Complete: CommonScript_CompletePalParkLeave',
+                             '    Return'], [])
+
 INSERTS = {
     'scr_seq_0869_T23GYM0102': totem_first_insert('    GoToIf 1, _018E', 0, 'GUMSHOOS'),  # Bugsy
     'scr_seq_0886_T25GYM0101': both(totem_first_insert('    GoToIf 1, _01C4', 2, 'VIKAVOLT'),  # Whitney
@@ -466,6 +483,8 @@ INSERTS = {
     'scr_seq_0821_T10R0301': indigo_e4_insert(1, 'KOGA', '0524', 'T10R0301'),
     'scr_seq_0822_T10R0401': indigo_e4_insert(2, 'BRUNO', '0525', 'T10R0401'),
     'scr_seq_0823_T10R0501': indigo_e4_insert(3, 'KAREN', '0526', 'T10R0501'),
+    'scr_seq_0812_T08R0201': PAL_PARK_LOBBY,
+    'scr_seq_0012_D10R0101': PAL_PARK_FIELD,
 }
 
 

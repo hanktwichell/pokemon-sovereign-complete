@@ -225,7 +225,7 @@ void MapHeaderData_LoadWildEncounters(WildEncounters *data, enum MapHeaderID map
 {
     memset(data, 0, sizeof(WildEncounters));
     // Sovereign Complete: Johto's and Kanto's tables are HeartGold's (complete_encounters.c)
-    if (MapHeader_IsHGSS(mapHeaderID) && MapHeader_HasWildEncounters(mapHeaderID)) {
+    if (CompleteEncounters_HasHGSSTable(mapHeaderID)) {
         CompleteEncounters_Load(data, mapHeaderID);
         return;
     }

@@ -118,6 +118,12 @@ QUESTIONS = [
          'Altarianite for now (Swablu is in Sinnoh, and no other gift or item ball has it; Bebe\'s shop sells it).',
          ['Altarianite', 'Heracronite, for Barry\'s Heracross (Ilex Forest already has one)', 'Another stone'],
          'Altarianite: a stone no other gift gives.'),
+        ('The Pal Parks: Sinnoh\'s has 22 kinds (all of Hisui\'s and Paldea\'s forms), Kanto\'s 37 (Alola\'s and '
+         'Galar\'s). Even them out?',
+         'Every regional form is in one of the parks; Hisui and Paldea just have fewer forms.',
+         ['Leave it', 'Add Hisui\'s new species to Sinnoh\'s park (Wyrdeer, Kleavor, Ursaluna, Sneasler, Overqwil, '
+          'Basculegion: 28 kinds)', 'Something else'],
+         'Leave it: the parks hold the forms, and Hisui\'s new species evolve from Pokémon found in the wild.'),
     ]),
 ]
 
@@ -147,6 +153,10 @@ OWNER_NOTES = [
 # nothing (the owner's rule, Nov 6, 2026): (date, where, what Claude saw, a screenshot in .cache/gallery/issues or
 # None, status: new, looking, fixed, explained, yours)
 POSSIBLE_ISSUES = [
+    ('Nov 6', 'Kanto\'s Pal Park: the Galarian birds\' level',
+     'Kanto\'s park keeps Sovereign\'s levels (40-55, 60, and 70 for the Galarian birds, 1% each). With Kanto\'s caps '
+     'at 61-70, a Galarian bird caught there is above the cap until Blue. Maybe nothing (the cap stops experience, not '
+     'catching); say if Kanto\'s park should have levels of its own.', None, 'yours'),
     ('Nov 6', 'Rowan\'s lab: a corner of Sandgem Town',
      'In the lab, the top-right corner of the screen shows a strip of Sandgem Town outside (a sign and a house\'s '
      'wall) where the rest of the room\'s edge is black. It was there in the Nov 5 story run too, before today\'s '
@@ -253,7 +263,11 @@ RECENT = [
         'Sinnoh\'s HM givers give your Mega Stones. Found on the way: Snowpoint\'s Regigigas story counted HM08 in '
         'the bag as Candice being done, so the HM08 you bring from Kanto skipped it; fixed.',
         'No following Pokémon: off, the code kept.',
-        'Showdown\'s box icons for all 1025 species (the forms next).',
+        'Showdown\'s box icons for all 1025 species, and each of the 383 forms its own.',
+        'The Rapid Ferry: the trips other than the S.S. Aqua\'s cruise.',
+        'The Pal Parks: Kanto\'s by Fuchsia City (open from the start, no Catching Show: walk in and catch) has '
+        'Alola\'s forms in the west and Galar\'s in the east, its water forms in the pond and lake; Sinnoh\'s, on '
+        'Route 221, has Hisui\'s in the north and Paldea\'s in the south. Every regional form is in one of them.',
     ]),
     ('Your Nov 6 call: the Indigo Plateau\'s Elite Four', [
         'Sovereign\'s format at the Indigo Plateau: Will and Koga each ask single or double battle; if both got the '

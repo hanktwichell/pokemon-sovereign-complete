@@ -68,12 +68,13 @@ def unown_tables():
 
 def park_zones():
     """sRegionalFormsParkZones: [(name, {terrain: {(species, form)}})], by quadrant (x < 32 or not, then z)."""
-    text = open(os.path.join(DECOMP, 'include', 'data', 'regional_forms_park.h'), encoding='utf-8').read()
+    # Sovereign Complete: the park's zones are Sinnoh's Pal Park's, in Complete's two parks (data/complete/pal_parks.yaml)
+    text = open(os.path.join(DECOMP, 'include', 'data', 'complete_pal_parks.h'), encoding='utf-8').read()
     lists = {name: {(s, int(f)) for s, f in re.findall(r'\{ (SPECIES_\w+), (\d+),', body)}
-             for name, body in re.findall(r'RegionalFormsParkEntry (\w+)\[\] = \{(.*?)\};', text, re.S)}
+             for name, body in re.findall(r'CompletePalParkEntry (\w+)\[\] = \{(.*?)\};', text, re.S)}
     zones = []
-    table = text[text.index('sRegionalFormsParkZones'):]
-    for grass, water, name in re.findall(r'\{ (\w+), [^,]+, (\w+), [^}]+\}, // (\w+)', table[:table.index('};')]):
+    table = text[text.index('{ MAP_HEADER_PAL_PARK, {'):]
+    for grass, water, name in re.findall(r'\{ (\w+), [^,]+, (\w+), [^}]+\}, // (\w+)', table[:table.index('} },')]):
         found = lists.get(grass, set()), lists.get(water, set())
         zones.append((name, {'land': found[0], 'surf': found[1], 'old rod': found[1], 'good rod': found[1],
                              'super rod': found[1]}))

@@ -659,9 +659,9 @@
       "en_US": [
         "Each region’s forms keep to their\n",
         "own part of the park.\r",
-        "Alola’s are in the field, Galar’s\n",
-        "in the forest, Hisui’s on the\f",
-        "mountain and Paldea’s out at sea.\r",
+        "Hisui’s are in the forest and on\n",
+        "the mountain, Paldea’s in the\f",
+        "field and out at sea.\r",
         "Bring your own Poké Balls. Enjoy!\r"
       ]
     },
@@ -938,8 +938,8 @@
     {
       "id": "PalParkLobby_Text_SovereignLogHisui",
       "en_US": [
-        "“HISUI: on the mountain, north-east,\n",
-        "and in the lake below it.\r",
+        "“HISUI: in the forest and on the\n",
+        "mountain, to the north.\r",
         "A Growlithe with a mane of stone.\n",
         "A Qwilfish bristling with dark spikes.\r",
         "Hisui is no faraway land. It is Sinnoh,\n",
@@ -949,8 +949,8 @@
     {
       "id": "PalParkLobby_Text_SovereignLogPaldea",
       "en_US": [
-        "“PALDEA: at sea, south-east, past\n",
-        "the shore.\r",
+        "“PALDEA: in the field and out at\n",
+        "sea, to the south.\r",
         "A brown Wooper that stings. A Tauros\n",
         "that charged out of the waves.\r",
         "It shook off the water and stood\n",

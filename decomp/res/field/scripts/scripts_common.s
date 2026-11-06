@@ -108,6 +108,8 @@
     ScriptEntry CommonScript_CompleteIndigoE4Format @ 0x81F
     ScriptEntry CommonScript_CompleteIndigoE4Announce @ 0x820
     ScriptEntry CommonScript_CompleteSinnohArrival @ 0x821
+    ScriptEntry CommonScript_CompletePalParkEnter @ 0x822
+    ScriptEntry CommonScript_CompletePalParkLeave @ 0x823
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2525,6 +2527,39 @@ CommonScript_CompleteSinnohArrival:
     ReturnCommonScript
     End
 
+// Sovereign Complete: Kanto's Pal Park (the owner's call, Nov 6, 2026; data/complete/pal_parks.yaml), with Alola's and
+// Galar's forms and no Catching Show. Fuchsia's receptionist asks this; VAR_RESULT TRUE: in they go (VAR_HGSS_UNK_4124
+// at 1, the park's state while the player's in it, past its countdown), FALSE: they stay.
+CommonScript_CompletePalParkEnter:
+    Message CommonStrings_Text_CompletePalParkWelcome
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, CommonScript_CompletePalParkEnterYes
+    Message CommonStrings_Text_CompletePalParkComeAgain
+    WaitButton
+    CloseMessage
+    SetVar VAR_RESULT, FALSE
+    ReturnCommonScript
+    End
+CommonScript_CompletePalParkEnterYes:
+    Message CommonStrings_Text_CompletePalParkGoAhead
+    WaitButton
+    SetVar VAR_HGSS_UNK_4124, 1
+    SetVar VAR_RESULT, TRUE
+    ReturnCommonScript
+    End
+// The park's worker and its gate ask this before seeing the player out: VAR_RESULT 1 to leave, 0 to stay (the
+// Catching Show's retire question's answers)
+CommonScript_CompletePalParkLeave:
+    Message CommonStrings_Text_CompletePalParkLeave
+    ShowYesNoMenu VAR_RESULT
+    GoToIfEq VAR_RESULT, MENU_YES, CommonScript_CompletePalParkLeaveYes
+    SetVar VAR_RESULT, 0
+    ReturnCommonScript
+    End
+CommonScript_CompletePalParkLeaveYes:
+    SetVar VAR_RESULT, 1
+    ReturnCommonScript
+    End
 // Canalave City's sailor asks this before offering Olivine City and Vermilion City (VAR_RESULT)
 CommonScript_CompleteFerryToSinnohOpen:
     Call CommonScript_CompleteFerryCheckSinnoh

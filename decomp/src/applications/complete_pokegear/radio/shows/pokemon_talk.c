@@ -119,7 +119,7 @@ static void SampleMapAreasAndEncounters(RadioShow *radioShow, PokemonTalkData *d
     data->numLandmarks = 0;
 
     for (u16 i = 0; i < MAP_HEADER_COUNT && data->numLandmarks < MAX_LANDMARKS; ++i) {
-        if (MapHeader_IsHGSS(i) && MapHeader_HasWildEncounters(i) && MapHeader_GetRegion(i) == region && !Filtered(i, route47Visited)) {
+        if (CompleteEncounters_HasHGSSTable(i) && MapHeader_GetRegion(i) == region && !Filtered(i, route47Visited)) {
             data->landmarksBuffer[data->numLandmarks++] = i;
         }
     }

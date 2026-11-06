@@ -66,6 +66,12 @@ enum {
 static HGSSEncounters sTable;
 static u16 sTableMap = 0xFFFF; // none yet
 
+// Kanto's Pal Park has Platinum's park table (the Pal Parks, src/overlay006/wild_encounters.c), not one of HeartGold's
+BOOL CompleteEncounters_HasHGSSTable(enum MapHeaderID mapHeaderID)
+{
+    return MapHeader_IsHGSS(mapHeaderID) && MapHeader_HasWildEncounters(mapHeaderID) && mapHeaderID != MAP_HEADER_HGSS_PAL_PARK;
+}
+
 static void Read(enum MapHeaderID mapHeaderID)
 {
     if (sTableMap != mapHeaderID) {
@@ -181,7 +187,7 @@ void CompleteEncounters_SurfOutbreak(FieldSystem *fieldSystem, int *firstSlotSpe
 {
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
 
-    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)
+    if (!CompleteEncounters_HasHGSSTable(mapHeaderID)
         || OutbreakTerrainHere(fieldSystem) != OUTBREAK_SURF) {
         return;
     }
@@ -206,7 +212,7 @@ int CompleteEncounters_FishingSpecies(FieldSystem *fieldSystem, enum EncounterFi
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
     int species = 0;
 
-    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID) || rod > FISHING_TYPE_SUPER_ROD) {
+    if (!CompleteEncounters_HasHGSSTable(mapHeaderID) || rod > FISHING_TYPE_SUPER_ROD) {
         return 0;
     }
 
@@ -231,7 +237,7 @@ int CompleteEncounters_GrassSpecies(FieldSystem *fieldSystem, int slot)
 {
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
 
-    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+    if (!CompleteEncounters_HasHGSSTable(mapHeaderID)) {
         return 0;
     }
 
@@ -281,7 +287,7 @@ u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species
 {
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
 
-    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+    if (!CompleteEncounters_HasHGSSTable(mapHeaderID)) {
         return 0;
     }
 
@@ -294,7 +300,7 @@ u8 CompleteEncounters_RockSmash(FieldSystem *fieldSystem, int slot, u16 *species
 
 u16 CompleteEncounters_RandomSpecies(enum MapHeaderID mapHeaderID, BOOL fishing, int time)
 {
-    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+    if (!CompleteEncounters_HasHGSSTable(mapHeaderID)) {
         return SPECIES_RATTATA;
     }
 
@@ -427,7 +433,7 @@ int CompleteEncounters_MapSpecies(enum MapHeaderID mapHeaderID, u16 *out, int ma
 {
     int count = 0;
 
-    if (!MapHeader_IsHGSS(mapHeaderID) || !MapHeader_HasWildEncounters(mapHeaderID)) {
+    if (!CompleteEncounters_HasHGSSTable(mapHeaderID)) {
         return 0;
     }
 

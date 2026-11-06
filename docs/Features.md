@@ -1080,6 +1080,29 @@ Platinum's own forms' icons in the icon archive in Sovereign's packing order (`r
 found by `Pokemon_SovereignFormIndex` in `src/pokemon_icon.c`, with their palettes packed two bits each
 (`include/data/complete_form_icons.h`).
 
+## The Pal Parks
+
+The owner's call (Nov 6, 2026): the regional forms live in two Pal Parks, Sinnoh's with Hisui's and Paldea's, Kanto's
+with Alola's and Galar's (`data/complete/pal_parks.yaml`, made into `include/data/complete_pal_parks.h` and
+`docs/PalParks.md` by `tools/complete/gen_pal_parks.py`). Each park's map is split into quadrants, each a zone with
+its own Pokémon, picked by weight from the zone's list at a level in its range (`src/overlay006/wild_encounters.c`,
+Sovereign's zone code, now choosing the park by map).
+- **Sinnoh's** is Sovereign's Regional Forms Park on Route 221 (open after the Hall of Fame): Hisui's forms in the
+  forest (north-west) and on the mountain and its lake (north-east), Paldea's in the field (south-west) and at sea
+  (south-east). The worker, the signs, the lobby's welcome and the keeper's log say so (its Alola and Galar pages are
+  gone). Its levels move up with Sinnoh's, to about 79–87.
+- **Kanto's** is HeartGold's Pal Park by Fuchsia City, open as soon as the player gets there: Alola's forms in the
+  west's tall grass, Galar's in the east's grass and its water forms (Slowpoke, Corsola and their evolutions) in the
+  pond and the lake, at Sovereign's levels (40–55, 60 for the rarer, 70 for the Galarian birds). There's no Catching
+  Show: Fuchsia's receptionist asks and walks the player in (`CommonScript_CompletePalParkEnter`), and the hiker by
+  the gate, or the gate's step, asks before seeing them out (`CommonScript_CompletePalParkLeave`), through inserts in
+  `tools/complete/translate_hgss_scripts.py`. The park takes Platinum's park table for its encounter rates
+  (`import_hgss_headers.py`'s `OWN_ENCOUNTERS`), so Johto's and Kanto's table reader leaves it out
+  (`CompleteEncounters_HasHGSSTable`).
+
+Test: `tools/complete/test_pal_parks.py` (Kanto's walk in and out, and each quadrant's grass and water Pokémon in both
+parks).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

@@ -65,7 +65,7 @@
 #include "complete_safari.h" // Sovereign Complete
 #include "complete_test.h" // Sovereign Complete
 
-#include "data/regional_forms_park.h"
+#include "data/complete_pal_parks.h" // Sovereign Complete: the two Pal Parks, in place of data/regional_forms_park.h
 #include "data/sovereign_rare_wild.h"
 
 #ifdef SOVEREIGN_TEST
@@ -247,9 +247,21 @@ static void WildEncounters_ReplaceTrophyGardenEncounters(FieldSystem *fieldSyste
     }
 }
 
+// Sovereign Complete: the two Pal Parks (data/complete/pal_parks.yaml), Sinnoh's and Kanto's: the field's map's, or NULL
+static const CompletePalPark *RegionalFormsPark_Park(FieldSystem *fieldSystem)
+{
+    for (int i = 0; i < NELEMS(sCompletePalParks); i++) {
+        if (sCompletePalParks[i].mapHeaderID == fieldSystem->location->mapHeaderID) {
+            return &sCompletePalParks[i];
+        }
+    }
+
+    return NULL;
+}
+
 static BOOL RegionalFormsPark_IsParkMap(FieldSystem *fieldSystem)
 {
-    return fieldSystem->location->mapHeaderID == MAP_HEADER_PAL_PARK;
+    return RegionalFormsPark_Park(fieldSystem) != NULL; // Sovereign Complete: either Pal Park
 }
 
 // Sovereign (decision 22): in the Regional Forms Park (Pal Park's grounds), each quadrant of the map is a zone with its
@@ -257,14 +269,16 @@ static BOOL RegionalFormsPark_IsParkMap(FieldSystem *fieldSystem)
 // so the usual slot rules (Repel, Intimidate, Hustle...) still apply.
 static void RegionalFormsPark_FillEncounterTable(FieldSystem *fieldSystem, EncounterSlot *encounterTable, int numSlots, BOOL water)
 {
-    if (RegionalFormsPark_IsParkMap(fieldSystem) == FALSE) {
+    const CompletePalPark *park = RegionalFormsPark_Park(fieldSystem); // Sovereign Complete: either Pal Park
+
+    if (park == NULL) {
         return;
     }
 
     int playerX = PlayerAvatar_GetXPos(fieldSystem->playerAvatar);
     int playerZ = PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
-    const RegionalFormsParkZone *zone = &sRegionalFormsParkZones[(playerX < 32 ? 0 : 1) + (playerZ < 32 ? 0 : 2)];
-    const RegionalFormsParkEntry *entries = water ? zone->water : zone->grass;
+    const CompletePalParkZone *zone = &park->zones[(playerX < 32 ? 0 : 1) + (playerZ < 32 ? 0 : 2)];
+    const CompletePalParkEntry *entries = water ? zone->water : zone->grass;
     int count = water ? zone->waterCount : zone->grassCount;
     int i, totalWeight = 0;
 

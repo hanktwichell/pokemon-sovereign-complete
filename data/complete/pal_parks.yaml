@@ -1,0 +1,121 @@
+# Sovereign Complete: the two Pal Parks (the owner's call, Nov 6, 2026: "Sinnoh's Pal Park Paldea's and Hisui's,
+# Kanto's Pal Park (open earlier) Alola's and Galar's, about as many in each"). tools/complete/gen_pal_parks.py writes
+# decomp/include/data/complete_pal_parks.h (read by src/overlay006/wild_encounters.c) and docs/PalParks.md from it.
+#
+# Each park's map is split into quadrants, as Sovereign's Regional Forms Park is (data/regional_forms_park.yaml, its
+# lists and levels, which the owner approved on Oct 24, 2026): an encounter in a quadrant's tall grass or water picks
+# one of the quadrant's entries by weight, at a random level in its range.
+# zones: in quadrant order, north-west, north-east, south-west, south-east (the map's 64 by 64 tiles in four).
+# Each entry: [form (data/forms.csv identifier), weight, min level, max level].
+#
+# Every regional form of the four regions is in one of the parks: Sinnoh's has fewer, as Hisui and Paldea have fewer
+# forms than Alola and Galar (21 to 37).
+# Levels: Sovereign's (40-55; 60 for the rarer forms; 70 for the Galarian birds). Sinnoh's park is on a Sinnoh map, so
+# Sinnoh's level move (data/complete/sinnoh.yaml) takes them up to about 79-87 there; Kanto's keep them.
+
+parks:
+  # Sinnoh's: Pal Park's grounds on Route 221, Sovereign's Regional Forms Park (open after the Hall of Fame). Hisui's
+  # forms in the forest and on the mountain (north), Paldea's in the field and at sea (south).
+  - name: Sinnoh
+    map: MAP_HEADER_PAL_PARK
+    zones:
+      - name: Hisui    # the forest, north-west
+        place: the forest (north-west)
+        grass:
+          - [growlithe-hisui,   12, 40, 55]
+          - [voltorb-hisui,     12, 40, 55]
+          - [zorua-hisui,       10, 40, 55]
+          - [lilligant-hisui,    5, 40, 55]
+          - [arcanine-hisui,     3, 40, 55]
+          - [electrode-hisui,    3, 40, 55]
+          - [zoroark-hisui,      3, 40, 55]
+          - [typhlosion-hisui,   1, 60, 60]
+          - [decidueye-hisui,    1, 60, 60]
+        water: []
+      - name: Hisui    # the mountain and its lake, north-east
+        place: the mountain and its lake (north-east)
+        grass:
+          - [sneasel-hisui,     12, 40, 55]
+          - [sliggoo-hisui,      8, 60, 60]
+          - [braviary-hisui,     6, 40, 55]
+          - [avalugg-hisui,      6, 40, 55]
+          - [goodra-hisui,       2, 60, 60]
+          - [samurott-hisui,     1, 60, 60]
+        water:
+          - [qwilfish-hisui,          40, 40, 55]
+          - [basculin-white-striped,  35, 40, 55]
+          - [basculin-blue-striped,   25, 40, 55]
+      - name: Paldea   # the field, south-west, where the player arrives
+        place: the field (south-west)
+        grass:
+          - [tauros-paldea-combat-breed,  30, 40, 55]
+          - [wooper-paldea,               30, 40, 55]
+          - [tauros-paldea-blaze-breed,   25, 40, 55]
+          - [tauros-paldea-aqua-breed,    15, 40, 55]
+        water: []
+      - name: Paldea   # the sea, south-east
+        place: the sea (south-east)
+        grass: []
+        water:
+          - [wooper-paldea,               60, 40, 55]
+          - [tauros-paldea-aqua-breed,    40, 40, 55]
+
+  # Kanto's: HeartGold's Pal Park, by Fuchsia City (open as soon as the player gets there). Alola's forms in the
+  # west's tall grass (the big field by the gate and the strip north of it), Galar's in the east: its grass by the
+  # pond, and its water forms in the pond and the lake.
+  - name: Kanto
+    map: MAP_HEADER_HGSS_PAL_PARK
+    zones:
+      - name: Alola    # the strip of grass, north-west
+        place: the strip of tall grass (north-west)
+        grass: &alola
+          - [rattata-alola,    12, 40, 55]
+          - [meowth-alola,     12, 40, 55]
+          - [sandshrew-alola,  10, 40, 55]
+          - [vulpix-alola,     10, 40, 55]
+          - [diglett-alola,    10, 40, 55]
+          - [geodude-alola,    10, 40, 55]
+          - [grimer-alola,      8, 40, 55]
+          - [raticate-alola,    5, 40, 55]
+          - [persian-alola,     5, 40, 55]
+          - [graveler-alola,    5, 40, 55]
+          - [sandslash-alola,   3, 40, 55]
+          - [ninetales-alola,   3, 40, 55]
+          - [dugtrio-alola,     3, 40, 55]
+          - [muk-alola,         3, 40, 55]
+          - [golem-alola,       2, 60, 60]
+          - [raichu-alola,      2, 60, 60]
+          - [exeggutor-alola,   2, 60, 60]
+          - [marowak-alola,     2, 60, 60]
+        water: []
+      - name: Galar    # the grass and the pond, north-east
+        place: the grass and the pond (north-east)
+        grass:
+          - [meowth-galar,               12, 40, 55]
+          - [ponyta-galar,               12, 40, 55]
+          - [zigzagoon-galar,            12, 40, 55]
+          - [farfetchd-galar,            10, 40, 55]
+          - [darumaka-galar,             10, 40, 55]
+          - [yamask-galar,               10, 40, 55]
+          - [mr-mime-galar,               8, 40, 55]
+          - [linoone-galar,               6, 40, 55]
+          - [stunfisk-galar,              5, 40, 55]
+          - [rapidash-galar,              4, 40, 55]
+          - [weezing-galar,               4, 40, 55]
+          - [darmanitan-galar-standard,   3, 40, 55]
+          - [articuno-galar,              1, 70, 70]
+          - [zapdos-galar,                1, 70, 70]
+          - [moltres-galar,               1, 70, 70]
+        water: &galar_water
+          - [slowpoke-galar,  45, 40, 55]
+          - [corsola-galar,   35, 40, 55]
+          - [slowbro-galar,   10, 60, 60]
+          - [slowking-galar,  10, 60, 60]
+      - name: Alola    # the big field by the gate, south-west, where the player arrives
+        place: the field by the gate (south-west)
+        grass: *alola
+        water: []
+      - name: Galar    # the lake, south-east
+        place: the lake (south-east)
+        grass: []
+        water: *galar_water

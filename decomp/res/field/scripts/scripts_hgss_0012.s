@@ -117,6 +117,8 @@ _0178:
     WalkOnSpotNormalWest
     EndMovement
 _0180:
+    CallCommonScript 0x823  @ Sovereign Complete: CommonScript_CompletePalParkLeave
+    Return
     Message msg_0052_D10R0101_00000
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 0

@@ -79,7 +79,10 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
       Johto. *The Town Map and the Trainers' School: done Nov 6 (Barry's parcel holds Altarianite, Claude's pick, for
       the owner to confirm).*
   13. **The Pal Parks hold the regional forms:** Sinnoh's Pal Park Paldea's and Hisui's, Kanto's Pal Park (open
-      earlier) Alola's and Galar's, about as many in each.
+      earlier) Alola's and Galar's, about as many in each. *Done Nov 6 (`data/complete/pal_parks.yaml`,
+      `docs/PalParks.md`): every regional form is in one of them, Kanto's open from the start with no Catching Show.
+      Hisui and Paldea have 21 forms to Alola's and Galar's 37, so Sinnoh's park has fewer (a question for the
+      owner: Hisui's new species, Wyrdeer, Kleavor, Ursaluna, Sneasler, Overqwil and Basculegion, could even it).*
   14. **Link play** waits: on the to-do list for when nothing else is left, and out of the build until then.
   15. **Event-only encounters:** as Sacred Gold has them.
   16. **No following Pokémon:** the player's Pokémon no longer walk behind them (too many issues); the code stays, off,

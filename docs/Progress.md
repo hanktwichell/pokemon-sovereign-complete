@@ -1982,3 +1982,13 @@ Test results on the new test build:
   to battle, Platinum's Iron Island boat scene, between Olivine, Vermilion and Canalave City. The ferry test passes
   (16 of 16). The story test's JUMP gives Johto's HMs (a real save has them), so Sinnoh's parts after the HM givers
   run as a player's would.
+- **The Pal Parks (the owner's call):** the regional forms live in two Pal Parks (`data/complete/pal_parks.yaml`,
+  `tools/complete/gen_pal_parks.py`, `docs/PalParks.md`). Kanto's, HeartGold's Pal Park by Fuchsia City, is open
+  from the start with no Catching Show: the receptionist walks the player in, the gate's step and the hiker ask before
+  seeing them out; Alola's forms live in its west's tall grass, Galar's in its east, their water forms in the pond and
+  lake. Sinnoh's, Sovereign's Regional Forms Park, has Hisui's forms in the forest and on the mountain, Paldea's in
+  the field and at sea; its worker, signs, welcome and keeper's log say so. Every regional form is in one park (Sinnoh's
+  has 22 kinds to Kanto's 37: a question for the owner). The Kanto park takes Platinum's park table for its rates, so
+  Johto's and Kanto's table reader leaves it out (`CompleteEncounters_HasHGSSTable`). Tested
+  (`tools/complete/test_pal_parks.py`): the walk in and out, and 64 encounters per quadrant and terrain in both parks,
+  every one a Pokémon of its zone at a level in its range (Sinnoh's moved up with its levels).

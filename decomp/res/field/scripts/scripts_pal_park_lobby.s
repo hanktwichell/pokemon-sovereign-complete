@@ -865,8 +865,8 @@ PalParkLobby_SovereignParkLogMenu:
     Message PalParkLobby_Text_SovereignLogWhichPage
     InitLocalTextMenu 31, 3, 0, VAR_RESULT
     SetMenuXOriginToRight
-    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuAlola, 0
-    AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuGalar, 1
+    // Sovereign Complete: Alola's and Galar's forms live in Kanto's Pal Park (data/complete/pal_parks.yaml), so
+    // their pages are gone from this log
     AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuHisui, 2
     AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuPaldea, 3
     AddMenuEntryImm PalParkLobby_Text_SovereignLogMenuLastPage, 4

@@ -1171,6 +1171,33 @@
         "Bruno and Karen will meet you in\n",
         "single battles!"
       ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePalParkWelcome",
+      "en_US": [
+        "Welcome to Pal Park!\r",
+        "Pokémon in forms from far-off\n",
+        "regions have been turning up here.\r",
+        "Alola’s keep to the tall grass in\n",
+        "the west, Galar’s to the east and\f",
+        "its pond and lake.\r",
+        "Bring your own Poké Balls.\n",
+        "Would you like to go in?"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePalParkGoAhead",
+      "en_US": [
+        "Right this way! Enjoy the park!\r"
+      ]
+    },
+    {
+      "id": "CommonStrings_Text_CompletePalParkComeAgain",
+      "en_US": "Please come again!"
+    },
+    {
+      "id": "CommonStrings_Text_CompletePalParkLeave",
+      "en_US": "Would you like to leave the park?"
     }
   ]
 }
