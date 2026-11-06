@@ -114,7 +114,7 @@ def main():
         im.save(os.path.join(out, name + '.png'))
         return im, marker(), statues()
 
-    mem.write_byte(sym['gSovereignTestClock'], 12)  # noon
+    mem.write_byte(sym['gSovereignTestClock'], 12 + 1)  # noon (the clock takes the hour + 1)
     d.run(30)
 
     # 1. Empty records: the first visit plays the room's welcome (the owner walks the player in), so the empty room's

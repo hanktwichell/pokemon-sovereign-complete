@@ -116,7 +116,7 @@ def main():
         for i in range(0, len(data), 4):
             mem.write_long(base + i, struct.unpack_from('<I', data, i)[0])
 
-    mem.write_byte(sym['gSovereignTestClock'], 12)  # noon
+    mem.write_byte(sym['gSovereignTestClock'], 12 + 1)  # noon (the clock takes the hour + 1)
     d.run(30)
 
     # 1. The screen, on the first course
