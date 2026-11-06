@@ -18,6 +18,9 @@
 #define COMPLETE_POKEATHLON_MAGIC         0x4E4C5441 // "ATLN": a Pokéathlon this game wrote
 #define COMPLETE_POKEATHLON_COURSES       5
 #define COMPLETE_POKEATHLON_RECORDS       10
+#define COMPLETE_POKEATHLON_EVENTS        10
+#define COMPLETE_POKEATHLON_EVENT_ENTRIES 5
+#define COMPLETE_POKEATHLON_NO_RESULT     0xFFFF
 #define COMPLETE_POKEATHLON_DATA_CARDS    27
 #define COMPLETE_POKEATHLON_MAX_POINTS    99999
 #define COMPLETE_POKEATHLON_MEDAL_SPECIES ((NATIONAL_DEX_COUNT + 3) & ~3)
@@ -67,19 +70,33 @@ typedef struct CompletePokeathlonCourseRecord {
     CompletePokeathlonRecordMon mons[3];
 } CompletePokeathlonCourseRecord;
 
-typedef struct CompletePokeathlonCourseEntry {
-    u16 unk_0;
-    u8 unk_2[6];
-} CompletePokeathlonCourseEntry;
+// An event record's Pokémon (HeartGold's u16, its species in 9 bits and its form from bit 10): here 11 bits for
+// Complete's species, and the form above them
+typedef struct CompletePokeathlonEventMon {
+    u16 species : 11;
+    u16 form : 5;
+} CompletePokeathlonEventMon;
 
+// An event record (HeartGold's Pokeathlon_CourseEntry, which the event record screen draws): the result in the
+// event's unit (Hurdle Dash's frames, Relay Run's 1/1024 laps, else a count; COMPLETE_POKEATHLON_NO_RESULT for none)
+// and the three Pokémon
+typedef struct CompletePokeathlonEventEntry {
+    u16 result;
+    CompletePokeathlonEventMon mons[3];
+} CompletePokeathlonEventEntry;
+
+// An event's five best (HeartGold's Pokeathlon_RecordsSolo and _RecordsLink), and how often it's been joined (their
+// unk_28's first word: ov99_021E94FC). The link records' players' names follow, 12 characters each 0x18 bytes apart
+// from 0x30 (ov99_021E9518); Complete has no link play, so they're never written.
 typedef struct CompletePokeathlonRecordsSolo {
-    CompletePokeathlonCourseEntry entries[COMPLETE_POKEATHLON_COURSES];
-    u8 unk_28[0x4];
+    CompletePokeathlonEventEntry entries[COMPLETE_POKEATHLON_EVENT_ENTRIES];
+    u32 timesJoined;
 } CompletePokeathlonRecordsSolo;
 
 typedef struct CompletePokeathlonRecordsLink {
-    CompletePokeathlonCourseEntry entries[COMPLETE_POKEATHLON_COURSES];
-    u8 unk_28[0x7C];
+    CompletePokeathlonEventEntry entries[COMPLETE_POKEATHLON_EVENT_ENTRIES];
+    u32 timesJoined;
+    u8 unk_2C[0x78];
 } CompletePokeathlonRecordsLink;
 
 // HeartGold's PokeathlonFriendshipRoomStatueData
@@ -96,7 +113,7 @@ typedef struct CompletePokeathlonSave {
     u8 medals[COMPLETE_POKEATHLON_MEDAL_SPECIES]; // HeartGold's unk_DC: [species - 1], a bit a course
     CompletePokeathlonRecordsSolo recordsSolo[COMPLETE_POKEATHLON_RECORDS];
     CompletePokeathlonRecordsLink recordsLink[COMPLETE_POKEATHLON_RECORDS];
-    u8 unk_AEC[0x14];
+    u16 recordPoints[COMPLETE_POKEATHLON_EVENTS]; // HeartGold's unk_AEC: each event record's points in its course
     CompletePokeathlonTotals totals;
     int athletePoints; // up to 99999
     u32 receivedDataCards; // a bit a data card (27)
@@ -127,15 +144,19 @@ void CompletePokeathlon_SetReceivedDailyItemSlot(CompletePokeathlonSave *pokeath
 // The Athlete Points and the data cards and day's prizes bought, as last read or written; the session; the last text a
 // prize counter refused with (hgss_msg_0435's: src/overlay007/complete_pokeathlon_shop.c); the counters' purchases
 extern u32 gCompleteTestPokeathlon[6];
-// The record screen open (1 + its ScrCmd_712 number: 1 the course record, 2 the medals; 0 when none), its page drawn
-// last (1 + the course; 1 + the medals' page) and its cursor (the course record's 0-4 the courses, 5 Return; the
-// medals' 0-29 the Pokémon, 30 Return); [3], a test's request (1) that the medals screen reread its medals and redraw,
-// cleared once done (src/applications/complete_pokeathlon_records/). The open screens' data, which a test can fill: the
-// course record's copy of the course records (turn a page to see them) and the medals screen's copy of the medals
-// ([species - 1], a bit a course; then the request)
-extern u8 gCompleteTestPokeathlonRecordScreen[4];
+// The record screen open (1 + its ScrCmd_712 number: 1 the course record, 2 the medals, 3 the event record; 0 when
+// none), its page drawn last (1 + the course; 1 + the medals' page; 1 + the event shown, 0 for none) and its cursor (the
+// course record's 0-4 the courses, 5 Return; the medals' 0-29 the Pokémon, 30 Return; the event record's 0-9 the
+// events, 10 Return, 255 the Single/Link button); [3], a test's request (1) that the medals or event record screen
+// reread its data and redraw, cleared once done; [4], the event record's Link mode
+// (src/applications/complete_pokeathlon_records/). The open screens' data, which a test can fill: the course record's
+// copy of the course records (turn a page to see them), the medals screen's copy of the medals ([species - 1], a bit
+// a course; then the request) and the event record's copy of the Single records (then the request; the Link records
+// and the records' points follow them, as in CompletePokeathlonSave)
+extern u8 gCompleteTestPokeathlonRecordScreen[5];
 extern CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
 extern u8 *gCompleteTestPokeathlonMedals;
+extern CompletePokeathlonRecordsSolo *gCompleteTestPokeathlonEventRecords;
 // The Friendship Room's statues (CompleteScrCmd_PokeathlonStatues): how many times the room made them, then each
 // statue's walking sprite (its graphics ID; 0 for none)
 extern u16 gCompleteTestPokeathlonStatues[4];

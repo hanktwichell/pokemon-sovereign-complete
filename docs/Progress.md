@@ -2166,3 +2166,13 @@ Test results on the new test build:
   draws nothing. The screens now share one argument struct (`CompletePokeathlonRecordArgs`). Test:
   `tools/complete/test_pokeathlon_medals.py` on build_test3 (46 species' medals through the open screen's copy, two
   pages, the cursor to Pikachu, the page turns both ways, Return and B): 0 problems; release build and boot check pass.
+- **The Pokéathlon, stage 1: the event record screen:** HeartGold's `ScrCmd_712` 2 (its overlay 99's
+  `PokeathlonEventRecord`, in C: `src/applications/complete_pokeathlon_records/event_record.c`, with overlay 98's event
+  goals and result checks in `records_common.c`), opened by the Potential Room's board: the ten events' panels (lit,
+  ribboned and crowned as in HeartGold), each event's five best with HeartGold's default record merged in (Chikorita,
+  Cyndaquil and Totodile), the results in each event's unit, the record's course points and the times joined, and the
+  Single/Link switch (Link mode empty: no link play). The save's event records are typed now (each 8 bytes as before;
+  a record's Pokémon keeps 11 bits of species and 5 of form where HeartGold has 9 and 6), the same layout and the same
+  new-game values. Test: `tools/complete/test_pokeathlon_event_records.py` on build_test3 (Hurdle Dash's and Relay
+  Run's records over the defaults through the open screen's copy, the cursor, Single and Link, Return, B and touches):
+  0 problems; the release build boots.

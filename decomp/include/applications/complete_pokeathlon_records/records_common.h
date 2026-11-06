@@ -18,8 +18,8 @@
 // HeartGold) that its Pokéathlon record screens share, written in C on Platinum's libraries
 // (src/applications/complete_pokeathlon_records/records_common.c): a sprite system with the Pokémon icons' archive
 // open, with the Pokémon's pictures and icons drawn into sprites; a set of text windows with the screen's messages and
-// the species' names; the screens' set-up and a few sums. Ported so far: what the course record and medals screens
-// call.
+// the species' names; the screens' set-up and a few sums. Ported so far: what the course record, medals and event
+// record screens call.
 
 // HeartGold's ov98_0221E5E0's
 typedef struct PokeathlonRecordsSprites {
@@ -71,6 +71,7 @@ void PokeathlonRecords_PrintMessageAt(PokeathlonRecordsText *text, int window, u
 void PokeathlonRecords_PrintNumberMessage(PokeathlonRecordsText *text, int window, u32 entryID, int number, u32 digits, u32 templateIdx);
 void PokeathlonRecords_PrintSpeciesName(PokeathlonRecordsText *text, int window, u16 species);
 void PokeathlonRecords_ClearWindow(PokeathlonRecordsText *text, int window);
+void PokeathlonRecords_PrintStringAt(PokeathlonRecordsText *text, int window, const String *string, u32 x, u32 y); // ov98_0221EE9C
 // HeartGold's BufferSpeciesName (its main module's), the species' name from the text's own bank
 void PokeathlonRecords_SetSpeciesName(PokeathlonRecordsText *text, u32 idx, u16 species);
 
@@ -91,5 +92,17 @@ BOOL PokeathlonRecords_ReturnPressed(void);
 // 50, 75, 100, 150 and 200)
 u16 PokeathlonRecords_CountMedalists(const u8 *medals);
 int PokeathlonRecords_TrustTrophyRank(u16 medalists);
+
+// ov98_0221EFA4, ov98_0221EFB4 and ov98_0221EFE8: an event's goals (the default record its list starts with, the
+// Johto starters'; the Potential Trophy's), and whether a result beats or reaches one (Hurdle Dash's lower; no
+// result, never)
+enum PokeathlonEventGoal {
+    POKEATHLON_EVENT_GOAL_DEFAULT = 0,
+    POKEATHLON_EVENT_GOAL_POTENTIAL_TROPHY,
+};
+
+u16 PokeathlonRecords_EventGoal(int event, enum PokeathlonEventGoal goal);
+BOOL PokeathlonRecords_EventResultBeats(int event, enum PokeathlonEventGoal goal, u16 result);
+BOOL PokeathlonRecords_EventResultReaches(int event, enum PokeathlonEventGoal goal, u16 result);
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_RECORDS_COMMON_H
