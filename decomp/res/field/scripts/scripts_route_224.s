@@ -593,7 +593,7 @@ Route224_SovereignSetCounterpartDawn:
     Return
 
 Route224_SovereignSetCounterpartLucas:
-    SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYER_M
+    SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_COMPLETE_LUCAS // Sovereign Complete: Rowan's assistant, not the player (tools/complete/import_hgss_player.py)
     Return
 
 Route224_SovereignCounterpart:

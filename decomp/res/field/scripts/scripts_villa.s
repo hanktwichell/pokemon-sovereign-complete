@@ -96,7 +96,7 @@ Villa_SetCounterpartGraphicsDawn:
     Return
 
 Villa_SetCounterpartGraphicsLucas:
-    SetVar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PLAYER_M
+    SetVar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_COMPLETE_LUCAS // Sovereign Complete: Rowan's assistant, not the player (tools/complete/import_hgss_player.py)
     Return
 
 Villa_DontShowVisitor:

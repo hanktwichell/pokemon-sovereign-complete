@@ -6122,6 +6122,24 @@ int SpriteSystem_TrainerClassBackSpriteIndex(enum TrainerClass trainerClass)
     case TRAINER_CLASS_DP_PLAYER_FEMALE_2:
         trainerClass = dp_player_male_back_NCGR / TRAINER_CLASS_NUM_FILETYPES + trainerClass - TRAINER_CLASS_DP_PLAYER_MALE_2;
         break;
+    // Sovereign Complete: HeartGold's backs (tools/complete/import_hgss_player.py): the player as Ethan (or Lyra), and
+    // the partners of HeartGold's tag battles, Lance and Silver
+#ifdef hgss_pkmn_trainer_ethan_back_NCGR
+    case TRAINER_CLASS_HGSS_PKMN_TRAINER_ETHAN:
+        trainerClass = hgss_pkmn_trainer_ethan_back_NCGR / TRAINER_CLASS_NUM_FILETYPES;
+        break;
+#endif
+#ifdef hgss_pkmn_trainer_lyra_back_NCGR
+    case TRAINER_CLASS_HGSS_PKMN_TRAINER_LYRA:
+        trainerClass = hgss_pkmn_trainer_lyra_back_NCGR / TRAINER_CLASS_NUM_FILETYPES;
+        break;
+#endif
+    case TRAINER_CLASS_HGSS_PKMN_TRAINER_LANCE:
+        trainerClass = hgss_pkmn_trainer_lance_back_NCGR / TRAINER_CLASS_NUM_FILETYPES;
+        break;
+    case TRAINER_CLASS_HGSS_RIVAL:
+        trainerClass = hgss_rival_back_NCGR / TRAINER_CLASS_NUM_FILETYPES;
+        break;
     default:
         if (TrainerClass_Gender(trainerClass) == GENDER_FEMALE) {
             trainerClass = player_female_back_NCGR / TRAINER_CLASS_NUM_FILETYPES;

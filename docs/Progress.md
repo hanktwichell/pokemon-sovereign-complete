@@ -1911,3 +1911,17 @@ Test results on the new test build:
   the ace keeping its moved level (`CompleteSinnoh_ScaleParty`; the caps follow, `gen_sinnoh.py`): Roark 71 with his
   ace 72, Cynthia 88 and 89, her rematch 95 and 96. The Sinnoh Elite Four's rematches (singles and doubles) and
   Sovereign's trainer are flat, all at their ace's level (`flat_teams` in `data/complete/sinnoh.yaml`).
+- **The player is Ethan or Dawn (the owner's call):** the boy is HeartGold's Ethan, the girl stays Platinum's Dawn
+  (`tools/complete/import_hgss_player.py`; `docs/Features.md`, "The player"). Every pose the field draws the boy in is
+  Ethan's: walking, running, the bike, surfing, fishing, saving and the Pokémon Center's counter from HeartGold's own
+  sprites, and the four poses HeartGold never drew him in (a field move's raised Poké Ball, the Pokétch, the
+  Sprayduck, the VS Seeker) with Lucas's arm and item moved onto him. Rowan's assistant keeps Lucas's look
+  (Platinum drew the assistant with the player's graphics: he has his own now, in the 17 lines of the scripts that
+  show him). In battle the boy throws with Ethan's back, and the Hall of Fame shows Ethan's picture; Platinum's
+  player classes stay Lucas and Dawn for the assistant, who partners the player in Jubilife's and Veilstone's tag
+  battles. HeartGold's tag partners got their own backs too: Lance and Silver had stood there with Lucas's.
+- **Box and party icons from Pokémon Showdown (the owner asked):** a sample of 20 converted icons sent to the owner
+  (`docs/Roadmap.md`): far better than the placeholders for Gen 8 and 9, and real icons for regional forms and Megas;
+  the DS's three shared icon palettes are what limits the colours.
+- **The owner's note on the Totems' overworld sprites:** to look like the other overworld Pokémon (Dialga, Palkia,
+  Uxie) and stay large, not shrunk battle sprites (`docs/Roadmap.md`).

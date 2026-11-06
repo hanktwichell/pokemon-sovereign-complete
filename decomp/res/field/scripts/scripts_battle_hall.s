@@ -141,7 +141,7 @@ BattleHall_SetDawnAsMajorNPC:
     Return
 
 BattleHall_SetLucasAsMajorNPC:
-    SetVar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PLAYER_M
+    SetVar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_COMPLETE_LUCAS // Sovereign Complete: Rowan's assistant, not the player (tools/complete/import_hgss_player.py)
     Return
 
 BattleHall_SetMomAsMajorNPC:
@@ -881,7 +881,7 @@ BattleHall_MajorNPC:
     FacePlayer
     BufferPlayerName 0
     SetVar VAR_MAP_LOCAL_0x01, VAR_OBJ_GFX_ID_1
-    GoToIfEq VAR_MAP_LOCAL_0x01, OBJ_EVENT_GFX_PLAYER_M, BattleHall_Lucas
+    GoToIfEq VAR_MAP_LOCAL_0x01, OBJ_EVENT_GFX_COMPLETE_LUCAS, BattleHall_Lucas // Sovereign Complete: Rowan's assistant, not the player (tools/complete/import_hgss_player.py)
     GoToIfEq VAR_MAP_LOCAL_0x01, OBJ_EVENT_GFX_PLAYER_F, BattleHall_Dawn
     GoToIfEq VAR_MAP_LOCAL_0x01, OBJ_EVENT_GFX_MOM, BattleHall_Mom
     GoToIfEq VAR_MAP_LOCAL_0x01, OBJ_EVENT_GFX_PROF_OAK, BattleHall_Oak

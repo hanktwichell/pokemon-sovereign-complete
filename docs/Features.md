@@ -961,6 +961,23 @@ its ally trade places (`src/battle/complete_ally_switch.c`, `subscript_complete_
 21 species learn it. The Pledge moves are plain hits that nothing learns; see the progress page's questions.
 Tests: `tools/test/battle_mechanics.py ally_switch ally_switch_single`.
 
+## The player: Ethan or Dawn
+
+The owner's choice (Nov 6, 2026): the boy is HeartGold's Ethan, the girl Platinum's Dawn
+(`tools/complete/import_hgss_player.py`; `GIRL = 'lyra'` there makes her HeartGold's Lyra instead).
+- **The overworld:** every texture the field draws the boy with (walking and running, the bike, surfing, fishing,
+  saving, the Pokémon Center's counter, the contests, the Distortion World, Hearthome Gym) is Ethan's, from
+  HeartGold's own sprites. HeartGold never drew him raising a Poké Ball (a field move), with the Pokétch, watering
+  with the Sprayduck or with the VS Seeker: those poses take Lucas's arm and what he holds onto Ethan.
+- **Rowan's assistant** keeps his look: Platinum gave the assistant the player's graphics, so Lucas has his own now
+  (`OBJ_EVENT_GFX_COMPLETE_LUCAS`), in the 17 lines of the Sinnoh scripts that show him (each marked). Johto's friend
+  is HeartGold's, as before: Lyra when the player is Ethan, Ethan when the player is Dawn.
+- **Battles:** the boy's battle class is HeartGold's Ethan (`include/data/complete_player.h`): his back and throw, his
+  picture in the Hall of Fame. Platinum's player classes stay Lucas and Dawn, for the assistant's own battles and his
+  tag battles at the player's side. HeartGold's tag partners have their own backs now: Lance (the Rocket Hideout) and
+  Silver (against Lance and Clair), who stood there as Lucas's back before.
+- Not yet: the intro's pictures (Rowan's), the Trainer Card's, the Town Map's head, the Fly take-off's rider.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

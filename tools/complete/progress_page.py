@@ -110,6 +110,13 @@ OWNER_NOTES = [
      'rematch\'s 96; aces a level over their teams, but the Elite Four\'s rematches and Sovereign\'s trainer flat. '
      'Done: Roark 71 (ace 72), Cynthia 88 (ace 89), her rematch 95 (ace 96), the Elite Four 86 to 88, their rematches '
      'flat at 93 to 95.'),
+    ('Nov 6', 'The player: Ethan or Dawn. The boy is HeartGold\'s Ethan (overworld, battle back, front picture), the '
+     'girl stays Platinum\'s Dawn. Rowan\'s assistant stays Lucas or Dawn; Johto\'s friend stays Lyra or Ethan. '
+     'In progress.'),
+    ('Nov 6', 'The Totems\' overworld sprites should look like the other overworld Pokémon (Dialga, Palkia, Uxie), not '
+     'shrunk battle sprites as now, and stay large to show their size. Not done yet.'),
+    ('Nov 6', 'Box, PC and party icons from Pokémon Showdown\'s collection: to replace the placeholder icons '
+     '(#494 to 1025) and fill in forms. A sample sheet first, for you to look at.'),
 ]
 
 # Anything that looked off in Claude's tests or screenshots, logged for the owner to look at, even when it may be
@@ -124,7 +131,7 @@ POSSIBLE_ISSUES = [
      'trainer_dots.jpg', 'fixed'),
     ('Nov 6', 'The player in Johto and Kanto',
      'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
-     'Intended so far; say if you want HeartGold\'s player in Johto and Kanto.', 'trainer_dots.jpg', 'yours'),
+     'Your call (Nov 6): the boy becomes Ethan, the girl stays Dawn. In progress.', 'trainer_dots.jpg', 'looking'),
     ('Nov 6', 'The player\'s name at a battle\'s end',
      'In the recording of your team against Cynthia, the win reads "Player defeated Champion Cynthia!" but the prize '
      'reads "A got $31200 for winning!": two names for the player (the test save\'s is A). Checked: "Player '
@@ -191,6 +198,19 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your Nov 6 calls: Ethan, the icons, the Totems', [
+        'The boy is now HeartGold\'s Ethan, in every pose the field draws him in: walking, running, the bike, '
+        'surfing, fishing, saving and the Pokémon Center\'s counter are HeartGold\'s own art; HeartGold never drew '
+        'him raising a Poké Ball, with the Pokétch, watering or with the VS Seeker, so those take Lucas\'s arm and '
+        'item onto Ethan. The girl stays Dawn. Rowan\'s assistant keeps Lucas\'s look. In battle Ethan throws with '
+        'his own back, and the Hall of Fame shows his picture. Lance and Silver, your partners in HeartGold\'s tag '
+        'battles, have their own backs now (they stood there as Lucas). Still to do: the intro\'s pictures, the '
+        'Trainer Card, the Town Map\'s head and the Fly rider. Every texture: Gallery tab, "New in the game".',
+        'Pokémon Showdown\'s box and party icons: a sample of 20 is on its way to you. They\'re far better than the '
+        'placeholders for Gen 8 and 9, and there are real icons for regional forms and Megas; the DS\'s three shared '
+        'icon palettes are what limits the colours.',
+        'Your note on the Totems\' overworld sprites is written down (Your notes, on the Questions tab).',
+    ]),
     ('Your answers, all 23', [
         'Recorded with who does each: the playtest session takes your playtest notes (and turning the following '
         'Pokémon off); Claude takes the rest. The Questions tab lists every answer with its status; the Mega Stone '

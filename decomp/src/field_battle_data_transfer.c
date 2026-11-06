@@ -62,6 +62,7 @@
 #include "vars_flags.h"
 
 #include "res/text/bank/location_names.h"
+#include "data/complete_player.h" // Sovereign Complete
 
 static int CalcTerrain(const FieldSystem *fieldSystem, enum BattleBackground background);
 static void SetBackgroundAndTerrain(FieldBattleDTO *dto, const FieldSystem *fieldSystem);
@@ -588,7 +589,11 @@ BOOL CheckPlayerDidNotCaptureWildMon(u32 battleResult)
 
 void FieldBattleDTO_CopyPlayerInfoToTrainerData(FieldBattleDTO *dto)
 {
-    dto->trainer[BATTLER_PLAYER_1].header.trainerType = TrainerInfo_Gender(dto->trainerInfo[BATTLER_PLAYER_1]);
+    // Sovereign Complete: the player's own class, Ethan for the boy (include/data/complete_player.h); Platinum's
+    // player classes stay Lucas and Dawn, for Rowan's assistant
+    dto->trainer[BATTLER_PLAYER_1].header.trainerType = TrainerInfo_Gender(dto->trainerInfo[BATTLER_PLAYER_1]) == GENDER_FEMALE
+        ? COMPLETE_PLAYER_CLASS_FEMALE
+        : COMPLETE_PLAYER_CLASS_MALE;
     CharCode_Copy(dto->trainer[BATTLER_PLAYER_1].name, TrainerInfo_Name(dto->trainerInfo[BATTLER_PLAYER_1]));
     dto->trainer[BATTLER_PLAYER_2] = dto->trainer[BATTLER_PLAYER_1];
 }

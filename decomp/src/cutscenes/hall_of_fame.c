@@ -39,6 +39,7 @@
 
 #include "res/graphics/battle/sprites.naix"
 #include "res/text/bank/hall_of_fame.h"
+#include "data/complete_player.h" // Sovereign Complete
 
 #define ROW_HEIGHT 16
 
@@ -878,7 +879,7 @@ static void ov86_0223BAC8(HallOfFameMan *hallOfFameMan, NNSG2dCellDataBank *cell
     NNS_G2dLoadImage1DMapping(charData, MAX_PARTY_SIZE * 2 * MON_SPRITE_96_SIZE_BYTES, NNS_G2D_VRAM_TYPE_2DMAIN, &imageProxy);
     NNS_G2dLoadPalette(paletteData, 192, NNS_G2D_VRAM_TYPE_2DMAIN, &paletteProxy);
 
-    SpriteSystem_SetTrainerClassGraphicsIndex((TrainerInfo_Gender(hallOfFameMan->displayData->trainerInfo) == GENDER_FEMALE) ? TRAINER_CLASS_PLAYER_FEMALE : TRAINER_CLASS_PLAYER_MALE, FACE_FRONT, &v4);
+    SpriteSystem_SetTrainerClassGraphicsIndex((TrainerInfo_Gender(hallOfFameMan->displayData->trainerInfo) == GENDER_FEMALE) ? COMPLETE_PLAYER_CLASS_FEMALE : COMPLETE_PLAYER_CLASS_MALE, FACE_FRONT, &v4); // Sovereign Complete: the player's own picture
     CharacterSprite_LoadSprite96(v4.narcID, v4.scan, HEAP_ID_HALL_OF_FAME, 0, hallOfFameMan->unk_310);
 
     DC_FlushRange(hallOfFameMan->unk_310, MON_SPRITE_96_SIZE_BYTES);

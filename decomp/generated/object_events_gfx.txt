@@ -1089,6 +1089,9 @@ OBJ_EVENT_GFX_HGSS_CHOUROU = 1411
 OBJ_EVENT_GFX_HGSS_RAPURASU = 1414
 OBJ_EVENT_GFX_HGSS_DELIVERY2 = 1323
 # Sovereign Complete: end of HeartGold's people [list]
+# Sovereign Complete: the player (tools/complete/import_hgss_player.py) [list]
+OBJ_EVENT_GFX_COMPLETE_LUCAS = 1900
+# Sovereign Complete: end of the player [list]
 OBJ_EVENT_GFX_BERRY_SPROUT = 4096
 OBJ_EVENT_GFX_INVISIBLE = 8192
 OBJ_EVENT_GFX_SENTINEL_ID = 65535

@@ -127,28 +127,31 @@ field_sprites_textures_32_px_single_palette = [
     { 'file': 'npc/game_director.png', 'basename': 'director'},
     { 'file': 'npc/grunts_group_of_4.png', 'basename': 'gset1'},
     { 'file': 'npc/grunts_group_of_3.png', 'basename': 'gset2'},
-    { 'file': 'player/player_m.png', 'basename': 'pl_boy01c'},
+    { 'file': 'player/complete/player_m.png', 'basename': 'pl_boy01c'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f.png', 'basename': 'pl_girl01c'},
-    { 'file': 'player/player_m_bike.png', 'basename': 'pl_cyclehero'},
+    { 'file': 'player/complete/player_m_bike.png', 'basename': 'pl_cyclehero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_bike.png', 'basename': 'pl_cycheroine'},
-    { 'file': 'player/player_m_holding_pokeball.png', 'basename': 'pl_sphero'},
+    { 'file': 'player/complete/player_m_holding_pokeball.png', 'basename': 'pl_sphero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_holding_pokeball.png', 'basename': 'pl_spheroine'},
-    { 'file': 'player/player_m_sprayduck.png', 'basename': 'pl_whelo'},
+    { 'file': 'player/complete/player_m_sprayduck.png', 'basename': 'pl_whelo'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_sprayduck.png', 'basename': 'pl_wheroine'},
-    { 'file': 'player/player_m_surf.png', 'basename': 'pl_swimhiro'},
+    { 'file': 'player/complete/player_m_surf.png', 'basename': 'pl_swimhiro'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_surf.png', 'basename': 'pl_swimhiroine'},
-    { 'file': 'player/player_m_contest.png', 'basename': 'contesthero'},
+    { 'file': 'player/complete/player_m_contest.png', 'basename': 'contesthero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_contest.png', 'basename': 'cont_heroine'},
-    { 'file': 'player/player_m_fishing.png', 'basename': 'pl_fishhero'},
+    { 'file': 'player/complete/player_m_fishing.png', 'basename': 'pl_fishhero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_fishing.png', 'basename': 'pl_fheroine'},
-    { 'file': 'player/player_m_poketch.png', 'basename': 'pl_pokehero'},
+    { 'file': 'player/complete/player_m_poketch.png', 'basename': 'pl_pokehero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_poketch.png', 'basename': 'pl_pkheroine'},
-    { 'file': 'player/player_m_save.png', 'basename': 'pl_savehero'},
+    { 'file': 'player/complete/player_m_save.png', 'basename': 'pl_savehero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_save.png', 'basename': 'pl_saveheroine'},
-    { 'file': 'player/player_m_pokecenter_heal.png', 'basename': 'pl_banhero'},
+    { 'file': 'player/complete/player_m_pokecenter_heal.png', 'basename': 'pl_banhero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_pokecenter_heal.png', 'basename': 'pl_banheroine'},
-    { 'file': 'player/player_m_vs_seeker.png', 'basename': 'pl_bshero'},
+    { 'file': 'player/complete/player_m_vs_seeker.png', 'basename': 'pl_bshero'},  # Sovereign Complete: the player (tools/complete/import_hgss_player.py)
     { 'file': 'player/player_f_vs_seeker.png', 'basename': 'pl_bsheroine'},
+    # Sovereign Complete: the player (tools/complete/import_hgss_player.py) [list]
+    { 'file': 'player/complete/complete_lucas.png', 'basename': 'cpl_lucas'},
+    # Sovereign Complete: end of the player [list]
     { 'file': 'player/dp_player_m.png', 'basename': 'hero'},
     { 'file': 'player/dp_player_f.png', 'basename': 'heroine'},
     { 'file': 'player/dp_player_m_contest.png', 'basename': 'contesthero'},

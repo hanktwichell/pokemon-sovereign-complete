@@ -137,7 +137,9 @@ def platinum_walkers():
     table = open(os.path.join(DECOMP, 'src/overlay005/object_event_gfx_data.c')).read()
     known = {}
     for gfx, stem in re.findall(r'\{ (OBJ_EVENT_GFX_\w+), (\w+)_nsbtx \}', table):
-        if stem in by_stem and not stem.startswith('hgss_') and gfx not in known.values():
+        # (not the player's own textures from import_hgss_player.py: they're HeartGold's Ethan, kept as HERO)
+        if stem in by_stem and not stem.startswith('hgss_') and '/complete/' not in by_stem[stem] \
+                and gfx not in known.values():
             path = os.path.join(SPRITES, by_stem[stem])
             if os.path.exists(path):
                 image = Image.open(path)

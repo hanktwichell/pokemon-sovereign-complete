@@ -97,6 +97,21 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
 - **To do (the owner, Nov 6, 2026): every sprite in Sovereign Platinum ported to Sovereign Complete** (Pokémon
   fronts, backs, forms and icons, trainers, overworld sprites), checked against Sovereign's own folders.
+- **The player is Ethan or Dawn (Nov 6, 2026).** The boy is HeartGold's Ethan (overworld, battle back, front
+  picture); the girl stays Platinum's Dawn, who has every pose Platinum needs. The player gets graphics of its own, so
+  Rowan's assistant in Sinnoh stays Lucas or Dawn; Johto's friend stays HeartGold's (Lyra for Ethan, Ethan for Dawn).
+  Lyra instead of Dawn is one setting in `tools/complete/import_hgss_player.py`.
+- **Totems' overworld sprites (the owner, Nov 6, 2026).** They should look like the game's other overworld Pokémon
+  (Dialga, Palkia, Uxie), not shrunk battle sprites as now (Sovereign's `tools/sprites/make_totem_overworld.py`), and
+  stay large to show their size. Not done yet.
+- **Box, PC and party icons from Pokémon Showdown (the owner asked, Nov 6, 2026).** Showdown's icon sheet covers every
+  species and form; it would replace the PokeAPI placeholders for #494–1025 and fill in forms. Each needs converting to
+  the DS's 32×32 two-frame icons in its three shared palettes; a sample sheet first for the owner to look at.
+  The sample (Nov 6, 20 Pokémon): Showdown's Gen 8–9 icons are far better than the placeholders (Fuecoco, Quaxly,
+  Tinkaton, Pecharunt), and it has real icons for regional forms and Megas (forms show their base Pokémon's icon
+  now). The limit is colour: every icon takes one of the three shared 16-colour palettes (`pl_poke_icon`, loaded as 3
+  palettes by each screen that draws icons), so Grookey turns olive and Mega Charizard X loses its black. More icon
+  palettes would mean each of those screens finding more palette slots; to look at if the owner wants it.
 
 - **Story order (Oct 29, 2026).** Johto, then Kanto, then Sinnoh. The game starts in New Bark Town and ends at Spear
   Pillar, as Sovereign Platinum does.

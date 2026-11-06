@@ -25,7 +25,7 @@ Route207_SetCounterpartGraphicsDawn:
     End
 
 Route207_SetCounterpartGraphicsLucas:
-    SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_PLAYER_M
+    SetVar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_COMPLETE_LUCAS // Sovereign Complete: Rowan's assistant, not the player (tools/complete/import_hgss_player.py)
     End
 
 Route207_CoordEvent_Counterpart:

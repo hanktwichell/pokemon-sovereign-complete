@@ -183,6 +183,8 @@ def main():
         header_id = names.index(header)
         for start, area in areas:
             result, frames = warp(d, sym, header_id, start[0], start[1], 0)
+            if result == 'ok' and d.pos() != start and tuple(d.pos()) in area:
+                start = tuple(d.pos())  # the map's own scene moved the player on arrival, within the area: walk from there
             if result != 'ok' or d.pos() != start:
                 entry.setdefault('unreached_areas', []).append({'start': list(start), 'size': len(area),
                                                                'warp': f'{result} at {list(d.pos())}'})

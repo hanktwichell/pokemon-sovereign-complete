@@ -100,6 +100,11 @@ work.
   (`OBJ_EVENT_GFX_HGSS_MON_*`, from 2048): the field's lookups take each one's size's template entry and its own
   texture (`CompleteFollower_TemplateGfx`, `CompleteFollower_GfxNarcIndex`; marked hooks in `src/map_object.c`,
   `src/overlay005/ov5_021ECE40.c` and `ov5_021ECC20.c`). `tools/complete/show_followers.py` screenshots followers.
+- The player is Ethan (boy) or Dawn (girl): `tools/complete/import_hgss_player.py` (the boy's field textures in
+  `res/graphics/field_sprites/player/complete/`, Lucas kept for Rowan's assistant as `OBJ_EVENT_GFX_COMPLETE_LUCAS`,
+  HeartGold's trainer backs, `include/data/complete_player.h` for the player's battle class). Platinum's
+  `TRAINER_CLASS_PLAYER_MALE`/`_FEMALE` and `OBJ_EVENT_GFX_PLAYER_*` IDs stay: the IDs draw the player, the classes
+  Lucas and Dawn as the assistant.
 - HeartGold's people: `tools/complete/gen_hgss_people_sprites.py` (`OBJ_EVENT_GFX_HGSS_<NAME>` = 1024 + HeartGold's
   number; the mapping in `data/complete/hgss_sprites.json`, read by `import_hgss_events.py` and the script translation).
   Its 3D gimmick objects (doors, shutters, boxes, the Ruins of Alph's walls): `tools/complete/import_hgss_gimmicks.py`

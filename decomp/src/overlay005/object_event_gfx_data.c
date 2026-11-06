@@ -713,6 +713,9 @@ const ObjectEventGfxRendererEntry gObjectEventGfxRenderersTable[] = {
     { OBJ_EVENT_GFX_HGSS_RAPURASU, &Unk_ov5_021FAFD8 },
     { OBJ_EVENT_GFX_HGSS_DELIVERY2, &Unk_ov5_021FAFD8 },
     // Sovereign Complete: end of HeartGold's people [graphics]
+    // Sovereign Complete: the player (tools/complete/import_hgss_player.py) [graphics]
+    { OBJ_EVENT_GFX_COMPLETE_LUCAS, &Unk_ov5_021FB0F0 },
+    // Sovereign Complete: end of the player [graphics]
     { OBJ_EVENT_GFX_SENTINEL_ID, NULL }
 };
 
@@ -1393,6 +1396,9 @@ const ObjectEventGfxFileEntry gObjectEventGfxTexturesTable[] = {
     { OBJ_EVENT_GFX_HGSS_RAPURASU, hgss_rapurasu_nsbtx },
     { OBJ_EVENT_GFX_HGSS_DELIVERY2, hgss_delivery2_nsbtx },
     // Sovereign Complete: end of HeartGold's people [textures]
+    // Sovereign Complete: the player (tools/complete/import_hgss_player.py) [textures]
+    { OBJ_EVENT_GFX_COMPLETE_LUCAS, complete_lucas_nsbtx },
+    // Sovereign Complete: end of the player [textures]
     { OBJ_EVENT_GFX_SENTINEL_ID, 0 }
 };
 
@@ -2290,6 +2296,9 @@ const ObjectEventGfxModelAnimEntry gObjectEventGfxModelAnimsTable[] = {
     { OBJ_EVENT_GFX_HGSS_RAPURASU, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
     { OBJ_EVENT_GFX_HGSS_DELIVERY2, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_GENERIC_WALK, sWalkBillboardAnims },
     // Sovereign Complete: end of HeartGold's people [billboards]
+    // Sovereign Complete: the player (tools/complete/import_hgss_player.py) [billboards]
+    { OBJ_EVENT_GFX_COMPLETE_LUCAS, BILLBOARD_MODEL_GENERIC_32x32, BILLBOARD_FRAME_SEQ_WALK_AND_RUN, sWalkRunBillboardAnims },
+    // Sovereign Complete: end of the player [billboards]
     { OBJ_EVENT_GFX_SENTINEL_ID, BILLBOARD_MODEL_SENTINEL_ID, BILLBOARD_FRAME_SEQ_SENTINEL_ID, NULL }
 };
 
@@ -2809,6 +2818,9 @@ const ObjectEventGfxRenderDetailsEntry gObjectEventGfxRenderDetailsTable[] = {
     { OBJ_EVENT_GFX_HGSS_RAPURASU, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
     { OBJ_EVENT_GFX_HGSS_DELIVERY2, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
     // Sovereign Complete: end of HeartGold's people [model types]
+    // Sovereign Complete: the player (tools/complete/import_hgss_player.py) [model types]
+    { OBJ_EVENT_GFX_COMPLETE_LUCAS, MODEL_TYPE_BILLBOARD, .hasShadow = TRUE, TRACK_TYPE_FOOTSTEPS, .hasReflection = TRUE },
+    // Sovereign Complete: end of the player [model types]
     { OBJ_EVENT_GFX_SENTINEL_ID, 0, 0, 0, 0 }
 };
 
