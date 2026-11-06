@@ -629,7 +629,8 @@ COMMANDS = {
     # The Dome PC's Pokéathlon data (HeartGold's ScrCmd_743): a page of records, the data cards' lines shown once bought
     'ScrCmd_743': one('CompletePokeathlonRecords {0}'),
     # A record room's screen (HeartGold's ScrCmd_712, src/applications/complete_pokeathlon_records/): the course record
-    # (0); the medals, event records and the fourth screen (1 to 3) aren't ported yet and leave the field as it is
+    # (0) and the medals (1); the event records and the fourth screen (2, 3) aren't ported yet and leave the field as
+    # it is
     'ScrCmd_712': one('CompletePokeathlonRecordScreen {0}'),
     # The Friendship Room's statues: the Pokémon of the friendship records, as walking sprites
     'CreatePokeathlonFriendshipRoomStatues': lambda a: ['CompletePokeathlonStatues'],
