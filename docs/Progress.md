@@ -1813,3 +1813,10 @@ Test results on the new test build:
   (`src/battle/complete_ally_switch.c`); both positions are redrawn in place (sprites with a front sprite's shadow and
   Illusion's look, health boxes, substitute dolls); it shares Protect's chain as in Gen IX. Built and boot-checked;
   two battle cases (`ally_switch`, `ally_switch_single`) run next on a test build.
+- **Sovereign's battle mechanics suite on today's build: 469 of 526 matched; the 57 others were two test-build
+  changes of Complete's, not the battles.** (1) Since Nov 1 the test build heals the party before each god-mode battle
+  (for the story test's long run), which undid the cases that start the lead at part HP (Shore Up, Stuff Cheeks, Flail,
+  the Heal Block checks): it now heals only when no harness set the lead's HP. (2) The double-battle cases fight
+  Sovereign's Sinnoh trainers (Twins Liv & Liz, Belle & Pa), whose teams now come at Sinnoh's levels after Kanto: the
+  suite now sets `gCompleteTestSovereignLevels`, so they keep Sovereign's levels, as the cases were recorded. The gifts
+  test passes 45 of 45 (each gift at Sinnoh's levels, the Paradox Pokémon at the shown one's level).

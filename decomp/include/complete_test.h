@@ -97,6 +97,10 @@ typedef struct CompleteTestScriptedWild {
 
 extern CompleteTestScriptedWild gCompleteTestScriptedWild;
 
+// tools/test/battle_mechanics.py: while set, Sinnoh's trainers keep Sovereign's levels (CompleteSinnoh_ScaleParty), so
+// Sovereign's recorded double battles replay as they were recorded.
+extern u8 gCompleteTestSovereignLevels;
+
 // A field task for the test build's battles (src/overlay005/field_control.c's SovereignTest_BattleTask), which starts
 // them under it: after a lost battle it blacks out, as the script that starts a battle in the game has it do. Its env is
 // the battle's result.

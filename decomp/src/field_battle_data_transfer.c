@@ -287,8 +287,9 @@ void FieldBattleDTO_InitFromGameState(FieldBattleDTO *dto, const FieldSystem *fi
 #ifdef SOVEREIGN_TEST
     // Sovereign Complete: test build only. In god mode the party starts each battle healed: god mode keeps hits off
     // the player's Pokémon, not poison or weather, which over a long run of battles (the story test) could leave the
-    // lead fainted and the battle asking which Pokémon to send out (include/sovereign_test.h).
-    if (gSovereignTestGodMode) {
+    // lead fainted and the battle asking which Pokémon to send out (include/sovereign_test.h). Not when a harness set the
+    // lead's HP for the battle (gSovereignTestLead.hpPercent: Sovereign's battle mechanics cases).
+    if (gSovereignTestGodMode && gSovereignTestLead.hpPercent == 0) {
         Party_HealAllMembers(party);
     }
 #endif

@@ -15,6 +15,7 @@
 #include "data/hgss_trainers.h"
 
 #include "complete_map_info.h"
+#include "complete_test.h"
 #include "narc.h"
 #include "party.h"
 #include "pokemon.h"
@@ -121,6 +122,11 @@ void CompleteSinnoh_ScaleParty(int trainerID, void *party, int monDataType, int 
     if (trainerID >= TRAINER_HGSS_FIRST || monDataType >= NELEMS(sizes)) {
         return;
     }
+#ifdef SOVEREIGN_TEST
+    if (gCompleteTestSovereignLevels) {
+        return; // Sovereign's battle mechanics cases, recorded at Sovereign's levels
+    }
+#endif
 
     for (int i = 0; i < count; i++) {
         u16 *mon = (u16 *)((u8 *)party + i * sizes[monDataType]);

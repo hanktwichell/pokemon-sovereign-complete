@@ -190,6 +190,8 @@ def setup(d, sym, case, names):
             mem.write_byte(partner + PARTNER['hp'], 100)
     mem.write_short(sym['gSovereignTestMessageLog'], 0)
     mem.write_long(sym['gSovereignTestBattleSeed'], SEED)
+    if sym.get('gCompleteTestSovereignLevels'):  # Sovereign Complete: its trainers at Sovereign's levels, as recorded
+        mem.write_byte(sym['gCompleteTestSovereignLevels'], 1)
     d.press('SELECT+R' if doubles else 'SELECT')
 
 
@@ -413,6 +415,10 @@ def main():
         return
     from drive import Driver
     sym = symbols(SYMBOLS)
+    try:  # Sovereign Complete: the switch that keeps Sinnoh's trainers at Sovereign's levels
+        sym.update(symbols(('gCompleteTestSovereignLevels',)))
+    except AttributeError:
+        pass
     names = {k: consts(k + '.txt') for k in ('species', 'moves', 'items', 'abilities', 'trainers')}
     chars = charmap()
     d = Driver(rom, state)
