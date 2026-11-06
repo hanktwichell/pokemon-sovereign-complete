@@ -1818,3 +1818,9 @@ Test results on the new test build:
   back), so the freeze the owner saw after choosing a starter isn't reproduced yet. Two Poké Balls on Elm's table is
   the playtest's party (the lab shows two when the party isn't empty), and "received GARCHOMP from Professor Elm" names
   the party's lead, the starter in a real game.
+- **The owner's playtest notes still open (Nov 6, 2026):** the freeze after choosing a starter (not reproduced on
+  build_test; asked the owner for details); the person who leaves Elm's lab has the male player's sprite; the
+  following Pokémon appears inside the door as the player walks out of a building; Johto's and Kanto's Pokémon Centers
+  show no Poké Balls on the healing machine; the S.S. Aqua's sailing scene is Platinum's icebreaker; the Mega
+  Evolution animation and the Mega icon look bad (later; the owner will redo the stone shown on screen). The owner was
+  given a release build (`decomp/build`, from a clean Rev 1 dump) to play through.
