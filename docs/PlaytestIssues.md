@@ -48,6 +48,8 @@ a clean Platinum (US) Rev 1 dump (`CLAUDE.md`, "Building"), so new fixes reach t
 - **Rowan's TV comment** said he came back from Kanto (Johto now); **Mom** said "Elm" (Professor Elm now).
 - **The S.S. Aqua's guard with no sprite** on a first voyage from Vermilion.
 - **Slow HP bars**: a full bar takes 0.8 s at any HP.
+- **The S.S. Aqua, the cruise or straight there**: after the first voyage, the gangway's sailor offers the cruise or
+  the sailing scene straight to the other port (the owner's design for the ship).
 - Explained, not bugs: two Poké Balls on Elm's table and "received GARCHOMP from Professor Elm" came from the
   playtest's preset team (a real new game shows three Balls and names the starter).
 - Explained, not a bug: **resting in the S.S. Aqua's cabin doesn't end the trip** on the first voyage (the

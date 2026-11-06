@@ -56,9 +56,14 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   you're already there. The ferry runs whenever the player wants once a route is unlocked; there's no weekly schedule.
   Only Sinnoh has local stops today: Canalave's boat to Iron Island and Fullmoon Island. Snowpoint's ship to the Fight
   Area stays separate. The menus and ferry scenes fit inside steps 2 and 7's estimates.
+  **The cruise or straight there (Nov 6, 2026):** between Olivine and Vermilion, after the S.S. Aqua's first voyage,
+  the gangway's sailor offers the slow ship (the cruise, to battle its passengers) or the sailing scene and straight
+  to the other port.
 - **Drayano's okay (Oct 29, 2026).** Given: his games can be used as a base.
 - **Following Pokémon (Oct 29, 2026).** Required, as in HeartGold. A first working version comes early, in step 1, to
   prove it before the big conversion work; it counts toward step 5's days.
+  **Scrapped (Nov 6, 2026):** "too many issues" in the owner's playtest; the feature is to be turned off
+  (`docs/PlaytestIssues.md`, issue 1).
 - **Pokéathlon (Oct 29, 2026).** Skipped.
 - **Sinnoh's integration (Nov 1, 2026).** Claude devises a provisional one, so the whole game can be played and tested
   now: what arriving in Canalave City starts, Sinnoh's levels after Kanto, level caps for all three regions. Each

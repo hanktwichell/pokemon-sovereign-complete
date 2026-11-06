@@ -58,6 +58,7 @@ CANALAVE = 'MAP_HEADER_CANALAVE_CITY'
 EARTH_BADGE = 1 << 15  # BADGE_ID_HGSS_EARTH, Kanto's eighth
 TWINLEAF_ROOM = 'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F'
 SINNOH_BEGUN = [('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)]  # the first ship to Sinnoh went to Twinleaf Town
+FIRST_VOYAGE_DONE = [('VAR_HGSS_SCENE_SS_AQUA', 7)]  # the S.S. Aqua's first voyage done
 # (part, the map, the tile beside the sailor and the facing, Johto's and Kanto's badges, the answers to the menus
 # (talk_and_answer's: a menu entry's number), the map the part ends on, vars set on the way in)
 NETWORK = [('Olivine to Canalave', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], CANALAVE, SINNOH_BEGUN),
@@ -67,7 +68,14 @@ NETWORK = [('Olivine to Canalave', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], CA
            ('Olivine, staying in port', OLIVINE, (26, 22), EAST, EARTH_BADGE, [2], OLIVINE, []),
            ('Canalave to Olivine', CANALAVE, (44, 750), EAST, EARTH_BADGE, [1], OLIVINE, SINNOH_BEGUN),
            ('Canalave to Vermilion', CANALAVE, (44, 750), EAST, EARTH_BADGE, [2], VERMILION, SINNOH_BEGUN),
-           ('Olivine before the badge', OLIVINE, (26, 22), EAST, 0, [], SHIP, [])]
+           ('Olivine before the badge', OLIVINE, (26, 22), EAST, 0, [], SHIP, []),
+           # After the first voyage, the cruise or straight to the other port (the owner's call, Nov 6, 2026); the
+           # menu: the cruise, the other port, Canalave City once Sinnoh is open, exit
+           ('Olivine straight to Vermilion', OLIVINE, (26, 22), EAST, 0, [1], VERMILION, FIRST_VOYAGE_DONE),
+           ('Vermilion straight to Olivine', VERMILION, (22, 19), EAST, 0, [1], OLIVINE, FIRST_VOYAGE_DONE),
+           ('Olivine, the cruise after the first voyage', OLIVINE, (26, 22), EAST, 0, [0], SHIP, FIRST_VOYAGE_DONE),
+           ('Vermilion to Canalave after the first voyage', VERMILION, (22, 19), EAST, EARTH_BADGE, [2], CANALAVE,
+            SINNOH_BEGUN + FIRST_VOYAGE_DONE)]
 WALK_OUT = 5  # tiles from the sailor's to the door mat, the press that takes it, and one for a prompt on the way
 LIMIT = 6000
 SYMBOLS = tuple(TALK_SYMBOLS) + ('gSovereignTestMenu', 'gCompleteTestHGSSBadges', 'sSaveDataPtr')

@@ -1842,3 +1842,9 @@ Test results on the new test build:
   frame), whatever the Pokémon's HP, so a full bar takes 0.8 s (`COMPLETE_HP_GAUGE_PIXELS_PER_FRAME`,
   `src/battle/healthbox.c`). Platinum moved it one HP per redraw above 48 HP: on build_test, a third of a Lv. 100
   Blissey's bar took about 8 s before and 16 frames now. The EXP bar is unchanged.
+- **The S.S. Aqua: the cruise or straight there** (the owner's design, Nov 6): after the first voyage, the sailor at
+  Olivine's or Vermilion's gangway asks "Where to? A cruise on the S.S. Aqua, or straight to port?": S.S. AQUA CRUISE
+  boards the ship as before, the other port's name is Platinum's boat scene and then that port's dock (where Canalave's
+  ships land), and Canalave City stays once Sinnoh is open (`CommonScript_CompleteFerry`). The ferry test's four new
+  cases pass with the twelve before (16 of 16 on build_test). The owner also scrapped the following Pokémon
+  (`docs/Roadmap.md`; issue 1 of `docs/PlaytestIssues.md`, handed to the Sovereign Platinum session).

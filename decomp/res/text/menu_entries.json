@@ -1208,6 +1208,10 @@
     {
       "id": "MenuEntries_Text_CompleteFerry_TwinleafTown",
       "en_US": "TWINLEAF TOWN"
+    },
+    {
+      "id": "MenuEntries_Text_CompleteFerry_SSAquaCruise",
+      "en_US": "S.S. AQUA CRUISE"
     }
   ]
 }

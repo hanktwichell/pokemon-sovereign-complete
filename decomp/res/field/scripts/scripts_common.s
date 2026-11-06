@@ -2301,15 +2301,23 @@ CommonScript_CompleteFlyEnd:
     End
 
 // Sovereign Complete: the ferry network (docs/Roadmap.md, "Ferry network"). At Olivine's and Vermilion's gangways,
-// once the way to Sinnoh is open, the sailor asks where to: the S.S. Aqua's port (its menu entry in VAR_0x8004) or
-// Canalave City. VAR_RESULT: TRUE, the S.S. Aqua (the port's own script boards it); FALSE, the ship left for Canalave
-// City or the player stays.
+// once the S.S. Aqua's first voyage is done (VAR_HGSS_SCENE_SS_AQUA 7) or the way to Sinnoh is open, the sailor asks
+// where to: the S.S. Aqua's cruise, straight to its other port (its menu entry in VAR_0x8004) after the first voyage
+// (the owner's call, Nov 6, 2026: the slow ship to battle on, or the sailing scene and there), or Canalave City.
+// VAR_RESULT: TRUE, the cruise (the port's own script boards it); FALSE, the ship left or the player stays.
 CommonScript_CompleteFerry:
     Call CommonScript_CompleteFerryCheckSinnoh
-    GoToIfEq VAR_RESULT, FALSE, CommonScript_CompleteFerryAqua
+    SetVar VAR_0x8005, VAR_RESULT
+    GoToIfGe VAR_HGSS_SCENE_SS_AQUA, 7, CommonScript_CompleteFerryMenu
+    GoToIfEq VAR_0x8005, FALSE, CommonScript_CompleteFerryAqua
+CommonScript_CompleteFerryMenu:
     Message CommonStrings_Text_CompleteFerryWhereTo
     InitGlobalTextMenu 1, 1, 0, VAR_RESULT
-    AddMenuEntry VAR_0x8004, 0
+    AddMenuEntry MenuEntries_Text_CompleteFerry_SSAquaCruise, 0
+    GoToIfLt VAR_HGSS_SCENE_SS_AQUA, 7, CommonScript_CompleteFerryMenuSinnoh
+    AddMenuEntry VAR_0x8004, 3
+CommonScript_CompleteFerryMenuSinnoh:
+    GoToIfEq VAR_0x8005, FALSE, CommonScript_CompleteFerryMenuExit
     GoToIfEq VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE, 0, CommonScript_CompleteFerryMenuTwinleaf
     AddMenuEntry MenuEntries_Text_CompleteFerry_CanalaveCity, 1
     GoTo CommonScript_CompleteFerryMenuExit
@@ -2321,9 +2329,32 @@ CommonScript_CompleteFerryMenuExit:
     ShowMenu
     GoToIfEq VAR_RESULT, 0, CommonScript_CompleteFerryAqua
     GoToIfEq VAR_RESULT, 1, CommonScript_CompleteFerryToCanalave
+    GoToIfEq VAR_RESULT, 3, CommonScript_CompleteFerryStraight
     Message CommonStrings_Text_CompleteFerryAnotherTime
     WaitButton
     CloseMessage
+    SetVar VAR_RESULT, FALSE
+    ReturnCommonScript
+    End
+
+// Straight to the S.S. Aqua's other port: Platinum's boat scene, then its dock, where Canalave's ships land too
+CommonScript_CompleteFerryStraight:
+    GoToIfEq VAR_0x8004, MenuEntries_Text_CompleteFerry_VermilionCity, CommonScript_CompleteFerryStraightToVermilion
+    Message CommonStrings_Text_CompleteFerryStraightToOlivine
+    CloseMessage
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    SetVar VAR_HGSS_BOAT_DIRECTION, 2
+    PlayBoatCutscene BOAT_TRAVEL_DIR_EAST_TO_WEST, DIR_SOUTH, MAP_HEADER_HGSS_SS_AQUA_OLIVINE_PORT_EXTERIOR, 27, 20
+    SetVar VAR_RESULT, FALSE
+    ReturnCommonScript
+    End
+
+CommonScript_CompleteFerryStraightToVermilion:
+    Message CommonStrings_Text_CompleteFerryStraightToVermilion
+    CloseMessage
+    PlaySE SEQ_SE_DP_KAIDAN2_sseq
+    SetVar VAR_HGSS_BOAT_DIRECTION, 1
+    PlayBoatCutscene BOAT_TRAVEL_DIR_WEST_TO_EAST, DIR_SOUTH, MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR, 23, 17
     SetVar VAR_RESULT, FALSE
     ReturnCommonScript
     End
