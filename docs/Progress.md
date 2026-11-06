@@ -1811,3 +1811,10 @@ Test results on the new test build:
   converts each class's picture with `-convertTo4Bpp`, which reads it as 8-bit, so every other pixel drew. Sovereign's
   105 classes keep 8-bit PNGs; the 68 HeartGold ones are 8-bit now (the same pixels and 16 colors), and the importer
   writes them so. Will, Falkner, Koga and Youngster Joey draw right on build_test.
+- **The owner's notes from the playtest, first fixes:** the bedroom TV's comment says Rowan has returned to Sinnoh from
+  the Johto region (it said Kanto), and Mom says "Professor Elm has a gift for you" (it said "Elm"). All 68 of
+  HeartGold's trainer classes were battled on build_test after the picture fix: each draws right. The starter scene
+  passed with Chikorita and Cyndaquil, with parties of one to three, and with a nickname given (the naming screen and
+  back), so the freeze the owner saw after choosing a starter isn't reproduced yet. Two Poké Balls on Elm's table is
+  the playtest's party (the lab shows two when the party isn't empty), and "received GARCHOMP from Professor Elm" names
+  the party's lead, the starter in a real game.
