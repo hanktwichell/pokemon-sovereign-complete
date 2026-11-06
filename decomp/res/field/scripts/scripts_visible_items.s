@@ -1178,7 +1178,7 @@ VisibleItems_SolaceonRuinsRoom7_Nugget:
     End
 
 VisibleItems_SolaceonRuinsRoom7_HM05:
-    SetVar VAR_0x8008, ITEM_HM05
+    SetVar VAR_0x8008, ITEM_HM09 @ Sovereign Complete: Defog's HM09 (HM05 is Whirlpool)
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End

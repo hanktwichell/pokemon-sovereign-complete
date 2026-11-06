@@ -157,7 +157,8 @@
             "TM82",
             "TM86",
             "TM90",
-            "HM03"
+            "HM03",
+            "HM05"
         ],
         "by_tutor": [
             "MOVE_THUNDER_PUNCH",

@@ -1011,6 +1011,20 @@ The owner's call (Nov 6, 2026); link play is out of the build. In code, with the
   (`COMPLETE_TRADE_EVOLUTION_LEVEL`). Sacred Gold's Covenant Orb still evolves them at any level.
 Test: `tools/complete/test_trade_evolutions.py` (each item and a Rare Candy used from the bag through the menus).
 
+## The HMs
+
+The owner's call (Nov 6, 2026), with `tools/complete/hm_moves.py` for the data:
+- **HM05 is Whirlpool,** as in HeartGold (Lance gives it after the Rocket Hideout): HeartGold's description, the Water
+  colours, and HeartGold's own list of who learns it for its 493 species; for the later species and the forms, each
+  one that learns Surf by HM03 (or Whirlpool by level), a rule that misses none of HeartGold's list.
+- **Defog is a new HM09,** found where Platinum has its HM05 (the item ball in the Solaceon Ruins); every Pokémon that
+  learned Defog by HM05 learns it by HM09. It's the last item, so no item's number moves (saves keep their bags); its
+  machine number is the one after HM08's (`COMPLETE_HM09_NUMBER`: `Item_MoveForTMHM`, `Item_TMHMNumber`,
+  `Item_IsHMMove`, the bag's HM number, the Day Care's father's moves, speciesproc's "HM09").
+- **HM moves can be forgotten** like any other, without the Move Deleter: Sovereign's own rule
+  (`SOVEREIGN_HMS_FORGETTABLE`). A field move works from the bag's HM with no Pokémon knowing it (Sovereign's), so
+  Whirlpool needs HM05 in the bag and Defog HM09.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

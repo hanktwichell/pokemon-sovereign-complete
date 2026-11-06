@@ -13,7 +13,10 @@ work.
 - `decomp/`, `tools/`, `data/`, `assets/`, `CITATIONS.md`: Sovereign Platinum's engine, copied at the commit in
   `SOVEREIGN_COMMIT`. Bring in Sovereign's later changes with `tools/complete/sync_sovereign.sh`, never by copying
   files by hand. Keep Sovereign Complete's own changes to these files small and mark them with a
-  `Sovereign Complete:` comment, so syncs stay clean.
+  `Sovereign Complete:` comment, so syncs stay clean. Sovereign's JSON data can't hold a comment: Complete's edits
+  there are made by a script that is their record (`tools/complete/trade_evolutions.py` for the trade items' field
+  use, `tools/complete/hm_moves.py` for HM05 Whirlpool, HM09 Defog and the species' HM lists); rerun it if a sync
+  clashes on those lines.
 - `tools/complete/`: Sovereign Complete's own tools. A sync never touches them.
 - `decomp/res/sound/complete/`: the sound archive the build uses, made from Sovereign's (`res/sound/`) by
   `tools/complete/split_sound_basic.py`, with HeartGold's songs from `tools/complete/import_hgss_sound.py` (run it

@@ -81,6 +81,10 @@
 #define NUM_HMS   (LAST_HM_IDX - FIRST_HM_IDX + 1)
 #define NUM_TMHMS (NUM_TMS + NUM_HMS)
 
+// Sovereign Complete: Defog's HM09 (tools/complete/hm_moves.py), an item after all of Sovereign's, so no item's
+// number moves: its machine number is the one after HM08's (its move is the generated sTMHMMoves' last).
+#define COMPLETE_HM09_NUMBER NUM_TMHMS
+
 #define NUM_ITEMS MAX_ITEMS - 1
 
 #define FLING_EFFECT_NONE              0

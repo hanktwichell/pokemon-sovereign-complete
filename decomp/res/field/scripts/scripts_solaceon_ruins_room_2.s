@@ -12,7 +12,7 @@ SolaceonRuinsRoom2_Hiker:
     FacePlayer
     GoToIfSet FLAG_RECEIVED_SOLACEON_RUINS_ROOM_2_GREEN_SHARD, SolaceonRuinsRoom2_IveFinallyGotDefog
     GoToIfSet FLAG_DID_NOT_LOAN_HM_DEFOG, SolaceonRuinsRoom2_AskLoanHMDefog
-    CheckItem ITEM_HM05, 1, VAR_RESULT
+    CheckItem ITEM_HM09, 1, VAR_RESULT @ Sovereign Complete: Defog's HM09
     GoToIfEq VAR_RESULT, TRUE, SolaceonRuinsRoom2_PlayerHasHMDefog
     Message SolaceonRuinsRoom2_Text_HMDefogInRuins
     WaitButton

@@ -792,6 +792,7 @@ static void SovereignTest_SetupNewGame(FieldSystem *fieldSystem)
     // HM02 (Fly) and HM05 (Defog): their field moves should show in every party Pokémon's menu.
     Bag_TryAddItem(bag, ITEM_HM02, 1, HEAP_ID_FIELD2);
     Bag_TryAddItem(bag, ITEM_HM05, 1, HEAP_ID_FIELD2);
+    Bag_TryAddItem(bag, ITEM_HM09, 1, HEAP_ID_FIELD2); // Sovereign Complete: Defog's HM09 (HM05 is Whirlpool)
 
     // A Super Repel that runs out after 3 steps, with 2 more in the bag (tests the "use another?" prompt).
     Bag_TryAddItem(bag, ITEM_SUPER_REPEL, 2, HEAP_ID_FIELD2);

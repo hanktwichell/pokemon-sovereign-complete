@@ -20,11 +20,11 @@ static const struct {
     { MOVE_FLY, ITEM_HM02 },
     { MOVE_SURF, ITEM_HM03 },
     { MOVE_STRENGTH, ITEM_HM04 },
-    { MOVE_DEFOG, ITEM_HM05 },
+    { MOVE_DEFOG, ITEM_HM09 }, // Sovereign Complete: HM09 (tools/complete/hm_moves.py)
     { MOVE_ROCK_SMASH, ITEM_HM06 },
     { MOVE_WATERFALL, ITEM_HM07 },
     { MOVE_ROCK_CLIMB, ITEM_HM08 },
-    { MOVE_WHIRLPOOL, ITEM_HM05 }, // Sovereign Complete: HeartGold's HM05, which Lance gives in Johto (as Platinum's)
+    { MOVE_WHIRLPOOL, ITEM_HM05 }, // Sovereign Complete: HeartGold's HM05, which Lance gives in Johto
 };
 
 BOOL Sovereign_BagHasHMForMove(SaveData *saveData, u16 move)

@@ -3,13 +3,13 @@
   "plural": "HM05s",
   "article": "an",
   "description": [
-    "Obstacles are moved, reducing the\n",
-    "foe’s evasion stat. It can also be\n",
-    "used to clear deep fog."
+    "Traps foes in a violent swirling\n",
+    "whirlpool. It can also be used to\n",
+    "traverse whirlpools."
   ],
   "icon": {
     "sprite": "hm_NCGR",
-    "palette": "tm_flying_NCLR"
+    "palette": "tm_water_NCLR"
   },
   "gbaID": "GBA_ITEM_HM05",
   "price": 0,
@@ -27,5 +27,5 @@
   "fieldUseFunc": "ITEM_USE_FUNC_TM_HM",
   "battleUseCategory": "BATTLE_USE_CATEGORY_NONE",
   "itemUseParams": null,
-  "teachesMove": "MOVE_DEFOG"
+  "teachesMove": "MOVE_WHIRLPOOL"
 }

@@ -63,7 +63,7 @@ u16 GetNumberDigitCount(u32 number)
 
 u16 Item_IsTMHM(u16 item)
 {
-    if (item >= ITEM_TM01 && item <= ITEM_HM08) {
+    if ((item >= ITEM_TM01 && item <= ITEM_HM08) || item == ITEM_HM09) { // Sovereign Complete: HM09
         return TRUE;
     }
 

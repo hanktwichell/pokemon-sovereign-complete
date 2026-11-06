@@ -295,6 +295,10 @@ static s32 ItemPartyParam_Get(ItemPartyParam *partyParam, enum ItemDataParam att
 
 u16 Item_MoveForTMHM(u16 item)
 {
+    if (item == ITEM_HM09) { // Sovereign Complete
+        return sTMHMMoves[COMPLETE_HM09_NUMBER];
+    }
+
     if (item < ITEM_TM01 || item > ITEM_HM08) {
         return MOVE_NONE;
     }
@@ -305,7 +309,7 @@ u16 Item_MoveForTMHM(u16 item)
 
 u8 Item_IsHMMove(u16 move)
 {
-    for (u8 i = 0; i < NUM_HMS; i++) {
+    for (u8 i = 0; i < NUM_HMS + 1; i++) { // Sovereign Complete: and HM09
         if (sTMHMMoves[NUM_TMS + i] == move) {
             return TRUE;
         }
@@ -316,6 +320,10 @@ u8 Item_IsHMMove(u16 move)
 
 u8 Item_TMHMNumber(u16 item)
 {
+    if (item == ITEM_HM09) { // Sovereign Complete
+        return COMPLETE_HM09_NUMBER;
+    }
+
     if (item < ITEM_TM01 || item > ITEM_HM08) {
         return ITEM_NONE;
     }

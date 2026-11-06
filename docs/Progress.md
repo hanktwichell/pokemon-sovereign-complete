@@ -1942,3 +1942,11 @@ Test results on the new test build:
   as Sovereign's (`include/complete_evolutions.h`; `tools/complete/trade_evolutions.py` gives the items the stones'
   field use). `tools/complete/test_trade_evolutions.py` uses each item, a Rare Candy and the Covenant Orb from the bag
   through the menus: 22 of 22 cases pass (a wrong item is refused and stays in the bag; Lv. 36 doesn't evolve).
+- **The HMs (the owner's call):** HM05 is Whirlpool, as in HeartGold (Lance's gift after the Rocket Hideout): its
+  description, the Water colours, and HeartGold's own list of who learns it for its 493 species; the later species and
+  the forms learn it if they learn Surf by HM03 (a rule that misses none of HeartGold's list). Defog is a new HM09,
+  in the Solaceon Ruins' item ball where Platinum had its HM05, and every Pokémon that learned Defog by HM05 learns it
+  by HM09 (`tools/complete/hm_moves.py`). HM09 is the last item, so no item's number moves and saves keep their bags.
+  HM moves were already forgettable (Sovereign's rule). `tools/complete/test_hms.py` teaches both from the bag through
+  the menus: 6 of 6 cases (a Pokémon that can't learn one is refused, and the HM stays in the bag); the Whirlpool
+  test still crosses Dragon's Den's whirlpool with HM05 in the bag.

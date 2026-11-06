@@ -321,7 +321,8 @@ static void ProcTMLearnset(dp_node root, SpeciesData *personal)
         bool  isTM  = marker[0] == 'T' && marker[1] == 'M';
         bool  isHM  = marker[0] == 'H' && marker[1] == 'M';
         long  value = isTM || isHM ? strtol(marker + 2, &end, 10) : 0;
-        if (value < 1 || *end != '\0' || value > (isTM ? NUM_TMS : NUM_HMS)) {
+        // Sovereign Complete: and HM09 (Defog), machine number COMPLETE_HM09_NUMBER, after HM08
+        if (value < 1 || *end != '\0' || value > (isTM ? NUM_TMS : NUM_HMS + 1)) {
             dp_error(tm, "expected entry to be a valid TM or HM marker");
             continue;
         }

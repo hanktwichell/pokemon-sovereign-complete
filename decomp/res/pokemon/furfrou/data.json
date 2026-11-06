@@ -122,7 +122,8 @@
             "TM87",
             "TM89",
             "TM90",
-            "HM03"
+            "HM03",
+            "HM05"
         ],
         "by_tutor": [
             "MOVE_SNORE",
