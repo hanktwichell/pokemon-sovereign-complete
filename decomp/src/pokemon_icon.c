@@ -11,6 +11,11 @@
 #include "res/pokemon/pl_poke_icon.naix"
 #include "res/pokemon/species_icon_palettes.h"
 
+#include "data/complete_form_icons.h" // Sovereign Complete
+
+// Sovereign Complete: a Sovereign form's icon (tools/complete/import_showdown_icons.py), after Platinum's own forms'
+#define COMPLETE_FORM_ICON(index) (ICON_ROTOM_MOW + 1 + (index))
+
 static inline u32 IconTilesIndex(u32 icon)
 {
     return icon + icon_00000_NCGR;
@@ -82,6 +87,12 @@ u32 PokeIconSpriteIndex(u32 species, u32 isEgg, u32 form)
         if (species == SPECIES_ROTOM) {
             return IconTilesIndex(ICON_ROTOM_HEAT) + form - 1;
         }
+
+        int sovereignForm = Pokemon_SovereignFormIndex(species, form); // Sovereign Complete: its own icon
+
+        if (sovereignForm >= 0) {
+            return IconTilesIndex(COMPLETE_FORM_ICON(sovereignForm));
+        }
     }
 
     if (species > NATIONAL_DEX_COUNT) {
@@ -109,7 +120,10 @@ u16 BoxPokemon_IconFormOffset(const BoxPokemon *boxMon)
         return BoxPokemon_GetValue((BoxPokemon *)boxMon, MON_DATA_FORM, NULL);
     }
 
-    return 0;
+    // Sovereign Complete: a Sovereign form has its own icon
+    u32 form = BoxPokemon_GetValue((BoxPokemon *)boxMon, MON_DATA_FORM, NULL);
+
+    return Pokemon_SovereignFormIndex(speciesOrEgg, form) >= 0 ? form : 0;
 }
 
 const u8 PokeIconPaletteIndex(u32 species, u32 form, u32 isEgg)
@@ -141,6 +155,12 @@ const u8 PokeIconPaletteIndex(u32 species, u32 form, u32 isEgg)
             species = ICON_SHAYMIN_SKY + form - 1;
         } else if (species == SPECIES_ROTOM) {
             species = ICON_ROTOM_HEAT + form - 1;
+        } else {
+            int sovereignForm = Pokemon_SovereignFormIndex(species, form); // Sovereign Complete: its own icon's
+
+            if (sovereignForm >= 0) {
+                return (sCompleteFormIconPalettes[sovereignForm / 4] >> (sovereignForm % 4 * 2)) & 3;
+            }
         }
     }
 

@@ -1071,8 +1071,12 @@ The owner's call (Nov 6, 2026), with `tools/complete/hm_moves.py` for the data:
 The owner's call (Nov 6, 2026): Showdown's icon for every Pokémon, #1 to 1025, in place of Platinum's own (#1–493) and
 the PokeAPI placeholders (#494–1025), so all of them share one style (`tools/complete/import_showdown_icons.py`). Each
 is drawn in whichever of the three shared icon palettes matches it best, so some colours shift; Showdown's icons have
-one frame, so the second frame is a one-pixel bounce (Platinum's own had a real second frame). The forms still show
-their species' icon: their own icons are next (168 of Sovereign's 227 forms are on Showdown's sheet by name).
+one frame, so the second frame is a one-pixel bounce (Platinum's own had a real second frame). Each of Sovereign's 383
+forms has its own icon too (365 from Showdown: regional forms, Megas, Totems, Pikachu's caps, Alcremie's creams...; the
+other 18, such as Pumpkaboo's sizes and Spiky-eared Pichu, have none there and show their species'). They follow
+Platinum's own forms' icons in the icon archive in Sovereign's packing order (`res/pokemon/complete_form_icons.txt`),
+found by `Pokemon_SovereignFormIndex` in `src/pokemon_icon.c`, with their palettes packed two bits each
+(`include/data/complete_form_icons.h`).
 
 ## Stand-ins
 

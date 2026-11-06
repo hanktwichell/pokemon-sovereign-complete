@@ -5419,6 +5419,14 @@ static const SovereignForm *Pokemon_FindSovereignForm(u16 species, int form)
     return NULL;
 }
 
+// Sovereign Complete: a Sovereign form's place in sSovereignForms' packing order, or -1 (its icon, src/pokemon_icon.c)
+int Pokemon_SovereignFormIndex(u16 species, int form)
+{
+    const SovereignForm *sovereignForm = form == 0 ? NULL : Pokemon_FindSovereignForm(species, form);
+
+    return sovereignForm == NULL ? -1 : sovereignForm - sSovereignForms;
+}
+
 // Sovereign (E8, FM): TRUE for a form that only lasts for the battle and reverts to the base form when it ends: Mega,
 // Primal, Crowned, Zen Mode.
 BOOL Pokemon_IsSovereignBattleForm(u16 species, int form)

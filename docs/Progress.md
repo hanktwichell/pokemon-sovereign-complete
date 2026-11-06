@@ -1972,3 +1972,8 @@ Test results on the new test build:
 - **Showdown's icons for every Pokémon (the owner's call):** #1–1025 now use Pokémon Showdown's box icons, converted
   to the DS's icons in the three shared palettes (`tools/complete/import_showdown_icons.py`): 712 changed, the rest
   were the same PokeAPI icons already. Checked in the party menu on the test build; the forms come next.
+- **The forms' own icons:** each of Sovereign's 383 forms has its own box icon now, 365 of them Showdown's (Alolan
+  Vulpix, Paldean Wooper, the Megas, Totems, Pikachu's caps...), the rest their species'. They're appended to the icon
+  archive in Sovereign's packing order, so a form's icon is found from its place in that order
+  (`Pokemon_SovereignFormIndex`), with a 96-byte palette table. Checked in the party menu with an Alolan Vulpix and a
+  Paldean Wooper leading; the boot check passes.

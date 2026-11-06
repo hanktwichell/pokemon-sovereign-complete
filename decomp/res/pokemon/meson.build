@@ -173,6 +173,9 @@ poke_icon_files += [
     rotom_fan_icon,
     rotom_mow_icon,
 ]
+# Sovereign Complete: each Sovereign form's own icon, after Platinum's own forms', in sSovereignForms' packing order
+# (tools/complete/import_showdown_icons.py writes the list; src/pokemon_icon.c finds them)
+poke_icon_files += files(fs.read('complete_form_icons.txt').strip().split('\n'))
 
 otherpoke_files = []
 num_keys = otherpoke_index.keys().length()

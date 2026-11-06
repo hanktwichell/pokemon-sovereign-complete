@@ -858,6 +858,8 @@ int Pokemon_SovereignDisguiseBustedForm(u16 species, int form);
 int Pokemon_SovereignBattleFormBase(u16 species, int form);
 int Pokemon_SovereignAbilityForm(u16 species, int form, u16 ability);
 int Pokemon_SovereignPersonalityForm(u16 species, u32 personality);
+// Sovereign Complete: a Sovereign form's place in sSovereignForms' packing order, or -1
+int Pokemon_SovereignFormIndex(u16 species, int form);
 void Pokemon_SovereignSetGenderForm(Pokemon *mon);
 void Pokemon_SovereignSetDefaultMoves(Pokemon *mon);
 BOOL Pokemon_SovereignFormChangesAbility(u16 species, int form);
