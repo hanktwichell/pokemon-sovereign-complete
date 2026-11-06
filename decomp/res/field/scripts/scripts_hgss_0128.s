@@ -140,7 +140,7 @@ scr_seq_D49R0107_001:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_712 3
+    CompletePokeathlonRecordScreen 3
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

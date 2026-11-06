@@ -110,6 +110,20 @@ static void PokeathlonProbe(SaveData *saveData, u16 add, u32 *points)
     Heap_Free(pokeathlon);
 }
 
+static void StatueProbe(SaveData *saveData, const CompleteTestSaveProbe *probe)
+{
+    CompletePokeathlonSave *pokeathlon = CompletePokeathlon_Load(saveData, HEAP_ID_FIELD2);
+
+    for (int i = 0; i < 3; i++) {
+        pokeathlon->friendshipRoomStatues[i].species = probe->statueSpecies[i];
+        pokeathlon->friendshipRoomStatues[i].form = probe->statueForm[i];
+        pokeathlon->friendshipRoomStatues[i].gender = probe->statueGender[i];
+    }
+
+    CompletePokeathlon_Store(saveData, pokeathlon);
+    Heap_Free(pokeathlon);
+}
+
 static void SaveProbe(FieldSystem *fieldSystem)
 {
     CompleteTestSaveProbe *probe = &gCompleteTestSaveProbe;
@@ -130,6 +144,9 @@ static void SaveProbe(FieldSystem *fieldSystem)
         break;
     case COMPLETE_TEST_SAVE_POKEATHLON_UNSAVED:
         PokeathlonProbe(fieldSystem->saveData, 500, &probe->athletePoints);
+        break;
+    case COMPLETE_TEST_SAVE_POKEATHLON_STATUES:
+        StatueProbe(fieldSystem->saveData, probe);
         break;
     case COMPLETE_TEST_SAVE_SAVE:
         probe->saveOK = FieldSystem_Save(fieldSystem);
