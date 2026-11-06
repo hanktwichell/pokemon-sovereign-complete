@@ -561,7 +561,7 @@ def team_html(key, stem):
     data, mons = planned_team(key, stem)
     cards, dets = zip(*(mon_card(m, i, stem) for i, m in enumerate(mons)))
     ace = max(m['level'] for m in mons)
-    empty = ''.join(f'<div class="mon empty" data-key="{stem}--{i}" data-level="{min(m["level"] for m in mons)}"></div>'
+    empty = ''.join(f'<div class="mon empty" data-empty="1" data-key="{stem}--{i}" data-level="{min(m["level"] for m in mons)}"></div>'
                     for i in range(len(mons), 6))
     return data, mons, f'''<div class="team" data-stem="{stem}">
   <div class="grid">{''.join(cards)}{empty}</div>
@@ -724,13 +724,16 @@ h2{font-size:21px;margin:34px 0 12px;letter-spacing:-.01em}
 .mon.replaced{border-color:#2f8f5b;border-style:dashed}
 .det.edited>dl,.det.edited>ul,.det.edited>.hint{opacity:.35}
 .edit-note{font-weight:600;color:var(--accent);margin-bottom:4px}
-dialog#picker{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);width:min(720px,calc(100vw - 32px));max-height:80vh;padding:14px}
+dialog#picker{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);width:min(760px,calc(100vw - 24px));height:min(86vh,820px);padding:14px;flex-direction:column;overflow:hidden}
+dialog#picker[open]{display:flex}
+#pick-n{font-size:12px;color:var(--muted);margin:-4px 0 6px}
 dialog#picker::backdrop{background:rgba(0,0,0,.4)}
 .pick-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 #pick-q{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin-bottom:10px}
-#pick-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;overflow:auto;max-height:60vh}
-.pk{font:inherit;font-size:12.5px;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:4px;cursor:pointer;display:flex;flex-direction:column;align-items:center}
-.pk:hover{background:var(--sel)}.pk img{width:64px;height:64px;image-rendering:pixelated}.pk small{color:var(--muted);font-weight:500}
+#pick-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px;overflow-y:auto;flex:1;min-height:0;align-content:start;overscroll-behavior:contain}
+.pk{font:inherit;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:4px 2px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0}
+.pk[hidden]{display:none}.pk span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pk:hover{background:var(--sel)}.pk img{width:56px;height:56px;image-rendering:pixelated}.pk small{color:var(--muted);font-weight:500}
 .chips{display:flex;gap:4px;flex-wrap:wrap;margin:-2px 0 8px}
 .chip{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--chip)}
 .chip.warn{background:#f6d7c9;color:#7a2a12}
@@ -817,20 +820,17 @@ function render() {
     if (!('orig' in el.dataset)) el.dataset.orig = el.innerHTML;
     const edit = EDITS[el.dataset.key];
     el.innerHTML = el.dataset.orig;
+    const replaced = !!edit && edit.action === 'replace';
     el.classList.toggle('removed', !!edit && edit.action === 'remove');
-    el.classList.toggle('replaced', !!edit && edit.action === 'replace');
-    if (edit && edit.action === 'replace') {
+    el.classList.toggle('replaced', replaced);
+    el.classList.toggle('empty', el.dataset.empty === '1' && !replaced);
+    if (replaced) {
+      // the same card as any other Pokemon's, with the new species
       const r = BY_CONST[edit.species];
-      const img = el.querySelector('.ms'), nm = el.querySelector('.mname');
-      if (!img) {  // an empty slot filled
-        el.innerHTML = '<div class="mtop"><img class="ms" alt=""><span class="lv"></span></div><div class="mname"></div>';
-      }
-      el.querySelector('.ms').src = r ? r[4] : '';
+      el.innerHTML = '<div class="mtop"><img class="ms" alt=""><span class="lv"></span></div><div class="mname"></div>';
+      if (r) el.querySelector('.ms').src = r[4];
       el.querySelector('.lv').textContent = 'Lv. ' + (edit.level || '');
       el.querySelector('.mname').textContent = edit.name;
-      el.querySelector('.types')?.remove();
-      el.querySelector('.mega')?.remove();
-      el.querySelector('.note')?.remove();
       if (r) el.appendChild(typeBadges(r[2]));
       const n = document.createElement('div'); n.className = 'note';
       n.textContent = el.dataset.name ? 'replaces ' + el.dataset.name : 'added';
@@ -896,25 +896,34 @@ let target = null;
 async function choose(el) {
   target = el;
   document.getElementById('pick-title').textContent = el.dataset.name ? 'Replace ' + el.dataset.name : 'Add a Pok\\u00e9mon';
-  q.value = ''; list.textContent = 'Loading\\u2026';
-  dlg.showModal(); q.focus();
+  q.value = ''; if (!built) list.textContent = 'Loading…';
+  dlg.showModal(); list.scrollTop = 0;
   try { await loadSpecies(); fill(); } catch (e) { list.textContent = 'The species list didn\\u2019t load.'; }
 }
+let built = false;
 function fill() {
+  if (!built) {
+    list.textContent = '';
+    SPECIES.forEach(r => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'pk';
+      const img = document.createElement('img'); img.src = r[4]; img.alt = ''; img.loading = 'lazy';
+      const n = document.createElement('span'); n.textContent = r[1];
+      const no = document.createElement('small'); no.textContent = '#' + r[3];
+      b.append(img, n, no, typeBadges(r[2]));
+      b.dataset.find = (r[1] + ' ' + r[3] + ' ' + r[2].join(' ')).toLowerCase();
+      b.addEventListener('click', () => pickSpecies(r));
+      list.appendChild(b);
+    });
+    built = true;
+  }
   const term = q.value.trim().toLowerCase();
-  const hits = SPECIES.filter(r => !term || r[1].toLowerCase().includes(term) || String(r[3]) === term
-    || r[2].some(t => t.toLowerCase() === term)).slice(0, 90);
-  list.textContent = '';
-  hits.forEach(r => {
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'pk';
-    const img = document.createElement('img'); img.src = r[4]; img.alt = '';
-    const n = document.createElement('span'); n.textContent = r[1];
-    const no = document.createElement('small'); no.textContent = '#' + r[3];
-    b.append(img, n, no, typeBadges(r[2]));
-    b.addEventListener('click', () => pickSpecies(r));
-    list.appendChild(b);
+  let shown = 0;
+  list.querySelectorAll('.pk').forEach(b => {
+    const hit = !term || b.dataset.find.includes(term);
+    b.hidden = !hit; if (hit) shown++;
   });
-  if (!hits.length) list.textContent = 'No match.';
+  document.getElementById('pick-n').textContent = term ? shown + ' match' + (shown === 1 ? '' : 'es')
+    : SPECIES.length + ' Pokémon, in Pokédex order';
 }
 q.addEventListener('input', fill);
 document.getElementById('pick-close').addEventListener('click', () => dlg.close());
@@ -1013,11 +1022,13 @@ def write_species_list(path):
     """Every species for the page's picker, with its name, types and sprite: species.js beside the page"""
     rows = []
     for const, number in sorted(SPECIES.items(), key=lambda kv: kv[1]):
-        if number == 0 or not os.path.exists(os.path.join(species_dir(const), 'male_front.png')):
+        front = next((os.path.join(species_dir(const), f) for f in ('male_front.png', 'female_front.png')
+                      if os.path.exists(os.path.join(species_dir(const), f))), None)  # female-only species: female_front
+        if number == 0 or not front:
             continue
         try:
             sd = species_data(const)
-            sprite = png_uri(transparent0(Image.open(os.path.join(species_dir(const), 'male_front.png'))))
+            sprite = png_uri(transparent0(Image.open(front)))
         except (OSError, KeyError, ValueError):
             continue
         rows.append([const, species_name(const), [t[len('TYPE_'):] for t in dict.fromkeys(sd['types'])], number, sprite])
@@ -1079,7 +1090,7 @@ until its type is chosen. Moves marked “Level-up moves” are the last four it
 <dialog id="picker"><div class="pick-head"><strong id="pick-title">Replace</strong>
 <button type="button" id="pick-close" class="edb">Close</button></div>
 <input id="pick-q" type="search" placeholder="Name, Pok\u00e9dex number or type" autocomplete="off">
-<div id="pick-list"></div></dialog>
+<div id="pick-n"></div><div id="pick-list"></div></dialog>
 <script>const TYPES={json.dumps(TYPE_COLOURS)};const MEGA_OPTIONS={json.dumps(mega_options())};</script><script>{JS}</script></body></html>'''
     page = dedupe_images(page)
     os.makedirs(os.path.dirname(out), exist_ok=True)
