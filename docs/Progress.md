@@ -1832,3 +1832,9 @@ Test results on the new test build:
   (VAR_HGSS_SCENE_SS_AQUA below 7; the translator's `FIRST_VOYAGE_GROUP`, written into `scripts_hgss_0154.s` too, as
   the translator needs Sacred Gold's ROM to run). Checked on build_test through Vermilion's port building (the ferry
   test warps onto the dock past it), and the ferry test passes (12 of 12).
+- **The owner's requests (Nov 6), not started:** in a double battle, when one move makes both foes faint, the EXP
+  lines after both "fainted" lines, one per Pokémon for both foes together (up to 6 lines, not 12); faster HP bar
+  animations (the gauge's step, `UpdateGauge` in `src/battle/healthbox.c`); the double battle's Poké Ball indicators
+  of each side's party don't follow which Pokémon are left. Pokéfans Georgia (5 Pokémon) and Jeremy (3) on the
+  S.S. Aqua see the player together, so they battle as one double with 8 Pokémon, as in HeartGold; the indicator has 6
+  slots a side.
