@@ -248,6 +248,13 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon begun (your answer 8)', [
+        'First piece of the Pokéathlon: its save. HeartGold keeps your Athlete Points, data cards and records with the '
+        'rest of the save; here they have save space of their own (so older saves still load), and they behave as in '
+        'HeartGold: nothing counts until you save the game. Tested: points saved survive a restart, points earned '
+        'after the last save don\'t. Next: the Dome\'s prize counters and record screens, then the course and its ten '
+        'events, one at a time.',
+    ]),
     ('Kanto\'s Pal Park levels scaled down (your request)', [
         'Kanto\'s Pal Park had Sovereign\'s post-game levels, above the land around it (Kanto\'s routes there are '
         'Lv. 22-35, its caps 61-70). It\'s now scaled so the Galarian birds are Lv. 50, as you suggested, with the '
