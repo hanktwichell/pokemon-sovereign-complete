@@ -2176,3 +2176,12 @@ Test results on the new test build:
   new-game values. Test: `tools/complete/test_pokeathlon_event_records.py` on build_test3 (Hurdle Dash's and Relay
   Run's records over the defaults through the open screen's copy, the cursor, Single and Link, Return, B and touches):
   0 problems; the release build boots.
+- **The Pokéathlon, stage 1: the trophies screen, so all four record screens:** HeartGold's `ScrCmd_712` 3 (its
+  overlay 99's fourth app, in C: `src/applications/complete_pokeathlon_records/trophies.c`), opened by the player's
+  statue in the Friendship Room: the Collective, Trust, Potential and Friendship Trophies as rows of crowns, the
+  trophies earned and their title, and on the top screen the course records', event records' and medals' points, their
+  sum and the next Friendship Trophy's goal. Medals count over all of Complete's species. Its player icon is
+  HeartGold's own, so a girl player sees Lyra there (to fix: Dawn's). Test: `tools/complete/test_pokeathlon_trophies.py`
+  on build_test3 (none on a new game, as no result reaches a goal; then 21, 6 of them Friendship Trophies, from course
+  records of 650, Hurdle Dash's 80.0 s and 12 medalists, through the screen's copy of the save; B and Return): 0
+  problems; the release build boots. The record rooms' screens are all ported now (`ScrCmd_712` 0 to 3).

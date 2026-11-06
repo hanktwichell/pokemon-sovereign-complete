@@ -1631,6 +1631,7 @@ Overlay complete_pokeathlon_records
 	Object src/applications/complete_pokeathlon_records/event_record.c
 	Object src/applications/complete_pokeathlon_records/medals.c
 	Object src/applications/complete_pokeathlon_records/records_common.c
+	Object src/applications/complete_pokeathlon_records/trophies.c
 }
 
 Overlay complete_berry_pots

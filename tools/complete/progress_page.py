@@ -81,8 +81,8 @@ STEPS = [
 
 NEXT = [
     'Now: the Pokéathlon, the last HeartGold port (its Dome works: the prize counters, the Athlete Points, the '
-    'records, the course record, medals and event record screens, the Friendship Room\'s statues; next the last '
-    'record screen, then its '
+    'records, all four record screens, the Friendship Room\'s statues; next the Pokémon\'s Pokéathlon performance, '
+    'then its '
     'courses and ten events).',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
@@ -250,6 +250,12 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon\'s trophies screen: all four record screens done', [
+        'The player\'s statue in the Friendship Room now opens HeartGold\'s trophies screen: the Collective, Trust, '
+        'Potential and Friendship Trophies as rows of crowns, the points from your course records, event records and '
+        'medals, and the title they earn ("A Rookie Pokéathlete" up to "A Pokéathlete Master"). With it, all four of '
+        'the Dome\'s record screens are in. The test gave enough records for 21 trophies (pictures on the Gallery tab).',
+    ]),
     ('The Pokéathlon\'s event record screen', [
         'The Potential Room\'s board now opens HeartGold\'s event record screen: the ten events\' panels, and for each '
         'event its five best results (HeartGold\'s own record by Chikorita, Cyndaquil and Totodile to beat) with their '

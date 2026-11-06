@@ -1277,19 +1277,26 @@ events are still to come (stages 2 and 3).
   default record by Chikorita, Cyndaquil and Totodile among them) in the event's unit (Hurdle Dash's seconds, Relay
   Run's laps, else a count), each with its three Pokémon hopping, the record's course points and the times joined.
   The Single/Link button switches modes as HeartGold's does; Link mode stays empty (no link play).
+- **The trophies screen** (HeartGold's `ScrCmd_712` 3, its overlay 99's fourth app, in C:
+  `src/applications/complete_pokeathlon_records/trophies.c`): the player's statue in the Friendship Room opens it. The
+  four trophies as rows of ten crowns (Collective: 420 and 450 points on each course; Trust: 1 to 200 medalists;
+  Potential: events whose record reaches its goal; Friendship: 3,000 to 4,500 points in all), the trophies earned and
+  the title they give ("A Rookie Pokéathlete" to "A Pokéathlete Master"); on the top screen the course records', event
+  records' and medals' points, their sum in big digits and the next Friendship Trophy's goal. B or Return closes it.
 - **The Friendship Room's statues** (HeartGold's `CreatePokeathlonFriendshipRoomStatues`,
   `CompleteScrCmd_PokeathlonStatues`): the three Pokémon of the save's friendship records stand on the room's
   pedestals as their walking sprites (their form's and gender's), made again each time the room loads.
 - **Not yet:** the courses and events (no Athlete Points, records or medals are earned yet, so the counters, the
-  record screens and the statues wait for them), HeartGold's fourth record screen (`ScrCmd_712` 3: its room fades out
-  and back for now), the Aprijuice stand and the Pokémon's performance.
+  record screens and the statues wait for them), the Aprijuice stand and the Pokémon's performance. The trophies screen
+  draws HeartGold's own boy and girl, so a girl player sees Lyra there, not Dawn.
 
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),
 `tools/complete/test_pokeathlon_records.py` (the record screen: two courses' records, pages by the D-pad and by touch,
 closed with A on Return, B and a touch), `tools/complete/test_pokeathlon_medals.py` (46 species' medals, two pages,
 the cursor, Return and B), `tools/complete/test_pokeathlon_event_records.py` (two events' records over the defaults,
-the cursor, Single and Link, Return, B and touches) and `tools/complete/test_pokeathlon_statues.py` (three statues, female and
+the cursor, Single and Link, Return, B and touches), `tools/complete/test_pokeathlon_trophies.py` (none on a new game,
+then 21 by HeartGold's rules from filled records and medals; B and Return) and `tools/complete/test_pokeathlon_statues.py` (three statues, female and
 Origin Forme sprites, none for a species without a walking sprite).
 
 ## Stand-ins

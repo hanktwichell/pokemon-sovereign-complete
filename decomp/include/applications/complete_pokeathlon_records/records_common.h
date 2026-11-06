@@ -18,8 +18,7 @@
 // HeartGold) that its Pokéathlon record screens share, written in C on Platinum's libraries
 // (src/applications/complete_pokeathlon_records/records_common.c): a sprite system with the Pokémon icons' archive
 // open, with the Pokémon's pictures and icons drawn into sprites; a set of text windows with the screen's messages and
-// the species' names; the screens' set-up and a few sums. Ported so far: what the course record, medals and event
-// record screens call.
+// the species' names; the screens' set-up and a few sums. Ported: what the four screens call.
 
 // HeartGold's ov98_0221E5E0's
 typedef struct PokeathlonRecordsSprites {
