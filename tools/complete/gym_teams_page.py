@@ -750,7 +750,16 @@ h2{font-size:21px;margin:34px 0 12px;letter-spacing:-.01em}
 .edit-note{font-weight:600;color:var(--accent);margin-bottom:4px}
 dialog#picker{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);width:min(760px,calc(100vw - 24px));height:min(86vh,820px);padding:14px;flex-direction:column;overflow:hidden}
 dialog#picker[open]{display:flex}
-#pick-n{font-size:12px;color:var(--muted);margin:-4px 0 6px}
+#pick-n{font-size:12px;color:var(--muted);margin:0 0 6px}
+.pick-tools{display:flex;gap:8px;align-items:flex-start;margin:-2px 0 8px}
+#pick-types{display:flex;flex-wrap:wrap;gap:4px;flex:1}
+.tyf{font:inherit;font-size:11px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:2px 9px;cursor:pointer}
+.tyf[data-t]:not([data-t=""]){border-color:var(--t);color:var(--t)}
+.tyf.on{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.tyf.on[data-t]:not([data-t=""]){background:var(--t);color:#fff;border-color:var(--t)}
+.pick-sort{display:flex;gap:4px;align-items:center;font-size:12px;font-weight:600;white-space:nowrap}
+.pick-sort select{font:inherit;font-size:12px;padding:2px 4px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+@media (max-width:620px){.pick-tools{flex-direction:column-reverse}#pick-types{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:2px}.tyf{flex:none}}
 dialog#picker::backdrop{background:rgba(0,0,0,.4)}
 .pick-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 #pick-q{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin-bottom:10px}
@@ -924,7 +933,36 @@ async function choose(el) {
   dlg.showModal(); list.scrollTop = 0;
   try { await loadSpecies(); fill(); } catch (e) { list.textContent = 'The species list didn\\u2019t load.'; }
 }
-let built = false;
+let built = false, typeFilter = '';
+const TYPE_ORDER = ['NORMAL', 'FIRE', 'WATER', 'ELECTRIC', 'GRASS', 'ICE', 'FIGHTING', 'POISON', 'GROUND', 'FLYING',
+  'PSYCHIC', 'BUG', 'ROCK', 'GHOST', 'DRAGON', 'DARK', 'STEEL', 'FAIRY'];
+const typeBar = document.getElementById('pick-types'), sortSel = document.getElementById('pick-sort');
+[''].concat(TYPE_ORDER).forEach(t => {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'tyf' + (t ? '' : ' on');
+  b.textContent = t ? t[0] + t.slice(1).toLowerCase() : 'All types'; b.dataset.t = t;
+  if (t) b.style.setProperty('--t', TYPES[t] || '#888');
+  b.addEventListener('click', () => {
+    typeFilter = typeFilter === t ? '' : t;
+    typeBar.querySelectorAll('.tyf').forEach(x => x.classList.toggle('on', x.dataset.t === typeFilter));
+    fill(); list.scrollTop = 0;
+  });
+  typeBar.appendChild(b);
+});
+sortSel.addEventListener('change', () => { order(); list.scrollTop = 0; });
+function order() {
+  const items = [...list.querySelectorAll('.pk')];
+  const key = sortSel.value;
+  items.sort((a, b) => {
+    if (key === 'name') return a.dataset.name.localeCompare(b.dataset.name);
+    if (key === 'type') {
+      const ta = TYPE_ORDER.indexOf(typeFilter && a.dataset.types.split(' ').includes(typeFilter) ? typeFilter : a.dataset.types.split(' ')[0]);
+      const tb = TYPE_ORDER.indexOf(typeFilter && b.dataset.types.split(' ').includes(typeFilter) ? typeFilter : b.dataset.types.split(' ')[0]);
+      if (ta !== tb) return ta - tb;
+    }
+    return a.dataset.no - b.dataset.no;
+  });
+  items.forEach(i => list.appendChild(i));
+}
 function fill() {
   if (!built) {
     list.textContent = '';
@@ -935,19 +973,22 @@ function fill() {
       const no = document.createElement('small'); no.textContent = '#' + r[3];
       b.append(img, n, no, typeBadges(r[2]));
       b.dataset.find = (r[1] + ' ' + r[3] + ' ' + r[2].join(' ')).toLowerCase();
+      b.dataset.name = r[1]; b.dataset.no = r[3]; b.dataset.types = r[2].join(' ');
       b.addEventListener('click', () => pickSpecies(r));
       list.appendChild(b);
     });
     built = true;
+    order();
   }
   const term = q.value.trim().toLowerCase();
   let shown = 0;
   list.querySelectorAll('.pk').forEach(b => {
-    const hit = !term || b.dataset.find.includes(term);
+    const hit = (!term || b.dataset.find.includes(term)) && (!typeFilter || b.dataset.types.split(' ').includes(typeFilter));
     b.hidden = !hit; if (hit) shown++;
   });
-  document.getElementById('pick-n').textContent = term ? shown + ' match' + (shown === 1 ? '' : 'es')
-    : SPECIES.length + ' Pokémon, in Pokédex order';
+  document.getElementById('pick-n').textContent = (term || typeFilter)
+    ? shown + ' match' + (shown === 1 ? '' : 'es') + (typeFilter ? ' · ' + typeFilter[0] + typeFilter.slice(1).toLowerCase() + ' type' : '')
+    : SPECIES.length + ' Pokémon';
 }
 q.addEventListener('input', fill);
 document.getElementById('pick-close').addEventListener('click', () => dlg.close());
@@ -1114,6 +1155,8 @@ until its type is chosen. Moves marked “Level-up moves” are the last four it
 <dialog id="picker"><div class="pick-head"><strong id="pick-title">Replace</strong>
 <button type="button" id="pick-close" class="edb">Close</button></div>
 <input id="pick-q" type="search" placeholder="Name, Pok\u00e9dex number or type" autocomplete="off">
+<div class="pick-tools"><div id="pick-types"></div><label class="pick-sort">Sort <select id="pick-sort">
+<option value="dex">Pok\u00e9dex number</option><option value="type">Type</option><option value="name">Name</option></select></label></div>
 <div id="pick-n"></div><div id="pick-list"></div></dialog>
 <script>const TYPES={json.dumps(TYPE_COLOURS)};const MEGA_OPTIONS={json.dumps(mega_options())};</script><script>{JS}</script></body></html>'''
     page = dedupe_images(page)
