@@ -2131,3 +2131,23 @@ Test results on the new test build:
   Totems standing at their trials were Sovereign's shrunk battle sprites; each is now its species' overworld sprite
   from pokeemerald-expansion (the DS overworld style, the Alolan Marowak and Raticate in their forms), doubled to
   64×64 so it stays large, with Sovereign's orange aura (`tools/complete/make_totem_overworld.py`; `CITATIONS.md`).
+- **The Pokéathlon, stage 1: the course record screen and the Friendship Room's statues:** HeartGold's course record
+  screen (`ScrCmd_712` 0, its overlay 99's first app, written in C from its assembly with its overlay 98's parts:
+  `src/applications/complete_pokeathlon_records/`, the overlay `complete_pokeathlon_records`; graphics from
+  `tools/complete/import_hgss_pokeathlon_records.py`, text banks 313 and 314), which the Solidarity Room's medals
+  open between the script's fades: each course's best run (the events' points, the bonus, the total), its medal with
+  the run's three Pokémon (Complete's pictures, so species past 493 show; the record keeps a species in 11 bits where
+  HeartGold has 9), the course buttons and Return, by the D-pad, A, B and the touch screen. HeartGold's `STRVAR_3`,
+  `STRVAR_4` and `STRVAR_34` now expand as string variables (`src/charcode.c`, marked; only HeartGold's text uses
+  them). The Friendship Room's statues (`CompleteScrCmd_PokeathlonStatues`): the three Pokémon of the save's
+  friendship records as their walking sprites on the pedestals. The other record screens (`ScrCmd_712` 1 to 3) come
+  next; their rooms fade out and back meanwhile. Tests on build_test2: `tools/complete/test_pokeathlon_records.py`
+  and `tools/complete/test_pokeathlon_statues.py` (through the test save probe `COMPLETE_TEST_SAVE_POKEATHLON_STATUES`),
+  0 problems each; release build and boot check pass.
+- **Correction, the Lake Verity fix (1fab6d51).** Its commit said the story run tested it; that run used a test ROM from
+  before the fix, with the lakefront's variable set in its save state, so it tested the walk on, not the fix. Tested
+  in game now: from a new game, on a test build with the fix, Verity Lakefront sets `VAR_VERITY_LAKEFRONT_STATE` as it
+  loads and Barry's trigger (80, 844) starts nothing; on the build from before, the same step starts his walk. The
+  Sinnoh story run on that older build then passed from Lake Verity to the Hall of Fame (Spear Pillar, the Distortion
+  World, Sunyshore, Volkner, the Elite Four, Cynthia). The arrival script's own setting of it waits for a Sinnoh run
+  from the opening on a new build.

@@ -81,7 +81,8 @@ STEPS = [
 
 NEXT = [
     'Now: the Pokéathlon, the last HeartGold port (its Dome works: the prize counters, the Athlete Points, the '
-    'records; next its courses and ten events), and the Sinnoh story run, now past the Distortion World.',
+    'records, the course record screen, the Friendship Room\'s statues; next the other record screens, then its '
+    'courses and ten events).',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -248,6 +249,17 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon\'s course record screen and the Friendship Room\'s statues', [
+        'The Solidarity Room\'s medals now open HeartGold\'s course record screen: each course\'s best run, its three '
+        'events\' points and bonus, the total in big digits, and its three Pokémon on the course\'s medal (Pokémon '
+        'from past HeartGold\'s 493 show too), with the D-pad and the touch screen as in HeartGold. The Friendship '
+        'Room\'s pedestals show the three Pokémon of its records. Both fill once the courses exist; the tests filled '
+        'them by hand (pictures on the Gallery tab).',
+        'The Sinnoh story test passed from Lake Verity to the Hall of Fame (Spear Pillar, the Distortion World, '
+        'Sunyshore, Volkner, the Elite Four, Cynthia). A correction: the Lake Verity fix\'s note said that run had '
+        'tested it, but the run started from a save with the fix\'s setting put in by hand; the fix is now tested on '
+        'its own, from a new game.',
+    ]),
     ('The Pokéathlon Dome\'s prize counters, points and records', [
         'The Dome\'s two prize counters now work, on Platinum\'s shop: HeartGold\'s prizes for the day (Apricorns, '
         'Moomoo Milk, evolution stones and more, by weekday, more with the National Pokédex), each once a day, and '

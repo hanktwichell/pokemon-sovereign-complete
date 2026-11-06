@@ -3,7 +3,8 @@
 CompleteScrCmd_PokeathlonStatues in src/overlay007/complete_pokeathlon_shop.c), in the test build, from the bedroom
 state: the three Pokémon of the save's friendship records stand in the room as their walking sprites, as in HeartGold.
 
-1. The player warps into the room (a new game's records are empty): no statues.
+1. The player warps into the room twice (a new game's records are empty; the first visit has the owner's welcome):
+   no statues.
 2. The test build's save probe (COMPLETE_TEST_SAVE_POKEATHLON_STATUES, include/complete_test.h) writes three records to
    the Pokéathlon's working copy: a female Pikachu, a Steelix and an Origin Forme Giratina. Back in the room, each
    stands on its spot, (4, 10), (7, 5) and (10, 10), as a map object with its local ID (0xF6 + i) and the walking
@@ -116,7 +117,10 @@ def main():
     mem.write_byte(sym['gSovereignTestClock'], 12)  # noon
     d.run(30)
 
-    # 1. Empty records
+    # 1. Empty records: the first visit plays the room's welcome (the owner walks the player in), so the empty room's
+    # picture is the second visit's
+    _, made, objects = visit('first_visit')
+    check(f'first visit: no statues (made {made[1:]}, objects {objects})', made[1:] == (0, 0, 0) and not objects)
     empty, made, objects = visit('empty')
     check(f'empty: the room asked for its statues once (ran {made[0]})', made[0] == 1)
     check(f'empty: no statues (made {made[1:]}, objects {objects})', made[1:] == (0, 0, 0) and not objects)
