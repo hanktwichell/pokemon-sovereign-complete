@@ -1848,3 +1848,9 @@ Test results on the new test build:
   ships land), and Canalave City stays once Sinnoh is open (`CommonScript_CompleteFerry`). The ferry test's four new
   cases pass with the twelve before (16 of 16 on build_test). The owner also scrapped the following Pokémon
   (`docs/Roadmap.md`; issue 1 of `docs/PlaytestIssues.md`, handed to the Sovereign Platinum session).
+- **Sacred Gold's Cresselia and Darkrai are out** (the owner's call, Nov 6): the bed in the player's room rests after
+  the Earth Badge as before it (no nightmare, so Mt. Moon's Cresselia stays hidden, and no Darkrai with the Lunar
+  Wing), and the Sinjoh Ruins' Arceus asks for Platinum's Darkrai from Newmoon Island in place of the bed's (the
+  translator's `NO_NIGHTMARE` and the D51R0201 insert, written into `scripts_hgss_0846.s` and `0131.s`). Each is met
+  once, on Sinnoh's islands after its League. On build_test the special events test's new bed cases pass (a rest, no
+  battle, Cresselia's flag left set), and so does the Sinjoh test (the circle, the cinematic, the field).

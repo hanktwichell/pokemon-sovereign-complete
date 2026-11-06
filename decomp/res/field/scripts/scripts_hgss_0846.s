@@ -43,6 +43,7 @@ scr_seq_T20R0202_002:
     CompleteFollowerPutAway
     BufferPlayerName 0
     GoToIfSet FLAG_HGSS_SG_3FC0, _00CD
+    GoTo _00CD  @ Sovereign Complete: no nightmare (Sacred Gold's Cresselia and Darkrai are out)
     Message msg_0546_T20R0202_00003
     WaitButton
     CloseMessage

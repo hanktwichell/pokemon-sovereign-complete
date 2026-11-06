@@ -542,7 +542,10 @@ _078F:
     GoToIfUnset FLAG_HGSS_SG_3FB0, _0C68
     GoToIfUnset FLAG_HGSS_SG_3FAE, _0C68
     GoToIfUnset FLAG_HGSS_SG_3F8C, _0C68
+    GoToIfUnset FLAG_CAUGHT_DARKRAI, _0C68  @ Sovereign Complete: Newmoon Island's Darkrai
+    GoTo CompleteArceusDarkrai_Done
     GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68
+CompleteArceusDarkrai_Done:
     GoToIfUnset FLAG_HGSS_SG_3FBE, _0C68
     Message msg_0146_D51R0201_00056
     BufferPlayerName 0

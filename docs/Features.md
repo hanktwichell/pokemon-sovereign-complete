@@ -797,8 +797,10 @@ and each starts its battle as the guide gives it:
   three in the party); Latios at Vermilion's plaque with the Soul Dew (Lv. 40); Groudon and Kyogre (Lv. 70) and
   Rayquaza (Lv. 75) in the Embedded Tower; Deoxys on Route 3's meteorites late at night (Lv. 60); Uxie, Mesprit and
   Azelf (Lv. 50) and Dialga, Palkia and Giratina (Lv. 70) at the Sinjoh Ruins; Heatran, out once its Magma Stone is
-  picked up (Lv. 70); Cresselia in Mt. Moon after the nightmare in the player's bed (Lv. 50); and Darkrai at the bed
-  with the Lunar Wing (Lv. 50).
+  picked up (Lv. 70). Sacred Gold's Cresselia (Mt. Moon, after a nightmare in the player's bed) and Darkrai (the bed,
+  with the Lunar Wing) are out (the owner's call, Nov 6, 2026): they're met on Sinnoh's Fullmoon and Newmoon Islands, as
+  in Platinum. The bed rests as before the Earth Badge (the translator's `NO_NIGHTMARE`), and the Sinjoh Ruins' Arceus
+  asks for the Darkrai caught on Newmoon Island (`FLAG_CAUGHT_DARKRAI`) in place of the bed's.
 - **Not before their time:** Rotom before the Plain Badge, the well without a keystone, the radio before the Earth
   Badge, the shrine and Shaymin without the flute, the meteorites by day.
 

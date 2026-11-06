@@ -392,6 +392,11 @@ FIRST_VOYAGE_GROUP = ('    SetFlag FLAG_HGSS_UNK_22B',
                        'CompleteFirstVoyage_End:'], [])
 
 
+# Sacred Gold's Cresselia and Darkrai are out (the owner's call, Nov 6, 2026: they're met on Sinnoh's islands, as in
+# Platinum). The bed in the player's room rests after the Earth Badge as before it, with no nightmare: Mt. Moon's
+# Cresselia stays hidden (only the nightmare cleared FLAG_HGSS_SG_3FBF) and the Lunar Wing brings no Darkrai there
+NO_NIGHTMARE = ('    GoToIfSet FLAG_HGSS_SG_3FC0, _00CD',
+                ["    GoTo _00CD  @ Sovereign Complete: no nightmare (Sacred Gold's Cresselia and Darkrai are out)"], [])
 def both(first, second):
     """Two inserts in one script (the second's anchor after the first's)."""
     return ('', [], [], first, second)
@@ -413,6 +418,11 @@ INSERTS = {
     'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
     'scr_seq_0107_D41R0108': MT_SILVER_RED_SCRIPT,
     'scr_seq_0368_D41R0108_hdr': MT_SILVER_RED_INIT,
+    'scr_seq_0846_T20R0202': NO_NIGHTMARE,
+    'scr_seq_0131_D51R0201': both(('<    GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68',
+                                   ['    GoToIfUnset FLAG_CAUGHT_DARKRAI, _0C68  @ Sovereign Complete: Newmoon Island\'s Darkrai',
+                                    '    GoTo CompleteArceusDarkrai_Done'], []),
+                                  ('    GoToIfUnset FLAG_HGSS_SG_3FC0, _0C68', ['CompleteArceusDarkrai_Done:'], [])),  # in place of the bed's
 }
 
 

@@ -14,7 +14,7 @@ to each question, a list menu's entry), its battle in god mode (one hit knocks t
 
 The battle is the one the test build records as a scripted wild battle starts (gCompleteTestScriptedWild, made in
 CreateWildMon_Scripted): its species, level and whether it's shiny. A case without what its script waits for must
-start none. A case can also name flags its script must leave set or clear (the nightmare shows Cresselia), and items
+start none. A case can also name flags its script must leave set or clear (the bed leaves Cresselia hidden), and items
 it must leave in the bag or take (the Lavender Town woman's Azure Flute for the Magma Stone): the steps that open the
 way to an encounter.
 
@@ -129,11 +129,12 @@ EVENTS = [
     ('Giratina', ('obj', 'events_hgss_474', 'obj_D51R0201_7'), {'flags': {'FLAG_HGSS_SG_3FCD': 1}}, [],
      ('SPECIES_GIRATINA', 70, False)),
     ('Heatran', ('obj', 'events_hgss_054', 'obj_T09_3'), {}, [], ('SPECIES_HEATRAN', 70, False)),
-    ('the nightmare (Earth Badge, no Lunar Wing)', ('coord', NEW_BARK_2F, 2, 9, None),
-     {'badges': 'EARTH', 'flags': {'FLAG_HGSS_SG_3FBF': 1}}, [], None, {'FLAG_HGSS_SG_3FBF': 0}),
-    ('Cresselia', ('obj', 'events_hgss_404', 'obj_D02R0103_1'), {}, [], ('SPECIES_CRESSELIA', 50, False)),
-    ('Darkrai (Lunar Wing)', ('coord', NEW_BARK_2F, 2, 9, None), {'badges': 'EARTH', 'items': ['ITEM_LUNAR_WING']},
-     [], ('SPECIES_DARKRAI', 50, False)),
+    # Sacred Gold's Cresselia and Darkrai are out (the owner's call, Nov 6, 2026: Sinnoh's islands keep theirs): the
+    # bed rests after the Earth Badge, Mt. Moon's Cresselia stays hidden, and the Lunar Wing brings no Darkrai
+    ('the bed after the Earth Badge: no nightmare', ('coord', NEW_BARK_2F, 2, 9, None),
+     {'badges': 'EARTH', 'flags': {'FLAG_HGSS_SG_3FBF': 1}}, [], None, {'FLAG_HGSS_SG_3FBF': 1}),
+    ('the bed with the Lunar Wing: no Darkrai', ('coord', NEW_BARK_2F, 2, 9, None),
+     {'badges': 'EARTH', 'items': ['ITEM_LUNAR_WING']}, [], None),
     ('Shaymin (Azure Flute)', ('obj', 'events_hgss_093', 'obj_D22R0101_29'), {'items': ['ITEM_AZURE_FLUTE']}, [True],
      ('SPECIES_SHAYMIN', 45, False)),
     ('Shaymin without the flute', ('obj', 'events_hgss_093', 'obj_D22R0101_29'), {}, [], None),
