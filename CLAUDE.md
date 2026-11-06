@@ -6,7 +6,8 @@ Work started on Oct 29, 2026, on the owner's go-ahead, while Pokémon Sovereign 
 ([hanktwichell/pokemon-imperial-platinum](https://github.com/hanktwichell/pokemon-imperial-platinum)) is still being
 finished. Step 1 (groundwork) is under way. The plan, estimates and decisions are in `docs/Roadmap.md`: keep it up to
 date when the owner decides something. `docs/Progress.md` is the running log: add an entry at the end of each piece of
-work.
+work. `docs/SessionLog.md` sums up each long session (done, open, handoffs); `docs/PlaytestIssues.md` is the owner's
+open playtest notes.
 
 ## Repository layout
 
