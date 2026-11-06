@@ -145,6 +145,23 @@ class Battle:
                 return b
         return 0
 
+    def pp(self, b):
+        """Battler b's PP left in each move slot."""
+        f, mem = self.fields(), self.d.emu.memory.unsigned
+        mon = self.mons() + f['size'] * b
+        return [mem[mon + f['ppCur'] + i] for i in range(4)]
+
+    def said(self):
+        """How many lines the battle has printed besides its "What will ... do?" questions."""
+        from battle_mechanics import LOG_CHARS, charmap, decode_log
+        if not hasattr(self, 'chars'):
+            self.chars, self.species_names = charmap(), names('species')
+        log, mem = self.sym['gSovereignTestMessageLog'], self.d.emu.memory.unsigned
+        length = mem[log] | mem[log + 1] << 8
+        raw = bytes(mem[log + 2:log + 2 + 2 * min(length, LOG_CHARS)])
+        lines = decode_log([raw[i] | raw[i + 1] << 8 for i in range(0, len(raw), 2)], self.chars)
+        return sum(1 for m in lines if not m.startswith('What will '))
+
     def best_double(self, b):
         """For the player's battler b in a double battle: (move slot, foe to aim at or None, the moves, the scores)."""
         moves, user = self.battler(b)
@@ -169,7 +186,11 @@ class Battle:
             else:
                 f = max(per, key=per.get) if per else None
                 best.append((per.get(f, 0), f))
-        slot = max(range(4), key=lambda i: best[i][0])
+        pp = self.pp(b)
+        tried = getattr(self, 'tried', {}).get(b, set())  # slots chosen again and again this turn: not taken
+        usable = [i for i in range(4) if moves[i] != 'MOVE_NONE' and pp[i] and i not in tried] or \
+            [i for i in range(4) if moves[i] != 'MOVE_NONE' and pp[i]] or [0]
+        slot = max(usable, key=lambda i: best[i][0])
         return slot, best[slot][1], moves, [s for s, _ in best]
 
     def battler(self, i):
@@ -268,8 +289,21 @@ class Battle:
                 screen = self.screen()
             if screen == 'moves' and self.is_double():
                 b = self.chooser()
+                self.picks = getattr(self, 'picks', {})
+                self.tried = getattr(self, 'tried', {})
+                self.last_slot = getattr(self, 'last_slot', {})
+                said = self.said()
+                if said != getattr(self, 'said_before', None):  # the battle printed something since the last choice
+                    turns += 1  # (moves used, not just "What will ... do?"): a new turn
+                    self.tried = {}
+                    self.said_before = said
+                key = (turns, b)
+                self.picks[key] = self.picks.get(key, 0) + 1
+                if self.picks[key] > 2:  # the same choice made over and over: that move isn't being taken (no PP,
+                    # Disabled, Taunted, Choice-locked): the next best
+                    self.tried.setdefault(b, set()).add(self.last_slot.get(b, -1))
                 slot, target, moves, scores = self.best_double(b)
-                turns += b == 0 or not self.hp(0)[0] or not self.species(0)
+                self.last_slot[b] = slot
                 name = self.species_names[self.species(b)][len('SPECIES_'):].title()
                 aim = self.species_names[self.species(target)][len('SPECIES_'):].title() if target else 'both foes'
                 log(f'turn {turns}: {name}: {moves[slot]} at {aim} '
