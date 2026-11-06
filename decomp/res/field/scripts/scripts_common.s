@@ -97,7 +97,7 @@
     ScriptEntry CommonScript_CompletePhoneIncomingCall @ 0x814
     ScriptEntry CommonScript_CompleteFollowerTalk @ 0x815
     ScriptEntry CommonScript_CompleteSetFriendBGM @ 0x816
-    ScriptEntry CommonScript_CompleteFly @ 0x817
+    ScriptEntry CommonScript_CompleteUnused817 @ 0x817: Sovereign Complete's Fly list and Pokégear fly map, taken out (Fly is the Town Map's); kept so the numbers after it stay
     ScriptEntry CommonScript_CompleteFerry @ 0x818
     ScriptEntry CommonScript_CompleteFerryToSinnohOpen @ 0x819
     ScriptEntry CommonScript_CompletePlaced @ 0x81A
@@ -2427,34 +2427,9 @@ CommonScript_CompleteFollowerTalkEnd:
     ReleaseAll
     End
 
-// Sovereign Complete: Fly over Johto and Kanto until the three-region Town Map (src/field_move_tasks.c): HeartGold's
-// fly map on the Pokégear's Map (the places reached, to pick from), or with the Pokétch on the bottom screen a list of
-// them; then Fly to the one chosen
-CommonScript_CompleteFly:
-    LockAll
-    CompleteStartFlyMap VAR_0x8004
-    GoToIfEq VAR_0x8004, 0xFFFD, CommonScript_CompleteFlyList
-    GoToIfEq VAR_0x8004, 0, CommonScript_CompleteFlyEnd
-    MessageInstant CommonStrings_Text_CompleteFlyWhere
-    CompleteWaitFlyMap VAR_RESULT
-    CloseMessage
-    GoToIfEq VAR_RESULT, MENU_CANCEL, CommonScript_CompleteFlyEnd
-    CompleteFlyTo VAR_RESULT
-    ReleaseAll
-    End
-
-// With the Pokétch on the bottom screen: the list of the places reached
-CommonScript_CompleteFlyList:
-    CompleteInitFlyMenu VAR_RESULT, VAR_0x8004
-    GoToIfEq VAR_0x8004, 0, CommonScript_CompleteFlyEnd
-    ShowListMenu
-    GoToIfEq VAR_RESULT, MENU_CANCEL, CommonScript_CompleteFlyEnd
-    CompleteFlyTo VAR_RESULT
-    ReleaseAll
-    End
-
-CommonScript_CompleteFlyEnd:
-    ReleaseAll
+// Sovereign Complete: a number kept for the Fly list over Johto and Kanto, taken out with the Pokégear's fly map (the
+// owner's call, Nov 6, 2026: Fly is the Town Map's)
+CommonScript_CompleteUnused817:
     End
 
 // Sovereign Complete: the ferry network (docs/Roadmap.md, "Ferry network"). At Olivine's and Vermilion's gangways,

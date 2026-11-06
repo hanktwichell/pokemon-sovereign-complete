@@ -1115,13 +1115,6 @@
       ]
     },
     {
-      "id": "CommonStrings_Text_CompleteFlyWhere",
-      "en_US": [
-        "Where do you want to fly?\n",
-        "Pick a place on the Pokégear’s map."
-      ]
-    },
-    {
       "id": "CommonStrings_Text_CompleteFerryStraightToOlivine",
       "en_US": [
         "OK! All aboard the Rapid Ferry\n",

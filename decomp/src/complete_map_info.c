@@ -180,22 +180,6 @@ BOOL CompleteMapInfo_BoulderFell(FieldSystem *fieldSystem, MapObject *boulder)
     return FALSE;
 }
 
-int CompleteMapInfo_FlyPoints(FieldSystem *fieldSystem, u8 *spawns, int max)
-{
-    int count = 0;
-
-    for (int spawn = SPAWN_HGSS_FIRST; spawn < SPAWN_HGSS_FIRST + SPAWN_HGSS_COUNT && count < max; spawn++) {
-        enum MapHeaderID mapHeaderID = GetFlyLocationMap(spawn);
-
-        if (mapHeaderID != MAP_HEADER_EVERYWHERE && mapHeaderID != fieldSystem->location->mapHeaderID
-            && CheckFlyLocationUnlocked(fieldSystem, spawn)) {
-            spawns[count++] = spawn;
-        }
-    }
-
-    return count;
-}
-
 CompleteTownMapInfo gCompleteTownMap;
 
 BOOL CompleteMapInfo_HGSSMapCell(enum MapHeaderID mapHeaderID, int tileX, int tileZ, int *x, int *y)

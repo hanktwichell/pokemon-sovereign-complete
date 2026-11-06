@@ -483,16 +483,8 @@ hang-up; docs/Music.md), with its Phone and its Map:
   so the importer makes it 16-colour without changing a pixel: five 15-colour palettes, each tile in the one its
   colours fit, and tiles that repeat (flipped or not) kept once (593 tiles). In Sinnoh it shows the place's name, with
   no head. The Pokégear comes back to the page it was on (after a battle or a map change).
-- **Fly** (no longer how Fly starts: Fly opens the Town Map of three regions, below; this stays in the code, unused):
-  HeartGold's fly map on the Map: HeartGold's red cursor
-  (its map app's, flashing between its two frames) on the place reached nearest the player, its name below, and the
-  field's message "Where do you want to fly?". The D-pad moves the cursor to the nearest place reached that way, a tap
-  on a place moves it there; A, or a tap on the place picked, flies there, and B backs out to the page the Pokégear was
-  on. The places are the list's (HeartGold's 25 Fly points reached, but the one the player is on:
-  `CompleteMapInfo_FlyPoints`); the map scrolls to keep the cursor in view; the app bar waits meanwhile. With the
-  Pokétch on the bottom screen (or before the Pokégear), Fly shows the list instead ("Stand-ins"). The field asks and
-  waits (`CompleteStartFlyMap`, `CompleteWaitFlyMap` in `CommonScript_CompleteFly`) through a request kept in the main
-  module (`CompletePokegear_GetFly`), as the Pokégear's overlay runs on its own.
+- **Fly** is the Town Map's (below); the Pokégear's fly map that stood in before was taken out (the owner's call,
+  Nov 6).
 - **The radio:** the app bar's Radio ("The Pokégear radio", below).
 - **The skins:** the app bar's Settings shows HeartGold's six skins (its configure app: blue, pink, black, wood, gold,
   teal; all six from the start, as HeartGold's code has them), with its frame around the one in use. A tap on one
@@ -508,9 +500,7 @@ Test: `tools/complete/test_hgss_pokegear.py` (the Pokégear coming up as the pla
 scrolling; the map with the head in the bedroom's place, then on Route 30's after a warp, dragging and back to the
 phone; a call ringing, answered from the Phone button, and another left to stop after 59 seconds; the second skin
 chosen on the Settings, saved and shown on the Phone, and the first back; the switch to the Pokétch and back; the
-choice kept across a warp; the Pokégear back after a battle; all 11 parts pass), and for Fly
-`tools/complete/test_hgss_fly.py` (the list without the Pokégear; with it, the fly map's cursor on Cherrygrove City from
-New Bark Town, B backing out, UP to Violet City and a tap on it flying there).
+choice kept across a warp; the Pokégear back after a battle; all 11 parts pass).
 
 ## The Pokégear radio
 
@@ -961,8 +951,8 @@ Town Map, Fly and the wall maps all open it.
 - **Fly** goes only between places in the region the player is in: in Sinnoh, Platinum's Fly points; in Johto, Johto's
   and the area between Johto and Kanto (the Indigo Plateau and Mt. Silver); in Kanto, Kanto's and that area; and from
   that area, either region's. A place Fly can't reach doesn't show as a Fly point, and A on it does nothing. Fly from
-  the party menu opens this map everywhere now; HeartGold's fly map on the Pokégear and the list of places reached
-  (`CommonScript_CompleteFly`) are no longer how Fly starts.
+  the party menu opens this map everywhere; the Pokégear's fly map and the list of places reached that stood in before
+  were taken out.
 - **The Sinjoh Ruins** (the owner's call, Nov 6): once the player has been there, they're a Fly point from anywhere in
   Sinnoh or Johto, Mt. Silver and the Indigo Plateau too (not Kanto), and from the Ruins Fly reaches Johto's points,
   that area's and Sinnoh's. It's a spawn point of Complete's after HeartGold's (`SPAWN_HGSS_SINJOH_RUINS`, landing
@@ -1229,7 +1219,7 @@ HeartGold features no one has decided to keep yet, or not ported yet, where Joht
 - **Fly over Johto and Kanto:** done by the Town Map of three regions (above). HeartGold's 25 Fly points are recorded
   as the player first arrives, as HeartGold does (`FLAG_HGSS_SYS_FLYPOINT_*`, from its spawn points:
   `src/spawn_locations.c`). The fly map on the Pokégear's Map and the list of places reached that stood in before
-  stay in the code (`CommonScript_CompleteFly`, which `tools/complete/test_hgss_fly.py` still runs), unused.
+  were taken out (the owner's call, Nov 6).
 - **The Dowsing Machine** (a key item Sacred Gold's scripts give) does nothing yet (`docs/Roadmap.md`, "Still open");
   the Pokétch's Dowsing app finds Johto's and Kanto's hidden items. The Berry Pots and the Unown Report are ported
   (above).

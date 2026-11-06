@@ -2076,5 +2076,10 @@ Test results on the new test build:
   (Platinum's Pokédex keeps no caught list), as the Ruins' scripts already count them. Tested
   (`tools/complete/test_unown_report.py`). On the way: Platinum's text renderer had no alignment codes, so every
   HeartGold text with `{ALN_CENTER}` or `{ALN_RIGHT}` (the report's cover, Voltorb Flip's hint screens, the album's)
-  printed left-aligned; `src/render_text.c` now centres or right-aligns the line as HeartGold's does (Platinum's own
-  texts never use those codes). The sprites' teardown avoids the Berry Pots' freeze from the start.
+  printed left-aligned; `src/render_text.c` now centres or right-aligns the line as HeartGold's does (of the
+  other texts, only Complete's contest level line in battle uses one, `{ALN_RIGHT}`; it now sits right-aligned). The sprites' teardown avoids the Berry Pots' freeze from the start.
+- **The Pokégear's fly map is gone (the owner's call: Fly is Platinum's):** HeartGold's fly map on the Pokégear's Map
+  page and the Fly list stand-in it replaced are taken out (the Pokégear's fly mode, its script commands and their
+  macros, the common script, which keeps its number as an empty stub, the Fly text, and their tests). Fly from the
+  party menu opens the Town Map everywhere, as before. The fly points' table the Town Map and Sinjoh tests read moved
+  to `tools/complete/hgss_fly_points.py`. The Town Map, Pokégear and Sinjoh Fly tests pass on the new build.

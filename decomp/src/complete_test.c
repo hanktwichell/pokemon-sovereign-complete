@@ -44,7 +44,6 @@ u16 gCompleteTestKeepFlagClear;
 u8 gCompleteTestOutbreakMap;
 u16 gCompleteTestLeadSpecies;
 u8 gCompleteTestHatchEggs;
-u8 gCompleteTestFly;
 u16 gCompleteTestLegend[5];
 u16 gCompleteTestMagnetTrain[8];
 u16 gCompleteTestLegendCinematic[8];
@@ -246,20 +245,10 @@ static void HatchEggs(FieldSystem *fieldSystem)
     ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, 31), NULL);
 }
 
-// tools/complete/test_hgss_fly.py: Fly's list over Johto and Kanto, as Fly from the party menu starts it there
-static void Fly(FieldSystem *fieldSystem)
-{
-    if (gCompleteTestFly) {
-        gCompleteTestFly = FALSE;
-        ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, COMPLETE_FLY_SCRIPT), NULL);
-    }
-}
-
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
     SetLeadSpecies(fieldSystem);
     HatchEggs(fieldSystem);
-    Fly(fieldSystem);
     PlaySong();
     CompleteFollower_TestRecordTile(fieldSystem);
     SaveProbe(fieldSystem);

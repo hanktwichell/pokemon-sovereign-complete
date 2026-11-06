@@ -24,7 +24,7 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'test'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from talk_to_objects import HOUR, SYMBOLS, header_names, play_out, symbols, warp  # noqa: E402
-from test_hgss_fly import fly_points, spawn_ids  # noqa: E402
+from hgss_fly_points import fly_points, spawn_ids  # noqa: E402
 from test_town_map import FLY_FRAMES, HGSS, INFO, SINNOH, SPAWN_FIRST  # noqa: E402
 
 SINJOH = 'MAP_HEADER_HGSS_SINJOH_RUINS_EXTERIOR'

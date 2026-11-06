@@ -6300,20 +6300,6 @@
     .short \destVarID
     .endm
 
-    // Fly over Johto and Kanto (the Town Map's stand-in): a list of the Fly points reached, for ShowListMenu, which
-    // puts the chosen spawn point in selectedVarID; countVarID gets how many there are.
-    .macro CompleteInitFlyMenu selectedVarID, countVarID
-    .short SCRCMD_COMPLETEINITFLYMENU
-    .short \selectedVarID
-    .short \countVarID
-    .endm
-
-    // Fly to the spawn point in spawnVarID.
-    .macro CompleteFlyTo spawnVarID
-    .short SCRCMD_COMPLETEFLYTO
-    .short \spawnVarID
-    .endm
-
     // Viridian Gym (HeartGold's ViridianGymInit): its arrow tiles light up as the player steps onto them.
     .macro CompleteViridianGymInit
     .short SCRCMD_COMPLETEVIRIDIANGYMINIT
@@ -6385,19 +6371,6 @@
     .macro CompleteTutorMovePrice move, destVar
     .short SCRCMD_COMPLETETUTORMOVEPRICE
     .short \move
-    .short \destVar
-    .endm
-
-    // Fly over Johto and Kanto on the Pokégear's map (HeartGold's fly map): countVar gets how many Fly points the
-    // player has reached (0xFFFD: no Pokégear on the bottom screen, for the list instead). CompleteWaitFlyMap has the
-    // Pokégear's Map show them to pick from and waits for the pick: its spawn point, or MENU_CANCEL.
-    .macro CompleteStartFlyMap countVar
-    .short SCRCMD_COMPLETESTARTFLYMAP
-    .short \countVar
-    .endm
-
-    .macro CompleteWaitFlyMap destVar
-    .short SCRCMD_COMPLETEWAITFLYMAP
     .short \destVar
     .endm
 

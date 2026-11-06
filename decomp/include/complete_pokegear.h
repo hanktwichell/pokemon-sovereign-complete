@@ -44,19 +44,6 @@ void CompletePokegear_SetPage(u8 page);
 u8 CompletePokegear_GetSkin(SaveData *saveData);
 void CompletePokegear_SetSkin(SaveData *saveData, u8 skin);
 
-// Fly over Johto and Kanto on the Pokégear's map (HeartGold's fly map; CompleteScrCmd_FlyMap): the field asks, the
-// Pokégear's Map shows the Fly points reached with HeartGold's cursor, and the player picks one (its spawn point) or
-// backs out. Kept here, as the field's script waits on it while the Pokégear's overlay runs.
-enum CompletePokegearFly {
-    COMPLETE_POKEGEAR_FLY_NONE = 0,
-    COMPLETE_POKEGEAR_FLY_CHOOSING, // asked: the Pokégear shows the choice
-    COMPLETE_POKEGEAR_FLY_CHOSEN,
-    COMPLETE_POKEGEAR_FLY_CANCELLED, // backed out, or nowhere to fly yet
-};
-
-enum CompletePokegearFly CompletePokegear_GetFly(u16 *spawn);
-void CompletePokegear_SetFly(enum CompletePokegearFly state, u16 spawn);
-
 // src/overlay005/complete_bottom_screen.c (the field): starts the switch when one is due
 BOOL CompleteBottomScreen_TrySwitch(FieldSystem *fieldSystem);
 

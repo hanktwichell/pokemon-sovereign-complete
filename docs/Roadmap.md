@@ -95,7 +95,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
       battle rules and learnsets. *Done Nov 6: the tutor in Elm's lab (every starter line, Gen I to IX) and the
       combinations as in Gen VI on (`docs/Features.md`, "The Pledges").*
   21. **Fly is Platinum's** (the Town Map); the Pokégear's fly map goes. *Fly already opens the Town Map everywhere
-      (Nov 5); nothing in play starts the Pokégear's fly map now, and its code is to be taken out.*
+      (Nov 5); the Pokégear's fly map and the Fly list before it were taken out on Nov 6.*
   22. The owner's playtest notes are in `docs/PlaytestIssues.md` (the playtest session).
   23. **Builds for the owner are xdelta patches** (`tools/complete/make_playtest_patch.sh`).
 - **Sinnoh's top levels (Nov 6, 2026).** With Roark's ace at Lv. 72, Cynthia's first ace is no higher than about 88

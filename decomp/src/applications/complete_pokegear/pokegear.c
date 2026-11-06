@@ -51,8 +51,6 @@
 // - the Radio (radio/radio_page.c): the globe that tunes Johto's and Kanto's stations, and their shows; its music is
 //   the field's while the page shows a station, and leaving the page turns it off.
 // - the Settings: HeartGold's six skins (its configure app), a tap on one dressing the whole Pokégear in it.
-// Fly over Johto and Kanto uses the Map as HeartGold's fly map does: HeartGold's cursor on the Fly points reached, the
-// D-pad or a tap moving it, A or a second tap flying there, B backing out (CompletePokegear_GetFly).
 // The app bar's last button switches to the Pokétch when the player has it. A call coming in rings, the Phone button
 // flashing, until the player taps it to answer.
 
@@ -77,10 +75,6 @@
 #define REPEAT_DELAY     20 // a held arrow scrolls again after this, then every REPEAT_FRAMES
 #define REPEAT_FRAMES    6
 #define RING_FLASH       16 // frames the Phone button is lit, then dimmed, while a call rings
-#define FLY_CURSOR_TILE  12 // HeartGold's map cursor, its two frames (marker.png)
-#define FLY_CURSOR_FLASH 16 // frames each of its frames shows
-#define FLY_TOUCH_RANGE  12 // a tap this near a Fly point picks it
-#define FLY_EDGE         24 // the map scrolls to keep the cursor this far in from its edges
 
 // The palette (HeartGold's phone palette 2) colours of a contact's row (HeartGold's PhoneContactListUI_DrawNameSlotBG)
 #define COLOR_ROW_GAP   11
@@ -146,14 +140,6 @@ typedef struct CompletePokegear {
     u16 appBar[4][2][32]; // HeartGold's app bar's rows: lit and dimmed
     BOOL mapCard; // the Map Card and the Radio Card (CompletePokegear_HasCard), as the app bar was last drawn
     BOOL radioCard;
-    u8 fly; // choosing where to Fly (CompletePokegear_GetFly)
-    u8 flyPage; // the page before it
-    u8 flyCount;
-    u8 flySelected;
-    u8 flyFrames;
-    u8 flySpawns[SPAWN_HGSS_COUNT]; // the Fly points reached, and where they are on the map
-    s16 flyX[SPAWN_HGSS_COUNT];
-    s16 flyY[SPAWN_HGSS_COUNT];
 } CompletePokegear;
 
 static CompletePokegear *sPokegear;
@@ -605,179 +591,6 @@ static void Scroll(CompletePokegear *gear, int by)
     DrawList(gear);
 }
 
-// Fly's pick: its name below the map, and the map scrolled to show it
-static void ShowFlyPick(CompletePokegear *gear)
-{
-    int x = gear->flyX[gear->flySelected] - gear->scrollX;
-
-    gear->mapHeaderID = GetFlyLocationMap(gear->flySpawns[gear->flySelected]);
-    DrawPlaceName(gear);
-
-    if (x < FLY_EDGE || x >= 256 - FLY_EDGE) {
-        SetMapScroll(gear, gear->flyX[gear->flySelected] - 128);
-    }
-}
-
-// HeartGold's fly map, on the Map: the Fly points reached that have a place on it (CompleteMapInfo_FlyPoints), the
-// cursor on the nearest to the player
-static void StartFly(CompletePokegear *gear)
-{
-    u8 spawns[SPAWN_HGSS_COUNT];
-    int count = CompleteMapInfo_FlyPoints(gear->fieldSystem, spawns, SPAWN_HGSS_COUNT);
-    s16 playerX = 0, playerY = 0;
-    BOOL player = PlayerMapPosition(gear, &playerX, &playerY);
-    int nearest = -1;
-
-    gear->flyCount = 0;
-
-    for (int i = 0; i < count; i++) {
-        Location location;
-        u8 n = gear->flyCount;
-
-        Location_InitFly(spawns[i], &location);
-
-        if (MapPosition(location.mapHeaderID, location.x, location.z, &gear->flyX[n], &gear->flyY[n])) {
-            int dist = (gear->flyX[n] - playerX) * (gear->flyX[n] - playerX) + (gear->flyY[n] - playerY) * (gear->flyY[n] - playerY);
-
-            if (nearest < 0 || dist < nearest) {
-                nearest = dist;
-                gear->flySelected = n;
-            }
-
-            gear->flySpawns[gear->flyCount++] = spawns[i];
-        }
-    }
-
-    if (gear->flyCount == 0) {
-        CompletePokegear_SetFly(COMPLETE_POKEGEAR_FLY_CANCELLED, 0);
-        return;
-    }
-
-    if (!player) {
-        gear->flySelected = 0;
-    }
-
-    gear->flyPage = gear->page;
-    ChangePage(gear, PAGE_MAP);
-    gear->fly = TRUE;
-    gear->flyFrames = 0;
-    ShowFlyPick(gear);
-}
-
-static void EndFly(CompletePokegear *gear, enum CompletePokegearFly result)
-{
-    Sound_PlayEffect(result == COMPLETE_POKEGEAR_FLY_CHOSEN ? SEQ_SE_GS_GEARDECIDE_sseq : SEQ_SE_GS_GEARCANCEL_sseq);
-    CompletePokegear_SetFly(result, result == COMPLETE_POKEGEAR_FLY_CHOSEN ? gear->flySpawns[gear->flySelected] : 0);
-    gear->fly = FALSE;
-    gear->mapHeaderID = gear->fieldSystem->location->mapHeaderID;
-    DrawPlaceName(gear);
-    ChangePage(gear, gear->flyPage);
-}
-
-// The D-pad moves the cursor to the nearest Fly point that way (within about 60 degrees of it), as HeartGold's does
-static void MoveFlyCursor(CompletePokegear *gear, int dx, int dy)
-{
-    int best = -1, bestDist = 0;
-
-    for (int i = 0; i < gear->flyCount; i++) {
-        int ox = gear->flyX[i] - gear->flyX[gear->flySelected];
-        int oy = gear->flyY[i] - gear->flyY[gear->flySelected];
-        int along = ox * dx + oy * dy;
-        int across = ox * dy - oy * dx;
-
-        across = across < 0 ? -across : across;
-
-        if (i == gear->flySelected || along <= 0 || across > along * 2) {
-            continue;
-        }
-
-        if (best < 0 || along + across * 2 < bestDist) {
-            best = i;
-            bestDist = along + across * 2;
-        }
-    }
-
-    if (best >= 0) {
-        gear->flySelected = best;
-        Sound_PlayEffect(SEQ_SE_GS_GEARCURSOR_sseq);
-        ShowFlyPick(gear);
-    }
-}
-
-static void RunFly(CompletePokegear *gear)
-{
-    u16 spawn;
-
-    if (CompletePokegear_GetFly(&spawn) != COMPLETE_POKEGEAR_FLY_CHOOSING) { // the field stopped asking
-        gear->fly = FALSE;
-        return;
-    }
-
-    if (gSystem.pressedKeys & PAD_BUTTON_A) {
-        EndFly(gear, COMPLETE_POKEGEAR_FLY_CHOSEN);
-    } else if (gSystem.pressedKeys & PAD_BUTTON_B) {
-        EndFly(gear, COMPLETE_POKEGEAR_FLY_CANCELLED);
-    } else if (gSystem.pressedKeys & PAD_KEY_RIGHT) {
-        MoveFlyCursor(gear, 1, 0);
-    } else if (gSystem.pressedKeys & PAD_KEY_LEFT) {
-        MoveFlyCursor(gear, -1, 0);
-    } else if (gSystem.pressedKeys & PAD_KEY_DOWN) {
-        MoveFlyCursor(gear, 0, 1);
-    } else if (gSystem.pressedKeys & PAD_KEY_UP) {
-        MoveFlyCursor(gear, 0, -1);
-    }
-}
-
-// A tap on a Fly point picks it, and a tap on the one picked flies there; elsewhere the map drags as usual
-static BOOL HandleFlyTouch(CompletePokegear *gear)
-{
-    int x = gSystem.touchX + gear->scrollX, y = gSystem.touchY;
-    int best = -1, bestDist = FLY_TOUCH_RANGE * FLY_TOUCH_RANGE + 1;
-
-    if (!gSystem.touchPressed) {
-        return FALSE;
-    }
-
-    for (int i = 0; i < gear->flyCount; i++) {
-        int dist = (gear->flyX[i] - x) * (gear->flyX[i] - x) + (gear->flyY[i] - y) * (gear->flyY[i] - y);
-
-        if (dist < bestDist) {
-            best = i;
-            bestDist = dist;
-        }
-    }
-
-    if (best < 0) {
-        return FALSE;
-    }
-
-    if (best == gear->flySelected) {
-        EndFly(gear, COMPLETE_POKEGEAR_FLY_CHOSEN);
-    } else {
-        gear->flySelected = best;
-        Sound_PlayEffect(SEQ_SE_GS_GEARMAPTOUCH_sseq);
-        ShowFlyPick(gear);
-    }
-
-    return TRUE;
-}
-
-// HeartGold's cursor on Fly's pick, flashing between its two frames, over the player's head
-static void DrawFlyCursor(CompletePokegear *gear)
-{
-    GXOamAttr oam;
-    int x = gear->flyX[gear->flySelected] - gear->scrollX - MARKER_SIZE / 2;
-    int y = gear->flyY[gear->flySelected] - MARKER_SIZE / 2;
-    int frame = (gear->flyFrames++ / FLY_CURSOR_FLASH) % 2;
-
-    if (!gear->fly || x < -MARKER_SIZE || x >= 256) {
-        return;
-    }
-
-    G2_SetOBJAttr(&oam, x & 0x1FF, y, 0, GX_OAM_MODE_NORMAL, FALSE, GX_OAM_EFFECT_NONE, GX_OAM_SHAPE_16x16, GX_OAM_COLORMODE_16, FLY_CURSOR_TILE + frame * 4, 0, 0);
-    NNS_G2dEntryOamManagerOam(RenderOam_GetScreenOam(DS_SCREEN_SUB), &oam, 1);
-}
-
 // The app bar: the Map, the Phone, and the exit button (to the Pokétch, when the player has it)
 static void HandleAppBarTouch(CompletePokegear *gear, u16 x)
 {
@@ -819,20 +632,12 @@ static void HandleTouch(CompletePokegear *gear)
     u16 x = gSystem.touchX, y = gSystem.touchY;
 
     if (gSystem.touchPressed && y >= BAR_TOP * 8) {
-        if (gear->fly) {
-            Sound_PlayEffect(SEQ_SE_DP_BEEP_sseq); // the other pages wait for Fly's pick
-        } else {
-            HandleAppBarTouch(gear, x);
-        }
-
+        HandleAppBarTouch(gear, x);
         return;
     }
 
     if (gear->page == PAGE_MAP) {
-        if (!gear->fly || !HandleFlyTouch(gear)) {
-            HandleMapTouch(gear);
-        }
-
+        HandleMapTouch(gear);
         return;
     }
 
@@ -911,19 +716,7 @@ static void CompletePokegear_Task(SysTask *task, void *data)
         return;
     }
 
-    u16 spawn;
-
-    if (!gear->fly && CompletePokegear_GetFly(&spawn) == COMPLETE_POKEGEAR_FLY_CHOOSING) {
-        StartFly(gear);
-    }
-
     HandleTouch(gear);
-
-    if (gear->fly) {
-        RunFly(gear);
-        DrawFlyCursor(gear);
-    }
-
     DrawMarker(gear);
 
     if (gear->page == PAGE_RADIO && gear->radio != NULL) {
@@ -936,9 +729,6 @@ static void CompletePokegear_Task(SysTask *task, void *data)
     gCompleteTestPokegearMap[2] = gear->marker ? gear->markerY : 0xFFFF;
     gCompleteTestPokegearMap[3] = gear->scrollX;
     gCompleteTestPokegearMap[4] = gear->skin;
-    gCompleteTestPokegearMap[5] = gear->fly ? gear->flySpawns[gear->flySelected] : 0xFFFF;
-    gCompleteTestPokegearMap[6] = gear->fly ? gear->flyX[gear->flySelected] - gear->scrollX : 0xFFFF;
-    gCompleteTestPokegearMap[7] = gear->fly ? gear->flyY[gear->flySelected] : 0xFFFF;
 #endif
 
     // a call ringing: the Phone button flashes
@@ -981,7 +771,7 @@ static void CompletePokegear_Task(SysTask *task, void *data)
             gear->markerX = x;
             gear->markerY = y;
 
-            if (!gear->fly && gear->mapHeaderID != gear->fieldSystem->location->mapHeaderID) {
+            if (gear->mapHeaderID != gear->fieldSystem->location->mapHeaderID) {
                 gear->mapHeaderID = gear->fieldSystem->location->mapHeaderID;
                 DrawPlaceName(gear);
             }

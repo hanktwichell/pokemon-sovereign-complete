@@ -82,8 +82,7 @@ STEPS = [
 NEXT = [
     'Now: HeartGold\'s ports (the album, the Berry Pots and the Unown Report are in; next the Dowsing Machine, then '
     'the Pokéathlon), and the Sinnoh story run, now past Lake Verity.',
-    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview), and taking the Pokégear\'s '
-    'old Fly map out.',
+    'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
 WAITING = [
@@ -213,10 +212,10 @@ ANSWERED = [
      'where you may choose a Sinnoh starter. The people blocking Canalave City from Jubilife City go. Sinnoh\'s HM '
      'givers give Mega Stones (confirmed): Cynthia in Eterna Garchompite Z, the Galactic Warehouse Staraptite, '
      'Celestic Town\'s elder Galladite, Riley Lucarionite, the Oreburgh Gate hiker Excadrite, Crasher Wake '
-     'Sharpedonite, Snowpoint Temple Froslassite; Defog stays as HM09.', 'Claude, planned'),
+     'Sharpedonite, Snowpoint Temple Froslassite; Defog stays as HM09.', 'Done'),
     (2, 'The ways to Kanto and Sinnoh', 'The Rapid Ferry: a fast S.S. Aqua with no passengers to battle, Vermilion or '
      'Olivine to Canalave; Canalave\'s Iron Island boat also rushes you to Olivine or Vermilion; every Rapid Ferry '
-     'trip uses the Iron Island boat\'s animation.', 'Claude, planned'),
+     'trip uses the Iron Island boat\'s animation.', 'Done'),
     (3, 'The level curve', 'Keep it. Byron\'s gym may need lower levels now that Canalave City opens first.',
      'Kept; Byron next to check'),
     (4, 'Cynthia', 'Keep her hard; a good matchup wins.', 'Done'),
@@ -225,30 +224,34 @@ ANSWERED = [
     (7, 'The photo album', 'Port it; every HeartGold feature gets ported, used or not.', 'Done'),
     (8, 'The Pokéathlon', 'Port it too.', 'Claude, planned (the biggest port)'),
     (9, 'HeartGold\'s key items', 'Port all three: the Berry Pots, the Unown Report, the Dowsing Machine.',
-     'Claude, planned'),
+     'Berry Pots and Unown Report done; the Dowsing Machine next'),
     (10, 'Trade evolutions', 'Trade items work from the bag like stones; trade evolutions with no item become level-up '
-     'evolutions.', 'Claude, planned'),
+     'evolutions.', 'Done'),
     (11, 'Whirlpool and Defog', 'Whirlpool is HM05; Defog is a new HM09 where Platinum has it; HMs can be forgotten '
-     'without the Move Deleter.', 'Claude, planned'),
+     'without the Move Deleter.', 'Done'),
     (12, 'The Town Map', 'The Cherrygrove City guide gives it; Jubilife\'s Trainers\' School gives a Mega Stone '
-     'instead. Fly to and from the Sinjoh Ruins, all over Sinnoh and Johto, once unlocked.', 'Claude, planned'),
-    (13, 'The Pal Parks', 'Regional forms: Sinnoh\'s Paldea and Hisui, Kanto\'s Alola and Galar.', 'Claude, planned'),
+     'instead. Fly to and from the Sinjoh Ruins, all over Sinnoh and Johto, once unlocked.', 'Done'),
+    (13, 'The Pal Parks', 'Regional forms: Sinnoh\'s Paldea and Hisui, Kanto\'s Alola and Galar.', 'Done'),
     (14, 'Link play', 'Later, when nothing else is left; out of the build for now.', 'Later'),
-    (15, 'Event-only encounters', 'As Sacred Gold has them.', 'Claude, planned'),
+    (15, 'Event-only encounters', 'As Sacred Gold has them.', 'Done (checked against its guide)'),
     (16, 'Following Pokémon', 'Turned off; the code stays.', 'Playtest session'),
     (17, 'A follower with no sprite', 'Moot.', 'Done'),
     (18, 'Badges on the Trainer Card', 'All 24, Johto, Kanto, Sinnoh, each in its own art; a preview for you.',
      'Claude, next'),
     (19, 'The Town Map\'s art', 'You\'ll draw new maps.', 'Yours'),
     (20, 'The Pledges', 'A tutor teaches them to the starters, with the combinations; Pokémon Champions\' rules and '
-     'learnsets.', 'Claude, planned'),
-    (21, 'The Pokégear\'s fly map', 'Fly is Platinum\'s; the Pokégear\'s fly map goes.', 'Claude, planned'),
+     'learnsets.', 'Done'),
+    (21, 'The Pokégear\'s fly map', 'Fly is Platinum\'s; the Pokégear\'s fly map goes.', 'Done'),
     (22, 'Your playthrough', 'Started; bugs go to the playtest session (docs/PlaytestIssues.md).', 'Playtest session'),
     (23, 'The game to play', 'An .xdelta patch.', 'Done (playtest session)'),
 ]
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokégear\'s fly map taken out (your answer 21)', [
+        'Fly is the Town Map\'s everywhere, so HeartGold\'s fly map on the Pokégear\'s Map page, and the list of places '
+        'that stood in before it, are gone, with their code and tests. The Town Map, Pokégear and Sinjoh Fly tests pass.',
+    ]),
     ('HeartGold\'s Unown Report (your answer 7)', [
         'The Unown Report the researchers give in the Ruins of Alph now opens (from the bag or on Y): HeartGold\'s book '
         'across both screens, its cover, the Unown you\'ve seen with their icons and words, and the researchers\' '
@@ -440,7 +443,8 @@ RECENT = [
         'to the sky, and Ho-Oh flaps down onto the roof.',
         'Fly over Johto and Kanto uses HeartGold\'s fly map on the Pokégear\'s Map instead of a list: its red cursor on '
         'the towns you\'ve reached; the D-pad or a tap moves it, A or a second tap flies there, B backs out. With the '
-        'Pokétch on the bottom screen the list is still there.',
+        'Pokétch on the bottom screen the list is still there. (Both taken out on Nov 6, your call: Fly is the Town '
+        'Map\'s.)',
         'HeartGold\'s fishing outbreaks and night fishing are in (Staryu bites on the Super Rod in Cherrygrove at '
         'night).',
     ]),

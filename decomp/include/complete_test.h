@@ -55,9 +55,6 @@ extern u16 gCompleteTestLeadSpecies;
 // starts when one is due (then FALSE).
 extern u8 gCompleteTestHatchEggs;
 
-// tools/complete/test_hgss_fly.py: when set, the next free field frame starts Fly's list over Johto and Kanto
-// (CommonScript_CompleteFly), as Fly from the party menu does there (then FALSE).
-extern u8 gCompleteTestFly;
 // The legendary cutscenes (src/overlay005/complete_legend_cutscene.c): the ops run, the last, whether a scene's camera
 // is held, and the camera's distance (in whole units) as the scene began and once it ended
 extern u16 gCompleteTestLegend[5];

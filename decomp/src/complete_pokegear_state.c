@@ -22,8 +22,6 @@ u16 gCompleteTestPokegearMap[8]; // its page, and on the Map the player's place 
                                   // skin; Fly's pick (its spawn point, 0xFFFF for none) and where its cursor is on the screen
 #endif
 static u8 sBottomScreenSwitchRequested;
-static u8 sFlyState; // enum CompletePokegearFly
-static u16 sFlySpawn;
 
 BOOL CompletePokegear_IsOwned(SaveData *saveData)
 {
@@ -123,16 +121,4 @@ u8 CompletePokegear_GetSkin(SaveData *saveData)
 void CompletePokegear_SetSkin(SaveData *saveData, u8 skin)
 {
     SaveData_GetCompletePhone(saveData)->pokegearSkin = skin < COMPLETE_POKEGEAR_SKINS ? skin : 0;
-}
-
-enum CompletePokegearFly CompletePokegear_GetFly(u16 *spawn)
-{
-    *spawn = sFlySpawn;
-    return sFlyState;
-}
-
-void CompletePokegear_SetFly(enum CompletePokegearFly state, u16 spawn)
-{
-    sFlyState = state;
-    sFlySpawn = spawn;
 }
