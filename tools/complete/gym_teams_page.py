@@ -492,7 +492,7 @@ def spread(values, empty):
     return ''.join(f'<span class="st"><b>{label}</b>{values[k]}</span>' for k, label in STATS if empty != 'ev' or values[k])
 
 
-def mon_card(m, slot):
+def mon_card(m, slot, stem=''):
     type_badges = ''.join(f'<span class="ty" style="--t:{TYPE_COLOURS.get(t, "#888")}">{t.title()}</span>' for t in m['types'])
     moves = ''.join(
         f'<li><span class="dot" style="--t:{TYPE_COLOURS.get(t, "#888")}" title="{t.title()} · {c}"></span>{esc(n)}</li>'
@@ -502,11 +502,11 @@ def mon_card(m, slot):
     old = m.get('now')
     note = (f'<div class="note">now Lv. {old["level"]}{"" if old["species"] == m["species"] else " " + esc(old["name"])}</div>'
             if old else '')
-    return f'''<div class="mon" data-slot="{slot}">
+    return f'''<div class="mon" data-slot="{slot}" data-key="{stem}--{slot}" data-name="{esc(m["name"])}">
   <div class="mtop"><img class="ms" src="{m["sprite"]}" alt="{esc(m["name"])}" loading="lazy"><span class="lv">Lv. {m["level"]}</span></div>
   <div class="mname">{esc(m["name"])}{' <span class="shiny" title="Shiny">★</span>' if m['shiny'] else ''}</div>{'<span class="mega">Mega</span>' if m['mega'] else ''}
   <div class="types">{type_badges}</div>{note}
-</div>''', f'''<div class="det">
+</div>''', f'''<div class="det" data-key="{stem}--{slot}">
   <div class="dh"><img src="{m["sprite"]}" alt=""><div><div class="dn">{esc(m["name"])} <span class="dl">Lv. {m["level"]}</span></div><div class="types">{type_badges}</div></div></div>
   <dl>
     <dt>Ability</dt><dd>{esc(m["ability"])}</dd>
@@ -559,10 +559,12 @@ def planned_team(key, stem):
 
 def team_html(key, stem):
     data, mons = planned_team(key, stem)
-    cards, dets = zip(*(mon_card(m, i) for i, m in enumerate(mons)))
+    cards, dets = zip(*(mon_card(m, i, stem) for i, m in enumerate(mons)))
     ace = max(m['level'] for m in mons)
-    return data, mons, f'''<div class="team">
-  <div class="grid">{''.join(cards)}{''.join('<div class="mon empty"></div>' for _ in range(6 - len(mons)))}</div>
+    empty = ''.join(f'<div class="mon empty" data-key="{stem}--{i}" data-level="{min(m["level"] for m in mons)}"></div>'
+                    for i in range(len(mons), 6))
+    return data, mons, f'''<div class="team" data-stem="{stem}">
+  <div class="grid">{''.join(cards)}{empty}</div>
   <div class="dets">{''.join(dets)}</div>
 </div>''', ace, data.get('double_battle')
 
@@ -661,7 +663,7 @@ h2{font-size:21px;margin:34px 0 12px;letter-spacing:-.01em}
 .mon{border:1px solid var(--line);border-radius:10px;padding:6px 6px 8px;text-align:center;cursor:pointer;min-width:0;transition:background .12s}
 .mon:hover{background:var(--chip)}
 
-.mon.empty{border-style:dashed;cursor:default;opacity:.5}.mon.empty:hover{background:none}
+.mon.empty{border-style:dashed;cursor:default}.mon.empty:hover{background:none}
 .mtop{position:relative}
 .ms{width:100%;max-width:120px;aspect-ratio:1;image-rendering:pixelated;display:block;margin:0 auto}
 .lv{position:absolute;top:0;right:0;font-size:11.5px;font-weight:700;background:var(--ink);color:var(--panel);border-radius:6px;padding:1px 6px}
@@ -669,6 +671,24 @@ h2{font-size:21px;margin:34px 0 12px;letter-spacing:-.01em}
 .types{display:flex;gap:3px;justify-content:center;flex-wrap:wrap;margin-top:2px}
 .ty{font-size:10px;font-weight:700;color:#fff;background:var(--t);padding:0 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.03em;text-shadow:0 1px 0 rgba(0,0,0,.25)}
 .shiny{color:#e0a800}
+.editbar{background:var(--chip);border-radius:10px;padding:10px 12px;font-size:13px;margin:0 0 12px}
+#edit-count{font-weight:650}#edit-status{color:var(--muted)}
+.ed{display:flex;gap:4px;justify-content:center;margin-top:6px;flex-wrap:wrap}
+.edb{font:inherit;font-size:11.5px;font-weight:600;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:2px 8px;border-radius:6px;cursor:pointer}
+.edb:hover{background:var(--sel)}.edb.rm{color:var(--accent)}.edb.add{border-style:dashed}
+.mon.empty{display:flex;align-items:center;justify-content:center;min-height:90px;opacity:1}
+.mon.removed .mtop,.mon.removed .mname,.mon.removed .types,.mon.removed .note,.mon.removed .mega{opacity:.25;filter:grayscale(1)}
+.gone{font-weight:700;color:var(--accent);font-size:12px}
+.mon.replaced{border-color:#2f8f5b;border-style:dashed}
+.det.edited>dl,.det.edited>ul,.det.edited>.hint{opacity:.35}
+.edit-note{font-weight:600;color:var(--accent);margin-bottom:4px}
+dialog#picker{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);width:min(720px,calc(100vw - 32px));max-height:80vh;padding:14px}
+dialog#picker::backdrop{background:rgba(0,0,0,.4)}
+.pick-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+#pick-q{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin-bottom:10px}
+#pick-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;overflow:auto;max-height:60vh}
+.pk{font:inherit;font-size:12.5px;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:4px;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.pk:hover{background:var(--sel)}.pk img{width:64px;height:64px;image-rendering:pixelated}.pk small{color:var(--muted);font-weight:500}
 .chips{display:flex;gap:4px;flex-wrap:wrap;margin:-2px 0 8px}
 .chip{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--chip)}
 .chip.warn{background:#f6d7c9;color:#7a2a12}
@@ -707,15 +727,194 @@ JS = '''
 document.querySelectorAll('.trainer').forEach(t=>{
   t.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
     t.querySelectorAll('.tab,.pane').forEach(e=>e.classList.toggle('on',e.dataset.k===b.dataset.k));
+    t.querySelector('.tsprite').src=b.dataset.sprite;
   }));
 });
 document.querySelectorAll('.team').forEach(team=>{
   const mons=team.querySelectorAll('.mon:not(.empty)'),dets=team.querySelectorAll('.det');
   const pick=i=>{mons.forEach((m,j)=>m.classList.toggle('sel',j===i));dets.forEach((d,j)=>d.classList.toggle('show',j===i));};
-  mons.forEach((m,i)=>m.addEventListener('click',()=>pick(i)));
+  mons.forEach((m,i)=>m.addEventListener('click',e=>{if(!e.target.closest('.ed'))pick(i);}));
   pick(0);
 });
+
+// Editing: each removal or replacement is a document in the page's shared store ("edits", one per slot),
+// which Claude reads back and puts into the game's data.
+const EDITS = {};
+let DB = null, WRITABLE = false, SPECIES = null, BY_CONST = {};
+const status = document.getElementById('edit-status');
+const say = t => { status.textContent = t; };
+
+function loadSpecies() {
+  if (SPECIES) return Promise.resolve(SPECIES);
+  return new Promise((ok, fail) => {
+    const sc = document.createElement('script');
+    sc.src = 'species.js';
+    sc.onload = () => { SPECIES = window.SPECIES_LIST; SPECIES.forEach(r => BY_CONST[r[0]] = r); ok(SPECIES); };
+    sc.onerror = () => fail(new Error('species list'));
+    document.head.appendChild(sc);
+  });
+}
+
+function typeBadges(types) {
+  const wrap = document.createElement('div');
+  wrap.className = 'types';
+  types.forEach(t => { const b = document.createElement('span'); b.className = 'ty'; b.textContent = t[0] + t.slice(1).toLowerCase();
+    b.style.setProperty('--t', TYPES[t] || '#888'); wrap.appendChild(b); });
+  return wrap;
+}
+
+function button(label, cls, fn) {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'edb ' + cls; b.textContent = label;
+  b.addEventListener('click', e => { e.stopPropagation(); fn(); });
+  return b;
+}
+
+function render() {
+  document.querySelectorAll('.mon[data-key]').forEach(el => {
+    if (!('orig' in el.dataset)) el.dataset.orig = el.innerHTML;
+    const edit = EDITS[el.dataset.key];
+    el.innerHTML = el.dataset.orig;
+    el.classList.toggle('removed', !!edit && edit.action === 'remove');
+    el.classList.toggle('replaced', !!edit && edit.action === 'replace');
+    if (edit && edit.action === 'replace') {
+      const r = BY_CONST[edit.species];
+      const img = el.querySelector('.ms'), nm = el.querySelector('.mname');
+      if (!img) {  // an empty slot filled
+        el.innerHTML = '<div class="mtop"><img class="ms" alt=""><span class="lv"></span></div><div class="mname"></div>';
+      }
+      el.querySelector('.ms').src = r ? r[4] : '';
+      el.querySelector('.lv').textContent = 'Lv. ' + (edit.level || '');
+      el.querySelector('.mname').textContent = edit.name;
+      el.querySelector('.types')?.remove();
+      el.querySelector('.mega')?.remove();
+      el.querySelector('.note')?.remove();
+      if (r) el.appendChild(typeBadges(r[2]));
+      const n = document.createElement('div'); n.className = 'note';
+      n.textContent = el.dataset.name ? 'replaces ' + el.dataset.name : 'added';
+      el.appendChild(n);
+    }
+    if (edit && edit.action === 'remove') {
+      const n = document.createElement('div'); n.className = 'gone'; n.textContent = 'Removed';
+      el.appendChild(n);
+    }
+    if (WRITABLE) {
+      const bar = document.createElement('div'); bar.className = 'ed';
+      if (edit) bar.appendChild(button('Undo', '', () => undo(el.dataset.key)));
+      else if (el.classList.contains('empty')) bar.appendChild(button('+ Add', 'add', () => choose(el)));
+      else { bar.appendChild(button('Replace', '', () => choose(el))); bar.appendChild(button('Remove', 'rm', () => remove(el))); }
+      el.appendChild(bar);
+    }
+  });
+  document.querySelectorAll('.det[data-key]').forEach(d => {
+    const edit = EDITS[d.dataset.key];
+    d.classList.toggle('edited', !!edit);
+    d.querySelector('.edit-note')?.remove();
+    if (edit) {
+      const n = document.createElement('div'); n.className = 'edit-note';
+      n.textContent = edit.action === 'remove' ? 'Removed from the team.' : edit.name + ' goes here: its set is built when the edit goes into the game.';
+      d.prepend(n);
+    }
+  });
+  const count = Object.keys(EDITS).length;
+  document.getElementById('edit-count').textContent = count ? count + (count === 1 ? ' edit saved' : ' edits saved') : 'No edits yet';
+}
+
+function slotInfo(el) {
+  const [stem, slot] = el.dataset.key.split('--');
+  const team = el.closest('.team');
+  const lv = el.querySelector('.lv');
+  const level = lv ? parseInt(lv.textContent.replace(/\\D/g, ''), 10) : parseInt(el.dataset.level, 10);
+  const trainer = el.closest('.trainer').querySelector('h3').textContent;
+  const battle = el.closest('.trainer').querySelector('.tab[data-k="' + team.closest('.pane').dataset.k + '"]').firstChild.textContent.trim();
+  return { stem, slot: parseInt(slot, 10), level, trainer, battle };
+}
+
+async function write(key, body) {
+  try {
+    if (body) await DB.collection('edits').doc(key).set(body); else await DB.collection('edits').doc(key).delete();
+    say('Saved.');
+  } catch (e) {
+    if (e && (e.code === 'invalid_argument' || e.code === 'not_granted' || e.code === 'revoked')) {
+      WRITABLE = false; say('This view can\\u2019t save edits (view-only access).'); render();
+    } else say('Couldn\\u2019t save that edit: ' + (e && e.message || e) + '. Try again.');
+  }
+}
+
+function remove(el) {
+  const info = slotInfo(el);
+  const body = Object.assign(info, { action: 'remove', was: el.dataset.name, at: new Date().toISOString() });
+  EDITS[el.dataset.key] = body; render(); write(el.dataset.key, body);
+}
+
+function undo(key) { delete EDITS[key]; render(); write(key, null); }
+
+const dlg = document.getElementById('picker'), q = document.getElementById('pick-q'), list = document.getElementById('pick-list');
+let target = null;
+async function choose(el) {
+  target = el;
+  document.getElementById('pick-title').textContent = el.dataset.name ? 'Replace ' + el.dataset.name : 'Add a Pok\\u00e9mon';
+  q.value = ''; list.textContent = 'Loading\\u2026';
+  dlg.showModal(); q.focus();
+  try { await loadSpecies(); fill(); } catch (e) { list.textContent = 'The species list didn\\u2019t load.'; }
+}
+function fill() {
+  const term = q.value.trim().toLowerCase();
+  const hits = SPECIES.filter(r => !term || r[1].toLowerCase().includes(term) || String(r[3]) === term
+    || r[2].some(t => t.toLowerCase() === term)).slice(0, 90);
+  list.textContent = '';
+  hits.forEach(r => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'pk';
+    const img = document.createElement('img'); img.src = r[4]; img.alt = '';
+    const n = document.createElement('span'); n.textContent = r[1];
+    const no = document.createElement('small'); no.textContent = '#' + r[3];
+    b.append(img, n, no, typeBadges(r[2]));
+    b.addEventListener('click', () => pickSpecies(r));
+    list.appendChild(b);
+  });
+  if (!hits.length) list.textContent = 'No match.';
+}
+q.addEventListener('input', fill);
+document.getElementById('pick-close').addEventListener('click', () => dlg.close());
+function pickSpecies(r) {
+  dlg.close();
+  const el = target, key = el.dataset.key, info = slotInfo(el);
+  const body = Object.assign(info, { action: 'replace', species: r[0], name: r[1], was: el.dataset.name || null,
+    at: new Date().toISOString() });
+  EDITS[key] = body; render(); write(key, body);
+}
+
+render();
+(async () => {
+  const timer = setTimeout(() => say('Saved edits can\\u2019t be reached yet.'), 10000);
+  const db = await claude.use('db');
+  if (!db) { clearTimeout(timer); say('Editing works on the page in claude.ai, signed in.'); return; }
+  DB = db; WRITABLE = true;
+  db.collection('edits').onSnapshot(snap => {
+    if (!snap.metadata.fromCache) { clearTimeout(timer); say(''); }
+    for (const k of Object.keys(EDITS)) delete EDITS[k];
+    snap.docs.forEach(d => { EDITS[d.id] = d.data(); });
+    const need = Object.values(EDITS).some(e => e.action === 'replace');
+    (need ? loadSpecies().catch(() => null) : Promise.resolve()).then(render);
+  }, e => { clearTimeout(timer); say('Saved edits stopped updating (' + e.code + '). Reload to see the latest.'); });
+})();
 '''
+
+
+def write_species_list(path):
+    """Every species for the page's picker, with its name, types and sprite: species.js beside the page"""
+    rows = []
+    for const, number in sorted(SPECIES.items(), key=lambda kv: kv[1]):
+        if number == 0 or not os.path.exists(os.path.join(species_dir(const), 'male_front.png')):
+            continue
+        try:
+            sd = species_data(const)
+            sprite = png_uri(transparent0(Image.open(os.path.join(species_dir(const), 'male_front.png'))))
+        except (OSError, KeyError, ValueError):
+            continue
+        rows.append([const, species_name(const), [t[len('TYPE_'):] for t in dict.fromkeys(sd['types'])], number, sprite])
+    open(path, 'w', encoding='utf-8').write('window.SPECIES_LIST=' + json.dumps(rows, separators=(',', ':')) + ';')
+    return len(rows)
 
 
 def dedupe_images(page):
@@ -758,6 +957,9 @@ new rules applied (not in the game yet): Cynthia at Lv. 95 and her first team ag
 two levels under the level cap of the moment; Gym Leaders' teams within 2 levels of the ace in Johto, 1 in Kanto, all at
 the ace's level in Sinnoh; optimal EVs, IVs and natures everywhere. A Pokémon's grey note says what it is in the game
 now. From Morty on, each character's card says which Mega they have, or that they need one. Tap a Pokémon to see its set.</p>
+<div class="editbar"><strong>Editing</strong> \u00b7 Replace or remove any Pok\u00e9mon, or add one to an empty slot.
+Your edits are saved here for Claude to put into the game; a new Pok\u00e9mon's set (moves, item, EVs) is built then.
+<span id="edit-count"></span> <span id="edit-status"></span></div>
 <nav>{nav}</nav>
 {''.join(body)}
 <footer>Built from the repository by <code>tools/complete/gym_teams_page.py</code>, with the plan in
@@ -765,9 +967,15 @@ now. From Morty on, each character's card says which Mega they have, or that the
 Trick Room team); a Pokémon with one attack or none maxes HP and its weaker defence. IVs are 31, with 0 Attack on a
 Pokémon with no physical move and 0 Speed on Trick Room's slow ones; a Pokémon with Hidden Power keeps 31s
 until its type is chosen. Moves marked “Level-up moves” are the last four it learns by its level.</footer>
-</div><script>{JS}</script></body></html>'''
+</div>
+<dialog id="picker"><div class="pick-head"><strong id="pick-title">Replace</strong>
+<button type="button" id="pick-close" class="edb">Close</button></div>
+<input id="pick-q" type="search" placeholder="Name, Pok\u00e9dex number or type" autocomplete="off">
+<div id="pick-list"></div></dialog>
+<script>const TYPES={json.dumps(TYPE_COLOURS)};</script><script>{JS}</script></body></html>'''
     page = dedupe_images(page)
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    print(write_species_list(os.path.join(os.path.dirname(out), 'species.js')), 'species')
     open(out, 'w', encoding='utf-8').write(page)
     print(out, f'{len(page) / 1e6:.2f} MB')
 
