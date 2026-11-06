@@ -1960,3 +1960,12 @@ Test results on the new test build:
   Route 202, Jubilife, the Trainers' School, the Pokétch, Route 203, Oreburgh and Roark's mine) pass.
 - **The Town Map from Cherrygrove City (the owner's call):** the Guide Gent gives it with the Map Card; Barry's parcel
   at Jubilife's Trainers' School holds Altarianite instead (Claude's pick, for the owner to confirm).
+- **No following Pokémon (the owner's call):** switched off, the code kept (`COMPLETE_FOLLOWER_ENABLED` FALSE in
+  `include/complete_follower.h`): nobody follows the player, and the scripts that move the follower carry on as with
+  the player on the bike. The new test builds' bedroom shows the player alone.
+- **Mega Stones from Sinnoh's HM givers (the owner confirmed the list):** Cynthia Garchompite Z, the Galactic
+  Warehouse Staraptite, Cynthia's grandmother Galladite, Riley Lucarionite, the Oreburgh Gate's hiker Excadrite,
+  Crasher Wake Sharpedonite, Candice Froslassite, each with a line on what the stone does; the HMs all come from Johto
+  and Kanto. Found on the way: Snowpoint's Regigigas story took HM08 in the bag as Candice's thanks, so the player's
+  own HM08 from Kanto skipped it; a flag (`FLAG_COMPLETE_REGIGIGAS_CALMED`) is the record now.
+- **The owner's note:** Sinnoh needs people where its HMs used to hold the player back (`docs/Roadmap.md`).

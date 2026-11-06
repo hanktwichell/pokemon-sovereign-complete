@@ -27,15 +27,15 @@ OreburghGate1F_Hiker:
 
 OreburghGate1F_HikerGiveHM:
     GoToIfSet FLAG_RECEIVED_HM06, OreburghGate1F_ThatHMContainsRockSmash
-    Message OreburghGate1F_Text_MakeAGiftOfThisHM
-    SetVar VAR_0x8004, ITEM_HM06
+    Message OreburghGate1F_Text_CompleteMakeAGiftOfThisStone @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
+    SetVar VAR_0x8004, ITEM_EXCADRITE
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     Call OreburghGate1F_SetFlagReceivedHM06
     GoTo OreburghGate1F_ThatHMContainsRockSmash
 
 OreburghGate1F_ThatHMContainsRockSmash:
-    Message OreburghGate1F_Text_ThatHMContainsRockSmash
+    Message OreburghGate1F_Text_CompleteThatsExcadrite
     WaitButton
     CloseMessage
     ReleaseAll
@@ -51,12 +51,12 @@ OreburghGate1F_CoordEvent_Hiker:
     ApplyMovement LOCALID_HIKER, OreburghGate1F_Movement_HikerWalkToPlayer
     ApplyMovement LOCALID_PLAYER, OreburghGate1F_Movement_PlayerFaceHiker
     WaitMovement
-    Message OreburghGate1F_Text_MakeAGiftOfThisHM
-    SetVar VAR_0x8004, ITEM_HM06
+    Message OreburghGate1F_Text_CompleteMakeAGiftOfThisStone @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
+    SetVar VAR_0x8004, ITEM_EXCADRITE
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     Call OreburghGate1F_SetFlagReceivedHM06
-    Message OreburghGate1F_Text_ThatHMContainsRockSmash
+    Message OreburghGate1F_Text_CompleteThatsExcadrite
     WaitButton
     CloseMessage
     ReleaseAll

@@ -127,13 +127,13 @@ CelesticTownCave_DefeatedCyrus:
     CallIfEq VAR_0x8004, 10, CelesticTownCave_PlayerElderFaceEachOtherX10
     CallIfEq VAR_0x8004, 11, CelesticTownCave_PlayerElderFaceEachOtherX11
     Message CelesticTownCave_Text_YouShouldTakeThis
-    SetVar VAR_0x8004, ITEM_HM03
+    SetVar VAR_0x8004, ITEM_GALLADITE @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     SetFlag FLAG_HIDE_CELESTIC_TOWN_ELDER
     ClearFlag FLAG_HIDE_CELESTIC_TOWN_NORTH_HOUSE_ELDER
     SetFlag FLAG_DUMMY_0x098D
-    Message CelesticTownCave_Text_SurfAcrossWater
+    Message CelesticTownCave_Text_CompleteGalladite
     CloseMessage
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     CallIfEq VAR_0x8004, 9, CelesticTownCave_ElderLeaveX9

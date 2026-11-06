@@ -349,6 +349,15 @@
         "I’m sorry this is so long.\n",
         "May I say one last bit?"
       ]
+    },
+    {
+      "id": "CelesticTownCave_Text_CompleteGalladite",
+      "en_US": [
+        "That stone is Galladite. A Gallade\n",
+        "holding it can Mega Evolve.\r",
+        "You’ve been a great help.\n",
+        "That’s my thanks for it.\r"
+      ]
     }
   ]
 }

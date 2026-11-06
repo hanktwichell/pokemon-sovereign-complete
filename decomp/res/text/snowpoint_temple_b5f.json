@@ -105,6 +105,17 @@
         "We’ll keep training hard so that\n",
         "we can battle with you, {STRVAR_1 3, 0, 0}!\r"
       ]
+    },
+    {
+      "id": "SnowpointTempleB5F_Text_CompleteCandiceFroslassite",
+      "en_US": [
+        "That’s Froslassite! A Froslass holding\n",
+        "it can Mega Evolve.\r",
+        "And that’s where I come in!\r",
+        "As the Snowpoint City Gym Leader,\n",
+        "I’ll be waiting inside the city’s Gym.\r",
+        "See you soon!\r"
+      ]
     }
   ]
 }

@@ -609,6 +609,10 @@ can use, isn't driven).
 
 ## Talking to the following Pokémon
 
+**Off since Nov 6, 2026** (the owner's call: no following Pokémon; `COMPLETE_FOLLOWER_ENABLED` in
+`include/complete_follower.h`). The code below stays, unused; scripts that move the follower or wait on it carry on as
+with the player on the bike.
+
 HeartGold's (its `scr_seq_0163` and the `Task_FollowMonInteract` of its overlay 2, which pret's decomp has only as
 assembly), in `src/overlay006/complete_follower_talk.c` and `CommonScript_CompleteFollowerTalk`, with HeartGold's data
 (four of its archives, packed by `tools/complete/import_hgss_follower_talk.py` into
@@ -1051,6 +1055,13 @@ The owner's call (Nov 6, 2026), with `tools/complete/hm_moves.py` for the data:
   learned Defog by HM05 learns it by HM09. It's the last item, so no item's number moves (saves keep their bags); its
   machine number is the one after HM08's (`COMPLETE_HM09_NUMBER`: `Item_MoveForTMHM`, `Item_TMHMNumber`,
   `Item_IsHMMove`, the bag's HM number, the Day Care's father's moves, speciesproc's "HM09").
+- **Sinnoh's HM givers give Mega Stones** (the owner confirmed Claude's list, Nov 6, 2026): every HM comes from Johto
+  and Kanto first, so Cynthia in Eterna City gives Garchompite Z (was HM01), the Galactic Warehouse's item ball holds
+  Staraptite (HM02), Cynthia's grandmother in Celestic Town gives Galladite (HM03), Riley on Iron Island Lucarionite
+  (HM04, before his Riolu Egg), the Oreburgh Gate's hiker Excadrite (HM06), Crasher Wake Sharpedonite (HM07) and
+  Candice in the Snowpoint Temple Froslassite (HM08); each says what the stone does. Sovereign's shops still sell them
+  all. Snowpoint's Regigigas story took HM08 in the bag as the sign that Candice had been helped, which the player's
+  own HM08 from Kanto would have skipped; `FLAG_COMPLETE_REGIGIGAS_CALMED` is that record now.
 - **HM moves can be forgotten** like any other, without the Move Deleter: Sovereign's own rule
   (`SOVEREIGN_HMS_FORGETTABLE`). A field move works from the bag's HM with no Pokémon knowing it (Sovereign's), so
   Whirlpool needs HM05 in the bag and Defog HM09.

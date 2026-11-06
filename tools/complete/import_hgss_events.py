@@ -106,8 +106,11 @@ COMPLETE_VARS = [('VAR_COMPLETE_OUTBREAKS', 0x1F5), ('VAR_COMPLETE_RIVAL_NAME', 
 # the Sky Plate is ("There appears to be something in this pile of snow..."), stands behind Red with his sprite, a
 # second Red; now that Red waits for the end of the game, it would stand there alone as him
 OBJECT_SPRITES = {(419, 'obj_D41R0108_1'): 'OBJ_EVENT_GFX_INVISIBLE'}
-# Sovereign Complete's own flags, on Sacred Gold flags its scripts never use: Red's at Mt. Silver (HIDDEN_FLAGS)
-COMPLETE_FLAGS = [('FLAG_COMPLETE_HIDE_MT_SILVER_RED', 'FLAG_HGSS_SG_3FFE')]
+# Sovereign Complete's own flags, on Sacred Gold flags its scripts never use: Red's at Mt. Silver (HIDDEN_FLAGS), and
+# Candice's thanks in the Snowpoint Temple (Sovereign's record of it was HM08 in the bag, which the player brings from
+# Kanto; res/field/scripts/scripts_snowpoint_temple_b5f.s)
+COMPLETE_FLAGS = [('FLAG_COMPLETE_HIDE_MT_SILVER_RED', 'FLAG_HGSS_SG_3FFE'),
+                  ('FLAG_COMPLETE_REGIGIGAS_CALMED', 'FLAG_HGSS_SG_3FFD')]
 # HeartGold's Apricorn tree script (its std_apricorn_tree) and the engine's (CommonScript_CompleteApricornTree,
 # res/field/scripts/scripts_common.s)
 STD_APRICORN_TREE = 2800

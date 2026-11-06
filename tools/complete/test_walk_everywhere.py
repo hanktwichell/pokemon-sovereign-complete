@@ -18,7 +18,9 @@ A screenshot of both screens every SHOT_EVERY steps goes to OUT_DIR/MAP/ for rev
 
 From the repo root, with a test build and its bedroom state (tools/test/new_game.sh):
     TEST_BUILD=build_test4 SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_walk_everywhere.py \\
-        decomp/build_test4/pokeplatinum.us.nds STATE OUT_DIR [--region hgss|sinnoh|all] [--part I/N] [MAP_HEADER ...]
+        decomp/build_test4/pokeplatinum.us.nds STATE OUT_DIR [--region hgss|sinnoh|all] [--part I/N] [--resume]
+        [MAP_HEADER ...]
+With --resume the maps already in OUT_DIR's results are kept, and only the rest are walked.
 Each map's result is a line in OUT_DIR/results.txt and an entry in OUT_DIR/results.json.
 """
 import collections
@@ -139,7 +141,11 @@ def main():
     mem = d.emu.memory
     results = {}
     results_path = os.path.join(out, f'results_{part}.json' if parts > 1 else 'results.json')
-    lines = open(os.path.join(out, f'results_{part}.txt' if parts > 1 else 'results.txt'), 'w')
+    resume = '--resume' in args  # keep the maps already walked (results.json), and walk the rest
+    if resume and os.path.exists(results_path):
+        results = json.load(open(results_path))
+        plans = [p for p in plans if p[0] not in results]
+    lines = open(os.path.join(out, f'results_{part}.txt' if parts > 1 else 'results.txt'), 'a' if resume else 'w')
 
     def say(line):
         print(line, flush=True)

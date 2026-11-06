@@ -97,6 +97,27 @@
         "Hmm...\n",
         "Do you feel like you can’t win?"
       ]
+    },
+    {
+      "id": "OreburghGate1F_Text_CompleteMakeAGiftOfThisStone",
+      "en_US": [
+        "That sparkling new Pokétch!\n",
+        "Your awkwardness as a traveler!\r",
+        "Hmm... You’re still a pretty new\n",
+        "Trainer, aren’t you?\r",
+        "But it’s all good! You’re a new fellow\n",
+        "friend of Pokémon!\r",
+        "So, let me make a gift of this Mega\n",
+        "Stone to you!\r"
+      ]
+    },
+    {
+      "id": "OreburghGate1F_Text_CompleteThatsExcadrite",
+      "en_US": [
+        "That’s Excadrite, a Mega Stone.\n",
+        "An Excadrill holding it can Mega Evolve\f",
+        "in battle. Dig deep, friend!"
+      ]
     }
   ]
 }

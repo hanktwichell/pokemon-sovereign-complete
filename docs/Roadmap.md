@@ -82,7 +82,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   14. **Link play** waits: on the to-do list for when nothing else is left, and out of the build until then.
   15. **Event-only encounters:** as Sacred Gold has them.
   16. **No following Pokémon:** the player's Pokémon no longer walk behind them (too many issues); the code stays, off,
-      in case it comes back.
+      in case it comes back. *Done Nov 6: `COMPLETE_FOLLOWER_ENABLED` (include/complete_follower.h) is FALSE.*
   17. (Moot with 16.)
   18. **The Trainer Card shows all 24 badges,** Johto's, Kanto's and Sinnoh's in that order, each in its own game's art.
       The owner wants a preview.
@@ -96,6 +96,11 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **Sinnoh's top levels (Nov 6, 2026).** With Roark's ace at Lv. 72, Cynthia's first ace is no higher than about 88
   to 90, and her rematch's 96: the level plan's points are now Sovereign's 78 → 89 and 89 → 96 (the Elite Four at 87
   to 88, their rematches 92 to 95).
+- **The owner's note (Nov 6, 2026): people where Sinnoh's HMs used to hold the player back.** The player reaches
+  Sinnoh with every HM from Johto and Kanto, and Sinnoh's HM givers now give Mega Stones, so the trees, rocks, water,
+  boulders, cliffs and waterfalls that kept Platinum's story in order no longer do. Each such place needs a person
+  (or another story block) standing in the way until the point Platinum's HM would have opened it. To do: list every
+  HM-gated way in Sinnoh against the story's order, and place them.
 - **The owner's note to remember (Nov 6, 2026): the Elite Four's rematch teams should be slightly better than their
   first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
 - **To do (the owner, Nov 6, 2026): every sprite in Sovereign Platinum ported to Sovereign Complete** (Pokémon

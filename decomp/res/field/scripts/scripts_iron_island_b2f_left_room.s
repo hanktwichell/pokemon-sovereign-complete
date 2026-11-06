@@ -193,10 +193,10 @@ IronIslandB2FLeftRoom_CoordEvent_Grunts:
     CallIfEq VAR_0x8005, 41, IronIslandB2FLeftRoom_PlayerRileyFaceEachOtherZ41
     // Sovereign (E10): Riley gives HM04 (Strength) here, as in Renegade Platinum, then his Riolu Egg as in Platinum.
     Message IronIslandB2FLeftRoom_Text_SovereignHeresAGift
-    SetVar VAR_0x8004, ITEM_HM04
+    SetVar VAR_0x8004, ITEM_LUCARIONITE @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
-    Message IronIslandB2FLeftRoom_Text_SovereignThatHMContainsStrength
+    Message IronIslandB2FLeftRoom_Text_CompleteLucarionite
     Call IronIslandB2FLeftRoom_WouldYouTakeEgg
     ScrCmd_2B6 LOCALID_RILEY, 1
     ReleaseAll

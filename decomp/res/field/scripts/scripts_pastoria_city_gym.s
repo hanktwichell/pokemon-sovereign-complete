@@ -73,14 +73,13 @@ PastoriaGym_Wake:
 
 // Sovereign (E10): HM07 (Waterfall) instead of TM55, as in Renegade Platinum (the Poffin House gives TM55).
 PastoriaGym_WakeTryGiveTM55:
-    SetVar VAR_0x8004, ITEM_HM07
+    SetVar VAR_0x8004, ITEM_SHARPEDONITE @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
     SetVar VAR_0x8005, 1
     GoToIfCannotFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT, PastoriaGym_WakeCannotGiveTM55
     Common_GiveItemQuantity
     SetFlag FLAG_RECEIVED_WAKE_TM55
     BufferItemName 0, VAR_0x8004
-    BufferTMHMMoveName 1, VAR_0x8004
-    Message PastoriaGym_Text_WakeExplainTM55
+    Message PastoriaGym_Text_CompleteWakeExplainSharpedonite
     WaitButton
     CloseMessage
     ReleaseAll

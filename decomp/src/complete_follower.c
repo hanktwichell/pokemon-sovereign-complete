@@ -175,6 +175,10 @@ int CompleteFollower_MonGfx(int species, int form, int gender, BOOL shiny)
 // The graphics the follower should have here and now, or -1 when nobody should follow
 static int WantedGfx(FieldSystem *fieldSystem)
 {
+    if (!COMPLETE_FOLLOWER_ENABLED) { // the owner's call (Nov 6, 2026): nobody follows the player
+        return -1;
+    }
+
     Pokemon *lead = Lead(fieldSystem);
     int species = lead == NULL ? SPECIES_NONE : Pokemon_GetValue(lead, MON_DATA_SPECIES, NULL);
     int gfx = lead == NULL ? -1 : CompleteFollower_MonGfx(species, Pokemon_GetValue(lead, MON_DATA_FORM, NULL), Pokemon_GetGender(lead), Pokemon_IsShiny(lead));

@@ -109,6 +109,14 @@
         "{STRVAR_1 3, 0, 0}\f",
         "{STRVAR_1 3, 1, 0}"
       ]
+    },
+    {
+      "id": "PastoriaGym_Text_CompleteWakeExplainSharpedonite",
+      "en_US": [
+        "That {STRVAR_1 8, 0, 0} is a Mega Stone.\n",
+        "A Sharpedo holding it can Mega Evolve.\r",
+        "Surf’s up with that one! Ha!"
+      ]
     }
   ]
 }

@@ -13,6 +13,8 @@ a clean Platinum (US) Rev 1 dump (`CLAUDE.md`, "Building"), so new fixes reach t
    `src/overlay006/complete_follower_talk.c`, and the translator's follower commands in Sacred Gold's scripts. The
    tests that check it (`test_follower.py`, `test_follower_talk.py`, the story test's follower checks) go too, or
    check that there's none. Record the decision in `docs/Roadmap.md` and `docs/Features.md`. Issue 4 below goes with it.
+   **Done (Nov 6, main session):** `COMPLETE_FOLLOWER_ENABLED` is FALSE (`include/complete_follower.h`): nobody follows,
+   the code stays. `test_follower.py` and `test_follower_talk.py` are retired while it's off.
 2. **The game froze after choosing a starter** in Elm's lab (on the playtest build, a party of three already). Not
    reproduced on build_test: `tools/complete/test_hgss_starter.py` passes with parties of one to three, with
    Chikorita and Cyndaquil, and with a nickname given (the naming screen and back). That test warps to the table; the

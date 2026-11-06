@@ -143,8 +143,7 @@ SnowpointCity_AceTrainerSnowF:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CheckItem ITEM_HM08, 1, VAR_RESULT
-    GoToIfEq VAR_RESULT, FALSE, SnowpointCity_AceTrainerSnowFTremors
+    GoToIfUnset FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointCity_AceTrainerSnowFTremors @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     Message SnowpointCity_Text_TownIsFreezingCold
     WaitButton
     CloseMessage
@@ -162,8 +161,7 @@ SnowpointCity_SnowpointNPCF1:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CheckItem ITEM_HM08, 1, VAR_RESULT
-    GoToIfEq VAR_RESULT, FALSE, SnowpointCity_SnowpointNPCF1Tremors
+    GoToIfUnset FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointCity_SnowpointNPCF1Tremors @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     Message SnowpointCity_Text_ScarfLooksWarm
     WaitButton
     CloseMessage
@@ -181,8 +179,7 @@ SnowpointCity_SnowpointNPCF2:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CheckItem ITEM_HM08, 1, VAR_RESULT
-    GoToIfEq VAR_RESULT, FALSE, SnowpointCity_SnowpointNPCF2Tremors
+    GoToIfUnset FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointCity_SnowpointNPCF2Tremors @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     Message SnowpointCity_Text_CandiceIsTeachingMe
     WaitButton
     CloseMessage
@@ -200,8 +197,7 @@ SnowpointCity_SnowpointNPCM:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CheckItem ITEM_HM08, 1, VAR_RESULT
-    GoToIfEq VAR_RESULT, FALSE, SnowpointCity_SovereignNPCMTremors
+    GoToIfUnset FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointCity_SovereignNPCMTremors @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     GoToIfGe VAR_SNOWPOINT_CITY_STATE, 1, SnowpointCity_PokemonDraggedCityHere
     Message SnowpointCity_Text_IWantToLookAroundTemple
     WaitButton
@@ -220,8 +216,7 @@ SnowpointCity_Sailor:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    CheckItem ITEM_HM08, 1, VAR_RESULT
-    GoToIfEq VAR_RESULT, FALSE, SnowpointCity_SailorTremors
+    GoToIfUnset FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointCity_SailorTremors @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     Message SnowpointCity_Text_NothingExceptionalHere
     WaitButton
     CloseMessage
@@ -444,8 +439,7 @@ SnowpointCity_SovereignIceMasterLost:
 @ all over.
 SnowpointCity_SovereignSetTempleVisibility:
     SetFlag FLAG_MAP_LOCAL_0x01
-    CheckItem ITEM_HM08, 1, VAR_MAP_LOCAL_0x02
-    GoToIfEq VAR_MAP_LOCAL_0x02, TRUE, SnowpointCity_SovereignTremorsOver
+    GoToIfSet FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointCity_SovereignTremorsOver @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     ClearFlag FLAG_MAP_LOCAL_0x01
     Return
 

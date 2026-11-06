@@ -443,6 +443,19 @@
         "building and take the Pokémon back?\r",
         "I must inform Commander Jupiter...\r"
       ]
+    },
+    {
+      "id": "EternaCity_Text_CompleteGarchompiteZ",
+      "en_US": [
+        "Cynthia: That’s Garchompite Z, a Mega\n",
+        "Stone. My Garchomp holds one like it.\r",
+        "A Pokémon holding its own Mega Stone\n",
+        "can Mega Evolve in battle, when its\f",
+        "Trainer has a Mega Ring.\r",
+        "Then luck be with you, young Trainer!\r",
+        "Oh, there’s one last thing!\n",
+        "Please give my regards to Prof. Rowan.\r"
+      ]
     }
   ]
 }

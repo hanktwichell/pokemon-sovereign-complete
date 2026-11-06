@@ -227,6 +227,15 @@
       "en_US": [
         "Keep on going, sweethearts!"
       ]
+    },
+    {
+      "id": "IronIslandB2FLeftRoom_Text_CompleteLucarionite",
+      "en_US": [
+        "Riley: That’s Lucarionite.\n",
+        "A Lucario holding it can Mega Evolve.\r",
+        "Lucario and I share a bond like that.\n",
+        "Maybe you’ll find one too.\r"
+      ]
     }
   ]
 }

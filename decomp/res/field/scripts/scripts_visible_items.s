@@ -2006,7 +2006,7 @@ VisibleItems_OreburghMineB1F_PokeBall:
     End
 
 VisibleItems_VeilstoneCityGalacticWarehouse_HM02:
-    SetVar VAR_0x8008, ITEM_HM02
+    SetVar VAR_0x8008, ITEM_STARAPTITE @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
     SetVar VAR_0x8009, 1
     GoTo VisibleItems_TryGiveItem
     End

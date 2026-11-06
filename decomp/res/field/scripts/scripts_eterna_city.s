@@ -241,10 +241,10 @@ EternaCity_CynthiaGiveCut:
     CallIfEq VAR_0x8005, 522, EternaCity_CynthiaWalkOnSpotEastNorth
     CallIfNe VAR_0x8005, 522, EternaCity_CynthiaWalkOnSpotEastWest
     Message EternaCity_Text_TryUsingThis
-    SetVar VAR_0x8004, ITEM_HM01
+    SetVar VAR_0x8004, ITEM_GARCHOMPITE_Z @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
-    Message EternaCity_Text_CutCanBeUsedInField
+    Message EternaCity_Text_CompleteGarchompiteZ
     CloseMessage
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     GoToIfEq VAR_0x8005, 522, EternaCity_CynthiaLeaveAfterCutZ522

@@ -81,9 +81,10 @@ SnowpointTempleB5F_BlackOut:
 @ Sovereign (E10 part 26, Renegade's Snowpoint Temple story): before the Snowpoint Gym, Regigigas is stirring, and
 @ Candice and Maylene stand before it. With the player's help they put it back to sleep, and Candice gives HM08 (Rock
 @ Climb). The HM in the bag is the record of it (an HM can't leave the bag).
+@ Sovereign Complete: Candice gives Froslassite, and FLAG_COMPLETE_REGIGIGAS_CALMED is the record (the player brings
+@ HM08 from Kanto).
 SnowpointTempleB5F_SovereignOnTransition:
-    CheckItem ITEM_HM08, 1, VAR_MAP_LOCAL_0x02
-    GoToIfEq VAR_MAP_LOCAL_0x02, FALSE, SnowpointTempleB5F_SovereignOnTransitionEnd
+    GoToIfUnset FLAG_COMPLETE_REGIGIGAS_CALMED, SnowpointTempleB5F_SovereignOnTransitionEnd @ Sovereign Complete: the record (the player brings HM08 from Kanto)
     SetFlag FLAG_MAP_LOCAL_0x01
     SetVar VAR_MAP_LOCAL_0x01, 1
 SnowpointTempleB5F_SovereignOnTransitionEnd:
@@ -130,10 +131,11 @@ SnowpointTempleB5F_SovereignCoordEvent_Candice:
     WaitMovement
     Message SnowpointTempleB5F_Text_SovereignCandiceThanks
     CloseMessage
-    SetVar VAR_0x8004, ITEM_HM08
+    SetVar VAR_0x8004, ITEM_FROSLASSITE @ Sovereign Complete: a Mega Stone in place of Sinnoh's HM (the owner's call, Nov 6, 2026; the HMs come from Johto and Kanto)
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
-    Message SnowpointTempleB5F_Text_SovereignCandiceRockClimb
+    SetFlag FLAG_COMPLETE_REGIGIGAS_CALMED
+    Message SnowpointTempleB5F_Text_CompleteCandiceFroslassite
     CloseMessage
     ApplyMovement LOCALID_PLAYER, SnowpointTempleB5F_SovereignMovement_FaceWest
     WaitMovement

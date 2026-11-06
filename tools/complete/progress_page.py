@@ -123,6 +123,9 @@ QUESTIONS = [
 
 # The owner's notes to remember (things they asked to have written down), shown on the Questions tab
 OWNER_NOTES = [
+    ('Nov 6', 'People where Sinnoh\'s HMs would have blocked the way: the player brings every HM from Johto and '
+     'Kanto, so each Cut tree, rock, water, boulder, cliff and waterfall that kept Platinum\'s story in order needs '
+     'someone standing in the way until the story gets there. On Claude\'s list: first a list of every such place.'),
     ('Nov 6', 'The Elite Four\'s rematch teams should be slightly better than their first teams (both Leagues). '
      'Not done yet; on the list for when the teams are reviewed.'),
     ('Nov 6', 'Make sure every sprite in Sovereign Platinum has been ported to Sovereign Complete (Pokémon fronts, '

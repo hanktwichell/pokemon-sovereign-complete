@@ -9,6 +9,11 @@
 // MOVEMENT_TYPE_FOLLOW_PLAYER, the movement Platinum's Amity Square and partner trainers use.
 #define LOCALID_COMPLETE_FOLLOWER 0xF0
 
+// The owner's call (Nov 6, 2026; docs/PlaytestIssues.md, issue 1): no following Pokémon ("too many issues"). The code
+// stays, off: with this FALSE nobody follows the player (WantedGfx), so no follower is made, and the scripts that move
+// it or wait on it carry on as with the player on the bike (CompleteFollowerCheckActive answers no).
+#define COMPLETE_FOLLOWER_ENABLED FALSE
+
 // The follower made again: on the field, beside the player (never on the player's tile in view); as a map loads,
 // hidden on the player's tile till the field runs (the map's terrain isn't loaded yet).
 void CompleteFollower_Refresh(FieldSystem *fieldSystem);
