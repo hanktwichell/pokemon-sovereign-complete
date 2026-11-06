@@ -235,8 +235,8 @@ def main():
         def where(map_id):
             return ids[map_id][len('MAP_HEADER_'):].lower() if map_id < len(ids) else hex(map_id)
 
-        # Sovereign Complete: Sovereign's roamers roam Sinnoh's routes; Johto's and Kanto's are HeartGold's roamers'
-        # (tools/complete/test_hgss_roamers.py)
+        # Sovereign Complete: Sinnoh's routes are flown here; Johto's and Kanto's roamers are
+        # tools/complete/test_hgss_roamers.py's
         missing = [h for h in route_headers if h not in places and not h.startswith('MAP_HEADER_HGSS_')]
         if missing:
             say(f'NOPLACE: no tile with wild encounters on {missing}', True)
@@ -267,6 +267,12 @@ def main():
                 say(f'release: {name(slot)} BAD: {species[kind]} Lv. {level}, HP {hp}, on {where(map_id)} '
                     f'(route {index}); want {want[0]} Lv. {want[1]} on a route', True)
         say(f'release: {len(slots)} slots released ({", ".join(name(s) for s in slots)})')
+        # Sovereign Complete: Sovereign's Unova, Alola and Galar roamers roam Johto or Kanto (RoamerRegionRoutes,
+        # src/roaming_pokemon.c), where tools/complete/test_hgss_roamers.py meets them; the rest roam Sinnoh, as here.
+        elsewhere = [s for s in slots if roamers[s][0] and route_headers[roamers[s][1]].startswith('MAP_HEADER_HGSS_')]
+        if elsewhere:
+            say(f'release: {", ".join(name(s) for s in elsewhere)} roam Johto or Kanto (test_hgss_roamers.py)')
+            slots = [s for s in slots if s not in elsewhere]
 
         flight = {'flown': 0, 'moves': 0, 'left': route_ids[0]}
 

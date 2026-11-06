@@ -238,6 +238,21 @@ QUESTIONS = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your Nov 6 question: the Pledges and Ally Switch', [
+        'Ally Switch works now. It did nothing (Splash\'s effect); in a double battle the user and its ally now trade '
+        'places, each taking its own HP, stats and effects along, and the foes\' moves hit whoever stands where they '
+        'aimed. Screenshots and an animation: Gallery tab, "New in the game". Used twice in a row it may fail, as in '
+        'the newest games.',
+        'The Pledge moves are plain hits that nothing learns: your call on the Questions tab.',
+    ]),
+    ('Sovereign\'s own tests, rerun', [
+        'The gifts (45 of 45) and the rare wild Pokémon (26 of 26) pass, with Sinnoh\'s levels after Kanto. A Paradox '
+        'Pokémon from the Mining Museum now comes at the level of the one you show, not moved up to Sinnoh\'s.',
+        'The battle mechanics suite: two test-build changes of ours had thrown off 57 of its 526 battles (none in the '
+        'game itself); both fixed, and those battles are being replayed.',
+        'Five of Sovereign\'s roamers roam Johto and Kanto since Nov 1, so Complete\'s roamers test now looks for them '
+        'there.',
+    ]),
     ('Your Nov 5 calls, done', [
         'One Town Map for all three regions: Sinnoh as Platinum shows it, and Johto and Kanto from HeartGold\'s map '
         'beside it on one map you scroll across. L and R switch regions; the D-pad crosses over at the edges. Fly '

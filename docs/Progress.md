@@ -1820,3 +1820,10 @@ Test results on the new test build:
   Sovereign's Sinnoh trainers (Twins Liv & Liz, Belle & Pa), whose teams now come at Sinnoh's levels after Kanto: the
   suite now sets `gCompleteTestSovereignLevels`, so they keep Sovereign's levels, as the cases were recorded. The gifts
   test passes 45 of 45 (each gift at Sinnoh's levels, the Paradox Pokémon at the shown one's level).
+- **The battle suite again:** the 57 battles replay as recorded (57 of 57), and Ally Switch's two cases are recorded
+  (`ally_switch`: they trade places, then a second use in a row fails, then a third works; `ally_switch_single`: "But
+  it failed!"). Screenshots of the switch: the progress page's Gallery tab.
+- **Roamers in three regions:** since Nov 1 Tornadus and Thundurus roam Johto and Zeraora, Glastrier and Spectrier
+  Kanto, so Sovereign's roamers test (which flies over Sinnoh) never met them. It leaves them to
+  `tools/complete/test_hgss_roamers.py` now, which releases, meets and battles them in their regions with HeartGold's
+  four (their status in Sovereign's `VAR_ROAMING_*_STATE`).

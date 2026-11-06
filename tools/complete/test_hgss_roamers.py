@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Check HeartGold's roamers in the test build: Raikou and Entei roam Johto, Latias and Latios Kanto
-(src/roaming_pokemon.c; docs/SacredGold.md), as tools/test/roamers.py checks Sovereign's own.
+"""Check the roamers of Johto and Kanto in the test build: HeartGold's (Raikou and Entei roam Johto, Latias and Latios
+Kanto; docs/SacredGold.md) and Sovereign's that roam there since Nov 1 (Tornadus and Thundurus Johto, Zeraora,
+Glastrier and Spectrier Kanto; RoamerRegionRoutes, src/roaming_pokemon.c), as tools/test/roamers.py checks Sinnoh's.
 
-From the new game's save, this releases the four slots (gSovereignTestRoamerRelease, which calls
+From the new game's save, this releases these slots (gSovereignTestRoamerRelease, which calls
 RoamingPokemon_ActivateSlot as the script command does) and reads each slot as the field writes it down
 (gSovereignTestRoamers). Then:
 - **Release:** each roams with its species and level (Raikou and Entei 40, Latias and Latios 35) and its HP, on a
@@ -39,8 +40,11 @@ from wild_forms import MON_SIZE, SURVEY, TERRAINS, run_survey, species_names  # 
 
 # Roaming routes with no wild Pokémon, where a roamer is never met, in HeartGold too (its ENCDATA_NA)
 NO_WILD = {'MAP_HEADER_HGSS_ROUTE_16'}
+# HeartGold's roamers, and Sovereign's that roam Johto and Kanto since Nov 1 (RoamerRegionRoutes)
 REGIONS = {'ROAMING_SLOT_RAIKOU': 'johto', 'ROAMING_SLOT_ENTEI': 'johto',
-           'ROAMING_SLOT_LATIAS': 'kanto', 'ROAMING_SLOT_LATIOS': 'kanto'}
+           'ROAMING_SLOT_LATIAS': 'kanto', 'ROAMING_SLOT_LATIOS': 'kanto',
+           'ROAMING_SLOT_TORNADUS': 'johto', 'ROAMING_SLOT_THUNDURUS': 'johto',
+           'ROAMING_SLOT_ZERAORA': 'kanto', 'ROAMING_SLOT_GLASTRIER': 'kanto', 'ROAMING_SLOT_SPECTRIER': 'kanto'}
 
 
 def main():
@@ -181,15 +185,17 @@ def main():
             if met[slot] < MEET_TIMES:
                 say(f'meeting: {name(slot)} met in {met[slot]} surveys in {flight["flown"]} flights', True)
 
-        # Battles: each roamer once, then its status var
+        # Battles: each roamer once, then its status var (HeartGold's, or Sovereign's VAR_ROAMING_*_STATE), watched in
+        # the first of the test build's watches (struct SovereignTestWatch: var, value) from just before the battle
         variables = var_ids()
         watch = sym['gSovereignTestWatch']
-        for i, slot in enumerate(slots):  # struct SovereignTestWatch: var, value
-            mem.write_short(watch + 4 * i, variables[f'VAR_HGSS_ROAMER_{name(slot).upper()}_STATUS'])
+
+        def status_var(slot):
+            hgss = f'VAR_HGSS_ROAMER_{name(slot).upper()}_STATUS'
+            return variables[hgss] if hgss in variables else variables[f'VAR_ROAMING_{name(slot).upper()}_STATE']
 
         def status_of(slot):
-            at = watch + 4 * slots.index(slot) + 2
-            return struct.unpack('<H', bytes(mem.unsigned[at:at + 2]))[0]
+            return struct.unpack('<H', bytes(mem.unsigned[watch + 2:watch + 4]))[0]
 
         battled = {}
         limit = flight['flown'] + FLIGHTS_MAX
@@ -209,6 +215,7 @@ def main():
             slot = here.get((last[1], last[3], last[0])) if last else None
             if slot is None:  # no roamer met in the survey's encounters, so no battle
                 continue
+            mem.write_short(watch, status_var(slot))
             result, frames = play_out(d, sym, FRAME_LIMIT, header_id, press_a=False)
             after, status = read_roamers(d, sym), status_of(slot)
             fled = after[slot][0] != 0

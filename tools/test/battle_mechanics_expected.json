@@ -575,6 +575,290 @@
    ]
   ]
  },
+ "ally_switch": {
+  "result": "limit",
+  "messages": [
+   "You are challenged by Belle & Pa Ava & Matt!",
+   "Belle & Pa Ava & Matt sent out TAUROS and MILTANK!",
+   "Go! ALAKAZAM and SNORLAX!",
+   "The foe’s TAUROS’s Intimidate cuts ALAKAZAM’s Attack!",
+   "The foe’s TAUROS’s Intimidate cuts SNORLAX’s Attack!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "What will SNORLAX do?",
+   "What will SNORLAX do?",
+   "ALAKAZAM used Ally Switch!",
+   "ALAKAZAM and SNORLAX switched places!",
+   "The foe’s TAUROS used Horn Attack!",
+   "The foe’s MILTANK used Headbutt!",
+   "SNORLAX flinched!",
+   "What will SNORLAX do?",
+   "What will SNORLAX do?",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The foe’s TAUROS used Horn Attack!",
+   "The foe’s MILTANK used Stomp!",
+   "SNORLAX used Headbutt!",
+   "What will SNORLAX do?",
+   "What will SNORLAX do?",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "ALAKAZAM and SNORLAX switched places!",
+   "The foe’s TAUROS used Horn Attack!",
+   "The foe’s MILTANK used Stomp!",
+   "A critical hit!",
+   "ALAKAZAM fainted!",
+   "SNORLAX used Headbutt!",
+   "Go! GALLADE!",
+   "What will GALLADE do?",
+   "What will GALLADE do?",
+   "What will SNORLAX do?",
+   "What will SNORLAX do?",
+   "The foe’s TAUROS used Horn Attack!",
+   "The foe’s MILTANK used Headbutt!",
+   "GALLADE used Aerial Ace!",
+   "SNORLAX used Headbutt!",
+   "What will GALLADE do?",
+   "What will GALLADE do?",
+   "What will SNORLAX do?",
+   "What will SNORLAX do?",
+   "The foe’s TAUROS used Horn Attack!",
+   "The foe’s MILTANK used Zen Headbutt!",
+   "A critical hit!",
+   "GALLADE used False Swipe!",
+   "A critical hit!",
+   "SNORLAX flinched!",
+   "What will GALLADE do?",
+   "What will GALLADE do?",
+   "What will SNORLAX do?",
+   "What will SNORLAX do?",
+   "The foe’s TAUROS used Scary Face!",
+   "SNORLAX’s Speed harshly fell!",
+   "The foe’s MILTANK used Heal Bell!",
+   "A bell chimed!",
+   "GALLADE used False Swipe!",
+   "A critical hit!",
+   "SNORLAX used Headbutt!",
+   "GALLADE fainted!"
+  ],
+  "hp": [
+   [
+    128,
+    96,
+    226,
+    109
+   ],
+   [
+    226,
+    96,
+    128,
+    109
+   ],
+   [
+    226,
+    96,
+    92,
+    109
+   ],
+   [
+    198,
+    96,
+    92,
+    109
+   ],
+   [
+    168,
+    96,
+    92,
+    109
+   ],
+   [
+    168,
+    96,
+    56,
+    109
+   ],
+   [
+    168,
+    96,
+    56,
+    64
+   ],
+   [
+    56,
+    96,
+    168,
+    64
+   ],
+   [
+    20,
+    96,
+    168,
+    64
+   ],
+   [
+    0,
+    96,
+    168,
+    64
+   ],
+   [
+    0,
+    96,
+    168,
+    22
+   ],
+   [
+    82,
+    96,
+    168,
+    22
+   ],
+   [
+    43,
+    96,
+    168,
+    22
+   ],
+   [
+    1,
+    96,
+    168,
+    22
+   ],
+   [
+    1,
+    77,
+    168,
+    22
+   ],
+   [
+    1,
+    28,
+    168,
+    22
+   ],
+   [
+    1,
+    28,
+    137,
+    22
+   ],
+   [
+    1,
+    28,
+    103,
+    22
+   ],
+   [
+    1,
+    9,
+    103,
+    22
+   ],
+   [
+    1,
+    1,
+    103,
+    22
+   ],
+   [
+    0,
+    1,
+    103,
+    22
+   ]
+  ]
+ },
+ "ally_switch_single": {
+  "result": "limit",
+  "messages": [
+   "A wild NINJASK appeared!",
+   "Go! ALAKAZAM!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "The wild NINJASK’s Speed Boost raised its Speed!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "What will ALAKAZAM do?",
+   "What will ALAKAZAM do?",
+   "ALAKAZAM used Ally Switch!",
+   "But it failed!",
+   "The wild NINJASK used Splash!",
+   "But nothing happened!",
+   "What will ALAKAZAM do?"
+  ],
+  "hp": [
+   [
+    128,
+    254
+   ]
+  ]
+ },
  "amulet": {
   "result": "ended",
   "messages": [
