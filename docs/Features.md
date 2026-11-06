@@ -976,7 +976,9 @@ The owner's choice (Nov 6, 2026): the boy is HeartGold's Ethan, the girl Platinu
   picture in the Hall of Fame. Platinum's player classes stay Lucas and Dawn, for the assistant's own battles and his
   tag battles at the player's side. HeartGold's tag partners have their own backs now: Lance (the Rocket Hideout) and
   Silver (against Lance and Clair), who stood there as Lucas's back before.
-- Not yet: the intro's pictures (Rowan's), the Trainer Card's, the Town Map's head, the Fly take-off's rider.
+- **Fly:** the take-off's cut-in and the landing carry HeartGold's own rider for Ethan (its cut-in archive's boy, as
+  Lance's take-off does), `src/overlay006/hm_cut_in.c`.
+- Not yet: the intro's pictures (Rowan's), the Trainer Card's, the Town Map's head.
 
 ## Stand-ins
 

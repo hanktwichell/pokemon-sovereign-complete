@@ -36,6 +36,7 @@
 
 #include "res/graphics/battle/sprites.naix"
 
+#include "data/complete_player.h" // Sovereign Complete: the player's rider
 #ifdef SOVEREIGN_TEST
 #include "complete_test.h" // Sovereign Complete
 #endif
@@ -48,6 +49,32 @@
 #define LANCE_RIDER_ANIMS_MEMBER    25
 #define LANCE_RIDER_PALETTE_MEMBER  8
 #define CUTIN_RIDERS                2
+// Sovereign Complete: HeartGold's own player riders in the same archive, the boy's (Ethan's) and the girl's (Lyra's),
+// for a player who is HeartGold's (include/data/complete_player.h): tiles, cells, animations in a row, then palette
+#define HGSS_BOY_RIDER_TILES_MEMBER   17
+#define HGSS_GIRL_RIDER_TILES_MEMBER  20
+#define HGSS_BOY_RIDER_PALETTE_MEMBER 6
+
+// Sovereign Complete: the rider's tiles' member in HeartGold's cut-in archive, or -1 for Platinum's own rider
+static int CutIn_HGSSRiderTiles(int playerGender)
+{
+    if (playerGender == CUTIN_RIDER_LANCE) {
+        return LANCE_RIDER_TILES_MEMBER;
+    }
+    if (playerGender == 0 && COMPLETE_PLAYER_BOY_IS_HGSS) {
+        return HGSS_BOY_RIDER_TILES_MEMBER;
+    }
+    if (playerGender == 1 && COMPLETE_PLAYER_GIRL_IS_HGSS) {
+        return HGSS_GIRL_RIDER_TILES_MEMBER;
+    }
+    return -1;
+}
+
+// Sovereign Complete: its palette's member there (the boy's 6, the girl's 7, Lance's 8)
+static int CutIn_HGSSRiderPalette(int playerGender)
+{
+    return HGSS_BOY_RIDER_PALETTE_MEMBER + (CutIn_HGSSRiderTiles(playerGender) - HGSS_BOY_RIDER_TILES_MEMBER) / 3;
+}
 
 typedef struct HMCutIn {
     int state;
@@ -618,7 +645,7 @@ static Sprite *FlyLanding_InitPlayerSprite(FlyResources *flyResources, int playe
     Sprite *playerSprite;
     u32 paletteResourceId = 0;
 
-    if (playerGender == 1) {
+    if (playerGender == 1 || CutIn_HGSSRiderTiles(playerGender) >= 0) { // Sovereign Complete: HeartGold's rider's in 1
         paletteResourceId = 1;
     }
 
@@ -1797,11 +1824,13 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
     }
 
     // Sovereign Complete: HeartGold's Lance, from its own cut-in archive
-    NARC *lanceNarc = cutIn->playerGender == CUTIN_RIDER_LANCE ? NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__FIELD_CUTIN, HEAP_ID_FIELD1) : NULL;
+    // (and the player when the player is HeartGold's Ethan or Lyra)
+    int hgssRider = CutIn_HGSSRiderTiles(cutIn->playerGender);
+    NARC *lanceNarc = hgssRider >= 0 ? NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__FIELD_CUTIN, HEAP_ID_FIELD1) : NULL;
 
     // Char Index 1: Player
     if (lanceNarc != NULL) { // Sovereign Complete
-        cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, lanceNarc, LANCE_RIDER_TILES_MEMBER, FALSE, 2, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
+        cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, lanceNarc, hgssRider, FALSE, 2, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
     } else if (cutIn->playerGender == 0) {
         cutIn->charSource[i] = SpriteResourceCollection_AddTilesFrom(cutIn->charLocation, narc, 13, FALSE, 2, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_FIELD1);
     } else {
@@ -1819,7 +1848,7 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
 
     // Palette Index 1: Player Female
     if (lanceNarc != NULL) { // Sovereign Complete: Lance's, in the female's place
-        cutIn->paletteSource[i] = SpriteResourceCollection_AddPaletteFrom(cutIn->paletteLocation, lanceNarc, LANCE_RIDER_PALETTE_MEMBER, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 1, HEAP_ID_FIELD1);
+        cutIn->paletteSource[i] = SpriteResourceCollection_AddPaletteFrom(cutIn->paletteLocation, lanceNarc, CutIn_HGSSRiderPalette(cutIn->playerGender), FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 1, HEAP_ID_FIELD1);
         i++;
     } else if (cutIn->playerGender == 0) {
     } else {
@@ -1837,7 +1866,7 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
 
     // Cell Index 1: Player
     if (lanceNarc != NULL) { // Sovereign Complete
-        cutIn->cellSource[i] = SpriteResourceCollection_AddFrom(cutIn->cellLocation, lanceNarc, LANCE_RIDER_CELLS_MEMBER, FALSE, 2, SPRITE_RESOURCE_CELL, HEAP_ID_FIELD1);
+        cutIn->cellSource[i] = SpriteResourceCollection_AddFrom(cutIn->cellLocation, lanceNarc, hgssRider + 1, FALSE, 2, SPRITE_RESOURCE_CELL, HEAP_ID_FIELD1);
     } else if (cutIn->playerGender == 0) {
         cutIn->cellSource[i] = SpriteResourceCollection_AddFrom(cutIn->cellLocation, narc, 14, FALSE, 2, SPRITE_RESOURCE_CELL, HEAP_ID_FIELD1);
     } else {
@@ -1856,7 +1885,7 @@ static void CutIn_LoadSpriteResources(HMCutIn *cutIn, NARC *narc)
 
     // Animation Index 1: Player
     if (lanceNarc != NULL) { // Sovereign Complete
-        cutIn->animSource[i] = SpriteResourceCollection_AddFrom(cutIn->animLocation, lanceNarc, LANCE_RIDER_ANIMS_MEMBER, FALSE, 1, SPRITE_RESOURCE_ANIM, HEAP_ID_FIELD1);
+        cutIn->animSource[i] = SpriteResourceCollection_AddFrom(cutIn->animLocation, lanceNarc, hgssRider + 2, FALSE, 1, SPRITE_RESOURCE_ANIM, HEAP_ID_FIELD1);
         NARC_dtor(lanceNarc);
     } else if (cutIn->playerGender == 0) {
         cutIn->animSource[i] = SpriteResourceCollection_AddFrom(cutIn->animLocation, narc, 15, FALSE, 1, SPRITE_RESOURCE_ANIM, HEAP_ID_FIELD1);
@@ -1979,7 +2008,7 @@ static Sprite *CutIn_InitPlayerSprite(HMCutIn *cutIn, const VecFx32 *position)
     Sprite *playerSprite;
     u32 plttResourceID = 0;
 
-    if (cutIn->playerGender == 1 || cutIn->playerGender == CUTIN_RIDER_LANCE) { // Sovereign Complete: Lance's in 1
+    if (cutIn->playerGender == 1 || CutIn_HGSSRiderTiles(cutIn->playerGender) >= 0) { // Sovereign Complete: HeartGold's in 1
         plttResourceID = 1;
     }
 
@@ -3035,7 +3064,21 @@ static BOOL FlyLanding_LoadResources(FlyLandingEnv *taskEnv)
         FlyLanding_ReleaseCharResources(&taskEnv->unk_18, 0);
         FlyLanding_ReleasePaletteResources(&taskEnv->unk_18, 0);
 
-        if (taskEnv->playerGender == 0) {
+        if (CutIn_HGSSRiderTiles(taskEnv->playerGender) >= 0) { // Sovereign Complete: HeartGold's rider, as the girl's
+            NARC *hgssNarc = NARC_ctor(NARC_INDEX_FIELDDATA__COMPLETE__FIELD_CUTIN, HEAP_ID_FIELD1);
+            int tiles = CutIn_HGSSRiderTiles(taskEnv->playerGender);
+
+            FlyLanding_LoadCharResources(&taskEnv->unk_18, hgssNarc, tiles, 2);
+            FlyLanding_LoadPaletteResources(&taskEnv->unk_18, hgssNarc, CutIn_HGSSRiderPalette(taskEnv->playerGender), 1);
+            FlyLanding_LoadCellResources(&taskEnv->unk_18, hgssNarc, tiles + 1, 2);
+            FlyLanding_LoadAnimResources(&taskEnv->unk_18, hgssNarc, tiles + 2, 1);
+            NARC_dtor(hgssNarc);
+
+            FlyLanding_RequestCharResources(&taskEnv->unk_18, 2);
+            FlyLanding_FreeSpaceForPaletteResources(&taskEnv->unk_18, 1);
+            FlyLanding_ReleaseCharResources(&taskEnv->unk_18, 2);
+            FlyLanding_ReleasePaletteResources(&taskEnv->unk_18, 1);
+        } else if (taskEnv->playerGender == 0) {
             FlyLanding_LoadCharResources(&taskEnv->unk_18, narc, 13, 2);
             FlyLanding_LoadCellResources(&taskEnv->unk_18, narc, 14, 2);
             FlyLanding_LoadAnimResources(&taskEnv->unk_18, narc, 15, 1);

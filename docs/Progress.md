@@ -1925,3 +1925,6 @@ Test results on the new test build:
   the DS's three shared icon palettes are what limits the colours.
 - **The owner's note on the Totems' overworld sprites:** to look like the other overworld Pokémon (Dialga, Palkia,
   Uxie) and stay large, not shrunk battle sprites (`docs/Roadmap.md`).
+- **Ethan flies as himself:** the Fly take-off's cut-in and the landing draw HeartGold's own rider for him (the boy in
+  HeartGold's cut-in archive, which Lance's take-off already used). The Town Map test flies across all three regions
+  with it (0 problems), and the gallery shows him in the cut-in.

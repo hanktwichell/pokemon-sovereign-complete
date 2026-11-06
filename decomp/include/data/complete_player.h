@@ -9,4 +9,9 @@
 #define COMPLETE_PLAYER_CLASS_MALE   TRAINER_CLASS_HGSS_PKMN_TRAINER_ETHAN
 #define COMPLETE_PLAYER_CLASS_FEMALE TRAINER_CLASS_PLAYER_FEMALE
 
+// Whether each is HeartGold's player: the Fly take-off's rider then comes from HeartGold's cut-in archive
+// (src/overlay006/hm_cut_in.c)
+#define COMPLETE_PLAYER_BOY_IS_HGSS  1
+#define COMPLETE_PLAYER_GIRL_IS_HGSS 0
+
 #endif

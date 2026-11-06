@@ -132,8 +132,8 @@ POSSIBLE_ISSUES = [
     ('Nov 6', 'The player in Johto and Kanto',
      'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
      'Your call (Nov 6): the boy becomes Ethan, the girl stays Dawn. Done for the field (every pose), battles (his back '
-     'and throw) and the Hall of Fame: Gallery tab, "The player: Ethan". Still Lucas: the Trainer Card, the intro\'s '
-     'pictures, the Town Map\'s head and the Fly rider (next).', 'trainer_dots.jpg', 'fixed'),
+     'and throw), Fly\'s rider and the Hall of Fame: Gallery tab, "The player: Ethan". Still Lucas: the Trainer Card, '
+     'the intro\'s pictures and the Town Map\'s head (next).', 'trainer_dots.jpg', 'fixed'),
     ('Nov 6', 'The following Pokémon over the player',
      'In the shots of Ethan running, the following Pokémon (the test party\'s Garchomp) is drawn over the player for a '
      'few steps when he turns while running, hiding him. Moot once the following Pokémon are turned off (your call; '
@@ -218,8 +218,9 @@ RECENT = [
         'him raising a Poké Ball, with the Pokétch, watering or with the VS Seeker, so those take Lucas\'s arm and '
         'item onto Ethan. The girl stays Dawn. Rowan\'s assistant keeps Lucas\'s look. In battle Ethan throws with '
         'his own back, and the Hall of Fame shows his picture. Lance and Silver, your partners in HeartGold\'s tag '
-        'battles, have their own backs now (they stood there as Lucas). Still to do: the intro\'s pictures, the '
-        'Trainer Card, the Town Map\'s head and the Fly rider. Every texture: Gallery tab, "New in the game".',
+        'battles, have their own backs now (they stood there as Lucas). Fly\'s take-off and landing carry HeartGold\'s '
+        'own rider for him. Still to do: the intro\'s pictures, the Trainer Card and the Town Map\'s head. Every '
+        'texture and shot: Gallery tab, "The player: Ethan".',
         'Pokémon Showdown\'s box and party icons: a sample of 20 is on its way to you. They\'re far better than the '
         'placeholders for Gen 8 and 9, and there are real icons for regional forms and Megas; the DS\'s three shared '
         'icon palettes are what limits the colours.',

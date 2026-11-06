@@ -19,6 +19,8 @@ What it writes:
   decomp/res/trainers/classes/ (Sovereign's class layout: back.png, back_cell.json, back_anim.json, back_scan.png);
   include/data/complete_player.h names the player's classes (the battle's and the Hall of Fame's), and
   SpriteSystem_TrainerClassBackSpriteIndex (src/pokemon.c) takes each class's own back.
+- The Fly take-off and landing: HeartGold's rider for its player, from the archive tools/complete/import_hgss_field_cutin.py
+  packs (src/overlay006/hm_cut_in.c, after COMPLETE_PLAYER_BOY_IS_HGSS).
 
 GIRL = 'lyra' makes the girl HeartGold's Lyra the same way (and keeps Dawn for the assistant).
 
@@ -345,6 +347,11 @@ def backs():
 // Dawn, for Rowan's assistant in battle.
 #define COMPLETE_PLAYER_CLASS_MALE   {'TRAINER_CLASS_HGSS_PKMN_TRAINER_ETHAN' if BOY == 'ethan' else 'TRAINER_CLASS_PLAYER_MALE'}
 #define COMPLETE_PLAYER_CLASS_FEMALE {'TRAINER_CLASS_HGSS_PKMN_TRAINER_LYRA' if GIRL == 'lyra' else 'TRAINER_CLASS_PLAYER_FEMALE'}
+
+// Whether each is HeartGold's player: the Fly take-off's rider then comes from HeartGold's cut-in archive
+// (src/overlay006/hm_cut_in.c)
+#define COMPLETE_PLAYER_BOY_IS_HGSS  {int(BOY == 'ethan')}
+#define COMPLETE_PLAYER_GIRL_IS_HGSS {int(GIRL == 'lyra')}
 
 #endif
 ''')
