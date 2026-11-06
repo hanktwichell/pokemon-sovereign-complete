@@ -581,6 +581,26 @@ def mega_owners():
     return out
 
 
+def mega_options():
+    """[(value, label)] for every Mega form in the game: res/pokemon/<species>/forms/mega*"""
+    out = []
+    root = os.path.join(RES, 'pokemon')
+    for sp in sorted(os.listdir(root)):
+        forms = os.path.join(root, sp, 'forms')
+        if not os.path.isdir(forms):
+            continue
+        for f in sorted(os.listdir(forms)):
+            if f.startswith('mega'):
+                extra = f[5:].replace('_', ' ').title()
+                extra = {'Female': '(F)', 'Male': '(M)'}.get(extra, extra)
+                out.append((f'{sp}/{f}', ('Mega ' + species_name('SPECIES_' + sp.upper()) + (' ' + extra if extra else '')).strip()))
+    return sorted(out, key=lambda o: o[1])
+
+
+def char_id(name):
+    return re.sub(r'[^A-Za-z0-9]+', '-', name).strip('-').lower() or 'unknown'
+
+
 def character(data):
     return {'Boy': 'Silver'}.get(data['name'], data['name'])
 
@@ -617,11 +637,22 @@ def trainer_card(si, ei, entry, megas, after_whitney):
                 text = f'{esc(c)}: Mega {esc(" / ".join(mine))}' + (f' \u00b7 also {esc(", ".join(shared))}' if shared else '')
                 chips.append(f'<span class="chip{" warn" if shared or len(mine) > 1 else ""}">{text}</span>')
     sprite = tabs[0].split('data-sprite="')[1].split('"')[0]
+    options = mega_options()
+    pickers = []
+    for c in chars:
+        current = sorted(megas.get(c, ()))
+        default = next((v for v, label in options if current and label.startswith('Mega ' + current[0])), '')
+        opts = '<option value="">No Mega</option>'
+        pickers.append(f'<label class="mp">{esc(c) + ": " if len(chars) > 1 else ""}<select data-char="{char_id(c)}" '
+                       f'data-name="{esc(c)}" data-default="{default}" disabled>{opts}</select><span class="mp-warn"></span></label>')
+    picker = f'<div class="megas"><span class="mp-h">Mega</span>{"".join(pickers)}</div>' if pickers else ''
     return f"""<article class="trainer" id="{esc(entry['tabs'][0][1])}">
   <header>
     <img class="tsprite" src="{sprite}" alt="{esc(name)}">
     <div class="th"><h3>{esc(name)}</h3><div class="sub">{esc(entry['where'])}</div>{f'<div class="sub">{esc(note)}</div>' if note else ''}
-      {f'<div class="chips">{"".join(chips)}</div>' if chips else ''}
+      {picker}
+      <div class="review" data-card="{esc(entry['tabs'][0][1])}"><label><input type="checkbox" data-v="done" disabled> Done</label>
+        <label><input type="checkbox" data-v="work" disabled> Needs work</label></div>
       <div class="tabs" role="tablist">{''.join(tabs)}</div></div>
   </header>
   {''.join(panes)}
@@ -671,6 +702,17 @@ h2{font-size:21px;margin:34px 0 12px;letter-spacing:-.01em}
 .types{display:flex;gap:3px;justify-content:center;flex-wrap:wrap;margin-top:2px}
 .ty{font-size:10px;font-weight:700;color:#fff;background:var(--t);padding:0 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.03em;text-shadow:0 1px 0 rgba(0,0,0,.25)}
 .shiny{color:#e0a800}
+.megas{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:12.5px;font-weight:600;margin:0 0 8px}
+.mp-h{color:var(--muted);font-weight:700}
+.mp{display:flex;gap:4px;align-items:center}
+.mp select{font:inherit;font-size:12.5px;padding:2px 4px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);max-width:190px}
+.mp select.clash{border-color:var(--accent);color:var(--accent)}
+.mp-warn{color:var(--accent);font-size:11.5px}
+.review{display:flex;gap:12px;font-size:12.5px;font-weight:650;margin:0 0 8px}
+.review label{display:flex;gap:4px;align-items:center;cursor:pointer}
+.review input{width:16px;height:16px;margin:0;accent-color:var(--ink)}
+.trainer.is-done{border-color:#2f8f5b;box-shadow:inset 0 0 0 1px #2f8f5b}
+.trainer.is-work{border-color:#d9822b;box-shadow:inset 0 0 0 1px #d9822b}
 .editbar{background:var(--chip);border-radius:10px;padding:10px 12px;font-size:13px;margin:0 0 12px}
 #edit-count{font-weight:650}#edit-status{color:var(--muted)}
 .ed{display:flex;gap:4px;justify-content:center;margin-top:6px;flex-wrap:wrap}
@@ -884,12 +926,78 @@ function pickSpecies(r) {
   EDITS[key] = body; render(); write(key, body);
 }
 
+// Review ticks: one document per card in "review", {state: "done" | "work"}
+const REVIEW = {};
+function renderReview() {
+  document.querySelectorAll('.review').forEach(r => {
+    const st = REVIEW[r.dataset.card] && REVIEW[r.dataset.card].state;
+    r.querySelectorAll('input').forEach(i => { i.checked = st === i.dataset.v; i.disabled = !WRITABLE; });
+    const card = r.closest('.trainer');
+    card.classList.toggle('is-done', st === 'done');
+    card.classList.toggle('is-work', st === 'work');
+  });
+  const all = document.querySelectorAll('.review').length;
+  const done = Object.values(REVIEW).filter(v => v.state === 'done').length;
+  const work = Object.values(REVIEW).filter(v => v.state === 'work').length;
+  document.getElementById('review-count').textContent = done + ' of ' + all + ' done, ' + work + ' need work';
+}
+document.querySelectorAll('.review input').forEach(i => i.addEventListener('change', async () => {
+  const card = i.closest('.review').dataset.card;
+  const state = i.checked ? i.dataset.v : null;
+  if (state) REVIEW[card] = { state, trainer: i.closest('.trainer').querySelector('h3').textContent, at: new Date().toISOString() };
+  else delete REVIEW[card];
+  renderReview();
+  try {
+    if (state) await DB.collection('review').doc(card).set(REVIEW[card]); else await DB.collection('review').doc(card).delete();
+    say('Saved.');
+  } catch (e) { say('Couldn\u2019t save that tick: ' + (e && e.message || e) + '.'); }
+}));
+
+// Megas: one document per character in "megas", {mega: "<species>/<form>" or ""}; without one, the card shows
+// the Mega the character holds now
+const MEGAS = {};
+document.querySelectorAll('.mp select').forEach(sel => MEGA_OPTIONS.forEach(([v, label]) => {
+  const o = document.createElement('option'); o.value = v; o.textContent = label; sel.appendChild(o);
+}));
+function chosen(sel) { const m = MEGAS[sel.dataset.char]; return m ? m.mega : sel.dataset.default; }
+function renderMegas() {
+  const sels = [...document.querySelectorAll('.mp select')];
+  const owners = {};
+  sels.forEach(sel => { const v = chosen(sel); if (v) (owners[v] = owners[v] || new Set()).add(sel.dataset.name); });
+  sels.forEach(sel => {
+    const v = chosen(sel);
+    sel.value = v; sel.disabled = !WRITABLE;
+    const others = v ? [...owners[v]].filter(n => n !== sel.dataset.name) : [];
+    sel.classList.toggle('clash', others.length > 0);
+    sel.parentElement.querySelector('.mp-warn').textContent = others.length ? 'also ' + others.join(', ') : '';
+  });
+}
+document.querySelectorAll('.mp select').forEach(sel => sel.addEventListener('change', async () => {
+  const id = sel.dataset.char;
+  MEGAS[id] = { mega: sel.value, character: sel.dataset.name, at: new Date().toISOString() };
+  renderMegas();
+  try { await DB.collection('megas').doc(id).set(MEGAS[id]); say('Saved.'); }
+  catch (e) { say('Couldn\u2019t save that Mega: ' + (e && e.message || e) + '.'); }
+}));
+
 render();
+renderReview();
+renderMegas();
 (async () => {
   const timer = setTimeout(() => say('Saved edits can\\u2019t be reached yet.'), 10000);
   const db = await claude.use('db');
   if (!db) { clearTimeout(timer); say('Editing works on the page in claude.ai, signed in.'); return; }
-  DB = db; WRITABLE = true;
+  DB = db; WRITABLE = true; renderReview(); renderMegas();
+  db.collection('megas').onSnapshot(snap => {
+    for (const k of Object.keys(MEGAS)) delete MEGAS[k];
+    snap.docs.forEach(d => { MEGAS[d.id] = d.data(); });
+    renderMegas();
+  }, () => {});
+  db.collection('review').onSnapshot(snap => {
+    for (const k of Object.keys(REVIEW)) delete REVIEW[k];
+    snap.docs.forEach(d => { REVIEW[d.id] = d.data(); });
+    renderReview();
+  }, () => {});
   db.collection('edits').onSnapshot(snap => {
     if (!snap.metadata.fromCache) { clearTimeout(timer); say(''); }
     for (const k of Object.keys(EDITS)) delete EDITS[k];
@@ -956,10 +1064,10 @@ def main():
 new rules applied (not in the game yet): Cynthia at Lv. 95 and her first team again at 100 in the rematch; no boss more than
 two levels under the level cap of the moment; Gym Leaders' teams within 2 levels of the ace in Johto, 1 in Kanto, all at
 the ace's level in Sinnoh; optimal EVs, IVs and natures everywhere. A Pokémon's grey note says what it is in the game
-now. From Morty on, each character's card says which Mega they have, or that they need one. Tap a Pokémon to see its set.</p>
+now. Each character has a Mega picker (red when two characters share one), and each card a Done / Needs work tick. Tap a Pokémon to see its set.</p>
 <div class="editbar"><strong>Editing</strong> \u00b7 Replace or remove any Pok\u00e9mon, or add one to an empty slot.
 Your edits are saved here for Claude to put into the game; a new Pok\u00e9mon's set (moves, item, EVs) is built then.
-<span id="edit-count"></span> <span id="edit-status"></span></div>
+<span id="edit-count"></span> \u00b7 <span id="review-count"></span> <span id="edit-status"></span></div>
 <nav>{nav}</nav>
 {''.join(body)}
 <footer>Built from the repository by <code>tools/complete/gym_teams_page.py</code>, with the plan in
@@ -972,7 +1080,7 @@ until its type is chosen. Moves marked “Level-up moves” are the last four it
 <button type="button" id="pick-close" class="edb">Close</button></div>
 <input id="pick-q" type="search" placeholder="Name, Pok\u00e9dex number or type" autocomplete="off">
 <div id="pick-list"></div></dialog>
-<script>const TYPES={json.dumps(TYPE_COLOURS)};</script><script>{JS}</script></body></html>'''
+<script>const TYPES={json.dumps(TYPE_COLOURS)};const MEGA_OPTIONS={json.dumps(mega_options())};</script><script>{JS}</script></body></html>'''
     page = dedupe_images(page)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     print(write_species_list(os.path.join(os.path.dirname(out), 'species.js')), 'species')
