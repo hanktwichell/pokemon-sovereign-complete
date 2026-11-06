@@ -381,6 +381,17 @@ MT_SILVER_RED_SCRIPT = ('    ScriptEntry scr_seq_D41R0108_001',
 MT_SILVER_RED_INIT = ('<    InitScriptEntryEnd', ['    InitScriptEntry_OnTransition 3  @ CompleteMtSilverRed_OnTransition'], [])
 
 
+# The S.S. Aqua's first voyage from Vermilion City (out of HeartGold's order: Kanto reached first): Olivine's gangway
+# shows the trainers' group with B1F's guard on the first voyage, whose step-on scene has him ask the player to find his
+# buddy; Vermilion's always showed the other group, so the scene played with no guard. On the first voyage
+# (VAR_HGSS_SCENE_SS_AQUA below 7) it shows Olivine's first-voyage group too
+FIRST_VOYAGE_GROUP = ('    SetFlag FLAG_HGSS_UNK_22B',
+                      ['    GoToIfGe VAR_HGSS_SCENE_SS_AQUA, 7, CompleteFirstVoyage_End  @ Sovereign Complete: B1F\'s guard',
+                       '    ClearFlag FLAG_HGSS_UNK_22A',
+                       '    SetFlag FLAG_HGSS_UNK_22C',
+                       'CompleteFirstVoyage_End:'], [])
+
+
 def both(first, second):
     """Two inserts in one script (the second's anchor after the first's)."""
     return ('', [], [], first, second)
@@ -398,7 +409,7 @@ INSERTS = {
     'scr_seq_0015_D11R0106': totem_first_insert('    GoToIf 1, _0403', 8, 'SALAZZLE'),  # Blaine
     'scr_seq_0152_P01R0101': any_day_insert('_0223:', '_0292'),
     'scr_seq_0153_P01R0102': ferry_insert('_0211', 'VermilionCity'),
-    'scr_seq_0154_P01R0103': any_day_insert('    GoToIf 1, _0158', '_00EF'),
+    'scr_seq_0154_P01R0103': both(any_day_insert('    GoToIf 1, _0158', '_00EF'), FIRST_VOYAGE_GROUP),
     'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
     'scr_seq_0107_D41R0108': MT_SILVER_RED_SCRIPT,
     'scr_seq_0368_D41R0108_hdr': MT_SILVER_RED_INIT,

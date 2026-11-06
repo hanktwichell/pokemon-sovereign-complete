@@ -1824,3 +1824,11 @@ Test results on the new test build:
   show no Poké Balls on the healing machine; the S.S. Aqua's sailing scene is Platinum's icebreaker; the Mega
   Evolution animation and the Mega icon look bad (later; the owner will redo the stone shown on screen). The owner was
   given a release build (`decomp/build`, from a clean Rev 1 dump) to play through.
+- **The S.S. Aqua's guard with no sprite** (the owner's note, Nov 6): on B1F, the first voyage's step-on scene has a
+  sailor ask the player to find his buddy, but he belongs to the group of the ship's people that only Olivine's
+  first-voyage boarding shows (FLAG_HGSS_UNK_22A clear). Vermilion's port sailor always showed the other group, so a
+  first voyage from Vermilion (Kanto reached first, as the owner's playtest Fly allowed) played the scene with no one
+  there. Vermilion's sailor now shows Olivine's first-voyage group while the first voyage isn't done
+  (VAR_HGSS_SCENE_SS_AQUA below 7; the translator's `FIRST_VOYAGE_GROUP`, written into `scripts_hgss_0154.s` too, as
+  the translator needs Sacred Gold's ROM to run). Checked on build_test through Vermilion's port building (the ferry
+  test warps onto the dock past it), and the ferry test passes (12 of 12).
