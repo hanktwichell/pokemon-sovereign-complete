@@ -119,6 +119,7 @@ table.ans td.st { white-space: nowrap; }
   table.ans td.num { font-weight: 600; }
   table.ans td.st { white-space: normal; font-style: italic; }
 }
+.issueshot { max-width: 100%; height: auto; border: 1px solid var(--line, #ddd); border-radius: 4px; }
 .qprop { border-top: 1px dashed var(--line); padding-top: 8px; }
 .decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
 .decision { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--warn); padding: 10px 14px; align-content: start;
@@ -249,6 +250,7 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
     <nav class="tabs" aria-label="Views">
       <a href="#whole-game" data-tab="whole-game">Whole game</a>
       <a href="#questions" data-tab="questions">Your questions</a>
+      <a href="#issues" data-tab="issues">Possible issues</a>
       <a href="#since-yesterday" data-tab="since-yesterday">Since yesterday</a>
       <a href="#sinnoh" data-tab="sinnoh">Sinnoh</a>
       <a href="#gallery" data-tab="gallery">Gallery</a>
@@ -262,6 +264,7 @@ details.commits ol { margin: 6px 0 0; padding-left: 26px; font-size: 13px; color
 <main>
   <div class="wrap" id="view-whole-game" data-view="whole-game"></div>
   <div class="wrap" id="view-questions" data-view="questions" hidden></div>
+  <div class="wrap" id="view-issues" data-view="issues" hidden></div>
   <div class="wrap" id="view-since-yesterday" data-view="since-yesterday" hidden></div>
   <div class="wrap" id="view-sinnoh" data-view="sinnoh" hidden></div>
   <div class="wrap" id="view-gallery" data-view="gallery" hidden></div>
@@ -336,6 +339,23 @@ function questions() {
     <p class="muted">${total ? `Waiting on you: ${total}. Answer by number whenever you like; where Claude has a
       proposal, that's what happens if you say "go with your proposal".` : 'Nothing waiting on you.'}</p></section>${groups}${answered}
     <p class="foot">Kept in tools/complete/progress_page.py (QUESTIONS, ANSWERED), in step with docs/Roadmap.md.</p>`;
+}
+
+const ISSUE_STATUS = { new: 'New', looking: 'Claude looking', fixed: 'Fixed', explained: 'Explained', yours: 'Your call' };
+function issues() {
+  const items = DATA.issues || [];
+  const open = items.filter(i => i.status === 'new' || i.status === 'looking' || i.status === 'yours').length;
+  return `<section><h2>Possible issues</h2>
+    <p class="muted">Anything that looked off in Claude's tests and screenshots, logged for you to look at, even when it
+      may be nothing: ${items.length} logged, ${open} still open. Newest first.</p></section>
+    <section><ol class="qs">${items.map((i, n) => `<li class="q" value="${items.length - n}">
+      <h3><span class="qn num">${items.length - n}</span>${esc(i.where)}
+        <span class="pill s-${i.status === 'fixed' || i.status === 'explained' ? 'done' : i.status === 'yours' ? 'waiting' : 'active'}">${esc(ISSUE_STATUS[i.status] || i.status)}</span></h3>
+      <p><span class="qk">${esc(i.date)}</span>${esc(i.what)}</p>
+      ${i.shot ? `<p><img class="issueshot" src="gallery/issues/${esc(i.shot)}" alt="" loading="lazy"></p>` : ''}
+    </li>`).join('')}</ol></section>
+    <p class="foot">Kept in tools/complete/progress_page.py (POSSIBLE_ISSUES). Your playtest notes are the playtest
+      session's (docs/PlaytestIssues.md).</p>`;
 }
 
 function sinceYesterday() {
@@ -682,7 +702,7 @@ function wireGallery() {
     if (b) { const boss = G.bosses.find(x => x.name === b.dataset.boss); galOpenPlace(boss.place); }
   });
 }
-const views = { 'whole-game': wholeGame, questions, 'since-yesterday': sinceYesterday, sinnoh, gallery, maps, story, timeline };
+const views = { 'whole-game': wholeGame, questions, issues, 'since-yesterday': sinceYesterday, sinnoh, gallery, maps, story, timeline };
 const rendered = {};
 function show() {
   const name = (location.hash || '#whole-game').slice(1);

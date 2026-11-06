@@ -157,7 +157,7 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 ### Still open
 
 The questions open until Nov 5 were all answered on Nov 6 (above, "The owner's answers"). Open now:
-- **What Sinnoh's HM givers give instead** (Claude's proposal, for the owner to confirm; the progress page has it):
+- **What Sinnoh's HM givers give instead** (Claude's proposal; **the owner confirmed it, Nov 6**):
   Cynthia in Eterna City (was HM01 Cut) Garchompite Z; the Galactic Warehouse's item ball in Veilstone City (HM02
   Fly) Staraptite; Cynthia's grandmother in Celestic Town (HM03 Surf) Galladite; Riley on Iron Island (HM04
   Strength) Lucarionite; the Oreburgh Gate's hiker (HM06 Rock Smash) Excadrite; Crasher Wake in Pastoria City (HM07

@@ -33,101 +33,98 @@ sys.path.insert(0, os.path.join(ROOT, 'tools', 'complete'))
 from talk_to_objects import event_maps  # noqa: E402
 import test_hgss_opening  # noqa: E402
 
-UPDATED = 'Nov 5, 2026'
+UPDATED = 'Nov 6, 2026'
 
 # The roadmap's steps (docs/Roadmap.md) and where each stands: status is one of done, mostly, active, waiting, ready,
 # later
 STEPS = [
-    (0, 'Before starting', 'waiting', 'Waiting on you',
-     'Sovereign Platinum\'s release and the open decisions below. Sacred Gold\'s patches are in the repo.'),
+    (0, 'Before starting', 'done', 'Done',
+     'You answered all 23 open questions on Nov 6 (the Questions tab has each answer and where it stands). Sovereign '
+     'Platinum is still being finished; its new work comes in by the sync script (none newer than Oct 29 so far).'),
     (1, 'Groundwork', 'done', 'Done',
      'The project builds and boots with the bigger save (2,250 more story markers), and the conversion tools work.'),
     (2, 'Maps', 'done', 'Done',
      'All 540 Johto and Kanto maps are in, with collision, connections, props and animations; every one loads in the '
-     'visit-every-map test.'),
+     'visit-every-map test. Your new map art comes later (answer 19).'),
     (3, 'Events and scripts', 'done', 'Done',
      'HeartGold\'s and Sacred Gold\'s scripts are translated; the talk test ran all 5,865 people and signs to their end, '
      'and the step-on triggers pass.'),
     (4, 'Sacred Gold\'s content', 'done', 'Done',
      '737 trainers, wild Pokémon by time of day, items, hidden items, gifts, trades and marts, rebuilt on Sovereign\'s '
      '1025 Pokémon.'),
-    (5, 'HeartGold features', 'mostly', 'Almost done',
-     'Following Pokémon, the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, '
-     'gym puzzles, the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear beside the Pokétch (its '
-     'phone, its map, its radio and the switch), the Magnet Train\'s ride and the legendaries\' cutscenes and '
-     'cinematics are in. What\'s left waits on your calls (the photo album, the Pokéathlon Dome, the key items).'),
+    (5, 'HeartGold features', 'active', 'In progress',
+     'In: the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, gym puzzles, '
+     'the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear (phone, map, radio), the Magnet Train, '
+     'the legendaries\' cutscenes. Following Pokémon are built but being turned off (your call). Still to port '
+     '(answers 7, 8, 9): the photo album, the Pokéathlon, the Berry Pots, the Unown Report and the Dowsing Machine; '
+     'link play later.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full, '
      'and HeartGold\'s own sound effects play in its scenes and scripts.'),
     (7, 'Joining the world', 'active', 'In progress',
-     'A new game plays from New Bark Town through Johto, the League and Kanto\'s eight gyms to the first ship to '
-     'Sinnoh, which lands in Twinleaf Town for Platinum\'s opening. One Town Map shows all three regions, and Fly '
-     'stays within the region you\'re in. Sinnoh\'s levels follow Kanto\'s; Totems, '
-     'legendaries and Megas are spread over all three regions. The story test has played every part from New Bark '
-     'Town to Sinnoh\'s Hall of Fame.'),
+     'Done: a new game plays from New Bark Town through Johto, Kanto and Sinnoh to the Hall of Fame; one Town Map of '
+     'three regions; Sinnoh\'s levels after Kanto; Totems, legendaries and Megas in all three regions; Ally Switch. '
+     'To do from your answers: Sinnoh entered at Canalave City (Rowan and his starter), the Rapid Ferry, Mega Stones '
+     'from Sinnoh\'s HM givers, Whirlpool HM05 and Defog HM09, the Town Map from Cherrygrove, Fly to the Sinjoh Ruins, '
+     'trade evolutions from the bag, the Pal Parks\' regional forms, 24 badges on the Trainer Card, the Indigo '
+     'Plateau\'s two-and-two Elite Four, the starters\' Pledge tutor.'),
     (8, 'Automated testing', 'active', 'In progress',
-     'Sovereign\'s tests run on Johto and Kanto (trainers, wild tables, gifts, triggers, talk); the story test plays '
-     'the game through; one command runs Complete\'s 36 feature tests (the latest sweep: 34 of 36, the two others '
-     'changed during it for the next build, where they pass) and 8 long ones.'),
-    (9, 'Your playthrough', 'ready', 'Ready for you',
-     'Johto and Kanto are playable from a new game; it can start whenever you like.'),
-    (10, 'Release', 'later', 'Later', 'Final fixes, then the .xdelta patches.'),
+     'Complete\'s 40 feature tests and 8 long ones (the story test plays the whole game), and Sovereign\'s own suites, '
+     'rerun Nov 6: battle mechanics 526 of 526 plus Ally Switch\'s 2, gifts 45 of 45, rare wild Pokémon 26 of 26, '
+     'roamers by region.'),
+    (9, 'Your playthrough', 'active', 'Under way',
+     'You started on Nov 5 with the playtest patch (an .xdelta for a clean Platinum). Your notes go to the playtest '
+     'session, which keeps docs/PlaytestIssues.md: 6 fixed so far, 10 open.'),
+    (10, 'Release', 'later', 'Later', 'Final fixes after your playthrough, then the .xdelta patch (the playtest '
+     'patch already works this way).'),
 ]
 
 NEXT = [
-    'Your final boss team against Cynthia, recorded, to show Mega Evolution working.',
-    'Sovereign\'s Elite Four format (two single battles, two double battles) at the Indigo Plateau and in Sinnoh; '
-    'Champion Lance a single battle, Champion Cynthia a double battle.',
-    'The Trainer Card with all 24 badges (a preview for you), then your Nov 6 answers in turn (the Questions tab has '
-    'each one\'s status).',
+    'Now: your final boss team (Sovereign\'s developer team) against Cynthia, recorded as a video of a real double '
+    'battle, Mega Charizard Y and Primal Kyogre included.',
+    'Then: the Indigo Plateau\'s Elite Four as two single and two double battles, as Sovereign\'s Sinnoh League already '
+    'is (Lance a single battle, Cynthia a double battle).',
+    'Then: the Trainer Card with all 24 badges (a preview for you), and your answers in turn: trade evolutions, the '
+    'HMs, the Mega Stone gifts, the Town Map, Canalave City and Rowan, the Rapid Ferry, the Pal Parks, the Pledges, '
+    'then HeartGold\'s ports (the album, the Berry Pots, the Unown Report, the Dowsing Machine, the Pokéathlon).',
 ]
 
 WAITING = [
-    ('Sinnoh\'s integration', 'A provisional one of Claude\'s is in (the Sinnoh tab): the first ship lands in '
-     'Twinleaf Town for Platinum\'s opening, and Sinnoh\'s levels follow Kanto\'s, from one table '
-     '(data/complete/sinnoh.yaml). Change any of it whenever you like.'),
-    ('Cynthia', 'Her Lv. 96 team beat a Lv. 100 team in all six real battles. Keep her that hard, or not.'),
-    ('Art', 'Who draws the walking sprites for #494 to #1025. The Town Map of three regions is in, made from the '
-     'two games\' own maps (the Gallery tab has screenshots); new art for it is welcome but not needed.'),
-    ('HeartGold\'s key items', 'Proposed: port the Berry Pots (about a day) and the Unown Report (half a day); the '
-     'Dowsing Machine stays with the Pokétch\'s Dowsing app. Yes or no?'),
-    ('Trade items from the bag', 'Proposed: as in Sacred Gold, the trade-evolution items (Metal Coat, King\'s Rock and '
-     'the rest) evolve a Pokémon from the bag, in all three regions, with trading still working. Yes or no?'),
-    ('The Pokéathlon Dome', 'With the Pokéathlon skipped: the building open (its people, no events) or closed?'),
-    ('The photo album', 'Cameron takes photos on 59 maps, but there\'s no album to keep them in. Port it, or leave '
-     'him out?'),
-    ('The Town Map in Johto', 'Fly opens the one Town Map everywhere, but the bag\'s Town Map is only given in Sinnoh '
-     '(Jubilife\'s Trainers\' School), so a new game has none until then. Proposed: the Cherrygrove City guide, who '
-     'gives the Pokégear\'s Map Card, gives the Town Map with it, and Sinnoh\'s gift is skipped if you have it. Yes or '
-     'no?'),
+    ('The Town Map\'s art', 'You\'ll draw new maps (answer 19); the one in the game until then is made from the two '
+     'games\' own maps.'),
+    ('Your playtest notes', 'Keep sending them; the playtest session works through them (docs/PlaytestIssues.md), and '
+     'some wait on you: which starter froze the game in Elm\'s lab, and your save from the S.S. Aqua\'s black screen.'),
+    ('The Mega Evolution look', 'You said you\'ll redo the stone shown on screen; the animation and icon wait on that.'),
 ]
 
 # Every question waiting on the owner, numbered, for the "Your questions" tab: (group, [(question, what the game does
 # now, the options, Claude's proposal or None)]). Kept in step with docs/Roadmap.md's "Still open".
-QUESTIONS = [
-    ('Reminder: waiting on you', [
-        ('What should Sinnoh\'s HM givers give now? (your answer 1)',
-         'Every HM can be earned in Johto and Kanto before Sinnoh (Whirlpool as HM05), so Sinnoh\'s HM givers are free. '
-         'Defog stays where Platinum has it, as the new HM09. Every Mega Stone is also sold in Sovereign\'s Mega Stone '
-         'shops (Hearthome, Pastoria, Snowpoint, the Survival Area), so these would be early gifts.',
-         ['Cynthia in Eterna City (was HM01 Cut): Garchompite Z',
-          'The Galactic Warehouse\'s item ball in Veilstone City (HM02 Fly): Staraptite',
-          'Cynthia\'s grandmother in Celestic Town (HM03 Surf): Galladite',
-          'Riley on Iron Island (HM04 Strength): Lucarionite',
-          'The Oreburgh Gate\'s hiker (HM06 Rock Smash): Excadrite',
-          'Crasher Wake in Pastoria City (HM07 Waterfall): Sharpedonite',
-          'Snowpoint Temple\'s last floor (HM08 Rock Climb): Froslassite',
-          'Platinum\'s Defog item ball (HM05): HM09 Defog, as you said'],
-         'The list above: each Mega Stone close to its giver (Cynthia\'s Garchomp, Riley\'s Lucario, Candice\'s town\'s '
-         'Froslass, Wake\'s water, an Excadrill for the hiker who smashes rocks). Swap any for a TM if you prefer; '
-         'say which.'),
-    ]),
+QUESTIONS = []
+
+# Anything that looked off in Claude's tests or screenshots, logged for the owner to look at, even when it may be
+# nothing (the owner's rule, Nov 6, 2026): (date, where, what Claude saw, a screenshot in .cache/gallery/issues or
+# None, status: new, looking, fixed, explained, yours)
+POSSIBLE_ISSUES = [
+    ('Nov 6', 'Battles with Johto\'s and Kanto\'s trainers',
+     'Every trainer class that\'s only in HeartGold (68 of them: Falkner, Whitney, Lance, Brock and the rest) was drawn '
+     'as dots in battle. It shows in Claude\'s own gallery shots from Nov 5, which Claude published without seeing it; '
+     'you found it in your playtest. The playtest session fixed it (the pictures were 4-bit PNGs the build read as '
+     '8-bit). Claude is checking all 68 again on today\'s build, and retaking the gallery\'s boss battles.',
+     'trainer_dots.jpg', 'fixed'),
+    ('Nov 6', 'The player in Johto and Kanto',
+     'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
+     'Intended so far; say if you want HeartGold\'s player in Johto and Kanto.', 'trainer_dots.jpg', 'yours'),
+    ('Nov 6', 'Falkner\'s six Poké Balls',
+     'The battle\'s ball indicator shows six for Falkner: Sacred Gold gives him six Pokémon. As Sacred Gold has it; '
+     'listed in case it looks wrong to you.', None, 'explained'),
 ]
 
 # The owner's answers of Nov 6, 2026, to the 23 questions (by their numbers), with who's on each and where it stands
 ANSWERED = [
     (1, 'Platinum\'s opening', 'The first ship lands in Canalave City; Rowan meets you there and invites you to his lab, '
      'where you may choose a Sinnoh starter. The people blocking Canalave City from Jubilife City go. Sinnoh\'s HM '
-     'givers give TMs or Mega Stones (the reminder above).', 'Claude, planned'),
+     'givers give Mega Stones (confirmed): Cynthia in Eterna Garchompite Z, the Galactic Warehouse Staraptite, '
+     'Celestic Town\'s elder Galladite, Riley Lucarionite, the Oreburgh Gate hiker Excadrite, Crasher Wake '
+     'Sharpedonite, Snowpoint Temple Froslassite; Defog stays as HM09.', 'Claude, planned'),
     (2, 'The ways to Kanto and Sinnoh', 'The Rapid Ferry: a fast S.S. Aqua with no passengers to battle, Vermilion or '
      'Olivine to Canalave; Canalave\'s Iron Island boat also rushes you to Olivine or Vermilion; every Rapid Ferry '
      'trip uses the Iron Island boat\'s animation.', 'Claude, planned'),
@@ -163,6 +160,14 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your answers, all 23', [
+        'Recorded with who does each: the playtest session takes your playtest notes (and turning the following '
+        'Pokémon off); Claude takes the rest. The Questions tab lists every answer with its status; the Mega Stone '
+        'gifts for Sinnoh\'s former HM givers are confirmed.',
+        'Sinnoh\'s Elite Four already plays Sovereign\'s two-and-two format, Cynthia a double battle; the Indigo '
+        'Plateau gets it next, with Lance a single battle.',
+        'The plan ahead, with days, is on the Timeline tab.',
+    ]),
     ('Your Nov 6 question: the Pledges and Ally Switch', [
         'Ally Switch works now. It did nothing (Splash\'s effect); in a double battle the user and its ally now trade '
         'places, each taking its own HP, stats and effects along, and the foes\' moves hit whoever stands where they '
@@ -327,12 +332,14 @@ SINNOH_IN = [
      'and Canalave\'s sailor back to either (tested both ways). The story test\'s last part lands there.'),
     ('Badges and field moves', 'A field move works with either region\'s badge for it, so Johto\'s badges keep Surf, '
      'Strength and the rest working in Sinnoh.'),
-    ('Following Pokémon', 'The lead Pokémon follows in Sinnoh too, kept out of buildings when it\'s too tall, and talks '
-     'as in HeartGold.'),
+    ('Following Pokémon', 'Built for all three regions, and being turned off (your call, Nov 6); the code stays.'),
+    ('The Elite Four', 'Sovereign\'s format: two single and two double battles, picked as you go; Cynthia a double '
+     'battle.'),
     ('Fly and the Town Map', 'One Town Map shows Sinnoh, Johto and Kanto; scroll from one to the others. Fly stays in '
      'the region you\'re in (Johto and Kanto both reach the Indigo Plateau and Mt. Silver), and the ferries join them.'),
-    ('Sovereign\'s own tests', 'Run on this build: battle mechanics 526 of 526, gifts 45 of 45, rare wild Pokémon 52 of '
-     '52, evolutions 255 of 255, wild forms on every Sinnoh map, roamers, and Sovereign\'s signs and triggers.'),
+    ('Sovereign\'s own tests', 'Rerun Nov 6: battle mechanics 526 of 526 (and Ally Switch\'s 2), gifts 45 of 45, rare '
+     'wild Pokémon 26 of 26, roamers by region; earlier: evolutions 255 of 255, wild forms on every Sinnoh map, signs '
+     'and triggers.'),
 ]
 SINNOH_PLAN = [
     ('Arriving in Sinnoh', 'The first ship to Sinnoh sails to Twinleaf Town and leaves the player in their room, where '
@@ -354,6 +361,17 @@ SINNOH_PLAN = [
     ('A full test, and a highlight video', 'Every test on the finished game (placements 40 of 40, Megas 50 of 50, '
      'Cyrus and Giratina pass), the playthrough from New Bark Town to Sinnoh\'s Hall of Fame (all 186 parts pass), '
      'and a 2 minute video of it.', 'done'),
+    ('Arriving in Canalave City (your answer 1)', 'The first ship lands in Canalave City; Rowan meets you there and '
+     'invites you to his lab, with a Sinnoh starter to choose; the people between Canalave and Jubilife go.',
+     'planned'),
+    ('The Rapid Ferry (answer 2)', 'Straight from Olivine or Vermilion to Canalave, no passengers to battle, on the '
+     'Iron Island boat\'s animation; Canalave\'s Iron Island boat rushes you to Olivine or Vermilion too.', 'planned'),
+    ('Mega Stones from the HM givers', 'Cynthia Garchompite Z, the Galactic Warehouse Staraptite, Celestic Town '
+     'Galladite, Riley Lucarionite, the Oreburgh Gate Excadrite, Crasher Wake Sharpedonite, Snowpoint Temple '
+     'Froslassite; Defog becomes HM09 where Platinum has it (you confirmed).', 'planned'),
+    ('Byron\'s levels', 'Checked, and lowered if nothing in the story holds his gym back now that Canalave City is '
+     'the way in.', 'planned'),
+    ('The Pal Park\'s regional forms', 'Paldea\'s and Hisui\'s forms in Sinnoh\'s Pal Park.', 'planned'),
 ]
 
 # The timeline: the roadmap steps each docs/Progress.md entry was for, by its title (the story test's entries are
@@ -375,6 +393,7 @@ ENTRY_STEPS = {
     'a bigger bag, and screens the scripts skipped': (5,), 'Fly over Johto and Kanto': (7,),
     'a new game starts in New Bark Town': (7,), 'the ferry network': (7,),
     'Viridian Gym\'s arrows light up, Fuchsia Gym\'s walls flash': (5,), 'Mahogany Gym\'s ice blocks': (5, 7),
+    'Ally Switch, Sovereign\'s tests rerun, and the owner\'s answers': (5, 7, 8),
 }
 STORY_ENTRY = re.compile(r'story test|opening|leg ahead|double free')
 # Work outside docs/Progress.md: (date, step, what)
@@ -382,21 +401,32 @@ MILESTONES = [
     ('2026-10-28', 0, 'The plan: the roadmap, its estimates and the open decisions.'),
     ('2026-11-01', 0, 'You asked for a provisional Sinnoh integration of Claude\'s own, Megas in all three regions, a '
      'full test of the game and a highlight video.'),
+    ('2026-11-05', 0, 'Your Nov 5 calls: the gallery, one Town Map of three regions, Fly within a region.'),
+    ('2026-11-06', 0, 'Your answers to all 23 questions; your playthrough starts on the playtest patch.'),
 ]
 # Ahead, from today: (when, what, who, status: active, planned, waiting), Claude's estimates as of UPDATED
 AHEAD = [
-    ('Nov 1', 'Done: Sinnoh\'s arrival, levels and caps; Totems and legendaries spread; Megas in Johto and Kanto.',
-     'Claude', 'done'),
-    ('Nov 2', 'Done: the story test through Sinnoh to the Hall of Fame, with a follower out in every scene; a full test '
-     'of the game, and the highlight video from its playthrough.', 'Claude', 'done'),
-    ('Any time', 'Your playthrough (step 9): Johto and Kanto are playable now; about 40 to 60 days at 2 hours a day '
-     'for all three regions.', 'You', 'waiting'),
-    ('Nov 3', 'Your Nov 3 calls: Voltorb Flip, the Johto Pokédex, Red and the credits, Johto\'s Battle Frontier '
-     'and the Pokégear beside the Pokétch (its phone, calls you place, its map, its radio, the switch) are done.',
-     'Claude', 'done'),
-    ('Your call', 'The art for the Town Map and sprites, Cynthia\'s difficulty, and any of the provisional Sinnoh '
-     'choices to change.', 'You', 'waiting'),
-    ('After step 9', 'Release (step 10): final fixes, then the .xdelta patches, about 3 days.', 'Both', 'planned'),
+    ('Nov 5', 'Done: the gallery, one Town Map of three regions, the Day Care\'s yard; the playtest patch (the '
+     'playtest session).', 'Claude', 'done'),
+    ('Nov 6', 'Done: Ally Switch, Sovereign\'s suites rerun and their fixes (the Paradox Pokémon\'s level), your '
+     'answers recorded.', 'Claude', 'done'),
+    ('Nov 6', 'Your final boss team against Cynthia (video); the Indigo Plateau\'s two-and-two Elite Four; the '
+     'Trainer Card\'s 24 badges (a preview).', 'Claude', 'active'),
+    ('Nov 7 to 8', 'Trade evolutions from the bag, Whirlpool HM05 and Defog HM09 (HMs forgettable), the Mega Stone '
+     'gifts, the Town Map from Cherrygrove, Fly to the Sinjoh Ruins: about 2 days.', 'Claude', 'planned'),
+    ('Nov 9 to 11', 'Sinnoh from Canalave City: Rowan meets you, his lab\'s starter, the way to Jubilife opened, '
+     'Byron\'s levels; the Rapid Ferry: about 3 days.', 'Claude', 'planned'),
+    ('Nov 12 to 13', 'The Pal Parks\' regional forms; the starters\' Pledge tutor with the combinations: about 2 '
+     'days.', 'Claude', 'planned'),
+    ('Nov 14 to 18', 'HeartGold\'s Berry Pots, Unown Report, Dowsing Machine and photo album: about 4 days.',
+     'Claude', 'planned'),
+    ('Nov 19 to 29', 'The Pokéathlon, HeartGold\'s biggest remaining port (its own screens and minigames): about 10 '
+     'days.', 'Claude', 'planned'),
+    ('All along', 'Your playthrough; the playtest session fixes what you find and sends new patches.', 'You', 'active'),
+    ('Your call', 'The new Town Map art; the Mega stone\'s look.', 'You', 'waiting'),
+    ('Later', 'Link play (answer 14), when nothing else is left.', 'Claude', 'planned'),
+    ('After your playthrough', 'Release (step 10): final fixes, then the .xdelta patch, about 3 days.', 'Both',
+     'planned'),
 ]
 
 KANTO = {'PalletTown', 'ViridianCity', 'PewterCity', 'CeruleanCity', 'VermilionCity', 'LavenderTown', 'CeladonCity',
@@ -512,6 +542,10 @@ def gallery(out_dir):
     import gallery_shots
     dest = os.path.join(out_dir, GALLERY_OUT)
     os.makedirs(dest, exist_ok=True)
+    # The possible issues' screenshots, as they are (.cache/gallery/issues)
+    os.makedirs(os.path.join(dest, 'issues'), exist_ok=True)
+    for shot in glob.glob(os.path.join(GALLERY, 'issues', '*')):
+        shutil.copyfile(shot, os.path.join(dest, 'issues', os.path.basename(shot)))
     maps_dir = os.path.join(ROOT, '.cache', 'maps')
     regions = json.load(open(os.path.join(maps_dir, 'places.json'))) if os.path.exists(
         os.path.join(maps_dir, 'places.json')) else {}
@@ -713,6 +747,7 @@ def main():
         'updated': UPDATED, 'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'),
         'steps': [dict(zip(('n', 'name', 'status', 'label', 'detail'), s)) for s in STEPS],
         'next': NEXT, 'waiting': [dict(zip(('topic', 'detail'), w)) for w in WAITING],
+        'issues': [dict(zip(('date', 'where', 'what', 'shot', 'status'), i)) for i in POSSIBLE_ISSUES],
         'answered': [dict(zip(('n', 'q', 'answer', 'status'), a)) for a in ANSWERED],
         'questions': [{'group': g, 'items': [dict(zip(('q', 'now', 'options', 'proposal'), q)) for q in qs]}
                       for g, qs in QUESTIONS],

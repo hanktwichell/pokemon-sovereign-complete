@@ -1796,6 +1796,8 @@ Test results on the new test build:
   sends Victreebel in too late to Evolve before the god-mode battle ends, with tonight's random numbers (from the
   clock). The test now fights a boss again from two fixed seeds when the first battle shows no Mega: Erika's Victreebel
   Mega Evolves, and the long checks (wild encounters, hidden items, tile behaviors, placements, sound memory) pass.
+## Nov 6, 2026: Ally Switch, Sovereign's tests rerun, and the owner's answers
+
 - **Sovereign's own tests after Sinnoh's level move:** the rare wild Pokémon test (`tools/test/rare_wild.py`) still
   expected Sovereign's levels (Guzzlord Lv. 65); since Nov 1 Sinnoh's maps make them at Sinnoh's levels after Kanto
   (Lv. 91), as planned. The rare wild, roamers and gifts tests now read the level map from the generated header
@@ -1884,3 +1886,12 @@ Test results on the new test build:
   ships land), and Canalave City stays once Sinnoh is open (`CommonScript_CompleteFerry`). The ferry test's four new
   cases pass with the twelve before (16 of 16 on build_test). The owner also scrapped the following Pokémon
   (`docs/Roadmap.md`; issue 1 of `docs/PlaytestIssues.md`, handed to the Sovereign Platinum session).
+- **The owner's answers to all 23 questions** are in `docs/Roadmap.md` ("The owner's answers"), with the work split:
+  the playtest session takes the playtest notes (`docs/PlaytestIssues.md`, the following Pokémon turned off, the
+  playtest patch); this session takes the rest. The playtest session's branch is merged into main. The owner
+  confirmed the Mega Stones that Sinnoh's former HM givers will give.
+- **Sinnoh's Elite Four already has Sovereign's format** (two single and two double battles, Cynthia a double battle;
+  Sovereign's `docs/EliteFourFormat.md`), as it came with Sovereign's engine; the Indigo Plateau gets it next.
+- **A test hook for a trainer's whole team as the player's party** (`gCompleteTestPartyFromTrainer`, the next test
+  warp; `tools/complete/record_battle.py --party-from`), and double battles played by the battle recorder: for the
+  owner's final boss team (Sovereign's developer team) against Cynthia.
