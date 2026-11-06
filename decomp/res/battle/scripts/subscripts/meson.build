@@ -496,4 +496,5 @@ subscript_files = files(
     'subscript_sovereign_stats_tail_glow.s',
     'subscript_sovereign_howl.s',
     'subscript_complete_throw_sport_ball.s',
+    'subscript_complete_ally_switch.s',
 )

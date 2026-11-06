@@ -718,6 +718,7 @@ Overlay battle
 	Object src/battle/battle_script.c
 	Object src/battle/battle_controller_player.c
 	Object src/battle/battle_lib.c
+	Object src/battle/complete_ally_switch.c
 	Object src/battle/battle_io_command.c
 	Object src/battle/battle_display.c
 	Object src/battle/idle_bounce_anim.c

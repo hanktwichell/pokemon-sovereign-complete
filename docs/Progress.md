@@ -1808,3 +1808,8 @@ Test results on the new test build:
   nothing happened!") for the 21 species that learn it; the three Pledges are plain 80-power hits, and nothing learns
   them. The same is true in Sovereign. Ally Switch is being made to swap the two Pokémon in double battles; the
   Pledges' combinations wait on whether anything should learn them (the progress page's questions).
+- **Ally Switch works** (docs/Features.md, "Ally Switch"): in a double battle the user and its ally trade places,
+  each Pokémon taking its own state along and every record of a battler following the Pokémon
+  (`src/battle/complete_ally_switch.c`); both positions are redrawn in place (sprites with a front sprite's shadow and
+  Illusion's look, health boxes, substitute dolls); it shares Protect's chain as in Gen IX. Built and boot-checked;
+  two battle cases (`ally_switch`, `ally_switch_single`) run next on a test build.

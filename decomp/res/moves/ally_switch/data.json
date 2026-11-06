@@ -13,7 +13,7 @@
     "accuracy": 0,
     "pp": 15,
     "effect": {
-        "type": "BATTLE_EFFECT_DO_NOTHING",
+        "type": "BATTLE_EFFECT_COMPLETE_ALLY_SWITCH",
         "chance": 0
     },
     "range": "RANGE_USER",

@@ -993,4 +993,12 @@ CASES = [
     # Double Shock from a pure Electric: typeless; the wild's Mud-Slap hits it now (Ground no longer immune... is
     # neutral).
     dict(name='jolteon', lead='JOLTEON', lead_move='DOUBLE_SHOCK', all_moves=1, foe_move='MUD_SLAP', survive=3),
+
+    # Sovereign Complete: Ally Switch (src/battle/complete_ally_switch.c). In a double battle the user and its ally
+    # trade places each turn ("Alakazam and Snorlax switched places!"), each taking its own HP and stats along; the
+    # foes' moves aimed at a position hit whoever stands there now. In a single battle it fails.
+    dict(name='ally_switch', lead='ALAKAZAM', lead_move='ALLY_SWITCH', all_moves=1, trainer='BELLE_AND_PA_AVA_AND_MATT',
+         partner='SNORLAX', partner_moves=['HEADBUTT'] * 4, nogod=1),
+    dict(name='ally_switch_single', lead='ALAKAZAM', lead_move='ALLY_SWITCH', all_moves=1, foe_move='SPLASH',
+         survive=1),
 ]

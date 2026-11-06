@@ -212,7 +212,7 @@ QUESTIONS = [
         ('The Pledge moves (Grass, Fire and Water Pledge)',
          'No Pokémon learns them, by level or tutor, and in the battle engine they\'re plain 80-power hits with no '
          'combinations (no rainbow, sea of fire or swamp). The same is true in Sovereign. Ally Switch, the other move '
-         'you asked about, is being fixed now: it did nothing, like Splash, for the 21 species that learn it.',
+         'you asked about, did nothing, like Splash; now the user and its ally trade places in double battles.',
          ['Leave them out (nobody learns them)',
           'A tutor teaches them to the Grass, Fire and Water starters, with the full combinations',
           'Add them to Sovereign first, then sync'],

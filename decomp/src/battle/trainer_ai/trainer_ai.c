@@ -3146,6 +3146,7 @@ static int AI_RateSovereignMoveOnFoe(BattleSystem *battleSys, BattleContext *bat
     case BATTLE_EFFECT_SOVEREIGN_HOLD_HANDS:
     case BATTLE_EFFECT_SOVEREIGN_CELEBRATE:
     case BATTLE_EFFECT_SOVEREIGN_HAPPY_HOUR:
+    case BATTLE_EFFECT_COMPLETE_ALLY_SWITCH: // Sovereign Complete: the AI can't tell when trading places helps
         useless = TRUE;
         break;
 

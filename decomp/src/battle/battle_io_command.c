@@ -714,8 +714,26 @@ static void BtlIOCmd_ChangeWeatherForm(BattleSystem *battleSys, BattlerData *bat
     y = LoadPokemonSpriteYOffset(message->species, message->gender, face, message->formNum, message->personality);
     PokemonSpriteData_SetYOffset(BattleSystem_GetPokemonSpriteData(battleSys), battlerData->battler, y);
 
+    int yOffset = y; // Sovereign Complete: kept for the shadow below
     y = ov12_022384CC(battlerData->battlerType, 1) + y;
     PokemonSprite_SetAttribute(battlerData->monSprite, MON_SPRITE_Y_CENTER, y);
+
+    // Sovereign Complete: a front sprite's shadow fits the Pokémon now shown, as a move animation's look change sets it
+    // (ov12_022380BC.c): Ally Switch brings another species to the position
+    if (face == FACE_FRONT) {
+        s8 height, shadowX;
+        u8 shadowSize;
+
+        PokemonSprite_LoadYOffset(battlerData->narc, &height, message->species);
+        PokemonSprite_LoadXOffsetShadow(battlerData->narc, &shadowX, message->species);
+        PokemonSprite_LoadShadowSize(battlerData->narc, &shadowSize, message->species);
+
+        PokemonSprite_SetAttribute(battlerData->monSprite, MON_SPRITE_SHADOW_SIZE, shadowSize);
+        PokemonSprite_SetAttribute(battlerData->monSprite, MON_SPRITE_SHADOW_Y, y + (36 - yOffset));
+        PokemonSprite_SetAttribute(battlerData->monSprite, MON_SPRITE_SHADOW_X_OFFSET, shadowX);
+        PokemonSprite_SetAttribute(battlerData->monSprite, MON_SPRITE_SHADOW_Y_OFFSET, 36 - yOffset);
+        PokemonSprite_SetAttribute(battlerData->monSprite, MON_SPRITE_SHADOW_HEIGHT, height);
+    }
 
     BattleController_EmitClearCommand(battleSys, battlerData->battler, message->command);
     ZeroDataBuffer(battlerData);

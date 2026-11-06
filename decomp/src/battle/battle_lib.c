@@ -9773,6 +9773,7 @@ BOOL Sovereign_IsProtectionMove(int move)
     case MOVE_BURNING_BULWARK:
     case MOVE_WIDE_GUARD:
     case MOVE_QUICK_GUARD:
+    case MOVE_ALLY_SWITCH: // Sovereign Complete: Ally Switch shares the chain (Gen IX)
         return TRUE;
     }
 

@@ -11349,6 +11349,61 @@
     {
       "id": "BattleStrings_Text_CompleteContestMonLevel",
       "en_US": "{ALN_RIGHT}Lv. {STRVAR_1 52, 1, 0}"
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_AllyAlly",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}\n",
+        "switched places!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_AllyWild",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} and\n",
+        "the wild {STRVAR_1 1, 1, 0}\r",
+        "switched places!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_AllyFoe",
+      "en_US": [
+        "{STRVAR_1 1, 0, 0} and\n",
+        "the foe’s {STRVAR_1 1, 1, 0}\r",
+        "switched places!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_WildAlly",
+      "en_US": [
+        "The wild {STRVAR_1 1, 0, 0} and\n",
+        "{STRVAR_1 1, 1, 0}\r",
+        "switched places!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_WildWild",
+      "en_US": [
+        "The wild {STRVAR_1 1, 0, 0} and\n",
+        "the wild {STRVAR_1 1, 1, 0}\r",
+        "switched places!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_FoeAlly",
+      "en_US": [
+        "The foe’s {STRVAR_1 1, 0, 0} and\n",
+        "{STRVAR_1 1, 1, 0}\r",
+        "switched places!"
+      ]
+    },
+    {
+      "id": "BattleStrings_Text_CompleteAllySwitch_FoeFoe",
+      "en_US": [
+        "The foe’s {STRVAR_1 1, 0, 0} and\n",
+        "the foe’s {STRVAR_1 1, 1, 0}\r",
+        "switched places!"
+      ]
     }
   ]
 }

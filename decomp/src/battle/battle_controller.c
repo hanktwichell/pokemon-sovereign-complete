@@ -1669,6 +1669,8 @@ void BattleController_EmitChangeWeatherForm(BattleSystem *battleSys, int battler
     }
 
     message.formNum = battleSys->battleCtx->battleMons[battler].formNum;
+    // Sovereign Complete: a disguised battler keeps its disguise's look (Ally Switch redraws both positions)
+    SOVEREIGN_ILLUSION_LOOK(battleSys, battler, message.species, message.isShiny, message.formNum, message.gender, message.personality);
 
     SendMessage(battleSys, COMM_RECIPIENT_CLIENT, battler, &message, sizeof(MonChangeFormMessage));
 }

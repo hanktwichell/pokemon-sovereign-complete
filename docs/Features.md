@@ -934,6 +934,27 @@ Pokémon's, in its shiny colours if shiny), the first at (8, 5) and the second a
 init script places them each time its map comes back, and taking one back takes it out of the yard at once.
 Test: `tools/complete/test_hgss_daycare_yard.py`.
 
+## Ally Switch
+
+Sovereign's engine gave Ally Switch Splash's effect ("But nothing happened!"). Now, in a double battle, the user and
+its ally trade places (`src/battle/complete_ally_switch.c`, `subscript_complete_ally_switch`), as from Gen V on:
+- Each Pokémon takes along everything that's its own: HP, stats and stat stages, status and volatile effects, its
+  substitute, its move history and the action it chose this turn. Every record that names a battler (Attract, Lock-On,
+  Mean Look, Bind, Follow Me, who hit whom) follows the Pokémon, and so does its place in the turn's order. What belongs
+  to a position stays: Wish, Future Sight, a Healing Wish waiting in the slot.
+- The foes' moves already aimed at a position hit whoever stands there now.
+- Both positions are redrawn in place: the sprites, with a front sprite's shadow and a disguised Zoroark's look; the
+  health boxes; any substitute doll. Then "Alakazam and Snorlax switched places!"
+- As in Gen IX it shares Protect's chain: used again right after a protection move (or itself) it may fail, and it
+  fails when no one is left to move that turn.
+- It fails in a single battle, in a multi battle (the two positions are different trainers'), without a living ally,
+  and while either Pokémon can't be reached (flying or digging for its move's second turn, carried by Sky Drop, inside
+  a Dondozo).
+- The trainer AI doesn't use it, as it didn't before.
+
+21 species learn it. The Pledge moves are plain hits that nothing learns; see the progress page's questions.
+Tests: `tools/test/battle_mechanics.py ally_switch ally_switch_single`.
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

@@ -38,6 +38,7 @@
 #include "battle/btlcmd.h"
 #include "battle/common.h"
 #include "battle/terrain.h"
+#include "battle/complete_ally_switch.h" // Sovereign Complete: Ally Switch
 #include "battle_anim/ov12_02235E94.h"
 #include "battle_anim/struct_ov12_02237728.h"
 
@@ -10115,6 +10116,14 @@ static void *BattleScript_VarAddress(BattleSystem *battleSys, BattleContext *bat
     case BTLVAR_SOVEREIGN_COURT_CHANGE: // Sovereign (item 11): read-only, Court Change swaps the sides' field effects (0
         // when there are none)
         battleCtx->sovereignTerrainTemp = Sovereign_CourtChange(battleCtx);
+        return &battleCtx->sovereignTerrainTemp;
+    case BTLVAR_COMPLETE_ALLY_SWITCH_CHECK: // Sovereign Complete: read-only, whether the attacker can Ally Switch (the
+        // ally becomes the side-effect battler)
+        battleCtx->sovereignTerrainTemp = Complete_CanAllySwitch(battleSys, battleCtx);
+        return &battleCtx->sovereignTerrainTemp;
+    case BTLVAR_COMPLETE_ALLY_SWITCH: // Sovereign Complete: read-only, the attacker and its ally trade places (0 if
+        // they can't)
+        battleCtx->sovereignTerrainTemp = Complete_AllySwitch(battleSys, battleCtx);
         return &battleCtx->sovereignTerrainTemp;
     case BTLVAR_SOVEREIGN_TIDY_UP_HAZARDS: // Sovereign (item 11): read-only, Tidy Up clears the entry hazards (0 when
         // there were none)
