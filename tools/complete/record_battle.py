@@ -68,8 +68,9 @@ FIGHT, RUN = (128, 70), (128, 174)
 MOVE_SPOTS = ((64, 50), (192, 50), (64, 114), (192, 114))
 PARTY_SLOTS = ((60, 30), (190, 30), (60, 80), (190, 86), (60, 128), (190, 134))  # the party screen's panels
 PARTY_SHIFT = (128, 100)  # the chosen Pokémon's SHIFT
-# A double battle's target screen: the foes on top, as on the top screen (battler 3 on the left, battler 1 on the right)
-TARGET_SPOTS = {1: (190, 60), 3: (64, 60)}
+# A double battle's target screen: the foes' boxes on top (battler 1, the first foe, on the right; battler 3 on the
+# left), the player's below (as seen in Cynthia's battle)
+TARGET_SPOTS = {1: (190, 30), 3: (64, 30)}
 SPREAD = ('RANGE_ADJACENT_OPPONENTS', 'RANGE_ALL_ADJACENT')  # moves that hit both foes: no target to pick
 SUN, RAIN = 'TYPE_FIRE', 'TYPE_WATER'  # the types the weather boosts
 FRAME_LIMIT = 60 * 60 * 45
@@ -216,6 +217,9 @@ class Battle:
         purple = lambda c: c[2] > 140 and c[2] > c[0] + 20 and c[1] < 130 and c[0] > 90  # noqa: E731
         if red(px(128, 60)) and orange(px(40, 180)) and green(px(216, 180)):
             return 'command'
+        foe_box = lambda c: c[0] > 180 and 60 < c[1] < 140 and c[2] < 90  # noqa: E731  a target screen's orange box
+        if blue(px(128, 174)) and (foe_box(px(64, 30)) or foe_box(px(190, 30))):
+            return 'target'
         if blue(px(128, 174)) and blue(px(60, 174)) and blue(px(200, 174)) and not red(px(128, 60)):
             return 'moves'
         if purple(px(2, 100)) and purple(px(128, 160)):
@@ -224,9 +228,9 @@ class Battle:
 
     def send_next(self):
         """On the party screen after a faint: the first Pokémon whose panel is a healthy one's blue (a fainted one's
-        is orange), then its SHIFT."""
+        is orange), then its SHIFT; in a double battle, past the first two panels (the two out)."""
         im = self.d.screenshot().convert('RGB')
-        for x, y in PARTY_SLOTS:
+        for x, y in PARTY_SLOTS[2 if self.mons() and self.is_double() else 0:]:
             c = im.getpixel((x, 192 + y))
             if c[2] > c[0] + 20:
                 self.d.touch(x, y, frames=4, after=40)
@@ -265,16 +269,21 @@ class Battle:
             if screen == 'moves' and self.is_double():
                 b = self.chooser()
                 slot, target, moves, scores = self.best_double(b)
-                turns += b == 0 or not self.hp(0)[0]
+                turns += b == 0 or not self.hp(0)[0] or not self.species(0)
                 name = self.species_names[self.species(b)][len('SPECIES_'):].title()
                 aim = self.species_names[self.species(target)][len('SPECIES_'):].title() if target else 'both foes'
                 log(f'turn {turns}: {name}: {moves[slot]} at {aim} '
                     f'({", ".join(f"{m[5:].title()} {s:.0f}" for m, s in zip(moves, scores))})')
                 d.touch(*MOVE_SPOTS[slot], frames=4, after=30)
                 frames += 34
-                if target is not None and self.screen() is None:  # the target screen
-                    d.touch(*TARGET_SPOTS[target], frames=4, after=30)
+                if self.screen() == 'target':  # a move with one target: the foe chosen (or the other, if it's gone)
+                    aim_at = target if target is not None else next((f for f in (1, 3) if self.hp(f)[0]), 1)
+                    d.touch(*TARGET_SPOTS[aim_at], frames=4, after=30)
                     frames += 34
+                continue
+            if screen == 'target':  # left over: the first foe still standing
+                d.touch(*TARGET_SPOTS[next((f for f in (1, 3) if self.hp(f)[0]), 1)], frames=4, after=30)
+                frames += 34
                 continue
             if screen == 'moves':
                 slot, moves, foe, scores = self.best_move()
@@ -415,6 +424,7 @@ def main():
 
     d.run(delay)
     mem.write_byte(sym['gSovereignTestGodMode'], 1 if god else 0)  # the test build's one-sided battle
+    mem.write_short(sym['gSovereignTestMessageLog'], 0)  # the message log from the battle's first line
     raw = out + '.ts'
     video = Recorder(d, raw, 3)
     if trainer:
@@ -427,6 +437,15 @@ def main():
         print(what, flush=True)
         video.mark(what)
     result, frames, turns = battle.play(log=log)
+    try:  # the battle's messages, as it printed them (gSovereignTestMessageLog), beside the video
+        from battle_mechanics import LOG_CHARS, charmap, decode_log
+        base, um = sym['gSovereignTestMessageLog'], mem.unsigned
+        length = um[base] | um[base + 1] << 8
+        raw = bytes(um[base + 2:base + 2 + 2 * min(length, LOG_CHARS)])
+        with open(out + '.messages.txt', 'w', encoding='utf-8') as f:
+            f.write('\n'.join(decode_log([raw[i] | raw[i + 1] << 8 for i in range(0, len(raw), 2)], charmap())) + '\n')
+    except Exception as e:  # noqa: BLE001  the video matters more than its text
+        print(f'(no message log: {e})', flush=True)
     d.run(360)
     video.close()
     print(f'{trainer or room[0]}: {result} after {frames} frames ({frames / 60:.0f} s, {turns} turns)', flush=True)

@@ -95,6 +95,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   to 88, their rematches 92 to 95).
 - **The owner's note to remember (Nov 6, 2026): the Elite Four's rematch teams should be slightly better than their
   first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
+- **To do (the owner, Nov 6, 2026): every sprite in Sovereign Platinum ported to Sovereign Complete** (Pokémon
+  fronts, backs, forms and icons, trainers, overworld sprites), checked against Sovereign's own folders.
 
 - **Story order (Oct 29, 2026).** Johto, then Kanto, then Sinnoh. The game starts in New Bark Town and ends at Spear
   Pillar, as Sovereign Platinum does.

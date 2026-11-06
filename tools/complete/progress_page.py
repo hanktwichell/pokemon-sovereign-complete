@@ -104,6 +104,8 @@ QUESTIONS = []
 OWNER_NOTES = [
     ('Nov 6', 'The Elite Four\'s rematch teams should be slightly better than their first teams (both Leagues). '
      'Not done yet; on the list for when the teams are reviewed.'),
+    ('Nov 6', 'Make sure every sprite in Sovereign Platinum has been ported to Sovereign Complete (Pokémon fronts, '
+     'backs and forms, icons, trainers, overworld). On Claude\'s list.'),
     ('Nov 6', 'Sinnoh\'s top levels: with Roark\'s ace at Lv. 72, Cynthia\'s first ace about 88 to 90, her '
      'rematch\'s 96. Done: Cynthia Lv. 89, her rematch 95 to 96, the Elite Four 87 to 88 (rematches 92 to 95).'),
 ]
@@ -121,6 +123,10 @@ POSSIBLE_ISSUES = [
     ('Nov 6', 'The player in Johto and Kanto',
      'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
      'Intended so far; say if you want HeartGold\'s player in Johto and Kanto.', 'trainer_dots.jpg', 'yours'),
+    ('Nov 6', 'Mega Charizard Y\'s back sprite',
+     'In the recording of your team against Cynthia, Claude thought Charizard kept its normal back sprite after Mega '
+     'Evolving, and was about to call it a bug. You checked: it is the Mega\'s own back (the two are close: the Mega '
+     'has a spikier crest). Not an issue; Claude misread the screenshot.', None, 'explained'),
     ('Nov 6', 'Sinnoh\'s aces level with their teams',
      'Sovereign gives each boss\'s ace a level more than the rest; the level plan\'s top end is so flat now that the '
      'two land on the same level (Cynthia\'s six all Lv. 89, the Elite Four\'s 87 or 88). Your call: keep it, or '
