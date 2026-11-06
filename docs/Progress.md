@@ -1838,3 +1838,7 @@ Test results on the new test build:
   of each side's party don't follow which Pokémon are left. Pokéfans Georgia (5 Pokémon) and Jeremy (3) on the
   S.S. Aqua see the player together, so they battle as one double with 8 Pokémon, as in HeartGold; the indicator has 6
   slots a side.
+- **Faster HP bars** (the owner's request): the bar moves 2 pixels each time the healthbox redraws it (every other
+  frame), whatever the Pokémon's HP, so a full bar takes 0.8 s (`COMPLETE_HP_GAUGE_PIXELS_PER_FRAME`,
+  `src/battle/healthbox.c`). Platinum moved it one HP per redraw above 48 HP: on build_test, a third of a Lv. 100
+  Blissey's bar took about 8 s before and 16 frames now. The EXP bar is unchanged.
