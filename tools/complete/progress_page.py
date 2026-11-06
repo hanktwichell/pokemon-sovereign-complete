@@ -131,7 +131,21 @@ POSSIBLE_ISSUES = [
      'trainer_dots.jpg', 'fixed'),
     ('Nov 6', 'The player in Johto and Kanto',
      'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
-     'Your call (Nov 6): the boy becomes Ethan, the girl stays Dawn. In progress.', 'trainer_dots.jpg', 'looking'),
+     'Your call (Nov 6): the boy becomes Ethan, the girl stays Dawn. Done for the field (every pose), battles (his back '
+     'and throw) and the Hall of Fame: Gallery tab, "The player: Ethan". Still Lucas: the Trainer Card, the intro\'s '
+     'pictures, the Town Map\'s head and the Fly rider (next).', 'trainer_dots.jpg', 'fixed'),
+    ('Nov 6', 'The following Pokémon over the player',
+     'In the shots of Ethan running, the following Pokémon (the test party\'s Garchomp) is drawn over the player for a '
+     'few steps when he turns while running, hiding him. Moot once the following Pokémon are turned off (your call; '
+     'the playtest session\'s issue 1).', 'follower_over_player.jpg', 'explained'),
+    ('Nov 6', 'The walk test: steps refused inside buildings',
+     'The walk test (all of Johto\'s and Kanto\'s maps, 79 of 518 so far) logged steps the game refused onto tiles the '
+     'map says are open, on 24 maps, mostly in Pokémon Centers and houses. In every shot of one the following Pokémon '
+     'stands beside the player, and people walk about, so they may be what blocked the step; being checked tile by '
+     'tile. No hangs so far.', 'walk_refused_steps.jpg', 'looking'),
+    ('Nov 6', 'Celadon Condominiums\' right elevator',
+     'The walk test\'s warp into it left the player at (4, -32), outside the map, where the left elevator\'s put them '
+     'on its floor. To look into: the map\'s arrival point may be wrong.', None, 'looking'),
     ('Nov 6', 'The player\'s name at a battle\'s end',
      'In the recording of your team against Cynthia, the win reads "Player defeated Champion Cynthia!" but the prize '
      'reads "A got $31200 for winning!": two names for the player (the test save\'s is A). Checked: "Player '

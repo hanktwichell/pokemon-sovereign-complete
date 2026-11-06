@@ -46,8 +46,25 @@ MAX_STEPS = 6000  # and at most this many
 AVOID_BEHAVIORS = WATER | {ICE, MAGMA} | ROCK_CLIMB | DEEP_MUD | set(SLIDES) | WARP_TILES
 
 
-def reachable(maps, matrix, start, blocked):
-    """The tiles a player on foot reaches from start: open floor (ledges one way), around blocked."""
+_HEADERS = {}
+
+
+def inside(maps, matrix, header, x, z):
+    """Whether the tile is the map's own: in a matrix of several maps (Johto's, Kanto's, Sinnoh's), only the chunks
+    the matrix gives this header, so a walk stays on its map and doesn't wander across a connection."""
+    if matrix not in _HEADERS:
+        path = os.path.join(maps.decomp, 'res', 'field', 'matrices', matrix + '.json')
+        _HEADERS[matrix] = json.load(open(path, encoding='utf-8')).get('headers')
+    grid = _HEADERS[matrix]
+    if not grid or x < 0 or z < 0:
+        return True
+    row, col = z // 32, x // 32
+    return row < len(grid) and col < len(grid[row]) and grid[row][col] in (header, 'MAP_HEADER_HGSS_EVERYWHERE') \
+        if len({h for r in grid for h in r}) > 1 else True
+
+
+def reachable(maps, matrix, start, blocked, header=None):
+    """The tiles a player on foot reaches from start: open floor (ledges one way), around blocked, on the map."""
     seen, queue = {start}, collections.deque([start])
     while queue:
         p = queue.popleft()
@@ -60,7 +77,8 @@ def reachable(maps, matrix, start, blocked):
                     continue
                 n = (n[0] + jd[0] * k, n[1] + jd[1] * k)
                 t = maps.tile(matrix, *n)
-            if t is None or n in seen or n in blocked or not walkable(t) or (t & 0xff) in AVOID_BEHAVIORS:
+            if t is None or n in seen or n in blocked or not walkable(t) or (t & 0xff) in AVOID_BEHAVIORS \
+                    or header and not inside(maps, matrix, header, *n):
                 continue
             seen.add(n)
             queue.append(n)
@@ -168,7 +186,7 @@ def main():
         for first in starts:
             if first in todo or first in blocked and first != start:
                 continue
-            area = reachable(maps, matrix, first, blocked - {first})
+            area = reachable(maps, matrix, first, blocked - {first}, header)
             todo |= area
             areas.append((first, area))
         entry['reachable'], entry['areas'] = len(todo), len(areas)
