@@ -212,6 +212,14 @@ and has its test:
 3. **The ten events,** one at a time: Hurdle Dash, Pennant Capture, Relay Run, Block Smash, Disc Catch, Lamp Jump,
    Circle Push, Snow Throw, Goal Roll and Ring Drop. The link-play parts stay out with the rest of link play (answer 14).
 
+**How stage 2 could go faster (Claude's proposal, Nov 6).** Writing overlay 96 in C by hand, as the smaller screens
+were, would take weeks (about 109,000 lines of assembly). HeartGold's assembly could instead be assembled as it is
+(Complete's build assembles with the same assembler pret uses) and linked against a compatibility layer: a C file of
+HeartGold-named functions over Platinum's (overlay 96 calls 473 distinct engine functions, most the same Game Freak
+code under another name), with HeartGold's NARC, text bank, sound and heap numbers translated where they're passed,
+and its 39 direct reads of `gSystem` checked against Platinum's layout. A first try on a small overlay (97, 2,900
+lines) would show whether it holds before the course is attempted.
+
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records and the
 reception's totals. Left in stage 1: the record screens (`ScrCmd_712`, HeartGold's overlays 97 to 99), the Pokémon's
 performance, the Aprijuice stand (`ScrCmd_740`, 741: juices from the Apricorn Box, which Complete keeps in the bag)
