@@ -15,7 +15,10 @@ person in the photo (an OBJ_EVENT_GFX_* from data/complete/hgss_sprites.json, 0 
 building models hidden for the shot (HeartGold's model numbers, moved to the engine's: outdoor 590 + n, indoor
 930 + n, as tools/complete/import_hgss_maps.py moves them), u16 0.
 
-The album's text is HeartGold's message bank 0 (tools/complete/import_hgss_text.py brings it in).
+The album's text is HeartGold's message bank 0 (tools/complete/import_hgss_text.py brings it in). The PC's entry for
+the album, PHOTO ALBUM and its description, goes into Sovereign's res/text/menu_entries.json, which can't hold a
+comment, so this script is the record of that edit (MenuEntries_Text_PC_CompletePhotoAlbum and
+MenuEntries_Text_PC_DescriptionCompletePhotoAlbum; rerun it if a sync clashes on them).
 
 Usage, after tools/complete/build_heartgold.sh and a build of decomp (for the map header and graphics IDs):
     python3 tools/complete/import_hgss_photos.py
@@ -63,7 +66,27 @@ def outdoor_maps():
     return {map_id: areas[area] for map_id, area, _ in hg_map_headers()}
 
 
+MENU_ENTRIES = [
+    ('MenuEntries_Text_PC_CompletePhotoAlbum', 'PHOTO ALBUM'),
+    ('MenuEntries_Text_PC_DescriptionCompletePhotoAlbum', ['The photos Cameron the\n', 'photographer took.']),
+]
+
+
+def menu_entries():
+    path = os.path.join(DECOMP, 'res', 'text', 'menu_entries.json')
+    raw = open(path, encoding='utf-8').read()
+    indent = len(raw.split('\n')[1]) - len(raw.split('\n')[1].lstrip())
+    text = json.loads(raw)
+    keys = {key for key, _ in MENU_ENTRIES}
+    text['messages'] = [m for m in text['messages'] if m['id'] not in keys] + \
+                       [{'id': key, 'en_US': lines} for key, lines in MENU_ENTRIES]
+    with open(path, 'w', encoding='utf-8') as out:
+        json.dump(text, out, indent=indent, ensure_ascii=False)
+        out.write('\n')
+
+
 def main():
+    menu_entries()
     headers = defines('map_headers')
     sprites = json.load(open(os.path.join(ROOT, 'data', 'complete', 'hgss_sprites.json')))['sprites']
     gfx = defines('object_events_gfx')

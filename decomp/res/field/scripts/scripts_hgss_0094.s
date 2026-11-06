@@ -964,7 +964,7 @@ scr_seq_D37R0102_006:
     ReleaseAll
     End
 _0F05:
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0FDA
     Message msg_0117_D37R0102_00030
@@ -998,7 +998,7 @@ _0F79:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 10
+    CompleteCameronPhoto 10
     LockAll
     ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME
     SetPlayerState PLAYER_TRANSITION_WALKING

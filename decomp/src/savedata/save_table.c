@@ -42,6 +42,7 @@
 #include "unk_02030CE8.h"
 #include "vars_flags.h"
 #include "complete_phone.h" // Sovereign Complete
+#include "complete_photo.h" // Sovereign Complete
 #include "complete_safari.h" // Sovereign Complete
 #include "wifi_history_save_data.h"
 #include "wifi_list.h"
@@ -123,7 +124,12 @@ const SaveTableEntry gExtraSaveTable[] = {
     { EXTRA_SAVE_TABLE_ENTRY_DL_RECORDINGS_0, SAVE_PAGE_MAX + 7, (SaveEntrySizeFunc)BattleRecording_SaveSize, (SaveEntryInitFunc)BattleRecording_Init },
     { EXTRA_SAVE_TABLE_ENTRY_DL_RECORDINGS_1, SAVE_PAGE_MAX + 9, (SaveEntrySizeFunc)BattleRecording_SaveSize, (SaveEntryInitFunc)BattleRecording_Init },
     { EXTRA_SAVE_TABLE_ENTRY_DL_RECORDINGS_2, SAVE_PAGE_MAX + 11, (SaveEntrySizeFunc)BattleRecording_SaveSize, (SaveEntryInitFunc)BattleRecording_Init },
+    // Sovereign Complete: the photo album, one sector (SAVE_PAGE_MAX + 13 = 46 of each copy's 64)
+    { EXTRA_SAVE_TABLE_ENTRY_COMPLETE_PHOTO_ALBUM, SAVE_PAGE_MAX + 13, (SaveEntrySizeFunc)CompletePhotoAlbum_SaveSize, (SaveEntryInitFunc)CompletePhotoAlbum_Init },
 };
+
+// Sovereign Complete: the photo album plus its footer must fit its sector.
+typedef char CompletePhotoAlbumSizeCheck[(sizeof(CompletePhotoAlbum) + sizeof(SaveCheckFooter) <= SAVE_SECTOR_SIZE) ? 1 : -1];
 
 // Sovereign: the Battle Hall records plus their footer must fit their 2 sectors.
 typedef char BattleHallWinRecordsSizeCheck[(sizeof(BattleHallWinRecords) + sizeof(SaveCheckFooter) <= 2 * SAVE_SECTOR_SIZE) ? 1 : -1];

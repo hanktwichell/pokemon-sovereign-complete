@@ -73,7 +73,7 @@ scr_seq_R47_004:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _078E
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0799
     Message msg_0407_R47_00006
@@ -81,7 +81,7 @@ scr_seq_R47_004:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 91
+    CompleteCameronPhoto 91
     FacePlayer
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK

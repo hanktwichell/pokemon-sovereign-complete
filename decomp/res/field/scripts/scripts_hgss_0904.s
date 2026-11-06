@@ -409,7 +409,7 @@ _067A:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _06DB
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _06E6
     Message msg_0597_T25R1006_00031
@@ -417,7 +417,7 @@ _067A:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 15
+    CompleteCameronPhoto 15
     FacePlayer
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK

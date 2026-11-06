@@ -6453,6 +6453,30 @@
     .short \successVar
     .endm
 
+    // HeartGold's photo album (include/complete_photo.h). CameronPhoto: Cameron's photo at a photo spot (HeartGold's
+    // photo_data number), between the script's fades; nothing with a full album
+    .macro CompleteCameronPhoto spot
+    .short SCRCMD_COMPLETECAMERONPHOTO
+    .short \spot
+    .endm
+
+    // CountSavedPhotos: the photos in the album
+    .macro CompleteCountSavedPhotos destVar
+    .short SCRCMD_COMPLETECOUNTSAVEDPHOTOS
+    .short \destVar
+    .endm
+
+    // OpenPhotoAlbum: the album, and the photos looked at from it, after the script's fade; ReturnToField after it
+    .macro CompleteOpenPhotoAlbum
+    .short SCRCMD_COMPLETEOPENPHOTOALBUM
+    .endm
+
+    // PhotoAlbumIsFull: TRUE with 36 photos
+    .macro CompletePhotoAlbumIsFull destVar
+    .short SCRCMD_COMPLETEPHOTOALBUMISFULL
+    .short \destVar
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

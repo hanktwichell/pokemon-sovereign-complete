@@ -11928,6 +11928,14 @@
 			"playerPriority":	64,
 			"player":	"PLAYER_SE_1"
 		}, {
+			"name":	"SEQ_SE_GS_ALBUMMEKURU",
+			"fileName":	"SEQ_SE_GS_ALBUMMEKURU.sseq",
+			"bank":	"BANK_SE_GS_ALBUMMEKURU",
+			"volume":	115,
+			"channelPriority":	89,
+			"playerPriority":	64,
+			"player":	"PLAYER_SE_1"
+		}, {
 			"name":	"SEQ_SE_GS_COIN_HAZURE",
 			"fileName":	"SEQ_SE_GS_COIN_HAZURE.sseq",
 			"bank":	"BANK_SE_GS_COIN_HAZURE",
@@ -12388,6 +12396,14 @@
 			"fileName":	"SEQ_SE_GS_SEKIBAN_SENTAKU.sseq",
 			"bank":	"BANK_SE_GS_SEKIBAN_SENTAKU",
 			"volume":	125,
+			"channelPriority":	89,
+			"playerPriority":	64,
+			"player":	"PLAYER_SE_1"
+		}, {
+			"name":	"SEQ_SE_GS_SHUTTER",
+			"fileName":	"SEQ_SE_GS_SHUTTER.sseq",
+			"bank":	"BANK_SE_GS_HIKIDO_CLOSE",
+			"volume":	115,
 			"channelPriority":	89,
 			"playerPriority":	64,
 			"player":	"PLAYER_SE_1"
@@ -16612,6 +16628,10 @@
 		}, {
 			"name":	"BANK_SE_GS_AJITO_SIREN",
 			"fileName":	"BANK_SE_GS_AJITO_SIREN.sbnk",
+			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
+		}, {
+			"name":	"BANK_SE_GS_ALBUMMEKURU",
+			"fileName":	"BANK_SE_GS_ALBUMMEKURU.sbnk",
 			"waves":	["WAVE_ARC_BASIC", "WAVE_ARC_GS", "", ""]
 		}, {
 			"name":	"BANK_SE_GS_COIN_HAZURE",

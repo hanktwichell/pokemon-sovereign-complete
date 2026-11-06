@@ -7,6 +7,8 @@
 #include "field/field_system.h"
 #include "field/field_system_sub2_t.h"
 
+#include "applications/complete_photo_caption.h" // Sovereign Complete
+#include "complete_photo.h" // Sovereign Complete
 #include "complete_pokegear.h" // Sovereign Complete
 #include "game_overlay.h"
 #include "poketch.h"
@@ -21,6 +23,7 @@
 FS_EXTERN_OVERLAY(poketch_unavailable);
 FS_EXTERN_OVERLAY(poketch);
 FS_EXTERN_OVERLAY(complete_pokegear); // Sovereign Complete
+FS_EXTERN_OVERLAY(complete_photo_caption); // Sovereign Complete
 
 void FieldSystem_SendPoketchEvent(FieldSystem *fieldSystem, enum PoketchEventID eventID, u32 dummy)
 {
@@ -43,11 +46,14 @@ void ov5_021EA728(FieldSystem *fieldSystem)
 #endif
 
     // Sovereign Complete: or HeartGold's Pokégear (include/complete_pokegear.h); the one shown is remembered, for its end
-    enum CompleteBottomScreen screen = CompleteBottomScreen_Wanted(fieldSystem->saveData);
+    enum CompleteBottomScreen screen = CompletePhoto_Showing() != NULL ? COMPLETE_BOTTOM_SCREEN_PHOTO : CompleteBottomScreen_Wanted(fieldSystem->saveData);
 
     CompleteBottomScreen_SetActive(screen);
 
-    if (screen == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+    if (screen == COMPLETE_BOTTOM_SCREEN_PHOTO) { // a photo from the album shows: its caption (include/complete_photo.h)
+        Overlay_LoadByID(FS_OVERLAY_ID(complete_photo_caption), 2);
+        CompletePhotoCaption_Create(fieldSystem, fieldSystem->bgConfig);
+    } else if (screen == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
         Overlay_LoadByID(FS_OVERLAY_ID(complete_pokegear), 2);
         CompletePokegear_Create(fieldSystem, fieldSystem->bgConfig);
     } else if (screen == COMPLETE_BOTTOM_SCREEN_POKETCH) {
@@ -63,7 +69,9 @@ void ov5_021EA728(FieldSystem *fieldSystem)
 // changed since)
 void ov5_021EA790(FieldSystem *fieldSystem)
 {
-    if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
+    if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_PHOTO) {
+        CompletePhotoCaption_StartShutdown();
+    } else if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) {
         CompletePokegear_StartShutdown();
     } else if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKETCH) {
         PoketchSystem_StartShutdown(fieldSystem->unk_04->poketchSys);
@@ -74,7 +82,12 @@ void ov5_021EA790(FieldSystem *fieldSystem)
 
 u8 ov5_021EA7CC(FieldSystem *fieldSystem)
 {
-    if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) { // Sovereign Complete
+    if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_PHOTO) { // Sovereign Complete
+        if (CompletePhotoCaption_IsShutdown()) {
+            Overlay_UnloadByID(FS_OVERLAY_ID(complete_photo_caption));
+            return 1;
+        }
+    } else if (CompleteBottomScreen_Active() == COMPLETE_BOTTOM_SCREEN_POKEGEAR) { // Sovereign Complete
         if (CompletePokegear_IsShutdown()) {
             Overlay_UnloadByID(FS_OVERLAY_ID(complete_pokegear));
             return 1;

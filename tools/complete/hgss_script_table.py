@@ -603,6 +603,12 @@ COMMANDS = {
     # and Arceus at the Sinjoh Ruins (2), and the Unown's circle before Arceus's
     'Cinematic': lambda a: [f'CompleteLegendCinematic {a[0]}'] if a[0] in ('0', '1', '2') else [f'@ HGSS: Cinematic {a[0]}'],
     'UnownCircle': lambda a: ['CompleteUnownCircle'],
+    # HeartGold's photo album (include/complete_photo.h): Cameron's photo at a photo spot, between the script's fades;
+    # the album's count and whether it's full (its 36); the album itself, which the PC opens
+    'CameronPhoto': one('CompleteCameronPhoto {0}'),
+    'CountSavedPhotos': one('CompleteCountSavedPhotos {0}'),
+    'PhotoAlbumIsFull': one('CompletePhotoAlbumIsFull {0}'),
+    'OpenPhotoAlbum': one('CompleteOpenPhotoAlbum'),
     # The player's look (HeartGold's SetAvatarBits and UpdateAvatarState are Platinum's SetPlayerState and
     # ChangePlayerState): the Rocket uniform is walking with FLAG_HGSS_SYS_ROCKET_COSTUME set, which the player's
     # walking sprite follows (src/player_avatar.c), so walking again takes it off before the redraw; HeartGold's own

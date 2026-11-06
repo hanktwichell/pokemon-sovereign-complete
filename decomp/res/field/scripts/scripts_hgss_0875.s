@@ -129,7 +129,7 @@ scr_seq_T24_007:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0460
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0466
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
@@ -307,7 +307,7 @@ _0495:
     WaitMovement
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 35
+    CompleteCameronPhoto 35
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -383,7 +383,7 @@ _056F:
     WaitMovement
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 35
+    CompleteCameronPhoto 35
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -396,7 +396,7 @@ _056F:
 _05D0:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 35
+    CompleteCameronPhoto 35
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

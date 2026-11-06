@@ -57,6 +57,7 @@
 #endif
 
 #include "res/field/scripts/scr_seq.naix"
+#include "complete_photo.h" // Sovereign Complete
 
 // clang-format off
 #define SCRIPT_RANGE_TABLE(Entry) \
@@ -1079,6 +1080,10 @@ void FieldSystem_RunScript(FieldSystem *fieldSystem, u16 scriptID)
 
 BOOL FieldSystem_RunInitScript(FieldSystem *fieldSystem, u8 initScriptType)
 {
+    if (CompletePhoto_IsPhotoMode()) { // Sovereign Complete: a photo's map runs none (HeartGold's unkAC)
+        return FALSE;
+    }
+
     const u8 *initScriptBytes = MapHeaderData_GetInitScriptBytes(fieldSystem);
 
     if (initScriptBytes == NULL) {

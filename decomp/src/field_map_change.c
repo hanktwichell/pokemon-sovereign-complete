@@ -30,6 +30,7 @@
 #include "complete_blockers.h" // Sovereign Complete: the people where Sinnoh's HMs held the player back
 #include "complete_follower.h" // Sovereign Complete: following Pokémon
 #include "complete_map_info.h" // Sovereign Complete: HeartGold's map changes
+#include "complete_photo.h" // Sovereign Complete: HeartGold's photo album
 #include "field_message.h"
 #include "field_overworld_state.h"
 #include "field_overworld_weather.h"
@@ -257,7 +258,10 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
     FieldOverworldState *fieldState = SaveData_GetFieldOverworldState(fieldSystem->saveData);
 
     FieldBGM_ClearOverride(fieldSystem);
-    FieldSystem_ClearLocalFlags(fieldSystem);
+
+    if (!CompletePhoto_IsPhotoMode()) { // Sovereign Complete: a photo's map leaves the map's flags (HeartGold's unkAC)
+        FieldSystem_ClearLocalFlags(fieldSystem);
+    }
 
     if (!noWarp) {
         FieldSystem_InitFlagsWarp(fieldSystem);
@@ -299,7 +303,7 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
         FieldOverworldState_SetCameraType(fieldState, MapHeader_GetCameraType(mapHeaderID));
     }
 
-    if (!noWarp) {
+    if (!noWarp && !CompletePhoto_IsPhotoMode()) { // Sovereign Complete: not a photo's map
         u16 warpId = GetMapBlackOutWarpId(mapHeaderID);
 
         if (warpId != 0) {
@@ -307,7 +311,9 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
         }
     }
 
-    CompleteBlockers_Update(fieldSystem); // Sovereign Complete: before the map's objects and its own transition script
+    if (!CompletePhoto_IsPhotoMode()) { // Sovereign Complete: a photo's map has no one to block the way
+        CompleteBlockers_Update(fieldSystem); // Sovereign Complete: before the map's objects and its own transition script
+    }
     FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_TRANSITION);
     CompleteFollower_SetInhibited(FALSE); // Sovereign Complete: a script kept it away on the last map only
     VarsFlags_ClearFlag(SaveData_GetVarsFlags(fieldSystem->saveData), FLAG_HGSS_UNK_99A); // Sovereign Complete: FieldBGM_CompleteKeepsMusicSurfing
@@ -362,8 +368,11 @@ static void FieldMapChange_CreateObjects(FieldSystem *fieldSystem)
 
     fieldSystem->playerAvatar = PlayerAvatar_New(fieldSystem->mapObjMan, fieldSystem->location->x, fieldSystem->location->z, fieldSystem->location->faceDirection, playerData->playerState, gender, 0, playerData);
 
-    sub_0203A418(fieldSystem);
-    CompleteFollower_RefreshOnMapLoad(fieldSystem); // Sovereign Complete: the lead Pokémon follows the player
+    if (!CompletePhoto_IsPhotoMode()) { // Sovereign Complete: a photo's map has the player alone (include/complete_photo.h)
+        sub_0203A418(fieldSystem);
+        CompleteFollower_RefreshOnMapLoad(fieldSystem); // Sovereign Complete: the lead Pokémon follows the player
+    }
+
     MapObjectMan_StopAllMovement(fieldSystem->mapObjMan);
 }
 

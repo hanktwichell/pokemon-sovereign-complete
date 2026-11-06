@@ -26,7 +26,7 @@ scr_seq_R35_003:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _017C
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0190
     SetVarFromValue VAR_RESULT, TEXT_BANK_HGSS_MSG_0030
@@ -122,7 +122,7 @@ _01BF:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 11
+    CompleteCameronPhoto 11
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -184,7 +184,7 @@ _02B6:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 11
+    CompleteCameronPhoto 11
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen
@@ -199,7 +199,7 @@ _0327:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 11
+    CompleteCameronPhoto 11
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

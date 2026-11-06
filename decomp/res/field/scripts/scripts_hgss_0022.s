@@ -75,7 +75,7 @@ _0118:
     ShowYesNoMenu VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0210
-    @ HGSS: PhotoAlbumIsFull VAR_SPECIAL_RESULT
+    CompletePhotoAlbumIsFull VAR_RESULT
     CompareVar VAR_RESULT, 1
     GoToIf 1, _021B
     Message msg_0059_D17R1101_00006
@@ -83,7 +83,7 @@ _0118:
     SetFlag FLAG_HGSS_UNK_189
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: CameronPhoto 20
+    CompleteCameronPhoto 20
     FacePlayer
     LockAll
     FadeScreen 6, 1, 1, COLOR_BLACK

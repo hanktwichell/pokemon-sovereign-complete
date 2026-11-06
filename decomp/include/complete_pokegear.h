@@ -16,6 +16,7 @@ enum CompleteBottomScreen {
     COMPLETE_BOTTOM_SCREEN_UNAVAILABLE = 0,
     COMPLETE_BOTTOM_SCREEN_POKETCH,
     COMPLETE_BOTTOM_SCREEN_POKEGEAR,
+    COMPLETE_BOTTOM_SCREEN_PHOTO, // a photo from the album shows (include/complete_photo.h)
 };
 
 // src/complete_pokegear_state.c (main)

@@ -1208,6 +1208,17 @@
     {
       "id": "MenuEntries_Text_CompleteFerry_SSAquaCruise",
       "en_US": "S.S. AQUA CRUISE"
+    },
+    {
+      "id": "MenuEntries_Text_PC_CompletePhotoAlbum",
+      "en_US": "PHOTO ALBUM"
+    },
+    {
+      "id": "MenuEntries_Text_PC_DescriptionCompletePhotoAlbum",
+      "en_US": [
+        "The photos Cameron the\n",
+        "photographer took."
+      ]
     }
   ]
 }
