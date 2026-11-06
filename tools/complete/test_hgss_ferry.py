@@ -15,10 +15,10 @@ The ferry network (docs/Roadmap.md, "Ferry network"; CommonScript_CompleteFerry)
 (gCompleteTestHGSSBadges), which opens the way to Sinnoh for now:
 
 5. **Olivine or Vermilion to Canalave:** the gangway's sailor asks where to; the second choice, Canalave City, sails
-   there once Sinnoh's story has begun (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE set). The first, the S.S. Aqua's port,
-   boards the S.S. Aqua as before; the last stays in port.
-5a. **The first time, to Twinleaf:** before Sinnoh's story has begun, the second choice is Twinleaf Town, and the ship
-   leaves the player in their room there for Platinum's opening (docs/Features.md, "Sinnoh, the third region").
+   there. The first, the S.S. Aqua's port, boards the S.S. Aqua as before; the last stays in port.
+5a. **The first time:** before Sinnoh's story has begun (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE 0), Rowan and his
+   assistant meet the player on Canalave's dock, and Platinum's Twinleaf opening is marked done: the program var 1,
+   the player's house at 7, Route 218's blockade gone (docs/Features.md, "Sinnoh's opening").
 6. **Canalave to Olivine or Vermilion:** Canalave's sailor (Eldritch) offers both after Iron Island; the ship lands
    the player at the S.S. Aqua's door in that port, where its arrival scene plays.
 7. **Before the badge,** the gangway's sailor asks nothing and boards the S.S. Aqua (a menu fails the part).
@@ -56,14 +56,16 @@ PARTS = [('board at Olivine', OLIVINE, (26, 22), EAST, [], False, SHIP),
          ('arrive at Olivine', SHIP, (24, 16), SOUTH, ARRIVED + [('VAR_HGSS_BOAT_DIRECTION', 2)], True, OLIVINE)]
 CANALAVE = 'MAP_HEADER_CANALAVE_CITY'
 EARTH_BADGE = 1 << 15  # BADGE_ID_HGSS_EARTH, Kanto's eighth
-TWINLEAF_ROOM = 'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F'
-SINNOH_BEGUN = [('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)]  # the first ship to Sinnoh went to Twinleaf Town
+SINNOH_BEGUN = [('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)]  # the first ship to Sinnoh has landed
+# what Rowan's welcome on the dock leaves (CommonScript_CompleteSinnohArrival)
+ARRIVAL_DONE = {'VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE': 1, 'VAR_PLAYER_HOUSE_STATE': 7, 'VAR_FOLLOWER_RIVAL_STATE': 4}
 FIRST_VOYAGE_DONE = [('VAR_HGSS_SCENE_SS_AQUA', 7)]  # the S.S. Aqua's first voyage done
 # (part, the map, the tile beside the sailor and the facing, Johto's and Kanto's badges, the answers to the menus
 # (talk_and_answer's: a menu entry's number), the map the part ends on, vars set on the way in)
 NETWORK = [('Olivine to Canalave', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], CANALAVE, SINNOH_BEGUN),
            ('Vermilion to Canalave', VERMILION, (22, 19), EAST, EARTH_BADGE, [1], CANALAVE, SINNOH_BEGUN),
-           ('Olivine to Twinleaf, the first time', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1], TWINLEAF_ROOM, []),
+           ('Olivine to Canalave, the first time: Rowan on the dock', OLIVINE, (26, 22), EAST, EARTH_BADGE, [1],
+            CANALAVE, []),
            ('Olivine to the S.S. Aqua with the menu', OLIVINE, (26, 22), EAST, EARTH_BADGE, [0], SHIP, []),
            ('Olivine, staying in port', OLIVINE, (26, 22), EAST, EARTH_BADGE, [2], OLIVINE, []),
            ('Canalave to Olivine', CANALAVE, (44, 750), EAST, EARTH_BADGE, [1], OLIVINE, SINNOH_BEGUN),
@@ -160,6 +162,10 @@ def main():
                 problem = f'ended on {names[here] if here < len(names) else here}, not {end_map}'
             elif start_map == CANALAVE and read_var('VAR_HGSS_BOAT_DIRECTION') != 0:
                 problem = "the S.S. Aqua's arrival scene didn't play (VAR_HGSS_BOAT_DIRECTION isn't 0)"
+            elif end_map == CANALAVE and not setup:  # the first ship: Rowan's welcome
+                wrong = {v: read_var(v) for v, want in ARRIVAL_DONE.items() if read_var(v) != want}
+                if wrong:
+                    problem = f'Rowan\'s welcome left {wrong}, want {ARRIVAL_DONE}'
         d.screenshot().save(os.path.join(out, f'{name.replace(" ", "_")}.png'))
         results.append(f'{name}: {problem or "ok"}')
         print(results[-1], flush=True)

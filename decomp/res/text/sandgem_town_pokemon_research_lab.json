@@ -723,6 +723,21 @@
         "That’s why I’ll ask you to cherish that\n",
         "{STRVAR_1 0, 1, 0} too, once you take it out.\r"
       ]
+    },
+    {
+      "id": "SandgemTownLab_Text_CompleteChooseStarter",
+      "en_US": [
+        "Professor: So, you’ve come.\r",
+        "In this briefcase are three Pokémon of\n",
+        "Sinnoh. Choose the one you wish to\f",
+        "take along on your journey.\r"
+      ]
+    },
+    {
+      "id": "SandgemTownLab_Text_CompleteReceivedStarter",
+      "en_US": [
+        "{STRVAR_1 3, 0, 0} received the {STRVAR_1 0, 1, 0}!\r"
+      ]
     }
   ]
 }

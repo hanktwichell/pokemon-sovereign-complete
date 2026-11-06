@@ -266,12 +266,12 @@ Hall of Fame, as a player would, without the test warp but across the Sinnoh puz
 95. **The ferry to Sinnoh:** north through Viridian Forest, whose gatehouses' guards let Earth Badge holders by, down
     Route 2 into Diglett's Cave and back to Vermilion City, through its port, whose sailor lets the player through any
     day, to the gangway.
-96. **Twinleaf Town:** the gangway's sailor, with Kanto's eighth badge and Sinnoh's story not begun, offers Twinleaf
-    Town, and the ship leaves the player in their room there, where the TV's program ends
-    (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE 1; docs/Features.md, "Sinnoh, the third region").
-97-186. **Sinnoh:** Platinum's story as its scripts order it (drafted from them part by part; each part's comment says
-    what it plays): Barry, Mom, Rowan's briefcase on Route 201 (the starter to the PC, the party being full), Lake
-    Verity, the Pokédex, the Parcel, Jubilife and the Pokétch, Roark, the Valley Windworks, Eterna Forest, Gardenia (her
+96. **Canalave City:** the gangway's sailor, with Kanto's eighth badge, offers Canalave City; the first ship lands
+    there, where Rowan and his assistant meet the player on the dock (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE 1;
+    docs/Features.md, "Sinnoh's opening").
+97-181. **Sinnoh:** Platinum's story as its scripts order it (drafted from them part by part; each part's comment says
+    what it plays): Route 218 to Jubilife City, Rowan's lab (his briefcase: the starter to the PC, the party being
+    full; the Pokédex), Sandgem and Barry's Parcel from Rowan, Route 202, Jubilife and the Pokétch, Roark, the Valley Windworks, Eterna Forest, Gardenia (her
     gym's clock: floors_blocked), the Galactic building, Route 206, Mt. Coronet, Fantina (Hearthome Gym's doors:
     door), Maylene and the warehouse, Pastoria and Totem Lurantis, Crasher Wake and the chase over Route 213, the
     Psyduck, Celestic Town, the Tea, Canalave and Byron, the lakes, the Snowpoint Temple and Candice, the Galactic HQ,
@@ -777,36 +777,22 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                                   ('to', (1309, 340)), 'DOWN', ('to', (7, 8)), 'DOWN', ('talk', []),  # Vermilion's port
                                   ('to', (7, 11)), 'DOWN', ('to', (22, 19))],  # to the gangway's sailor
           'MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', None),
-         # Sinnoh (docs/Features.md, "Sinnoh, the third region")
-         ('Twinleaf Town', ['RIGHT', ('talk', [1])],  # the first ship to Sinnoh calls at Twinleaf Town, where the TV's program
-          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', ('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)),  # ends
-         # Sinnoh, stretch A: Platinum's opening, from the end of the TV program to Eterna City
-         ('Barry', ['UP'],  # one step off (4, 6) onto his north trigger (4, 5); he rushes in, then leaves
-          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F', 'VAR_PLAYER_HOUSE_RIVAL_STATE'),
-         ('Mom', [('to', (8, 4)), 'RIGHT',  # the stairs (WARP_STAIRS_EAST): downstairs, Mom's "he already left" (OnFrame)
-                  ('to', (6, 10)), 'DOWN'],  # the door mat is also her "don't go into tall grass" trigger
-          'MAP_HEADER_TWINLEAF_TOWN', ('VAR_PLAYER_HOUSE_STATE', 2)),
-         ('Barry\'s house', [('to', (105, 877)), ('scene', 'UP', []),  # the thud at his door pushes the player back
-                             ('to', (105, 876)), 'UP', ('to', (2, 3)), 'RIGHT',  # in and up his stairs: he leaves for Route 201
-                             ('to', (3, 4)), 'LEFT', ('to', (6, 10)), 'DOWN'],  # (opens the guitarist's way north)
-          'MAP_HEADER_TWINLEAF_TOWN', 'FLAG_RIVAL_LEFT_HOME'),
-         ('the briefcase', [('to', (111, 858)), ('scene', 'UP', [True, True]),  # Route 201: Barry, the grass, Rowan:
-                            ('to', (113, 854)), 'LEFT', ('talk', [True])],  # "love Pokemon?" yes x2; the briefcase,
-          # the starter (to the PC if the party is full), Barry's battle (yes), home: Running Shoes and Mom's Bicycle
-          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F', ('VAR_PLAYER_HOUSE_STATE', 4)),
-         ('Lake Verity', [('to', (6, 10)), 'DOWN', ('to', (111, 857)),  # Barry's second trigger: he follows
-                          ('to', (80, 844))],  # Verity Lakefront: into the lake; Cyrus, Mesprit's cry, Barry runs off
-          'MAP_HEADER_LAKE_VERITY_LOW_WATER', 'VAR_VISITED_LAKE_VERITY_WITH_RIVAL'),
-         ('the Pokedex', ['DOWN', 'DOWN', ('to', (163, 845)),  # out of the lake (a turn, then the step)
-                          ('scene', 'RIGHT', [False, True])],  # Sandgem: the counterpart leads the player into the
-          # lab; Rowan looks at the starter (the test party's own Turtwig, as the new one went to the PC): nickname? no;
-          # "record all Pokemon?" yes
+         # Sinnoh (docs/Features.md, "Sinnoh, the third region" and "Sinnoh's opening")
+         ('Canalave City', ['RIGHT', ('talk', [1])],  # the first ship to Sinnoh lands in Canalave City: Rowan and his
+          'MAP_HEADER_CANALAVE_CITY', ('VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE', 1)),  # assistant on the dock
+         # Sinnoh, stretch A: from Canalave City to Rowan's lab, then Platinum's story to Eterna City
+         ('Route 218', [('to', (62, 754)), 'RIGHT', ('to', (9, 7)), 'RIGHT',  # over the drawbridge (Barry waits for
+                        # Fantina's badge) and through the gate (the policeman lets the player by)
+                        ('surf', (120, 758)), 'RIGHT', ('to', (9, 7)), 'RIGHT'],  # across the water to Jubilife
+          'MAP_HEADER_JUBILIFE_CITY', 'FLAG_FIRST_ARRIVAL_JUBILIFE_CITY'),
+         ('Rowan\'s lab', [('to', (168, 843)),  # Route 202: crossing the assistant's trigger column (x 180) east,
+                           # the player is sent on to the lab, east and south
+                           ('scene', 'UP', [False, True])],  # the lab: Rowan's briefcase (the
+          # starter, to the PC with the party full), nickname? no; "record all Pokemon?" yes
           'MAP_HEADER_SANDGEM_TOWN_POKEMON_RESEARCH_LAB', 'VAR_SANDGEM_TOWN_LAB_STATE'),
-         ('Sandgem Town', [('to', (7, 15)), 'DOWN'],  # out: Rowan's Poke Radar and Repels, the counterpart's tour
-          'MAP_HEADER_SANDGEM_TOWN', ('VAR_SANDGEM_TOWN_STATE', 2)),
-         ('the Parcel', [('to', (116, 886)), 'UP', ('to', (7, 9)), 'UP', ('talk', [])],  # home: Mom's rest, the
-          'MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F', 'FLAG_RECEIVED_PARCEL'),  # Journal, Barry's mom's Parcel
-         ('Route 202', [('to', (6, 10)), 'DOWN', ('to', (180, 827))],  # the counterpart's trigger column (x 180):
+         ('Sandgem Town', [('to', (7, 15)), 'DOWN'],  # out: Rowan's Poke Radar, Repels and Barry's Parcel, the
+          'MAP_HEADER_SANDGEM_TOWN', 'FLAG_RECEIVED_PARCEL'),  # counterpart's tour
+         ('Route 202', [('to', (180, 827))],  # the counterpart's trigger column (x 180):
           'MAP_HEADER_ROUTE_202', 'VAR_ROUTE_202_STATE'),  # Sovereign's battle in place of the tutorial, 30 Poke Balls
          ('Jubilife City', [('to', (174, 797)), ('scene', 'UP', [True])],  # the counterpart, Looker (any answer), the
           'MAP_HEADER_JUBILIFE_CITY', ('VAR_JUBILIFE_CITY_STATE', 1)),  # VS Recorder, the Trainers' School pointed out
@@ -1237,7 +1223,7 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
 # Where JUMP starts a part from the bedroom state, without the parts before it: the test warp's map, tile and facing
 # (0 up, 1 down, 2 left, 3 right), with all sixteen of Johto's and Kanto's badges (gCompleteTestHGSSBadges) and their
 # Totem trials done (JUMP_FLAGS: Sinnoh's people ask for some of them)
-PART_STARTS = {'Twinleaf Town': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
+PART_STARTS = {'Canalave City': ('MAP_HEADER_HGSS_SS_AQUA_VERMILION_PORT_EXTERIOR', 22, 19, 3)}
 JUMP_FLAGS = ['FLAG_SOVEREIGN_TOTEM_TRIAL_' + p['totem'][len('TOTEM_TRIAL_'):]
               for p in yaml.safe_load(open(os.path.join(DECOMP, '..', 'data', 'complete', 'placed.yaml'),
                                            encoding='utf-8'))['placed'] if 'totem' in p]
@@ -1587,6 +1573,9 @@ def main():
         set_flags(JUMP_FLAGS)
         mem.write_short(sym['gSovereignTestBagItem'], items.index('ITEM_HM04'))  # Johto's Strength, which Barry
         result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])  # asks for in Canalave
+        if result == 'ok':  # and Johto's Surf, which Route 218 needs on the way from Canalave City
+            mem.write_short(sym['gSovereignTestBagItem'], items.index('ITEM_HM03'))
+            result, frames = warp(d, sym, names.index(jump[0]), jump[1], jump[2], jump[3])
         if result != 'ok':
             sys.exit(f'JUMP: the warp {result} after {frames} frames')
     elif os.environ.get('SET_FLAGS') or os.environ.get('SET_ITEM'):  # flags or an item a run that started with JUMP

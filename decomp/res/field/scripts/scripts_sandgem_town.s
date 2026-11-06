@@ -39,6 +39,8 @@ SandgemTown_SetCounterpartGraphicsLucas:
     End
 
 SandgemTown_CoordEvent_CounterpartLeadToLab:
+    @ Sovereign Complete: the player comes from Canalave City and goes into the lab by themselves (docs/Features.md)
+    GoToIfEq VAR_SANDGEM_TOWN_LAB_STATE, 0, SandgemTown_CompleteNoScene
     LockAll
     ApplyMovement LOCALID_SANDGEM_COUNTERPART, SandgemTown_Movement_CounterpartNoticePlayer
     WaitMovement
@@ -458,6 +460,15 @@ SandgemTown_OnFrame_ExitLab:
     SetVar VAR_0x8005, 10
     Common_GiveItemQuantity
     Message SandgemTown_Text_SovereignFunJourney
+    @ Sovereign Complete: the player didn't start in Twinleaf Town, so Rowan hands over Barry's Parcel
+    GoToIfSet FLAG_RECEIVED_PARCEL, SandgemTown_CompleteAfterParcel
+    BufferRivalName 1
+    Message SandgemTown_Text_CompleteParcel
+    SetVar VAR_0x8004, ITEM_PARCEL
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
+    SetFlag FLAG_RECEIVED_PARCEL
+SandgemTown_CompleteAfterParcel:
     CloseMessage
     ApplyMovement LOCALID_PROF_ROWAN, SandgemTown_Movement_ProfRowanEnterLab
     WaitMovement
@@ -705,3 +716,6 @@ SandgemTown_SignboardPokemonCenter:
     End
 
     .balign 4, 0
+
+SandgemTown_CompleteNoScene:
+    End

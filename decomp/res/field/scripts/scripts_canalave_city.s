@@ -29,6 +29,7 @@
     ScriptEntry CanalaveCity_OnFrame_AfterDarkrai
     ScriptEntry CanalaveCity_OnLoad
     ScriptEntry CanalaveCity_RivalLibrary
+    ScriptEntry CanalaveCity_CompleteOnFrame_Arrival @ Sovereign Complete: 26
     ScriptEntryEnd
 
 CanalaveCity_OnTransition:
@@ -115,6 +116,10 @@ CanalaveCity_SetHarborInnDoorClosed:
     Return
 
 CanalaveCity_CoordEvent_Rival:
+    @ Sovereign Complete: the player lands here first now (CanalaveCity_CompleteOnFrame_Arrival); Barry waits on the
+    @ bridge for when Platinum brings the player here, after Fantina's badge
+    CheckBadgeAcquired BADGE_ID_RELIC, VAR_RESULT
+    GoToIfEq VAR_RESULT, FALSE, CanalaveCity_CompleteRivalLater
     LockAll
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     GoToIfEq VAR_0x8005, 723, CanalaveCity_SetRivalBridgePositionZ707
@@ -209,6 +214,65 @@ CanalaveCity_Movement_RivalWalkToPlayer:
     .balign 4, 0
 CanalaveCity_Movement_RivalBridgeLeave:
     WalkFastWest 9
+    EndMovement
+
+CanalaveCity_CompleteRivalLater:
+    End
+
+@ Sovereign Complete: Sinnoh's opening (the owner's call, Nov 6, 2026; docs/Features.md). The first ship lands here
+@ (VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE still 0): Rowan and his assistant meet the player on the dock and invite
+@ them to the lab in Sandgem Town, and CommonScript_CompleteSinnohArrival marks Platinum's Twinleaf opening done.
+CanalaveCity_CompleteOnFrame_Arrival:
+    LockAll
+    SetObjectEventPos LOCALID_PROF_ROWAN, 40, 750
+    ClearFlag FLAG_HIDE_CANALAVE_CITY_PROF_ROWAN
+    AddObject LOCALID_PROF_ROWAN
+    SetObjectEventPos LOCALID_COUNTERPART, 40, 751
+    ClearFlag FLAG_HIDE_CANALAVE_CITY_COUNTERPART
+    AddObject LOCALID_COUNTERPART
+    ApplyMovement LOCALID_PROF_ROWAN, CanalaveCity_CompleteMovement_ProfRowanArrive
+    ApplyMovement LOCALID_COUNTERPART, CanalaveCity_CompleteMovement_CounterpartArrive
+    WaitMovement
+    ApplyMovement LOCALID_PLAYER, CanalaveCity_CompleteMovement_PlayerFaceWest
+    WaitMovement
+    BufferPlayerName 0
+    Message CanalaveCity_Text_CompleteRowanWelcome
+    BufferCounterpartName 1
+    Message CanalaveCity_Text_CompleteCounterpartSeeYou
+    CloseMessage
+    CallCommonScript 0x821 @ CommonScript_CompleteSinnohArrival
+    ApplyMovement LOCALID_PROF_ROWAN, CanalaveCity_CompleteMovement_ProfRowanLeave
+    ApplyMovement LOCALID_COUNTERPART, CanalaveCity_CompleteMovement_CounterpartLeave
+    WaitMovement
+    RemoveObject LOCALID_PROF_ROWAN
+    RemoveObject LOCALID_COUNTERPART
+    ReleaseAll
+    End
+
+    .balign 4, 0
+CanalaveCity_CompleteMovement_ProfRowanArrive:
+    WalkNormalEast 3
+    EndMovement
+
+    .balign 4, 0
+CanalaveCity_CompleteMovement_CounterpartArrive:
+    WalkNormalEast 3
+    WalkOnSpotNormalNorth
+    EndMovement
+
+    .balign 4, 0
+CanalaveCity_CompleteMovement_PlayerFaceWest:
+    WalkOnSpotNormalWest
+    EndMovement
+
+    .balign 4, 0
+CanalaveCity_CompleteMovement_ProfRowanLeave:
+    WalkNormalWest 4
+    EndMovement
+
+    .balign 4, 0
+CanalaveCity_CompleteMovement_CounterpartLeave:
+    WalkNormalWest 4
     EndMovement
 
 CanalaveCity_RivalBridge:

@@ -402,6 +402,15 @@ def several(*inserts):
     return ('', [], []) + inserts
 
 
+# The Town Map (the owner's call, Nov 6, 2026): Cherrygrove City's Guide Gent gives it with the Map Card (his
+# second token), in each of his two ways to the player; Jubilife's Trainers' School gives a Mega Stone instead.
+def town_map_insert(nth):
+    return (f'    Message msg_0550_T21_00012 #{nth}',
+            ['    SetVar VAR_0x8004, ITEM_TOWN_MAP  @ Sovereign Complete: the Town Map',
+             '    SetVar VAR_0x8005, 1',
+             '    Common_GiveItemQuantity'], [])
+
+
 # The Indigo Plateau's Elite Four in Sovereign's format (the owner's call, Nov 6, 2026; docs/Features.md): each
 # member asks for, or is given, a single or a double battle (CommonScript_CompleteIndigoE4Format, after the member's
 # greeting: VAR_0x8008 1 for doubles), and fights with the double-battle team (TRAINER_COMPLETE_INDIGO_*_DOUBLES) when
@@ -452,6 +461,7 @@ INSERTS = {
     'scr_seq_0155_P01R0104': ferry_insert('_0144', 'OlivineCity'),
     'scr_seq_0107_D41R0108': MT_SILVER_RED_SCRIPT,
     'scr_seq_0368_D41R0108_hdr': MT_SILVER_RED_INIT,
+    'scr_seq_0850_T21': both(town_map_insert(1), town_map_insert(2)),
     'scr_seq_0820_T10R0201': indigo_e4_insert(0, 'WILL', '0523', 'T10R0201'),
     'scr_seq_0821_T10R0301': indigo_e4_insert(1, 'KOGA', '0524', 'T10R0301'),
     'scr_seq_0822_T10R0401': indigo_e4_insert(2, 'BRUNO', '0525', 'T10R0401'),

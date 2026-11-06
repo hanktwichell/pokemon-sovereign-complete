@@ -36,7 +36,7 @@ TrainersSchool_Rival:
     BufferPlayerName 0
     BufferRivalName 1
     Message TrainersSchool_Text_TakeTownMap
-    SetVar VAR_0x8004, ITEM_TOWN_MAP
+    SetVar VAR_0x8004, ITEM_ALTARIANITE @ Sovereign Complete: a Mega Stone (the Town Map comes from Cherrygrove City)
     SetVar VAR_0x8005, 1
     Common_GiveItemQuantity
     BufferRivalName 1

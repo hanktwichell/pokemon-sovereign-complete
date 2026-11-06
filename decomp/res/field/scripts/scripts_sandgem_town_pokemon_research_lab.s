@@ -132,6 +132,7 @@ SandgemTownLab_OnFrame_GetPokedex:
     ApplyMovement LOCALID_COUNTERPART, SandgemTownLab_Movement_CounterpartWalkToProfRowan
     ApplyMovement LOCALID_PLAYER, SandgemTownLab_Movement_PlayerWalkToProfRowan
     WaitMovement
+    Call SandgemTownLab_CompleteChooseStarter
     @ Sovereign Complete: the player reaches Sinnoh with a team, so the starter isn't party slot 0: Rowan looks at its
     @ slot (VAR_0x8004), or, with it in the PC, only says so
     CompleteFindStarterSlot VAR_0x8004
@@ -187,6 +188,30 @@ SandgemTownLab_NicknameStarter:
     CallIfNe VAR_0x8002, 1, SandgemTownLab_IncrementRecordPokemonNicknamed
     GoTo SandgemTownLab_CherishThatStarter
     End
+
+@ Sovereign Complete: Sinnoh's opening (docs/Features.md): Rowan met the player in Canalave City, so the starter is
+@ chosen here, on the first visit, from his briefcase, as on Route 201 in Platinum (Route 201's isn't played); it comes
+@ at Sinnoh's levels, and to the PC with the party full (Pokemon_GiveMonFromScript)
+SandgemTownLab_CompleteChooseStarter:
+    BufferPlayerName 0
+    Message SandgemTownLab_Text_CompleteChooseStarter
+    CloseMessage
+    FadeScreenOut
+    WaitFadeScreen
+    StartChooseStarterScene
+    SaveChosenStarter
+    ReturnToField
+    FadeScreenIn
+    WaitFadeScreen
+    GetPlayerStarterSpecies VAR_0x8000
+    GivePokemon VAR_0x8000, 5, ITEM_NONE, VAR_RESULT
+    BufferPlayerName 0
+    BufferSpeciesNameFromVar 1, VAR_0x8000, 0, 0
+    PlayFanfare SEQ_FANFA4_sseq
+    Message SandgemTownLab_Text_CompleteReceivedStarter
+    WaitFanfare
+    CloseMessage
+    Return
 
 @ Sovereign Complete: the starter went to the PC (the player's party was full)
 SandgemTownLab_CompleteStarterInPC:
@@ -326,6 +351,7 @@ SandgemTownLab_CounterpartLeave:
     RemoveObject LOCALID_COUNTERPART
     ClearFlag FLAG_HIDE_SANDGEM_TOWN_COUNTERPART
     SetVar VAR_SANDGEM_TOWN_LAB_STATE, 1
+    SetVar VAR_SANDGEM_TOWN_STATE, 1 @ Sovereign Complete: so Rowan comes out after the player (Platinum's set it already)
     ReleaseAll
     End
 

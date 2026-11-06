@@ -1950,3 +1950,13 @@ Test results on the new test build:
   HM moves were already forgettable (Sovereign's rule). `tools/complete/test_hms.py` teaches both from the bag through
   the menus: 6 of 6 cases (a Pokémon that can't learn one is refused, and the HM stays in the bag); the Whirlpool
   test still crosses Dragon's Den's whirlpool with HM05 in the bag.
+- **Sinnoh begins in Canalave City (the owner's call):** the first ship to Sinnoh lands there, and Rowan and his
+  assistant meet the player on the dock and invite them to his lab in Sandgem Town (`docs/Features.md`, "Sinnoh's
+  opening"). Platinum's Twinleaf opening is marked done as its own scripts leave it; Route 218's blockade and its
+  gate's policeman no longer stop anyone; Jubilife's welcome and Route 202's assistant wait for the lab; Barry's
+  drawbridge battle waits for Fantina's badge. In the lab Rowan opens his briefcase (the starter at Sinnoh's levels,
+  to the PC with a full party), then the Pokédex; outside he hands over Barry's Parcel. The ferry test (16 of 16) and
+  the story test's new Sinnoh start (from the Vermilion gangway through Canalave City, Route 218, the lab, the Parcel,
+  Route 202, Jubilife, the Trainers' School, the Pokétch, Route 203, Oreburgh and Roark's mine) pass.
+- **The Town Map from Cherrygrove City (the owner's call):** the Guide Gent gives it with the Map Card; Barry's parcel
+  at Jubilife's Trainers' School holds Altarianite instead (Claude's pick, for the owner to confirm).

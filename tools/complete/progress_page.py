@@ -113,6 +113,11 @@ QUESTIONS = [
           'That, and more icon palettes so the colours stay true (more work: each screen that draws icons)',
           'Keep the placeholders'],
          'Showdown\'s for all of them now; more palettes later if the colours bother you.'),
+        ('Jubilife\'s Trainers\' School: which Mega Stone does Barry\'s parcel hold, now that the Town Map comes from '
+         'Cherrygrove City?',
+         'Altarianite for now (Swablu is in Sinnoh, and no other gift or item ball has it; Bebe\'s shop sells it).',
+         ['Altarianite', 'Heracronite, for Barry\'s Heracross (Ilex Forest already has one)', 'Another stone'],
+         'Altarianite: a stone no other gift gives.'),
     ]),
 ]
 
@@ -139,6 +144,10 @@ OWNER_NOTES = [
 # nothing (the owner's rule, Nov 6, 2026): (date, where, what Claude saw, a screenshot in .cache/gallery/issues or
 # None, status: new, looking, fixed, explained, yours)
 POSSIBLE_ISSUES = [
+    ('Nov 6', 'Rowan\'s lab: a corner of Sandgem Town',
+     'In the lab, the top-right corner of the screen shows a strip of Sandgem Town outside (a sign and a house\'s '
+     'wall) where the rest of the room\'s edge is black. It was there in the Nov 5 story run too, before today\'s '
+     'changes. To look into: the lab map\'s camera bounds, or Platinum\'s own.', 'rowan_lab_corner.jpg', 'looking'),
     ('Nov 6', 'Battles with Johto\'s and Kanto\'s trainers',
      'Every trainer class that\'s only in HeartGold (68 of them: Falkner, Whitney, Lance, Brock and the rest) was drawn '
      'as dots in battle. It shows in Claude\'s own gallery shots from Nov 5, which Claude published without seeing it; '

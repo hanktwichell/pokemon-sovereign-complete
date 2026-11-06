@@ -68,13 +68,15 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   8. **The Pokéathlon is ported** too.
   9. **The Berry Pots, the Unown Report and the Dowsing Machine are ported.**
   10. **Trade evolutions:** a trade-evolution item is used from the bag like a stone; a trade evolution with no item
-      becomes a level-up evolution.
+      becomes a level-up evolution. *Done Nov 6: at Lv. 37; Sacred Gold's Covenant Orb still works too
+      (`docs/Features.md`).*
   11. **HMs:** Whirlpool is HM05 (as in HeartGold); Defog becomes a new HM09, found where Platinum has it. An HM can
-      be forgotten without the Move Deleter.
+      be forgotten without the Move Deleter. *Done Nov 6 (HM moves were already forgettable in Sovereign).*
   12. **The Town Map:** the Cherrygrove City guide gives it; Jubilife's Trainers' School gives a Mega Stone instead.
       The owner redraws the map in one style (19). Once the Sinjoh Ruins are unlocked, Fly reaches them from anywhere
       in Sinnoh or Johto (Mt. Silver and the Indigo Plateau too), and from the Ruins Fly reaches anywhere in Sinnoh or
-      Johto.
+      Johto. *The Town Map and the Trainers' School: done Nov 6 (Barry's parcel holds Altarianite, Claude's pick, for
+      the owner to confirm).*
   13. **The Pal Parks hold the regional forms:** Sinnoh's Pal Park Paldea's and Hisui's, Kanto's Pal Park (open
       earlier) Alola's and Galar's, about as many in each.
   14. **Link play** waits: on the to-do list for when nothing else is left, and out of the build until then.
@@ -87,7 +89,8 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   19. **The Town Map's art:** the owner draws new maps; the regions will be made to fit together.
   20. **The Pledges are in:** a tutor teaches them to the starters (with the combinations), on Pokémon Champions'
       battle rules and learnsets.
-  21. **Fly is Platinum's** (the Town Map); the Pokégear's fly map goes.
+  21. **Fly is Platinum's** (the Town Map); the Pokégear's fly map goes. *Fly already opens the Town Map everywhere
+      (Nov 5); nothing in play starts the Pokégear's fly map now, and its code is to be taken out.*
   22. The owner's playtest notes are in `docs/PlaytestIssues.md` (the playtest session).
   23. **Builds for the owner are xdelta patches** (`tools/complete/make_playtest_patch.sh`).
 - **Sinnoh's top levels (Nov 6, 2026).** With Roark's ace at Lv. 72, Cynthia's first ace is no higher than about 88

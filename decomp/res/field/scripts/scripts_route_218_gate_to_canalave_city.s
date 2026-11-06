@@ -191,6 +191,8 @@ Route218GateToCanalaveCity_SovereignPolicemanHadTea:
 @ brings him Tea (Darach's, in the Regional Forms Park lobby). VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE 2: he had it.
 @ The trigger waits on 0 and 1 (before and after the scientist's Pokédex upgrade).
 Route218GateToCanalaveCity_SovereignCoordEvent_Policeman:
+    @ Sovereign Complete: the road to Canalave City is open, where the first ship to Sinnoh lands (docs/Features.md)
+    GoTo Route218GateToCanalaveCity_CompleteRoadOpen
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     ApplyMovement LOCALID_POLICEMAN, Route218GateToCanalaveCity_SovereignMovement_PolicemanNotice
@@ -233,3 +235,6 @@ Route218GateToCanalaveCity_SovereignMovement_PlayerStepBack:
     EndMovement
 
     .balign 4, 0
+
+Route218GateToCanalaveCity_CompleteRoadOpen:
+    End

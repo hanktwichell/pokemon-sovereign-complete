@@ -63,6 +63,9 @@ JubilifeCity_SetCounterpartGraphicsLucas:
     End
 
 JubilifeCity_CoordEvent_FirstArrival:
+    @ Sovereign Complete: from Canalave City on the way to Rowan's lab, the city's welcome waits for the starter
+    @ (docs/Features.md)
+    GoToIfEq VAR_SANDGEM_TOWN_LAB_STATE, 0, JubilifeCity_CompleteFirstArrivalLater
     LockAll
     GetPlayerMapPos VAR_0x8004, VAR_0x8005
     GoToIfEq VAR_0x8004, 173, JubilifeCity_FirstArrivalX173
@@ -1695,3 +1698,6 @@ JubilifeCity_Movement_LookerWalkOnSpotWestEast:
     Delay8 2
     WalkOnSpotNormalEast
     EndMovement
+
+JubilifeCity_CompleteFirstArrivalLater:
+    End

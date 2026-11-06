@@ -363,6 +363,28 @@
         "The door is tightly shut.\n",
         "It appears impossible to open."
       ]
+    },
+    {
+      "id": "CanalaveCity_Text_CompleteRowanWelcome",
+      "en_US": [
+        "Professor: Hm... So you are\n",
+        "{STRVAR_1 3, 0, 0}, the Trainer from Johto.\r",
+        "Professor Elm told me you would be on\n",
+        "this ship. I am Rowan.\r",
+        "I study Pokémon here in Sinnoh,\n",
+        "and I have a Pokémon of this region\f",
+        "for you.\r",
+        "Come to my lab in Sandgem Town.\n",
+        "It lies south of Jubilife City, east of\f",
+        "here across Route 218.\r"
+      ]
+    },
+    {
+      "id": "CanalaveCity_Text_CompleteCounterpartSeeYou",
+      "en_US": [
+        "{STRVAR_1 3, 1, 0}: I’m the Professor’s assistant.\n",
+        "See you at the lab in Sandgem!\r"
+      ]
     }
   ]
 }

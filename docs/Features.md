@@ -301,14 +301,44 @@ tested, each choice in one place so it can change later. The player starts in Ne
   leaders and Lance at Sacred Gold's aces' levels, then Sovereign's Sinnoh list (`data/level_caps.yaml`) with its
   levels moved up. `tools/complete/gen_sinnoh.py` writes them, with the levels, into
   `include/data/complete_sinnoh.h`; `src/level_cap.c` reads them in place of Sovereign's.
-- **The way there:** the first ship to Sinnoh, while Sinnoh's story hasn't begun (`VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE`
-  0), sails to Twinleaf Town (the sailor's menu says so) and leaves the player in their room there, where Platinum's
-  opening plays as a new game's would (`CommonScript_CompleteFerryToTwinleaf`); later ships go to Canalave City.
+- **The way there:** every ship to Sinnoh lands in Canalave City, the first one with Rowan waiting (below, "Sinnoh's
+  opening").
 - **Gifts:** a Pokémon given on a Sinnoh map comes at Sinnoh's levels too (Rowan's starter at Lv. 67), and with the
   party full it goes to the PC, as a caught one does (`Pokemon_GiveMonFromScript`): the player reaches Sinnoh with a
   full team, and Rowan's briefcase doesn't check for room. In his lab, Rowan looks at the starter wherever it is (the
   party slot of it or what it evolved into, `CompleteFindStarterSlot`), not at the party's lead, and with it in the PC
   he only says so (`SandgemTownLab_CompleteStarterInPC`).
+
+## Sinnoh's opening
+
+The owner's call (Nov 6, 2026): the first ship to Sinnoh lands in Canalave City, Rowan meets the player there and
+invites them to his lab in Sandgem Town, where they choose a Sinnoh starter; nothing blocks the way from Canalave City
+to Jubilife City.
+- **On the dock** (`CanalaveCity_CompleteOnFrame_Arrival`, while `VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE` is 0): Rowan
+  and his assistant walk up, Rowan introduces himself (Elm told him the player was coming) and points the way: Route
+  218 to Jubilife City, then south to Sandgem. `CommonScript_CompleteSinnohArrival` marks Platinum's Twinleaf opening
+  done as its own scripts leave it (the TV, Barry at home, Mom, Route 201, Lake Verity), which also ends the Johto
+  Pokédex's time.
+- **The way to Sandgem:** Route 218 across the water (Surf; its blockade is gone, and its gate's policeman no longer
+  turns anyone back), Jubilife City (its welcome, Looker and the Trainers' School pointer wait until the player has
+  their starter), Route 202 (the assistant sends the player on to the lab). Barry's battle on Canalave's drawbridge
+  waits for Fantina's badge, when Platinum's story brings the player there.
+- **The lab:** Rowan opens his briefcase (Platinum's starter screen, as on Route 201); the starter comes at Sinnoh's
+  levels, to the PC with the party full; then the Pokédex scene as in Platinum. Outside, after the Poké Radar and the
+  Repels, Rowan hands over Barry's Parcel (his mother left it at the lab), and Platinum's story goes on: Route 202's
+  battle and Poké Balls, Jubilife and the Trainers' School (Barry's parcel holds a Mega Stone now, below), the
+  Pokétch, Oreburgh.
+- Twinleaf Town's house is still the player's Sinnoh home: Mom there rests the party, and the Hall of Fame wakes the
+  player there; the Journal (Mom's gift in Platinum) isn't given.
+Tests: `tools/complete/test_hgss_ferry.py` (the first ship and Rowan's welcome), `tools/complete/test_hgss_opening.py`
+(the Sinnoh parts from Canalave City).
+
+## The Town Map
+
+The owner's call (Nov 6, 2026): Cherrygrove City's Guide Gent gives the Town Map with the Map Card, at the end of his
+tour (the translator's `town_map_insert`); Fly opens it everywhere. Jubilife's Trainers' School, where Barry gave it
+in Platinum, gives a Mega Stone instead: Barry's parcel holds two Altarianite (Claude's pick, for the owner to confirm;
+nothing else gives it, and Bebe's shop sells it).
 
 ## Headbutt trees and Rock Smash
 

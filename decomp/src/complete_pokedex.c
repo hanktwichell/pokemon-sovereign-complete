@@ -12,9 +12,9 @@
 
 #include "data/hgss_johto_dex.h"
 
-// Johto's is the regional Pokédex until Sinnoh's story begins: the first ship to Sinnoh leaves the player in their
-// room in Twinleaf Town, where Platinum's opening (its TV program) moves VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE on
-// from 0 (docs/Features.md, "Sinnoh, the third region")
+// Johto's is the regional Pokédex until Sinnoh's story begins: the first ship to Sinnoh lands in Canalave City, where
+// Rowan's welcome (CommonScript_CompleteSinnohArrival) moves VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE on from 0
+// (docs/Features.md, "Sinnoh's opening")
 BOOL CompletePokedex_IsJohto(void)
 {
     SaveData *saveData = SaveData_Ptr();

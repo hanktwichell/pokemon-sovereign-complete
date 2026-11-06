@@ -297,6 +297,9 @@ _04CD:
     WaitFanfare
     Message msg_0550_T21_00011
     Message msg_0550_T21_00012
+    SetVar VAR_0x8004, ITEM_TOWN_MAP  @ Sovereign Complete: the Town Map
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
     CloseMessage
     ApplyMovement obj_T21_gsoldman1, _0BDE
     WaitMovement
@@ -476,6 +479,9 @@ _07B7:
     WaitFanfare
     Message msg_0550_T21_00011
     Message msg_0550_T21_00012
+    SetVar VAR_0x8004, ITEM_TOWN_MAP  @ Sovereign Complete: the Town Map
+    SetVar VAR_0x8005, 1
+    Common_GiveItemQuantity
     CloseMessage
     ApplyMovement obj_T21_gsoldman1, _0BDE
     WaitMovement

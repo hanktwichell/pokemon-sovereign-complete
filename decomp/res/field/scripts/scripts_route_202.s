@@ -207,6 +207,8 @@ Route202_CounterpartLeave:
     End
 
 Route202_TellYourFamily:
+    @ Sovereign Complete: before Rowan's lab (the player came from Canalave City), the assistant sends them there
+    GoToIfEq VAR_SANDGEM_TOWN_LAB_STATE, 0, Route202_CompleteProfessorWaiting
     GetPlayerGender VAR_RESULT
     GoToIfEq VAR_RESULT, GENDER_MALE, Route202_DawnTellYourFamily
     GoToIfEq VAR_RESULT, GENDER_FEMALE, Route202_LucasTellYourFamily
@@ -242,6 +244,10 @@ Route202_LucasGoTellYourFamily:
     Message Route202_Text_LucasGoTellYourFamily
     Return
 
+Route202_CompleteProfessorWaiting:
+    BufferCounterpartName 0
+    BufferPlayerName 1
+    Message Route202_Text_CompleteProfessorWaiting
 Route202_CloseMessageTellYourFamily:
     CloseMessage
     GoToIfEq VAR_0x8005, 825, Route202_CounterpartWalkBackZ825

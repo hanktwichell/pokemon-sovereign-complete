@@ -284,6 +284,16 @@
         "Rowan: I’ll send you off with the wish\n",
         "that your journey will be fun.\r"
       ]
+    },
+    {
+      "id": "SandgemTown_Text_CompleteParcel",
+      "en_US": [
+        "Rowan: Oh, and one more thing.\r",
+        "{STRVAR_1 3, 1, 0}’s mother left this parcel with\n",
+        "me for her son.\r",
+        "He went to the Trainers’ School in\n",
+        "Jubilife City. Take it to him.\r"
+      ]
     }
   ]
 }

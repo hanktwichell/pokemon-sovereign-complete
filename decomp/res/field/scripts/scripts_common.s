@@ -107,6 +107,7 @@
     ScriptEntry CommonScript_CompletePhoneOutgoingCall @ 0x81E
     ScriptEntry CommonScript_CompleteIndigoE4Format @ 0x81F
     ScriptEntry CommonScript_CompleteIndigoE4Announce @ 0x820
+    ScriptEntry CommonScript_CompleteSinnohArrival @ 0x821
     ScriptEntryEnd
 
 CommonScript_Dummy2010:
@@ -2450,12 +2451,7 @@ CommonScript_CompleteFerryMenu:
     AddMenuEntry VAR_0x8004, 3
 CommonScript_CompleteFerryMenuSinnoh:
     GoToIfEq VAR_0x8005, FALSE, CommonScript_CompleteFerryMenuExit
-    GoToIfEq VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE, 0, CommonScript_CompleteFerryMenuTwinleaf
     AddMenuEntry MenuEntries_Text_CompleteFerry_CanalaveCity, 1
-    GoTo CommonScript_CompleteFerryMenuExit
-
-CommonScript_CompleteFerryMenuTwinleaf:
-    AddMenuEntry MenuEntries_Text_CompleteFerry_TwinleafTown, 1
 CommonScript_CompleteFerryMenuExit:
     AddMenuEntryImm MenuEntries_Text_CanalaveDock_Exit, 2
     ShowMenu
@@ -2497,7 +2493,6 @@ CommonScript_CompleteFerryAqua:
     End
 
 CommonScript_CompleteFerryToCanalave:
-    GoToIfEq VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE, 0, CommonScript_CompleteFerryToTwinleaf
     Message CommonStrings_Text_CompleteFerryToCanalave
     CloseMessage
     PlaySE SEQ_SE_DP_KAIDAN2_sseq
@@ -2506,14 +2501,27 @@ CommonScript_CompleteFerryToCanalave:
     ReturnCommonScript
     End
 
-// Sovereign Complete: Sinnoh, the third region (docs/Features.md): the first ship to Sinnoh, before its story has
-// begun, calls at Twinleaf Town, and Platinum's opening plays in the player's room there, as a new game's would
-CommonScript_CompleteFerryToTwinleaf:
-    Message CommonStrings_Text_CompleteFerryToTwinleaf
-    CloseMessage
-    PlaySE SEQ_SE_DP_KAIDAN2_sseq
-    PlayBoatCutscene BOAT_TRAVEL_DIR_SOUTH_TO_NORTH, DIR_NORTH, MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_2F, 4, 6
-    SetVar VAR_RESULT, FALSE
+// Sovereign Complete: Sinnoh's opening (the owner's call, Nov 6, 2026; docs/Features.md). The first ship lands in
+// Canalave City, where Rowan meets the player (CanalaveCity_CompleteOnFrame_Arrival) and invites them to his lab in
+// Sandgem Town for a Sinnoh starter. Platinum's opening in Twinleaf Town (the TV, Barry at home, Route 201's
+// briefcase, Lake Verity) doesn't play: this marks it done, as its own scripts leave it. The program var also ends
+// the Johto Pokédex's time (CompletePokedex_IsJohto). Route 218's blockade goes (it's gone already once Blaine's
+// Totem trial is done). The lab, the Parcel, Route 202 and Jubilife follow as in Platinum, after the starter.
+CommonScript_CompleteSinnohArrival:
+    SetVar VAR_PLAYER_HOUSE_SPECIAL_PROGRAM_STATE, 1
+    SetVar VAR_PLAYER_HOUSE_RIVAL_STATE, 1
+    SetVar VAR_PLAYER_HOUSE_STATE, 7
+    SetFlag FLAG_TALKED_TO_MOM
+    SetVar VAR_TWINLEAF_TOWN_RIVAL_TRIGGER_STATE, 1
+    SetVar VAR_TWINLEAF_TOWN_GUITARIST_TRIGGER_STATE, 2
+    SetFlag FLAG_RIVAL_LEFT_HOME
+    SetVar VAR_RIVAL_HOUSE_STATE, 1
+    SetVar VAR_FOLLOWER_RIVAL_STATE, 4
+    SetFlag FLAG_HIDE_ROUTE_201_RIVAL
+    SetVar VAR_VISITED_LAKE_VERITY_WITH_RIVAL, 1
+    SetFlag FLAG_HIDE_LAKE_VERITY_LOW_WATER_RIVAL
+    SetFlag FLAG_HIDE_LAKE_VERITY_LOW_WATER_CYRUS
+    SetFlag FLAG_HIDE_ROUTE_218_BLOCKADE
     ReturnCommonScript
     End
 
