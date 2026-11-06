@@ -26,7 +26,7 @@ _0041:
 scr_seq_D49R0107_006:
     CompareVar VAR_MAP_LOCAL_0x0F, 0
     GoToIf 5, _0058
-    @ HGSS: CreatePokeathlonFriendshipRoomStatues
+    CompletePokeathlonStatues
     SetVarFromValue VAR_MAP_LOCAL_0x0F, 1
 _0058:
     GetPlayerGender VAR_MAP_LOCAL_0x00
@@ -140,7 +140,7 @@ scr_seq_D49R0107_001:
     CloseMessage
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
-    @ HGSS: ScrCmd_712 3
+    CompletePokeathlonRecordScreen 3
     ReturnToField
     FadeScreen 6, 1, 1, COLOR_BLACK
     WaitFadeScreen

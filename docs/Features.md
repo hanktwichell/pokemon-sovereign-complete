@@ -1255,11 +1255,26 @@ events are still to come (stages 2 and 3).
   the Pokémon's actions) over the field, each data card's line shown once the card is bought.
 - **The reception's totals** (HeartGold's `ScrCmd_724` and 725): the clerks read the Dome's running totals and the
   gifts' points, as HeartGold's do.
-- **Not yet:** the courses and events (no Athlete Points are earned yet, so the counters wait for them), the record
-  screens (`ScrCmd_712`), the Aprijuice stand and the Friendship Room's statues.
+- **The course record screen** (HeartGold's `ScrCmd_712` 0, the first app of its overlay 99, written in C from its
+  assembly: `src/applications/complete_pokeathlon_records/`, graphics from
+  `tools/complete/import_hgss_pokeathlon_records.py`): the Solidarity Room's medals open it. For each course, the
+  three events' points, the bonus and the total of its best run, its medal with the run's three Pokémon (Complete's
+  pictures, so Pokémon past HeartGold's 493 show too), a button for each course and Return; the D-pad, A, B and the
+  touch screen work as in HeartGold, and a course's page slides in. HeartGold's course record keeps a Pokémon's
+  species in 9 bits; here it has 11. Text: HeartGold's banks 313 and 314; its `STRVAR_3`, `STRVAR_4` and `STRVAR_34`
+  now expand as Platinum's string variables (`src/charcode.c`, marked).
+- **The Friendship Room's statues** (HeartGold's `CreatePokeathlonFriendshipRoomStatues`,
+  `CompleteScrCmd_PokeathlonStatues`): the three Pokémon of the save's friendship records stand on the room's
+  pedestals as their walking sprites (their form's and gender's), made again each time the room loads.
+- **Not yet:** the courses and events (no Athlete Points or records are earned yet, so the counters, the record screen
+  and the statues wait for them), the other three record screens (`ScrCmd_712` 1 to 3: their rooms fade out and back
+  for now), the Aprijuice stand and the Pokémon's performance.
 
-Test: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
-data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page).
+Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
+data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),
+`tools/complete/test_pokeathlon_records.py` (the record screen: two courses' records, pages by the D-pad and by touch,
+closed with A on Return, B and a touch) and `tools/complete/test_pokeathlon_statues.py` (three statues, female and
+Origin Forme sprites, none for a species without a walking sprite).
 
 ## Stand-ins
 

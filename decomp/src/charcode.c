@@ -27,9 +27,14 @@ BOOL CharCode_IsFormatArg(const charcode_t *cstr)
 {
     u32 type = CharCode_FormatArgType(cstr);
 
+    // Sovereign Complete: HeartGold's string variables too, its STRVAR_3, STRVAR_4 and STRVAR_34 (its
+    // MsgArray_ControlCodeIsStrVar), which its imported text uses (the Pokéathlon's course names, Buena's password)
     if ((type & FORMAT_ARG_TYPE_MASK) == 0x100
         || (type & FORMAT_ARG_TYPE_MASK) == 0x600
-        || (type & FORMAT_ARG_TYPE_MASK) == 0x500) {
+        || (type & FORMAT_ARG_TYPE_MASK) == 0x500
+        || (type & FORMAT_ARG_TYPE_MASK) == 0x300
+        || (type & FORMAT_ARG_TYPE_MASK) == 0x400
+        || (type & FORMAT_ARG_TYPE_MASK) == 0x3400) {
         return TRUE;
     }
 

@@ -6524,6 +6524,20 @@
     .short \page
     .endm
 
+    // HeartGold's ScrCmd_712: a Dome record room's screen (0 the course record; 1 to 3, the medals, the event records and
+    // HeartGold's fourth, aren't ported yet and do nothing), after the script's fade; ReturnToField after it
+    // (src/applications/complete_pokeathlon_records/)
+    .macro CompletePokeathlonRecordScreen screen
+    .short SCRCMD_COMPLETEPOKEATHLONRECORDSCREEN
+    .byte \screen
+    .endm
+
+    // HeartGold's CreatePokeathlonFriendshipRoomStatues: the Friendship Room's three statues, the Pokémon of the
+    // Pokéathlon save's friendship records (src/overlay007/complete_pokeathlon_shop.c)
+    .macro CompletePokeathlonStatues
+    .short SCRCMD_COMPLETEPOKEATHLONSTATUES
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

@@ -220,10 +220,12 @@ code under another name), with HeartGold's NARC, text bank, sound and heap numbe
 and its 39 direct reads of `gSystem` checked against Platinum's layout. A first try on a small overlay (97, 2,900
 lines) would show whether it holds before the course is attempted.
 
-Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records and the
-reception's totals. Left in stage 1: the record screens (`ScrCmd_712`, HeartGold's overlays 97 to 99), the Pokémon's
-performance, the Aprijuice stand (`ScrCmd_740`, 741: juices from the Apricorn Box, which Complete keeps in the bag)
-and the Friendship Room's statues.
+Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
+reception's totals, the course record screen (`ScrCmd_712` 0, HeartGold's overlay 99's first app, in C) and the
+Friendship Room's statues. Left in stage 1: the other three record screens (`ScrCmd_712` 1 to 3), the Pokémon's
+performance and the Aprijuice stand (`ScrCmd_740`, 741: it runs HeartGold's Apricorn Box app, overlay 58, in a juice
+mode, and the juice changes a Pokémon's performance; Complete keeps Apricorns in the bag, so it comes with the
+performance).
 
 ### Still open
 

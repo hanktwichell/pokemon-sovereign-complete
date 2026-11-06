@@ -4,21 +4,30 @@
 
 #include "constants/field_base_tiles.h"
 #include "constants/heap.h"
+#include "constants/map_object.h"
 #include "generated/items.h"
+#include "generated/movement_types.h"
+#include "generated/species.h"
 #include "generated/text_banks.h"
+#include "generated/vars_flags.h"
 
 #include "field/field_system.h"
 #include "overlay007/shop_menu.h"
 
 #include "bag.h"
 #include "bg_window.h"
+#include "complete_follower.h"
 #include "complete_pokeathlon.h"
+#include "complete_pokeathlon_records.h"
 #include "complete_scrcmd.h"
 #include "field_script_context.h"
+#include "field_system.h"
 #include "field_task.h"
 #include "font.h"
 #include "heap.h"
 #include "inlines.h"
+#include "location.h"
+#include "map_object.h"
 #include "message.h"
 #include "pokedex.h"
 #include "render_window.h"
@@ -30,6 +39,7 @@
 #include "string_template.h"
 #include "system.h"
 #include "text.h"
+#include "vars_flags.h"
 
 #include "res/text/bank/hgss_msg_0191.h"
 #include "res/text/bank/hgss_msg_0277.h"
@@ -38,7 +48,8 @@
 
 // Sovereign Complete: the Pokéathlon Dome's prize counters and the Athlete Points commands its scripts use
 // (HeartGold's src/scrcmd_mart.c, src/overlay_03/shop_menu.c's Pokéathlon branches and src/overlay_22.c; its points
-// box, ov01_021EEC00). In overlay 7, the field's, as Platinum's shop is.
+// box, ov01_021EEC00), its PC's records and its record rooms' screens. In overlay 7, the field's, as Platinum's shop
+// is.
 
 typedef struct PokeathlonPrize {
     u16 item;
@@ -500,6 +511,97 @@ BOOL CompleteScrCmd_PokeathlonRecords(ScriptContext *ctx)
     records->state = 0;
     FieldTask_InitCall(ctx->task, FieldTask_PokeathlonRecords, records);
     return TRUE;
+}
+
+// HeartGold's ScrCmd_712: a Dome record room's screen (enum CompletePokeathlonRecordScreen), after the script's fade
+// (ReturnToField brings the field back), as the Voltorb Flip and Alph puzzle commands open theirs. The wait that frees
+// the arguments is in the main module: this overlay goes with the field's map as the screen opens. Only the course
+// record is ported so far; the other screens' rooms leave the field as it is (ReturnToField finds it running and
+// returns).
+BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_pokeathlon_records);
+
+    static const ApplicationManagerTemplate sCourseRecordTemplate = {
+        CompletePokeathlonCourseRecord_Init,
+        CompletePokeathlonCourseRecord_Main,
+        CompletePokeathlonCourseRecord_Exit,
+        FS_OVERLAY_ID(complete_pokeathlon_records),
+    };
+    u8 screen = ScriptContext_ReadByte(ctx);
+
+    if (screen != COMPLETE_POKEATHLON_SCREEN_COURSE_RECORD) {
+        return FALSE;
+    }
+
+    SaveData *saveData = ctx->fieldSystem->saveData;
+    VarsFlags *varsFlags = SaveData_GetVarsFlags(saveData);
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    CompletePokeathlonCourseRecordArgs *recordArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompletePokeathlonCourseRecordArgs));
+
+    recordArgs->saveData = saveData;
+    recordArgs->trophyGoals = VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0EF) && VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0F0) && VarsFlags_CheckFlag(varsFlags, FLAG_HGSS_UNK_0F1);
+    *args = recordArgs;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sCourseRecordTemplate, recordArgs);
+    ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
+    return TRUE;
+}
+
+// HeartGold's CreatePokeathlonFriendshipRoomStatues (its scrcmd_pokemon_misc.c): the Friendship Room's three statues,
+// the Pokémon of the save's friendship records, each as its walking sprite (HeartGold's follow-mon sprite, never
+// shiny), facing south and still, at (4, 10), (7, 5) and (10, 10), with local IDs 0xF6 to 0xF8. Any made before go
+// first. HeartGold leaves out species past Arceus; Complete leaves out those with no walking sprite (the same ones).
+#define STATUE_FIRST_LOCALID 0xF6
+
+static const u8 sStatuePositions[3][2] = {
+    { 4, 10 },
+    { 7, 5 },
+    { 10, 10 },
+};
+
+BOOL CompleteScrCmd_PokeathlonStatues(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    CompletePokeathlonSave *pokeathlon = CompletePokeathlon_Load(fieldSystem->saveData, HEAP_ID_FIELD2);
+
+#ifdef SOVEREIGN_TEST
+    gCompleteTestPokeathlonStatues[0]++;
+#endif
+
+    for (int i = 0; i < 3; i++) {
+        MapObject *statue = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, STATUE_FIRST_LOCALID + i);
+        const CompletePokeathlonStatue *record = &pokeathlon->friendshipRoomStatues[i];
+
+        if (statue != NULL) {
+            MapObject_Delete(statue);
+        }
+
+#ifdef SOVEREIGN_TEST
+        gCompleteTestPokeathlonStatues[1 + i] = 0;
+#endif
+
+        if (record->species == SPECIES_NONE) {
+            continue;
+        }
+
+        int gfx = CompleteFollower_MonGfx(record->species, record->form, record->gender, FALSE);
+
+        if (gfx < 0) {
+            continue;
+        }
+
+        statue = MapObjectMan_AddMapObject(fieldSystem->mapObjMan, sStatuePositions[i][0], sStatuePositions[i][1], DIR_SOUTH, gfx, MOVEMENT_TYPE_NONE, fieldSystem->location->mapHeaderID);
+
+        if (statue != NULL) {
+            MapObject_SetLocalID(statue, STATUE_FIRST_LOCALID + i);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestPokeathlonStatues[1 + i] = gfx;
+#endif
+        }
+    }
+
+    Heap_Free(pokeathlon);
+    return FALSE;
 }
 
 // The shop's side (src/overlay007/shop_menu.c's marked hooks)
