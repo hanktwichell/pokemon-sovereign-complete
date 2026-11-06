@@ -21,6 +21,8 @@ build, from the bedroom state, by touches as a player would:
 9. **The Ruins of Alph:** in the hall's entrance, the Unown's broadcast is all there is, in the globe's middle.
 10. **Mahogany Town:** before the Rocket Hideout is cleared, the strange signal is all there is.
 11. **Sinnoh:** no signal (Twinleaf Town).
+12. **Buena's Password:** at 2:00 with her Blue Card, the fourth station's button: her show says today's password (its
+   line, HeartGold's {STRVAR_34}, which src/charcode.c expands: before, it read just "!") and she counts it heard.
 
 Results: a line per part, 'ok' or what went wrong, and screenshots (both screens) in OUT_DIR.
 
@@ -57,6 +59,11 @@ JOHTO, KANTO, KANTO_EXPN, NO_SIGNAL, ALPH, ROCKET, MAHOGANY = range(7)
 (MUSIC, TALK, SEARCH_PARTY, DRAMA, BUENA, PROFILES, THAT_TOWN, POKE_FLUTE, UNOWN, TEAM_ROCKET, SIGNAL,
  COMMERCIALS) = range(12)
 NO_SHOW = 0xFF
+BUENA_HOUR = 2  # her show's hours on the fourth station: 2, 5, 8 and so on
+BLUE_CARD = [line.strip() for line in open(os.path.join(DECOMP, 'generated', 'items.txt'))].index('ITEM_BLUE_CARD')
+ITEMS_POCKET_SLOTS = 165  # the bag's Items pocket, then its Key Items
+TEXT_STRIP = (8, 336, 248, 352)  # the radio's text line, in screenshot pixels (the bottom screen from y 192)
+SHORT_LINE = 30  # lit pixels: a lone "!" has about 8, her shortest real line ("Cyndaquil!") over 100
 M_NONE, M_MARCH, M_LULLABY, M_HOENN, M_SINNOH, M_FLUTE, M_UNOWN = range(7)
 SNORLAX_STAND = ('MAP_HEADER_HGSS_ROUTE_11', (1356, 304), EAST)  # west of its four tiles (1357-1358, 303-304)
 SYMBOLS = tuple(set(TALK_SYMBOLS) | {'sSaveDataPtr', 'gCompleteTestPokegear', 'sActiveBottomScreen',
@@ -94,6 +101,11 @@ def main():
         n = variables[name]
         byte = mem.unsigned[addr + n // 8]
         mem.write_byte(addr + n // 8, byte | 1 << n % 8 if on else byte & ~(1 << n % 8))
+
+    def flag_set(name):
+        addr = save_part('SAVE_TABLE_ENTRY_VARS_FLAGS') + (variables['VARS_END'] - variables['VARS_START']) * 2
+        n = variables[name]
+        return mem.unsigned[addr + n // 8] >> n % 8 & 1
 
     def give_cards():
         """The Pokégear's Map Card (the Cherrygrove guide's tour over) and Radio Card (the quiz's prize)."""
@@ -279,6 +291,41 @@ def main():
         d.run(120)
         shot(name.lower().replace(' ', '_'))
         report(name, problem)
+
+    # 12. Buena's Password, with her Blue Card: no line of her show is as short as a lone "!" (the password left out)
+    d.load_state(state)
+    mem.write_byte(sym['gSovereignTestClock'], BUENA_HOUR + 1)  # the clock takes the hour + 1
+    d.run(30)
+    for i in range(BOOK_SIZE):
+        mem.write_byte(save_part('SAVE_TABLE_ENTRY_COMPLETE_PHONE') + i, CONTACTS[BOOK[i]] if i < len(BOOK) else NONE)
+    set_flag('FLAG_HGSS_GOT_POKEGEAR')
+    give_cards()
+    key_items = save_part('SAVE_TABLE_ENTRY_BAG') + ITEMS_POCKET_SLOTS * 4
+    for i in range(100):
+        if struct.unpack('<H', bytes(mem.unsigned[key_items + i * 4:key_items + i * 4 + 2]))[0] in (0, BLUE_CARD):
+            mem.write_short(key_items + i * 4, BLUE_CARD)
+            mem.write_short(key_items + i * 4 + 2, 1)
+            break
+    until(lambda: gear() and mem.unsigned[sym['sActiveBottomScreen']] == POKEGEAR, 600)
+    d.run(60)
+    d.touch(*RADIO_BUTTON, frames=6, after=90)
+    d.touch(*PRESETS[3], frames=6, after=30)
+    problem = '' if radio()['show'] == BUENA else f'the show is {radio()["show"]}'
+    lines, short = [], []
+    for _ in range(90):  # her show's lines, sampled every 20 frames: a line holds for a second or more
+        d.run(20)
+        strip = d.screenshot().convert('RGB').crop(TEXT_STRIP)
+        lit = sum(1 for p in strip.getdata() if sum(p) > 600)
+        lines.append(lit)
+        if len(lines) >= 3 and 0 < lit < SHORT_LINE and lines[-2] == lines[-3] == lit:
+            short.append(lit)
+            shot('buenas_password_short_line')
+    heard = flag_set('FLAG_HGSS_DAILY_HEARD_BUENAS_PASSWORD')
+    if not problem and short:
+        problem = f'a line of {short[0]} lit pixels (the password left out?)'
+    elif not problem and not heard:
+        problem = 'the password not counted heard'
+    report('Buena\'s Password', problem)
 
     ok = sum(r.endswith(': ok') for r in results)
     print(f'{ok} of {len(results)} parts ok', flush=True)
