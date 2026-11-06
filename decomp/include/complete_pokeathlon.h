@@ -132,6 +132,9 @@ extern u32 gCompleteTestPokeathlon[6];
 // fill and then turn a page to see (src/applications/complete_pokeathlon_records/)
 extern u8 gCompleteTestPokeathlonRecordScreen[3];
 extern CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
+// The Friendship Room's statues (CompleteScrCmd_PokeathlonStatues): how many times the room made them, then each
+// statue's walking sprite (its graphics ID; 0 for none)
+extern u16 gCompleteTestPokeathlonStatues[4];
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_H

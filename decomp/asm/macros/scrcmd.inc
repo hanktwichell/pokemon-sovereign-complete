@@ -6532,6 +6532,12 @@
     .byte \screen
     .endm
 
+    // HeartGold's CreatePokeathlonFriendshipRoomStatues: the Friendship Room's three statues, the Pokémon of the
+    // Pokéathlon save's friendship records (src/overlay007/complete_pokeathlon_shop.c)
+    .macro CompletePokeathlonStatues
+    .short SCRCMD_COMPLETEPOKEATHLONSTATUES
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

@@ -94,6 +94,7 @@ BOOL CompleteScrCmd_HideAthletePoints(ScriptContext *ctx);
 BOOL CompleteScrCmd_UpdateAthletePoints(ScriptContext *ctx);
 BOOL CompleteScrCmd_PokeathlonRecords(ScriptContext *ctx);
 BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx);
+BOOL CompleteScrCmd_PokeathlonStatues(ScriptContext *ctx);
 BOOL CompleteScrCmd_VoltorbFlip(ScriptContext *ctx);
 BOOL CompleteScrCmd_MagnetTrain(ScriptContext *ctx);
 BOOL CompleteScrCmd_LegendCinematic(ScriptContext *ctx);

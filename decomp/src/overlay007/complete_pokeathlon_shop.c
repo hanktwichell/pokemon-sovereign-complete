@@ -4,7 +4,10 @@
 
 #include "constants/field_base_tiles.h"
 #include "constants/heap.h"
+#include "constants/map_object.h"
 #include "generated/items.h"
+#include "generated/movement_types.h"
+#include "generated/species.h"
 #include "generated/text_banks.h"
 #include "generated/vars_flags.h"
 
@@ -13,6 +16,7 @@
 
 #include "bag.h"
 #include "bg_window.h"
+#include "complete_follower.h"
 #include "complete_pokeathlon.h"
 #include "complete_pokeathlon_records.h"
 #include "complete_scrcmd.h"
@@ -22,6 +26,8 @@
 #include "font.h"
 #include "heap.h"
 #include "inlines.h"
+#include "location.h"
+#include "map_object.h"
 #include "message.h"
 #include "pokedex.h"
 #include "render_window.h"
@@ -539,6 +545,63 @@ BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sCourseRecordTemplate, recordArgs);
     ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
     return TRUE;
+}
+
+// HeartGold's CreatePokeathlonFriendshipRoomStatues (its scrcmd_pokemon_misc.c): the Friendship Room's three statues,
+// the Pokémon of the save's friendship records, each as its walking sprite (HeartGold's follow-mon sprite, never
+// shiny), facing south and still, at (4, 10), (7, 5) and (10, 10), with local IDs 0xF6 to 0xF8. Any made before go
+// first. HeartGold leaves out species past Arceus; Complete leaves out those with no walking sprite (the same ones).
+#define STATUE_FIRST_LOCALID 0xF6
+
+static const u8 sStatuePositions[3][2] = {
+    { 4, 10 },
+    { 7, 5 },
+    { 10, 10 },
+};
+
+BOOL CompleteScrCmd_PokeathlonStatues(ScriptContext *ctx)
+{
+    FieldSystem *fieldSystem = ctx->fieldSystem;
+    CompletePokeathlonSave *pokeathlon = CompletePokeathlon_Load(fieldSystem->saveData, HEAP_ID_FIELD2);
+
+#ifdef SOVEREIGN_TEST
+    gCompleteTestPokeathlonStatues[0]++;
+#endif
+
+    for (int i = 0; i < 3; i++) {
+        MapObject *statue = MapObjMan_LocalMapObjByIndex(fieldSystem->mapObjMan, STATUE_FIRST_LOCALID + i);
+        const CompletePokeathlonStatue *record = &pokeathlon->friendshipRoomStatues[i];
+
+        if (statue != NULL) {
+            MapObject_Delete(statue);
+        }
+
+#ifdef SOVEREIGN_TEST
+        gCompleteTestPokeathlonStatues[1 + i] = 0;
+#endif
+
+        if (record->species == SPECIES_NONE) {
+            continue;
+        }
+
+        int gfx = CompleteFollower_MonGfx(record->species, record->form, record->gender, FALSE);
+
+        if (gfx < 0) {
+            continue;
+        }
+
+        statue = MapObjectMan_AddMapObject(fieldSystem->mapObjMan, sStatuePositions[i][0], sStatuePositions[i][1], DIR_SOUTH, gfx, MOVEMENT_TYPE_NONE, fieldSystem->location->mapHeaderID);
+
+        if (statue != NULL) {
+            MapObject_SetLocalID(statue, STATUE_FIRST_LOCALID + i);
+#ifdef SOVEREIGN_TEST
+            gCompleteTestPokeathlonStatues[1 + i] = gfx;
+#endif
+        }
+    }
+
+    Heap_Free(pokeathlon);
+    return FALSE;
 }
 
 // The shop's side (src/overlay007/shop_menu.c's marked hooks)

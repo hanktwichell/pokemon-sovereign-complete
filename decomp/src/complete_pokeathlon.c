@@ -17,6 +17,7 @@ static BOOL sChanged; // a change was stored since the game was last saved
 u32 gCompleteTestPokeathlon[6];
 u8 gCompleteTestPokeathlonRecordScreen[3]; // here as the record screens' overlay is reused when they close
 CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
+u16 gCompleteTestPokeathlonStatues[4];
 #endif
 
 // Sizes: one sector each, with its footer
