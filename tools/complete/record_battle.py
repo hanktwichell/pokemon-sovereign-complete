@@ -11,6 +11,11 @@ up. Then the battle, recorded from here:
 - by default, a room's own scene: the test warp into the room (Cynthia's, the Champion room, unless --room says
   another), whose scene walks the player up to the trainer and starts the battle, as in the game;
 - with --trainer, a test trainer battle where the player stands (SELECT+R with gSovereignTestBattleTrainer).
+With --party-from TRAINER the party is that trainer's team instead, as its battle builds it (items, moves, abilities;
+gCompleteTestPartyFromTrainer), owned by the player, with the MEGA toggle on: the developer team, TRAINER_SOVEREIGN_TEST,
+for the owner's final boss team. --var VAR_NAME=VALUE sets a var as the team's warp is made (VAR_SOVEREIGN_E4_FORMAT=16
+for Cynthia's double battle, as Aaron's room sets it). A double battle is played too: each of the player's Pokémon
+picks the move and the foe that it does the most to (a move that hits both foes counts both).
 Either is a real battle unless --god makes it the test build's one-sided one (gSovereignTestGodMode: a foe that loses
 any HP faints, the player's Pokémon lose none, fast text).
 
@@ -27,6 +32,7 @@ From the repo root, with the test build and a save state in the field made with 
         SPECIES_CHARIZARD ITEM_CHARIZARDITE_Y MOVE_FLAMETHROWER,MOVE_SOLAR_BEAM,MOVE_AIR_SLASH,MOVE_FOCUS_BLAST \\
         [--team SPECIES_FERALIGATR,...] [--room MAP_HEADER_...:X:Z | --trainer TRAINER_...] [--god] [--level N]\\
         [--nature MODEST] [--delay FRAMES]
+    ... ROM STATE OUT.mp4 --party-from TRAINER_SOVEREIGN_TEST --var VAR_SOVEREIGN_E4_FORMAT=16 [--room ...]
 """
 import json
 import os
@@ -62,6 +68,9 @@ FIGHT, RUN = (128, 70), (128, 174)
 MOVE_SPOTS = ((64, 50), (192, 50), (64, 114), (192, 114))
 PARTY_SLOTS = ((60, 30), (190, 30), (60, 80), (190, 86), (60, 128), (190, 134))  # the party screen's panels
 PARTY_SHIFT = (128, 100)  # the chosen Pokémon's SHIFT
+# A double battle's target screen: the foes on top, as on the top screen (battler 3 on the left, battler 1 on the right)
+TARGET_SPOTS = {1: (190, 60), 3: (64, 60)}
+SPREAD = ('RANGE_ADJACENT_OPPONENTS', 'RANGE_ALL_ADJACENT')  # moves that hit both foes: no target to pick
 SUN, RAIN = 'TYPE_FIRE', 'TYPE_WATER'  # the types the weather boosts
 FRAME_LIMIT = 60 * 60 * 45
 
@@ -98,6 +107,69 @@ class Battle:
 
     def mons(self):
         return self.u32(self.sym['gSovereignTestBattleMons'])
+
+    def fields(self):
+        base, mem = self.sym['gSovereignTestBattleMons'], self.d.emu.memory.unsigned
+        return dict(zip(BATTLE_MONS, struct.unpack('<12H', bytes(mem[base + 4:base + 28]))))
+
+    def hp(self, i):
+        """Battler i's current and max HP."""
+        f, mem = self.fields(), self.d.emu.memory.unsigned
+        mon = self.mons() + f['size'] * i
+        cur = struct.unpack('<H', bytes(mem[mon + f['curHP']:mon + f['curHP'] + 2]))[0]
+        top = struct.unpack('<H', bytes(mem[mon + f['maxHP']:mon + f['maxHP'] + 2]))[0]
+        return cur, top
+
+    def species(self, i):
+        mon, mem = self.mons() + self.fields()['size'] * i, self.d.emu.memory.unsigned
+        return struct.unpack('<H', bytes(mem[mon:mon + 2]))[0]  # BattleMon's first field
+
+    def is_double(self):
+        return all(self.hp(i)[1] for i in (2, 3))
+
+    def chooser(self):
+        """The player's battler whose move is being chosen (0 or 2), from the last "What will ... do?" the battle
+        printed (gSovereignTestMessageLog), matched to the species of the two out."""
+        from battle_mechanics import LOG_CHARS, charmap, decode_log
+        if not hasattr(self, 'chars'):
+            self.chars, self.species_names = charmap(), names('species')
+        log, mem = self.sym['gSovereignTestMessageLog'], self.d.emu.memory.unsigned
+        length = mem[log] | mem[log + 1] << 8
+        raw = bytes(mem[log + 2:log + 2 + 2 * min(length, LOG_CHARS)])
+        lines = decode_log([raw[i] | raw[i + 1] << 8 for i in range(0, len(raw), 2)], self.chars)
+        asking = next((m for m in reversed(lines) if m.startswith('What will ')), '')
+        for b in (2, 0):
+            name = self.species_names[self.species(b)][len('SPECIES_'):].replace('_', ' ')
+            if self.hp(b)[0] and name in asking.upper():
+                return b
+        return 0
+
+    def best_double(self, b):
+        """For the player's battler b in a double battle: (move slot, foe to aim at or None, the moves, the scores)."""
+        moves, user = self.battler(b)
+        foes = [f for f in (1, 3) if self.hp(f)[0]]
+        best = []
+        for name in moves:
+            m = self.move(name)
+            per = {}
+            for f in foes:
+                _, types = self.battler(f)
+                if m.get('class') == 'CLASS_STATUS' or not m.get('power'):
+                    per[f] = 0
+                    continue
+                v = m['power'] * min(m.get('accuracy') or 100, 100) / 100
+                v *= 1.5 if m['type'] in user else 1
+                v *= 1.5 if m['type'] == self.weather else 1
+                for t in types:
+                    v *= self.chart.get((m['type'], t), 1.0)
+                per[f] = v
+            if m.get('range') in SPREAD:
+                best.append((0.75 * sum(per.values()), None))  # a spread move does 3/4 to each
+            else:
+                f = max(per, key=per.get) if per else None
+                best.append((per.get(f, 0), f))
+        slot = max(range(4), key=lambda i: best[i][0])
+        return slot, best[slot][1], moves, [s for s, _ in best]
 
     def battler(self, i):
         """Battler i's (0 the player's, 1 the foe's in a single battle) moves and types, from the battle's Pokémon."""
@@ -190,6 +262,20 @@ class Battle:
                 d.touch(*FIGHT, frames=4, after=30)
                 frames += 34
                 screen = self.screen()
+            if screen == 'moves' and self.is_double():
+                b = self.chooser()
+                slot, target, moves, scores = self.best_double(b)
+                turns += b == 0 or not self.hp(0)[0]
+                name = self.species_names[self.species(b)][len('SPECIES_'):].title()
+                aim = self.species_names[self.species(target)][len('SPECIES_'):].title() if target else 'both foes'
+                log(f'turn {turns}: {name}: {moves[slot]} at {aim} '
+                    f'({", ".join(f"{m[5:].title()} {s:.0f}" for m, s in zip(moves, scores))})')
+                d.touch(*MOVE_SPOTS[slot], frames=4, after=30)
+                frames += 34
+                if target is not None and self.screen() is None:  # the target screen
+                    d.touch(*TARGET_SPOTS[target], frames=4, after=30)
+                    frames += 34
+                continue
             if screen == 'moves':
                 slot, moves, foe, scores = self.best_move()
                 turns += 1
@@ -224,33 +310,35 @@ class Battle:
         return False
 
 
-def main():
-    from drive import Driver
-    from test_hgss_opening import Recorder
+def team_var(mem, sym, setvar):
+    """--var VAR_NAME=VALUE: written to the test build's first var slot, which the next test warp applies."""
+    if setvar:
+        name, value = setvar.split('=')
+        from talk_to_objects import var_ids
+        mem.write_short(sym['gSovereignTestVar'], var_ids()[name])
+        mem.write_short(sym['gSovereignTestVar'] + 2, int(value))
 
-    args = sys.argv[1:]
-    option = lambda name, default: args[args.index(name) + 1] if name in args else default  # noqa: E731
-    rom, state, out, species, item, moves = args[:6]
-    level = int(option('--level', 100))
-    team = option('--team', ','.join(DEFAULT_TEAM)).split(',')
-    trainer = option('--trainer', None)
-    room = option('--room', None)
-    room = (room.split(':')[0], int(room.split(':')[1]), int(room.split(':')[2])) if room else DEFAULT_ROOM
-    god = '--god' in args
-    nature = option('--nature', 'MODEST')  # the lead's: Modest for a special attacker such as Mega Charizard Y
-    delay = int(option('--delay', 0))  # frames to wait before the battle: the battle's luck follows the frame it starts on
-    sym = symbols(tuple(SYMBOLS) + ('gSovereignTestBattleTrainer', 'gSovereignTestLead', 'gSovereignTestNoExp',
-                                    'gSovereignTestBattleMons', 'gSovereignTestWild'))
-    index = {name: i for i, name in trainer_ids()}
+
+def party_from_trainer(d, sym, mem, trainer, setvar):
+    """The party made the trainer's team (gCompleteTestPartyFromTrainer) by a test warp onto the player's tile, with
+    the MEGA toggle on."""
+    mem.write_byte(sym['gSovereignTestLead'] + LEAD['mega'], 1)
+    mem.write_byte(sym['gSovereignTestNoExp'], 1)
+    mem.write_byte(sym['gSovereignTestGodMode'], 0)
+    mem.write_short(sym['gCompleteTestPartyFromTrainer'], trainer)
+    team_var(mem, sym, setvar)
+    x, z = d.pos()
+    here = struct.unpack('<I', bytes(mem.unsigned[sym['gSovereignTestIdleMapHeaderID']:
+                                                  sym['gSovereignTestIdleMapHeaderID'] + 4]))[0]
+    result, _ = warp(d, sym, here, x, z, FACE_UP)
+    if result != 'ok':
+        sys.exit(f'the warp that makes the party: {result}')
+    d.run(60)
+
+
+def make_team(d, sym, mem, battle, species, item, moves, level, nature, team, setvar):
+    """The lead, made as a test wild battle starts (the player runs), then the team added three a warp."""
     species_ids, item_ids, move_ids = names('species'), names('items'), names('moves')
-    headers = header_names()
-
-    d = Driver(rom, state)
-    mem = d.emu.memory
-    d.run(30)
-    weather = {'ITEM_CHARIZARDITE_Y': SUN, 'ITEM_KYOGRE_ORB': RAIN}.get(item)  # the lead's Drought, Drizzle
-    battle = Battle(d, sym, weather)
-
     # The lead, made as a test wild battle starts; the player runs
     lead = sym['gSovereignTestLead']
     mem.write_short(lead + LEAD['species'], species_ids.index(species))
@@ -272,6 +360,7 @@ def main():
     x, z = d.pos()
     here = struct.unpack('<I', bytes(mem.unsigned[sym['gSovereignTestIdleMapHeaderID']:
                                                   sym['gSovereignTestIdleMapHeaderID'] + 4]))[0]
+    team_var(mem, sym, setvar)
     for start in range(0, len(team), PARTY_ADDS):
         adds = team[start:start + PARTY_ADDS]
         mem.write_byte(sym['gSovereignTestPartyKeep'], 1 if start == 0 else 0)
@@ -284,6 +373,45 @@ def main():
         if result != 'ok':
             sys.exit(f'the warp that adds {adds}: {result}')
     d.run(60)
+
+
+def main():
+    from drive import Driver
+    from test_hgss_opening import Recorder
+
+    args = sys.argv[1:]
+    option = lambda name, default: args[args.index(name) + 1] if name in args else default  # noqa: E731
+    rom, state, out = args[:3]
+    species, item, moves = args[3:6] if len(args) > 5 and not args[3].startswith('--') else (None, None, None)
+    level = int(option('--level', 100))
+    team = option('--team', ','.join(DEFAULT_TEAM)).split(',')
+    trainer = option('--trainer', None)
+    room = option('--room', None)
+    room = (room.split(':')[0], int(room.split(':')[1]), int(room.split(':')[2])) if room else DEFAULT_ROOM
+    god = '--god' in args
+    nature = option('--nature', 'MODEST')  # the lead's: Modest for a special attacker such as Mega Charizard Y
+    delay = int(option('--delay', 0))  # frames to wait before the battle: the battle's luck follows the frame it starts on
+    party_from = option('--party-from', None)
+    setvar = option('--var', None)
+    sym = symbols(tuple(SYMBOLS) + ('gSovereignTestBattleTrainer', 'gSovereignTestLead', 'gSovereignTestNoExp',
+                                    'gSovereignTestBattleMons', 'gSovereignTestWild', 'gSovereignTestMessageLog')
+                  + (('gCompleteTestPartyFromTrainer',) if party_from else ()))
+    index = {name: i for i, name in trainer_ids()}
+    species_ids, item_ids, move_ids = names('species'), names('items'), names('moves')
+    headers = header_names()
+
+    d = Driver(rom, state)
+    mem = d.emu.memory
+    d.run(30)
+    weather = {'ITEM_CHARIZARDITE_Y': SUN, 'ITEM_KYOGRE_ORB': RAIN}.get(item)  # the lead's Drought, Drizzle
+    if party_from:
+        weather = SUN if 'CHARIZARDITE_Y' in open(os.path.join(DECOMP, 'res', 'trainers', 'data',
+                                                                 party_from[len('TRAINER_'):].lower() + '.json')).read().split('"party"')[1][:400] else None
+    battle = Battle(d, sym, weather)
+    if party_from:
+        party_from_trainer(d, sym, mem, index[party_from], setvar)
+    else:
+        make_team(d, sym, mem, battle, species, item, moves, level, nature, team, setvar)
 
     d.run(delay)
     mem.write_byte(sym['gSovereignTestGodMode'], 1 if god else 0)  # the test build's one-sided battle

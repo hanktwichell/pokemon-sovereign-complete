@@ -24,6 +24,8 @@
 #include "start_menu.h"
 #include "string_gf.h"
 #include "trainer_data.h"
+#include "field_battle_data_transfer.h" // Sovereign Complete: CompleteTest_PartyFromTrainer
+#include "unk_02092494.h" // Sovereign Complete: CompleteTest_PartyFromTrainer
 #include "vars_flags.h"
 
 #include "complete_badges.h" // Sovereign Complete
@@ -897,6 +899,7 @@ u16 gSovereignTestBagItem;
 u8 gSovereignTestBadges;
 u16 gCompleteTestHGSSBadges; // Sovereign Complete
 u8 gCompleteTestNoRepel; // Sovereign Complete
+u16 gCompleteTestPartyFromTrainer; // Sovereign Complete
 struct SovereignTestMenu gSovereignTestMenu;
 u16 gSovereignTestBattleTrainer;
 struct SovereignTestWild gSovereignTestWild;
@@ -919,8 +922,37 @@ u32 gSovereignTestRoamerRelease; // Sovereign Complete: was u16
 u8 gSovereignTestSurveyRoamers;
 u8 gSovereignTestPoketchApp;
 
+// Sovereign Complete: the party becomes a trainer's team, built as its battle builds it, owned by the player
+static void CompleteTest_PartyFromTrainer(FieldSystem *fieldSystem)
+{
+    Party *party = SaveData_GetParty(fieldSystem->saveData);
+    TrainerInfo *trainerInfo = SaveData_GetTrainerInfo(fieldSystem->saveData);
+    FieldBattleDTO *dto = FieldBattleDTO_New(HEAP_ID_FIELD2, BATTLE_TYPE_TRAINER);
+
+    dto->trainerIDs[BATTLER_ENEMY_1] = gCompleteTestPartyFromTrainer;
+    Trainer_Encounter(dto, fieldSystem->saveData, HEAP_ID_FIELD2);
+
+    while (Party_GetCurrentCount(party) > 0) {
+        Party_RemovePokemonBySlotIndex(party, 0);
+    }
+
+    for (int i = 0; i < Party_GetCurrentCount(dto->parties[BATTLER_ENEMY_1]); i++) {
+        Pokemon *mon = Party_GetPokemonBySlotIndex(dto->parties[BATTLER_ENEMY_1], i);
+
+        UpdateMonStatusAndTrainerInfo(mon, trainerInfo, 0, 0, HEAP_ID_FIELD2);
+        Party_AddPokemon(party, mon);
+    }
+
+    FieldBattleDTO_Free(dto);
+    gCompleteTestPartyFromTrainer = 0;
+}
+
 void SovereignTest_WarpNext(FieldSystem *fieldSystem)
 {
+    if (gCompleteTestPartyFromTrainer != 0) { // Sovereign Complete
+        CompleteTest_PartyFromTrainer(fieldSystem);
+    }
+
     if (gSovereignTestPartyKeep != 0) {
         Party *party = SaveData_GetParty(fieldSystem->saveData);
 

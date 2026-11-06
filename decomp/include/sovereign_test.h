@@ -320,6 +320,9 @@ extern u16 gCompleteTestHGSSBadges;
 // Sovereign Complete: when set, the next SELECT+L+R first ends a Repel (the test save's Super Repel), so low-level wild
 // Pokémon can come.
 extern u8 gCompleteTestNoRepel;
+// Sovereign Complete: when set, the next test warp makes the party this trainer's team, as its battle builds it
+// (items, moves, abilities), owned by the player (tools/complete/record_battle.py --party-from)
+extern u16 gCompleteTestPartyFromTrainer;
 // The menus scripts have shown, and the last one's kind (see struct SovereignTestMenu).
 extern struct SovereignTestMenu gSovereignTestMenu;
 // The scripts the field has started (ScriptManager_Set: an object's, a sign's, a trigger's...) since a harness cleared

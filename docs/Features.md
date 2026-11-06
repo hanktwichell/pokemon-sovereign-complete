@@ -288,7 +288,7 @@ tested, each choice in one place so it can change later. The player starts in Ne
 
 - **Levels:** Sinnoh's trainers and the wild Pokémon on Sinnoh's maps move up to follow Kanto (Blue's ace is Lv. 70,
   Red's 94). Sovereign's level becomes the level here straight between a few points in `data/complete/sinnoh.yaml`
-  (`levels`): Lv. 1 → 66, Roark's 16 → 72, Cynthia's 78 → 96, her rematch's 89 → 100. `src/complete_sinnoh.c` does it
+  (`levels`): Lv. 1 → 66, Roark's 16 → 72, Cynthia's 78 → 89, her rematch's 89 → 96 (the owner's call, Nov 6; until then 96 and 100). `src/complete_sinnoh.c` does it
   as a trainer's party is read (`TrainerData_BuildParty`) and as a wild Pokémon is made on a Sinnoh map
   (`wild_encounters.c`, legendaries and Totems there included). Johto's and Kanto's keep Sacred Gold's levels.
 - **Evolved to match:** a Sinnoh trainer's Pokémon evolves as far as its new level takes it: by its evolution level, or,

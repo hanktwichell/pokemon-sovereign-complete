@@ -335,9 +335,11 @@ function questions() {
     <div class="tablewrap"><table class="ans"><thead><tr><th>#</th><th>Question</th><th>Your answer</th><th>Status</th></tr></thead>
     <tbody>${DATA.answered.map(a => `<tr><td class="num">${a.n}</td><td>${esc(a.q)}</td><td>${esc(a.answer)}</td>
       <td class="st">${esc(a.status)}</td></tr>`).join('')}</tbody></table></div></section>` : '';
+  const notes = (DATA.notes || []).length ? `<section><h2>Your notes to remember</h2><ul class="plain">${DATA.notes.map(n =>
+    `<li><b>${esc(n.date)}:</b> ${esc(n.note)}</li>`).join('')}</ul></section>` : '';
   return `<section><h2>Your questions</h2>
     <p class="muted">${total ? `Waiting on you: ${total}. Answer by number whenever you like; where Claude has a
-      proposal, that's what happens if you say "go with your proposal".` : 'Nothing waiting on you.'}</p></section>${groups}${answered}
+      proposal, that's what happens if you say "go with your proposal".` : 'Nothing waiting on you.'}</p></section>${notes}${groups}${answered}
     <p class="foot">Kept in tools/complete/progress_page.py (QUESTIONS, ANSWERED), in step with docs/Roadmap.md.</p>`;
 }
 

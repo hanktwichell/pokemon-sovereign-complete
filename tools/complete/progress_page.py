@@ -100,6 +100,14 @@ WAITING = [
 # now, the options, Claude's proposal or None)]). Kept in step with docs/Roadmap.md's "Still open".
 QUESTIONS = []
 
+# The owner's notes to remember (things they asked to have written down), shown on the Questions tab
+OWNER_NOTES = [
+    ('Nov 6', 'The Elite Four\'s rematch teams should be slightly better than their first teams (both Leagues). '
+     'Not done yet; on the list for when the teams are reviewed.'),
+    ('Nov 6', 'Sinnoh\'s top levels: with Roark\'s ace at Lv. 72, Cynthia\'s first ace about 88 to 90, her '
+     'rematch\'s 96. Done: Cynthia Lv. 89, her rematch 95 to 96, the Elite Four 87 to 88 (rematches 92 to 95).'),
+]
+
 # Anything that looked off in Claude's tests or screenshots, logged for the owner to look at, even when it may be
 # nothing (the owner's rule, Nov 6, 2026): (date, where, what Claude saw, a screenshot in .cache/gallery/issues or
 # None, status: new, looking, fixed, explained, yours)
@@ -113,6 +121,10 @@ POSSIBLE_ISSUES = [
     ('Nov 6', 'The player in Johto and Kanto',
      'The player is Platinum\'s Lucas (or Dawn) everywhere, in Johto\'s battles too, not HeartGold\'s Ethan or Lyra. '
      'Intended so far; say if you want HeartGold\'s player in Johto and Kanto.', 'trainer_dots.jpg', 'yours'),
+    ('Nov 6', 'Sinnoh\'s aces level with their teams',
+     'Sovereign gives each boss\'s ace a level more than the rest; the level plan\'s top end is so flat now that the '
+     'two land on the same level (Cynthia\'s six all Lv. 89, the Elite Four\'s 87 or 88). Your call: keep it, or '
+     'keep the ace one level up after the move.', None, 'yours'),
     ('Nov 6', 'Falkner\'s six Poké Balls',
      'The battle\'s ball indicator shows six for Falkner: Sacred Gold gives him six Pokémon. As Sacred Gold has it; '
      'listed in case it looks wrong to you.', None, 'explained'),
@@ -345,7 +357,8 @@ SINNOH_PLAN = [
     ('Arriving in Sinnoh', 'The first ship to Sinnoh sails to Twinleaf Town and leaves the player in their room, where '
      'Platinum\'s opening plays (tested); Rowan\'s starter goes to the PC when the party is full.', 'done'),
     ('Sinnoh\'s levels', 'Sinnoh\'s trainers, wild Pokémon and gifts moved up to follow Kanto (Roark\'s ace Lv. 72, '
-     'Cynthia\'s 96), from one table of levels, with trainers\' teams evolved to match.', 'done'),
+     'Cynthia\'s 89, her rematch 96: your call, Nov 6), from one table of levels, with trainers\' teams evolved to '
+     'match.', 'done'),
     ('Level caps', 'Sovereign\'s optional caps for all three regions\' gyms and Leagues, in story order.', 'done'),
     ('Totems and legendaries in three regions', 'Eight Totem trials asked for by Johto\'s and Kanto\'s leaders, 32 '
      'Chronicle legendaries moved to Johto and Kanto; each placement tested in the emulator.', 'done'),
@@ -748,6 +761,7 @@ def main():
         'steps': [dict(zip(('n', 'name', 'status', 'label', 'detail'), s)) for s in STEPS],
         'next': NEXT, 'waiting': [dict(zip(('topic', 'detail'), w)) for w in WAITING],
         'issues': [dict(zip(('date', 'where', 'what', 'shot', 'status'), i)) for i in POSSIBLE_ISSUES],
+        'notes': [dict(zip(('date', 'note'), n)) for n in OWNER_NOTES],
         'answered': [dict(zip(('n', 'q', 'answer', 'status'), a)) for a in ANSWERED],
         'questions': [{'group': g, 'items': [dict(zip(('q', 'now', 'options', 'proposal'), q)) for q in qs]}
                       for g, qs in QUESTIONS],

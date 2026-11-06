@@ -1895,3 +1895,14 @@ Test results on the new test build:
 - **A test hook for a trainer's whole team as the player's party** (`gCompleteTestPartyFromTrainer`, the next test
   warp; `tools/complete/record_battle.py --party-from`), and double battles played by the battle recorder: for the
   owner's final boss team (Sovereign's developer team) against Cynthia.
+- **Sinnoh's top levels lowered (the owner's call):** the level plan's points are Sovereign's 78 → 89 and 89 → 96
+  (they were 96 and 100): Cynthia Lv. 89, her rematch 95 to 96, the Elite Four 87 to 88 (rematches 92 to 95); Roark
+  stays at 72. The level caps follow. The owner's note, written down: the Elite Four's rematch teams slightly better
+  than their first teams.
+- **Every map walked (`tools/complete/test_walk_everywhere.py`, the owner's call):** the story test walks only the
+  story's way, so a new test warps to each map and walks onto every tile reachable on foot, noting refused steps,
+  what starts on the way, map changes and hangs, with screenshots for review. New Bark Town: 347 of 347 tiles. All of
+  Johto's and Kanto's 518 maps (242,756 tiles) are being walked on build_test4; Sinnoh's next.
+- **The progress page's Possible issues tab:** anything that looks off in Claude's tests and screenshots is logged
+  there for the owner, even when it may be nothing (the owner's rule, after the trainer pictures drawn as dots that
+  Claude's own gallery shots had shown).

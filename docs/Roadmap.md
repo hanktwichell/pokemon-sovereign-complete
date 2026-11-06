@@ -90,6 +90,11 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   21. **Fly is Platinum's** (the Town Map); the Pokégear's fly map goes.
   22. The owner's playtest notes are in `docs/PlaytestIssues.md` (the playtest session).
   23. **Builds for the owner are xdelta patches** (`tools/complete/make_playtest_patch.sh`).
+- **Sinnoh's top levels (Nov 6, 2026).** With Roark's ace at Lv. 72, Cynthia's first ace is no higher than about 88
+  to 90, and her rematch's 96: the level plan's points are now Sovereign's 78 → 89 and 89 → 96 (the Elite Four at 87
+  to 88, their rematches 92 to 95).
+- **The owner's note to remember (Nov 6, 2026): the Elite Four's rematch teams should be slightly better than their
+  first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
 
 - **Story order (Oct 29, 2026).** Johto, then Kanto, then Sinnoh. The game starts in New Bark Town and ends at Spear
   Pillar, as Sovereign Platinum does.
