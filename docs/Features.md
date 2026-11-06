@@ -1235,6 +1235,32 @@ HeartGold's `SEQ_SE_GS_DOWSING_SINGLE`):
 Test: `tools/complete/test_dowsing.py` (next to a Johto hidden item: Y, the radar held, its levels from 10, 15 and 20
 tiles away, the A button picking the item up, the running shoes, EXIT, the bag's USE, a map change).
 
+## The Pokéathlon Dome
+
+HeartGold's Pokéathlon, being ported in stages (`docs/Roadmap.md`): the Dome's lobby works; the courses and their
+events are still to come (stages 2 and 3).
+- **Its save:** HeartGold's Pokéathlon save field by field (`include/complete_pokeathlon.h`), in two save sectors of
+  its own, so saves keep their size: what the Dome changes goes to a working copy and counts once the game is saved,
+  as HeartGold's does (`CompletePokeathlon_Commit`, from the save's end).
+- **The two prize counters** (HeartGold's `ScrCmd_771` and 772, on Platinum's shop:
+  `src/overlay007/complete_pokeathlon_shop.c`, with marked hooks in `src/overlay007/shop_menu.c`): paid in Athlete
+  Points, one of an item at a time. The day's prizes are HeartGold's lists by weekday (more with the National
+  Pokédex), each bought once a day ("You can't buy any more today!"), new each day. The data cards come six at a
+  time, from the set the first card not bought is in, each bought once ("You already have this!"): a card is a
+  record, not an item in the bag, and its line shows on the Dome PC. The 27 data cards are items after HM09
+  (`tools/complete/import_hgss_data_cards.py`), so no earlier item's number moved.
+- **The Athlete Points box** (HeartGold's points box, type 2): the vending machine sells its drinks for Athlete Points
+  too, as HeartGold's does; the points show in a box in the coins' place.
+- **The Dome PC's Pokéathlon data** (HeartGold's `ScrCmd_743`): a page of records (the Pokéathlon's, the events',
+  the Pokémon's actions) over the field, each data card's line shown once the card is bought.
+- **The reception's totals** (HeartGold's `ScrCmd_724` and 725): the clerks read the Dome's running totals and the
+  gifts' points, as HeartGold's do.
+- **Not yet:** the courses and events (no Athlete Points are earned yet, so the counters wait for them), the record
+  screens (`ScrCmd_712`), the Aprijuice stand and the Friendship Room's statues.
+
+Test: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
+data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page).
+
 ## Stand-ins
 
 HeartGold features no one has decided to keep yet, or not ported yet, where Johto and Kanto's scripts reach them:

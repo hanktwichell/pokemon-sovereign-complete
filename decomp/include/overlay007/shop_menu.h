@@ -117,10 +117,18 @@ typedef struct {
     u32 itemPrice;
     FontSpecialCharsContext *unk_2B4;
     u32 sovereignFixedPrice; // Sovereign (E10): when not 0, every item costs this much
+    // Sovereign Complete: the Pokéathlon Dome's prize counters (src/overlay007/complete_pokeathlon_shop.c): which one
+    // (enum CompletePokeathlonCounter, 0 for any other shop), the Pokéathlon's save while it's open, each item's price
+    // and HeartGold's shop texts
+    u8 completeCounter;
+    struct CompletePokeathlonSave *completePokeathlon;
+    u16 *completePrices;
+    MessageLoader *completeMsgLoader;
 } ShopMenu;
 
 void Shop_Start(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, u8 martType, BOOL incBuyCount);
 void Shop_StartFixedPrice(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, u32 price);
+void Shop_StartCompletePokeathlon(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, const u16 *prices, u8 counter); // Sovereign Complete
 BOOL FieldTask_InitShop(FieldTask *task);
 
 #endif // POKEPLATINUM_SHOP_MENU_H

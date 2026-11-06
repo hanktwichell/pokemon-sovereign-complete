@@ -530,7 +530,7 @@ scr_seq_D49_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 12, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 12, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1
     GoToIf 4, _076E
     Message msg_0137_D49_00011
@@ -541,7 +541,7 @@ scr_seq_D49_003:
 _076E:
     GoToIfSet FLAG_HGSS_UNK_154, _07CB
     Message msg_0137_D49_00012
-    @ HGSS: ScrCmd_724 16, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 16, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1000
     GoToIf 4, _079A
     Message msg_0137_D49_00013
@@ -556,7 +556,7 @@ _079A:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     GoToIfEq VAR_RESULT, 0, _07D6
     Common_GiveItemQuantity
-    @ HGSS: ScrCmd_725 0, 100
+    CompletePokeathlonChangeTotalPoints 0, 100
     SetFlag FLAG_HGSS_UNK_154
 _07CB:
     Message msg_0137_D49_00015

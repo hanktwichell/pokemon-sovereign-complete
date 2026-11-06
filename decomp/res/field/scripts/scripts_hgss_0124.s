@@ -222,7 +222,7 @@ scr_seq_D49R0102_001:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 500
     GoToIf 0, _0417
     BufferPlayerName 0
@@ -239,7 +239,7 @@ scr_seq_D49R0102_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 51
     GoToIf 0, _0449
     BufferPlayerName 0
@@ -256,7 +256,7 @@ scr_seq_D49R0102_003:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 150
     GoToIf 0, _047B
     BufferPlayerName 0
@@ -273,7 +273,7 @@ scr_seq_D49R0102_004:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1000
     GoToIf 0, _04AD
     BufferPlayerName 0
@@ -290,7 +290,7 @@ scr_seq_D49R0102_005:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 10001
     GoToIf 0, _04DF
     BufferPlayerName 0
@@ -307,7 +307,7 @@ scr_seq_D49R0102_006:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 75
     GoToIf 0, _0511
     BufferPlayerName 0
@@ -324,7 +324,7 @@ scr_seq_D49R0102_007:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 26
     GoToIf 0, _0544
     BufferPlayerName 0
@@ -341,7 +341,7 @@ scr_seq_D49R0102_008:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 20001
     GoToIf 0, _0576
     BufferPlayerName 0
@@ -358,7 +358,7 @@ scr_seq_D49R0102_009:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 800
     GoToIf 0, _05A5
     Message msg_0139_D49R0102_00043
@@ -374,7 +374,7 @@ scr_seq_D49R0102_010:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 800
     GoToIf 0, _05D7
     BufferPlayerName 0
@@ -410,7 +410,7 @@ scr_seq_D49R0102_011:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 201
     GoToIf 0, _0647
     BufferPlayerName 0
@@ -427,7 +427,7 @@ scr_seq_D49R0102_012:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 250
     GoToIf 0, _0679
     BufferPlayerName 0
@@ -444,7 +444,7 @@ scr_seq_D49R0102_013:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 101
     GoToIf 0, _06AB
     BufferPlayerName 0
@@ -461,7 +461,7 @@ scr_seq_D49R0102_014:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     PlayCry SPECIES_RATTATA, 0
     CompareVar VAR_MAP_LOCAL_0x00, 15000
     GoToIf 0, _06E3
@@ -480,7 +480,7 @@ scr_seq_D49R0102_015:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     PlayCry SPECIES_MACHOP, 0
     CompareVar VAR_MAP_LOCAL_0x00, 15000
     GoToIf 0, _071D
@@ -499,7 +499,7 @@ scr_seq_D49R0102_016:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_724 11, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 11, VAR_MAP_LOCAL_0x00
     PlayCry SPECIES_BUTTERFREE, 0
     CompareVar VAR_MAP_LOCAL_0x00, 15000
     GoToIf 0, _0757

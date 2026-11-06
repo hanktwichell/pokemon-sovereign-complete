@@ -264,6 +264,13 @@ https://github.com/PokeAPI/sprites, `sprites/pokemon/<id>.png` (ids 10093, 10121
 64×64, reduced to 14 colours and outlined in orange for the Totem aura. **Placeholders**, until DS-style overworld
 sprites are drawn.
 
+In Sovereign Complete they are drawn as overworld Pokémon instead (the owner's call), by
+`tools/complete/make_totem_overworld.py`: each species' overworld (follower) sprite from **pokeemerald-expansion**,
+https://github.com/rh-hideout/pokeemerald-expansion, `graphics/pokemon/<species>/overworld.png` (the Alolan Marowak
+and Raticate from `alola/`), its first frame doubled to 64×64 and outlined in orange for the Totem aura. The sprites
+are the work of pokeemerald-expansion's contributors (credited in that project); the Pokémon designs are © Nintendo /
+Game Freak / The Pokémon Company.
+
 ### Post-game legendaries on the map
 The legendaries standing at their static encounters (`decomp/res/graphics/field_sprites/pokemon/legendary_<species>.png`; the Paradox, Ultra Beast and roamer ones are unused since decision 28),
 made by `tools/sprites/make_legendary_overworld.py` the same way, without the aura (15 colours). Source: **PokeAPI

@@ -1020,6 +1020,19 @@ ScriptCommand(SCRCMD_COMPLETECAMERONPHOTO,                             CompleteS
 ScriptCommand(SCRCMD_COMPLETECOUNTSAVEDPHOTOS,                         CompleteScrCmd_CountSavedPhotos)
 ScriptCommand(SCRCMD_COMPLETEOPENPHOTOALBUM,                           CompleteScrCmd_OpenPhotoAlbum)
 ScriptCommand(SCRCMD_COMPLETEPHOTOALBUMISFULL,                         CompleteScrCmd_PhotoAlbumIsFull)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONPRIZECOUNTER,                   CompleteScrCmd_PokeathlonPrizeCounter)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONDATACARDCOUNTER,                CompleteScrCmd_PokeathlonDataCardCounter)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONPRIZESLEFT,                     CompleteScrCmd_PokeathlonPrizesLeft)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONDATACARDSBOUGHT,                CompleteScrCmd_PokeathlonDataCardsBought)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONGETTOTAL,                       CompleteScrCmd_PokeathlonGetTotal)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONCHANGETOTALPOINTS,              CompleteScrCmd_PokeathlonChangeTotalPoints)
+ScriptCommand(SCRCMD_COMPLETEGIVEATHLETEPOINTS,                        CompleteScrCmd_GiveAthletePoints)
+ScriptCommand(SCRCMD_COMPLETETAKEATHLETEPOINTS,                        CompleteScrCmd_TakeAthletePoints)
+ScriptCommand(SCRCMD_COMPLETECHECKATHLETEPOINTS,                       CompleteScrCmd_CheckAthletePoints)
+ScriptCommand(SCRCMD_COMPLETESHOWATHLETEPOINTS,                        CompleteScrCmd_ShowAthletePoints)
+ScriptCommand(SCRCMD_COMPLETEHIDEATHLETEPOINTS,                        CompleteScrCmd_HideAthletePoints)
+ScriptCommand(SCRCMD_COMPLETEUPDATEATHLETEPOINTS,                      CompleteScrCmd_UpdateAthletePoints)
+ScriptCommand(SCRCMD_COMPLETEPOKEATHLONRECORDS,                        CompleteScrCmd_PokeathlonRecords)
 
 // clang-format on
 

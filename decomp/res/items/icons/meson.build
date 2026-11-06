@@ -605,6 +605,9 @@ item_icon_pngs = files(
     'voltaic_ore.png',
     'covenant_orb.png',
     # end of HeartGold's items
+    # Sovereign Complete: the Pokéathlon's data cards (tools/complete/import_hgss_data_cards.py)
+    'data_card.png',
+    # end of the data cards
 )
 
 item_icon_pals = files(
@@ -1270,6 +1273,9 @@ item_icon_pals = files(
     'voltaic_ore.pal',
     'covenant_orb.pal',
     # end of HeartGold's items
+    # Sovereign Complete: the Pokéathlon's data cards (tools/complete/import_hgss_data_cards.py)
+    'data_card.pal',
+    # end of the data cards
 )
 
 item_icon_anim_jsons = files('generic_anim.json')

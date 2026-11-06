@@ -56,8 +56,8 @@ STEPS = [
      'In: the phone, Mom\'s savings, Apricorn Balls, the Bug-Catching Contest, the Safari Zone, roamers, gym puzzles, '
      'the Johto Pokédex, Voltorb Flip, Johto\'s Battle Frontier, the Pokégear (phone, map, radio), the Magnet Train, '
      'the legendaries\' cutscenes, the photo album, the Berry Pots, the Unown Report. Following Pokémon are built but '
-     'turned off (your call). Still to port (answers 8, 9): the Pokéathlon and the Dowsing Machine; link play '
-     'later.'),
+     'turned off (your call). The Dowsing Machine is in too; the Pokéathlon is being ported (its Dome works; '
+     'the courses next). Link play later.'),
     (6, 'Music', 'done', 'Done', 'Johto\'s and Kanto\'s songs play on their maps, in the sound memory that was full, '
      'and HeartGold\'s own sound effects play in its scenes and scripts.'),
     (7, 'Joining the world', 'active', 'In progress',
@@ -80,8 +80,8 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: HeartGold\'s ports (the album, the Berry Pots, the Unown Report and the Dowsing Machine are in; next the '
-    'Pokéathlon, the biggest), and the Sinnoh story run, now past Lake Verity.',
+    'Now: the Pokéathlon, the last HeartGold port (its Dome works: the prize counters, the Athlete Points, the '
+    'records; next its courses and ten events), and the Sinnoh story run, now past the Distortion World.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -222,7 +222,7 @@ ANSWERED = [
     (5, 'The land between', 'Keep it empty.', 'Done'),
     (6, 'Field moves', 'An HM earned in Johto works everywhere.', 'Works this way now'),
     (7, 'The photo album', 'Port it; every HeartGold feature gets ported, used or not.', 'Done'),
-    (8, 'The Pokéathlon', 'Port it too.', 'Claude, planned (the biggest port)'),
+    (8, 'The Pokéathlon', 'Port it too.', 'Claude, under way (the Dome works; the courses next)'),
     (9, 'HeartGold\'s key items', 'Port all three: the Berry Pots, the Unown Report, the Dowsing Machine.',
      'Done'),
     (10, 'Trade evolutions', 'Trade items work from the bag like stones; trade evolutions with no item become level-up '
@@ -248,6 +248,20 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon Dome\'s prize counters, points and records', [
+        'The Dome\'s two prize counters now work, on Platinum\'s shop: HeartGold\'s prizes for the day (Apricorns, '
+        'Moomoo Milk, evolution stones and more, by weekday, more with the National Pokédex), each once a day, and '
+        'its 27 data cards, each once, all paid in Athlete Points, with HeartGold\'s own lines when you can\'t buy. '
+        'The vending machine takes Athlete Points too (HeartGold\'s points box), and the Dome\'s PC shows your '
+        'Pokéathlon records, each data card unlocking its line. Nothing earns points yet: that comes with the '
+        'courses, next.',
+    ]),
+    ('The Totems look like overworld Pokémon (your note)', [
+        'The Totems standing at their trials were shrunk battle sprites. Each is now its species\' overworld sprite, '
+        'in the DS games\' overworld style (from pokeemerald-expansion, credited), doubled so the Totem stands '
+        'twice a Pokémon\'s size, with its orange aura. And every one of Sovereign\'s 23,162 sprites is in Complete '
+        '(checked against Sovereign\'s latest), but for the box icons (Showdown\'s, your call) and these Totems.',
+    ]),
     ('The Pokéathlon begun (your answer 8)', [
         'First piece of the Pokéathlon: its save. HeartGold keeps your Athlete Points, data cards and records with the '
         'rest of the save; here they have save space of their own (so older saves still load), and they behave as in '

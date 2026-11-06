@@ -194,6 +194,12 @@ work.
   a fourth field bottom screen, `COMPLETE_BOTTOM_SCREEN_DOWSING`). Its A button presses A through
   `gCompleteSimulatedKeys` (read with the pad in `src/system.c`); its running shoes are a byte of Complete's phone save.
   Test: `tools/complete/test_dowsing.py`. The field runs at 30 frames a second: a test's waits count two vblanks a frame.
+- The Pokéathlon (being ported in stages, `docs/Roadmap.md`): its save is `include/complete_pokeathlon.h` (two
+  extra save sectors; `CompletePokeathlon_Load` gives a heap copy, `_Store` writes the working copy, saved with the
+  game). The Dome's commands and its prize counters are in overlay 7 (`src/overlay007/complete_pokeathlon_shop.c`,
+  hooks in Platinum's shop marked `completeCounter`); test `tools/complete/test_pokeathlon_counters.py`. New items go
+  after HM09 at the list's end (`tools/complete/import_hgss_data_cards.py`), never between, so saves' items keep their
+  numbers. Overlay 7's chain ends well before the battle overlay, which sets the arena: code there costs no heap.
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

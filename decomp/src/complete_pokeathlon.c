@@ -14,7 +14,7 @@ static u32 sSession; // this play session's mark, made the first time it's neede
 static BOOL sChanged; // a change was stored since the game was last saved
 
 #ifdef SOVEREIGN_TEST
-u32 gCompleteTestPokeathlon[4];
+u32 gCompleteTestPokeathlon[6];
 #endif
 
 // Sizes: one sector each, with its footer

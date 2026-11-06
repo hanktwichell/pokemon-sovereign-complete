@@ -167,6 +167,7 @@ def main():
             if arrived != 'ok':
                 problem = f'warp {arrived}'
             else:
+                d.screenshot().save(os.path.join(out, f'{name}_before.png'))  # it standing there, facing the player
                 result, frames, script = talk()
                 if script != SCRIPT_PLACED:
                     problem = f'A ran {script}, not CommonScript_CompletePlaced'

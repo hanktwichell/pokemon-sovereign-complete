@@ -2113,3 +2113,21 @@ Test results on the new test build:
   it over the saved one (`src/savedata.c`, `CompletePokeathlon_Commit`); after a reset without saving the working copy
   is an older session's and is ignored. The day's prizes come back each day (`FieldSystem_ClearDailyFlags`).
   `tools/complete/test_save.py` checks it: 1234 Athlete Points saved, 500 more not, 1234 after the reload.
+- **The Pokéathlon, stage 1: the Dome's prize counters, Athlete Points box and records:** the Dome's two prize
+  counters (HeartGold's `ScrCmd_771` and 772) run on Platinum's shop with a Pokéathlon mode
+  (`src/overlay007/complete_pokeathlon_shop.c`, small marked hooks in `src/overlay007/shop_menu.c`): HeartGold's prize
+  lists and prices, Athlete Points for money, one at a time, the day's prizes once each a day and the data cards once
+  each, with HeartGold's refusals ("You can't buy any more today!", "You already have this!", "You don't have enough
+  points!"). The 27 data cards are items after HM09 (`tools/complete/import_hgss_data_cards.py`), so no item number
+  moved. HeartGold's other Dome commands: the prizes left today and data cards bought (834, 835), the Dome's totals
+  (724, 725), Give/Take/CheckAthletePoints, the Athlete Points box (its points box type 2, which the vending machine
+  uses) and the Dome PC's Pokéathlon data (743, a window of records over the field, text bank 277); the Dome's
+  scripts retranslated (three HeartGold commands left there: the Aprijuice stand's two and a sound plate). All in
+  overlay 7, the field's, which has room before the battle overlay sets the arena: the main module grew 416 bytes
+  (the items' table and the commands). `tools/complete/test_pokeathlon_counters.py`.
+- **Every Sovereign sprite in Complete, and the Totems drawn as overworld Pokémon (the owner's to-dos, Nov 6):**
+  `tools/complete/check_sovereign_sprites.py` compares every image in Sovereign's tree (at its latest commit) with
+  Complete's: all 23,162 are here, the same but for the box icons (Showdown's, the owner's call) and the Totems. The
+  Totems standing at their trials were Sovereign's shrunk battle sprites; each is now its species' overworld sprite
+  from pokeemerald-expansion (the DS overworld style, the Alolan Marowak and Raticate in their forms), doubled to
+  64×64 so it stays large, with Sovereign's orange aura (`tools/complete/make_totem_overworld.py`; `CITATIONS.md`).

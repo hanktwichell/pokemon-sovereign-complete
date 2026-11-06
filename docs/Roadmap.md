@@ -111,14 +111,20 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
 - **The owner's note to remember (Nov 6, 2026): the Elite Four's rematch teams should be slightly better than their
   first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
 - **To do (the owner, Nov 6, 2026): every sprite in Sovereign Platinum ported to Sovereign Complete** (Pokémon
-  fronts, backs, forms and icons, trainers, overworld sprites), checked against Sovereign's own folders.
+  fronts, backs, forms and icons, trainers, overworld sprites), checked against Sovereign's own folders. *Checked Nov 6
+  (`tools/complete/check_sovereign_sprites.py`, against Sovereign's latest commit): all 23,162 of Sovereign's images
+  are in Complete unchanged, but for its 710 Pokémon box icons, which are Pokémon Showdown's (the owner's call). Rerun
+  it after each sync.*
 - **The player is Ethan or Dawn (Nov 6, 2026).** The boy is HeartGold's Ethan (overworld, battle back, front
   picture); the girl stays Platinum's Dawn, who has every pose Platinum needs. The player gets graphics of its own, so
   Rowan's assistant in Sinnoh stays Lucas or Dawn; Johto's friend stays HeartGold's (Lyra for Ethan, Ethan for Dawn).
   Lyra instead of Dawn is one setting in `tools/complete/import_hgss_player.py`.
 - **Totems' overworld sprites (the owner, Nov 6, 2026).** They should look like the game's other overworld Pokémon
   (Dialga, Palkia, Uxie), not shrunk battle sprites as now (Sovereign's `tools/sprites/make_totem_overworld.py`), and
-  stay large to show their size. Not done yet.
+  stay large to show their size. *Done Nov 6: each is its species' overworld sprite from pokeemerald-expansion
+  (drawn in the DS overworld style), doubled to 64×64, Sovereign's orange aura kept
+  (`tools/complete/make_totem_overworld.py`). Sovereign's post-game legendaries on the map are the same kind of
+  shrunk battle sprite; the same could be done for them if the owner wants.*
 - **Box, PC and party icons from Pokémon Showdown (the owner asked, Nov 6, 2026).** Showdown's icon sheet covers every
   species and form; it would replace the PokeAPI placeholders for #494–1025 and fill in forms. Each needs converting to
   the DS's 32×32 two-frame icons in its three shared palettes; a sample sheet first for the owner to look at.
@@ -205,6 +211,11 @@ and has its test:
    points (overlay 96's state machine and overlays 97 and 98).
 3. **The ten events,** one at a time: Hurdle Dash, Pennant Capture, Relay Run, Block Smash, Disc Catch, Lamp Jump,
    Circle Push, Snow Throw, Goal Roll and Ring Drop. The link-play parts stay out with the rest of link play (answer 14).
+
+Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records and the
+reception's totals. Left in stage 1: the record screens (`ScrCmd_712`, HeartGold's overlays 97 to 99), the Pokémon's
+performance, the Aprijuice stand (`ScrCmd_740`, 741: juices from the Apricorn Box, which Complete keeps in the bag)
+and the Friendship Room's statues.
 
 ### Still open
 

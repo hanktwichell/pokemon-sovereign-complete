@@ -6450,6 +6450,80 @@
     .short \destVar
     .endm
 
+    // HeartGold's ScrCmd_771: the Pokéathlon Dome's counter for the day's prizes, paid in Athlete Points
+    // (src/overlay007/complete_pokeathlon_shop.c)
+    .macro CompletePokeathlonPrizeCounter
+    .short SCRCMD_COMPLETEPOKEATHLONPRIZECOUNTER
+    .endm
+
+    // HeartGold's ScrCmd_772: the Dome's data card counter, from the set of six the first card not bought is in
+    .macro CompletePokeathlonDataCardCounter
+    .short SCRCMD_COMPLETEPOKEATHLONDATACARDCOUNTER
+    .endm
+
+    // HeartGold's ScrCmd_834: TRUE while some of the day's prizes are still to be bought
+    .macro CompletePokeathlonPrizesLeft destVar
+    .short SCRCMD_COMPLETEPOKEATHLONPRIZESLEFT
+    .short \destVar
+    .endm
+
+    // HeartGold's ScrCmd_835: how many data cards in a row were bought (27 with all of them)
+    .macro CompletePokeathlonDataCardsBought destVar
+    .short SCRCMD_COMPLETEPOKEATHLONDATACARDSBOUGHT
+    .short \destVar
+    .endm
+
+    // HeartGold's ScrCmd_724: one of the Dome's running totals (0-9 the events', 10-17 its others, 11 the points
+    // earned in all), to 65535
+    .macro CompletePokeathlonGetTotal which, destVar
+    .short SCRCMD_COMPLETEPOKEATHLONGETTOTAL
+    .short \which
+    .short \destVar
+    .endm
+
+    // HeartGold's ScrCmd_725: raises (0) or lowers (1) the points earned in all
+    .macro CompletePokeathlonChangeTotalPoints lower, amount
+    .short SCRCMD_COMPLETEPOKEATHLONCHANGETOTALPOINTS
+    .byte \lower
+    .short \amount
+    .endm
+
+    // HeartGold's GiveAthletePoints, TakeAthletePoints and CheckAthletePoints (TRUE with at least amount)
+    .macro CompleteGiveAthletePoints amount
+    .short SCRCMD_COMPLETEGIVEATHLETEPOINTS
+    .short \amount
+    .endm
+    .macro CompleteTakeAthletePoints amount
+    .short SCRCMD_COMPLETETAKEATHLETEPOINTS
+    .short \amount
+    .endm
+    .macro CompleteCheckAthletePoints destVar, amount
+    .short SCRCMD_COMPLETECHECKATHLETEPOINTS
+    .short \destVar
+    .short \amount
+    .endm
+
+    // HeartGold's points box for the Athlete Points (its ScrCmd_116 2, 117 and 118 2), in the window slot the coins'
+    // and Battle Points' boxes share
+    .macro CompleteShowAthletePoints tilemapLeft, tilemapTop
+    .short SCRCMD_COMPLETESHOWATHLETEPOINTS
+    .short \tilemapLeft
+    .short \tilemapTop
+    .endm
+    .macro CompleteHideAthletePoints
+    .short SCRCMD_COMPLETEHIDEATHLETEPOINTS
+    .endm
+    .macro CompleteUpdateAthletePoints
+    .short SCRCMD_COMPLETEUPDATEATHLETEPOINTS
+    .endm
+
+    // HeartGold's ScrCmd_743: the Dome PC's Pokéathlon data, a page (0 the Pokéathlon's, 1 the events', 2 the Pokémon's
+    // actions) in a window over the field until A, B or a touch; a data card shows its line
+    .macro CompletePokeathlonRecords page
+    .short SCRCMD_COMPLETEPOKEATHLONRECORDS
+    .short \page
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

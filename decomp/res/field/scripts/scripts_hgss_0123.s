@@ -242,7 +242,7 @@ scr_seq_D49R0101_001:
     LockAll
     FacePlayer
     GoToIfUnset FLAG_HGSS_UNK_114, _03F1
-    @ HGSS: ScrCmd_834 VAR_SPECIAL_RESULT
+    CompletePokeathlonPrizesLeft VAR_RESULT
     CompareVar VAR_RESULT, 0
     GoToIf 1, _0400
     Message msg_0138_D49R0101_00049
@@ -263,7 +263,7 @@ _0377:
     End
 _03C7:
     CloseMessageWithoutErasing
-    @ HGSS: ScrCmd_771
+    CompletePokeathlonPrizeCounter
     GoTo _03E4
     End
 _03D7:
@@ -294,7 +294,7 @@ scr_seq_D49R0101_002:
     PlaySE SE_CONFIRM_sseq_3
     LockAll
     FacePlayer
-    @ HGSS: ScrCmd_835 VAR_SPECIAL_RESULT
+    CompletePokeathlonDataCardsBought VAR_RESULT
     CompareVar VAR_RESULT, 27
     GoToIf 1, _05A9
     GoToIfUnset FLAG_HGSS_UNK_115, _0529
@@ -316,8 +316,8 @@ _0443:
     End
 _0493:
     CloseMessageWithoutErasing
-    @ HGSS: ScrCmd_772
-    @ HGSS: ScrCmd_835 VAR_SPECIAL_x8005
+    CompletePokeathlonDataCardCounter
+    CompletePokeathlonDataCardsBought VAR_0x8005
     CompareVar VAR_0x8005, 6
     GoToIf 1, _0538
     CompareVar VAR_0x8005, 12
@@ -332,7 +332,7 @@ _0493:
     End
 _04E8:
     Message msg_0138_D49R0101_00055
-    @ HGSS: ScrCmd_724 12, VAR_SPECIAL_RESULT
+    CompletePokeathlonGetTotal 12, VAR_RESULT
     CompareVar VAR_RESULT, 100
     GoToIf 0, _0509
     Message msg_0138_D49R0101_00057
@@ -460,7 +460,7 @@ scr_seq_D49R0101_014:
 _072E:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _0748
-    @ HGSS: ScrCmd_116 2, 20, 2
+    CompleteShowAthletePoints 20, 2
     GoTo _0A7F
 _0748:
     Message msg_0138_D49R0101_00091
@@ -502,7 +502,7 @@ _07E4:
 _07FF:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _0812
-    @ HGSS: CheckAthletePoints VAR_SPECIAL_RESULT, 50
+    CompleteCheckAthletePoints VAR_RESULT, 50
 _0812:
     Return
 _0814:
@@ -513,7 +513,7 @@ _0814:
 _082F:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _0842
-    @ HGSS: CheckAthletePoints VAR_SPECIAL_RESULT, 80
+    CompleteCheckAthletePoints VAR_RESULT, 80
 _0842:
     Return
 _0844:
@@ -524,7 +524,7 @@ _0844:
 _085F:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _0872
-    @ HGSS: CheckAthletePoints VAR_SPECIAL_RESULT, 100
+    CompleteCheckAthletePoints VAR_RESULT, 100
 _0872:
     Return
 _0874:
@@ -535,7 +535,7 @@ _0874:
 _088D:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _089E
-    @ HGSS: TakeAthletePoints 50
+    CompleteTakeAthletePoints 50
 _089E:
     Return
 _08A0:
@@ -546,7 +546,7 @@ _08A0:
 _08B9:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _08CA
-    @ HGSS: TakeAthletePoints 80
+    CompleteTakeAthletePoints 80
 _08CA:
     Return
 _08CC:
@@ -557,7 +557,7 @@ _08CC:
 _08E5:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _08F6
-    @ HGSS: TakeAthletePoints 100
+    CompleteTakeAthletePoints 100
 _08F6:
     Return
 _08F8:
@@ -585,7 +585,7 @@ _08F8:
 _097D:
     CompareVar VAR_MAP_LOCAL_0x05, 1
     GoToIf 5, _098D
-    @ HGSS: ScrCmd_118 2
+    CompleteUpdateAthletePoints
 _098D:
     BufferItemName 0, VAR_0x8001
     PlaySE SEQ_SE_DP_JIHANKI_sseq
@@ -632,7 +632,7 @@ _0A35:
     HideMoney
     GoTo _0A54
 _0A52:
-    @ HGSS: ScrCmd_117
+    CompleteHideAthletePoints
 _0A54:
     ReleaseAll
     End
@@ -644,7 +644,7 @@ _0A5C:
     HideMoney
     GoTo _0A77
 _0A75:
-    @ HGSS: ScrCmd_117
+    CompleteHideAthletePoints
 _0A77:
     ReleaseAll
     End
@@ -707,7 +707,7 @@ _0B81:
     WaitTime 4, VAR_RESULT
     CloseMessage
     PlaySE SEQ_SE_DP_DECIDE_sseq
-    @ HGSS: ScrCmd_743 VAR_TEMP_x4007
+    CompletePokeathlonRecords VAR_MAP_LOCAL_0x07
     GoTo _0AF3
     End
 _0BA5:
@@ -726,7 +726,7 @@ scr_seq_D49R0101_021:
     CompareVar VAR_RESULT, 1
     GoToIf 1, _0BFE
     Message msg_0138_D49R0101_00105
-    @ HGSS: ScrCmd_724 14, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 14, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 1000
     GoToIf 4, _0C09
     Message msg_0138_D49R0101_00106
@@ -747,7 +747,7 @@ _0C09:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     GoToIfEq VAR_RESULT, 0, _0C42
     Common_GiveItemQuantity
-    @ HGSS: ScrCmd_725 0, 100
+    CompletePokeathlonChangeTotalPoints 0, 100
     SetFlag FLAG_HGSS_UNK_152
     GoTo _0C4C
     End
@@ -767,7 +767,7 @@ scr_seq_D49R0101_022:
     LockAll
     FacePlayer
     GoToIfSet FLAG_HGSS_UNK_153, _0CF0
-    @ HGSS: ScrCmd_724 15, VAR_TEMP_x4000
+    CompletePokeathlonGetTotal 15, VAR_MAP_LOCAL_0x00
     CompareVar VAR_MAP_LOCAL_0x00, 500
     GoToIf 4, _0C86
     Message msg_0138_D49R0101_00109
@@ -794,7 +794,7 @@ _0CB7:
     CanFitItem VAR_0x8004, VAR_0x8005, VAR_RESULT
     GoToIfEq VAR_RESULT, 0, _0C42
     Common_GiveItemQuantity
-    @ HGSS: ScrCmd_725 0, 100
+    CompletePokeathlonChangeTotalPoints 0, 100
     SetFlag FLAG_HGSS_UNK_153
     GoTo _0CF0
     End

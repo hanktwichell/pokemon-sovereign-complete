@@ -104,8 +104,9 @@ BOOL CompletePokeathlon_CheckReceivedDailyItemSlot(const CompletePokeathlonSave 
 void CompletePokeathlon_SetReceivedDailyItemSlot(CompletePokeathlonSave *pokeathlon, int slot);
 
 #ifdef SOVEREIGN_TEST
-// The Athlete Points and the data cards and day's prizes bought, as last read or written; the session
-extern u32 gCompleteTestPokeathlon[4];
+// The Athlete Points and the data cards and day's prizes bought, as last read or written; the session; the last text a
+// prize counter refused with (hgss_msg_0435's: src/overlay007/complete_pokeathlon_shop.c); the counters' purchases
+extern u32 gCompleteTestPokeathlon[6];
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_H

@@ -153,8 +153,8 @@ def score(a):
 
 
 # HeartGold's points box (its 116 shows it, 117 hides it, 118 updates it): coins (type 0) and Battle Points (1) are
-# Platinum's windows, which share one slot and one hide; the Pokéathlon's points (2) are skipped with it. The last type
-# shown decides the hide (a box is shown before it is hidden in each file).
+# Platinum's windows, and the Athlete Points (2) Complete's (src/overlay007/complete_pokeathlon_shop.c), which share
+# one slot. The last type shown decides the hide (a box is shown before it is hidden in each file).
 POINTS_BOX = {'shown': None}
 
 
@@ -164,15 +164,19 @@ def points_box_show(a):
         return [f'ShowCoins {a[1]}, {a[2]}']
     if a[0] == '1':
         return [f'ShowBattlePoints {a[1]}, {a[2]}']
+    if a[0] == '2':
+        return [f'CompleteShowAthletePoints {a[1]}, {a[2]}']
     return [f'@ HGSS: ScrCmd_116 {", ".join(a)}']
 
 
 def points_box_hide(a):
-    return ['HideCoins'] if POINTS_BOX['shown'] in ('0', '1') else ['@ HGSS: ScrCmd_117']
+    return {'0': ['HideCoins'], '1': ['HideCoins'], '2': ['CompleteHideAthletePoints']}.get(POINTS_BOX['shown'],
+                                                                                         ['@ HGSS: ScrCmd_117'])
 
 
 def points_box_update(a):
-    return {'0': ['UpdateCoinDisplay'], '1': ['UpdateBPDisplay']}.get(a[0], [f'@ HGSS: ScrCmd_118 {a[0]}'])
+    return {'0': ['UpdateCoinDisplay'], '1': ['UpdateBPDisplay'],
+            '2': ['CompleteUpdateAthletePoints']}.get(a[0], [f'@ HGSS: ScrCmd_118 {a[0]}'])
 
 
 def trade_name(n):
@@ -609,6 +613,21 @@ COMMANDS = {
     'CountSavedPhotos': one('CompleteCountSavedPhotos {0}'),
     'PhotoAlbumIsFull': one('CompletePhotoAlbumIsFull {0}'),
     'OpenPhotoAlbum': one('CompleteOpenPhotoAlbum'),
+    # The Pokéathlon Dome (include/complete_pokeathlon.h, src/overlay007/complete_pokeathlon_shop.c): its prize
+    # counters (the day's prizes, 771, and the data cards, 772), whether prizes are left today (834) and the data cards
+    # bought (835); its running totals (724) and the points earned in all the reception's gifts change (725); the
+    # Athlete Points
+    'ScrCmd_771': lambda a: ['CompletePokeathlonPrizeCounter'],
+    'ScrCmd_772': lambda a: ['CompletePokeathlonDataCardCounter'],
+    'ScrCmd_834': one('CompletePokeathlonPrizesLeft {0}'),
+    'ScrCmd_835': one('CompletePokeathlonDataCardsBought {0}'),
+    'ScrCmd_724': one('CompletePokeathlonGetTotal {0}, {1}'),
+    'ScrCmd_725': one('CompletePokeathlonChangeTotalPoints {0}, {1}'),
+    'GiveAthletePoints': one('CompleteGiveAthletePoints {0}'),
+    'TakeAthletePoints': one('CompleteTakeAthletePoints {0}'),
+    'CheckAthletePoints': one('CompleteCheckAthletePoints {0}, {1}'),
+    # The Dome PC's Pokéathlon data (HeartGold's ScrCmd_743): a page of records, the data cards' lines shown once bought
+    'ScrCmd_743': one('CompletePokeathlonRecords {0}'),
     # The player's look (HeartGold's SetAvatarBits and UpdateAvatarState are Platinum's SetPlayerState and
     # ChangePlayerState): the Rocket uniform is walking with FLAG_HGSS_SYS_ROCKET_COSTUME set, which the player's
     # walking sprite follows (src/player_avatar.c), so walking again takes it off before the redraw; HeartGold's own

@@ -68,6 +68,8 @@
 #include "res/text/bank/underground_goods.h"
 #include "res/text/bank/unk_0543.h"
 
+#include "overlay007/complete_pokeathlon_shop.h" // Sovereign Complete: the Pokéathlon's prize counters
+
 #define UNDERGROUND_GOOD_DESCRIPTIONS_START UndergroundGoods_Text_CloseDescription
 
 static u8 Shop_GetCameraPosDest(FieldSystem *fieldSystem);
@@ -109,7 +111,7 @@ static void Shop_SetCursorSpritePalette(ShopMenu *shopMenu, u8 selected);
 static u8 Shop_ShowPurchaseMessage(ShopMenu *shopMenu);
 static void Shop_SetItemNameToIndex(ShopMenu *shopMenu, u16 itemId, u16 idx);
 static u32 Shop_GetItemPrice(ShopMenu *shopMenu, u16 itemId);
-static void Shop_SovereignStart(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, u8 martType, BOOL incBuyCount, u32 fixedPrice);
+static ShopMenu *Shop_SovereignStart(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, u8 martType, BOOL incBuyCount, u32 fixedPrice); // Sovereign Complete: returns the shop
 static u16 Shop_GetItemBPPrice(ShopMenu *shopMenu, u16 itemId);
 static u32 Shop_GetCurrentMoney(ShopMenu *shopMenu);
 static void Shop_TakeMoney(ShopMenu *shopMenu, u32 amount);
@@ -251,7 +253,14 @@ void Shop_StartFixedPrice(FieldTask *task, FieldSystem *fieldSystem, u16 *shopIt
     Shop_SovereignStart(task, fieldSystem, shopItems, MART_TYPE_NORMAL, FALSE, price);
 }
 
-static void Shop_SovereignStart(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, u8 martType, BOOL incBuyCount, u32 fixedPrice)
+// Sovereign Complete: the Pokéathlon Dome's prize counters (src/overlay007/complete_pokeathlon_shop.c): an item each
+// price, paid in Athlete Points
+void Shop_StartCompletePokeathlon(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, const u16 *prices, u8 counter)
+{
+    CompletePokeathlonShop_Init(Shop_SovereignStart(task, fieldSystem, shopItems, MART_TYPE_NORMAL, FALSE, 0), prices, counter);
+}
+
+static ShopMenu *Shop_SovereignStart(FieldTask *task, FieldSystem *fieldSystem, u16 *shopItems, u8 martType, BOOL incBuyCount, u32 fixedPrice)
 {
     ShopMenu *shopMenu = Shop_Alloc();
 
@@ -283,6 +292,7 @@ static void Shop_SovereignStart(FieldTask *task, FieldSystem *fieldSystem, u16 *
 
     Shop_SetItemsForSale(shopMenu, shopItems);
     FieldTask_InitCall(task, FieldTask_InitShop, shopMenu);
+    return shopMenu; // Sovereign Complete
 }
 
 static u8 Shop_GetCameraPosDest(FieldSystem *fieldSystem)
@@ -392,7 +402,7 @@ static void Shop_InitContextMenu(ShopMenu *shopMenu)
     MenuTemplate menuTemplate;
     u8 maxOptions;
 
-    if (shopMenu->martType == MART_TYPE_NORMAL) {
+    if (shopMenu->martType == MART_TYPE_NORMAL && !shopMenu->completeCounter) { // Sovereign Complete: the counters only sell
         maxOptions = 3;
         shopMenu->optionsList = StringList_New(maxOptions, HEAP_ID_FIELD2);
 
@@ -472,7 +482,7 @@ static u8 Shop_Exit(FieldSystem *fieldSystem, ShopMenu *shopMenu)
         StringTemplate_Free(shopMenu->strTemplate);
         String_Free(shopMenu->string);
 
-        if (shopMenu->martType == MART_TYPE_NORMAL && MapHeader_GetMapLabelTextID(fieldSystem->location->mapHeaderID) != LocationNames_Text_VeilstoneStore
+        if (shopMenu->martType == MART_TYPE_NORMAL && !shopMenu->completeCounter && MapHeader_GetMapLabelTextID(fieldSystem->location->mapHeaderID) != LocationNames_Text_VeilstoneStore
             && fieldSystem->location->mapHeaderID != MAP_HEADER_ETERNA_CITY_HERB_SHOP
             && fieldSystem->location->mapHeaderID != MAP_HEADER_CELESTIC_TOWN_NORTHWEST_HOUSE) {
             if (shopMenu->itemPurchaseCount != 0 && shopMenu->itemSoldCount != 0) {
@@ -494,6 +504,7 @@ static u8 Shop_Exit(FieldSystem *fieldSystem, ShopMenu *shopMenu)
         }
 
         FontSpecialChars_Free(shopMenu->unk_2B4);
+        CompletePokeathlonShop_Free(shopMenu); // Sovereign Complete
         Heap_Free(shopMenu->itemsPtr);
         Heap_Free(shopMenu);
 
@@ -796,7 +807,7 @@ static void Shop_MenuPrintCallback(ListMenu *menu, u32 index, u8 yOffset)
         if (shopMenu->martType == MART_TYPE_FRONTIER) {
             fmtString = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00032);
         } else {
-            fmtString = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00009);
+            fmtString = CompletePokeathlonShop_String(shopMenu, pl_msg_00000543_00009); // Sovereign Complete: or Athlete Points
         }
 
         // Sovereign: 5 digits, for the Gen IX held items that cost ₽10,000 or more (right-aligned, so no shift).
@@ -848,7 +859,7 @@ static void Shop_PrintCurrentMoney(ShopMenu *shopMenu, u8 clearCurrMoney)
             Window_FillTilemap(&shopMenu->windows[SHOP_WINDOW_CURRENT_MONEY], 15);
             Window_DrawStandardFrame(&shopMenu->windows[SHOP_WINDOW_CURRENT_MONEY], TRUE, 1 + (18 + 12), FIELD_WINDOW_PALETTE_INDEX);
 
-            fmtString = MessageLoader_GetNewString(shopMenu->msgLoader, 18);
+            fmtString = CompletePokeathlonShop_String(shopMenu, pl_msg_00000543_00018); // Sovereign Complete: or Athlete Pts.
 
             Text_AddPrinterWithParams(&shopMenu->windows[SHOP_WINDOW_CURRENT_MONEY], FONT_SYSTEM, fmtString, 0, 0, TEXT_SPEED_NO_TRANSFER, NULL);
             String_Free(fmtString);
@@ -857,7 +868,7 @@ static void Shop_PrintCurrentMoney(ShopMenu *shopMenu, u8 clearCurrMoney)
         }
 
         string = String_Init(16, HEAP_ID_FIELD2);
-        fmtString = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00019);
+        fmtString = CompletePokeathlonShop_String(shopMenu, pl_msg_00000543_00019); // Sovereign Complete: or Athlete Points
         currMoney = Shop_GetCurrentMoney(shopMenu);
 
         StringTemplate_SetNumber(shopMenu->strTemplate, 0, currMoney, 6, PADDING_MODE_SPACES, CHARSET_MODE_EN);
@@ -919,6 +930,14 @@ static u8 Shop_SelectBuyMenu(ShopMenu *shopMenu)
 
         currMoney = Shop_GetCurrentMoney(shopMenu);
 
+        // Sovereign Complete: a Pokéathlon prize already bought today, a data card already bought, or too few points
+        if (shopMenu->completeCounter && (string = CompletePokeathlonShop_Refusal(shopMenu, currMoney)) != NULL) {
+            StringTemplate_Format(shopMenu->strTemplate, shopMenu->string, string);
+            String_Free(string);
+            shopMenu->fieldMsgPrinterId = FieldMessage_Print(&shopMenu->windows[SHOP_WINDOW_MESSAGE], shopMenu->string, shopMenu->options, TRUE);
+            return SHOP_STATE_FINISH_PURCHASE;
+        }
+
         if (currMoney < shopMenu->itemPrice) {
             if (shopMenu->martType == MART_TYPE_FRONTIER) {
                 string = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00037);
@@ -933,7 +952,7 @@ static u8 Shop_SelectBuyMenu(ShopMenu *shopMenu)
             return SHOP_STATE_FINISH_PURCHASE;
         }
 
-        if (shopMenu->martType == MART_TYPE_DECOR) {
+        if (shopMenu->martType == MART_TYPE_DECOR || shopMenu->completeCounter) { // Sovereign Complete: the counters' one at a time
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             return Shop_ShowPurchaseMessage(shopMenu);
         }
@@ -1056,7 +1075,9 @@ static u8 Shop_ShowPurchaseMessage(ShopMenu *shopMenu)
     String *string;
     BOOL canFitItem;
 
-    if (shopMenu->martType == MART_TYPE_NORMAL) {
+    if (shopMenu->completeCounter) { // Sovereign Complete: a data card is no item in the bag
+        canFitItem = CompletePokeathlonShop_CanFit(shopMenu);
+    } else if (shopMenu->martType == MART_TYPE_NORMAL) {
         canFitItem = Bag_CanFitItem(shopMenu->destInventory, shopMenu->itemId, shopMenu->itemAmount, HEAP_ID_FIELD2);
     } else if (shopMenu->martType == MART_TYPE_FRONTIER) {
         canFitItem = Bag_CanFitItem(shopMenu->destInventory, shopMenu->itemId, shopMenu->itemAmount, HEAP_ID_FIELD2);
@@ -1109,7 +1130,7 @@ static u8 Shop_ShowPurchaseMessage(ShopMenu *shopMenu)
         if (shopMenu->martType == MART_TYPE_FRONTIER) {
             string = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00035);
         } else {
-            string = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00005);
+            string = CompletePokeathlonShop_String(shopMenu, pl_msg_00000543_00005); // Sovereign Complete: or HeartGold's question
         }
     }
 
@@ -1173,7 +1194,7 @@ static u8 Shop_SelectConfirmPurchase(ShopMenu *shopMenu)
         String *string;
 
         if (shopMenu->martType == MART_TYPE_NORMAL) {
-            string = MessageLoader_GetNewString(shopMenu->msgLoader, pl_msg_00000543_00006);
+            string = CompletePokeathlonShop_String(shopMenu, pl_msg_00000543_00006); // Sovereign Complete: or a data card's
 
             if (shopMenu->itemAmount == 1) {
                 StringTemplate_SetItemName(shopMenu->strTemplate, 0, shopMenu->itemId);
@@ -1232,7 +1253,9 @@ static u8 Shop_ConfirmItemPurchase(ShopMenu *shopMenu)
         return SHOP_STATE_CONFIRM_PURCHASE;
     }
 
-    if (shopMenu->martType == MART_TYPE_NORMAL) {
+    if (shopMenu->completeCounter) { // Sovereign Complete: a Pokéathlon prize or data card
+        CompletePokeathlonShop_Buy(shopMenu);
+    } else if (shopMenu->martType == MART_TYPE_NORMAL) {
         Bag_TryAddItem(shopMenu->destInventory, shopMenu->itemId, shopMenu->itemAmount, HEAP_ID_FIELD2);
         FieldSystem_SaveTVSegment_SinnohShoppingChampCorner(shopMenu->saveData, shopMenu->itemId, shopMenu->itemAmount);
     } else if (shopMenu->martType == MART_TYPE_FRONTIER) {
@@ -1245,7 +1268,8 @@ static u8 Shop_ConfirmItemPurchase(ShopMenu *shopMenu)
 
     Shop_TakeMoney(shopMenu, shopMenu->itemPrice * shopMenu->itemAmount);
 
-    if (shopMenu->martType == MART_TYPE_FRONTIER) {
+    if (shopMenu->completeCounter) { // Sovereign Complete: Athlete Points aren't money
+    } else if (shopMenu->martType == MART_TYPE_FRONTIER) {
         GameRecords_AddToRecordValue(shopMenu->records, RECORD_BATTLE_POINTS_SPENT, shopMenu->itemPrice * shopMenu->itemAmount);
     } else {
         GameRecords_AddToRecordValue(shopMenu->records, RECORD_MONEY_SPENT, shopMenu->itemPrice * shopMenu->itemAmount);
@@ -1343,6 +1367,10 @@ static u32 Shop_GetItemPrice(ShopMenu *shopMenu, u16 itemId)
 {
     u32 price;
 
+    if (shopMenu->completeCounter) { // Sovereign Complete: the Pokéathlon's prices, in Athlete Points
+        return CompletePokeathlonShop_Price(shopMenu, itemId);
+    }
+
     if (shopMenu->sovereignFixedPrice) {
         price = shopMenu->sovereignFixedPrice;
     } else if (shopMenu->martType == MART_TYPE_NORMAL) {
@@ -1420,7 +1448,9 @@ static u16 Shop_GetItemBPPrice(ShopMenu *shopMenu, u16 itemId)
 
 static u32 Shop_GetCurrentMoney(ShopMenu *shopMenu)
 {
-    if (shopMenu->martType == MART_TYPE_FRONTIER) {
+    if (shopMenu->completeCounter) { // Sovereign Complete
+        return CompletePokeathlonShop_Points(shopMenu);
+    } else if (shopMenu->martType == MART_TYPE_FRONTIER) {
         return WifiBattleTowerRecord_UpdateBattlePoints(SaveData_GetWifiBattleTowerRecord(shopMenu->saveData), 0, BATTLE_POINTS_FUNC_NONE);
     } else {
         return TrainerInfo_Money(shopMenu->trainerInfo);
@@ -1429,7 +1459,9 @@ static u32 Shop_GetCurrentMoney(ShopMenu *shopMenu)
 
 static void Shop_TakeMoney(ShopMenu *shopMenu, u32 amount)
 {
-    if (shopMenu->martType == MART_TYPE_FRONTIER) {
+    if (shopMenu->completeCounter) { // Sovereign Complete
+        CompletePokeathlonShop_TakePoints(shopMenu, amount);
+    } else if (shopMenu->martType == MART_TYPE_FRONTIER) {
         WifiBattleTowerRecord_UpdateBattlePoints(SaveData_GetWifiBattleTowerRecord(shopMenu->saveData), amount, BATTLE_POINTS_FUNC_SUB);
     } else {
         TrainerInfo_TakeMoney(shopMenu->trainerInfo, amount);
