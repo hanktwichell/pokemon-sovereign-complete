@@ -124,6 +124,16 @@ QUESTIONS = [
          ['Leave it', 'Add Hisui\'s new species to Sinnoh\'s park (Wyrdeer, Kleavor, Ursaluna, Sneasler, Overqwil, '
           'Basculegion: 28 kinds)', 'Something else'],
          'Leave it: the parks hold the forms, and Hisui\'s new species evolve from Pokémon found in the wild.'),
+        ('The Pokéathlon: how good are Pokémon from past HeartGold\'s 493 at its events (their Speed, Power, Skill, '
+         'Stamina and Jump stars)?',
+         'HeartGold has stars only for its 493. For the rest the game uses a stand-in worked out from base stats '
+         '(a formula fitted to HeartGold\'s own stars: on HeartGold\'s Pokémon it gets 40-52% exactly right and '
+         '83-96% within one star), e.g. Regieleki 5 Speed, Toxapex 5 Stamina, Dragapult 5 Speed and Jump. Each '
+         'one is a line in data/complete/pokeathlon_performance.json.',
+         ['Keep the base-stat stars', 'Base-stat stars, but evolutions and relatives of older Pokémon copy them '
+          '(Sylveon like Eevee, Kleavor like Scyther)', 'You\'ll set some by hand (they stay through reruns)',
+          'Something else'],
+         'Keep the base-stat stars for now and set any by hand that feel wrong in play: the file keeps your lines.'),
     ]),
 ]
 

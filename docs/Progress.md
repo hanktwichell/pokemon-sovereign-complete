@@ -2185,3 +2185,11 @@ Test results on the new test build:
   on build_test3 (none on a new game, as no result reaches a goal; then 21, 6 of them Friendship Trophies, from course
   records of 650, Hurdle Dash's 80.0 s and 12 medalists, through the screen's copy of the save; B and Return): 0
   problems; the release build boots. The record rooms' screens are all ported now (`ScrCmd_712` 0 to 3).
+- **The Pokéathlon, stage 1: the performance data:** `tools/complete/import_hgss_performance.py` writes
+  `data/complete/pokeathlon_performance.json`, each species' Speed, Power, Skill, Stamina and Jump (base stars and
+  range): HeartGold's for its 493 and their forms (Unown's 28, Arceus's 18, Rotom's 6 and others), and for Complete's
+  532 species past that a provisional rule from base stats, fitted to HeartGold's own stars (40-52% exact, 83-96%
+  within one on HeartGold's species), until the owner decides (docs/Roadmap.md, "Still open"; the progress page's
+  questions). An entry marked "owner" survives a rerun. HeartGold's archive turns out to hold Power, Speed, Jump,
+  Stamina, Skill in that order (Ninjask's highest are Speed and Jump, Shuckle's Stamina, Alakazam's Skill), not the
+  order pret's HeartGold names its slots in. Nothing reads the file yet; the course and the Aprijuice stand will.

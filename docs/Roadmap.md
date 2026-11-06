@@ -222,10 +222,13 @@ lines) would show whether it holds before the course is attempted.
 
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;
-HeartGold's overlay 99's apps, in C) and the Friendship Room's statues. Left in stage 1: the Pokémon's
-performance and the Aprijuice stand (`ScrCmd_740`, 741: it runs HeartGold's Apricorn Box app, overlay 58, in a juice
-mode, and the juice changes a Pokémon's performance; Complete keeps Apricorns in the bag, so it comes with the
-performance).
+HeartGold's overlay 99's apps, in C), the Friendship Room's statues and the performance data (HeartGold's for its 493
+and their forms, provisional stars from base stats past that: `data/complete/pokeathlon_performance.json`; the
+archive and the code that reads it come with their first user). Left in stage 1: the Aprijuice stand
+(`ScrCmd_740`, 741: it runs HeartGold's Apricorn Box app, overlay 58, in a juice mode, and the juice changes a Pokémon's
+performance; Complete keeps Apricorns in the bag, so the juice mode needs its own way to pick them) and the code that
+works out a Pokémon's stars for the day (HeartGold's CalcBoxMonPokeathlonPerformance: its nature, personality and the
+date move each stat within its range).
 
 ### Still open
 
@@ -237,6 +240,11 @@ The questions open until Nov 5 were all answered on Nov 6 (above, "The owner's a
   Waterfall) Sharpedonite; Snowpoint Temple's last floor (HM08 Rock Climb) Froslassite; Platinum's Defog (HM05) stays
   where it is, as the new HM09. Every one is also sold in Sovereign's Mega Stone shops; these are early gifts.
 - **Byron's levels** once Canalave City is the way into Sinnoh (answer 3).
+- **The Pokéathlon performance of Pokémon past #493** (Nov 6): HeartGold has Speed, Power, Skill, Stamina and Jump
+  stars only for its 493. Provisional, until the owner decides: stars from base stats, a rule fitted to HeartGold's
+  own (40-52% exact, 83-96% within one star on its species), each entry a line of
+  `data/complete/pokeathlon_performance.json` (`tools/complete/import_hgss_performance.py`; the owner's own lines are
+  kept on a rerun). Options: keep it; copy an older relative's stars where there is one; set some by hand.
 
 Hoenn and the Sevii Islands aren't in scope. There's no DS version of Hoenn, so it would be built from scratch.
 
