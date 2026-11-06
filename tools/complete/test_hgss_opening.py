@@ -976,15 +976,17 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                       ('surf', (219, 904)), ('surf', (280, 913)), ('surf', (306, 910)), 'UP',  # Route 221's lobby
                       ('to', (5, 5)), 'UP', ('talk', [True])],  # Darach (5,4): his battle, yes; the Tea
           'MAP_HEADER_PAL_PARK_LOBBY', 'FLAG_DEFEATED_TRAINER_SOVEREIGN_DARACH_PAL_PARK'),
-         ('Canalave City', [('to', (7, 18)), 'DOWN',  # out of the lobby onto Route 221
+         ('back to Canalave', [('to', (7, 18)), 'DOWN',  # out of the lobby onto Route 221
                             ('surf', (240, 912)), ('surf', (178, 904)), ('surf', (184, 842)), ('surf', (187, 815)),
                             ('surf', (161, 771)), ('to', (128, 760)), 'UP',  # Jubilife's warp 12 (128,759) into
                             # Route 218's east gate (the planner's arrival side; check the mat's direction)
                             ('to', (2, 7)), 'LEFT',  # through it onto Route 218
                             ('surf', (71, 754)), 'LEFT',  # Route 218's west gate (warps 70,754/755)
-                            ('to', (2, 7)), 'LEFT',  # the scientist's upgrade (x=7), the policeman takes the Tea (x=2)
+                            # the scientist's upgrade (x=7); the policeman (x=2) lets the player by without the
+                            # Tea, as Complete opens the road to Canalave City, where the first ship lands
+                            ('to', (2, 7)), 'LEFT',
                             ('to', (60, 754))],
-          'MAP_HEADER_CANALAVE_CITY', ('VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE', 2)),
+          'MAP_HEADER_CANALAVE_CITY', ('VAR_ROUTE_218_GATE_TO_CANALAVE_CITY_STATE', 1)),
          ('Barry on the bridge', [('to', (47, 724))],  # the bridge's trigger (x=47, z 723-726): his battle
           'MAP_HEADER_CANALAVE_CITY', ('VAR_CANALAVE_CITY_STATE', 1)),
          ('Byron', [('to', (39, 732)), 'UP'] + BYRON_WAY_IN + [('talk', [])],  # up the lifts' floors
