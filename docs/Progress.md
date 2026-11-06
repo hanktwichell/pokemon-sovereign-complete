@@ -2157,3 +2157,12 @@ Test results on the new test build:
   ("Cyndaquil!" in the test). `tools/complete/test_hgss_radio.py` has a twelfth part for it (at 2:00 with the Blue
   Card, no line of her show as short as a lone "!", the password counted heard): 12 of 12 on build_test2. The two
   Pokéathlon tests' clock now reads noon as meant (the test clock takes the hour + 1): 0 problems each.
+- **The Pokéathlon, stage 1: the medals screen:** HeartGold's `ScrCmd_712` 1 (its overlay 99's `PokeathlonMedals`,
+  in C: `src/applications/complete_pokeathlon_records/medals.c`, with five more of overlay 98's shared parts in
+  `records_common.c`), opened by the Trust Room's board: every species with a medal, 30 icons a page in National
+  Pokédex order over all of Complete's species (HeartGold walks its 493), a gold mark on each medalist, the Pokémon
+  under the cursor with its medals and the medalist banner, the medalists' count and the Trust Trophy crowns. Where
+  HeartGold would draw species 0 or read the byte before the medals (no medals at all, an empty place), the port
+  draws nothing. The screens now share one argument struct (`CompletePokeathlonRecordArgs`). Test:
+  `tools/complete/test_pokeathlon_medals.py` on build_test3 (46 species' medals through the open screen's copy, two
+  pages, the cursor to Pikachu, the page turns both ways, Return and B): 0 problems; release build and boot check pass.

@@ -62,6 +62,23 @@ static const CharTransferTemplateWithModes sCharTransfer = { // ov98_0221F1AC (i
 static const u32 sPowersOfTen[] = { 1, 10, 100, 1000, 10000 }; // ov98_0221F1E4
 static const u16 sTrustTrophyMedalists[] = { 200, 150, 100, 75, 50, 25, 10, 5, 2, 1 }; // ov98_0221F220
 
+// ov98_0221F1F8: each event's default record and Potential Trophy (Hurdle Dash's in frames: 100 and 80 seconds;
+// Relay Run's in 1/1024 laps: 12 and 16)
+static const u16 sEventGoals[COMPLETE_POKEATHLON_EVENTS][2] = {
+    { 3000, 2400 },
+    { 35, 50 },
+    { 40, 60 },
+    { 80, 130 },
+    { 40, 70 },
+    { 350, 500 },
+    { 12 << 10, 16 << 10 },
+    { 70, 100 },
+    { 30, 55 },
+    { 3, 9 },
+};
+
+#define EVENT_HURDLE_DASH 0 // the event where lower is better
+
 static const TouchScreenHitTable sReturnHitTable[] = { // ov98_0221F1E0 (its right edge 0: the screen's, as the check wraps)
     { .rect = { 160, 192, 192, 0 } },
 };
@@ -338,6 +355,12 @@ static void PrintString(PokeathlonRecordsText *text, int window, const String *s
     Window_ScheduleCopyToVRAM(&text->windows[window]);
 }
 
+void PokeathlonRecords_PrintStringAt(PokeathlonRecordsText *text, int window, const String *string, u32 x, u32 y)
+{
+    FillWindow(text, window);
+    PrintString(text, window, string, x, y, FONT_SYSTEM);
+}
+
 // ov98_0221EC3C: a message, its placeholders filled from the template, at (x, y) or centred across the window (plus x)
 void PokeathlonRecords_PrintMessageEx(PokeathlonRecordsText *text, int window, u32 entryID, BOOL center, u32 x, u32 y, enum Font font, u8 fill)
 {
@@ -471,4 +494,32 @@ int PokeathlonRecords_TrustTrophyRank(u16 medalists)
     }
 
     return NELEMS(sTrustTrophyMedalists) - i;
+}
+
+u16 PokeathlonRecords_EventGoal(int event, enum PokeathlonEventGoal goal)
+{
+    GF_ASSERT(event < COMPLETE_POKEATHLON_EVENTS);
+    return sEventGoals[event][goal];
+}
+
+BOOL PokeathlonRecords_EventResultBeats(int event, enum PokeathlonEventGoal goal, u16 result)
+{
+    u16 target = PokeathlonRecords_EventGoal(event, goal);
+
+    if (result == COMPLETE_POKEATHLON_NO_RESULT) {
+        return FALSE;
+    }
+
+    return event == EVENT_HURDLE_DASH ? result < target : result > target;
+}
+
+BOOL PokeathlonRecords_EventResultReaches(int event, enum PokeathlonEventGoal goal, u16 result)
+{
+    u16 target = PokeathlonRecords_EventGoal(event, goal);
+
+    if (result == COMPLETE_POKEATHLON_NO_RESULT) {
+        return FALSE;
+    }
+
+    return event == EVENT_HURDLE_DASH ? result <= target : result >= target;
 }

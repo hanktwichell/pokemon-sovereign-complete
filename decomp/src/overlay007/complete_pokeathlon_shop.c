@@ -534,6 +534,12 @@ BOOL CompleteScrCmd_PokeathlonRecordScreen(ScriptContext *ctx)
             CompletePokeathlonMedals_Exit,
             FS_OVERLAY_ID(complete_pokeathlon_records),
         },
+        [COMPLETE_POKEATHLON_SCREEN_EVENT_RECORD] = {
+            CompletePokeathlonEventRecord_Init,
+            CompletePokeathlonEventRecord_Main,
+            CompletePokeathlonEventRecord_Exit,
+            FS_OVERLAY_ID(complete_pokeathlon_records),
+        },
     };
     u8 screen = ScriptContext_ReadByte(ctx);
 

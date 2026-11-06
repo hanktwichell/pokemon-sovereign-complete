@@ -15,14 +15,16 @@ static BOOL sChanged; // a change was stored since the game was last saved
 
 #ifdef SOVEREIGN_TEST
 u32 gCompleteTestPokeathlon[6];
-u8 gCompleteTestPokeathlonRecordScreen[4]; // here as the record screens' overlay is reused when they close
+u8 gCompleteTestPokeathlonRecordScreen[5]; // here as the record screens' overlay is reused when they close
 CompletePokeathlonCourseRecord *gCompleteTestPokeathlonCourseRecords;
 u8 *gCompleteTestPokeathlonMedals;
+CompletePokeathlonRecordsSolo *gCompleteTestPokeathlonEventRecords;
 u16 gCompleteTestPokeathlonStatues[4];
 #endif
 
-// Sizes: one sector each, with its footer
+// Sizes: one sector each, with its footer; an event record HeartGold's 8 bytes
 typedef char CompletePokeathlonSizeCheck[(sizeof(CompletePokeathlonSave) + 16 <= 0x1000) ? 1 : -1];
+typedef char CompletePokeathlonEntrySizeCheck[(sizeof(CompletePokeathlonEventEntry) == 8) ? 1 : -1];
 
 static u32 Session(void)
 {
@@ -57,9 +59,9 @@ void CompletePokeathlon_Init(CompletePokeathlonSave *pokeathlon)
     pokeathlon->magic = COMPLETE_POKEATHLON_MAGIC;
 
     for (int i = 0; i < COMPLETE_POKEATHLON_RECORDS; i++) {
-        for (int j = 0; j < COMPLETE_POKEATHLON_COURSES; j++) {
-            pokeathlon->recordsSolo[i].entries[j].unk_0 = 0xFFFF;
-            pokeathlon->recordsLink[i].entries[j].unk_0 = 0xFFFF;
+        for (int j = 0; j < COMPLETE_POKEATHLON_EVENT_ENTRIES; j++) {
+            pokeathlon->recordsSolo[i].entries[j].result = COMPLETE_POKEATHLON_NO_RESULT;
+            pokeathlon->recordsLink[i].entries[j].result = COMPLETE_POKEATHLON_NO_RESULT;
         }
     }
 }
