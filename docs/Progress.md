@@ -2193,3 +2193,22 @@ Test results on the new test build:
   questions). An entry marked "owner" survives a rerun. HeartGold's archive turns out to hold Power, Speed, Jump,
   Stamina, Skill in that order (Ninjask's highest are Speed and Jump, Shuckle's Stamina, Alakazam's Skill), not the
   order pret's HeartGold names its slots in. Nothing reads the file yet; the course and the Aprijuice stand will.
+
+## Nov 7, 2026: HeartGold's assembly in Complete's build (a trial for the Pokéathlon's course)
+
+- **HeartGold's overlay 97, assembled as it is:** the trial "How stage 2 could go faster" asked for (docs/Roadmap.md).
+  HeartGold's overlay 97 (the course's choice of three Pokémon, 2,866 lines of assembly, 39 functions) and the two
+  main-module files it needs (unk_020932E0, the party and box picker, 4,623 lines, 60 functions; unk_020957B0, 946
+  lines) are copied into `decomp/asm/complete_hgss/` by `tools/complete/import_hgss_asm.py` and assembled by the same
+  mwasmarm Complete's build already runs, into an overlay of their own (`complete_pokeathlon_select`, 18,944 bytes).
+  Nothing in them changed but their constants' includes and gSystem's touch-screen fields (HeartGold's System has a
+  word Platinum's lacks): the engine names come from `hgss_compat.inc` (#defines, included by the folder's
+  macros.inc), each of the 150 symbols mapped by hand: 114 to the same Platinum function under its name (97 with the
+  same code byte for byte), 26 to shims in `src/applications/complete_pokeathlon/hgss_compat.c` (HeartGold's NARCs,
+  text banks and fonts translated; touch, yes/no prompt, a static and an unused Platinum function), 8 ports of
+  HeartGold's own (its course name, performance stars, medals, Aprijuice; the performance data and the Aprijuice
+  are placeholders until stage 1's last parts). `tools/complete/hgss_asm_symbols.py` sorts any HeartGold assembly's
+  calls by comparing the machine code of both builds (relocations masked). The overlay's three entry points are kept
+  with `-force_active` until the course calls them. The main module keeps its size (main memory unchanged); the
+  release build and the boot check pass. Its four graphics archives and two text banks aren't imported yet, so the
+  screen can't run before the course does. Not merged: a trial for the owner's decision on stage 2.

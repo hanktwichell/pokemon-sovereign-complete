@@ -206,6 +206,16 @@ work.
   `test_pokeathlon_medals.py`, `test_pokeathlon_event_records.py` and `test_pokeathlon_trophies.py`. The Friendship Room's statues:
   `CompleteScrCmd_PokeathlonStatues`; test `tools/complete/test_pokeathlon_statues.py` (the save probe
   `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records).
+- HeartGold's assembly as it is (a trial, Nov 7: overlay 97, `complete_pokeathlon_select`):
+  `tools/complete/import_hgss_asm.py NAME...` copies pret's `asm/NAME.s` into `decomp/asm/complete_hgss/` (only its
+  constants' includes dropped and gSystem's touch fields moved: HeartGold's System has a word more), listed in
+  `main.lsf.in` as `Object asm/complete_hgss/NAME.s` (lsfgen writes `asm/meson.build`). Every engine symbol the files
+  call needs a line in `asm/complete_hgss/hgss_compat.inc` (Platinum's name, or a `HgssCompat_` shim in
+  `src/applications/complete_pokeathlon/hgss_compat.c`); the import stops otherwise. `tools/complete/hgss_asm_symbols.py
+  FILE.s --compat ...` finds each one's Platinum twin by comparing both builds' code. Platinum's twin may be static,
+  or unused in Complete (the linker drops it, so calling it grows the main module): shim those in the overlay, and
+  check the main module's size after. An overlay nothing calls yet is dropped by the linker: its entry points are in
+  `meson.build`'s `-force_active`.
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

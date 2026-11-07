@@ -113,6 +113,9 @@ link_args = [
     '-msgstyle' ,'gcc',
     '-m', '_start',
     '-force_active', 'DGTi_hash2_arm4_small',
+    # Sovereign Complete: HeartGold's overlay 97 (the Pokéathlon's Pokémon choice, asm/complete_hgss/): its three
+    # application functions, so the linker keeps it and all it calls before the course that starts it is ported
+    '-force_active', 'ov97_0221E5C0,ov97_0221E5D4,ov97_0221E69C',
     '-sym', 'on'
 ]
 
@@ -183,6 +186,13 @@ subdir('res')
 ############################################################
 subdir('src')
 
+# Sovereign Complete: the overlays' assembly (HeartGold's, asm/complete_hgss/: tools/complete/import_hgss_asm.py),
+# listed by lsfgen from platinum.us/main.lsf.in as src/meson.build is
+pokeplatinum_asm = []
+if fs.exists('asm/meson.build')
+    subdir('asm')
+endif
+
 trainer_ai_o = custom_target(
     'trainer_ai_script.o',
     output: 'trainer_ai_script.o',
@@ -209,6 +219,7 @@ libmslcpp = fs.copyfile('tools/metroskrew/lib/metroskrew/sdk/ds/2.0/sp2/msl/MSL_
 main = executable('main',
     sources: [
         pokeplatinum_c,
+        pokeplatinum_asm, # Sovereign Complete
         c_consts_generators,
         naix_headers,
         h_headers,
@@ -220,6 +231,7 @@ main = executable('main',
         '-thumb'
     ],
     c_pch: 'include/pch/global_pch.h',
+    nasm_args: asm_args, # Sovereign Complete: as HeartGold's build assembles its files
     include_directories: [
         public_includes,
         libcrypto_public_includes,

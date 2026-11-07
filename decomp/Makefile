@@ -90,7 +90,8 @@ export NINJA_STATUS := [%p %f/%t]
 PYTHON ?= python3
 LSF_IN := platinum.us/main.lsf.in
 LSFGEN := tools/scripts/lsfgen.py
-LSFGEN_OUT := platinum.us/main.lsf src/meson.build
+# Sovereign Complete: and asm/meson.build, the overlays' assembly (HeartGold's, asm/complete_hgss/)
+LSFGEN_OUT := platinum.us/main.lsf src/meson.build asm/meson.build
 
 # Modders can delete the `check` dependency here after their first build.
 all: release check
@@ -152,7 +153,8 @@ $(LSFGEN_OUT): $(BUILD)/lsfgen.stamp ;
 $(BUILD)/lsfgen.stamp: $(LSF_IN) $(LSFGEN) | $(BUILD)
 	$(PYTHON) $(LSFGEN) $(LSF_IN) --prefix-dir main.nef.p/ \
 		--dest-lsf platinum.us/main.lsf \
-		--dest-c src/meson.build
+		--dest-c src/meson.build \
+		--dest-asm asm/meson.build
 	@touch $@
 
 $(BUILD):

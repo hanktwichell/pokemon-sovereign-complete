@@ -220,6 +220,24 @@ code under another name), with HeartGold's NARC, text bank, sound and heap numbe
 and its 39 direct reads of `gSystem` checked against Platinum's layout. A first try on a small overlay (97, 2,900
 lines) would show whether it holds before the course is attempted.
 
+**The trial on overlay 97 (Claude, Nov 7; on a branch, not merged):** it holds. Overlay 97 and the two HeartGold
+main-module files it calls (8,400 lines of assembly in all) assemble unchanged with Complete's assembler and link into
+an overlay of their own; the release build boots and the main module keeps its size (docs/Progress.md, Nov 7). Of
+their 150 engine symbols, 114 are the same Platinum function under another name (97 of them the same machine code),
+26 need a shim and 8 are HeartGold's own. For overlay 96, `tools/complete/hgss_asm_symbols.py` finds 461 symbols
+(6,235 calls): about 330 the same function (268 by their code, 28 the compiler's runtime, about 36 by hand), about
+50 shims (sounds, fonts, NARCs and text banks by number, touch, HeartGold's TextOBJ as Platinum's FontOAM, link play
+left out) and about 80 HeartGold's own (47 the course's own C and data in pret, 11 overlay 98, 14 its save and the
+Apricorn Box, 8 more). Its 36 references to gSystem are fixed by the import (27 point at the touch fields and move;
+9 point below them, and the 24 touch reads through those move instead). Estimate: 9 to 13 days this way
+(3 to 4 for the compat layer, 1 to 2 for the save in HeartGold's layout, 1 to 2 for the graphics, text and sound
+imports, the rest to run each event and test it), against about 4 to 5 weeks writing 109,000 lines in C (overlay 99's
+8,200 lines took a day). The risks: the course packs a species in 9 bits (its records: about 20 9-bit masks and shifts to check) and
+draws only species up to 493 as walking sprites; struct layouts are checked only where the assembly calls through
+Platinum's functions, not where it reads an engine structure's fields itself (none seen in overlay 97); the course's
+heap is 0x72000 of an application heap 64 KB smaller than HeartGold's; and the course stays assembly: a change to
+it is a shim or an edit of the assembly.
+
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;
 HeartGold's overlay 99's apps, in C), the Friendship Room's statues and the performance data (HeartGold's for its 493
