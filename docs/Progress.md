@@ -2268,3 +2268,17 @@ Test results on the new test build:
   buttons, no crowns), then 419, 420, 449, 450 and none (one crown, one, two, no button), and the column's rows change
   where the crowns came and the fifth button went, and not on the first. The crowns sit in the slot beside each
   button, as in HeartGold.
+- **The Pokéathlon's save, pinned to its sector:** a save sector's check compares its size, so a Pokéathlon save that
+  grew would make a player's saved records unreadable (they'd start fresh). Nothing in it can be earned in play yet
+  (the courses aren't in), so now is when its size can change at no cost: `CompletePokeathlonSave` ends in
+  `reserved[0x22C]` and fills its sector exactly (a build-time check), and what the Pokéathlon's later parts keep
+  (the Aprijuice stand's box and juices, about 0xB0 bytes) comes out of that. `tools/complete/test_save.py` can now
+  continue a save on another build (`--then NEW_ROM`, in a process of its own): a save made on the build before
+  (build_test4, 1234 Athlete Points saved) continues on the pinned one (build_test2) with its flags, vars and bag
+  (92 key items, 25 Balls) intact and the Pokéathlon fresh (0 points), as intended; the pinned build's own save keeps
+  its 1234. Both PASS.
+- **The Pokéathlon's tests on the pinned save (build_test2):** records, medals, event records, trophies, statues and
+  the course's first screen pass as before; the prize counters' test first missed the "You can't buy any more today!"
+  refusal: the game refused rightly, but the message came after the test's fixed wait (the counter reads the
+  Pokéathlon's save, a sector now a little larger, before it answers). The test now waits for the refusal or the
+  question's Yes/No, whichever comes: 0 problems. Seven of seven.

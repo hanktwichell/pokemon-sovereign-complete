@@ -24,6 +24,7 @@
 #define COMPLETE_POKEATHLON_DATA_CARDS    27
 #define COMPLETE_POKEATHLON_MAX_POINTS    99999
 #define COMPLETE_POKEATHLON_MEDAL_SPECIES ((NATIONAL_DEX_COUNT + 3) & ~3)
+#define COMPLETE_POKEATHLON_RESERVED      0x22C // the save's unused end: it fills a sector with its footer
 
 // HeartGold's Pokeathlon_UnkSubStruct_B00: the running totals the Dome's records show (ScrCmd_724), among them the
 // points earned in all (unk70, which the reception's gifts raise: ScrCmd_725)
@@ -121,6 +122,9 @@ typedef struct CompletePokeathlonSave {
     u16 unk_B7E;
     CompletePokeathlonStatue friendshipRoomStatues[3]; // HeartGold's PokeathlonSave_FriendshipRecords
     u8 friendshipUnk[0x1C];
+    // Room for what the Pokéathlon's later parts keep (the Aprijuice stand's box and juices), so the save's size, which
+    // its sector's check compares, never changes again: the struct fills its sector (src/complete_pokeathlon.c)
+    u8 reserved[COMPLETE_POKEATHLON_RESERVED];
 } CompletePokeathlonSave;
 
 // src/complete_pokeathlon.c (main)

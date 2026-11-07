@@ -16,7 +16,13 @@ after the reload there are 1234.
 A save that loaded as "no save data" (a layout mismatch) would leave only NEW GAME on the main menu, and CONTINUE would
 start a new game instead: the read-back then finds the flags clear.
 
-Usage: python3 tools/complete/test_save.py [ROM]   (defaults to decomp/build_test/pokeplatinum.us.nds)
+With --then NEW_ROM, the battery is then continued on another build (in a process of its own: --read BATTERY), as a
+player's save would be after an update: the flags, vars and bag must read back the same, and the Athlete Points the
+given number (--athlete-points, the saved 1234 by default; 0 when the new build's Pokéathlon save has another size, so
+its sector starts fresh).
+
+Usage: python3 tools/complete/test_save.py [ROM] [--then NEW_ROM [--athlete-points N]]
+       (ROM defaults to decomp/build_test/pokeplatinum.us.nds)
 """
 import glob
 import json
@@ -64,8 +70,43 @@ def ask(d, addr, idle_addr, request, frames=600):
     return None
 
 
+def option(name, default=None):
+    return sys.argv[sys.argv.index(name) + 1] if name in sys.argv else default
+
+
+def read_back(d, addr, idle_addr, check, want_bag, athlete_points):
+    """Title and CONTINUE (the first entry once a save exists), then the probe's flags, vars, bag and points."""
+    for action in ['wait:600', 'A', 'wait:200', 'A', 'wait:200', 'A', 'wait:600']:
+        d.do(action)
+    values = ask(d, addr, idle_addr, READ)
+    check(values is not None, 'the probe was read back after CONTINUE')
+    if values:
+        flags, vars_ = values[3:8], values[8:11]
+        check(tuple(flags) == WANT_FLAGS, f'flags after the reload: {flags} (want {WANT_FLAGS})')
+        check(tuple(vars_) == WANT_VARS, 'vars after the reload: ' + ', '.join(f'0x{v:04X}' for v in vars_)
+              + ' (want ' + ', '.join(f'0x{v:04X}' for v in WANT_VARS) + ')')
+        check(tuple(values[11:13]) == want_bag, f'key items and Balls in the bag after the reload: {values[11:13]} '
+              f'(want {want_bag})')
+        check(values[13] == athlete_points, f'Athlete Points after the reload: {values[13]} (want {athlete_points})')
+
+
+def continue_on(rom, battery, athlete_points):
+    """--read: continue a battery made by another build on this one."""
+    addr = symbol(rom, 'gCompleteTestSaveProbe')
+    idle_addr = symbol(rom, 'gSovereignTestIdleFrames')
+    check = Check()
+    d = Driver(rom, battery=battery)
+    read_back(d, addr, idle_addr, check, pocket_counts(), athlete_points)
+    print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
+    sys.exit(check.failures != 0)
+
+
 def main():
-    rom = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, '..', '..', 'decomp/build_test/pokeplatinum.us.nds')
+    args = [a for i, a in enumerate(sys.argv[1:], 1)
+            if not a.startswith('--') and not sys.argv[i - 1].startswith('--')]
+    rom = args[0] if args else os.path.join(HERE, '..', '..', 'decomp/build_test/pokeplatinum.us.nds')
+    if '--read' in sys.argv:
+        continue_on(rom, option('--read'), int(option('--athlete-points', 1234)))
     addr = symbol(rom, 'gCompleteTestSaveProbe')
     idle_addr = symbol(rom, 'gSovereignTestIdleFrames')
     check = Check()
@@ -93,18 +134,17 @@ def main():
     # title and CONTINUE (the first entry once a save exists).
     d.emu.backup.import_file(battery)
     d.emu.reset()
-    for action in ['wait:600', 'A', 'wait:200', 'A', 'wait:200', 'A', 'wait:600']:
-        d.do(action)
-    values = ask(d, addr, idle_addr, READ)
-    check(values is not None, 'the probe was read back after CONTINUE')
-    if values:
-        flags, vars_ = values[3:8], values[8:11]
-        check(tuple(flags) == WANT_FLAGS, f'flags after the reload: {flags} (want {WANT_FLAGS})')
-        check(tuple(vars_) == WANT_VARS, 'vars after the reload: ' + ', '.join(f'0x{v:04X}' for v in vars_)
-              + ' (want ' + ', '.join(f'0x{v:04X}' for v in WANT_VARS) + ')')
-        check(tuple(values[11:13]) == want_bag, f'key items and Balls in the bag after the reload: {values[11:13]} '
-              f'(want {want_bag})')
-        check(values[13] == 1234, f'Athlete Points after the reload: {values[13]} (want the saved 1234, not 1734)')
+    read_back(d, addr, idle_addr, check, want_bag, 1234)  # the saved 1234, not 1734
+
+    new_rom = option('--then')
+    if new_rom:
+        import subprocess
+        result = subprocess.run([sys.executable, os.path.abspath(__file__), new_rom, '--read', battery,
+                                 '--athlete-points', option('--athlete-points', '1234')],
+                                capture_output=True, text=True)
+        print(f'continued on {new_rom}:')
+        print('\n'.join('  ' + line for line in result.stdout.splitlines()[-8:]))
+        check(result.returncode == 0, f'the save continues on {new_rom}')
 
     print('PASS' if check.failures == 0 else f'FAIL ({check.failures})')
     sys.exit(check.failures != 0)

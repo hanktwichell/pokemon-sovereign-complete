@@ -24,8 +24,9 @@ u16 gCompleteTestPokeathlonStatues[4];
 u8 gCompleteTestPokeathlonCrowns[5];
 #endif
 
-// Sizes: one sector each, with its footer; an event record HeartGold's 8 bytes
-typedef char CompletePokeathlonSizeCheck[(sizeof(CompletePokeathlonSave) + 16 <= 0x1000) ? 1 : -1];
+// Sizes: a whole sector each, with its footer (pinned since Nov 7, before anything in it could be earned in play: a
+// sector of another size fails its check and starts fresh); an event record HeartGold's 8 bytes
+typedef char CompletePokeathlonSizeCheck[(sizeof(CompletePokeathlonSave) + 16 == 0x1000) ? 1 : -1];
 typedef char CompletePokeathlonEntrySizeCheck[(sizeof(CompletePokeathlonEventEntry) == 8) ? 1 : -1];
 
 static u32 Session(void)
