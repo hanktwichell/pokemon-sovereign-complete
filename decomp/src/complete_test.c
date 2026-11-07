@@ -12,10 +12,12 @@
 #include "complete_follower.h"
 #include "complete_map_info.h"
 #include "complete_pokeathlon.h"
+#include "complete_pokeathlon_select.h"
 #include "heap.h"
 #include "complete_safari.h"
 #include "field_battle_data_transfer.h"
 #include "field_task.h"
+#include "field_transition.h"
 #include "item.h"
 #include "map_object.h"
 #include "party.h"
@@ -75,6 +77,7 @@ BOOL CompleteTest_BlackOutIfLost(FieldTask *task)
 CompleteTestSafari gCompleteTestSafari;
 CompleteTestSound gCompleteTestSound;
 CompleteTestFollowerTalk gCompleteTestFollowerTalk;
+CompleteTestPokeathlonSelect gCompleteTestPokeathlonSelect;
 
 // The key items and Balls in the bag, one of each (written: the ones that fit)
 static void BagProbe(SaveData *saveData, BOOL write, u16 *keyItems, u16 *balls)
@@ -283,8 +286,49 @@ static void HatchEggs(FieldSystem *fieldSystem)
     ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, 31), NULL);
 }
 
+// HeartGold's overlay 97 (include/complete_pokeathlon_select.h) from the field, as the NPC trade runs its scene: the
+// field faded out and closed, the screen (its heap and arguments made by the overlay's test entry points), the field
+// back
+static BOOL PokeathlonSelectTask(FieldTask *task)
+{
+    FS_EXTERN_OVERLAY(complete_pokeathlon_select);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        CompletePokeathlonSelect_TestInit,
+        CompletePokeathlonSelect_TestMain,
+        CompletePokeathlonSelect_TestExit,
+        FS_OVERLAY_ID(complete_pokeathlon_select),
+    };
+    int *state = FieldTask_GetState(task);
+
+    switch (*state) {
+    case 0:
+        FieldTransition_FadeOutAndFinishMap(task);
+        break;
+    case 1:
+        FieldTask_RunApplication(task, &sTemplate, &gCompleteTestPokeathlonSelect.args);
+        break;
+    case 2:
+        FieldTransition_StartMapAndFadeIn(task);
+        break;
+    default:
+        gCompleteTestPokeathlonSelect.open = 0;
+        gCompleteTestPokeathlonSelect.step = 0;
+        gCompleteTestPokeathlonSelect.runs++;
+        return TRUE;
+    }
+
+    gCompleteTestPokeathlonSelect.step = ++(*state);
+    return FALSE;
+}
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
+    if (gCompleteTestPokeathlonSelect.open && gCompleteTestPokeathlonSelect.step == 0 && !FieldSystem_IsRunningTask(fieldSystem)) {
+        gCompleteTestPokeathlonSelect.step = 1;
+        FieldSystem_CreateTask(fieldSystem, PokeathlonSelectTask, NULL);
+    }
+
     SetLeadSpecies(fieldSystem);
     HatchEggs(fieldSystem);
     PlaySong();

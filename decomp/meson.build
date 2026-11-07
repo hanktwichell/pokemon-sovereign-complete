@@ -113,11 +113,15 @@ link_args = [
     '-msgstyle' ,'gcc',
     '-m', '_start',
     '-force_active', 'DGTi_hash2_arm4_small',
-    # Sovereign Complete: HeartGold's overlay 97 (the Pokéathlon's Pokémon choice, asm/complete_hgss/): its three
-    # application functions, so the linker keeps it and all it calls before the course that starts it is ported
-    '-force_active', 'ov97_0221E5C0,ov97_0221E5D4,ov97_0221E69C',
     '-sym', 'on'
 ]
+
+# Sovereign Complete: HeartGold's overlay 97 (the Pokéathlon's Pokémon choice, asm/complete_hgss/). A test build opens
+# it (src/complete_test.c); nothing in the game does until the course is ported, so the release build keeps its three
+# application functions by name, and with them the overlay and all it calls, which the linker would otherwise drop
+if not get_option('sovereign_test')
+    link_args += ['-force_active', 'ov97_0221E5C0,ov97_0221E5D4,ov97_0221E69C']
+endif
 
 ############################################################
 ###                     DEPENDENCIES                     ###

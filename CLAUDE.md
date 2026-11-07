@@ -215,7 +215,13 @@ work.
   FILE.s --compat ...` finds each one's Platinum twin by comparing both builds' code. Platinum's twin may be static,
   or unused in Complete (the linker drops it, so calling it grows the main module): shim those in the overlay, and
   check the main module's size after. An overlay nothing calls yet is dropped by the linker: its entry points are in
-  `meson.build`'s `-force_active`.
+  `meson.build`'s `-force_active` (overlay 97's in the release build only: a test build's hook calls them).
+  HeartGold's archives the assembly loads by number are packed into one, `application/complete/pokeathlon.narc`
+  (`tools/complete/import_hgss_pokeathlon_archives.py`, each one's first member in
+  `include/data/complete_pokeathlon_archives.h`, which the shims add): add an archive there, not a NARC of its own (each
+  costs a path in the main module). Its text banks: `import_hgss_text.py`'s list (a new bank goes after the last, so
+  no bank's number moves). Overlay 97 in a test build: set `gCompleteTestPokeathlonSelect.open` to the course + 1
+  (`include/complete_test.h`; the overlay's `select_test.c` makes its heap and arguments and records its answer).
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

@@ -4,9 +4,12 @@
 #include "constants/narc.h"
 #include "generated/text_banks.h"
 
+#include "data/complete_pokeathlon_archives.h"
+
 #include "bg_window.h"
 #include "character_sprite.h"
 #include "complete_pokeathlon.h"
+#include "complete_pokeathlon_select.h"
 #include "font.h"
 #include "graphics.h"
 #include "heap.h"
@@ -30,102 +33,143 @@
 // unnamed one). They translate HeartGold's numbers (NARCs, text banks, fonts), stand in where Platinum's function
 // differs, and port what only HeartGold has. They live in the overlay with the assembly (main memory is full).
 
-// HeartGold's heap for the Pokéathlon's screens (its HEAP_ID_POKEATHLON, 0x5C, the number its assembly passes):
-// the same number is an unused heap ID in Platinum, so the assembly's heap needs no translation
-#define HGSS_HEAP_ID_POKEATHLON HEAP_ID_92
-
-// NARCs and text banks: HeartGold's numbers to Complete's. A NARC or bank not imported yet asserts (the assembly
-// that asks for it can't run before it is).
+// NARCs and text banks: HeartGold's numbers to Complete's. A HeartGold archive Platinum has too is Platinum's (its
+// members the same); HeartGold's own are packed into Complete's Pokéathlon archive, each from its first member there
+// on (include/data/complete_pokeathlon_archives.h, tools/complete/import_hgss_pokeathlon_archives.py). A Pokémon
+// picture's archive comes from Platinum's own sprite template, already Platinum's, marked HGSS_PLATINUM_NARC
+// (HgssCompat_GetMonSpriteCharAndPlttNarcIdsEx). Any other number asserts: the assembly that asks for it can't run
+// before it's imported.
 static const u16 sNarcs[][2] = {
     { 20, NARC_INDEX_POKETOOL__ICONGRA__PL_POKE_ICON }, // poketool/icongra/poke_icon
     { 27, NARC_INDEX_MSGDATA__PL_MSG }, // msgdata/msg
-    // still to import: 93 (choose_starter_sub_res), 151 (a/1/5/1), 162 (a/1/6/2), 243 (a/2/4/1)
 };
 
 static const u16 sTextBanks[][2] = {
+    { 278, TEXT_BANK_HGSS_MSG_0278 }, // the course's choice of Pokémon
+    { 298, TEXT_BANK_HGSS_MSG_0298 }, // the party and box picker
     { 313, TEXT_BANK_HGSS_MSG_0313 },
     { 314, TEXT_BANK_HGSS_MSG_0314 },
-    // still to import (tools/complete/import_hgss_text.py): 278 (the course's Pokémon choice), 298 (the box list)
 };
 
-#define HGSS_NARC_MSGDATA 27
+#define HGSS_NARC_MSGDATA  27
+#define HGSS_PLATINUM_NARC 0x8000
 
-static u32 HgssCompat_Lookup(const u16 (*table)[2], int count, int hgssNumber)
+// A HeartGold archive and member as Complete's: the archive returned, the member moved where it's packed
+static enum NarcID HgssCompat_NarcMember(int narcID, int *member)
 {
-    for (int i = 0; i < count; i++) {
-        if (table[i][0] == hgssNumber) {
-            return table[i][1];
+    if (narcID & HGSS_PLATINUM_NARC) {
+        return (enum NarcID)(narcID & ~HGSS_PLATINUM_NARC);
+    }
+
+    for (int i = 0; i < (int)NELEMS(sNarcs); i++) {
+        if (sNarcs[i][0] == narcID) {
+            return (enum NarcID)sNarcs[i][1];
+        }
+    }
+
+    for (int i = 0; i < COMPLETE_POKEATHLON_ARCHIVES; i++) {
+        if (sCompletePokeathlonArchives[i][0] == narcID) {
+            GF_ASSERT(*member < sCompletePokeathlonArchives[i][2]);
+            *member += sCompletePokeathlonArchives[i][1];
+            return NARC_INDEX_APPLICATION__COMPLETE__POKEATHLON;
         }
     }
 
     GF_ASSERT(FALSE);
-    return table[0][1];
+    return (enum NarcID)sNarcs[0][1];
 }
 
-static enum NarcID HgssCompat_Narc(int narcID)
+static u32 HgssCompat_TextBank(int bank)
 {
-    return HgssCompat_Lookup(sNarcs, NELEMS(sNarcs), narcID);
+    for (int i = 0; i < (int)NELEMS(sTextBanks); i++) {
+        if (sTextBanks[i][0] == bank) {
+            return sTextBanks[i][1];
+        }
+    }
+
+    GF_ASSERT(FALSE);
+    return sTextBanks[0][1];
 }
 
 // HeartGold's fonts: 0 to 3 are Platinum's; its two more (4, 5: the small touch-screen ones) become Platinum's
 // small font, as in Voltorb Flip
 static enum Font HgssCompat_Font(int font)
 {
-    return font <= FONT_UNOWN ? font : FONT_SUBSCREEN;
+    return font <= FONT_UNOWN ? (enum Font)font : FONT_SUBSCREEN;
 }
+
+// HeartGold counts each font's users (FontID_Alloc, FontID_Release); Platinum loads one once and frees it at once,
+// and keeps its system, message and Unown fonts loaded from the boot. So only the small font is loaded here, on its
+// first user, and freed after its last (HeartGold's 2 and 4 are both it: overlay 97 and its picker each ask for one).
+static u8 sSubscreenFontUsers;
 
 SpriteResource *HgssCompat_AddCharResObjFromNarc(SpriteResourceCollection *collection, int narcID, int memberIdx, BOOL compressed, int id, NNS_G2D_VRAM_TYPE vramType, enum HeapID heapID)
 {
-    return SpriteResourceCollection_AddTiles(collection, HgssCompat_Narc(narcID), memberIdx, compressed, id, vramType, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    return SpriteResourceCollection_AddTiles(collection, narc, memberIdx, compressed, id, vramType, heapID);
 }
 
 SpriteResource *HgssCompat_AddPlttResObjFromNarc(SpriteResourceCollection *collection, int narcID, int memberIdx, BOOL compressed, int id, NNS_G2D_VRAM_TYPE vramType, int paletteIdx, enum HeapID heapID)
 {
-    return SpriteResourceCollection_AddPalette(collection, HgssCompat_Narc(narcID), memberIdx, compressed, id, vramType, paletteIdx, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    return SpriteResourceCollection_AddPalette(collection, narc, memberIdx, compressed, id, vramType, paletteIdx, heapID);
 }
 
 SpriteResource *HgssCompat_AddCellOrAnimResObjFromNarc(SpriteResourceCollection *collection, int narcID, int memberIdx, BOOL compressed, int id, enum SpriteResourceType type, enum HeapID heapID)
 {
-    return SpriteResourceCollection_Add(collection, HgssCompat_Narc(narcID), memberIdx, compressed, id, type, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    return SpriteResourceCollection_Add(collection, narc, memberIdx, compressed, id, type, heapID);
 }
 
 void *HgssCompat_AllocAndReadWholeNarcMemberByIdPair(int narcID, int memberIdx, enum HeapID heapID)
 {
-    return NARC_AllocAndReadWholeMemberByIndexPair(HgssCompat_Narc(narcID), memberIdx, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    return NARC_AllocAndReadWholeMemberByIndexPair(narc, memberIdx, heapID);
 }
 
+// The whole archive, read by member later (NARC_ReadWholeMember, HeartGold's numbers): one of the archives Platinum
+// has too, as a packed one's members would need moving at each read (none of the callers opens one)
 NARC *HgssCompat_NARC_New(int narcID, enum HeapID heapID)
 {
-    return NARC_ctor(HgssCompat_Narc(narcID), heapID);
+    int first = 0;
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &first);
+
+    GF_ASSERT(narc != NARC_INDEX_APPLICATION__COMPLETE__POKEATHLON);
+    return NARC_ctor(narc, heapID);
 }
 
-void HgssCompat_GfGfxLoader_GXLoadPal(int narcID, u32 memberIdx, enum PaletteLoadLocation location, u32 offset, u32 size, enum HeapID heapID)
+void HgssCompat_GfGfxLoader_GXLoadPal(int narcID, int memberIdx, enum PaletteLoadLocation location, u32 offset, u32 size, enum HeapID heapID)
 {
-    Graphics_LoadPalette(HgssCompat_Narc(narcID), memberIdx, location, offset, size, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    Graphics_LoadPalette(narc, memberIdx, location, offset, size, heapID);
 }
 
-void *HgssCompat_GfGfxLoader_GetScrnData(int narcID, u32 memberIdx, BOOL compressed, NNSG2dScreenData **screenData, enum HeapID heapID)
+void *HgssCompat_GfGfxLoader_GetScrnData(int narcID, int memberIdx, BOOL compressed, NNSG2dScreenData **screenData, enum HeapID heapID)
 {
-    return Graphics_GetScrnData(HgssCompat_Narc(narcID), memberIdx, compressed, screenData, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    return Graphics_GetScrnData(narc, memberIdx, compressed, screenData, heapID);
 }
 
-u32 HgssCompat_GfGfxLoader_LoadCharData(int narcID, u32 memberIdx, BgConfig *bgConfig, u32 bgLayer, u32 offset, u32 size, BOOL compressed, enum HeapID heapID)
+u32 HgssCompat_GfGfxLoader_LoadCharData(int narcID, int memberIdx, BgConfig *bgConfig, u32 bgLayer, u32 offset, u32 size, BOOL compressed, enum HeapID heapID)
 {
-    return Graphics_LoadTilesToBgLayer(HgssCompat_Narc(narcID), memberIdx, bgConfig, bgLayer, offset, size, compressed, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    return Graphics_LoadTilesToBgLayer(narc, memberIdx, bgConfig, bgLayer, offset, size, compressed, heapID);
 }
 
-void HgssCompat_GfGfxLoader_LoadScrnData(int narcID, u32 memberIdx, BgConfig *bgConfig, u32 bgLayer, u32 offset, u32 size, BOOL compressed, enum HeapID heapID)
+void HgssCompat_GfGfxLoader_LoadScrnData(int narcID, int memberIdx, BgConfig *bgConfig, u32 bgLayer, u32 offset, u32 size, BOOL compressed, enum HeapID heapID)
 {
-    Graphics_LoadTilemapToBgLayer(HgssCompat_Narc(narcID), memberIdx, bgConfig, bgLayer, offset, size, compressed, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &memberIdx);
+    Graphics_LoadTilemapToBgLayer(narc, memberIdx, bgConfig, bgLayer, offset, size, compressed, heapID);
 }
 
 MessageLoader *HgssCompat_NewMsgDataFromNarc(enum MessageLoaderMode mode, int narcID, int bank, enum HeapID heapID)
 {
     if (narcID == HGSS_NARC_MSGDATA) {
-        return MessageLoader_Init(mode, NARC_INDEX_MSGDATA__PL_MSG, HgssCompat_Lookup(sTextBanks, NELEMS(sTextBanks), bank), heapID);
+        return MessageLoader_Init(mode, NARC_INDEX_MSGDATA__PL_MSG, HgssCompat_TextBank(bank), heapID);
     }
 
-    return MessageLoader_Init(mode, HgssCompat_Narc(narcID), bank, heapID);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &bank);
+    return MessageLoader_Init(mode, narc, bank, heapID);
 }
 
 u8 HgssCompat_AddTextPrinterParameterizedWithColor(Window *window, int font, const String *string, u32 x, u32 y, u32 delay, TextColor color, TextPrinterCallback callback)
@@ -135,12 +179,16 @@ u8 HgssCompat_AddTextPrinterParameterizedWithColor(Window *window, int font, con
 
 void HgssCompat_FontID_Alloc(int font, enum HeapID heapID)
 {
-    Font_InitManager(HgssCompat_Font(font), heapID);
+    if (HgssCompat_Font(font) == FONT_SUBSCREEN && sSubscreenFontUsers++ == 0) {
+        Font_InitManager(FONT_SUBSCREEN, heapID);
+    }
 }
 
 void HgssCompat_FontID_Release(int font)
 {
-    Font_Free(HgssCompat_Font(font));
+    if (HgssCompat_Font(font) == FONT_SUBSCREEN && sSubscreenFontUsers != 0 && --sSubscreenFontUsers == 0) {
+        Font_Free(FONT_SUBSCREEN);
+    }
 }
 
 u32 HgssCompat_FontID_String_GetCenterAlignmentX(int font, const String *string, u32 letterSpacing, u32 windowWidth)
@@ -161,12 +209,22 @@ u8 HgssCompat_BoxMonIsShiny(BoxPokemon *boxMon)
     return Pokemon_IsPersonalityShiny(BoxPokemon_GetValue(boxMon, MON_DATA_OT_ID, NULL), BoxPokemon_GetValue(boxMon, MON_DATA_PERSONALITY, NULL));
 }
 
+// HeartGold's GetMonSpriteCharAndPlttNarcIdsEx is Platinum's BuildPokemonSpriteTemplate, which names Platinum's
+// archives: marked so, so that the shims reading the picture (sub_02014540, AllocAndReadWholeNarcMemberByIdPair)
+// don't take them for HeartGold's numbers
+void HgssCompat_GetMonSpriteCharAndPlttNarcIdsEx(PokemonSpriteTemplate *spriteTemplate, u16 species, u8 gender, u8 face, u8 shiny, u8 form, u32 personality)
+{
+    BuildPokemonSpriteTemplate(spriteTemplate, species, gender, face, shiny, form, personality);
+    spriteTemplate->narcID |= HGSS_PLATINUM_NARC;
+}
+
 // HeartGold's sub_02014540: a Pokémon's sprite's first frame (10 by 10 tiles) into dest. Platinum's own for it
 // (CharacterSprite_LoadPokemonSprite, by way of ..._LoadPokemonSpriteRegion) is called by nothing else in Complete, so
 // the linker leaves both out; calling them would put them back into the main module, into main memory.
-void HgssCompat_LoadPokemonSprite(enum NarcID narcID, int narcIdx, enum HeapID heapID, void *dest, u32 personality, BOOL isAnimated, int face, enum Species species)
+void HgssCompat_LoadPokemonSprite(int narcID, int narcIdx, enum HeapID heapID, void *dest, u32 personality, BOOL isAnimated, int face, enum Species species)
 {
-    CharacterSprite_LoadPokemonSpriteRect(narcID, narcIdx, heapID, 0, 0, 10, 10, dest, personality, isAnimated, face, species);
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &narcIdx);
+    CharacterSprite_LoadPokemonSpriteRect(narc, narcIdx, heapID, 0, 0, 10, 10, dest, personality, isAnimated, face, species);
 }
 
 // HeartGold reads the touch screen through these (Platinum's gSystem has the same fields, 4 bytes earlier)
@@ -221,7 +279,7 @@ void HgssCompat_YesNoPrompt_InitFromTemplate(YesNoTouchMenu *menu, const HgssYes
     YesNoTouchMenuParams params;
 
     params.bgConfig = template->bgConfig;
-    params.bgLayer = template->bgLayer;
+    params.bgLayer = (enum BgLayer)template->bgLayer;
     params.baseTile = template->baseTile;
     params.palette = template->palette;
     params.tilemapLeft = template->x;
@@ -356,6 +414,8 @@ void HgssCompat_CalcBoxmonPokeathlonStars(HgssPerformanceStars *dest, BoxPokemon
 {
     HgssTodayPerformanceStat today[HGSS_PERFORMANCE_MAX];
 
+    (void)heapID; // HeartGold's is unused too
+
     MI_CpuClear8(dest, sizeof(HgssPerformanceStars));
     HgssCompat_CalcBoxMonPokeathlonPerformance(boxMon, today);
 
@@ -382,6 +442,8 @@ void HgssCompat_CalcMonPokeathlonStars(HgssPerformanceStars *dest, Pokemon *mon,
 // Aprijuice yet (stage 1's Aprijuice stand): none.
 void HgssCompat_Party_GetMonAprijuiceModifiers(const Party *party, s8 *dest, int slot)
 {
+    (void)party;
+    (void)slot;
     MI_CpuClear8(dest, HGSS_PERFORMANCE_MAX);
 }
 

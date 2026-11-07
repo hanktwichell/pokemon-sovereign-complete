@@ -117,7 +117,6 @@
 #define BgTilemapRectChangePalette                       Bg_ChangeTilemapRectPalette
 #define GetMonIconNaixEx                                 PokeIconSpriteIndex
 #define GetMonIconPaletteEx                              PokeIconPaletteIndex
-#define GetMonSpriteCharAndPlttNarcIdsEx                 BuildPokemonSpriteTemplate
 #define GetSpeciesName                                   MessageUtil_SpeciesName
 #define GfGfx_SwapDisplay                                GXLayers_SwapDisplay
 #define LoadFontPal0                                     Font_LoadTextPalette
@@ -151,6 +150,7 @@
 ; Shims: a name Platinum uses for something else, a different layout or behaviour, a function Platinum keeps static,
 ; or one it has but never calls (the linker leaves it out of the main module, so calling it would grow main memory)
 #define BoxMonIsShiny                                    HgssCompat_BoxMonIsShiny
+#define GetMonSpriteCharAndPlttNarcIdsEx                 HgssCompat_GetMonSpriteCharAndPlttNarcIdsEx
 #define sub_02014540                                     HgssCompat_LoadPokemonSprite
 #define Sprite_SetDrawPriority                           HgssCompat_Sprite_SetDrawPriority
 #define System_GetTouchHeld                              HgssCompat_System_GetTouchHeld

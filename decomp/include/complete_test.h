@@ -3,6 +3,7 @@
 
 #include "field/field_system.h"
 
+#include "complete_pokeathlon_select.h"
 #include "complete_safari.h"
 
 // Sovereign Complete: test-build hooks for tools/complete/ harnesses. Nothing here is in the shipping ROM.
@@ -171,6 +172,32 @@ typedef struct CompleteTestFollowerTalk {
 } CompleteTestFollowerTalk;
 
 extern CompleteTestFollowerTalk gCompleteTestFollowerTalk;
+
+// HeartGold's overlay 97, the Pokéathlon course's choice of three Pokémon (include/complete_pokeathlon_select.h), for
+// a test of it. The harness sets open to the course + 1 (HeartGold's courses: 1 to 5, for 0 to 4) and supreme (TRUE:
+// "Supreme" by its name); the next free field frame fades the field out, closes it and opens the screen as the course
+// would (one player, the save's party and boxes), and once the screen ends brings the field back and clears open.
+// step says where that is (1 leaving the field, 2 on the screen, 3 coming back, 0 back on the field) and runs counts
+// the runs ended. The screen's own answer is in args: cancelled (0 three chosen, 1 backed out; 0xFFFFFFFF until it
+// ends) and the three chosen's species, form, personality, nickname and stars, each one's box (18: the party) and
+// slot in picks. appFree is the application heap's free bytes with the field closed, before the screen's heap
+// (0x72000) was made from it; heapFree the screen's heap's fewest free bytes seen at the start of a frame, and
+// heapLeft its free bytes after the screen's exit (all of it but its own bookkeeping, unless something wasn't freed).
+typedef struct CompleteTestPokeathlonSelect {
+    u8 open;
+    u8 supreme;
+    u8 step;
+    u8 runs;
+    u8 picks[3][2];
+    u16 padding;
+    u32 appFree;
+    u32 heapFree;
+    u32 heapLeft;
+    HgssPokeathlonCourseArgs courseArgs;
+    HgssPokeathlonSelectArgs args;
+} CompleteTestPokeathlonSelect;
+
+extern CompleteTestPokeathlonSelect gCompleteTestPokeathlonSelect;
 
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem);
 BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id);

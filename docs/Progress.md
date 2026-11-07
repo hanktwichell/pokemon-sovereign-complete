@@ -2212,3 +2212,21 @@ Test results on the new test build:
   with `-force_active` until the course calls them. The main module keeps its size (main memory unchanged); the
   release build and the boot check pass. Its four graphics archives and two text banks aren't imported yet, so the
   screen can't run before the course does. Not merged: a trial for the owner's decision on stage 2.
+- **Overlay 97 ready to run (same branch):** what the screen loads is in, and a test build opens it.
+  HeartGold's four archives it reads (93, 151, 162, 243: the choice screen's and the picker's graphics, the frame
+  of the Pokémon's picture, the summary screen's performance stars) are copied whole and packed into one archive,
+  `application/complete/pokeathlon.narc` (`tools/complete/import_hgss_pokeathlon_archives.py`), so that the course's
+  archives can join it later without a NARC path each in the main module; the shims add each archive's first member
+  there (`include/data/complete_pokeathlon_archives.h`). A Pokémon's picture comes from Platinum's own sprite
+  template, so its archive is marked as Platinum's (a 27th shim, GetMonSpriteCharAndPlttNarcIdsEx). Its text banks,
+  278 and 298, are imported from Sacred Gold; the text importer now appends a new bank after the last, so no bank's
+  number moves. The small font is counted by its users, as HeartGold does (overlay 97 and its picker both ask for
+  it; Platinum's would have loaded it twice and freed it once). A test build opens the screen from the field
+  (`gCompleteTestPokeathlonSelect.open` = the course + 1): the field fades out and closes, the overlay's test entry
+  points make the screen's heap (HeartGold's course heap, 0x72000, which fits: the closed field map gives back
+  0xCC000) and HeartGold's arguments from the save (one player), and record the three chosen (box and slot,
+  HeartGold's own answer with species, personality and stars), the heap's low point and what's left after the exit.
+  Nothing in the game opens it, so the release build keeps its entry points with `-force_active` (without it the
+  linker drops the whole overlay); a test build doesn't need it. The release build has no warnings in the new code,
+  boots (the boot check passes), and its main module grew 64 bytes (the archive's path); a test build's grows about
+  340 bytes more (the hook, its field task and marker). Not run yet: the owner tests it on a test build.

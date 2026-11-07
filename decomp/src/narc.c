@@ -222,6 +222,7 @@ static const char *sNarcPaths[] = {
     [NARC_INDEX_GRAPHIC__COMPLETE__UNOWN_REPORT] = "graphic/complete/unown_report.narc", // Sovereign Complete
     [NARC_INDEX_GRAPHIC__COMPLETE__DOWSING] = "graphic/complete/dowsing.narc", // Sovereign Complete
     [NARC_INDEX_GRAPHIC__COMPLETE__POKEATHLON_RECORDS] = "graphic/complete/pokeathlon_records.narc", // Sovereign Complete
+    [NARC_INDEX_APPLICATION__COMPLETE__POKEATHLON] = "application/complete/pokeathlon.narc", // Sovereign Complete
 };
 
 static void ReadFromNarcMemberByPathAndIndex(void *dest, const char *path, int memberIndex, int offset, int bytesToRead);

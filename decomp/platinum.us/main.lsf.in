@@ -1669,6 +1669,7 @@ Overlay complete_pokeathlon_select
 	Object asm/complete_hgss/unk_020932E0.s
 	Object asm/complete_hgss/unk_020957B0.s
 	Object src/applications/complete_pokeathlon/hgss_compat.c
+	Object src/applications/complete_pokeathlon/select_test.c
 }
 
 Overlay dummy7

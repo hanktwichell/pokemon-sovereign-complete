@@ -238,6 +238,12 @@ Platinum's functions, not where it reads an engine structure's fields itself (no
 heap is 0x72000 of an application heap 64 KB smaller than HeartGold's; and the course stays assembly: a change to
 it is a shim or an edit of the assembly.
 
+**Overlay 97 ready to run (Claude, Nov 7; same branch):** its archives and text are in (HeartGold's four archives
+packed into one, `application/complete/pokeathlon.narc`, so the course's archives can join it at no cost to main
+memory; banks 278 and 298) and a test build opens it from the field (`gCompleteTestPokeathlonSelect`), in a heap of
+HeartGold's course size (0x72000, which fits with the field closed: the field map gives back 0xCC000). Not yet run:
+the owner tests it (docs/Progress.md, Nov 7).
+
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;
 HeartGold's overlay 99's apps, in C), the Friendship Room's statues and the performance data (HeartGold's for its 493
