@@ -221,15 +221,31 @@ HeartGold-named functions over Platinum's (overlay 96 calls 473 distinct engine 
 code under another name), with HeartGold's NARC, text bank, sound and heap numbers translated where they're passed,
 and its 39 direct reads of `gSystem` checked against Platinum's layout. A first try on a small overlay (97, 2,900
 lines) would show whether it holds before the course is attempted.
-*Tried Nov 7 (branch `wip/pokeathlon-asm-spike`): it holds as far as building. HeartGold's overlay 97 (choosing the
-course's three Pokémon) and the two main-module files it calls (about 8,400 lines of assembly) assemble unchanged with
-Complete's assembler and link into a Complete overlay through a table of HeartGold names for Platinum's functions (114
-of its 150 outside symbols are the same Game Freak functions renamed), 26 small shims (archive, text bank and font
-numbers, touch, the yes/no prompt) and 8 HeartGold-only functions in C; the release build boots, and the main module
-didn't grow. The screen hasn't run yet: some of its archives and text banks aren't imported and nothing opens it.
-For overlay 96 the same route is estimated at 9 to 13 days, against 4 to 5 weeks by hand; its risks are 9-bit species
-fields in the course's own records, the walking-sprite lookup up to 493, structure fields the assembly reads itself,
-and the course's 0x72000 heap. Next: make overlay 97 run and test it, then the course.*
+
+
+**The trial on overlay 97 (Claude, Nov 7):** it holds. Overlay 97 and the two HeartGold
+main-module files it calls (8,400 lines of assembly in all) assemble unchanged with Complete's assembler and link into
+an overlay of their own; the release build boots and the main module keeps its size (docs/Progress.md, Nov 7). Of
+their 150 engine symbols, 114 are the same Platinum function under another name (97 of them the same machine code),
+26 need a shim and 8 are HeartGold's own. For overlay 96, `tools/complete/hgss_asm_symbols.py` finds 461 symbols
+(6,235 calls): about 330 the same function (268 by their code, 28 the compiler's runtime, about 36 by hand), about
+50 shims (sounds, fonts, NARCs and text banks by number, touch, HeartGold's TextOBJ as Platinum's FontOAM, link play
+left out) and about 80 HeartGold's own (47 the course's own C and data in pret, 11 overlay 98, 14 its save and the
+Apricorn Box, 8 more). Its 36 references to gSystem are fixed by the import (27 point at the touch fields and move;
+9 point below them, and the 24 touch reads through those move instead). Estimate: 9 to 13 days this way
+(3 to 4 for the compat layer, 1 to 2 for the save in HeartGold's layout, 1 to 2 for the graphics, text and sound
+imports, the rest to run each event and test it), against about 4 to 5 weeks writing 109,000 lines in C (overlay 99's
+8,200 lines took a day). The risks: the course packs a species in 9 bits (its records: about 20 9-bit masks and shifts to check) and
+draws only species up to 493 as walking sprites; struct layouts are checked only where the assembly calls through
+Platinum's functions, not where it reads an engine structure's fields itself (none seen in overlay 97); the course's
+heap is 0x72000 of an application heap 64 KB smaller than HeartGold's; and the course stays assembly: a change to
+it is a shim or an edit of the assembly.
+
+**Overlay 97 ready to run (Claude, Nov 7; same branch):** its archives and text are in (HeartGold's four archives
+packed into one, `application/complete/pokeathlon.narc`, so the course's archives can join it at no cost to main
+memory; banks 278 and 298) and a test build opens it from the field (`gCompleteTestPokeathlonSelect`), in a heap of
+HeartGold's course size (0x72000, which fits with the field closed: the field map gives back 0xCC000). Not yet run:
+the owner tests it (docs/Progress.md, Nov 7).
 
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;

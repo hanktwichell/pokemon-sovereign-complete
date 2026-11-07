@@ -3,8 +3,9 @@
 
 HeartGold's banks (.cache/pokeheartgold/files/msgdata/msg/msg_NNNN*.json) have Platinum's layout and control codes
 (docs/ScriptConversion.md), so they are copied as they are: bank NNNN becomes res/text/hgss_msg_NNNN.json and
-TEXT_BANK_HGSS_MSG_NNNN, appended to generated/text_banks.txt (a bank's number is its line there). The message IDs
-stay HeartGold's (msg_0604_T26_00000), so translated scripts name them unchanged.
+TEXT_BANK_HGSS_MSG_NNNN, appended to generated/text_banks.txt (a bank's number is its line there). A bank already
+there keeps its line, and a new one goes after the last, so no bank's number changes. The message IDs stay
+HeartGold's (msg_0604_T26_00000), so translated scripts name them unchanged.
 
 The banks: each map header's, each one a script includes or names a message from, the four shared banks scripts
 open by number (GetStdMsgNaix), the shared menu entries (msg_0191), the Safari Zone's names (msg_0428, msg_0430),
@@ -46,10 +47,12 @@ PREFIX = 'TEXT_BANK_HGSS_MSG_'
 # (msg_0409 to msg_0420, src/applications/complete_pokegear/); the photo album's (msg_0000,
 # src/applications/complete_photo_album/ and complete_photo_caption/); the Unown Report's (msg_0001,
 # src/applications/complete_unown_report/); the Pokéathlon Dome PC's records (msg_0277,
-# src/overlay007/complete_pokeathlon_shop.c)
+# src/overlay007/complete_pokeathlon_shop.c); the Pokéathlon's record screens (msg_0313, msg_0314,
+# src/applications/complete_pokeathlon_records/) and the course's choice of three Pokémon (msg_0278, msg_0298:
+# HeartGold's assembly, src/applications/complete_pokeathlon/hgss_compat.c)
 SHARED = ['0000', '0001', '0277', '0196', '0248', '0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
     [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0198', '0265', '0039', '0269', '0313', '0314'] + \
-    [f'{n:04d}' for n in range(409, 421)]
+    [f'{n:04d}' for n in range(409, 421)] + ['0278', '0298']
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
 # the line breaks moved (or, where a box is narrower, the words)
 TEXT_FIXES = {
@@ -240,10 +243,16 @@ def main():
             f.write(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
         names.append(f'{PREFIX}{bank}')
 
+    # a bank's number is its line: the banks already there keep theirs, new ones go at the end (in bank order)
     path = os.path.join(DECOMP, 'generated/text_banks.txt')
-    lines = [line for line in open(path).read().splitlines() if line and not line.startswith(PREFIX)]
-    open(path, 'w').write('\n'.join(lines + names) + '\n')
-    print(f'{len(names)} text banks (TEXT_BANK_HGSS_MSG_*) from {rom or "pokeheartgold"}, after {len(lines)} in the engine')
+    lines = [line for line in open(path).read().splitlines() if line]
+    present = {line for line in lines if line.startswith(PREFIX)}
+    for name in sorted(present - set(names)):
+        print(f'{name}: no longer wanted, kept so that no bank after it changes its number')
+    added = [name for name in names if name not in present]
+    open(path, 'w').write('\n'.join(lines + added) + '\n')
+    print(f'{len(names)} text banks (TEXT_BANK_HGSS_MSG_*) from {rom or "pokeheartgold"}, {len(added)} of them new'
+          + (f' ({", ".join(added)})' if added else ''))
 
 
 if __name__ == '__main__':

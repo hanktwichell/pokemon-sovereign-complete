@@ -1660,6 +1660,18 @@ Overlay complete_voltorb_flip
 	Object src/applications/complete_voltorb_flip/grid_input_handler.c
 }
 
+# Sovereign Complete: HeartGold's overlay 97 (the Pokéathlon course's choice of Pokémon) and the main-module files it
+# calls, HeartGold's assembly as it is (asm/complete_hgss/, tools/complete/import_hgss_asm.py)
+Overlay complete_pokeathlon_select
+{
+	After main
+	Object asm/complete_hgss/overlay_97.s
+	Object asm/complete_hgss/unk_020932E0.s
+	Object asm/complete_hgss/unk_020957B0.s
+	Object src/applications/complete_pokeathlon/hgss_compat.c
+	Object src/applications/complete_pokeathlon/select_test.c
+}
+
 Overlay dummy7
 {
 	After overlay63

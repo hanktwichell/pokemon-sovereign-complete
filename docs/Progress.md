@@ -2198,15 +2198,45 @@ Test results on the new test build:
   rematch already outlevels its first team and holds as many items or more. Two small points for the owner's team
   review (Will's rematch Gardevoir and Koga's rematch Skuntank among the Pokémon Sacred Gold left holding nothing);
   nothing changed until the owner decides.
-- **The Pokéathlon's course, a trial of the faster route (stage 2):** HeartGold's overlay 97 (the course's choice of
-  three Pokémon) and two main-module files it calls, about 8,400 lines of HeartGold assembly, assembled unchanged by
-  Complete's build and linked into an overlay through a table of HeartGold names for Platinum's functions, 26 small
-  shims and 8 HeartGold-only functions in C (`tools/complete/import_hgss_asm.py`, `tools/complete/hgss_asm_symbols.py`,
-  which pairs functions across the two builds by their machine code). The release build boots and the main module
-  stays the same size. On branch `wip/pokeathlon-asm-spike` until the screen runs and has its test; the estimate for the
-  course itself (overlay 96) by this route is 9 to 13 days (docs/Roadmap.md).
 - **Regression sweep, Nov 7:** every quick test passes, 51 of 51 (`tools/complete/run_tests.py`): the first half on
   build_test2 (with the record screens' `charcode.c` change, which touches every HeartGold text), the second on
   build_test3 (main's game code, all four record screens), with all 58 of Sacred Gold's special events, the roamers,
   the Indigo Plateau's eight Elite Four runs and the radio's new Buena part; the medals, event record and trophies
   tests passed on build_test3 alone. `test_walk_everywhere.py` is a long test now (hours: every map's every tile).
+
+## Nov 7, 2026: HeartGold's assembly in Complete's build (a trial for the Pokéathlon's course)
+
+- **HeartGold's overlay 97, assembled as it is:** the trial "How stage 2 could go faster" asked for (docs/Roadmap.md).
+  HeartGold's overlay 97 (the course's choice of three Pokémon, 2,866 lines of assembly, 39 functions) and the two
+  main-module files it needs (unk_020932E0, the party and box picker, 4,623 lines, 60 functions; unk_020957B0, 946
+  lines) are copied into `decomp/asm/complete_hgss/` by `tools/complete/import_hgss_asm.py` and assembled by the same
+  mwasmarm Complete's build already runs, into an overlay of their own (`complete_pokeathlon_select`, 18,944 bytes).
+  Nothing in them changed but their constants' includes and gSystem's touch-screen fields (HeartGold's System has a
+  word Platinum's lacks): the engine names come from `hgss_compat.inc` (#defines, included by the folder's
+  macros.inc), each of the 150 symbols mapped by hand: 114 to the same Platinum function under its name (97 with the
+  same code byte for byte), 26 to shims in `src/applications/complete_pokeathlon/hgss_compat.c` (HeartGold's NARCs,
+  text banks and fonts translated; touch, yes/no prompt, a static and an unused Platinum function), 8 ports of
+  HeartGold's own (its course name, performance stars, medals, Aprijuice; the performance data and the Aprijuice
+  are placeholders until stage 1's last parts). `tools/complete/hgss_asm_symbols.py` sorts any HeartGold assembly's
+  calls by comparing the machine code of both builds (relocations masked). The overlay's three entry points are kept
+  with `-force_active` until the course calls them. The main module keeps its size (main memory unchanged); the
+  release build and the boot check pass. Its four graphics archives and two text banks aren't imported yet, so the
+  screen can't run before the course does. On branch `wip/pokeathlon-asm-spike` until the screen runs and has its test; the estimate for the course itself (overlay 96) by this route is 9 to 13 days (docs/Roadmap.md).
+- **Overlay 97 ready to run (same branch):** what the screen loads is in, and a test build opens it.
+  HeartGold's four archives it reads (93, 151, 162, 243: the choice screen's and the picker's graphics, the frame
+  of the Pokémon's picture, the summary screen's performance stars) are copied whole and packed into one archive,
+  `application/complete/pokeathlon.narc` (`tools/complete/import_hgss_pokeathlon_archives.py`), so that the course's
+  archives can join it later without a NARC path each in the main module; the shims add each archive's first member
+  there (`include/data/complete_pokeathlon_archives.h`). A Pokémon's picture comes from Platinum's own sprite
+  template, so its archive is marked as Platinum's (a 27th shim, GetMonSpriteCharAndPlttNarcIdsEx). Its text banks,
+  278 and 298, are imported from Sacred Gold; the text importer now appends a new bank after the last, so no bank's
+  number moves. The small font is counted by its users, as HeartGold does (overlay 97 and its picker both ask for
+  it; Platinum's would have loaded it twice and freed it once). A test build opens the screen from the field
+  (`gCompleteTestPokeathlonSelect.open` = the course + 1): the field fades out and closes, the overlay's test entry
+  points make the screen's heap (HeartGold's course heap, 0x72000, which fits: the closed field map gives back
+  0xCC000) and HeartGold's arguments from the save (one player), and record the three chosen (box and slot,
+  HeartGold's own answer with species, personality and stars), the heap's low point and what's left after the exit.
+  Nothing in the game opens it, so the release build keeps its entry points with `-force_active` (without it the
+  linker drops the whole overlay); a test build doesn't need it. The release build has no warnings in the new code,
+  boots (the boot check passes), and its main module grew 64 bytes (the archive's path); a test build's grows about
+  340 bytes more (the hook, its field task and marker). Not run yet at this point (tested next, below).
