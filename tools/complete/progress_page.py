@@ -83,7 +83,8 @@ NEXT = [
     'Now: the Pokéathlon, the last HeartGold port. Its Dome works (the prize counters, the Athlete Points, the '
     'records, all four record screens, the statues, each Pokémon\'s performance, the Apricorn Box and the Aprijuice '
     'stand), the reception starts a course, and the Speed Course plays to its end with its own songs and sounds and '
-    'gives its points. Next: the other four courses and their seven events.',
+    'gives its points. All five courses and all ten events have now run to their results. Next: the Supreme Cup, '
+    'then a last pass over the Pokéathlon before the Trainer Card.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -275,6 +276,8 @@ RECENT = [
         'memory back: every song in the game loads again, battles and Johto\'s songs have more room than before.',
         'The event screens before each event drew their icons and START button black; they\'re drawn right now (Gallery '
         'tab, "The Pokéathlon: its event screens drawn right").',
+        'And all five courses now play: the Power, Skill, Stamina and Jump courses ran for the first time, so all ten '
+        'events (Block Smash, Snow Throw, Ring Drop, Lamp Jump, Disc Catch and the rest) play to their results.',
     ]),
     ('The Pokéathlon: a course from the reception', [
         'Talk to the nurse at the Pokéathlon Dome, pick JOIN and a course, say Yes: you walk in and the course '

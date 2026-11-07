@@ -262,8 +262,8 @@ command (HeartGold's 611) to start a course in the game, and whatever the run tu
 
 **The course's first run (Nov 7; merged into main):** the Speed Course plays from the choice of three Pokémon through
 the opening, Hurdle Dash, Pennant Capture and Relay Run, to the results (380 points) and back to the field, its heap
-returned whole (`test_pokeathlon_course.py`: 46 states and events, 0 problems). The other four courses and seven
-events haven't been run yet. Seen in that run and since fixed (Nov 7): the event intro screens' bottom icons and
+returned whole (`test_pokeathlon_course.py`: 46 states and events, 0 problems). The other four courses (all ten
+events) ran on Nov 7, each to its results, 0 problems. Seen in that run and since fixed (Nov 7): the event intro screens' bottom icons and
 start button drew black (HeartGold's sprites keep their cells' palettes for a template palette of 0xFFFF; Platinum's
 overrode them); no Pokéathlon song or effect played (its 7 songs, fanfare and 62 effects are in the sound archive
 now, after winning back the sound memory they took: `docs/Music.md`, item 7). The results screen's top strip looked

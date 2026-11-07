@@ -97,7 +97,8 @@ memory, measured from both decomps and both built archives.
    info table keeps 4 bytes for every number up to the last. Nothing of Platinum's names those numbers, its saves
    included (the one sequence a save keeps, the cycling or surfing override, is Platinum's); the banks' and wave
    archives' unused numbers stay unused, as a cry's bank and archive are numbered by species. The sound memory test
-   passes all five parts: SUMMARY.
+   passes all five parts: the title song leaves 1 KB (as before the Pokéathlon), a battle and Johto's
+   songs and fanfares 5 KB, its effects over a Johto song at least 53 KB.
 8. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
    padding. Sovereign's own archive happened to line up.
@@ -111,7 +112,7 @@ memory, measured from both decomps and both built archives.
 - HeartGold's players use more channels than Platinum's, so a busy song could drop notes; untested by ear.
 - The GB Sounds (a key item Sacred Gold's scripts give) do nothing: HeartGold swaps 135 songs for their Game Boy
   versions with it, and each song in the archive keeps about 64 bytes of sound memory, which a battle doesn't have to
-  spare (3 KB).
+  spare (5 KB).
 - Sovereign's new Pokémon still have no cries. The freed memory is for songs; cries would need their own budget.
 
 **ROM size:** the sound archive grew from 7.96 MB to 9.44 MB; the cartridge was already 256 MB (164 MB used).

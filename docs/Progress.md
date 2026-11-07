@@ -2406,3 +2406,35 @@ Test results on the new test build:
   (0 problems). The release build links and boots (boot check PASS).
 - A full `translate_hgss_scripts.py --install` also rewrote five other scripts with table entries nobody had
   installed (a Lugia cutscene line, link-battle commands); those were left as they were for now (noted to check).
+
+## Nov 7, 2026: the Pokéathlon's songs and sounds; its event screens drawn right
+
+- **Its sounds** (`docs/Music.md`, item 7): HeartGold's 7 Pokéathlon songs, its fanfare and the 62 effects of its own
+  the course plays are in the sound archive (`gen_pokeathlon_sounds.py` lists them for `import_hgss_sound.py`; the
+  course's table of HeartGold's numbers now names Complete's sounds instead of numbering them). They took the last of
+  sound memory: the sound memory test found the title song no longer loading. Two changes in the archive's tables,
+  which stay in sound memory for good, gave it back: banks that never give an instrument number two meanings are one
+  bank now (276 to 174: songs only with the same waves of their own, effects while none loads more than 12 KB of
+  waves beyond its own, and never filling an instrument a member plays and has none at); and HeartGold's 346
+  sequences take Platinum's unused numbers 4 to 999 instead of following its last (4 bytes a number). A first rule
+  for the effects let a merged bank grow past its largest member, and the effects part's least free memory fell from
+  88 to 36 KB with several effects at once; bounded since. The sound memory test passes all five parts: every song loads, the title song with 1 KB to spare (as
+  before the Pokéathlon), a battle 5 KB (1 KB just after the import), Johto's songs and fanfares 5 KB, its effects at
+  least 53 KB. The release build links
+  and boots (boot check PASS).
+- **The event screens** (the screen before each event: its rules, controls and START): their icons, stylus, Poké Ball
+  and START button drew black. HeartGold's `SpriteSystem_NewSprite` keeps a sprite's own cell palettes when its
+  template's palette is 0xFFFF; Platinum's always sets the template's, so the shim now does as HeartGold
+  (`HgssCompat_SpriteSystem_NewSprite`). Checked on the Speed Course's three events and the Power Course's.
+- **The other four courses** ran for the first time (`test_pokeathlon_course.py`, COURSE=1 to 4, on the test build
+  with the palette fix): Power (Block Smash, Circle Push, Goal Roll: 133 points), Skill (Snow Throw, Goal Roll,
+  Pennant Capture: 114), Stamina (Ring Drop, Relay Run, Block Smash: 95) and Jump (Lamp Jump, Disc Catch, Hurdle Dash:
+  388), each to its results and back to the field with its heap returned whole, 0 problems each. All ten events have
+  now run; their screens draw as HeartGold's (Lamp Jump checked mid-play too; Gallery tab). The "garbled strip" of the first run hasn't
+  shown again since the font fix; the Hurdle Dash's "11th" is a place among the twelve runners.
+- **Checked and noted:** B closes HeartGold's menus (the reception's, on the test build; the Aprijuice test's miss was
+  its timing). The five scripts a full translator install would change were reviewed: one line in data no script
+  reaches, four link-room scripts (no link play): left as they are. The story run stopped at Will: the Indigo
+  format's "single or double battle?" had no answer in the test since Nov 6; it answers single for Will and Koga now
+  (both pass). A mistake of Claude's on the way, no game bug: probes run on other test builds without `TEST_BUILD`
+  read the wrong build's addresses and reported a hang entering the Dome that wasn't there.
