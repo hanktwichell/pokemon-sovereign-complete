@@ -241,6 +241,16 @@ work.
   `gCompleteTestPokeathlonCourse.open` = the course + 1 (and `supreme`), which runs it as HeartGold's reception does and
   notes its state, event, heap and results; `tools/complete/test_pokeathlon_course.py` plays along and says how far it
   got.
+- The Apricorn Box and the Aprijuice stand: `include/complete_aprijuice.h` (HeartGold's overlays 58 and 59 and its
+  `unk_02031B0C` as assembly, in the overlays `complete_aprijuice` and `complete_aprijuice_box`; the launcher and
+  shims in `hgss_compat_apricorn.c`; the stand's commands in `src/overlay007/complete_pokeathlon_shop.c`; the bag's
+  launcher in `src/complete_aprijuice.c`). Test: `tools/complete/test_aprijuice.py` (`gCompleteTestAprijuice`: open
+  = 1 + the mode, `apricorns` puts Apricorns in the bag first). Traps its port hit, for any later HeartGold asm:
+  a function the asm calls may live in another Complete overlay that isn't loaded with it (Voltorb Flip's touch menu:
+  the box got a renamed copy) — `tools/complete/check_overlay_calls.py BUILD` lists those; HeartGold's resdat
+  loader's char and palette modes matter (mode 0 puts the tiles at VRAM's end: a sprite system whose template keeps
+  the whole bank for transfers has no room at the start); HeartGold's font 4 must go through `HgssCompat_Font` in
+  every printer and width check; HeartGold's sprite palette mode 1 keeps the cells' palettes.
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

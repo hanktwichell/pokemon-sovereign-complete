@@ -162,16 +162,21 @@ def main():
 
     # The first visit: the clerk gives the Apriblender, then asks for questions (UNDERSTOOD!, the third: none)
     talk_to_menu('the first visit\'s questions (the Apriblender given)')
+    d.run(60)  # the menu is noted as it's made, before it takes input
+    press('DOWN', after=30, times=2)
     shot('stand_questions')
-    press('DOWN', after=20, times=2)
     press('A', after=60)
     for _ in range(20):
         if field_idle():
             break
         press('A', after=40)
     check('stand: the first visit over, the field back', field_idle())
-    # Then the juice of the day: its offer and the menu (buy, ask, cancel)
+    # Then the juice of the day: its offer and the menu (buy, ask, cancel). The first visit walked the player to the
+    # clerk (whose talk is the questions): back below the stand's sign first
+    result, _ = warp(d, sym, names.index(DOME), STAND[0], STAND[1], 2)
+    check(f'stand: back below it ({result})', result == 'ok')
     talk_to_menu('the juice\'s offer')
+    d.run(60)
     d.run(30)
     shot('stand_offer')
     press('A', after=120)  # buy: "Thank you! Which Pokémon...", then the fade

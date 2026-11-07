@@ -58,8 +58,8 @@ Kurt in Azalea Town makes Poké Balls from Apricorns, which grow on 31 trees acr
 - **Test:** `tools/complete/test_hgss_balls.py` throws each at a wild Pokémon in the test build: all seven catch, the
   Pokémon keeps that Ball, and a Friend Ball's starts at 200 friendship.
 
-Kurt calls about his Balls on the Pokégear's phone ("The Pokégear phone"). Left: the Apricorn juice stand, which is
-the skipped Pokéathlon's.
+Kurt calls about his Balls on the Pokégear's phone ("The Pokégear phone"). The Apricorn Box itself opens from the bag
+and the Aprijuice stand is the Pokéathlon Dome's ("The Pokéathlon Dome").
 
 ## Bug-Catching Contest
 
@@ -1288,8 +1288,20 @@ events are still to come (stages 2 and 3).
 - **The Friendship Room's statues** (HeartGold's `CreatePokeathlonFriendshipRoomStatues`,
   `CompleteScrCmd_PokeathlonStatues`): the three Pokémon of the save's friendship records stand on the room's
   pedestals as their walking sprites (their form's and gender's), made again each time the room loads.
-- **Not yet:** the courses and events (no Athlete Points, records or medals are earned yet, so the counters, the
-  record screens and the statues wait for them), the Aprijuice stand and the Pokémon's performance.
+- **The Apricorn Box and the Aprijuice stand** (HeartGold's overlays 58 and 59 and its Apricorn Box code, as its
+  assembly: `include/complete_aprijuice.h`, the overlays `complete_aprijuice` and `complete_aprijuice_box`, run by
+  the launcher in `complete_hgss_compat`). The Apricorn Box key item opens HeartGold's box from the bag or Y: the
+  bag's seven kinds of Apricorn with their counts and each one's description, and, once the stand's clerk has given
+  the Apriblender (HeartGold's flag 997), the blender: Apricorns go in (the bag loses them) and walking blends them
+  (HeartGold's steps; the finished juice, to taste or give, isn't run in a test yet). The Dome's stand
+  (`CompleteAprijuiceOfTheDay`, `CompleteAprijuiceStand`, HeartGold's commands 741 and 740, in overlay 7) sells the
+  juice of the day, by weekday, from HeartGold's five (Holden's Power Juice, Elaine's Stamina, Gilmore's Skill,
+  Krise's Jump, Victor's Speed: 100 or 150 money); the party menu picks who drinks it and HeartGold's performance
+  screen shows the stars it moves. A Pokémon's juice is kept in the Pokéathlon's save by its personality (HeartGold
+  keeps it in the party), where the course's performance looks for it. Juices from other players' boxes (HeartGold's
+  wireless link) don't come up.
+- **Not yet:** the courses and events in the game (the course runs in the test build: `docs/Roadmap.md`), so no
+  Athlete Points, records or medals are earned yet.
 
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),
