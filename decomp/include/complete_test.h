@@ -3,6 +3,7 @@
 
 #include "field/field_system.h"
 
+#include "complete_aprijuice.h"
 #include "complete_pokeathlon_select.h"
 #include "complete_safari.h"
 
@@ -229,6 +230,24 @@ typedef struct CompleteTestPokeathlonCourse {
 } CompleteTestPokeathlonCourse;
 
 extern CompleteTestPokeathlonCourse gCompleteTestPokeathlonCourse;
+
+// HeartGold's Apricorn Box app (include/complete_aprijuice.h) from the field, as the Aprijuice stand's clerk opens it:
+// open = 1 + its mode (HGSS_APRICORN_BOX_MODE_*), juice the stand's (ScrCmd_741's index); step (1-3 while it runs), runs;
+// result (the stand's: whether a Pokémon drank)
+typedef struct CompleteTestAprijuice {
+    u8 open;
+    u8 juice;
+    u8 step;
+    u8 runs;
+    u16 result;
+    u8 stage; // how far the app's launcher got (hgss_compat_apricorn.c): 1-5 in its Init, 6 running, 7 its Exit done
+    u8 innerState; // HeartGold's app's state (its ApplicationManager's procState << 4 | execState)
+    u32 appFree;
+    u32 subState; // HeartGold's overlay 59, run by its overlay 58: procState << 8 | execState
+    HgssApricornBoxArgs args;
+} CompleteTestAprijuice;
+
+extern CompleteTestAprijuice gCompleteTestAprijuice;
 
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem);
 BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id);

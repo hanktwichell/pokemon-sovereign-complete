@@ -12,6 +12,7 @@
 #include "complete_follower.h"
 #include "complete_pokeathlon.h"
 #include "complete_pokeathlon_course.h"
+#include "complete_test.h"
 #include "game_overlay.h"
 #include "heap.h"
 #include "mail.h"
@@ -35,6 +36,8 @@ FS_EXTERN_OVERLAY(complete_aprijuice);
 #define HGSS_APRICORNS        7
 #define HGSS_APRICORN_MAX     99 // the box held 99 of each; the bag holds more
 #define HGSS_PERFORMANCE_STATS 5
+#define HGSS_RESDAT_END        0xFFFFFFFE // a resdat header list's end (sprite_util.c's RESDAT_TABLE_TERMINATOR)
+#define HGSS_RESDAT_NONE       0xFFFFFFFF // no multi-cell
 
 // HeartGold's overlay 58 and its save code (decomp/asm/complete_hgss/overlay_58.s, unk_02031B0C.s)
 BOOL ApricornBox_Init(ApplicationManager *appMan, int *state);
@@ -232,6 +235,10 @@ typedef struct HgssResdatList {
 } HgssResdatList;
 
 static const HgssResdatList sResdatLists[] = {
+    { 16, 220, 10, FALSE, 0, 0 }, // anim (the Apricorn Box's sprites)
+    { 17, 220, 9, FALSE, 0, 0 }, // cell
+    { 18, 220, 8, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 0 }, // char
+    { 19, 220, 7, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 13 }, // pltt: 13 palettes
     { 12, 244, 3, TRUE, 0, 0 }, // anim (the Apriblender's sprites)
     { 13, 244, 2, TRUE, 0, 0 }, // cell
     { 14, 244, 1, TRUE, NNS_G2D_VRAM_TYPE_2DMAIN, 0 }, // char
@@ -242,7 +249,8 @@ static const struct {
     u16 id;
     ResdatTableEntry entries[2];
 } sResdatHeaders[] = {
-    { 75, { { 0, 0, 0, 0, RESDAT_TABLE_TERMINATOR, RESDAT_TABLE_TERMINATOR, 0, 2 }, { RESDAT_TABLE_TERMINATOR } } },
+    { 75, { { 0, 0, 0, 0, HGSS_RESDAT_NONE, HGSS_RESDAT_NONE, 0, 2 }, { HGSS_RESDAT_END } } },
+    { 76, { { 0, 0, 0, 0, HGSS_RESDAT_NONE, HGSS_RESDAT_NONE, 0, 3 }, { HGSS_RESDAT_END } } },
 };
 
 BOOL HgssCompat_LoadResdatSprites(SpriteSystem *spriteSys, SpriteManager *spriteMan, const u16 *lists, int charMode, int plttMode)
@@ -270,6 +278,10 @@ BOOL HgssCompat_LoadResdatSprites(SpriteSystem *spriteSys, SpriteManager *sprite
         }
 
         GF_ASSERT(list != NULL);
+
+        if (list == NULL) { // a list Complete doesn't have: nothing loaded rather than a wild read
+            return FALSE;
+        }
 
         SpriteResourceTable *table = SpriteResourceTable_GetArrayElement(spriteMan->resourcePaths, i);
         SpriteResourceTableEntryNARC *entry = Heap_Alloc(spriteSys->heapID, sizeof(SpriteResourceTableEntryNARC));
@@ -396,6 +408,12 @@ const ApplicationManagerTemplate gHgssCompat_PartyMenuTemplate = {
     FS_OVERLAY_ID_NONE,
 };
 
+#ifdef SOVEREIGN_TEST
+#define NOTE_STAGE(n) (gCompleteTestAprijuice.stage = (n))
+#else
+#define NOTE_STAGE(n)
+#endif
+
 // The Apricorn Box app (include/complete_aprijuice.h): HeartGold's overlay 58 runs inside it, with its overlay loaded
 // here (its own template has none) and the Pokéathlon's save open around it
 typedef struct HgssApricornBoxApp {
@@ -413,22 +431,49 @@ BOOL HgssCompat_ApricornBoxApp_Init(ApplicationManager *appMan, int *state)
     HgssApricornBoxArgs *args = ApplicationManager_Args(appMan);
     HgssApricornBoxApp *app = ApplicationManager_NewData(appMan, sizeof(HgssApricornBoxApp), HEAP_ID_APPLICATION);
 
+    NOTE_STAGE(1);
     Overlay_LoadByID(FS_OVERLAY_ID(complete_aprijuice), OVERLAY_LOAD_ASYNC);
+    NOTE_STAGE(2);
     HgssCompat_PokeathlonSave_Open(args->saveData, HEAP_ID_APPLICATION);
+    NOTE_STAGE(3);
     sub_02032058(HgssCompat_PokeathlonSave_IfOpen()->apricornBox, args->steps);
+    NOTE_STAGE(4);
+#ifdef SOVEREIGN_TEST
+    {
+        FS_EXTERN_OVERLAY(complete_aprijuice_box);
+        gCompleteTestAprijuice.stage = 10;
+        Overlay_LoadByID(FS_OVERLAY_ID(complete_aprijuice_box), OVERLAY_LOAD_ASYNC);
+        gCompleteTestAprijuice.stage = 11;
+        Overlay_UnloadByID(FS_OVERLAY_ID(complete_aprijuice_box));
+        gCompleteTestAprijuice.stage = 12;
+    }
+#endif
 
     if (args->menuInputState == NULL) {
         args->menuInputState = &sMenuInputState;
     }
 
     app->appMan = ApplicationManager_New(&sTemplate, args, HEAP_ID_APPLICATION);
+    NOTE_STAGE(5);
     return TRUE;
 }
 
 BOOL HgssCompat_ApricornBoxApp_Main(ApplicationManager *appMan, int *state)
 {
     HgssApricornBoxApp *app = ApplicationManager_Data(appMan);
-    return ApplicationManager_Exec(app->appMan);
+    BOOL done = ApplicationManager_Exec(app->appMan);
+
+#ifdef SOVEREIGN_TEST
+    gCompleteTestAprijuice.stage = 6;
+    gCompleteTestAprijuice.innerState = (u8)(app->appMan->procState << 4 | (app->appMan->execState & 0xF));
+    {
+        u8 *data58 = app->appMan->data; // HeartGold's overlay 58's: its sub-app (overlay 59 or the party menu) at 8
+        ApplicationManager *sub = data58 != NULL ? *(ApplicationManager **)(data58 + 8) : NULL;
+
+        gCompleteTestAprijuice.subState = sub != NULL ? (u32)(sub->procState << 8 | (sub->execState & 0xFF)) : 0xFFFFFFFF;
+    }
+#endif
+    return done;
 }
 
 BOOL HgssCompat_ApricornBoxApp_Exit(ApplicationManager *appMan, int *state)
@@ -440,6 +485,7 @@ BOOL HgssCompat_ApricornBoxApp_Exit(ApplicationManager *appMan, int *state)
     HgssCompat_PokeathlonSave_Close(args->saveData, TRUE);
     Overlay_UnloadByID(FS_OVERLAY_ID(complete_aprijuice));
     ApplicationManager_FreeData(appMan);
+    NOTE_STAGE(7);
 
     return TRUE;
 }

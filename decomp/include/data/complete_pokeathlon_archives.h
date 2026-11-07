@@ -6,7 +6,7 @@
 // (NARC_INDEX_APPLICATION__COMPLETE__POKEATHLON): HeartGold's number, its first member there, its member count there
 // and the first of HeartGold's members packed. HeartGold's member n of an archive is member first + n - that.
 
-#define COMPLETE_POKEATHLON_ARCHIVES 30
+#define COMPLETE_POKEATHLON_ARCHIVES 32
 
 static const u16 sCompletePokeathlonArchives[COMPLETE_POKEATHLON_ARCHIVES][4] = {
     { 93, 0, 26, 0 }, // a/0/9/3: the Pokémon's picture's frame (overlay 97)
@@ -38,7 +38,9 @@ static const u16 sCompletePokeathlonArchives[COMPLETE_POKEATHLON_ARCHIVES][4] = 
     { 237, 2140, 27, 0 }, // a/2/3/5: the course
     { 242, 2167, 25, 0 }, // a/2/4/0: the course
     { 260, 2192, 100, 0 }, // a/2/5/8: the course
-    { 169, 2292, 1098, 0 }, // poketool/personal/performance: Complete's, from data/complete/pokeathlon_performance.json
+    { 220, 2292, 11, 0 }, // a/2/1/8: the Apricorn Box and its Apriblender (overlay 59)
+    { 244, 2303, 11, 0 }, // a/2/4/2: the Apriblender's sprites and particles (overlay 59)
+    { 169, 2314, 1098, 0 }, // poketool/personal/performance: Complete's, from data/complete/pokeathlon_performance.json
 };
 
 #endif // POKEPLATINUM_DATA_COMPLETE_POKEATHLON_ARCHIVES_H

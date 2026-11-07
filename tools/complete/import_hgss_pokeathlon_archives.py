@@ -85,6 +85,8 @@ ARCHIVES = [
     (237, 'a/2/3/5', 27, {0: b'RLCN'}, 0, 'the course'),
     (242, 'a/2/4/0', 25, {0: b'RLCN'}, 0, 'the course'),
     (260, 'a/2/5/8', 100, {}, 0, 'the course'),
+    (220, 'a/2/1/8', 11, {0: b'RLCN', 1: b'RGCN', 2: b'RCSN'}, 0, 'the Apricorn Box and its Apriblender (overlay 59)'),
+    (244, 'a/2/4/2', 11, {0: b'RLCN'}, 0, "the Apriblender's sprites and particles (overlay 59)"),
 ]
 
 

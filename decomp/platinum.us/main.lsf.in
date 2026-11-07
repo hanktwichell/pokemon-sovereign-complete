@@ -1672,6 +1672,22 @@ Overlay complete_hgss_compat
 	Object src/applications/complete_pokeathlon/hgss_compat.c
 	Object src/applications/complete_pokeathlon/hgss_compat_course.c
 	Object src/applications/complete_pokeathlon/hgss_compat_save.c
+	Object src/applications/complete_pokeathlon/hgss_compat_apricorn.c
+}
+
+# Sovereign Complete: HeartGold's Apricorn Box app (the Aprijuice stand, the Apriblender: its overlays 58 and 59 and its
+# Apricorn Box save code, as they are), after the shims; 58 loads and unloads 59 itself, as in HeartGold
+Overlay complete_aprijuice
+{
+	After complete_hgss_compat
+	Object asm/complete_hgss/overlay_58.s
+	Object asm/complete_hgss/unk_02031B0C.s
+}
+
+Overlay complete_aprijuice_box
+{
+	After complete_aprijuice
+	Object asm/complete_hgss/overlay_59.s
 }
 
 Overlay complete_pokeathlon_course

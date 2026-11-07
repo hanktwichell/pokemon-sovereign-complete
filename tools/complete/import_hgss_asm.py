@@ -241,11 +241,20 @@ def check_dex_count():
         sys.exit(f'hgss_compat.inc: COMPLETE_NATIONAL_DEX_COUNT should be {dex} (decomp/generated/species.txt)')
 
 
+def check_items():
+    """hgss_compat.inc's ITEM_* numbers are Complete's (decomp/generated/items.txt)."""
+    items = [line.strip() for line in open(os.path.join(ROOT, 'decomp/generated/items.txt')) if line.strip()]
+    for name, value in re.findall(r'#define\s+(ITEM_\w+)\s+(\d+)', open(COMPAT, encoding='utf-8').read()):
+        if name not in items or items.index(name) != int(value):
+            sys.exit(f'hgss_compat.inc: {name} should be {items.index(name) if name in items else "an item"}')
+
+
 def main():
     names = sys.argv[1:]
     if not names:
         sys.exit(__doc__)
     check_dex_count()
+    check_items()
     paths, overlay_ids = [], hg_overlay_ids()
     for name in names:
         out = os.path.join(OUT, f'{name}.s')
@@ -255,6 +264,7 @@ def main():
         inc = re.sub(r'\bSDK_OVERLAY_(\w+)_ID\b', lambda m: f'SDK_OVERLAY_{OVERLAYS[m.group(1)]}_ID'
                      if m.group(1) in OVERLAYS else m.group(0), inc)
         inc += ''.join(f'.public {target}\n' for target in REDIRECTS.get(name, {}).values())
+        inc += ''.join(f'.public {func}\n' for func in DROPS.get(name, []))  # now the shims'
         converted = open(out, encoding='utf-8').read()
         inc += ''.join(f'.public SDK_OVERLAY_{o}_ID\n' for o in sorted(set(OVERLAYS.values()))
                        if f'SDK_OVERLAY_{o}_ID' in converted)

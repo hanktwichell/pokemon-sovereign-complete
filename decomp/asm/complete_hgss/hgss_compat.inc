@@ -179,6 +179,15 @@
 ; Constants the files name (HeartGold's constants/pokemon.h): Platinum's values, the same numbers; and Complete's
 ; species count, which import_hgss_asm.py's patches put where HeartGold stops at its 493 (checked by the import)
 #define COMPLETE_NATIONAL_DEX_COUNT                      1025
+; Items the Apricorn Box code names (Kurt's Balls): Complete's numbers (decomp/generated/items.txt; the import checks them)
+#define ITEM_POKE_BALL                                   4
+#define ITEM_LEVEL_BALL                                  755
+#define ITEM_LURE_BALL                                   756
+#define ITEM_MOON_BALL                                   760
+#define ITEM_FRIEND_BALL                                 759
+#define ITEM_LOVE_BALL                                   758
+#define ITEM_FAST_BALL                                   754
+#define ITEM_HEAVY_BALL                                  757
 #define MON_DATA_SPECIES                                 5
 #define MON_DATA_HELD_ITEM                               6
 #define MON_DATA_IS_EGG                                  76

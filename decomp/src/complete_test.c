@@ -15,6 +15,9 @@
 #include "complete_pokeathlon_course.h"
 #include "complete_pokeathlon_select.h"
 #include "game_overlay.h"
+#include "generated/game_records.h"
+
+#include "game_records.h"
 #include "heap.h"
 #include "complete_safari.h"
 #include "field_battle_data_transfer.h"
@@ -81,6 +84,7 @@ CompleteTestSound gCompleteTestSound;
 CompleteTestFollowerTalk gCompleteTestFollowerTalk;
 CompleteTestPokeathlonSelect gCompleteTestPokeathlonSelect;
 CompleteTestPokeathlonCourse gCompleteTestPokeathlonCourse;
+CompleteTestAprijuice gCompleteTestAprijuice;
 
 // The key items and Balls in the bag, one of each (written: the ones that fit)
 static void BagProbe(SaveData *saveData, BOOL write, u16 *keyItems, u16 *balls)
@@ -403,8 +407,58 @@ static BOOL PokeathlonCourseTask(FieldTask *task)
     return FALSE;
 }
 
+// HeartGold's Apricorn Box app (include/complete_aprijuice.h) from the field, as the Aprijuice stand's clerk opens it
+static BOOL AprijuiceTask(FieldTask *task)
+{
+    FS_EXTERN_OVERLAY(complete_hgss_compat);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        HgssCompat_ApricornBoxApp_Init,
+        HgssCompat_ApricornBoxApp_Main,
+        HgssCompat_ApricornBoxApp_Exit,
+        FS_OVERLAY_ID_NONE,
+    };
+    CompleteTestAprijuice *test = &gCompleteTestAprijuice;
+    int *state = FieldTask_GetState(task);
+
+    switch (*state) {
+    case 0:
+        FieldTransition_FadeOutAndFinishMap(task);
+        break;
+    case 1:
+        MI_CpuClear8(&test->args, sizeof(test->args));
+        test->result = 0xFFFF;
+        test->args.mode = test->open - 1;
+        test->args.result = &test->result;
+        test->args.juice = test->juice;
+        test->args.steps = GameRecords_GetRecordValue(SaveData_GetGameRecords(SaveData_Ptr()), RECORD_STEPS);
+        test->args.saveData = SaveData_Ptr();
+        test->appFree = HeapExp_FndGetTotalFreeSize(HEAP_ID_APPLICATION);
+        Overlay_LoadByID(FS_OVERLAY_ID(complete_hgss_compat), OVERLAY_LOAD_ASYNC);
+        FieldTask_RunApplication(task, &sTemplate, &test->args);
+        break;
+    case 2:
+        Overlay_UnloadByID(FS_OVERLAY_ID(complete_hgss_compat));
+        FieldTransition_StartMapAndFadeIn(task);
+        break;
+    default:
+        test->open = 0;
+        test->step = 0;
+        test->runs++;
+        return TRUE;
+    }
+
+    test->step = ++(*state);
+    return FALSE;
+}
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
+    if (gCompleteTestAprijuice.open && gCompleteTestAprijuice.step == 0 && !FieldSystem_IsRunningTask(fieldSystem)) {
+        gCompleteTestAprijuice.step = 1;
+        FieldSystem_CreateTask(fieldSystem, AprijuiceTask, NULL);
+    }
+
     if (gCompleteTestPokeathlonSelect.open && gCompleteTestPokeathlonSelect.step == 0 && !FieldSystem_IsRunningTask(fieldSystem)) {
         gCompleteTestPokeathlonSelect.step = 1;
         FieldSystem_CreateTask(fieldSystem, PokeathlonSelectTask, NULL);

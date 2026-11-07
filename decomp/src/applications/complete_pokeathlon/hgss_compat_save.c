@@ -124,16 +124,22 @@ CompletePokeathlonStatue *HgssCompat_Save_Pokeathlon_FriendshipRecords_Get(SaveD
     return HgssCompat_Save_Pokeathlon_Get(saveData)->friendshipRoomStatues;
 }
 
-// HeartGold's Apricorn Box save block also keeps the last three link partners' records (0x20 bytes each, from 0x20),
-// which the course updates after link play (sub_020321A0) and reads to make the player's own (sub_020320E0). Complete
-// keeps Apricorns in the bag and leaves link play out: the course's single-player path makes the player's record and
-// frees it at its end, so there is no box to hand out.
+// The open copy, or NULL (the Aprijuice's shims, hgss_compat_apricorn.c)
+CompletePokeathlonSave *HgssCompat_PokeathlonSave_IfOpen(void)
+{
+    return sCourseSave;
+}
+
+// HeartGold's Apricorn Box save block (its SaveApricornBox), kept in Complete's Pokéathlon save: the open copy's (the
+// Apricorn Box app and the course open it). It also keeps the last three link partners' records (0x20 bytes each, from
+// 0x20), which the course updates after link play (sub_020321A0) and reads to make the player's own (sub_020320E0);
+// Complete leaves link play out, so those two are shims here.
 #define HGSS_LINK_RECORD_SIZE 0x20
 
 void *HgssCompat_Save_ApricornBox_Get(SaveData *saveData)
 {
     (void)saveData;
-    return NULL;
+    return sCourseSave != NULL ? sCourseSave->apricornBox : NULL;
 }
 
 u32 HgssCompat_LinkRecordSize(void)

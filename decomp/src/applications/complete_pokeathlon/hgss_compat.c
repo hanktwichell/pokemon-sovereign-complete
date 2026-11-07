@@ -58,6 +58,8 @@ static const u16 sTextBanks[][2] = {
     { 310, TEXT_BANK_HGSS_MSG_0310 },
     { 311, TEXT_BANK_HGSS_MSG_0311 },
     { 237, TEXT_BANK_SPECIES_NAME }, // the species' names (Complete's, all of them; overlay 98)
+    { 21, TEXT_BANK_HGSS_MSG_0021 }, // the Apricorn Box and the Aprijuice (overlay 59)
+    { 22, TEXT_BANK_HGSS_MSG_0022 },
 };
 
 
@@ -649,14 +651,7 @@ void HgssCompat_CalcMonPokeathlonStars(HgssPerformanceStars *dest, Pokemon *mon,
     HgssCompat_CalcBoxmonPokeathlonStars(dest, Pokemon_GetBoxPokemon(mon), aprijuice, heapID);
 }
 
-// HeartGold keeps each party Pokémon's Aprijuice in the party (PartyExtraSub, a byte a stat). Complete has no
-// Aprijuice yet (stage 1's Aprijuice stand): none.
-void HgssCompat_Party_GetMonAprijuiceModifiers(const Party *party, s8 *dest, int slot)
-{
-    (void)party;
-    (void)slot;
-    MI_CpuClear8(dest, HGSS_PERFORMANCE_MAX);
-}
+// HeartGold's Party_GetMonAprijuiceModifiers: hgss_compat_apricorn.c
 
 // HeartGold's sub_0208B85C: a stat's five stars to draw (0 none, 1 an empty one, 2 + the colour a full one) and the
 // way the Aprijuice moved it (1 up, -1 down, 0 neither)
