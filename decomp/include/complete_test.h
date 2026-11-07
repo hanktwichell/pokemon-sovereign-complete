@@ -246,7 +246,7 @@ typedef struct CompleteTestAprijuice {
     u8 innerState; // HeartGold's app's state (its ApplicationManager's procState << 4 | execState)
     u32 appFree;
     u32 subState; // HeartGold's overlay 59, run by its overlay 58: procState << 8 | execState
-    HgssApricornBoxArgs args;
+    HgssApricornBoxArgs args; // the test's, or a copy of the game's when the bag or the stand opens it
     u8 apricorns; // if set, this many of each Apricorn put in the bag before the app opens
     u8 pad[3];
 } CompleteTestAprijuice;

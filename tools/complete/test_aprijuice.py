@@ -12,6 +12,8 @@ build, from the bedroom state.
    none); the next buys the juice of the day (CompleteAprijuiceOfTheDay: the weekday's, from
    HeartGold's five), gives it to the party's first Pokémon (CompleteAprijuiceStand: the party menu, then HeartGold's
    performance screen and its Use), and pays: the money goes down by the day's price.
+4. **The box from the bag:** the Apricorn Box key item, used from the start menu's bag, opens the box with its
+   Apriblender (the stand gave it), and closes back to the field.
 
 Results: a line per check, screenshots in OUT_DIR, and the count of problems.
     TEST_BUILD=build_test SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy python3 tools/complete/test_aprijuice.py \\
@@ -39,6 +41,10 @@ MODE_BAG = 1
 # 100 at least): Holden's, Elaine's, Gilmore's, Krise's and Victor's
 PRICES = [100, 100, 150, 100, 100]
 MENU_SHOWN = 0  # gSovereignTestMenu.shown
+ARGS_MODE = 16  # the arguments' mode (the launcher notes the game's arguments there too)
+# The start menu (its cursor on the Pokédex), down twice to the Bag; the bag opens on the Items pocket, its first item
+# picked; then Use (as test_hgss_alph_walls.py)
+USE_FIRST_ITEM = [('X', 40), ('DOWN', 20), ('DOWN', 20), ('A', 90), ('A', 40), ('A', 40)]
 
 
 def main():
@@ -197,6 +203,36 @@ def main():
     check(f'stand: paid the day\'s price (juice {juice}: {PRICES[juice]}; paid {paid}, money {before} to {money()})',
           paid == PRICES[juice])
     check('stand: the field runs again', field_idle())
+
+    # 4. The box from the bag: the Apricorn Box in the Items pocket's first slot, used from the start menu's bag
+    bag = save_block('SAVE_TABLE_ENTRY_BAG')
+    first = u32(bag)
+    mem.write_long(bag, items.index('ITEM_APRICORN_BOX') | 1 << 16)
+    mem.write_byte(at + STAGE, 0)
+    mem.write_long(at + SUBSTATE, 0xFFFFFFFF)
+    d.run(30)
+    for key, after in USE_FIRST_ITEM:
+        d.press(key, frames=6, after=after)
+    for _ in range(60):
+        d.run(10)
+        if running():
+            break
+    d.run(120)
+    shot('bag_box')
+    check(f'bag: the Apricorn Box opens it (overlay 59 running, its state {u32(at + SUBSTATE):#x}; the mode '
+          f'{mem.unsigned[at + ARGS_MODE]}: the Apriblender\'s, given at the stand)',
+          running() and mem.unsigned[at + ARGS_MODE] == MODE_BAG)
+    for _ in range(10):
+        press('B', after=90)
+        if mem.unsigned[at + STAGE] == 7:
+            break
+    for _ in range(10):
+        if field_idle():
+            break
+        press('B', after=60)
+    shot('bag_after')
+    check('bag: the box closed, the field back', mem.unsigned[at + STAGE] == 7 and field_idle())
+    mem.write_long(bag, first)
 
     print(f'{len(problems)} problems')
     return 1 if problems else 0

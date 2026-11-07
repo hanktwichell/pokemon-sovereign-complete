@@ -2351,3 +2351,39 @@ Test results on the new test build:
 - The release build links with no warnings in the new code (recompiled with warnings on, release and test builds),
   boots (the boot check passes), and its main module keeps its size (1,151,972 bytes before and after; the Pokéathlon's
   code is all in its overlays).
+
+## Nov 7, 2026: the Apricorn Box and the Aprijuice stand, HeartGold's assembly in Complete's build
+
+- **HeartGold's overlays 58 and 59 and its Apricorn Box code** (`unk_02031B0C`) assembled as they are, by the
+  course's route: the overlays `complete_aprijuice` (58, the app's frame, and the box's save code) and
+  `complete_aprijuice_box` (59: the box, the Apriblender, the juice), after `complete_hgss_compat`, which holds their
+  launcher and shims (`hgss_compat_apricorn.c`). The Apricorns are the bag's (the box's counts and its taking and
+  giving go through the bag), the box's other bytes and each party Pokémon's juice (by its personality) are in the
+  Pokéathlon's save, out of its reserved bytes (its size stays pinned). HeartGold's archives 220 and 244 joined
+  `pokeathlon.narc`, its text banks 21 and 22 were imported.
+- **What it took to run.** Overlay 59 called Voltorb Flip's touch menu, which lives in Voltorb Flip's overlay, not
+  loaded with the box: the call jumped into other code and the box hung at its start. It now has a renamed copy of
+  that file, and `tools/complete/check_overlay_calls.py` checks every overlay of HeartGold's assembly for calls into
+  an overlay outside its own chain (0 left). The box's sprites drew garbage: HeartGold's resdat loader puts the
+  tiles at VRAM's end in the mode the box asks for, and the box's sprite system keeps its whole 64 KB for such
+  transfers, so the shim's start-of-VRAM requests found no room (the modes are now HeartGold's). "CLOSE" was cut to
+  "CLOS": HeartGold's font 4 went untranslated into Platinum's width check (now every printer and the width check
+  translate it). The Apricorns were all one grey: HeartGold's sprite palette mode 1 keeps the cells' palettes, which
+  Platinum's sprite creation overrides (a shim honours the mode).
+- **The stand.** HeartGold's command 741 (the juice of the day: owner, name, price, richness, smoothness) is
+  `CompleteAprijuiceOfTheDay` in overlay 7, from HeartGold's five fixed juices (the stands' other juices came from
+  other players over the wireless link, which Complete doesn't have, so HeartGold's fallback is always taken: the
+  weekday's and the stand's); 740 is `CompleteAprijuiceStand`, the box's stand mode as the field's app. The Dome's
+  script is translated with both. The Apricorn Box key item now opens the box from the bag or Y (its blender once the
+  stand's clerk has given it, HeartGold's flag 997).
+- **Tested** (`tools/complete/test_aprijuice.py`, test build, 0 problems): the box opens, its first-time help reads
+  through, a Red Apricorn goes into the Apriblender (the bag's 5 become 4), the box closes to the field; opened
+  again, the blender still holds it ("Haven't blended enough yet..."); at the Dome, the first visit gives the
+  Apriblender, then the stand sells the day's juice (Saturday: Elaine's Stamina Juice, 100), the party's first
+  Pokémon drinks it ("Used Stam. Juice!", its Stamina up to five stars) and the money goes from 3,000 to 2,900;
+  then the Apricorn Box used from the start menu's bag opens the box in its Apriblender mode (the blender still
+  holding the Red Apricorn) and closes to the field. 16 checks, 0 problems. Not run yet: the finished juice after
+  walking, VIEW LABEL, the box before the Apriblender (its view mode), and the course reading a Pokémon's juice.
+- **The course test on the same build** (the font fix reaches the course too): 47 states and events, 0 problems, its
+  heap back whole. Whether the results screen's garbled strip changed can't be told from it: the run played
+  differently (the test plays at random) and its results screen differs.

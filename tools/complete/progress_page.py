@@ -80,10 +80,10 @@ STEPS = [
 ]
 
 NEXT = [
-    'Now: the Pokéathlon, the last HeartGold port (its Dome works: the prize counters, the Athlete Points, the '
-    'records, all four record screens, the Friendship Room\'s statues, each Pokémon\'s performance, and the screen '
-    'where you pick three Pokémon; now the course itself, built from HeartGold\'s own code, then its ten events '
-    'and the Aprijuice stand).',
+    'Now: the Pokéathlon, the last HeartGold port. Its Dome works (the prize counters, the Athlete Points, the '
+    'records, all four record screens, the Friendship Room\'s statues, each Pokémon\'s performance), the Apricorn '
+    'Box and the Aprijuice stand are in, and a whole course plays in the test version. Next: the course started from '
+    'the Dome\'s reception, its songs and sounds, the screens that still draw wrong, then the other courses\' events.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -267,6 +267,20 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Apricorn Box and the Aprijuice stand', [
+        'The Apricorn Box now opens from the bag as in HeartGold: your seven kinds of Apricorn with their counts, each '
+        'one\'s description, and the Apriblender once the stand\'s clerk has given it to you: put Apricorns in and walk '
+        'to blend them. At the Pokéathlon Dome, the Aprijuice stand sells the juice of the day (five juices, one a '
+        'day by weekday), your Pokémon drinks it and its Pokéathlon stars move. The test did it all through the game\'s '
+        'own script: a Red Apricorn into the blender, then Elaine\'s Stamina Juice for 100, Garchomp up to five '
+        'Stamina stars (pictures on the Gallery tab).',
+    ]),
+    ('A whole Pokéathlon course plays', [
+        'The Speed Course ran from start to finish in the test version: picking three Pokémon, the opening, Hurdle '
+        'Dash, Pennant Capture and Relay Run, the results (380 points) and back to the Dome. Still to do before you '
+        'can play one: starting it from the Dome\'s reception, the Pokéathlon\'s own songs and sounds (silent for '
+        'now), two screens that draw wrong, and the other four courses\' events.',
+    ]),
     ('Dawn on the Pokéathlon\'s trophies screen', [
         'A girl player saw HeartGold\'s Lyra on the trophies screen; it shows Dawn now (her Platinum picture, in the '
         'same frame as HeartGold\'s Ethan). The trophies test plays it as a girl too: her picture, pixel for pixel. '

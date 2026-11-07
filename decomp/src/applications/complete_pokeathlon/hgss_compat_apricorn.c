@@ -449,6 +449,11 @@ BOOL HgssCompat_ApricornBoxApp_Init(ApplicationManager *appMan, int *state)
     HgssApricornBoxApp *app = ApplicationManager_NewData(appMan, sizeof(HgssApricornBoxApp), HEAP_ID_APPLICATION);
 
     NOTE_STAGE(1);
+#ifdef SOVEREIGN_TEST
+    if (args != &gCompleteTestAprijuice.args) { // opened by the game (the bag, the stand): its arguments noted
+        gCompleteTestAprijuice.args = *args;
+    }
+#endif
     Overlay_LoadByID(FS_OVERLAY_ID(complete_aprijuice), OVERLAY_LOAD_ASYNC);
     NOTE_STAGE(2);
     HgssCompat_PokeathlonSave_Open(args->saveData, HEAP_ID_APPLICATION);
