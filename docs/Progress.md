@@ -2342,7 +2342,7 @@ Test results on the new test build:
   in its arguments), and notes its state each frame (the state function's index, the highest seen), its event, the
   heap's low point and what's left at its end, and its results (points, score, medal). `tools/complete/
   test_pokeathlon_course.py` starts the Speed Course, drags three Pokémon in, then plays along roughly (A, taps) and
-  says which states and events it reached, with a screenshot of each. Not run: the owner tests it.
+  says which states and events it reached, with a screenshot of each. Run on Nov 7 (Speed Course, test build): the course played through Hurdle Dash, Pennant Capture and Relay Run to its results (380 points) and back to the field, which takes input again; its heap came back whole (0x71fb8 of 0x72000 free at its end, lowest 0x6dac); 46 states and events, 0 problems.
 - The release build links with no warnings in the new code (recompiled with warnings on, release and test builds),
   boots (the boot check passes), and its main module keeps its size (1,151,972 bytes before and after; the Pokéathlon's
   code is all in its overlays).

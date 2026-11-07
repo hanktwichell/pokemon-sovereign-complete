@@ -8,13 +8,14 @@ the marker records the course's step, its state each frame, its event, the heap 
 1. The course starts: the field closes, the course makes its heap (0x72000 from the application heap) and runs.
 2. Its choice of three Pokémon (overlay 97) comes up: the party's first three are dragged in by touch, then YES.
 3. From there on the test presses A now and then and taps the bottom screen (its middle, and the event screens'
-   start button), as a player playing along roughly would, and notes each state the course reaches (its state function's index) and each event, with a screenshot of
-   each, until the course ends and the field runs again, or nothing has changed for STALL frames.
+   start button), as a player playing along roughly would, and notes each state the course reaches (its state
+   function's index, and that of what it runs) and each event, with a screenshot of each, until the course ends and
+   the field runs again, or nothing has changed for STALL frames.
 
 Results: each state and event reached, then a line per check (the course ended, its heap came back whole, its
 results), screenshots in OUT_DIR. COURSE (0-4, default 0, Speed) and SUPREME (1) pick the course; MINUTES (default
-30) is how long the test plays at most; STALL (default 8000 frames: an event's play runs over a minute) how long it waits on a state that doesn't change;
-SAVE_STALL=FILE saves an emulator state there when it stalls, to look into it.
+30) is how long the test plays at most; STALL (default 8000 frames: an event's play runs over a minute) how long it
+waits on a state that doesn't change; SAVE_STALL=FILE saves an emulator state there when it stalls, to look into it.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
@@ -132,7 +133,11 @@ def main():
             last, last_change = key, frame
             if key not in seen:
                 seen.add(key)
-                event = EVENTS[m['event']] if m['event'] < len(EVENTS) else m['event']
+                # A course has three events: index 3 is past them (its closing and results)
+                if m['eventIndex'] >= 3:
+                    event = 'after the events'
+                else:
+                    event = EVENTS[m['event']] if m['event'] < len(EVENTS) else m['event']
                 print(f'  frame {m["frames"]}: state {m["state"]} ({m["eventState"]}), event index {m["eventIndex"]} '
                       f'({event}), heap low {m["heapFree"]:#x}', flush=True)
                 shot(f'state_{m["state"]:02d}_{m["eventState"]:02d}_event_{m["eventIndex"]}_{m["event"]}')
