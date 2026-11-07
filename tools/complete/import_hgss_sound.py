@@ -43,6 +43,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gen_pokeathlon_sounds import course_sound_names  # noqa: E402
 from split_sound_basic import (BASIC, ROOT, SOUND, Bank, nitrosfx, played, resident_waves,  # noqa: E402
                                sseq_notes, write_if_changed)
 
@@ -108,6 +109,7 @@ def needed_songs(seqs):
     for path in glob.glob(os.path.join(HG, 'src', 'application', 'pokegear', 'radio', '**', '*.c'), recursive=True):
         names |= set(re.findall(r'SEQ_GS_\w+', open(path).read()))  # the Pokégear radio's shows' songs and its jingle
     names |= {n for n in seqs if re.fullmatch(OTHER_SONGS, n)}
+    names |= course_sound_names()  # the Pokéathlon's own songs and fanfare (its course's assembly plays them)
     return sorted(n for n in names if n.startswith(('SEQ_GS_', 'SEQ_ME_')) and n in seqs
                   and seqs[n]['player'] in MUSIC_PLAYERS)
 
@@ -125,6 +127,9 @@ def needed_effects(seqs, taken=frozenset()):
         text = open(path, errors='replace').read()
         names |= {re.sub(r'_sseq$', '', n) for n in re.findall(r'SEQ_SE_GS_\w+', text)}
         names |= {n for n in (re.sub(r'_sseq$', '', m) for m in re.findall(r'SEQ_SE_DP_\w+', text)) if n not in taken}
+    # and the Pokéathlon's: its course's assembly plays them by HeartGold's number (gen_pokeathlon_sounds.py maps them)
+    names |= {n for n in course_sound_names() if n.startswith('SEQ_SE_GS_')
+              or (n.startswith('SEQ_SE_DP_') and n not in taken)}
     return sorted(n for n in names if n in seqs and seqs[n]['player'].startswith('PLAYER_SE'))
 
 

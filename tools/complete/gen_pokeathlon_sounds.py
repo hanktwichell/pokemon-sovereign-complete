@@ -58,10 +58,27 @@ def named_constants(path):
     return found
 
 
-def main():
+def hgss_sounds():
+    """HeartGold's sound numbers and names (pret's sndseq.h), the first name for a number."""
     hg = {}
     for m in re.finditer(r'#define\s+(SEQ_\w+)\s+(\d+)', open(os.path.join(HG, 'include/constants/sndseq.h')).read()):
         hg.setdefault(int(m.group(2)), m.group(1))
+    return hg
+
+
+def course_sound_names():
+    """The names of HeartGold's sounds the Pokéathlon's assembly plays (its effects, fanfares and own songs), for
+    tools/complete/import_hgss_sound.py to bring in."""
+    used = set()
+    for path in ASM:
+        if os.path.exists(path):
+            used |= named_constants(path)
+    return {name for number, name in hgss_sounds().items() if number in used
+            and name.startswith(('SEQ_SE_', 'SEQ_ME_', 'SEQ_GS_PT_'))}
+
+
+def main():
+    hg = hgss_sounds()
     if not os.path.exists(NAIX):
         sys.exit(f'{NAIX} missing: build first')
     naix = {m.group(1): int(m.group(2)) for m in re.finditer(r'#define\s+(\w+)\s+(\d+)', open(NAIX).read())}

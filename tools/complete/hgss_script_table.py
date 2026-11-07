@@ -14,6 +14,7 @@ CONDITIONS = {'Lt': 0, 'Eq': 1, 'Gt': 2, 'Le': 3, 'Ge': 4, 'Ne': 5}
 # HeartGold's sounds that Platinum has under another name (the rest of Diamond and Pearl's keep theirs).
 SOUNDS = {
     'SEQ_SE_DP_SELECT': 'SE_CONFIRM_sseq_3',
+    'SEQ_SE_DP_DANSA5': 'SEQ_SE_PL_DANSA5_sseq',  # Platinum's DP_DANSA5 entry plays this file (the Pokéathlon's)
     'SEQ_ME_ITEM': 'SEQ_FANFA4_sseq',
     'SEQ_ME_KEYITEM': 'SEQ_FANFA4_sseq',
     'SEQ_ME_BADGE': 'SEQ_BADGE_sseq',
