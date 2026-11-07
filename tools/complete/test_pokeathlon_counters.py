@@ -149,10 +149,9 @@ def main():
         the refusal's text, or None."""
         refusal = noted(REFUSAL)
         mem.write_long(sym['gCompleteTestPokeathlon'] + 4 * REFUSAL, 0)
-        menus = u32(sym['gSovereignTestMenu'] + MENU_SHOWN)
-        press('A', after=60)
-        for _ in range(20):  # until the refusal is printed or the question's Yes/No comes up (the save is read first)
-            if noted(REFUSAL) or u32(sym['gSovereignTestMenu'] + MENU_SHOWN) != menus:
+        press('A', after=30)
+        for _ in range(8):  # the refusal comes within 60 frames; a question has no marker, so wait it out
+            if noted(REFUSAL):
                 break
             d.run(15)
         d.run(30)
@@ -161,12 +160,13 @@ def main():
         if refused is None:
             bought = noted(BOUGHT)
             press('A', after=60)  # Yes: the thanks, two pages; the purchase is made once they're printed
-            for _ in range(10):
+            refused = noted(REFUSAL) or None  # the list let the first A go by: this one was the choice, refused
+            for _ in range(0 if refused else 10):
                 if noted(BOUGHT) != bought:
                     break
                 press('A', after=60)
             d.run(30)
-            shot(f'{name}_thanks')
+            shot(f'{name}_refusal' if refused else f'{name}_thanks')
         press('A', after=60)  # past the refusal or the thanks: the list
         shot(f'{name}_list_again')
         if refused is None:

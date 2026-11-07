@@ -2279,6 +2279,8 @@ Test results on the new test build:
   its 1234. Both PASS.
 - **The Pokéathlon's tests on the pinned save (build_test2):** records, medals, event records, trophies, statues and
   the course's first screen pass as before; the prize counters' test first missed the "You can't buy any more today!"
-  refusal: the game refused rightly, but the message came after the test's fixed wait (the counter reads the
-  Pokéathlon's save, a sector now a little larger, before it answers). The test now waits for the refusal or the
-  question's Yes/No, whichever comes: 0 problems. Seven of seven.
+  refusal: the game refused rightly, but the test's first A on the list went by unanswered (its screenshot shows the
+  list and no message), so the test took the purchase path and its "Yes" got the refusal. Not the pin: timed on the
+  builds before and after it, every refusal comes within 60 frames on both. The test now counts a refusal that
+  answers its "Yes" as the refusal (the list let the first A go by): 0 problems. Seven of seven. (An earlier version
+  of this entry blamed the larger sector; the timing showed otherwise.)
