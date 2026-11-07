@@ -205,7 +205,13 @@ work.
   Its record screens: `include/complete_pokeathlon_records.h` (HeartGold's overlay 99 in C, the overlay
   `complete_pokeathlon_records`: the course record, the medals, the event record and the trophies), opened by
   `CompletePokeathlonRecordScreen` between the script's fades; tests `tools/complete/test_pokeathlon_records.py`,
-  `test_pokeathlon_medals.py`, `test_pokeathlon_event_records.py` and `test_pokeathlon_trophies.py`. The Friendship Room's statues:
+  `test_pokeathlon_medals.py`, `test_pokeathlon_event_records.py` and `test_pokeathlon_trophies.py`. The reception
+  (HeartGold's standard scripts 9850-9852, `scripts_hgss_0167.s`, the engine's 11300 on: a standard script file is
+  added to `STD_FILES` in `translate_hgss_scripts.py`, `STD_PEOPLE` in `import_hgss_events.py`, a
+  `SCRIPT_ID_OFFSET_COMPLETE_*` in `script_manager.h` and an entry in `script_manager.c`'s range table) starts a
+  course with `CompletePokeathlon` (overlay 7; the course runs as the field's app through
+  `HgssCompat_PokeathlonCourseApp`, and `ReturnToField` follows it in the script); test
+  `tools/complete/test_pokeathlon_reception.py` (FULL=1 plays the course too). The Friendship Room's statues:
   `CompleteScrCmd_PokeathlonStatues`; test `tools/complete/test_pokeathlon_statues.py` (the save probe
   `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records; `_COURSES` the course records' totals, before a screen opens).
 - HeartGold's assembly as it is (since Nov 7: the Pokéathlon's course, HeartGold's overlays 96 to 98):

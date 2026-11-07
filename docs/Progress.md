@@ -2387,3 +2387,22 @@ Test results on the new test build:
 - **The course test on the same build** (the font fix reaches the course too): 47 states and events, 0 problems, its
   heap back whole. Whether the results screen's garbled strip changed can't be told from it: the run played
   differently (the test plays at random) and its results screen differs.
+
+## Nov 7, 2026: the Pokéathlon Dome's reception starts a course
+
+- **The reception's scripts** (HeartGold's standard scripts 9850 to 9852, its `scr_seq_0167`) translated as the
+  engine's scripts 11300 on (`SCRIPT_ID_OFFSET_COMPLETE_POKEATHLON`, `scripts_hgss_0167.s`); the lobby's three
+  nurses run them (they had no script before). Its four commands Complete lacked: `Pokeathlon` is
+  `CompletePokeathlon` (overlay 7: the course as the field's application, through `HgssCompat_PokeathlonCourseApp`
+  in `complete_hgss_compat`, which loads the course's overlay after itself; the course's result, score, points and
+  medal handed back to the script's variables by `CompleteScript_WaitPokeathlonCourse` in the main module, then
+  `ReturnToField`, which HeartGold's own task does itself); `BufferPokeathlonCourseName` reads HeartGold's bank 313;
+  `CountAliveMonsAndPC` is Platinum's `CountAliveMonsAndBoxMons`; the walk-in's Pokéathlon outfit keeps the player
+  as is (Complete has no such sprite). Link play's courses back out at once.
+- **Tested** (`tools/complete/test_pokeathlon_reception.py`, test build): the first nurse's JOIN, the Speed Course,
+  "You want to try Speed Course?" Yes: the player walks in and the course starts; CANCEL on the choice of three
+  Pokémon returns to the lobby (0 problems). With FULL=1 the course is played (three Pokémon, A and taps): it runs
+  to its results (13,628 frames) and back in the lobby the nurse says "A received 166 points!", the course's score
+  (0 problems). The release build links and boots (boot check PASS).
+- A full `translate_hgss_scripts.py --install` also rewrote five other scripts with table entries nobody had
+  installed (a Lugia cutscene line, link-battle commands); those were left as they were for now (noted to check).

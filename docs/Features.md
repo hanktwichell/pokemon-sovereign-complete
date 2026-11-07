@@ -1237,8 +1237,8 @@ tiles away, the A button picking the item up, the running shoes, EXIT, the bag's
 
 ## The Pokéathlon Dome
 
-HeartGold's Pokéathlon, being ported in stages (`docs/Roadmap.md`): the Dome's lobby works; the courses and their
-events are still to come (stages 2 and 3).
+HeartGold's Pokéathlon, being ported in stages (`docs/Roadmap.md`): the Dome's lobby works, its reception starts a
+course, and the Speed Course plays to its end; the other courses' events are still to be run (stage 3).
 - **Its save:** HeartGold's Pokéathlon save field by field (`include/complete_pokeathlon.h`), in two save sectors of
   its own, so saves keep their size: what the Dome changes goes to a working copy and counts once the game is saved,
   as HeartGold's does (`CompletePokeathlon_Commit`, from the save's end).
@@ -1300,8 +1300,14 @@ events are still to come (stages 2 and 3).
   screen shows the stars it moves. A Pokémon's juice is kept in the Pokéathlon's save by its personality (HeartGold
   keeps it in the party), where the course's performance looks for it. Juices from other players' boxes (HeartGold's
   wireless link) don't come up.
-- **Not yet:** the courses and events in the game (the course runs in the test build: `docs/Roadmap.md`), so no
-  Athlete Points, records or medals are earned yet.
+- **The reception** (HeartGold's standard scripts 9850 to 9852, its `scr_seq_0167`, here the engine's scripts 11300
+  on): the lobby's three nurses offer the Pokéathlon (JOIN, INFO, EXIT), its five courses and "You want to try
+  Speed Course?"; Yes walks the player in and starts the course (`CompletePokeathlon`, HeartGold's `Pokeathlon`
+  command, in overlay 7: the course as the field's application, its result, score, points and medal handed back to
+  the script's variables, then the field back). Backing out of the choice of three Pokémon (CANCEL) returns to the
+  lobby. The link-play nurse's courses back out at once (no link play in Complete).
+- **Not yet:** the Pokéathlon's own songs and sounds (silent), and the courses' events past the Speed Course's
+  three, which haven't been run (`docs/Roadmap.md`).
 
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),
