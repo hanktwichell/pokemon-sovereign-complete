@@ -134,6 +134,12 @@ QUESTIONS = [
           '(Sylveon like Eevee, Kleavor like Scyther)', 'You\'ll set some by hand (they stay through reruns)',
           'Something else'],
          'Keep the base-stat stars for now and set any by hand that feel wrong in play: the file keeps your lines.'),
+        ('The Pokéathlon\'s trophies screen shows the player in HeartGold\'s Pokéathlon outfit: Ethan for a boy, but '
+         'Lyra for a girl, since HeartGold has no Dawn in that pose. Change it?',
+         'A girl player sees Lyra on that one screen (everywhere else the girl is Dawn).',
+         ['Leave Lyra there', 'Draw Dawn in that pose (new art, yours or made to match HeartGold\'s)',
+          'Show Dawn\'s own Platinum picture there instead of an outfit pose'],
+         'Leave Lyra until there is Dawn art for it: it is one small picture on one screen.'),
     ]),
 ]
 
