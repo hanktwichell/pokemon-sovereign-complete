@@ -206,23 +206,39 @@ work.
   `test_pokeathlon_medals.py`, `test_pokeathlon_event_records.py` and `test_pokeathlon_trophies.py`. The Friendship Room's statues:
   `CompleteScrCmd_PokeathlonStatues`; test `tools/complete/test_pokeathlon_statues.py` (the save probe
   `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records; `_COURSES` the course records' totals, before a screen opens).
-- HeartGold's assembly as it is (since Nov 7: overlay 97, the course's choice of three Pokémon, `complete_pokeathlon_select`):
+- HeartGold's assembly as it is (since Nov 7: the Pokéathlon's course, HeartGold's overlays 96 to 98):
   `tools/complete/import_hgss_asm.py NAME...` copies pret's `asm/NAME.s` into `decomp/asm/complete_hgss/` (only its
-  constants' includes dropped and gSystem's touch fields moved: HeartGold's System has a word more), listed in
-  `main.lsf.in` as `Object asm/complete_hgss/NAME.s` (lsfgen writes `asm/meson.build`). Every engine symbol the files
-  call needs a line in `asm/complete_hgss/hgss_compat.inc` (Platinum's name, or a `HgssCompat_` shim in
-  `src/applications/complete_pokeathlon/hgss_compat.c`); the import stops otherwise. `tools/complete/hgss_asm_symbols.py
-  FILE.s --compat ...` finds each one's Platinum twin by comparing both builds' code. Platinum's twin may be static,
-  or unused in Complete (the linker drops it, so calling it grows the main module): shim those in the overlay, and
-  check the main module's size after. An overlay nothing calls yet is dropped by the linker: its entry points are in
-  `meson.build`'s `-force_active` (overlay 97's in the release build only: a test build's hook calls them).
+  constants' includes dropped, gSystem's touch fields moved: HeartGold's System has a word more, and its `PATCHES`
+  and `REDIRECTS`, each listed in the file's header: lines changed where Complete's layout differs, a function's body
+  replaced by a jump to a shim), listed in `main.lsf.in` as `Object asm/complete_hgss/NAME.s` (lsfgen writes
+  `asm/meson.build`). Every engine symbol the files call needs a line in `asm/complete_hgss/hgss_compat.inc`
+  (Platinum's name, or a `HgssCompat_` shim in `src/applications/complete_pokeathlon/hgss_compat*.c`); the import
+  stops otherwise. `tools/complete/hgss_asm_symbols.py FILE.s --compat ...` finds each one's Platinum twin by comparing
+  both builds' code. Platinum's twin may be static, or unused in Complete (the linker drops it, so calling it grows
+  the main module), or in another overlay: shim those, and check the main module's size after. The shims (and
+  HeartGold's TextOBJ file, unk_02013534) are an overlay of their own, `complete_hgss_compat` (After main), which
+  whoever starts HeartGold's code loads first (`Overlay_LoadByID`); the course, `complete_pokeathlon_course`, goes after
+  it, and its overlays 97 and 98 (`complete_pokeathlon_select`, `complete_pokeathlon_parts`) after the course, over each
+  other as in HeartGold. An overlay nothing calls yet is dropped by the linker: the course's entry points are in
+  `meson.build`'s `-force_active` (release build only: a test build's hook calls them). HeartGold's heap IDs pass as
+  they are: the heap tables have room for 0xA0 (`src/system.c`). Its sounds: HeartGold's numbers become Complete's by
+  `include/data/complete_pokeathlon_sounds.h` (`tools/complete/gen_pokeathlon_sounds.py`, which also lists the ones the
+  course names that Complete's sound archive lacks: they play nothing). Its save: Save_Pokeathlon_Get hands out a
+  working copy of Complete's (`hgss_compat_save.c`; `HgssCompat_PokeathlonSave_Open` and `_Close` around whatever runs
+  the assembly), and each accessor its part of it.
   HeartGold's archives the assembly loads by number are packed into one, `application/complete/pokeathlon.narc`
   (`tools/complete/import_hgss_pokeathlon_archives.py`, each one's first member in
-  `include/data/complete_pokeathlon_archives.h`, which the shims add): add an archive there, not a NARC of its own (each
-  costs a path in the main module). Its text banks: `import_hgss_text.py`'s list (a new bank goes after the last, so
-  no bank's number moves). Overlay 97 in a test build: set `gCompleteTestPokeathlonSelect.open` to the course + 1
-  (`include/complete_test.h`; the overlay's `select_test.c` makes its heap and arguments and records its answer); its
-  test `tools/complete/test_pokeathlon_select.py` drags the Pokémon in by touch (the screen is HeartGold's touch screen).
+  `include/data/complete_pokeathlon_archives.h`, which the shims add, also for an archive opened whole: the open-NARC
+  table in `hgss_compat.c`): add an archive there, not a NARC of its own (each costs a path in the main module). It
+  also packs Complete's Pokéathlon performance as HeartGold's archive 169, from `data/complete/pokeathlon_performance.json`.
+  Its text banks: `import_hgss_text.py`'s list (a new bank goes after the last, so no bank's number moves; run it with
+  `--rom .cache/sacredgold.nds --scripts .cache/sacredgold/scr_seq`). Overlay 97 alone in a test build: set
+  `gCompleteTestPokeathlonSelect.open` to the course + 1 (`include/complete_test.h`; the overlay's `select_test.c`
+  makes its heap and arguments and records its answer); its test `tools/complete/test_pokeathlon_select.py` drags the
+  Pokémon in by touch (the screen is HeartGold's touch screen). The whole course in a test build:
+  `gCompleteTestPokeathlonCourse.open` = the course + 1 (and `supreme`), which runs it as HeartGold's reception does and
+  notes its state, event, heap and results; `tools/complete/test_pokeathlon_course.py` plays along and says how far it
+  got.
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

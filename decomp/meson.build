@@ -116,11 +116,12 @@ link_args = [
     '-sym', 'on'
 ]
 
-# Sovereign Complete: HeartGold's overlay 97 (the Pokéathlon's Pokémon choice, asm/complete_hgss/). A test build opens
-# it (src/complete_test.c); nothing in the game does until the course is ported, so the release build keeps its three
-# application functions by name, and with them the overlay and all it calls, which the linker would otherwise drop
+# Sovereign Complete: HeartGold's Pokéathlon course (asm/complete_hgss/, include/complete_pokeathlon_course.h). A test
+# build starts it (src/complete_test.c); nothing in the game does until the Dome's reception does, so the release
+# build keeps its three application functions by name, and with them its overlays (the course calls overlays 97 and
+# 98) and all they call, which the linker would otherwise drop
 if not get_option('sovereign_test')
-    link_args += ['-force_active', 'ov97_0221E5C0,ov97_0221E5D4,ov97_0221E69C']
+    link_args += ['-force_active', 'PokeathlonCourse_Init,PokeathlonCourse_Main,PokeathlonCourse_Exit']
 endif
 
 ############################################################

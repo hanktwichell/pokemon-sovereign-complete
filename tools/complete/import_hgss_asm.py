@@ -41,9 +41,64 @@ SIMULATED_INPUTS = 0x5C  # HeartGold's System field that Platinum's lacks
 # HeartGold's overlays the files really load (FS_OVERLAY_ID), and Complete's overlay for each. Any other
 # SDK_OVERLAY_*_ID in a file is a number the disassembly mistook for an overlay's ID (unk_020957B0's 1 is "field"'s):
 # it becomes the number again.
-OVERLAYS = {}
+OVERLAYS = {'OVY_97': 'complete_pokeathlon_select', 'OVY_98': 'complete_pokeathlon_parts'}
 # the macros.inc and global.inc of this folder, and the files' own .inc, are Complete's or copied
 OWN_INCLUDES = {'macros.inc', 'global.inc'}
+
+# HeartGold's functions whose body is replaced by a jump to a C function of the same arguments (a shim in
+# src/applications/complete_pokeathlon/), where Complete's data differs from HeartGold's: the course's own copy of
+# HeartGold's table of each species' first Pokéathlon performance member (494 species) becomes Complete's
+REDIRECTS = {
+    'overlay_96': {
+        'ov96_021E679C': 'HgssCompat_PokeathlonPerformanceMember',
+    },
+}
+
+# Lines changed inside a function (its name, the text as it is, what it becomes, how many times), where Complete's
+# layout differs from HeartGold's: a species in the Pokéathlon's records has 11 bits in Complete's save, not
+# HeartGold's 9 (a course record's Pokémon: species, form, gender, shiny) or 10 (an event record's: the form above
+# it; include/complete_pokeathlon.h); and the checks that stop at HeartGold's 493 species where Complete has more
+SPECIES_BITS = 'Complete\'s records keep a species in 11 bits'
+PATCHES = {
+    'overlay_96': [
+        # ov96_021E786C writes the course record's three Pokémon (CompletePokeathlonRecordMon: species 0-10, form 11-15,
+        # gender 16-17, shiny 18; HeartGold's species 0-8, form 9-13, gender 14-15, shiny 16)
+        ('ov96_021E786C', '_021E7924: .word 0xFFFEFFFF', '_021E7924: .word 0xFFFBFFFF', 1, SPECIES_BITS + ' (shiny: bit 18)'),
+        ('ov96_021E786C', '_021E7928: .word 0xFFFFFE00', '_021E7928: .word 0xFFFFF800', 1, SPECIES_BITS),
+        ('ov96_021E786C', '_021E792C: .word 0x000001FF', '_021E792C: .word 0x000007FF', 1, SPECIES_BITS),
+        ('ov96_021E786C', '_021E7930: .word 0xFFFFC1FF', '_021E7930: .word 0xFFFF07FF', 1, SPECIES_BITS + ' (form: bits 11-15)'),
+        ('ov96_021E786C', '_021E7934: .word 0xFFFF3FFF', '_021E7934: .word 0xFFFCFFFF', 1, SPECIES_BITS + ' (gender: bits 16-17)'),
+        ('ov96_021E786C', '\tlsl r6, r6, #0x1b\n\tlsr r6, r6, #0x12', '\tlsl r6, r6, #0x1b\n\tlsr r6, r6, #0x10', 1,
+         SPECIES_BITS + ' (the form from bit 11)'),
+        ('ov96_021E786C', '\tlsl r6, r6, #0x1e\n\tlsr r6, r6, #0x10', '\tlsl r6, r6, #0x1e\n\tlsr r6, r6, #0xe', 1,
+         SPECIES_BITS + ' (the gender from bit 16)'),
+        ('ov96_021E786C', '\tlsl r6, r6, #0x1f\n\tlsr r6, r6, #0xf', '\tlsl r6, r6, #0x1f\n\tlsr r6, r6, #0xd', 1,
+         SPECIES_BITS + ' (shiny at bit 18)'),
+        # ov96_021E7938 and ov96_021E7A2C write an event record's Pokémon: species + (form << 10) in HeartGold,
+        # species + (form << 11) here (CompletePokeathlonEventMon)
+        ('ov96_021E7938', '\tlsl r4, r4, #0xa', '\tlsl r4, r4, #0xb', 1, SPECIES_BITS + ' (the form from bit 11)'),
+        ('ov96_021E7A2C', '\tlsl r3, r3, #0xa', '\tlsl r3, r3, #0xb', 1, SPECIES_BITS + ' (the form from bit 11)'),
+    ],
+    'overlay_98': [
+        # ov98_0221E7E8 draws a course record's Pokémon (HeartGold's overlay 99 calls it; Complete's record screens are
+        # its own C): Complete's layout, as above
+        ('ov98_0221E7E8', '\tlsl r1, r2, #0x17\n\tadd r6, r3, #0\n\tlsr r1, r1, #0x17',
+         '\tlsl r1, r2, #0x15\n\tadd r6, r3, #0\n\tlsr r1, r1, #0x15', 1, SPECIES_BITS),
+        ('ov98_0221E7E8', '\tlsl r0, r2, #0xf\n\tlsr r0, r0, #0x1f', '\tlsl r0, r2, #0xd\n\tlsr r0, r0, #0x1f', 1,
+         SPECIES_BITS + ' (shiny: bit 18)'),
+        ('ov98_0221E7E8', '\tlsl r0, r0, #0x12\n\tlsr r0, r0, #0x1b', '\tlsl r0, r0, #0x10\n\tlsr r0, r0, #0x1b', 1,
+         SPECIES_BITS + ' (form: bits 11-15)'),
+        ('ov98_0221E7E8', '\tlsl r2, r2, #0x10\n\tlsr r2, r2, #0x1e', '\tlsl r2, r2, #0xe\n\tlsr r2, r2, #0x1e', 1,
+         SPECIES_BITS + ' (gender: bits 16-17)'),
+        ('ov98_0221E7E8', '\tlsl r0, r0, #0x17\n\tlsr r0, r0, #0x17', '\tlsl r0, r0, #0x15\n\tlsr r0, r0, #0x15', 1,
+         SPECIES_BITS),
+        # a species' name (from Complete's species names, all of them) and the count of species with all five medals
+        ('ov98_0221EE28', '_0221EE7C: .word 0x000001ED', '_0221EE7C: .word COMPLETE_NATIONAL_DEX_COUNT', 1,
+         'Complete has more species than HeartGold\'s 493'),
+        ('ov98_0221F024', '_0221F054: .word 0x000001ED', '_0221F054: .word COMPLETE_NATIONAL_DEX_COUNT', 1,
+         'Complete has more species than HeartGold\'s 493'),
+    ],
+}
 
 
 def compat_names():
@@ -67,9 +122,37 @@ def hg_overlay_ids():
     return {m.group(2): int(m.group(1), 16) for m in re.finditer(r'^([0-9a-f]+) \w SDK_OVERLAY_(\w+)_ID$', out, re.M)}
 
 
+def functions(text):
+    """{name: (start, end)} of each function's text (thumb_func_start NAME to its thumb_func_end NAME)."""
+    found = {}
+    for m in re.finditer(r'^\t(?:non_word_aligned_)?thumb_func_start (\w+)\n(.*?)^\tthumb_func_end \1\n', text, re.M | re.S):
+        found[m.group(1)] = (m.start(2), m.end(2))
+    return found
+
+
+def patch(name, src):
+    """REDIRECTS and PATCHES on HeartGold's text, and the notes saying what they changed."""
+    notes = []
+    for func, (old, new, count, why) in [(p[0], p[1:]) for p in PATCHES.get(name, [])]:
+        start, end = functions(src)[func]
+        body = src[start:end]
+        if body.count(old) != count:
+            sys.exit(f'{name}.s {func}: {old!r} found {body.count(old)} times, not {count}')
+        src = src[:start] + body.replace(old, new) + src[end:]
+        notes.append(f'{func}: {old.strip()!r} -> {new.strip()!r} ({why})')
+    for func, target in REDIRECTS.get(name, {}).items():
+        start, end = functions(src)[func]
+        body = (f'{func}: ; Sovereign Complete: HeartGold\'s body replaced by a jump to {target}\n'
+                f'\tldr r3, _{func}_target\n\tbx r3\n\t.balign 4, 0\n_{func}_target: .word {target}\n')
+        src = src[:start] + body + src[end:]
+        notes.append(f'{func}: a jump to {target} (Complete\'s data for it)')
+    return src, notes
+
+
 def convert(name, overlay_ids):
     src = open(os.path.join(HG, f'asm/{name}.s'), encoding='utf-8').read()
-    notes, lines = [], []
+    src, notes = patch(name, src)
+    lines = []
     pointer_regs = {}  # register: lines left in which it may still hold =gSystem
     for lineno, line in enumerate(src.split('\n'), 1):
         if re.match(r'#include\s+"constants/', line):
@@ -129,20 +212,38 @@ def convert(name, overlay_ids):
                     pointer_regs.clear()
         lines.append(line)
     header = [f'; Sovereign Complete: HeartGold\'s asm/{name}.s (pret\'s pokeheartgold), assembled as it is through',
-              '; tools/complete/import_hgss_asm.py, which changed only these lines:'] + \
+              '; tools/complete/import_hgss_asm.py, which changed only these (line numbers: HeartGold\'s file\'s, after the',
+              '; patches and redirects, which come first):'] + \
              [f';   {n}' for n in notes or ['(none)']]
     return '\n'.join(header + lines)
+
+
+def check_dex_count():
+    """hgss_compat.inc's COMPLETE_NATIONAL_DEX_COUNT (the patches' species count) is Complete's NATIONAL_DEX_COUNT."""
+    species = [line.strip() for line in open(os.path.join(ROOT, 'decomp/generated/species.txt')) if line.strip()]
+    dex = species.index('SPECIES_BAD_EGG') - 2
+    m = re.search(r'#define\s+COMPLETE_NATIONAL_DEX_COUNT\s+(\d+)', open(COMPAT, encoding='utf-8').read())
+    if not m or int(m.group(1)) != dex:
+        sys.exit(f'hgss_compat.inc: COMPLETE_NATIONAL_DEX_COUNT should be {dex} (decomp/generated/species.txt)')
 
 
 def main():
     names = sys.argv[1:]
     if not names:
         sys.exit(__doc__)
+    check_dex_count()
     paths, overlay_ids = [], hg_overlay_ids()
     for name in names:
         out = os.path.join(OUT, f'{name}.s')
         open(out, 'w', encoding='utf-8').write(convert(name, overlay_ids))
         inc = open(os.path.join(HG, f'asm/include/{name}.inc'), encoding='utf-8').read()
+        # the overlays' IDs as the file now names them, and the shims a redirect jumps to, declared
+        inc = re.sub(r'\bSDK_OVERLAY_(\w+)_ID\b', lambda m: f'SDK_OVERLAY_{OVERLAYS[m.group(1)]}_ID'
+                     if m.group(1) in OVERLAYS else m.group(0), inc)
+        inc += ''.join(f'.public {target}\n' for target in REDIRECTS.get(name, {}).values())
+        converted = open(out, encoding='utf-8').read()
+        inc += ''.join(f'.public SDK_OVERLAY_{o}_ID\n' for o in sorted(set(OVERLAYS.values()))
+                       if f'SDK_OVERLAY_{o}_ID' in converted)
         open(os.path.join(OUT, f'{name}.inc'), 'w', encoding='utf-8').write(inc)
         for included in re.findall(r'\.include "([^"]+)"', open(out, encoding='utf-8').read()):
             if included not in OWN_INCLUDES and included != f'{name}.inc':

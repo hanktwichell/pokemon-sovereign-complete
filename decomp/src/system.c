@@ -28,6 +28,8 @@ static void VBlankIntr(void);
 static void DummyVBlankIntr(void);
 static void HBlankIntr(void);
 static void SetHBlankEnabled(BOOL param0);
+#define COMPLETE_HEAP_ID_TOTAL 0xA0 // Sovereign Complete: HeartGold's heap IDs too (InitHeapSystem)
+
 static void InitHeapSystem(void);
 static void ApplyButtonModeToInput(void);
 
@@ -134,7 +136,10 @@ static void InitHeapSystem(void)
         offset++;
     }
 
-    Heap_InitSystem(sHeapInitParams, NELEMS(sHeapInitParams), HEAP_ID_MAX, offset);
+    // Sovereign Complete: room for HeartGold's heap IDs too, which its Pokéathlon assembly creates and passes as they
+    // are (its events' heaps, 0x87 to 0x9F, under its own: HeartGold has more heaps than Platinum), 3 bytes of the
+    // heaps' tables an ID
+    Heap_InitSystem(sHeapInitParams, NELEMS(sHeapInitParams), COMPLETE_HEAP_ID_TOTAL, offset);
 }
 
 void InitSystem(void)

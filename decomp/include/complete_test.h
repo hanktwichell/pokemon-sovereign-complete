@@ -201,6 +201,35 @@ typedef struct CompleteTestPokeathlonSelect {
 
 extern CompleteTestPokeathlonSelect gCompleteTestPokeathlonSelect;
 
+// HeartGold's Pokéathlon course (include/complete_pokeathlon_course.h), for a test of it. The harness sets open to the
+// course + 1 (1 to 5: Speed, Power, Skill, Stamina, Jump) and supreme (TRUE: the Supreme Cup's); the next free field
+// frame fades the field out, closes it and runs the course as HeartGold's reception does (its script command 611's
+// task: one player, the course and the Supreme flag in its arguments), and once it ends brings the field back and
+// clears open. step says where that is (1 leaving the field, 2 the course, 3 coming back, 0 back on the field), runs
+// counts the runs ended. Each frame of the course notes its state (its state function's index, 0-38; lastState the
+// highest seen), its event index and event (its data's 0x1F0 and the event number there, 0-9) and counts frames.
+// appFree is the application heap's free bytes with the field closed, before the course made its heap (0x72000);
+// heapFree that heap's fewest free bytes seen; heapLeft its free bytes as the course ended, before it was destroyed
+// (all of it but its own bookkeeping, unless something wasn't freed). args are the course's arguments, which hold its
+// results once it ends (HgssPokeathlonCourseResults from 0x08: points, score, course, medal, result).
+typedef struct CompleteTestPokeathlonCourse {
+    u8 open;
+    u8 supreme;
+    u8 step;
+    u8 runs;
+    u8 state;
+    u8 lastState;
+    u8 eventIndex;
+    u8 event;
+    u32 frames;
+    u32 appFree;
+    u32 heapFree;
+    u32 heapLeft;
+    HgssPokeathlonCourseArgs args;
+} CompleteTestPokeathlonCourse;
+
+extern CompleteTestPokeathlonCourse gCompleteTestPokeathlonCourse;
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem);
 BOOL CompleteTest_NoteSoundLoad(BOOL loaded, u16 id);
 

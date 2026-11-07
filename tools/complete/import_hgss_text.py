@@ -48,11 +48,12 @@ PREFIX = 'TEXT_BANK_HGSS_MSG_'
 # src/applications/complete_photo_album/ and complete_photo_caption/); the Unown Report's (msg_0001,
 # src/applications/complete_unown_report/); the Pokéathlon Dome PC's records (msg_0277,
 # src/overlay007/complete_pokeathlon_shop.c); the Pokéathlon's record screens (msg_0313, msg_0314,
-# src/applications/complete_pokeathlon_records/) and the course's choice of three Pokémon (msg_0278, msg_0298:
-# HeartGold's assembly, src/applications/complete_pokeathlon/hgss_compat.c)
+# src/applications/complete_pokeathlon_records/), the course's choice of three Pokémon (msg_0278, msg_0298:
+# HeartGold's assembly, src/applications/complete_pokeathlon/hgss_compat.c) and the course itself (msg_0309 to
+# msg_0311: its overlay 96)
 SHARED = ['0000', '0001', '0277', '0196', '0248', '0752', '0211', '0030', '0435', '0191', '0428', '0430', '0190', '0249', '0254', '0271', '0640'] + \
     [f'{n:04d}' for n in range(641, 717) if n != 668] + ['0002', '0198', '0265', '0039', '0269', '0313', '0314'] + \
-    [f'{n:04d}' for n in range(409, 421)] + ['0278', '0298']
+    [f'{n:04d}' for n in range(409, 421)] + ['0278', '0298', '0309', '0310', '0311']
 # Sacred Gold's lines too long for Platinum's message box (tools/test/check_message_box_lines.py): its own text, with
 # the line breaks moved (or, where a box is narrower, the words)
 TEXT_FIXES = {
