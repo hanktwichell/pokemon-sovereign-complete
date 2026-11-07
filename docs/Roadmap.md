@@ -109,7 +109,9 @@ Two Claude sessions at once, as on Sovereign, could build Johto and Kanto side b
   places from a survey of every Sinnoh map, and Route 221's workers (`docs/Features.md`, "People where Sinnoh's HMs
   held the player back").*
 - **The owner's note to remember (Nov 6, 2026): the Elite Four's rematch teams should be slightly better than their
-  first teams** (in both Leagues). Not done yet: on the list for when the teams are reviewed.
+  first teams** (in both Leagues). *Checked Nov 7 (`docs/E4Rematches.md`, `tools/complete/compare_e4_rematches.py`):
+  all 19 rematch teams already outlevel their first teams and hold as many items or more; two small points for the
+  team review (Will's rematch Gardevoir holds nothing, Koga's rematch has two lighter Pokémon). Nothing changed yet.*
 - **To do (the owner, Nov 6, 2026): every sprite in Sovereign Platinum ported to Sovereign Complete** (Pokémon
   fronts, backs, forms and icons, trainers, overworld sprites), checked against Sovereign's own folders. *Checked Nov 6
   (`tools/complete/check_sovereign_sprites.py`, against Sovereign's latest commit): all 23,162 of Sovereign's images

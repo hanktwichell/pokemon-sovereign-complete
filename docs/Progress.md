@@ -2193,3 +2193,8 @@ Test results on the new test build:
   questions). An entry marked "owner" survives a rerun. HeartGold's archive turns out to hold Power, Speed, Jump,
   Stamina, Skill in that order (Ninjask's highest are Speed and Jump, Shuckle's Stamina, Alakazam's Skill), not the
   order pret's HeartGold names its slots in. Nothing reads the file yet; the course and the Aprijuice stand will.
+- **The Elite Four's rematches against their first teams (the owner's note):** `tools/complete/compare_e4_rematches.py`
+  lines up all 19 pairs in both Leagues (singles and doubles, the champions too) in `docs/E4Rematches.md`: every
+  rematch already outlevels its first team and holds as many items or more. Two small points for the owner's team
+  review (Will's rematch Gardevoir and Koga's rematch Skuntank among the Pokémon Sacred Gold left holding nothing);
+  nothing changed until the owner decides.
