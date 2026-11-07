@@ -257,6 +257,22 @@ performance; Complete keeps Apricorns in the bag, so the juice mode needs its ow
 works out a Pokémon's stars for the day (HeartGold's CalcBoxMonPokeathlonPerformance: its nature, personality and the
 date move each stat within its range).
 
+**The Aprijuice stand, sized (Claude, Nov 7).** HeartGold's stand (the Dome's three clerks, `scr_seq_0122_D49`: the
+first talk gives the Apriblender; each clerk sells the juice of the day, `ScrCmd_741` its label, richness, smoothness
+and price; buying opens `ScrCmd_740`, the Apricorn Box app in its fourth mode, where a party Pokémon drinks it) and
+the player's own juice (the Apricorn Box from the bag, its Apriblender mode: Apricorns in, 100 steps to blend) are
+HeartGold's overlay 58 (597 lines of assembly, the app's frame: it runs overlay 59 and the party menu in turn),
+overlay 59 (9,629 lines, 163 functions: the box, the blender, the juice) and its main module's Apricorn Box save
+code (`unk_02031B0C`, 1,627 lines). By the course's route (HeartGold's assembly as it is): 213 engine symbols, 137
+the same code in Platinum; most of the rest are the course's too (windows, text, sprites, overlay managers), so it
+goes after overlay 96's compatibility layer. What Complete adds: the Apricorn Box's counts are the bag's Apricorns
+(Kurt's port keeps them there); the box's other 0x80 bytes (the blender, its step count, the stand's three juices)
+and each party Pokémon's juice (HeartGold keeps five bytes a party slot in the Party, which Platinum's save can't
+grow) go in the Pokéathlon's save sector, the juice found by the Pokémon's personality. That sector's size is pinned
+to the whole sector first (a size change makes a saved sector unreadable; nothing in it can be earned in play yet,
+so a change now loses nothing). The box's code goes in the app's overlay, not the main module (main memory is
+nearly full); the stand's label (`ScrCmd_741`) needs some of it on the field, from overlay 7 or a small copy.
+
 ### Still open
 
 The questions open until Nov 5 were all answered on Nov 6 (above, "The owner's answers"). Open now:

@@ -12,6 +12,8 @@ src/applications/complete_pokeathlon_records/trophies.c), in the test build, fro
    10 Collective Trophies (two a course, from 420 and 450 points), 4 Trust (12 medalists: 1, 2, 5, 10), 1 Potential and
    6 Friendship (3,250 + 432 + 60 = 3,742 points: from 3,000 to 3,600): 21 in all; both screens change.
 3. B closes it and the field comes back in the room; it opens again and a touch on Return closes it.
+4. A girl player (the save's gender set to female): the screen's picture is Dawn's (Complete's girl), not HeartGold's
+   Lyra: her front picture's pixels where it isn't see-through, and not the boy's picture.
 
 Results: a line per check, screenshots in OUT_DIR.
 
@@ -21,16 +23,17 @@ test build's folder (decomp/build_test by default):
         decomp/build_test/pokeplatinum.us.nds STATE OUT_DIR
 """
 import os
+import re
 import struct
 import sys
 
-from PIL import ImageChops
+from PIL import Image, ImageChops
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', 'test'))
 sys.path.insert(0, HERE)
 from check_trainer_party import consts  # noqa: E402
-from talk_to_objects import SYMBOLS, header_names, symbols, u32, warp  # noqa: E402
+from talk_to_objects import DECOMP, SYMBOLS, header_names, symbols, u32, warp  # noqa: E402
 
 ROOM = 'MAP_HEADER_HGSS_POKEATHLON_DOME_INTERIOR_B1F_FRIENDSHIP_ROOM'
 STAND = (7, 9)  # below the player's statue (7, 8), the trophies screen's background event
@@ -40,6 +43,31 @@ RETURN_BUTTON = (224, 176)
 COURSE_POINTS, HURDLE_FRAMES, HURDLE_POINTS, MEDALISTS = 650, 80 * 30, 432, 12
 WANT_TROPHIES, WANT_FRIENDSHIP = 10 + 4 + 1 + 6, 6
 OPEN_LIMIT = 1500  # frames from the A press to the screen
+PICTURE = (176, 192, 256, 272)  # the player's picture on the bottom screen (its sprite at (216, 40), 80x80)
+DAWN = os.path.join(DECOMP, 'res', 'trainers', 'classes', 'player_female', 'front.png')
+SAVE_PAGES, SAVE_SECTOR = 33, 0x1000  # SAVE_PAGE_MAX, SAVE_SECTOR_SIZE
+GENDER = 4 + 24  # PlayerSave: Options, SovereignOptions, then TrainerInfo (name[8], id, money, gender)
+FEMALE = 1
+
+
+def save_entry_index(name):
+    text = open(os.path.join(DECOMP, 'include', 'constants', 'savedata', 'save_table.h')).read()
+    body = text[text.index('enum SaveTableEntryID'):]
+    return re.findall(r'^\s+(SAVE_TABLE_ENTRY_\w+)', body, re.M).index(name)
+
+
+def dawn_match(shot):
+    """The share of Dawn's front picture's visible pixels the screen's picture shows (each colour to 5 bits)."""
+    dawn = Image.open(DAWN)
+    rgb, seen, same = dawn.convert('RGB'), 0, 0
+    screen = shot.crop(PICTURE)
+    for y in range(80):
+        for x in range(80):
+            if dawn.getpixel((x, y)) == 0:
+                continue
+            seen += 1
+            same += all(a >> 3 == b >> 3 for a, b in zip(rgb.getpixel((x, y)), screen.getpixel((x, y))))
+    return same / seen
 
 
 def save_offsets():
@@ -59,7 +87,7 @@ def main():
     rom, state, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('gCompleteTestPokeathlonRecordScreen', 'gCompleteTestPokeathlonSaveCopy',
-                             'gSovereignTestClock'))
+                             'gSovereignTestClock', 'sSaveDataPtr'))
     ids = header_names()
     d = Driver(rom, state)
     mem = d.emu.memory
@@ -157,13 +185,33 @@ def main():
     check(f'the top screen\'s totals changed ({changed(none, some, True)})', changed(none, some, True) is not None)
 
     # 3. B; a touch on Return
+    boy = None
     d.press('B', after=10)
     closed('B')
     problem = open_screen()
     check(f'the screen opens again {problem}', not problem)
     if not problem:
+        boy = shot('return')
         d.touch(*RETURN_BUTTON, frames=4, after=10)
         closed('a touch on Return')
+
+    # 4. A girl player: Dawn's picture
+    base = u32(d, sym['sSaveDataPtr'])
+    at = base + 20 + SAVE_PAGES * SAVE_SECTOR + 4 + 8 + 4 + save_entry_index('SAVE_TABLE_ENTRY_PLAYER') * 16 + 8
+    gender = base + 20 + u32(d, at) + GENDER
+    check(f'the save\'s player is a boy ({mem.unsigned[gender]})', mem.unsigned[gender] == 0)
+    mem.write_byte(gender, FEMALE)
+    problem = open_screen()
+    check(f'the screen opens for a girl {problem}', not problem)
+    if not problem:
+        girl = shot('girl')
+        share = dawn_match(girl)
+        check(f'the girl\'s picture is Dawn\'s ({share:.0%} of her front picture\'s pixels)', share >= 0.95)
+        if boy is not None:
+            check(f'and not the boy\'s ({ImageChops.difference(boy.crop(PICTURE), girl.crop(PICTURE)).getbbox()})',
+                  ImageChops.difference(boy.crop(PICTURE), girl.crop(PICTURE)).getbbox() is not None)
+        d.press('B', after=10)
+        closed('B (a girl)')
 
     print(f'{len(problems)} problems')
     sys.exit(1 if problems else 0)

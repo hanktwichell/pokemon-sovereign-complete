@@ -2249,3 +2249,14 @@ Test results on the new test build:
   CANCEL ends it. The release build boots. With the D-pad the hand picks and places one Pokémon at a time; the test
   uses touch, the screen's own way. Merged into main: nothing in the game opens it yet (the course will), so it costs
   the release game nothing but the overlay and 64 bytes of main memory (the packed archive's path).
+- **Dawn on the trophies screen (Nov 7):** HeartGold's trophies screen draws the player from its own archive (members
+  16 to 19: two 80x80 cells, Ethan's and Lyra's, and a palette each), so a girl player saw Lyra. The records'
+  importer (`tools/complete/import_hgss_pokeathlon_records.py`) now puts Dawn's Platinum front picture
+  (`res/trainers/classes/player_female/front.png`, the same 80x80) into the girl's cell, cut to its six OAMs, and her
+  palette into the second; the screen's code is unchanged. `test_pokeathlon_trophies.py` has a fourth part: the save's
+  player made a girl, the screen opens again and its picture shows all of Dawn's visible pixels (100%; the boy's
+  picture matches 4%). build_test4: 0 problems; the owner's question about that picture now says what the game does.
+- **Sovereign's roaming legendaries test (`tools/test/roamers.py`) on build_test3:** 0 problems. Of the eight
+  slots the Legend Archivist releases, five roam Johto or Kanto (`test_hgss_roamers.py` covers them); the three
+  left in Sinnoh were met in surveys, battled (each fled), one caught (no longer roaming, its state captured), and
+  the Marking Map showed the two still roaming.

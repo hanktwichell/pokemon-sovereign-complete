@@ -81,9 +81,9 @@ STEPS = [
 
 NEXT = [
     'Now: the Pokéathlon, the last HeartGold port (its Dome works: the prize counters, the Athlete Points, the '
-    'records, all four record screens, the Friendship Room\'s statues, each Pokémon\'s performance; next the '
-    'courses, starting with the screen where you pick three Pokémon, then its '
-    'courses and ten events).',
+    'records, all four record screens, the Friendship Room\'s statues, each Pokémon\'s performance, and the screen '
+    'where you pick three Pokémon; now the course itself, built from HeartGold\'s own code, then its ten events '
+    'and the Aprijuice stand).',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -134,12 +134,13 @@ QUESTIONS = [
           '(Sylveon like Eevee, Kleavor like Scyther)', 'You\'ll set some by hand (they stay through reruns)',
           'Something else'],
          'Keep the base-stat stars for now and set any by hand that feel wrong in play: the file keeps your lines.'),
-        ('The Pokéathlon\'s trophies screen shows the player in HeartGold\'s Pokéathlon outfit: Ethan for a boy, but '
-         'Lyra for a girl, since HeartGold has no Dawn in that pose. Change it?',
-         'A girl player sees Lyra on that one screen (everywhere else the girl is Dawn).',
-         ['Leave Lyra there', 'Draw Dawn in that pose (new art, yours or made to match HeartGold\'s)',
-          'Show Dawn\'s own Platinum picture there instead of an outfit pose'],
-         'Leave Lyra until there is Dawn art for it: it is one small picture on one screen.'),
+        ('The Pokéathlon\'s trophies screen shows the player in HeartGold\'s Pokéathlon outfit for a boy (Ethan). '
+         'HeartGold has no Dawn in that pose: is Dawn\'s own Platinum picture right for a girl?',
+         'Since Nov 7 a girl sees Dawn\'s Platinum battle picture there (it was HeartGold\'s Lyra), as the girl is Dawn '
+         'everywhere else.',
+         ['Keep Dawn\'s Platinum picture', 'Draw Dawn in the Pokéathlon pose (new art, yours or made to match '
+          'HeartGold\'s)', 'Back to Lyra'],
+         'Keep Dawn\'s picture until there is art of her in the pose: one small picture on one screen.'),
     ]),
 ]
 
@@ -266,6 +267,11 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Dawn on the Pokéathlon\'s trophies screen', [
+        'A girl player saw HeartGold\'s Lyra on the trophies screen; it shows Dawn now (her Platinum picture, in the '
+        'same frame as HeartGold\'s Ethan). The trophies test plays it as a girl too: her picture, pixel for pixel. '
+        'Sovereign\'s roaming legendaries test also passes again on this week\'s game.',
+    ]),
     ('The Pokéathlon\'s courses: the first screen runs', [
         'The screen where you pick your three Pokémon for a course now runs in Complete, built from HeartGold\'s own '
         'code: your party\'s icons, each one\'s Speed, Power, Skill, Stamina and Jump stars, drag three into the slots by '
