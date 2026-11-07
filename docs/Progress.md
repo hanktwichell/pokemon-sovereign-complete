@@ -2205,3 +2205,8 @@ Test results on the new test build:
   which pairs functions across the two builds by their machine code). The release build boots and the main module
   stays the same size. On branch `wip/pokeathlon-asm-spike` until the screen runs and has its test; the estimate for the
   course itself (overlay 96) by this route is 9 to 13 days (docs/Roadmap.md).
+- **Regression sweep, Nov 7:** every quick test passes, 51 of 51 (`tools/complete/run_tests.py`): the first half on
+  build_test2 (with the record screens' `charcode.c` change, which touches every HeartGold text), the second on
+  build_test3 (main's game code, all four record screens), with all 58 of Sacred Gold's special events, the roamers,
+  the Indigo Plateau's eight Elite Four runs and the radio's new Buena part; the medals, event record and trophies
+  tests passed on build_test3 alone. `test_walk_everywhere.py` is a long test now (hours: every map's every tile).
