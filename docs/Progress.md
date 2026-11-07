@@ -2282,3 +2282,67 @@ Test results on the new test build:
   refusal: the game refused rightly, but the message came after the test's fixed wait (the counter reads the
   Pokéathlon's save, a sector now a little larger, before it answers). The test now waits for the refusal or the
   question's Yes/No, whichever comes: 0 problems. Seven of seven.
+
+## Nov 7, 2026: the Pokéathlon's course, HeartGold's own assembly in Complete's build
+
+- **HeartGold's course (its overlay 96) assembled and linked** (stage 2, by the route the trial on overlay 97 proved):
+  the course and its ten events (109,356 lines of assembly), its overlay 98 (1,635) and HeartGold's TextOBJ file it
+  calls (unk_02013534, 1,504) copied as they are by `tools/complete/import_hgss_asm.py`, with pret's C for the course's
+  frame (its pokeathlon_course.c and pokeathlon_data.c, `src/applications/complete_pokeathlon/course.c`, its struct
+  checked at build time against the offsets the assembly reads). Overlays: `complete_hgss_compat` (After main: every
+  shim the assembly calls and the TextOBJ file, 14,080 bytes, shared with the Aprijuice stand's port to come),
+  `complete_pokeathlon_course` after it (230,304 bytes and 2.3 KB of BSS), and after the course, over each other as in
+  HeartGold, `complete_pokeathlon_select` (overlay 97, 17,312) and `complete_pokeathlon_parts` (overlay 98, 3,264).
+  The chain ends at about 0x0222A000, far before the battle overlays' end (0x02297AE0, where the heaps start). Whoever
+  starts the course loads `complete_hgss_compat` first (the select test's hook now does too).
+- **Its engine symbols, each named in `hgss_compat.inc`:** the folder's six files (overlays 96 to 98 and the three
+  HeartGold main-module files) name 502, 361 of them new with the course: of all 502, 291 are the same Platinum
+  function (196 under another name; most matched by their code, the short ones checked by hand), 30 the compiler's
+  runtime, 54 the course's own C and data, and 126 shims (91 new: `hgss_compat.c`, `hgss_compat_course.c`,
+  `hgss_compat_save.c`): HeartGold's archives by number (an open archive's
+  members moved where they're packed), its sounds by number (`include/data/complete_pokeathlon_sounds.h`,
+  `tools/complete/gen_pokeathlon_sounds.py`: 806 of HeartGold's effects, fanfares and songs Complete's archive has),
+  its three flags the course sets (Complete's `FLAG_HGSS_UNK_0EF` to `0F1`), its save, its walking Pokémon's models
+  (HeartGold's tables), functions Platinum keeps static, lacks or doesn't link (a sort, segment crossings, a sprite's
+  y offset, a sequence's variable read without pulling NitroSystem's into the main module), and link play's, left
+  out (the course calls those only in its link mode). HeartGold's heap IDs pass as they are: its events' heaps are
+  0x87 to 0x9F under the course's own, so the heap tables have room for 0xA0 IDs (`src/system.c`, 111 bytes more of
+  the main arena at boot).
+- **The save:** HeartGold's assembly reaches its Pokéathlon save only through its accessors, never by HeartGold's
+  offsets from the save's start (every `Save_Pokeathlon_Get` in overlays 96 to 98 goes straight to one). So
+  `Save_Pokeathlon_Get` hands out the course's working copy of Complete's save (read as the course starts, written to
+  the save's working copy as it ends, saved with the game) and each accessor a pointer to its part (the course
+  records, the medals, the event records and their points, the totals, the statues), whose layouts are HeartGold's.
+  Where Complete's differ, the species in the records: the importer's new `PATCHES` change the assembly that packs
+  them, each listed in the file's header. A course record's Pokémon (`ov96_021E786C`: HeartGold's species in bits 0-8,
+  form 9-13, gender 14-15, shiny 16) is written as Complete's (species 0-10, form 11-15, gender 16-17, shiny 18): its
+  five masks and three shifts; an event record's Pokémon (`ov96_021E7938`, and `ov96_021E7A2C` for link play)
+  is species + form << 11, not << 10; overlay 98's drawing of a course record's Pokémon (`ov98_0221E7E8`, HeartGold's
+  overlay 99 calls it: Complete's record screens are its own C) reads the same layout; its two checks that stop at
+  HeartGold's 493 species (a species' name, the count of species with every medal) stop at Complete's 1025 (the
+  importer checks the number). The course's other 9-bit fields are positions and scores, not species. The species
+  are otherwise u16 (the entrants, the medals by `[species - 1]`, the statues). Nothing of the save's reserved bytes
+  was needed.
+- **The performance:** `data/complete/pokeathlon_performance.json` packed into the Pokéathlon archive as HeartGold's
+  archive 169 (`tools/complete/import_hgss_pokeathlon_archives.py`): a 20-byte member in HeartGold's layout for each
+  species from 0 to 1025, then HeartGold's forms (Pichu, Unown, Deoxys, Burmy, Wormadam, Shellos, Gastrodon, Rotom,
+  Giratina, Shaymin, Arceus). The stars for the day are HeartGold's CalcBoxMonPokeathlonPerformance on them (the
+  nature's, the personality's and the date's moves, the archive's slots read through pret's ARCPERF numbers as
+  HeartGold's code does); the course reads the members itself too, through its own table of 494 species, which the
+  importer's new `REDIRECTS` turns into a jump to Complete's (`HgssCompat_PokeathlonPerformanceMember`). The stars'
+  colours were the wrong way round in overlay 97's placeholder (HeartGold: 1 above the base, 2 below): fixed.
+- **Its archives, text and sounds:** 26 more of HeartGold's archives packed into `application/complete/pokeathlon.narc`
+  (now 30 and 3,390 members, 4.9 MB), among them HeartGold's walking Pokémon's models (the course draws its athletes
+  from their textures; a species past 493, which HeartGold gives a person's model, runs as Ditto) and their parameters;
+  HeartGold's text banks 309 to 311 (the course's) imported, and its species names (bank 237) are Complete's. The
+  Pokéathlon's own songs and 60 of its effects aren't in Complete's sound archive yet: they play nothing, and the
+  course's opening, which waits on its song's cues, goes on at once (the generated table lists them).
+- **A test build's way in:** `gCompleteTestPokeathlonCourse.open` = the course + 1 (and `supreme`) runs a course from
+  the field as HeartGold's reception's task does (its script command 611: one player, the course and the Supreme flag
+  in its arguments), and notes its state each frame (the state function's index, the highest seen), its event, the
+  heap's low point and what's left at its end, and its results (points, score, medal). `tools/complete/
+  test_pokeathlon_course.py` starts the Speed Course, drags three Pokémon in, then plays along roughly (A, taps) and
+  says which states and events it reached, with a screenshot of each. Not run: the owner tests it.
+- The release build links with no warnings in the new code (recompiled with warnings on, release and test builds),
+  boots (the boot check passes), and its main module keeps its size (1,151,972 bytes before and after; the Pokéathlon's
+  code is all in its overlays).
