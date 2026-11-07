@@ -11,6 +11,7 @@
 #ifdef SOVEREIGN_TEST
 
 u8 CompletePokeathlonCourse_TestStateIndex(void *courseData);
+u8 CompletePokeathlonCourse_TestSubStateIndex(void *courseData);
 u32 CompletePokeathlonCourse_TestEventIndex(void *courseData);
 u32 CompletePokeathlonCourse_TestEvent(void *courseData);
 
@@ -27,13 +28,9 @@ void CompletePokeathlonCourse_TestNote(void *courseData)
         return;
     }
 
-    u8 state = CompletePokeathlonCourse_TestStateIndex(courseData);
-
-    if (state > test->lastState || test->frames == 0) {
-        test->lastState = state;
-    }
-
-    test->state = state;
+    test->data = courseData;
+    test->state = CompletePokeathlonCourse_TestStateIndex(courseData);
+    test->eventState = CompletePokeathlonCourse_TestSubStateIndex(courseData);
     test->eventIndex = CompletePokeathlonCourse_TestEventIndex(courseData);
     test->event = CompletePokeathlonCourse_TestEvent(courseData);
     test->frames++;

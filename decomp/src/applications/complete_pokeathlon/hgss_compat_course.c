@@ -186,15 +186,42 @@ void HgssCompat_SetBGMPlayerPaused(u8 playerID, BOOL paused)
     Sound_SetBGMPlayerPaused(playerID, paused);
 }
 
+// A song the course started that Complete's archive lacks (HeartGold's number; 0 when the song playing is one it
+// has): it stands for the silence that plays instead, so the course can ask for it back (GF_GetCurrentPlayingBGM),
+// and its cues, which the course waits on, are all reached at once (HgssCompat_ReadSequenceVariable)
+static u16 sMissingBGM;
+
+static void HgssCompat_StartMissingBGM(u16 seqID)
+{
+    u16 playing = Sound_GetCurrentBGM();
+
+    if (playing != 0) {
+        Sound_StopBGM(playing, 0);
+    }
+
+    sMissingBGM = seqID;
+}
+
 BOOL HgssCompat_PlayBGM(u16 seqID)
 {
     u16 seq = HgssCompat_Sound(seqID);
-    return seq != 0 ? Sound_PlayBGM(seq) : FALSE;
+
+    if (seq == 0) {
+        HgssCompat_StartMissingBGM(seqID);
+        return FALSE;
+    }
+
+    sMissingBGM = 0;
+    return Sound_PlayBGM(seq);
 }
 
 void HgssCompat_StopBGM(u16 seqID, int fadeOutFrames)
 {
     u16 seq = HgssCompat_Sound(seqID);
+
+    if (seqID == sMissingBGM) {
+        sMissingBGM = 0;
+    }
 
     if (seq != 0) {
         Sound_StopBGM(seq, fadeOutFrames);
@@ -206,6 +233,10 @@ void HgssCompat_StopBGM(u16 seqID, int fadeOutFrames)
 u16 HgssCompat_GF_GetCurrentPlayingBGM(void)
 {
     u16 seq = Sound_GetCurrentBGM();
+
+    if (sMissingBGM != 0) {
+        return sMissingBGM;
+    }
 
     for (int i = 0; i < COMPLETE_POKEATHLON_SOUNDS; i++) {
         if (sCompletePokeathlonSounds[i][1] == seq) {
@@ -231,10 +262,12 @@ BOOL HgssCompat_Sound_SetSceneAndPlayBGM(u8 scene, u16 seqID, int unused)
     u16 seq = HgssCompat_Sound(seqID);
 
     if (seq == 0) {
+        HgssCompat_StartMissingBGM(seqID);
         Sound_SetScene(HgssCompat_SoundScene(scene));
         return FALSE;
     }
 
+    sMissingBGM = 0;
     return Sound_SetSceneAndPlayBGM(HgssCompat_SoundScene(scene), seq, unused);
 }
 

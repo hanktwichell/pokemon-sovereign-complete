@@ -247,6 +247,19 @@ memory; banks 278 and 298) and a test build opens it from the field (`gCompleteT
 HeartGold's course size (0x72000, which fits with the field closed: the field map gives back 0xCC000). Not yet run:
 the owner tests it (docs/Progress.md, Nov 7).
 
+**The course assembled (Claude, Nov 7; branch `wip/pokeathlon-course`):** HeartGold's overlay 96 (the course and its
+ten events), its overlay 98 and the TextOBJ file they call are in Complete's build as HeartGold's own assembly, with
+pret's C for the course's frame, every one of their 502 engine symbols named (291 Platinum's own function, 126
+shims, the rest the course's own and the compiler's), in the overlays `complete_hgss_compat` (the shims, shared with
+what comes next by this route), `complete_pokeathlon_course`, and after it overlays 97 and 98; the release build
+links and boots with its main module unchanged. The save is reached through HeartGold's accessors over a working copy
+of Complete's (the records' species packed in Complete's 11 bits by patches to the assembly), the performance is
+Complete's data read as HeartGold reads it, and a test build starts a course from the field
+(`gCompleteTestPokeathlonCourse`, `tools/complete/test_pokeathlon_course.py`). Left: running it (the owner's test:
+each state and event, as far as it goes), the Pokéathlon's own songs and 60 sound effects (not in Complete's sound
+archive yet: silent until `import_hgss_sound.py` brings them in, and the sound memory test), the Dome's reception's
+command (HeartGold's 611) to start a course in the game, and whatever the run turns up event by event (stage 3).
+
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;
 HeartGold's overlay 99's apps, in C), the Friendship Room's statues and the performance data (HeartGold's for its 493

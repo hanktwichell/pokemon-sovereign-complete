@@ -7,13 +7,15 @@ the marker records the course's step, its state each frame, its event, the heap 
 
 1. The course starts: the field closes, the course makes its heap (0x72000 from the application heap) and runs.
 2. Its choice of three Pokémon (overlay 97) comes up: the party's first three are dragged in by touch, then YES.
-3. From there on the test presses A now and then and taps the bottom screen, as a player playing along roughly
-   would, and notes each state the course reaches (its state function's index) and each event, with a screenshot of
-   each, until the course ends and the field runs again, or nothing has changed for STALL frames.
+3. From there on the test presses A now and then and taps the bottom screen (its middle, and the event screens'
+   start button), as a player playing along roughly would, and notes each state the course reaches (its state
+   function's index, and that of what it runs) and each event, with a screenshot of each, until the course ends and
+   the field runs again, or nothing has changed for STALL frames.
 
 Results: each state and event reached, then a line per check (the course ended, its heap came back whole, its
 results), screenshots in OUT_DIR. COURSE (0-4, default 0, Speed) and SUPREME (1) pick the course; MINUTES (default
-20) is how long the test plays at most; STALL (default 3600 frames) how long it waits on a state that doesn't change.
+30) is how long the test plays at most; STALL (default 8000 frames: an event's play runs over a minute) how long it
+waits on a state that doesn't change; SAVE_STALL=FILE saves an emulator state there when it stalls, to look into it.
 
 From the repo root, with a test build and a bedroom state from it (tools/test/new_game.sh); TEST_BUILD picks another
 test build's folder (decomp/build_test by default):
@@ -37,12 +39,17 @@ STEP_COURSE = 2
 ICONS = [(18, 40), (42, 40), (66, 40)]
 SLOTS = [(212, 48), (212, 88), (212, 128)]
 YES = (222, 138)
-# CompleteTestPokeathlonCourse (include/complete_test.h): u8 open, supreme, step, runs, state, lastState, eventIndex,
+# Where the play-along taps: the middle of the bottom screen (an event's Pokémon), and the event screens' start button
+# (its bottom right corner: HeartGold's ov96_0221BA20, 192-255 by 152-183)
+TAPS = [(128, 96), (224, 168), (128, 140), (224, 168)]
+# CompleteTestPokeathlonCourse (include/complete_test.h): u8 open, supreme, step, runs, state, eventState, eventIndex,
 # event; u32 frames, appFree, heapFree, heapLeft; HgssPokeathlonCourseArgs (16 bytes: the save, the mode, then
-# HeartGold's results: u16 points, u16 score, u8 course, medal, result, supreme)
-SIZE = 40
-EVENTS = ['Hurdle Dash', 'Pennant Capture', 'Relay Run', 'Block Smash', 'Disc Catch', 'Lamp Jump', 'Circle Push',
-          'Snow Throw', 'Goal Roll', 'Ring Drop']
+# HeartGold's results: u16 points, u16 score, u8 course, medal, result, supreme); the course's data
+SIZE = 44
+# HeartGold's event numbers (the courses' rows in ov96_0221A934: Speed 0, 1, 6; Power 3, 2, 9; Skill 8, 9, 1;
+# Stamina 7, 6, 3; Jump 5, 4, 0)
+EVENTS = ['Hurdle Dash', 'Pennant Capture', 'Circle Push', 'Block Smash', 'Disc Catch', 'Lamp Jump', 'Relay Run',
+          'Ring Drop', 'Snow Throw', 'Goal Roll']
 
 
 def main():
@@ -51,8 +58,8 @@ def main():
     rom, state, out = sys.argv[1:4]
     course = int(os.environ.get('COURSE', '0'))
     supreme = int(os.environ.get('SUPREME', '0'))
-    minutes = float(os.environ.get('MINUTES', '20'))
-    stall = int(os.environ.get('STALL', '3600'))
+    minutes = float(os.environ.get('MINUTES', '30'))
+    stall = int(os.environ.get('STALL', '8000'))
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('gCompleteTestPokeathlonCourse',))
     d = Driver(rom, state)
@@ -69,9 +76,10 @@ def main():
         b = bytes(mem.unsigned[at:at + SIZE])
         frames, app_free, heap_free, heap_left = struct.unpack_from('<4I', b, 8)
         points, score = struct.unpack_from('<2H', b, 24 + 8)
-        return {'open': b[0], 'step': b[2], 'runs': b[3], 'state': b[4], 'lastState': b[5], 'eventIndex': b[6],
+        return {'open': b[0], 'step': b[2], 'runs': b[3], 'state': b[4], 'eventState': b[5], 'eventIndex': b[6],
                 'event': b[7], 'frames': frames, 'appFree': app_free, 'heapFree': heap_free, 'heapLeft': heap_left,
-                'points': points, 'score': score, 'course': b[24 + 12], 'medal': b[24 + 13], 'result': b[24 + 14]}
+                'points': points, 'score': score, 'course': b[24 + 12], 'medal': b[24 + 13], 'result': b[24 + 14],
+                'data': struct.unpack_from('<I', b, 40)[0]}
 
     def shot(name):
         d.screenshot().convert('RGB').save(os.path.join(out, name + '.png'))
@@ -120,23 +128,33 @@ def main():
         m = marker()
         if m['step'] != STEP_COURSE:
             break
-        key = (m['state'], m['eventIndex'], m['event'])
+        key = (m['state'], m['eventState'], m['eventIndex'], m['event'])
         if key != last:
             last, last_change = key, frame
             if key not in seen:
                 seen.add(key)
-                event = EVENTS[m['event']] if m['event'] < len(EVENTS) else m['event']
-                print(f'  frame {m["frames"]}: state {m["state"]}, event index {m["eventIndex"]} ({event}), '
-                      f'heap low {m["heapFree"]:#x}', flush=True)
-                shot(f'state_{m["state"]:02d}_event_{m["eventIndex"]}_{m["event"]}')
+                # A course has three events: index 3 is past them (its closing and results)
+                if m['eventIndex'] >= 3:
+                    event = 'after the events'
+                else:
+                    event = EVENTS[m['event']] if m['event'] < len(EVENTS) else m['event']
+                print(f'  frame {m["frames"]}: state {m["state"]} ({m["eventState"]}), event index {m["eventIndex"]} '
+                      f'({event}), heap low {m["heapFree"]:#x}', flush=True)
+                shot(f'state_{m["state"]:02d}_{m["eventState"]:02d}_event_{m["eventIndex"]}_{m["event"]}')
         if frame - last_change > stall:
-            print(f'  nothing changed for {stall} frames (state {m["state"]})', flush=True)
+            frames = m['frames']
+            d.run(60)
+            print(f'  nothing changed for {stall} frames (state {m["state"]} ({m["eventState"]}); the course\'s frame '
+                  f'{"still runs" if marker()["frames"] > frames else "has stopped"}, its data at {m["data"]:#x})',
+                  flush=True)
             shot('stalled')
+            if os.environ.get('SAVE_STALL'):
+                d.emu.savestate.save_file(os.environ['SAVE_STALL'])
             break
         if frame % 120 == 0:
             d.press('A', frames=4, after=4)
-        elif frame % 120 == 60:
-            d.touch(128, 96, frames=4, after=4)
+        elif frame % 120 in (40, 80):
+            d.touch(*TAPS[frame // 120 % len(TAPS)], frames=4, after=4)
 
     for _ in range(60):
         m = marker()
@@ -145,7 +163,7 @@ def main():
         d.run(30)
     m = marker()
     check(f'the course ended and the field runs again (step {m["step"]}, runs {m["runs"]}, the last state '
-          f'{m["state"]}, the highest {m["lastState"]})', m['step'] == 0 and m['runs'] == runs + 1)
+          f'{m["state"]} ({m["eventState"]}))', m['step'] == 0 and m['runs'] == runs + 1)
     if m['step'] == 0:
         idle = u32(d, sym['gSovereignTestIdleFrames'])
         d.run(90)
