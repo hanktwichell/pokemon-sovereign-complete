@@ -81,8 +81,8 @@ STEPS = [
 
 NEXT = [
     'Now: the Pokéathlon, the last HeartGold port (its Dome works: the prize counters, the Athlete Points, the '
-    'records, all four record screens, the Friendship Room\'s statues; next the Pokémon\'s Pokéathlon performance, '
-    'then its '
+    'records, all four record screens, the Friendship Room\'s statues, each Pokémon\'s performance; next the '
+    'courses, starting with the screen where you pick three Pokémon, then its '
     'courses and ten events).',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
@@ -266,6 +266,13 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon\'s courses: a faster way in works', [
+        'The courses are the biggest piece of HeartGold left (about 109,000 lines of HeartGold\'s machine code, never '
+        'turned into readable code). A trial on their first screen (picking your three Pokémon) showed that '
+        'HeartGold\'s own code can be built into Complete as it is, joined to Complete\'s engine through a table of '
+        'names and small adapters, and the game still boots with no memory used. That makes the courses about two '
+        'weeks of work instead of five. Next: that first screen running in the game, then the courses.',
+    ]),
     ('Your note on the Elite Four\'s rematches', [
         'All 19 rematch teams in both Leagues (singles, doubles and the champions) are already stronger than the first '
         'ones: higher levels in every pair and as many held items or more (the side-by-side table is '
