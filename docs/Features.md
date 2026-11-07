@@ -1310,7 +1310,8 @@ course, and the Speed Course plays to its end; the other courses' events are sti
   the results), its fanfare and the 62 effects of its own the course plays, in the sound archive (`docs/Music.md`,
   item 7); the course plays each by HeartGold's number through `include/data/complete_pokeathlon_sounds.h`.
 - **The five courses** (Speed, Power, Skill, Stamina, Jump) and all ten events run to their results in the test
-  build (Nov 7). Not yet: the Supreme Cup course, and a check by ear of the events' sounds (`docs/Roadmap.md`).
+  build (Nov 7), and the Supreme Cup (the same courses against its stronger rivals' teams) too. Not yet: a check
+  by ear of the events' sounds (`docs/Roadmap.md`).
 
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),

@@ -83,8 +83,8 @@ NEXT = [
     'Now: the Pokéathlon, the last HeartGold port. Its Dome works (the prize counters, the Athlete Points, the '
     'records, all four record screens, the statues, each Pokémon\'s performance, the Apricorn Box and the Aprijuice '
     'stand), the reception starts a course, and the Speed Course plays to its end with its own songs and sounds and '
-    'gives its points. All five courses and all ten events have now run to their results. Next: the Supreme Cup, '
-    'then a last pass over the Pokéathlon before the Trainer Card.',
+    'gives its points. All five courses, all ten events and the Supreme Cup have now run to their results. Next: a last '
+    'pass over the Pokéathlon, then the Trainer Card.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 

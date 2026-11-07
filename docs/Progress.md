@@ -2430,7 +2430,10 @@ Test results on the new test build:
   with the palette fix): Power (Block Smash, Circle Push, Goal Roll: 133 points), Skill (Snow Throw, Goal Roll,
   Pennant Capture: 114), Stamina (Ring Drop, Relay Run, Block Smash: 95) and Jump (Lamp Jump, Disc Catch, Hurdle Dash:
   388), each to its results and back to the field with its heap returned whole, 0 problems each. All ten events have
-  now run; their screens draw as HeartGold's (Lamp Jump checked mid-play too; Gallery tab). The "garbled strip" of the first run hasn't
+  now run; their screens draw as HeartGold's (Lamp Jump checked mid-play too; Gallery tab). The Supreme Cup (SUPREME=1:
+  HeartGold's same courses against stronger rivals) ran the Speed Course to its results, 0 problems: the rivals'
+  teams were the Supreme Cup's (Electrode, Magneton, Staryu for the normal run's Pikachu, Teddiursa, Vulpix), and a
+  silver medal for the same 179 points that took gold in the normal run. The "garbled strip" of the first run hasn't
   shown again since the font fix; the Hurdle Dash's "11th" is a place among the twelve runners.
 - **Checked and noted:** B closes HeartGold's menus (the reception's, on the test build; the Aprijuice test's miss was
   its timing). The five scripts a full translator install would change were reviewed: one line in data no script
