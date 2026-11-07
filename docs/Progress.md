@@ -2277,3 +2277,8 @@ Test results on the new test build:
   (build_test4, 1234 Athlete Points saved) continues on the pinned one (build_test2) with its flags, vars and bag
   (92 key items, 25 Balls) intact and the Pokéathlon fresh (0 points), as intended; the pinned build's own save keeps
   its 1234. Both PASS.
+- **The Pokéathlon's tests on the pinned save (build_test2):** records, medals, event records, trophies, statues and
+  the course's first screen pass as before; the prize counters' test first missed the "You can't buy any more today!"
+  refusal: the game refused rightly, but the message came after the test's fixed wait (the counter reads the
+  Pokéathlon's save, a sector now a little larger, before it answers). The test now waits for the refusal or the
+  question's Yes/No, whichever comes: 0 problems. Seven of seven.

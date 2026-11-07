@@ -149,7 +149,13 @@ def main():
         the refusal's text, or None."""
         refusal = noted(REFUSAL)
         mem.write_long(sym['gCompleteTestPokeathlon'] + 4 * REFUSAL, 0)
-        press('A', after=150)
+        menus = u32(sym['gSovereignTestMenu'] + MENU_SHOWN)
+        press('A', after=60)
+        for _ in range(20):  # until the refusal is printed or the question's Yes/No comes up (the save is read first)
+            if noted(REFUSAL) or u32(sym['gSovereignTestMenu'] + MENU_SHOWN) != menus:
+                break
+            d.run(15)
+        d.run(30)
         shot(f'{name}_question')
         refused = noted(REFUSAL) or None
         if refused is None:
