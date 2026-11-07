@@ -6538,6 +6538,20 @@
     .short SCRCMD_COMPLETEPOKEATHLONSTATUES
     .endm
 
+    .macro CompleteAprijuiceOfTheDay stand, juiceVar, priceVar, stepsVar
+    .short SCRCMD_COMPLETEAPRIJUICEOFTHEDAY
+    .short \stand
+    .short \juiceVar
+    .short \priceVar
+    .short \stepsVar
+    .endm
+
+    .macro CompleteAprijuiceStand juice, resultVar
+    .short SCRCMD_COMPLETEAPRIJUICESTAND
+    .short \juice
+    .short \resultVar
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

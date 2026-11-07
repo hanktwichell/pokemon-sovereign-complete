@@ -558,6 +558,10 @@ COMMANDS = {
     'ScrCmd_735': one('CompleteKurtBallCount {0}'),
     'ScrCmd_737': one('CompleteKurtBall {0}'),
     'ScrCmd_739': lambda a: ['OpenItemsBag', 'CompleteKurtTakeApricorns'],
+    # the Aprijuice stand: its juice of the day (741) and its app, a party Pokémon given the juice (740); both in
+    # src/overlay007/complete_pokeathlon_shop.c
+    'ScrCmd_741': one('CompleteAprijuiceOfTheDay {0}, {1}, {2}, {3}'),
+    'ScrCmd_740': one('CompleteAprijuiceStand {0}, {1}'),
     'ClearKurtApricorn': lambda a: ['CompleteKurtClear'],
     'GetTotalApricornCount': one('CompleteCountApricorns {0}'),
     # Silph Co.'s Rotom room: Platinum's own commands for its Rotom room, the same code under other names

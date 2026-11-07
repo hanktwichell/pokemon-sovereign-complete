@@ -3,6 +3,8 @@
 
 #include "constants/heap.h"
 
+#include "field/field_system_decl.h"
+
 #include "overlay_manager.h"
 #include "savedata.h"
 
@@ -36,5 +38,10 @@ typedef struct HgssApricornBoxArgs {
 BOOL HgssCompat_ApricornBoxApp_Init(ApplicationManager *appMan, int *state);
 BOOL HgssCompat_ApricornBoxApp_Main(ApplicationManager *appMan, int *state);
 BOOL HgssCompat_ApricornBoxApp_Exit(ApplicationManager *appMan, int *state);
+
+// The box from the bag (src/complete_aprijuice.c, the main module): HeartGold's Apricorn Box item, from its menu or
+// registered to Y
+void CompleteApricornBox_Launch(FieldSystem *fieldSystem);
+void *CompleteApricornBox_LaunchRegistered(void *fieldSystem);
 
 #endif // POKEPLATINUM_COMPLETE_APRIJUICE_H

@@ -5,6 +5,7 @@
 #include "constants/field_base_tiles.h"
 #include "constants/heap.h"
 #include "constants/map_object.h"
+#include "generated/game_records.h"
 #include "generated/items.h"
 #include "generated/movement_types.h"
 #include "generated/species.h"
@@ -16,6 +17,7 @@
 
 #include "bag.h"
 #include "bg_window.h"
+#include "complete_aprijuice.h"
 #include "complete_follower.h"
 #include "complete_pokeathlon.h"
 #include "complete_pokeathlon_records.h"
@@ -23,6 +25,7 @@
 #include "field_script_context.h"
 #include "field_system.h"
 #include "field_task.h"
+#include "game_records.h"
 #include "font.h"
 #include "heap.h"
 #include "inlines.h"
@@ -41,6 +44,7 @@
 #include "text.h"
 #include "vars_flags.h"
 
+#include "res/text/bank/hgss_msg_0021.h"
 #include "res/text/bank/hgss_msg_0191.h"
 #include "res/text/bank/hgss_msg_0277.h"
 #include "res/text/bank/hgss_msg_0435.h"
@@ -748,4 +752,116 @@ String *CompletePokeathlonShop_String(ShopMenu *shopMenu, u32 shopTextID)
     }
 
     return MessageLoader_GetNewString(shopMenu->completeMsgLoader, textID);
+}
+
+// The Aprijuice stand (HeartGold's ScrCmd_741 and ScrCmd_740). A stand's juice of the day is one of HeartGold's five
+// (its _020F6902, read by its sub_02031CEC): which one the weekday and the stand pick, as HeartGold's do when the box
+// holds no juice of a friend's for that stand (it never does in Complete: those came over HeartGold's wireless link).
+// Each: the steps it was blended for, its smoothness, and its five stats (Power, Stamina, Skill, Jump, Speed); its
+// owner is the bank's 14 + its number, its name the bank's 19 + its flavour (sub_02032004: 1 + its strongest stat,
+// the first of a tie; 0, no flavour, if it has none).
+typedef struct AprijuiceOfTheDay {
+    u16 steps;
+    u8 smoothness;
+    u8 stats[5];
+} AprijuiceOfTheDay;
+
+static const AprijuiceOfTheDay sAprijuices[5] = {
+    { 0, 116, { 22, 10, 0, 0, 0 } },
+    { 150, 120, { 0, 20, 14, 0, 0 } },
+    { 540, 125, { 0, 0, 28, 20, 0 } },
+    { 200, 136, { 0, 0, 0, 24, 14 } },
+    { 150, 104, { 12, 0, 0, 0, 20 } },
+};
+
+static u32 AprijuiceRichness(const AprijuiceOfTheDay *juice)
+{
+    u32 richness = 0;
+
+    for (int i = 0; i < 5; i++) {
+        richness += juice->stats[i];
+    }
+
+    return richness > 100 ? 100 : richness;
+}
+
+static u32 AprijuiceFlavor(const AprijuiceOfTheDay *juice)
+{
+    u32 best = 0;
+
+    for (int i = 1; i < 5; i++) {
+        if (juice->stats[i] > juice->stats[best]) {
+            best = i;
+        }
+    }
+
+    return juice->stats[best] != 0 ? best + 1 : 0;
+}
+
+// The stand's (var) juice of the day: its number in juiceVar, its price (100 to 5000) in priceVar, the steps it was
+// blended for in stepsVar; buffered, its owner (0), name (1), price (2), richness (3) and smoothness (4)
+BOOL CompleteScrCmd_AprijuiceOfTheDay(ScriptContext *ctx)
+{
+    u16 stand = ScriptContext_GetVar(ctx);
+    u16 *juiceVar = ScriptContext_GetVarPointer(ctx);
+    u16 *priceVar = ScriptContext_GetVarPointer(ctx);
+    u16 *stepsVar = ScriptContext_GetVarPointer(ctx);
+    StringTemplate **template = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    RTCDate date;
+
+    GetCurrentDate(&date);
+    *juiceVar = (date.week + 2 * stand) % NELEMS(sAprijuices);
+
+    const AprijuiceOfTheDay *juice = &sAprijuices[*juiceVar];
+    u32 richness = AprijuiceRichness(juice);
+    u32 price = juice->steps / 10 + 2 * richness;
+
+    *priceVar = price < 100 ? 100 : price > 5000 ? 5000 : price;
+    *stepsVar = juice->steps;
+
+    MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0021, HEAP_ID_FIELD2);
+    String *string = MessageLoader_GetNewString(loader, 14 + *juiceVar);
+
+    StringTemplate_SetString(*template, 0, string, 2, TRUE, GAME_LANGUAGE);
+    String_Free(string);
+    string = MessageLoader_GetNewString(loader, 19 + AprijuiceFlavor(juice));
+    StringTemplate_SetString(*template, 1, string, 2, TRUE, GAME_LANGUAGE);
+    String_Free(string);
+    MessageLoader_Free(loader);
+
+    StringTemplate_SetNumber(*template, 2, *priceVar, 4, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    StringTemplate_SetNumber(*template, 3, richness, 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    StringTemplate_SetNumber(*template, 4, juice->smoothness, 3, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    return FALSE;
+}
+
+// The stand's app: HeartGold's Apricorn Box in its stand mode, a party Pokémon given juice number juiceVar's value;
+// resultVar is set if one drank it. After the script's fade, as the record screens'; the launcher and HeartGold's code
+// are in the overlay complete_hgss_compat and the ones it loads.
+BOOL CompleteScrCmd_AprijuiceStand(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_hgss_compat);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        HgssCompat_ApricornBoxApp_Init,
+        HgssCompat_ApricornBoxApp_Main,
+        HgssCompat_ApricornBoxApp_Exit,
+        FS_OVERLAY_ID(complete_hgss_compat),
+    };
+    u16 juice = ScriptContext_GetVar(ctx);
+    u16 *resultVar = ScriptContext_GetVarPointer(ctx);
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    HgssApricornBoxArgs *boxArgs = Heap_Alloc(HEAP_ID_FIELD3, sizeof(HgssApricornBoxArgs));
+
+    MI_CpuClear8(boxArgs, sizeof(HgssApricornBoxArgs));
+    *resultVar = 0;
+    boxArgs->mode = HGSS_APRICORN_BOX_MODE_STAND;
+    boxArgs->result = resultVar;
+    boxArgs->juice = juice;
+    boxArgs->steps = GameRecords_GetRecordValue(SaveData_GetGameRecords(ctx->fieldSystem->saveData), RECORD_STEPS);
+    boxArgs->saveData = ctx->fieldSystem->saveData;
+    *args = boxArgs;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, boxArgs);
+    ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
+    return TRUE;
 }

@@ -745,7 +745,7 @@ scr_seq_D49_019:
     GoToIfUnset FLAG_HGSS_UNK_997, _095F
 _0A1D:
     ShowMoney 21, 1
-    @ HGSS: ScrCmd_741 VAR_TEMP_x4007, VAR_SPECIAL_x8000, VAR_SPECIAL_x8001, VAR_SPECIAL_x8002
+    CompleteAprijuiceOfTheDay VAR_MAP_LOCAL_0x07, VAR_0x8000, VAR_0x8001, VAR_0x8002
     ApplyMovement obj_D49_shopm1_2, _0BEC
     WaitMovement
     Message msg_0137_D49_00033
@@ -767,7 +767,7 @@ _0A3A:
     FadeScreen 6, 1, 0, COLOR_BLACK
     WaitFadeScreen
     HideMoney
-    @ HGSS: ScrCmd_740 VAR_SPECIAL_x8000, VAR_SPECIAL_x8003
+    CompleteAprijuiceStand VAR_0x8000, VAR_0x8003
     ReturnToField
     ShowMoney 21, 1
     FadeScreen 6, 1, 1, COLOR_BLACK

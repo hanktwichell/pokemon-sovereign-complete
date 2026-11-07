@@ -26,6 +26,7 @@
 #include "bag_context.h"
 #include "berry_patch_manager.h"
 #include "bg_window.h"
+#include "complete_aprijuice.h" // Sovereign Complete
 #include "complete_berry_pots.h" // Sovereign Complete
 #include "complete_dowsing.h" // Sovereign Complete
 #include "complete_unown_report.h" // Sovereign Complete
@@ -109,6 +110,8 @@ static BOOL UseCompleteUnownReportInField(ItemFieldUseContext *usageContext); //
 static void UseCompleteDowsingFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext); // Sovereign Complete
 static BOOL UseCompleteDowsingInField(ItemFieldUseContext *usageContext); // Sovereign Complete
 static enum ItemUseCheckResult CanUseCompleteDowsing(const ItemUseContext *usageContext); // Sovereign Complete
+static void UseCompleteApricornBoxFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext); // Sovereign Complete
+static BOOL UseCompleteApricornBoxInField(ItemFieldUseContext *usageContext); // Sovereign Complete
 static BOOL UseBicycleInField(ItemFieldUseContext *usageContext);
 static BOOL UseJournalInField(ItemFieldUseContext *usageContext);
 static BOOL UseOldRodInField(ItemFieldUseContext *usageContext);
@@ -180,6 +183,7 @@ static const ItemUseFuncDat sItemUseFuncs[] = {
     [ITEM_USE_FUNC_COMPLETE_BERRY_POTS] = { UseCompleteBerryPotsFromMenu, UseCompleteBerryPotsInField, NULL }, // Sovereign Complete
     [ITEM_USE_FUNC_COMPLETE_UNOWN_REPORT] = { UseCompleteUnownReportFromMenu, UseCompleteUnownReportInField, NULL }, // Sovereign Complete
     [ITEM_USE_FUNC_COMPLETE_DOWSING] = { UseCompleteDowsingFromMenu, UseCompleteDowsingInField, CanUseCompleteDowsing }, // Sovereign Complete
+    [ITEM_USE_FUNC_COMPLETE_APRICORN_BOX] = { UseCompleteApricornBoxFromMenu, UseCompleteApricornBoxInField, NULL }, // Sovereign Complete
 };
 // clang-format on
 
@@ -1110,6 +1114,24 @@ static void UseCompleteUnownReportFromMenu(ItemMenuUseContext *usageContext, con
 static BOOL UseCompleteUnownReportInField(ItemFieldUseContext *usageContext)
 {
     RegisteredItem_CreateGoToAppTask(usageContext, CompleteUnownReport_LaunchRegistered);
+    return TRUE;
+}
+
+// Sovereign Complete: HeartGold's Apricorn Box (include/complete_aprijuice.h), from the bag or registered to Y, as the
+// Unown Report's
+static void UseCompleteApricornBoxFromMenu(ItemMenuUseContext *usageContext, const ItemUseContext *additionalContext)
+{
+    FieldSystem *fieldSystem = FieldTask_GetFieldSystem(usageContext->fieldTask);
+    StartMenu *menu = FieldTask_GetEnv(usageContext->fieldTask);
+
+    CompleteApricornBox_Launch(fieldSystem);
+    menu->taskData = NULL;
+    StartMenu_SetCallback(menu, StartMenu_ExitPalPad);
+}
+
+static BOOL UseCompleteApricornBoxInField(ItemFieldUseContext *usageContext)
+{
+    RegisteredItem_CreateGoToAppTask(usageContext, CompleteApricornBox_LaunchRegistered);
     return TRUE;
 }
 

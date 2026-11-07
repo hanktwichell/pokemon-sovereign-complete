@@ -260,6 +260,19 @@ each state and event, as far as it goes), the Pokéathlon's own songs and 60 sou
 archive yet: silent until `import_hgss_sound.py` brings them in, and the sound memory test), the Dome's reception's
 command (HeartGold's 611) to start a course in the game, and whatever the run turns up event by event (stage 3).
 
+**The course's first run (Nov 7; merged into main):** the Speed Course plays from the choice of three Pokémon through
+the opening, Hurdle Dash, Pennant Capture and Relay Run, to the results (380 points) and back to the field, its heap
+returned whole (`test_pokeathlon_course.py`: 46 states and events, 0 problems). The other four courses and seven
+events haven't been run yet. Open, seen in that run: the event intro screens' bottom icons and start button draw
+black (a palette not loaded as HeartGold loads it); the results screen's top strip under the teams' names is garbled;
+no Pokéathlon song or effect plays (its 7 songs, fanfare and 62 effects, listed in
+`include/data/complete_pokeathlon_sounds.h`, need `import_hgss_sound.py`, `gen_pokeathlon_sounds.py` and the sound
+memory test); nothing in the game starts a course yet (the reception's command 611); species past 493 run as Ditto;
+an event's text may show control codes Platinum lacks; tied results may sort differently from HeartGold's (the SDK's
+sort isn't linked, Complete's replaces it). One of the Aprijuice port's fixes to the shared layer reaches the course
+(HeartGold's font numbers now translated in every printer and in the width check, which the course calls too): its
+test runs again on that build to see whether the garbled strip changes.
+
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;
 HeartGold's overlay 99's apps, in C), the Friendship Room's statues and the performance data (HeartGold's for its 493

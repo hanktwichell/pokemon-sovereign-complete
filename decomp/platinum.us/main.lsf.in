@@ -252,6 +252,7 @@ Static main
 	Object src/complete_photo.c
 	Object src/complete_berry_pots.c
 	Object src/complete_unown_report.c
+	Object src/complete_aprijuice.c
 	Object src/complete_dowsing.c
 	Object src/complete_pokeathlon.c
 	Object src/unk_02054884.c

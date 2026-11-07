@@ -455,16 +455,6 @@ BOOL HgssCompat_ApricornBoxApp_Init(ApplicationManager *appMan, int *state)
     NOTE_STAGE(3);
     sub_02032058(HgssCompat_PokeathlonSave_IfOpen()->apricornBox, args->steps);
     NOTE_STAGE(4);
-#ifdef SOVEREIGN_TEST
-    {
-        FS_EXTERN_OVERLAY(complete_aprijuice_box);
-        gCompleteTestAprijuice.stage = 10;
-        Overlay_LoadByID(FS_OVERLAY_ID(complete_aprijuice_box), OVERLAY_LOAD_ASYNC);
-        gCompleteTestAprijuice.stage = 11;
-        Overlay_UnloadByID(FS_OVERLAY_ID(complete_aprijuice_box));
-        gCompleteTestAprijuice.stage = 12;
-    }
-#endif
 
     if (args->menuInputState == NULL) {
         args->menuInputState = &sMenuInputState;

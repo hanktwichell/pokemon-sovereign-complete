@@ -1035,6 +1035,8 @@ ScriptCommand(SCRCMD_COMPLETEUPDATEATHLETEPOINTS,                      CompleteS
 ScriptCommand(SCRCMD_COMPLETEPOKEATHLONRECORDS,                        CompleteScrCmd_PokeathlonRecords)
 ScriptCommand(SCRCMD_COMPLETEPOKEATHLONRECORDSCREEN,                   CompleteScrCmd_PokeathlonRecordScreen)
 ScriptCommand(SCRCMD_COMPLETEPOKEATHLONSTATUES,                        CompleteScrCmd_PokeathlonStatues)
+ScriptCommand(SCRCMD_COMPLETEAPRIJUICEOFTHEDAY,                        CompleteScrCmd_AprijuiceOfTheDay)
+ScriptCommand(SCRCMD_COMPLETEAPRIJUICESTAND,                           CompleteScrCmd_AprijuiceStand)
 
 // clang-format on
 
