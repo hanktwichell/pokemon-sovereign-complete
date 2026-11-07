@@ -44,8 +44,10 @@ STD_SCRIPTS = {'std_hide_show_deliverymen': '10200', 'std_hide_show_deliverymen_
 # HeartGold's standard script files the engine has as they are, translated, at their own script IDs
 # (include/script_manager.h): the Bug-Catching Contest's (its 10400 on, here 11000 on: Platinum has 10400) and the
 # Johto Safari Zone's (its 8800 on, here 11100 on: Platinum's Safari game has 8800) and the Battle Frontier's move
-# tutors' (its 10440 on, here 11200 on), with their numbers of scripts
-STD_FILES = {'scr_seq_0151': (10400, 11000, 29), 'scr_seq_0262': (8800, 11100, 7), 'scr_seq_0002': (10440, 11200, 3)}
+# tutors' (its 10440 on, here 11200 on) and the Pokéathlon Dome's reception (its 9850 on, here 11300 on), with their
+# numbers of scripts
+STD_FILES = {'scr_seq_0151': (10400, 11000, 29), 'scr_seq_0262': (8800, 11100, 7), 'scr_seq_0002': (10440, 11200, 3),
+             'scr_seq_0167': (9850, 11300, 3)}
 # HeartGold's move tutors (its include/constants/scrcmd.h): the Battle Frontier's three, by their place in the Frontier
 # Access (src/overlay005/complete_move_tutor.c)
 MOVE_TUTORS = {'MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT': '0', 'MOVE_TUTOR_NPC_FRONTIER_TOP_RIGHT': '1',

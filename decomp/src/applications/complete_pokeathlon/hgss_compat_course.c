@@ -11,10 +11,13 @@
 
 #include "bg_window.h"
 #include "character_sprite.h"
+#include "complete_pokeathlon_course.h"
 #include "font.h"
+#include "game_overlay.h"
 #include "heap.h"
 #include "message.h"
 #include "network_icon.h"
+#include "overlay_manager.h"
 #include "sound.h"
 #include "sound_playback.h"
 #include "sound_system.h"
@@ -683,4 +686,47 @@ BOOL HgssCompat_LinkSend(int cmd, const void *data, int size)
 u16 HgssCompat_LinkMyID(void)
 {
     return 0;
+}
+
+// ---- The course as the field's application (CompleteScrCmd_Pokeathlon, the reception's command): this overlay is
+// the template's, loaded first by the application manager; the course's overlay is loaded here, after it, and the
+// course runs as an application of its own (HeartGold's PokeathlonCourse_LaunchApp, from its sub_02095E30)
+typedef struct HgssPokeathlonCourseApp {
+    ApplicationManager *appMan;
+} HgssPokeathlonCourseApp;
+
+BOOL HgssCompat_PokeathlonCourseApp_Init(ApplicationManager *appMan, int *state)
+{
+    FS_EXTERN_OVERLAY(complete_pokeathlon_course);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        PokeathlonCourse_Init,
+        PokeathlonCourse_Main,
+        PokeathlonCourse_Exit,
+        FS_OVERLAY_ID_NONE,
+    };
+    HgssPokeathlonCourseApp *app = ApplicationManager_NewData(appMan, sizeof(HgssPokeathlonCourseApp), HEAP_ID_APPLICATION);
+
+    Overlay_LoadByID(FS_OVERLAY_ID(complete_pokeathlon_course), OVERLAY_LOAD_ASYNC);
+    app->appMan = ApplicationManager_New(&sTemplate, ApplicationManager_Args(appMan), HEAP_ID_APPLICATION);
+    return TRUE;
+}
+
+BOOL HgssCompat_PokeathlonCourseApp_Main(ApplicationManager *appMan, int *state)
+{
+    HgssPokeathlonCourseApp *app = ApplicationManager_Data(appMan);
+
+    return ApplicationManager_Exec(app->appMan);
+}
+
+BOOL HgssCompat_PokeathlonCourseApp_Exit(ApplicationManager *appMan, int *state)
+{
+    FS_EXTERN_OVERLAY(complete_pokeathlon_course);
+
+    HgssPokeathlonCourseApp *app = ApplicationManager_Data(appMan);
+
+    ApplicationManager_Free(app->appMan);
+    Overlay_UnloadByID(FS_OVERLAY_ID(complete_pokeathlon_course));
+    ApplicationManager_FreeData(appMan);
+    return TRUE;
 }

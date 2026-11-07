@@ -20,6 +20,7 @@
 #include "complete_aprijuice.h"
 #include "complete_follower.h"
 #include "complete_pokeathlon.h"
+#include "complete_pokeathlon_course.h"
 #include "complete_pokeathlon_records.h"
 #include "complete_scrcmd.h"
 #include "field_script_context.h"
@@ -46,6 +47,7 @@
 
 #include "res/text/bank/hgss_msg_0021.h"
 #include "res/text/bank/hgss_msg_0191.h"
+#include "res/text/bank/hgss_msg_0313.h"
 #include "res/text/bank/hgss_msg_0277.h"
 #include "res/text/bank/hgss_msg_0435.h"
 #include "res/text/bank/unk_0543.h"
@@ -863,5 +865,67 @@ BOOL CompleteScrCmd_AprijuiceStand(ScriptContext *ctx)
     *args = boxArgs;
     FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, boxArgs);
     ScriptContext_Pause(ctx, CompleteScript_WaitApplicationDestroyArgs);
+    return TRUE;
+}
+
+// The reception (HeartGold's standard scripts 9850 to 9852, here 11300 on). HeartGold's BufferPokeathlonCourseName:
+// the course's name (0-4, the Supreme Cup's past them) from HeartGold's bank 313, into the string template's slot
+BOOL CompleteScrCmd_BufferPokeathlonCourseName(ScriptContext *ctx)
+{
+    u8 slot = ScriptContext_ReadByte(ctx);
+    u16 course = ScriptContext_GetVar(ctx);
+    StringTemplate **template = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_STR_TEMPLATE);
+    MessageLoader *loader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_HGSS_MSG_0313, HEAP_ID_FIELD2);
+    String *string = MessageLoader_GetNewString(loader, course < 11 ? course : 0);
+
+    StringTemplate_SetString(*template, slot, string, 0, TRUE, GAME_LANGUAGE);
+    String_Free(string);
+    MessageLoader_Free(loader);
+    return FALSE;
+}
+
+// HeartGold's Pokeathlon command (its ScrCmd_Pokeathlon, sub_02095DF4): a course (courseVar's) for one player, the
+// Supreme Cup's with supreme set, as the field's application (the course's overlays after complete_hgss_compat, which
+// the template loads); its result (1 if backed out before it began), score, points and medal into the four
+// variables as it ends. Link play (link set) is left out of Complete: backed out at once.
+BOOL CompleteScrCmd_Pokeathlon(ScriptContext *ctx)
+{
+    FS_EXTERN_OVERLAY(complete_hgss_compat);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        HgssCompat_PokeathlonCourseApp_Init,
+        HgssCompat_PokeathlonCourseApp_Main,
+        HgssCompat_PokeathlonCourseApp_Exit,
+        FS_OVERLAY_ID(complete_hgss_compat),
+    };
+    u8 link = ScriptContext_ReadByte(ctx);
+    u8 supreme = ScriptContext_ReadByte(ctx);
+    u16 course = ScriptContext_GetVar(ctx);
+    u16 *resultVar = ScriptContext_GetVarPointer(ctx);
+    u16 *scoreVar = ScriptContext_GetVarPointer(ctx);
+    u16 *pointsVar = ScriptContext_GetVarPointer(ctx);
+    u16 *medalVar = ScriptContext_GetVarPointer(ctx);
+
+    if (link) {
+        *resultVar = 1;
+        *scoreVar = *pointsVar = *medalVar = 0;
+        return FALSE;
+    }
+
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    CompletePokeathlonCourseScript *script = Heap_Alloc(HEAP_ID_FIELD3, sizeof(CompletePokeathlonCourseScript));
+
+    MI_CpuClear8(script, sizeof(CompletePokeathlonCourseScript));
+    script->args.saveData = ctx->fieldSystem->saveData;
+    script->args.mode = 0;
+    script->args.unk_08[4] = course; // 0x0C
+    script->args.supreme = supreme; // 0x0F
+    script->resultVar = resultVar;
+    script->scoreVar = scoreVar;
+    script->pointsVar = pointsVar;
+    script->medalVar = medalVar;
+    *args = script;
+    FieldSystem_StartChildProcess(ctx->fieldSystem, &sTemplate, &script->args);
+    ScriptContext_Pause(ctx, CompleteScript_WaitPokeathlonCourse);
     return TRUE;
 }

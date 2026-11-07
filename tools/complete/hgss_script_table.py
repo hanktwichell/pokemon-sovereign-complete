@@ -561,6 +561,13 @@ COMMANDS = {
     # the Aprijuice stand: its juice of the day (741) and its app, a party Pokémon given the juice (740); both in
     # src/overlay007/complete_pokeathlon_shop.c
     'ScrCmd_741': one('CompleteAprijuiceOfTheDay {0}, {1}, {2}, {3}'),
+    # the Dome's reception (HeartGold's standard scripts 9850 to 9852, here 11300 on): a course's name, the course
+    # itself (src/overlay007/complete_pokeathlon_shop.c), and the count of Pokémon it checks first
+    'BufferPokeathlonCourseName': one('CompleteBufferPokeathlonCourseName {0}, {1}'),
+    # (HeartGold's own task brings the field back after the course; here ReturnToField does, as after the other apps)
+    'Pokeathlon': lambda a: [f'CompletePokeathlon {a[0]}, {a[1]}, {a[2]}, {a[3]}, {a[4]}, {a[5]}, {a[6]}',
+                             'ReturnToField'],
+    'CountAliveMonsAndPC': one('CountAliveMonsAndBoxMons {0}'),
     'ScrCmd_740': one('CompleteAprijuiceStand {0}, {1}'),
     'ClearKurtApricorn': lambda a: ['CompleteKurtClear'],
     'GetTotalApricornCount': one('CompleteCountApricorns {0}'),
@@ -646,6 +653,8 @@ COMMANDS = {
         'PLAYER_TRANSITION_WALKING': ['ClearFlag FLAG_HGSS_SYS_ROCKET_COSTUME', 'SetPlayerState PLAYER_TRANSITION_WALKING'],
         'PLAYER_TRANSITION_HEAL': ['SetPlayerState PLAYER_TRANSITION_HEALING'],
         'PLAYER_TRANSITION_ROCKET_HEAL': ['SetPlayerState PLAYER_TRANSITION_HEALING'],
+        # the Pokéathlon's outfit for the walk into the course: Complete has no such sprite, the player stays as is
+        'PLAYER_TRANSITION_POKEATHLON': ['SetPlayerState PLAYER_TRANSITION_WALKING'],
     }.get(a[0], [f'@ HGSS: SetAvatarBits {a[0]}']),
     'UpdateAvatarState': lambda a: ['ChangePlayerState'],
     'RocketCostumeFlagAction': lambda a: [('SetFlag' if a[0] != '0' else 'ClearFlag') + ' FLAG_HGSS_SYS_ROCKET_COSTUME'],

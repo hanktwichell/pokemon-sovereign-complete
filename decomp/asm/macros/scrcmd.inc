@@ -6552,6 +6552,23 @@
     .short \resultVar
     .endm
 
+    .macro CompleteBufferPokeathlonCourseName slot, courseVar
+    .short SCRCMD_COMPLETEBUFFERPOKEATHLONCOURSENAME
+    .byte \slot
+    .short \courseVar
+    .endm
+
+    .macro CompletePokeathlon link, supreme, courseVar, resultVar, scoreVar, pointsVar, medalVar
+    .short SCRCMD_COMPLETEPOKEATHLON
+    .byte \link
+    .byte \supreme
+    .short \courseVar
+    .short \resultVar
+    .short \scoreVar
+    .short \pointsVar
+    .short \medalVar
+    .endm
+
     // HeartGold's ScrCmd_775: Lance and his Dragonite (their objects) taking off from the Lake of Rage
     .macro CompleteLanceFlight lance, dragonite
     .short SCRCMD_COMPLETELANCEFLIGHT

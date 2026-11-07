@@ -51,6 +51,7 @@
 #include "complete_map_info.h"
 #include "complete_photo.h"
 #include "complete_placed.h"
+#include "complete_pokeathlon_course.h"
 #include "complete_pokegear.h"
 #include "complete_rival.h"
 #include "complete_pokedex.h"
@@ -897,6 +898,27 @@ BOOL CompleteScrCmd_GetFriendSprite(ScriptContext *ctx)
 
     *destVar = TrainerInfo_Gender(SaveData_GetTrainerInfo(ctx->fieldSystem->saveData)) == GENDER_MALE ? OBJ_EVENT_GFX_HGSS_HEROINE : OBJ_EVENT_GFX_HGSS_HERO;
     return FALSE;
+}
+
+// HeartGold's sub_02095E30's end: until the Pokéathlon's course ends, then its results in the script's variables (the
+// result, the score, the points and the medal: include/complete_pokeathlon_course.h) and its arguments freed
+BOOL CompleteScript_WaitPokeathlonCourse(ScriptContext *ctx)
+{
+    void **args = FieldSystem_GetScriptMemberPtr(ctx->fieldSystem, SCRIPT_MANAGER_PARTY_MANAGEMENT_DATA);
+    CompletePokeathlonCourseScript *course = *args;
+    const HgssPokeathlonCourseResults *results = (const HgssPokeathlonCourseResults *)course->args.unk_08;
+
+    if (FieldSystem_IsRunningApplication(ctx->fieldSystem)) {
+        return FALSE;
+    }
+
+    *course->resultVar = results->result;
+    *course->scoreVar = results->score;
+    *course->pointsVar = results->points;
+    *course->medalVar = results->medal;
+    Heap_Free(course);
+    *args = NULL;
+    return TRUE;
 }
 
 // HeartGold's ScrNative_WaitApplication_DestroyTaskData: until the app ends, then its arguments freed

@@ -18,8 +18,9 @@
 // scr_seq_0167 and scr_seq_0166), whose field task (sub_02095E30) runs the course as a child process with these
 // arguments (HgssPokeathlonCourseArgs, include/complete_pokeathlon_select.h: the save, the mode, the course from
 // VAR_SPECIAL_x8000 at 0x0C, the Supreme Cup's flag at 0x0F) and hands back four of its bytes into the script's
-// variables. Nothing in Complete's game starts one yet; a test build's hook does (gCompleteTestPokeathlonCourse,
-// include/complete_test.h).
+// variables. In Complete that's CompleteScrCmd_Pokeathlon (src/overlay007/complete_pokeathlon_shop.c), run from the
+// reception's scripts (HeartGold's 9850 to 9852, here 11300 on); a test build's hook runs one too
+// (gCompleteTestPokeathlonCourse, include/complete_test.h).
 
 // What the course hands back in its arguments (HeartGold's task's four variables)
 typedef struct HgssPokeathlonCourseResults {
@@ -30,6 +31,23 @@ typedef struct HgssPokeathlonCourseResults {
     u8 result; // 0x0E -> VAR_SPECIAL_RESULT (pret's "shouldFreeHeap": 1 when backed out before the course began)
     u8 supreme;
 } HgssPokeathlonCourseResults;
+
+// The reception's course: the course's arguments, then where the script wants its results (CompleteScrCmd_Pokeathlon,
+// handed back by CompleteScript_WaitPokeathlonCourse, in the main module: overlay 7 goes with the field as the
+// course starts)
+typedef struct CompletePokeathlonCourseScript {
+    HgssPokeathlonCourseArgs args;
+    u16 *resultVar;
+    u16 *scoreVar;
+    u16 *pointsVar;
+    u16 *medalVar;
+} CompletePokeathlonCourseScript;
+
+// The course as the field's application: in the overlay complete_hgss_compat (the template's), it loads the course's
+// overlay after itself and runs the course (src/applications/complete_pokeathlon/hgss_compat_course.c)
+BOOL HgssCompat_PokeathlonCourseApp_Init(ApplicationManager *appMan, int *state);
+BOOL HgssCompat_PokeathlonCourseApp_Main(ApplicationManager *appMan, int *state);
+BOOL HgssCompat_PokeathlonCourseApp_Exit(ApplicationManager *appMan, int *state);
 
 // The course's application (pret's src/pokeathlon/pokeathlon_course.c)
 BOOL PokeathlonCourse_Init(ApplicationManager *appMan, int *state);

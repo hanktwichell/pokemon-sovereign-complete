@@ -1290,6 +1290,7 @@ scr_seq_files = files(
     'scripts_hgss_0160.s',
     'scripts_hgss_0161.s',
     'scripts_hgss_0162.s',
+    'scripts_hgss_0167.s',
     'scripts_hgss_0168.s',
     'scripts_hgss_0169.s',
     'scripts_hgss_0170.s',

@@ -120,6 +120,7 @@ enum ScriptContextType {
 #define SCRIPT_ID_OFFSET_COMPLETE_BUG_CONTEST          11000 // Sovereign Complete: HeartGold's 10400 on (scr_seq_0151)
 #define SCRIPT_ID_OFFSET_COMPLETE_SAFARI               11100 // Sovereign Complete: HeartGold's 8800 on (scr_seq_0262)
 #define SCRIPT_ID_OFFSET_COMPLETE_FRONTIER_TUTORS      11200 // Sovereign Complete: HeartGold's 10440 on (scr_seq_0002)
+#define SCRIPT_ID_OFFSET_COMPLETE_POKEATHLON          11300 // Sovereign Complete: HeartGold's 9850 on (scr_seq_0167)
 
 #define SCRIPT_MANAGER_MAGIC_NUMBER 0x3643F
 
