@@ -564,6 +564,10 @@ static void MakeSprites(CourseRecord *app)
 
         ManagedSprite *crown = app->spriteList[SPRITE_CROWN + course];
 
+#ifdef SOVEREIGN_TEST
+        gCompleteTestPokeathlonCrowns[course] = HasRecord(app, course) ? 1 + PokeathlonRecords_CourseTrophyRank(CourseTotal(app, course)) : 0;
+#endif
+
         switch (PokeathlonRecords_CourseTrophyRank(CourseTotal(app, course))) {
         case 2:
             ManagedSprite_SetAnim(crown, ANIM_CROWN_450 + course % 2);

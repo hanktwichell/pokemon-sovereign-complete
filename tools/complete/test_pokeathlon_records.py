@@ -12,6 +12,11 @@ src/applications/complete_pokeathlon_records/), in the test build, from the bedr
 3. LEFT goes back a page; a touch on the fifth course's button goes there; RIGHT past it reaches Return; A on Return
    closes the screen, and the field comes back in the Solidarity Room.
 4. The screen opens again, and B closes it; then a touch on Return closes it.
+5. The crowns, drawn as the screen opens: the save's five course records are set first (a save probe,
+   gCompleteTestSaveProbe) to 419 points each, then to 419, 420, 449, 450 and none. Each time the screen opens and
+   draws a button for each course with a record and its crowns (gCompleteTestPokeathlonCrowns: one from 420 points,
+   two from 450); against the first opening, the second's buttons change where the crowns came (and the fifth's goes)
+   and the first course's, still 419, doesn't.
 
 Results: a line per check, screenshots of each page in OUT_DIR.
 
@@ -48,6 +53,8 @@ RECORDS = {
                                   ('SPECIES_VULPIX', 1, 1, False)]),
 }
 OPEN_LIMIT = 1500  # frames from the A press to the screen
+PROBE_COURSES, PROBE_TOTALS = 6, 48  # COMPLETE_TEST_SAVE_POKEATHLON_COURSES, CompleteTestSaveProbe.courseTotals
+CROWN_RUNS = [([419] * 5, [1] * 5), ([419, 420, 449, 450, 0], [1, 2, 2, 3, 0])]  # totals; 1 + crowns, 0 no button
 
 
 def main():
@@ -56,7 +63,7 @@ def main():
     rom, state, out = sys.argv[1:4]
     os.makedirs(out, exist_ok=True)
     sym = symbols(SYMBOLS + ('gCompleteTestPokeathlonRecordScreen', 'gCompleteTestPokeathlonCourseRecords',
-                             'gSovereignTestClock'))
+                             'gSovereignTestClock', 'gCompleteTestSaveProbe', 'gCompleteTestPokeathlonCrowns'))
     species_ids = consts('species.txt')
     ids = header_names()
     d = Driver(rom, state)
@@ -173,6 +180,44 @@ def main():
     if not problem:
         d.touch(*RETURN_BUTTON, frames=4, after=10)
         closed('a touch on Return')
+
+    # 5. The crowns, from the save's records
+    def set_totals(totals):
+        probe = sym['gCompleteTestSaveProbe']
+        for i, total in enumerate(totals):
+            mem.write_short(probe + PROBE_TOTALS + 2 * i, total)
+        mem.write_long(probe, PROBE_COURSES)
+        for _ in range(40):
+            d.run(30)
+            request, done = struct.unpack('<II', bytes(mem.unsigned[probe:probe + 8]))
+            if request == 0 and done == PROBE_COURSES:
+                return True
+        return False
+
+    def button(im, course):  # the course's row of the right-hand column: its button and, in the slot beside it, crowns
+        y = COURSE_BUTTONS[course][1]
+        return im.crop((184, 192 + y - 16, 256, 192 + y + 16))
+
+    shots = []
+    for run, (totals, want) in enumerate(CROWN_RUNS):
+        check(f'the save probe sets the course records\' totals to {totals}', set_totals(totals))
+        crowns = sym['gCompleteTestPokeathlonCrowns']
+        for i in range(5):
+            mem.write_byte(crowns + i, 0xFF)
+        problem = open_screen()
+        check(f'the screen opens {problem}', not problem)
+        if problem:
+            break
+        drawn = list(mem.unsigned[crowns:crowns + 5])
+        check(f'buttons and crowns as drawn ({drawn}: 0 no button, 1 + the crowns) for {totals}', drawn == want)
+        shots.append(shot(f'crowns_{run + 1}'))
+        d.press('B', after=10)
+        closed(f'B (crowns, opening {run + 1})')
+    if len(shots) == 2:
+        moved = [ImageChops.difference(button(shots[0], c), button(shots[1], c)).getbbox() is not None
+                 for c in range(5)]
+        check(f'the buttons that changed between the openings ({moved}): all but the first',
+              moved == [False, True, True, True, True])
 
     print(f'{len(problems)} problems')
     sys.exit(1 if problems else 0)

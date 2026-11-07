@@ -21,6 +21,7 @@ u8 *gCompleteTestPokeathlonMedals;
 CompletePokeathlonRecordsSolo *gCompleteTestPokeathlonEventRecords;
 CompletePokeathlonSave *gCompleteTestPokeathlonSaveCopy;
 u16 gCompleteTestPokeathlonStatues[4];
+u8 gCompleteTestPokeathlonCrowns[5];
 #endif
 
 // Sizes: one sector each, with its footer; an event record HeartGold's 8 bytes

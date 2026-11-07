@@ -162,6 +162,9 @@ extern CompletePokeathlonSave *gCompleteTestPokeathlonSaveCopy;
 // The Friendship Room's statues (CompleteScrCmd_PokeathlonStatues): how many times the room made them, then each
 // statue's walking sprite (its graphics ID; 0 for none)
 extern u16 gCompleteTestPokeathlonStatues[4];
+// The course record screen's buttons and crowns as it drew them, a course each: 0 no button (no record), else 1 + its
+// crowns (0 below 420 points, 1 from 420, 2 from 450)
+extern u8 gCompleteTestPokeathlonCrowns[5];
 #endif
 
 #endif // POKEPLATINUM_COMPLETE_POKEATHLON_H

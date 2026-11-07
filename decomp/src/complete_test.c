@@ -127,6 +127,27 @@ static void StatueProbe(SaveData *saveData, const CompleteTestSaveProbe *probe)
     Heap_Free(pokeathlon);
 }
 
+// The course records' totals (a course with a total has a record: its button and crowns on the record screen), each
+// run by a Pikachu
+static void CourseProbe(SaveData *saveData, const CompleteTestSaveProbe *probe)
+{
+    CompletePokeathlonSave *pokeathlon = CompletePokeathlon_Load(saveData, HEAP_ID_FIELD2);
+
+    for (int i = 0; i < COMPLETE_POKEATHLON_COURSES; i++) {
+        CompletePokeathlonCourseRecord *record = &pokeathlon->courseRecords[i];
+
+        MI_CpuClear8(record, sizeof(*record));
+        record->total = probe->courseTotals[i];
+
+        for (int j = 0; j < 3 && record->total != 0; j++) {
+            record->mons[j].species = SPECIES_PIKACHU;
+        }
+    }
+
+    CompletePokeathlon_Store(saveData, pokeathlon);
+    Heap_Free(pokeathlon);
+}
+
 static void SaveProbe(FieldSystem *fieldSystem)
 {
     CompleteTestSaveProbe *probe = &gCompleteTestSaveProbe;
@@ -150,6 +171,9 @@ static void SaveProbe(FieldSystem *fieldSystem)
         break;
     case COMPLETE_TEST_SAVE_POKEATHLON_STATUES:
         StatueProbe(fieldSystem->saveData, probe);
+        break;
+    case COMPLETE_TEST_SAVE_POKEATHLON_COURSES:
+        CourseProbe(fieldSystem->saveData, probe);
         break;
     case COMPLETE_TEST_SAVE_SAVE:
         probe->saveOK = FieldSystem_Save(fieldSystem);

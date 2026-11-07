@@ -205,7 +205,7 @@ work.
   `CompletePokeathlonRecordScreen` between the script's fades; tests `tools/complete/test_pokeathlon_records.py`,
   `test_pokeathlon_medals.py`, `test_pokeathlon_event_records.py` and `test_pokeathlon_trophies.py`. The Friendship Room's statues:
   `CompleteScrCmd_PokeathlonStatues`; test `tools/complete/test_pokeathlon_statues.py` (the save probe
-  `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records).
+  `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records; `_COURSES` the course records' totals, before a screen opens).
 - HeartGold's assembly as it is (since Nov 7: overlay 97, the course's choice of three Pokémon, `complete_pokeathlon_select`):
   `tools/complete/import_hgss_asm.py NAME...` copies pret's `asm/NAME.s` into `decomp/asm/complete_hgss/` (only its
   constants' includes dropped and gSystem's touch fields moved: HeartGold's System has a word more), listed in

@@ -1294,7 +1294,7 @@ events are still to come (stages 2 and 3).
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),
 `tools/complete/test_pokeathlon_records.py` (the record screen: two courses' records, pages by the D-pad and by touch,
-closed with A on Return, B and a touch), `tools/complete/test_pokeathlon_medals.py` (46 species' medals, two pages,
+closed with A on Return, B and a touch; the courses' buttons and crowns from the save's records, 419 to 450 points), `tools/complete/test_pokeathlon_medals.py` (46 species' medals, two pages,
 the cursor, Return and B), `tools/complete/test_pokeathlon_event_records.py` (two events' records over the defaults,
 the cursor, Single and Link, Return, B and touches), `tools/complete/test_pokeathlon_trophies.py` (none on a new game,
 then 21 by HeartGold's rules from filled records and medals; B and Return; a girl player's picture is Dawn's) and `tools/complete/test_pokeathlon_statues.py` (three statues, female and

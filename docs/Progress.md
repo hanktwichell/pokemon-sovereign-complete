@@ -2260,3 +2260,11 @@ Test results on the new test build:
   slots the Legend Archivist releases, five roam Johto or Kanto (`test_hgss_roamers.py` covers them); the three
   left in Sinnoh were met in surveys, battled (each fled), one caught (no longer roaming, its state captured), and
   the Marking Map showed the two still roaming.
+- **The course record screen's crowns, tested:** the screen draws a course's button only when it has a record, and
+  its crowns (one from 420 points, two from 450) as it opens, so filling the open screen's copy (as the test did)
+  never showed them. A test-build save probe (`COMPLETE_TEST_SAVE_POKEATHLON_COURSES`, `src/complete_test.c`) now
+  writes the five course records' totals before the screen opens, and the screen notes what it drew
+  (`gCompleteTestPokeathlonCrowns`). `test_pokeathlon_records.py`'s fifth part opens it twice: all five at 419 (five
+  buttons, no crowns), then 419, 420, 449, 450 and none (one crown, one, two, no button), and the column's rows change
+  where the crowns came and the fifth button went, and not on the first. The crowns sit in the slot beside each
+  button, as in HeartGold.
