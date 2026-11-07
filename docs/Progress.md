@@ -2198,3 +2198,10 @@ Test results on the new test build:
   rematch already outlevels its first team and holds as many items or more. Two small points for the owner's team
   review (Will's rematch Gardevoir and Koga's rematch Skuntank among the Pokémon Sacred Gold left holding nothing);
   nothing changed until the owner decides.
+- **The Pokéathlon's course, a trial of the faster route (stage 2):** HeartGold's overlay 97 (the course's choice of
+  three Pokémon) and two main-module files it calls, about 8,400 lines of HeartGold assembly, assembled unchanged by
+  Complete's build and linked into an overlay through a table of HeartGold names for Platinum's functions, 26 small
+  shims and 8 HeartGold-only functions in C (`tools/complete/import_hgss_asm.py`, `tools/complete/hgss_asm_symbols.py`,
+  which pairs functions across the two builds by their machine code). The release build boots and the main module
+  stays the same size. On branch `wip/pokeathlon-asm-spike` until the screen runs and has its test; the estimate for the
+  course itself (overlay 96) by this route is 9 to 13 days (docs/Roadmap.md).

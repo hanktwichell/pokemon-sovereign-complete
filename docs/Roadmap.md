@@ -221,6 +221,15 @@ HeartGold-named functions over Platinum's (overlay 96 calls 473 distinct engine 
 code under another name), with HeartGold's NARC, text bank, sound and heap numbers translated where they're passed,
 and its 39 direct reads of `gSystem` checked against Platinum's layout. A first try on a small overlay (97, 2,900
 lines) would show whether it holds before the course is attempted.
+*Tried Nov 7 (branch `wip/pokeathlon-asm-spike`): it holds as far as building. HeartGold's overlay 97 (choosing the
+course's three Pokémon) and the two main-module files it calls (about 8,400 lines of assembly) assemble unchanged with
+Complete's assembler and link into a Complete overlay through a table of HeartGold names for Platinum's functions (114
+of its 150 outside symbols are the same Game Freak functions renamed), 26 small shims (archive, text bank and font
+numbers, touch, the yes/no prompt) and 8 HeartGold-only functions in C; the release build boots, and the main module
+didn't grow. The screen hasn't run yet: some of its archives and text banks aren't imported and nothing opens it.
+For overlay 96 the same route is estimated at 9 to 13 days, against 4 to 5 weeks by hand; its risks are 9-bit species
+fields in the course's own records, the walking-sprite lookup up to 493, structure fields the assembly reads itself,
+and the course's 0x72000 heap. Next: make overlay 97 run and test it, then the course.*
 
 Done so far (Nov 6): stage 1's save, the two prize counters, the Athlete Points box, the Dome PC's records, the
 reception's totals, all four record screens (`ScrCmd_712` 0 to 3: course records, medals, event records, trophies;
