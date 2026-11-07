@@ -206,7 +206,7 @@ work.
   `test_pokeathlon_medals.py`, `test_pokeathlon_event_records.py` and `test_pokeathlon_trophies.py`. The Friendship Room's statues:
   `CompleteScrCmd_PokeathlonStatues`; test `tools/complete/test_pokeathlon_statues.py` (the save probe
   `COMPLETE_TEST_SAVE_POKEATHLON_STATUES` sets the records).
-- HeartGold's assembly as it is (a trial, Nov 7: overlay 97, `complete_pokeathlon_select`):
+- HeartGold's assembly as it is (since Nov 7: overlay 97, the course's choice of three Pokémon, `complete_pokeathlon_select`):
   `tools/complete/import_hgss_asm.py NAME...` copies pret's `asm/NAME.s` into `decomp/asm/complete_hgss/` (only its
   constants' includes dropped and gSystem's touch fields moved: HeartGold's System has a word more), listed in
   `main.lsf.in` as `Object asm/complete_hgss/NAME.s` (lsfgen writes `asm/meson.build`). Every engine symbol the files
@@ -221,7 +221,8 @@ work.
   `include/data/complete_pokeathlon_archives.h`, which the shims add): add an archive there, not a NARC of its own (each
   costs a path in the main module). Its text banks: `import_hgss_text.py`'s list (a new bank goes after the last, so
   no bank's number moves). Overlay 97 in a test build: set `gCompleteTestPokeathlonSelect.open` to the course + 1
-  (`include/complete_test.h`; the overlay's `select_test.c` makes its heap and arguments and records its answer).
+  (`include/complete_test.h`; the overlay's `select_test.c` makes its heap and arguments and records its answer); its
+  test `tools/complete/test_pokeathlon_select.py` drags the Pokémon in by touch (the screen is HeartGold's touch screen).
 - Berry patches 118 to 127 hold junk from a new game (Platinum's init overruns its 118-entry table); only the pots use
   any of them, and empty them on first use.
 - In the emulator tests, `mem.write_long` to an address not a multiple of 4 writes the aligned word: write such fields

@@ -2240,3 +2240,12 @@ Test results on the new test build:
   linker drops the whole overlay); a test build doesn't need it. The release build has no warnings in the new code,
   boots (the boot check passes), and its main module grew 64 bytes (the archive's path); a test build's grows about
   340 bytes more (the hook, its field task and marker). Not run yet at this point (tested next, below).
+- **The course's first screen runs (Nov 7):** HeartGold's overlay 97, its own assembly, opened in a test build
+  (`tools/complete/test_pokeathlon_select.py`, build_test4: 0 problems): the Speed Course's screen with the party's
+  icons (a species past 493 among them) and the lead's stars; three Pokémon dragged into the slots by touch, as in
+  HeartGold; "Are these three OK?" and YES hand back the party's first three (HeartGold's entrants, the same species);
+  the screen's heap, 0x72000 from an application heap with 0xECE14 free once the field closes, comes back whole after
+  it (about 0x21000 used at most); the field runs again. The Supreme Cup's Jump Course opens with its own name, and
+  CANCEL ends it. The release build boots. With the D-pad the hand picks and places one Pokémon at a time; the test
+  uses touch, the screen's own way. Merged into main: nothing in the game opens it yet (the course will), so it costs
+  the release game nothing but the overlay and 64 bytes of main memory (the packed archive's path).
