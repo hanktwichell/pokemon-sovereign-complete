@@ -260,6 +260,12 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('Your note on the Elite Four\'s rematches', [
+        'All 19 rematch teams in both Leagues (singles, doubles and the champions) are already stronger than the first '
+        'ones: higher levels in every pair and as many held items or more (the side-by-side table is '
+        'docs/E4Rematches.md). Two small things for your team review: a few Pokémon in Will\'s and Koga\'s rematches '
+        'hold nothing (Sacred Gold left them empty). Nothing changed until you say.',
+    ]),
     ('The Pokéathlon\'s trophies screen: all four record screens done', [
         'The player\'s statue in the Friendship Room now opens HeartGold\'s trophies screen: the Collective, Trust, '
         'Potential and Friendship Trophies as rows of crowns, the points from your course records, event records and '
