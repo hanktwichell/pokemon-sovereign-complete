@@ -385,9 +385,23 @@ void HgssCompat_Sprite_SetPaletteProxy(Sprite *sprite, const NNSG2dImagePaletteP
 
 // HeartGold's SpriteSystem_NewSpriteWithYOffset: Platinum's SpriteSystem_NewSprite puts a sub screen sprite 192
 // pixels down; this one yOffset down
-ManagedSprite *HgssCompat_SpriteSystem_NewSpriteWithYOffset(SpriteSystem *spriteSys, SpriteManager *spriteMan, const SpriteTemplate *template, fx32 yOffset)
+// HeartGold's SpriteSystem_NewSprite: a template's palette 0xFFFF keeps the cells' own palettes (offset by where the
+// palette resource sits), where Platinum's always sets the sprite's palette to the resource's plus the template's
+// (0xFFFF over: the event screens' stylus, pad and start button drew black)
+ManagedSprite *HgssCompat_SpriteSystem_NewSprite(SpriteSystem *spriteSys, SpriteManager *spriteMan, const SpriteTemplate *template)
 {
     ManagedSprite *managedSprite = SpriteSystem_NewSprite(spriteSys, spriteMan, template);
+
+    if (managedSprite != NULL && template->plttIdx == 0xFFFF) {
+        Sprite_SetExplicitPaletteOffsetAutoAdjust(managedSprite->sprite, 0);
+    }
+
+    return managedSprite;
+}
+
+ManagedSprite *HgssCompat_SpriteSystem_NewSpriteWithYOffset(SpriteSystem *spriteSys, SpriteManager *spriteMan, const SpriteTemplate *template, fx32 yOffset)
+{
+    ManagedSprite *managedSprite = HgssCompat_SpriteSystem_NewSprite(spriteSys, spriteMan, template);
 
     if (managedSprite != NULL && template->vramType == NNS_G2D_VRAM_TYPE_2DSUB && yOffset != FX32_CONST(192)) {
         VecFx32 position = *Sprite_GetPosition(managedSprite->sprite);

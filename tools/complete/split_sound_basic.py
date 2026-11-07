@@ -57,6 +57,8 @@ SSEQ_PROGRAM = 0x81
 MIDI_TRANSPOSE = 13  # nitrosfx's controller for SSEQ's transpose
 
 
+SEQ_FREE_FIRST, SEQ_FREE_LAST = 4, 999  # Platinum's unused sequence numbers (after the cries' SEQ_PV_END, before SEQ_DUMMY)
+
 def write_if_changed(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     if os.path.exists(path) and open(path, encoding='utf-8', newline='').read() == text:
@@ -438,6 +440,18 @@ def main():
     hgss = os.path.join(OUT, 'hgss', 'hgss_sound.json')
     if os.path.exists(hgss):  # HeartGold's songs, after Platinum's (tools/complete/import_hgss_sound.py)
         for key, added in json.load(open(hgss, encoding='utf-8')).items():
+            if key == 'seqInfo':
+                # its sequences in Platinum's unused numbers first (4 to 999: none of Platinum's code or saves names
+                # them): the archive's info table, in sound memory for good, keeps 4 bytes for every number up to the
+                # last, so numbers after the end cost 4 bytes each and these nothing more. Not the banks' or wave
+                # archives' (a cry's bank and archive are numbered by species, and the unused ones past Platinum's
+                # last species stay unused)
+                added = list(added)
+                for i in range(SEQ_FREE_FIRST, SEQ_FREE_LAST + 1):
+                    if not added:
+                        break
+                    if not out[key][i].get('name'):
+                        out[key][i] = added.pop(0)
             out[key] += added
 
     changed = write_if_changed(os.path.join(OUT, 'pl_sound_data.json'), cjson_format.dumps(out) + '\n')

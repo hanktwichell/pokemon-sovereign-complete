@@ -52,6 +52,7 @@ SACRED_SCRIPTS = os.path.join(ROOT, '.cache', 'sacredgold', 'scr_seq')
 CACHE = os.path.join(ROOT, '.cache', 'hgss_sound')
 OUT = os.path.join(SOUND, 'complete', 'hgss')
 GS_ARCHIVE = 'WAVE_ARC_GS'
+EFFECT_SLACK = 4096  # bytes of waves a merged effects' bank may load over its largest member's own
 MUSIC_PLAYERS = ('PLAYER_BGM', 'PLAYER_FIELD', 'PLAYER_ME')  # songs, and fanfares (SEQ_ME_*)
 # The battle and victory themes (the Frontier Brains' too), and surfing and cycling, which HeartGold picks by number or
 # in code; and the Magnet Train ride's jingle (its overlay 104 plays it) and Ho-Oh's and Arceus's themes (its overlay
@@ -147,6 +148,83 @@ def merge_same_banks(banks, entries):
     return {name: text for name, text in banks.items() if keep[name] == name}
 
 
+def bank_instruments(text):
+    """A bank's instruments by number (each its lines' text), and the WAVE_ARC_GS waves they play."""
+    instruments, waves, number = {}, set(), None
+    for line in text.splitlines(keepends=True):
+        f = line.strip().split(', ')
+        if not line.startswith('\t'):
+            number = None if f[1] == 'NULL' else int(f[0])
+            if number is None:
+                continue
+            instruments[number] = line
+        elif number is None:
+            continue
+        else:
+            instruments[number] += line
+        if line.startswith('\t') and f[0] == '1':
+            wave, slot = int(f[1]), int(f[2])
+        elif not line.startswith('\t') and f[1] == 'Single':
+            wave, slot = int(f[2]), int(f[3])
+        else:
+            continue
+        if slot == 1:
+            waves.add(wave)
+    return instruments, waves
+
+
+def merge_compatible_banks(banks, entries, wave_sizes, plays):
+    """Banks that never give one instrument number two meanings are one bank too, where that loads no more of
+    WAVE_ARC_GS than before: a song's with another song's that plays the same waves of its own; an effect's with other
+    effects' while the union's waves are no more than the largest member's own and EFFECT_SLACK (an effect loads its
+    bank's waves as it starts: a few KB more than the largest of them did, well under what a song leaves). Never an instrument a member plays and has none at (plays:
+    each sequence's programs), so nothing silent starts to sound. Each bank left in the archive is about 32 bytes of sound
+    memory for good. The merged bank takes its first member's name; the entries are changed to match."""
+    players = {}
+    for seq in entries['seqInfo']:
+        players.setdefault(seq['bank'], set()).add('effect' if seq['player'].startswith('PLAYER_SE') else 'song')
+    parsed = {name: bank_instruments(text) for name, text in banks.items()}
+    programs = {}
+    for seq in entries['seqInfo']:
+        programs.setdefault(seq['bank'], set()).update(plays[seq['name']])
+    weight = lambda waves: sum(wave_sizes[w] for w in waves)  # noqa: E731
+    keep = {}
+    for kind in ('song', 'effect'):
+        groups = []
+        members = [b for b in sorted(banks) if players.get(b) == {kind}]
+        for name in sorted(members, key=lambda b: (-weight(parsed[b][1]), b)):
+            instruments, waves = parsed[name]
+            for group in groups:
+                if any(group['instruments'].get(n, text) != text for n, text in instruments.items()):
+                    continue
+                if (set(instruments) - set(group['instruments'])) & group['programs'] or \
+                        (set(group['instruments']) - set(instruments)) & programs[name]:
+                    continue
+                union = group['waves'] | waves
+                if kind == 'song' and not (union == group['waves'] == waves):
+                    continue
+                if kind == 'effect' and weight(union) > max(weight(group['waves']), weight(waves)) + EFFECT_SLACK:
+                    continue
+                group['instruments'].update(instruments)
+                group['waves'] = union
+                group['programs'] |= programs[name]
+                group['names'].append(name)
+                break
+            else:
+                groups.append({'instruments': dict(instruments), 'waves': set(waves), 'names': [name],
+                               'programs': set(programs[name])})
+        for group in groups:
+            first = min(group['names'])
+            for name in group['names']:
+                keep[name] = first
+            top = max(group['instruments'])
+            banks[first] = ''.join(group['instruments'].get(i, f'{i}, NULL\r\n') for i in range(top + 1))
+    for seq in entries['seqInfo']:
+        seq['bank'] = keep.get(seq['bank'], seq['bank'])
+    entries['bankInfo'] = [b for b in entries['bankInfo'] if keep.get(b['name'], b['name']) == b['name']]
+    return {name: text for name, text in banks.items() if keep.get(name, name) == name}
+
+
 def expand_same(lines):
     """A bank's lines with each 'SameAsAbove' instrument written out as the one above it."""
     out, last = [], []
@@ -177,6 +255,7 @@ def main():
               for i, f in enumerate(resident_waves())}
 
     gs_waves, gs_index = [], {}  # the archive's WAVs in order, and their hashes' places
+    plays = {}  # each sequence's programs
     banks, entries = {}, {'seqInfo': [], 'bankInfo': [], 'wavarcInfo': []}
     songs = needed_songs(seqs)
     effects = needed_effects(seqs, taken)
@@ -192,6 +271,7 @@ def main():
         programs = {p for p, _ in notes[0]} | set(notes[1])
         if notes[2]:
             programs = set(bank.instruments())
+        plays[name] = programs
 
         # The song's bank: its instruments, the rest empty, each wave from Platinum's loaded ones or WAVE_ARC_GS
         out, keep = [], False
@@ -240,6 +320,7 @@ def main():
         entries['seqInfo'].append(dict(seq, fileName=f'{name}.sseq', bank=bank_name))
     entries['wavarcInfo'].append({'name': GS_ARCHIVE, 'fileName': f'{GS_ARCHIVE}.swar', 'singleLoad': True})
     banks = merge_same_banks(banks, entries)
+    banks = merge_compatible_banks(banks, entries, [os.path.getsize(p) for p in gs_waves], plays)
 
     # Written out: anything this run no longer makes goes
     changed = False

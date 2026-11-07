@@ -364,7 +364,7 @@
 #define SpriteSystem_Init                                SpriteSystem_Init
 #define SpriteSystem_InitManagerWithCapacities           SpriteSystem_InitManagerWithCapacities
 #define SpriteSystem_InitSprites                         SpriteSystem_InitSprites
-#define SpriteSystem_NewSprite                           SpriteSystem_NewSprite
+#define SpriteSystem_NewSprite                           HgssCompat_SpriteSystem_NewSprite
 #define SpriteSystem_TransferOam                         SpriteSystem_TransferOam
 #define Sprite_DeleteAndFreeResources                    Sprite_DeleteAndFreeResources
 #define Sprite_GetImageProxy                             Sprite_GetImageProxy

@@ -723,7 +723,7 @@
   {
    "name": "SEQ_GS_P_ENDING",
    "fileName": "SEQ_GS_P_ENDING.sseq",
-   "bank": "BANK_GS_P_ENDING",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -732,7 +732,7 @@
   {
    "name": "SEQ_GS_P_ENDING2",
    "fileName": "SEQ_GS_P_ENDING2.sseq",
-   "bank": "BANK_GS_P_ENDING2",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -741,7 +741,7 @@
   {
    "name": "SEQ_GS_P_EYE_BOUZU",
    "fileName": "SEQ_GS_P_EYE_BOUZU.sseq",
-   "bank": "BANK_GS_P_EYE_BOUZU",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -750,7 +750,7 @@
   {
    "name": "SEQ_GS_P_EYE_J_AYASHII",
    "fileName": "SEQ_GS_P_EYE_J_AYASHII.sseq",
-   "bank": "BANK_GS_P_EYE_J_AYASHII",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -759,7 +759,7 @@
   {
    "name": "SEQ_GS_P_EYE_J_SHOUJO",
    "fileName": "SEQ_GS_P_EYE_J_SHOUJO.sseq",
-   "bank": "BANK_GS_P_EYE_J_SHOUJO",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -768,7 +768,7 @@
   {
    "name": "SEQ_GS_P_EYE_J_SHOUNEN",
    "fileName": "SEQ_GS_P_EYE_J_SHOUNEN.sseq",
-   "bank": "BANK_GS_P_EYE_J_SHOUNEN",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -777,7 +777,7 @@
   {
    "name": "SEQ_GS_P_EYE_K_AYASHII",
    "fileName": "SEQ_GS_P_EYE_K_AYASHII.sseq",
-   "bank": "BANK_GS_P_EYE_K_AYASHII",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -786,7 +786,7 @@
   {
    "name": "SEQ_GS_P_EYE_K_SHOUJO",
    "fileName": "SEQ_GS_P_EYE_K_SHOUJO.sseq",
-   "bank": "BANK_GS_P_EYE_K_SHOUJO",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -795,7 +795,7 @@
   {
    "name": "SEQ_GS_P_EYE_K_SHOUNEN",
    "fileName": "SEQ_GS_P_EYE_K_SHOUNEN.sseq",
-   "bank": "BANK_GS_P_EYE_K_SHOUNEN",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -804,7 +804,7 @@
   {
    "name": "SEQ_GS_P_EYE_MAIKO",
    "fileName": "SEQ_GS_P_EYE_MAIKO.sseq",
-   "bank": "BANK_GS_P_EYE_MAIKO",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -813,7 +813,7 @@
   {
    "name": "SEQ_GS_P_EYE_ROCKET",
    "fileName": "SEQ_GS_P_EYE_ROCKET.sseq",
-   "bank": "BANK_GS_P_EYE_ROCKET",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -822,7 +822,7 @@
   {
    "name": "SEQ_GS_P_E_MINAKI",
    "fileName": "SEQ_GS_P_E_MINAKI.sseq",
-   "bank": "BANK_GS_P_E_MINAKI",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -831,7 +831,7 @@
   {
    "name": "SEQ_GS_P_HUE",
    "fileName": "SEQ_GS_P_HUE.sseq",
-   "bank": "BANK_GS_P_HUE",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -840,7 +840,7 @@
   {
    "name": "SEQ_GS_P_IBUKI",
    "fileName": "SEQ_GS_P_IBUKI.sseq",
-   "bank": "BANK_GS_P_IBUKI",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -849,7 +849,7 @@
   {
    "name": "SEQ_GS_P_OHKIDO",
    "fileName": "SEQ_GS_P_OHKIDO.sseq",
-   "bank": "BANK_GS_P_OHKIDO",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -858,7 +858,7 @@
   {
    "name": "SEQ_GS_P_OHKIDO_RABO",
    "fileName": "SEQ_GS_P_OHKIDO_RABO.sseq",
-   "bank": "BANK_GS_P_OHKIDO_RABO",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -867,7 +867,7 @@
   {
    "name": "SEQ_GS_P_OPENING_TITLE_G",
    "fileName": "SEQ_GS_P_OPENING_TITLE_G.sseq",
-   "bank": "BANK_GS_P_OPENING_TITLE_G",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 72,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -876,7 +876,7 @@
   {
    "name": "SEQ_GS_P_POKEMON_THEME",
    "fileName": "SEQ_GS_P_POKEMON_THEME.sseq",
-   "bank": "BANK_GS_P_POKEMON_THEME",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -885,7 +885,7 @@
   {
    "name": "SEQ_GS_P_RADIO_JINGLE",
    "fileName": "SEQ_GS_P_RADIO_JINGLE.sseq",
-   "bank": "BANK_GS_P_RADIO_JINGLE",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -894,7 +894,7 @@
   {
    "name": "SEQ_GS_P_RADIO_KOMORIUTA",
    "fileName": "SEQ_GS_P_RADIO_KOMORIUTA.sseq",
-   "bank": "BANK_GS_P_HUE",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -903,7 +903,7 @@
   {
    "name": "SEQ_GS_P_RADIO_MARCH",
    "fileName": "SEQ_GS_P_RADIO_MARCH.sseq",
-   "bank": "BANK_GS_P_RADIO_MARCH",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -912,7 +912,7 @@
   {
    "name": "SEQ_GS_P_SENKYO",
    "fileName": "SEQ_GS_P_SENKYO.sseq",
-   "bank": "BANK_GS_P_SENKYO",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -921,7 +921,7 @@
   {
    "name": "SEQ_GS_P_TITLE",
    "fileName": "SEQ_GS_P_TITLE.sseq",
-   "bank": "BANK_GS_P_TITLE",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 70,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -930,7 +930,7 @@
   {
    "name": "SEQ_GS_P_VS_ROCKET",
    "fileName": "SEQ_GS_P_VS_ROCKET.sseq",
-   "bank": "BANK_GS_P_VS_ROCKET",
+   "bank": "BANK_GS_P_AIKOTOBA",
    "volume": 73,
    "channelPriority": 30,
    "playerPriority": 64,
@@ -1848,7 +1848,7 @@
   {
    "name": "SEQ_SE_GS_166",
    "fileName": "SEQ_SE_GS_166.sseq",
-   "bank": "BANK_SE_GS_166",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -1866,7 +1866,7 @@
   {
    "name": "SEQ_SE_GS_186_2",
    "fileName": "SEQ_SE_GS_186_2.sseq",
-   "bank": "BANK_SE_GS_186_2",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -1875,7 +1875,7 @@
   {
    "name": "SEQ_SE_GS_AJITO_SIREN",
    "fileName": "SEQ_SE_GS_AJITO_SIREN.sseq",
-   "bank": "BANK_SE_GS_AJITO_SIREN",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 117,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -1893,7 +1893,7 @@
   {
    "name": "SEQ_SE_GS_APPEAR",
    "fileName": "SEQ_SE_GS_APPEAR.sseq",
-   "bank": "BANK_SE_GS_APPEAR",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -1902,7 +1902,7 @@
   {
    "name": "SEQ_SE_GS_BOWA2",
    "fileName": "SEQ_SE_GS_BOWA2.sseq",
-   "bank": "BANK_SE_GS_BOWA2",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -1911,7 +1911,7 @@
   {
    "name": "SEQ_SE_GS_CHANGE1",
    "fileName": "SEQ_SE_GS_CHANGE1.sseq",
-   "bank": "BANK_SE_GS_CHANGE1",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 115,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -1920,7 +1920,7 @@
   {
    "name": "SEQ_SE_GS_CHANGE2",
    "fileName": "SEQ_SE_GS_CHANGE2.sseq",
-   "bank": "BANK_SE_GS_CHANGE2",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -1947,7 +1947,7 @@
   {
    "name": "SEQ_SE_GS_COIN_PAYOUT_ONE",
    "fileName": "SEQ_SE_GS_COIN_PAYOUT_ONE.sseq",
-   "bank": "BANK_SE_GS_COIN_PAYOUT_ONE",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 115,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -1956,7 +1956,7 @@
   {
    "name": "SEQ_SE_GS_CON_016",
    "fileName": "SEQ_SE_GS_CON_016.sseq",
-   "bank": "BANK_SE_GS_CON_016",
+   "bank": "BANK_SE_GS_186",
    "volume": 120,
    "channelPriority": 104,
    "playerPriority": 74,
@@ -1965,7 +1965,7 @@
   {
    "name": "SEQ_SE_GS_DASH",
    "fileName": "SEQ_SE_GS_DASH.sseq",
-   "bank": "BANK_SE_GS_DASH",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 75,
    "channelPriority": 84,
    "playerPriority": 64,
@@ -1974,7 +1974,7 @@
   {
    "name": "SEQ_SE_GS_DENGEKIBARIA",
    "fileName": "SEQ_SE_GS_DENGEKIBARIA.sseq",
-   "bank": "BANK_SE_GS_DENGEKIBARIA",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 50,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -1983,7 +1983,7 @@
   {
    "name": "SEQ_SE_GS_DENKI_TRAP",
    "fileName": "SEQ_SE_GS_DENKI_TRAP.sseq",
-   "bank": "BANK_SE_GS_DENKI_TRAP",
+   "bank": "BANK_SE_GS_186",
    "volume": 127,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2001,7 +2001,7 @@
   {
    "name": "SEQ_SE_GS_DOWSING_LOOP",
    "fileName": "SEQ_SE_GS_DOWSING_LOOP.sseq",
-   "bank": "BANK_SE_GS_DOWSING_LOOP",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 75,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2010,7 +2010,7 @@
   {
    "name": "SEQ_SE_GS_DOWSING_SINGLE",
    "fileName": "SEQ_SE_GS_DOWSING_SINGLE.sseq",
-   "bank": "BANK_SE_GS_COIN_PAYOUT_ONE",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 95,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2019,7 +2019,7 @@
   {
    "name": "SEQ_SE_GS_ENDCOUNT",
    "fileName": "SEQ_SE_GS_ENDCOUNT.sseq",
-   "bank": "BANK_SE_GS_ENDCOUNT",
+   "bank": "BANK_SE_GS_186",
    "volume": 105,
    "channelPriority": 104,
    "playerPriority": 74,
@@ -2028,7 +2028,7 @@
   {
    "name": "SEQ_SE_GS_FINISH",
    "fileName": "SEQ_SE_GS_FINISH.sseq",
-   "bank": "BANK_SE_GS_FINISH",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 74,
@@ -2037,7 +2037,7 @@
   {
    "name": "SEQ_SE_GS_FW015_1",
    "fileName": "SEQ_SE_GS_FW015_1.sseq",
-   "bank": "BANK_SE_GS_FW015_1",
+   "bank": "BANK_SE_GS_186",
    "volume": 120,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2055,7 +2055,7 @@
   {
    "name": "SEQ_SE_GS_FW104",
    "fileName": "SEQ_SE_GS_FW104.sseq",
-   "bank": "BANK_SE_GS_FW104",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 105,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2073,7 +2073,7 @@
   {
    "name": "SEQ_SE_GS_GAMENFADE",
    "fileName": "SEQ_SE_GS_GAMENFADE.sseq",
-   "bank": "BANK_SE_GS_GAMENFADE",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 115,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2082,7 +2082,7 @@
   {
    "name": "SEQ_SE_GS_GAMENFADEOPED",
    "fileName": "SEQ_SE_GS_GAMENFADEOPED.sseq",
-   "bank": "BANK_SE_GS_GAMENFADE",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 115,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2100,7 +2100,7 @@
   {
    "name": "SEQ_SE_GS_GEARCANCEL",
    "fileName": "SEQ_SE_GS_GEARCANCEL.sseq",
-   "bank": "BANK_SE_GS_GEARCANCEL",
+   "bank": "BANK_SE_GS_COIN_PAYOUT_LAST",
    "volume": 82,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2109,7 +2109,7 @@
   {
    "name": "SEQ_SE_GS_GEARCURSOR",
    "fileName": "SEQ_SE_GS_GEARCURSOR.sseq",
-   "bank": "BANK_SE_GS_COIN_PAYOUT_ONE",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 85,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2118,7 +2118,7 @@
   {
    "name": "SEQ_SE_GS_GEARDECIDE",
    "fileName": "SEQ_SE_GS_GEARDECIDE.sseq",
-   "bank": "BANK_SE_GS_GEARDECIDE",
+   "bank": "BANK_SE_GS_GEARAPPLICHANGE",
    "volume": 92,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2127,7 +2127,7 @@
   {
    "name": "SEQ_SE_GS_GONDORA_IDOU",
    "fileName": "SEQ_SE_GS_GONDORA_IDOU.sseq",
-   "bank": "BANK_SE_GS_GONDORA_IDOU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2136,7 +2136,7 @@
   {
    "name": "SEQ_SE_GS_GUGU",
    "fileName": "SEQ_SE_GS_GUGU.sseq",
-   "bank": "BANK_SE_GS_GUGU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2145,7 +2145,7 @@
   {
    "name": "SEQ_SE_GS_HAKKOUTAI_HIROGARI",
    "fileName": "SEQ_SE_GS_HAKKOUTAI_HIROGARI.sseq",
-   "bank": "BANK_SE_GS_HAKKOUTAI_HIROGARI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 85,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2154,7 +2154,7 @@
   {
    "name": "SEQ_SE_GS_HAKKOUTAI_HIROGARI2",
    "fileName": "SEQ_SE_GS_HAKKOUTAI_HIROGARI2.sseq",
-   "bank": "BANK_SE_GS_HAKKOUTAI_HIROGARI2",
+   "bank": "BANK_SE_DP_F207",
    "volume": 100,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2163,7 +2163,7 @@
   {
    "name": "SEQ_SE_GS_HAKKOUTAI_SYUTUGEN",
    "fileName": "SEQ_SE_GS_HAKKOUTAI_SYUTUGEN.sseq",
-   "bank": "BANK_SE_GS_HAKKOUTAI_SYUTUGEN",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 95,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2172,7 +2172,7 @@
   {
    "name": "SEQ_SE_GS_HATAMOTENAI",
    "fileName": "SEQ_SE_GS_HATAMOTENAI.sseq",
-   "bank": "BANK_SE_GS_HATAMOTENAI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 80,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2181,7 +2181,7 @@
   {
    "name": "SEQ_SE_GS_HERO_SHUKUSHOU",
    "fileName": "SEQ_SE_GS_HERO_SHUKUSHOU.sseq",
-   "bank": "BANK_SE_GS_HERO_SHUKUSHOU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2199,7 +2199,7 @@
   {
    "name": "SEQ_SE_GS_HOUOUHABATAKI_APRI",
    "fileName": "SEQ_SE_GS_HOUOUHABATAKI_APRI.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2208,7 +2208,7 @@
   {
    "name": "SEQ_SE_GS_HOUOU_HABATAKI",
    "fileName": "SEQ_SE_GS_HOUOU_HABATAKI.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2217,7 +2217,7 @@
   {
    "name": "SEQ_SE_GS_HYOUKAI_HIT",
    "fileName": "SEQ_SE_GS_HYOUKAI_HIT.sseq",
-   "bank": "BANK_SE_GS_HYOUKAI_HIT",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 70,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2226,7 +2226,7 @@
   {
    "name": "SEQ_SE_GS_HYOUKAI_KETUGOU",
    "fileName": "SEQ_SE_GS_HYOUKAI_KETUGOU.sseq",
-   "bank": "BANK_SE_GS_HYOUKAI_KETUGOU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2235,7 +2235,7 @@
   {
    "name": "SEQ_SE_GS_HYOUKAI_SUBERU",
    "fileName": "SEQ_SE_GS_HYOUKAI_SUBERU.sseq",
-   "bank": "BANK_SE_GS_HYOUKAI_SUBERU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2244,7 +2244,7 @@
   {
    "name": "SEQ_SE_GS_IDOUHIT",
    "fileName": "SEQ_SE_GS_IDOUHIT.sseq",
-   "bank": "BANK_SE_GS_IDOUHIT",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 50,
    "channelPriority": 84,
    "playerPriority": 64,
@@ -2262,7 +2262,7 @@
   {
    "name": "SEQ_SE_GS_IWAOTOSHI02",
    "fileName": "SEQ_SE_GS_IWAOTOSHI02.sseq",
-   "bank": "BANK_SE_GS_IWAOTOSHI02",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 120,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2271,7 +2271,7 @@
   {
    "name": "SEQ_SE_GS_IWA_TRAP",
    "fileName": "SEQ_SE_GS_IWA_TRAP.sseq",
-   "bank": "BANK_SE_GS_IWA_TRAP",
+   "bank": "BANK_SE_GS_FW463",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2280,7 +2280,7 @@
   {
    "name": "SEQ_SE_GS_KAWARATUMU",
    "fileName": "SEQ_SE_GS_KAWARATUMU.sseq",
-   "bank": "BANK_SE_GS_KAWARATUMU",
+   "bank": "BANK_SE_GS_186",
    "volume": 120,
    "channelPriority": 89,
    "playerPriority": 74,
@@ -2289,7 +2289,7 @@
   {
    "name": "SEQ_SE_GS_KEKKA",
    "fileName": "SEQ_SE_GS_KEKKA.sseq",
-   "bank": "BANK_SE_GS_166",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 110,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2298,7 +2298,7 @@
   {
    "name": "SEQ_SE_GS_KI_GASYAN",
    "fileName": "SEQ_SE_GS_KI_GASYAN.sseq",
-   "bank": "BANK_SE_GS_KI_GASYAN",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 107,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2307,7 +2307,7 @@
   {
    "name": "SEQ_SE_GS_KI_UGOKU",
    "fileName": "SEQ_SE_GS_KI_UGOKU.sseq",
-   "bank": "BANK_SE_GS_KI_UGOKU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 127,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2316,7 +2316,7 @@
   {
    "name": "SEQ_SE_GS_KOUKA_H",
    "fileName": "SEQ_SE_GS_KOUKA_H.sseq",
-   "bank": "BANK_SE_GS_KOUKA_H",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2325,7 +2325,7 @@
   {
    "name": "SEQ_SE_GS_KP01",
    "fileName": "SEQ_SE_GS_KP01.sseq",
-   "bank": "BANK_SE_GS_KP01",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2343,7 +2343,7 @@
   {
    "name": "SEQ_SE_GS_KUJI_OOATARI",
    "fileName": "SEQ_SE_GS_KUJI_OOATARI.sseq",
-   "bank": "BANK_SE_GS_KUJI_OOATARI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2361,7 +2361,7 @@
   {
    "name": "SEQ_SE_GS_LINEAR",
    "fileName": "SEQ_SE_GS_LINEAR.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 127,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2370,7 +2370,7 @@
   {
    "name": "SEQ_SE_GS_LINEAR2",
    "fileName": "SEQ_SE_GS_LINEAR2.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 70,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2388,7 +2388,7 @@
   {
    "name": "SEQ_SE_GS_LINEAR_LR",
    "fileName": "SEQ_SE_GS_LINEAR_LR.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 127,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2397,7 +2397,7 @@
   {
    "name": "SEQ_SE_GS_LINEAR_LR2",
    "fileName": "SEQ_SE_GS_LINEAR_LR2.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 70,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2424,7 +2424,7 @@
   {
    "name": "SEQ_SE_GS_MOGURU",
    "fileName": "SEQ_SE_GS_MOGURU.sseq",
-   "bank": "BANK_SE_GS_MOGURU",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2433,7 +2433,7 @@
   {
    "name": "SEQ_SE_GS_MYGOAL",
    "fileName": "SEQ_SE_GS_MYGOAL.sseq",
-   "bank": "BANK_SE_GS_MOGURU",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 115,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2442,7 +2442,7 @@
   {
    "name": "SEQ_SE_GS_NAGERU",
    "fileName": "SEQ_SE_GS_NAGERU.sseq",
-   "bank": "BANK_SE_GS_NAGERU",
+   "bank": "BANK_SE_GS_186",
    "volume": 105,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2451,7 +2451,7 @@
   {
    "name": "SEQ_SE_GS_NEWRECORD",
    "fileName": "SEQ_SE_GS_NEWRECORD.sseq",
-   "bank": "BANK_SE_GS_NEWRECORD",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 74,
@@ -2460,7 +2460,7 @@
   {
    "name": "SEQ_SE_GS_NM12",
    "fileName": "SEQ_SE_GS_NM12.sseq",
-   "bank": "BANK_SE_GS_NM12",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 60,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2469,7 +2469,7 @@
   {
    "name": "SEQ_SE_GS_N_KANSEI",
    "fileName": "SEQ_SE_GS_N_KANSEI.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 70,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2478,7 +2478,7 @@
   {
    "name": "SEQ_SE_GS_N_LINEAR",
    "fileName": "SEQ_SE_GS_N_LINEAR.sseq",
-   "bank": "BANK_SE_GS_N_LINEAR",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2487,7 +2487,7 @@
   {
    "name": "SEQ_SE_GS_N_MOTER",
    "fileName": "SEQ_SE_GS_N_MOTER.sseq",
-   "bank": "BANK_SE_GS_N_MOTER",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 58,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2496,7 +2496,7 @@
   {
    "name": "SEQ_SE_GS_N_SESERAGI",
    "fileName": "SEQ_SE_GS_N_SESERAGI.sseq",
-   "bank": "BANK_SE_GS_N_SESERAGI",
+   "bank": "BANK_SE_GS_186",
    "volume": 120,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2505,7 +2505,7 @@
   {
    "name": "SEQ_SE_GS_N_TAKI",
    "fileName": "SEQ_SE_GS_N_TAKI.sseq",
-   "bank": "BANK_SE_GS_N_TAKI",
+   "bank": "BANK_SE_GS_FW463",
    "volume": 75,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2514,7 +2514,7 @@
   {
    "name": "SEQ_SE_GS_N_UMIBE",
    "fileName": "SEQ_SE_GS_N_UMIBE.sseq",
-   "bank": "BANK_SE_GS_HYOUKAI_SUBERU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2523,7 +2523,7 @@
   {
    "name": "SEQ_SE_GS_OKOZUKAI",
    "fileName": "SEQ_SE_GS_OKOZUKAI.sseq",
-   "bank": "BANK_SE_GS_OKOZUKAI",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2532,7 +2532,7 @@
   {
    "name": "SEQ_SE_GS_PANERU_MEKURU",
    "fileName": "SEQ_SE_GS_PANERU_MEKURU.sseq",
-   "bank": "BANK_SE_GS_PANERU_MEKURU",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2541,7 +2541,7 @@
   {
    "name": "SEQ_SE_GS_PANERU_MEKURUMAE",
    "fileName": "SEQ_SE_GS_PANERU_MEKURUMAE.sseq",
-   "bank": "BANK_SE_GS_PANERU_MEKURUMAE",
+   "bank": "BANK_SE_GS_KUJI_ATARI",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2550,7 +2550,7 @@
   {
    "name": "SEQ_SE_GS_PHONE0",
    "fileName": "SEQ_SE_GS_PHONE0.sseq",
-   "bank": "BANK_SE_GS_N_LINEAR",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2559,7 +2559,7 @@
   {
    "name": "SEQ_SE_GS_PHONE1",
    "fileName": "SEQ_SE_GS_PHONE1.sseq",
-   "bank": "BANK_SE_GS_N_LINEAR",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2568,7 +2568,7 @@
   {
    "name": "SEQ_SE_GS_PHONE_OFF",
    "fileName": "SEQ_SE_GS_PHONE_OFF.sseq",
-   "bank": "BANK_SE_GS_PHONE_OFF",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2577,7 +2577,7 @@
   {
    "name": "SEQ_SE_GS_POINT1",
    "fileName": "SEQ_SE_GS_POINT1.sseq",
-   "bank": "BANK_SE_GS_POINT1",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 94,
    "playerPriority": 74,
@@ -2586,7 +2586,7 @@
   {
    "name": "SEQ_SE_GS_POINT2",
    "fileName": "SEQ_SE_GS_POINT2.sseq",
-   "bank": "BANK_SE_GS_POINT1",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 95,
    "channelPriority": 94,
    "playerPriority": 74,
@@ -2595,7 +2595,7 @@
   {
    "name": "SEQ_SE_GS_POINT3",
    "fileName": "SEQ_SE_GS_POINT3.sseq",
-   "bank": "BANK_SE_GS_POINT1",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 94,
    "playerPriority": 74,
@@ -2613,7 +2613,7 @@
   {
    "name": "SEQ_SE_GS_PUSH02",
    "fileName": "SEQ_SE_GS_PUSH02.sseq",
-   "bank": "BANK_SE_GS_FW104",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2622,7 +2622,7 @@
   {
    "name": "SEQ_SE_GS_PUSH03",
    "fileName": "SEQ_SE_GS_PUSH03.sseq",
-   "bank": "BANK_SE_GS_PUSH03",
+   "bank": "BANK_SE_GS_186",
    "volume": 127,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2649,7 +2649,7 @@
   {
    "name": "SEQ_SE_GS_ROUSOKU_KIERU",
    "fileName": "SEQ_SE_GS_ROUSOKU_KIERU.sseq",
-   "bank": "BANK_SE_GS_ROUSOKU_KIERU",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 126,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2658,7 +2658,7 @@
   {
    "name": "SEQ_SE_GS_RUGIA_HABATAKI",
    "fileName": "SEQ_SE_GS_RUGIA_HABATAKI.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2667,7 +2667,7 @@
   {
    "name": "SEQ_SE_GS_RUGIA_MENOHIKARI",
    "fileName": "SEQ_SE_GS_RUGIA_MENOHIKARI.sseq",
-   "bank": "BANK_SE_GS_RUGIA_MENOHIKARI",
+   "bank": "BANK_SE_GS_FW463",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2676,7 +2676,7 @@
   {
    "name": "SEQ_SE_GS_RUGIA_TAKISHUTUGEN",
    "fileName": "SEQ_SE_GS_RUGIA_TAKISHUTUGEN.sseq",
-   "bank": "BANK_SE_GS_N_TAKI",
+   "bank": "BANK_SE_GS_FW463",
    "volume": 126,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2685,7 +2685,7 @@
   {
    "name": "SEQ_SE_GS_SEKIBAN_KAITEN",
    "fileName": "SEQ_SE_GS_SEKIBAN_KAITEN.sseq",
-   "bank": "BANK_SE_GS_SEKIBAN_KAITEN",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2694,7 +2694,7 @@
   {
    "name": "SEQ_SE_GS_SEKIBAN_SENTAKU",
    "fileName": "SEQ_SE_GS_SEKIBAN_SENTAKU.sseq",
-   "bank": "BANK_SE_GS_SEKIBAN_SENTAKU",
+   "bank": "BANK_SE_DP_F207",
    "volume": 125,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2703,7 +2703,7 @@
   {
    "name": "SEQ_SE_GS_SHOT",
    "fileName": "SEQ_SE_GS_SHOT.sseq",
-   "bank": "BANK_SE_GS_SHOT",
+   "bank": "BANK_SE_GS_DOKU_TRAP",
    "volume": 125,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2721,7 +2721,7 @@
   {
    "name": "SEQ_SE_GS_SLOT01",
    "fileName": "SEQ_SE_GS_SLOT01.sseq",
-   "bank": "BANK_SE_GS_PHONE_OFF",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 50,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2730,7 +2730,7 @@
   {
    "name": "SEQ_SE_GS_SLOT02",
    "fileName": "SEQ_SE_GS_SLOT02.sseq",
-   "bank": "BANK_SE_GS_PHONE_OFF",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 50,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2739,7 +2739,7 @@
   {
    "name": "SEQ_SE_GS_SLOT03",
    "fileName": "SEQ_SE_GS_SLOT03.sseq",
-   "bank": "BANK_SE_GS_PHONE_OFF",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 50,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2748,7 +2748,7 @@
   {
    "name": "SEQ_SE_GS_STARTCOUNT",
    "fileName": "SEQ_SE_GS_STARTCOUNT.sseq",
-   "bank": "BANK_SE_GS_STARTCOUNT",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 74,
@@ -2766,7 +2766,7 @@
   {
    "name": "SEQ_SE_GS_SUTYA",
    "fileName": "SEQ_SE_GS_SUTYA.sseq",
-   "bank": "BANK_SE_GS_SUTYA",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 78,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2775,7 +2775,7 @@
   {
    "name": "SEQ_SE_GS_SUZUNOONPA2",
    "fileName": "SEQ_SE_GS_SUZUNOONPA2.sseq",
-   "bank": "BANK_SE_GS_HAKKOUTAI_HIROGARI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2784,7 +2784,7 @@
   {
    "name": "SEQ_SE_GS_SUZUNOONPA_APRI",
    "fileName": "SEQ_SE_GS_SUZUNOONPA_APRI.sseq",
-   "bank": "BANK_SE_GS_HAKKOUTAI_HIROGARI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 110,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2793,7 +2793,7 @@
   {
    "name": "SEQ_SE_GS_SUZUNOONPA_RU",
    "fileName": "SEQ_SE_GS_SUZUNOONPA_RU.sseq",
-   "bank": "BANK_SE_GS_HAKKOUTAI_HIROGARI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 110,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2820,7 +2820,7 @@
   {
    "name": "SEQ_SE_GS_TACKLEHATUDOU",
    "fileName": "SEQ_SE_GS_TACKLEHATUDOU.sseq",
-   "bank": "BANK_SE_GS_TACKLEHATUDOU",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2829,7 +2829,7 @@
   {
    "name": "SEQ_SE_GS_TACKLEHATUDOU2",
    "fileName": "SEQ_SE_GS_TACKLEHATUDOU2.sseq",
-   "bank": "BANK_SE_GS_TACKLEHATUDOU",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2856,7 +2856,7 @@
   {
    "name": "SEQ_SE_GS_TAKI_RUGIADEMO",
    "fileName": "SEQ_SE_GS_TAKI_RUGIADEMO.sseq",
-   "bank": "BANK_SE_GS_N_TAKI",
+   "bank": "BANK_SE_GS_FW463",
    "volume": 35,
    "channelPriority": 114,
    "playerPriority": 64,
@@ -2874,7 +2874,7 @@
   {
    "name": "SEQ_SE_GS_TAMA3",
    "fileName": "SEQ_SE_GS_TAMA3.sseq",
-   "bank": "BANK_SE_GS_TAMA3",
+   "bank": "BANK_SE_GS_FW463",
    "volume": 110,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2892,7 +2892,7 @@
   {
    "name": "SEQ_SE_GS_THLON02",
    "fileName": "SEQ_SE_GS_THLON02.sseq",
-   "bank": "BANK_SE_GS_THLON02",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 91,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2901,7 +2901,7 @@
   {
    "name": "SEQ_SE_GS_THLON06",
    "fileName": "SEQ_SE_GS_THLON06.sseq",
-   "bank": "BANK_SE_GS_THLON06",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2910,7 +2910,7 @@
   {
    "name": "SEQ_SE_GS_THLON09",
    "fileName": "SEQ_SE_GS_THLON09.sseq",
-   "bank": "BANK_SE_GS_THLON09",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 84,
    "playerPriority": 64,
@@ -2919,7 +2919,7 @@
   {
    "name": "SEQ_SE_GS_TIMERZERO",
    "fileName": "SEQ_SE_GS_TIMERZERO.sseq",
-   "bank": "BANK_SE_GS_CHANGE1",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 85,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2928,7 +2928,7 @@
   {
    "name": "SEQ_SE_GS_TIMESLIP",
    "fileName": "SEQ_SE_GS_TIMESLIP.sseq",
-   "bank": "BANK_SE_GS_TIMESLIP",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 110,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2937,7 +2937,7 @@
   {
    "name": "SEQ_SE_GS_TOUCHPEN",
    "fileName": "SEQ_SE_GS_TOUCHPEN.sseq",
-   "bank": "BANK_SE_GS_TOUCHPEN",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2946,7 +2946,7 @@
   {
    "name": "SEQ_SE_GS_UFO_JUMP",
    "fileName": "SEQ_SE_GS_UFO_JUMP.sseq",
-   "bank": "BANK_SE_GS_UFO_JUMP",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 35,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -2964,7 +2964,7 @@
   {
    "name": "SEQ_SE_GS_VOICE02",
    "fileName": "SEQ_SE_GS_VOICE02.sseq",
-   "bank": "BANK_SE_GS_VOICE02",
+   "bank": "BANK_SE_DP_F207",
    "volume": 127,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -2982,7 +2982,7 @@
   {
    "name": "SEQ_SE_GS_VOICE10",
    "fileName": "SEQ_SE_GS_VOICE10.sseq",
-   "bank": "BANK_SE_GS_HOUOUHABATAKI_APRI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 90,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -2991,7 +2991,7 @@
   {
    "name": "SEQ_SE_GS_W012",
    "fileName": "SEQ_SE_GS_W012.sseq",
-   "bank": "BANK_SE_GS_W012",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 60,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -3000,7 +3000,7 @@
   {
    "name": "SEQ_SE_GS_W030",
    "fileName": "SEQ_SE_GS_W030.sseq",
-   "bank": "BANK_SE_GS_W030",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 105,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -3009,7 +3009,7 @@
   {
    "name": "SEQ_SE_GS_W082",
    "fileName": "SEQ_SE_GS_W082.sseq",
-   "bank": "BANK_SE_GS_W082",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -3018,7 +3018,7 @@
   {
    "name": "SEQ_SE_GS_W085",
    "fileName": "SEQ_SE_GS_W085.sseq",
-   "bank": "BANK_SE_GS_W085",
+   "bank": "BANK_SE_GS_186",
    "volume": 100,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -3027,7 +3027,7 @@
   {
    "name": "SEQ_SE_GS_W100",
    "fileName": "SEQ_SE_GS_W100.sseq",
-   "bank": "BANK_SE_GS_W100",
+   "bank": "BANK_SE_GS_PUZZLETOKU",
    "volume": 120,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -3036,7 +3036,7 @@
   {
    "name": "SEQ_SE_GS_W146",
    "fileName": "SEQ_SE_GS_W146.sseq",
-   "bank": "BANK_SE_GS_ENDCOUNT",
+   "bank": "BANK_SE_GS_186",
    "volume": 100,
    "channelPriority": 89,
    "playerPriority": 54,
@@ -3045,7 +3045,7 @@
   {
    "name": "SEQ_SE_GS_W260",
    "fileName": "SEQ_SE_GS_W260.sseq",
-   "bank": "BANK_SE_GS_MOGURU",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 60,
    "channelPriority": 84,
    "playerPriority": 64,
@@ -3054,7 +3054,7 @@
   {
    "name": "SEQ_SE_GS_W280",
    "fileName": "SEQ_SE_GS_W280.sseq",
-   "bank": "BANK_SE_GS_W280",
+   "bank": "BANK_SE_GS_COIN_HAZURE",
    "volume": 103,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -3063,7 +3063,7 @@
   {
    "name": "SEQ_SE_GS_W436",
    "fileName": "SEQ_SE_GS_W436.sseq",
-   "bank": "BANK_SE_GS_W436",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 100,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -3072,7 +3072,7 @@
   {
    "name": "SEQ_SE_GS_WH01",
    "fileName": "SEQ_SE_GS_WH01.sseq",
-   "bank": "BANK_SE_GS_CHANGE1",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 120,
    "channelPriority": 94,
    "playerPriority": 64,
@@ -3081,7 +3081,7 @@
   {
    "name": "SEQ_SE_GS_WH02",
    "fileName": "SEQ_SE_GS_WH02.sseq",
-   "bank": "BANK_SE_GS_WH02",
+   "bank": "BANK_SE_GS_186",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -3099,7 +3099,7 @@
   {
    "name": "SEQ_SE_GS_ZUKAN06",
    "fileName": "SEQ_SE_GS_ZUKAN06.sseq",
-   "bank": "BANK_SE_GS_ZUKAN06",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 80,
    "channelPriority": 89,
    "playerPriority": 64,
@@ -3108,7 +3108,7 @@
   {
    "name": "SEQ_SE_GS_ZUTUKI",
    "fileName": "SEQ_SE_GS_ZUTUKI.sseq",
-   "bank": "BANK_SE_GS_ZUTUKI",
+   "bank": "BANK_SE_DP_FW411",
    "volume": 125,
    "channelPriority": 104,
    "playerPriority": 64,
@@ -3859,236 +3859,6 @@
   {
    "name": "BANK_GS_P_AIKOTOBA",
    "fileName": "BANK_GS_P_AIKOTOBA.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_ENDING",
-   "fileName": "BANK_GS_P_ENDING.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_ENDING2",
-   "fileName": "BANK_GS_P_ENDING2.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_BOUZU",
-   "fileName": "BANK_GS_P_EYE_BOUZU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_J_AYASHII",
-   "fileName": "BANK_GS_P_EYE_J_AYASHII.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_J_SHOUJO",
-   "fileName": "BANK_GS_P_EYE_J_SHOUJO.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_J_SHOUNEN",
-   "fileName": "BANK_GS_P_EYE_J_SHOUNEN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_K_AYASHII",
-   "fileName": "BANK_GS_P_EYE_K_AYASHII.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_K_SHOUJO",
-   "fileName": "BANK_GS_P_EYE_K_SHOUJO.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_K_SHOUNEN",
-   "fileName": "BANK_GS_P_EYE_K_SHOUNEN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_MAIKO",
-   "fileName": "BANK_GS_P_EYE_MAIKO.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_EYE_ROCKET",
-   "fileName": "BANK_GS_P_EYE_ROCKET.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_E_MINAKI",
-   "fileName": "BANK_GS_P_E_MINAKI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_HUE",
-   "fileName": "BANK_GS_P_HUE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_IBUKI",
-   "fileName": "BANK_GS_P_IBUKI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_OHKIDO",
-   "fileName": "BANK_GS_P_OHKIDO.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_OHKIDO_RABO",
-   "fileName": "BANK_GS_P_OHKIDO_RABO.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_OPENING_TITLE_G",
-   "fileName": "BANK_GS_P_OPENING_TITLE_G.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_POKEMON_THEME",
-   "fileName": "BANK_GS_P_POKEMON_THEME.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_RADIO_JINGLE",
-   "fileName": "BANK_GS_P_RADIO_JINGLE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_RADIO_MARCH",
-   "fileName": "BANK_GS_P_RADIO_MARCH.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_SENKYO",
-   "fileName": "BANK_GS_P_SENKYO.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_TITLE",
-   "fileName": "BANK_GS_P_TITLE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_GS_P_VS_ROCKET",
-   "fileName": "BANK_GS_P_VS_ROCKET.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -4917,16 +4687,6 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_166",
-   "fileName": "BANK_SE_GS_166.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_186",
    "fileName": "BANK_SE_GS_186.sbnk",
    "waves": [
@@ -4937,68 +4697,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_186_2",
-   "fileName": "BANK_SE_GS_186_2.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_AJITO_SIREN",
-   "fileName": "BANK_SE_GS_AJITO_SIREN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_ALBUMMEKURU",
    "fileName": "BANK_SE_GS_ALBUMMEKURU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_APPEAR",
-   "fileName": "BANK_SE_GS_APPEAR.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_BOWA2",
-   "fileName": "BANK_SE_GS_BOWA2.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_CHANGE1",
-   "fileName": "BANK_SE_GS_CHANGE1.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_CHANGE2",
-   "fileName": "BANK_SE_GS_CHANGE2.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -5027,108 +4727,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_COIN_PAYOUT_ONE",
-   "fileName": "BANK_SE_GS_COIN_PAYOUT_ONE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_CON_016",
-   "fileName": "BANK_SE_GS_CON_016.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_DASH",
-   "fileName": "BANK_SE_GS_DASH.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_DENGEKIBARIA",
-   "fileName": "BANK_SE_GS_DENGEKIBARIA.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_DENKI_TRAP",
-   "fileName": "BANK_SE_GS_DENKI_TRAP.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_DOKU_TRAP",
    "fileName": "BANK_SE_GS_DOKU_TRAP.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_DOWSING_LOOP",
-   "fileName": "BANK_SE_GS_DOWSING_LOOP.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_ENDCOUNT",
-   "fileName": "BANK_SE_GS_ENDCOUNT.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_FINISH",
-   "fileName": "BANK_SE_GS_FINISH.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_FW015_1",
-   "fileName": "BANK_SE_GS_FW015_1.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_FW104",
-   "fileName": "BANK_SE_GS_FW104.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -5147,108 +4747,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_GAMENFADE",
-   "fileName": "BANK_SE_GS_GAMENFADE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_GEARAPPLICHANGE",
    "fileName": "BANK_SE_GS_GEARAPPLICHANGE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_GEARCANCEL",
-   "fileName": "BANK_SE_GS_GEARCANCEL.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_GEARDECIDE",
-   "fileName": "BANK_SE_GS_GEARDECIDE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_GONDORA_IDOU",
-   "fileName": "BANK_SE_GS_GONDORA_IDOU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_GUGU",
-   "fileName": "BANK_SE_GS_GUGU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HAKKOUTAI_HIROGARI",
-   "fileName": "BANK_SE_GS_HAKKOUTAI_HIROGARI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HAKKOUTAI_HIROGARI2",
-   "fileName": "BANK_SE_GS_HAKKOUTAI_HIROGARI2.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HAKKOUTAI_SYUTUGEN",
-   "fileName": "BANK_SE_GS_HAKKOUTAI_SYUTUGEN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HATAMOTENAI",
-   "fileName": "BANK_SE_GS_HATAMOTENAI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HERO_SHUKUSHOU",
-   "fileName": "BANK_SE_GS_HERO_SHUKUSHOU.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -5267,138 +4767,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_HOUOUHABATAKI_APRI",
-   "fileName": "BANK_SE_GS_HOUOUHABATAKI_APRI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HYOUKAI_HIT",
-   "fileName": "BANK_SE_GS_HYOUKAI_HIT.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HYOUKAI_KETUGOU",
-   "fileName": "BANK_SE_GS_HYOUKAI_KETUGOU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_HYOUKAI_SUBERU",
-   "fileName": "BANK_SE_GS_HYOUKAI_SUBERU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_IDOUHIT",
-   "fileName": "BANK_SE_GS_IDOUHIT.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_IWAOTOSHI02",
-   "fileName": "BANK_SE_GS_IWAOTOSHI02.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_IWA_TRAP",
-   "fileName": "BANK_SE_GS_IWA_TRAP.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_KAWARATUMU",
-   "fileName": "BANK_SE_GS_KAWARATUMU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_KI_GASYAN",
-   "fileName": "BANK_SE_GS_KI_GASYAN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_KI_UGOKU",
-   "fileName": "BANK_SE_GS_KI_UGOKU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_KOUKA_H",
-   "fileName": "BANK_SE_GS_KOUKA_H.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_KP01",
-   "fileName": "BANK_SE_GS_KP01.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_KUJI_ATARI",
    "fileName": "BANK_SE_GS_KUJI_ATARI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_KUJI_OOATARI",
-   "fileName": "BANK_SE_GS_KUJI_OOATARI.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -5427,208 +4797,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_MOGURU",
-   "fileName": "BANK_SE_GS_MOGURU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_NAGERU",
-   "fileName": "BANK_SE_GS_NAGERU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_NEWRECORD",
-   "fileName": "BANK_SE_GS_NEWRECORD.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_NM12",
-   "fileName": "BANK_SE_GS_NM12.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_N_LINEAR",
-   "fileName": "BANK_SE_GS_N_LINEAR.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_N_MOTER",
-   "fileName": "BANK_SE_GS_N_MOTER.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_N_SESERAGI",
-   "fileName": "BANK_SE_GS_N_SESERAGI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_N_TAKI",
-   "fileName": "BANK_SE_GS_N_TAKI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_OKOZUKAI",
-   "fileName": "BANK_SE_GS_OKOZUKAI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_PANERU_MEKURU",
-   "fileName": "BANK_SE_GS_PANERU_MEKURU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_PANERU_MEKURUMAE",
-   "fileName": "BANK_SE_GS_PANERU_MEKURUMAE.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_PHONE_OFF",
-   "fileName": "BANK_SE_GS_PHONE_OFF.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_POINT1",
-   "fileName": "BANK_SE_GS_POINT1.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_PUSH03",
-   "fileName": "BANK_SE_GS_PUSH03.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_PUZZLETOKU",
    "fileName": "BANK_SE_GS_PUZZLETOKU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_ROUSOKU_KIERU",
-   "fileName": "BANK_SE_GS_ROUSOKU_KIERU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_RUGIA_MENOHIKARI",
-   "fileName": "BANK_SE_GS_RUGIA_MENOHIKARI.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_SEKIBAN_KAITEN",
-   "fileName": "BANK_SE_GS_SEKIBAN_KAITEN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_SEKIBAN_SENTAKU",
-   "fileName": "BANK_SE_GS_SEKIBAN_SENTAKU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_SHOT",
-   "fileName": "BANK_SE_GS_SHOT.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_STARTCOUNT",
-   "fileName": "BANK_SE_GS_STARTCOUNT.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -5647,98 +4817,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_SUTYA",
-   "fileName": "BANK_SE_GS_SUTYA.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_TACKLEHATUDOU",
-   "fileName": "BANK_SE_GS_TACKLEHATUDOU.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_TAMA3",
-   "fileName": "BANK_SE_GS_TAMA3.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_TAMASYUTUGEN",
    "fileName": "BANK_SE_GS_TAMASYUTUGEN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_THLON02",
-   "fileName": "BANK_SE_GS_THLON02.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_THLON06",
-   "fileName": "BANK_SE_GS_THLON06.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_THLON09",
-   "fileName": "BANK_SE_GS_THLON09.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_TIMESLIP",
-   "fileName": "BANK_SE_GS_TIMESLIP.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_TOUCHPEN",
-   "fileName": "BANK_SE_GS_TOUCHPEN.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_UFO_JUMP",
-   "fileName": "BANK_SE_GS_UFO_JUMP.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
@@ -5757,118 +4837,8 @@
    ]
   },
   {
-   "name": "BANK_SE_GS_VOICE02",
-   "fileName": "BANK_SE_GS_VOICE02.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
    "name": "BANK_SE_GS_VOICE07",
    "fileName": "BANK_SE_GS_VOICE07.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W012",
-   "fileName": "BANK_SE_GS_W012.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W030",
-   "fileName": "BANK_SE_GS_W030.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W082",
-   "fileName": "BANK_SE_GS_W082.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W085",
-   "fileName": "BANK_SE_GS_W085.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W100",
-   "fileName": "BANK_SE_GS_W100.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W280",
-   "fileName": "BANK_SE_GS_W280.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_W436",
-   "fileName": "BANK_SE_GS_W436.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_WH02",
-   "fileName": "BANK_SE_GS_WH02.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_ZUKAN06",
-   "fileName": "BANK_SE_GS_ZUKAN06.sbnk",
-   "waves": [
-    "WAVE_ARC_BASIC",
-    "WAVE_ARC_GS",
-    "",
-    ""
-   ]
-  },
-  {
-   "name": "BANK_SE_GS_ZUTUKI",
-   "fileName": "BANK_SE_GS_ZUTUKI.sbnk",
    "waves": [
     "WAVE_ARC_BASIC",
     "WAVE_ARC_GS",
