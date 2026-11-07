@@ -196,7 +196,9 @@ work.
   Test: `tools/complete/test_dowsing.py`. The field runs at 30 frames a second: a test's waits count two vblanks a frame.
 - The Pokéathlon (being ported in stages, `docs/Roadmap.md`): its save is `include/complete_pokeathlon.h` (two
   extra save sectors; `CompletePokeathlon_Load` gives a heap copy, `_Store` writes the working copy, saved with the
-  game). The Dome's commands and its prize counters are in overlay 7 (`src/overlay007/complete_pokeathlon_shop.c`,
+  game). Its size is pinned to the whole sector (a sector of another size fails its check and starts fresh): a new field
+  comes out of `reserved`, never grows the struct. `tools/complete/test_save.py OLD_ROM --then NEW_ROM` continues a
+  save made on one build on another. The Dome's commands and its prize counters are in overlay 7 (`src/overlay007/complete_pokeathlon_shop.c`,
   hooks in Platinum's shop marked `completeCounter`); test `tools/complete/test_pokeathlon_counters.py`. New items go
   after HM09 at the list's end (`tools/complete/import_hgss_data_cards.py`), never between, so saves' items keep their
   numbers. Overlay 7's chain ends well before the battle overlay, which sets the arena: code there costs no heap.
