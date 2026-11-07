@@ -81,9 +81,9 @@ STEPS = [
 
 NEXT = [
     'Now: the Pokéathlon, the last HeartGold port. Its Dome works (the prize counters, the Athlete Points, the '
-    'records, all four record screens, the Friendship Room\'s statues, each Pokémon\'s performance), the Apricorn '
-    'Box and the Aprijuice stand are in, and a whole course plays in the test version. Next: the course started from '
-    'the Dome\'s reception, its songs and sounds, the screens that still draw wrong, then the other courses\' events.',
+    'records, all four record screens, the statues, each Pokémon\'s performance, the Apricorn Box and the Aprijuice '
+    'stand), and the reception now starts a course: the Speed Course plays to its end and gives its points. Next: '
+    'the Pokéathlon\'s own songs and sounds, two screens that draw wrong, then the other courses\' events.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -267,6 +267,12 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon: a course from the reception', [
+        'Talk to the nurse at the Pokéathlon Dome, pick JOIN and a course, say Yes: you walk in and the course '
+        'starts, as in HeartGold. The test played the whole Speed Course this way, from the nurse to the results, '
+        'and back in the lobby she gave the points it scored ("received 166 points!"). Cancelling the choice of '
+        'Pokémon takes you back to the lobby. The Pokéathlon is still silent: its songs and sounds come next.',
+    ]),
     ('The Apricorn Box and the Aprijuice stand', [
         'The Apricorn Box now opens from the bag as in HeartGold: your seven kinds of Apricorn with their counts, each '
         'one\'s description, and the Apriblender once the stand\'s clerk has given it to you: put Apricorns in and walk '
