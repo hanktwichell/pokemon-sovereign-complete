@@ -255,9 +255,6 @@ static const struct {
 
 BOOL HgssCompat_LoadResdatSprites(SpriteSystem *spriteSys, SpriteManager *spriteMan, const u16 *lists, int charMode, int plttMode)
 {
-    (void)charMode; // HeartGold's 0 puts the tiles' transfers at the heap's end; Platinum's as its own does
-    (void)plttMode;
-
     if (spriteSys == NULL || spriteMan == NULL) {
         return FALSE;
     }
@@ -314,8 +311,28 @@ BOOL HgssCompat_LoadResdatSprites(SpriteSystem *spriteSys, SpriteManager *sprite
         spriteMan->loadedResourceCount[i] = SpriteResourceCollection_Extend(spriteMan->ownedResources[i], table, spriteMan->unownedResources[i], spriteSys->heapID);
     }
 
-    SpriteTransfer_RequestCharList(spriteMan->unownedResources[SPRITE_RESOURCE_CHAR]);
-    SpriteTransfer_RequestPlttWholeRangeList(spriteMan->unownedResources[SPRITE_RESOURCE_PLTT]);
+    // HeartGold's modes, each Platinum's twin: the tiles at VRAM's end (0, the box's: its sprite system keeps all of
+    // its 64 KB for such transfers, nothing at the start), the same with the hardware's mapping (1), or at the start
+    // (2); the palettes in free slots (0) or over the whole range (1)
+    const SpriteResourceList *chars = spriteMan->unownedResources[SPRITE_RESOURCE_CHAR];
+
+    if (charMode == 0) {
+        SpriteTransfer_RequestCharListAtEnd(chars);
+    } else if (charMode == 1) {
+        for (int i = 0; i < chars->capacity; i++) {
+            if (chars->resources[i] != NULL) {
+                SpriteTransfer_RequestCharAtEndWithHardwareMappingType(chars->resources[i]);
+            }
+        }
+    } else {
+        SpriteTransfer_RequestCharList(chars);
+    }
+
+    if (plttMode == 0) {
+        SpriteTransfer_RequestPlttFreeSpaceList(spriteMan->unownedResources[SPRITE_RESOURCE_PLTT]);
+    } else {
+        SpriteTransfer_RequestPlttWholeRangeList(spriteMan->unownedResources[SPRITE_RESOURCE_PLTT]);
+    }
 
     const ResdatTableEntry *headers = NULL;
 

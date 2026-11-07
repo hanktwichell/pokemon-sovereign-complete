@@ -196,7 +196,7 @@
 ; ---- The course (HeartGold's overlay 96, its overlay 98, its TextOBJ file unk_02013534, and pret's course C) ----
 
 ; The same function, named Platinum's way (the code matches; the short ones checked by hand against both decomps)
-#define AddTextPrinterParameterizedWithColorAndSpacing   Text_AddPrinterWithParamsColorAndSpacing
+#define AddTextPrinterParameterizedWithColorAndSpacing   HgssCompat_AddTextPrinterParameterizedWithColorAndSpacing
 #define AddTextWindowTopLeftCorner                       Window_AddToTopLeftCorner
 #define AddWindow                                        Window_AddFromTemplate
 #define BG_ClearCharDataRange                            Bg_ClearTilesRange
@@ -572,12 +572,12 @@
 
 ; The Aprijuice stand and the Apricorn Box (HeartGold's overlays 58 and 59 and its Apricorn Box save code, unk_02031B0C):
 ; the same function, named Platinum's way
-#define AddTextPrinterParameterized                      Text_AddPrinterWithParams
+#define AddTextPrinterParameterized                      HgssCompat_AddTextPrinterParameterized
 #define BufferItemName                                   StringTemplate_SetItemName
 #define BufferItemNamePlural                             StringTemplate_SetItemNamePlural
 #define Camera_ClearFixedTarget                          Camera_ReleaseTarget
 #define Camera_Init_FromPosDistanceAndAngle              Camera_InitWithPosition
-#define FontID_String_GetWidth                           Font_CalcStringWidth
+#define FontID_String_GetWidth                           HgssCompat_FontID_String_GetWidth
 #define GF_3DVramMan_Create                              G3DPipeline_InitEx
 #define GF_3DVramMan_Delete                              G3DPipelineBuffers_Free
 #define GF_DegreeToSinCosIdx                             CalcAngleRotationIdx_Wraparound
@@ -599,7 +599,7 @@
 #define Pokepic_ResumePaletteFade                        PokemonSprite_IsFadeActive
 #define Pokepic_SetAttr                                  PokemonSprite_SetAttribute
 #define Pokepic_StartPaletteFade                         PokemonSprite_StartFade
-#define SpriteSystem_CreateSpriteFromResourceHeader      SpriteSystem_NewSpriteFromResourceHeader
+#define SpriteSystem_CreateSpriteFromResourceHeader      HgssCompat_SpriteSystem_CreateSpriteFromResourceHeader
 #define Sprite_ResetAnimCtrlState                        Sprite_RestartAnim
 #define StringFillEOS                                    CharCode_FillWithEOS
 #define StringNotEqual                                   CharCode_Compare
@@ -639,12 +639,12 @@
 #define Sprite_OffsetPositionXY                          Sprite_OffsetPositionXY
 #define Sprite_SetAffineZRotation                        Sprite_SetAffineZRotation
 #define Sprite_SetPositionXY                             Sprite_SetPositionXY
-#define TouchscreenListMenuSpawner_Create                TouchscreenListMenuSpawner_Create
-#define TouchscreenListMenuSpawner_Destroy               TouchscreenListMenuSpawner_Destroy
-#define TouchscreenListMenu_Create                       TouchscreenListMenu_Create
-#define TouchscreenListMenu_Destroy                      TouchscreenListMenu_Destroy
-#define TouchscreenListMenu_HandleInput                  TouchscreenListMenu_HandleInput
-#define TouchscreenListMenu_WasLastInputTouch            TouchscreenListMenu_WasLastInputTouch
+#define TouchscreenListMenuSpawner_Create     HgssCompat_TouchscreenListMenuSpawner_Create
+#define TouchscreenListMenuSpawner_Destroy    HgssCompat_TouchscreenListMenuSpawner_Destroy
+#define TouchscreenListMenu_Create            HgssCompat_TouchscreenListMenu_Create
+#define TouchscreenListMenu_Destroy           HgssCompat_TouchscreenListMenu_Destroy
+#define TouchscreenListMenu_HandleInput       HgssCompat_TouchscreenListMenu_HandleInput
+#define TouchscreenListMenu_WasLastInputTouch HgssCompat_TouchscreenListMenu_WasLastInputTouch
 ; Shims (src/applications/complete_pokeathlon/hgss_compat_apricorn.c): the Apricorns are the bag's, the box and each
 ; party Pokémon's juice in the Pokéathlon's save, and what Platinum lacks or does otherwise
 #define ApplyMonMoodModifier                             HgssCompat_ApplyMonMoodModifier

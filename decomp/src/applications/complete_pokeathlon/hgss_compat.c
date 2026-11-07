@@ -25,6 +25,7 @@
 #include "rtc.h"
 #include "sprite.h"
 #include "sprite_resource.h"
+#include "sprite_system.h"
 #include "string_gf.h"
 #include "string_template.h"
 #include "system.h"
@@ -334,6 +335,41 @@ MessageLoader *HgssCompat_NewMsgDataFromNarc(enum MessageLoaderMode mode, int na
 u8 HgssCompat_AddTextPrinterParameterizedWithColor(Window *window, int font, const String *string, u32 x, u32 y, u32 delay, TextColor color, TextPrinterCallback callback)
 {
     return Text_AddPrinterWithParamsAndColor(window, HgssCompat_Font(font), string, x, y, delay, color, callback);
+}
+
+// HeartGold's font numbers in the other printers and the width check: its 4 (the small font) is no font in Platinum,
+// whose width check then reads past its font table and centres the text wrongly (the Apricorn Box's "CLOSE")
+u8 HgssCompat_AddTextPrinterParameterized(Window *window, int font, const String *string, u32 x, u32 y, u32 delay, TextPrinterCallback callback)
+{
+    return Text_AddPrinterWithParams(window, HgssCompat_Font(font), string, x, y, delay, callback);
+}
+
+u8 HgssCompat_AddTextPrinterParameterizedWithColorAndSpacing(Window *window, int font, const String *string, u32 x, u32 y, u32 delay, TextColor color, u32 letterSpacing, u32 lineSpacing, TextPrinterCallback callback)
+{
+    return Text_AddPrinterWithParamsColorAndSpacing(window, HgssCompat_Font(font), string, x, y, delay, color, letterSpacing, lineSpacing, callback);
+}
+
+u32 HgssCompat_FontID_String_GetWidth(int font, const String *string, u32 letterSpacing)
+{
+    return Font_CalcStringWidth(HgssCompat_Font(font), string, letterSpacing);
+}
+
+// HeartGold's SpriteSystem_CreateSpriteFromResourceHeader reads the template's palette mode (Platinum's dummy18), which
+// Platinum's always takes as 0: 0 the template's palette for the whole sprite, 1 the cells' own palettes (the Apricorn
+// Box's Apricorns, one palette a colour), 2 the template's palette counted from where the palettes were loaded
+Sprite *HgssCompat_SpriteSystem_CreateSpriteFromResourceHeader(SpriteSystem *spriteSys, SpriteManager *spriteMan, const SpriteTemplateFromResourceHeader *template)
+{
+    Sprite *sprite = SpriteSystem_NewSpriteFromResourceHeader(spriteSys, spriteMan, template);
+
+    if (sprite != NULL) {
+        if (template->dummy18 == 1) {
+            Sprite_SetExplicitPaletteOffsetAutoAdjust(sprite, 0); // the sprite's default: its cells' palettes, offset
+        } else if (template->dummy18 == 2) {
+            Sprite_SetExplicitPaletteWithOffset(sprite, template->plttIdx);
+        }
+    }
+
+    return sprite;
 }
 
 void HgssCompat_FontID_Alloc(int font, enum HeapID heapID)

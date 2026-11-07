@@ -434,6 +434,9 @@ static BOOL AprijuiceTask(FieldTask *task)
         test->args.juice = test->juice;
         test->args.steps = GameRecords_GetRecordValue(SaveData_GetGameRecords(SaveData_Ptr()), RECORD_STEPS);
         test->args.saveData = SaveData_Ptr();
+        for (u16 item = ITEM_RED_APRICORN; test->apricorns && item <= ITEM_BLK_APRICORN; item++) {
+            Bag_TryAddItem(SaveData_GetBag(SaveData_Ptr()), item, test->apricorns, HEAP_ID_FIELD2);
+        }
         test->appFree = HeapExp_FndGetTotalFreeSize(HEAP_ID_APPLICATION);
         Overlay_LoadByID(FS_OVERLAY_ID(complete_hgss_compat), OVERLAY_LOAD_ASYNC);
         FieldTask_RunApplication(task, &sTemplate, &test->args);

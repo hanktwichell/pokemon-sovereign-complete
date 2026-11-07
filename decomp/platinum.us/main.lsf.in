@@ -1688,6 +1688,7 @@ Overlay complete_aprijuice_box
 {
 	After complete_aprijuice
 	Object asm/complete_hgss/overlay_59.s
+	Object src/applications/complete_aprijuice/touchscreen_list_menu.c
 }
 
 Overlay complete_pokeathlon_course
