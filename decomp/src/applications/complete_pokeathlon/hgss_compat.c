@@ -2,9 +2,13 @@
 
 #include "constants/heap.h"
 #include "constants/narc.h"
+#include "constants/species.h"
 #include "generated/text_banks.h"
 
 #include "data/complete_pokeathlon_archives.h"
+#include "data/complete_pokeathlon_performance.h"
+
+#include "applications/complete_pokeathlon/hgss_compat.h"
 
 #include "bg_window.h"
 #include "character_sprite.h"
@@ -42,6 +46,7 @@
 static const u16 sNarcs[][2] = {
     { 20, NARC_INDEX_POKETOOL__ICONGRA__PL_POKE_ICON }, // poketool/icongra/poke_icon
     { 27, NARC_INDEX_MSGDATA__PL_MSG }, // msgdata/msg
+    { 35, NARC_INDEX_GRAPHIC__FONTOAM }, // a/0/3/5: the TextOBJ's cells (HeartGold's unk_02013534, Platinum's FontOAM)
 };
 
 static const u16 sTextBanks[][2] = {
@@ -49,13 +54,15 @@ static const u16 sTextBanks[][2] = {
     { 298, TEXT_BANK_HGSS_MSG_0298 }, // the party and box picker
     { 313, TEXT_BANK_HGSS_MSG_0313 },
     { 314, TEXT_BANK_HGSS_MSG_0314 },
+    { 309, TEXT_BANK_HGSS_MSG_0309 }, // the course
+    { 310, TEXT_BANK_HGSS_MSG_0310 },
+    { 311, TEXT_BANK_HGSS_MSG_0311 },
+    { 237, TEXT_BANK_SPECIES_NAME }, // the species' names (Complete's, all of them; overlay 98)
 };
 
-#define HGSS_NARC_MSGDATA  27
-#define HGSS_PLATINUM_NARC 0x8000
 
 // A HeartGold archive and member as Complete's: the archive returned, the member moved where it's packed
-static enum NarcID HgssCompat_NarcMember(int narcID, int *member)
+enum NarcID HgssCompat_NarcMember(int narcID, int *member)
 {
     if (narcID & HGSS_PLATINUM_NARC) {
         return (enum NarcID)(narcID & ~HGSS_PLATINUM_NARC);
@@ -69,8 +76,16 @@ static enum NarcID HgssCompat_NarcMember(int narcID, int *member)
 
     for (int i = 0; i < COMPLETE_POKEATHLON_ARCHIVES; i++) {
         if (sCompletePokeathlonArchives[i][0] == narcID) {
-            GF_ASSERT(*member < sCompletePokeathlonArchives[i][2]);
-            *member += sCompletePokeathlonArchives[i][1];
+            int base = sCompletePokeathlonArchives[i][3];
+
+            // the walking Pokémon's models are packed from HeartGold's first (MMODEL_FOLLOWER_MON_BULBASAUR); the
+            // course asks for model 1 for a species without one (past 493): Ditto's stands in
+            if (narcID == HGSS_NARC_MMODEL && *member < base) {
+                *member = base + HGSS_FOLLOWER_MON_DITTO;
+            }
+
+            GF_ASSERT(*member >= base && *member - base < sCompletePokeathlonArchives[i][2]);
+            *member += sCompletePokeathlonArchives[i][1] - base;
             return NARC_INDEX_APPLICATION__COMPLETE__POKEATHLON;
         }
     }
@@ -79,7 +94,7 @@ static enum NarcID HgssCompat_NarcMember(int narcID, int *member)
     return (enum NarcID)sNarcs[0][1];
 }
 
-static u32 HgssCompat_TextBank(int bank)
+u32 HgssCompat_TextBank(int bank)
 {
     for (int i = 0; i < (int)NELEMS(sTextBanks); i++) {
         if (sTextBanks[i][0] == bank) {
@@ -93,7 +108,7 @@ static u32 HgssCompat_TextBank(int bank)
 
 // HeartGold's fonts: 0 to 3 are Platinum's; its two more (4, 5: the small touch-screen ones) become Platinum's
 // small font, as in Voltorb Flip
-static enum Font HgssCompat_Font(int font)
+enum Font HgssCompat_Font(int font)
 {
     return font <= FONT_UNOWN ? (enum Font)font : FONT_SUBSCREEN;
 }
@@ -127,15 +142,157 @@ void *HgssCompat_AllocAndReadWholeNarcMemberByIdPair(int narcID, int memberIdx, 
     return NARC_AllocAndReadWholeMemberByIndexPair(narc, memberIdx, heapID);
 }
 
-// The whole archive, read by member later (NARC_ReadWholeMember, HeartGold's numbers): one of the archives Platinum
-// has too, as a packed one's members would need moving at each read (none of the callers opens one)
+// An archive opened whole and read by member later (NARC_ReadWholeMember and the *FromOpenNarc loaders, HeartGold's
+// member numbers). One of HeartGold's packed into Complete's Pokéathlon archive starts at its first member there, so
+// each one open notes that first member, and the readers below add it to the member asked for.
+#define HGSS_OPEN_NARCS 8
+
+static struct {
+    NARC *narc;
+    u16 first;
+} sOpenNarcs[HGSS_OPEN_NARCS];
+
+static u32 HgssCompat_OpenNarcMember(NARC *narc, u32 member)
+{
+    for (int i = 0; i < HGSS_OPEN_NARCS; i++) {
+        if (sOpenNarcs[i].narc == narc) {
+            return member + sOpenNarcs[i].first;
+        }
+    }
+
+    return member;
+}
+
 NARC *HgssCompat_NARC_New(int narcID, enum HeapID heapID)
 {
     int first = 0;
-    enum NarcID narc = HgssCompat_NarcMember(narcID, &first);
+    enum NarcID narcIndex = HgssCompat_NarcMember(narcID, &first);
+    NARC *narc = NARC_ctor(narcIndex, heapID);
 
-    GF_ASSERT(narc != NARC_INDEX_APPLICATION__COMPLETE__POKEATHLON);
-    return NARC_ctor(narc, heapID);
+    if (first != 0) {
+        int i;
+
+        for (i = 0; i < HGSS_OPEN_NARCS && sOpenNarcs[i].narc != NULL; i++) { }
+
+        GF_ASSERT(i < HGSS_OPEN_NARCS);
+
+        if (i < HGSS_OPEN_NARCS) {
+            sOpenNarcs[i].narc = narc;
+            sOpenNarcs[i].first = first;
+        }
+    }
+
+    return narc;
+}
+
+void HgssCompat_NARC_Delete(NARC *narc)
+{
+    for (int i = 0; i < HGSS_OPEN_NARCS; i++) {
+        if (sOpenNarcs[i].narc == narc) {
+            sOpenNarcs[i].narc = NULL;
+        }
+    }
+
+    NARC_dtor(narc);
+}
+
+void HgssCompat_NARC_ReadWholeMember(NARC *narc, u32 member, void *dest)
+{
+    NARC_ReadWholeMember(narc, HgssCompat_OpenNarcMember(narc, member), dest);
+}
+
+void *HgssCompat_NARC_AllocAndReadWholeMember(NARC *narc, u32 member, enum HeapID heapID)
+{
+    return NARC_AllocAndReadWholeMember(narc, HgssCompat_OpenNarcMember(narc, member), heapID);
+}
+
+void HgssCompat_GfGfxLoader_GXLoadPalFromOpenNarc(NARC *narc, u32 member, enum PaletteLoadLocation location, u32 offset, u32 size, enum HeapID heapID)
+{
+    Graphics_LoadPaletteFromOpenNARC(narc, HgssCompat_OpenNarcMember(narc, member), location, offset, size, heapID);
+}
+
+void *HgssCompat_GfGfxLoader_GetCharDataFromOpenNarc(NARC *narc, u32 member, BOOL compressed, NNSG2dCharacterData **charData, enum HeapID heapID)
+{
+    return Graphics_GetCharDataFromOpenNARC(narc, HgssCompat_OpenNarcMember(narc, member), compressed, charData, heapID);
+}
+
+u32 HgssCompat_GfGfxLoader_LoadCharDataFromOpenNarc(NARC *narc, u32 member, BgConfig *bgConfig, u32 bgLayer, u32 offset, u32 size, BOOL compressed, enum HeapID heapID)
+{
+    return Graphics_LoadTilesToBgLayerFromOpenNARC(narc, HgssCompat_OpenNarcMember(narc, member), bgConfig, bgLayer, offset, size, compressed, heapID);
+}
+
+void HgssCompat_GfGfxLoader_LoadScrnDataFromOpenNarc(NARC *narc, u32 member, BgConfig *bgConfig, u32 bgLayer, u32 offset, u32 size, BOOL compressed, enum HeapID heapID)
+{
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(narc, HgssCompat_OpenNarcMember(narc, member), bgConfig, bgLayer, offset, size, compressed, heapID);
+}
+
+BOOL HgssCompat_SpriteSystem_LoadCharResObjFromOpenNarc(SpriteSystem *spriteSys, SpriteManager *spriteMan, NARC *narc, int member, BOOL compressed, enum NNS_G2D_VRAM_TYPE vramType, int resourceID)
+{
+    return SpriteSystem_LoadCharResObjFromOpenNarc(spriteSys, spriteMan, narc, HgssCompat_OpenNarcMember(narc, member), compressed, vramType, resourceID);
+}
+
+s8 HgssCompat_SpriteSystem_LoadPlttResObjFromOpenNarc(SpriteSystem *spriteSys, SpriteManager *spriteMan, NARC *narc, int member, BOOL compressed, int paletteIdx, enum NNS_G2D_VRAM_TYPE vramType, int resourceID)
+{
+    return SpriteSystem_LoadPlttResObjFromOpenNarc(spriteSys, spriteMan, narc, HgssCompat_OpenNarcMember(narc, member), compressed, paletteIdx, vramType, resourceID);
+}
+
+BOOL HgssCompat_SpriteSystem_LoadCellResObjFromOpenNarc(SpriteSystem *spriteSys, SpriteManager *spriteMan, NARC *narc, int member, BOOL compressed, int resourceID)
+{
+    return SpriteSystem_LoadCellResObjFromOpenNarc(spriteSys, spriteMan, narc, HgssCompat_OpenNarcMember(narc, member), compressed, resourceID);
+}
+
+BOOL HgssCompat_SpriteSystem_LoadAnimResObjFromOpenNarc(SpriteSystem *spriteSys, SpriteManager *spriteMan, NARC *narc, int member, BOOL compressed, int resourceID)
+{
+    return SpriteSystem_LoadAnimResObjFromOpenNarc(spriteSys, spriteMan, narc, HgssCompat_OpenNarcMember(narc, member), compressed, resourceID);
+}
+
+// The same, by HeartGold's archive and member number
+BOOL HgssCompat_SpriteSystem_LoadCharResObj(SpriteSystem *spriteSys, SpriteManager *spriteMan, int narcID, int member, BOOL compressed, enum NNS_G2D_VRAM_TYPE vramType, int resourceID)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return SpriteSystem_LoadCharResObj(spriteSys, spriteMan, narc, member, compressed, vramType, resourceID);
+}
+
+s8 HgssCompat_SpriteSystem_LoadPlttResObj(SpriteSystem *spriteSys, SpriteManager *spriteMan, int narcID, int member, BOOL compressed, int paletteIdx, enum NNS_G2D_VRAM_TYPE vramType, int resourceID)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return SpriteSystem_LoadPlttResObj(spriteSys, spriteMan, narc, member, compressed, paletteIdx, vramType, resourceID);
+}
+
+BOOL HgssCompat_SpriteSystem_LoadCellResObj(SpriteSystem *spriteSys, SpriteManager *spriteMan, int narcID, int member, BOOL compressed, int resourceID)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return SpriteSystem_LoadCellResObj(spriteSys, spriteMan, narc, member, compressed, resourceID);
+}
+
+BOOL HgssCompat_SpriteSystem_LoadAnimResObj(SpriteSystem *spriteSys, SpriteManager *spriteMan, int narcID, int member, BOOL compressed, int resourceID)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return SpriteSystem_LoadAnimResObj(spriteSys, spriteMan, narc, member, compressed, resourceID);
+}
+
+void HgssCompat_ReadWholeNarcMemberByIdPair(void *dest, int narcID, int member)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    NARC_ReadWholeMemberByIndexPair(dest, narc, member);
+}
+
+void *HgssCompat_GfGfxLoader_LoadFromNarc(int narcID, int member, BOOL compressed, enum HeapID heapID, BOOL atEnd)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return LoadMemberFromNARC(narc, member, compressed, heapID, atEnd);
+}
+
+void *HgssCompat_GfGfxLoader_GetCellBank(int narcID, int member, BOOL compressed, NNSG2dCellDataBank **cellBank, enum HeapID heapID)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return Graphics_GetCellBank(narc, member, compressed, cellBank, heapID);
+}
+
+void *HgssCompat_GfGfxLoader_GetPlttData(int narcID, int member, NNSG2dPaletteData **paletteData, enum HeapID heapID)
+{
+    enum NarcID narc = HgssCompat_NarcMember(narcID, &member);
+    return Graphics_GetPlttData(narc, member, paletteData, heapID);
 }
 
 void HgssCompat_GfGfxLoader_GXLoadPal(int narcID, int memberIdx, enum PaletteLoadLocation location, u32 offset, u32 size, enum HeapID heapID)
@@ -221,10 +378,10 @@ void HgssCompat_GetMonSpriteCharAndPlttNarcIdsEx(PokemonSpriteTemplate *spriteTe
 // HeartGold's sub_02014540: a Pokémon's sprite's first frame (10 by 10 tiles) into dest. Platinum's own for it
 // (CharacterSprite_LoadPokemonSprite, by way of ..._LoadPokemonSpriteRegion) is called by nothing else in Complete, so
 // the linker leaves both out; calling them would put them back into the main module, into main memory.
-void HgssCompat_LoadPokemonSprite(int narcID, int narcIdx, enum HeapID heapID, void *dest, u32 personality, BOOL isAnimated, int face, enum Species species)
+void HgssCompat_LoadPokemonSprite(int narcID, int narcIdx, enum HeapID heapID, void *dest, u32 personality, BOOL isAnimated, int face, int species)
 {
     enum NarcID narc = HgssCompat_NarcMember(narcID, &narcIdx);
-    CharacterSprite_LoadPokemonSpriteRect(narc, narcIdx, heapID, 0, 0, 10, 10, dest, personality, isAnimated, face, species);
+    CharacterSprite_LoadPokemonSpriteRect(narc, narcIdx, heapID, 0, 0, 10, 10, dest, personality, isAnimated, face, (enum Species)species);
 }
 
 // HeartGold reads the touch screen through these (Platinum's gSystem has the same fields, 4 bytes earlier)
@@ -331,7 +488,7 @@ typedef struct HgssTodayPerformanceStat {
 
 typedef struct HgssPerformanceStars {
     u16 stars; // 3 bits a stat
-    u8 color[5]; // 0 at the base, 1 below, 2 above
+    u8 color[5]; // 0 at the base, 1 above, 2 below (HeartGold's STARS_*)
     u8 dummy;
 } HgssPerformanceStars;
 
@@ -391,22 +548,75 @@ static s16 HgssCompat_ScoreToStars(s16 score)
     return 4;
 }
 
+// A species' (and form's) performance member in Complete's archive (HeartGold's archive 169 as
+// tools/complete/import_hgss_pokeathlon_archives.py makes it from data/complete/pokeathlon_performance.json): its
+// species' own, or its form's for a species with HeartGold's forms. The course reads the members itself too
+// (overlay 96's ov96_021E679C, which the import redirects here: its own table stopped at HeartGold's 493).
+u16 HgssCompat_PokeathlonPerformanceMember(u16 species, u16 form)
+{
+    if (species > NATIONAL_DEX_COUNT) {
+        GF_ASSERT(FALSE);
+        return 0;
+    }
+
+    for (int i = 0; i < COMPLETE_POKEATHLON_PERFORMANCE_FORMS; i++) {
+        if (sCompletePokeathlonPerformanceForms[i][0] == species) {
+            return sCompletePokeathlonPerformanceForms[i][1] + (form < sCompletePokeathlonPerformanceForms[i][2] ? form : 0);
+        }
+    }
+
+    return species;
+}
+
+// HeartGold's PokeathlonBasePerformance: a member of the archive (its five slots in the archive's order: HeartGold's
+// code reads them through pret's ARCPERF_ numbers below, whatever their names say: the data shows the slots are
+// Power, Speed, Jump, Stamina, Skill, tools/complete/import_hgss_performance.py)
+typedef struct HgssBasePerformance {
+    u8 base[HGSS_PERFORMANCE_MAX];
+    u8 dummy[4];
+    u8 minmax[HGSS_PERFORMANCE_MAX][2];
+    u8 dummy2;
+} HgssBasePerformance;
+
+enum {
+    HGSS_ARCPERF_POWER = 0,
+    HGSS_ARCPERF_STAMINA,
+    HGSS_ARCPERF_JUMP,
+    HGSS_ARCPERF_SKILL,
+    HGSS_ARCPERF_SPEED,
+};
+
+// HeartGold's CalcBoxMonPokeathlonPerformance (pret's src/pokemon.c): each stat's daily move from the nature, the
+// personality and the date, and the species' base and range from the archive, in HeartGold's order
 void HgssCompat_CalcBoxMonPokeathlonPerformance(BoxPokemon *boxMon, HgssTodayPerformanceStat *dest)
 {
+    static const u8 sFromArchive[HGSS_PERFORMANCE_MAX] = {
+        [HGSS_PERFORMANCE_POWER] = HGSS_ARCPERF_POWER,
+        [HGSS_PERFORMANCE_SKILL] = HGSS_ARCPERF_SKILL,
+        [HGSS_PERFORMANCE_SPEED] = HGSS_ARCPERF_SPEED,
+        [HGSS_PERFORMANCE_JUMP] = HGSS_ARCPERF_JUMP,
+        [HGSS_PERFORMANCE_STAMINA] = HGSS_ARCPERF_STAMINA,
+    };
     RTCDate date;
+    HgssBasePerformance data;
     u32 personality = BoxPokemon_GetValue(boxMon, MON_DATA_PERSONALITY, NULL);
     u32 nature = BoxPokemon_GetNature(boxMon);
+    int member;
 
     GetCurrentDate(&date);
 
     for (int i = 0; i < HGSS_PERFORMANCE_MAX; i++) {
         u32 digit = HgssCompat_Digit(personality, i);
         dest[i].dailyMod = sNatureMods[nature][i] + (2 * HgssCompat_Digit(digit + (date.day + (7 - i)) * (date.day + (i + 3)), 0) - 9);
-        // the species' base stars and range: data/complete/pokeathlon_performance.json, whose archive comes with the
-        // course (docs/Roadmap.md, stage 1's last part); until then every stat is 3 stars, 1 to 5
-        dest[i].base = 3;
-        dest[i].lo = 1;
-        dest[i].hi = 5;
+    }
+
+    member = HgssCompat_PokeathlonPerformanceMember(BoxPokemon_GetValue(boxMon, MON_DATA_SPECIES, NULL), BoxPokemon_GetValue(boxMon, MON_DATA_FORM, NULL));
+    NARC_ReadWholeMemberByIndexPair(&data, HgssCompat_NarcMember(HGSS_NARC_PERFORMANCE, &member), member);
+
+    for (int i = 0; i < HGSS_PERFORMANCE_MAX; i++) {
+        dest[i].base = data.base[sFromArchive[i]];
+        dest[i].lo = data.minmax[sFromArchive[i]][0];
+        dest[i].hi = data.minmax[sFromArchive[i]][1];
     }
 }
 
@@ -428,7 +638,8 @@ void HgssCompat_CalcBoxmonPokeathlonStars(HgssPerformanceStars *dest, BoxPokemon
             stars = today[i].hi;
         }
 
-        dest->color[i] = stars == today[i].base ? 0 : (stars < today[i].base ? 1 : 2);
+        // HeartGold's STARS_AT_BASE (0), STARS_BELOW_BASE (2), STARS_ABOVE_BASE (1)
+        dest->color[i] = stars == today[i].base ? 0 : (stars < today[i].base ? 2 : 1);
         dest->stars |= stars << (3 * i);
     }
 }
@@ -445,30 +656,6 @@ void HgssCompat_Party_GetMonAprijuiceModifiers(const Party *party, s8 *dest, int
     (void)party;
     (void)slot;
     MI_CpuClear8(dest, HGSS_PERFORMANCE_MAX);
-}
-
-// HeartGold's Save_Pokeathlon_Get gives its save's Pokéathlon block. Complete's is in its own sectors, read into a
-// copy (include/complete_pokeathlon.h): the "block" handed back is the save itself, which the accessors below read.
-void *HgssCompat_Save_Pokeathlon_Get(SaveData *saveData)
-{
-    return saveData;
-}
-
-// HeartGold's PokeathlonSave_GetUnkDC_AtIndex: whether a species has a course's medal
-BOOL HgssCompat_PokeathlonSave_GetMedal(void *saveData, int course, int species)
-{
-    CompletePokeathlonSave *pokeathlon;
-    BOOL medal;
-
-    if (course < 0 || course >= COMPLETE_POKEATHLON_COURSES || species < 1 || species > COMPLETE_POKEATHLON_MEDAL_SPECIES) {
-        GF_ASSERT(FALSE);
-        return FALSE;
-    }
-
-    pokeathlon = CompletePokeathlon_Load(saveData, HGSS_HEAP_ID_POKEATHLON);
-    medal = (pokeathlon->medals[species - 1] >> course) & 1;
-    Heap_Free(pokeathlon);
-    return medal;
 }
 
 // HeartGold's sub_0208B85C: a stat's five stars to draw (0 none, 1 an empty one, 2 + the colour a full one) and the

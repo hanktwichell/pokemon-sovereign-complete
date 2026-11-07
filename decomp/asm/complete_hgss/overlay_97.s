@@ -1,5 +1,6 @@
 ; Sovereign Complete: HeartGold's asm/overlay_97.s (pret's pokeheartgold), assembled as it is through
-; tools/complete/import_hgss_asm.py, which changed only these lines:
+; tools/complete/import_hgss_asm.py, which changed only these (line numbers: HeartGold's file's, after the
+; patches and redirects, which come first):
 ;   (none)
 	.include "macros.inc"
 	.include "overlay_97.inc"

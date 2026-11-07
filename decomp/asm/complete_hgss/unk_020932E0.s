@@ -1,5 +1,6 @@
 ; Sovereign Complete: HeartGold's asm/unk_020932E0.s (pret's pokeheartgold), assembled as it is through
-; tools/complete/import_hgss_asm.py, which changed only these lines:
+; tools/complete/import_hgss_asm.py, which changed only these (line numbers: HeartGold's file's, after the
+; patches and redirects, which come first):
 ;   line 1: dropped #include "constants/easy_chat.h"
 ;   line 2: dropped #include "constants/items.h"
 ;   line 3: dropped #include "constants/maps.h"

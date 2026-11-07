@@ -2,6 +2,7 @@
 
 #include "constants/heap.h"
 
+#include "complete_pokeathlon_course.h"
 #include "complete_pokeathlon_select.h"
 #include "complete_test.h"
 #include "heap.h"
@@ -63,6 +64,9 @@ BOOL CompletePokeathlonSelect_TestInit(ApplicationManager *appMan, int *state)
     args->cancelled = 0xFFFFFFFF;
     args->course = test->open - 1;
 
+    // the course's copy of the Pokéathlon save, which HeartGold's save accessors hand out (the medals)
+    HgssCompat_PokeathlonSave_Open(test->courseArgs.saveData, HGSS_HEAP_ID_POKEATHLON);
+
     BOOL done = ov97_0221E5C0(appMan, state);
 
     NoteHeapFree();
@@ -89,6 +93,7 @@ BOOL CompletePokeathlonSelect_TestExit(ApplicationManager *appMan, int *state)
         return FALSE;
     }
 
+    HgssCompat_PokeathlonSave_Close(test->courseArgs.saveData, FALSE);
     test->heapLeft = HeapExp_FndGetTotalFreeSize(HGSS_HEAP_ID_POKEATHLON);
     Heap_Destroy(HGSS_HEAP_ID_POKEATHLON);
     return TRUE;

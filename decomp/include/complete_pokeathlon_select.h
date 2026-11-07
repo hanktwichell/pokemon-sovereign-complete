@@ -33,7 +33,7 @@ typedef struct HgssPokeathlonEntrant {
     u32 personality;
     u8 stars[5]; // today's stars, its five stats in the order the course keeps them
     u8 padding_0D;
-    u16 starColors; // 3 bits a stat, in another order: 0 at its base, 1 below it, 2 above it
+    u16 starColors; // 3 bits a stat, in another order: 0 at its base, 1 above it, 2 below it
     u8 shiny;
     u8 gender;
     u16 nickname[11]; // MON_DATA_NICKNAME's characters

@@ -12,7 +12,9 @@
 #include "complete_follower.h"
 #include "complete_map_info.h"
 #include "complete_pokeathlon.h"
+#include "complete_pokeathlon_course.h"
 #include "complete_pokeathlon_select.h"
+#include "game_overlay.h"
 #include "heap.h"
 #include "complete_safari.h"
 #include "field_battle_data_transfer.h"
@@ -78,6 +80,7 @@ CompleteTestSafari gCompleteTestSafari;
 CompleteTestSound gCompleteTestSound;
 CompleteTestFollowerTalk gCompleteTestFollowerTalk;
 CompleteTestPokeathlonSelect gCompleteTestPokeathlonSelect;
+CompleteTestPokeathlonCourse gCompleteTestPokeathlonCourse;
 
 // The key items and Balls in the bag, one of each (written: the ones that fit)
 static void BagProbe(SaveData *saveData, BOOL write, u16 *keyItems, u16 *balls)
@@ -316,6 +319,7 @@ static void HatchEggs(FieldSystem *fieldSystem)
 static BOOL PokeathlonSelectTask(FieldTask *task)
 {
     FS_EXTERN_OVERLAY(complete_pokeathlon_select);
+    FS_EXTERN_OVERLAY(complete_hgss_compat);
 
     static const ApplicationManagerTemplate sTemplate = {
         CompletePokeathlonSelect_TestInit,
@@ -330,9 +334,12 @@ static BOOL PokeathlonSelectTask(FieldTask *task)
         FieldTransition_FadeOutAndFinishMap(task);
         break;
     case 1:
+        // the shims HeartGold's assembly calls are in an overlay of their own, loaded first
+        Overlay_LoadByID(FS_OVERLAY_ID(complete_hgss_compat), OVERLAY_LOAD_ASYNC);
         FieldTask_RunApplication(task, &sTemplate, &gCompleteTestPokeathlonSelect.args);
         break;
     case 2:
+        Overlay_UnloadByID(FS_OVERLAY_ID(complete_hgss_compat));
         FieldTransition_StartMapAndFadeIn(task);
         break;
     default:
@@ -346,11 +353,67 @@ static BOOL PokeathlonSelectTask(FieldTask *task)
     return FALSE;
 }
 
+// HeartGold's Pokéathlon course (include/complete_pokeathlon_course.h) from the field, as its reception's task runs it
+// (HeartGold's sub_02095E30): the field closed, the course with HeartGold's arguments, the field back
+static BOOL PokeathlonCourseTask(FieldTask *task)
+{
+    FS_EXTERN_OVERLAY(complete_pokeathlon_course);
+    FS_EXTERN_OVERLAY(complete_hgss_compat);
+
+    static const ApplicationManagerTemplate sTemplate = {
+        PokeathlonCourse_Init,
+        PokeathlonCourse_Main,
+        PokeathlonCourse_Exit,
+        FS_OVERLAY_ID(complete_pokeathlon_course),
+    };
+    CompleteTestPokeathlonCourse *test = &gCompleteTestPokeathlonCourse;
+    int *state = FieldTask_GetState(task);
+
+    switch (*state) {
+    case 0:
+        FieldTransition_FadeOutAndFinishMap(task);
+        break;
+    case 1:
+        MI_CpuClear8(&test->args, sizeof(test->args));
+        test->args.saveData = SaveData_Ptr();
+        test->args.mode = 0;
+        test->args.unk_08[4] = test->open - 1; // 0x0C: the course
+        test->args.supreme = test->supreme;
+        test->state = test->eventState = test->eventIndex = test->event = 0;
+        test->data = NULL;
+        test->frames = 0;
+        test->appFree = HeapExp_FndGetTotalFreeSize(HEAP_ID_APPLICATION);
+        test->heapFree = 0xFFFFFFFF;
+        test->heapLeft = 0;
+        // the shims HeartGold's assembly calls are in an overlay of their own, loaded first
+        Overlay_LoadByID(FS_OVERLAY_ID(complete_hgss_compat), OVERLAY_LOAD_ASYNC);
+        FieldTask_RunApplication(task, &sTemplate, &test->args);
+        break;
+    case 2:
+        Overlay_UnloadByID(FS_OVERLAY_ID(complete_hgss_compat));
+        FieldTransition_StartMapAndFadeIn(task);
+        break;
+    default:
+        test->open = 0;
+        test->step = 0;
+        test->runs++;
+        return TRUE;
+    }
+
+    test->step = ++(*state);
+    return FALSE;
+}
+
 void CompleteTest_FieldFrame(FieldSystem *fieldSystem)
 {
     if (gCompleteTestPokeathlonSelect.open && gCompleteTestPokeathlonSelect.step == 0 && !FieldSystem_IsRunningTask(fieldSystem)) {
         gCompleteTestPokeathlonSelect.step = 1;
         FieldSystem_CreateTask(fieldSystem, PokeathlonSelectTask, NULL);
+    }
+
+    if (gCompleteTestPokeathlonCourse.open && gCompleteTestPokeathlonCourse.step == 0 && !FieldSystem_IsRunningTask(fieldSystem)) {
+        gCompleteTestPokeathlonCourse.step = 1;
+        FieldSystem_CreateTask(fieldSystem, PokeathlonCourseTask, NULL);
     }
 
     SetLeadSpecies(fieldSystem);

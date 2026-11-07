@@ -1660,16 +1660,41 @@ Overlay complete_voltorb_flip
 	Object src/applications/complete_voltorb_flip/grid_input_handler.c
 }
 
-# Sovereign Complete: HeartGold's overlay 97 (the Pokéathlon course's choice of Pokémon) and the main-module files it
-# calls, HeartGold's assembly as it is (asm/complete_hgss/, tools/complete/import_hgss_asm.py)
-Overlay complete_pokeathlon_select
+# Sovereign Complete: HeartGold's assembly as it is (asm/complete_hgss/, tools/complete/import_hgss_asm.py). The shims
+# all of it calls through, with HeartGold's main-module files more than one of its overlays calls (its TextOBJ), in an
+# overlay of their own, which whoever starts one of them loads first; then HeartGold's Pokéathlon course (its overlay
+# 96, with pret's C for it) after them, and, loaded over each other after the course as in HeartGold, its choice of
+# Pokémon (its overlay 97 and the main-module files it calls) and its overlay 98
+Overlay complete_hgss_compat
 {
 	After main
+	Object asm/complete_hgss/unk_02013534.s
+	Object src/applications/complete_pokeathlon/hgss_compat.c
+	Object src/applications/complete_pokeathlon/hgss_compat_course.c
+	Object src/applications/complete_pokeathlon/hgss_compat_save.c
+}
+
+Overlay complete_pokeathlon_course
+{
+	After complete_hgss_compat
+	Object src/applications/complete_pokeathlon/course.c
+	Object asm/complete_hgss/overlay_96.s
+	Object src/applications/complete_pokeathlon/course_test.c
+}
+
+Overlay complete_pokeathlon_select
+{
+	After complete_pokeathlon_course
 	Object asm/complete_hgss/overlay_97.s
 	Object asm/complete_hgss/unk_020932E0.s
 	Object asm/complete_hgss/unk_020957B0.s
-	Object src/applications/complete_pokeathlon/hgss_compat.c
 	Object src/applications/complete_pokeathlon/select_test.c
+}
+
+Overlay complete_pokeathlon_parts
+{
+	After complete_pokeathlon_course
+	Object asm/complete_hgss/overlay_98.s
 }
 
 Overlay dummy7
