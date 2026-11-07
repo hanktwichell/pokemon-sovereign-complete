@@ -41,7 +41,8 @@ SIMULATED_INPUTS = 0x5C  # HeartGold's System field that Platinum's lacks
 # HeartGold's overlays the files really load (FS_OVERLAY_ID), and Complete's overlay for each. Any other
 # SDK_OVERLAY_*_ID in a file is a number the disassembly mistook for an overlay's ID (unk_020957B0's 1 is "field"'s):
 # it becomes the number again.
-OVERLAYS = {'OVY_97': 'complete_pokeathlon_select', 'OVY_98': 'complete_pokeathlon_parts'}
+OVERLAYS = {'OVY_97': 'complete_pokeathlon_select', 'OVY_98': 'complete_pokeathlon_parts',
+            'OVY_58': 'complete_aprijuice', 'OVY_59': 'complete_aprijuice_box'}
 # the macros.inc and global.inc of this folder, and the files' own .inc, are Complete's or copied
 OWN_INCLUDES = {'macros.inc', 'global.inc'}
 
@@ -59,6 +60,13 @@ REDIRECTS = {
 # HeartGold's 9 (a course record's Pokémon: species, form, gender, shiny) or 10 (an event record's: the form above
 # it; include/complete_pokeathlon.h); and the checks that stop at HeartGold's 493 species where Complete has more
 SPECIES_BITS = 'Complete\'s records keep a species in 11 bits'
+# HeartGold's functions left out of a file because a shim of the same name stands in for them (hgss_compat.inc maps
+# the name to it): the Apricorn Box's save block and its Apricorns, which Complete keeps in the Pokéathlon's save and the
+# bag (src/applications/complete_pokeathlon/hgss_compat_apricorn.c), and its link-play records (hgss_compat_save.c)
+DROPS = {
+    'unk_02031B0C': ['Save_ApricornBox_Get', 'ApricornBox_GiveApricorn', 'ApricornBox_TakeApricorn',
+                     'ApricornBox_CountApricorn', 'sub_02031B10', 'sub_020320E0', 'sub_020321A0'],
+}
 PATCHES = {
     'overlay_96': [
         # ov96_021E786C writes the course record's three Pokémon (CompletePokeathlonRecordMon: species 0-10, form 11-15,
@@ -131,7 +139,7 @@ def functions(text):
 
 
 def patch(name, src):
-    """REDIRECTS and PATCHES on HeartGold's text, and the notes saying what they changed."""
+    """DROPS, REDIRECTS and PATCHES on HeartGold's text, and the notes saying what they changed."""
     notes = []
     for func, (old, new, count, why) in [(p[0], p[1:]) for p in PATCHES.get(name, [])]:
         start, end = functions(src)[func]
@@ -140,6 +148,12 @@ def patch(name, src):
             sys.exit(f'{name}.s {func}: {old!r} found {body.count(old)} times, not {count}')
         src = src[:start] + body.replace(old, new) + src[end:]
         notes.append(f'{func}: {old.strip()!r} -> {new.strip()!r} ({why})')
+    for func in DROPS.get(name, []):
+        m = re.search(rf'^\t(?:non_word_aligned_)?thumb_func_start {func}\n.*?^\tthumb_func_end {func}\n', src, re.M | re.S)
+        if not m:
+            sys.exit(f'{name}.s: no function {func} to leave out')
+        src = src[:m.start()] + src[m.end():]
+        notes.append(f'{func}: left out (a shim of the same name stands in for it)')
     for func, target in REDIRECTS.get(name, {}).items():
         start, end = functions(src)[func]
         body = (f'{func}: ; Sovereign Complete: HeartGold\'s body replaced by a jump to {target}\n'

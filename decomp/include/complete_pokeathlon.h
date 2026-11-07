@@ -24,7 +24,8 @@
 #define COMPLETE_POKEATHLON_DATA_CARDS    27
 #define COMPLETE_POKEATHLON_MAX_POINTS    99999
 #define COMPLETE_POKEATHLON_MEDAL_SPECIES ((NATIONAL_DEX_COUNT + 3) & ~3)
-#define COMPLETE_POKEATHLON_RESERVED      0x22C // the save's unused end: it fills a sector with its footer
+#define COMPLETE_POKEATHLON_APRICORN_BOX  0x80 // HeartGold's SaveApricornBox
+#define COMPLETE_POKEATHLON_RESERVED      (0x22C - COMPLETE_POKEATHLON_APRICORN_BOX - 6 * 12) // the save's unused end: it fills a sector with its footer
 
 // HeartGold's Pokeathlon_UnkSubStruct_B00: the running totals the Dome's records show (ScrCmd_724), among them the
 // points earned in all (unk70, which the reception's gifts raise: ScrCmd_725)
@@ -100,6 +101,14 @@ typedef struct CompletePokeathlonRecordsLink {
     u8 unk_2C[0x78];
 } CompletePokeathlonRecordsLink;
 
+// A party Pokémon's Aprijuice (HeartGold's PartyExtraSub): what it drank moves each Pokéathlon stat, in HeartGold's
+// order (Power, Skill, Speed, Jump, Stamina)
+typedef struct CompletePokeathlonJuice {
+    u32 personality; // 0: unused
+    s8 stats[5];
+    u8 padding[3];
+} CompletePokeathlonJuice;
+
 // HeartGold's PokeathlonFriendshipRoomStatueData
 typedef struct CompletePokeathlonStatue {
     u16 species;
@@ -122,6 +131,13 @@ typedef struct CompletePokeathlonSave {
     u16 unk_B7E;
     CompletePokeathlonStatue friendshipRoomStatues[3]; // HeartGold's PokeathlonSave_FriendshipRecords
     u8 friendshipUnk[0x1C];
+    // HeartGold's Apricorn Box save block (its SaveApricornBox, read and written by its own code: the Apriblender, the
+    // juice in it, the link partners' records). Its first nine bytes (the Apricorns, Kurt's) are unused: Complete keeps
+    // the Apricorns in the bag and Kurt's in two vars (src/complete_apricorns.c).
+    u32 apricornBox[COMPLETE_POKEATHLON_APRICORN_BOX / 4]; // words: its own code reads words from it
+    // Each party Pokémon's Aprijuice (HeartGold keeps it in its Party, a byte a Pokéathlon stat, which Platinum's save
+    // can't grow): found by the Pokémon's personality, an entry of a Pokémon no longer in the party used again
+    CompletePokeathlonJuice partyJuice[6];
     // Room for what the Pokéathlon's later parts keep (the Aprijuice stand's box and juices), so the save's size, which
     // its sector's check compares, never changes again: the struct fills its sector (src/complete_pokeathlon.c)
     u8 reserved[COMPLETE_POKEATHLON_RESERVED];
