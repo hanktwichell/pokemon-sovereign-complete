@@ -263,15 +263,15 @@ command (HeartGold's 611) to start a course in the game, and whatever the run tu
 **The course's first run (Nov 7; merged into main):** the Speed Course plays from the choice of three Pokémon through
 the opening, Hurdle Dash, Pennant Capture and Relay Run, to the results (380 points) and back to the field, its heap
 returned whole (`test_pokeathlon_course.py`: 46 states and events, 0 problems). The other four courses and seven
-events haven't been run yet. Open, seen in that run: the event intro screens' bottom icons and start button draw
-black (a palette not loaded as HeartGold loads it); the results screen's top strip under the teams' names is garbled;
-no Pokéathlon song or effect plays (its 7 songs, fanfare and 62 effects, listed in
-`include/data/complete_pokeathlon_sounds.h`, need `import_hgss_sound.py`, `gen_pokeathlon_sounds.py` and the sound
-memory test); species past 493 run as Ditto;
+events haven't been run yet. Seen in that run and since fixed (Nov 7): the event intro screens' bottom icons and
+start button drew black (HeartGold's sprites keep their cells' palettes for a template palette of 0xFFFF; Platinum's
+overrode them); no Pokéathlon song or effect played (its 7 songs, fanfare and 62 effects are in the sound archive
+now, after winning back the sound memory they took: `docs/Music.md`, item 7). The results screen's top strip looked
+garbled in that first run; no run since the font fix below has shown it (the Hurdle Dash's "11th" is a place among
+the twelve runners). Still open: species past 493 run as Ditto;
 an event's text may show control codes Platinum lacks; tied results may sort differently from HeartGold's (the SDK's
 sort isn't linked, Complete's replaces it). One of the Aprijuice port's fixes to the shared layer reaches the course
-(HeartGold's font numbers now translated in every printer and in the width check, which the course calls too): its
-test runs again on that build to see whether the garbled strip changes.
+(HeartGold's font numbers now translated in every printer and in the width check, which the course calls too).
 
 **The reception (Nov 7):** the Dome's reception starts a course in the game (HeartGold's standard scripts 9850 to
 9852 and its `Pokeathlon` command, `CompletePokeathlon`): joined, the Speed Course played through its three events

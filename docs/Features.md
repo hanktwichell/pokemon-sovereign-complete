@@ -1306,8 +1306,10 @@ course, and the Speed Course plays to its end; the other courses' events are sti
   command, in overlay 7: the course as the field's application, its result, score, points and medal handed back to
   the script's variables, then the field back). Backing out of the choice of three Pokémon (CANCEL) returns to the
   lobby. The link-play nurse's courses back out at once (no link play in Complete).
-- **Not yet:** the Pokéathlon's own songs and sounds (silent), and the courses' events past the Speed Course's
-  three, which haven't been run (`docs/Roadmap.md`).
+- **Its songs and sounds** (Nov 7): HeartGold's 7 Pokéathlon songs (the Dome, the courses' opening, the events,
+  the results), its fanfare and the 62 effects of its own the course plays, in the sound archive (`docs/Music.md`,
+  item 7); the course plays each by HeartGold's number through `include/data/complete_pokeathlon_sounds.h`.
+- **Not yet:** the courses' events past the Speed Course's three, which haven't been run (`docs/Roadmap.md`).
 
 Tests: `tools/complete/test_pokeathlon_counters.py` (in the Dome's lobby: a refusal with no points, a prize and a
 data card bought and refused the second time, a drink for Athlete Points, the Dome PC's first page),

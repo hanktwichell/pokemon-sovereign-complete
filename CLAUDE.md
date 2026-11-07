@@ -27,7 +27,10 @@ work.
   `decomp/res/field/scripts` name, so rerun it after naming a new one, then `split_sound_basic.py`, then
   `ninja -C <build> res/sound/pl_sound_data.naix` before the build (the scripts link against it, built in no order).
   Each archive entry stays in sound memory (about 32 bytes a bank), and the title song needs nearly all of it: run
-  the sound memory test (`sound_heap`) after adding sounds. They load into sound memory as they play (`src/complete_sound.c`,
+  the sound memory test (`sound_heap`) after adding sounds. To spare it, the importer merges banks that never give an
+  instrument number two meanings, and `split_sound_basic.py` puts HeartGold's sequences in Platinum's unused numbers
+  4-999: a sound's number says nothing about whose it is (`CompleteSound_HasOwnBank` does), and generated tables
+  name sounds rather than number them. They load into sound memory as they play (`src/complete_sound.c`,
   `CompleteSound_LoadOwnEffect`). `translate_hgss_scripts.py` reads the sound names from the release build's
   `res/sound/pl_sound_data.naix` (`ninja -C decomp/build res/sound/pl_sound_data.naix` after an import). Run it
   as `--install --from .cache/sacredgold/scr_seq [FILE_STEM ...]`: without `--from` it translates HeartGold's own
@@ -230,8 +233,9 @@ work.
   other as in HeartGold. An overlay nothing calls yet is dropped by the linker: the course's entry points are in
   `meson.build`'s `-force_active` (release build only: a test build's hook calls them). HeartGold's heap IDs pass as
   they are: the heap tables have room for 0xA0 (`src/system.c`). Its sounds: HeartGold's numbers become Complete's by
-  `include/data/complete_pokeathlon_sounds.h` (`tools/complete/gen_pokeathlon_sounds.py`, which also lists the ones the
-  course names that Complete's sound archive lacks: they play nothing). Its save: Save_Pokeathlon_Get hands out a
+  `include/data/complete_pokeathlon_sounds.h` (`tools/complete/gen_pokeathlon_sounds.py`, by name; it also lists the ones
+  the course names that Complete's sound archive lacks: they play nothing). HeartGold's `SpriteSystem_NewSprite` keeps
+  the cells' palettes for a template palette of 0xFFFF, as the shim does (Platinum's overrides them: black sprites). Its save: Save_Pokeathlon_Get hands out a
   working copy of Complete's (`hgss_compat_save.c`; `HgssCompat_PokeathlonSave_Open` and `_Close` around whatever runs
   the assembly), and each accessor its part of it.
   HeartGold's archives the assembly loads by number are packed into one, `application/complete/pokeathlon.narc`

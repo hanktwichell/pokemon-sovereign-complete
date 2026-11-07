@@ -644,10 +644,12 @@ PARTS = [('downstairs', [('to', (4, 4)), 'LEFT'], 'MAP_HEADER_HGSS_NEW_BARK_PLAY
                            ('to', (38, 14)), 'UP'],  # the rival, and out to Indigo Plateau
           'MAP_HEADER_HGSS_INDIGO_PLATEAU', 'VAR_HGSS_UNK_40C5'),
          ('Will', [('to', (912, 201)), 'UP', ('to', (11, 9)), 'UP', ('talk', []),  # the man at the door steps aside
-                   ('to', (11, 8)), 'UP', ('to', (6, 11)), 'UP', ('talk', [])],
+                   # Sovereign's format (Nov 6): Will asks single or double, a single; Koga too, so Bruno and
+                   # Karen are doubles without asking (CommonScript_CompleteIndigoE4Format)
+                   ('to', (11, 8)), 'UP', ('to', (6, 11)), 'UP', ('talk', [0])],
           'MAP_HEADER_HGSS_POKEMON_LEAGUE_WILL_ROOM', 'FLAG_HGSS_DEFEATED_WILL'),
          ('Koga', [('to', (6, 5)), 'UP', ('talk', [0]),  # the Kadabra's teleport, to League Room 2
-                   ('to', (6, 12)), 'UP', ('talk', [])],
+                   ('to', (6, 12)), 'UP', ('talk', [0])],
           'MAP_HEADER_HGSS_POKEMON_LEAGUE_KOGA_ROOM', 'FLAG_HGSS_DEFEATED_KOGA'),
          ('Bruno', [('to', (6, 5)), 'UP', ('talk', [1]), ('to', (6, 11)), 'UP', ('talk', [])],  # to Room 3
           'MAP_HEADER_HGSS_POKEMON_LEAGUE_BRUNO_ROOM', 'FLAG_HGSS_DEFEATED_BRUNO'),

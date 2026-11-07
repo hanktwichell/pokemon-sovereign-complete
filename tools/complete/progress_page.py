@@ -82,8 +82,8 @@ STEPS = [
 NEXT = [
     'Now: the Pokéathlon, the last HeartGold port. Its Dome works (the prize counters, the Athlete Points, the '
     'records, all four record screens, the statues, each Pokémon\'s performance, the Apricorn Box and the Aprijuice '
-    'stand), and the reception now starts a course: the Speed Course plays to its end and gives its points. Next: '
-    'the Pokéathlon\'s own songs and sounds, two screens that draw wrong, then the other courses\' events.',
+    'stand), the reception starts a course, and the Speed Course plays to its end with its own songs and sounds and '
+    'gives its points. Next: the other four courses and their seven events.',
     'Then: the Trainer Card with all 24 badges (waiting on your look at the preview).',
 ]
 
@@ -267,6 +267,15 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon\'s songs and sounds', [
+        'The Pokéathlon now has HeartGold\'s own music and sounds: the Dome\'s song, the courses\' opening, the events\' '
+        'themes, the results and the fanfare, and the 62 sound effects the events play. They didn\'t fit at first: the '
+        'game\'s sound memory was full, and the title screen\'s song stopped loading (the sound test caught it). Claude '
+        'packed HeartGold\'s sound data tighter (sounds that can share their instrument sets now do), which gave the '
+        'memory back: every song in the game loads again, battles and Johto\'s songs have more room than before.',
+        'The event screens before each event drew their icons and START button black; they\'re drawn right now (Gallery '
+        'tab, "The Pokéathlon: its event screens drawn right").',
+    ]),
     ('The Pokéathlon: a course from the reception', [
         'Talk to the nurse at the Pokéathlon Dome, pick JOIN and a course, say Yes: you walk in and the course '
         'starts, as in HeartGold. The test played the whole Speed Course this way, from the nurse to the results, '

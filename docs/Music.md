@@ -86,7 +86,19 @@ memory, measured from both decomps and both built archives.
    Pokégear effects took the last of it, and the title song no longer loaded (the sound memory test caught it). Banks
    alike are one now (the importer keeps the first by name: 221 for 271 songs and effects), which gave back 1.6 KB:
    the title song leaves 1 KB, Johto's songs and fanfares 5 KB at the least.
-7. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
+7. **The Pokéathlon's sounds** (Nov 7): its 7 songs, its fanfare and the 62 effects of HeartGold's own its course plays
+   (`tools/complete/gen_pokeathlon_sounds.py` lists them for the importer and writes the course's table of HeartGold's
+   numbers and Complete's sounds, by name). They took the last of sound memory: the title song no longer loaded. Two
+   changes gave it back, both in the archive's tables that stay in sound memory: banks that never give one instrument
+   number two meanings are one bank now (songs only with the same waves of their own; effects while none of them would
+   load more than 12 KB of waves beyond its own, an effect loading its bank's waves as it starts and several playing at
+   once; never an instrument a member plays and has none at, so nothing silent starts to sound): 276 banks to 174. And HeartGold's 346 sequences
+   take Platinum's unused sequence numbers, 4 to 999 (`split_sound_basic.py`), instead of following `SEQ_SE_END`: the
+   info table keeps 4 bytes for every number up to the last. Nothing of Platinum's names those numbers, its saves
+   included (the one sequence a save keeps, the cycling or surfing override, is Platinum's); the banks' and wave
+   archives' unused numbers stay unused, as a cry's bank and archive are numbered by species. The sound memory test
+   passes all five parts: SUMMARY.
+8. A bug in `nitrosfx` (Sovereign's tool) wrote the archive's file table 28 bytes off whenever the file block's
    header didn't end on 32 bytes, which crashed the game at boot once the archive grew; the table now counts that
    padding. Sovereign's own archive happened to line up.
 
@@ -95,7 +107,7 @@ memory, measured from both decomps and both built archives.
 - The sound effects Platinum's own code plays (menus, doors, moves in the field) stay Platinum's in every region; a
   sound effect of HeartGold's that neither the scripts nor the ported code play isn't imported. The fanfares
   the engine's own code plays (a level up, a Pokémon caught in battle) are Platinum's in every region. The radio and
-  Pokégear songs come with the Pokégear; the Pokéathlon's are skipped with it.
+  Pokégear songs come with the Pokégear; the Pokéathlon's came with its course (item 7).
 - HeartGold's players use more channels than Platinum's, so a busy song could drop notes; untested by ear.
 - The GB Sounds (a key item Sacred Gold's scripts give) do nothing: HeartGold swaps 135 songs for their Game Boy
   versions with it, and each song in the archive keeps about 64 bytes of sound memory, which a battle doesn't have to

@@ -52,7 +52,7 @@ SACRED_SCRIPTS = os.path.join(ROOT, '.cache', 'sacredgold', 'scr_seq')
 CACHE = os.path.join(ROOT, '.cache', 'hgss_sound')
 OUT = os.path.join(SOUND, 'complete', 'hgss')
 GS_ARCHIVE = 'WAVE_ARC_GS'
-EFFECT_SLACK = 4096  # bytes of waves a merged effects' bank may load over its largest member's own
+EFFECT_SLACK = 12288  # bytes of waves a merged effects' bank may load over any member's own
 MUSIC_PLAYERS = ('PLAYER_BGM', 'PLAYER_FIELD', 'PLAYER_ME')  # songs, and fanfares (SEQ_ME_*)
 # The battle and victory themes (the Frontier Brains' too), and surfing and cycling, which HeartGold picks by number or
 # in code; and the Magnet Train ride's jingle (its overlay 104 plays it) and Ho-Oh's and Arceus's themes (its overlay
@@ -176,8 +176,8 @@ def bank_instruments(text):
 def merge_compatible_banks(banks, entries, wave_sizes, plays):
     """Banks that never give one instrument number two meanings are one bank too, where that loads no more of
     WAVE_ARC_GS than before: a song's with another song's that plays the same waves of its own; an effect's with other
-    effects' while the union's waves are no more than the largest member's own and EFFECT_SLACK (an effect loads its
-    bank's waves as it starts: a few KB more than the largest of them did, well under what a song leaves). Never an instrument a member plays and has none at (plays:
+    effects' while no member would load more than EFFECT_SLACK of waves beyond its own (an effect loads its bank's waves
+    as it starts, and several can play at once). Never an instrument a member plays and has none at (plays:
     each sequence's programs), so nothing silent starts to sound. Each bank left in the archive is about 32 bytes of sound
     memory for good. The merged bank takes its first member's name; the entries are changed to match."""
     players = {}
@@ -203,20 +203,23 @@ def merge_compatible_banks(banks, entries, wave_sizes, plays):
                 union = group['waves'] | waves
                 if kind == 'song' and not (union == group['waves'] == waves):
                     continue
-                if kind == 'effect' and weight(union) > max(weight(group['waves']), weight(waves)) + EFFECT_SLACK:
+                if kind == 'effect' and weight(union) > min(group['smallest'], weight(waves)) + EFFECT_SLACK:
                     continue
                 group['instruments'].update(instruments)
                 group['waves'] = union
                 group['programs'] |= programs[name]
+                group['smallest'] = min(group['smallest'], weight(waves))
                 group['names'].append(name)
                 break
             else:
                 groups.append({'instruments': dict(instruments), 'waves': set(waves), 'names': [name],
-                               'programs': set(programs[name])})
+                               'programs': set(programs[name]), 'smallest': weight(waves)})
         for group in groups:
             first = min(group['names'])
             for name in group['names']:
                 keep[name] = first
+            if len(group['names']) == 1:
+                continue  # as it was (it may have no instruments at all: an effect of nothing but rests)
             top = max(group['instruments'])
             banks[first] = ''.join(group['instruments'].get(i, f'{i}, NULL\r\n') for i in range(top + 1))
     for seq in entries['seqInfo']:
