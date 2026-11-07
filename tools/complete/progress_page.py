@@ -266,6 +266,13 @@ ANSWERED = [
 
 # Since yesterday: the latest work, from docs/Progress.md (Nov 2-3)
 RECENT = [
+    ('The Pokéathlon\'s courses: the first screen runs', [
+        'The screen where you pick your three Pokémon for a course now runs in Complete, built from HeartGold\'s own '
+        'code: your party\'s icons, each one\'s Speed, Power, Skill, Stamina and Jump stars, drag three into the slots by '
+        'touch as in HeartGold, "Are these three OK?". The test picked three and backed out of another course, and the '
+        'game came back each time with nothing left behind. Nothing opens it in play yet: the course itself comes next, '
+        'the same way (pictures on the Gallery tab).',
+    ]),
     ('The Pokéathlon\'s courses: a faster way in works', [
         'The courses are the biggest piece of HeartGold left (about 109,000 lines of HeartGold\'s machine code, never '
         'turned into readable code). A trial on their first screen (picking your three Pokémon) showed that '
