@@ -20,3 +20,6 @@ build_playtest/
 .DS_Store
 __pycache__/
 *.pyc
+
+# Claude Code agents' git worktrees (an agent working apart from the main checkout)
+.claude/worktrees/
