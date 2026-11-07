@@ -379,7 +379,8 @@ static BOOL PokeathlonCourseTask(FieldTask *task)
         test->args.mode = 0;
         test->args.unk_08[4] = test->open - 1; // 0x0C: the course
         test->args.supreme = test->supreme;
-        test->state = test->lastState = test->eventIndex = test->event = 0;
+        test->state = test->eventState = test->eventIndex = test->event = 0;
+        test->data = NULL;
         test->frames = 0;
         test->appFree = HeapExp_FndGetTotalFreeSize(HEAP_ID_APPLICATION);
         test->heapFree = 0xFFFFFFFF;

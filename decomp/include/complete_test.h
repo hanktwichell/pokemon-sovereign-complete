@@ -206,8 +206,9 @@ extern CompleteTestPokeathlonSelect gCompleteTestPokeathlonSelect;
 // frame fades the field out, closes it and runs the course as HeartGold's reception does (its script command 611's
 // task: one player, the course and the Supreme flag in its arguments), and once it ends brings the field back and
 // clears open. step says where that is (1 leaving the field, 2 the course, 3 coming back, 0 back on the field), runs
-// counts the runs ended. Each frame of the course notes its state (its state function's index, 0-38; lastState the
-// highest seen), its event index and event (its data's 0x1F0 and the event number there, 0-9) and counts frames.
+// counts the runs ended. Each frame of the course notes its state (its state function's index, 0-38), the state of
+// what that state runs (an event's or a screen's own state function index, its data's 0x3D2), its event index and
+// event (its data's 0x1F0 and the event number there, 0-9), and counts frames.
 // appFree is the application heap's free bytes with the field closed, before the course made its heap (0x72000);
 // heapFree that heap's fewest free bytes seen; heapLeft its free bytes as the course ended, before it was destroyed
 // (all of it but its own bookkeeping, unless something wasn't freed). args are the course's arguments, which hold its
@@ -218,7 +219,7 @@ typedef struct CompleteTestPokeathlonCourse {
     u8 step;
     u8 runs;
     u8 state;
-    u8 lastState;
+    u8 eventState;
     u8 eventIndex;
     u8 event;
     u32 frames;
@@ -226,6 +227,7 @@ typedef struct CompleteTestPokeathlonCourse {
     u32 heapFree;
     u32 heapLeft;
     HgssPokeathlonCourseArgs args;
+    void *data; // the course's data (pret's PokeathlonCourseData), for a look at it
 } CompleteTestPokeathlonCourse;
 
 extern CompleteTestPokeathlonCourse gCompleteTestPokeathlonCourse;

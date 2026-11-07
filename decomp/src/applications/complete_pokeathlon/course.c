@@ -706,6 +706,12 @@ u8 CompletePokeathlonCourse_TestStateIndex(void *courseData)
     return ((PokeathlonCourseData *)courseData)->stateInfo.stateIndex;
 }
 
+// what a state runs keeps its own state info after the course's (0x3CC: its table, then its index at 0x3D2)
+u8 CompletePokeathlonCourse_TestSubStateIndex(void *courseData)
+{
+    return ((PokeathlonStateInfo *)((PokeathlonCourseData *)courseData)->filler_3CC)->stateIndex;
+}
+
 u32 CompletePokeathlonCourse_TestEventIndex(void *courseData)
 {
     return ((PokeathlonCourseData *)courseData)->currentParticipantIndex;
